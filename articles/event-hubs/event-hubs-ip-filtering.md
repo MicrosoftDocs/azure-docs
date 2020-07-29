@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 07/16/2020
 ---
 
-# Configure IP firewall rules for an Azure Event Hubs namespace
+# Allow access to Azure Event Hubs namespaces from specific IP addresses or ranges
 By default, Event Hubs namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
 This feature is helpful in scenarios in which Azure Event Hubs should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Event Hubs with [Azure Express Route][express-route], you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses. 
@@ -44,7 +44,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
     If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
     ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. To restrict access to specific networks and IP addresses, select the **Selected networks** option. In the **Firewall** section, follow these steps:
+1. To restrict access to specific networks and IP addresses, confirm that the **Selected networks** option is selected. In the **Firewall** section, follow these steps:
     1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
     2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
     3. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. 
@@ -52,6 +52,8 @@ This section shows you how to use the Azure portal to create IP firewall rules f
         ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
 3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
 
+    > [!NOTE]
+    > For instructions on adding virtual networks on the **Firewalls and virtual networks** page, see [Allow access from specific networks](event-hubs-service-endpoints.md).
 
 ## Use Resource Manager template
 

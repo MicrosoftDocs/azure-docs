@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 07/29/2020
 ---
 
-# Use Virtual Network service endpoints with Azure Event Hubs
+# Allow access to Azure Event Hubs namespaces from specific virtual networks 
 
 The integration of Event Hubs with [Virtual Network (VNet) Service Endpoints][vnet-sep] enables secure access to messaging capabilities from workloads such as virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends.
 
