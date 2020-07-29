@@ -47,7 +47,7 @@ Enclaves are secured portions of a hardware’s processor and memory. There's no
 
 When developing applications, you can use [software tools](#oe-sdk) to shield portions of your code and data inside the enclave. These tools will ensure your code and data can't be viewed or modified by anyone outside the trusted environment. 
 
-Fundamentally, think of an enclave as an opaque box. You put encrypted code and data in the box. From the outside of the box, you can't see anything. You give the enclave a key to decrypt the data, the data is then processed and encrypted again, before being sent out of the enclave.
+Fundamentally, think of an enclave as a secured box. You put encrypted code and data in the box. From the outside of the box, you can't see anything. You give the enclave a key to decrypt the data, the data is then processed and encrypted again, before being sent out of the enclave.
 
 ### Attestation
 
