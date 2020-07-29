@@ -41,7 +41,7 @@ To view the built-in policy definitions related to monitoring, perform the follo
 
 
 ## Diagnostic settings
-[Diagnostic settings](./diagnostic-settings.md) collect resource logs and metrics from Azure resources to multiple locations, typically to a Log Analytics workspace which allows you to analyze the data with [log queries](../log-query/log-query-overview.md) and [log alerts](alerts-log.md). Use Policy to automatically create a diagnostic setting each time you create a resource.
+[Diagnostic settings](platform/diagnostic-settings.md) collect resource logs and metrics from Azure resources to multiple locations, typically to a Log Analytics workspace which allows you to analyze the data with [log queries](log-query/log-query-overview.md) and [log alerts](platform/alerts-log.md). Use Policy to automatically create a diagnostic setting each time you create a resource.
 
 Each Azure resource type has a unique set of categories that need to be listed in the diagnostic setting. Because of this, each resource type requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you need to create a custom definition.
 
@@ -140,7 +140,7 @@ For details of this process, see [Enable Azure Monitor for VMs by using Azure Po
 ![Azure Monitor for VMs policy](media/deploy-scale/vminsights-policy.png)
 
 ### Virtual machine scale sets
-To use Azure Policy to enable monitoring for virtual machine scale sets, assign the **Enable Azure Monitor for virtual machine scale sets** initiative to an Azure management group, subscription, or resource group depending on the scope of your resources to monitor. A [management group](../../governance/management-groups/overview.md) is particularly useful for scoping policy especially if your organization has multiple subscriptions.
+To use Azure Policy to enable monitoring for virtual machine scale sets, assign the **Enable Azure Monitor for virtual machine scale sets** initiative to an Azure management group, subscription, or resource group depending on the scope of your resources to monitor. A [management group](../governance/management-groups/overview.md) is particularly useful for scoping policy especially if your organization has multiple subscriptions.
 
 ![Initiative assignment](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
