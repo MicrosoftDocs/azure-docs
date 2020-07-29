@@ -58,7 +58,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
 
     > [!NOTE]
-    > For instructions on adding virtual networks on the **Firewalls and virtual networks** page, see [Allow access from specific networks](service-bus-service-endpoints.md).
+    > To restrict access to specific virtual networks, see [Allow access from specific networks](service-bus-service-endpoints.md).
 
 ## Use Resource Manager template
 This section has a sample Azure Resource Manager template that creates a virtual network and a firewall rule.
