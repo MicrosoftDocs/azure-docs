@@ -100,7 +100,7 @@ Network Watcher capabilities also require the following actions:
 
 | Action(s)                                                           | Description                                                    |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Authorization/\*/Read                                     | Used to fetch RBAC role assignments and policy definitions          |
+| Microsoft.Authorization/\*/Read                                     | Used to fetch Azure role assignments and policy definitions          |
 | Microsoft.Resources/subscriptions/resourceGroups/Read               | Used to enumerate all the resource groups in a subscription    |
 | Microsoft.Storage/storageAccounts/Read                              | Used to get the properties for the specified storage account   |
 | Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Used to fetch shared access signatures (SAS) enabling [secure access to storage account](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) and write to the storage account |
