@@ -163,6 +163,8 @@
       href: devtest-lab-store-secrets-in-key-vault.md
     - name: Attach and detach data disks
       href: devtest-lab-attach-detach-data-disk.md
+    - name: Encrypt OS disks using customer-managed keys
+      href: encrypt-disks-customer-managed-keys.md
     - name: Start VMs using Automation runbooks
       href: start-machines-use-automation-runbooks.md
     - name: Import virtual machines from another lab
