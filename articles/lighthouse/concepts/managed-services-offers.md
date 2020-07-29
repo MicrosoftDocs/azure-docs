@@ -19,7 +19,7 @@ After that, users in your organization will be able to work on those resources f
 
 Each Managed Services offer includes one or more plans. Plans can be either private or public.
 
-If you want to limit your offer to specific customers, you can publish a private plan. When you do so, the plan can only be purchased for the specific] subscription IDs that you provide. For more info, see [Private offers](../../marketplace/private-offers.md).
+If you want to limit your offer to specific customers, you can publish a private plan. When you do so, the plan can only be purchased for the specific subscription IDs that you provide. For more info, see [Private offers](../../marketplace/private-offers.md).
 
 > [!NOTE]
 > Private offers are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
