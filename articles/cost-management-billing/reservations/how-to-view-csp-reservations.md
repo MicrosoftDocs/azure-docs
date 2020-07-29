@@ -26,6 +26,6 @@ Cloud Solution Providers can access reservations that are purchased for their cu
 
 Alternately, ask another user who can access the reservation to add your guest account to the reservation order.
 
-# Next steps
+## Next steps
 
 - [View Azure reservations](view-reservations.md)
