@@ -39,12 +39,12 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 
     By default, the **Selected networks** option is selected. If you don't specify an IP firewall rule or add a virtual network on this page, the namespace can be accessed via public internet (using the access key). 
 
-    :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Networks tab - selected networks option":::    
+    :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Networks tab - selected networks option" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
     If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
     ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. To restrict access to specific networks and IP addresses, confirm that the **Selected networks** option is selected. In the **Firewall** section, follow these steps:
+1. To restrict access to specific IP addresses, confirm that the **Selected networks** option is selected. In the **Firewall** section, follow these steps:
     1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
     2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
     3. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. 
@@ -53,7 +53,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
 3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.
 
     > [!NOTE]
-    > For instructions on adding virtual networks on the **Firewalls and virtual networks** page, see [Allow access from specific networks](event-hubs-service-endpoints.md).
+    > To restrict access to specific virtual networks, see [Allow access from specific networks](event-hubs-service-endpoints.md).
 
 ## Use Resource Manager template
 

@@ -55,7 +55,7 @@ If you already have an Event Hubs namespace, you can create a private link conne
     > [!NOTE]
     > You see the **Networking** tab only for **standard** or **dedicated** namespaces. 
 
-    :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Networks tab - selected networks option":::    
+    :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Networks tab - selected networks option" lightbox="./media/private-link-service/selected-networks-page.png":::    
 
     > [!NOTE]
     > By default, the **Selected networks** option is selected. If you don't specify an IP firewall rule or add a virtual network, the namespace can be accessed via public internet. 
