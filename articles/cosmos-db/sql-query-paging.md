@@ -31,21 +31,19 @@ The number of items returned per query execution will always be less than or equ
 
 To ensure accurate query results, you should progress through all pages. You should continue to execute queries until there are no additional pages.
 
-If you are using any of the current SDK's, the process for handling them is even easier.
-
 Here are some examples for processing results from queries with multiple pages:
 
 [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/Queries/Program.cs#L280)
 
 [Java SDK](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L162-L176)
 
-[JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/blob/83fcc44a23ad771128d6e0f49043656b3d1df990/sdk/cosmosdb/cosmos/samples/IndexManagement.ts#L128-L140)
+[Node.js SDK](https://github.com/Azure/azure-sdk-for-js/blob/83fcc44a23ad771128d6e0f49043656b3d1df990/sdk/cosmosdb/cosmos/samples/IndexManagement.ts#L128-L140)
 
 [Python SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/examples.py#L89)
 
 ## Continuation tokens
 
-In the .NET SDK and Java SDK, you can optionally use continuation tokens as a bookmark for your query's progress. Azure Cosmos DB query executions are stateless at the server side and can be resumed at any time using the continuation token. Continuation tokens are not supported in Node.js SDK or Python SDK.
+In the .NET SDK and Java SDK, you can optionally use continuation tokens as a bookmark for your query's progress. Azure Cosmos DB query executions are stateless at the server side and can be resumed at any time using the continuation token. Continuation tokens are not supported in the Node.js SDK or Python SDK.
 
 Here are some example for using continuation tokens:
 
