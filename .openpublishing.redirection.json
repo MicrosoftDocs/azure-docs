@@ -36322,7 +36322,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/configure-single-sign-on-non-gallery-applications.md",
+      "source_path": "articles/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md",
       "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
       "redirect_document_id": false
     },
