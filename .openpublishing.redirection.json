@@ -4562,7 +4562,6 @@
       "redirect_url": "/azure/key-vault/general/overview-security-worlds",
       "redirect_document_id": false
     },
-    },
     {
       "source_path": "articles/key-vault/key-vault-ovw-soft-delete.md",
       "redirect_url": "/azure/key-vault/general/soft-delete-overview",
