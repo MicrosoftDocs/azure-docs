@@ -6,7 +6,7 @@ ms.date: 06/23/2020
 ms.custom: fasttrack-edit
 ---
 
-# Configure virtual network service endpoints for Azure Service Bus
+# Allow access to Azure Service Bus namespace from specific virtual networks
 
 The integration of Service Bus with [Virtual Network (VNet) service endpoints][vnet-sep] enables secure access to messaging capabilities from workloads like virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends.
 
@@ -53,11 +53,20 @@ The virtual network rule is an association of the Service Bus namespace with a v
 This section shows you how to use Azure portal to add a virtual network service endpoint. To limit access, you need to integrate the virtual network service endpoint for this Event Hubs namespace.
 
 1. Navigate to your **Service Bus namespace** in the [Azure portal](https://portal.azure.com).
-2. On the left menu, select **Networking** option. By default, the **All networks** option is selected. Your namespace accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+2. On the left menu, select **Networking** option under **Settings**.  
 
-    ![Firewall - All networks option selected](./media/service-endpoints/firewall-all-networks-selected.png)
-1. Select the **Selected Networks** option at the top of the page.
-2. In the **Virtual Network** section of the page, select **+Add existing virtual network**. 
+    > [!NOTE]
+    > You see the **Networking** tab only for **premium** namespaces.  
+    
+    By default, the **Selected networks** option is selected. If you don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Networking page - default" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    If you select the **All networks** option, your Service Bus namespace accepts connections from any IP address. This default setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+
+    ![Firewall - All networks option selected](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+2. To restrict access to specific virtual networks, select the **Selected networks** option if it isn't already selected.
+1. In the **Virtual Network** section of the page, select **+Add existing virtual network**. 
 
     ![add existing virtual network](./media/service-endpoints/add-vnet-menu.png)
 3. Select the virtual network from the list of virtual networks, and then pick the **subnet**. You have to enable the service endpoint before adding the virtual network to the list. If the service endpoint isn't enabled, the portal will prompt you to enable it.
@@ -73,6 +82,9 @@ This section shows you how to use Azure portal to add a virtual network service 
 6. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up in the portal notifications. The **Save** button should be disabled. 
 
     ![Save network](./media/service-endpoints/save-vnet.png)
+
+    > [!NOTE]
+    > For instructions on allowing access from specific IP addresses or ranges, see [Allow access from specific IP addresses or ranges](service-bus-ip-filtering.md).
 
 ## Use Resource Manager template
 The following Resource Manager template enables adding a virtual network rule to an existing Service Bus 
