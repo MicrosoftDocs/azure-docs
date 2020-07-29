@@ -114,7 +114,7 @@ The adaptive application controls feature continuously monitors the activity of 
 
 The new recommendation, **Allowlist rules in your adaptive application control policy should be updated**, prompts you to add new rules to the existing policy to reduce the number of false positives in adaptive application controls violation alerts.
 
-
+[Learn more about adaptive application controls](security-center-adaptive-application.md).
 
 
 
