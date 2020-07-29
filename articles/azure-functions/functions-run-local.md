@@ -50,27 +50,12 @@ Version 3.x/2.x of the tools uses the Azure Functions runtime that is built on .
 
 # [Windows](#tab/windows)
 
-The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+The following steps use a Windows installer (MSI) to install Core Tools v3.x. You can also use [npm](https://www.npmjs.com/) or [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Install [Node.js], which includes npm.
-    - For version 3.x of the tools, only Node.js 10 and later versions are supported.
-    - For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
+1. Download and run the installer:
 
-1. Install the Core Tools package:
-
-    ##### v3.x (recommended)
-
-    ```cmd
-    npm install -g azure-functions-core-tools@3
-    ```
-
-    ##### v2.x
-
-    ```cmd
-    npm install -g azure-functions-core-tools@2
-    ```
-
-   It may take a few minutes for npm to download and install the Core Tools package.
+    - [v3.x - Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2135274) (Recommended, VS Code debugging requires 64-bit)
+    - [v3.x - Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2135275)
 
 1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for Windows](https://dotnet.microsoft.com/download).
 
