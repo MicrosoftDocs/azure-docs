@@ -295,7 +295,9 @@ Make sure that your IoT Edge device is up and running.
 
 3. Select the **deployment.amd64.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file.
 
-4. Under your device, expand **Modules** to see a list of deployed and running modules. Click the refresh button. You should see the new **CSharpModule** running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**.  
+4. Under your device, expand **Modules** to see a list of deployed and running modules. Click the refresh button. You should see the new **CSharpModule** running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**.
+
+    It may take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
 
 ## View generated data
 
