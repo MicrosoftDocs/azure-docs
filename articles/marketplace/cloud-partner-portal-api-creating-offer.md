@@ -279,269 +279,269 @@ will return an Azure Marketplace service URL for these files.
 
 ## Categories and industries
 
-When creating a new offer, you must specify a category for your offer in the marketplace. Optionally, for some offer types you can specify industries. Based on the offer type, provide the categories/industries applicable to the offer using specific key values from the following tables.
+When creating a new offer, you must specify a category for your offer in the marketplace. Optionally, for some offer types you can also specify industries. Based on the offer type, provide the categories/industries applicable to the offer using specific key values from the following tables.
 
 ### Azure Marketplace categories
 
-These categories and their respective keys are applicable for Azure apps, Virtual Machines, Core Virtual Machines, Containers, Container apps, IoT Edge modules, and SaaS offer types. Use the exact key values, without changing spacing or capitalization.
+These categories and their respective keys are applicable for Azure apps, Virtual Machines, Core Virtual Machines, Containers, Container apps, IoT Edge modules, and SaaS offer types. Rows in bold italic (like ***analytics***) are categories and standard text rows (like data-insights) are subcategories under the bold italic category. Use the exact key values, without changing spacing or capitalization.
 
 | Category | SaaS keys | Azure App keys | Virtual Machine, Containers, Container apps, IoT Edge Module, Core Virtual Machine keys |
 | --- | --- | --- | --- |
-| **L1 - Analytics** | **analytics** | **analytics-azure-apps** | **analytics-amp** |
-| L2 - Data Insights | data-insights | data-insights | data-insights |
-| L2 - Data Analytics | data-analytics | data-analytics | data-analytics |
-| L2 - Big Data | big-data | bigData | big-data |
-| L2 - Predictive Analytics | predictive-analytics | predictive-analytics | predictive-analytics |
-| L2 - Real-time/Streaming Analytics | real-time-streaming-analytics | real-time-streaming-analytics | real-time-streaming-analytics |
-| L2 - Other | other | other-analytics | other |
-| **L1 - AI + Machine Learning** | **ArtificialIntelligence** | **ai-plus-machine-learning** | **ai-plus-machine-learning** |
-| L2 - Bot Services | bot-services | bot-services | bot-services |
-| L2 - Cognitive Services | cognitive-services | cognitive-services | cognitive-services |
-| L2 - ML Service | ml-service | ml-service | ml-service |
-| L2 - Automated ML | automated-ml | automated-ml | automated-ml |
-| L2 - Business/Robotic Process Automation | business-robotic-process-automation | business-robotic-process-automation | business-robotic-process-automation |
-| L2 - Data Labelling | data-labelling | data-labelling | data-labelling |
-| L2 - Data Preparation | data-preparation | data-preparation | data-preparation |
-| L2 - Knowledge Mining | knowledge-mining | knowledge-mining | knowledge-mining |
-| L2 - ML Operations | ml-operations | ml-operations | ml-operations |
-| L2 - Other | other-AI-plus-machine-learning | other | other |
-| **L1 - Blockchain** | **blockchain** | **blockchain** | **blockchain** |
-| L2 - App Accelerators | app-accelerators | app-accelerators | app-accelerators |
-| L2 - Single-node Ledger | single-node-ledger | single-node-ledger | single-node-ledger |
-| L2 - Multi-node Ledger | multi-node-ledger | multi-node-ledger | multi-node-ledger |
-| L2 - Tools | tools | tools | tools |
-| L2 - Other | other | other | other |
-| **L1 - Compute** | **compute-saas** | **compute-azure-apps** | **compute** |
-| L2 - Application Infrastructure | appInfra | appInfrastructure | application-infrastructure |
-| L2 - Operating Systems | clientOS | clientOS | operating-systems |
-| L2 - Cache | cache | cache | cache |
-| L2 - Other | other-compute | other-compute | other |
-| **L1 - Containers** | **containers** | **containers** | **containers** |
-| L2 - Container Apps | container-apps | container-apps | container-apps |
-| L2 - Container Images | container-images | container-images | container-images |
-| L2 - Get Started with Containers | get-started-with-containers | get-started-with-containers | get-started-with-containers |
-| L2 - Other | other | other | other |
-| **L1 - Databases** | **databases-saas** | **database** | **databases** |
-| L2 - NoSQL Databases | nosql-databases | nosql-databases | nosql-databases |
-| L2 - Relational Databases | relational-databases | relational-databases | relational-databases |
-| L2 - Ledger/Blockchain Databases | ledger-blockchain-databases | ledger-blockchain-databases | ledger-blockchain-databases |
-| L2 - Data Lakes | data-lakes | data-lakes | data-lakes |
-| L2 - Data Warehouse | data-warehouse | data-warehouse | data-warehouse |
-| L2 - Other | other-databases | other-databases | other |
-| **L1 - Developer Tools** | **developer-tools-saas** | **developer-tools-azure-apps** | **developer-tools** |
-| L2 - Tools | tools-developer-tools | tools-developer-tools | tools-developer-tools |
-| L2 - Scripts | scripts | scripts | scripts |
-| L2 - Developer Service | devService | devService | developer-service |
-| L2 - Other | other-developer-tools | other-developer-tools | other |
-| **L1 - DevOps** | **devops** | **devops** | **devops** |
-| L2 - Other | other | other | other |
-| **L1 - Identity** | **identity** | **identity** | **identity** |
-| L2 - Access management | access-management | access-management | access-management |
-| L2 - Other | other | other | other |
-| **L1 - Integration** | **integration** | **integration** | **integration** |
-| L2 - Messaging | messaging | messaging | messaging |
-| L2 - Other | other | other | other |
-| **L1 - Internet of Things** | **IoT** | **internet-of-things-azure-apps** | **internet-of-things** |
-| L2 - IoT Core Services | N/A | iot-core-services | iot-core-services |
-| L2 - IoT Edge Modules | N/A | iot-edge-modules | iot-edge-modules |
-| L2 - IoT Solutions | iot-solutions | iot-solutions | iot-solutions |
-| L2 - Data Analytics & Visualization | data-analytics-and-visualization | data-analytics-and-visualization | data-analytics-and-visualization |
-| L2 - IoT Connectivity | iot-connectivity | iot-connectivity | iot-connectivity |
-| L2 - Other | other-internet-of-things | other-internet-of-things | other |
-| **L1 - IT & Management Tools** | **ITandAdministration** | **it-and-management-tools-azure-apps** | **it-and-management-tools** |
-| L2 - Management Solutions | management-solutions | management-solutions | management-solutions |
-| L2 - Business Applications | businessApplication | businessApplication | business-applications |
-| L2 - Other | other-it-management-tools | other-it-management-tools | other |
-| **L1 - Monitoring & Diagnostics** | **monitoring-and-diagnostics** | **monitoring-and-diagnostics** | **monitoring-and-diagnostics** |
-| L2 - Other | other | other | other |
-| **L1 - Media** | **media** | **media** | **media** |
-| L2 - Media Services | media-services | media-services | media-services |
-| L2 - Content Protection | content-protection | content-protection | content-protection |
-| L2 - Live & On-Demand Streaming | live-and-on-demand-streaming | live-and-on-demand-streaming | live-and-on-demand-streaming |
-| L2 - Other | other | other | other |
-| **L1 - Migration** | **migration** | **migration** | **migration** |
-| L2 - Data Migration | data-migration | data-migration | data-migration |
-| L2 - Other | other | other | other |
-| **L1 - Mixed Reality** | **mixed-reality** | **mixed-reality** | **mixed-reality** |
-| L2 - Other | other | other | other |
-| **L1 - Networking** | **networking** | **networking** | **networking** |
-| L2 - Appliance Managers | appliance-managers | appliance-managers | appliance-managers |
-| L2 - Connectivity | connectivity | connectivity | connectivity |
-| L2 - Firewalls | firewalls | firewalls | firewalls |
-| L2 - Load Balancers | load-balancers | load-balancers | load-balancers |
-| L2 - Other | other | other | other |
-| **L1 - Security** | **security** | **security** | **security** |
-| L2 - Identity & Access Management | identity-and-access-management | identity-and-access-management | identity-and-access-management |
-| L2 - Threat Protection | threat-protection | threat-protection | threat-protection |
-| L2 - Information Protection | information-protection | information-protection | information-protection |
-| L2 - Other | other | other | other |
-| **L1 - Storage** | **storage-saas** | **storage-azure-apps** | **storage** |
-| L2 - Backup & Recovery | backup | backup | backup-and-recovery |
-| L2 - Enterprise Hybrid Storage | enterprise-hybrid-storage | enterprise-hybrid-storage | enterprise-hybrid-storage |
-| L2 - File Sharing | file-sharing | file-sharing | file-sharing |
-| L2 - Data Lifecycle Management | data-lifecycle-management | data-lifecycle-management | data-lifecycle-management |
-| L2 - Other | other-storage | other-storage | other |
-| **L1 - Web** | **web** | **web** | **web** |
-| L2 - Blogs & CMSs | blogs-and-cmss | blogs-and-cmss | blogs-and-cmss |
-| L2 - Starter Web Apps | starter-web-apps | starter-web-apps | starter-web-apps |
-| L2 - Ecommerce | ecommerce | ecommerce | ecommerce |
-| L2 - Web Apps Frameworks | web-apps-frameworks | web-apps-frameworks | web-apps-frameworks |
-| L2 - Web Apps | web-apps | web-apps | web-apps |
-| L2 - Other | other | other | other |
+| ***Analytics*** | ***analytics*** | ***analytics-azure-apps*** | ***analytics-amp*** |
+| Data Insights | data-insights | data-insights | data-insights |
+| Data Analytics | data-analytics | data-analytics | data-analytics |
+| Big Data | big-data | bigData | big-data |
+| Predictive Analytics | predictive-analytics | predictive-analytics | predictive-analytics |
+| Real-time/Streaming Analytics | real-time-streaming-analytics | real-time-streaming-analytics | real-time-streaming-analytics |
+| Other | other | other-analytics | other |
+| ***AI + Machine Learning*** | ***ArtificialIntelligence*** | ***ai-plus-machine-learning*** | ***ai-plus-machine-learning*** |
+| Bot Services | bot-services | bot-services | bot-services |
+| Cognitive Services | cognitive-services | cognitive-services | cognitive-services |
+| ML Service | ml-service | ml-service | ml-service |
+| Automated ML | automated-ml | automated-ml | automated-ml |
+| Business/Robotic Process Automation | business-robotic-process-automation | business-robotic-process-automation | business-robotic-process-automation |
+| Data Labelling | data-labelling | data-labelling | data-labelling |
+| Data Preparation | data-preparation | data-preparation | data-preparation |
+| Knowledge Mining | knowledge-mining | knowledge-mining | knowledge-mining |
+| ML Operations | ml-operations | ml-operations | ml-operations |
+| Other | other-AI-plus-machine-learning | other | other |
+| ***Blockchain*** | ***blockchain*** | ***blockchain*** | ***blockchain*** |
+| App Accelerators | app-accelerators | app-accelerators | app-accelerators |
+| Single-node Ledger | single-node-ledger | single-node-ledger | single-node-ledger |
+| Multi-node Ledger | multi-node-ledger | multi-node-ledger | multi-node-ledger |
+| Tools | tools | tools | tools |
+| Other | other | other | other |
+| ***Compute*** | ***compute-saas*** | ***compute-azure-apps*** | ***compute*** |
+| Application Infrastructure | appInfra | appInfrastructure | application-infrastructure |
+| Operating Systems | clientOS | clientOS | operating-systems |
+| Cache | cache | cache | cache |
+| Other | other-compute | other-compute | other |
+| ***Containers*** | ***containers*** | ***containers*** | ***containers*** |
+| Container Apps | container-apps | container-apps | container-apps |
+| Container Images | container-images | container-images | container-images |
+| Get Started with Containers | get-started-with-containers | get-started-with-containers | get-started-with-containers |
+| Other | other | other | other |
+| ***Databases*** | ***databases-saas*** | ***database*** | ***databases*** |
+| NoSQL Databases | nosql-databases | nosql-databases | nosql-databases |
+| Relational Databases | relational-databases | relational-databases | relational-databases |
+| Ledger/Blockchain Databases | ledger-blockchain-databases | ledger-blockchain-databases | ledger-blockchain-databases |
+| Data Lakes | data-lakes | data-lakes | data-lakes |
+| Data Warehouse | data-warehouse | data-warehouse | data-warehouse |
+| Other | other-databases | other-databases | other |
+| ***Developer Tools*** | ***developer-tools-saas*** | ***developer-tools-azure-apps*** | ***developer-tools*** |
+| Tools | tools-developer-tools | tools-developer-tools | tools-developer-tools |
+| Scripts | scripts | scripts | scripts |
+| Developer Service | devService | devService | developer-service |
+| Other | other-developer-tools | other-developer-tools | other |
+| ***DevOps*** | ***devops*** | ***devops*** | ***devops*** |
+| Other | other | other | other |
+| ***Identity*** | ***identity*** | ***identity*** | ***identity*** |
+| Access management | access-management | access-management | access-management |
+| Other | other | other | other |
+| ***Integration*** | ***integration*** | ***integration*** | ***integration*** |
+| Messaging | messaging | messaging | messaging |
+| Other | other | other | other |
+| ***Internet of Things*** | ***IoT*** | ***internet-of-things-azure-apps*** | ***internet-of-things*** |
+| IoT Core Services | N/A | iot-core-services | iot-core-services |
+| IoT Edge Modules | N/A | iot-edge-modules | iot-edge-modules |
+| IoT Solutions | iot-solutions | iot-solutions | iot-solutions |
+| Data Analytics & Visualization | data-analytics-and-visualization | data-analytics-and-visualization | data-analytics-and-visualization |
+| IoT Connectivity | iot-connectivity | iot-connectivity | iot-connectivity |
+| Other | other-internet-of-things | other-internet-of-things | other |
+| ***IT & Management Tools*** | ***ITandAdministration*** | ***it-and-management-tools-azure-apps*** | ***it-and-management-tools*** |
+| Management Solutions | management-solutions | management-solutions | management-solutions |
+| Business Applications | businessApplication | businessApplication | business-applications |
+| Other | other-it-management-tools | other-it-management-tools | other |
+| ***Monitoring & Diagnostics*** | ***monitoring-and-diagnostics*** | ***monitoring-and-diagnostics*** | ***monitoring-and-diagnostics*** |
+| Other | other | other | other |
+| ***Media*** | ***media*** | ***media*** | ***media*** |
+| Media Services | media-services | media-services | media-services |
+| Content Protection | content-protection | content-protection | content-protection |
+| Live & On-Demand Streaming | live-and-on-demand-streaming | live-and-on-demand-streaming | live-and-on-demand-streaming |
+| Other | other | other | other |
+| ***Migration*** | ***migration*** | ***migration*** | ***migration*** |
+| Data Migration | data-migration | data-migration | data-migration |
+| Other | other | other | other |
+| ***Mixed Reality*** | ***mixed-reality*** | ***mixed-reality*** | ***mixed-reality*** |
+| Other | other | other | other |
+| ***Networking*** | ***networking*** | ***networking*** | ***networking*** |
+| Appliance Managers | appliance-managers | appliance-managers | appliance-managers |
+| Connectivity | connectivity | connectivity | connectivity |
+| Firewalls | firewalls | firewalls | firewalls |
+| Load Balancers | load-balancers | load-balancers | load-balancers |
+| Other | other | other | other |
+| ***Security*** | ***security*** | ***security*** | ***security*** |
+| Identity & Access Management | identity-and-access-management | identity-and-access-management | identity-and-access-management |
+| Threat Protection | threat-protection | threat-protection | threat-protection |
+| Information Protection | information-protection | information-protection | information-protection |
+| Other | other | other | other |
+| ***Storage*** | ***storage-saas*** | ***storage-azure-apps*** | ***storage*** |
+| Backup & Recovery | backup | backup | backup-and-recovery |
+| Enterprise Hybrid Storage | enterprise-hybrid-storage | enterprise-hybrid-storage | enterprise-hybrid-storage |
+| File Sharing | file-sharing | file-sharing | file-sharing |
+| Data Lifecycle Management | data-lifecycle-management | data-lifecycle-management | data-lifecycle-management |
+| Other | other-storage | other-storage | other |
+| ***Web*** | ***web*** | ***web*** | ***web*** |
+| Blogs & CMSs | blogs-and-cmss | blogs-and-cmss | blogs-and-cmss |
+| Starter Web Apps | starter-web-apps | starter-web-apps | starter-web-apps |
+| Ecommerce | ecommerce | ecommerce | ecommerce |
+| Web Apps Frameworks | web-apps-frameworks | web-apps-frameworks | web-apps-frameworks |
+| Web Apps | web-apps | web-apps | web-apps |
+| Other | other | other | other |
 ||||
 
 ### Microsoft AppSource categories
 
-These categories and their respective keys are applicable for SaaS, PowerBI app, Dynamics 365 business central, Dynamics 365 for customer engagement, and Dynamics 365 for operation offer types. Use the exact key values, without changing spacing or capitalization.
+These categories and their respective keys are applicable for SaaS, PowerBI app, Dynamics 365 business central, Dynamics 365 for customer engagement, and Dynamics 365 for operation offer types. Rows in bold italic (like ***analytics***) are categories and standard text rows (like advanced-analytics) are subcategories under the bold italic category. Use the exact key values, without changing spacing or capitalization.
 
 | Category | SaaS keys | Dynamics 365 business central, Dynamics 365 for customer engagement, Dynamics 365 for operation keys | PowerBI app keys |
 | --- | --- | --- | --- |
-| **L1 - Analytics** | **analytics** | **Analytics** | **Analytics** |
-| L2 - Advanced Analytics | advanced-analytics | advanced-analytics | advanced-analytics |
-| L2 – Visualization & Reporting | visualization-reporting | visualization-reporting | visualization-reporting |
-| L2 - Other | other | other-analytics | other-analytics |
-| **L1 – AI + Machine Learning** | **ArtificialIntelligence** | **ai-plus-machine-learning-dynamics** | **ai-plus-machine-learning-appsource** |
-| L2 - AI for Business | ai-for-business | ai-for-business | ai-for-business |
-| L2 - Bot Apps | bot-apps | bot-apps | bot-apps |
-| L2 - Other | other-ai-plus-machine-learning | other-ai-plus-machine-learning | other-ai-plus-machine-learning |
-| **L1 - Collaboration** | **Collaboration** | **Collaboration** | **collaboration** |
-| L2 - Contact & People | contact-people | contact-people | contact-and-people |
-| L2 – Meeting Management | meeting-management | meeting-management | meeting-management |
-| L2 – Site Design & Management | site-design-management | site-design-management | site-design-and-management |
-| L2 – Task & Project Management | task-project-management | task-project-management | task-and-project-management |
-| L2 – Voice & Video Conferencing | voice-video-conferencing | voice-video-conferencing | voice-and-video-conferencing |
-| L2 - Other | other-collaboration | other-collaboration | other |
-| **L1 – Compliance & Legal** | **compliance** | **compliance** | **compliance-and-legal** |
-| L2 – Tax & Audit | tax-audit | tax-audit | tax-and-audit |
-| L2 – Legal | Legal | Legal | legal |
-| L2 - Data, Governance & Privacy | data-governance-privacy | data-governance-privacy | data-governance-and-privacy |
-| L2 – Health & Safety | health-safety | health-safety | health-and-safety |
-| L2 - Other | other-compliance-legal | other-compliance-legal | other |
-| **L1 – Customer Service** | **CustomerService** | **CustomerService** | **customer-service** |
-| L2 - Contact Center | contact-center | contact-center | contact-center |
-| L2 - Face to Face Service | face-to-face-service | face-to-face-service | face-to-face-service |
-| L2 - Back Office & Employee Service | back-office-employee-service | back-office-employee-service | back-office-and-employee-service |
-| L2 - Knowledge & Case Management | knowledge-case-management | knowledge-case-management | knowledge-and-case-management |
-| L2 - Social Media & Omnichannel Engagement | social-media-omnichannel-engagement | social-media-omnichannel-engagement | social-media-and-omnichannel-engagement |
-| L2 -Other | other-customer-service | other-customer-service | other |
-| **L1 - Finance** | **Finance** | **Finance** | **finance** |
-| L2 - Accounting | accounting | accounting | accounting |
-| L2 - Asset Management | asset-management | asset-management | asset-management |
-| L2 - Analytics, Consolidation & Reporting | analytics-consolidation-reporting | analytics-consolidation-reporting | analytics-consolidation-and-reporting |
-| L2 - Credit & Collections | credit-collections | credit-collections | credit-and-collections |
-| L2 - Compliance & Risk Management | compliance-risk-management | compliance-risk-management | compliance-and-risk-management |
-| L2 - Other | other-finance | other-finance | other |
-| **L1 – Human Resources** | **HumanResources** | **HumanResources** | **human-resources** |
-| L2 – Talent Acquisition | talent-acquisition | talent-acquisition | talent-acquisition |
-| L2 – Talent Management | talent-management | talent-management | talent-management |
-| L2 – HR Operations | hr-operations | hr-operations | hr-operations |
-| L2 – Workforce Planning & Analytics | workforce-planning-analytics | workforce-planning-analytics | workforce-planning-and-analytics |
-| L2 - Other | other-human-resources | other-human-resources | other |
-| **L1 – Internet of Things** | **IoT** | **internet-of-things-dynamics** | **internet-of-things-appsource** |
-| L2 - Asset Management & Operations | asset-management-operations | asset-management-operations | asset-management-and-operations |
-| L2 - Connected Products | connected-products | connected-products | connected-products |
-| L2 - Intelligent Supply Chain | intelligent-supply-chain | intelligent-supply-chain | intelligent-supply-chain |
-| L2 - Predictive Maintenance | predictive-maintenance | predictive-maintenance | predictive-maintenance |
-| L2 - Remote Monitoring | remote-monitoring | remote-monitoring | remote-monitoring |
-| L2 - Safety & Security | safety-security | safety-security | safety-and-security |
-| L2 - Smart Infrastructure & Resources | smart-infrastructure-resources | smart-infrastructure-resources | smart-infrastructure-and-resources |
-| L2 - Vehicles & Mobility | vehicles-mobility | vehicles-mobility | vehicles-and-mobility |
-| L2 - Other | other-internet-of-things | other-internet-of-things | other |
-| **L1 – IT & Management Tools** | **ITandAdministration** | **ITandAdministration** | **it-and-management-tools** |
-| L2 – Management Solutions | management-solutions | management-solutions | management-solutions |
-| L2 – Business Applications | businessApplication | businessApplication | business-applications |
-| L2 - Other | other-it-management-tools | other-it-management-tools | other |
-| **L1 - Marketing** | **Marketing** | **Marketing** | **marketing** |
-| L2 - Advertisement | advertisement | advertisement | advertisement |
-| L2 - Analytics | analytics-marketing | analytics-marketing | analytics-marketing |
-| L2 - Campaign Management & Automation | campaign-management-automation | campaign-management-automation | campaign-management-and-automation |
-| L2 - Email Marketing | email-marketing | email-marketing | email-marketing |
+| ***Analytics*** | ***analytics*** | ***Analytics*** | ***Analytics*** |
+| Advanced Analytics | advanced-analytics | advanced-analytics | advanced-analytics |
+| Visualization & Reporting | visualization-reporting | visualization-reporting | visualization-reporting |
+| Other | other | other-analytics | other-analytics |
+| ***AI + Machine Learning*** | ***ArtificialIntelligence*** | ***ai-plus-machine-learning-dynamics*** | ***ai-plus-machine-learning-appsource*** |
+| AI for Business | ai-for-business | ai-for-business | ai-for-business |
+| Bot Apps | bot-apps | bot-apps | bot-apps |
+| Other | other-ai-plus-machine-learning | other-ai-plus-machine-learning | other-ai-plus-machine-learning |
+| ***Collaboration*** | ***Collaboration*** | ***Collaboration*** | ***collaboration*** |
+| Contact & People | contact-people | contact-people | contact-and-people |
+| Meeting Management | meeting-management | meeting-management | meeting-management |
+| Site Design & Management | site-design-management | site-design-management | site-design-and-management |
+| Task & Project Management | task-project-management | task-project-management | task-and-project-management |
+| Voice & Video Conferencing | voice-video-conferencing | voice-video-conferencing | voice-and-video-conferencing |
+| Other | other-collaboration | other-collaboration | other |
+| ***Compliance & Legal*** | ***compliance*** | ***compliance*** | ***compliance-and-legal*** |
+| Tax & Audit | tax-audit | tax-audit | tax-and-audit |
+| Legal | Legal | Legal | legal |
+| Data, Governance & Privacy | data-governance-privacy | data-governance-privacy | data-governance-and-privacy |
+| Health & Safety | health-safety | health-safety | health-and-safety |
+| Other | other-compliance-legal | other-compliance-legal | other |
+| ***Customer Service*** | ***CustomerService*** | ***CustomerService*** | ***customer-service*** |
+| Contact Center | contact-center | contact-center | contact-center |
+| Face to Face Service | face-to-face-service | face-to-face-service | face-to-face-service |
+| Back Office & Employee Service | back-office-employee-service | back-office-employee-service | back-office-and-employee-service |
+| Knowledge & Case Management | knowledge-case-management | knowledge-case-management | knowledge-and-case-management |
+| Social Media & Omnichannel Engagement | social-media-omnichannel-engagement | social-media-omnichannel-engagement | social-media-and-omnichannel-engagement |
+| Other | other-customer-service | other-customer-service | other |
+| ***Finance*** | ***Finance*** | ***Finance*** | ***finance*** |
+| Accounting | accounting | accounting | accounting |
+| Asset Management | asset-management | asset-management | asset-management |
+| Analytics, Consolidation & Reporting | analytics-consolidation-reporting | analytics-consolidation-reporting | analytics-consolidation-and-reporting |
+| Credit & Collections | credit-collections | credit-collections | credit-and-collections |
+| Compliance & Risk Management | compliance-risk-management | compliance-risk-management | compliance-and-risk-management |
+| Other | other-finance | other-finance | other |
+| ***Human Resources*** | ***HumanResources*** | ***HumanResources*** | ***human-resources*** |
+| Talent Acquisition | talent-acquisition | talent-acquisition | talent-acquisition |
+| Talent Management | talent-management | talent-management | talent-management |
+| HR Operations | hr-operations | hr-operations | hr-operations |
+| Workforce Planning & Analytics | workforce-planning-analytics | workforce-planning-analytics | workforce-planning-and-analytics |
+| Other | other-human-resources | other-human-resources | other |
+| ***Internet of Things*** | ***IoT*** | ***internet-of-things-dynamics*** | ***internet-of-things-appsource*** |
+| Asset Management & Operations | asset-management-operations | asset-management-operations | asset-management-and-operations |
+| Connected Products | connected-products | connected-products | connected-products |
+| Intelligent Supply Chain | intelligent-supply-chain | intelligent-supply-chain | intelligent-supply-chain |
+| Predictive Maintenance | predictive-maintenance | predictive-maintenance | predictive-maintenance |
+| Remote Monitoring | remote-monitoring | remote-monitoring | remote-monitoring |
+| Safety & Security | safety-security | safety-security | safety-and-security |
+| Smart Infrastructure & Resources | smart-infrastructure-resources | smart-infrastructure-resources | smart-infrastructure-and-resources |
+| Vehicles & Mobility | vehicles-mobility | vehicles-mobility | vehicles-and-mobility |
+| Other | other-internet-of-things | other-internet-of-things | other |
+| ***IT & Management Tools*** | ***ITandAdministration*** | ***ITandAdministration*** | ***it-and-management-tools*** |
+| Management Solutions | management-solutions | management-solutions | management-solutions |
+| Business Applications | businessApplication | businessApplication | business-applications |
+| Other | other-it-management-tools | other-it-management-tools | other |
+| ***Marketing*** | ***Marketing*** | ***Marketing*** | ***marketing*** |
+| Advertisement | advertisement | advertisement | advertisement |
+| Analytics | analytics-marketing | analytics-marketing | analytics-marketing |
+| Campaign Management & Automation | campaign-management-automation | campaign-management-automation | campaign-management-and-automation |
+| Email Marketing | email-marketing | email-marketing | email-marketing |
 | L2 -Events & Resource Management | events-resource-management | events-resource-management | events-and-resource-management |
-| L2 - Research & Analysis | research-analytics | research-analytics | research-and-analysis |
-| L2 - Social Media | social-media | social-media | social-media |
-| L2 - Other | other-marketing | other-marketing | other |
-| **L1 – Operations & Supply Chain** | **OperationsSupplyChain** | **OperationsSupplyChain** | **operations-and-supply-chain** |
-| L2 - Asset & Production Management | asset-production-management | asset-production-management | asset-and-production-management |
-| L2 - Demand Forecasting | demand-forecasting | demand-forecasting | demand-forecasting |
-| L2 - Information Management & Connectivity | information-management-connectivity | information-management-connectivity | information-management-and-connectivity |
-| L2 - Planning, Purchasing & Reporting | planning-purchasing-reporting | planning-purchasing-reporting | planning-purchasing-and-reporting |
-| L2 - Quality & Service Management | quality-service-management | quality-service-management | quality-and-service-management |
-| L2 - Sales & Order Management | sales-order-management | sales-order-management | sales-and-order-management |
-| L2 - Transportation & Warehouse Management | transportation-warehouse-management | transportation-warehouse-management | transportation-and-warehouse-management |
-| L2 - Other | other-operations-supply-chain | other-operations-supply-chain | other |
-| **L1 - Productivity** | **Productivity** | **Productivity** | **productivity** |
-| L2 – Content Creation & Management | content-creation-management | content-creation-management | content-creation-and-management |
-| L2 – Language & Translation | language-translation | language-translation | language-and-translation |
-| L2 – Document Management | document-management | document-management | document-management |
-| L2 - Email Management | email-management | email-management | email-management |
-| L2 - Search & Reference | search-reference | search-reference | search-and-reference |
-| L2 - Other | other-productivity | other-productivity | other |
-| L2 - Gamification | Gamification | Gamification | gamification |
-| **L1 - Sales** | **Sales** | **Sales** | **Sales** |
-| L2 - Telesales | telesales | telesales | telesales |
-| L2 - Configure, Price, Quote (CPQ) | configure-price-quote | configure-price-quote | configure-price-quote |
-| L2 - Contract Management | contract-management | contract-management | contract-management |
-| L2 - CRM | crm | crm | crm |
-| L2 - E-commerce | e-commerce | e-commerce | e-commerce |
-| L2 - Business Data Enrichment | business-data-enrichment | business-data-enrichment | business-data-enrichment |
-| L2 - Sales Enablement | sales-enablement | sales-enablement | sales-enablement |
-| L2 - Other | other-sales | other-sales | other-sales |
-| **L1 - Geolocation** | **geolocation** | **geolocation** | **geolocation** |
-| L2 – Maps | maps | maps | maps |
-| L2 – News & Weather | news-and-weather | news-and-weather | news-and-weather |
-| L2 - Other | other-geolocation | other-geolocation | other-geolocation |
+| Research & Analysis | research-analytics | research-analytics | research-and-analysis |
+| Social Media | social-media | social-media | social-media |
+| Other | other-marketing | other-marketing | other |
+| ***Operations & Supply Chain*** | ***OperationsSupplyChain*** | ***OperationsSupplyChain*** | ***operations-and-supply-chain*** |
+| Asset & Production Management | asset-production-management | asset-production-management | asset-and-production-management |
+| Demand Forecasting | demand-forecasting | demand-forecasting | demand-forecasting |
+| Information Management & Connectivity | information-management-connectivity | information-management-connectivity | information-management-and-connectivity |
+| Planning, Purchasing & Reporting | planning-purchasing-reporting | planning-purchasing-reporting | planning-purchasing-and-reporting |
+| Quality & Service Management | quality-service-management | quality-service-management | quality-and-service-management |
+| Sales & Order Management | sales-order-management | sales-order-management | sales-and-order-management |
+| Transportation & Warehouse Management | transportation-warehouse-management | transportation-warehouse-management | transportation-and-warehouse-management |
+| Other | other-operations-supply-chain | other-operations-supply-chain | other |
+| ***Productivity*** | ***Productivity*** | ***Productivity*** | ***productivity*** |
+| Content Creation & Management | content-creation-management | content-creation-management | content-creation-and-management |
+| Language & Translation | language-translation | language-translation | language-and-translation |
+| Document Management | document-management | document-management | document-management |
+| Email Management | email-management | email-management | email-management |
+| Search & Reference | search-reference | search-reference | search-and-reference |
+| Other | other-productivity | other-productivity | other |
+| Gamification | Gamification | Gamification | gamification |
+| ***Sales*** | ***Sales*** | ***Sales*** | ***Sales*** |
+| Telesales | telesales | telesales | telesales |
+| Configure, Price, Quote (CPQ) | configure-price-quote | configure-price-quote | configure-price-quote |
+| Contract Management | contract-management | contract-management | contract-management |
+| CRM | crm | crm | crm |
+| E-commerce | e-commerce | e-commerce | e-commerce |
+| Business Data Enrichment | business-data-enrichment | business-data-enrichment | business-data-enrichment |
+| Sales Enablement | sales-enablement | sales-enablement | sales-enablement |
+| Other | other-sales | other-sales | other-sales |
+| ***Geolocation*** | ***geolocation*** | ***geolocation*** | ***geolocation*** |
+| Maps | maps | maps | maps |
+| News & Weather | news-and-weather | news-and-weather | news-and-weather |
+| Other | other-geolocation | other-geolocation | other-geolocation |
 ||||
 
 ### Microsoft AppSource industries
 
-These industries and their respective keys are applicable for SaaS, PowerBI app, Dynamics 365 business central, Dynamics 365 for customer engagement, and Dynamics 365 for operation offer types. Use the exact key values, without changing spacing or capitalization.
+These industries and their respective keys are applicable for SaaS, PowerBI app, Dynamics 365 business central, Dynamics 365 for customer engagement, and Dynamics 365 for operation offer types. Rows in bold italic (like ***Automotive***) are categories and standard text rows (like AutomotiveL2) are subcategories under the bold italic category. Use the exact key values, without changing spacing or capitalization.
 
 | Industry | SaaS, Dynamics 365 business central, Dynamics 365 for customer engagement, Dynamics 365 for operation keys | PowerBI apps keys |
 | --- | --- | --- |
-| **L1 - Automotive** | **Automotive** | **automotive** |
-| L2 - Automotive | AutomotiveL2 | AutomotiveL2 |
-| **L1 - Agriculture** | **Agriculture** | **agriculture** |
-| L2 – Other - Unsegmented | Agriculture\_OtherUnsegmented | other-unsegmented |
-| **L1 - Distribution** | **Distribution** | **distribution** |
-| L2 - Wholesale | Wholesale | wholesale |
-| L2 – Parcel & Package Shipping | ParcelAndPackageShipping | parcel-and-package-shipping |
-| **L1 - Education** | **Education** | **education** |
-| L2 - Higher Education | HigherEducation | higher-education |
-| L2 - Primary & Secondary Education / K-12 | PrimaryAndSecondaryEducationK12 | primary-and-secondary-education |
-| L2 - Libraries & Museums | LibrariesAndMuseums | libraries-and-museums |
-| **L1 – Financial Services** | **FinancialServices** | **financial-services** |
-| L2 - Banking & Capital Markets | BankingAndCapitalMarkets | banking-and-capital-markets |
-| L2 - Insurance | Insurance | insurance |
-| **L1 - Government** | **Government** | **government** |
-| L2 - Defense & Intelligence | DefenseAndIntelligence | defense-and-intelligence |
-| L2 – Public Safety & Justice | PublicSafetyAndJustice | public-safety-and-justice |
-| L2 – Civilian Government | CivilianGovernment | civilian-government |
-| **L1 - Healthcare** | **HealthCareandLifeSciences** | **healthcare** |
-| L2 - Health Payor | HealthPayor | health-payor |
-| L2 - Health Provider | HealthProvider | health-provider |
-| L2 - Pharmaceuticals | Pharmaceuticals | pharmaceuticals |
-| **L1 – Manufacturing & Resources** | **Manufacturing** | **manufacturing-and-resources** |
-| L2 - Chemical & Agrochemical | ChemicalAndAgrochemical | chemical-and-agrochemical |
-| L2 - Discrete Manufacturing | DiscreteManufacturing | discrete-manufacturing |
-| L2 - Energy | Energy | energy |
-| **L1 – Retail & Consumer Goods** | **RetailandConsumerGoods** | **retail-and-consumer-goods** |
-| L2 - Consumer Goods | ConsumerGoods | consumer-goods |
-| L2 - Retailers | Retailers | retailers |
-| **L1 - Media & Communications** | **MediaAndCommunications** | **media-and-communications** |
-| L2 - Media & Entertainment | MediaandEntertainment | media-and-entertainment |
-| L2 - Telecommunications | Telecommunications | telecommunications |
-| **L1 – Professional Services** | **ProfessionalServices** | **professional-services** |
-| L2 - Legal | Legal | legal |
-| L2 – Partner Professional Services | PartnerProfessionalServices | partner-professional-services |
-| **L1 - Architecture & Construction** | **ArchitectureAndConstruction** | **architecture-and-construction** |
-| L2 – Other - Unsegmented | ArchitectureAndConstruction\_OtherUnsegmented | other-unsegmented |
-| **L1 - Hospitality & Travel** | **HospitalityandTravel** | **hospitality-and-travel** |
-|    L2 - Hotels & Leisure | HotelsAndLeisure | hotels-and-leisure |
-| L2 – Travel & Transportation | TravelAndTransportation | travel-and-transportation |
-| L2 – Restaurants & Food Services | RestaurantsAndFoodServices | restaurants-and-food-services |
-| **L1 - Other Public Sector Industries** | **OtherPublicSectorIndustries** | **other-public-sector-industries** |
-| L2 – Forestry & Fishing | ForestryAndFishing | forestry-and-fishing |
-| L2 - Nonprofits | Nonprofits | nonprofits |
-| **L1 - Real Estate** | **RealEstate** | **real-estate** |
-| L2 – Other - Unsegmented | RealEstate\_OtherUnsegmented | other-unsegmented |
+| ***Automotive*** | ***Automotive*** | ***automotive*** |
+| Automotive | AutomotiveL2 | AutomotiveL2 |
+| ***Agriculture*** | ***Agriculture*** | ***agriculture*** |
+| Other - Unsegmented | Agriculture\_OtherUnsegmented | other-unsegmented |
+| ***Distribution*** | ***Distribution*** | ***distribution*** |
+| Wholesale | Wholesale | wholesale |
+| Parcel & Package Shipping | ParcelAndPackageShipping | parcel-and-package-shipping |
+| ***Education*** | ***Education*** | ***education*** |
+| Higher Education | HigherEducation | higher-education |
+| Primary & Secondary Education / K-12 | PrimaryAndSecondaryEducationK12 | primary-and-secondary-education |
+| Libraries & Museums | LibrariesAndMuseums | libraries-and-museums |
+| ***Financial Services*** | ***FinancialServices*** | ***financial-services*** |
+| Banking & Capital Markets | BankingAndCapitalMarkets | banking-and-capital-markets |
+| Insurance | Insurance | insurance |
+| ***Government*** | ***Government*** | ***government*** |
+| Defense & Intelligence | DefenseAndIntelligence | defense-and-intelligence |
+| Public Safety & Justice | PublicSafetyAndJustice | public-safety-and-justice |
+| Civilian Government | CivilianGovernment | civilian-government |
+| ***Healthcare*** | ***HealthCareandLifeSciences*** | ***healthcare*** |
+| Health Payor | HealthPayor | health-payor |
+| Health Provider | HealthProvider | health-provider |
+| Pharmaceuticals | Pharmaceuticals | pharmaceuticals |
+| ***Manufacturing & Resources*** | ***Manufacturing*** | ***manufacturing-and-resources*** |
+| Chemical & Agrochemical | ChemicalAndAgrochemical | chemical-and-agrochemical |
+| Discrete Manufacturing | DiscreteManufacturing | discrete-manufacturing |
+| Energy | Energy | energy |
+| ***Retail & Consumer Goods*** | ***RetailandConsumerGoods*** | ***retail-and-consumer-goods*** |
+| Consumer Goods | ConsumerGoods | consumer-goods |
+| Retailers | Retailers | retailers |
+| ***Media & Communications*** | ***MediaAndCommunications*** | ***media-and-communications*** |
+| Media & Entertainment | MediaandEntertainment | media-and-entertainment |
+| Telecommunications | Telecommunications | telecommunications |
+| ***Professional Services*** | ***ProfessionalServices*** | ***professional-services*** |
+| Legal | Legal | legal |
+| Partner Professional Services | PartnerProfessionalServices | partner-professional-services |
+| ***Architecture & Construction*** | ***ArchitectureAndConstruction*** | ***architecture-and-construction*** |
+| Other - Unsegmented | ArchitectureAndConstruction\_OtherUnsegmented | other-unsegmented |
+| ***Hospitality & Travel*** | ***HospitalityandTravel*** | ***hospitality-and-travel*** |
+|    Hotels & Leisure | HotelsAndLeisure | hotels-and-leisure |
+| Travel & Transportation | TravelAndTransportation | travel-and-transportation |
+| Restaurants & Food Services | RestaurantsAndFoodServices | restaurants-and-food-services |
+| ***Other Public Sector Industries*** | ***OtherPublicSectorIndustries*** | ***other-public-sector-industries*** |
+| Forestry & Fishing | ForestryAndFishing | forestry-and-fishing |
+| Nonprofits | Nonprofits | nonprofits |
+| ***Real Estate*** | ***RealEstate*** | ***real-estate*** |
+| Other - Unsegmented | RealEstate\_OtherUnsegmented | other-unsegmented |
 |||
