@@ -60,7 +60,7 @@ Learn more:
 
 * [Overview of single sign-on](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [What is application access and single sign-on with Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Integrate Azure Active Directory single sign-on with SaaS apps](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md)
+* [Quickstart Series on App Management](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## Reverse proxy
 
