@@ -66,5 +66,5 @@ Where *xxxxxxx* is the application ID the extension was registered with.
 > The "Id" parameter in the claims schema used for built-in directory attributes is "ExtensionID" for directory extension attributes.
 
 ## Next steps
-Learn how to [add custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens](active-directory-optional-claims.md).
-Learn how to [customize claims emitted in tokens for a specific app](active-directory-claims-mapping.md).
+- Learn how to [add custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens](active-directory-optional-claims.md).
+- Learn how to [customize claims emitted in tokens for a specific app](active-directory-claims-mapping.md).
