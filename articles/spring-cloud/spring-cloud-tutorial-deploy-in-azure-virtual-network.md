@@ -1,5 +1,5 @@
 ---
-title:  "Tutorial: Deploy Azure Spring Cloud in virtual network"
+title:  "Tutorial - Deploy Azure Spring Cloud in virtual network"
 description: Deploy Azure Spring Cloud in virtual network (v-net injection).
 author:  MikeDodaro
 ms.author: brendm
@@ -9,9 +9,9 @@ ms.date: 07/21/2020
 ms.custom: devx-track-java
 ---
 
-# Deploy Azure Spring Cloud in Azure virtual network (VNet injection)
+# Tutorial: Deploy Azure Spring Cloud in Azure virtual network (VNet injection)
 
-To customize network environment, you can deploy Azure Spring Cloud service instance in your virtual network. This is sometimes called VNet injection.  
+To customize a network environment, you can deploy Azure Spring Cloud service instance in your virtual network. This is sometimes called VNet injection.  
 
 The deployment enables:
 
@@ -20,7 +20,7 @@ The deployment enables:
 * Empowerment of customers to control inbound and outbound network communications for Azure Spring Cloud
 
 ## Prerequisites
-You must Register Azure Spring Cloud resource provider `Microsoft.AppPlatform` according to instructions [Register Resource Provider on Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) or by running the following az CLI command:
+You must register Azure Spring Cloud resource provider `Microsoft.AppPlatform` according to instructions [Register Resource Provider on Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) or by running the following az CLI command:
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
@@ -28,13 +28,16 @@ az provider register --namespace Microsoft.AppPlatform
 ## Virtual network requirements
 The virtual network to which you deploy your Azure Spring Cloud service instance must meet the following requirements:
 
-* Location: The virtual network must reside in the same location as the Azure Spring Cloud service instance.
-* Subscription: The virtual network must be in the same subscription as the Azure Spring Cloud service instance.
-* Subnets: The virtual network must include two subnets dedicated to an Azure Spring Cloud service instance: one for Service Runtime and one for your Spring Boot Microservice Applications. There is a one-to-one relationship between these subnets and an Azure Spring Cloud service instance. You cannot share multiple service instances across a single subnet. You must use new subnets for each service instances you deploy.
-* Address space: One CIDR block up to /28 for Service Runtime subnet and another CIDR block up to /24 for Spring Boot Microservice Applications subnet.
-* Route table: The subnets must not have existing route table associated.
+* **Location**: The virtual network must reside in the same location as the Azure Spring Cloud service instance.
+* **Subscription**: The virtual network must be in the same subscription as the Azure Spring Cloud service instance.
+* **Subnets**: The virtual network must include two subnets dedicated to an Azure Spring Cloud service instance: 
+    * One for Service Runtime
+    * One for your Spring Boot Microservice Applications. 
+    * There is a one-to-one relationship between these subnets and an Azure Spring Cloud service instance. You cannot share multiple service instances across a single subnet. You must use new subnets for each service instances you deploy.
+* **Address space**: One CIDR block up to /28 for Service Runtime subnet and another CIDR block up to /24 for Spring Boot Microservice Applications subnet.
+* **Route table**: The subnets must not have an existing route table associated.
 
-The following procedures describe setup of virtual network to contain the instance of Azure Spring Cloud.
+The following procedures describe setup of the virtual network to contain the instance of Azure Spring Cloud.
 
 ## Create a virtual network
 If you already have a virtual network to host Azure Spring Cloud service instance, skip step 1, 2 and 3. You can start from step 4 to prepare subnets for the virtual network.
@@ -113,7 +116,7 @@ VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
 az role assignment create \
     --role "Owner" \
     --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
-    --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
+    --assignee e828g221-a19c-9jd7-b814-fd37c6caf9d2
 ```
 
 ## Deploy Azure Spring Cloud service instance in the virtual network
@@ -143,7 +146,7 @@ az role assignment create \
 
     ![Verification](media/spring-cloud-v-net-injection/creation-blade-verification.png)
 
-After the deployment, two additional resource groups will be created in your subscription, to host the network resources for the Azure Spring Cloud service instance.
+After the deployment, two additional resource groups will be created in your subscription to host the network resources for the Azure Spring Cloud service instance.
 
 The resource group named as *azure-spring-cloud-service-runtime_{service instance name}_{service instance region}* contains network resources for the Service Runtime of the service instance.
 
