@@ -367,11 +367,11 @@ After completing these steps, the connection will be establish in a few minutes,
 
 ## <a name ="aaupdate"></a>Update an existing VPN gateway
 
-This section helps you change an existing Azure VPN gateway from active-standby to active-active mode, or vice versa.
+When you change an active-standby gateway to active-active, you create another public IP address, then add a second Gateway IP configuration. This section helps you change an existing Azure VPN gateway from active-standby to active-active mode, or vice versa using PowerShell. You can also change a gateway in the Azure portal on the **Configuration** page for your virtual network gateway.
 
 ### Change an active-standby gateway to an active-active gateway
 
-The following example converts an active-standby gateway into an active-active gateway. When you change an active-standby gateway to active-active, you create another public IP address, then add a second Gateway IP configuration. You can also configure an active-active gateway in the Azure portal on the **Configuration** page for your virtual network gateway.
+The following example converts an active-standby gateway into an active-active gateway. 
 
 #### 1. Declare your variables
 
