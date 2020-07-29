@@ -3,9 +3,10 @@ title: Query Azure Automation Update Management logs
 description: This article tells how to query the logs for Update Management in your Log Analytics workspace.
 services: automation
 ms.subservice: update-management
-ms.date: 04/06/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
 ---
+
 # Query Update Management logs
 
 In addition to the details that are provided during Update Management deployment, you can search the logs stored in your Log Analytics workspace. To search the logs from your Automation account, select **Update management** and open the Log Analytics workspace associated with your deployment.
@@ -20,19 +21,19 @@ Update Management collects records for Windows and Linux VMs and the data types 
 
 A record with a type of `RequiredUpdate` is created that represents updates required by a machine. These records have the properties in the following table:
 
-| Property | Description | 
+| Property | Description |
 |----------|-------------|
 | Computer | Fully-qualified domain name of reporting machine. |
 | KBID | Knowledge base article ID for the Windows update. |
-| ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. | 
-| Product | The products for which the update is applicable for. | 
+| ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
+| Product | The products for which the update is applicable for. |
 | PublishDate | The date the update is ready to be downloaded and installed from Windows Update. |
 | Server | | 
 | SourceHealthServiceId | Unique identifier representing the Log Analytics Windows agent ID. |
-| SourceSystem | *OperationsManager* | 
-| TenantId | Unique identifier representing your organizations instance of Azure Active Directory. | 
-| TimeGenerated | Date and time that the record was created. | 
-| Type | *Update* | 
+| SourceSystem | *OperationsManager* |
+| TenantId | Unique identifier representing your organizations instance of Azure Active Directory. |
+| TimeGenerated | Date and time that the record was created. |
+| Type | *Update* |
 | UpdateClassification | Indicates the type of updates that can be applied. For Windows:<br> *Critical updates*<br> *Security updates*<br> *Update rollups*<br> *Feature packs*<br> *Service packs*<br> *Definition updates*<br> *Tools*<br> *Updates*. For Linux:<br> *Critical and security updates*<br> *Other* |
 | UpdateSeverity | Severity rating for the vulnerability. Values are:<br> *Critical*<br> *Important*<br> *Moderate*<br> *Low* |
 | UpdateTitle | The title of the update.|
@@ -41,57 +42,57 @@ A record with a type of `RequiredUpdate` is created that represents updates requ
 
 A record with a type of `Update` is created that represents updates available and their installation status for a machine. These records have the properties in the following table:
 
-| Property | Description | 
+| Property | Description |
 |----------|-------------|
 | ApprovalSource | Applies to Windows operating system only. Source of approval for the record. The value is Microsoft Update. |
 | Approved | True if the record is approved, or False otherwise. |
 | Classification | Approval classification. The value is Updates. |
 | Computer | Fully-qualified domain name of reporting machine. |
 | ComputerEnvironment | Environment. Possible values are Azure or Non-Azure. |
-| MSRCBulletinID | Security bulletin ID number. | 
+| MSRCBulletinID | Security bulletin ID number. |
 | MSRCSeverity | Severity rating for the vulnerability. Values are:<br> Critical<br> Important<br> Moderate<br> Low |  
 | KBID | Knowledge base article ID for the Windows update. |
 | ManagementGroupName | Name of the Operations Manager management group or the Log Analytics workspace. |
 | UpdateID | Unique identifier of the software update. |
 | RevisionNumber | The revision number of a specific revision of an update. |
-| Optional | True if the record is optional, or False otherwise. | 
+| Optional | True if the record is optional, or False otherwise. |
 | RebootBehavior | The reboot behavior after installing/uninstalling an update. |
 | _ResourceId | Unique identifier for the resource associated with the record. |
 | Type | Record type. The value is Update. |
 | VMUUID | Unique identifier for the virtual machine. |
-| MG | Unique identifier for the management group or Log Analytics workspace. | 
-| TenantId | Unique identifier representing your organization's instance of Azure Active Directory. | 
-| SourceSystem | The source system for the record. The value is `OperationsManager`. | 
-| TimeGenerated | Date and time of record creation. | 
-| SourceComputerId | Unique identifier representing the source computer. | 
+| MG | Unique identifier for the management group or Log Analytics workspace. |
+| TenantId | Unique identifier representing your organization's instance of Azure Active Directory. |
+| SourceSystem | The source system for the record. The value is `OperationsManager`. |
+| TimeGenerated | Date and time of record creation. |
+| SourceComputerId | Unique identifier representing the source computer. |
 | Title | The title of the update. |
 | PublishedDate (UTC) | The date when the update is ready to be downloaded and installed from Windows Update.  |
-| UpdateState | The current state of the update. | 
+| UpdateState | The current state of the update. |
 | Product | The products for which the update is applicable. |
-| SubscriptionId | Unique identifier for the Azure subscription. | 
-| ResourceGroup | Name of the resource group to which the resource belongs. | 
-| ResourceProvider | The resource provider. | 
-| Resource | Name of the resource. | 
-| ResourceType | The resource type. | 
+| SubscriptionId | Unique identifier for the Azure subscription. |
+| ResourceGroup | Name of the resource group to which the resource belongs. |
+| ResourceProvider | The resource provider. |
+| Resource | Name of the resource. |
+| ResourceType | The resource type. |
 
 ### Query Update Agent record
 
 A record with a type of `UpdateAgent` is created that provides details of the update agent on the machine. These records have the properties in the following table:
 
-| Property | Description | 
+| Property | Description |
 |----------|-------------|
-| AgeofOldestMissingRequiredUpdate | | 
-| AutomaticUpdateEnabled | | 
+| AgeofOldestMissingRequiredUpdate | |
+| AutomaticUpdateEnabled | |
 | Computer | Fully-qualified domain name of reporting machine. |
-| DaySinceLastUpdateBucket | | 
+| DaySinceLastUpdateBucket | |
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
 | OSVersion | The version of the operating system. |
 | Server | |
 | SourceHealthServiceId | Unique identifier representing the Log Analytics Windows agent ID. |
-| SourceSystem | The source system for the record. The value is `OperationsManager`. | 
+| SourceSystem | The source system for the record. The value is `OperationsManager`. |
 | TenantId | Unique identifier representing your organization's instance of Azure Active Directory. |
 | TimeGenerated | Date and time of record creation. |
-| Type | Record type. The value is Update. | 
+| Type | Record type. The value is Update. |
 | WindowsUpdateAgentVersion | Version of the Windows Update agent. |
 | WSUSServer | Errors if the Windows Update agent has a problem, to assist with troubleshooting. |
 
@@ -99,23 +100,23 @@ A record with a type of `UpdateAgent` is created that provides details of the up
 
 A record with a type of `UpdateRunProgress` is created that provides update deployment status of a scheduled deployment by machine. These records have the properties in the following table:
 
-| Property | Description | 
+| Property | Description |
 |----------|-------------|
 | Computer | Fully-qualified domain name of reporting machine. |
-| ComputerEnvironment | Environment. Values are Azure or Non-Azure. | 
+| ComputerEnvironment | Environment. Values are Azure or Non-Azure. |
 | CorrelationId | Unique identifier of the runbook job run for the update. |
-| EndTime | The time when the synchronization process ended. | 
-| ErrorResult | Windows Update error code generated if an update fails to install. | 
+| EndTime | The time when the synchronization process ended. |
+| ErrorResult | Windows Update error code generated if an update fails to install. |
 | InstallationStatus | The possible installation states of an update on the client computer,<br> `NotStarted` - job not triggered yet.<br> `FailedToStart` - unable to start the job on machine.<br> `Failed` - job started but failed with an exception.<br> `InProgress` - job in progress.<br> `MaintenanceWindowExceeded` - if execution was remaining but maintenance window interval reached.<br> `Succeeded` - job succeeded.<br> `InstallFailed` - update failed to install successfully.<br> `NotIncluded`<br> `Excluded` |
-| KBID | Knowledge base article ID for the Windows update. | 
+| KBID | Knowledge base article ID for the Windows update. |
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
-| OSType | Type of operating system. Values are Windows or Linux. | 
+| OSType | Type of operating system. Values are Windows or Linux. |
 | Product | The products for which the update is applicable. |
-| Resource | Name of the resource. | 
+| Resource | Name of the resource. |
 | ResourceId | Unique identifier for the resource associated with the record. |
-| ResourceProvider | The resource provider. | 
-| ResourceType | Resource type. | 
-| SourceComputerId | Unique identifier representing the source computer. | 
+| ResourceProvider | The resource provider. |
+| ResourceType | Resource type. |
+| SourceComputerId | Unique identifier representing the source computer. |
 | SourceSystem | Source system for the record. The value is `OperationsManager`. |
 | StartTime | Time when the update is scheduled to be installed. |
 | SubscriptionId | Unique identifier for the Azure subscription. | 
@@ -131,33 +132,33 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 
 A record with a type of `UpdateSummary` is created that provides update summary by machine. These records have the properties in the following table:
 
-| Property | Description | 
+| Property | Description |
 |----------|-------------|
 | Computer | Fully-qualified domain name of reporting machine. |
-| ComputerEnvironment | Environment. Values are Azure or Non-Azure. | 
-| CriticalUpdatesMissing | Number of applicable critical updates that are missing. | 
+| ComputerEnvironment | Environment. Values are Azure or Non-Azure. |
+| CriticalUpdatesMissing | Number of applicable critical updates that are missing. |
 | ManagementGroupName | Name of the Operations Manager management group or Log Analytics workspace. |
 | NETRuntimeVersion | Version of .NET Framework installed on the Windows computer. |
-| OldestMissingSecurityUpdateBucket | Specifier of the oldest missing security bucket. Values are:<br> Recent if value is less than 30 days<br> 30 days ago<br> 60 days ago<br> 90 days ago<br> 120 days ago<br> 150 days ago<br> 180 days ago<br> Older when value is greater than 180 days. | 
+| OldestMissingSecurityUpdateBucket | Specifier of the oldest missing security bucket. Values are:<br> Recent if value is less than 30 days<br> 30 days ago<br> 60 days ago<br> 90 days ago<br> 120 days ago<br> 150 days ago<br> 180 days ago<br> Older when value is greater than 180 days. |
 | OldestMissingSecurityUpdateInDays | Total number of days for the oldest update detected as applicable that has not been installed. |
 | OsVersion | The version of the operating system. |
 | OtherUpdatesMissing | Count of detected updates missing. |
-| Resource | Name of the resource for the record. | 
+| Resource | Name of the resource for the record. |
 | ResourceGroup | Name of the resource group containing the resource. |
 | ResourceId | Unique identifier for the resource associated with the record. |
 | ResourceProvider | The resource provider. |
 | ResourceType | Resource type. |
 | RestartPending | True if a restart is pending, or False otherwise. |
-| SecurityUpdatesMissing | Count of missing security updates that are applicable.| 
+| SecurityUpdatesMissing | Count of missing security updates that are applicable.|
 | SourceComputerId | Unique identifier for the virtual machine. |
-| SourceSystem | Source system for the record. The value is `OpsManager`. | 
+| SourceSystem | Source system for the record. The value is `OpsManager`. |
 | SubscriptionId | Unique identifier for the Azure subscription. |
 | TimeGenerated | Date and time of record creation. |
-| TotalUpdatesMissing | Total number of missing updates that are applicable. | 
+| TotalUpdatesMissing | Total number of missing updates that are applicable. |
 | Type | Record type. The value is `UpdateSummary`. |
 | VMUUID | Unique identifier for the virtual machine. |
 | WindowsUpdateAgentVersion | Version of the Windows Update agent. |
-| WindowsUpdateSetting | Status of the Windows Update agent. Possible values are:<br> `Scheduled installation`<br> `Notify before installation`<br> `Error returned from unhealthy WUA agent` | 
+| WindowsUpdateSetting | Status of the Windows Update agent. Possible values are:<br> `Scheduled installation`<br> `Notify before installation`<br> `Error returned from unhealthy WUA agent` |
 | WSUSServer | Errors if the Windows Update agent has a problem, to assist with troubleshooting. |
 | _ResourceId | Unique identifier for the resource associated with the record. |
 
@@ -186,9 +187,10 @@ Heartbeat
 On a Windows computer, you can review the following information to verify agent connectivity with Azure Monitor logs:
 
 1. In Control Panel, open **Microsoft Monitoring Agent**. On the **Azure Log Analytics** tab, the agent displays the following message: **The Microsoft Monitoring Agent has successfully connected to Log Analytics**.
-2. Open the Windows Event Log. Go to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and Event ID 5002 from the source **Service Connector**. These events indicate that the computer has registered with the Log Analytics workspace and is receiving configuration.
 
-If the agent can't communicate with Azure Monitor logs and the agent is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured. To learn how to verify the firewall or proxy server is properly configured, see [Network configuration for Windows agent](../azure-monitor/platform/agent-windows.md) or [Network configuration for Linux agent](../azure-monitor/learn/quick-collect-linux-computer.md).
+1. Open the Windows Event Log. Go to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and Event ID 5002 from the source **Service Connector**. These events indicate that the computer has registered with the Log Analytics workspace and is receiving configuration.
+
+If the agent can't communicate with Azure Monitor logs and the agent is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured. To learn how to verify the firewall or proxy server is properly configured, see [Network configuration for Windows agent](../../azure-monitor/platform/agent-windows.md) or [Network configuration for Linux agent](../../azure-monitor/learn/quick-collect-linux-computer.md).
 
 > [!NOTE]
 > If your Linux systems are configured to communicate with a proxy or Log Analytics Gateway and you're enabling Update Management, update the `proxy.conf` permissions to grant the omiuser group read permission on the file by using the following commands:
@@ -198,7 +200,7 @@ If the agent can't communicate with Azure Monitor logs and the agent is configur
 
 Newly added Linux agents show a status of **Updated** after an assessment has been performed. This process can take up to 6 hours.
 
-To confirm that an Operations Manager management group is communicating with Azure Monitor logs, see [Validate Operations Manager integration with Azure Monitor logs](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
+To confirm that an Operations Manager management group is communicating with Azure Monitor logs, see [Validate Operations Manager integration with Azure Monitor logs](../../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
 
 ### Single Azure VM Assessment queries (Windows)
 
@@ -403,5 +405,5 @@ Update
 
 ## Next steps
 
-* For details of Azure Monitor logs, see [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
-* For help with alerts, see [Configure alerts](automation-tutorial-update-management.md#configure-alerts).
+* For details of Azure Monitor logs, see [Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md).
+* For help with alerts, see [Configure alerts](update-mgmt.configure-alerts.md).
