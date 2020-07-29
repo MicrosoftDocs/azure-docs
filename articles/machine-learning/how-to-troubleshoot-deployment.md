@@ -5,12 +5,12 @@ description: Learn how to work around, solve, and troubleshoot the common Docker
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
 author: clauren42
 ms.author:  clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: contperfq4, tracking-python
+ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4, tracking-python
 ---
 
 # Troubleshoot Docker deployment of models with Azure Kubernetes Service and Azure Container Instances 
