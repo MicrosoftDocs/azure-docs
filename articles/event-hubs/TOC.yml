@@ -206,7 +206,7 @@
       href: event-hubs-management-libraries.md
   - name: Secure
     items:
-    - name: Allow access from specific IP addresses or ranges
+    - name: Allow access from specific IP addresses
       href: event-hubs-ip-filtering.md
     - name: Allow access from specific virtual networks
       href: event-hubs-service-endpoints.md
