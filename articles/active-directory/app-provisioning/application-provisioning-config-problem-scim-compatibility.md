@@ -37,8 +37,7 @@ This article describes current and past issues with the Azure AD user provisioni
 
 No. As it would have constituted a breaking change to SCIM apps that were coded to work with the older behavior, the changes were not automatically applied to existing apps.
 
-The changes are applied to all new [non-gallery SCIM apps](../manage-apps/configure-single-sign-on-non-gallery-applications.md)
- configured in the Azure portal, after the date of the fix.
+The changes are applied to all new non-gallery SCIM apps configured in the Azure portal, after the date of the fix.
 
 For information on how to migrate a pre-existing user provisioning job to include the latest fixes, see the next section.
 
