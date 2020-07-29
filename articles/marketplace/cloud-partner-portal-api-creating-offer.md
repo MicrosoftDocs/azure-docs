@@ -279,11 +279,11 @@ will return an Azure Marketplace service URL for these files.
 
 ## Categories and industries
 
-When creating a new offer, you must specify a category for your offer in the marketplace. Optionally, for some offer types you can specify industries. Based on the offer type, provide the categories/industries applicable to the offer using specific key values from the following table.
+When creating a new offer, you must specify a category for your offer in the marketplace. Optionally, for some offer types you can specify industries. Based on the offer type, provide the categories/industries applicable to the offer using specific key values from the following tables.
 
 ### Azure Marketplace categories
 
-These categories and their respective keys are applicable for Azure apps, Virtual Machines, Core Virtual Machines, Containers, Container apps, IoT Edge modules and SaaS.
+These categories and their respective keys are applicable for Azure apps, Virtual Machines, Core Virtual Machines, Containers, Container apps, IoT Edge modules, and SaaS offer types. Use the exact key values, without changing spacing or capitalization.
 
 | Category | SaaS keys | Azure App keys | Virtual Machine, Containers, Container apps, IoT Edge Module, Core Virtual Machine keys |
 | --- | --- | --- | --- |
@@ -390,9 +390,9 @@ These categories and their respective keys are applicable for Azure apps, Virtua
 | L2 - Other | other | other | other |
 ||||
 
-### AppSource categories
+### Microsoft AppSource categories
 
-These categories and their respective keys are applicable for SaaS, PowerBI app, Dynamics 365 business central, Dynamics 365 for customer engagement and Dynamics 365 for operation.
+These categories and their respective keys are applicable for SaaS, PowerBI app, Dynamics 365 business central, Dynamics 365 for customer engagement, and Dynamics 365 for operation offer types. Use the exact key values, without changing spacing or capitalization.
 
 | Category | SaaS keys | Dynamics 365 business central, Dynamics 365 for customer engagement, Dynamics 365 for operation keys | PowerBI app keys |
 | --- | --- | --- | --- |
@@ -494,7 +494,7 @@ These categories and their respective keys are applicable for SaaS, PowerBI app,
 
 ### Microsoft AppSource industries
 
-These industries and their respective keys are applicable for SaaS, PowerBI app, Dynamics 365 business central, Dynamics 365 for customer engagement and Dynamics 365 for operation.
+These industries and their respective keys are applicable for SaaS, PowerBI app, Dynamics 365 business central, Dynamics 365 for customer engagement, and Dynamics 365 for operation offer types. Use the exact key values, without changing spacing or capitalization.
 
 | Industry | SaaS, Dynamics 365 business central, Dynamics 365 for customer engagement, Dynamics 365 for operation keys | PowerBI apps keys |
 | --- | --- | --- |
@@ -534,7 +534,7 @@ These industries and their respective keys are applicable for SaaS, PowerBI app,
 | L2 - Legal | Legal | legal |
 | L2 – Partner Professional Services | PartnerProfessionalServices | partner-professional-services |
 | **L1 - Architecture & Construction** | **ArchitectureAndConstruction** | **architecture-and-construction** |
-| L2 – Other - Unsegmented | Other - Unsegmented (wrong key, the key should be `ArchitectureAndConstruction\_OtherUnsegmented`) | other-unsegmented |
+| L2 – Other - Unsegmented | ArchitectureAndConstruction\_OtherUnsegmented | other-unsegmented |
 | **L1 - Hospitality & Travel** | **HospitalityandTravel** | **hospitality-and-travel** |
 |    L2 - Hotels & Leisure | HotelsAndLeisure | hotels-and-leisure |
 | L2 – Travel & Transportation | TravelAndTransportation | travel-and-transportation |
@@ -544,4 +544,4 @@ These industries and their respective keys are applicable for SaaS, PowerBI app,
 | L2 - Nonprofits | Nonprofits | nonprofits |
 | **L1 - Real Estate** | **RealEstate** | **real-estate** |
 | L2 – Other - Unsegmented | RealEstate\_OtherUnsegmented | other-unsegmented |
-||||
+|||
