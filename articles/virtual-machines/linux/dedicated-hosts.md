@@ -3,8 +3,8 @@ title: Overview of Azure Dedicated Hosts for virtual machines
 description: Learn more about how Azure Dedicated Hosts can be used for deploying virtual machines.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: how-to
-ms.date: 01/09/2020
+ms.topic: article
+ms.date: 07/28/2020
 ms.author: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about more about using a dedicated host for my Azure virtual machines

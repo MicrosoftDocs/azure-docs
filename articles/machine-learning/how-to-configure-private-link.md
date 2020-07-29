@@ -10,7 +10,7 @@ ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/14/2020
+ms.date: 07/28/2020
 ---
 
 # Configure Azure Private Link for an Azure Machine Learning workspace (preview)
@@ -18,7 +18,7 @@ ms.date: 07/14/2020
 In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. 
 
 > [!IMPORTANT]
-> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East**, **US West 2**, and **US South Central** regions. 
+> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East** and **US West 2** regions. 
 > This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -131,8 +131,8 @@ For information on enabling Private Link for the key vault, see [Integrate Key V
 
 To secure the Azure Kubernetes services used by your workspace, put it inside a virtual network. For more information, see [Use Azure Kubernetes Services with your workspace](how-to-enable-virtual-network.md#aksvnet).
 
-> [!WARNING]
-> Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled.
+Azure Machine Learning now supports using an Azure Kubernetes Service that has private link enabled.
+To create a private AKS cluster follow docs [here](https://docs.microsoft.com/azure/aks/private-clusters)
 
 ## Azure Container Registry
 
