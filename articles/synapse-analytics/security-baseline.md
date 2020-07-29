@@ -312,7 +312,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 When you first deploy Azure SQL, you specify an admin login and an associated password for that login. This administrative account is called Server admin. You can identify the administrator accounts for a database by opening the Azure portal and navigating to the properties tab of your server or managed instance. You can also configure an Azure AD admin account with full administrative permissions, this is required if you want to enable Azure Active Directory authentication.
 
-For management operations, use the built-in Azure role-based access control (Azure RBAC) roles which must be explicitly assigned. Use the Azure AD PowerShell module to perform ad-hoc queries to discover accounts that are members of administrative groups.
+For management operations, use the Azure built-in roles which must be explicitly assigned. Use the Azure AD PowerShell module to perform ad-hoc queries to discover accounts that are members of administrative groups.
 
 * [Authentication for SQL Database](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
 
@@ -326,7 +326,7 @@ For management operations, use the built-in Azure role-based access control (Azu
 
 * [How to manage existing logins and admin accounts in Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
-* [Azure RBAC built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+* [Azure built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
 **Azure Security Center monitoring**: Not applicable
 
