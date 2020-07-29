@@ -94,7 +94,7 @@ SQL pool is a scale-out system that can provision vast amounts of compute and qu
 
 Changing the data warehouse units requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Built-in roles for Azure resources such as SQL DB Contributor and SQL Server Contributor can change DWU settings.
+Azure built-in roles such as SQL DB Contributor and SQL Server Contributor can change DWU settings.
 
 #### View current DWU settings
 

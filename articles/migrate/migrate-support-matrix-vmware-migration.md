@@ -69,7 +69,7 @@ The table summarizes agentless migration requirements for VMware VMs.
 
 ### Appliance requirements (agentless)
 
-Agentless migration uses the [Azure Migrate appliance](migrate-appliance.md). You can deploy the appliance as a VMWare VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
+Agentless migration uses the [Azure Migrate appliance](migrate-appliance.md). You can deploy the appliance as a VMware VM using an OVA template, imported into vCenter Server, or using a [PowerShell script](deploy-appliance-script.md).
 
 - Learn about [appliance requirements](migrate-appliance.md#appliance---vmware) for VMware.
 - Learn about URLs that the appliance needs to access in [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.

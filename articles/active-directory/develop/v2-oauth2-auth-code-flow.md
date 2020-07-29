@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 07/29/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -184,9 +184,9 @@ A successful token response will look like:
 | `access_token`  | The requested access token. The  app can use this token to authenticate to the secured resource, such as a web API.  |
 | `token_type`    | Indicates the token type value. The only type that Azure AD supports is Bearer |
 | `expires_in`    | How long the access token is valid (in seconds). |
-| `scope`         | The scopes that the access_token is valid for. |
+| `scope`         | The scopes that the access_token is valid for. Optional - this is non-standard, and if omitted the token will be for the scopes requested on the initial leg of the flow. |
 | `refresh_token` | An OAuth 2.0 refresh token. The  app can use this token acquire additional access tokens after the current access token expires. Refresh_tokens are long-lived, and can be used to retain access to resources for extended periods of time. For more detail on refreshing an access token, refer to the [section below](#refresh-the-access-token). <br> **Note:** Only provided if `offline_access` scope was requested. |
-| `id_token`      | A JSON Web Token (JWT). The  app can decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, but it should not rely on them for any authorization or security boundaries. For more information about id_tokens, see the [`id_token reference`](id-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
+| `id_token`      | A JSON Web Token (JWT). The  app can decode the segments of this token to request information about the user who signed in. The  app can cache the values and display them, and confidential clients can use this for authorization. For more information about id_tokens, see the [`id_token reference`](id-tokens.md). <br> **Note:** Only provided if `openid` scope was requested. |
 
 ### Error response
 
@@ -224,8 +224,9 @@ Error responses will look like:
 | `invalid_client` | Client authentication failed.  | The client credentials aren't valid. To fix, the application administrator updates the credentials.   |
 | `unsupported_grant_type` | The authorization server does not support the authorization grant type. | Change the grant type in the request. This type of error should occur only during development and be detected during initial testing. |
 | `invalid_resource` | The target resource is invalid because it does not exist, Azure AD can't find it, or it's not correctly configured. | This indicates the resource, if it exists, has not been configured in the tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD.  |
-| `interaction_required` | The request requires user interaction. For example, an additional authentication step is required. | Retry the request with the same resource.  |
-| `temporarily_unavailable` | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed because of a temporary condition. |
+| `interaction_required` | Non-standard, as the OIDC specification calls for this only on the `/authorize` endpoint.The request requires user interaction. For example, an additional authentication step is required. | Retry the `/authorize` request with the same scopes. |
+| `temporarily_unavailable` | The server is temporarily too busy to handle the request. | Retry the request after a small delay. The client application might explain to the user that its response is delayed because of a temporary condition. |
+|`consent_required` | The request requires user consent. This error is non-standard, as it's usually only returned on the `/authorize` endpoint per OIDC specifications. Returned when a `scope` parameter was used on the code redemption flow that the client app does not have permission to request.  | The client should send the user back to the `/authorize` endpoint with the correct scope in order to trigger consent. |
 
 > [!NOTE]
 > Single page apps may receive an `invalid_request` error indicating that cross-origin token redemption is permitted only for the 'Single-Page Application' client-type.  This indicates that the redirect URI used to request the token has not been marked as a `spa` redirect URI.  Review the [application registration steps](#redirect-uri-setup-required-for-single-page-apps) on how to enable this flow.
