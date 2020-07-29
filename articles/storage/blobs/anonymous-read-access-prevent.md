@@ -154,6 +154,19 @@ $ctx = $storageAccount.Context
 New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 ```
 
+### Check the public access setting for multiple accounts
+
+To check the public access setting across a set of storage accounts with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
+
+Running the following query in the Resource Graph Explorer returns a list of storage accounts and displays public access setting for each account:
+
+```kusto
+resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
+| extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
+| project subscriptionId, resourceGroup, name, allowBlobPublicAccess
+```
+
 ## Use Azure Policy to audit for compliance
 
 If you have a large number of storage accounts, you may want to perform an audit to make sure that those accounts are configured to prevent public access. To audit a set of storage accounts for their compliance, use Azure Policy. Azure Policy is a service that you can use to create, assign, and manage policies that apply rules to Azure resources. Azure Policy helps you to keep those resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](../../governance/policy/overview.md).

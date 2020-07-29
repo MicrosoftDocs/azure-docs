@@ -171,24 +171,7 @@ To allow or disallow public access for a storage account with a template, create
 
 Allowing or disallowing blob public access requires version 2019-04-01 or later of the Azure Storage resource provider. For more information, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
 
-### Check the public access setting for multiple accounts
-
-To check the public access setting across a set of storage accounts with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
-
-Running the following query in the Resource Graph Explorer returns a list of storage accounts and displays public access setting for each account:
-
-```kusto
-resources
-| where type =~ 'Microsoft.Storage/storageAccounts'
-| extend allowBlobPublicAccess = parse_json(properties).allowBlobPublicAccess
-| project subscriptionId, resourceGroup, name, allowBlobPublicAccess
-```
-
-### Test the public access setting from a client
-
-To test that the public access setting for a storage account prevents anonymous requests, use an anonymous client to attempt to read a blob in the storage account. For example, you can attempt to read the blob using a web browser from which you are not logged into the Azure portal, such as a private browser session.
-
-If a client attempts to access a blob anonymously when public access is disallowed for the storage account, Azure Storage returns an error indicating that public access is not permitted for the account.
+The examples in this section showed how to read the **AllowBlobPublicAccess** property for the storage account to determine if public access is currently allowed or disallowed. To learn more about how to verify that an account's public access setting is configured to prevent anonymous access, see [Remediate anonymous public access](anonymous-read-access-prevent.md#remediate-anonymous-public-access).
 
 ## Set the public access level for a container
 
