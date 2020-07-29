@@ -29,7 +29,7 @@ Update Management uses a scope configuration within the workspace to target the 
 
 Before you deploy software updates to your machines, review the update compliance assessment results for enabled machines. For each software update, its compliance state is recorded and then after the evaluation is complete, it is collected and forwarded in bulk to Azure Monitor logs.
 
-On a Windows machine, the compliance scan is run every 12 hours by default. In addition to the scheduled scan, the scan for update compliance is initiated within 15 minutes of the Log Analytics agent for Windows being restarted, before update installation, and after update installation.
+On a Windows machine, the compliance scan is run every 12 hours by default. In addition to the scheduled scan, the scan for update compliance is initiated within 15 minutes of the Log Analytics agent for Windows being restarted, before update installation, and after update installation. It is also important to review our recommendations on how to [configure the Windows Update client](update-mgmt-configure-wuagent.md) with Update Management to avoid any issues that prevents it from being managed correctly.
 
 For a Linux machine, the compliance scan is performed every hour by default. If the Log Analytics agent for Linux is restarted, a compliance scan is initiated within 15 minutes.
 

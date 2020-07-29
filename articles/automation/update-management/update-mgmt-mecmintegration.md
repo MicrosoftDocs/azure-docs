@@ -3,9 +3,7 @@ title: Integrate Azure Automation Update Management with Windows Endpoint Config
 description: This article tells how to configure Microsoft Endpoint Configuration Manager with Update Management to deploy software updates to manager clients.
 services: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
-ms.date: 06/16/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
 ---
 
@@ -13,7 +11,7 @@ ms.topic: conceptual
 
 Customers who have invested in Microsoft Endpoint Configuration Manager to manage PCs, servers, and mobile devices also rely on its strength and maturity in managing software updates as part of their software update management (SUM) cycle.
 
-You can report and update managed Windows servers by creating and pre-staging software update deployments in Windows Endpoint Configuration Manager, and get detailed status of completed update deployments using [Update Management](update-mgmt-overview.md). If you use Windows Endpoint Configuration Manager for update compliance reporting but not for managing update deployments with your Windows servers, you can continue reporting to the configuration manager while security updates are managed with Azure Automation Update Management.
+You can report and update managed Windows servers by creating and pre-staging software update deployments in Windows Endpoint Configuration Manager, and get detailed status of completed update deployments using [Update Management](update-mgmt-overview.md). If you use Windows Endpoint Configuration Manager for update compliance reporting, but not for managing update deployments with your Windows servers, you can continue reporting to Endpoint Configuration Manager while security updates are managed with Azure Automation Update Management.
 
 >[!NOTE]
 >While Update Management supports update assessment and patching of Windows Server 2008 R2, it does not support clients managed by Endpoint Configuration Manager running this operating system.
