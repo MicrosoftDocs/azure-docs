@@ -196,7 +196,7 @@ Here are 3 ways to locate and verify the device state:
 
 ### Using PowerShell
 
-Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Verify the device registration state in your Azure tenant by using **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)**. This cmdlet is in the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
 
 When you use the **Get-MSolDevice** cmdlet to check the service details:
 

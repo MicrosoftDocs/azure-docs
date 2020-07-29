@@ -15,12 +15,12 @@ ms.date: 10/15/2019
 
 This article explains how to enable Azure Monitor for VMs for virtual machines or physical computers hosted in your datacenter or other cloud environment. At the end of this process, you will have successfully begun monitoring your virtual machines in your environment and learn if they are experiencing any performance or availability issues.
 
-Before you get started, be sure to review the [prerequisites](vminsights-enable-overview.md) and verify that your subscription and resources meet the requirements. Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../log-analytics/log-analytics-agent-overview.md).
+Before you get started, be sure to review the [prerequisites](vminsights-enable-overview.md) and verify that your subscription and resources meet the requirements. Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../platform/log-analytics-agent.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 >[!NOTE]
->The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
+>The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
 The steps to complete this task are summarized as follows:
 
@@ -141,7 +141,7 @@ configuration VMInsights {
 ## Enable performance counters
 
 If the Log Analytics workspace that's referenced by the solution isn't already configured to collect the performance counters required by the solution, you need to enable them. You can do so in one of two ways:
-* Manually, as described in [Windows and Linux performance data sources in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
+* Manually, as described in [Windows and Linux performance data sources in Log Analytics](../platform/data-sources-performance-counters.md)
 * By downloading and running a PowerShell script that's available from the [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ## Deploy Azure Monitor for VMs
@@ -152,7 +152,7 @@ If you don't know how to deploy resources by using a template, see:
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-To use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. To install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+To use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. To install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ### Create and execute a template
 
@@ -231,7 +231,7 @@ If your Dependency agent installation succeeded, but you don't see your computer
 
     **Linux**: Look for the running process "microsoft-dependency-agent."
 
-2. Are you on the [Free pricing tier of Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? The Free plan allows for up to five unique computers. Any subsequent computers won't show up on the map, even if the prior five are no longer sending data.
+2. Are you on the [Free pricing tier of Log Analytics](./solutions.md)? The Free plan allows for up to five unique computers. Any subsequent computers won't show up on the map, even if the prior five are no longer sending data.
 
 3. Is the computer sending log and perf data to Azure Monitor Logs? Perform the following query for your computer:
 
@@ -255,3 +255,4 @@ Now that monitoring is enabled for your virtual machines, this information is av
 - To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
 
 - To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM performance](vminsights-performance.md).
+

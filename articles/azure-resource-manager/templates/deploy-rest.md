@@ -2,7 +2,7 @@
 title: Deploy resources with REST API and template
 description: Use Azure Resource Manager and Resource Manager REST API to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 07/21/2020
 ---
 # Deploy resources with ARM templates and Resource Manager REST API
 
@@ -95,7 +95,7 @@ The examples in this article use resource group deployments.
    }
    ```
 
-    If you want to log response content, request content, or both, include **debugSetting** in the request.
+    If you want to log response content, request content, or both, include `debugSetting` in the request.
 
    ```json
    {
@@ -188,6 +188,22 @@ The examples in this article use resource group deployments.
    ```HTTP
    GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-10-01
    ```
+
+## Deployment name
+
+You can give your deployment a name such as `ExampleDeployment`.
+
+Every time you run a deployment, an entry is added to the resource group's deployment history with the deployment name. If you run another deployment and give it the same name, the earlier entry is replaced with the current deployment. If you want to maintain unique entries in the deployment history, give each deployment a unique name.
+
+To create a unique name, you can assign a random number. Or, add a date value.
+
+If you run concurrent deployments to the same resource group with the same deployment name, only the last deployment is completed. Any deployments with the same name that haven't finished are replaced by the last deployment. For example, if you run a deployment named `newStorage` that deploys a storage account named `storage1`, and at the same time run another deployment named `newStorage` that deploys a storage account named `storage2`, you deploy only one storage account. The resulting storage account is named `storage2`.
+
+However, if you run a deployment named `newStorage` that deploys a storage account named `storage1`, and immediately after it completes you run another deployment named `newStorage` that deploys a storage account named `storage2`, then you have two storage accounts. One is named `storage1`, and the other is named `storage2`. But, you only have one entry in the deployment history.
+
+When you specify a unique name for each deployment, you can run them concurrently without conflict. If you run a deployment named `newStorage1` that deploys a storage account named `storage1`, and at the same time run another deployment named `newStorage2` that deploys a storage account named `storage2`, then you have two storage accounts and two entries in the deployment history.
+
+To avoid conflicts with concurrent deployments and to ensure unique entries in the deployment history, give each deployment a unique name.
 
 ## Next steps
 

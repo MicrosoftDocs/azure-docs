@@ -176,6 +176,10 @@ No. A change of VMware Vcenter or migration will impact ongoing replication. Set
 
 No, Site Recovery doesn't support replication to Azure Storage on virtual networks.
 
+### What is the frequency of generation of crash-consistent recovery points?
+
+Site Recovery generates crash-consistent recovery points every 5 minutes.
+
 ## Component upgrade
 
 ### My version of the Mobility services agent or configuration server is old, and my upgrade failed. What do I do?

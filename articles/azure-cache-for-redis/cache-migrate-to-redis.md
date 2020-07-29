@@ -5,11 +5,11 @@ author: yegu-ms
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/30/2017
+ms.date: 07/23/2020
 ms.author: yegu
 
 ---
-# Migrate from Managed Cache Service to Azure Cache for Redis
+# Migrate from Managed Cache Service to Azure Cache for Redis (deprecated)
 Migrating your applications that use Azure Managed Cache Service to Azure Cache for Redis can be accomplished with minimal changes to your application, depending on the Managed Cache Service features used by your caching application. While the APIs are not exactly the same they are similar, and much of your existing code that uses Managed Cache Service to access a cache can be reused with minimal changes. This article shows how to make the necessary configuration and application changes to migrate your Managed Cache Service applications to use Azure Cache for Redis, and shows how some of the features of Azure Cache for Redis can be used to implement the functionality of a Managed Cache Service cache.
 
 >[!NOTE]

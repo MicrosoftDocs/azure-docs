@@ -31,7 +31,6 @@ Here are some possible error codes you could receive when using Spot VMs and sca
 | MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  Max price is supported only for Azure Spot Virtual Machines. | For more information, see [Spot Virtual Machines](./linux/spot-vms.md). |
 | MoveResourcesWithAzureSpotVMNotSupported  |  The Move resources request contains an Azure Spot virtual machine. This is currently not supported. Please check the error details for virtual machine Ids. | You cannot move Spot VMs. |
 | MoveResourcesWithAzureSpotVmssNotSupported  |  The Move resources request contains an Azure Spot virtual machine scale set. This is currently not supported. Please check the error details for virtual machine scale set Ids. | You cannot move Spot scale set instances. |
-| EphemeralOSDisksNotSupportedForSpotVMs | Ephemeral OS disks are not supported for Spot VMs. | Use a regular OS disk for your Spot VM. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | Azure Spot Virtual Machine is not supported in Virtual Machine Scale Set with VM Orchestration mode. | Set the orchestration mode to virtual machine scale set in order to use Spot instances. |
 
 

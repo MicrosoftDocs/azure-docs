@@ -7,7 +7,7 @@ ms.date: 07/08/2020
 
 # Encryption of backup data using customer-managed keys
 
-Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK) instead of using platform-managed keys, which is enabled by default. Your keys that are used for encrypting the backup data must be stored in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK) instead of using platform-managed keys, which is enabled by default. Your keys that are used for encrypting the backup data must be stored in [Azure Key Vault](../key-vault/index.yml).
 
 The encryption key used for encrypting backups may be different from the one used for the source. The data is protected using an AES 256 based data encryption key (DEK), which, in turn, is protected using your keys (KEK). This gives you full control over the data and the keys. To allow encryption, it's required that the Recovery Services vault be granted access to the encryption key in the Azure Key Vault. You can change the key as and when required.
 
@@ -26,7 +26,7 @@ This article discusses the following:
 
 - This feature currently **doesn't support backup using MARS agent**, and you may not be able to use a CMK-encrypted vault for the same. The MARS agent uses a user passphrase-based encryption. This feature also doesn't support backup of classic VMs.
 
-- This feature isn't related to [Azure Disk Encryption](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss), which uses guest-based encryption of a VM's disks using BitLocker (for Windows) and DM-Crypt (for Linux)
+- This feature isn't related to [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), which uses guest-based encryption of a VM's disks using BitLocker (for Windows) and DM-Crypt (for Linux)
 
 - The Recovery Services vault can be encrypted only with keys stored in an Azure Key Vault, located in the **same region**. Also, keys must be **RSA 2048 keys** only and should be in **enabled** state.
 
@@ -87,7 +87,7 @@ You now need to permit the Recovery Services vault to access the Azure Key Vault
 
 ### Enable soft-delete and purge protection on the Azure Key Vault
 
-You need to **enable soft delete and purge protection** on your Azure Key Vault that stores your encryption key. You can do this from the Azure Key Vault UI as shown below. (Alternatively, these properties can be set while creating the Key Vault). Read more about these Key Vault properties [here](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete).
+You need to **enable soft delete and purge protection** on your Azure Key Vault that stores your encryption key. You can do this from the Azure Key Vault UI as shown below. (Alternatively, these properties can be set while creating the Key Vault). Read more about these Key Vault properties [here](../key-vault/general/overview-soft-delete.md).
 
 ![Enable soft delete and purge protection](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
@@ -188,13 +188,13 @@ Before proceeding to configure protection, we strongly recommend you ensure the 
 >
 >If all the above steps have been confirmed, only then proceed with configuring backup.
 
-The process to configure and perform backups to a Recovery Services vault encrypted with customer-managed keys is the same as to a vault that uses platform-managed keys, with **no changes to the experience**. This holds true for [backup of Azure VMs](https://docs.microsoft.com/azure/backup/quick-backup-vm-portal) as well as backup of workloads running inside a VM (for example, [SAP HANA](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db), [SQL Server](https://docs.microsoft.com/azure/backup/tutorial-sql-backup) databases).
+The process to configure and perform backups to a Recovery Services vault encrypted with customer-managed keys is the same as to a vault that uses platform-managed keys, with **no changes to the experience**. This holds true for [backup of Azure VMs](./quick-backup-vm-portal.md) as well as backup of workloads running inside a VM (for example, [SAP HANA](./tutorial-backup-sap-hana-db.md), [SQL Server](./tutorial-sql-backup.md) databases).
 
 ## Restoring data from backup
 
 ### VM backup
 
-Data stored in the Recovery Services vault can be restored according to the steps described [here](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms). When restoring from a Recovery Services vault encrypted using customer-managed keys, you can choose to encrypt the restored data with a Disk Encryption Set (DES).
+Data stored in the Recovery Services vault can be restored according to the steps described [here](./backup-azure-arm-restore-vms.md). When restoring from a Recovery Services vault encrypted using customer-managed keys, you can choose to encrypt the restored data with a Disk Encryption Set (DES).
 
 #### Restoring VM / disk
 

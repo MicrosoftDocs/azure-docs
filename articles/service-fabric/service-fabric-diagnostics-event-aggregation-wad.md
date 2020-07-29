@@ -26,7 +26,7 @@ One way to upload and collect logs is to use the Windows Azure Diagnostics (WAD)
 The following tools are used in this article:
 
 * [Azure Resource Manager](../azure-resource-manager/management/overview.md)
-* [Azure PowerShell](/powershell/azure/overview)
+* [Azure PowerShell](/powershell/azure/)
 * [Azure Resource Manager template](../virtual-machines/extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json)
 
 ## Service Fabric platform events

@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -21,7 +21,7 @@ To help manage the users of Azure Multi-Factor Authentication, you can require u
 
 ## Manage user authentication options
 
-If you're assigned the *Authentication Administrator* role you can require users to reset their password, re-register for MFA, or revoke existing MFA sessions from their user object. To manage user settings, complete the following steps:
+If you're assigned the *Authentication Administrator* role, you can require users to reset their password, re-register for MFA, or revoke existing MFA sessions from their user object. To manage user settings, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the left, select **Azure Active Directory** > **Users** > **All users**.
@@ -53,6 +53,6 @@ To delete a user's app passwords, complete the following steps:
 
 ## Next steps
 
-This article helped configure individual user settings. To configure Azure Multi-Factor Authentication service settings, see [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md)
+This article showed you how to configure individual user settings. To configure overall Azure Multi-Factor Authentication service settings, see [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md).
 
-If your users need help, see the [User guide for Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user.md).
+If your users need help, see the [User guide for Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).

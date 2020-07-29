@@ -318,7 +318,7 @@ However when using the Hybrid Runbook Worker feature, you may use Microsoft Anti
 
 **Guidance**: When using Azure Automation with the multi-tenant runbook workers this control is not applicable, and the platform handles the underlying virtual machines.
 
-However, when using the Hybrid Runbook Worker feature, Azure Security Center provides Security event log monitoring for Azure virtual machines. Security Center provisions the Log Analytics agent on all supported Azure VMs, and any new ones that are created if automatic provisioning is enabled. Or you can install the agent manually. The agent enables the process creation event 4688 and the commandline field inside event 4688. New processes created on the VM are recorded by event log and monitored by Security Center’s detection services.
+However, when using the Hybrid Runbook Worker feature, Azure Security Center provides Security event log monitoring for Azure virtual machines. Security Center provisions the Log Analytics agent on all supported Azure VMs, and any new ones that are created if automatic provisioning is enabled. Or you can install the agent manually. The agent enables the process creation event 4688 and the commandline field inside event 4688. New processes created on the VM are recorded by event log and monitored by Security Center's detection services.
 
 * [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
@@ -916,7 +916,7 @@ When using the Hybrid Runbook Worker feature, use Azure Security Center recommen
 
 * [Understanding Azure Policy Effects](../governance/policy/concepts/effects.md)
 
-* [Deploy an Automation Account using an Azure Resource Manager template](./automation-create-account-template.md#deploy-the-template)
+* [Deploy an Automation Account using an Azure Resource Manager template](./quickstart-create-automation-account-template.md#deploy-the-template)
 
 * [Azure Policy sample built-ins for Azure Automation](./policy-samples.md)
 
@@ -1062,7 +1062,7 @@ When using the Hybrid Runbook Worker feature, use Azure Automation State Configu
 
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
 
-* [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.htm)
+* [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -1122,7 +1122,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 
 * [Azure Resource Manager template reference for Azure Automation resources](/azure/templates/microsoft.automation/allversions)
 
-* [Create an Automation account using an Azure Resource Manager template](./automation-create-account-template.md)
+* [Create an Automation account using an Azure Resource Manager template](./quickstart-create-automation-account-template.md)
 
 * [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1148,7 +1148,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 
 * [Azure Resource Manager template reference for Azure Automation resources](/azure/templates/microsoft.automation/allversions)
 
-* [Create an Automation account using an Azure Resource Manager template](./automation-create-account-template.md)
+* [Create an Automation account using an Azure Resource Manager template](./quickstart-create-automation-account-template.md)
 
 * [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1230,7 +1230,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ### 10.3: Test security response procedures
 
-**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
+**Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and revise plan as needed.
 
 * [NIST's publication - Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
@@ -1276,7 +1276,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
-**Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
+**Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
 * [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 

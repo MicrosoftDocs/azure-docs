@@ -32,7 +32,7 @@ The maximum size of a record should be 5000 characters as measured by [`String.L
 
 Parameters are case-sensitive.
 
-| Parameter Name |                      |
+| Parameter Name | Description |
 |----------------|----------------------|
 | `defaultLanguageCode` | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
 
