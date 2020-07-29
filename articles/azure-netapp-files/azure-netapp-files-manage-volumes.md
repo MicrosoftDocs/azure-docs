@@ -1,6 +1,6 @@
 ---
 title: Manage volumes by using Azure NetApp Files | Microsoft Docs
-description: Describes how to manage volumes by using the Azure NetApp Files service. 
+description: Learn how to view, update, or delete a volume in Azure NetApp Files. To delete a volume, first delete all sub-objects of a volume.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
