@@ -12,8 +12,6 @@
     href: tutorial-hybrid-portal.md
   - name: Filter inbound traffic with DNAT
     href: tutorial-firewall-dnat.md
-  - name: Monitor diagnostic logs
-    href: tutorial-diagnostics.md
 - name: Quickstarts
   expanded: true
   items:
@@ -86,6 +84,8 @@
       href: protect-azure-kubernetes-service.md
     - name: DNS settings
       href: dns-settings.md
+    - name: Monitor diagnostic logs
+      href: firewall-diagnostics.md
 - name: Reference
   items:
   - name: Azure CLI

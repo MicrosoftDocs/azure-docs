@@ -3,11 +3,9 @@ title: Develop U-SQL user-defined operators - Azure Data Lake Analytics
 description: Learn how to develop user-defined operators to be used and reused in Azure Data Lake Analytics jobs.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2016
 ---
 

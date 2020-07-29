@@ -2,7 +2,7 @@
 title: Deployment history deletions
 description: Describes how Azure Resource Manager automatically deletes deployments from the deployment history. Deployments are deleted when the history is close to exceeding the limit of 800.
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 07/10/2020
 ---
 # Automatic deletions from deployment history
 
@@ -17,16 +17,18 @@ Azure Resource Manager will soon start automatically deleting deployments from y
 
 ## When deployments are deleted
 
-Deployments are deleted from your deployment history when you reach 790 deployments. Azure Resource Manager deletes a small set of the oldest deployments to clear space for future deployments. Most of your history remains unchanged. The oldest deployments are always deleted first.
+Deployments are deleted from your history when you reach 775 or more deployments. Azure Resource Manager deletes deployments until the history is down to 750. The oldest deployments are always deleted first.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Deletions from deployment history":::
+
+> [!NOTE]
+> The starting number (775) and the ending number (750) are subject to change.
+>
+> If your resource group is already at the 800 limit, your next deployment fails with an error. The automatic deletion process starts immediately. You can try your deployment again after a short wait.
 
 In addition to deployments, you also trigger deletions when you run the [what-if operation](template-deploy-what-if.md) or validate a deployment.
 
 When you give a deployment the same name as one in the history, you reset its place in the history. The deployment moves to the most recent place in the history. You also reset a deployment's place when you [roll back to that deployment](rollback-on-error.md) after an error.
-
-> [!NOTE]
-> If your resource group is already at the 800 limit, your next deployment fails with an error. The automatic deletion process starts immediately. You can try your deployment again after a short wait.
 
 ## Opt out of automatic deletions
 

@@ -43,6 +43,22 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >
 >Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
 
+## 1.5.42.0
+
+### Release status
+07/10/2020: Released for download
+
+### Functional changes
+This release includes a public preview of the functionality to export the configuration of an existing Azure AD Connect server into a .JSON file which can then be used when installing a new Azure AD Connect server to create a copy of the original server.
+
+A detailed description of this new feature can be found in [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-import-export-config)
+
+### Fixed issues
+- Fixed a bug where there would be a false warning about the local DB size on the localized builds during upgrade.
+- Fixed a bug where there would be a false error in the app events for the account name/domain name swap.
+- Fixed an error where Azure AD Connect would fail to install on a DC, giving error "member not found".
+
+
 ## 1.5.30.0
 
 ### Release status

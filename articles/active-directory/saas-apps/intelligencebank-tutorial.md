@@ -86,12 +86,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Identifier (Entity ID)** text box, use anyone of the following:
 
-	| |
-	|--|
-    | `IB`| 
-	| `IntelligenceBank`|
-	| `https://<SUBDOMAIN>.intelligencebank.com`|
-    | |
+    - `IB`
+    - `IntelligenceBank`
+    - `https://<SUBDOMAIN>.intelligencebank.com`
 
 	c. In the **Reply URL** text box, type a URL using the following pattern:
 	`https://<SUBDOMAIN>.intelligencebank.com/auth`

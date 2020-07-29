@@ -8,18 +8,48 @@ manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
 ---
 
-# Release notes
+# Speech Service release notes
+
+## Speech SDK 1.13.0: 2020-July release
+
+**Note**: The Speech SDK on Windows depends on the shared Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019. Download and install it from [here](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+
+**New features**
+- **C#**: Added support for asynchronous conversation transcription. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-async-conversation-transcription).  
+- **JavaScript**: Added Speaker Recognition support for both [browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) and [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
+- **JavaScript**: Added support for automatic language detection/language ID. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-javascript).
+- **Objective-C**: Added support for [multi-device conversation](https://docs.microsoft.com/azure/cognitive-services/speech-service/multi-device-conversation) and [conversation transcription](https://docs.microsoft.com/azure/cognitive-services/speech-service/conversation-transcription). 
+- **Python**: Added compressed audio support for Python on Windows and Linux. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). 
+
+**Bug fixes**
+- **All**: Fixed an issue that caused the KeywordRecognizer to not move forward the streams after a recognition.
+- **All**: Fixed an issue that caused the stream obtained from a KeywordRecognitionResult to not contain the keyword.
+- **All**: Fixed an issue that the SendMessageAsync does not really send the message over the wire after the users finish waiting for it.
+- **All**: Fixed a crash in Speaker Recognition APIs when users call VoiceProfileClient::SpeakerRecEnrollProfileAsync method multiple times and did not wait for the calls to finish.
+- **All**: Fixed enable file logging in VoiceProfileClient and SpeakerRecognizer classes.
+- **JavaScript**: Fixed an [issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/74) with throttling when browser is minimized.
+- **JavaScript**: Fixed an [issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) with a memory leak on streams.
+- **JavaScript**: Added caching for OCSP responses from NodeJS.
+- **Java**: Fixed an issue that was causing BigInteger fields to always return 0.
+- **iOS**: Fixed an [issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) with publishing Speech SDK based apps in the iOS App Store.
+
+**Samples**
+- **C++**: Added sample code for Speaker Recognition [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp).
+
+**COVID-19 abridged testing:**
+Due to working remotely over the last few weeks, we couldn't do as much manual verification testing as we normally do. We haven't made any changes we think could have broken anything, and our automated tests all passed. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
+Stay healthy!
 
 ## Text-to-speech 2020-July release
 
 ### New features
 
-* **Neural TTS, 15 new neural voices**: The new voices added to the Neural TTS portfolio are Salma in Arabic (Egypt), Zariyah in Arabic (Saudi Arabia), Alba in Catalan (Spain), Christel in Danish (Denmark), Neerja in English (India), Swara in Hindi (India), Colette in Dutch (Netherlands), Zofia in Polish (Poland), Fernanda in Portuguese (Portugal), Dariya in Russian (Russia), Hillevi in Swedish (Sweden), Achara in Thai (Thailand), Iselin Norwegian (Bokmål) in (Norway),  HiuGaai in Chinese (Hongkong) and HsiaoYu in Chinese (Taiwan). Check all [supported languages](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
+* **Neural TTS, 15 new neural voices**: The new voices added to the Neural TTS portfolio are Salma in `ar-EG` Arabic (Egypt), Zariyah in `ar-SA` Arabic (Saudi Arabia), Alba in `ca-ES` Catalan (Spain), Christel in `da-DK` Danish (Denmark), Neerja in `es-IN` English (India), Noora in `fi-FI` Finnish (Finland), Swara in `hi-IN` Hindi (India), Colette in `nl-NL` Dutch (Netherlands), Zofia in `pl-PL` Polish (Poland), Fernanda in `pt-PT` Portuguese (Portugal), Dariya in `ru-RU` Russian (Russia), Hillevi in `sv-SE` Swedish (Sweden), Achara in `th-TH` Thai (Thailand), HiuGaai in `zh-HK` Chinese (Cantonese, Traditional) and HsiaoYu in `zh-TW` Chinese (Taiwanese Mandarin). Check all [supported languages](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices).  
 
 * **Custom Voice, streamlined voice testing with the training flow to simplify user experience**: With the new testing feature, each voice will be automatically tested with a predefined test set optimized for each language to cover general and voice assistant scenarios. These test sets are carefully selected and tested to include typical use cases and phonemes in the language. Besides, users can still select to upload their own test scripts when training a model.
 
@@ -41,23 +71,23 @@ ms.custom: seodec18
 
 * Improved TTS vocoder in for higher fidelity and lower latency.
 
-    * Updated Elsa in Italian to a new vocoder which achieved +0.464 CMOS (Comparative Mean Opinion Score) gain in voice quality, 40% faster in synthesis and 30% reduction on first byte latency. 
-    * Updated Xiaoxiao in Chinese to the new vocoder with +0148 CMOS gain for the general domain, +0.348 for the newscast style and +0.195 for the lyrical style. 
+    * Updated Elsa in `it-IT` to a new vocoder which achieved +0.464 CMOS (Comparative Mean Opinion Score) gain in voice quality, 40% faster in synthesis and 30% reduction on first byte latency. 
+    * Updated Xiaoxiao in `zh-CN` to the new vocoder with +0148 CMOS gain for the general domain, +0.348 for the newscast style and +0.195 for the lyrical style. 
 
 * Updated `de-DE` and `ja-JP` voice models to make the TTS output more natural.
     
-    * Updated Katja in German with the latest prosody modeling method, the MOS (Mean Opinion Score) gain is +0.13. 
-    * Updated Nanami in Japanese with a new pitch accent prosody model, the MOS (Mean Opinion Score) gain is +0.19;  
+    * Updated Katja in `de-DE` with the latest prosody modeling method, the MOS (Mean Opinion Score) gain is +0.13. 
+    * Updated Nanami in `ja-JP` with a new pitch accent prosody model, the MOS (Mean Opinion Score) gain is +0.19;  
 
 * Improved word-level pronunciation accuracy in 5 languages.
 
     | Language | Pronunciation error reduction |
     |---|---|
-    | en-GB | 51% |
-    | ko-KR | 17% |
-    | pt-BR | 39% |
-    | pt-PT | 77% |
-    | id-ID | 46% |
+    | `en-GB` | 51% |
+    | `ko-KR` | 17% |
+    | `pt-BR` | 39% |
+    | `pt-PT` | 77% |
+    | `id-ID` | 46% |
 
 ### Bug fixes
 
@@ -66,8 +96,8 @@ ms.custom: seodec18
      
     | Language | Input | Readout after improvement |
     |---|---|---|
-    | es-MX | $1.58 | un peso cincuenta y ocho centavos |
-    | es-ES | $1.58 | un dólar cincuenta y ocho centavos |
+    | `es-MX` | $1.58 | un peso cincuenta y ocho centavos |
+    | `es-ES` | $1.58 | un dólar cincuenta y ocho centavos |
 
     * Support for negative currency (like “-325 €” ) in following locales: `en-US`, `en-GB`, `fr-FR`, `it-IT`, `en-AU`, `en-CA`.
 
@@ -80,10 +110,10 @@ ms.custom: seodec18
 
 ### Samples/SDK
 
-* JavaScript: Fixes playback issue in FireFox, and Safari on macOS and iOS. 
+* JavaScript: Fixes playback issue in Firefox, and Safari on macOS and iOS. 
 
 ## Speech SDK 1.12.1: 2020-June release
-**Speech CLI (aka SPX)**
+**Speech CLI (also known as SPX)**
 -   Added in-CLI help search features:
     -   `spx help find --text TEXT`
     -   `spx help find --topic NAME`
@@ -96,7 +126,7 @@ ms.custom: seodec18
 
 **Bug fixes**
 -   **C\#, C++**: Fixed microphone recording was not working in 1.12 in speaker recognition.
--   **JavaScript**: Fixes for Text-To-Speech in FireFox, and Safari on macOS and iOS.
+-   **JavaScript**: Fixes for Text-To-Speech in Firefox, and Safari on macOS and iOS.
 -   Fix for Windows application verifier access violation crash on conversation transcription when using 8-channel stream.
 -   Fix for Windows application verifier access violation crash on multi-device conversation translation.
 
@@ -111,7 +141,7 @@ Stay healthy!
 
 
 ## Speech SDK 1.12.0: 2020-May release
-**Speech CLI (aka SPX)**
+**Speech CLI (Also Know As SPX)**
 - **SPX** is a new command line tool that allows you to perform recognition, synthesis, translation, batch transcription, and custom speech management from the command line. Use it to test the Speech Service, or to script the Speech Service tasks you need to perform. Download the tool and read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-overview).
 
 **New features**

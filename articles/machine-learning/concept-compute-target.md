@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 06/26/2020
+ms.date: 07/27/2020
 # As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -44,12 +44,12 @@ Learn [where and how to deploy your model to a compute target](how-to-deploy-and
 
 A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters and [compute instances](concept-compute-instance.md) are the only managed computes. Additional managed compute resources may be added in the future.
 
-You can create Azure Machine Learning compute instances (preview) or compute clusters from:
+You can create Azure Machine Learning compute instances or compute clusters from:
 * Azure Machine Learning studio
 * Azure portal
 * Python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) and [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) classes
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (preview)
-* Resource Manager template
+* Resource Manager template. For an example template, see the [create Azure Machine Learning compute template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * Machine learning [extension for the Azure CLI](reference-azure-machine-learning-cli.md#resource-management).  
 
 When created these compute resources are automatically part of your workspace, unlike other kinds of compute targets.

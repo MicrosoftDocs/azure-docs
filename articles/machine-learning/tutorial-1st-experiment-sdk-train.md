@@ -6,9 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: trevorbye
-ms.author: trbye
-ms.reviewer: trbye
+ms.author: sgilley
+author: sdgilley
 ms.date: 02/10/2020
 ms.custom: tracking-python
 ---

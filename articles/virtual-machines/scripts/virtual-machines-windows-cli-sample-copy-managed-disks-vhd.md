@@ -1,6 +1,6 @@
 ---
-title: Copy a managed disks to a storage account - CLI sample
-description: Azure CLI sample - Export or copy a managed disks to a s torage account.
+title: Copy a managed disks to a storage account - Windows CLI sample
+description: Azure CLI sample - Export or copy a managed disks to a storage account.
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -37,13 +37,13 @@ This script uses following commands to generate the SAS URI for a managed disk a
 
 | Command | Notes |
 |---|---|
-| [az disk grant-access](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az-disk-grant-access) | Generates read-only SAS that is used to copy the underlying VHD file to a storage account or download it to on-premises  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | Copies a blob asynchronously from one storage account to another |
+| [az disk grant-access](/cli/azure/disk?view=azure-cli-latest#az-disk-grant-access) | Generates read-only SAS that is used to copy the underlying VHD file to a storage account or download it to on-premises  |
+| [az storage blob copy start](/cli/azure/storage/blob/copy) | Copies a blob asynchronously from one storage account to another |
 
 ## Next steps
 
 [Create a managed disk from a VHD](virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional virtual machine and managed disks CLI script samples can be found in the [Azure Windows VM documentation](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

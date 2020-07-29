@@ -197,7 +197,6 @@ Legend:
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Custom | Remote SQL</br>Custom |
 | --- | --- | --- | --- |
-| **standalone/workgroup machine** | Not supported | **VSA**</br>Local account (2008)</br>Local account |  Not supported |
 | **domain-joined machine** | **VSA**</br>Local account (2008) | **VSA**</br>Local account (2008)</br>Local account</br>Domain account</br>sMSA,gMSA | **gMSA**</br>Domain account |
 | **Domain Controller** | **Domain account** | *gMSA*</br>**Domain account**</br>sMSA| *gMSA*</br>**Domain account**|
 

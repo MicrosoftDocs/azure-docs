@@ -52,7 +52,7 @@
   items:    
   - name: Media Services v3 samples
     displayName: .NET, Java
-    href: https://docs.microsoft.com/samples/browse/?products=azure-media-services
+    href: /samples/browse/?products=azure-media-services
   - name: Media Services v3 REST samples
     href: https://github.com/Azure-Samples/media-services-v3-rest-postman
 - name: Concepts
@@ -158,7 +158,9 @@
     - name: Streaming policies 
       href: streaming-policy-concept.md          
     - name: Content key policies 
-      href: content-key-policy-concept.md                    
+      href: content-key-policy-concept.md
+    - name: Content protection with Azure AD
+      href: azure-ad-content-protection.md                    
   - name: Monitoring
     items:
     - name: Events with Event Grid
@@ -169,10 +171,10 @@
       href: media-services-metrics-diagnostic-logs.md      
     - name: Diagnostic logs schemas
       href: media-services-diagnostic-logs-schema.md          
-  - name: Player clients
+  - name: Azure Media Player
     items:
-    - name: Azure Media Player
-      href: use-azure-media-player.md
+    - name: Azure Media Player overview
+      href: https://docs.microsoft.com/en-us/azure/media-services/azure-media-player/azure-media-player-overview
   - name: Developing with v3 APIs
     items:
     - name: Overview
@@ -192,12 +194,9 @@
         href: job-error-codes.md
   - name: High availability
     items:
-    - name: Encoding
+    - name: Video on Demand
       displayName: failover, bcdr, HA, high availability
       href: media-services-high-availability-encoding.md
-    - name: Streaming
-      displayName: failover, bcdr, HA, high availability
-      href: media-services-high-availability-streaming.md
   - name: Troubleshooting
     items:
     - name: Frequently asked questions
@@ -356,6 +355,14 @@
       href: download-results-howto.md
     - name: Signal descriptive audio
       href: signal-descriptive-audio-howto.md
+  - name: Use media players
+    items:
+    - name: Azure Media Player full set up
+      href: https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup
+    - name: Use the Video.js player
+      href: how-to-video-js-player.md
+    - name: Use the Shaka video player
+      href: how-to-shaka-player.md
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
@@ -374,7 +381,7 @@
     - name: Python
       href: https://aka.ms/ams-v3-python-ref
     - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management
+      href: /javascript/api/overview/azure/mediaservices/management
     - name: Go
       href: https://aka.ms/ams-v3-go-ref
   - name: Resource Manager template
@@ -422,4 +429,3 @@
     href: azure-clouds-regions.md
   - name: Documentation updates
     href: docs-release-notes.md
-    

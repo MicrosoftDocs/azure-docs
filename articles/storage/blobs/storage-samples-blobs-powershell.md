@@ -14,7 +14,7 @@ ms.topic: sample
 
 The following table includes links to PowerShell script samples that create and manage Azure Storage.
 
-| | |
+| Script | Description |
 |---|---|
 |**Storage accounts**||
 | [Create a storage account and retrieve/rotate the access keys](../scripts/storage-common-rotate-account-keys-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Storage account and retrieves and rotates one of its access keys. |

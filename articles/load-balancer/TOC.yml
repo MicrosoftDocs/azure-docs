@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Load Balancer?
     href: load-balancer-overview.md
+  - name: What's new?
+    href: whats-new.md
   - name: Frequently asked questions
     href: load-balancer-faqs.md
 - name: Quickstart
@@ -12,18 +14,23 @@
     href: quickstart-load-balancer-standard-public-portal.md
   - name: Create Load Balancer - Azure CLI
     href: quickstart-load-balancer-standard-public-cli.md
-  - name: Create Load Balancer - PowerShell
+  - name: Create Load Balancer - Azure PowerShell
     href: quickstart-create-standard-load-balancer-powershell.md
   - name: Create Load Balancer - ARM template
-    displayName: Resource Manager
     href: quickstart-load-balancer-standard-public-template.md
   expanded: true
 - name: Tutorials
   items:
-  - name: Load balance internet traffic to VMs
-    href: tutorial-load-balancer-standard-manage-portal.md
-  - name: Load balance internal traffic to VMs
-    href: tutorial-load-balancer-standard-internal-portal.md
+  - name: Internal Load Balancer
+    items: 
+    - name: Create an internal Load Balancer - Portal
+      href: tutorial-load-balancer-standard-internal-portal.md
+    - name: Create an internal Load Balancer - Azure CLI
+      href: load-balancer-get-started-ilb-arm-cli.md
+    - name: Create an internal Load Balancer - Azure PowerShell
+      href: load-balancer-get-started-ilb-arm-ps.md
+    - name: Create an internal Load Balancer - ARM template
+      href: load-balancer-get-started-ilb-arm-template.md
   - name: Load balance VMs across availability zones
     href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
   - name: Load balance VM within a specific availability zone
@@ -68,6 +75,8 @@
     href: load-balancer-security-controls.md
   - name: Backend Pool management
     href: backend-pool-management.md
+  - name: Standard Load Balancer and Virtual Machine Scale Sets
+    href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: How to
   items:
   - name: Virtual machine scale sets
@@ -78,22 +87,14 @@
       href: configure-vm-scale-set-powershell.md
     - name: Use with an existing Azure Load Balancer - CLI
       href: configure-vm-scale-set-cli.md
-  - name: Upgrade a Basic Load Balancer to Standard Load Balancer
+  - name: Upgrade from Basic to Standard Load Balancer
     items:
     - name: Upgrade a Basic Public Load Balancer
       href: upgrade-basic-standard.md
-    - name: Upgrade a Basic Internal Load Balancer - No Outbound Connection Required
+    - name: Upgrade an Internal Load Balancer - No Outbound Connection Required
       href: upgrade-basicInternal-standard.md
-    - name: Upgrade a Basic Internal Load Balancer - Outbound Connection Required
+    - name: Upgrade an Internal Load Balancer - Outbound Connection Required
       href: upgrade-InternalBasic-To-PublicStandard.md
-  - name: Configure outbound rules
-    items:
-    - name: Azure portal
-      href: configure-load-balancer-outbound-portal.md
-    - name: Azure CLI
-      href: configure-load-balancer-outbound-cli.md
-    - name: Azure PowerShell
-      href: configure-load-balancer-outbound-powershell.md
   - name: Create public Load Balancer with IPv6
     items:
     - name: Azure CLI
@@ -103,35 +104,25 @@
     - name: Azure Resource Manager template
       href: https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json
       displayName: ARM
-  - name: Configure internal Load Balancer
-    items:
-    - name: Azure portal
-      href: tutorial-load-balancer-standard-internal-portal.md
-    - name: Azure CLI
-      href: load-balancer-get-started-ilb-arm-cli.md
-    - name: Azure PowerShell
-      href: load-balancer-get-started-ilb-arm-ps.md
-    - name: Azure Resource Manager template
-      href: load-balancer-get-started-ilb-arm-template.md
-      displayName: ARM
   - name: Configure TCP idle timeout for Load Balancer
     href: load-balancer-tcp-idle-timeout.md
   - name: Configure distribution mode for Load Balancer
     href: load-balancer-distribution-mode.md
   - name: Using multiple IP configurations
-    href: load-balancer-multiple-ip.md
     items:
+    - name: Portal
+      href: load-balancer-multiple-ip.md
     - name: Azure CLI
       href: load-balancer-multiple-ip-cli.md
     - name: Azure PowerShell
       href: load-balancer-multiple-ip-powershell.md
   - name: Move across regions
     items:
-    - name: External load balancer - Portal
+    - name: Public Load Balancer - Portal
       href: move-across-regions-external-load-balancer-portal.md
-    - name: External load balancer - PowerShell
+    - name: Public Load Balancer - PowerShell
       href: move-across-regions-external-load-balancer-powershell.md
-    - name: Internal load balancer - Portal
+    - name: Public Load Balancer - Portal
       href: move-across-regions-internal-load-balancer-portal.md
     - name: Internal load balancer - PowerShell
       href: move-across-regions-internal-load-balancer-powershell.md

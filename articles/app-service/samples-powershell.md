@@ -12,7 +12,7 @@ ms.custom: mvc
 
 The following table includes links to PowerShell scripts built using the Azure PowerShell.
 
-| | |
+| Script | Description |
 |-|-|
 |**Create app**||
 | [Create an app with deployment from GitHub](./scripts/powershell-deploy-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an App Service app that pulls code from GitHub. |

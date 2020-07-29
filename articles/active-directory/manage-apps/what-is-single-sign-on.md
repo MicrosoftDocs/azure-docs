@@ -1,5 +1,5 @@
 ---
-title: Single sign-on to applications - Azure Active Directory | Microsoft Docs
+title: What is Azure single sign-on (SSO)?
 description: Learn how to choose a single sign-on method when configuring applications in Azure Active Directory (Azure AD). Use single sign-on so users don't need to remember passwords for every application, and to simplify the administration of account management.
 services: active-directory
 author: kenwith
@@ -14,7 +14,7 @@ ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
 ---
 
-# Single sign-on to applications in Azure Active Directory
+# What is single sign-on (SSO)?
 
 Single sign-on (SSO) adds security and convenience when users sign-on to applications in Azure Active Directory (Azure AD). This article describes the single sign-on methods, and helps you choose the most appropriate SSO method when configuring your applications.
 
@@ -66,9 +66,9 @@ SAML-based single sign-on is supported for applications that use any of these pr
 - SAML 2.0
 - WS-Federation
 
-To configure a SaaS application for SAML-based single sign-on, see [Configure SAML-based single sign-on](configure-single-sign-on-non-gallery-applications.md). Also, many Software as a Service (SaaS) applications have an [application-specific tutorial](../saas-apps/tutorial-list.md) that step you through the configuration for SAML-based single sign-on.
+To configure a SaaS application for SAML-based single sign-on, see [Configure SAML-based single sign-on](configure-saml-single-sign-on.md). Also, many Software as a Service (SaaS) applications have an [application-specific tutorial](../saas-apps/tutorial-list.md) that step you through the configuration for SAML-based single sign-on.
 
-To configure an application for WS-Federation, follow the same guidance to configure application for SAML-based single sign-on, see [Configure SAML-based single sign-on](configure-single-sign-on-non-gallery-applications.md). In the step to configure the application to use Azure AD, you will need to replace the Azure AD login URL for the WS-Federation end-point `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
+To configure an application for WS-Federation, follow the same guidance to configure application for SAML-based single sign-on. In the step to configure the application to use Azure AD, you will need to replace the Azure AD login URL for the WS-Federation end-point `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
 
 To configure an on-premises application for SAML-based single sign-on, see [SAML single-sign-on for on-premises applications with Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -85,6 +85,9 @@ Choose password-based single sign-on when:
 - An application doesn't support SAML single sign-on protocol.
 - An application authenticates with a username and password instead of access tokens and headers.
 
+>[!NOTE]
+>You cannot apply conditional access policies or multi-factor authentication for password-based SSO.
+
 Password-based single sign-on is supported for any cloud-based application that has an HTML-based sign-in page. The user can use any of the following browsers:
 
 - Internet Explorer 11 on Windows 7 or later
@@ -94,8 +97,8 @@ Password-based single sign-on is supported for any cloud-based application that 
 - Microsoft Edge on Windows 10 Anniversary Edition or later
 - Microsoft Edge for iOS and Android
 - Intune Managed Browser
-- Chrome on Windows 7 or later, and on MacOS X or later
-- Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
+- Chrome on Windows 7 or later, and on macOS X or later
+- Firefox 26.0 or later on Windows XP SP2 or later, and on macOS X 10.6 or later
 
 To configure an cloud application for password-based single sign-on, see [Configure password single sign-on](configure-password-single-sign-on-non-gallery-applications.md).
 
@@ -131,6 +134,9 @@ Linked sign-on enables Azure AD to provide single sign-on to an application that
 Linked sign-on can provide a consistent user experience while you migrate applications over a period of time. If you're migrating applications to Azure Active Directory, you can use linked sign-on to quickly publish links to all the applications you intend to migrate.  Users can find all the links in the [MyApps portal](../user-help/active-directory-saas-access-panel-introduction.md) or the [Office 365 application launcher](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Users won't know they're accessing a linked application or a migrated application.  
 
 Once a user has authenticated with a linked application, an account record needs to be created before the end user is provided single sign-on access. Provisioning this account record can either occur automatically, or it can occur manually by an administrator.
+
+>[!NOTE]
+>You cannot apply conditional access policies or multi-factor authentication to a linked application. This is because a linked application does not provide single sign-on capabilities through Azure AD. When you configure a linked application you are simply adding a link that will appear in the app launcher or MyApps portal. 
 
 ## Disabled SSO
 
@@ -187,8 +193,8 @@ Since this scenario is offered through a partnership between Azure AD and PingAc
 For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
 ## Related articles
+* [Quickstart Series on Application Management](view-applications-portal.md)
 * [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Configuring SAML-based single sign-on](configure-single-sign-on-non-gallery-applications.md)
 * [Configuring password-based single sign on](configure-password-single-sign-on-non-gallery-applications.md)
 * [Configuring linked sign-on](configure-linked-sign-on.md)
 * [Introduction to Managing Access to applications](what-is-access-management.md)

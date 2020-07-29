@@ -27,20 +27,20 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 
 | | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | Dependency<br>agent |
 |:---|:---|:---|:---|
-| Environments supported | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | 
-| Agent requirements  | None | None | Requires Log Analytics agent |
-| Data collected | Event Logs<br>ETW events<br>Performance<br>File based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event Logs<br>Performance<IIS logs><br>File based logs<br>Insights and solutions<br>Other services | Process details and dependencies<br>Network connection metrics |
-| Data sent to | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs |
+| **Environments supported** | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | 
+| **Agent requirements**  | None | None | Requires Log Analytics agent |
+| **Data collected** | Event Logs<br>ETW events<br>Performance<br>File based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event Logs<br>Performance<IIS logs><br>File based logs<br>Insights and solutions<br>Other services | Process details and dependencies<br>Network connection metrics |
+| **Data sent to** | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs |
 
 
 ### Linux agents
 
 | | Diagnostics<br>extension (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Dependency<br>agent |
 |:---|:---|:---|:---|:---|
-| Environments supported | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
-| Agent requirements  | None | None | None | Requires Log Analytics agent |
-| Data collected | Syslog<br>Performance | Performance | Syslog<br>Performance| Process details and dependencies<br>Network connection metrics |
-| Data sent to | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs |
+| **Environments supported** | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
+| **Agent requirements**  | None | None | None | Requires Log Analytics agent |
+| **Data collected** | Syslog<br>Performance | Performance | Syslog<br>Performance| Process details and dependencies<br>Network connection metrics |
+| **Data sent to** | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs |
 
 ## Log Analytics agent
 
@@ -72,7 +72,7 @@ The [Azure Diagnostics extension](diagnostics-extension-overview.md) collects mo
 Use Azure diagnostic extension if you need to:
 
 - Send data to Azure Storage for archiving or to analyze it with tools such as [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
-- Send data to [Azure Monitor Metrics](data-platform-metrics.md) to analyze it with [metrics explorer](metrics-getting-started.md) and to take advantage of features such as near real-time [metric alerts](../../azure-monitor/platform/alerts-metric-overview.md) and [autoscale](autoscale-overview.md) (Windows only).
+- Send data to [Azure Monitor Metrics](data-platform-metrics.md) to analyze it with [metrics explorer](metrics-getting-started.md) and to take advantage of features such as near real-time [metric alerts](./alerts-metric-overview.md) and [autoscale](autoscale-overview.md) (Windows only).
 - Send data to third-party tools using [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
 - Collect [Boot Diagnostics](../../virtual-machines/troubleshooting/boot-diagnostics.md) to investigate VM boot issues.
 
@@ -87,7 +87,7 @@ The [InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md) is use
 
 Use Telegraf agent if you need to:
 
-* Send data to [Azure Monitor Metrics](data-platform-metrics.md) to analyze it with [metrics explorer](metrics-getting-started.md) and to take advantage of features such as near real-time [metric alerts](../../azure-monitor/platform/alerts-metric-overview.md) and [autoscale](autoscale-overview.md) (Linux only). 
+* Send data to [Azure Monitor Metrics](data-platform-metrics.md) to analyze it with [metrics explorer](metrics-getting-started.md) and to take advantage of features such as near real-time [metric alerts](./alerts-metric-overview.md) and [autoscale](autoscale-overview.md) (Linux only). 
 
 
 
@@ -116,3 +116,4 @@ Get more details on each of the agents at the following:
 - [Overview of the Log Analytics agent](log-analytics-agent.md)
 - [Azure Diagnostics extension overview](diagnostics-extension-overview.md)
 - [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md)
+

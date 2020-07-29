@@ -9,7 +9,7 @@ ms.date: 06/26/2020
 
 The following table includes links to sample Azure PowerShell scripts for Azure Lab Services.
 
-| |  |
+| Script | Description |
 |---|---|
 |[Add an external user to a lab](scripts/add-external-user-to-lab.md)| This PowerShell script adds an external user to a lab in Azure DevTest Labs. |
 |[Add marketplace images to a lab](scripts/add-marketplace-images-to-lab.md)| This PowerShell script adds marketplace images to a lab in Azure DevTest Labs. |

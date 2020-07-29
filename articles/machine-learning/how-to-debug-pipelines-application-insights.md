@@ -3,13 +3,13 @@ title: 'Monitor &collect pipeline log files'
 titleSuffix: Azure Machine Learning
 description: Add logging to your training and batch scoring pipelines and view the logged results in Application Insights.
 services: machine-learning
-author: sanpil
-ms.author: sanpil
+author: NilsPohlmann
+ms.author: nilsp
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 01/16/2020
-ms.custom: seodec18, tracking-python
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 ---
 # Collect machine learning pipeline log files in Application Insights for alerts and debugging
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

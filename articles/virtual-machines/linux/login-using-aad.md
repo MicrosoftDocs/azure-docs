@@ -1,12 +1,12 @@
 ---
 title: Log in to a Linux VM with Azure Active Directory credentials 
 description: Learn how to create and configure a Linux VM to sign in using Azure Active Directory authentication.
-author: iainfoulds
+author: SanDeo-MSFT
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: iainfou
+ms.author: sandeo
 ---
 
 # Preview: Log in to a Linux virtual machine in Azure using Azure Active Directory authentication
@@ -105,11 +105,11 @@ az vm extension set \
     --vm-name myVM
 ```
 
-The *provisioningState* of *Succeeded* is shown once the extension is successfully installed on the VM. The VM needs a running VM agent to install the extension. For more information, see [VM Agent Overview](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+The *provisioningState* of *Succeeded* is shown once the extension is successfully installed on the VM. The VM needs a running VM agent to install the extension. For more information, see [VM Agent Overview](../extensions/agent-windows.md).
 
 ## Configure role assignments for the VM
 
-Azure Role-Based Access Control (RBAC) policy determines who can log in to the VM. Two RBAC roles are used to authorize VM login:
+Azure role-based access control (Azure RBAC) policy determines who can log in to the VM. Two RBAC roles are used to authorize VM login:
 
 - **Virtual Machine Administrator Login**: Users with this role assigned can log in to an Azure virtual machine with Windows Administrator or Linux root user privileges.
 - **Virtual Machine User Login**: Users with this role assigned can log in to an Azure virtual machine with regular user privileges.
@@ -134,7 +134,7 @@ az role assignment create \
 
 For more information on how to use RBAC to manage access to your Azure subscription resources, see using the [Azure CLI](../../role-based-access-control/role-assignments-cli.md), [Azure portal](../../role-based-access-control/role-assignments-portal.md), or [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-You can also configure Azure AD to require multi-factor authentication for a specific user to sign in to the Linux virtual machine. For more information, see [Get started with Azure Multi-Factor Authentication in the cloud](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+You can also configure Azure AD to require multi-factor authentication for a specific user to sign in to the Linux virtual machine. For more information, see [Get started with Azure Multi-Factor Authentication in the cloud](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 ## Log in to the Linux virtual machine
 

@@ -78,4 +78,4 @@ As with the other scenarios, there are important considerations:
 
 ## Next steps
 
-You can read more about [Designing Highly Available Applications using RA-GRS](../../storage/common/storage-designing-ha-apps-with-ragrs.md)
+You can read more about [Designing Highly Available Applications using RA-GRS](../../storage/common/geo-redundant-design.md)
