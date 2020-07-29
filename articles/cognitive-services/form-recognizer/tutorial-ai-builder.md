@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a form processing app with AI Builder - Form Recognizer"
 titleSuffix: Azure Cognitive Services
-description: In this tutorial
+description: In this tutorial, you'll use AI Builder to create and train a form processing application.
 author: PatrickFarley
 manager: nitinme
 
@@ -65,7 +65,7 @@ On the **Add documents** page, you need to provide sample documents to train you
 > After you upload these documents, you can still remove some of the documents or upload additional ones.
 
 > [!div class="mx-imgBorder"]
-> ![add documents page](./media/tutorial-aibuilder/add-documents-page.png)
+> ![add documents page](./media/tutorial-ai-builder/add-documents-page.png)
 
 ### Analyze your documents
 
@@ -89,7 +89,7 @@ On the field selection page, you choose the fields that matter to you:
     - **Field value**: The value for the detected field.
 
 > [!div class="mx-imgBorder"]
-> ![add documents page](./media/tutorial-aibuilder/select-fields-page.png)
+> ![add documents page](./media/tutorial-ai-builder/select-fields-page.png)
 
 ### Label undetected fields
 
@@ -100,7 +100,7 @@ If the field you want to label wasn't detected automatically by the model, you c
 1. Select **Next** to check your selected form fields. If everything looks good, select **Train** to train your model.
 
     > [!div class="mx-imgBorder"]
-    > ![add documents page](./media/tutorial-aibuilder/summary-train-page.png)
+    > ![add documents page](./media/tutorial-ai-builder/summary-train-page.png)
 1. When training completes,  select **Go to Details page** in the **Training complete** screen.
 ## Quick-test your model
 
@@ -123,7 +123,7 @@ If you're getting bad results or low confidence scores for certain fields, try t
 If you're happy with your model, select **Publish**  to publish it. When publishing completes, your model is promoted as **Published** and is ready to be used.
 
 > [!div class="mx-imgBorder"]
-> ![add documents page](./media/tutorial-aibuilder/model-page.png)
+> ![add documents page](./media/tutorial-ai-builder/model-page.png)
 
 After you've published your form processing model, you can use it in a [Power Apps canvas app](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) or in [Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow).
 
