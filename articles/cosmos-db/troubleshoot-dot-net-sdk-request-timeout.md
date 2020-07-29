@@ -18,7 +18,7 @@ The SDK has two distinct alternatives to control timeouts, each with a different
 
 ### RequestTimeout
 
-The `CosmosClientOptions.RequestTimeout` (or `ConnectionPolicy.RequestTimeout` for SDK V2) configuration allows you to set a timeout that affects each individual network request. An operation started by a user can span multiple network requests (for example, there could be throttling) and this configuration would only apply for each request, not for the scope of the complete operation.
+The `CosmosClientOptions.RequestTimeout` (or `ConnectionPolicy.RequestTimeout` for SDK V2) configuration allows you to set a timeout that affects each individual network request.  An operation started by a user can span multiple network requests (for example, there could be throttling) and this configuration would apply for each network request on the retry. This is not an end to end operation request timeout.
 
 ### CancellationToken
 
