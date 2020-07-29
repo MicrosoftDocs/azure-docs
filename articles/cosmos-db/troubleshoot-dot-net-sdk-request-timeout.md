@@ -3,7 +3,7 @@ title: Troubleshoot Azure Cosmos DB HTTP 408 or request timeout issues with .NET
 description: How to diagnose and fix .NET SDK request timeout exception
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/27/2020
+ms.date: 07/29/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -24,6 +24,7 @@ The SDK has two distinct alternatives to control timeouts, each with a different
 
 All the async operations in the SDK have an optional CancellationToken parameter. This [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) is used throughout the entire operation, across all network requests. In-between network requests, the CancellationToken might be checked and an operation cancelled if the related token is expired. This makes it easier if the intent is to define an approximate expected timeout on the operation scope.
 
+> [!NOTE]
 > CancellationToken is a mechanism where the library will check the cancellation when it [won't cause an invalid state](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). The operation might not cancel exactly when the time defined in the cancellation is up, but rather, after the time is up, it will cancel when it is safe to do so.
 
 ## Troubleshooting steps
