@@ -4,7 +4,7 @@ description: This page describes some common DTU resource limits for elastic poo
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1 references_regions
 ms.devlang:
 ms.topic: conceptual
 author: sachinpMSFT
