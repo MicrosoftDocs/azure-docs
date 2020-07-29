@@ -14,7 +14,7 @@ When a role is assigned to an Azure AD security principal, Azure grants access t
 > A role definition is a collection of permissions. Role-based access control (RBAC) controls how these permissions are enforced through role assignment. A role assignment consists of three elements: security principal, role definition, and scope. For more information, see [Understanding the different roles](../role-based-access-control/overview.md).
 
 ## Built-in roles for Azure Event Hubs
-Azure provides the following built-in RBAC roles for authorizing access to Event Hubs data using Azure AD and OAuth:
+Azure provides the following Azure built-in roles for authorizing access to Event Hubs data using Azure AD and OAuth:
 
 - [Azure Event Hubs Data Owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): Use this role to give complete access to Event Hubs resources.
 - [Azure Event Hubs Data Sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Use this role to give send access to Event Hubs resources.
