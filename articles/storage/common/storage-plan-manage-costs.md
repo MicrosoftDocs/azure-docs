@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 07/29/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
@@ -13,15 +13,15 @@ ms.custom: subject-cost-optimization
 
 # Plan and manage costs for Azure Storage
 
-****** Update the overview as the template is a bit too Cost Management/Billing focused and we should update the article to incorporate more cost management features. *****
+This article describes how you plan and manage costs for Azure Storage. 
 
-This article describes how you plan and manage costs for Azure Storage. First, you use the Azure pricing calculator to help plan for storage costs before you add any resources. After you begin using Azure Storage resources, use cost management features to set budgets and monitor costs. You can also review forecasted costs and monitor spending trends to identify areas where you might want to act.
+Start by using the Azure pricing calculator. This calculator helps you to plan for costs before you create your storage account. Consider whether it makes sense to save on costs by reserving storage capacity in advance. 
+
+After you create your account, organize your data into access tiers. Choosing the right access tiers optimize your costs to match your use of the data. Use lifecycle management policies to dynamically move your data between tiers based on usage. 
+
+After you've configured your account to optimize costs, use cost management features to set budgets and monitor costs. You can also review forecasted costs and monitor spending trends to identify areas where you might want to act.
 
 Keep in mind that costs for Azure Storage are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Storage, you're billed for all Azure services and resources used for your Azure subscription, including the third-party services. After you're familiar with managing costs for Azure Storage, you can apply similar methods to manage costs for all the Azure services used in your subscription.
-
-## Prerequisites
-
-Cost analysis supports different kinds of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](../../cost-management-billing/costs/understand-cost-mgt-data.md). To view cost data, you need at least read access for your Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../../cost-management-billing/costs/assign-access-acm-data.md).
 
 ## Estimate costs
 
@@ -72,11 +72,12 @@ You can create [budgets](../../cost-management-billing/costs/tutorial-acm-create
 
 ## Monitor costs
 
-*** Refer to the mail from Bill "Question about Azure Storage meters" and modify this section as appropriate.
-
 As you use Azure resources with Azure Storage, you incur costs. Resource usage unit costs vary by time intervals (seconds, minutes, hours, and days) or by unit usage (bytes, megabytes, and so on.) Costs are incurred as soon as usage of Azure Storage starts. You can see the costs in the [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md) pane in the Azure portal.
 
 When you use cost analysis, you can view Azure Storage costs in graphs and tables for different time intervals. Some examples are by day, current and prior month, and year. You can also view costs against budgets and forecasted costs. Switching to longer views over time can help you identify spending trends and see where overspending might have occurred. If you've created budgets, you can also easily see where they exceeded.
+
+>[!NOTE]
+> Cost analysis supports different kinds of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](../../cost-management-billing/costs/understand-cost-mgt-data.md). To view cost data, you need at least read access for your Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../../cost-management-billing/costs/assign-access-acm-data.md).
 
 To view Azure Storage costs in cost analysis:
 
@@ -92,7 +93,8 @@ To view Azure Storage costs in cost analysis:
 
    ![Monitor storage costs with Cost Analysis pane](./media/storage-plan-manage-costs/cost-analysis-pane-storage.png)
 
-In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and by resource group also appear.  
+In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and by resource group also appear. 
+You can add other filters as well (For example: a filter to see costs for specific storage accounts).
 
 ## Next steps
 
