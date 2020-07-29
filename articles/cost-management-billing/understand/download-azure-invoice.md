@@ -89,6 +89,8 @@ To download an invoice:
     [![Screenshot that shows selecting access to invoice](./media/download-azure-invoice/cmb-select-access-to-invoice.png)](./media/download-azure-invoice/cmb-select-access-to-invoice-zoomed-in.png#lightbox)
 1.  Select **On** and then **Save** at the top of the page.  
     ![Screenshot that shows selecting on for access to invoice](./media/download-azure-invoice/cmb-access-to-invoice.png)
+    
+    Note: Microsoft does not recommend sharing any confidential/PII details with 3rd party. This applies to sharing your Azure bill/invoice with a 3rd party for cost optimizations. References: https://azure.microsoft.com/en-us/support/legal/ and https://www.microsoft.com/en-us/trust-center
 
 ## Get MOSP subscription invoice in email
 
