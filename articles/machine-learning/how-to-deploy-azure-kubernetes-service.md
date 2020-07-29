@@ -230,7 +230,7 @@ For information on using VS Code, see [deploy to AKS via the VS Code extension](
 
 ### Understand the deployment processes
 
-The word "deployment" is used in both Kubernetes and Azure Machine Learning. "Deployment" has very different meanings in these two contexts. In Kubernetes, a `Deployment` is a concrete entity, specified with a declarative YAML file. A Kubernetes `Deployment` has a defined lifecycle and concrete relationships to other Kubernetes entities such as `Pods` and `ReplicaSets`. You can learn about Kubernetes from docs and videos at [What is Kubernetes?](https://aka.ms/k8slearning). 
+The word "deployment" is used in both Kubernetes and Azure Machine Learning. "Deployment" has very different meanings in these two contexts. In Kubernetes, a `Deployment` is a concrete entity, specified with a declarative YAML file. A Kubernetes `Deployment` has a defined lifecycle and concrete relationships to other Kubernetes entities such as `Pods` and `ReplicaSets`. You can learn about Kubernetes from docs and videos at [What is Kubernetes?](https://aka.ms/k8slearning).
 
 In Azure Machine Learning, "deployment" is used in the more general sense of making available and cleaning up your project resources. The steps that Azure Machine Learning considers part of deployment are:
 
@@ -249,7 +249,7 @@ In Azure Machine Learning, "deployment" is used in the more general sense of mak
 1. Unzipping the project file
 1. The compute node executing `python <entry script> <arguments>`
 1. Saving logs, model files, and other files written to `./outputs` to the storage account associated with the workspace
-1. Compute scales down, including removing temporary storage (Relates to Kubernetes)
+1. Scaling down compute, including removing temporary storage (Relates to Kubernetes)
 
 When you're using AKS, the scaling up and down of the compute is controlled by Kubernetes, using the dockerfile built or found as described above. 
 
