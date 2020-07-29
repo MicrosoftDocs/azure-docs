@@ -1,7 +1,7 @@
 ---
 title: Authentication with Microsoft Azure Maps
 titleSuffix: Azure Maps
-description: In this article, you'll learn about Azure Active Directory and Shared Key authentication.
+description: "Learn about two ways of authenticating requests in Azure Maps: shared key authentication and Azure Active Directory (Azure AD) authentication."
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/27/2020
