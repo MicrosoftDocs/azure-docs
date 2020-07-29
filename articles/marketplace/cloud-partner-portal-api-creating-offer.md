@@ -283,7 +283,7 @@ When creating a new offer, you must specify a category for your offer in the mar
 
 ### Azure Marketplace categories
 
-These categories and their respective keys are applicable for Azure apps, Virtual Machines, Core Virtual Machines, Containers, Container apps, IoT Edge modules, and SaaS offer types. Rows in bold italic (like ***analytics***) are categories and standard text rows (like data-insights) are subcategories under the bold italic category. Use the exact key values, without changing spacing or capitalization.
+These categories and their respective keys are applicable for Azure apps, Virtual Machines, Core Virtual Machines, Containers, Container apps, IoT Edge modules, and SaaS offer types. Items in bold italic (like ***analytics***) are categories and standard text items (like data-insights) are subcategories below them. Use the exact key values, without changing spacing or capitalization.
 
 | Category | SaaS keys | Azure App keys | Virtual Machine, Containers, Container apps, IoT Edge Module, Core Virtual Machine keys |
 | --- | --- | --- | --- |
@@ -392,7 +392,7 @@ These categories and their respective keys are applicable for Azure apps, Virtua
 
 ### Microsoft AppSource categories
 
-These categories and their respective keys are applicable for SaaS, PowerBI app, Dynamics 365 business central, Dynamics 365 for customer engagement, and Dynamics 365 for operation offer types. Rows in bold italic (like ***analytics***) are categories and standard text rows (like advanced-analytics) are subcategories under the bold italic category. Use the exact key values, without changing spacing or capitalization.
+These categories and their respective keys are applicable for SaaS, PowerBI app, Dynamics 365 business central, Dynamics 365 for customer engagement, and Dynamics 365 for operation offer types. Items in bold italic (like ***analytics***) are categories and standard text items (like advanced-analytics) are subcategories below them. Use the exact key values, without changing spacing or capitalization.
 
 | Category | SaaS keys | Dynamics 365 business central, Dynamics 365 for customer engagement, Dynamics 365 for operation keys | PowerBI app keys |
 | --- | --- | --- | --- |
@@ -494,7 +494,7 @@ These categories and their respective keys are applicable for SaaS, PowerBI app,
 
 ### Microsoft AppSource industries
 
-These industries and their respective keys are applicable for SaaS, PowerBI app, Dynamics 365 business central, Dynamics 365 for customer engagement, and Dynamics 365 for operation offer types. Rows in bold italic (like ***Automotive***) are categories and standard text rows (like AutomotiveL2) are subcategories under the bold italic category. Use the exact key values, without changing spacing or capitalization.
+These industries and their respective keys are applicable for SaaS, PowerBI app, Dynamics 365 business central, Dynamics 365 for customer engagement, and Dynamics 365 for operation offer types. Items in bold italic (like ***Automotive***) are categories and standard text items (like AutomotiveL2) are subcategories below them. Use the exact key values, without changing spacing or capitalization.
 
 | Industry | SaaS, Dynamics 365 business central, Dynamics 365 for customer engagement, Dynamics 365 for operation keys | PowerBI apps keys |
 | --- | --- | --- |
