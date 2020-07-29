@@ -1,5 +1,5 @@
 ---
-title: Transform data using a mapping data flow
+title: Transform data with an Azure Data Factory managed VNet mapping data flow
 description:  This tutorial provides step-by-step instructions for using Azure Data Factory to transform data with mapping data flow
 author: djpmsft
 ms.author: daperlov

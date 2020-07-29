@@ -106,7 +106,7 @@ Virtual WAN provides advanced routing enhancements. Ability to set up custom rou
 
 ### <a name="global"></a>Global VNet peering
 
-Global VNet Peering provides a mechanism to connect two VNets in different regions. In Virtual WAN, virtual network connections connect VNets to virtual hubs. The user does not need to set up global VNet peering explicitly. VNets connected to virtual hub is same region incur VNet peering charges. VNets connected to virtual hub in a different region incur Global VNet peering charges.
+Global VNet Peering provides a mechanism to connect two VNets in different regions. In Virtual WAN, virtual network connections connect VNets to virtual hubs. The user does not need to set up global VNet peering explicitly. VNets connected to virtual hub in same region incur VNet peering charges. VNets connected to virtual hub in a different region incur Global VNet peering charges.
 
 ### <a name="encryption"></a>ExpressRoute traffic encryption
 

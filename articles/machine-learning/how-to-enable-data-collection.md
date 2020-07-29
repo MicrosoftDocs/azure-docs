@@ -5,12 +5,12 @@ description: Learn how to collect data from a deployed Azure Machine Learning mo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 07/14/2020
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: how-to
 
 ---
 # Collect data from models in production
@@ -67,7 +67,7 @@ The path to the output data in the blob follows this syntax:
 
 ## Enable data collection
 
-You can enable data collection regardless of the model you deploy through Azure Machine Learning or other tools.
+You can enable [data collection](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py) regardless of the model you deploy through Azure Machine Learning or other tools.
 
 To enable data collection, you need to:
 

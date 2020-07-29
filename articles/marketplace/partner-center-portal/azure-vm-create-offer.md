@@ -1,12 +1,12 @@
 ---
 title: Create an Azure virtual machine offer on Azure Marketplace
-description: Learn how to create a virtual machine offer on Azure Marketplace with the required plan.
+description: Learn how to publish a virtual machine offer to Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 07/14/2020
+ms.date: 07/28/2020
 ---
 
 # Create an Azure virtual machine offer on Azure Marketplace
@@ -347,7 +347,7 @@ In this section, you configure the listing details of the plan. This pane displa
 
 #### Plan name
 
-This field is autofilled with the name that you gave your plan when you created it. This name appears on Azure Marketplace as the title of this plan. It is limited to 100 characters.
+This field is automatically filled with the name that you gave your plan when you created it. This name appears on Azure Marketplace as the title of this plan. It is limited to 100 characters.
 
 #### Plan summary
 
@@ -363,7 +363,7 @@ Select **Save draft** before you continue.
 
 On this pane, you configure:
 
-- Markets where this plan is available.
+- Markets where this plan is available. Every plan must be available in at least one [market](../marketplace-geo-availability-currencies.md).
 - The price per hour.
 - Whether to make the plan visible to everyone or only to specific customers (a private audience).
 
@@ -447,30 +447,6 @@ For **Disk deployment option**, select the type of disk deployment that your cus
 #### Properties
 
 For **Support Accelerated Networking**, select whether your VM supports [Accelerated Networking](https://go.microsoft.com/fwlink/?linkid=2124513).
-
-#### Generations
-
-Generating a virtual machine defines the virtual hardware it uses. Based on your customer’s needs, you can publish a Generation 1 VM, Generation 2 VM, or both.
-
-1. When creating a new offer, select a **Generation type** and enter the requested image details:
-
-    :::image type="content" source="./media/azure-vm-generations-image-details.png" alt-text="A view of the Generation drop-down box.":::
-
-2. To add another generation to a plan, select **Add generation**:
-
-    :::image type="content" source="./media/azure-vm-generations-add.png" alt-text="A view of the 'Add Generation' link.":::
-
-    Then enter the generation details:
-
-    :::image type="content" source="./media/azure-vm-generations-details.png" alt-text="A view of the generation details window.":::
-
-    The **Generation ID** you choose will be visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
-
-3. To update an existing VM that has a Generation 1 already published, simply edit details on the **Technical configuration** page:
-
-    :::image type="content" source="./media/azure-vm-generations-updating.png" alt-text="A view of the plan technical configuration page.":::
-
-To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
 
 #### VM images
 

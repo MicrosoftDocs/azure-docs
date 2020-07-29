@@ -4,6 +4,8 @@ Description: To understand your tax considerations for price selection, payout i
 ms.topic: conceptual
 ms.service: marketplace
 ms.date: 05/04/2020
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Tax details for commercial marketplace publishers

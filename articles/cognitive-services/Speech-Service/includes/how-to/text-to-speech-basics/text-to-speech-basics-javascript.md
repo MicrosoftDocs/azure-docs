@@ -19,30 +19,6 @@ class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 Additionally, depending on the target environment use one of the following:
 
-# [import](#tab/import)
-
-```javascript
-import { readFileSync } from "fs";
-import {
-    AudioConfig,
-    SpeechConfig,
-    SpeechSynthesisOutputFormat,
-    SpeechSynthesizer 
-} from "microsoft-cognitiveservices-speech-sdk";
-```
-
-For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">export and import <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-
-# [require](#tab/require)
-
-```javascript
-const readFileSync = require("fs").readFileSync;
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-```
-
-For more information on `require`, see <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">what is require? <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-
-
 # [script](#tab/script)
 
 Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK for JavaScript <span class="docon docon-navigate-external x-hidden-focus"></span></a> *microsoft.cognitiveservices.speech.sdk.bundle.js* file, and place it in a folder accessible to your HTML file.
@@ -54,7 +30,24 @@ Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" targ
 > [!TIP]
 > If you're targeting a web browser, and using the `<script>` tag; the `sdk` prefix is not needed. The `sdk` prefix is an alias used to name the `require` module.
 
+# [import](#tab/import)
+
+```javascript
+import * from "microsoft-cognitiveservices-speech-sdk";
+```
+
+For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">export and import <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+# [require](#tab/require)
+
+```javascript
+const sdk = require("microsoft-cognitiveservices-speech-sdk");
+```
+
+For more information on `require`, see <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">what is require? <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
 ---
+
 
 ## Create a speech configuration
 

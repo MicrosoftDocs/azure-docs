@@ -21,9 +21,7 @@ For more information, see [What is Azure Private Link?](../private-link/private-
 > Trusted Microsoft services are not supported when using Virtual Networks.
 >
 > Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
-> - Azure Monitor (diagnostic setting)
 > - Azure Stream Analytics
-> - Integration with Azure Event Grid
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
 >

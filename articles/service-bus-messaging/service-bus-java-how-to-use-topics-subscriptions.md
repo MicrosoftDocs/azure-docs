@@ -4,7 +4,7 @@ description: In this quickstart, you write Java code to send messages to an Azur
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
 # Quickstart: Use Service Bus topics and subscriptions with Java

@@ -106,7 +106,7 @@ There are two ways to stop protecting Files and Folders backup:
 1. In **Pause Scheduled Backup**, review the information and click **Finish**.
 
     ![Modify or stop a scheduled backup.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. In **Modify backup process**, check your schedule backup pause is in success status and click **close** to finish.
+1. In **Modify backup progress**, check your schedule backup pause is in success status and click **close** to finish.
 
 ### Stop protection and delete backup data
 
@@ -157,7 +157,7 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
 
     ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase.png)
 
-1. Click **OK** to apply changes.  If the [Security Feature](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) is enabled on the Azure portal for the Recovery Services Vault, then you'll be prompted to enter the Security PIN. To receive the PIN, follow the steps listed in this [article](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
+1. Click **OK** to apply changes.  If the [Security Feature](./backup-azure-security-feature.md#enable-security-features) is enabled on the Azure portal for the Recovery Services Vault, then you'll be prompted to enter the Security PIN. To receive the PIN, follow the steps listed in this [article](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
 1. Paste the security PIN from the portal and click **OK** to apply the changes.<br>
 
     ![Generate passphrase.](./media/backup-azure-manage-mars/passphrase2.png)
@@ -186,6 +186,6 @@ Managing the backup policy for MARS is done through the MARS console and not thr
 
 ## Next steps
 
-- For information about supported scenarios and limitations, refer to the [Support Matrix for the MARS Agent](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
+- For information about supported scenarios and limitations, refer to the [Support Matrix for the MARS Agent](./backup-support-matrix-mars-agent.md).
 - Learn more about [On demand backup policy retention behavior](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).
 - For more frequently asked questions, see the [MARS agent FAQ](backup-azure-file-folder-backup-faq.md).

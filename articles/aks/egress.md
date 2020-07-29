@@ -12,7 +12,7 @@ ms.date: 03/04/2019
 
 # Use a static public IP address for egress traffic with a *Basic* SKU load balancer in Azure Kubernetes Service (AKS)
 
-By default, the egress IP address from an Azure Kubernetes Service (AKS) cluster is randomly assigned. This configuration is not ideal when you need to identify an IP address for access to external services, for example. Instead, you may need to assign a static IP address that can be whitelisted for service access.
+By default, the egress IP address from an Azure Kubernetes Service (AKS) cluster is randomly assigned. This configuration is not ideal when you need to identify an IP address for access to external services, for example. Instead, you may need to assign a static IP address to be added to an allow list for service access.
 
 This article shows you how to create and use a static public IP address for use with egress traffic in an AKS cluster.
 
@@ -105,7 +105,7 @@ To verify that the static public IP address is being used, you can use DNS look-
 Start and attach to a basic *Debian* pod:
 
 ```console
-kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
+kubectl run -it --rm aks-ip --image=debian
 ```
 
 To access a web site from within the container, use `apt-get` to install `curl` into the container.

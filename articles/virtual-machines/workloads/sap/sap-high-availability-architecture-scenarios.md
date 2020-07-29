@@ -93,7 +93,7 @@ ms.custom: H1Hack27Feb2017
 [sap-ha-bc-virtual-env-hyperv-vmware-white-paper]:https://scn.sap.com/docs/DOC-44415
 [sap-ha-partner-information]:https://scn.sap.com/docs/DOC-8541
 [azure-sla]:https://azure.microsoft.com/support/legal/sla/
-[azure-virtual-machines-manage-availability]:https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability
+[azure-virtual-machines-manage-availability]:../../windows/manage-availability.md
 [azure-storage-redundancy]:https://azure.microsoft.com/documentation/articles/storage-redundancy/
 [azure-storage-managed-disks-overview]:https://docs.microsoft.com/azure/storage/storage-managed-disks-overview
 
@@ -224,7 +224,7 @@ ms.custom: H1Hack27Feb2017
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
-[virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
+[virtual-machines-manage-availability]:../../manage-availability.md
 
 
 ## Terminology definitions
@@ -353,12 +353,12 @@ _**Figure 1:** High-availability SAP application server_
 
 You must place all virtual machines that host SAP application server instances in the same Azure availability set. An Azure availability set ensures that:
 
-* All virtual machines are part of the same update domain.  
+* All virtual machines are not part of the same update domain.  
     An update domain ensures that the virtual machines aren't updated at the same time during planned maintenance downtime.
 
     The basic functionality, which builds on different update and fault domains within an Azure scale unit, was already introduced in the [update domains][planning-guide-3.2.2] section.
 
-* All virtual machines are part of the same fault domain.  
+* All virtual machines are not part of the same fault domain.  
     A fault domain ensures that virtual machines are deployed so that no single point of failure affects the availability of all virtual machines.
 
 The number of update and fault domains that can be used by an Azure availability set within an Azure scale unit is finite. If you keep adding VMs to a single availability set, two or more VMs will eventually end up in the same fault or update domain.

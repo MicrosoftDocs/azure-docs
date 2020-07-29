@@ -1,6 +1,5 @@
 ---
-title: Optimize algorithms
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Optimize algorithms - Azure'
 description: Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
@@ -12,7 +11,9 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
 ---
-# Choose parameters to optimize your algorithms in Azure Machine Learning Studio (classic)
+# Choose parameters to optimize your algorithms in Machine Learning Studio (classic)
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
 
 This topic describes how to choose the right hyperparameter set for an algorithm in Azure Machine Learning Studio (classic). Most machine learning algorithms have parameters to set. When you train a model, you need to provide values for those parameters. The efficacy of the trained model depends on the model parameters that you choose. The process of finding the optimal set of parameters is known as *model selection*.
 

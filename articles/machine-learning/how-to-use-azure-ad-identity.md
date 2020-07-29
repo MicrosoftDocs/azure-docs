@@ -8,8 +8,9 @@ author: BlackMist
 ms.reviewer: aashishb
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 02/10/2020
+ms.topic: conceptual
+ms.custom: how-to
 ---
 
 # Use Azure AD identity with your machine learning web service in Azure Kubernetes Service
@@ -145,6 +146,9 @@ secret_client = SecretClient(
     credential=credential)
 secret = secret_client.get_secret(my_secret_name)
 ```
+
+> [!IMPORTANT]
+> This example uses the DefaultAzureCredential. To grant your identity access using a specific access policy, see [Part 4: Retrieve the secret from you Azure Key Vault](../key-vault/general/authentication.md#part-4-retrieve-the-secret-from-your-azure-key-vault-in-an-application-python).
 
 ### Access Blob from your web service
 

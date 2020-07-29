@@ -82,7 +82,7 @@ Extended Update Support (EUS) repositories are available to customers who may wa
 At the time of this writing, EUS support has ended for RHEL <= 7.4. See the "Red Hat Enterprise Linux Extended Maintenance" section in the [Red Hat documentation](https://access.redhat.com/support/policy/updates/errata/#Long_Support) for more details.
 * RHEL 7.4 EUS support ends August 31, 2019
 * RHEL 7.5 EUS support ends April 30, 2020
-* RHEL 7.6 EUS support ends October 31, 2020
+* RHEL 7.6 EUS support ends May 31, 2021
 * RHEL 7.7 EUS support ends August 30, 2021
 
 ### Switch a RHEL VM to EUS (version-lock to a specific minor version)

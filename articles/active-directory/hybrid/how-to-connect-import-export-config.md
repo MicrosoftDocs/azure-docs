@@ -95,6 +95,8 @@ Known limitations include the following:
 - **Custom Run Profiles** - although it is possible to modify the default set of run profiles using the Synchronization Service Manager, this feature is currently not supported via synchronization settings. After completing installation, you must manually reapply the advanced configuration. 
 - **Configuring the Provisioning Hierarchy** – this advanced feature of the Synchronization Service Manager is not supported via synchronization settings and must be manually reconfigured after completing the initial deployment. 
 - **AD FS and PingFederate Authentication** – the sign-on methods associated with these authentication features will be automatically pre-selected, however you must interactively supply all other required configuration parameters. 
+- **A disabled custom synchronization rule will be imported as enabled**
+A disabled custom synchronization rule will be imported as enabled. Make sure to disable it on the new server as well.
 
  ## Next Steps
 
