@@ -1,6 +1,5 @@
 ---
-title: Use the sample datasets
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Use the sample datasets - Azure'
 description: Descriptions of the datasets used in sample models included in Machine Learning Studio (classic). You can use these sample datasets for your experiments.
 services: machine-learning
 ms.service: machine-learning
@@ -13,6 +12,9 @@ ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
 ---
 # Use the sample datasets in Azure Machine Learning Studio (classic)
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
 
 [top]: #machine-learning-sample-datasets
 

@@ -33,6 +33,6 @@ If you are an owner, the `roleDefinitionName` value in the output is *Owner*:
 
 :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/owner-role.png" alt-text="Cloud Shell window showing output of the az role assignment list command":::
 
-If you find that the value is *Contributor* or something other than *Owner*, you can contact your subscription Owner and proceed in one of the following ways:
-* Request for the Owner to complete the steps in this article on your behalf
-* Request for the Owner to elevate you to Owner on the subscription as well, so that you will have the permissions to proceed yourself. Whether this is appropriate depends on your organization and your role within it.
+If you find that the value is *Contributor* or something other than *Owner*, you can proceed in one of the following ways:
+* Contact your subscription Owner and request for the Owner to complete the steps in this article on your behalf
+* Contact either your subscription Owner or someone with User Access Admin role on the subscription, and request that they elevate you to Owner on the subscription so that you will have the permissions to proceed yourself. Whether this is appropriate depends on your organization and your role within it.
