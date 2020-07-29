@@ -41,7 +41,7 @@ az ad sp create --id 3274406e-4e0a-4852-ba4f-d7226630abb7
 
 You can configure the Azure API for FHIR to use an external or secondary Azure Active Directory tenant in the **Authentication** blade:
 
-![Local Azure role assignments](media/rbac/local-rbac-guids.png).
+![Local RBAC assignments](media/rbac/local-rbac-guids.png).
 
 In the authority box, enter a valid Azure Active Directory tenant. Once the tenant has been validated, the **Allowed object IDs** box should be activated and you can enter a list of identity object IDs. These IDs can be the identity object IDs of:
 
