@@ -14,7 +14,7 @@ HCX Advanced, the default installation, supports up to three vCenters. If more t
 
 Thoroughly review [Before you begin](#before-you-begin), [Software version requirements](#software-version-requirements), and [Prerequisites](#prerequisites) first. 
 
-Then, we walk through all necessary procedures to:
+Then, we'll walk through all necessary procedures to:
 
 > [!div class="checklist"]
 > * Deploy the on-premises HCX OVA
