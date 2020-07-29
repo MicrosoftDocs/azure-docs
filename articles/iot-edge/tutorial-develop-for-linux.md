@@ -283,7 +283,7 @@ You verified that the built container images are stored in your container regist
 
 4. Under your device, expand **Modules** to see a list of deployed and running modules. Click the refresh button. You should see the new SimulatedTemperatureSensor and SampleModule modules running on your device.
 
-   It may take a few minutes for both modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
+   It may take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
 
    ![View modules running on your IoT Edge device](./media/tutorial-develop-for-linux/view-running-modules.png)
 
