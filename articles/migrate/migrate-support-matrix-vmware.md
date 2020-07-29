@@ -86,7 +86,6 @@ In addition to discovering machines, Server Assessment can discover apps, roles,
 **Linux account** | For dependency analysis, on Linux machines the Azure Migrate appliance needs a user account with Root privilege.<br/><br/> Alternately, the user account needs these permissions on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE.
 **Required agents** | No agent required on machines you want to analyze.
 **VMware Tools** | VMware Tools (later than 10.2) must be installed and running on each VM you want to analyze.
-
 **PowerShell** | Windows VMs must have PowerShell version 2.0 or above installed.
 **Port access** | On ESXi hosts running VMs you want to analyze, the Azure Migrate appliance must be able to connect to TCP port 443.
 
