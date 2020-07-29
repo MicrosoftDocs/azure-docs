@@ -15,7 +15,7 @@ ms.reviewer: arvinh,luleon
 
 # Configure SAML-based single sign-on
 
-In the quickstart series on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. This article goes into more detail about the SAML option for single sign-on. 
+In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. This article goes into more detail about the SAML option for single sign-on. 
 
 
 ## Before you begin
