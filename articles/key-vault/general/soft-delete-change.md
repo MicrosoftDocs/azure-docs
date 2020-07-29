@@ -1,5 +1,5 @@
 ---
-title: Soft Delete Update | Microsoft Docs
+title: Soft Delete will be enabled on all Azure Key Vaults | Microsoft Docs
 description: Use this document to adopt soft-delete for all key vaults.
 services: key-vault
 author: ShaneBala-keyvault
@@ -15,7 +15,7 @@ ms.author: sudbalas
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
 ---
 
-# Soft Delete will be enabled on all key vaults
+# Soft-delete will be enabled on all key vaults
 
 > [!WARNING]
 > **Breaking Change**: The ability to opt out of soft-delete will be deprecated by the end of the year and soft-delete protection will automatically be turned on for all key vaults.  Azure Key Vault users and administrators should enable soft-delete on their key vaults immediately.
@@ -46,7 +46,7 @@ Security principals that need access to permanently delete secrets must be grant
 
 If you have an Azure Policy on your key vaults that mandates that soft-delete is turned off, this policy will need to be disabled.  You may need to escalate this issue to an administrator that controls Azure Policies applied to your environment. If this policy is not disabled, you may lose the ability to create new key vaults in the scope of the applied policy.
 
-If your organization is subject to has legal compliance requirements such as GDPR and cannot allow deleted key vaults and secrets to remain in a recoverable state, for an extended period of time, you will have to adjust the retention period of soft-delete, which is configurable between 7 – 90 days, to meet your organization’s standards.
+If your organization is subject to has legal compliance requirements and cannot allow deleted key vaults and secrets to remain in a recoverable state, for an extended period of time, you will have to adjust the retention period of soft-delete, which is configurable between 7 – 90 days, to meet your organization’s standards.
 
 ## Procedures
 
@@ -83,7 +83,7 @@ You should now be able to filter and see which of your key vaults have soft-dele
 4. Select the service principal you would like to grant access to.
 5. For each dropdown under key, secret, and certificate permissions scroll down to "Privileged Operations" and select the "Purge" permission.
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 ### Does this change affect me?
 
