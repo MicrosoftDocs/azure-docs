@@ -4,7 +4,7 @@ description: Tutorial - Learn how to run Python scripts as part of a pipeline th
 author: mammask
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/11/2019
+ms.date: 07/29/2020
 ms.author: komammas
 ms.custom: mvc, tracking-python
 ---
@@ -94,7 +94,7 @@ df = df[df['Species'] == "setosa"]
 df.to_csv("iris_setosa.csv", index = False)
 
 # Upload iris dataset
-blobService.create_blob_from_text(containerName, "iris_setosa.csv", "iris_setosa.csv")
+blobService.create_blob_from_path(containerName, "iris_setosa.csv", "iris_setosa.csv")
 ```
 
 Save the script as `main.py` and upload it to the **Azure Storage** container. Be sure to test and validate its functionality locally before uploading it to your blob container:
