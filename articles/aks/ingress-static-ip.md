@@ -65,7 +65,10 @@ The ingress controller also needs to be scheduled on a Linux node. Windows Serve
 > [!TIP]
 > If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, TLS pass-through will not work.
 
-Update the following script with the **IP address** of your ingress controller and a **unique name** that you would like to use for the FQDN prefix:
+Update the following script with the **IP address** of your ingress controller and a **unique name** that you would like to use for the FQDN prefix.
+
+> [!IMPORTANT]
+> You must update replace *STATIC_IP* and *DNS_LABEL* with your own IP address and unique name when running the command.
 
 ```console
 # Create a namespace for your ingress resources
@@ -81,7 +84,7 @@ helm install nginx-ingress stable/nginx-ingress \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="STATIC_IP" \
-    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="demo-aks-ingress"
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="DNS_LABEL"
 ```
 
 When the Kubernetes load balancer service is created for the NGINX ingress controller, your static IP address is assigned, as shown in the following example output:

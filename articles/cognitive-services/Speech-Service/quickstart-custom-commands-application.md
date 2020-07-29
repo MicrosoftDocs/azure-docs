@@ -12,20 +12,32 @@ ms.date: 06/18/2020
 ms.author: sausin
 ---
 
+
+
 # Create a voice assistant using Custom Commands
 
 In this quickstart, you create and test a basic Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app. **Custom Commands** makes it easy to build rich voice commanding apps optimized for voice-first interaction experiences. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity, helping you focus on building the best solution for your voice commanding scenarios.
 
+## Region Availability
+At this time, Custom Commands supports speech subscriptions created in these regions:
+* West US
+* West US2
+* East US
+* East US2
+* North Europe
+* West Europe
+* West Central US
+* Central India
+* East Asia
+* Southeast Asia
+
 ## Prerequisites
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource in a region that supports Custom Commands.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource in a region that supports Custom Commands.<span class="docon docon-navigate-external x-hidden-focus"></span></a> Refer to the **Region Availability** section above for list of supported regions.
 > * Download the sample
 [Smart Room Lite](https://aka.ms/speech/cc-quickstart) json file.
 > * Download the latest version of [Windows Voice Assistant Client](https://aka.ms/speech/va-samples-wvac).
-
-> [!NOTE]
-> At this time, Custom Commands only supports speech subscriptions in the westus, westus2 and northeurope regions.
 
 ## Go to the Speech Studio for Custom Commands
 

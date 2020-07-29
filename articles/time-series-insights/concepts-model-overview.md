@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.custom: seodec18
 ---
 
@@ -19,7 +19,7 @@ This article describes Time Series Model, the capabilities, and how to start bui
 > [!TIP]
 >
 > * Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment for a live Time Series Model example.
-> * Learn [how to work with Time Series Model](/azure/time-series-insights/concepts-model-overview) using the Azure Time Series Insights Gen2 Explorer.
+> * Learn [how to work with Time Series Model](/azure/time-series-insights/how-to-edit-your-model) using the Azure Time Series Insights Gen2 Explorer.
 
 ## Summary
 
@@ -278,12 +278,13 @@ Types conform to the following JSON example:
   ]
 }
 ```
+
 Time Series Model types can have many variables that specify formula and computation rules on events. Read more about [how to define Time Series Model variables](./concepts-variables.md)
 
 ## Next steps
 
-- Read the [Time Series Model](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) reference documentation for more information on how to edit the model via APIs.
+* Read the [Time Series Model](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) reference documentation for more information on how to edit the model via APIs.
 
-- Explore the formulas and computations you can create with [Time Series Model variables](./concepts-variables.md)
+* Explore the formulas and computations you can create with [Time Series Model variables](./concepts-variables.md)
 
-- Learn about [querying data](concepts-query-overview.md) in Azure Time Series Insights Gen2
+* Learn about [querying data](concepts-query-overview.md) in Azure Time Series Insights Gen2

@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 07/28/2020
 ms.author: cherylmc
 
 ---
@@ -29,9 +29,9 @@ Azure Virtual Network
 
 * Create a virtual network without any virtual network gateways. Verify that none of the subnets of your on-premises networks overlap with the virtual networks that you want to connect to. To create a virtual network in the Azure portal, see the [Quickstart](../virtual-network/quick-create-portal.md).
 
-## <a name="vnetgw"></a>1. Create an Azure virtual network gateway
+## <a name="vnetgw"></a>1. Create a VPN Gateway virtual network gateway
 
-Create a VPN Gateway virtual network gateway for your virtual network in active-active mode for your virtual network. When you create the gateway, you can either use existing public IP addresses for the two instances of the gateway, or you can create new public IPs. You use these public IPs when setting up the Virtual WAN sites. For more information about active-active mode, see [Configure active-active connections](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway).
+Create a **VPN Gateway** virtual network gateway in active-active mode for your virtual network. When you create the gateway, you can either use existing public IP addresses for the two instances of the gateway, or you can create new public IPs. You will use these public IPs when setting up the Virtual WAN sites. For more information about active-active VPN gateways and configuration steps, see [Configure active-active VPN gateways](../vpn-gateway/vpn-gateway-activeactive-rm-powershell.md#aagateway).
 
 ### <a name="active-active"></a>Active-active mode setting
 

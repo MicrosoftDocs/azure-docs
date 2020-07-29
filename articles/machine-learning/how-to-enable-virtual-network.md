@@ -5,13 +5,12 @@ description: Use an isolated Azure Virtual Network with Azure Machine Learning t
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
-ms.custom: contperfq4, tracking-python
+ms.topic: conceptual
+ms.custom: how-to, contperfq4, tracking-python
 
 ---
 
@@ -302,8 +301,8 @@ If you don't want to use the default outbound rules and you do want to limit the
 - Deny outbound internet connection by using the NSG rules.
 
 - For a __compute instance__ or a __compute cluster__, limit outbound traffic to the following items:
-   - Azure Storage, by using __Service Tag__ of __Storage__.
-   - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry__.
+   - Azure Storage, by using __Service Tag__ of __Storage.RegionName__. Where `{RegionName}` is the name of an Azure region.
+   - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry.RegionName__. Where `{RegionName}` is the name of an Azure region.
    - Azure Machine Learning, by using __Service Tag__ of __AzureMachineLearning__
    - Azure Resource Manager, by using __Service Tag__ of __AzureResourceManager__
    - Azure Active Directory, by using __Service Tag__ of __AzureActiveDirectory__

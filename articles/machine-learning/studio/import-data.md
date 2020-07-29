@@ -1,6 +1,5 @@
 ---
-title: Import training data
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Import training data - Azure'
 description: How to import your data into Azure Machine Learning Studio (classic) from various data sources. Learn what data types and data formats are supported.
 services: machine-learning
 ms.service: machine-learning
@@ -13,6 +12,9 @@ ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
 ---
 # Import your training data into Azure Machine Learning Studio (classic) from various data sources
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
 
 To use your own data in Machine Learning Studio (classic) to develop and train a predictive analytics solution, you can use data from: 
 
