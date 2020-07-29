@@ -18,7 +18,7 @@ ms.reviewer: paulgarn, hirsin, jeedes, luleon
 
 Directory schema extension attributes provide a way to store additional data in Azure Active Directory on user objects and other directory objects such as groups, tenant details, service principals.  Only extension attributes on user objects can be used for emitting claims to applications. This article describes how to use directory schema extension attributes for sending user data to applications in token claims.
 
->[!NOTE] Microsoft Graph provides two other extension mechanisms to customize Graph objects.  These are known as Microsoft Graph open extensions and Microsoft Graph schema extensions. See the [Microsoft Graph documentation](/graph/extensibility-overview) for details.  Data stored on Microsoft Graph objects using these capabilities are not available as sources for claims in tokens.
+> [!NOTE] Microsoft Graph provides two other extension mechanisms to customize Graph objects.  These are known as Microsoft Graph open extensions and Microsoft Graph schema extensions. See the [Microsoft Graph documentation](/graph/extensibility-overview) for details.  Data stored on Microsoft Graph objects using these capabilities are not available as sources for claims in tokens.
 
 Directory schema extension attributes are always associated with an application in the tenant and are referenced by the application's *applicationId* in their name.
 
@@ -59,9 +59,9 @@ For example, here is a claims-mapping policy to emit a single claim from a direc
 
 Where *xxxxxxx* is the application ID the extension was registered with.
 
->[!TIP]  Case consistency is important when setting directory extension attributes on objects.  Extension attribute names aren't cases sensitive when being set up, but they are case sensitive when being read from the directory by the token service.  If an extension attribute is set on a user object with the name "LegacyId" and on another user object with the name "legacyid", when the attribute is mapped to a claim using the name "LegacyId" the data will be successfully retrieved and the claim included in the token for the first user but not the second.
+> [!TIP]  Case consistency is important when setting directory extension attributes on objects.  Extension attribute names aren't cases sensitive when being set up, but they are case sensitive when being read from the directory by the token service.  If an extension attribute is set on a user object with the name "LegacyId" and on another user object with the name "legacyid", when the attribute is mapped to a claim using the name "LegacyId" the data will be successfully retrieved and the claim included in the token for the first user but not the second.
 >
->The "Id" parameter in the claims schema used for built-in directory attributes is "ExtensionID" for directory extension attributes.
+> The "Id" parameter in the claims schema used for built-in directory attributes is "ExtensionID" for directory extension attributes.
 
 ## Next steps
 Learn how to [add custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens](active-directory-optional-claims.md).
