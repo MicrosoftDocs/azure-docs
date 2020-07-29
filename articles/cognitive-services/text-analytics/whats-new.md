@@ -19,7 +19,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 ## July 2020
 
 * Model version `2020-07-01` for the v3 `/keyphrases`, `/pii` and `/languages` endpoints, which adds:
-    * Additional government and country specific [entity categories](named-entity-types.md) for Named Entity Recognition.
+    * Additional government and country specific [entity categories](named-entity-types.md?tabs=personal) for Named Entity Recognition.
 * An HTTP 400 error will now be returned for v3 API requests that exceed the published [data limits](concepts/data-limits.md). 
 
 
