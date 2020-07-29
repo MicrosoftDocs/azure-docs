@@ -525,4 +525,5 @@ In this example, you create a policy that emits a custom claim "JoinedData" to J
 
 ## See also
 
-To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
+- To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
+- To learn more about extension attributes, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).
