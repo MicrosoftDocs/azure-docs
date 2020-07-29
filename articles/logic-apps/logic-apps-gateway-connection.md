@@ -48,13 +48,13 @@ Azure Logic Apps supports read and write operations through the data gateway. Ho
 
 ## Prerequisites
 
-* You already [installed the on-premises data gateway on a local computer](../logic-apps/logic-apps-gateway-install.md).
+* You already [installed the on-premises data gateway on a local computer](../logic-apps/logic-apps-gateway-install.md). This gateway installation must exist before you can create a gateway resource that links to this installation.
 
-* You have the [same Azure account and subscription](../logic-apps/logic-apps-gateway-install.md#requirements) that you used for your gateway installation. This Azure account must belong only to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You need the same Azure account and subscription to create your gateway resource in Azure because only the gateway administrator can create the gateway resource in Azure. Service principals currently aren't supported.
+* You have the [same Azure account and subscription](../logic-apps/logic-apps-gateway-install.md#requirements) that you used for your gateway installation. This Azure account must belong only to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You need to use the same Azure account and subscription to create your gateway resource in Azure because only the gateway administrator can create the gateway resource in Azure. Service principals currently aren't supported.
 
-  * When you create a gateway resource in Azure, you select a gateway installation to use with your gateway resource and only that gateway resource. Each gateway resource can link to only one gateway installation, which can link to only one Azure account and subscription. So, you can't select a gateway installation that's already associated with another gateway resource.
+  * When you create a gateway resource in Azure, you select a gateway installation to link with your gateway resource and only that gateway resource. Each gateway resource can link to only one gateway installation. You can't select a gateway installation that's already associated with another gateway resource.
   
-  * Your logic app and gateway resource don't have to exist in the same Azure subscription. Provided that you have subscription access, in triggers and actions that can access on-premises data sources, you can select from different Azure subscriptions that are each associated with a different gateway resource.
+  * Your logic app and gateway resource don't have to exist in the same Azure subscription. Provided that you have subscription access, in triggers and actions that can access on-premises data sources, you can select other Azure subscriptions that have gateway resources.
 
 <a name="create-gateway-resource"></a>
 
