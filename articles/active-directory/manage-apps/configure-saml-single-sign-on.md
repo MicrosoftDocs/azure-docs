@@ -15,7 +15,7 @@ ms.reviewer: arvinh,luleon
 
 # Configure SAML-based single sign-on
 
-In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. This article goes into more detail about the SAML option for single sign-on. 
+In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. This article goes into more detail about the SAML-based option for single sign-on. 
 
 
 ## Before you begin
@@ -37,7 +37,7 @@ In the [quickstart series](view-applications-portal.md), there's an article on c
 You should get the values from the application vendor. You can manually enter the values or upload a metadata file to extract the value of the fields.
 
 > [!TIP]
-> Many apps have already been pre-configured to work with Azure AD. These apps are listed in the gallery of apps that you can browse when you add an app to your Azure AD tenant. The [quickstart series](view-applications-portal.md) walks you through the process. For the apps in the gallery you will find detailed, step-by-step, setup instructions. To access the steps you can click the link on the SAML configuration page for the app as described in the quickstart series or you can browse a list of all app configuration tutorials at [SaaS app configuration tutorials](../saas-apps/tutorial-list.md).
+> Many apps have already been pre-configured to work with Azure AD. These apps are listed in the gallery of apps that you can browse when you add an app to your Azure AD tenant. The [quickstart series](view-applications-portal.md) walks you through the process. For the apps in the gallery you will find detailed, step-by-step, set up instructions. To access the steps you can click the link on the SAML configuration page for the app as described in the quickstart series or you can browse a list of all app configuration tutorials at [SaaS app configuration tutorials](../saas-apps/tutorial-list.md).
 
 | Basic SAML Configuration setting | SP-Initiated | idP-Initiated | Description |
 |:--|:--|:--|:--|
