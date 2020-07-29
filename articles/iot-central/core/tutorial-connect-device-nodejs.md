@@ -334,7 +334,6 @@ You can see how the device responds to commands and property updates:
 
 As a device developer, now that you've learned the basics of how to create a device using Node.js, some suggested next steps are to:
 
-* Learn how to connect a real device to IoT Central in the [Connect an MXChip IoT DevKit device to your Azure IoT Central application](./howto-connect-devkit.md) how-to article.
 * Read [What are device templates?](./concepts-device-templates.md) to learn more about the role of device templates when you're implementing your device code.
 * Read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
 

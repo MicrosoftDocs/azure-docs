@@ -34,26 +34,32 @@
           href: quickstart-feature-flag-spring-boot.md
 - name: Tutorials
   items:
-    - name: Enable dynamic configuration in ASP.NET Core
-      href: enable-dynamic-configuration-aspnet-core.md
-    - name: Enable dynamic configuration in a .NET Core app
-      href: enable-dynamic-configuration-dotnet-core.md
-    - name: Enable dynamic configuration in .NET Framework
-      href: enable-dynamic-configuration-dotnet.md
-    - name: Enable dynamic configuration in Azure Functions
-      href: enable-dynamic-configuration-azure-functions-csharp.md
-    - name: Enable dynamic configuration in Spring Boot
-      href: enable-dynamic-configuration-java-spring-app.md      
-    - name: Use feature flags in a .NET Core app
-      href: use-feature-flags-dotnet-core.md
-    - name: Use feature flags in a Spring Boot app
-      href: use-feature-flags-spring-boot.md
+    - name: Enable dynamic configuration
+      items:
+        - name: ASP.NET Core
+          href: enable-dynamic-configuration-aspnet-core.md
+        - name: .NET Core
+          href: enable-dynamic-configuration-dotnet-core.md
+        - name: .NET Framework
+          href: enable-dynamic-configuration-dotnet.md
+        - name: Azure Functions
+          href: enable-dynamic-configuration-azure-functions-csharp.md
+        - name: Spring Boot
+          href: enable-dynamic-configuration-java-spring-app.md
+    - name: Use feature flags
+      items:
+        - name: .NET Core
+          href: use-feature-flags-dotnet-core.md
+        - name: Spring Boot
+          href: use-feature-flags-spring-boot.md
     - name: Manage feature flags
       href: manage-feature-flags.md
-    - name: Use Key Vault references in ASP.NET Core
-      href: use-key-vault-references-dotnet-core.md
-    - name: Use Key Vault references in Spring Boot
-      href: use-key-vault-references-spring-boot.md      
+    - name: Use Key Vault references
+      items:
+        - name: ASP.NET Core
+          href: use-key-vault-references-dotnet-core.md
+        - name: Spring Boot
+          href: use-key-vault-references-spring-boot.md
     - name: Integrate with a CI/CD pipeline
       href: integrate-ci-cd-pipeline.md
     - name: Integrate with Kubernetes deployment using Helm

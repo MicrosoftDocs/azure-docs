@@ -30,15 +30,14 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 
 ||Basic|Standard|Premium|
 | :-- | --: |--:| --:|
-|Target workload|Development and production|Development and production|Development and production|
-|Uptime SLA|99.99%|99.99%|99.99%|
-|Maximum backup retention|7 days|35 days|35 days|
-|CPU|Low|Low, Medium, High|Medium, High|
-|IO throughput (approximate) |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
-|IO latency (approximate)|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|
-|Columnstore indexing |N/A|S3 and above|Supported|
-|In-memory OLTP|N/A|N/A|Supported|
-|||||
+|**Target workload**|Development and production|Development and production|Development and production|
+|**Uptime SLA**|99.99%|99.99%|99.99%|
+|**Maximum backup retention**|7 days|35 days|35 days|
+|**CPU**|Low|Low, Medium, High|Medium, High|
+|**IO throughput (approximate)** |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
+|**IO latency (approximate)**|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|
+|**Columnstore indexing** |N/A|S3 and above|Supported|
+|**In-memory OLTP**|N/A|N/A|Supported|
 
 > [!IMPORTANT]
 > The Basic, Standard S0, S1 and S2 service tiers provide less than one vCore (CPU).  For CPU-intensive workloads, a service tier of S3 or greater is recommended. 
@@ -55,9 +54,8 @@ Compute sizes are expressed in terms of Database Transaction Units (DTUs) for si
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
-| Maximum storage size | 2 GB | 1 TB | 4 TB  |
-| Maximum DTUs | 5 | 3000 | 4000 | 
-|||||
+| **Maximum storage size** | 2 GB | 1 TB | 4 TB  |
+| **Maximum DTUs** | 5 | 3000 | 4000 |
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
@@ -66,12 +64,11 @@ Compute sizes are expressed in terms of Database Transaction Units (DTUs) for si
 
 || **Basic** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
-| Maximum storage size per database  | 2 GB | 1 TB | 1 TB |
-| Maximum storage size per pool | 156 GB | 4 TB | 4 TB |
-| Maximum eDTUs per database | 5 | 3000 | 4000 |
-| Maximum eDTUs per pool | 1600 | 3000 | 4000 |
-| Maximum number of databases per pool | 500  | 500 | 100 |
-|||||
+| **Maximum storage size per database**  | 2 GB | 1 TB | 1 TB |
+| **Maximum storage size per pool** | 156 GB | 4 TB | 4 TB |
+| **Maximum eDTUs per database** | 5 | 3000 | 4000 |
+| **Maximum eDTUs per pool** | 1600 | 3000 | 4000 |
+| **Maximum number of databases per pool** | 500  | 500 | 100 |
 
 > [!IMPORTANT]
 > More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
