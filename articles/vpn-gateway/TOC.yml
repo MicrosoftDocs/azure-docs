@@ -216,9 +216,9 @@
     items:
     - name: Create a zone-redundant gateway
       href: create-zone-redundant-vnet-gateway.md
-  - name: IPsec/IKE connection policies
+  - name: Configure IPsec/IKE policies on connections
     items: 
-    - name: Configure IPsec/IKE policies on connections
+    - name: PowerShell
       href: vpn-gateway-ipsecikepolicy-rm-powershell.md
   - name: Configure active-active connections
     items: 
