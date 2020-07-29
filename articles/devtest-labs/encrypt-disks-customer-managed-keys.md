@@ -21,7 +21,7 @@ The following section shows how a lab owner can set up encryption using a custom
 ## Pre-requisites
 
 - The disk encryption set needs to be in same region and subscription as your lab. 
-- Ensure you (lab owner) at least a **reader-level access** to the disk encryption set that will be used to encrypt lab OS disks. If you don’t have a disk encryption set, follow this article to [set up a Key Vault and a Disk Encryption Set](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#set-up-your-azure-key-vault). 
+- Ensure you (lab owner) have at least a **reader-level access** to the disk encryption set that will be used to encrypt lab OS disks. If you don’t have a disk encryption set, follow this article to [set up a Key Vault and a Disk Encryption Set](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#set-up-your-azure-key-vault). 
 - For the lab to handle encryption for all the lab OS disks, lab owner needs to explicitly grant the lab’s system-assigned identity the permission to the disk encryption set. Lab owner can do so by completing the following steps:
     1. On the **Disk Encryption Set** page, select **Access control (IAM)** on the left menu. 
     1. Select **+ Add** on the toolbar and select **Add a role assignment**.  
