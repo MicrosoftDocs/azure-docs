@@ -31,23 +31,31 @@ Sign in to the [Azure portal](https://portal.azure.com)
 
 ## View update assessment
 
-To view an update assessment:
+In Update Management, you can view information about your machines, missing updates, update deployments, and scheduled update deployments.
 
-1. In your Automation account, select **Update management** from the left-hand pane.
+![Update Management default view](media/update-mgmt-overview/update-management-view.png)
 
-2. The updates for your environment are listed on the **Update management** page. If any updates are identified as missing, a list of  them is shown on the **Missing updates** tab.
+To view an update assessment, perform the following.
 
-3. Under **Information link**, select the link for an update to open the support article that gives you important information about the update.
+1. In the Azure portal, navigate to **Automation accounts** and select your Automation account with Update Management enabled from the list.
+
+2. In your Automation account, select **Update management** from the left-hand pane.
+
+3. The updates for your environment are listed on the **Update management** page. If any updates are identified as missing, a list of  them is shown on the **Missing updates** tab.
+
+   Under the **COMPLIANCE** column, you can see the last time the machine was assessed. Under the **UPDATE AGENT READINESS** column, you can see the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you correct the problem.
+
+4. Under **Information link**, select the link for an update to open the support article that gives you important information about the update.
 
     ![View update status](./media/update-mgmt-manage-updates-for-vm/manageupdates-view-status-win.png)
 
-4. Click anywhere else on the update to open the Log Search pane. The query for the log search is predefined for that specific update. You can modify this query or create your own query to view detailed information.
+5. Click anywhere else on the update to open the Log Search pane. The query for the log search is predefined for that specific update. You can modify this query or create your own query to view detailed information.
 
     ![View update status](./media/update-mgmt-manage-updates-for-vm/logsearch.png)
 
 ## Configure alerts
 
-Follow the steps below to set up alerts to let you know the status of an update deployment:
+Follow the steps below to set up alerts to let you know the status of an update deployment. If you are new to Azure alerts, see [Azure Alerts overview](../azure-monitor/platform/alerts-overview.md).
 
 1. In your Automation account, select **Alerts** under **Monitoring**, and then select **New alert rule**.
 
@@ -77,8 +85,6 @@ Follow the steps below to set up alerts to let you know the status of an update 
     ![Configure signal logic](./media/update-mgmt-manage-updates-for-vm/define-alert-details.png)
 
 10. Select **Yes** to enable the alert rule.
-
-11. If you don't want to generate alerts for this rule, select **Suppress Alerts**.
 
 ## Configure action groups for your alerts
 
