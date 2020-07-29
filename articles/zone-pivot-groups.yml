@@ -505,3 +505,27 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+- id: programming-languages-spark-all-minus-sql
+# Owner: euang
+  title: Programming languages
+  prompt: Choose a language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-scala
+    title: Scala
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-spark-all
+  title: Programming languages
+  prompt: Choose a language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-scala
+    title: Scala
+  - id: programming-language-python
+    title: Python
+    id: programming-language-sparksql
+    title: SQL
+
