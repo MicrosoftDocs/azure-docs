@@ -229,7 +229,6 @@ During a run there are two applications of an identity:
 
 
 
-
 ### <a id="instance"></a>Azure Machine Learning compute instance
 
 [Azure Machine Learning compute instance](concept-compute-instance.md) is a managed-compute infrastructure that allows you to easily create a single VM. The compute is created within your workspace region, but unlike a compute cluster, an instance cannot be shared with other users in your workspace. Also the instance does not automatically scale down.  You must stop the resource to prevent ongoing charges.
