@@ -39,7 +39,8 @@ An event grid topic provides a user-defined endpoint that you post your events t
 5. After the deployment succeeds, type **Event Grid Topics** in the search bar again, and select **Event Grid Topics** from the drop-down list as you did before. 
 6. Select the topic you created from the list. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Select your topic from the list":::  
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Select your topic from the list":::
+
 7. You see the **Event Grid Topic** page for your topic. Keep this page open. You use it later in the quickstart. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Event Grid Topic home page":::
