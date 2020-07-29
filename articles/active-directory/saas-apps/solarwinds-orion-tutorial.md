@@ -146,11 +146,57 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure SolarWinds Orion SSO
 
-To configure single sign-on on **SolarWinds Orion** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [SolarWinds Orion support team](mailto:technicalsupport@solarwinds.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Login to the SolarWinds Orion and go to the **Settings** -> **All Setings**.
+
+    ![ Configuration SolarWinds Orion ](./media/solarwinds-orion-tutorial/settings.png)
+
+1. In the **USER ACCOUNTS** section, select **SAML Configuration**.
+
+    ![ Configuration SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-user-accounts.png)
+
+1. Click on **ADD IDENTITY PROVIDER**.
+
+    ![ Configuration SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-add-identity-provider.png)
+
+1. Perform the following steps in the **Add Identity Provider** page:
+
+    ![ Configuration SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-solarwinds.png)
+
+    a. Go to the **Configure** tab.
+
+    b. In the **Identity Provider Name** textbox, give any valid name like `My SSO service`.
+
+    c. In the **SSO Target URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+
+    d.  In the **Issuer URL** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+
+    e. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **X.509 Signing Certificate** textbox.
+
+    f. Click on **Save**.
 
 ### Create SolarWinds Orion test user
 
-In this section, you create a user called B.Simon in SolarWinds Orion. Work with [SolarWinds Orion support team](mailto:technicalsupport@solarwinds.com) to add the users in the SolarWinds Orion platform. Users must be created and activated before you use single sign-on.
+1. Login to the SolarWinds Orion website and go to the **Settings** -> **All Setings**.
+
+    ![ SolarWinds Orion create test user ](./media/solarwinds-orion-tutorial/settings.png)
+
+1. In the **USER ACCOUNTS** section, select **Manage Accounts**.
+
+    ![ SolarWinds Orion create test user ](./media/solarwinds-orion-tutorial/user-accounts.png)
+
+1. In the **INDIVIDUAL ACCOUNTS** tab, click on **ADD NEW ACCOUNT**.
+
+    ![ SolarWinds Orion create test user ](./media/solarwinds-orion-tutorial/create-user.png)
+
+1. Select the type of account, which you need to create either SAML individual users or groups .
+
+    ![ SolarWinds Orion create test user ](./media/solarwinds-orion-tutorial/create-user-new-account.png)
+
+1.  In the **NAME ID** texbox, enter the name that must match with the username or group name exactly as in Azure AD.
+
+1.  Click on **Next** and then submit the page.
+
+    ![ SolarWinds Orion create test user ](./media/solarwinds-orion-tutorial/create-user-name-id.png)
 
 ## Test SSO 
 
