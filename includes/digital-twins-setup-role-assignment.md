@@ -7,11 +7,11 @@ ms.date: 7/17/2020
 ms.author: baanders
 ---
 
-Azure Digital Twins uses [Azure Active Directory (Azure AD)](../articles/active-directory/fundamentals/active-directory-whatis.md) for role-based access control (RBAC). This means that before a user can make data plane calls to your Azure Digital Twins instance, that user must first be assigned a role with permissions to do so.
+Azure Digital Twins uses [Azure Active Directory (Azure AD)](../articles/active-directory/fundamentals/active-directory-whatis.md) for role-based access control (RBAC). This means that before a user can make data plane calls to your Azure Digital Twins instance, that user needs to be assigned a role with appropriate permissions for it.
 
 For Azure Digital Twins, this role is _**Azure Digital Twins Owner (Preview)**_. You can read more about roles and security in [*Concepts: Security for Azure Digital Twins solutions*](../articles/digital-twins/concepts-security.md).
 
-This section will show you how to create a role assignment for a user in your Azure Digital Twins instance, through the email associated with that user in the Azure AD tenant on your Azure subscription. Depending on your role within your organization, you will either set this up for yourself, or set this up on behalf of someone else who will be managing the Azure Digital Twins instance.
+This section will show you how to create a role assignment for a user in your Azure Digital Twins instance, using that user's email in the Azure AD tenant on your Azure subscription. Depending on your role in your organization, you might set up this permission for yourself, or set it up on behalf of someone else who will be managing the Azure Digital Twins instance.
 
 ### Assign the role
 
