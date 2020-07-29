@@ -50,7 +50,7 @@ Version 3.x/2.x of the tools uses the Azure Functions runtime that is built on .
 
 # [Windows](#tab/windows)
 
-The following steps use a Windows installer (MSI) to install Core Tools v3.x. You can also use [npm](https://www.npmjs.com/) or [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+The following steps use a Windows installer (MSI) to install Core Tools v3.x. You can also use [npm](https://www.npmjs.com/) or [Chocolatey](https://chocolatey.org/). For more information on other installers or other Core Tools versions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
 1. Download and run the installer:
 
