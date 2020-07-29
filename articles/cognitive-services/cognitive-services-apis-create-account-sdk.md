@@ -13,7 +13,7 @@ ms.author: pafarley
 
 # Create a Cognitive Services resource using the Azure Management client library
 
-Use this quickstart to get started with Azure Cognitive Services using the Azure Management client library. You'll learn how to sign up for Azure Cognitive Services and create an account that has a single-service or multi-service subscription. These services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) that you create in your Azure subscription. After creating the resource, you use the keys and endpoint generated to authenticate your applications.
+Use this quickstart to get started with Azure Cognitive Services using the Azure Management client library. You'll learn how to sign up for Azure Cognitive Services and create and manage services. These services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) that you create in your Azure subscription. After creating the resource, you use the keys and endpoint generated to authenticate your applications.
 
 [Reference documentation](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
@@ -24,7 +24,7 @@ Use this quickstart to get started with Azure Cognitive Services using the Azure
 
 ## Create an Azure Service Principal
 
-In order to have your application interact with your Azure account, you need an Azure service principal to manage permissions. Follow the instructions in [Create an Azure service principal](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-4.4.0&viewFallbackFrom=azps-3.3.0).
+To have your application interact with your Azure account, you need an Azure service principal to manage permissions. Follow the instructions in [Create an Azure service principal](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-4.4.0&viewFallbackFrom=azps-3.3.0).
 
 When you create a service principal, you'll see it has a secret value, an ID, and an application ID. Save the application ID and secret to a temporary location for later steps.
 
@@ -94,7 +94,7 @@ Add the following code to your **Main** method to list available resources, crea
 
 ### Choose a service and pricing tier
 
-When you create a new resource, you'll need to know the "kind" of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or SKU) you want. You will use this and other information as parameters when creating the resource. You can find a list of available Cognitive Service "kinds" by calling the following method in your script:
+When you create a new resource, you'll need to know the "kind" of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or SKU) you want. You'll use this and other information as parameters when creating the resource. You can find a list of available Cognitive Service "kinds" by calling the following method in your script:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_list_avail)]
 
@@ -106,7 +106,7 @@ Or, see the list of SKUs and pricing information below.
 
 | Service                    | Kind                      |
 |----------------------------|---------------------------|
-| Multiple services. See the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) page for more details.            | `CognitiveServices`     |
+| Multiple services. For more information, see the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) page.            | `CognitiveServices`     |
 
 
 #### Vision
@@ -161,7 +161,7 @@ Or, see the list of SKUs and pricing information below.
 Pricing tiers (and the amount you get billed) are based on the number of transactions you send using your authentication information. Each pricing tier specifies the:
 * maximum number of allowed transactions per second (TPS).
 * service features enabled within the pricing tier.
-* cost for a predefined amount of transactions. Going above this amount will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
+* cost for a predefined number of transactions. Going above this number will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
 
 > [!NOTE]
 > Many of the Cognitive Services have a free tier you can use to try the service. To use the free tier, use `F0` as the SKU for your resource.
