@@ -26,11 +26,11 @@ On Android and iOS, brokers like Microsoft Authenticator and the Android-specifi
 
 To enable one of these features, use the `WithBroker()` parameter when you call the `PublicClientApplicationBuilder.CreateApplication` method. The `.WithBroker()` parameter is set to true by default. 
 
-Also use the instructions in the following sections to set up brokered authentication for [iOS](#brokered-authentication-for-ios) applications or [Android](#brokered-authentication-for-android) applications.
+Set-up varies by platform, jump to [iOS applications](#brokered-authentication-for-ios) or [Android applications](#brokered-authentication-for-android).
 
 ## Brokered authentication for iOS
 
-Use the following steps to enable your Xamarin.iOS app to talk with the [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) app.
+Use the following steps to enable your Xamarin.iOS app to talk with the [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) app. If you are targeting iOS 13, consider reading about [Apple's breaking API change](https://docs.microsoft.com/azure/active-directory/develop/msal-net-xamarin-ios-considerations).
 
 ### Step 1: Enable broker support
 You must enable broker support for individual instances of `PublicClientApplication`. Support is disabled by default. When you create `PublicClientApplication` through `PublicClientApplicationBuilder`, use the `WithBroker()` parameter as the following example shows. The `WithBroker()` parameter is set to true by default.
@@ -301,6 +301,63 @@ You also have the option of acquiring the signature for your package by using th
 For Windows: `keytool.exe -list -v -keystore "%LocalAppData%\Xamarin\Mono for Android\debug.keystore" -alias androiddebugkey -storepass android -keypass android`
 
 For Mac: `keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64`
+
+### Step Five (optional): Fall-back to the system browser
+
+If MSAL is configured to use the broker, but the broker is not installed, MSAL will fall back to using a web view (a browser). MSAL will try to authenticate using the default system browser in the device. This will fail out of the box because the redirect URI is configured for broker and the system browser does not know how to use it to navigate back to MSAL. To resolve this, you can configure what's know as an intent filter with the broker redirect URI that you used in step four. You will need to modify your application's manifest to add the intent filter as shown below.
+
+```xml
+//NOTE: the slash before your signature value added to the path attribute
+//This uses the base64 encoded signature produced above.
+<intent-filter>
+      <data android:scheme="msauth"
+                    android:host="Package Name"
+                    android:path="/Package Signature"/>
+```
+
+for example, if you have a redirect URI of `msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=` your manifest should look something like 
+
+```xml
+//NOTE: the slash before your signature value added to the path attribute
+//This uses the base64 encoded signature produced above.
+<intent-filter>
+      <data android:scheme="msauth"
+                    android:host="com.microsoft.xforms.testApp"
+                    android:path="/hgbUYHVBYUTvuvT&Y6tr554365466="/>
+```
+**Please be sure to add a / in front of the signature in the "android:path" value**
+
+As an alternative, you can configure MSAL to fallback to the embedded browser, which does not rely on a redirect URI: 
+
+```csharp
+.WithUseEmbeddedWebUi(true)
+```
+
+## Troubleshooting tips for Android brokered authentication
+It can be a bit challenging to get the brokered authentication scenario to work properly so here are some tips on avoiding issues
+
+ - Make sure to register your redirect URI in your application's registration in the Azure [Portal](https://portal.azure.com/). This is a very common issue that developers run into.
+
+- Make sure you have installed the minimum required version of either **Intune Company Portal** [Link](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) (Version 5.0.4689.0 or greater) or **Microsoft Authenticator** [Link](https://play.google.com/store/apps/details?id=com.azure.authenticator) (Version 6.2001.0140 or greater). Either of these two apps can be used for brokered authentication on Android.
+
+- If you have installed both applications on your device, The default broker that MSAL will communicate with will be the first broker installed on the device. This means if you install Microsoft Authenticator first and then Intune Company Portal afterwards, brokered authentication will only happen on the Microsoft Authenticator.
+
+- If you run into issues with brokered authentication and you need more information to diagnose and resolve your issue, you have the ability to view the broker's logs which may be able to help. To view the broker logs on the Microsoft Authenticator, follow the steps below:
+    
+    1) Press the menu button on the top right corner of the app. 
+    2) Press "Help"
+    3) Press "Send Logs"
+    4) Press "View Logs"
+    5) Press "Copy All" at the bottom
+    6) At this point you should have the broker logs copied to the device's clipboard. The best way to debug with these logs is to email them to yourself and view them on a computer. This will make it much easier to digest the logs as opposed to looking at them on the device directly. You can also use a test editor on android to save the logs as a text file and use a USB cable to copy the file to a computer.
+    
+ - For Intune Company Portal you can follow the steps below
+    
+    1) Press the menu button on the top left corner of the app. 
+    2) Press "Settings"
+    3) Scroll down to "Diagnostic Data" and press "Copy Logs". This will copy the broker logs to a file on SD Card that you can access with a USB cable on a conputer
+
+    Once you have the logs you can search through them for your authentication attempts via correlation id. The correlation id is attached to every authentication request and each phase of the authentication attempts will have the correlation id attached to it. To find errors returned from the AAD authentication endpoint, you can look for "AADSTS".
 
 ## Next steps
 
