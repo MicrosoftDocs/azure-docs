@@ -388,6 +388,7 @@ These categories and their respective keys are applicable for Azure apps, Virtua
 | L2 - Web Apps Frameworks | web-apps-frameworks | web-apps-frameworks | web-apps-frameworks |
 | L2 - Web Apps | web-apps | web-apps | web-apps |
 | L2 - Other | other | other | other |
+||||
 
 ### AppSource categories
 
@@ -489,6 +490,7 @@ These categories and their respective keys are applicable for SaaS, PowerBI app,
 | L2 – Maps | maps | maps | maps |
 | L2 – News & Weather | news-and-weather | news-and-weather | news-and-weather |
 | L2 - Other | other-geolocation | other-geolocation | other-geolocation |
+||||
 
 ### Microsoft AppSource industries
 
