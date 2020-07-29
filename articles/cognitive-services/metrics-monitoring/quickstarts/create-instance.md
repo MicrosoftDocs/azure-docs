@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Quickstart: create a Metrics Monitoring instance
 
-Use this quickstart to get started with Metrics Monitoring by creating an instance in your Azure subscription. If you've already deployed an instance, skip ahead to [Add Data feeds overview](../howto/datafeeds/add-data-feeds-overview.md).
+Use this quickstart to get started with Metrics Monitoring by creating an instance in your Azure subscription.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Use this quickstart to get started with Metrics Monitoring by creating an instan
 
 ### Setting up
 
-Metrics Monitoring will use a client application, and your organization's Azure Active Directory for authentication. If you want to use an existing client application, your account should have the *owner* role for it.
+Metrics Monitoring will use a client application, and your organization's Azure Active Directory for authentication. If you want to use an existing client application, your account should have the *owner* role set for it.
 
 ## Create a client application
 
@@ -40,13 +40,13 @@ Metrics Monitoring will use a client application, and your organization's Azure 
 
 After creating above client application, you will need its client ID. You can find it by going to the **Overview** page of your client application, and selecting the  **copy** button next to application(client) ID.
 
-   ![Get client application id](../media/aad-app-clientid.png "Get Azure Active Directory client application ID")
+   ![Get client application ID](../media/aad-app-clientid.png "Get Azure Active Directory client application ID")
 
 A tenant represents an organization in Azure Active Directory. It's a dedicated Azure AD service instance that an organization receives and owns after signing up for a Microsoft cloud service. Each Azure AD tenant is distinct and separate from other Azure AD tenants.
 
-To get the tenant id, select copy button next to **Directory (tenant) ID**.
+To get the tenant ID, select copy button next to **Directory (tenant) ID**.
 
-   ![Get tenant id](../media/aad-app-tenantid.png "Get Azure Active Directory tenant ID")
+   ![Get tenant ID](../media/aad-app-tenantid.png "Get Azure Active Directory tenant ID")
 
 ## Create a new Metrics Monitoring resource
 
@@ -55,7 +55,7 @@ Use the [Azure Portal](https://aka.ms/newgualala) to create a new Metrics Monito
 On the Create page, provide the following information:
 
 
-|Column1  |Column2  |
+| Information  | Description  |
 |---------|---------|
 |Name     | A descriptive, unique name for your resource. Write down this value, as it will be used in the URL to access your resource.        |
 |Subscription     | One of your available Azure subscriptions.        |
@@ -89,7 +89,7 @@ After your resource deploys, you will need to add its URL to your client applica
     ![Azure AD page-config_client_application](../media/dep_configaad2.png "Azure AD page-config client application")
 
 You can start using your Metrics monitoring instance with the web portal, and through the REST API. You can check both URLs in the Cognitive service instance you've created.
-If you want to access this service using REST API, authentication key is necessary, which is also provided in this page as shown below.
+If you want to access this service using the REST API or Client library, you will need an authentication key.
 
    ![Service URLs](../media/dep_configaad3.png "Service URLs")
 

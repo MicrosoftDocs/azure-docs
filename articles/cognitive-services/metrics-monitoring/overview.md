@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: seodec2018
 ---
 
-# What is Project Monitoring? 
+# What is Metrics Monitoring? 
 
 Metrics Monitoring is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning. Use metrics monitoring to:
 * Analyze multi-dimensional data from multiple data sources 
