@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-
+ms.custom: devx-track-javascript
 ---
 
 # Security Frame: Sensitive Data | Mitigations 

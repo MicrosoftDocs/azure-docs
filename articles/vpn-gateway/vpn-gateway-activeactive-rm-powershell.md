@@ -13,9 +13,7 @@ ms.reviewer: cherylmc
 ---
 # Configure active-active S2S VPN connections with Azure VPN Gateways
 
-This article walks you through the steps to create active-active cross-premises and VNet-to-VNet connections using the Resource Manager deployment model and PowerShell.
-
-
+This article walks you through the steps to create active-active cross-premises and VNet-to-VNet connections using the Resource Manager deployment model and PowerShell. You can also configure an active-active gateway in the Azure portal.
 
 ## About highly available cross-premises connections
 To achieve high availability for cross-premises and VNet-to-VNet connectivity, you should deploy multiple VPN gateways and establish multiple parallel connections between your networks and Azure. See [Highly Available Cross-Premises and VNet-to-VNet Connectivity](vpn-gateway-highlyavailable.md) for an overview of connectivity options and topology.
@@ -45,11 +43,19 @@ The other properties are the same as the non-active-active gateways.
 
 ### Before you begin
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* You'll need to install the Azure Resource Manager PowerShell cmdlets. See [Overview of Azure PowerShell](/powershell/azure/) for more information about installing the PowerShell cmdlets.
+* You'll need to install the Azure Resource Manager PowerShell cmdlets if you don't want to use CloudShell in your browser. See [Overview of Azure PowerShell](/powershell/azure/) for more information about installing the PowerShell cmdlets.
 
 ### Step 1 - Create and configure VNet1
 #### 1. Declare your variables
-For this exercise, we'll start by declaring our variables. The example below declares the variables using the values for this exercise. Be sure to replace the values with your own when configuring for production. You can use these variables if you are running through the steps to become familiar with this type of configuration. Modify the variables, and then copy and paste into your PowerShell console.
+
+For this exercise, we'll start by declaring our variables. If you use the "Try It" Cloud Shell, you will automatically connect to your account. If you use PowerShell locally, use the following example to help you connect:
+
+```powershell
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName $Sub1
+```
+
+The example below declares the variables using the values for this exercise. Be sure to replace the values with your own when configuring for production. You can use these variables if you are running through the steps to become familiar with this type of configuration. Modify the variables, and then copy and paste into your PowerShell console.
 
 ```azurepowershell-interactive
 $Sub1 = "Ross"
@@ -76,14 +82,11 @@ $Connection151 = "VNet1toSite5_1"
 $Connection152 = "VNet1toSite5_2"
 ```
 
-#### 2. Connect to your subscription and create a new resource group
-Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+#### 2. Create a new resource group
 
-Open your PowerShell console and connect to your account. Use the following sample to help you connect:
+Use the example below to create a new resource group:
 
 ```azurepowershell-interactive
-Connect-AzAccount
-Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 
@@ -364,11 +367,11 @@ After completing these steps, the connection will be establish in a few minutes,
 
 ## <a name ="aaupdate"></a>Update an existing VPN gateway
 
-This section helps you change an existing Azure VPN gateway from active-standby to active-active mode, or vice versa.
+When you change an active-standby gateway to active-active, you create another public IP address, then add a second Gateway IP configuration. This section helps you change an existing Azure VPN gateway from active-standby to active-active mode, or vice versa using PowerShell. You can also change a gateway in the Azure portal on the **Configuration** page for your virtual network gateway.
 
 ### Change an active-standby gateway to an active-active gateway
 
-The following example converts an active-standby gateway into an active-active gateway. When you change an active-standby gateway to active-active, you create another public IP address, then add a second Gateway IP configuration.
+The following example converts an active-standby gateway into an active-active gateway. 
 
 #### 1. Declare your variables
 
