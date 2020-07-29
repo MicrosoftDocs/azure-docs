@@ -13,7 +13,7 @@ services: iot-pnp
 
 # Install and use the Azure IoT extension for the Azure CLI
 
-[The Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Hub. The Azure CLI is available on Windows, Linux, and MacOS. The Azure CLI lets you manage Azure IoT Hub resources, Device Provisioning Service instances, and linked-hubs without installing any extensions.
+[The Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Hub. The Azure CLI is available on Windows, Linux, and macOS. The Azure CLI lets you manage Azure IoT Hub resources, Device Provisioning Service instances, and linked-hubs without installing any extensions.
 
 The Azure IoT extension for the Azure CLI is a command-line tool for interacting with, and testing IoT Plug and Play Preview devices. You can use the extension to:
 
@@ -109,7 +109,7 @@ You can use the Azure CLI model repository commands to manage models in the repo
 
 #### Create model repository
 
-Create a new PnP company repository for your tenant if you are the first user in your tenant:
+Create a new IoT Plug and Play company repository for your tenant if you're the first user in your tenant:
 
 ```azurecli
 az iot pnp repo create
@@ -117,15 +117,15 @@ az iot pnp repo create
 
 #### Manage model repository tenant roles
 
-Creates a role assignment for a user or service principal to a specific resource:
+Create a role assignment for a user or service principal to a specific resource.
 
-For example, give user@consoso.com the role of ModelsCreator for the tenant
+For example, give user@consoso.com the role of **ModelsCreator** for the tenant:
 
 ```azurecli
 az iot pnp role-assignment create --resource-id {tenant_id} --resource-type Tenant --subject-id {user@contoso.com} --subject-type User --role ModelsCreator
 ```
 
-Or give user@consoso.com the role of ModelAdministrator for a specific model
+Or give user@consoso.com the role of **ModelAdministrator** for a specific model:
 
 ```azurecli
 az iot pnp role-assignment create --resource-id {model_id} --resource-type Model --subject-id {user@contoso.com} --subject-type User --role ModelAdministrator
@@ -149,17 +149,19 @@ az iot pnp model list -q {search_keyword}
 
 #### Publish a model
 
-Publish a device model located in the company repository to public repository:
+Publish a device model located in the company repository to the public repository.
 
-For example, public model with Id being dtmi:com:example:ClimateSensor;1
+For example, make public the model with ID `dtmi:com:example:ClimateSensor;1`:
 
 ```azurecli
 az iot pnp model publish --dtmi "dtmi:com:example:ClimateSensor;1"
 ```
+
 To publish a model, the following requirements must be met:
-1. The company (or organization) tenant must be a Microsoft Partner. 
-2. The user or service principal must be a member of the repository tenant's Publisher role.
+
+- The company or organization tenant must be a Microsoft Partner. 
+- The user or service principal must be a member of the repository tenant's **Publisher** role.
 
 ## Next steps
 
-In this how-to article, you've learned how to install and use the Azure IoT extension for the Azure CLI to interact with your Plug and Play devices. A suggested next step is to learn how to use the [Azure IoT explorer with your devices](./howto-use-iot-explorer.md).
+In this how-to article, you've learned how to install and use the Azure IoT extension for the Azure CLI to interact with your IoT Plug and Play devices. A suggested next step is to learn how to use the [Azure IoT explorer with your devices](./howto-use-iot-explorer.md).
