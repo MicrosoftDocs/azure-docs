@@ -132,24 +132,24 @@
   items:
   - name: Azure Cache for Redis samples
     href: cache-redis-samples.md
-  - name: Azure PowerShell
-    href: /powershell/module/az.rediscache
-  - name: Azure CLI
-    href: /cli/azure/redis
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.redis
   - name: Java
     href: /java/api/com.microsoft.azure.management.redis.rediscache
   - name: Redis clients
     href: https://redis.io/clients
-  - name: Redis commands
-    href: https://redis.io/commands#
+  - name: Azure PowerShell
+    href: /powershell/module/az.rediscache
+  - name: Azure CLI
+    href: /cli/azure/redis
   - name: REST
     href: https://docs.microsoft.com/rest/api/redis/
   - name: Resource Manager template
     href: /azure/templates/microsoft.cache/allversions
   - name: Azure Policy built-ins
     href: ./policy-samples.md
+  - name: Redis commands
+    href: https://redis.io/commands#
 - name: Resources
   items:
   - name: Azure Cache for Redis FAQ
