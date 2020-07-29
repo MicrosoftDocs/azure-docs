@@ -104,23 +104,7 @@
       - name: Configure single sign-on
         items:
         - name: Configure SAML-based single sign-on
-          items:
-          - name: Configure SAML-based single sign-on
-            href: configure-saml-single-sign-on.md
-          - name: Customize user attributes and claims
-            items:
-            - name: Configure group claims
-              href: /azure/active-directory/hybrid/how-to-connect-fed-group-claims?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Configure role claims
-              href: /azure/active-directory/develop/active-directory-enterprise-app-role-management?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Customize claims in the portal
-              href: /azure/active-directory/develop/active-directory-saml-claims-customization?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Customize claims with PowerShell
-              href: /azure/active-directory/develop/active-directory-claims-mapping?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Configure optional claims
-              href: /azure/active-directory/develop/active-directory-optional-claims?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Configure token lifetimes
-              href: /azure/active-directory/develop/active-directory-configurable-token-lifetimes?context=azure/active-directory/manage-apps/context/manage-apps-context
+          href: configure-saml-single-sign-on.md
         - name: Configure password-based sign-on
           href: configure-password-single-sign-on-non-gallery-applications.md
         - name: Configure linked sign-on
