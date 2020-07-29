@@ -148,31 +148,21 @@ By using [Postman](https://www.getpostman.com/postman) or a similar tool, post J
 
   * The standard `Replace` filter in the [Shopify implementation](https://shopify.github.io/liquid/filters/replace/) uses [simple string matching](https://github.com/Shopify/liquid/issues/202), while the [DotLiquid implementation](https://github.com/dotliquid/dotliquid/blob/b6a7d992bf47e7d7dcec36fb402f2e0d70819388/src/DotLiquid/StandardFilters.cs#L425) uses [regular expression (RegEx) matching](/dotnet/standard/base-types/regular-expression-language-quick-reference). Both implementations appear to work the same way until you use an RegEx-reserved character or an escape character in the match parameter.
 
-    These examples show how the `Replace` filter behavior differs when you use the RegEx-reserved backslash escape character, `\`:
+    For example, this `Replace` filter shows different behavior when you use the RegEx-reserved backslash (`\`) escape character. While this version works successfully:
 
-    * This Shopify version:
+    `{ "SampleText": "{{ 'The quick brown fox "jumped" over the sleeping dog\\' | Replace: '\\', '\\' | Replace: '"', '\"'}}"}`
 
-      `{ "SampleText": "{{ 'The quick brown fox "jumped" over the sleeping dog\\' | replace: '"', '\"' | replace: '\\', '\\'}}"}`
+    With this result:
 
-      Succeeds with this result:
+    `{ "SampleText": "The quick brown fox \"jumped\" over the sleeping dog\\\\"}`
 
-      `{ "SampleText": "The quick brown fox \"jumped\" over the sleeping dog\\\\"}`
+    This version fails:
 
-    * This DotLiquid version:
+    `{ "SampleText": "{{ 'The quick brown fox "jumped" over the sleeping dog\\' | Replace: '\', '\\' | Replace: '"', '\"'}}"}`
 
-      `{ "SampleText": "{{ 'The quick brown fox "jumped" over the sleeping dog\\' | Replace: '"', '\"' | Replace: '\', '\\'}}"}`
+    With this error:
 
-      Fails with this error:
-
-      `{ "SampleText": "Liquid error: parsing "\" - Illegal \ at end of pattern."}`
-
-    To work around this behavior, rather than use the Shopify version, for example, which replaces the double-quotation mark with a:
-
-    `| Replace: '"' , '\"'`
-
-    Use this DotLiquid version instead where you need to use `\\` as the search "string" because the DotLiquid uses RegEx pattern matching, while Shopify uses simple string matching, for example:
-
-    `| Replace: '\\' , '\\'`
+    `{ "SampleText": "Liquid error: parsing "\" - Illegal \ at end of pattern."}`
 
 <a name="other-transformations"></a>
 
