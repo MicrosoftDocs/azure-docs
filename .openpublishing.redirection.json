@@ -4564,7 +4564,12 @@
     },
     {
       "source_path": "articles/key-vault/key-vault-ovw-soft-delete.md",
-      "redirect_url": "/azure/key-vault/general/overview-soft-delete",
+      "redirect_url": "/azure/key-vault/general/soft-delete-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/overview-soft-delete.md",
+      "redirect_url": "/azure/key-vault/general/soft-delete-overview",
       "redirect_document_id": false
     },
     {
@@ -36327,13 +36332,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md",
+      "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-enterprise-apps-manage-sso.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/manage-apps/configure-single-sign-on-portal.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
       "redirect_document_id": false
     },
     {
@@ -36413,8 +36423,8 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-custom-apps.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-customizing-attribute-mappings.md",
@@ -36558,12 +36568,12 @@
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-configure-federated-sso-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/manage-apps/configure-federated-single-sign-on-gallery-applications.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
       "redirect_document_id": false
     },
     {

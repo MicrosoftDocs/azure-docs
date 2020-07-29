@@ -183,7 +183,7 @@ By default, the `OPENROWSET` function matches the source field name and path wit
 - If the property can't be found at the specified column_name, the function returns an error.
 - If the property can't be found at the specified column_path, depending on [Path mode](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE), the function returns an error when in strict mode or null when in lax mode.
 
-For query samples, review the Access elements from nested columns section in the [Query Parquet nested types](query-parquet-nested-types.md#access-elements-from-nested-columns) article.
+For query samples, review the Access elements from nested columns section in the [Query Parquet nested types](query-parquet-nested-types.md#read-properties-from-nested-object-columns) article.
 
 #### Access elements from repeated columns
 
