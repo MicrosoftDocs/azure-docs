@@ -181,7 +181,7 @@ Users who performed privileged functions (e.g., system administration) use separ
 Access to management functions or administrative consoles for systems hosting virtualized systems are restricted to personnel based upon the principle of least privilege and supported through technical controls.
 
 - Just In Time network access control should be applied on VMs
-- \[Preview\] Role Based Access Control (RBAC) should be used on Kubernetes services
+- \[Preview\] Azure role-based access control (Azure RBAC) should be used on Kubernetes services
 
 ## Review of User Access Rights
 
