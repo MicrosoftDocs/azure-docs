@@ -16,7 +16,7 @@ ms.topic: quickstart
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This quickstart will show you how to create an Ubuntu 18.04 Data Science Virtual Machine using an Azure Resource Manager template (ARM template). Data Science Virtual Machines are cloud-based virtual machines preloaded with a suite of data science and machine learning frameworks and tools. When deployed on GPU-powered compute resources, all tools and libraries are configured to use the GPU. 
+This quickstart will show you how to create an Ubuntu 18.04 Data Science Virtual Machine using an Azure Resource Manager template (ARM template). Data Science Virtual Machines are cloud-based virtual machines preloaded with a suite of data science and machine learning frameworks and tools. When deployed on GPU-powered compute resources, all tools and libraries are configured to use the GPU.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -69,7 +69,7 @@ When you run the above command, enter:
 
 To see your Data Science Virtual Machine:
 
-1. Go to https://portal.azure.com.
+1. Go to the [Azure Portal](https://portal.azure.com)
 1. Sign in.
 1. Choose the resource group you just created.
 

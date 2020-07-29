@@ -42,14 +42,14 @@ The hidden image will continue to receive operating system security patches unti
 
 ## Impact
 
-Once a DSVM image has been fully removed from the marketplace, existing DSVM provisioned images in your subscription will continue to operate after the retirement date. 
+Once a DSVM image has been fully removed from the marketplace, existing DSVM provisioned images in your subscription will continue to operate after the retirement date.
 
 We recommend users upgrade their DSVM image to the newer version via either the Azure Portal or ARM template.
 
 > [!WARNING]
-> - Retired DSVM images provisioned using Virtual Machine Scale Sets will fail to scale up after the retirement date.
+> Retired DSVM images provisioned using Virtual Machine Scale Sets will fail to scale up after the retirement date.
 >
-> - ARM templates that have not been updated with the new DSVM image details will fail to to deploy after the retirement date.
+> ARM templates that have not been updated with the new DSVM image details will fail to to deploy after the retirement date.
 
 ## Mitigating upcoming retirements
 
@@ -63,5 +63,6 @@ In order to migrate a data disk from your existing Windows 2016 DSVM to a Window
 1. Detach existing data disks from your Windows 2016 image using [these instructions](../../virtual-machines/windows/detach-disk.md).
 1. Attach the disk from the previous step to your Windows 2019 image using [these instructions](../../virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
 
-### Upgrade Ubuntu 16.04 DSVM 
+### Upgrade Ubuntu 16.04 DSVM
+
 We recommend upgrading existing Ubuntu 16.04 DSVMs to the [Ubuntu 18.04 DSVM edition](./dsvm-ubuntu-intro.md).

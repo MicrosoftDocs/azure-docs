@@ -18,7 +18,7 @@ Enhance the model creation process by tracking your experiments and monitoring r
 
 The following diagram illustrates that with MLflow Tracking, you track an experiment's run metrics and store model artifacts in your Azure Machine Learning workspace.
 
-<img src="media/mlflow-diagram-track.png" width="500">
+![track experiments](./media/mlflow-diagram-track.png)
 
 ## Prerequisites
 
@@ -28,17 +28,18 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 
 The Azure Machine Learning and MLFlow SDK are preinstalled on the Data Science VM and can be accessed in the **azureml_py36_\*** conda enviroment. In Jupyterlab, click on the launcher and select the following kernel:
 
-<img src="media/experiment-tracking-1.PNG" width="500">
+![kernel selection](./media/experiment-tracking-1.PNG)
 
 ## Set up the workspace
 
-Go to the Azure portal (https://portal.azure.com) and select the workspace you provisioned as part of the prerequisites. You will see __Download config.json__ (see below) - download the config and ensure it is stored in your working directory on the DSVM.
+Go to the [Azure portal](https://portal.azure.com) and select the workspace you provisioned as part of the prerequisites. You will see __Download config.json__ (see below) - download the config and ensure it is stored in your working directory on the DSVM.
 
-<img src="media/experiment-tracking-2.PNG" width="500">
+![Get config file](./media/experiment-tracking-2.PNG)
 
 The config contains information such as the workspace name, subscription, etc and it means that you do not need to hard code these parameters.
 
 ## Track DSVM runs
+
 Add the following code to your notebook (or script) to set the AzureML workspace object.
 
 ```Python
@@ -68,7 +69,7 @@ X, y = load_diabetes(return_X_y = True)
 columns = ['age', 'gender', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
 data = {
-    "train":{"X": X_train, "y": y_train},        
+    "train":{"X": X_train, "y": y_train},
     "test":{"X": X_test, "y": y_test}
 }
 
@@ -93,83 +94,84 @@ with mlflow.start_run():
     regression_model = Ridge(alpha=0.03)
     regression_model.fit(data['train']['X'], data['train']['y'])
     preds = regression_model.predict(data['test']['X'])
-    
+
     # Output the Mean Squared Error to the notebook and to the run
     print('Mean Squared Error is', mean_squared_error(data['test']['y'], preds))
     mlflow.log_metric('mse', mean_squared_error(data['test']['y'], preds))
-    
-    # Save the model 
+
+    # Save the model
     model_file_name = 'model.pkl'
     joblib.dump(value = regression_model, filename = model_file_name)
-    
-    # upload the model file explicitly into artifacts 
+
+    # upload the model file explicitly into artifacts
     mlflow.log_artifact(model_file_name)
     # register the model
     register_model(mlflow.active_run(), 'diabetes_model', 'model.pkl', model_framework="ScikitLearn")
 ```
 
+### View runs in Azure Machine Learning
 
-## View runs in Azure Machine Learning
 You can view the experiment run in [Azure Machine Learning Studio](https://ml.azure.com). Click on __Experiments__ in the left-hand menu and select the 'experiment_with_mlflow' (or if you decided to name your experiment differently in the above snippet, click on the name used):
 
-<img src="media/mlflow-experiments-aml.PNG" width="800">
+![select experiment](./media/mlflow-experiments-aml.PNG)
 
 You should see the logged Mean Squared Error (MSE):
 
-<img src="media/mlflow-experiments-aml-2.PNG" width="800">
+![MSE](./media/mlflow-experiments-aml-2.PNG)
 
 If you click on the run you will see other details and also the pickled model in the __Outputs+logs__
 
 ## Deploy model in Azure Machine Learning
 
+In this section we outline how to deploy models trained on a DSVM to Azure Machine Learning.
+
 ### Step 1: Create Inference Compute
+
 On the left-hand menu in [AzureML Studio](https://ml.azure.com) click on __Compute__ and then the __Inference clusters__ tab. Next, click on __+ New__ as articulated below:
 
-<img src="media/mlflow-experiments-aml-6.PNG" width="800">
+![Create Inference Compute](./media/mlflow-experiments-aml-6.PNG)
 
 In the __New Inference cluster__ pane fill in details for:
 
-- Compute Name
-- Kubernetes Service - select create new
-- Select the region
-- Select the VM size (for the purposes of this tutorial, the default of Standard_D3_v2 is sufficient)
-- Cluster Purpose - select __Dev-test__
-- Number of nodes should equal __1__
-- Network Configuration - Basic
+* Compute Name
+* Kubernetes Service - select create new
+* Select the region
+* Select the VM size (for the purposes of this tutorial, the default of Standard_D3_v2 is sufficient)
+* Cluster Purpose - select __Dev-test__
+* Number of nodes should equal __1__
+* Network Configuration - Basic
 
 Next, click on __Create__.
 
-
-<img src="media/mlflow-experiments-aml-7.PNG" width="400">
+![compute details](./media/mlflow-experiments-aml-7.PNG)
 
 ### Step 2: Deploy no-code inference service
 
 When we registered the model in our code using `register_model` we specified the framework as sklearn. Azure Machine Learning supports no code deployments for the following frameworks:
 
-- scikit-learn
-- Tensorflow SaveModel format
-- ONNX model format
+* scikit-learn
+* Tensorflow SaveModel format
+* ONNX model format
 
 No-code deployment means that you can deploy straight from the model artefact without needing to specify any specific scoring script.
 
 To deploy the diabetes model, go to the left-hand menu in the [Azure Machine Learning Studio](https://ml.azure.com) and select __Models__. Next, click on the registered diabetes_model:
 
-<img src="media/mlflow-experiments-aml-3.PNG" width="800">
+![Select model](./media/mlflow-experiments-aml-3.PNG)
 
 Next, click on the __Deploy__ button in the model details pane:
 
-<img src="media/mlflow-experiments-aml-4.PNG" width="800">
+![Deploy](./media/mlflow-experiments-aml-4.PNG)
 
 We will deploy the model to the Inference Cluster (Azure Kubernetes Service) we created in step 1. Fill in the details below by providing a name for the service, and the name of the AKS compute cluster (created in step 1). We also recommend that you increase the __CPU reserve capacity__ to 1 (from 0.1) and the __Memory reserve capacity__ to 1 (from 0.5) - you can do this by clicking on __Advanced__ and filling in the details. Then click __Deploy__.
 
-<img src="media/mlflow-experiments-aml-5.PNG" width="400">
-
+![deploy details](./media/mlflow-experiments-aml-5.PNG)
 
 ### Step 3: Consume
 
 When the model has deployed successfully you should see the following (to get to this page click on Endpoints from the left-hand menu > then click on the name of deployed service):
 
-<img src="media/mlflow-experiments-aml-8.PNG" width="400">
+![Consume model](./media/mlflow-experiments-aml-8.PNG)
 
 You should notice that the deployment state goes from __transitioning__ to __healthy__. In addition this details section provides the REST endpoint and Swagger URLs that an application developer can use to integrate your ML model into their apps.
 
@@ -193,16 +195,9 @@ print(output)
 ```
 
 ### Step 4: Clean up
+
 You should delete the Inference Compute you created in Step 1 so that you do not incur ongoing compute charges. On the left-hand menu in the Azure Machine Learning Studio click on Compute > Inference Clusters > Select the compute > Delete.
 
 ## Next Steps
 
-- Learn more about [deploying models in AzureML](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-and-where)
-
-
-
-
-
-
-
-
+* Learn more about [deploying models in AzureML](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-and-where)
