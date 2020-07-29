@@ -4,7 +4,7 @@ description: This article describes how to set up Data-in Replication for Azure 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/11/2020
 ---
 

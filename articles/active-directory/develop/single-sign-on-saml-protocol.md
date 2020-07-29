@@ -4,7 +4,7 @@ titleSuffix: Microsoft identity platform
 description: This article describes the Single Sign-On (SSO) SAML protocol in Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: rwike77
+author: kenwith
 manager: CelesteDG
 
 ms.service: active-directory
@@ -12,9 +12,9 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.author: ryanwi
+ms.author: kenwith
 ms.custom: aaddev
-ms.reviewer: hirsin
+ms.reviewer: paulgarn
 ---
 
 # Single Sign-On SAML protocol
@@ -82,6 +82,8 @@ If `NameIDPolicy` is provided, you can include its optional `Format` attribute. 
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: This value permits Azure Active Directory to select the claim format. Azure Active Directory issues the NameID as a pairwise identifier.
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory issues the NameID claim as a randomly generated value that is unique to the current SSO operation. This means that the value is temporary and cannot be used to identify the authenticating user.
 
+If `SPNameQualifier` is specified, Azure AD will include the same `SPNameQualifier` in the response.
+
 Azure AD ignores the `AllowCreate` attribute.
 
 ### RequestAuthnContext
@@ -93,7 +95,7 @@ The `Scoping` element, which includes a list of identity providers, is optional 
 If provided, don't include the `ProxyCount` attribute, `IDPListOption` or `RequesterID` element, as they aren't supported.
 
 ### Signature
-Don't include a `Signature` element in `AuthnRequest` elements. Azure AD does not validate signed authentication requests. Requestor verification is provided for by only responding to registered Assertion Consumer Service URLs.
+A `Signature` element in `AuthnRequest` elements is optional. Azure AD does not validate signed authentication requests if a signature is present. Requestor verification is provided for by only responding to registered Assertion Consumer Service URLs.
 
 ### Subject
 Don't include a `Subject` element. Azure AD doesn't support specifying a subject for a request and will return an error if one is provided.

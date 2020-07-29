@@ -42,7 +42,7 @@ A common scenario for a subdomain takeover:
 
 1. Almost immediately after the site is deleted, a threat actor discovers the missing site and creates their own website at `app-contogreat-dev-001.azurewebsites.net`.
 
-    Now, the traffic intended for `greatapp.contoso.com` goes to the threat actor's Azure site, and the threat actor is in control of the content that is displayed. 
+    Now, the traffic intended for `greatapp.contoso.com` goes to the threat actor's Azure site, and the threat actor's in control of the content that's displayed. 
 
     The dangling DNS was exploited and Contoso's subdomain "GreatApp" has been a victim of subdomain takeover. 
 
@@ -58,7 +58,7 @@ Dangling DNS entries make it possible for threat actors to take control of the a
 
 - **Loss of control over the content of the subdomain** - Negative press about your organization's inability to secure its content, as well as the brand damage and loss of trust.
 
-- **Cookie harvesting from unsuspecting visitors** - It's common for web apps to expose session cookies to subdomains (*.contoso.com), consequently any subdomain can access them. Threat actors can use subdomain takeover to build an authentic looking page, trick unsuspecting users to visit it, and harvest their cookies (even secure cookies). A common misconception is that using SSL certificates protects your site, and your users' cookies, from a takeover. However, a threat actor can use the hijacked subdomain to apply for and receive a valid SSL certificate. This then grants them access to secure cookies and can further increase the perceived legitimacy of the malicious site.
+- **Cookie harvesting from unsuspecting visitors** - It's common for web apps to expose session cookies to subdomains (*.contoso.com), consequently any subdomain can access them. Threat actors can use subdomain takeover to build an authentic looking page, trick unsuspecting users to visit it, and harvest their cookies (even secure cookies). A common misconception is that using SSL certificates protects your site, and your users' cookies, from a takeover. However, a threat actor can use the hijacked subdomain to apply for and receive a valid SSL certificate. Valid SSL certificates grant them access to secure cookies and can further increase the perceived legitimacy of the malicious site.
 
 - **Phishing campaigns** - Authentic-looking subdomains can be used in phishing campaigns. This is true for malicious sites and also for MX records that would allow the threat actor to receive emails addressed to a legitimate subdomain of a known-safe brand.
 
@@ -75,14 +75,14 @@ The preventative measures available to you today are listed below.
 
 ### Use Azure DNS alias records
 
-By tightly coupling the lifecycle of a DNS record with an Azure resource, Azure DNS's [alias records](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) can prevent dangling references. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource. It's important to note that there are limits to what you can protect with alias records. Today, the list is limited to:
+Azure DNS's [alias records](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) can prevent dangling references by coupling the lifecycle of a DNS record with an Azure resource. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource. It's important to note that there are limits to what you can protect with alias records. Today, the list is limited to:
 
 - Azure Front Door
 - Traffic Manager profiles
 - Azure Content Delivery Network (CDN) endpoints
 - Public IPs
 
-If you have resources that can be protected from subdomain takeover with alias records, we recommend doing so despite the limited service offerings today.
+Despite the limited service offerings today, we recommend using alias records to defend against subdomain takeover whenever possible.
 
 [Learn more](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) about the capabilities of Azure DNS's alias records.
 
@@ -114,33 +114,25 @@ It's often up to developers and operations teams to run cleanup processes to avo
 
     - Review your DNS records regularly to ensure that your subdomains are all mapped to Azure resources that:
 
-        - **Exist** - Query your DNS zones for resources pointing to Azure subdomains such as *.azurewebsites.net or *.cloudapp.azure.com (see [this reference list](azure-domains.md)).
-        - **You own** - Confirm that you own all resources that your DNS subdomains are targeting.
+        - Exist - Query your DNS zones for resources pointing to Azure subdomains such as *.azurewebsites.net or *.cloudapp.azure.com (see [this reference list](azure-domains.md)).
+        - You own - Confirm that you own all resources that your DNS subdomains are targeting.
 
-    - Maintain a service catalog of your Azure fully qualified domain name (FQDN) endpoints and the application owners. To build your service catalog, run the following Azure Resource Graph query with the parameters from the table below:
+    - Maintain a service catalog of your Azure fully qualified domain name (FQDN) endpoints and the application owners. To build your service catalog, run the following Azure Resource Graph (ARG) query with the parameters from the table below:
     
         >[!IMPORTANT]
         > **Permissions** - Run the query as a user with access to all of your Azure subscriptions. 
         >
         > **Limitations** - Azure Resource Graph has throttling and paging limits that you should consider if you have a large Azure environment. [Learn more](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) about working with large Azure resource data sets.  
 
-        ```
-        Search-AzGraph -Query "resources | where type == '[ResourceType]' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = [FQDNproperty]"
+        ```powershell
+        Search-AzGraph -Query "resources | where type == '<ResourceType>' | 
+        project tenantId, subscriptionId, type, resourceGroup, name, 
+        endpoint = <FQDNproperty>"
         ``` 
-        
-        For example, this query returns the resources from Azure App Service:
 
-        ```
-        Search-AzGraph -Query "resources | where type == 'microsoft.web/sites' | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
-        ```
-        
-        You can also combine multiple resource types. This example query returns the resources from Azure App Service **and** Azure App Service - Slots:
+        Per service parameters for the ARG query:
 
-        ```
-        Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, resourceGroup, name, endpoint = properties.defaultHostName"
-        ```
-
-        |Resource name  |[ResourceType]  | [FQDNproperty]  |
+        |Resource name  | `<ResourceType>`  | `<FQDNproperty>`  |
         |---------|---------|---------|
         |Azure Front Door|microsoft.network/frontdoors|properties.cName|
         |Azure Blob Storage|microsoft.storage/storageaccounts|properties.primaryEndpoints.blob|
@@ -151,6 +143,23 @@ It's often up to developers and operations teams to run cleanup processes to avo
         |Azure API Management|microsoft.apimanagement/service|properties.hostnameConfigurations.hostName|
         |Azure App Service|microsoft.web/sites|properties.defaultHostName|
         |Azure App Service - Slots|microsoft.web/sites/slots|properties.defaultHostName|
+
+        
+        **Example 1** - This query returns the resources from Azure App Service: 
+
+        ```powershell
+        Search-AzGraph -Query "resources | where type == 'microsoft.web/sites' | 
+        project tenantId, subscriptionId, type, resourceGroup, name, 
+        endpoint = properties.defaultHostName"
+        ```
+        
+        **Example 2** - This query combines multiple resource types to return the resources from Azure App Service **and** Azure App Service - Slots:
+
+        ```powershell
+        Search-AzGraph -Query "resources | where type in ('microsoft.web/sites', 
+        'microsoft.web/sites/slots') | project tenantId, subscriptionId, type, 
+        resourceGroup, name, endpoint = properties.defaultHostName"
+        ```
 
 
 - **Create procedures for remediation:**
@@ -167,4 +176,4 @@ To learn more about related services and Azure features you can use to defend ag
 
 - [Use the Domain Verification ID when adding Custom Domains in Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#get-domain-verification-id) 
 
--    [Quickstart: Run your first Resource Graph query using Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)
+- [Quickstart: Run your first Resource Graph query using Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)

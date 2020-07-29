@@ -1,5 +1,5 @@
 ---
-title: Add and manage libraries for Apache Spark in Azure Synapse Analytics
+title: Add and manage libraries for Apache Spark
 description: Learn how to add and manage libraries used by Apache Spark in Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
@@ -29,7 +29,7 @@ When a Spark instance starts up, a new virtual environment is created using this
 
 ### Requirements format
 
-The following snippet shows the format for the requirements file. The PyPi package name is listed along with an exact version. This file follows the format described in the [pip freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/) reference documentation. This example pins a specific version. You can also specify "no larger than" and "less than" versions in this file.
+The following snippet shows the format for the requirements file. The PyPi package name is listed along with an exact version. This file follows the format described in the [pip freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/) reference documentation. This example pins a specific version. 
 
 ```
 absl-py==0.7.0

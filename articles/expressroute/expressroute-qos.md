@@ -13,7 +13,7 @@ ms.author: cherylmc
 # ExpressRoute QoS requirements
 Skype for Business has various workloads that require differentiated QoS treatment. If you plan to consume voice services through ExpressRoute, you should adhere to the requirements described below.
 
-![](./media/expressroute-qos/expressroute-qos.png)
+![Diagram that shows the voice services going through ExpressRoute.](./media/expressroute-qos/expressroute-qos.png)
 
 > [!NOTE]
 > QoS requirements apply to the Microsoft peering only. The DSCP values in your network traffic received on Azure public peering and Azure private peering will be reset to 0. 

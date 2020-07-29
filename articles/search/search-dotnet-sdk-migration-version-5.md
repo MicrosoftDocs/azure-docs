@@ -43,7 +43,9 @@ Once NuGet has downloaded the new packages and their dependencies, rebuild your 
 
 If your build fails, you should see a build error like the following:
 
-    The name 'SuggesterSearchMode' does not exist in the current context
+```output
+The name 'SuggesterSearchMode' does not exist in the current context
+```
 
 The next step is to fix this build error. See [Breaking changes in version 5](#ListOfChanges) for details on what causes the error and how to fix it.
 

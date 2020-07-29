@@ -1,15 +1,10 @@
 ---
 title: Disaster recovery for custom topics in Azure Event Grid
 description: This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a region.
-services: event-grid
-author: femila
-
-ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/21/2020
-ms.author: femila
-
+ms.date: 07/07/2020
 ---
+
 # Build your own disaster recovery for custom topics in Event Grid
 Disaster recovery focuses on recovering from a severe loss of application functionality. This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a particular region.
 

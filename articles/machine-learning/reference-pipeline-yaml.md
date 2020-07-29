@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: reference
 
 ms.reviewer: larryfr
-ms.author: sanpil
-author: sanpil
+ms.author: nilsp
+author: NilsPohlmann
 ms.date: 11/11/2019
 ms.custom: tracking-python
 ---

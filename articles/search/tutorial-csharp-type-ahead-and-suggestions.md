@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 07/15/2020
 ---
 
 # Tutorial: Add autocomplete and suggestions using the .NET SDK

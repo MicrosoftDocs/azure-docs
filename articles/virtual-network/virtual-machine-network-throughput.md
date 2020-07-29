@@ -1,6 +1,6 @@
 ---
 title: Azure virtual machine network throughput | Microsoft Docs
-description: Learn about Azure virtual machine network throughput.
+description: Learn about Azure virtual machine network throughput, including how bandwidth is allocated to a virtual machine.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -53,8 +53,8 @@ Data transfer between endpoints requires creation of several flows in addition t
 
 Today, the Azure networking stack supports 250K total network flows with good performance for VMs with greater than 8 CPU cores and 100k total flows with good performance for VMs with fewer than 8 CPU cores. Past this limit network performance degrades gracefully for additional flows up to a hard limit of 500K total flows, 250K inbound and 250K outbound, after which additional flows are dropped.
 
-||VMs with <8 CPU Cores|VMs with 8+ CPU Cores|
-|---|---|---|
+| Performance level | VMs with <8 CPU Cores | VMs with 8+ CPU Cores |
+| ----------------- | --------------------- | --------------------- |
 |<b>Good Performance</b>|100K Flows |250K Flows|
 |<b>Degraded Performance</b>|Above 100k Flows|Above 250K Flows|
 |<b>Flow Limit</b>|500K Flows|500K Flows|

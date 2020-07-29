@@ -37,7 +37,7 @@ In this tutorial, you take the following steps:
 ## Prerequisites
 
 This tutorial assumes that you have created and configured your notification hub as described in [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md). This tutorial is also the prerequisite to the [Secure Push (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) tutorial.
- If you want to use Mobile Apps as your backend service, see the [Mobile Apps Get Started with Push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+ If you want to use Mobile Apps as your backend service, see the [Mobile Apps Get Started with Push](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 

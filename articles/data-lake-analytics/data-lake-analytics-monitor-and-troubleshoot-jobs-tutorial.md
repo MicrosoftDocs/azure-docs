@@ -2,11 +2,9 @@
 title: Monitor Azure Data Lake Analytics - Azure portal
 description: This article describes how to use the Azure portal to troubleshoot Azure Data Lake Analytics jobs.
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 12/05/2016
 ---
 # Monitor jobs in Azure Data Lake Analytics using the Azure Portal

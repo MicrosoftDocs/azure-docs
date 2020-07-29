@@ -48,6 +48,11 @@ The geo-restore feature restores the server using geo-redundant backups. The bac
 ## Cross-region read replicas
 You can use cross region read replicas to enhance your business continuity and disaster recovery planning. Read replicas are updated asynchronously using PostgreSQL's physical replication technology. Learn more about read replicas, available regions, and how to fail over from the [read replicas concepts article](concepts-read-replicas.md). 
 
+## FAQ
+### Where does Azure Database for PostgreSQL store customer data?
+By default, Azure Database for PostgreSQL doesn't move or store customer data out of the region it is deployed in. However, customers can optionally chose to enable [geo-redundant backups](concepts-backup.md#backup-redundancy-options) or create [cross-region read replica](concepts-read-replicas.md#cross-region-replication) for storing data in another region.
+
+
 ## Next steps
 - Learn more about the [automated backups in Azure Database for PostgreSQL](concepts-backup.md). 
 - Learn how to restore using [the Azure portal](howto-restore-server-portal.md) or [the Azure CLI](howto-restore-server-cli.md).

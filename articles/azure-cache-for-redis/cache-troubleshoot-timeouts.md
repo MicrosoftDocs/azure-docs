@@ -24,7 +24,7 @@ Azure Cache for Redis regularly updates its server software as part of the manag
 
 ## StackExchange.Redis timeout exceptions
 
-StackExchange.Redis uses a configuration setting named `synctimeout` for synchronous operations with a default value of 1000 ms. If a synchronous call doesn’t complete in this time, the StackExchange.Redis client throws a timeout error similar to the following example:
+StackExchange.Redis uses a configuration setting named `synctimeout` for synchronous operations with a default value of 5000 ms. If a synchronous call doesn’t complete in this time, the StackExchange.Redis client throws a timeout error similar to the following example:
 
 ```output
     System.TimeoutException: Timeout performing MGET 2728cc84-58ae-406b-8ec8-3f962419f641, inst: 1,mgr: Inactive, queue: 73, qu=6, qs=67, qc=0, wr=1/1, in=0/0 IOCP: (Busy=6, Free=999, Min=2,Max=1000), WORKER (Busy=7,Free=8184,Min=2,Max=8191)
@@ -67,7 +67,7 @@ You can use the following steps to investigate possible root causes.
 
 1. Ensure that your server and the client application are in the same region in Azure. For example, you might be getting timeouts when your cache is in East US but the client is in West US and the request doesn't complete within the `synctimeout` interval or you might be getting timeouts when you're debugging from your local development machine. 
 
-    It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario that includes cross region calls, you should set the `synctimeout` interval to a value higher than the default 1000-ms interval by including a `synctimeout` property in the connection string. The following example shows a snippet of a connection string for StackExchange.Redis provided by Azure Cache for Redis with a `synctimeout` of 2000 ms.
+    It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario that includes cross region calls, you should set the `synctimeout` interval to a value higher than the default 5000-ms interval by including a `synctimeout` property in the connection string. The following example shows a snippet of a connection string for StackExchange.Redis provided by Azure Cache for Redis with a `synctimeout` of 2000 ms.
 
     ```output
     synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...

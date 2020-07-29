@@ -38,12 +38,12 @@ When a scale set is created or scaled, two disks are automatically attached to e
 ### Temporary disk sizes
 | Type | Common sizes | Max temp disk size (GiB) |
 |----|----|----|
-| [General purpose](../virtual-machines/linux/sizes-general.md) | A, B, and D series | 1600 |
-| [Compute optimized](../virtual-machines/linux/sizes-compute.md) | F series | 576 |
-| [Memory optimized](../virtual-machines/linux/sizes-memory.md) | D, E, G, and M series | 6144 |
-| [Storage optimized](../virtual-machines/linux/sizes-storage.md) | L series | 5630 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | N series | 1440 |
-| [High performance](../virtual-machines/linux/sizes-hpc.md) | A and H series | 2000 |
+| [General purpose](../virtual-machines/sizes-general.md) | A, B, and D series | 1600 |
+| [Compute optimized](../virtual-machines/sizes-compute.md) | F series | 576 |
+| [Memory optimized](../virtual-machines/sizes-memory.md) | D, E, G, and M series | 6144 |
+| [Storage optimized](../virtual-machines/sizes-storage.md) | L series | 5630 |
+| [GPU](../virtual-machines/sizes-gpu.md) | N series | 1440 |
+| [High performance](../virtual-machines/sizes-hpc.md) | A and H series | 2000 |
 
 
 ## Azure data disks
@@ -107,7 +107,7 @@ az vmss disk attach \
 ## Prepare the data disks
 The disks that are created and attached to your scale set VM instances are raw disks. Before you can use them with your data and applications, the disks must be prepared. To prepare the disks, you create a partition, create a filesystem, and mount them.
 
-To automate the process across multiple VM instances in a scale set, you can use the Azure Custom Script Extension. This extension can execute scripts locally on each VM instance, such as to prepare attached data disks. For more information, see the [Custom Script Extension overview](../virtual-machines/linux/extensions-customscript.md).
+To automate the process across multiple VM instances in a scale set, you can use the Azure Custom Script Extension. This extension can execute scripts locally on each VM instance, such as to prepare attached data disks. For more information, see the [Custom Script Extension overview](../virtual-machines/extensions/custom-script-linux.md).
 
 The following example executes a script from a GitHub sample repo on each VM instance with [az vmss extension set](/cli/azure/vmss/extension) that prepares all the raw attached data disks:
 

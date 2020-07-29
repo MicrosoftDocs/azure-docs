@@ -1,8 +1,8 @@
 ---
 title: Create a consulting service offer - Microsoft commercial marketplace
 description: Learn how to publish a consulting service offer to either Microsoft AppSource or Azure Marketplace using Partner Center.
-author: anbene
-ms.author: mingshen
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -93,12 +93,22 @@ This page lets you set the primary product that your consulting service offer be
 
 3. If you selected **Azure** as primary product, select up to three **Solution Areas**. These make it easier for customers in Azure Marketplace to find your offer. If you didn't choose Azure, skip this step.
 
-    | Solution Area | | | |
-    | --- | --- | --- | --- |
-    | Analytics | Backup | DevOps | Migration |
-    | App Modernization | Big Data | Disaster Recovery | Networking |
-    | Archive | Data Platform | Identity | Security |
-    | AI + Machine Learning | Datacenter Management | Internet of Things | Storage |
+    - Analytics
+    - App Modernization
+    - Archive
+    - AI + Machine Learning
+    - Backup
+    - Big Data
+    - Data Platform
+    - Datacenter Management
+    - DevOps
+    - Disaster Recovery
+    - Identity
+    - Internet of Things
+    - Migration
+    - Networking
+    - Security
+    - Storage
 
 1. If you selected **Azure** as primary product, you have the option to select up to six **Industries**. These make it easier for customers in Azure Marketplace to find your offer. See the full list of industries in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md). If you didn’t choose Azure, skip this step.
 1. If you selected a primary product *other* than Azure, select up to three **Applicable products**. These make it easier for customers in AppSource to find your offer. For details, see [Microsoft AppSource Consulting Service Listing Guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) (PDF).

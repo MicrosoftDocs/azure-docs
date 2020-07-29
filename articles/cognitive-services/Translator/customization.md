@@ -42,8 +42,8 @@ More details about the various levels of customization based on available data c
 
 ## Custom Translator versus Hub
 
-|   | **Hub** | **Custom Translator**|
-|:-----|:----:|:----:|
+| Feature | Hub | Custom Translator |
+| ------- | :-: | :---------------: |
 |Customization Feature Status    | General Availability    | General Availability |
 | Text API version    | V2 only    | V3 only |
 | SMT customization    | Yes    | No |

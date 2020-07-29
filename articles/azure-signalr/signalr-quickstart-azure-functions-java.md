@@ -7,6 +7,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
+ms.custom: devx-track-java
 ---
 
 # Quickstart: Use Java to create a chat room with Azure Functions and SignalR Service

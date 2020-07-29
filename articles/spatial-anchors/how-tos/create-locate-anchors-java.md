@@ -5,6 +5,7 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 
+ms.custom: devx-track-java
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
