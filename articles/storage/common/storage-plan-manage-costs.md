@@ -43,7 +43,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 To view general information about Azure Storage pricing, see [Azure Storage Overview pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-## Reduce costs by reserving storage capacity
+## Consider reserving storage capacity
 
 You can save money on storage costs for blob data with Azure Storage reserved capacity. Azure Storage reserved capacity offers you a discount on capacity for block blobs and for Azure Data Lake Storage Gen2 data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation.
 
@@ -51,7 +51,7 @@ Azure Storage reserved capacity can significantly reduce your capacity costs for
 
 To learn more, see [Optimize costs for Blob storage with reserved capacity](https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity)
 
-## Reduce costs by storing data in the most appropriate access tier
+## Organize data into access tiers
 
 You can reduce costs by storing data to the most appropriate access tier. Azure Storage offers three tiers designed to optimize costs based on how you use your data. For example, if you plan to access data frequently, you would use the *Hot* access tier. You can access that data at a lower cost because that tier is optimized for data access. If you plan to access certain blobs less frequently, you might choose the *Cold* access tier. While the cost to access data goes up, the cost to store data goes down. 
 
@@ -59,7 +59,7 @@ You choose a default access tier when you set up your account, but you can uploa
 
 To learn more, see [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
 
-## Reduce costs by dynamically moving data to cooler access tiers
+## Move data between access tiers
 
 You can create policies that move data to a *cooler* access tier (For example: from the Hot tier to the Cool tier) based upon a specified condition. For example, you might create a rule that moves blobs to the archive tier if that blob has not been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs.
 
