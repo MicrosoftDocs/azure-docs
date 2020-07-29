@@ -22,7 +22,7 @@ You can use the Azure Storage resource provider to perform actions such as creat
 
 Microsoft provides two REST APIs for working with Azure Storage resources. These APIs form the basis of all actions you can perform against Azure Storage. The Azure Storage REST API enables you to work with data in your storage account, including blob, queue, file, and table data. The Azure Storage resource provider REST API enables you to work with the storage account and related resources.
 
-A request that reads or writes blob data requires different permissions than a request that performs a management operation. RBAC provides fine-grained control over permissions to both types of resources. When you assign an RBAC role to a security principal, make sure that you understand what permissions that principal will be granted. For a detailed reference that describes which actions are associated with each built-in RBAC role, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+A request that reads or writes blob data requires different permissions than a request that performs a management operation. RBAC provides fine-grained control over permissions to both types of resources. When you assign an RBAC role to a security principal, make sure that you understand what permissions that principal will be granted. For a detailed reference that describes which actions are associated with each Azure built-in role, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 Azure Storage supports using Azure AD to authorize requests against Blob and Queue storage. For information about RBAC roles for blob and queue data operations, see [Authorize access to blobs and queues using Active Directory](storage-auth-aad.md).
 
