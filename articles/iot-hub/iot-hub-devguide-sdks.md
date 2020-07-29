@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.custom: mqtt
+ms.custom: [mqtt, 'Role: IoT Device', 'Role: Cloud Development']
 ---
 
 # Understand and use Azure IoT Hub SDKs

@@ -485,7 +485,7 @@
       - name: View notifications
         href: ../service-health/service-notifications.md
       - name: Configure alerts on notification events
-        href: platform/alerts-activity-log-service-notifications.md     
+        href: ../service-health/alerts-activity-log-service-notifications-portal.md
     - name: Notifications and actions
       items:
       - name: Action rules (Preview)
@@ -905,18 +905,24 @@
       href: insights/vminsights-ga-release-faq.md  
     - name: FAQ
       href: faq.md#azure-monitor-for-vms
-    - name: Enable monitoring
+    - name: Configure workspace
+      href: insights/vminsights-configure-workspace.md
+    - name: Install agents
       items:
-      - name: Enable monitoring overview
+      - name: Overview
         href: insights/vminsights-enable-overview.md
-      - name: Enable for single Azure VM
-        href: insights/vminsights-enable-single-vm.md
-      - name: Enable using Azure Policy
-        href: insights/vminsights-enable-at-scale-policy.md
-      - name: Enable using Azure PowerShell
-        href: insights/vminsights-enable-at-scale-powershell.md
-      - name: Enable for Hybrid environment
-        href: insights/vminsights-enable-hybrid-cloud.md
+      - name: Azure portal
+        href: insights/vminsights-enable-portal.md
+      - name: Azure PowerShell
+        href: insights/vminsights-enable-powershell.md
+      - name: ARM templates
+        href: insights/vminsights-enable-resource-manager.md
+      - name: Azure Policy
+        href: insights/vminsights-enable-policy.md
+      - name: Hybrid VMs
+        href: insights/vminsights-enable-hybrid.md
+      - name: Upgrade Dependency agent
+        href: insights/vminsights-dependency-agent-maintenance.md
     - name: Map dependencies
       href: insights/vminsights-maps.md
     - name: Monitor performance
@@ -927,8 +933,6 @@
       href: insights/vminsights-workbooks.md
     - name: Create alert rules
       href: insights/vminsights-alerts.md
-    - name: Upgrade Dependency agent
-      href: insights/vminsights-dependency-agent-maintenance.md
     - name: Disable monitoring
       href: insights/vminsights-optout.md
   - name: Azure Monitor for containers 
@@ -1315,3 +1319,4 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+

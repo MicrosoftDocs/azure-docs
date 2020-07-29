@@ -4,8 +4,8 @@ description: Learn how to create and configure technical assets for a virtual ma
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: dannyevers 
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/13/2020
 ---
 
@@ -277,4 +277,4 @@ If you encountered difficulty creating your new Azure-based VHD, see [Common iss
 
 Otherwise:
 
-* [Certify your VM image](get-sas-uri.md) explains how to test and submit a VM image for Azure Marketplace certification, including where to get the *Certification Test Tool for Azure Certified* tool and how to use it to certify your VM image.
+* [Test Virtual Machine (VM) deployed from VHD](azure-vm-image-certification.md) explains how to test and submit a VM image for Azure Marketplace certification, including where to get the *Certification Test Tool for Azure Certified* tool and how to use it to certify your VM image.

@@ -25,7 +25,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
     $PSVersionTable.PSVersion
     ```
 
-    If your PSVersion value is less than 5.1.\*, as will be the case with most fresh installations of Windows Server 2012 R2, you can easily upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**. 
+    If your **PSVersion** value is less than 5.1.\*, as will be the case with most fresh installations of Windows Server 2012 R2, you can easily upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**. 
 
     PowerShell 6+ can be used with any supported system, and can be downloaded via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell). 
 
@@ -211,6 +211,15 @@ Registering your Windows Server with a Storage Sync Service establishes a trust 
 > [!Note]
 > Server registration uses your Azure credentials to create a trust relationship between the Storage Sync Service and your Windows Server, however subsequently the server creates and uses its own identity that is valid as long as the server stays registered and the current Shared Access Signature token (Storage SAS) is valid. A new SAS token cannot be issued to the server once the server is unregistered, thus removing the server's ability to access your Azure file shares, stopping any sync.
 
+The administrator registering the server must be a member of the management roles **Owner** or **Contributor** for the given Storage Sync Service. This can be configured under **Access Control (IAM)** in the Azure portal for the Storage Sync Service.
+
+It is also possible to differentiate administrators able to register servers from those allowed to also configure sync in a Storage Sync Service. For that you would need to create a custom role where you list the administrators that are only allowed to register servers and give your custom role the following permissions:
+
+* "Microsoft.StorageSync/storageSyncServices/registeredServers/write"
+* "Microsoft.StorageSync/storageSyncServices/read"
+* "Microsoft.StorageSync/storageSyncServices/workflows/read"
+* "Microsoft.StorageSync/storageSyncServices/workflows/operations/read"
+
 # [Portal](#tab/azure-portal)
 The Server Registration UI should open automatically after installation of the Azure File Sync agent. If it doesn't, you can open it manually from its file location: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe. When the Server Registration UI opens, select **Sign-in** to begin.
 
@@ -238,6 +247,8 @@ A cloud endpoint is a pointer to an Azure file share. All server endpoints will 
 
 > [!Important]  
 > You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, changes first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint only once every 24 hours. For more information, see [Azure Files frequently asked questions](storage-files-faq.md#afs-change-detection).
+
+The administrator creating the cloud endpoint must be a member of the management role **Owner** for the storage account that contains the Azure file share the cloud endpoint is pointing to. This can be configured under **Access Control (IAM)** in the Azure portal for the storage account.
 
 # [Portal](#tab/azure-portal)
 To create a sync group, in the [Azure portal](https://portal.azure.com/), go to your Storage Sync Service, and then select **+ Sync group**:
