@@ -29,7 +29,7 @@ The following section shows how a lab owner can set up encryption using a custom
     1. Type the lab name for which the disk encryption set will be used and select the lab name (system-assigned identity for the lab) from the dropdown-list. 
     1. Select **Save** on the toolbar. 
 
-## Encrypt lab OS disks with a customer-managed key: 
+## Encrypt lab OS disks with a customer-managed key 
 
 1. On the home page for your lab in the Azure portal, select **Configuration and policies** on the left menu. 
 1. On the **Configuration and policies** page, select **Disks (Preview)** in the **Encryption** section. 
