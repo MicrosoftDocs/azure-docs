@@ -45,7 +45,7 @@ The following section shows how a lab owner can set up encryption using a custom
 1. Select **Save** on the toolbar. 
 
     :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="Enable encryption with customer-managed key":::
-1. On the message box that says *This setting will apply to newly created machines in the lab. Old OS disk will remain encrypted with the old disk encryption set*, select **OK**. 
+1. On the message box with the following text: *This setting will apply to newly created machines in the lab. Old OS disk will remain encrypted with the old disk encryption set*, select **OK**. 
 
     Once configured, lab OS disks will be encrypted with the customer-managed key provided using the disk encryption set. 
 
