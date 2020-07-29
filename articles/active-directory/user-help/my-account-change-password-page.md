@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/28/2019
+ms.date: 07/29/2020
 ms.author: curtand
 ---
 
@@ -51,4 +51,4 @@ After changing your password, you can:
 
 - View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
 
-- - Change your [My Account portal settings](my-account-portal-settings.md)
+- Change your [My Account portal settings](my-account-portal-settings.md)
