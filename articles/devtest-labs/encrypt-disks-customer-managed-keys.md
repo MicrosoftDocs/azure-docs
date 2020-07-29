@@ -37,11 +37,15 @@ The following section shows how a lab owner can set up encryption using a custom
 ## Encrypt lab OS disks with a customer-managed key 
 
 1. On the home page for your lab in the Azure portal, select **Configuration and policies** on the left menu. 
-1. On the **Configuration and policies** page, select **Disks (Preview)** in the **Encryption** section. 
-1. By default, **Encryption type** is set to **Encryption at-rest with a platform managed key**.
-1. Select **Encryption at-rest with a customer managed key**
-4. Select the **disk encryption set** from the dropdown. It's the same disk encryption set that the system-assigned identity of the lab can access.
-5. Select **Save** on the toolbar. 
+1. On the **Configuration and policies** page, select **Disks (Preview)** in the **Encryption** section. By default, **Encryption type** is set to **Encryption at-rest with a platform managed key**.
+
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disks-page.png" alt-text="Disks tab of Configuration and policies page":::
+1. For **Encryption type**, select **Encryption at-rest with a customer managed key** from drop-down list. 
+1. For **Disk encryption set**, select the disk encryption set you created earlier. It's the same disk encryption set that the system-assigned identity of the lab can access.
+1. Select **Save** on the toolbar. 
+
+    :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="Enable encryption with customer-managed key":::
+1. On the message box that says *This setting will apply to newly created machines in the lab. Old OS disk will remain encrypted with the old disk encryption set*, select **OK**. 
 
     Once configured, lab OS disks will be encrypted with the customer-managed key provided using the disk encryption set. 
 
