@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah 
-ms.date: 04/09/2020
+ms.date: 07/29/2020
 ---
 
 # Test Virtual Machine (VM) deployed from VHD
