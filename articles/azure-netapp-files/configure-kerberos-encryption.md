@@ -76,38 +76,7 @@ After creating the first NFSv4.1 Kerberos volume, set the encryption type or the
 
 ## Configure the NFS client 
 
-A wide variety of Linux distributions are available to use with Azure NetApp Files. This section describes configurations for two of the more commonly used environments: RHEL 8 and Ubuntu 18.04.
-
-Regardless of the Linux flavor you use, the following configurations are required:
-* Configure an NTP client to avoid issues with time skew.
-* Configure DNS entries of the Linux client for name resolution.  
-    This configuration includes the “A” (forward) record and the PTR (reverse) record . 
-* For domain join, create a computer account in the target Active Directory (which is created during the realm join command). 
-    > [!NOTE] 
-    > The `$SERVICEACCOUNT` variable used in the commands below should be a user account with permissions or delegation to create a computer account in the targeted Organizational Unit.
-* Enable the client to mount NFS volumes and other relevant monitoring tools.
-
-### RHEL 8 configuration 
-
-1. Install packages:   
-    `sudo yum -y install realmd sssd adcli samba-common krb5-workstation chrony`
-
-2. Configure the NTP client:  
-    RHEL 8 uses `chrony` by default.  Following the configuration guidelines in [Using the Chrony suite to configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-chrony-to-configure-ntp).
-
-3. Join the Active Directory domain:  
-    `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou= OU=$YOUROU,DC=$DOMAIN,DC=TLD`
-
-### Ubuntu configuration 
-
-1. Install packages:  
-    `sudo yum -y install realmd packagekit sssd adcli samba-common krb5-workstation chrony`
-
-2. Configure the NTP client.  
-    Ubuntu 18.04 uses `chrony` by default.  Following the configuration guidelines in [Ubuntu Bionic: Using chrony to configure NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp).
-
-3. Join the Active Directory Domain:  
-    `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou= OU=$YOUROU,DC=$DOMAIN,DC=TLD`
+Follow instructions in [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md) to configure the NFS client.  
 
 ## <a name="kerberos_mount"></a>Mount the NFS Kerberos volume
 
@@ -201,3 +170,4 @@ Performance impact of krb5p:
 * [FAQs About Azure NetApp Files](azure-netapp-files-faqs.md)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create an Active Directory connection](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)
+* [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md) 
