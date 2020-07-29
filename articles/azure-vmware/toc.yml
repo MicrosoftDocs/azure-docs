@@ -58,6 +58,10 @@
       href: concepts-api-management.md
     - name: Hub and spoke
       href: concepts-avs-hub-and-spoke-integration.md
+  - name: VMware Solutions
+    items:
+    - name: Set up vRealize Operations for AVS
+      href: vrealize-operations-for-avs.md  
 - name: Reference
   items:
 - name: Resources
