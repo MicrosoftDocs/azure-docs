@@ -53,7 +53,7 @@ The following example shows how to create a container from Azure CLI using your 
 1. Before you create the container, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning RBAC roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > RBAC role assignments may take a few minutes to propagate.
+    > Azure role assignments may take a few minutes to propagate.
 
 1. Call the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command with the `--auth-mode` parameter set to `login` to create the container using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
 
