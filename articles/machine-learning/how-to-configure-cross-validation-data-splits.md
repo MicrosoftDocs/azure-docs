@@ -5,7 +5,8 @@ description: Learn how to configure cross-validation and dataset splits for auto
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam

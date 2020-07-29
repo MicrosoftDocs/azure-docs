@@ -12,7 +12,7 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 06/30/2020
 ms.author: aahi
-ms.custom: tracking-python
+ms.custom: tracking-python, devx-track-javascript
 ---
 # Quickstart: Use the Anomaly Detector client library
 

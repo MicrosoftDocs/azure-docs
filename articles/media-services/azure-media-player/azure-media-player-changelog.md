@@ -5,9 +5,125 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ---
 # Changelog #
+
+## 2.3.5 (Official Update June 1 2020)
+
+### Bug Fixes 2.3.5
+
+- [Accessibility] Esc key listener in Options pane is attached to document
+- [Accessibility] Prevent the player UI from disappearing if the control bar or the options menu contains focus
+- Control bar shows incorrect wall clock time when Wall Clock Time Display Settings is enabled
+
+### Changes 2.3.5
+
+- Added error message for error code 0x00400005 and documented it
+
+## 2.3.4 (Official Update March 4 2020)
+
+### Bug Fixes 2.3.4
+
+- Can't set PlayReady overrideLicenseAcquistionUrl
+- Unable to play some content with discontinuities
+- [Accessibility] ID attribute value for screen reader alert must be unique
+- [Accessibility] While navigating Closed Captions settings dialog box, focus moves out of dialog box
+
+### Changes 2.3.4
+
+- Log Content-Length after a successful download to help analyze decryption errors 2.3.3 (Official Update November 12 2019)
+
+### Features 2.3.4
+
+- Added support for displaying the wall clock time of a video as an overlay, and in the control bar
+
+### Bug Fixes 2.3.4
+
+- Audio track switch works but outputs error on IE11 and Windows7 'Object doesn't support property or method 'enabled''
+- Audio track switch fails when buffer is fully loaded
+- Audio track switch fails when user pauses video and switches between audio tracks very rapidly
+- [Accessibility] Tooltips not defined for Video Control under Video Player
+- Missing volume buttons on Html5 depending on when 'loadstart' is received
+- [Accessibility] No way to set the alt text for the poster image
+- [Accessibility] Application focus lost after selecting 'Done' in captions settings dialog box
+- [Accessibility] Incorrect ARIA attributes are defined for 'video' under 'segments preview'
+
+### Changes 2.3.4
+
+- Removed empty caption label/track when playing HLS on iOS and MacOS Safari
+- Reduced the number of 412s for IMSC1 captions
+- Output warning in the console for 10 consecutive empty IMSC1 caption responses to help live debugging
+
+## 2.3.2 (Official Update October 9 2019)
+
+### Features
+
+-Added PlayReady support for DASH playback for Chromium Edge browser
+
+### Bug Fixes 2.3.2
+
+- The current playback speed is not visually shown in the playback speed menu unless the user manually sets it
+- [Accessibility] 'Settings' pane is not getting collapsed with 'Esc' key
+- [Accessibility] AMP shortcut key 'M' doesn't work when Narrator is on
+
+### Changes 2.3.2
+
+- For browsers that do not support E-AC3 audio codec, E-AC3 audio tracks are hidden in the audio track menu
+- For browsers that do support E-AC3 audio codec, an E-AC3 audio track is selected by default
+- For browsers that do not support audio codec switching, audio tracks with a different codec from the selected track are hidden in the audio track menu
+
+## 2.3.1 (Official Update August 12 2019)
+
+### Features 2.3.1
+
+- Signal an event when emsg boxes are received in DASH playback
+-Added support to show ec-3 audio tracks in the audio menu on browsers that support ec-3 and allow switching audio track from aac to ec3 and vice versa only on the Chromimum-based Edge browser
+
+### Bug Fixes 2.3.1
+
+- The audio track menu is corrupted after removing ec-3 tracks
+- The current time can be great than the video duration
+- Setting the playback speed via initialSpeed doesn't work
+- Sometimes after a seek, the player seems stuck
+- On Edge and IE on a touch screen, after zooming into a page, pressing or hovering over the seekbar does not accurately get the correct segment of the video
+- [Accessibility] Aria label for Play/Pause is not descriptive for video player
+Map live segment not found error for flashSS to the correct amp error
+- [Accessibility] Aria roles used for Play/Pause must conform to valid values (.vjs-text-track-display)
+- [Accessibility] Certain ARIA roles must be contained by particular parents
+- [Accessibility] There is no tooltip defined for play/pause button of the video player
+IMSC1 captions can disappear after seeking within the current video/audio buffer
+
+### Changes 2.3.1
+
+- Upon getting a segmentDecryptError and the player is already on the live edge, the player now refreshes the manifest instead of trying the next segment
+- Added more logging for diagnosis
+- Updated documentation to inlcude FairPlay support for iOS Safari
+- Added an example for the "srclang" of IMSC1 option
+- Added padding, textPadding, boxShadow overrides for text tracks.
+- Added an errorcode (0x0020025B) to differentiate that segment download failed due to no internet rather than just throwing 0x00200259
+
+## 2.3.0 (Official Release April 30 2019)
+
+### Features 2.3.0
+
+- Added support for IMSC1 captions for DASH
+- Added support for video-only assets for DASH
+- Added API presentationTimeOffsetInSec
+
+### Bug Fixes 2.3.0
+
+- AMP LowLatency heuristics profile interferes with iOS video playback
+“mute” and “unmute” for some languages have wrong translations
+- The aria-valuenow value of the progress bar slider is sometimes incorrect
+- The aria role value of the text track display is incorrect
+
+### Changes 2.3.0
+
+- Logs now include the size of downloaded media fragments
+- Removed IE 9 and IE 10 support
+- Updated CEA708 sample to show left-align captions
+- Include MediaError.message in logs for playback failures
 
 ## 2.2.4 (Official Update February 22 2019) ##
 
@@ -25,7 +141,7 @@ ms.date: 04/20/2020
 
 ## 2.2.3 (Official Update January 9 2019) ##
 
-### Features ###
+### Features 2.2.3 ###
 
 - [Feature][HLS] Added the audio track menu for Safari HLS playback
 
