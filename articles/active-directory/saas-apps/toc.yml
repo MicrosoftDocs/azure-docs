@@ -664,8 +664,8 @@
         href: gigya-tutorial.md
       - name: GitHub
         href: github-tutorial.md
-      - name: GitHub Enterprise Cloud
-        href: github-enterprise-cloud-tutorial.md
+      - name: GitHub Enterprise Cloud - Enterprise Account
+        href: github-enterprise-cloud-enterprise-account-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
       - name: GlobalOne
