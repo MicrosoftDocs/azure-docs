@@ -36,24 +36,11 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Raketa single sign-on (SSO) enabled subscription.
 
-We provide:
-
-* Reply URL in the following format https://raketa.travel/sso/acs?clientId=YOUR_CLIENT_ID.
-* Logout URL  in the following format https://raketa.travel/sso/slo?clientId=YOUR_CLIENT_ID.
-
-After all the necessary settings you should provide:
-
-1. Certificate (Base64) – download and transfer to Raketa.
-1. Azure AD Identifier –  Azure AD Identifier.
-1. Login URL – your authorization web-page URL, which we will use to redirect users to your authentication system.
-1. Logout URL – your web-page URL, which we will use to redirect users after the logout.
-
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Raketa supports **SP** initiated SSO.
-
 * Once you configure Raketa you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Raketa from the gallery
@@ -73,7 +60,7 @@ To configure the integration of Raketa into Azure AD, you need to add Raketa fro
 
 1. In the **Add from the gallery** [5] section, type **Raketa** in the search box [6].
 
-1. Select **Raketa** from results panel [7] and then add the app [8]. Wait a few seconds while the app is added to your tenant.
+1. Select **Raketa** from results panel [7] and then click on **Add** button [8]. 
 
     ![rkt_3](./media/raketa-tutorial/87418179-b7822400-c5ea-11ea-96b0-f127d3e23a55.png)
 
@@ -120,11 +107,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up Raketa** section, copy the appropriate URL(s) based on your requirement.
 
-    1. Login URL [16] – your authorization web-page URL, which we will use to redirect users to your authentication system.
+    1. Login URL [16] – The authorization web-page URL, which is used to redirect the users to the authentication system.
 
     1. Azure AD Identifier [17] – Azure AD Identifier.
 
-    1. Logout URL [18] – your web-page URL, which we will use to redirect users after the logout.
+    1. Logout URL [18] – The web-page URL, which is used to redirect the users after logout.
 
     ![rkt_7](./media/raketa-tutorial/87418184-b94be780-c5ea-11ea-9d54-615be53ed60e.png)
 
