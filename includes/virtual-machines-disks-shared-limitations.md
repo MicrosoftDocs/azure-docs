@@ -21,7 +21,7 @@ When sharing ultra disks, they have the following additional limitations:
 - Currently limited to Azure Resource Manager or SDK support. 
 - Only basic disks can be used with some versions of Windows Server Failover Cluster, for details see [Failover clustering hardware requirements and storage options](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 
-Ultra shared disks are available in all regions that support ultra disks by default, and do not require you to sign up for access to use them.
+Shared ultra disks are available in all regions that support ultra disks by default, and do not require you to sign up for access to use them.
 
 ### Premium SSDs
 

@@ -113,7 +113,7 @@ az disk show -g rg1 -n clidisk
 
 ##### Zonal disk example
 
-This example is almost the same as the previous, except it creates the disk in availability zone 1.
+This example is almost the same as the previous, except it creates a disk in availability zone 1.
 
 ```azurecli
 #Creating an Ultra shared Disk 
@@ -138,7 +138,7 @@ New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $
 
 ##### Zonal disk example
 
-This example is almost the same as the previous, except it creates the disk in availability zone 1.
+This example is almost the same as the previous, except it creates a disk in availability zone 1.
 
 ```azurepowershell-interactive
 $datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType UltraSSD_LRS -CreateOption Empty -DiskIOPSReadWrite 2000 -DiskMBpsReadWrite 200 -DiskIOPSReadOnly 100 -DiskMBpsReadOnly 1 -MaxSharesCount 5 -Zone 1
