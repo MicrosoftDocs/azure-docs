@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 04/17/2020
+ms.date: 05/25/2020
 ---
 
 # Mapping data flow video tutorials
@@ -46,6 +46,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Lookup transformation](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
+[Lookup Transformation Updates & Tips](https://youtu.be/MBskWoeuTLw)
+
 [Pivot transformation](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
 
 [Pivot transformation: mapping drifted columns](https://youtu.be/5MygzCX0wnM)
@@ -53,6 +55,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Select transformation](http://youtu.be/F9VjQ_YyRyU?hd=1)
 
 [Select transformation: Rule-based mapping](https://youtu.be/5lf1lh1qMwU)
+
+[Select transformation: Large Datasets](https://www.youtube.com/watch?v=R5ea2_R0ouc)
 
 [Surrogate key transformation](https://www.youtube.com/watch?v=ISpegL9CbTM)
 
@@ -144,6 +148,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [Detect source data changes](http://youtu.be/CaxIlI7oXfI?hd=1)
 
+[Generic type 2 slowly changing dimension](http://youtu.be/tc283k8CWh8)
+
 ## Data flow expressions
 
 [Date/Time expressions](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
@@ -155,3 +161,5 @@ As updates are constantly made to the product, some features have added or diffe
 [Data Flow Script Intro: Copy, Paste, Snippets](https://www.youtube.com/watch?v=3_1I4XdoBKQ)
 
 [Data Quality Expressions](https://www.youtube.com/watch?v=O8gmv5-lXhs)
+
+[Collect aggregate function](https://www.youtube.com/watch?v=zneE18EHJSE)

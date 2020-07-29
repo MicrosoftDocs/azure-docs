@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Create a store locator application using Azure Maps | Microsoft Azure Maps'
 description: In this tutorial, you'll learn how to create a store locator web application by using Microsoft Azure Maps web SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ---
 
 # Tutorial: Create a store locator by using Azure Maps
@@ -30,7 +30,7 @@ Jump ahead to the [live store locator example](https://azuremapscodesamples.azur
 
 ## Prerequisites
 
-To complete the steps in this tutorial, you first need to create an Azure Maps account and get your primary key (subscription key). Follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
+To complete the steps in this tutorial, you first need to create an Azure Maps account and get your primary key (subscription key). Follow instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 ## Design
 
@@ -76,12 +76,12 @@ Looking at the screenshot of the data, we can make the following observations:
     
 * Location information is stored by using the **AddressLine**, **City**, **Municipality** (county), **AdminDivision** (state/province), **PostCode** (postal code), and **Country** columns.  
 * The **Latitude** and **Longitude** columns contain the coordinates for each Contoso Coffee coffee shop location. If you don't have coordinates information, you can use the Search services in Azure Maps to determine the location coordinates.
-* Some additional columns contain metadata related to the coffee shops: a phone number, Boolean columns, and store opening and closing times in 24-hour format. The Boolean columns are for Wi-Fi and wheelchair accessibility. You can create your own columns that contain metadata that’s more relevant to your location data.
+* Some additional columns contain metadata related to the coffee shops: a phone number, Boolean columns, and store opening and closing times in 24-hour format. The Boolean columns are for Wi-Fi and wheelchair accessibility. You can create your own columns that contain metadata that's more relevant to your location data.
 
 > [!Note]
 > Azure Maps renders data in the spherical Mercator projection "EPSG:3857" but reads data in "EPSG:4325" that use the WGS84 datum. 
 
-There are many ways to expose the dataset to the application. One approach is to load the data into a database and expose a web service that queries the data. You can then send the results to the user’s browser. This option is ideal for large datasets or for datasets that are updated frequently. However, this option requires more development work and has a higher cost. 
+There are many ways to expose the dataset to the application. One approach is to load the data into a database and expose a web service that queries the data. You can then send the results to the user's browser. This option is ideal for large datasets or for datasets that are updated frequently. However, this option requires more development work and has a higher cost. 
 
 Another approach is to convert this dataset into a flat text file that the browser can easily parse. The file itself can be hosted with the rest of the application. This option keeps things simple, but it's a good option only for smaller datasets because the user downloads all the data. We use the flat text file for this dataset because the data file size is smaller than 1 MB.  
 
@@ -370,7 +370,7 @@ The next step is to define the CSS styles. CSS styles define how the application
     }
    ```
 
-Run the application now, you'll see the header, search box, and search button. But, the map isn't visible because it hasn’t been loaded yet. If you try to do a search, nothing happens. We need to set up the JavaScript logic, which is described in the next section. This logic accesses all the functionality of the store locator.
+Run the application now, you'll see the header, search box, and search button. But, the map isn't visible because it hasn't been loaded yet. If you try to do a search, nothing happens. We need to set up the JavaScript logic, which is described in the next section. This logic accesses all the functionality of the store locator.
 
 ## Wire the application with JavaScript
 
@@ -392,7 +392,7 @@ Everything is now set up in the user interface. We still need to add the JavaScr
 
 1. Add code to *index.js*. The following code initializes the map. We added an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to wait until the page is finished loading. Then, we wired up events to monitor the loading of the map, and give functionality to the search button and the My location button.
 
-   When the user selects the search button, or types a location in the search box then presses enter, a fuzzy search against the user's query is initiated. Pass in an array of country ISO 2 values to the `countrySet` option to limit the search results to those countries/regions. Limiting the countries/regions to search helps increase the accuracy of the results that are returned. 
+   When the user selects the search button, or types a location in the search box then presses enter, a fuzzy search against the user's query is initiated. Pass in an array of country/region ISO 2 values to the `countrySet` option to limit the search results to those countries/regions. Limiting the countries/regions to search helps increase the accuracy of the results that are returned. 
   
    Once the search is finished, take the first result and set the map camera over that area. When the user selects the My Location button, retrieve the user's location using the HTML5 Geolocation API. This API is built into the browser. Then, center the map over their location.  
 
@@ -443,12 +443,12 @@ Everything is now set up in the user interface. We still need to add the JavaScr
         //Wait until the map resources are ready.
         map.events.add('ready', function() {
 
-			//Add your post-map load functionality.
+            //Add your post-map load functionality.
 
         });
     }
 
-    //Create an array of country ISO 2 values to limit searches to. 
+    //Create an array of country/region ISO 2 values to limit searches to. 
     var countrySet = ['US', 'CA', 'GB', 'FR','DE','IT','ES','NL','DK'];
 
     function performSearch() {
@@ -456,7 +456,7 @@ Everything is now set up in the user interface. We still need to add the JavaScr
 
         //Perform a fuzzy search on the users query.
         searchURL.searchFuzzy(atlas.service.Aborter.timeout(3000), query, {
-            //Pass in the array of country ISO2 for which we want to limit the search to.
+            //Pass in the array of country/region ISO2 for which we want to limit the search to.
             countrySet: countrySet
         }).then(results => {
             //Parse the response into GeoJSON so that the map can understand.
@@ -721,24 +721,24 @@ Everything is now set up in the user interface. We still need to add the JavaScr
             </div>
             */
 
-			//Get all the shapes that have been rendered in the bubble layer. 
-			var data = map.layers.getRenderedShapes(map.getCamera().bounds, [iconLayer]);
+            //Get all the shapes that have been rendered in the bubble layer. 
+            var data = map.layers.getRenderedShapes(map.getCamera().bounds, [iconLayer]);
 
-			//Create an index of the distances of each shape.
-			var distances = {};
+            //Create an index of the distances of each shape.
+            var distances = {};
 
-			data.forEach(function (shape) {
-				if (shape instanceof atlas.Shape) {
+            data.forEach(function (shape) {
+                if (shape instanceof atlas.Shape) {
 
-					//Calculate the distance from the center of the map to each shape and store in the index. Round to 2 decimals.
-					distances[shape.getId()] = Math.round(atlas.math.getDistanceTo(camera.center, shape.getCoordinates(), 'miles') * 100) / 100;
-				}
-			});
+                    //Calculate the distance from the center of the map to each shape and store in the index. Round to 2 decimals.
+                    distances[shape.getId()] = Math.round(atlas.math.getDistanceTo(camera.center, shape.getCoordinates(), 'miles') * 100) / 100;
+                }
+            });
 
-			//Sort the data by distance.
-			data.sort(function (x, y) {
-				return distances[x.getId()] - distances[y.getId()];
-			});
+            //Sort the data by distance.
+            data.sort(function (x, y) {
+                return distances[x.getId()] - distances[y.getId()];
+            });
 
             data.forEach(function(shape) {
                 properties = shape.getProperties();
@@ -865,8 +865,8 @@ Everything is now set up in the user interface. We still need to add the JavaScr
             </div>
         */
 
-		 //Calculate the distance from the center of the map to the shape in miles, round to 2 decimals.
-	    var distance = Math.round(atlas.math.getDistanceTo(map.getCamera().center, shape.getCoordinates(), 'miles') * 100)/100;
+         //Calculate the distance from the center of the map to the shape in miles, round to 2 decimals.
+        var distance = Math.round(atlas.math.getDistanceTo(map.getCamera().center, shape.getCoordinates(), 'miles') * 100)/100;
 
         var html = ['<div class="storePopup">'];
         html.push('<div class="popupTitle">',
@@ -917,7 +917,7 @@ Everything is now set up in the user interface. We still need to add the JavaScr
 
 Now, you have a fully functional store locator. In a web browser, open the *index.html* file for the store locator. When the clusters appear on the map, you can search for a location by using the search box, by selecting the My Location button, by selecting a cluster, or by zooming in on the map to see individual locations.
 
-The first time a user selects the My Location button, the browser displays a security warning that asks for permission to access the user’s location. If the user agrees to share their location, the map zooms in on the user's location, and nearby coffee shops are shown. 
+The first time a user selects the My Location button, the browser displays a security warning that asks for permission to access the user's location. If the user agrees to share their location, the map zooms in on the user's location, and nearby coffee shops are shown. 
 
 <center>
 

@@ -136,7 +136,7 @@ The `build` step type supports the parameters in the following table. The `build
 
 The `build` step type supports the following properties. Find details of these properties in the [Task step properties](#task-step-properties) section of this article.
 
-| | | |
+| Properties | Type | Required |
 | -------- | ---- | -------- |
 | `detach` | bool | Optional |
 | `disableWorkingDirectoryOverride` | bool | Optional |
@@ -208,7 +208,7 @@ steps:
 
 The `push` step type supports the following properties. Find details of these properties in the [Task step properties](#task-step-properties) section of this article.
 
-| | | |
+| Property | Type | Required |
 | -------- | ---- | -------- |
 | `env` | [string, string, ...] | Optional |
 | `id` | string | Optional |
@@ -253,7 +253,7 @@ steps:
 
 The `cmd` step type supports the following properties:
 
-| | | |
+| Property | Type | Required |
 | -------- | ---- | -------- |
 | `detach` | bool | Optional |
 | `disableWorkingDirectoryOverride` | bool | Optional |

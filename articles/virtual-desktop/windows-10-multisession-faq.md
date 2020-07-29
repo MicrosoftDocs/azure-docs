@@ -48,7 +48,7 @@ Windows 10 Enterprise multi-session is currently supported to be hybrid Azure AD
  
 ## Where can I find the Windows 10 Enterprise multi-session image?
 
-Windows 10 Enterprise multi-session is in the Azure gallery. To find it, navigate to the Azure portal and search for the Windows 10 Enterprise for Virtual Desktops release. For an image integrated with Office Pro Plus, go to the Azure portal and search for Microsoft Windows 10 + Office 365 ProPlus.
+Windows 10 Enterprise multi-session is in the Azure gallery. To find it, navigate to the Azure portal and search for the Windows 10 Enterprise for Virtual Desktops release. For an image integrated with Microsoft 365 Apps for enterprise, go to the Azure portal and search for **Microsoft Windows 10 + Microsoft 365 Apps for enterprise**.
 
 ## Which Windows 10 Enterprise multi-session image should I use?
 
@@ -56,7 +56,7 @@ The Azure gallery has several releases, including Windows 10 Enterprise multi-se
  
 ## Which Windows 10 Enterprise multi-session versions are supported?
 
-Windows 10 Enterprise multi-session, versions 1809 and later are supported and are available in the Azure gallery. These releases follow the same support life-cycle policy as Windows 10 Enterprise, which means the spring release is supported for 18 months and the fall release for 30 months.
+Windows 10 Enterprise multi-session, versions 1809 and later are supported and are available in the Azure gallery. These releases follow the same support lifecycle policy as Windows 10 Enterprise, which means the March release is supported for 18 months and the September release for 30 months.
  
 ## Which profile management solution should I use for Windows 10 Enterprise multi-session?
 
@@ -97,6 +97,6 @@ To disable the Store app:
 
 To learn more about Windows Virtual Desktop and Windows 10 Enterprise multi-session:
 
-- Read our [Windows Virtual Desktop Preview documentation](overview.md)
+- Read our [Windows Virtual Desktop documentation](overview.md)
 - Visit our [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
-- Set up your Windows Virtual Desktop deployment with the [Windows Virtual Desktop tutorials](tenant-setup-azure-active-directory.md)
+- Set up your Windows Virtual Desktop deployment with the [Windows Virtual Desktop tutorials](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)

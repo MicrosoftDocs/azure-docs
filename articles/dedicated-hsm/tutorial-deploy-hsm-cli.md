@@ -59,15 +59,7 @@ az feature show \
    --name AzureDedicatedHSM
 ```
 
-The following command verifies the networking features required for the Dedicated HSM service.
-
-```azurecli
-az feature show \
-   --namespace Microsoft.Network \
-   --name AllowBaremetalServers
-```
-
-Both commands should return a status of "Registered" (as shown below). If the commands don't return "Registered" you need to register for this service, contact your Microsoft account representative.
+The commands should return a status of "Registered" (as shown below). If the commands don't return "Registered" you need to register for this service by contacting your Microsoft account representative.
 
 ![subscription status](media/tutorial-deploy-hsm-cli/subscription-status.png)
 

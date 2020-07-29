@@ -5,6 +5,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
+ms.custom: tracking-python
 ---
 
 # Azure Blob storage input binding for Azure Functions
@@ -323,7 +324,7 @@ Access blob data using `context.bindings.<NAME>` where `<NAME>` matches the valu
 
 # [Python](#tab/python)
 
-Access blob data via the parameter typed as [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Refer to the [input example](#example) for details.
+Access blob data via the parameter typed as [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Refer to the [input example](#example) for details.
 
 # [Java](#tab/java)
 

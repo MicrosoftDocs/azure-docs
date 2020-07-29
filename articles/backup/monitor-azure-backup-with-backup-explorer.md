@@ -25,6 +25,7 @@ These capabilities are provided out-of-box by native integration with Azure Reso
 > * Backup Explorer is currently not supported in national clouds.
 > * Currently, customizing the Backup Explorer template is not supported.
 > * We do not recommend writing custom automations on Azure Resource Graph data.
+> * Currently, Backup Explorer allows you to monitor backups across a maximum of 1000 subscriptions (across tenants).
 
 ## Get started
 
@@ -88,8 +89,8 @@ You can select the "pin" icon at the top of each table or chart to pin it to you
 
 ## Cross-tenant views
 
-If you're an Azure Lighthouse user with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. You display the subscriptions that you want to see data for by selecting the "filter" icon at the top right of the Azure portal. When you use this feature, Backup Explorer aggregates information about all the vaults across your selected subscriptions. To learn more, see [What is Azure Lighthouse?](https://docs.microsoft.com/azure/lighthouse/overview).
+If you're an Azure Lighthouse user with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. You display the subscriptions that you want to see data for by selecting the "filter" icon at the top right of the Azure portal. When you use this feature, Backup Explorer aggregates information about all the vaults across your selected subscriptions. To learn more, see [What is Azure Lighthouse?](../lighthouse/overview.md).
 
 ## Next steps
 
-[Learn how to use Azure Monitor for getting insights on your backup data](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)
+[Learn how to use Azure Monitor for getting insights on your backup data](./backup-azure-monitoring-use-azuremonitor.md)

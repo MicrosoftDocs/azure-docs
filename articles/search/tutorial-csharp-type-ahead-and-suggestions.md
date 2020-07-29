@@ -1,17 +1,18 @@
 ---
-title: Autocomplete and suggestions
+title: C# tutorial on autocomplete and suggestions
 titleSuffix: Azure Cognitive Search
-description:  This tutorial demonstrates autocomplete and suggestions as a way to collect search term input from users using dropdown list. It builds on an existing hotels project.
+description:  Add autocomplete and suggestions to collect search term input from users using dropdown list. This tutorial builds on an existing hotels project.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 07/15/2020
+ms.custom: devx-track-javascript
 ---
 
-# C# tutorial: Add autocomplete and suggestions - Azure Cognitive Search
+# Tutorial: Add autocomplete and suggestions using the .NET SDK
 
 Learn how to implement autocomplete (typeahead queries and suggested documents) when a user starts typing into a search box. In this tutorial, we will show autocompleted queries and suggestion results separately, and then together. A user may only have to type two or three characters to locate all the results that are available.
 

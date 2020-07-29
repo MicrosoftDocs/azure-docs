@@ -5,10 +5,10 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurepowershel
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 4/28/2020
 ---
-# How to back up and restore a server in Azure Database for MySQL using PowerShell
+# How to back up and restore an Azure Database for MySQL server using PowerShell
 
 Azure Database for MySQL servers is backed up periodically to enable restore features. Using this
 feature you may restore the server and all its databases to an earlier point-in-time, on a new
@@ -162,6 +162,5 @@ original server are restored.
 
 ## Next steps
 
-- Learn more about the service's [backups](concepts-backup.md)
-- Learn about [replicas](concepts-read-replicas.md)
-- Learn more about [business continuity](concepts-business-continuity.md) options
+> [!div class="nextstepaction"]
+> [Customize Azure Database for MySQL server parameters using PowerShell](howto-configure-server-parameters-using-powershell.md)

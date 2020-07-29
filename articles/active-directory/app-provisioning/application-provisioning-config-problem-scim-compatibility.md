@@ -2,14 +2,14 @@
 title: Known issues with SCIM 2.0 protocol compliance - Azure AD
 description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Azure AD
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 12/03/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
@@ -37,8 +37,7 @@ This article describes current and past issues with the Azure AD user provisioni
 
 No. As it would have constituted a breaking change to SCIM apps that were coded to work with the older behavior, the changes were not automatically applied to existing apps.
 
-The changes are applied to all new [non-gallery SCIM apps](../manage-apps/configure-single-sign-on-non-gallery-applications.md)
- configured in the Azure portal, after the date of the fix.
+The changes are applied to all new non-gallery SCIM apps configured in the Azure portal, after the date of the fix.
 
 For information on how to migrate a pre-existing user provisioning job to include the latest fixes, see the next section.
 

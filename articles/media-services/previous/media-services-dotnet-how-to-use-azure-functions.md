@@ -334,7 +334,7 @@ To test your function, you need to upload an MP4 file into the **input** contain
 4. Press **Upload** and browse to a .mp4 file that you want to upload.
 
 >[!NOTE]
-> When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs after a function app has gone idle. After the function app is running, blobs are processed immediately. For more information, see [Blob storage triggers and bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+> When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs after a function app has gone idle. After the function app is running, blobs are processed immediately. For more information, see [Blob storage triggers and bindings](../../azure-functions/functions-bindings-storage-blob.md).
 
 ## Next steps
 
@@ -346,4 +346,3 @@ Also, see [Use Azure WebHooks to monitor Media Services job notifications with .
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

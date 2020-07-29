@@ -1,17 +1,12 @@
 ---
 title: Azure Event Grid - Enable diagnostic logs for topics or domains
 description: This article provides step-by-step instructions on how to enable diagnostic logs for an Azure event grid topic.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/27/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 #  Enable Diagnostic logs for Azure event grid topics or domains
-Diagnostic Settings now allow Event Grid users to capture and view **publish and delivery failure** Logs in either a Storage account, an event hub, or a Log Analytics Workspace. This article provides step-by-step instructions to enable these settings on an Event Grid Topic.
+Diagnostic settings allow Event Grid users to capture and view **publish and delivery failure** Logs in either a Storage account, an event hub, or a Log Analytics Workspace. This article provides step-by-step instructions to enable these settings on an Event Grid Topic.
 
 ## Prerequisites
 
@@ -21,15 +16,19 @@ Diagnostic Settings now allow Event Grid users to capture and view **publish and
     - Event hub
     - Log Analytics workspace
 
-## Steps for enabling diagnostic logs for a topic
+## Enable diagnostic logs for a custom topic
 
 > [!NOTE]
 > The following procedure provides step-by-step instructions for enabling diagnostic logs for a topic. Steps for enabling diagnostic logs for a domain are very similar. In step 2, navigate to the event grid **domain** in the Azure portal.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the event grid topic for which you want to enable diagnostic log settings. 
-3. Select **Diagnostic settings** under **Monitoring** in the left menu.
-4. On the **Diagnostic settings** page, select **Add New Diagnostic Setting**. 
+    1. In the search bar at the top, search for **Event Grid Topics**. 
+    
+        ![Search for custom topics](./media/enable-diagnostic-logs-topic/search-custom-topics.png)
+    1. Select the **topic** from the list for which you want to configure diagnostic settings. 
+1. Select **Diagnostic settings** under **Monitoring** in the left menu.
+1. On the **Diagnostic settings** page, select **Add New Diagnostic Setting**. 
     
     ![Add diagnostic setting button](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
 5. Specify a **name** for the diagnostic setting. 
@@ -48,6 +47,38 @@ Diagnostic Settings now allow Event Grid users to capture and view **publish and
     ![Diagnostic setting in the list](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
 
 	 You can also enable collection of all metrics for the topic. 
+
+## Enable diagnostic logs for a system topic
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Navigate to the event grid topic for which you want to enable diagnostic log settings. 
+    1. In the search bar at the top, search for **Event Grid System Topics**. 
+    
+        ![Search for system topics](./media/enable-diagnostic-logs-topic/search-system-topics.png)
+    1. Select the **system topic** for which you want to configure diagnostic settings. 
+    
+        ![Select system topic](./media/enable-diagnostic-logs-topic/select-system-topic.png)
+3. Select **Diagnostic settings** under **Monitoring** on the left menu, and then select **Add diagnostic setting**. 
+
+    ![Add diagnostic settings - button](./media/enable-diagnostic-logs-topic/system-topic-add-diagnostic-settings-button.png)
+4. Specify a **name** for the diagnostic setting. 
+7. Select the **DeliveryFailures** in the **Log** section. 
+    ![Select delivery failures](./media/enable-diagnostic-logs-topic/system-topic-select-delivery-failures.png)
+6. Enable one or more of the capture destinations for the logs, and then configure them by selecting a previous created capture resource. 
+    - If you select **Send to Log Analytics**, select the Log Analytics workspace.
+        ![Send to Log Analytics](./media/enable-diagnostic-logs-topic/system-topic-select-log-workspace.png) 
+    - If you select **Archive to a storage account**, select **Storage account - Configure**, and then select the storage account in your Azure subscription. 
+
+        ![Archive to an Azure storage account](./media/enable-diagnostic-logs-topic/system-topic-select-storage-account.png)
+    - If you select **Stream to an event hub**, select **Event hub - Configure**, and then select the Event Hubs namespace, event hub, and the access policy. 
+        ![Stream to an event hub](./media/enable-diagnostic-logs-topic/system-topic-select-event-hub.png)
+8. Select **Save**. Then, select **X** in the right-corner to close the page. 
+9. Now, back on the **Diagnostic settings** page, confirm that you see a new entry in the **Diagnostics Settings** table. 
+    ![Diagnostic setting in the list](./media/enable-diagnostic-logs-topic/system-topic-diagnostic-settings-targets.png)
+
+	 You can also enable collection of all **metrics** for the system topic.
+
+    ![System topic - enable all metrics](./media/enable-diagnostic-logs-topic/system-topics-metrics.png)
 
 ## View diagnostic logs in Azure Storage 
 
@@ -70,16 +101,5 @@ Diagnostic Settings now allow Event Grid users to capture and view **publish and
     }
     ```
 
-## Schema for publish/delivery failure logs
-
-| Property name | Data type | Description |
-| ------------- | --------- | ----------- | 
-| Time | DateTime | The time when the log entry was generated <p>**Example value:**  01-29-2020 09:52:02.700</p> |
-| EventSubscriptionName | String | The name of the event subscription <p>**Example value:** "EVENTSUB1"</p> <p>This property exists only for delivery failure logs.</p>  |
-| Category | String | The log category name. <p>**Example values:** "DeliveryFailures" or "PublishFailures" | 
-| OperationName | String | The name of the operation performed while encountering the failure.<p>**Example Values:** "Deliver" for delivery failures. |
-| Message | String | The log message for the user explaining the reason for the failure and other additional details. |
-| ResourceId | String | The resource ID for the topic/domain resource<p>**Example Values:** `/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID/RESOURCEGROUPS/SAMPLE-RESOURCEGROUP/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/TOPIC1` |
-
 ## Next steps
-See the following article: [Create diagnostic setting to collect resource logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md)
+For the log schema and other conceptual information about diagnostic logs for topics or domains, see [Diagnostic logs](diagnostic-logs.md).

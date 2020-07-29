@@ -24,9 +24,9 @@ If your application sends queries to any of the Bing Search APIs, you can use th
 
 ## Workflow
 
-The Bing Autosuggest API is a RESTful web service, easy to call from any programming language that can make HTTP requests and parse JSON. 
+The Bing Autosuggest API is a RESTful web service, easy to call from any programming language that can make HTTP requests and parse JSON.
 
-1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) for free.
+1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/free/cognitive-services/) for free.
 2. Send a request to this API each time a user types a new character in your application's search box.
 3. Process the API response by parsing the returned JSON message.
 

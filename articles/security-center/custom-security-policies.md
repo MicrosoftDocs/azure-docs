@@ -36,7 +36,7 @@ As discussed in [the Azure Policy documentation](https://docs.microsoft.com/azur
 
 1. In the Security policy page, under Your custom initiatives, click **Add a custom initiative**.
 
-    [![Click **Add a custom initiative**](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
+    [![Click Add a custom initiative](media/custom-security-policies/custom-policy-add-initiative.png)](media/custom-security-policies/custom-policy-add-initiative.png#lightbox)
 
     The following page appears:
 
@@ -98,8 +98,8 @@ Below is an example of a custom policy including the metadata/securityCenter pro
 	"metadata": {
 		"securityCenter": {
 			"remediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
-			"severity": "High",
-		},
+			"severity": "High"
+		}
 	},
 	"parameters": {
 		"expressRouteLockLevel": {

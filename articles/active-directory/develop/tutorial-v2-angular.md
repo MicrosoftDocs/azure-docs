@@ -3,7 +3,7 @@ title: Angular single-page app tutorial - Azure
 titleSuffix: Microsoft identity platform
 description: Learn how Angular SPA applications can call an API that requires access tokens from the Microsoft identity platform endpoint.
 services: active-directory
-author: hahamil
+author: hamiltonha
 manager: CelesteDG
 
 ms.service: active-directory
@@ -12,13 +12,10 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, devx-track-javascript
 ---
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application
-
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature might change before general availability (GA).
 
 This tutorial demonstrates how an Angular single-page application (SPA) can:
 - Sign in personal accounts, work accounts, or school accounts.
@@ -30,7 +27,7 @@ This tutorial demonstrates how an Angular single-page application (SPA) can:
 
 ## How the sample app works
 
-![Diagram that shows how the sample app generated in this tutorial works](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
+![Diagram that shows how the sample app generated in this tutorial works](./media/tutorial-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 ### More information
 
@@ -137,7 +134,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and enable im
 3. Add the following import statements to the top of `src/app/app.component.ts`:
 
     ```javascript
-    import { MsalService } from '@azure/msal-angular';
+    import { MsalService, BroadcastService } from '@azure/msal-angular';
     import { Component, OnInit } from '@angular/core';
     ```
 ## Sign in a user
@@ -147,6 +144,8 @@ Add the following code to `AppComponent` to sign in a user:
 ```javascript
 export class AppComponent implements OnInit {
     constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
+
+    ngOnInit() { }
 
     login() {
         const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -339,7 +338,6 @@ If a back-end API doesn't require a scope (not recommended), you can use *client
 
 ## Next steps
 
-Next, learn how to sign in a user and acquire tokens in the Angular tutorial:
+If you're new to identity and access management, we have several articles to help you learn modern authentication concepts, starting with [authentication vs. authorization](authentication-vs-authorization.md).
 
-> [!div class="nextstepaction"]
-> [Angular tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
+If you'd like to dive deeper into single-page application development on the Microsoft identity platform, the multi-part [Scenario: Single-page application](scenario-spa-overview.md) series of articles can help you get started.

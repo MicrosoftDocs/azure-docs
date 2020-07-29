@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 07/14/2020
 
 ms.author: iainfou
 author: iainfoulds

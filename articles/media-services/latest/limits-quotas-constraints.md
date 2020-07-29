@@ -74,7 +74,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 | --- | --- | 
 | [Live Events](live-events-outputs-concept.md) <sup>(4)</sup> per Media Services account |5|
 | Live Outputs per Live Event |3 <sup>(5)</sup> |
-| Max Live Output duration | 25 hours |
+| Max Live Output duration | [Size of the DVR window](live-event-cloud-dvr.md) |
 
 <sup>4</sup> For detailed information about Live Event limits, see [Live Event types comparison and limits](live-event-types-comparison.md).
 
@@ -89,7 +89,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 | [Streaming Policies](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | Unique [Streaming Locators](streaming-locators-concept.md) associated with an Asset at one time | 100<sup>(7)</sup> (fixed) |
 
-<sup>6</sup> When using a custom [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. You should not be creating a new Streaming Policy for each Streaming Locator.
+<sup>6</sup> When using a custom [Streaming Policy](/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. You should not be creating a new Streaming Policy for each Streaming Locator.
 
 <sup>7</sup> Streaming Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions.
 

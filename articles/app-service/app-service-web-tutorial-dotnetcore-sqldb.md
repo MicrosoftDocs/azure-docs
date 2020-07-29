@@ -4,7 +4,7 @@ description: Learn how to get a .NET Core app working in Azure App Service, with
 
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/23/2020
+ms.date: 05/27/2020
 ms.custom: mvc, cli-validate, seodec18
 ---
 
@@ -442,3 +442,8 @@ Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+
+More resources:
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET Core app](configure-language-dotnetcore.md)

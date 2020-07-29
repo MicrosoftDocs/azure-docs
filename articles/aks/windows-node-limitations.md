@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn about the known limitations when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/18/2019
+ms.date: 05/28/2020
 
 #Customer intent: As a cluster operator, I want to understand the current limitations when running Windows node pools and application workloads.
 ---
@@ -41,7 +41,11 @@ The master nodes (the control plane) in an AKS cluster are hosted by AKS the ser
 
 ## What network plug-ins are supported?
 
-AKS clusters with Windows node pools must use the Azure CNI (advanced) networking model. Kubenet (basic) networking is not supported. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models]. - The Azure CNI network model requires additional planning and considerations for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
+AKS clusters with Windows node pools must use the Azure CNI (advanced) networking model. Kubenet (basic) networking is not supported. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models]. The Azure CNI network model requires additional planning and considerations for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
+
+## Is preserving the client source IP supported?
+
+At this time, [client source IP preservation][client-source-ip] is not supported with Windows nodes.
 
 ## Can I change the max. # of pods per node?
 
@@ -54,6 +58,19 @@ Windows Server nodes in AKS must be *upgraded* to get the latest patch fixes and
 > [!NOTE]
 > The updated Windows Server image will only be used if a cluster upgrade (control plane upgrade) has been performed prior to upgrading the node pool
 >
+
+## Why am I seeing an error when I try to create a new Windows agent pool?
+
+If you created your cluster before February 2020 and have never did any cluster upgrade operations, the cluster still uses an old Windows image. You may have seen an error that resembles:
+
+"The following list of images referenced from the deployment template are not found: Publisher: MicrosoftWindowsServer, Offer: WindowsServer, Sku: 2019-datacenter-core-smalldisk-2004, Version: latest. Please refer to https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage for instructions on finding available images."
+
+To fix this:
+
+1. Upgrade the [cluster control plane][upgrade-cluster-cp]. This will update the image offer and publisher.
+1. Create new Windows agent pools.
+1. Move Windows pods from existing Windows agent pools to new Windows agent pools.
+1. Delete old Windows agent pools.
 
 ## How do I rotate the service principal for my Windows node pool?
 
@@ -69,7 +86,7 @@ You have to keep the name to a maximum of 6 (six) characters. This is a current 
 
 ## Are all features supported with Windows nodes?
 
-Network policies and kubenet are currently not supported with Windows nodes. 
+Network policies and kubenet are currently not supported with Windows nodes.
 
 ## Can I run ingress controllers on Windows nodes?
 
@@ -85,7 +102,15 @@ Group managed service accounts (gMSA) support is not currently available in AKS.
 
 ## Can I use Azure Monitor for containers with Windows nodes and containers?
 
-Yes you can, however Azure Monitor does not gather logs (stdout) from Windows containers. You can still attach to the live stream of stdout logs from a Windows container.
+Yes you can, however Azure Monitor is in public preview for gathering logs (stdout, stderr) and metrics from Windows containers. You can also attach to the live stream of stdout logs from a Windows container.
+
+## Are there any limitations on the number of services on a cluster with Windows nodes?
+
+A cluster with Windows nodes can have approximately 500 services before it encounters port exhaustion.
+
+## Can I use the Kubernetes Web Dashboard with Windows containers?
+
+Yes, you can use the [Kubernetes Web Dashboard][kubernetes-dashboard] to access information about Windows containers, but at this time you can't run *kubectl exec* into a running Windows container directly from the Kubernetes Web Dashboard. For more details on connecting to your running Windows container see [Connect with RDP to Azure Kubernetes Service (AKS) cluster Windows Server nodes for maintenance or troubleshooting][windows-rdp].
 
 ## What if I need a feature which is not supported?
 
@@ -109,7 +134,13 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[upgrade-cluster]: upgrade-cluster.md
+[upgrade-cluster-cp]: use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
+[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
+[client-source-ip]: concepts-network.md#ingress-controllers
+[kubernetes-dashboard]: kubernetes-dashboard.md
+[windows-rdp]: rdp.md

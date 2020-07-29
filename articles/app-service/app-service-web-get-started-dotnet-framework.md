@@ -105,7 +105,7 @@ The app name specified in the **App Service Create new** page is used as the URL
 
 1. Find the `<div class="jumbotron">` HTML tag near the top, and replace the entire element with the following code:
 
-   ```HTML
+   ```html
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
        <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
@@ -134,7 +134,12 @@ The app name specified in the **App Service Create new** page is used as the URL
 
    The left menu provides different pages for configuring your app.
 
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [ASP.NET with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET app](configure-language-dotnet-framework.md)

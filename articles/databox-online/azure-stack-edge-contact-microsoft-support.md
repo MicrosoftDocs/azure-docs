@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: alkohli
 ---
@@ -22,9 +22,9 @@ This article applies to Azure Stack Edge and Azure Data Box Gateway both of whic
 Perform the following steps to create a support request:
 
 1. Go to your Azure Stack Edge or Data Box Gateway order. Navigate to **Support + troubleshooting** section and then select **New support request**.
-   
+
 2. In **New support request**, on the **Basics** tab, take the following steps:
-    
+
     1. From the **Issue type** dropdown list, select **Technical**.
     2. Choose your **Subscription**.
     3. Under **Service**, check **My Services**. From the dropdown list, select **Azure Stack Edge and Data Box Gateway**.
@@ -37,7 +37,7 @@ Perform the following steps to create a support request:
         ![Basics](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
 
 3. On the **Details** tab, take the following steps:
-    
+
     1. Provide the start date and time for the problem.
     2. Supply a **Description** for your problem.
     3. In the **File upload**, select the folder icon to browse any other files you want to upload.
@@ -62,16 +62,16 @@ Perform the following steps to create a support request:
 
 This information only applies to Azure Stack device. The process to report hardware issues is as follows:
 
-1. Open a Support ticket from the Azure portal for a hardware issue. Under **Problem type**, select **Azure Stack Hardware**. Choose the **Problem subtype** as **Hardware failure**. 
+1. Open a Support ticket from the Azure portal for a hardware issue. Under **Problem type**, select **Azure Stack Hardware**. Choose the **Problem subtype** as **Hardware failure**.
 
     ![Hardware issue](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-hardware-issue-1.png)
 
-    After you have created the Support ticket, a Support engineer will contact you as soon as possible to proceed with your request. 
+    After you have created the Support ticket, a Support engineer will contact you as soon as possible to proceed with your request.
 
-2. If Microsoft Support determines that this is a hardware issue, then one of the following action occurs: 
+2. If Microsoft Support determines that this is a hardware issue, then one of the following action occurs:
 
-    - A Field Replacement Unit (FRU) for the failed hardware part is sent. Currently, power supply unit is the only supported FRU. 
-    - For any other part failure, Microsoft does a full system replacement (FSR) or a device swap.
+    * A Field Replacement Unit (FRU) for the failed hardware part is sent. Currently, power supply units and hard drives are the only supported FRUs.
+    * Only FRUs are replaced within the next business day, everything else requires a full system replacement (FSR) to be shipped.
 
 3. If a Support ticket is raised before 4:30 pm local time (Monday to Friday), an onsite technician is dispatched the next business day to your location to perform  a FRU or a full device replacement.
 
@@ -79,11 +79,11 @@ This information only applies to Azure Stack device. The process to report hardw
 
 After creating a support ticket, you can manage the lifecycle of the ticket from within the portal.
 
-#### To manage your support requests
+### To manage your support requests
 
 1. To get to the help and support page, navigate to **Browse > Help + support**.
 
-    ![Manage support requests](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-manage-support-request-1.png)   
+    ![Manage support requests](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-manage-support-request-1.png)
 
 2. A tabular listing of **Recent support requests** is displayed in **Help + support**.
 
@@ -91,7 +91,6 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 
 3. Select and click a support request. You can view the status and the details for this request. Click **+ New message** if you want to follow up on this request.
 
-   
 ## Next steps
 
 Learn how to [Troubleshoot issues related to Azure Stack Edge](azure-stack-edge-troubleshoot.md).

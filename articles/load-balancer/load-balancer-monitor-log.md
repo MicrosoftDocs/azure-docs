@@ -7,18 +7,15 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 05/05/2020
 ms.author: allensu
 ---
 
 # Azure Monitor logs for public Basic Load Balancer
-
->[!IMPORTANT]
->Azure Load Balancer supports two different types: Basic and Standard. This article discusses Basic Load Balancer. For more information about Standard Load Balancer, see [Standard Load Balancer overview](load-balancer-standard-overview.md) which exposes telemetry via multi-dimensional metrics in Azure Monitor.
 
 You can use different types of logs in Azure to manage and troubleshoot Basic Load Balancers. Some of these logs can be accessed through the portal. Logs can be streamed to an event hub or a Log Analytics workspace. All logs can be extracted from Azure blob storage, and viewed in different tools, such as Excel and Power BI.  You can learn more about the different types of logs from the list below.
 
@@ -38,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com). If you don't already ha
 1. In the portal, click **Resource groups**.
 2. Select **\<resource-group-name>** where your load balancer is.
 3. Select your load balancer.
-4. Select **Monitoring** > **Diagnostic settings**.
+4. Select **Activity log** > **Diagnostic settings**.
 5. In the **Diagnostics settings** pane, under **Diagnostics settings**, select **+ Add diagnostic setting**.
 6. In the **Diagnostics settings** creation pane, enter **myLBDiagnostics** in the **Name** field.
 7. You have three options for the **Diagnostics settings**.  You can choose one, two or all three and configure each for your requirements:

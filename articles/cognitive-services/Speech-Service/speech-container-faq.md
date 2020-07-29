@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/24/2020
 ms.author: aahi
 ---
 
@@ -44,7 +44,7 @@ Finally, you can set the number of decoders you want inside a *single* container
 
 <details>
 <summary>
-<b>Could you help with capacity planning and cost estimation of on-prem Speech containers?</b>
+<b>Could you help with capacity planning and cost estimation of on-prem Speech-to-text containers?</b>
 </summary>
 
 **Answer:** For container capacity in batch processing mode, each decoder could handle 2-3x in real time, with two CPU cores, for a single recognition. We do not recommend keeping more than two concurrent recognitions per container instance, but recommend running more instances of containers for reliability/availability reasons, behind a load balancer.

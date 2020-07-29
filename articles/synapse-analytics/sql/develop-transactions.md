@@ -1,12 +1,12 @@
 ---
-title: Using transactions
+title: Use transactions
 description: Tips for implementing transactions in SQL pool (data warehouse) for developing solutions.
 services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
@@ -202,4 +202,4 @@ They are as follows:
 
 ## Next steps
 
-To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Additional best practices guides are also provided for [SQL pool](best-practices-sql-pool.md) and [SQL on-demand (preview)](on-demand-workspace-overview.md).
+To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Additional best practices guides are also provided for [SQL pool](best-practices-sql-pool.md) and [SQL on-demand (preview)](best-practices-sql-on-demand.md).

@@ -102,18 +102,14 @@ To configure Azure AD single sign-on with StatusPage, perform the following step
     ![StatusPage Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-	
-	| |
-	|--|
-	| `https://<subdomain>.statuspagestaging.com/`|
-	| `https://<subdomain>.statuspage.io/`|
+
+	- `https://<subdomain>.statuspagestaging.com/`
+	- `https://<subdomain>.statuspage.io/`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-	
-	| |
-	|--|
-	| `https://<subdomain>.statuspagestaging.com/sso/saml/consume`|
-	| `https://<subdomain>.statuspage.io/sso/saml/consume`|
+
+	- `https://<subdomain>.statuspagestaging.com/sso/saml/consume`
+	- `https://<subdomain>.statuspage.io/sso/saml/consume`
 
     > [!NOTE]
     > Contact the StatusPage support team at [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)to request metadata necessary to configure single sign-on. 

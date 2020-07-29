@@ -3,7 +3,7 @@ title: Partners who integrate with Azure Monitor
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
 ms.subservice: ""
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/29/2020
 
 ---
 
@@ -102,7 +102,8 @@ Grafana is an open-source application that enables you to visualize time series 
 
 ![InfluxData Logo](./media/partners/Influxdata.png)
 
-InfluxData, the creator of InfluxDB, delivers a modern Open Source Platform built from the ground up for analyzing metrics and events (time series data) for DevOps and IoT applications. Whether the data comes from humans, sensors, or machines, InfluxData empowers developers to build next-generation monitoring, analytics, and IoT applications faster, easier, and to scale delivering real business value quickly. Based in San Francisco, InfluxData's more than 420 customers include Cisco, eBay, IBM, and Siemens.
+InfluxData is the creator of InfluxDB, the open source time series database. Our technology is purpose-built to handle the massive volumes of time-stamped data produced by IoT devices, applications, networks, containers and computers. We are on a mission to help developers and organizations, such as IBM, Visa, Siemens, Tesla and NASA, store and analyze real-time data, empowering them to build transformative monitoring, analytics, and IoT applications quicker and to scale. Microsoft Azure Monitor's metrics and events collection capabilities can be expanded with InfluxData's Telegraf Agent enabling Microsoft users to benefit from a leading time series database solution and leverage the growing open source contributions to Telegraf.
+
 
 [Go to the documentation.][influxdata-doc]
 
@@ -263,10 +264,10 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 
 ## Next steps
 
-- [Learn more about Azure Monitor](../../azure-monitor/overview.md)
+- [Learn more about Azure Monitor](../overview.md)
 - [Access metrics using the REST API](rest-api-walkthrough.md)
-- [Stream the Activity Log to a non-Microsoft service](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Stream resource logs to a non-Microsoft service](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Stream the Activity Log to a non-Microsoft service](./activity-log.md#legacy-collection-methods)
+- [Stream resource logs to a non-Microsoft service](./resource-logs.md#send-to-azure-event-hubs)
 
 
 
@@ -275,14 +276,14 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics documentation."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric introduction."
-[circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
-[cloudhealth-doc]: https://www.cloudhealthtech.com/azure
+[circonus-doc]: https://docs.circonus.com/circonus/agents/cloud-agent/azure/ 
+[cloudhealth-doc]: https://www.cloudhealthtech.com/products/azure-management
 [cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "CloudMonix introduction."
 [datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Datadog documentation."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace documentation."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic documentation."
 [grafana-doc]: ./grafana-plugin.md "Azure Monitor Grafana integration."
-[influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Azure Monitor Influx data Telegraf integration."
+[influxdata-doc]: ./collect-custom-metrics-linux-telegraf.md "Azure Monitor Influx data Telegraf integration."
 [logicmonitor-doc]: https://www.logicmonitor.com/lp/azure-monitoring/ "Logic Monitor documentation."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft documentation."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic documentation."

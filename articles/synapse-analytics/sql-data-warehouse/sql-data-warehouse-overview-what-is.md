@@ -6,7 +6,7 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
@@ -14,21 +14,20 @@ ms.reviewer: igorstan
 
 # What is Azure Synapse Analytics (formerly SQL DW)?
 
+> [!NOTE] 
+>Explore the [Azure Synapse (workspaces preview) documentation](../overview-what-is.md).
+>
+
 Azure Synapse is an analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources—at scale. Azure Synapse brings these two worlds together with a unified experience to ingest, prepare, manage, and serve data for immediate BI and machine learning needs.
 
 Azure Synapse has four components:
 
 - Synapse SQL: Complete T-SQL based analytics – Generally Available
   - SQL pool (pay per DWU provisioned)
-  - SQL on-demand (pay per TB processed) – (Preview)
-- Spark: Deeply integrated Apache Spark (Preview)
-- Synapse Pipelines: Hybrid data integration (Preview)
-- Studio: Unified user experience.  (Preview)
-
-> [!NOTE]
-> To access the preview features of Azure Synapse, request access [here](https://aka.ms/synapsepreview). Microsoft will triage all requests and respond as soon as possible.
->
-> View the [Azure Synapse preview documentation](../overview-what-is.md).
+  - SQL on-demand (pay per TB processed) (preview)
+- Spark: Deeply integrated Apache Spark (preview)
+- Synapse Pipelines: Hybrid data integration (preview)
+- Studio: Unified user experience. (preview)
 
 ## Synapse SQL pool in Azure Synapse
 
@@ -62,5 +61,5 @@ Or look at some of these other Azure Synapse resources.
 - Search [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - Submit a [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
-- Search [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+- Search [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
 - Search [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)

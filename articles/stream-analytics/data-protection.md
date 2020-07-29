@@ -4,7 +4,7 @@ description: This article explains how to encrypt your private data used by an A
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2020
 ---
 
@@ -56,6 +56,9 @@ Any private data that is required to be persisted by Stream Analytics is stored 
 Connection details of your resources, which are used by your Stream Analytics job, are also stored. Encrypt your storage account to secure all of your data. 
 
 To help you meet your compliance obligations in any regulated industry or environment, you can read more about [Microsoft's compliance offerings](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## Known issues
+There is a known issue where a job using customer managed key runs into failures when using managed identity to authenticate to any inputs or outputs. A fix for this issue is being worked on and will become available in the near future. 
 
 ## Next steps
 

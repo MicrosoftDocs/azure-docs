@@ -1,6 +1,6 @@
 ---
 title: Manage schedules in Azure Automation
-description: Learn how to create and manage a schedule in Azure Automation so that you can automatically start a runbook at a particular time or on a recurring schedule.
+description: This article tells how to create and work with a schedule in Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -10,37 +10,37 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ---
+
 # Manage schedules in Azure Automation
 
 To schedule a runbook in Azure Automation to start at a specified time, you link it to one or more schedules. A schedule can be configured to either run once or on a recurring hourly or daily schedule for runbooks in the Azure portal. You can also schedule them for weekly, monthly, specific days of the week or days of the month, or a particular day of the month. A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.
 
 > [!NOTE]
-> Schedules don't currently support Azure Automation DSC configurations.
+> Azure Automation supports Daylight Savings Time and schedules it appropriately for automation operations.
 
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version by using [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
+> [!NOTE]
+> Schedules currently are not enabled for Azure Automation DSC configurations.
 
-## PowerShell cmdlets
+## PowerShell cmdlets used to access schedules
 
-The cmdlets in the following table are used to create and manage schedules with PowerShell in Azure Automation. They ship as part of the [Azure PowerShell module](/powershell/azure/overview).
+The cmdlets in the following table create and manage Automation schedules with PowerShell. They ship as part of the [Az modules](modules.md#az-modules). 
 
 | Cmdlets | Description |
 |:--- |:--- |
-| [Get-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Retrieves a schedule. |
-| [Get-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Retrieves scheduled runbooks. |
-| [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Creates a new schedule. |
-| [Register-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Associates a runbook with a schedule. |
-| [Remove-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Removes a schedule. |
-| [Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Sets the properties for an existing schedule. |
-| [Unregister-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Dissociates a runbook from a schedule. |
+| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Retrieves a schedule. |
+| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Retrieves scheduled runbooks. |
+| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Creates a new schedule. |
+| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Associates a runbook with a schedule. |
+| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Removes a schedule. |
+| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Sets the properties for an existing schedule. |
+| [Unregister-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Dissociates a runbook from a schedule. |
 
 ## Create a schedule
 
-You can create a new schedule for runbooks in the Azure portal or with PowerShell.
+You can create a new schedule for your runbooks in the Azure portal or with PowerShell. To avoid affecting your runbooks and the processes they automate, you should first test any runbooks that have linked schedules with an Automation account dedicated for testing. A test validates that your scheduled runbooks continue to work correctly. If you see a problem, you can troubleshoot and apply any changes required before you migrate the updated runbook version to production.
 
 > [!NOTE]
-> Azure Automation uses the latest modules in your Automation account when a new scheduled job is run. To avoid affecting your runbooks and the processes they automate, you should first test any runbooks that have linked schedules with an Automation account dedicated for testing. A test validates that your scheduled runbooks continue to work correctly. If you see a problem, you can troubleshoot and apply any changes required before you migrate the updated runbook version to production.
-> Your Automation account doesn't automatically get any new versions of modules unless you've updated them manually by selecting the [Update Azure Modules](../automation-update-azure-modules.md) option from **Modules**.
+> Your Automation account doesn't automatically get any new versions of modules unless you've updated them manually by selecting the [Update Azure modules](../automation-update-azure-modules.md) option from **Modules**. Azure Automation uses the latest modules in your Automation account when a new scheduled job is run. 
 
 ### Create a new schedule in the Azure portal
 
@@ -60,11 +60,11 @@ You can create a new schedule for runbooks in the Azure portal or with PowerShel
 
 ### Create a new schedule with PowerShell
 
-Use the [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) cmdlet to create schedules. You specify the start time for the schedule and the frequency it should run. The following examples show how to create many different schedule scenarios.
+Use the [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) cmdlet to create schedules. You specify the start time for the schedule and the frequency it should run. The following examples show how to create many different schedule scenarios.
 
 #### Create a one-time schedule
 
-The following sample commands create a one-time schedule.
+The following example creates a one-time schedule.
 
 ```azurepowershell-interactive
 $TimeZone = ([System.TimeZoneInfo]::Local).Id
@@ -93,7 +93,7 @@ New-AzAutomationSchedule -AutomationAccountName "ContosoAutomation" -Name "Sched
 
 #### Create a weekly recurring schedule for weekends
 
-The following sample commands show how to create a weekly schedule that runs on weekends only.
+The following example shows how to create a weekly schedule that runs on weekends only.
 
 ```azurepowershell-interactive
 $StartTime = (Get-Date "18:00:00").AddDays(1)
@@ -123,7 +123,7 @@ A runbook can be linked to multiple schedules, and a schedule can have multiple 
 
 ### Link a schedule to a runbook with PowerShell
 
-Use the [Register-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) cmdlet to link a schedule. You can specify values for the runbook’s parameters with the Parameters parameter. For more information on how to specify parameter values, see [Starting a Runbook in Azure Automation](../automation-starting-a-runbook.md).
+Use the [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) cmdlet to link a schedule. You can specify values for the runbook’s parameters with the Parameters parameter. For more information on how to specify parameter values, see [Starting a Runbook in Azure Automation](../start-runbooks.md).
 The following example shows how to link a schedule to a runbook by using an Azure Resource Manager cmdlet with parameters.
 
 ```azurepowershell-interactive
@@ -159,7 +159,7 @@ When you disable a schedule, any runbook linked to it no longer runs on that sch
 
 ### Disable a schedule with PowerShell
 
-Use the [Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) cmdlet to change the properties of an existing schedule. To disable the schedule, specify False for the `IsEnabled` parameter.
+Use the [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) cmdlet to change the properties of an existing schedule. To disable the schedule, specify False for the `IsEnabled` parameter.
 
 The following example shows how to disable a schedule for a runbook by using an Azure Resource Manager cmdlet.
 
@@ -170,9 +170,9 @@ Set-AzAutomationSchedule –AutomationAccountName $automationAccountName `
 –Name $scheduleName –IsEnabled $false -ResourceGroupName "ResourceGroup01"
 ```
 
-## Removing a schedule
+## Remove a schedule
 
-When you're ready to remove your schedules, you can either use the Azure portal or the `Remove-AzureRmAutomationSchedule` cmdlet. Remember that you can only remove a schedule that has been disabled as described in the previous section.
+When you're ready to remove your schedules, you can either use the Azure portal or PowerShell. Remember that you can only remove a schedule that has been disabled as described in the previous section.
 
 ### Remove a schedule using the Azure portal
 
@@ -182,7 +182,7 @@ When you're ready to remove your schedules, you can either use the Azure portal 
 
 ### Remove a schedule with PowerShell
 
-You can use the [Remove-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) cmdlet to delete an existing schedule. 
+You can use the `Remove-AzAutomationSchedule` cmdlet as shown below to delete an existing schedule. 
 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"
@@ -193,4 +193,5 @@ Remove-AzAutomationSchedule -AutomationAccountName $automationAccountName `
 
 ## Next steps
 
-To get started with runbooks in Azure Automation, see [Starting a runbook in Azure Automation](../automation-starting-a-runbook.md).
+* To learn more about the cmdlets used to access schedules, see [Manage modules in Azure Automation](modules.md).
+* For general information about runbooks, see [Runbook execution in Azure Automation](../automation-runbook-execution.md).

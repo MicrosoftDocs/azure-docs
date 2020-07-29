@@ -1,11 +1,11 @@
 ---
 title: Cosmos DB Migration options
 description: This doc describes the various options to migrate your on-premises or cloud data to Azure Cosmos DB
-author: bharathsreenivas
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
-ms.author: bharathb
 
 ---
 # Options to migrate your on-premises or cloud data to Azure Cosmos DB
@@ -17,7 +17,7 @@ You can load data from various data sources to Azure Cosmos DB. Additionally, si
 The following factors determine the choice of the migration tool:
 * **Online vs offline migration**: Many migration tools provide a path to do a one-time migration only. This means that the applications accessing the database might experience a period of downtime. Some migration solutions provide a way to do a live migration where there is a replication pipeline set up between the source and the target.
 
-* **Data source**: The existing data can be in various data sources like Oracle DB2, Datastax Cassanda, Azure SQL Server, PostgreSQL, etc. The data can also be in an existing Azure Cosmos DB account and the intent of migration can be to change the data model or repartition the data in a container with a different partition key.
+* **Data source**: The existing data can be in various data sources like Oracle DB2, Datastax Cassanda, Azure SQL Database, PostgreSQL, etc. The data can also be in an existing Azure Cosmos DB account and the intent of migration can be to change the data model or repartition the data in a container with a different partition key.
 
 * **Azure Cosmos DB API**: For the SQL API in Azure Cosmos DB, there are a variety of tools developed by the Azure Cosmos DB team which aid in the different migration scenarios. All of the other APIs have their own specialized set of tools developed and maintained by the community. Since Azure Cosmos DB supports these APIs at a wire protocol level, these tools should work as-is while migrating data into Azure Cosmos DB too. However, they might require custom handling for throttles as this concept is specific to Azure Cosmos DB.
 

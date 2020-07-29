@@ -1,7 +1,7 @@
 ---
 title: Known issues & troubleshooting
 titleSuffix: Azure Machine Learning
-description: Get a list of the known issues, workarounds, and troubleshooting for Azure Machine Learning.
+description: Get help finding and correcting errors or failures in Azure Machine Learning. Learn about known issues, troubleshooting, and workarounds. 
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -9,14 +9,20 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4
 ms.date: 03/31/2020
 
 ---
-# Known issues and troubleshooting Azure Machine Learning
+# Known issues and troubleshooting in Azure Machine Learning
 
-This article helps you find and correct errors or failures you may encounter when using Azure Machine Learning.
+This article helps you troubleshoot known issues you may encounter when using Azure Machine Learning. 
 
-## Diagnostic logs
+For more information on troubleshooting, see [Next steps](#next-steps) at the end of this article.
+
+> [!TIP]
+> Errors or other issues might be the result of [resource quotas](how-to-manage-quotas.md) you encounter when working with Azure Machine Learning. 
+
+## Access diagnostic logs
 
 Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs: 
 1. Visit [Azure Machine Learning studio](https://ml.azure.com). 
@@ -29,32 +35,50 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
 > Azure Machine Learning logs information from a variety of sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
 
-## Resource quotas
-
-Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter when working with Azure Machine Learning.
-
 ## Installation and import
-
-* **Pip Installation: Dependencies are not guaranteed to be consistent with single line installation**: 
+                           
+* **Pip Installation: Dependencies are not guaranteed to be consistent with single-line installation:** 
 
    This is a known limitation of pip, as it does not have a functioning dependency resolver when you install as a single line. The first  unique dependency is the only one it looks at. 
 
-   In the following code `azure-ml-datadrift` and `azureml-train-automl` are both installed using a single line pip install. 
+   In the following code `azureml-datadrift` and `azureml-train-automl` are both installed using a single-line pip install. 
      ```
-       pip install azure-ml-datadrift, azureml-train-automl
+       pip install azureml-datadrift, azureml-train-automl
      ```
-   For this example, let's say `azure-ml-datadrift` requires version > 1.0 and `azureml-train-automl` requires version < 1.2. If the latest version of `azure-ml-datadrift` is 1.3,  then both packages get upgraded to 1.3, regardless of the `azureml-train-automl` package requirement for an older version. 
+   For this example, let's say `azureml-datadrift` requires version > 1.0 and `azureml-train-automl` requires version < 1.2. If the latest version of `azureml-datadrift` is 1.3,  then both packages get upgraded to 1.3, regardless of the `azureml-train-automl` package requirement for an older version. 
 
    To ensure the appropriate versions are installed for your packages, install using multiple lines like in the following code. Order isn't an issue here, since pip explicitly downgrades as part of the next line call. And so, the appropriate version dependencies are applied.
     
      ```
-        pip install azure-ml-datadrift
+        pip install azureml-datadrift
         pip install azureml-train-automl 
      ```
-
+     
+* **Explanation package not guaranteed to be installed when installing the azureml-train-automl-client:** 
+   
+   When running a remote AutoML run with model explanation enabled, you will see an error message "Please install azureml-explain-model package for model explanations." This is a known issue. As a workaround follow one of the steps below:
+  
+  1. Install azureml-explain-model locally.
+   ```
+      pip install azureml-explain-model
+   ```
+  2. Disable the explainability feature entirely by passing model_explainability=False in the AutoML configuration.
+   ```
+      automl_config = AutoMLConfig(task = 'classification',
+                             path = '.',
+                             debug_log = 'automated_ml_errors.log',
+                             compute_target = compute_target,
+                             run_configuration = aml_run_config,
+                             featurization = 'auto',
+                             model_explainability=False,
+                             training_data = prepped_data,
+                             label_column_name = 'Survived',
+                             **automl_settings)
+    ``` 
+    
 * **Panda errors: Typically seen during AutoML Experiment:**
    
-   When manually setting up your environmnet using pip, you will notice attribute errors (especially from pandas) due to unsupported package versions being installed. In order to prevent such errors, [please install the AutoML SDK using the automl_setup.cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
+   When manually setting up your environment using pip, you may notice attribute errors (especially from pandas) due to unsupported package versions being installed. In order to prevent such errors, [please install the AutoML SDK using the automl_setup.cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
    
     1. Open an Anaconda prompt and clone the GitHub repository for a set of sample notebooks.
 
@@ -67,6 +91,22 @@ Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter w
     ```bash
     automl_setup
     ```
+    
+* **KeyError: 'brand' when running AutoML on local compute or Azure Databricks cluster**
+
+    If a new environment was created after June 10, 2020, by using SDK 1.7.0 or earlier, training might fail with this error due to an update in the py-cpuinfo package. (Environments created on or before June 10, 2020, are unaffected, as are experiments run on remote compute because cached training images are used.) To work around this issue, take either of the following two steps:
+    
+    * Update the SDK version to 1.8.0 or later (this also downgrades py-cpuinfo to 5.0.0):
+    
+      ```bash
+      pip install --upgrade azureml-sdk[automl]
+      ```
+    
+    * Downgrade the installed version of py-cpuinfo to 5.0.0:
+    
+      ```bash
+      pip install py-cpuinfo==5.0.0
+      ```
   
 * **Error message: Cannot uninstall 'PyYAML'**
 
@@ -118,6 +158,12 @@ Learn about the [resource quotas](how-to-manage-quotas.md) you might encounter w
 
 * **Azure portal**: If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal **Overview** page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
 
+* **Supported browsers in Azure Machine Learning studio web portal**: We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
+  * Microsoft Edge (The new Microsoft Edge, latest version. Not Microsoft Edge legacy)
+  * Safari (latest version, Mac only)
+  * Chrome (latest version)
+  * Firefox (latest version)
+
 ## Set up your environment
 
 * **Trouble creating AmlCompute**: There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
@@ -147,24 +193,65 @@ If you are using file share for other workloads, such as data transfer, the re
 
 |Issue  |Resolution  |
 |---------|---------|
-|Only datasets created on blob datastores can be used     |  this is a known limitation of the current release.       |
-|After creation, the project shows "Initializing" for a long time     | Manually refresh the page. Initialization should proceed at roughly 20 datapoints per second. The lack of autorefresh is a known issue.         |
-|When reviewing images, newly labeled images are not shown     |   To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.      |
+|Only datasets created on blob datastores can be used.     |  This is a known limitation of the current release.       |
+|After creation, the project shows "Initializing" for a long time.     | Manually refresh the page. Initialization should proceed at roughly 20 datapoints per second. The lack of autorefresh is a known issue.         |
+|When reviewing images, newly labeled images are not shown.     |   To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.      |
 |Pressing Esc key while labeling for object detection creates a zero size label on the top-left corner. Submitting labels in this state fails.     |   Delete the label by clicking on the cross mark next to it.  |
+
+### <a name="data-drift"></a> Data drift monitors
+
+Limitations and known issues for data drift monitors:
+
+* The time range when analyzing historical data is limited to 31 intervals of the monitor's frequency setting. 
+* Limitation of 200 features, unless a feature list is not specified (all features used).
+* Compute size must be large enough to handle the data.
+* Ensure your dataset has data within the start and end date for a given monitor run.
+* Dataset monitors will only work on datasets that contain 50 rows or more.
+* Columns, or features, in the dataset are classified as categorical or numeric based on the conditions in the following table. If the feature does not meet these conditions - for instance, a column of type string with >100 unique values - the feature is dropped from our data drift algorithm, but is still profiled. 
+
+    | Feature type | Data type | Condition | Limitations | 
+    | ------------ | --------- | --------- | ----------- |
+    | Categorical | string, bool, int, float | The number of unique values in the feature is less than 100 and less than 5% of the number of rows. | Null is treated as its own category. | 
+    | Numerical | int, float | The values in the feature are of a numerical data type and do not meet the condition for a categorical feature. | Feature dropped if >15% of values are null. | 
+
+* When you have [created a datadrift monitor](how-to-monitor-datasets.md) but cannot see data on the **Dataset monitors** page in Azure Machine Learning studio, try the following.
+
+    1. Check if you have selected the right date range at the top of the page.  
+    1. On the **Dataset Monitors** tab, select the experiment link to check run status.  This link is on the far right of the table.
+    1. If run completed successfully, check driver logs to see how many metrics has been generated or if there's any warning messages.  Find driver logs in the **Output + logs** tab after you click on an experiment.
+
+* If the SDK `backfill()` function does not generate the expected output, it may be due to an authentication issue.  When you create the compute to pass into this function, do not use `Run.get_context().experiment.workspace.compute_targets`.  Instead, use [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) such as the following to create the compute that you pass into that `backfill()` function: 
+
+  ```python
+   auth = ServicePrincipalAuthentication(
+          tenant_id=tenant_id,
+          service_principal_id=app_id,
+          service_principal_password=client_secret
+          )
+   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group"xxx")
+   compute = ws.compute_targets.get("xxx")
+   ```
 
 ## Azure Machine Learning designer
 
-Known issues:
+* **Long compute preparation time:**
 
-* **Long compute preparation time**: It may be a few minutes or even longer when you first connect to or create a compute target. 
+It may be a few minutes or even longer when you first connect to or create a compute target. 
+
+From the Model Data Collector, it can take up to (but usually less than) 10 minutes for data to arrive in your blob storage account. Wait 10 minutes to ensure cells below will run.
+
+```python
+import time
+time.sleep(600)
+```
 
 ## Train models
 
-* **ModuleErrors (No module named)**:  If you are running into ModuleErrors while submitting experiments in Azure ML, it means that the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure ML will install the package in the environment used for your training run. 
+* **ModuleErrors (No module named)**:  If you are running into ModuleErrors while submitting experiments in Azure ML, it means that the training script is expecting a package to be installed but it isn't added. Once you provide the package name, Azure ML installs the package in the environment used for your training run. 
 
     If you are using [Estimators](concept-azure-machine-learning-architecture.md#estimators) to submit experiments, you can specify a package name via `pip_packages` or `conda_packages` parameter in the estimator based on from which source you want to install the package. You can also specify a yml file with all your dependencies using `conda_dependencies_file`or list all your pip requirements in a txt file using `pip_requirements_file` parameter. If you have your own Azure ML Environment object that you want to override the default image used by the estimator, you can specify that environment via the `environment` parameter of the estimator constructor.
 
-    Azure ML also provides framework-specific estimators for Tensorflow, PyTorch, Chainer and SKLearn. Using these estimators will make sure that the core framework dependencies are installed on your behalf in the environment used for training. You have the option to specify extra dependencies as described above. 
+    Azure ML also provides framework-specific estimators for TensorFlow, PyTorch, Chainer and SKLearn. Using these estimators will make sure that the core framework dependencies are installed on your behalf in the environment used for training. You have the option to specify extra dependencies as described above. 
  
     Azure ML maintained docker images and their contents can be seen in [AzureML Containers](https://github.com/Azure/AzureML-Containers).
     Framework-specific dependencies  are listed in the respective framework documentation - [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
@@ -192,8 +279,14 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 
 ## Automated machine learning
 
-* **Tensor Flow**: Automated machine learning does not currently support tensor flow version 1.13. Installing this version will cause package dependencies to stop working. We are working to fix this issue in a future release.
-
+* **TensorFlow**: As of version 1.5.0 of the SDK, automated machine learning does not install tensorflow models by default. To install tensorflow and use it with your automated ML experiments, install tensorflow==1.12.0 via CondaDependecies. 
+ 
+   ```python
+   from azureml.core.runconfig import RunConfiguration
+   from azureml.core.conda_dependencies import CondaDependencies
+   run_config = RunConfiguration()
+   run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['tensorflow==1.12.0'])
+  ```
 * **Experiment Charts**: Binary classification charts (precision-recall, ROC, gain curve etc.) shown in automated ML experiment iterations are not rendering correctly in user interface since 4/12. Chart plots are currently showing inverse results, where better performing models are shown with lower results. A resolution is under investigation.
 
 * **Databricks cancel an automated machine learning run**: When you use automated machine learning capabilities on Azure Databricks, to cancel a run and start a new experiment run, restart your Azure Databricks cluster.
@@ -260,7 +353,7 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## Authentication errors
 
-If you perform a management operation on a compute target from a remote job, you will receive one of the following errors:
+If you perform a management operation on a compute target from a remote job, you will receive one of the following errors: 
 
 ```json
 {"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
@@ -271,3 +364,19 @@ If you perform a management operation on a compute target from a remote job, you
 ```
 
 For example, you will receive an error if you try to create or attach a compute target from an ML Pipeline that is submitted for remote execution.
+
+## Missing user interface items in studio
+
+Azure role-based access control can be used to restrict actions that you can perform with Azure Machine Learning. These restrictions can prevent user interface items from showing in the Azure Machine Learning studio. For example, if you are assigned a role that cannot create a compute instance, the option to create a compute instance will not appear in the studio.
+
+For more information, see [Manage users and roles](how-to-assign-roles.md).
+
+## Next steps
+
+See more troubleshooting articles for Azure Machine Learning:
+
+* [Docker deployment troubleshooting with Azure Machine Learning](how-to-troubleshoot-deployment.md)
+* [Debug machine learning pipelines](how-to-debug-pipelines.md)
+* [Debug the ParallelRunStep class from the Azure Machine Learning SDK](how-to-debug-parallel-run-step.md)
+* [Interactive debugging of a machine learning compute instance with VS Code](how-to-set-up-vs-code-remote.md)
+* [Use Application Insights to debug machine learning pipelines](how-to-debug-pipelines-application-insights.md)

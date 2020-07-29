@@ -27,7 +27,7 @@ ms.author: ralfwi
 > Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
 
 ## SQL Database
-Azure SQL Database V12 is generally available in Azure Germany. For guidance on metadata visibility configuration and protection best practices, see the [Microsoft Security Center for SQL Database Engine](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database) and the [SQL Database global documentation](../sql-database/index.yml).
+Azure SQL Database and Azure SQL Managed Instance V12 is generally available in Azure Germany. For guidance on metadata visibility configuration and protection best practices, see the [Microsoft Security Center for SQL Database Engine](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database) as well as the [SQL Database global documentation](../azure-sql/database/index.yml) and the [SQL Managed Instance global documentation](../azure-sql/managed-instance/index.yml).
 
 ### Variations
 The address for SQL Database in Azure Germany is different from the address in global Azure:

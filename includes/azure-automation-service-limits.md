@@ -2,11 +2,11 @@
 title: "include file"
 description: "include file"
 services: automation
-author: georgewallace
+author: mgoedtel
 ms.service: automation
 ms.topic: "include"
-ms.date: 12/13/2018
-ms.author: gwallace
+ms.date: 06/29/2020
+ms.author: magoedte
 ms.custom: "include file"
 ---
 
@@ -17,7 +17,7 @@ ms.custom: "include file"
 | Maximum number of new jobs that can be submitted every 30 seconds per Azure Automation account (nonscheduled jobs) |100 |When this limit is reached, the subsequent requests to create a job fail. The client receives an error response.|
 | Maximum number of concurrent running jobs at the same instance of time per Automation account (nonscheduled jobs) |200 |When this limit is reached, the subsequent requests to create a job fail. The client receives an error response.|
 | Maximum storage size of job metadata for a 30-day rolling period | 10 GB (approximately 4 million jobs)|When this limit is reached, the subsequent requests to create a job fail. |
-| Maximum job stream limit|1MB|A single stream cannot be larger than 1 MB.|
+| Maximum job stream limit|1 MiB|A single stream cannot be larger than 1 MB.|
 | Maximum number of modules that can be imported every 30 seconds per Automation account |5 ||
 | Maximum size of a module |100 MB ||
 | Job run time, Free tier |500 minutes per subscription per calendar month ||
@@ -28,9 +28,9 @@ ms.custom: "include file"
 | Maximum number of Automation accounts in a subscription |No limit ||
 | Maximum number of Hybrid Worker Groups per Automation Account|4,000||
 |Maximum number of concurrent jobs that can be run on a single Hybrid Runbook Worker|50 ||
-| Maximum runbook job parameter size   | 512 kilobits||
+| Maximum runbook job parameter size   | 512 kilobytes||
 | Maximum runbook parameters   | 50|If you reach the 50-parameter limit, you can pass a JSON or XML string to a parameter and parse it with the runbook.|
-| Maximum webhook payload size |  512 kilobits|
+| Maximum webhook payload size |  512 kilobytes|
 | Maximum days that job data is retained|30 days|
 | Maximum PowerShell workflow state size |5 MB| Applies to PowerShell workflow runbooks when checkpointing workflow.|
 

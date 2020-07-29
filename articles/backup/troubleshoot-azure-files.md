@@ -20,6 +20,7 @@ This article provides troubleshooting information to address any issues you come
   >All file shares in a Storage Account can be protected only under one Recovery Services vault. You can use [this script](scripts/backup-powershell-script-find-recovery-services-vault.md) to find the recovery services vault where your storage account is registered.
 
 - Ensure that the file share isn't present in any of the unsupported Storage Accounts. You can refer to the [Support matrix for Azure file share backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
+- Please ensure that the combined length of storage account name and resource group name doesn't exceed 84 characters in case of new Storage accounts and 77 characters in case of classic storage accounts. 
 - Check the firewall settings of storage account to ensure that the option of allowing trusted Microsoft Services to access storage account is enabled.
 
 ### Error in portal states discovery of storage accounts failed
@@ -51,6 +52,9 @@ In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage
 >A recovery services vault can only be deleted after unregistering all storage accounts registered with the vault.
 
 ## Common backup or restore errors
+
+>[!NOTE]
+>Refer to [this document](./backup-rbac-rs-vault.md#minimum-role-requirements-for-the-azure-file-share-backup) to ensure you have sufficient permissions for performing backup or restore operations.
 
 ### FileShareNotFound- Operation failed as the file share is not found
 
@@ -271,6 +275,43 @@ Error Code: BMSUserErrorObjectLocked
 Error Message: Another operation is in progress on the selected item.
 
 Wait for the other in-progress operation to complete and retry at a later time.
+
+## Common Soft Delete Related Errors
+
+### UserErrorRestoreAFSInSoftDeleteState- This restore point is not available as the snapshot associated with this point is in a File Share that is in soft-deleted state
+
+Error Code: UserErrorRestoreAFSInSoftDeleteState
+
+Error Message: This restore point is not available as the snapshot associated with this point is in a File Share that is in soft-deleted state.
+
+You can't perform a restore operation when the file share is in soft deleted state. Undelete the file share from Files portal  or using the [Undelete script](scripts/backup-powershell-script-undelete-file-share.md) and then try to restore.
+
+### UserErrorRestoreAFSInDeleteState- Listed restore points are not available as the associated file share containing the restore point snapshots has been deleted permanently
+
+Error Code: UserErrorRestoreAFSInDeleteState
+
+Error Message: Listed restore points are not available as the associated file share containing the restore point snapshots has been deleted permanently.
+
+Check if the backed-up file share is deleted. If it was in soft deleted state, check if the soft delete retention period is over and it wasn't recovered back. In either of these cases, you'll lose all your snapshots permanently and won’t be able to recover the data.
+
+>[!NOTE]
+> We recommend you don't delete the backed up file share, or if it is in soft deleted state, undelete before the soft delete retention period ends, to avoid lose all your restore points.
+
+### UserErrorBackupAFSInSoftDeleteState - Backup failed as the Azure File Share is in soft-deleted state
+
+Error Code: UserErrorBackupAFSInSoftDeleteState
+
+Error Message: Backup failed as the Azure File Share is in soft-deleted state
+
+Undelete the file share from the **Files portal** or by using the [Undelete script](scripts/backup-powershell-script-undelete-file-share.md) to continue the backup and prevent permanent deletion of data.
+
+### UserErrorBackupAFSInDeleteState- Backup failed as the associated Azure File Share is permanently deleted
+
+Error Code: UserErrorBackupAFSInDeleteState
+
+Error Message: Backup failed as the associated Azure File Share is permanently deleted
+
+Check if the backed-up file share is permanently deleted. If yes, stop the backup for the file share to avoid repeated backup failures. To learn how to stop protection see [Stop Protection for Azure file share](./manage-afs-backup.md#stop-protection-on-a-file-share)
 
 ## Next steps
 

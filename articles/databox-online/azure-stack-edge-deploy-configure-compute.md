@@ -132,11 +132,11 @@ To verify that the module is running, do the following:
 
     ![Verify data transform](./media/azure-stack-edge-deploy-configure-compute/verify-data-1.png)
  
-1.    In File Explorer, connect to both the Edge local and Edge shares you created previously.
+1. In File Explorer, connect to both the Edge local and Edge shares you created previously.
 
     ![Verify data transform](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
  
-1.    Add data to the local share.
+1. Add data to the local share.
 
     ![Verify data transform](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
  

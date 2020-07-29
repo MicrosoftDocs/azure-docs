@@ -22,7 +22,7 @@ This article explains how to manage your organization’s security posture at sc
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Management groups
-Azure management groups provide the ability to efficiently manage access, policies, and reporting on groups of subscriptions, as well as effectively manage the entire Azure estate by performing actions on the root management group. Each Azure AD tenant is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This group allows global policies and RBAC assignments to be applied at the directory level. 
+Azure management groups provide the ability to efficiently manage access, policies, and reporting on groups of subscriptions, as well as effectively manage the entire Azure estate by performing actions on the root management group. Each Azure AD tenant is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This group allows global policies and Azure role assignments to be applied at the directory level. 
 
 The root management group is created automatically when you do any of the following actions: 
 1. Opt in to use Azure management groups by navigating to **Management Groups** in the [Azure portal](https://portal.azure.com).
@@ -70,7 +70,7 @@ An Azure Active Directory tenant administrator doesn’t have direct access to A
 
 3. Under **Access management for Azure resources**, set the switch to **Yes**.
 
-   ![Global admin can manage Azure Subscriptions and Management Groups - screenshot](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
+   ![Access management for Azure resources - screenshot](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
    - When you set the switch to Yes, you are assigned the User Access Administrator role in Azure RBAC at the root scope (/). This grants you permission to assign roles in all Azure subscriptions and management groups associated with this Azure AD directory. This switch is only available to users who are assigned the Global Administrator role in Azure AD.
 
@@ -157,7 +157,7 @@ Once the RBAC roles have been assigned to the users, the tenant administrator sh
 
 2. In the navigation list, click **Azure Active Directory** and then click **Properties**.
 
-3. Under **Global admin can manage Azure Subscriptions and Management Groups**, set the switch to **No**.
+3. Under **Access management for Azure resources**, set the switch to **No**.
 
 4. Click **Save** to save your setting.
 
@@ -189,4 +189,3 @@ In this article, you learned how to gain tenant-wide visibility for Azure Securi
 
 > [!div class="nextstepaction"]
 > [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-

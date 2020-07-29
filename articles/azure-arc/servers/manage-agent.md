@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/29/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
 ---
 
@@ -23,17 +23,25 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 | Windows | Manually<br> Windows Update |
 | Ubuntu | [Apt](https://help.ubuntu.com/lts/serverguide/apt.html) |
 | SUSE Linux Enterprise Server | [zypper](https://en.opensuse.org/SDB:Zypper_usage_11.3) |
-| RedHat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) | 
+| RedHat Enterprise, Amazon, CentOS Linux | [yum](https://wiki.centos.org/PackageManagement/Yum) |
 
 ### Windows agent
 
-To update the agent on a Windows machine to the latest version, the agent is available from Microsoft Update and can be deployed using your existing software update management process. It can also be run manually from the Command Prompt, from a script or other automation solution, or from the UI wizard by executing `AzureConnectedMachine.msi`. 
+Update package for the Connected Machine agent for Windows is available from:
+
+* Microsoft Update
+
+* [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/Home.aspx)
+
+* [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center.
+
+The agent can be upgraded following a variety of methods to support your software update management process. Outside of obtaining from Microsoft Update, you can download and run manually from the Command Prompt, from a script or other automation solution, or from the UI wizard by executing `AzureConnectedMachine.msi`.
 
 > [!NOTE]
 > * To upgrade the agent, you must have *Administrator* permissions.
 > * To upgrade manually, you must first download and copy the Installer package to a folder on the target server, or from a shared network folder. 
 
-If you are unfamiliar with the command-line options for Windows Installer packages, review [Msiexec standard command-line options](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) and [Msiexec command-line options](https://docs.microsoft.com/windows/win32/msi/command-line-options).
+If you are unfamiliar with the command-line options for Windows Installer packages, review [Msiexec standard command-line options](/windows/win32/msi/standard-installer-command-line-options) and [Msiexec command-line options](/windows/win32/msi/command-line-options).
 
 #### To upgrade using the Setup Wizard
 
@@ -55,7 +63,9 @@ The Setup Wizard discovers if a previous version exists, and then it automatical
 
 ### Linux agent
 
-To update the agent on a Linux machine to the latest version, it involves two commands. One command to update the local package index with the list of latest available packages from the repositories, and one command to upgrade the local package. 
+To update the agent on a Linux machine to the latest version, it involves two commands. One command to update the local package index with the list of latest available packages from the repositories, and one command to upgrade the local package.
+
+You can download the latest agent package from Microsoft's [package repository](https://packages.microsoft.com/).
 
 > [!NOTE]
 > To upgrade the agent, you must have *root* access permissions or with an account that has elevated rights using Sudo.
@@ -128,6 +138,9 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc for server
 
 You can perform a **Connect**, **Disconnect**, and **Reconnect** manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md). If you did not use a service principal to register the machine with Azure Arc for servers (preview), see the following [article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) to create a service principal.
 
+>[!NOTE]
+>You must have *root* access permissions on Linux machines to run **azcmagent**.
+
 ### Connect
 
 This parameter specifies a resource in Azure Resource Manager representing the machine is created in Azure. The resource is in the subscription and resource group specified, and data about the machine is stored in the Azure region specified by the `--location` setting. The default resource name is the hostname of this machine if not specified.
@@ -166,7 +179,7 @@ To disconnect with your elevated logged-on credentials (interactive), run the fo
 
 This parameter reconnects the already registered or connected machine with Azure Arc for servers (preview). This may be necessary if the machine has been turned off, at least 45 days, for its certificate to expire. This parameter uses the authentication options provided to retrieve new credentials corresponding to the Azure Resource Manager resource representing this machine.
 
-This command requires higher privileges than the [Azure Connected Machine Onboarding](overview.md#required-permissions) role.
+This command requires higher privileges than the [Azure Connected Machine Onboarding](agent-overview.md#required-permissions) role.
 
 To reconnect using a service principal, run the following command:
 
@@ -202,7 +215,7 @@ Both of the following methods remove the agent, but they do not remove the *C:\P
 #### Uninstall from the command line
 
 To uninstall the agent manually from the Command Prompt or to use an automated method, such as a script, you can use the following example. First you need to retrieve the product code, which is a GUID that is the principal identifier of the application package, from the operating system. The uninstall is performed by using the Msiexec.exe command line - `msiexec /x {Product Code}`.
-    
+
 1. Open the Registry Editor.
 
 2. Under registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall`, look for and copy the product code GUID.

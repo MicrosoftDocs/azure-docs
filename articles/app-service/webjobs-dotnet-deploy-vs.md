@@ -161,32 +161,36 @@ The fields in this dialog correspond to fields on the **Add WebJob** dialog of t
 When you configure a Console Application for WebJobs deployment, Visual Studio installs the [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet package 
 and stores scheduling information in a *webjob-publish-settings.json* file in the project *Properties* folder of the WebJobs project. Here is an example of that file:
 
-        {
-          "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
-          "webJobName": "WebJob1",
-          "startTime": "null",
-          "endTime": "null",
-          "jobRecurrenceFrequency": "null",
-          "interval": null,
-          "runMode": "Continuous"
-        }
+```json
+{
+  "$schema": "http://schemastore.org/schemas/json/webjob-publish-settings.json",
+  "webJobName": "WebJob1",
+  "startTime": "null",
+  "endTime": "null",
+  "jobRecurrenceFrequency": "null",
+  "interval": null,
+  "runMode": "Continuous"
+}
+```
 
 You can edit this file directly, and Visual Studio provides IntelliSense. The file schema is stored at [https://schemastore.org](http://schemastore.org/schemas/json/webjob-publish-settings.json) and can be viewed there.  
 
 ### <a id="webjobslist"></a>webjobs-list.json
 When you link a WebJobs-enabled project to a web project, Visual Studio stores the name of the WebJobs project in a *webjobs-list.json* file in the web project's *Properties* folder. The list might contain multiple WebJobs projects, as shown in the following example:
 
-        {
-          "$schema": "http://schemastore.org/schemas/json/webjobs-list.json",
-          "WebJobs": [
-            {
-              "filePath": "../ConsoleApplication1/ConsoleApplication1.csproj"
-            },
-            {
-              "filePath": "../WebJob1/WebJob1.csproj"
-            }
-          ]
-        }
+```json
+{
+  "$schema": "http://schemastore.org/schemas/json/webjobs-list.json",
+  "WebJobs": [
+    {
+      "filePath": "../ConsoleApplication1/ConsoleApplication1.csproj"
+    },
+    {
+      "filePath": "../WebJob1/WebJob1.csproj"
+    }
+  ]
+}
+```
 
 You can edit this file directly, and Visual Studio provides IntelliSense. The file schema is stored at [https://schemastore.org](http://schemastore.org/schemas/json/webjobs-list.json) and can be viewed there.
 
@@ -217,7 +221,7 @@ When you [create a WebJob from the Azure portal](webjobs-create.md), the setting
 
 ### CRON expressions
 
-WebJobs uses the same CRON expressions for scheduling as the timer trigger in Azure Functions. To learn more about CRON support, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
+WebJobs uses the same CRON expressions for scheduling as the timer trigger in Azure Functions. To learn more about CRON support, see [Timer trigger for Azure Functions](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 

@@ -27,7 +27,9 @@ The following are specific errors you might come across and how to resolve them.
 
 The job status changes to **SUSPENDED**. Details for the job show the `RunHiveScript` status as **START_MANUAL**. Selecting the action displays the following error message:
 
-    JA009: Cannot initialize Cluster. Please check your configuration for map
+```output
+JA009: Cannot initialize Cluster. Please check your configuration for map
+```
 
 ### Cause
 
@@ -45,7 +47,9 @@ Change the Blob storage addresses that the job uses.
 
 The job status changes to **SUSPENDED**. Details for the job show the `RunHiveScript` status as **START_MANUAL**. If you select the action, it shows the following error message:
 
-    JA002: User: oozie is not allowed to impersonate <USER>
+```output
+JA002: User: oozie is not allowed to impersonate <USER>
+```
 
 ### Cause
 
@@ -55,7 +59,9 @@ The current permission settings don't allow Oozie to impersonate the specified u
 
 Oozie can impersonate users in the **`users`** group. Use the `groups USERNAME` to see the groups that the user account is a member of. If the user isn't a member of the **`users`** group, use the following command to add the user to the group:
 
-    sudo adduser USERNAME users
+```bash
+sudo adduser USERNAME users
+```
 
 > [!NOTE]  
 > It can take several minutes before HDInsight recognizes that the user has been added to the group.
@@ -68,7 +74,9 @@ Oozie can impersonate users in the **`users`** group. Use the `groups USERNAME` 
 
 The job status changes to **KILLED**. Details for the job show the `RunSqoopExport` status as **ERROR**. If you select the action, it shows the following error message:
 
-    Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
+```output
+Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
+```
 
 ### Cause
 

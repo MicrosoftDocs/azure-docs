@@ -4,7 +4,7 @@ description: This quickstart provides Python code samples that you can use to co
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, tracking-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
@@ -13,6 +13,10 @@ ms.date: 11/07/2019
 # Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Single Server
 
 In this quickstart, you work with an Azure Database for PostgreSQL using Python on macOS, Ubuntu Linux, or Windows. The quickstart shows how to connect to the database and use SQL statements to query, insert, update, and delete data. The article assumes that you're familiar with Python, but new to working with Azure Database for PostgreSQL.
+
+> [!TIP]
+> If you are looking to build a Django Application with PostgreSQL then checkout the tutorial, [Deploy a Django web app with PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md) tutorial.
+
 
 ## Prerequisites
 

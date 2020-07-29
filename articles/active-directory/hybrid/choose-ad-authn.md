@@ -24,7 +24,7 @@ Choosing the correct authentication method is the first concern for organization
 Identity is the new control plane of IT security, so authentication is an organization’s access guard to the new cloud world. Organizations need an identity control plane that strengthens their security and keeps their cloud apps safe from intruders.
 
 > [!NOTE]
-> Changing your authentication method requires planning, testing, and potentially downtime. [Staged rollout](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) is a great way to test and gradually migrate from federation to cloud authentication.
+> Changing your authentication method requires planning, testing, and potentially downtime. [Staged rollout](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) is a great way to test users migration from federation to cloud authentication.
 
 ### Out of scope
 Organizations that don't have an existing on-premises directory footprint aren't the focus of this article. Typically, those businesses create identities only in the cloud, which doesn’t require a hybrid identity solution. Cloud-only identities exist solely in the cloud and aren't associated with corresponding on-premises identities.
@@ -86,7 +86,7 @@ Details on decision questions:
 
 * **Advanced scenarios**. If organizations choose to, it's possible to use insights from identities with Azure AD Identity Protection reports with Azure AD Premium P2. An example is the leaked credentials report. Windows Hello for Business has [specific requirements when you use password hash synchronization](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) requires password hash synchronization to provision users with their corporate credentials in the managed domain.
 
-	Organizations that require multifactor authentication with password hash synchronization must use Azure AD multifactor authentication or [Conditional Access custom controls](../../active-directory/conditional-access/controls.md#custom-controls-preview). Those organizations can't use third-party or on-premises multifactor authentication methods that rely on federation.
+	Organizations that require multifactor authentication with password hash synchronization must use Azure Multi-Factor Authentication or [Conditional Access custom controls](../../active-directory/conditional-access/controls.md#custom-controls-preview). Those organizations can't use third-party or on-premises multifactor authentication methods that rely on federation.
 
 > [!NOTE]
 > Azure AD Conditional Access require [Azure AD Premium P1](https://azure.microsoft.com/pricing/details/active-directory/) licenses.

@@ -37,7 +37,7 @@ Following [custom policy starter pack](custom-policy-get-started.md#custom-polic
 
 The following example shows the **AAD-Common** technical profile:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-Common">
   <DisplayName>Azure Active Directory</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -92,7 +92,7 @@ The **PersistedClaims** element contains all of the values that should be persis
 
 The **AAD-UserWriteUsingLogonEmail** technical profile, which creates new local account, persists following claims:
 
-```XML
+```xml
   <PersistedClaims>
     <!-- Required claims -->
     <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
@@ -122,7 +122,7 @@ The name of the claim is the name of the Azure AD attribute unless the **Partner
 
 The **Read** operation reads data about a single user account. The following technical profile reads data about a user account using the user's objectId:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingObjectId">
   <Metadata>
     <Item Key="Operation">Read</Item>
@@ -152,7 +152,7 @@ The **Read** operation reads data about a single user account. The following tec
 
 The **Write** operation creates or updates a single user account. The following technical profile creates new social account:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">Write</Item>
@@ -192,7 +192,7 @@ The **Write** operation creates or updates a single user account. The following 
 
 The **DeleteClaims** operation clears the information from a provided list of claims. The following technical profile deletes claims:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteClaimsUsingObjectId">
   <Metadata>
     <Item Key="Operation">DeleteClaims</Item>
@@ -213,7 +213,7 @@ The **DeleteClaims** operation clears the information from a provided list of cl
 
 The **DeleteClaimsPrincipal** operation deletes a single user account from the directory. The following technical profile deletes a user account from the directory using the user principal name:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteUserUsingObjectId">
   <Metadata>
     <Item Key="Operation">DeleteClaimsPrincipal</Item>
@@ -228,7 +228,7 @@ The **DeleteClaimsPrincipal** operation deletes a single user account from the d
 
 The following technical profile deletes a social user account using **alternativeSecurityId**:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteUserUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">DeleteClaimsPrincipal</Item>

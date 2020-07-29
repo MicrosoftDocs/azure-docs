@@ -27,7 +27,7 @@ In order to engage users with instant rich contents, an application might want t
 
 This tutorial is compatible with iOS 7 & 8.
 
-  ![][IOS1]
+  ![Three screenshots: an app screen with a Send Push button, a start screen on a device, and a Windows logo with a Back button.][IOS1]
 
 At a high level:
 
@@ -45,7 +45,7 @@ At a high level:
 3. Click **Show All Files** in the Solution Explorer, and right-click the folder to **Include In Project**.
 4. With the image selected, change its Build Action in Properties window to **Embedded Resource**.
 
-    ![][IOS2]
+    ![Screenshot of Solution Explorer. The image file is selected, and in its Properties pane, embedded resource is listed as the build action.][IOS2]
 5. In `Notifications.cs`, add the following using statement:
 
     ```csharp
@@ -142,12 +142,12 @@ Now that you have modified your app backend to send just the *id* of a notificat
 1. Open your iOS project, and enable remote notifications by going to your main app target in the **Targets** section.
 2. Click on **Capabilities**, turn on **Background Modes**, and check the **Remote Notifications** checkbox.
 
-    ![][IOS3]
+    ![Screenshot of the iOS project showing the Capabilities screen. Background Modes is turned on, and the Remote notifications check box is selected.][IOS3]
 3. Open `Main.storyboard`, and make sure you have a View Controller (referred to as Home View Controller in this tutorial) from [Notify User](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial.
 4. Add a **Navigation Controller** to your storyboard, and control-drag to Home View Controller to make it the **root view** of navigation. Make sure the **Is Initial View Controller** in Attributes inspector is selected for the Navigation Controller only.
 5. Add a **View Controller** to storyboard and add an **Image View**. This is the page users will see once they choose to learn more by clicking on the notification. Your storyboard should look as follows:
 
-    ![][IOS4]
+    ![Screenshot of a storyboard. Three app screens are visible: a navigation view, a home view, and an image view.][IOS4]
 6. Click on the **Home View Controller** in storyboard, and make sure it has **homeViewController** as its **Custom Class** and **Storyboard ID** under the Identity inspector.
 7. Do the same for Image View Controller as **imageViewController**.
 8. Then, create a new View Controller class titled **imageViewController** to handle the UI you just created.

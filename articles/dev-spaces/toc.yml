@@ -73,8 +73,6 @@
         href: how-dev-spaces-works-routing.md
       - name: Remote debugging
         href: how-dev-spaces-works-remote-debugging.md
-      - name: Connecting your development computer to AKS
-        href: how-dev-spaces-works-connect.md
     - name: How VS Code works with Dev Spaces
       href: how-vs-code-works-with-dev-spaces.md
     - name: Networking configuration in different network topologies
@@ -111,10 +109,6 @@
       href: how-to/ingress-https-traefik.md
     - name: Use NGINX for custom ingress and HTTPS
       href: how-to/ingress-https-nginx.md
-    - name: Connect your development computer to an AKS cluster (preview)
-      href: how-to/connect.md
-    - name: Configure your Azure Dev Spaces cluster to use Helm 3 (preview)
-      href: how-to/helm-3.md
   - name: Troubleshooting
     href: troubleshooting.md
   - name: FAQ

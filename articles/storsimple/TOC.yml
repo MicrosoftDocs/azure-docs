@@ -416,11 +416,11 @@
   - name: Marketing blog
     href: https://blogs.technet.com/b/cis/
   - name: Marketing
-    href: https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx
+    href: https://azure.microsoft.com/services/storsimple/
   - name: StorSimple Support options
     href: storsimple-8000-support-options.md
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-storsimple.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/storsimple/
   - name: Pricing calculator

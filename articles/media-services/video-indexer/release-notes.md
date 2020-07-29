@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 06/02/2020
 ms.author: juliako
 ---
 
@@ -25,6 +25,32 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## June 2020
+
+### Search by topics
+
+You can now use the search API to search for videos with specific topics (API only).
+
+Topics is added as part of the `textScope` (optional parameter). See [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) for details.  
+
+### Labels enhancement
+
+The label tagger was upgraded and now includes more visual labels that can be identified.
+
+## May 2020
+
+### Video Indexer deployed in the East US
+
+You can now create a Video Indexer paid account in the East US region.
+ 
+### Video Indexer URL
+
+Video Indexer regional endpoints were all unified to start only with www. No action item is required.
+
+From now on, you reach www.videoindexer.ai whether it is for embedding widgets or logging into Video Indexer web applications.
+
+Also wus.videoindexer.ai would be redirected to www. More information is available in [Embed Video Indexer widgets in your apps](video-indexer-embed-widgets.md).
 
 ## April 2020
 
@@ -54,7 +80,7 @@ For paid accounts the `Url` field is currently pointing to an internal URL inste
 In the coming weeks we will change it and return the [Video Indexer website](https://www.videoindexer.ai/) URL for all accounts (trial and paid).
 
     Do not use the internal URLs, you should be using the [Video Indexer public APIs](https://api-portal.videoindexer.ai/).
-* If you are embedding Video Indexer URLs in your applications and the URLs are not pointing to the [Video Indexer website](https://www.videoindexer.ai/) or the [Video Indexer API endpoint](https://api.videoindexer.ai) but rather to a regional endpoint (for example, `https://wus2.videoindexer.ai`), regenerate the URLs.
+* If you are embedding Video Indexer URLs in your applications and the URLs are not pointing to the [Video Indexer website](https://www.videoindexer.ai/) or the Video Indexer API endpoint (`https://api.videoindexer.ai`) but rather to a regional endpoint (for example, `https://wus2.videoindexer.ai`), regenerate the URLs.
 
    You can do it it by either:
 

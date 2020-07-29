@@ -8,8 +8,9 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
+ms.custom: project-no-code, devx-track-javascript
 ms.author: mimart
 ms.subservice: B2C
 ---

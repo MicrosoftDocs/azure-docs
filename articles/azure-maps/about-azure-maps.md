@@ -1,14 +1,14 @@
 ---
 title: Overview | Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/15/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
+ms.custom: mvc, references_regions
 #Customer intent: As an Azure enterprise customer, I want to know what capabilities Azure Maps has, so that I can take advantage of mapping in my applications. 
 ---
 
@@ -151,7 +151,7 @@ For more information, see the [Traffic API documentation](https://docs.microsoft
 
 ### IP to Location service
 
-Use the IP to Location service to preview the retrieved two-letter country code for an IP address. This service can help you enhance user experience by providing customized application content based on geographic location.
+Use the IP to Location service to preview the retrieved two-letter country/region code for an IP address. This service can help you enhance user experience by providing customized application content based on geographic location.
 
 For more details on the IP to Location service in the REST API, read the [Azure Maps Geolocation API documentation](https://docs.microsoft.com/rest/api/maps/geolocation).
 
@@ -161,22 +161,30 @@ Azure Maps is built for mobility and can help you develop cross-platform applica
 
 Also, Azure Maps offers a convenient [JavaScript map control](https://docs.microsoft.com/javascript/api/azure-maps-control) with a simple programming model. The development is quick and easy for both web and mobile applications.
 
+## Power BI visual
+
+The Azure Maps visual for Power BI provides a rich set of data visualizations for spatial data on top of a map. It is estimated that over 80% of business data has a location context. The Azure Maps visual offers a no-code solution for gaining insights into how this location context relates to and influences your business data.
+
+![Power BI desktop with the Azure Maps visual displaying business data](media/power-bi-visual/azure-maps-visual-hero.png)
+
+For more information, see the Getting started with the [Azure Maps Power BI visual](power-bi-visual-getting-started.md) documentation.
+
 ## Usage
 
 Accessing the Azure Maps services is a matter of going to the [Azure portal](https://portal.azure.com) and creating an Azure Maps account.
 
 Azure Maps uses a key-based authentication scheme. Your account comes with two keys already generated for you, use either keys. Start integrating these location capabilities in your application and make requests to the Azure Maps services.
 
-Note - Azure Maps shares customer-provided address/location queries ("Queries") with third party TomTom for mapping functionality purposes. Queries are not linked to any customer or end-user when shared with TomTom and cannot be used to identify individuals. Microsoft is currently in the process of adding TomTom to the Online Services Subcontractor List. Note that the Mobility and Weather Services which include integration with Moovit and AccuWeather are currently in [PREVIEW](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Note - Azure Maps shares customer-provided address/location queries ("Queries") with third-party TomTom for mapping functionality purposes. Queries are not linked to any customer or end user when shared with TomTom and cannot be used to identify individuals. Microsoft is currently in the process of adding TomTom to the Online Services Subcontractor List. Note that the Mobility and Weather Services, which include integration with Moovit and AccuWeather are currently in [PREVIEW](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Supported regions
 
-The Azure Maps APIs are currently available in all countries and regions except these:
+The Azure Maps APIs are currently available in all countries and regions except the following:
 
 * China
 * South Korea
 
-Verify that the location of your current IP address is in a supported country.
+Verify that the location of your current IP address is in a supported country/region.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description:  Get the Azure PowerShell samples to perform various common tasks i
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 03/26/2020
+ms.date: 06/12/2020
 ms.author: mjbrown
 ---
 
@@ -15,9 +15,9 @@ The following table includes links to commonly used Azure PowerShell scripts for
 For additional Cosmos DB PowerShell samples for SQL (Core) API and documentation, see [Manage Azure Cosmos DB SQL API resources using PowerShell](manage-with-powershell.md). For Cosmos DB PowerShell samples for other APIs, see [Cassandra API](powershell-samples-cassandra.md), [MongoDB API](powershell-samples-mongodb.md), [Gremlin API](powershell-samples-gremlin.md), and [Table API](powershell-samples-table.md).
 
 > [!NOTE]
-> The samples use [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) management cmdlets. Please note that the `Az.CosmosDB` cmdlets are still in preview and may change before release. Please check for updates to `Az.CosmosDB` regularly.
+> The samples use [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) management cmdlets. Please check for updates to `Az.CosmosDB` regularly.
 
-| | |
+|Task | Description |
 |---|---|
 |[Create an account, database and container](scripts/powershell/sql/ps-sql-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create an Azure Cosmos DB account, database and container. |
 |[Create a container with a large partition key](scripts/powershell/sql/ps-sql-container-create-large-partition-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create a container with a large partition key. |
@@ -30,4 +30,5 @@ For additional Cosmos DB PowerShell samples for SQL (Core) API and documentation
 |[Change failover priority or trigger failover](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Change the regional failover priority of an Azure Cosmos account or trigger a manual failover. |
 |[Account keys or connection strings](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Get primary and secondary keys, connection strings or regenerate an account key of an Azure Cosmos DB account. |
 |[Create a Cosmos Account with IP Firewall](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create an Azure Cosmos DB account with IP Firewall enabled. |
+|[Lock resources from deletion](scripts/powershell/sql/powershell-sql-lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Prevent resources from being deleted with resource locks. |
 |||

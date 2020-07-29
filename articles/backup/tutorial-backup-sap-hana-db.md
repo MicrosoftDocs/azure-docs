@@ -17,16 +17,24 @@ This tutorial shows you how to back up SAP HANA databases running on Azure VMs t
 
 [Here](sap-hana-backup-support-matrix.md#scenario-support) are all the scenarios that we currently support.
 
+>[!NOTE]
+>[Get started]() with SAP HANA backup preview for RHEL (7.4, 7.6, 7.7 or 8.1). For further queries write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+
 ## Prerequisites
 
 Make sure you do the following before configuring backups:
 
+* Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region and subscription as the VM running SAP HANA.
 * Allow connectivity from the VM to the internet, so that it can reach Azure, as described in the [set up network connectivity](#set-up-network-connectivity) procedure below.
+* Ensure that the combined length of the SAP HANA Server VM name and the Resource Group name doesn't exceed 84 characters for Azure Resoure Manager (ARM_ VMs (and 77 characters for classic VMs). This limitation is because some characters are reserved by the service.
 * A key should exist in the **hdbuserstore** that fulfills the following criteria:
-  * It should be present in the default **hdbuserstore**
-  * For MDC, the key should point to the SQL port of **NAMESERVER**. In the case of SDC it should point to the SQL port of **INDEXSERVER**
+  * It should be present in the default **hdbuserstore**. The default is the `<sid>adm` account under which SAP HANA is installed.
+  * For MDC, the key should point to the SQL port of **NAMESERVER**. In the case of SDC, it should point to the SQL port of **INDEXSERVER**
   * It should have credentials to add and delete users
 * Run the SAP HANA backup configuration script (pre-registration script) in the virtual machine where HANA is installed, as the root user. [This script](https://aka.ms/scriptforpermsonhana) gets the HANA system ready for backup. Refer to the [What the pre-registration script does](#what-the-pre-registration-script-does) section to understand more about the pre-registration script.
+
+>[!NOTE]
+>The preregistration script installs the **compat-unixODBC234** for SAP HANA workloads running on RHEL (7.4, 7.6 and 7.7) and **unixODBC** for RHEL 8.1. [This package is located in the RHEL for SAP HANA (for RHEL 7 Server) Update Services for SAP Solutions (RPMs) repo](https://access.redhat.com/solutions/5094721).  For the Azure Marketplace RHEL image the repo would be **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
 
 ## Set up network connectivity
 
@@ -40,13 +48,13 @@ This option allows the [IP ranges](https://www.microsoft.com/download/details.as
 
 ### Allow access using NSG tags
 
-If you use NSG to restrict connectivity, then you should use AzureBackup service tag to allows outbound access to Azure Backup. In addition, you should also allow connectivity for authentication and data transfer by using [rules](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)  for Azure AD and Azure Storage. This can be done from the Azure portal or via PowerShell.
+If you use NSG to restrict connectivity, then you should use AzureBackup service tag to allows outbound access to Azure Backup. In addition, you should also allow connectivity for authentication and data transfer by using [rules](../virtual-network/security-overview.md#service-tags)  for Azure AD and Azure Storage. This can be done from the Azure portal or via PowerShell.
 
 To create a rule using the portal:
 
   1. In **All Services**, go to **Network security groups** and select the network security group.
   2. Select **Outbound security rules** under **Settings**.
-  3. Select **Add**. Enter all the required details for creating a new rule as described in [security rule settings](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Ensure the option  **Destination** is set to **Service Tag** and **Destination service tag** is set to **AzureBackup**.
+  3. Select **Add**. Enter all the required details for creating a new rule as described in [security rule settings](../virtual-network/manage-network-security-group.md#security-rule-settings). Ensure the option  **Destination** is set to **Service Tag** and **Destination service tag** is set to **AzureBackup**.
   4. Click **Add**, to save the newly created outbound security rule.
 
 To create a rule using PowerShell:
@@ -72,7 +80,7 @@ To create a rule using PowerShell:
  7. Save the NSG<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
 
-**Allow access by using Azure Firewall tags**. If you're using Azure Firewall, create an application rule by using the AzureBackup [FQDN tag](https://docs.microsoft.com/azure/firewall/fqdn-tags). This allows outbound access to Azure Backup.
+**Allow access by using Azure Firewall tags**. If you're using Azure Firewall, create an application rule by using the AzureBackup [FQDN tag](../firewall/fqdn-tags.md). This allows outbound access to Azure Backup.
 
 **Deploy an HTTP proxy server to route traffic**. When you back up an SAP HANA database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. The extensions are the only component that's configured for access to the public internet.
 
@@ -89,7 +97,7 @@ Use an HTTP proxy | Granular control in the proxy over the storage URLs is allow
 
 Running the pre-registration script performs the following functions:
 
-* It installs or updates any necessary packages required by the Azure Backup agent on your distribution.
+* Based on your Linux distribution, the script installs or updates any necessary packages required by the Azure Backup agent.
 * It performs outbound network connectivity checks with Azure Backup servers and dependent services like Azure Active Directory and Azure Storage.
 * It logs into your HANA system using the user key listed as part of the [prerequisites](#prerequisites). The user key is used to create a backup user (AZUREWLBACKUPHANAUSER) in the HANA system and the user key can be deleted after the pre-registration script runs successfully.
 * AZUREWLBACKUPHANAUSER is assigned these required roles and permissions:
@@ -140,7 +148,7 @@ To create a Recovery Services vault:
    * **Name**: The name is used to identify the recovery services vault and must be unique to the Azure subscription. Specify a name that has at least two, but not more than 50 characters. The name must start with a letter and consist only of letters, numbers, and hyphens. For this tutorial, we've used the name **SAPHanaVault**.
    * **Subscription**: Choose the subscription to use. If you're a member of only one subscription, you'll see that name. If you're not sure which subscription to use, use the default (suggested) subscription. There are multiple choices only if your work or school account is associated with more than one Azure subscription. Here, we have used the **SAP HANA solution lab subscription** subscription.
    * **Resource group**: Use an existing resource group or create a new one. Here, we have used **SAPHANADemo**.<br>
-   To see the list of available resource groups in your subscription, select **Use existing**, and then select a resource from the drop-down list box. To create a new resource group, select **Create new** and enter the name. For complete information about resource groups, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+   To see the list of available resource groups in your subscription, select **Use existing**, and then select a resource from the drop-down list box. To create a new resource group, select **Create new** and enter the name. For complete information about resource groups, see [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
    * **Location**: Select the geographic region for the vault. The vault must be in the same region as the Virtual Machine running SAP HANA. We have used **East US 2**.
 
 5. Select **Review + Create**.

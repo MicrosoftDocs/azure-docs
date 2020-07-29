@@ -39,7 +39,7 @@ To configure Azure Backup Server to protect Files in Azure Stack virtual machine
 
     ![New Protection group wizard opens](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft recommends putting all data that will share a protection policy, into one protection group. For complete information about planning and deploying protection groups, see the System Center DPM article, [Deploy Protection Groups](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Microsoft recommends putting all data that will share a protection policy, into one protection group. For complete information about planning and deploying protection groups, see the System Center DPM article, [Deploy Protection Groups](/system-center/dpm/create-dpm-protection-groups).
 
 4. In the **Select Data Protection Method** screen, type a name for the protection group. Select the checkbox for **I want short-term protection using:** and **I want online protection**. Click **Next**.
 
@@ -128,5 +128,5 @@ To view Azure Backup Server entities in the Azure portal, you can follow the fol
 
 For information on using Azure Backup Server to protect other workloads, see one of the following articles:
 
-* [Back up SharePoint farm](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
-* [Back up SQL server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+* [Back up SharePoint farm](./backup-mabs-sharepoint-azure-stack.md)
+* [Back up SQL server](./backup-mabs-sql-azure-stack.md)
