@@ -176,6 +176,9 @@ After migrating machines with dependency visualization enabled to Azure, machine
 ## Dependencies export CSV shows "Unknown process"
 In agentless dependency analysis, the process names are captured on a best-effort basis. In certain scenarios, although the source and destination server names and the destination port are captured, it is not feasible to determine the process names at both ends of the dependency. In such cases, the process is marked as "Unknown process".
 
+## My Log Analytics workspace is not listed when trying to configure the workspace in Server Assessment
+Azure Migrate currently supports creation of OMS workspace in East US, Southeast Asia and West Europe regions. If the workspace is created outside of Azure Migrate in any other region, it currently cannot be associated with an Azure Migrate project.
+
 
 ## Capture network traffic
 

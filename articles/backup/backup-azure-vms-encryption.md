@@ -2,7 +2,7 @@
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 07/29/2020
 ---
 # Back up and restore encrypted Azure VM
 
@@ -50,29 +50,33 @@ In addition, there are a couple of things that you might need to do in some circ
 
 ## Configure a backup policy
 
-1. If you haven't yet created a Recovery Services backup vault, follow [these instructions](backup-create-rs-vault.md)
-2. Open the vault in the portal, and select **Backup** in the **Getting Started** section.
+1. If you haven't yet created a Recovery Services backup vault, follow [these instructions](backup-create-rs-vault.md).
+1. Open the vault in the portal, and select **+Backup** in the **Overview** section.
 
-    ![Backup blade](./media/backup-azure-vms-encryption/select-backup.png)
+    ![Backup pane](./media/backup-azure-vms-encryption/select-backup.png)
 
-3. In **Backup goal** > **Where is your workload running?** select **Azure**.
-4. In **What do you want to back up?** select **Virtual machine** > **OK**.
+1. In **Backup goal** > **Where is your workload running?** select **Azure**.
+1. In **What do you want to back up?** select **Virtual machine**. Then select **Backup**.
 
       ![Scenario blade](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-5. In **Backup policy** > **Choose backup policy**, select the policy that you want to associate with the vault. Then click **OK**.
-    - A backup policy specifies when backups are taken, and how long they are stored.
+1. In **Backup policy** > **Choose backup policy**, select the policy that you want to associate with the vault. Then select **OK**.
+    - A backup policy specifies when backups are taken, and how long they're stored.
     - The details of the default policy are listed under the drop-down menu.
 
     ![Open Scenario blade](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
-6. If you don't want to use the default policy, select **Create New**, and [create a custom policy](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
+1. If you don't want to use the default policy, select **Create New**, and [create a custom policy](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
-7. Choose the encrypted VMs you want to back up using the select policy, and select **OK**.
+1. Under **Virtual Machines**, select **Add**.
+
+    ![Open Scenario blade](./media/backup-azure-vms-encryption/add-virtual-machines.png)
+
+1. Choose the encrypted VMs you want to back up using the select policy, and select **OK**.
 
       ![Select encrypted VMs](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
 
-8. If you're using Azure Key Vault, on the vault page, you see a message that Azure Backup needs read-only access to the keys and secrets in the Key Vault.
+1. If you're using Azure Key Vault, on the vault page, you'll see a message that Azure Backup needs read-only access to the keys and secrets in the Key Vault.
 
     - If you receive this message, no action is required.
 
@@ -82,17 +86,17 @@ In addition, there are a couple of things that you might need to do in some circ
 
         ![Access warning](./media/backup-azure-vms-encryption/access-warning.png)
 
-9. Click **Enable Backup** to deploy the backup policy in the vault, and enable backup for the selected VMs.
+1. Select **Enable Backup** to deploy the backup policy in the vault, and enable backup for the selected VMs.
 
 ## Trigger a backup job
 
 The initial backup will run in accordance with the schedule, but you can run it immediately as follows:
 
-1. In the vault menu, click **Backup items**.
-2. In **Backup Items**, click **Azure Virtual Machine**.
-3. In the **Backup Items** list, click the ellipses (...).
-4. Click **Backup now**.
-5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then click **OK**.
+1. In the vault menu, select **Backup items**.
+2. In **Backup Items**, select **Azure Virtual Machine**.
+3. In the **Backup Items** list, select the ellipses (...).
+4. Select **Backup now**.
+5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
 6. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your VM, creating the initial backup may take a while.
 
 ## Provide permissions
@@ -105,24 +109,27 @@ Azure Backup needs read-only access to back up the keys and secrets, along with 
 To set permissions:
 
 1. In the Azure portal, select **All services**, and search for **Key vaults**.
-2. Select the key vault associated with the encrypted VM you're backing up.
-3. Select **Access policies** > **Add new**.
-4. Select **Select principal**, and then type **Backup Management**.
-5. Select **Backup Management Service** > **Select**.
+1. Select the key vault associated with the encrypted VM you're backing up.
+1. Select **Access policies** > **Add Access Policy**.
+
+    ![Add access policy](./media/backup-azure-vms-encryption/add-access-policy.png)
+
+1. Select **Select principal**, and then type **Backup Management**.
+1. Select **Backup Management Service** > **Select**.
 
     ![Backup service selection](./media/backup-azure-vms-encryption/select-backup-service.png)
 
-6. In **Add access policy** > **Configure from template (optional)**, select **Azure Backup**.
+1. In **Add access policy** > **Configure from template (optional)**, select **Azure Backup**.
     - The required permissions are prefilled for **Key permissions** and **Secret permissions**.
     - If your VM is encrypted using **BEK only**, remove the selection for **Key permissions** since you only need permissions for secrets.
 
     ![Azure backup selection](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-7. Click **OK**. **Backup Management Service** is added to **Access policies**.
+1. Select **Add**. **Backup Management Service** is added to **Access policies**.
 
     ![Access policies](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
-8. Click **Save** to provide Azure Backup with the permissions.
+1. Select **Save** to provide Azure Backup with the permissions.
 
 ## Restore an encrypted VM
 
