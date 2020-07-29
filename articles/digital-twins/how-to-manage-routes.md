@@ -24,10 +24,17 @@ Supported endpoint types include:
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-For more information on the different endpoints, see [*Choose between Azure messaging services*](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
-
 Endpoints and routes are managed with the [**EventRoutes APIs**](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md). They can also be managed through the [Azure portal](https://portal.azure.com).
 
+### Prerequisites: 
+You'll need an instance created for Azure Digital Twins. Have the following values handy to proceed further in this article. 
+
+* Resource name
+* resource group
+* Azure subscription
+
+ If you want to create an instance, refer to [*how-to: set-up-instance-using-portal*][how-to-set-up-instance-using-portal.md] and continue further in this article. 
+    
 ## Create an endpoint for Azure Digital Twins
 
 To link an endpoint to Azure Digital Twins, the Event Hub, event grid topic, or Service Bus that you're using for the endpoint needs to exist already. 
@@ -63,6 +70,8 @@ az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --s
 ```azurecli
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
+
+For more information on the different endpoints, see [Choose between Azure messaging services](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
 
 ## Manage event routes with APIs
 
@@ -149,28 +158,7 @@ To add a filter, you can use a PUT request to *https://{YourHost}/EventRoutes/my
 ``` 
 
 Here are the supported route filters.
-
-| Filter name | Description | Filter schema | Supported values | 
-| --- | --- | --- | --- |
-| Type | The [type of event](./concepts-route-events.md#types-of-event-messages) flowing through your digital twin instance | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
-| Source | Name of Azure Digital Twins instance | `"filter" : "source = '<hostname>'"`|  **For notifications**: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **For telemetry**: `<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
-| Subject | A description of the event in the context of the event source above | `"filter": " subject = '<subject>'"` | **For notifications**: The subject is `<twinid>` <br> or a URI format for subjects, which are uniquely identified by multiple parts or IDs:<br>`<twinid>/relationships/<relationshipid>`<br> **For telemetry**: The subject is the component path (if the telemetry is emitted from a twin component), such as `comp1.comp2`. If the telemetry is not emitted from a component, then its subject field is empty. |
-| Data schema | DTDL model ID | `"filter": "dataschema = 'dtmi:example:com:floor4;2'"` | **For telemetry**: The data schema is the model ID of the twin or the component that emits the telemetry <br>**For notifications**: Data schema is not supported|
-| Content type | Content type of data value | `"filter": "datacontenttype = '<contentType>'"` | `application/json` |
-| Spec version | The version of the event schema you are using | `"filter": "specversion = '<version>'"` | Must be `1.0`. This indicates the CloudEvents schema version 1.0 |
-| True / False | Allows creating a route with no filtering, or disabling a route | `"filter" : "<true/false>"` | `true` = route is enabled with no filtering <br> `false` = route is disabled |
-<!--
-| ID | *Not implemented for public preview* | "filter": "id = '…'" | |
-| Schema | *Not implemented for public preview*  | "filter": "dataschema = '…'" | |
--->
-
-It is also possible to combine filters using the following operations:
-
-| Filter name | Filter schema | Example | 
-| --- | --- | --- |
-| AND / OR | `"filter": "<filter1> AND <filter2>"` | `"filter": "type != 'microsoft.iot.telemetry' AND datacontenttype = 'application/json'"` |
-| AND / OR | `"filter": "<filter1> OR <filter2>"` | `"filter": "type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json'"` |
-| Nested operations | `"filter": "(<Comparison1>) AND (<Comparison2>)"` | `"filter": "(type != 'microsoft.iot.telemetry' OR datacontenttype = 'application/json') OR (specversion != '1.0')"` |
+[!INCLUDE [Filters](../../includes/digital-twins-route-filters.md)]
 
 > [!NOTE]
 > During preview, only string equality is supported (=, !=).
@@ -185,7 +173,8 @@ Endpoints and routes can also be managed using the Azure Digital Twins CLI. The 
 
 Routing metrics such as count, latency, and failure rate can be viewed in the [Azure portal](https://portal.azure.com/). 
 
-From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's menu to bring up the *Metrics* page.
+From the portal homepage, search for your Azure Digital Twins instance to pull up its details. Select the **Metrics** option from the Azure Digital Twins instance's navigation bar on the left to bring up the *Metrics* page.
+From here, you can view the metrics for your instance and create custom views.
 
 :::image type="content" source="media/how-to-view-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot showing the metrics page for Azure Digital Twins":::
 
