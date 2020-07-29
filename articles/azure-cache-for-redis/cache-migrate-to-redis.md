@@ -7,6 +7,7 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: yegu
+ROBOTS: NOINDEX
 
 ---
 # Migrate from Managed Cache Service to Azure Cache for Redis (deprecated)
