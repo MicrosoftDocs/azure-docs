@@ -190,8 +190,7 @@ Users in this role can read basic directory information. This role should be use
 Do not use. This role is automatically assigned to the Azure AD Connect service, and is not intended or supported for any other use.
 
 ### [Directory Writers](#directory-writers-permissions)
-
-This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/quickstart-register-app.md). It should not be assigned to any users.
+Users in this role can read and update basic information of users, groups, and service principals. Assign this role only to applications that don’t support the [Consent Framework](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). It should not be assigned to any users.
 
 ### [Dynamics 365 administrator / CRM Administrator](#crm-service-administrator-permissions)
 
@@ -992,22 +991,36 @@ Can read & write basic directory information. For granting access to application
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.directory/groups/create | Create groups in Azure Active Directory. |
-| microsoft.directory/groups/createAsOwner | Create groups in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
 | microsoft.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
-| microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
+| microsoft.directory/groups/assignLicense | Manage licenses on groups in Azure Active Directory. |
+| microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory.  |
+| microsoft.directory/groups/classification/update | Update classification property of the group in Azure Active Directory. |
+| microsoft.directory/groups/create | Create groups in Azure Active Directory. |
+| microsoft.directory/groups/groupType/update | Update the groupType property of a group in Azure Active Directory. |
 | microsoft.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
 | microsoft.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
+| microsoft.directory/groups/reprocessLicenseAssignment | Reprocess license assignments for a group in Azure Active Directory. |
+| microsoft.directory/groups/securityEnabled/update | Update the secutiryEnabled property of a group in Azure Active Directory. |
 | microsoft.directory/groups/settings/update | Update groups.settings property in Azure Active Directory. |
+| microsoft.directory/groups/visibility/update | Update visibility property of the group |
 | microsoft.directory/groupSettings/basic/update | Update basic properties on groupSettings in Azure Active Directory. |
-| microsoft.directory/groupSettings/create | Create groupSettings in Azure Active Directory. |
+| microsoft.directory/groupSettings/create | Create groupSettings in Azure Active Directory.. |
 | microsoft.directory/groupSettings/delete | Delete groupSettings in Azure Active Directory. |
+| microsoft.directory/oAuth2PermissionGrants/basic/update | Update basic properties of oAuth2PermissionGrants in Azure Active Directory. |
+| microsoft.directory/oAuth2PermissionGrants/create | Create oAuth2PermissionGrants in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/synchronizationCredentials/manage | Manage application provisioning secrets and credentials. |
+| microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning synchronization jobs. |
+| microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema. |
 | microsoft.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
 | microsoft.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
 | microsoft.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
-| microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
+| microsoft.directory/users/disable | Disable a user account in Azure Active Directory. |
+| microsoft.directory/users/enable | Enable a user account in Azure Active Directory |
+| microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory, requiring users to re-authenticate on their next sign-in |
 | microsoft.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
-| microsoft.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
+| microsoft.directory/users/reprocessLicenseAssignment | Reprocess license assignments for a user in Azure Active Directory. |
+| microsoft.directory/users/userPrincipalName /update | Update the users.userPrincipalName property in Azure Active Directory. |
+
 
 ### Exchange Service Administrator permissions
 
@@ -1887,7 +1900,7 @@ Device Managers | Deprecated | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Device Users | Deprecated | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Directory Readers | Directory readers | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Directory Synchronization Accounts | Not shown because it shouldn't be used | d29b2b05-8046-44ba-8758-1e26182fcf32
-Directory Writers | Not shown because it shouldn't be used | 9360feb5-f418-4baa-8175-e2a00bac4301
+Directory Writers | Directory Writers | 9360feb5-f418-4baa-8175-e2a00bac4301
 Exchange Service Administrator | Exchange administrator | 29232cdf-9323-42fd-ade2-1d097af3e4de
 External Id User flow Administrator | External Id User flow Administrator | 6e591065-9bad-43ed-90f3-e9424366d2f0
 External Id User Flow Attribute Administrator | External Id User Flow Attribute Administrator | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
