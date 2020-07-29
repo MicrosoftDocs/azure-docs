@@ -73,13 +73,14 @@ Each of these options is described in the [detailed instructions](status-monitor
 
 View your telemetry:
 
-* [Explore metrics](../../azure-monitor/platform/metrics-charts.md) to monitor performance and usage.
-* [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems.
+* [Explore metrics](../platform/metrics-charts.md) to monitor performance and usage.
+* [Search events and logs](./diagnostic-search.md) to diagnose problems.
 * [Use Analytics](../log-query/log-query-overview.md) for more advanced queries.
-* [Create dashboards](../../azure-monitor/app/overview-dashboard.md).
+* [Create dashboards](./overview-dashboard.md).
 
 Add more telemetry:
 
 * [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
-* [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to enable trace calls.
-* [Add the Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so you can insert trace and log calls.
+* [Add web client telemetry](./javascript.md) to see exceptions from web page code and to enable trace calls.
+* [Add the Application Insights SDK to your code](./asp-net.md) so you can insert trace and log calls.
+

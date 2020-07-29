@@ -1,11 +1,9 @@
 ---
 title: Deployment technologies in Azure Functions  
 description: Learn the different ways you can deploy code to Azure Functions.
-author: ggailey777
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: glenga
 
 ---
 
