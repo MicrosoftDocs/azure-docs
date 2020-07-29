@@ -239,18 +239,18 @@
     href: sap-proximity-placement-scenarios.md
 - name: Integrate Azure AD with SAP applications
   items:
-  - name: Configure SSO with SAP Cloud Platform Identity Authentication Service
-    href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-  - name: Provision users to SAP Cloud Platform Identity Authentication Service
-    href: ../../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-  - name: Configure SSO with SAP SuccessFactors
-    href: ../../../active-directory/saas-apps/successfactors-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
   - name: Provision users from SAP SuccessFactors to Active Directory
     href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
   - name: Provision users from SAP SuccessFactors to Azure AD
     href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-  - name: Write-back user data from Azure AD to SAP SuccessFactors
+  - name: Write-back users from Azure AD to SAP SuccessFactors
     href: ../../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+  - name: Provision users to SAP Cloud Platform Identity Authentication Service
+    href: ../../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+  - name: Configure SSO with SAP Cloud Platform Identity Authentication Service
+    href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+  - name: Configure SSO with SAP SuccessFactors
+    href: ../../../active-directory/saas-apps/successfactors-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
   - name: Configure SSO with SAP Analytics Cloud
     href: ../../../active-directory/saas-apps/sapboc-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
   - name: Configure SSO with SAP Fiori
