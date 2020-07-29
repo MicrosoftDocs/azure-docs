@@ -22,7 +22,7 @@ The following diagram illustrates that with MLflow Tracking, you track an experi
 
 ## Prerequisites
 
-* You will need to [provision an Azure Machine Learning Workspace](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
+* You will need to [provision an Azure Machine Learning Workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
 
 ## Create a new notebook
 
@@ -200,4 +200,4 @@ You should delete the Inference Compute you created in Step 1 so that you do not
 
 ## Next Steps
 
-* Learn more about [deploying models in AzureML](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-and-where)
+* Learn more about [deploying models in AzureML](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)
