@@ -14,7 +14,7 @@ ms.author: lagayhar
 
 # How to use JSONPath to transform JSON data in workbooks
 
-Workbooks is able to query data from many sources. Some endpoints, such as [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) or custom endpoint, can return results in JSON. If the JSON data returned by the queried endpoint is not configured in a format that you desire, JSONPath can be used to transform the results.
+Workbooks is able to query data from many sources. Some endpoints, such as [Azure Resource Manager](../../azure-resource-manager/management/overview.md) or custom endpoint, can return results in JSON. If the JSON data returned by the queried endpoint is not configured in a format that you desire, JSONPath can be used to transform the results.
 
 JSONPath is a query language for JSON that is similar to XPath for XML. Like XPath, JSONPath allows for the extraction and filtration of data out of JSON structure.
 

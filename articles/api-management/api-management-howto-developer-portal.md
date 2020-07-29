@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 07/28/2020
 ms.author: apimpm
 ---
 
@@ -25,6 +25,9 @@ This article describes the differences between self-hosted and managed versions 
 ![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+> [!NOTE]
+> <a name="migrate-from-legacy"></a> The new developer portal is incompatible with the legacy developer portal and automated migration isn't possible. You need to manually recreate the content (pages, text, media files) and customize the look of the new portal. Refer to [the developer portal tutorial](api-management-howto-developer-portal-customize.md) for guidance.
 
 ## <a name="managed-vs-self-hosted"></a> Managed and self-hosted versions
 
@@ -78,10 +81,6 @@ If you don't want to reset the content of the portal, you may consider using new
 
 If your portal was provisioned after the general availability announcement, it should already feature the new default content. No action is required from your side.
 
-### How can I migrate from the legacy developer portal to the developer portal?
-
-Portals are incompatible and you need to migrate the content manually.
-
 ### Does the portal have all the features of the legacy portal?
 
 The developer portal no longer supports *Applications* and *Issues*.
@@ -102,7 +101,19 @@ You can programmatically access and manage the developer portal's content throug
 
 The API is documented in [the GitHub repository's wiki section][2]. It can be used for automating migrations of portal content between environments - for example, from a test environment to the production environment. You can learn more about this process [in this documentation article](https://aka.ms/apimdocs/migrateportal) on GitHub.
 
+### How do I move from the managed to the self-hosted version?
+
+Refer to the detailed article in [the Wiki section of the developer portal repository on GitHub][2].
+
+### Can I have multiple developer portals in one API Management service?
+
+You can have one managed portal and multiple self-hosted portals. The content of all portals is stored in the same API Management service, so they will be identical. If you want to differentiate portals' appearance and functionality, you can self-host them with your own custom widgets that dynamically customize pages on runtime, for example based on the URL.
+
 ### Does the portal support Azure Resource Manager templates and/or is it compatible with API Management DevOps Resource Kit?
+
+No.
+
+### Is the portal's content saved with the backup/restore functionality in API Management?
 
 No.
 

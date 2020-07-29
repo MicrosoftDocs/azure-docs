@@ -17,17 +17,17 @@ ms.author: amverma
 
 # Enable InfiniBand with SR-IOV
 
-The Azure NC, ND, and H-series of VMs are all backed by a dedicated InfiniBand network. All RDMA-enabled sizes are capable of leveraging that network using Intel MPI. Some VM series have expanded support for all MPI implementations and RDMA verbs through SR-IOV. RDMA capable VMs include [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) and [High-performance compute (HPC)](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) VMs.
+The Azure NC, ND, and H-series of VMs are all backed by a dedicated InfiniBand network. All RDMA-enabled sizes are capable of leveraging that network using Intel MPI. Some VM series have expanded support for all MPI implementations and RDMA verbs through SR-IOV. RDMA capable VMs include [GPU optimized](../../sizes-gpu.md) and [High-performance compute (HPC)](../../sizes-hpc.md) VMs.
 
 ## Choose your installation path
 
 To get started, the simplest option is to use a platform image pre-configured for InfiniBand, where available:
 
-- **HPC IaaS VMs** – To get started with IaaS VMs for HPC, the simplest solution is to use the [CentOS-HPC 7.6 VM OS image](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557), which is already configured with InfiniBand. Since this image is already configured with InfiniBand, you don't have to configure it manually. For compatible Windows versions, see [Windows RDMA-capable instances](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances).
+- **HPC IaaS VMs** – To get started with IaaS VMs for HPC, the simplest solution is to use the [CentOS-HPC 7.6 VM OS image](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557), which is already configured with InfiniBand. Since this image is already configured with InfiniBand, you don't have to configure it manually. For compatible Windows versions, see [Windows RDMA-capable instances](../../sizes-hpc.md#rdma-capable-instances).
 
 - **GPU IaaS VMs** – No platform images are currently pre-configured for GPU optimized VMs, except for [CentOS-HPC 7.6 VM OS image](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557). To configure a custom image with InfiniBand, see [Manually install Mellanox OFED](#manually-install-mellanox-ofed).
 
-If you're using a custom VM image or a [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) VM, you should configure it with InfiniBand by adding the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment. Learn how to use these VM extensions with [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances).
+If you're using a custom VM image or a [GPU optimized](../../sizes-gpu.md) VM, you should configure it with InfiniBand by adding the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment. Learn how to use these VM extensions with [Linux](../../sizes-hpc.md#rdma-capable-instances) and [Windows](../../sizes-hpc.md#rdma-capable-instances).
 
 ## Manually install Mellanox OFED
 
@@ -62,4 +62,4 @@ sudo systemctl restart waagent
 
 ## Next steps
 
-Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) on Azure.
+Learn more about [HPC](/azure/architecture/topics/high-performance-computing/) on Azure.

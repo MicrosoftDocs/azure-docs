@@ -17,7 +17,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 > [!NOTE]
 > Changing **Storage Replication type** (Locally redundant/ Geo-redundant) for a Recovery services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled.
 >
->- If you haven't yet configured the backup, then [follow these steps](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) to review and modify the settings.
+>- If you haven't yet configured the backup, then [follow these steps](#set-storage-redundancy) to review and modify the settings.
 >- If you've already configured the backup and must move from GRS to LRS, then [review these workarounds](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 1. From the **Recovery Services vaults** blade, click the new vault. Under the **Settings** section, click  **Properties**.
@@ -29,14 +29,14 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 
    - We recommend that if you're using Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting.
    - If you don't use Azure as a primary backup storage endpoint, then choose **Locally redundant**, which reduces the Azure storage costs.
-   - Learn more about [geo](../storage/common/storage-redundancy-grs.md) and [local](../storage/common/storage-redundancy-lrs.md) redundancy.
+   - Learn more about [geo](../storage/common/storage-redundancy.md) and [local](../storage/common/storage-redundancy.md) redundancy.
 
 >[!NOTE]
 >The Storage Replication settings for the vault are not relevant for Azure file share backup as the current solution is snapshot based and there is no data transferred to the vault. Snapshots are stored in the same storage account as the backed up file share.
 
 ## Set Cross Region Restore
 
-As one of the restore options, Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an [Azure paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). This option allows you to:
+As one of the restore options, Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an [Azure paired region](../best-practices-availability-paired-regions.md). This option allows you to:
 
 - conduct drills when there's an audit or compliance requirement
 - restore the VM or its disk if there's a disaster in the primary region.
@@ -79,10 +79,10 @@ Learn how to [monitor secondary region restore jobs](backup-azure-arm-restore-vm
 We highly recommend you review the default settings for **Storage Replication type** and **Security settings** before configuring backups in the vault.
 
 - **Storage Replication type** by default is set to **Geo-redundant** (GRS). Once you configure the backup, the option to modify is disabled.
-  - If you haven't yet configured the backup, then [follow these steps](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) to review and modify the settings.
+  - If you haven't yet configured the backup, then [follow these steps](#set-storage-redundancy) to review and modify the settings.
   - If you've already configured the backup and must move from GRS to LRS, then [review these workarounds](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
-- **Soft delete** by default is **Enabled** on newly created vaults to protect backup data from accidental or malicious deletes. [Follow these steps](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) to review and modify the settings.
+- **Soft delete** by default is **Enabled** on newly created vaults to protect backup data from accidental or malicious deletes. [Follow these steps](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) to review and modify the settings.
 
 ### How to change from GRS to LRS after configuring backup
 
@@ -119,7 +119,7 @@ If you need to keep the current protected data in the GRS vault and continue the
   - You'll be able to restore the backed-up data only for unexpired recovery points in the GRS vault.
   - A new initial replica of the data will need to be created on the LRS vault.
 
-- For an Azure VM, you can [stop protection with retain data](backup-azure-manage-vms.md#stop-protecting-a-vm) for the VM in the GRS vault, move the VM to another resource group, and then protect the VM in the LRS vault. See [guidance and limitations](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) for moving a VM to another resource group.
+- For an Azure VM, you can [stop protection with retain data](backup-azure-manage-vms.md#stop-protecting-a-vm) for the VM in the GRS vault, move the VM to another resource group, and then protect the VM in the LRS vault. See [guidance and limitations](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md) for moving a VM to another resource group.
 
   A VM can be protected in only one vault at a time. However, the VM in the new resource group can be protected on the LRS vault as it is considered a different VM.
 

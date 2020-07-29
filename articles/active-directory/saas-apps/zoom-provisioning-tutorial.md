@@ -149,6 +149,9 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Connector limitations
 * Zoom only allows a maximum of 9,999 basic users today.
 
+## Change log
+* 05/14/2020 - Support for UPDATE operations  added for emails[type eq "work"] attribute.
+
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)

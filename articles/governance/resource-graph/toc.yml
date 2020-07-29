@@ -29,6 +29,9 @@
   - name: Run your first query - Python
     displayName: library, azure-mgmt, cli
     href: ./first-query-python.md
+  - name: Run your first query - Ruby
+    displayName: gem, azure-mgmt
+    href: ./first-query-ruby.md
   - name: Run your first query - REST
     displayName: armclient, postman
     href: ./first-query-rest-api.md

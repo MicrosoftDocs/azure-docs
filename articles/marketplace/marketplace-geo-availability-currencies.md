@@ -3,7 +3,7 @@ title: Geographic availability and currency support for Microsoft commercial mar
 description: The geographic availability and currency support for transactions in the commercial marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 01/29/2020
@@ -37,9 +37,9 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Brazil                              | BR        | BRL\*        |
 | Brunei                              | BN        | USD          |
 | Bulgaria                            | BG        | EUR          |
+| Cabo Verde                          | CV        | USD          |
 | Cameroon                            | CM        | USD          |
 | Canada                              | CA        | CAD          |
-| Cabo Verde                          | CV        | USD          |
 | Cayman Islands                      | KY        | USD          |
 | Chile                               | CL        | USD          |
 | China\**                            | CN        | N/A          |
@@ -104,8 +104,8 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Namibia                             | NA        | USD          |
 | Nepal                               | NP        | USD          |
 | Netherlands                         | NL        | EUR          |
-| Nicaragua                           | NI        | USD          |
 | New Zealand                         | NZ        | NZD          |
+| Nicaragua                           | NI        | USD          |
 | Nigeria                             | NG        | USD          |
 | Norway                              | NO        | NOK          |
 | Oman                                | OM        | USD          |
@@ -142,15 +142,15 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 | Tunisia                             | TN        | USD          |
 | Turkey                              | TR        | USD          |
 | Turkmenistan                        | TM        | USD          |
-| Vatican City (Holy See)             | VA        | EUR          |
-| Virgin Islands of the United States | VI        | USD          |
 | Uganda                              | UG        | USD          |
 | Ukraine                             | UA        | USD          |
 | United Arab Emirates                | AE        | USD          |
 | United Kingdom                      | GB        | GBP          |
 | United States                       | US        | USD          |
+| U.S. Virgin Islands                 | VI        | USD          |
 | Uruguay                             | UY        | USD          |
 | Uzbekistan                          | UZ        | USD          |
+| Vatican City (Holy See)             | VA        | EUR          |
 | Venezuela                           | VE        | USD          |
 | Vietnam                             | VN        | USD          |
 | Yemen                               | YE        | USD          |
