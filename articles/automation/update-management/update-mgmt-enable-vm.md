@@ -2,7 +2,7 @@
 title: Enable Azure Automation Update Management from an Azure VM
 description: This article tells how to enable Update Management from an Azure VM.
 services: automation
-ms.date: 03/04/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: mvc
 ---
@@ -22,7 +22,7 @@ This article describes how you can use an Azure VM to enable the [Update Managem
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable the feature for deployment
 
@@ -41,6 +41,5 @@ Sign in to the Azure portal at https://portal.azure.com.
 ## Next steps
 
 * To use Update Management for VMs, see [Manage updates and patches for your Azure VMs](update-mgmt-manage-updates-for-vm.md).
+
 * To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](../troubleshoot/update-management.md).
-* To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](../troubleshoot/update-agent-issues.md).
-* To troubleshoot problems with the Linux update agent, see [Troubleshoot Linux update agent issues](../troubleshoot/update-agent-issues-linux.md).

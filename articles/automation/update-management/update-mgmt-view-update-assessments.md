@@ -43,7 +43,7 @@ To view an update assessment, perform the following.
 
 Select **Missing updates** to view the list of updates that are missing from your machines. Each update is listed and can be selected. Information about the number of machines that require the update, operating system details, and a link for more information are all shown. The Log Search pane also shows more details about the updates.
 
-![Missing Updates](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
+![Missing Updates](./media/update-mgmt-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
 ## Work with update classifications
 

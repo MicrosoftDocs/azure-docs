@@ -23,7 +23,7 @@ Before attempting to manage updates for your VMs, ensure that you've enabled Upd
 
 ## <a name="scope-configuration"></a>Limit the scope for the deployment
 
-Update Management uses a scope configuration within the workspace to target the computers to receive updates. For more information, see [Limit Update Management deployment scope](automation-scope-configurations-update-management.md).
+Update Management uses a scope configuration within the workspace to target the computers to receive updates. For more information, see [Limit Update Management deployment scope](update-mgmt-scope-configuration.md).
 
 ## Compliance assessment
 
@@ -48,4 +48,3 @@ Review [deploy software updates](update-mgmt-deploy-updates.md) to learn how to 
 After the deployment is complete, review the process to determine the success of the update deployment by machine or target group. See [review deployment status](update-mgmt-deploy-updates.md#check-deployment-status) to learn how you can monitor the deployment status.
 
 ## Next steps
-

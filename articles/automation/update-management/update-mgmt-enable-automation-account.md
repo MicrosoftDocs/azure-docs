@@ -2,7 +2,7 @@
 title: Enable Azure Automation Update Management from Automation account
 description: This article tells how to enable Update Management from an Automation account.
 services: automation
-ms.date: 4/11/2019
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: mvc
 ---
@@ -21,7 +21,7 @@ This article describes how you can use your Automation account to enable the [Up
 
 ## Sign in to Azure
 
-Sign in to Azure at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable Update Management
 
@@ -63,13 +63,12 @@ Manually installed machines or machines already reporting to your workspace must
 
 4. To enable the feature for all available machines and future machines, select **Enable on all available and future machines**. This option deletes the saved searches and scope configurations from the workspace and opens the feature for all Azure and non-Azure machines that are reporting to the workspace. When selected, this action disables the **Manage Machines** button permanently, as there's no scope configuration left.
 
-5. If necessary, you can add the scope configurations back by re-adding the initial saved searches. For more information, see [Limit Update Management deployment scope](update-mgmt-scope-configurations.md).
+5. If necessary, you can add the scope configurations back by re-adding the initial saved searches. For more information, see [Limit Update Management deployment scope](update-mgmt-scope-configuration.md).
 
 6. To enable the feature for one or more machines, select **Enable on selected machines** and select **Add** next to each machine. This task adds the selected machine names to the computer group saved search query for the feature.
 
 ## Next steps
 
 * To use Update Management for VMs, see [Manage updates and patches for your VMs](update-mgmt-manage-updates-for-vm.md).
+
 * To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](../troubleshoot/update-management.md).
-* To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](../troubleshoot/update-agent-issues.md).
-* To troubleshoot problems with the Linux update agent, see [Troubleshoot Linux update agent issues](../troubleshoot/update-agent-issues-linux.md).

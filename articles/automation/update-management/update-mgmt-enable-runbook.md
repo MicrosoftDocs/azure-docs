@@ -3,7 +3,7 @@ title: Enable Azure Automation Update Management from runbook
 description: This article tells how to enable Update Management from a runbook.
 services: automation
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 07/28/2020
 ms.custom: mvc
 ---
 # Enable Update Management from a runbook
@@ -18,6 +18,10 @@ This article describes how you can use a runbook to enable the [Update Managemen
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation account](../index.yml) to manage machines.
 * A [virtual machine](../../virtual-machines/windows/quick-create-portal.md).
+
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable Update Management
 
@@ -56,7 +60,7 @@ It's required to update to the latest Azure modules and import the [Az.Operation
 5. Select **Browse gallery** to open the module gallery.
 6. Search for `Az.OperationalInsights` and import this module into your Automation account.
 
-    ![Import OperationalInsights module](media/automation-onboard-solutions/import-operational-insights-module.png)
+    ![Import OperationalInsights module](media/update-mgmt-enable-runbook/import-operational-insights-module.png)
 
 ## Import a runbook to enable Update Management
 
@@ -91,12 +95,11 @@ You must have enabled Update Management for an Azure VM to start this runbook. I
    ![Enable-MultipleSolution runbook parameters](media/update-mgmt-enable-runbook/runbook-parameters.png)
 
 3. Select **OK** to start the runbook job.
+
 4. Monitor progress of the runbook job and any errors from the **Jobs** page.
 
 ## Next steps
 
-* To schedule a runbook, see [Manage schedules in Azure Automation](../shared-resources/schedules.md).
 * To use Update Management for VMs, see [Manage updates and patches for your VMs](update-mgmt-manage-updates-for-vm.md).
+
 * To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](../troubleshoot/update-management.md).
-* To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](../troubleshoot/update-agent-issues.md).
-* To troubleshoot problems with the Linux update agent, see [Troubleshoot Linux update agent issues](../troubleshoot/update-agent-issues-linux.md).

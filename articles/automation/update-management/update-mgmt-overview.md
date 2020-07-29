@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 07/15/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
 ---
 # Update Management overview
@@ -12,13 +12,13 @@ You can use Update Management in Azure Automation to manage operating system upd
 
 You can enable Update Management for VMs in the following ways:
 
-* From your [Azure Automation account](../automation-onboard-solutions-from-automation-account.md) for one or more Azure machines.
+* From your [Azure Automation account](update-mgmt-enable-automation-account.md) for one or more Azure machines.
 * Manually for non-Azure machines.
 * For a single Azure VM from the Virtual machine page in the Azure portal. This scenario is available for [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
 * For [multiple Azure VMs](update-mgmt-onboard-portal.md) by selecting them from the Virtual machines page in the Azure portal.
 
 > [!NOTE]
-> Update Management requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
+> Update Management requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](../how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
 
 An [Azure Resource Manager template](update-mgmt-enable-template.md) is available to help you deploy Update Management to a new or existing Automation account and Log Analytics workspace in your subscription.
 
@@ -78,7 +78,7 @@ The following table lists the supported operating systems for update assessments
 |---------|---------|
 |Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 ||
 |Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management supports assessments and patching for this operating system. The [Hybrid Runbook Worker](../automation-windows-hrw-install.md) is supported for Windows Server 2008 R2. |
-|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](../automation-view-update-assessments.md#linux-2).          |
+|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](update-mgmt-view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents require access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents require access to an update repository.        |
 |Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)      |Linux agents require access to an update repository.         |
