@@ -29,6 +29,7 @@ This page is updated regularly, so revisit it often. If you're looking for items
 
 Updates in July include:
 - [Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [Eight new recommendations to enable threat protection features](#eight-new-recommendations-to-enable-threat-protection-features)
 - [Container security improvements - faster registry scanning and refreshed documentation](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
 - [Six policies for SQL advanced data security deprecated](#six-policies-for-sql-advanced-data-security-deprecated)
 
