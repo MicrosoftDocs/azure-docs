@@ -31,14 +31,6 @@
       href: storage-files-active-directory-overview.md
     - name: Networking considerations for direct access
       href: storage-files-networking-overview.md
-    - name: Prevent accidental data deletion
-      href: storage-files-prevent-file-share-deletion.md
-    - name: Back up file shares
-      href: ../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Encryption at-rest
-      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Encryption at-rest with customer-managed keys
-      href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Disaster recovery and failover
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Azure file share snapshots
@@ -69,6 +61,14 @@
       href: storage-sync-files-networking-overview.md
     - name: About cloud tiering
       href: storage-sync-cloud-tiering.md
+  - name: Prevent accidental data deletion
+    href: storage-files-prevent-file-share-deletion.md
+  - name: Back up file shares
+    href: ../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Encryption at-rest
+    href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Encryption at-rest with customer-managed keys
+    href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Scalability and performance targets
     href: storage-files-scale-targets.md
   - name: Compliance offerings
@@ -85,6 +85,70 @@
       href: storage-files-how-to-create-large-file-share.md
     - name: Create a premium file share
       href: storage-how-to-create-premium-fileshare.md
+  - name: Deploy
+    items:
+    - name: Deploy Azure Files
+      href: storage-files-deployment-guide.md
+    - name: Deploy Azure File Sync
+      href: storage-sync-files-deployment-guide.md
+    - name: SQL Server FCI with premium file shares
+      href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Mount
+    items:
+    - name: Use Azure Files with Windows
+      href: storage-how-to-use-files-windows.md
+    - name: Use Azure Files with Linux
+      href: storage-how-to-use-files-linux.md
+    - name: Use Azure Files with macOS
+      href: storage-how-to-use-files-mac.md
+  - name: Network
+    items:
+    - name: Azure Files
+      items:
+      - name: Configure Azure Files network endpoints
+        href: storage-files-networking-endpoints.md
+      - name: Configuring DNS forwarding for Azure Files
+        href: storage-files-networking-dns.md
+    - name: Azure File Sync
+      items:
+      - name: Configuring Azure File Sync network endpoints
+        href: storage-sync-files-networking-endpoints.md
+      - name: Configure File Sync proxy and firewall settings
+        href: storage-sync-files-firewall-and-proxy.md
+    - name: Configure Site-to-Site VPN 
+      href: storage-files-configure-s2s-vpn.md
+    - name: Configure Point-to-Site VPN on Windows
+      href: storage-files-configure-p2s-vpn-windows.md
+    - name: Configure Point-to-Site VPN on Linux
+      href: storage-files-configure-p2s-vpn-linux.md
+  - name: Authenticate
+    items:
+    - name: Enable on-premises AD DS authentication and authorization
+      items:
+      - name: AD DS overview
+        href: storage-files-identity-auth-active-directory-enable.md
+      - name: Enable AD DS authentication
+        href: storage-files-identity-ad-ds-enable.md
+      - name: Assign share-level permissions
+        href: storage-files-identity-ad-ds-assign-permissions.md
+      - name: Assign directory/file-level permissions
+        href: storage-files-identity-ad-ds-configure-permissions.md
+      - name: Mount file share
+        href: storage-files-identity-ad-ds-mount-file-share.md
+      - name: Update password
+        href: storage-files-identity-ad-ds-update-password.md
+    - name: Enable Azure AD DS authentication and authorization
+      href: storage-files-identity-auth-active-directory-domain-service-enable.md
+  - name: Manage
+    items:
+    - name: Register a server with Azure File Sync
+      href: storage-sync-files-server-registration.md
+    - name: Add an Azure File Sync Server endpoint
+      href: storage-sync-files-server-endpoint.md
+    - name: Manage storage in Azure independent clouds
+      href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Initiate an account failover
+      href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Data protection
     items:
     - name: Enable soft delete
@@ -133,70 +197,6 @@
         href: ../../backup/manage-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: REST API
         href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Deploy
-    items:
-    - name: Deploy Azure Files
-      href: storage-files-deployment-guide.md
-    - name: Deploy Azure File Sync
-      href: storage-sync-files-deployment-guide.md
-    - name: SQL Server FCI with premium file shares
-      href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Mount
-    items:
-    - name: Use Azure Files with Windows
-      href: storage-how-to-use-files-windows.md
-    - name: Use Azure Files with Linux
-      href: storage-how-to-use-files-linux.md
-    - name: Use Azure Files with macOS
-      href: storage-how-to-use-files-mac.md
-  - name: Network
-    items:
-    - name: Azure Files
-      items:
-      - name: Configure Azure Files network endpoints
-        href: storage-files-networking-endpoints.md
-      - name: Configuring DNS forwarding for Azure Files
-        href: storage-files-networking-dns.md
-    - name: Azure File Sync
-      items:
-      - name: Configuring Azure File Sync network endpoints
-        href: storage-sync-files-networking-endpoints.md
-      - name: Configure File Sync proxy and firewall settings
-        href: storage-sync-files-firewall-and-proxy.md
-    - name: Configure Site-to-Site VPN 
-      href: storage-files-configure-s2s-vpn.md
-    - name: Configure Point-to-Site VPN on Windows
-      href: storage-files-configure-p2s-vpn-windows.md
-    - name: Configure Point-to-Site VPN on Linux
-      href: storage-files-configure-p2s-vpn-linux.md
-  - name: Manage
-    items:
-    - name: Register a server with Azure File Sync
-      href: storage-sync-files-server-registration.md
-    - name: Add an Azure File Sync Server endpoint
-      href: storage-sync-files-server-endpoint.md
-    - name: Manage storage in Azure independent clouds
-      href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Initiate an account failover
-      href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Authenticate
-    items:
-    - name: Enable on-premises AD DS authentication and authorization
-      items:
-      - name: AD DS overview
-        href: storage-files-identity-auth-active-directory-enable.md
-      - name: Enable AD DS authentication
-        href: storage-files-identity-ad-ds-enable.md
-      - name: Assign share-level permissions
-        href: storage-files-identity-ad-ds-assign-permissions.md
-      - name: Assign directory/file-level permissions
-        href: storage-files-identity-ad-ds-configure-permissions.md
-      - name: Mount file share
-        href: storage-files-identity-ad-ds-mount-file-share.md
-      - name: Update password
-        href: storage-files-identity-ad-ds-update-password.md
-    - name: Enable Azure AD DS authentication and authorization
-      href: storage-files-identity-auth-active-directory-domain-service-enable.md
   - name: Monitor
     items:
     - name: Monitor Azure File Sync
@@ -247,6 +247,8 @@
           href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Enable infrastructure encryption for a storage account
       href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json
+    - name: Advanced threat protection
+      href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Configure firewalls and virtual networks
       href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Require secure transfer

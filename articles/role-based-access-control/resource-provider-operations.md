@@ -1,5 +1,5 @@
 ---
-title: Azure resource providers operations
+title: Azure resource provider operations
 description: Lists the operations for Azure resource providers.
 services: active-directory
 ms.service: role-based-access-control
@@ -10,7 +10,7 @@ ms.author: rolyon
 ms.date: 07/16/2020
 ---
 
-# Azure resource providers operations
+# Azure resource provider operations
 
 This section lists the operations for Azure resource providers, which are used in built-in roles. You can use these operations in your own [Azure custom roles](custom-roles.md) to provide granular access control to resources in Azure. The resource provider operations are always evolving. To get the latest operations, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
