@@ -250,7 +250,7 @@
         - name: Enable
           items:
             - name: Enable Update Management using Azure Resource Manager template
-              href: update-management/update-mgmt-deploy-template.md
+              href: update-management/update-mgmt-enable-template.md
             - name: Enable Update Management from the Azure portal
               href: update-management/update-mgmt-enable-portal.md
             - name: Enable Update Management from an Azure VM

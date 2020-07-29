@@ -30,7 +30,7 @@ To schedule a new update deployment:
 
 3. Select the operating system to target for the update deployment.
 
-4. In the **Groups to update (preview)** region, define a query that combines subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Use dynamic groups with Update Management](update-mgmt-dynamic-groups.md).
+4. In the **Groups to update (preview)** region, define a query that combines subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Use dynamic groups with Update Management](update-mgmt-groups.md).
 
 5. In the **Machines to update** region, select a saved search, an imported group, or pick **Machines** from the dropdown menu and select individual machines. With this option, you can see the readiness of the Log Analytics agent for each machine. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/platform/computer-groups.md).
 
@@ -71,7 +71,7 @@ To schedule a new update deployment:
 
 13. When you're finished configuring the deployment schedule, select **Create**.
 
-    ![Update Schedule Settings pane](./media/update-mgmt-deploy-updates/manageupdates-schedule-win.png)
+    ![Update Schedule Settings pane](./media/update-mgmt-manage-updates-for-vm/manageupdates-schedule-win.png)
 
 14. You're returned to the status dashboard. Select **Scheduled Update deployments** to show the deployment schedule that you've created.
 
@@ -89,7 +89,7 @@ After your scheduled deployment starts, you can see its status on the **Update d
 
 When the deployment is finished, you can select it to see its results.
 
-![Update deployment status dashboard for a specific deployment](./media/update-mgmt-deploy-updates/manageupdates-view-results.png)
+![Update deployment status dashboard for a specific deployment](./media/update-mgmt-manage-updates-for-vm/manageupdates-view-results.png)
 
 Under **Update results**, a summary provides the total number of updates and deployment results on the target VMs. The table on the right shows a detailed breakdown of the updates and the installation results for each.
 

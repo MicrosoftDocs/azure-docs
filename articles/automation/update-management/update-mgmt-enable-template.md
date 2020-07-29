@@ -11,7 +11,7 @@ ms.date: 06/10/2020
 
 # Enable Update Management using Azure Resource Manager template
 
-You can use an [Azure Resource Manager template](../azure-resource-manager/templates/template-syntax.md) to enable the Azure Automation Update Management feature in your resource group. This article provides a sample template that automates the following:
+You can use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to enable the Azure Automation Update Management feature in your resource group. This article provides a sample template that automates the following:
 
 * Creation of a Azure Monitor Log Analytics workspace.
 * Creation of an Azure Automation account.
@@ -29,7 +29,7 @@ The following table lists the API versions for the resources used in this templa
 | Resource | Resource type | API version |
 |:---|:---|:---|
 | Workspace | workspaces | 2020-03-01-preview |
-| Automation account | automation | 2018-06-30 | 
+| Automation account | automation | 2018-06-30 |
 | Solution | solutions | 2015-11-01-preview |
 
 ## Before using the template
@@ -46,7 +46,7 @@ The JSON template is configured to prompt you for:
 * The name of the Automation account.
 * The region in which to create the account.
 
-The JSON template specifies a default value for the other parameters that are likely to be used for a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+The JSON template specifies a default value for the other parameters that are likely to be used for a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 
 The following parameters in the template are set with a default value for the Log Analytics workspace:
 
@@ -57,15 +57,15 @@ The following parameters in the template are set with a default value for the Lo
 >If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**.
 >
 
-The JSON template specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+The JSON template specifies a default value for the other parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For further information about working with templates, see [Deploy resources with Resource Manager templates and Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 
 It is important to understand the following configuration details if you are new to Azure Automation and Azure Monitor, in order to avoid errors when attempting to create, configure, and use a Log Analytics workspace linked to your new Automation account.
 
-* Review [Additional details](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
+* Review [Additional details](../../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
 
-* Because only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription, review [Workspace mappings](how-to/region-mappings.md) to specify the supported regions inline or in a parameters file.
+* Because only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription, review [Workspace mappings](../how-to/region-mappings.md) to specify the supported regions inline or in a parameters file.
 
-* If you are new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design](../azure-monitor/platform/design-logs-deployment.md) guidance to learn about access control, and understand the design implementation strategies we recommend for your organization.
+* If you are new to Azure Monitor logs and have not deployed a workspace already, you should review the [workspace design](../../azure-monitor/platform/design-logs-deployment.md) guidance to learn about access control, and understand the design implementation strategies we recommend for your organization.
 
 ## Deploy template
 
@@ -206,7 +206,7 @@ It is important to understand the following configuration details if you are new
     }
     ```
 
-2. Edit the template to meet your requirements. Consider creating a [Resource Manager parameters file](../azure-resource-manager/templates/parameter-files.md) instead of passing parameters as inline values.
+2. Edit the template to meet your requirements. Consider creating a [Resource Manager parameters file](../../azure-resource-manager/templates/parameter-files.md) instead of passing parameters as inline values.
 
 3. Save this file to a local folder as **deployUMSolutiontemplate.json**.
 
@@ -226,12 +226,12 @@ It is important to understand the following configuration details if you are new
 
     The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
 
-    ![Example result when deployment is complete](media/automation-update-management-deploy-template/template-output.png)
+    ![Example result when deployment is complete](media/update-mgmt-enable-template/template-output.png)
 
 ## Next steps
 
-* To use Update Management for VMs, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+* To use Update Management for VMs, see [Manage updates and patches for your VMs](update-mgmt-manage-updates-for-vm.md).
 
-* If you no longer need the Log Analytics workspace, see instructions in [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md).
+* If you no longer want to use Update Management and wish to remove it, see instructions in [Remove Update Management feature](update-mgmt-remove-feature.md).
 
-* To delete VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).
+* To delete VMs from Update Management, see [Remove VMs from Update Management](update-mgmt-remove-vms.md).

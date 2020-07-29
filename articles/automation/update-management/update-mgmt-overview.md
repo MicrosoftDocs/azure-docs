@@ -15,7 +15,7 @@ You can enable Update Management for VMs in the following ways:
 * From your [Azure Automation account](update-mgmt-enable-automation-account.md) for one or more Azure machines.
 * Manually for non-Azure machines.
 * For a single Azure VM from the Virtual machine page in the Azure portal. This scenario is available for [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
-* For [multiple Azure VMs](update-mgmt-onboard-portal.md) by selecting them from the Virtual machines page in the Azure portal.
+* For [multiple Azure VMs](update-mgmt-enable-portal.md) by selecting them from the Virtual machines page in the Azure portal.
 
 > [!NOTE]
 > Update Management requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](../how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
