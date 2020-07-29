@@ -110,7 +110,6 @@
       href: knowledge-store-projection-overview.md
     - name: Incremental enrichment
       href: cognitive-search-incremental-indexing-conceptual.md
-<<<<<<< HEAD
   - name: Security
     items:
     - name: Security overview
@@ -118,10 +117,8 @@
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
-=======
     - name: Securing indexer resources
       href: search-indexer-securing-resources.md
->>>>>>> Take 1 of documentation
 - name: How-to guides
   items:
   - name: Create indexes and constructs
