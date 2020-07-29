@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # How to deploy updates and review results
 
-This article describes how to schedule an update deployment and review the process after the deployment is complete. 
+This article describes how to schedule an update deployment and review the process after the deployment is complete.
 
 ## Sign in to the Azure portal
 
@@ -107,3 +107,5 @@ Select **Output** to see the job stream of the runbook responsible for managing 
 Select **Errors** to see detailed information about any errors from the deployment.
 
 ## Next steps
+
+To learn how to create alerts to notify you about update deployment results, see [create alerts for Update Management](update-mgmt-configure-alerts.md).
