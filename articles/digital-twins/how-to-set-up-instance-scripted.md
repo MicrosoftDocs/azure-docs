@@ -86,7 +86,7 @@ Selecting it will open up the instance's *Overview* page. Note its *Name*, *Reso
 
 ### Collect app registration values 
 
-There are two important values from the app registration that will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). 
+There are two important values from the app registration that will be needed later to [write client app authentication code for the  Azure Digital Twins APIs](how-to-authenticate-client.md). 
 
 To find them, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the Azure AD app registration overview page in the Azure portal. This page shows all the app registrations that have been created in your subscription.
 
