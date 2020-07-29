@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines-windows
 ms.subservice: sizes
 ms.workload: infrastructure
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
 

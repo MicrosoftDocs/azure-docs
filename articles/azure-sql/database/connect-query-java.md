@@ -9,6 +9,7 @@ ms.subservice: development
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 06/26/2020
+ms.custom: devx-track-java
 ---
 
 # Use Java and JDBC with  Azure SQL Database
