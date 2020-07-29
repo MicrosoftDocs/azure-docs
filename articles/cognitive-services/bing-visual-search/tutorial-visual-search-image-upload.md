@@ -11,6 +11,7 @@ ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
+ms.custom: devx-track-javascript
 ---
 
 # Tutorial: Upload images to the Bing Visual Search API
