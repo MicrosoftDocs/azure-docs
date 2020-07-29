@@ -4,7 +4,7 @@ description: Learn how to install and configure an On-premises data gateway to c
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -39,11 +39,11 @@ To learn more about how Azure Analysis Services works with the gateway, see [Con
 * Sign in to Azure with an account in Azure AD for the same [tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) as the subscription you are registering the gateway in. Azure B2B (guest) accounts are not supported when installing and registering a gateway.
 * If data sources are on an Azure Virtual Network (VNet), you must configure the [AlwaysUseGateway](analysis-services-vnet-gateway.md) server property.
 
-## <a name="download"></a>Download
+## Download
 
  [Download the gateway](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
-## <a name="install"></a>Install
+## Install
 
 1. Run setup.
 
@@ -62,7 +62,7 @@ To learn more about how Azure Analysis Services works with the gateway, see [Con
    > [!NOTE]
    > If you sign in with a domain account, it's mapped to your organizational account in Azure AD. Your organizational account is used as the gateway administrator.
 
-## <a name="register"></a>Register
+## Register
 
 In order to create a gateway resource in Azure, you must register the local instance you installed with the Gateway Cloud Service. 
 
@@ -78,7 +78,7 @@ In order to create a gateway resource in Azure, you must register the local inst
    ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
-## <a name="create-resource"></a>Create an Azure gateway resource
+## Create an Azure gateway resource
 
 After you've installed and registered your gateway, you need to create a gateway resource in Azure. Sign in to Azure with the same account you used when registering the gateway.
 
@@ -105,7 +105,10 @@ After you've installed and registered your gateway, you need to create a gateway
 
      When you're done, click **Create**.
 
-## <a name="connect-servers"></a>Connect servers to the gateway resource
+## Connect the gateway resource to the server
+
+> [!NOTE]
+> Connecting a gateway resource in a different subscription from your server is not supported in the portal. Use PowerShell. To learn more, see [Connecting to a gateway resource in a different subscription](analysis-services-gateway.md#connecting-to-a-gateway-resource-in-a-different-subscription).
 
 1. In your Azure Analysis Services server overview, click **On-Premises Data Gateway**.
 

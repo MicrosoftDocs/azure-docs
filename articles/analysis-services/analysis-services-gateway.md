@@ -4,7 +4,7 @@ description: An On-premises gateway is necessary if your Analysis Services serve
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ---
@@ -27,7 +27,7 @@ For Azure Analysis Services, getting setup with the gateway the first time is a 
 
 
 ## <a name="how-it-works"> </a>How it works
-The gateway you install on a computer in your organization runs as a Windows service, **On-premises data gateway**. This local service is registered with the Gateway Cloud Service through Azure Service Bus. You then create an On-premises data gateway resource for your Azure subscription. Your Azure Analysis Services servers are then connected to your Azure gateway resource. When models on your server need to connect to your on-premises data sources for queries or processing, a query and data flow traverses the gateway resource, Azure Service Bus, the local on-premises data gateway service, and your data sources. 
+The gateway you install on a computer in your organization runs as a Windows service, **On-premises data gateway**. This local service is registered with the Gateway Cloud Service through Azure Service Bus. You then create an On-premises data gateway resource for an Azure subscription. Your Azure Analysis Services servers are then connected to your Azure gateway resource. When models on your server need to connect to your on-premises data sources for queries or processing, a query and data flow traverses the gateway resource, Azure Service Bus, the local on-premises data gateway service, and your data sources. 
 
 ![How it works](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
@@ -43,6 +43,26 @@ Queries and data flow:
 ## Installing
 
 When installing for an Azure Analysis Services environment, it's important you follow the steps described in [Install and configure on-premises data gateway for Azure Analysis Services](analysis-services-gateway-install.md). This article is specific to Azure Analysis Services. It includes additional steps required to setup an On-premises data gateway resource in Azure, and connect your Azure Analysis Services server to the resource.
+
+## Connecting to a gateway resource in a different subscription
+
+It's recommended you create your Azure gateway resource in the same subscription as your servers. However, you can configure your servers to connect to a gateway resource in another subscription. Connecting to a gateway resource in another subscription is not supported when configuring existing server settings or creating a new server in the portal. Use PowerShell [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) to get the the gateway ResourceID. Then connect the gateway resource to an existing or new server by specifying **-GatewayResourceID** in [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) or [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver).
+
+To get the gateway resource ID:
+
+```powershell
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforGateway -Environment "AzureCloud"
+$GatewayResourceId = $(Get-AzResource -ResourceType "Microsoft.Web/connectionGateways" -Name $gatewayName).ResourceId  
+
+```
+
+To configure an existing server:
+
+```powershell
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforAzureAS -Environment "AzureCloud"
+Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -GatewayResourceId $GatewayResourceId
+
+```
 
 ## Ports and communication settings
 
@@ -65,7 +85,7 @@ The following are fully qualified domain names used by the gateway.
 | login.microsoftonline.com |443 |HTTPS |
 | *.msftncsi.com |443 |Used to test internet connectivity if the gateway is unreachable by the Power BI service. |
 | *.microsoftonline-p.com |443 |Used for authentication depending on configuration. |
-| dc.services.visualstudio.com	|443 |Used by AppInsights to collect telemetry. |
+| dc.services.visualstudio.com    |443 |Used by AppInsights to collect telemetry. |
 
 ### <a name="force-https"></a>Forcing HTTPS communication with Azure Service Bus
 
