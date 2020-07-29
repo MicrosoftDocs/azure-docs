@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 07/28/2020
+ms.date: 07/29/2020
 ---
 
 # Determine your publishing option
@@ -50,14 +50,14 @@ Each storefront serves unique customer requirements and targets specific audienc
 
 **Azure Marketplace** targets IT professionals and developers looking for solutions built for or on Azure as well as consulting services that accelerate their use of Azure.
 
-For example, a web application firewall should be published to Azure Marketplace, under the Security category, as the intended audience is IT professionals. A contract management app should instead be published to AppSource under the Sales category, since the intended audience is business users. Selecting the incorrect category or subcategory may result in your offer being published to the wrong storefront.
+Select the category and subcategory that best align with your target audience. For example, a web application firewall should be published to Azure Marketplace, under the Security category, as the intended audience is IT professionals. A contract management app should instead be published to AppSource under the Sales category, since the intended audience is business users. Selecting the incorrect category or subcategory may result in your offer being published to the wrong storefront.
 
 ### Publishing to both Storefronts (SaaS offers only)
 
-SaaS offers can be published to Azure Marketplace or AppSource. If your SaaS offer is intended for *both* a technical audience (Azure Marketplace) and a business audience (AppSource), select a category and/or a subcategory applicable to either storefront. Offers published to both storefronts should have a value proposition that extends to IT professionals *and* business users.
+SaaS offers can be published to Azure Marketplace or AppSource. If your SaaS offer is intended for *both* a technical audience (Azure Marketplace) and a business audience (AppSource), select a category and/or a subcategory applicable to each storefront. Offers published to both storefronts should have a value proposition that extends to IT professionals *and* business users.
 
 > [!IMPORTANT]
-> Transactable SaaS offers with metered billing and/or private plans are available only through Azure Marketplace and/or the Azure portal.
+> SaaS offers with metered billing are available through Azure Marketplace and the Azure portal. SaaS offers with private plans only are  available through the Azure  portal.
 
 | Metered billing | Public plan | Private plan | Available in: |
 |---|---|---|---|
@@ -74,8 +74,8 @@ For example, an offer with metered billing and a private plan only (no public pl
 
 Categories and subcategories are mapped to each storefront based on the target audience. Select the categories and subcategories that best align with your offer and the intended audience. You can select:
 
-* At least one and up to two categories. You have the option to choose a primary and a secondary category.
-* Up to two subcategories for each primary and/or secondary category. If you don’t select any subcategory, your offer will still be discoverable under the selected category.
+- At least one and up to two categories. You have the option to choose a primary and a secondary category.
+- Up to two subcategories for each primary and/or secondary category. If you don’t select any subcategory, your offer will still be discoverable under the selected category.
 
 | [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) |
 | :------------------- |:----------------|
