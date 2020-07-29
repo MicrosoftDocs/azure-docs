@@ -6,9 +6,34 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: keferna
 ms.author: keferna
-ms.date: 01/29/2020
+ms.date: 07/29/2020
 ---
+
 # Geographic availability and currency support for commercial marketplace
+
+## Rate changes
+
+The rates we use to calculate local prices are updated daily. This calculation is done when the ISV saves the page and they can review all the rates by exporting and reviewing prices before publishing.
+
+### Retrieving currency information by API
+
+Individual prices (which, depending on how they were set, may have been influenced by the exchange rates on the day they were saved) can be retrieved using an API; currency information can not.
+
+For details on how to enter price for specific offer types, refer to these articles:
+
+- [Create an Azure application offer](partner-center-portal/create-new-azure-apps-offer.md)
+- [Create an Azure container offer](partner-center-portal/create-azure-container-offer.md)
+- [Create an Azure virtual machine offer](partner-center-portal/azure-vm-create-offer.md)
+- [Create a consulting service offer](partner-center-portal/create-consulting-service-offer.md)
+- [Create a Dynamics 365 for Customer Engagement & PowerApps offer](partner-center-portal/create-new-customer-engagement-offer.md)
+- [Create a Dynamics 365 for Operations offer](partner-center-portal/create-new-operations-offer.md)
+- [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer.md)
+- [Create an IoT Edge module offer](partner-center-portal/azure-iot-edge-module-creation.md)
+- [Create a Managed Service offer](partner-center-portal/create-new-managed-service-offer.md)
+- [Create a Power BI app](partner-center-portal/create-power-bi-app-offer.md)
+- [Create a SaaS offer](partner-center-portal/create-new-saas-offer.md)
+
+## Supported geographic locations
 
 Commercial marketplace offerings can be purchased in 141 geographies as defined by the customer's billing address, and transactions can be completed in 17 currencies. The table below lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), and the assigned currency.
 
@@ -161,3 +186,14 @@ Commercial marketplace offerings can be purchased in 141 geographies as defined 
 \* For customers in Brazil, the Marketplace through Cloud Solution Providers (CSP) uses USD.
 
 \** Free and BYOL VM images only.
+
+## How we convert currency
+
+For all paid offer types, ISVs have the option of entering prices in USD or uploading prices in local currency. Prices entered in USD are automatically converted to local currency when the page is saved. The rates Partner Center uses are updated daily. ISVs can export the prices and review the converted equivalents.
+
+## Overriding pricing
+
+To override pricing, just export the file, modify it, and upload it.
+
+> [!NOTE]
+> After a price for a market in your plan is published, it can't be changed later. To ensure that the prices are right before you publish them, export the pricing spreadsheet and review the prices in each market. 
