@@ -24,6 +24,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **Bug fixes and improvements**
   + **azure-cli-ml**
     + Fix model framework and model framework not passed in run object in cli model registration path
+    + Fix cli amlcompute identity show command to show tenant id and principal id 
   + **azureml-train-automl-client**
     + Added get_best_child () to AutoMLRun for fetching the best child run for an AutoML Run without downloading the associated model.
     + Added ModelProxy object which allow predict or forecast to be run on a remote training environment without downloading the model locally.
