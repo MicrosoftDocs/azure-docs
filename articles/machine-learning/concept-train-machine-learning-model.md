@@ -108,6 +108,8 @@ The Azure training lifecycle consists of:
 1. Saving logs, model files, and other files written to `./outputs` to the storage account associated with the workspace
 1. Scaling down compute, including removing temporary storage 
 
+If you choose to train on your local machine ("configure as local run"), you do not need to use Docker. You may use Docker locally if you choose (see the section [Configure ML pipeline](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) for an example).
+
 ## R SDK
 
 The R SDK enables you to use the R language with Azure Machine Learning. The SDK uses the reticulate package to bind to Azure Machine Learning's Python SDK. This allows you access to core objects and methods implemented in the Python SDK from any R environment.
