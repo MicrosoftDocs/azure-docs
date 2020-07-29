@@ -127,9 +127,9 @@ If the service consumer has RBAC permissions on the Automation resource, they ca
 
 ## Set public network access flags
 
-You can configure an Automation account to deny all public configurations and allow only connections through private endpoints to further enhance the network security. If you want to restrict access to the Automation account from only within the VNet and not allow access from public internet, you can set `publicNetworkAccess` property to `False`.
+You can configure an Automation account to deny all public configurations and allow only connections through private endpoints to further enhance the network security. If you want to restrict access to the Automation account from only within the VNet and not allow access from public internet, you can set `publicNetworkAccess` property to `$false`.
 
-When the **Public Network Access** setting is set to `False`, only connections via private endpoints are allowed and all connections via public endpoints are denied with an unathorized error message and HTTP status of 401. 
+When the **Public Network Access** setting is set to `$false`, only connections via private endpoints are allowed and all connections via public endpoints are denied with an unathorized error message and HTTP status of 401. 
 
 The following PowerShell script shows how to `Get` and `Set` the **Public Network Access** property at the Automation account level:
 
