@@ -43,6 +43,20 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >
 >Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
 
+## 1.5.45.0
+
+### Release status
+07/29/2020: Released for download
+
+### Functional changes
+This is a bug fix release. ere are no functional changes in this release.
+
+### Fixed issues
+
+- Fixed an issue where admin can’t enable “Seamless Single Sign On” if AZUREADSSOACC computer account is already present in the “Active Directory”.
+- Fixed an issue that caused a staging error during V2 API delta import for a conflicting object that was repaired via the health portal.
+- Fixed an issue in the import/export configuration where disabled custom rule was imported as enabled.
+
 ## 1.5.42.0
 
 ### Release status
