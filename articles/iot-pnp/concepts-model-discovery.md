@@ -1,6 +1,6 @@
 ---
-title: Integrate IoT Plug and Play digital twin models in a solution | Microsoft Docs
-description: As a solution builder, learn about how you can integrate IoT Plug and Play digital twin models in your IoT solution.
+title: Use IoT Plug and Play models in a solution | Microsoft Docs
+description: As a solution builder, learn about how you can use IoT Plug and Play models in your IoT solution.
 author: prashmo
 ms.author: prashmo
 ms.date: 07/23/2020
@@ -9,32 +9,31 @@ ms.service: iot-pnp
 services: iot-pnp
 ---
 
-# Integrate IoT Plug and Play digital twin models in an IoT solution
+# Use IoT Plug and Play models in an IoT solution
 
-This article describes how, as a solution builder, you can identify model ID of an IoT Plug and Play device and retrieve its digital twin model definition in an IoT solution. 
+This article describes how, in an IoT solution, you can identify model ID of an IoT Plug and Play device and then retrieve its model definition.
 
 There are two broad categories of an IoT solution:
 
+- A *purpose-built solution* works with a known set of models for the IoT Plug and Play devices that will connect to the solution. You use these models when you develop the solution.
 
-- A *purpose-built solution* works with a known set of digital twin models. You have the digital twin model definitions implemented by the IoT Plug and Play devices that will connect to your solution ahead of time.
+- A *model-driven* solution can work with the model of any IoT Plug and Play device. Building a model-driven solution is more complex, but the benefit is that your solution works with any devices that may be added in the future. A model-driven IoT solution retrieves a model and uses it to determine the telemetry, properties, and commands the device implements.
 
-- A *model-driven* solution works with any digital twin models of IoT Plug and Play devices. Building a model-driven solution is more complex, but the benefit is that your solution works with any devices that may be added in the future. To build a model-driven IoT solution, you need to write logic against the digital twin model primitives: telemetry, properties, and commands. Your solution's logic represents a device by combining multiple telemetry, property, and command capabilities.
+To use an IoT Plug and Play model, an IoT solution:
 
-To implement an IoT solution with IoT Plug and Play digital twin models, your solution must:
+1. Identifies the model ID of the model implemented by the IoT Plug and Play device connected to the solution.
 
-1. *Identify the model ID*. An IoT solution identifies the model ID of the digital twin model implemented by the device.
-
-1. *Retrieve the model definition*. An IoT solution retrieves the digital twin model definition using the model ID of the IoT Plug and Play device.
+1. Uses the model ID to retrieve the model definition of the connected device from a model repository or custom store.
 
 ## Identify model ID
 
-When an IoT Plug and Play device connects to IoT Hub, it registers the model ID of the model it implements with IoT Hub. 
+When an IoT Plug and Play device connects to IoT Hub, it registers the model ID of the model it implements with IoT Hub.
 
 IoT Hub notifies the solution with the device model ID as part of the device connection flow.
 
 A solution can get the model ID of the IoT Plug and Play device by using one of the following three methods:
 
-### Digital twin change event notification 
+### Digital twin change event notification
 
 A device registration results in a [Digital Twin change event](concepts-digital-twin.md#digital-twin-change-events) notification. A solution needs to subscribe to this event notification. To learn how to enable routing for digital twin events, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events).
 
@@ -55,8 +54,6 @@ content-encoding:utf-8
   }
 ]
 ```
-
-This event is triggered when the device model ID is added or updated.
 
 ### Get Digital Twin API
 
@@ -106,19 +103,19 @@ In the following device twin response snippet, `modelId` contains the model ID o
 
 ## Retrieve a model definition
 
-A solution uses model ID identified above to retrieve the corresponding digital twin model definition.
+A solution uses model ID identified above to retrieve the corresponding model definition.
 
 A solution can get the model definition by using one of the following options:
 
 ### Model repository
 
-Solutions can use the [model repository](concepts-model-repository.md) to retrieve digital twin models. Either the device builders or the solution builders must upload their models to the repository beforehand so the solution can retrieve them. 
+Solutions can use the [model repository](concepts-model-repository.md) to retrieve models. Either the device builders or the solution builders must upload their models to the repository beforehand so the solution can retrieve them.
 
 After you identify the model ID for a new device connection, follow these steps:
 
-1. Retrieve the model definition using the model ID from model repository.
+1. Retrieve the model definition using the model ID from the model repository.
 
-1. Using the model definition of the connected device, you can enumerate the capabilities of the device. 
+1. Using the model definition of the connected device, you can enumerate the capabilities of the device.
 
 1. Using the enumerated capabilities of the device, you can allow users to [interact with the device](quickstart-service-node.md).
 
@@ -136,7 +133,7 @@ After you identify the model ID for a new device connection, follow these steps:
 
 ## Next steps
 
-Now that you've learned how to integrate IoT Plug and Play digital twin models in an IoT solution, some suggested next steps are:
+Now that you've learned how to integrate IoT Plug and Play models in an IoT solution, some suggested next steps are:
 
 - [Interact with a device from your solution](quickstart-service-node.md)
 - [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)

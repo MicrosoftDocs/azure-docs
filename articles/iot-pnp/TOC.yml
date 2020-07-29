@@ -51,7 +51,7 @@
     href: concepts-digital-twin.md
   - name: Model repository
     href: concepts-model-repository.md
-  - name: Integrate digital twin models in a solution
+  - name: Use IoT Plug and Play models in a solution
     href: concepts-model-discovery.md
   - name: Model parser
     href: concepts-model-parser.md
