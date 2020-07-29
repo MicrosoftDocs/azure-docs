@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom:  mqtt
-
+ms.custom: devx-track-javascript
 # As a device developer, I want to try out using Node.js device code that uses the Azure IoT Node.js SDK. I want to understand how to send telemetry from a device, synchronize properties with the device, and control the device using synchronous and asynchronous commands.
 ---
 

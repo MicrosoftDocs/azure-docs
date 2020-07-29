@@ -9,6 +9,8 @@ ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
 ms.custom:  mqtt
+ms.custom: devx-track-javascript
+
 ---
 
 # Connect your Raspberry Pi device to the Remote Monitoring solution accelerator (Node.js)
