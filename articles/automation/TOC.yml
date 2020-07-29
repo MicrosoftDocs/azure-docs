@@ -267,8 +267,10 @@
               href: update-management/update-mgmt-view-update-assessments.md
             - name: Deploy updates and review status
               href: update-management/update-mgmt-deploy-updates.md
-            - name: Manage pre-scripts and post-scripts
+            - name: Use pre-scripts and post-scripts
               href: update-management/update-mgmt-pre-post-scripts.md
+            - name: Configure alerts
+              href: update-management/update-mgmt-configure-alerts.md
         - name: Integrate with Configuration Manager
           href: update-management/update-mgmt-mecmintegration.md
         - name: Configure Windows Update client
@@ -276,9 +278,9 @@
         - name: Use dynamic groups
           href: update-management/update-mgmt-groups.md
         - name: Query Update Management logs
-          href: automation-update-management-query-logs.md
+          href: update-management/update-mgmt-query-logs.md
         - name: Work with scope configurations
-          href: automation-scope-configurations-update-management.md
+          href: update-management/update-mgmt-scope-configuration.md
         - name: Disable
           items: 
             - name: Remove Update Management

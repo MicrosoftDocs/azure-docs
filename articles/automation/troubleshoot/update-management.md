@@ -58,7 +58,7 @@ Superseded updates aren't correctly indicated as declined so that they can be co
 
 When a superseded update becomes 100 percent not applicable, you should change the approval state of that update to `Declined`. To change approval state for all your updates:
 
-1. In the Automation account, select **Update Management** to view machine status. See [View update assessments](../update-mgmt-view-update-assessments.md).
+1. In the Automation account, select **Update Management** to view machine status. See [View update assessments](../update-management/update-mgmt-view-update-assessments.md).
 
 2. Check the superseded update to make sure that it's 100 percent not applicable. 
 
@@ -191,7 +191,7 @@ Use the following procedure if your subscription is configured for the Automatio
 
 1. In the Azure portal, open the Automation account and select **Update Management**.
 
-2. Check [Update Management history](../update-management/update-mgmt-deploy-updates.md#view-results-of-an-update-deployment) to determine the exact time when the update deployment was run. 
+2. Check [Update Management history](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) to determine the exact time when the update deployment was run.
 
 3. For machines that you suspect to have been missed by Update Management, use Azure Resource Graph (ARG) to [locate machine changes](../../governance/resource-graph/how-to/get-resource-changes.md#find-detected-change-events-and-view-change-details).
 
@@ -560,7 +560,7 @@ Possible causes:
 
 ### Resolution
 
-If failures occur during an update run after it starts successfully, [check the job output](../update-management/update-mgmt-deploy-updates.md#view-results-of-an-update-deployment) from the affected machine in the run. You might find specific error messages from your machines that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
+If failures occur during an update run after it starts successfully, [check the job output](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) from the affected machine in the run. You might find specific error messages from your machines that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
 
 If specific patches, packages, or updates are seen immediately before the job fails, you can try [excluding](../update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment) these items from the next update deployment. To gather log information from Windows Update, see [Windows Update log files](/windows/deployment/update/windows-update-logs).
 
