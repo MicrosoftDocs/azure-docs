@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/29/2020
 ms.author: aahi
 ---
 # Text Analytics API v3 language support 
@@ -84,35 +84,21 @@ ms.author: aahi
 
 | Language              | Language code | v2 support | v3 support | Available starting with v3 model version: |       Notes        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
-| Afrikaans             |     `af`      |            |     ✓      |                2020-07-01                 |                    |
-| Bulgarian             |     `bg`      |            |     ✓      |                2020-07-01                 |                    |
-| Catalan             |     `ca`      |            |     ✓      |                2020-07-01                 |                    |
-| Croatian              |     `hr`      |            |     ✓      |                2020-07-01                 |                    |
-| Danish                 |     `da`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Dutch                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | English               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Estonian              |     `et`      |            |     ✓      |                2020-07-01                 |                    |
 | Finnish               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | French                |     `fr`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Greek                 |     `el`      |            |     ✓      |                2020-07-01                 |                    |
 | German                |     `de`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Hungarian             |     `hu`      |            |     ✓      |                2020-07-01                 |                    |
-| Indonesian            |     `id`      |            |     ✓      |                2020-07-01                 |                    |
 | Italian               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Japanese              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Korean                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Latvian               |     `lv`      |            |     ✓      |                2020-07-01                 |                    |
 | Norwegian  (Bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb` also accepted |
 | Polish                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Portuguese (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` also accepted |
 | Portuguese (Brazil)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Romanian              |     `ro`      |            |     ✓      |                2020-07-01                 |                    |
 | Russian               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Slovak                |     `sk`      |            |     ✓      |                2020-07-01                 |                    |
-| Slovenian             |     `sl`      |            |     ✓      |                2020-07-01                 |                    |
 | Spanish               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Swedish               |     `sv`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Turkish               |     `tr`      |            |     ✓      |                2020-07-01                 |                    |
 
 #### [Entity linking](#tab/entity-linking)
 
