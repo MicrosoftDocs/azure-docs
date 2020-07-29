@@ -240,6 +240,6 @@ az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge
 
 ## Other resources
 
-- For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](overview-soft-delete.md)).
+- For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](soft-delete-overview.md)).
 - For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](overview.md)).
 
