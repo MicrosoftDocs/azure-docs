@@ -23,7 +23,7 @@ Keep in mind that costs for Azure Storage are only a portion of the monthly cost
 
 Cost analysis supports different kinds of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](../../cost-management-billing/costs/understand-cost-mgt-data.md). To view cost data, you need at least read access for your Azure account. For information about assigning access to Azure Cost Management data, see [Assign access to data](../../cost-management-billing/costs/assign-access-acm-data.md).
 
-## Estimate costs before creating an Azure Storage account
+## Estimate costs
 
 Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs before you create and begin transferring data to an Azure Storage account.
 
@@ -40,6 +40,31 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
    As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations. 
 
 4. Modify the remaining options to see their affect on your estimate.
+
+To view general information about Azure Storage pricing, see [Azure Storage Overview pricing](https://azure.microsoft.com/pricing/details/storage/).
+
+## Reduce costs by reserving storage capacity
+
+You can save money on storage costs for blob data with Azure Storage reserved capacity. Azure Storage reserved capacity offers you a discount on capacity for block blobs and for Azure Data Lake Storage Gen2 data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation.
+
+Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. The cost savings achieved depend on the duration of your reservation, the total capacity you choose to reserve, and the access tier and type of redundancy that you've chosen for your storage account. Reserved capacity provides a billing discount and doesn't affect the state of your Azure Storage resources.
+
+To learn more, see [Optimize costs for Blob storage with reserved capacity](https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity)
+
+## Reduce costs by storing data in the most appropriate access tier
+
+You can reduce costs by storing data to the most appropriate access tier. Azure Storage offers three tiers designed to optimize costs based on how you use your data. For example, if you plan to access data frequently, you would use the *Hot* access tier. You can access that data at a lower cost because that tier is optimized for data access. If you plan to access certain blobs less frequently, you might choose the *Cold* access tier. While the cost to access data goes up, the cost to store data goes down. 
+
+You choose a default access tier when you set up your account, but you can upload data to whichever access tier makes the most sense for that data. 
+
+To learn more, see [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
+
+## Reduce costs by dynamically moving data to cooler access tiers
+
+You can create policies that move data to a *cooler* access tier (For example: from the Hot tier to the Cool tier) based upon a specified condition. For example, you might create a rule that moves blobs to the archive tier if that blob has not been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs.
+
+To learn more, see [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
+
 
 ## Create budgets
 
@@ -68,49 +93,6 @@ To view Azure Storage costs in cost analysis:
    ![Monitor storage costs with Cost Analysis pane](./media/storage-plan-manage-costs/cost-analysis-pane-storage.png)
 
 In the preceding example, you see the current cost for the service. Costs by Azure regions (locations) and by resource group also appear.  
-
-## Other ways to manage and reduce costs for Azure Storage
-
-All of the content that appears in this section should be surfaced as H2s. Tessa prefers content describing the feature with a link to the relevant articles.
-
-Important note: If you enable hierarchical namespaces, some of these features might not be supported or are supported at the preview level only. See [Blob storage features available in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-supported-blob-storage-features)
-
-### Choose a performance tier for block blob storage (blob)
-
-Put something here.
-
-See [Performance tiers for block blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-performance-tiers)
-
-### Reserved capacity (blob)
-
-Put stuff here.
-
-[Optimize costs for Blob storage with reserved capacity](https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity)
-
-https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-reserved-capacity
-
-### Access Tiers (Blob)
-
-Put stuff here.
-
-See [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
-
-https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers
-
-
-### Lifecycle management (Blob)
-
-Put something here.
-
-See [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
-
-https://docs.microsoft.com/en-us/azure/storage/blobs/storage-lifecycle-management-concepts
-
-### Storage Tiers (Files)
-
-Put stuff here. 
-
-See [Storage tiers](https://docs.microsoft.com/azure/storage/files/storage-files-planning#storage-tiers)
 
 ## Next steps
 
