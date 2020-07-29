@@ -20,9 +20,9 @@ Cloud Solution Providers can access reservations that are purchased for their cu
 1. In the Azure portal, go to **Reservations**.
 
 > [!NOTE]
-> Being a guest in the customer's tenant prevents you from viewing reservations. If you have guest access, you need to remove it from from the tenant. Admin agent privilege doesn't override guest access.
+> Being a guest in the customer's tenant prevents you from viewing reservations. If you have guest access, you need to remove it from the tenant. Admin agent privilege doesn't override guest access.
 
-- To remove your guest access in the Partner Center, navigate to **My Account** > **Organizations** and then select **Leave organization**.
+- To remove your guest access in the Partner Center, navigate to **My Account** > **[Organizations](https://myaccount.microsoft.com/organizations)** and then select **Leave organization**.
 
 Alternately, ask another user who can access the reservation to add your guest account to the reservation order.
 
