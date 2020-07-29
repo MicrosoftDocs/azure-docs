@@ -165,7 +165,7 @@
   - name: Move resources
     items:
     - name: Move Network Watcher Resources
-    href: resource-move.md
+      href: resource-move.md
 - name: Reference
   items:
   - name: Azure CLI
