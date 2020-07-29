@@ -5,7 +5,7 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-
+ms.custom: devx-track-javascript
 ---
 
 # Application Insights for web pages
@@ -182,14 +182,14 @@ Most configuration fields are named such that they can be defaulted to false. Al
 | isBeaconApiDisabled | true | If false, the SDK will send all telemetry using the [Beacon API](https://www.w3.org/TR/beacon) |
 | onunloadDisableBeacon | false | Default false. when tab is closed, the SDK will send all remaining telemetry using the [Beacon API](https://www.w3.org/TR/beacon) |
 | sdkExtension | null | Sets the sdk extension name. Only alphabetic characters are allowed. The extension name is added as a prefix to the 'ai.internal.sdkVersion' tag (for example, 'ext_javascript:2.0.0'). Default is null. |
-| isBrowserLinkTrackingEnabled | false | Default is false. If true, the SDK will track all [Browser Link](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) requests. |
+| isBrowserLinkTrackingEnabled | false | Default is false. If true, the SDK will track all [Browser Link](/aspnet/core/client-side/using-browserlink) requests. |
 | appId | null | AppId is used for the correlation between AJAX dependencies happening on the client-side with the server-side requests. When Beacon API is enabled, it cannot be used automatically, but can be set manually in the configuration. Default is null |
 | enableCorsCorrelation | false | If true, the SDK will add two headers ('Request-Id' and 'Request-Context') to all CORS requests to correlate outgoing AJAX dependencies with corresponding requests on the server side. Default is false |
 | namePrefix | undefined | An optional value that will be used as name postfix for localStorage and cookie name.
 | enableAutoRouteTracking | false | Automatically track route changes in Single Page Applications (SPA). If true, each route change will send a new Pageview to Application Insights. Hash route changes (`example.com/foo#bar`) are also recorded as new page views.
 | enableRequestHeaderTracking | false | If true, AJAX & Fetch request headers is tracked, default is false.
 | enableResponseHeaderTracking | false | If true, AJAX & Fetch request's response headers is tracked, default is false.
-| distributedTracingMode | `DistributedTracingModes.AI` | Sets the distributed tracing mode. If AI_AND_W3C mode or W3C mode is set, W3C trace context headers (traceparent/tracestate) will be generated and included in all outgoing requests. AI_AND_W3C is provided for back-compatibility with any legacy Application Insights instrumented services. See example [here](https://docs.microsoft.com/azure/azure-monitor/app/correlation#enable-w3c-distributed-tracing-support-for-web-apps).
+| distributedTracingMode | `DistributedTracingModes.AI` | Sets the distributed tracing mode. If AI_AND_W3C mode or W3C mode is set, W3C trace context headers (traceparent/tracestate) will be generated and included in all outgoing requests. AI_AND_W3C is provided for back-compatibility with any legacy Application Insights instrumented services. See example [here](./correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 | enableAjaxErrorStatusText | false | Default false. If true, include response error data text in dependency event on failed AJAX requests.
 | enableAjaxPerfTracking | false | Default false. Flag to enable looking up and including additional browser window.performance timings in the reported ajax (XHR and fetch) reported metrics.
 | maxAjaxPerfLookupAttempts | 3 | Defaults to 3. The maximum number of times to look for the window.performance timings (if available), this is required as not all browsers populate the window.performance before reporting the end of the XHR request and for fetch requests this is added after its complete.
@@ -207,7 +207,7 @@ Currently, we offer a separate [React plugin](#react-extensions), which you can 
 
 ## Configuration: autoTrackPageVisitTime
 
-By setting `autoTrackPageVisitTime: true`, the time a user spends on each page is tracked. On each new PageView, the duration the user spent on the *previous* page is sent as a [custom metric](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) named `PageVisitTime`. This custom metric is viewable in the [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) as a "log-based metric".
+By setting `autoTrackPageVisitTime: true`, the time a user spends on each page is tracked. On each new PageView, the duration the user spent on the *previous* page is sent as a [custom metric](../platform/metrics-custom-overview.md) named `PageVisitTime`. This custom metric is viewable in the [Metrics Explorer](../platform/metrics-getting-started.md) as a "log-based metric".
 
 ## React extensions
 

@@ -24,7 +24,7 @@ This document contains the steps associated with setting up a CI/CD pipeline for
 
 Azure Pipelines provides a complete, fully featured set of CI/CD automation tools for deployments to Virtual machines, both on-prem or on any cloud.
 
-In this tutorial, you will set up a YAML based CI/CD pipeline to deploy your app to an Azure Pipelines [Environment](https://docs.microsoft.com/azure/devops/pipelines/process/environments?view=azure-devops) with Linux Virtual machines as resources, each of which serve as web servers to run the app.
+In this tutorial, you will set up a YAML based CI/CD pipeline to deploy your app to an Azure Pipelines [Environment](/azure/devops/pipelines/process/environments?view=azure-devops) with Linux Virtual machines as resources, each of which serve as web servers to run the app.
 
 You learn how to:
 
@@ -41,11 +41,11 @@ You learn how to:
   You can get a [free Azure DevOps Services organization](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > For more information, see [Connect to Azure DevOps Services](https://docs.microsoft.com/azure/devops/organizations/projects/connect-to-projects?view=vsts).
+  > For more information, see [Connect to Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects?view=vsts).
 
-*  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
+*  You need a Linux virtual machine for a deployment target.  For more information, see [Create and manage Linux VMs with the Azure CLI](./tutorial-manage-vm.md).
 
-*  Open inbound port 80 for your virtual machine. For more information, see [Create network security groups using the Azure portal](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic).
+*  Open inbound port 80 for your virtual machine. For more information, see [Create network security groups using the Azure portal](../../virtual-network/tutorial-filter-network-traffic.md).
 
 ## Get your sample app code
 
@@ -92,13 +92,13 @@ Follow the additional steps described below based on the runtime stack used for 
 
 To install a javascript app or a Node.js app, you'll need a Linux VM with Nginx web server to deploy the app.
 If you don't already have a Linux VM with Nginx, create one now in Azure using the steps in
-[this example](/azure/virtual-machines/linux/quick-create-cli).
+[this example](./quick-create-cli.md).
 
 * * * 
 
 ## Create an Azure Pipelines environment with Azure virtual machines
 
-Virtual machines can be added as resources within [environments](https://docs.microsoft.com/azure/devops/pipelines/process/environments) and can be targeted for multi-machine deployments. 
+Virtual machines can be added as resources within [environments](/azure/devops/pipelines/process/environments) and can be targeted for multi-machine deployments. 
 Deployment history views within environment provide traceability from VM to the pipeline and then to the commit.
 
 You can create an environment in the “**Environments**” hub within the “**Pipelines**” section.
@@ -166,7 +166,7 @@ Select the **starter** template and copy the below YAML snippet that builds your
     artifact: drop
 ```
 
-For more guidance, follow the steps mentioned in [Build your Java app with Maven](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/java).
+For more guidance, follow the steps mentioned in [Build your Java app with Maven](/azure/devops/pipelines/ecosystems/java).
 
 #### [JavaScript](#tab/java-script)
 
@@ -199,7 +199,7 @@ Select the **starter** template and copy the below YAML snippet that builds a ge
       artifact: drop
 ```
 
-For more guidance, follow the steps in [Build your Node.js app with gulp](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/javascript).
+For more guidance, follow the steps in [Build your Node.js app with gulp](/azure/devops/pipelines/ecosystems/javascript).
 
 - Take a look at the pipeline to see what it does. Make sure that all the default inputs are appropriate for your code.
 
@@ -211,7 +211,7 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](https:
 
 ## Define CD steps to deploy to the Linux VM
 
-1. Edit the above pipeline and include a [deployment job](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs) by referencing the environment and the VM resources which you have earlier using the YAML syntax below:
+1. Edit the above pipeline and include a [deployment job](/azure/devops/pipelines/process/deployment-jobs) by referencing the environment and the VM resources which you have earlier using the YAML syntax below:
 
    ```YAML
    jobs:  
@@ -224,7 +224,7 @@ For more guidance, follow the steps in [Build your Node.js app with gulp](https:
      strategy:
    ```
 2. You can select specific sets of virtual machines from the environment to receive the deployment by specifying the **tags** that you have defined for each virtual machine in the environment.
-[Here](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) is the complete YAML schema for Deployment job.
+[Here](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) is the complete YAML schema for Deployment job.
 
 3. You can specify eithor `runOnce` or `rolling` as deployment strategy. 
 
@@ -298,8 +298,8 @@ Deployments view of the environment provides complete traceability of commits an
 ![VMjobs_view](media/tutorial-deploy-vms-azure-pipelines/vm-jobsview.png)
 
 ## Next steps
-- You can proceed to [customize the pipeline](https://docs.microsoft.com/azure/devops/pipelines/customize-pipeline) you just created.
-- To learn what else you can do in YAML pipelines, see [YAML schema reference](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema).
+- You can proceed to [customize the pipeline](/azure/devops/pipelines/customize-pipeline) you just created.
+- To learn what else you can do in YAML pipelines, see [YAML schema reference](/azure/devops/pipelines/yaml-schema).
 - To learn about how to deploy a LAMP (Linux, Apache, MySQL, and PHP) stack, advance to the next tutorial.
 
 > [!div class="nextstepaction"]

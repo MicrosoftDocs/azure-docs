@@ -59,4 +59,4 @@ To learn more about Advisor recommendations, see:
 * [Advisor performance recommendations](advisor-performance-recommendations.md)
 * [Advisor reliability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor security recommendations](advisor-security-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Advisor REST API](/rest/api/advisor/)

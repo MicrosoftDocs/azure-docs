@@ -74,6 +74,7 @@ ssh azureuser@publicIpAddress
 Run the following command to install Docker on the VM:
 
 ```bash
+sudo apt update
 sudo apt install docker.io -y
 ```
 

@@ -21,8 +21,6 @@
       href: delete-application-portal.md
   - name: Tutorials
     items:
-    - name: Add an app not listed in the gallery
-      href: add-non-gallery-app.md
     - name: Integrated gallery apps (e.g. ServiceNow, Salesforce, Dropbox)
       href: /azure/active-directory/saas-apps/
     - name: Add an on-premises app with Application Proxy
@@ -38,26 +36,12 @@
       href: application-management-fundamentals.md
     - name: App management common scenarios
       href: common-scenarios.md
-    - name: One-click SSO
-      href: one-click-sso-tutorial.md
-    - name: Application security
-      items:
-      - name: App access options
-        href: what-is-access-management.md
-      - name: Certificate signing options
-        href: certificate-signing-options.md
-      - name: Manage certificates
-        href: manage-certificates-for-federated-single-sign-on.md
-      - name: Tenant restrictions
-        href: tenant-restrictions.md
-      - name: Configure SAML token encryption
-        href: howto-saml-token-encryption.md
-      - name: End-user portals
-        href: end-user-experiences.md
     - name: Planning a cloud app integration
       items:
       - name: Get started with app integration
         href: plan-an-application-integration.md
+      - name: Plan for apps not listed in the gallery
+        href: non-gallery-apps.md
       - name: Plan an access panel deployment
         href: access-panel-deployment-plan.md
       - name: Guidance for developers
@@ -74,8 +58,24 @@
         href: isv-create-sso-documentation.md
       - name: Plan a single sign-on deployment
         href: plan-sso-deployment.md
-    - name: Cloud app visibility and control
-      href: cloud-app-security.md
+      - name: One-click SSO
+        href: one-click-sso-tutorial.md
+    - name: Application security
+      items:
+      - name: App access options
+        href: what-is-access-management.md
+      - name: Certificate signing options
+        href: certificate-signing-options.md
+      - name: Manage certificates
+        href: manage-certificates-for-federated-single-sign-on.md
+      - name: Tenant restrictions
+        href: tenant-restrictions.md
+      - name: Configure SAML token encryption
+        href: howto-saml-token-encryption.md
+      - name: End-user portals
+        href: end-user-experiences.md
+      - name: Cloud app visibility and control
+        href: cloud-app-security.md
     - name: Application Proxy for on-premises apps
       items:
        - name: Application Proxy
@@ -104,23 +104,7 @@
       - name: Configure single sign-on
         items:
         - name: Configure SAML-based single sign-on
-          items:
-          - name: Configure SAML-based single sign-on
-            href: configure-single-sign-on-non-gallery-applications.md
-          - name: Customize user attributes and claims
-            items:
-            - name: Configure group claims
-              href: /azure/active-directory/hybrid/how-to-connect-fed-group-claims?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Configure role claims
-              href: /azure/active-directory/develop/active-directory-enterprise-app-role-management?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Customize claims in the portal
-              href: /azure/active-directory/develop/active-directory-saml-claims-customization?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Customize claims with PowerShell
-              href: /azure/active-directory/develop/active-directory-claims-mapping?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Configure optional claims
-              href: /azure/active-directory/develop/active-directory-optional-claims?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Configure token lifetimes
-              href: /azure/active-directory/develop/active-directory-configurable-token-lifetimes?context=azure/active-directory/manage-apps/context/manage-apps-context
+          href: configure-saml-single-sign-on.md
         - name: Configure password-based sign-on
           href: configure-password-single-sign-on-non-gallery-applications.md
         - name: Configure linked sign-on

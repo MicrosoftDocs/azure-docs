@@ -132,7 +132,7 @@ This pattern is typically implemented using the following approach:
 -   The change of state is surfaced as an event to a downstream consumer.
 -   The downstream consumer receives the event and triggers external code execution.
 
-![Transition control to external process](./media/integration-patterns/transition-external-process.png)
+![The diagram shows a state change within the Contract causing an event to go to Distributed Ledger. Blockchain Workbench then picks up the event and publishes it.](./media/integration-patterns/transition-external-process.png)
 
 #### Return of control from the smart contract
 
@@ -140,7 +140,7 @@ Depending on the ability to customize the external system, it may or may not be 
 
 ##### Direct delivery of an Azure Blockchain Workbench in the expected format
 
-![](./media/integration-patterns/direct-delivery.png)
+![The diagram shows an A P I message from the External System being picked up by Blockchain Workbench via the Service Bus. Blockchain Workbench then sends a message as a transaction to Distributed Ledger, on behalf of the agent. It is passed on to Contract, where it causes a state change.](./media/integration-patterns/direct-delivery.png)
 
 In this model, the communication to the contract and subsequent state
 change occurs following the previous process where -

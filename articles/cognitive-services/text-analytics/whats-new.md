@@ -22,11 +22,9 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
     * Additional government and country specific [entity categories](named-entity-types.md?tabs=personal) for Named Entity Recognition.
 * An HTTP 400 error will now be returned for v3 API requests that exceed the published [data limits](concepts/data-limits.md). 
 
+### Text Analytics for health container - Public gated preview
 
-
-### Text Analytics for Health Container Public gated preview
-
-The Text Analytics for Health container is now in public gated preview, which lets you extract information from unstructured English-language text in clinical documents such as: patient intake forms, doctor's notes, research papers and discharge summaries. Currently, you will not be billed for Text Analytics for Health container usage. 
+The Text Analytics for health container is now in public gated preview, which lets you extract information from unstructured English-language text in clinical documents such as: patient intake forms, doctor's notes, research papers and discharge summaries. Currently, you will not be billed for Text Analytics for health container usage.
 
 The container offers the following features:
 
@@ -37,7 +35,7 @@ The container offers the following features:
 
 
 > [!div class="nextstepaction"]
-> [Learn more about Text Analytics for Health container](how-tos/text-analytics-for-health.md)
+> [Learn more about Text Analytics for health container](how-tos/text-analytics-for-health.md)
 
 ## May 2020
 

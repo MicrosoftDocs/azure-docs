@@ -12,7 +12,7 @@ ms.reviewer: cynthn
 
 ---
 
-# Troubleshooting shared image galleries
+# Troubleshooting shared image galleries in Azure
 
 
 [!INCLUDE [virtual-machines-common-shared-image-troubleshooting](../../includes/virtual-machines-common-shared-image-troubleshooting.md)]
