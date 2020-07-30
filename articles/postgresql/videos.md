@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 07/30/2020
 ---
 # Azure Database for PostgreSQL videos
 
