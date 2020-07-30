@@ -43,7 +43,7 @@ The **Linked** option doesn't provide sign-on functionality. The option simply s
 
 To set a link for an app, select **Linked** on the **Single sign-on** page. Then enter the link and select **Save**. Need a reminder on where to find these options? Check out the [quickstart series](view-applications-portal.md).
  
-You may assign users and groups to the application, which causes the application to appear in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](end-user-experiences.md) for those users.
+After you configure an app, assign users and groups to it. When you assign users you can control when the application appears on [My Apps](https://myapplications.microsoft.com/) or the Microsoft 365 app launcher.
 
 ## Next steps
 
