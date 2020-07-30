@@ -8,6 +8,12 @@
     href: features.md
   - name: Release notes
     href: release-notes.md
+  - name: Usage and diagnostics data collection
+    items:
+    - name: Data collection overview
+      href: privacy-supplement.md
+    - name: Configure usage and diagnostics data
+      href: usage-and-diagnostics-data-configuration.md
 - name: Quickstarts
   expanded: true
   items:
