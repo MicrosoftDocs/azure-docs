@@ -112,12 +112,12 @@ In this section, you create a connection between the VPN Gateway local network g
    * **Local network gateway:** This connection will connect the virtual network gateway to the local network gateway. Choose one of the local network gateways that you created earlier.
    * **Shared Key:** Enter a shared key.
    * **IKE Protocol:** Choose the IKE protocol.
-   * **BGP:** Choose **Enable BGP** if the connection is over BGP and you have already configured your gateways for BGP.
 3. Click **OK** to create your connection.
 4. You can view the connection in the **Connections** page of the virtual network gateway.
 
    ![Connection](./media/connect-virtual-network-gateway-vwan/connect.png "connection")
 5. Repeat the preceding steps to create a second connection. For the second connection, select the other local network gateway that you created.
+6. If the connections are over BGP, after you have created your connections, navigate to a connection and select **Configuration**. On the **Configuration** page, for **BGP**, select **Enabled**. Then, click **Save**. Repeat for the second connection.
 
 ## <a name="test"></a>6. Test connections
 
