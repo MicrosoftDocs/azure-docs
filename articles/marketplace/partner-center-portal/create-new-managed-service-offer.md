@@ -190,6 +190,9 @@ Currently, there is only one pricing model that can be used for Managed Service 
 
 The **Plan visibility** section lets you indicate if this plan should be [private](../../marketplace/private-offers.md). If you leave the **This is a private plan** box unchecked, your plan will not be restricted to specific customers (or to a certain number of customers).
 
+> [!NOTE]
+> Private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
+
 To make this plan available only to specific customers, select **Yes**. When you do so, you'll need to identify the customers by providing their subscription IDs. These can be entered one by one (for up to 10 subscriptions) or by uploading a .csv file (for a maximum of 10,000 subscriptions across all plans). Be sure to include your own subscriptions here so you can test and validate the offer.
 
 > [!IMPORTANT]

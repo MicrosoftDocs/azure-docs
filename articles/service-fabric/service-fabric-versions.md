@@ -112,3 +112,4 @@ The following table lists the version names of Service Fabric and their correspo
 | 7.1 RTO | 7.1.409.9590 | 7.1.410.1 |
 | 7.1 CU1 | 7.1.417.9590 | 7.1.418.1 |
 | 7.1 CU2 | 7.1.428.9590 | 7.1.428.1 |
+

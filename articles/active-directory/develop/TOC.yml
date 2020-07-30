@@ -512,6 +512,8 @@
       href: active-directory-claims-mapping.md
     - name: Configure optional claims
       href: active-directory-optional-claims.md
+    - name: Use directory schema extension attributes in claims
+      href: active-directory-schema-extensions.md
     - name: Configure token lifetimes
       href: active-directory-configurable-token-lifetimes.md
     - name: Handle SameSite cookie changes in Chrome browser
