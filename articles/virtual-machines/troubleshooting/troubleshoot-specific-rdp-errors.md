@@ -43,7 +43,7 @@ mstsc <File name>.RDP /admin
 
 If you don't actually need more than two simultaneous Remote Desktop connections to the VM, you can use Server Manager to remove the Remote Desktop Server role.
 
-For more information, see the blog post [Azure VM fails with "No Remote Desktop License Servers available"](https://blogs.msdn.microsoft.com/mast/2014/01/21/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available/).
+For more information, see the blog post [Azure VM fails with "No Remote Desktop License Servers available"](/archive/blogs/mast/rdp-to-azure-vm-fails-with-no-remote-desktop-license-servers-available).
 
 <a id="rdpname"></a>
 
@@ -108,6 +108,5 @@ Make sure that the account you're using to connect with has Remote Desktop sign-
 ## Next steps
 If none of these errors occurred and you have an unknown issue with connecting using RDP, see the [troubleshooting guide for Remote Desktop](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* For troubleshooting steps in accessing applications running on a VM, see [Troubleshoot access to an application running on an Azure VM](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* If you are having issues using Secure Shell (SSH) to connect to a Linux VM in Azure, see [Troubleshoot SSH connections to a Linux VM in Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
+* For troubleshooting steps in accessing applications running on a VM, see [Troubleshoot access to an application running on an Azure VM](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json).
+* If you are having issues using Secure Shell (SSH) to connect to a Linux VM in Azure, see [Troubleshoot SSH connections to a Linux VM in Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

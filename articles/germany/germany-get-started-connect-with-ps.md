@@ -34,7 +34,7 @@ To use Azure PowerShell with Azure Germany, you need to connect to Azure Germany
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> If you have not used PowerShell yet, check out [Introduction to Azure PowerShell](/powershell/azure/overview).
+> If you have not used PowerShell yet, check out [Introduction to Azure PowerShell](/powershell/azure/).
 
 When you start PowerShell, you have to tell Azure PowerShell to connect to Azure Germany by specifying an environment parameter. The parameter ensures that PowerShell is connecting to the correct endpoints. The collection of endpoints is determined when you connect to your account. Different APIs require different versions of the environment switch:
 

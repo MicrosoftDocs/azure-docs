@@ -13,7 +13,7 @@ ms.author: sukumari
 ms.reviewer: azmetadatadev
 ---
 
-# Azure Instance Metadata service
+# Azure Instance Metadata Service (IMDS)
 
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances and can be used to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#metadata-apis).

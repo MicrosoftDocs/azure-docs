@@ -72,7 +72,7 @@ You can install and configure the diagnostics extension on an individual virtual
 See [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../../virtual-machines/extensions/diagnostics-template.md) on deploying the diagnostics extension with Azure Resource Manager templates. 
 
 ## Azure CLI deployment
-The Azure CLI can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [az vm extension set](https://docs.microsoft.com/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) as in the following example. 
+The Azure CLI can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [az vm extension set](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-set) as in the following example. 
 
 ```azurecli
 az vm extension set \
@@ -128,7 +128,7 @@ The public settings are defined in the [Public element](diagnostics-extension-sc
 
 
 ## PowerShell deployment
-PowerShell can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [Set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) as in the following example. 
+PowerShell can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [Set-AzVMDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/set-azurevmdiagnosticsextension) as in the following example. 
 
 ```powershell
 Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `

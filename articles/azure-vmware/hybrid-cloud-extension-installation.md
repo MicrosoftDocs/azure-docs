@@ -2,7 +2,7 @@
 title: Install Hybrid Cloud Extension (HCX)
 description: Set up the VMware Hybrid Cloud Extension (HCX) solution for your Azure VMware Solution (AVS) private cloud
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 07/15/2020
 ---
 
 # Install HCX for Azure VMware Solution

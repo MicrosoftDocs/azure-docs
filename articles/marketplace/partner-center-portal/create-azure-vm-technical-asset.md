@@ -4,8 +4,8 @@ description: Learn how to create and configure technical assets for a virtual ma
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: dannyevers 
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/13/2020
 ---
 
@@ -38,7 +38,7 @@ Designing, building, and testing these assets takes time and requires technical 
 
 Consider using one of the following scripting environments to help manage VMs and VHDs:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Azure CLI](https://code.visualstudio.com/)
 
 Additionally, consider adding the following tools to your development environment:
@@ -277,4 +277,4 @@ If you encountered difficulty creating your new Azure-based VHD, see [Common iss
 
 Otherwise:
 
-* [Certify your VM image](get-sas-uri.md) explains how to test and submit a VM image for Azure Marketplace certification, including where to get the *Certification Test Tool for Azure Certified* tool and how to use it to certify your VM image.
+* [Test Virtual Machine (VM) deployed from VHD](azure-vm-image-certification.md) explains how to test and submit a VM image for Azure Marketplace certification, including where to get the *Certification Test Tool for Azure Certified* tool and how to use it to certify your VM image.

@@ -6,7 +6,8 @@ author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 05/14/2020
 
 # Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.

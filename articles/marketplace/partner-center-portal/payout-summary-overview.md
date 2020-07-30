@@ -4,7 +4,7 @@ description: The Payout summary shows you details about the money you've earned 
 ms.subservice: partnercenter-marketplace-publisher
 ms.service: marketplace 
 ms.topic: article
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ---

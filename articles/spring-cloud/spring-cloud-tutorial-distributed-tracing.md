@@ -6,8 +6,9 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
+
 # Use distributed tracing with Azure Spring Cloud
 
 With the distributed tracing tools in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful distributed tracing capability from the Azure portal.

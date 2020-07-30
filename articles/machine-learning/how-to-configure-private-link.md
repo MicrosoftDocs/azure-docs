@@ -5,11 +5,12 @@ description: 'Use Azure Private Link to securely access your Azure Machine Learn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/14/2020
+ms.date: 07/28/2020
 ---
 
 # Configure Azure Private Link for an Azure Machine Learning workspace (preview)
@@ -17,7 +18,7 @@ ms.date: 07/14/2020
 In this document, you learn how to use Azure Private Link with your Azure Machine Learning workspace. 
 
 > [!IMPORTANT]
-> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East**, **US West 2**, and **US South Central** regions. 
+> Using Azure Private Link with Azure Machine Learning workspace is currently in public preview. This functionality is only available in the **US East** and **US West 2** regions. 
 > This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -27,6 +28,8 @@ Azure Private Link enables you to connect to your workspace using a private endp
 > Azure Private Link does not effect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal.
 >
 > Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
+>
+> You may encounter problems trying to access the private endpoint for your workspace if you are using Mozilla Firefox. This problem may be related to DNS over HTTPS in Mozilla. We recommend using Microsoft Edge of Google Chrome as a workaround.
 
 ## Create a workspace that uses a private endpoint
 
@@ -113,6 +116,9 @@ To secure the Azure Storage account used by your workspace, put it inside the vi
 
 For information on putting the storage account in the virtual network, see [Use a storage account for your workspace](how-to-enable-virtual-network.md#use-a-storage-account-for-your-workspace).
 
+> [!WARNING]
+> Azure Machine Learning does not support using an Azure Storage account that has private link enabled.
+
 ## Using Azure Key Vault
 
 To secure the Azure Key Vault used by your workspace, you can either put it inside the virtual network or enable Private Link for it.
@@ -125,8 +131,8 @@ For information on enabling Private Link for the key vault, see [Integrate Key V
 
 To secure the Azure Kubernetes services used by your workspace, put it inside a virtual network. For more information, see [Use Azure Kubernetes Services with your workspace](how-to-enable-virtual-network.md#aksvnet).
 
-> [!WARNING]
-> Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled.
+Azure Machine Learning now supports using an Azure Kubernetes Service that has private link enabled.
+To create a private AKS cluster follow docs [here](https://docs.microsoft.com/azure/aks/private-clusters)
 
 ## Azure Container Registry
 

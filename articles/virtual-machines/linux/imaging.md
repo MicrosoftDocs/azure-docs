@@ -95,8 +95,9 @@ Azure supports Hyper-V Generation 1 (Gen1) and Generation 2 (Gen2), Gen2 is the 
 If you still need to create your own image, ensure it meets the [image prerequisites](./create-upload-generic.md), and upload to Azure. Distribution specific requirements:
 
 
-- [CentOS-based distributions](create-upload-centos.md)
+- [CentOS-based Distributions](create-upload-centos.md)
 - [Debian Linux](debian-create-upload-vhd.md)
+- [Flatcar Container Linux](flatcar-create-upload-vhd.md)
 - [Oracle Linux](oracle-create-upload-vhd.md)
 - [Red Hat Enterprise Linux](redhat-create-upload-vhd.md)
 - [SLES & openSUSE](suse-create-upload-vhd.md)

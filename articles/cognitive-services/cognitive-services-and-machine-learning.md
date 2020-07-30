@@ -3,12 +3,10 @@ title: Cognitive Services and Machine Learning
 titleSuffix: Azure Cognitive Services
 description: Learn where Azure Cognitive Services fits in with other Azure offerings for machine learning.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.author: diberry
 ---
 # Cognitive Services and machine learning
 
