@@ -1,6 +1,6 @@
 ---
 title: Understand admin roles for Enterprise in Azure
-description: Learn about Enterprise administrator roles in Azure.
+description: Learn about Enterprise administrator roles in Azure. You can assign five distinct administrative roles.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
