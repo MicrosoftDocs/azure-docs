@@ -46,21 +46,17 @@ defaults to 'hash'.
 **colocate\_with:** (Optional) include current table in the co-location group
 of another table. By default tables are co-located when they are distributed by
 columns of the same type, have the same shard count, and have the same
-replication factor. If you want to break this colocation later, you can use
-[update_distributed_table_colocation](#update_distributed_table_colocation).
-Possible values for `colocate_with` are `default`, `none` to start a new
-co-location group, or the name of another table to co-locate with that table.
-(See [table colocation](concepts-hyperscale-colocation.md).)
+replication factor. Possible values for `colocate_with` are `default`, `none`
+to start a new co-location group, or the name of another table to co-locate
+with that table.  (See [table colocation](concepts-hyperscale-colocation.md).)
 
 Keep in mind that the default value of `colocate_with` does implicit
-co-location. As [colocation](concepts-hyperscale-colocation.md) explains, this can
-be a great thing when tables are related or will be joined.  However when two
-tables are unrelated but happen to use the same datatype for their distribution
-columns, accidentally co-locating them can decrease performance during [shard
-rebalancing](howto-hyperscale-scaling.md#rebalance-shards).  The table
-shards will be moved together unnecessarily in a \"cascade.\" If you want to
-break this implicit colocation, you can use
-[update_distributed_table_colocation](#update_distributed_table_colocation).
+co-location. As [colocation](concepts-hyperscale-colocation.md) explains, this
+can be a great thing when tables are related or will be joined.  However when
+two tables are unrelated but happen to use the same datatype for their
+distribution columns, accidentally co-locating them can decrease performance
+during [shard rebalancing](howto-hyperscale-scaling.md#rebalance-shards).  The
+table shards will be moved together unnecessarily in a \"cascade.\"
 
 If a new distributed table is not related to other tables, it's best to
 specify `colocate_with => 'none'`.
@@ -80,38 +76,6 @@ SELECT create_distributed_table('github_events', 'repo_id');
 -- alternatively, to be more explicit:
 SELECT create_distributed_table('github_events', 'repo_id',
                                 colocate_with => 'github_repo');
-```
-
-### truncate\_local\_data\_after\_distributing\_table
-
-Truncate all local rows after distributing a table, and prevent
-constraints from failing due to outdated local records. The truncation
-cascades to tables having a foreign key to the designated table. If the
-referring tables are not themselves distributed then truncation is
-forbidden until they are, to protect referential integrity:
-
-```
-ERROR:  cannot truncate a table referenced in a foreign key constraint by a local table
-```
-
-Truncating local coordinator node table data is safe for distributed
-tables because their rows, if they have any, are copied to worker nodes
-during distribution.
-
-#### Arguments
-
-**table\_name:** Name of the distributed table whose local counterpart
-on the coordinator node should be truncated.
-
-#### Return Value
-
-N/A
-
-#### Example
-
-```postgresql
--- requires that argument is a distributed table
-SELECT truncate_local_data_after_distributing_table('public.github_events');
 ```
 
 ### create\_reference\_table
@@ -176,9 +140,6 @@ Usually colocating tables ought to be done at table distribution time via the
 `colocate_with` parameter of [create_distributed_table](#create_distributed_table)
 But `mark_tables_colocated` can take care of it if necessary.
 
-If you want to break colocation of a table, you can use
-[update_distributed_table_colocation](#update_distributed_table_colocation).
-
 #### Arguments
 
 **source\_table\_name:** Name of the distributed table whose co-location
@@ -214,68 +175,6 @@ distributed on a column with matching type, most likely a \"store id.\"
 
 ```postgresql
 SELECT mark_tables_colocated('stores', ARRAY['products', 'line_items']);
-```
-
-### update\_distributed\_table\_colocation
-
-The update\_distributed\_table\_colocation() function is used to update
-colocation of a distributed table. This function can also be used to break
-colocation of a distributed table. Hyperscale (Citus) will implicitly colocate
-two tables if the distribution column is the same type, this can be useful if
-the tables are related and will do some joins. If table A and B are colocated,
-and table A gets rebalanced, table B will also be rebalanced. If table B does
-not have a replica identity, the rebalance will fail. Therefore, this function
-can be useful breaking the implicit colocation in that case.
-
-Both of the arguments should be a hash distributed table, currently we
-do not support colocation of APPEND or RANGE distributed tables.
-
-Note that this function does not move any data around physically.
-
-#### Arguments
-
-**table\_name:** Name of the table colocation of which will be updated.
-
-**colocate\_with:** The table to which the table should be colocated
-with.
-
-If you want to break the colocation of a table, you should specify
-`colocate_with => 'none'`.
-
-#### Return Value
-
-N/A
-
-#### Example
-
-This example shows that colocation of `table A` is updated as colocation
-of `table B`.
-
-```postgresql
-SELECT update_distributed_table_colocation('A', colocate_with => 'B');
-```
-
-Assume that `table A` and `table B` are colocated( possibily
-implicitly), if you want to break the colocation:
-
-```postgresql
-SELECT update_distributed_table_colocation('A', colocate_with => 'none');
-```
-
-Now, assume that `table A`, `table B`, `table C` and `table D` are
-colocated and you want to colocate `table A` and `table B` together, and
-`table C` and `table D` together:
-
-```postgresql
-SELECT update_distributed_table_colocation('C', colocate_with => 'none');
-SELECT update_distributed_table_colocation('D', colocate_with => 'C');
-```
-
-If you have a hash distributed table named `none` and you want to update
-its colocation, you can do:
-
-```postgresql
-SELECT update_distributed_table_colocation('"none"', colocate_with => 'some_other_hash_distributed_table');
 ```
 
 ### create\_distributed\_function
