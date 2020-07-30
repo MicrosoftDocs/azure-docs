@@ -251,19 +251,11 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 * GA SDK
 
 ## Release and retirement dates
-Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
-New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible.
-
-Any request to Cosmos DB using a retired SDK will be rejected by the service.
+Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version. New features and functionality and optimizations are only added to the current SDK, as such it is  recommend that you always upgrade to the latest SDK version as early as possible.
 
 > [!WARNING]
-> All versions **1.x** of the SQL SDK for Java will be retired on **May 30, 2020**.
-> 
->
-
-> [!WARNING]
-> All versions of the SQL SDK for Java prior to version **1.0.0** were retired on **February 29, 2016**.
+> All versions **1.x** of the SQL SDK for Java will be retired on **May 30, 2020**. All versions of the SQL SDK for Java prior to version **1.0.0** were retired on **February 29, 2016**.
 > 
 > 
 
