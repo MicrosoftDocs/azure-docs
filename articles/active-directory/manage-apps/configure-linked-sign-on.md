@@ -1,6 +1,6 @@
 ---
-title: Configure an app link in Azure AD
-description: Configure an app link using Azure AD
+title: Configure an apps link in Azure AD
+description: Configure an apps link using Azure AD
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -13,11 +13,11 @@ ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ---
 
-# Configure an app link
+# Configure an apps link
 
 In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. In the quickstart guide, you set up SAML-based SSO. Another option is **Linked**. This article goes into more detail about the linked option. 
 
-The **Linked** option lets you add a link in your organization's Azure AD Access Panel or Office 365 portal.
+The **Linked** option lets you configure the target location of selecting the app in organization's [My Apps](https://myapplications.microsoft.com/) or Office 365 portal.
 
 Some common scenarios where the link option is valuable include:
 - Add a link to a custom web application that currently uses federation, such as Active Directory Federation Services (AD FS).
@@ -39,7 +39,7 @@ The **Linked** option doesn't provide sign-on functionality. The option simply s
 >
 > Other scenarios where **Single sign-on** will be missing from the navigation include when an application is hosted in another tenant or if your account does not have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open **Single sign-on** but won't be able to save. To learn more about Azure AD administrative roles, see (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
-### Configure app link
+### Configure apps link
 
 To set a link for an app, select **Linked** on the **Single sign-on** page. Then enter the link and select **Save**. Need a reminder on where to find these options? Check out the [quickstart series](view-applications-portal.md).
  
