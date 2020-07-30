@@ -36,6 +36,15 @@ landingContent:
           - text: RStudio
             url: tutorial-1st-r-experiment.md
 
+# BYO
+  - title: 'Bring your model to Azure'
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Deploy your local model to the cloud
+          url: how-to-deploy-existing-model.md  
+
+ 
   # Studio
   - title: 'Use AutoML or drag & drop in studio'
     linkLists:
@@ -58,15 +67,22 @@ landingContent:
           - text: Create an image labeling project  
             url: tutorial-labeling.md
 
-  # BYO
-  - title: 'Bring your model to Azure'
+ 
+  # MLOps
+  - title: 'MLOps: Deploy & manage models'
     linkLists:
       - linkListType: how-to-guide
         links:
-        - text: Deploy your local model to the cloud
-          url: how-to-deploy-existing-model.md  
+          - text: What is MLOps?
+            url: concept-model-management-and-deployment.md
+          - text: How & where to deploy
+            url: how-to-deploy-and-where.md
+          - text: Realtime prediction
+            url: how-to-consume-web-service.md
+          - text: Batch prediction 
+            url: how-to-use-parallel-run-step.md
 
-            
+             
   # PYTHON
   - title: 'Train with the Python SDK'
     linkLists:
@@ -101,21 +117,7 @@ landingContent:
           - text: What are ML pipelines?
             url: concept-ml-pipelines.md                  
 
-  # MLOps
-  - title: 'MLOps: Deploy & manage models'
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: What is MLOps?
-            url: concept-model-management-and-deployment.md
-          - text: How & where to deploy
-            url: how-to-deploy-and-where.md
-          - text: Realtime prediction
-            url: how-to-consume-web-service.md
-          - text: Batch prediction 
-            url: how-to-use-parallel-run-step.md
-
-  # Reference
+# Reference
   - title: Go to reference docs
     linkLists:
       - linkListType: reference
