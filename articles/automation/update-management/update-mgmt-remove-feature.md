@@ -40,7 +40,7 @@ Before you can unlink the Automation account from the workspace, you need to fol
 
 3. On the **Unlink workspace** page, select **Unlink workspace** and respond to prompts.
 
-   ![Unlink workspace page](media/update-mgmt-unlink-workspace/automation-unlink-workspace-blade.png).
+   ![Unlink workspace page](media/update-mgmt-remove-feature/automation-unlink-workspace-blade.png).
 
 While it attempts to unlink the Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
