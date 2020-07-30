@@ -104,6 +104,7 @@ This section shows the content of the template and how to deploy it.
                             }
                         }
                     }
+                    // More key-values can be set to App Configuration store by adding more keyValues resources here.
                 ]
             }
         ],
@@ -135,26 +136,26 @@ In the above template, there are two resource types.
 
 In an App Configuration store, each key-value is uniquely identified by its key and label combination. In ARM template, each key-value is represented by a single `Microsoft.AppConfiguration/configurationStores/keyValues` resource, whose name is a combination of key and label. The key and label are joined by delimiter `$`. Label is optional.
 
-In the above template, the key-value name is `myKey$myLabel`, which means the key is `myKey` and the label is `myLabel`. To create a key-value without a label, the key-value name shall be like `myKey`.
+In the above template, the key-value resource name is `myKey$myLabel`, which means the key is `myKey` and the label is `myLabel`. To create a key-value without a label, the key-value resource name shall be like `myKey`.
 
-To include non-ASCII characters or ARM resource name reserved characters in the key or label, percent-encoding, also known as URL encoding, is supported. `%` is not allowed in ARM resource name. So, `~` is used as the encoding character.
+To use characters that are not allowed by ARM resource name in keys or labels, percent-encoding, also known as URL encoding, is required. However, as `%` is not allowed in the ARM resource name either, `~` is used as the replacement of `%` as the encoding character. Therefore, keys and labels should be encoded like this:
 
-1. Encoding character `~` can be encoded as `~7E`.
-2. Delimiter `$` can be encoded as `~24`.
-3. One example of non-ASCII characters is `𝄞`, which can be encoded as `~F0~9D~84~9E`.
+1. URL encode
+2. Replace `~` with `~7E`
+3. Replace `%` with `~`
 
 For example, to create a key-value pair with key as `AppName:DbEndpoint` and label as `Test`, the resource name should be `AppName~3ADbEndpoint$Test`.
 
 ### Reference key-values in the ARM template
 
-ARM template function `reference` is supported by App Configuration service. In the `outputs` section of the above template, resource id of the key-value is passed to the `reference` function, which returns the key-value object from the App Configuration store.
+The ARM template function `reference` is supported by App Configuration. In the `outputs` section of the above template, the resource id of the key-value is passed to the `reference` function, which returns the key-value object from the App Configuration store.
 
 > [!WARNING]
-> ARM templates can't set or reference key-values in an App Configuration store that has Private Link enabled.
+> As the ARM template is executed outside of your virtual network, it will not be allowed to set or reference key-values in an App Configuration store that has Private Endpoint enabled but without allowing public network access.
 
 ## Clean up resources
 
-If you aren't going to use the created resource group and configuration store, delete them by running the following cmdlet:
+If you aren't going to use the created resource group and App Configuration store, delete them by running the following cmdlet:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup `
