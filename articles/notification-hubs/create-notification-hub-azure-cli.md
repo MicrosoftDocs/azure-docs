@@ -91,7 +91,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
    az notification-hub namespace create --resource-group spnhubrg --name spnhubns  --location eastus --sku Free
    ```
 
-   If the `--name` you provided to the `az notification-hub namespace create` command is not available, or does not meet [Naming rules and restrictions for Azure resources](/azure/azure-resource-manager/management/resource-name-rules), Azure CLI will respond with the following console output:
+   If the `--name` you provided to the `az notification-hub namespace create` command is not available, or does not meet [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md), Azure CLI will respond with the following console output:
 
    ```output
    #the name is not available
@@ -144,7 +144,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
 
 1. List access policies for a notification hub.
 
-   Azure Notification Hubs uses [shared access signature security](/azure/notification-hubs/notification-hubs-push-notification-security) through the use of access policies.  Two policies are created automatically when you create a notification hub.  The connection strings from these policies are needed to configure push notifications.  The [az  notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) command provides a list of policy names and their respective resource groups.
+   Azure Notification Hubs uses [shared access signature security](./notification-hubs-push-notification-security.md) through the use of access policies.  Two policies are created automatically when you create a notification hub.  The connection strings from these policies are needed to configure push notifications.  The [az  notification-hub authorization-rule list](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list) command provides a list of policy names and their respective resource groups.
 
    ```azurecli
    az notification-hub authorization-rule list --resource-group spnhubrg --namespace-name spnhubns --notification-hub-name spfcmtutorial1nhub --output table
@@ -163,7 +163,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
 
 3. List keys and connection strings for a notification hub access policy
 
-   There are two sets of keys and connection strings for each access policy.  You'll need them later to [configure a notification hub](/azure/notification-hubs/configure-notification-hub-portal-pns-settings).  To list the keys and connections strings for a notification hub access policy, use the [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) command.
+   There are two sets of keys and connection strings for each access policy.  You'll need them later to [configure a notification hub](./configure-notification-hub-portal-pns-settings.md).  To list the keys and connections strings for a notification hub access policy, use the [az notification-hub authorization-rule list-keys](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) command.
 
    ```azurecli
    #query the keys and connection strings for DefaultListenSharedAccessSignature

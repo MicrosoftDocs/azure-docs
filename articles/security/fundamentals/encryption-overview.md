@@ -2,20 +2,15 @@
 title: Azure encryption overview | Microsoft Docs
 description: Learn about various encryption options in Azure
 services: security
-documentationcenter: na
-author: Barclayn
-manager: barbkess
-editor: TomShinder
+author: msmbaldwin
 
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/20/2018
+ms.date: 07/20/2020
 ms.author: mbaldwin
+
 ---
 # Azure encryption overview
 

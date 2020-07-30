@@ -328,7 +328,7 @@ String myStringProperty = new String(rawbytes, StandardCharsets.UTF_8);
 ## Next steps
 In this article, you learned how to stream into Event Hubs without changing your protocol clients or running your own clusters. To learn more about Event Hubs and Event Hubs for Kafka, see the following articles:  
 
-* [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Learn about Event Hubs](./event-hubs-about.md)
 * [Learn about Event Hubs for Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Explore more samples on the Event Hubs for Kafka GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 * Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to [stream events from Kafka on premises to Event Hubs on cloud.](event-hubs-kafka-mirror-maker-tutorial.md)

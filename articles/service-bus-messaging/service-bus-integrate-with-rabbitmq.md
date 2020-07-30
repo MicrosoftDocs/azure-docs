@@ -85,7 +85,7 @@ Before you can use that connection string, you'll need to convert it to RabbitMQ
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Convert connection string":::
 
-Now open the RabbitMQ management plugin in our browsers [http://localhost:15672/#/dynamic-shovels](http://localhost:15672/#/dynamic-shovels) and go to `Admin -> Shovel Management`, where you can add your new shovel that will take care of sending messages from a RabbitMQ queue to your Azure Service Bus queue.
+Now open the RabbitMQ management plugin in our browsers `http://localhost:15672/#/dynamic-shovels` and go to `Admin -> Shovel Management`, where you can add your new shovel that will take care of sending messages from a RabbitMQ queue to your Azure Service Bus queue.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Add RabbitMQ Shovel":::
 

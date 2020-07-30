@@ -36,10 +36,10 @@ Note if you update a filter, it can take up to two minutes for streaming endpoin
 ## Types used to create filters
 The following types are used when creating filters: 
 
-* **IStreamingFilter**.  This type is based on the following REST API [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
-* **IStreamingAssetFilter**. This type is based on the following REST API [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
-* **PresentationTimeRange**. This type is based on the following REST API [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
-* **FilterTrackSelectStatement** and **IFilterTrackPropertyCondition**. These types are based on the following REST APIs [FilterTrackSelect and FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
+* **IStreamingFilter**.  This type is based on the following REST API [Filter](/rest/api/media/operations/filter)
+* **IStreamingAssetFilter**. This type is based on the following REST API [AssetFilter](/rest/api/media/operations/assetfilter)
+* **PresentationTimeRange**. This type is based on the following REST API [PresentationTimeRange](/rest/api/media/operations/presentationtimerange)
+* **FilterTrackSelectStatement** and **IFilterTrackPropertyCondition**. These types are based on the following REST APIs [FilterTrackSelect and FilterTrackPropertyCondition](/rest/api/media/operations/filtertrackselect)
 
 ## Create/Update/Read/Delete global filters
 The following code shows how to use .NET to create, update, read, and delete asset filters.
@@ -133,4 +133,3 @@ The following examples show how to add filters to your streaming URLs.
 
 ## See Also
 [Dynamic manifests overview](media-services-dynamic-manifest-overview.md)
-

@@ -9,10 +9,6 @@ ms.custom: seodec18, fasttrack-edit, has-adal-ref
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
 
-> [!NOTE]
-> At this time, ASP.NET Core does not currently support populating the current user with the Authentication/Authorization feature.
->
-
 Azure App Service provides built-in authentication and authorization support, so you can sign in users and access data by writing minimal or no code in your web app, RESTful API, and mobile back end, and also [Azure Functions](../azure-functions/functions-overview.md). This article describes how App Service helps simplify authentication and authorization for your app.
 
 Secure authentication and authorization require deep understanding of security, including federation, encryption, [JSON web tokens (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) management, [grant types](https://oauth.net/2/grant-types/), and so on. App Service provides these utilities so that you can spend more time and energy on providing business value to your customer.
@@ -22,6 +18,9 @@ Secure authentication and authorization require deep understanding of security, 
 >
 > The ASP.NET Core 2.1 and above versions hosted by App Service are already patched for this breaking change and handle Chrome 80 and older browsers appropriately. In addition, the same patch for ASP.NET Framework 4.7.2 is being deployed on the App Service instances throughout January 2020. For more information, including how to know if your app has received the patch, see [Azure App Service SameSite cookie update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
+
+> [!NOTE]
+> The Authentication/Authorization feature is also sometimes referred to as "Easy Auth".
 
 For information specific to native mobile apps, see [User authentication and authorization for mobile apps with Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
@@ -47,6 +46,10 @@ For all language frameworks, App Service makes the claims in the incoming token 
 For [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` is not populated for .NET code, but you can still find the user claims in the request headers, or get the `ClaimsPrincipal` object from the request context or even through a binding parameter. See [working with client identities](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) for more information.
 
 For more information, see [Access user claims](app-service-authentication-how-to.md#access-user-claims).
+
+> [!NOTE]
+> At this time, ASP.NET Core does not currently support populating the current user with the Authentication/Authorization feature. However, some [3rd party, open source middleware components](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) do exist to help fill this gap.
+>
 
 ### Token store
 
@@ -128,10 +131,6 @@ With this option, you don't need to write any authentication code in your app. F
 
 > [!CAUTION]
 > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
-
-> [!NOTE]
-> Authentication/Authorization was previously known as Easy Auth.
->
 
 ## More resources
 

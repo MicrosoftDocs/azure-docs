@@ -24,7 +24,7 @@ You can protect your data by taking backups at regular intervals. Azure Backup c
 
 ## Backup overview
 
-When the Azure Backup service initiates a backup job, it triggers the backup extension to take a point-in-time snapshot. The Azure Backup service uses the [VMSnapshot extension](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows). The extension is installed during the first VM backup if the VM is running. If the VM is not running, the Backup service takes a snapshot of the underlying storage (since no application writes occur while the VM is stopped).
+When the Azure Backup service initiates a backup job, it triggers the backup extension to take a point-in-time snapshot. The Azure Backup service uses the [VMSnapshot extension](../extensions/vmsnapshot-windows.md). The extension is installed during the first VM backup if the VM is running. If the VM is not running, the Backup service takes a snapshot of the underlying storage (since no application writes occur while the VM is stopped).
 
 When taking a snapshot of Windows VMs, the Backup service coordinates with the Volume Shadow Copy Service (VSS) to get a consistent snapshot of the virtual machine's disks. Once the Azure Backup service takes the snapshot, the data is transferred to the vault. To maximize efficiency, the service identifies and transfers only the blocks of data that have changed since the previous backup.
 
@@ -95,12 +95,3 @@ Advance to the next tutorial to learn about monitoring virtual machines.
 
 > [!div class="nextstepaction"]
 > [Govern virtual machines](tutorial-govern-resources.md)
-
-
-
-
-
-
-
-
-

@@ -183,7 +183,7 @@ The second option has a number of benefits compared to using certificates, as do
    This is the token value that will be used later to configure Notification Hubs.
 
 At the end of these steps you should have the following information for
-use later in [Configure your notification hub with APNS information](notification-hubs-ios-push-notifications-swift-apps-get-started.md#configure-your-notification-hub-with-apns-information):
+use later in [Configure your notification hub with APNS information](#configure-the-notification-hub-with-apns-information):
 
 - **Team ID** (see step 1)
 - **Bundle ID** (see step 1)
@@ -262,7 +262,7 @@ In this section, you create a notification hub and configure authentication with
 
 ## Configure the notification hub with APNS information
 
-Under **Notification Services**, select **Apple (APNS)**, then follow the appropriate steps based on the approach you chose previously in the [Creating a Certificate for Notification Hubs](notification-hubs-ios-push-notifications-swift-apps-get-started.md#creating-a-certificate-for-notification-hubs) section.
+Under **Notification Services**, select **Apple (APNS)**, then follow the appropriate steps based on the approach you chose previously in the [Creating a Certificate for Notification Hubs](#create-a-certificate-for-notification-hubs) section.
 
 > [!NOTE]
 > Use **Production** for **Application Mode** only if you want to send push notifications to users who purchased your app from the store.
@@ -304,4 +304,4 @@ You've now configured your notification hub with APNS. You also have the connect
 
 In this tutorial, you created and configured a notification hub in Azure and configured it to allow notifications to be sent to your application through Apple Push Notification Service (APNS). Next, we’ll create a sample iOS application and integrate the Azure Notifications Hubs SDK so that it can receive push notifications sent through the Azure portal. Advance to the following tutorial based on your language of choice:
 
-- [Tutorial: Integrate with an iOS app using Swift](notification-hubs-ios-push-notifications-swift-apps-get-started.md)
+- [Tutorial: Integrate with an iOS app using Swift]()

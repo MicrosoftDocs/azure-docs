@@ -4,14 +4,16 @@ description: API to create a new or update an existing offer.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 06/19/2020
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 07/14/2020
 ---
 
 Create or modify an offer
 =========================
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues working after transitioning to Partner Center. CPP APIs should only be used for existing products that were already integrated before transition to Partner Center; new products should use Partner Center submission APIs.
 
 This call updates a specific offer within the publisher namespace or creates a new offer.
 
@@ -281,6 +283,6 @@ Uploading artifacts
 Artifacts, such as images and logos, should be shared by uploading them to
 an accessible location on the web, then including each as a URI in the PUT
 request, as in the example above. The system will detect that these
-files are not present in the Azure marketplace storage and download
+files are not present in the Azure Marketplace storage and download
 these files into storage.  As a result, you will find that future GET requests
-will return an Azure marketplace service URL for these files.
+will return an Azure Marketplace service URL for these files.
