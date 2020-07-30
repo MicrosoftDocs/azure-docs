@@ -10,7 +10,7 @@ ms.author: xshi
 ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc, tracking-python
+ms.custom: mvc, tracking-python, devx-track-javascript
 ---
 
 # Tutorial: Develop and deploy a Node.js IoT Edge module for Linux devices

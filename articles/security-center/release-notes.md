@@ -32,7 +32,7 @@ Updates in July include:
 - [Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
 - [Eight new recommendations to enable threat protection features](#eight-new-recommendations-to-enable-threat-protection-features)
 - [Container security improvements - faster registry scanning and refreshed documentation](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
-- [New recommendation to updated your adaptive application controls rules](#new-recommendation-to-update-your-adaptive-application-controls-rules)
+- [New recommendation to update your adaptive application controls rules](#new-recommendation-to-update-your-adaptive-application-controls-rules)
 - [Six policies for SQL advanced data security deprecated](#six-policies-for-sql-advanced-data-security-deprecated)
 
 

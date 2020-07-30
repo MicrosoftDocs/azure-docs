@@ -271,7 +271,7 @@ If you encounter errors when building and pushing your module image, it often ha
 
 You verified that the built container images are stored in your container registry, so it's time to deploy them to a device. Make sure that your IoT Edge device is up and running.
 
-1. In the Visual Studio Code explorer, expand the **Azure IoT Hub / Devices** section.
+1. In the Visual Studio Code explorer, under the **Azure IoT Hub** section, expand **Devices** to see your list of IoT devices.
 
 2. Right-click the IoT Edge device that you want to deploy to, then select **Create Deployment for Single Device**.
 
@@ -281,11 +281,9 @@ You verified that the built container images are stored in your container regist
 
    Do not use the deployment.template.json file, which doesn't have the container registry credentials or module image values in it. If you're targeting a Linux ARM32 device, the deployment manifest will be named deployment.arm32v7.json.
 
-4. Expand the details for your IoT Edge device, then expand the **Modules** list for your device.
+4. Under your device, expand **Modules** to see a list of deployed and running modules. Click the refresh button. You should see the new SimulatedTemperatureSensor and SampleModule modules running on your device.
 
-5. Use the refresh button to update the device view until you see the SimulatedTemperatureSensor and SampleModule modules running on your device.
-
-   It may take a few minutes for both modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
+   It may take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
 
    ![View modules running on your IoT Edge device](./media/tutorial-develop-for-linux/view-running-modules.png)
 

@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 07/29/2020
 ms.author: victorh
 ---
 
@@ -45,7 +45,9 @@ Azure Firewall provides an AKS FQDN Tag to simplify the configuration. Use the f
       To be more specific, see the **.hcp.<location>.azmk8s.io* and addresses in the following table.
    - UDP port 123 for Network Time Protocol (NTP) time synchronization (Linux nodes).
    - UDP port 53 for DNS is also required if you have pods directly accessing the API server.
-- Configure AzureMonitor and Storage service tags. Azure Monitor receives log analytics data. 
+
+   For more information, see [Control egress traffic for cluster nodes in Azure Kubernetes Service (AKS)](../aks/limit-egress-traffic.md).
+- Configure AzureMonitor and Storage service tags. Azure Monitor receives log analytics data.
 
    You can also allow your workspace URL individually: `<worksapceguid>.ods.opinsights.azure.com`, and `<worksapceguid>.oms.opinsights.azure.com`. You can address this in one of the following ways:
 
