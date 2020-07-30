@@ -120,7 +120,7 @@ For this scenario, use NSGs on the Application Gateway subnet. Put the following
 You can configure the application gateway to have a public IP address, a private IP address, or both. A public IP is required when you host a back end that clients must access over the Internet via an Internet-facing virtual IP (VIP).
 
 > [!NOTE]
-> Application Gateway V2 currently does not support only private IP mode. It supports the following combinations
+> Application Gateway V2 currently does not support only private IP mode. It supports the following combinations:
 >* Private IP and Public IP
 >* Public IP only
 >
