@@ -14,23 +14,23 @@ ms.author: kenwith
 
 # Configure password-based single sign-on
 
-In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. In the quickstart guide, you set up SAML-based SSO. In addition to SAML, there is an option for password-based SSO. This article goes into more detail about the password-based option for single sign-on. 
+In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. In the quickstart guide, you set up SAML-based SSO. Another option is password-based SSO. This article goes into more detail about the password-based SSO option. 
 
-This option is available for any website with an HTML sign-in page. Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It's also useful for scenarios where several users need to share a single account, such as to your organization's social media app accounts. 
+This option is available for any website with an HTML sign-in page. Password-based SSO is also known as password vaulting. Password-based SSO enables you to manage user access and passwords to web applications that don't support identity federation. It's also useful where several users need to share a single account, such as to your organization's social media app accounts.
 
 Password-based SSO is a great way to get started integrating applications into Azure AD quickly, and allows you to:
 
-- Enable single sign-on for your users by securely storing and replaying usernames and passwords for the application you’ve integrated with Azure AD
+- Enable single sign-on for your users by securely storing and replaying usernames and passwords
 
 - Support applications that require multiple sign-in fields for applications that require more than just username and password fields to sign in
 
-- Customize the labels of the username and password input fields your users see on the [Application Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) when they enter their credentials
+- Customize the labels of the username and password fields your users see on the [Application Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) when they enter their credentials
 
-- Allow your users to provide their own usernames and passwords for any existing application accounts they are typing in manually.
+- Allow your users to provide their own usernames and passwords for any existing application accounts they're typing in manually.
 
 - Allow a member of the business group to specify the usernames and passwords assigned to a user by using the [Self-Service Application Access](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) feature
 
--   Allow an administrator to specify a username and password to be used by individuals or groups when signing in to the application by using the Update Credentials feature 
+-   Allow an administrator to specify a username and password to be used by individuals or groups when they sign in to the application with the Update Credentials feature 
 
 ## Before you begin
 
@@ -46,13 +46,13 @@ Using Azure AD as your Identity Provider (IdP) and setting up single sign-on (SS
 
 ## Basic configuration
 
-In the [quickstart series](view-applications-portal.md), you learned how to add an app to your tenant so that Azure AD knows it is being used as the Identity Provider (IdP) for the app. Some apps are already pre-configured and they show up in the Azure AD gallery. Other apps are not in the gallery and you have to create a generic app and configure it manually. Depending on the app, the password-based SSO option might not be available. If you don't see the Password-based option list on the single sign-on page for the app, then it is not available.
+In the [quickstart series](view-applications-portal.md), you learned how to add an app to your tenant, which lets Azure AD knows it's being used as the Identity Provider (IdP) for the app. Some apps are already pre-configured and they show up in the Azure AD gallery. Other apps are not in the gallery and you have to create a generic app and configure it manually. Depending on the app, the password-based SSO option might not be available. If you don't see the Password-based option list on the single sign-on page for the app, then it is not available.
 
 The configuration page for password-based SSO is simple. It includes only the URL of the sign-on page that the app uses. This string must be the page that includes the username input field.
 
-After you enter the URL, select **Save**. Azure AD parses the HTML of the sign in page for username and password input fields. If the attempt succeeds, you're done.
+After you enter the URL, select **Save**. Azure AD parses the HTML of the sign-in page for username and password input fields. If the attempt succeeds, you're done.
  
-Your next step is to [Assign users or groups to the application](methods-for-assigning-users-and-groups.md). After you've assigned users and groups, you can provide credentials to be used on behalf of a user when they log in to the application. Select **Users and groups**, select the checkbox for the user's or group's row, and then select **Update Credentials**. Then, enter the username and password to be used on behalf of the user or group. Otherwise, users will be prompted to enter the credentials themselves upon launch.
+Your next step is to [Assign users or groups to the application](methods-for-assigning-users-and-groups.md). After you've assigned users and groups, you can provide credentials to be used for a user when they sign in to the application. Select **Users and groups**, select the checkbox for the user's or group's row, and then select **Update Credentials**. Finally, enter the username and password to be used for the user or group. If you don't do this, users will be prompted to enter the credentials themselves upon launch.
  
 
 ## Manual configuration
