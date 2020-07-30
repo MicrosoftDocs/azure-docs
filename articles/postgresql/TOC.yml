@@ -373,7 +373,7 @@
     items:
       - name: SQL API functions
         href: reference-hyperscale-udf.md
-      - name: Configuration options
+      - name: Server parameters
         href: reference-hyperscale-guc.md
       - name: System tables
         href: reference-hyperscale-metadata.md
