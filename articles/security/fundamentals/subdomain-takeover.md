@@ -117,12 +117,12 @@ It's often up to developers and operations teams to run cleanup processes to avo
         - Exist - Query your DNS zones for resources pointing to Azure subdomains such as *.azurewebsites.net or *.cloudapp.azure.com (see [this reference list](azure-domains.md)).
         - You own - Confirm that you own all resources that your DNS subdomains are targeting.
 
-    - Maintain a service catalog of your Azure fully qualified domain name (FQDN) endpoints and the application owners. To build your service catalog, run the following Azure Resource Graph (ARG) query script. This script projects the FQDN endpoint information of the resources you have access to and outputs the same in to a CSV file. If you have access to all the subscriptions of your tenant, the script considers all those subscriptions as you can see below. But, If you are interested in only few selected subscriptions, please modify the script to reflect those subscriptions.
+    - Maintain a service catalog of your Azure fully qualified domain name (FQDN) endpoints and the application owners. To build your service catalog, run the following Azure Resource Graph (ARG) query script. This script projects the FQDN endpoint information of the resources you have access to and outputs the same in to a CSV file. If you have access to all the subscriptions of your tenant, the script considers all those subscriptions as you can see below. To limit the results to a specific set of subscriptions, edit the script as shown below.
 
         >[!IMPORTANT]
         > **Permissions** - Run the query as a user with access to all of your Azure subscriptions. 
         >
-        > **Limitations** - Azure Resource Graph has throttling and paging limits that you should consider if you have a large Azure environment. [Learn more](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) about working with large Azure resource data sets. Below sample script takes care of large environments with the help of subscription batching and takes care of paging as well.
+        > **Limitations** - Azure Resource Graph has throttling and paging limits that you should consider if you have a large Azure environment. [Learn more](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) about working with large Azure resource data sets. The sample script below uses subscription batching to avoid these limitations.
 
         ```powershell
         
