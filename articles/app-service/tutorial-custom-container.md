@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Legacy app with container (Preview)'
+title: 'Tutorial: Build and run a custom image in Azure App Service'
 description: A step-by-step guide to build a custom Linux or Windows image, push the image to Azure Container Registry, and then deploy that image to Azure App Service. Learn how to migrate deploy custom software to App Service in a custom container.
 ms.topic: tutorial
 ms.date: 07/16/2020
@@ -7,11 +7,11 @@ keywords: azure app service, web app, linux, windows, docker, container
 ms.custom: mvc, seodec18
 ---
 
+# Migrate custom software to Azure App Service using a custom container
+
 ::: zone pivot="platform-windows"  
 
-# Migrate an ASP.NET app to Azure App Service using a Windows container (Preview)
-
-[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](operating-system-functionality.md)). However, using a custom Windows container in App Service lets you make OS changes that your app needs, so it's easy to migrate on-premises app that requires custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), and then run it in App Service.
+[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](operating-system-functionality.md)). However, using a custom Windows container in App Service (Preview) lets you make OS changes that your app needs, so it's easy to migrate on-premises app that requires custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), and then run it in App Service.
 
 ![Shows the web app running in a Windows container.](media/tutorial-custom-container/app-running.png)
 
@@ -204,8 +204,6 @@ The streamed logs looks like this:
 
 ::: zone pivot="platform-linux"
 
-# Tutorial: Run a custom Docker image in App Service
-
 Azure App Service uses the Docker container technology to host both built-in images and custom images. To see a list of built-in images, run the Azure CLI command, ['az webapp list-runtimes --linux'](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). If those images don't satisfy your needs, you can build and deploy a custom image.
 
 In this tutorial, you learn how to:
@@ -335,7 +333,7 @@ ENTRYPOINT ["init.sh"]
 
     ![Test web app locally](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
 
-[!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 ## Create a resource group
 
@@ -627,12 +625,12 @@ What you learned:
 In the next tutorial, you learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Map custom DNS name to your app](../app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
 
 Or, check out other resources:
 
 > [!div class="nextstepaction"]
-> [Configure custom container](../configure-custom-container.md)
+> [Configure custom container](configure-custom-container.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Multi-container WordPress app](tutorial-multi-container-app.md)
