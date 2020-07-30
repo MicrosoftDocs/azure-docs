@@ -256,7 +256,7 @@ You can set modules on a device through the IoT Hub, but you can also access you
 
 1.  In the Visual Studio Code explorer, under the **Azure IoT Hub** section, expand **Devices** to see your list of IoT devices.
 
-2. Right-click on the device that you want to target with your deployment and select **Create deployment for Single Device**.
+2. Right-click on the device that you want to target with your deployment and select **Create Deployment for Single Device**.
 
 3. Select the **deployment.amd64.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file.
 
