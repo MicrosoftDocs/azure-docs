@@ -589,8 +589,8 @@
         href: policy.md
     - name: Service quotas
       href: concepts-limits.md
-    - name: Advisor recommendations
-      href: advisor-recommendations.md
+    - name: Automatic recommendations
+      href: automated-recommendations.md
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
     items:
