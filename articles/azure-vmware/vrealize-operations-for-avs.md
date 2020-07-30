@@ -13,8 +13,8 @@ vRealize Operations Manager is an operations management platform that allows VMw
 Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#prerequisites) first. Then, we'll walk you through all the necessary procedures to:
 
 > [!div class="checklist"]
-> * Use vRealize Operations Manager to monitor and manage the AVS private cloud resources
-> * Deploy an instance of vRealize Operations Manager on one of the vSphere clusters in the AVS private cloud
+> * Use vRealize Operations Manager to [monitor and manage the AVS private cloud resources](#on-premises-vrealize-operations-managing-avs-deployment)
+> * [Deploy an instance](#vrealize-operations-running-on-avs-deployment) of vRealize Operations Manager on one of the vSphere clusters in the AVS private cloud
 
 ## Before you begin
 * Review the [vRealize Operations Manager product documentation](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) to learn more deploying vRealize Operations. 
@@ -29,7 +29,7 @@ Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#pre
 
 
 
-## Deployment option 1: On-premises vRealize Operations managing AVS
+## On-premises vRealize Operations managing AVS deployment
 Most customers have an existing on-premise deployment of vRealize Operations used to manage one or more on-premise vCenters domains. When customers provision a new AVS private cloud in Azure, they typically connect their on-premise environment with AVS using either an Azure ExpressRoute or using a Layer 3 VPN solution – as shown below.   
 
 :::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="On-premises vRealize Operations managing AVS deployment"  border="false":::
@@ -40,7 +40,7 @@ Refer to the VMware documentation for step-by-step guide for [installing vRealiz
 
 
 
-## Deployment option 2: vRealize Operations running on AVS
+## vRealize Operations running on AVS deployment
 
 Another deployment option is to deploy an instance of vRealize Operations Manager on one of the vSphere clusters in the AVS private cloud – as shown below. 
 
