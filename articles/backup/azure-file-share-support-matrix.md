@@ -16,10 +16,6 @@ You can use the [Azure Backup service](./backup-overview.md) to back up Azure fi
 
 Azure file shares backup is available in all regions **except** for: Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China East 2, China North, China North 2, US Gov Iowa
 
-### Supported regions for accidental delete protection
-
-West Central US, Australia South East, Canada Central, West Central US, India South, North Central US, Japan East, Brazil South, South Central US, Australia East, East US, East US 2
-
 ## Supported storage accounts
 
 | Storage  account details | Support                                                      |

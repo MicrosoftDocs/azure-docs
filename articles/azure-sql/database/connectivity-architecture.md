@@ -101,7 +101,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | Norway West          | 51.120.216.0       |
 | South Africa North   | 102.133.152.0      |
 | South Africa West    | 102.133.24.0       |
-| South Central US     | 13.66.62.124, 23.98.162.75, 104.214.16.32   |
+| South Central US     | 13.66.62.124, 23.98.162.75, 104.214.16.32, 20.45.121.1, 20.49.88.1   |
 | South East Asia      | 104.43.15.0, 23.100.117.95, 40.78.232.3   |
 | Switzerland North    | 51.107.56.0, 51.107.57.0 |
 | Switzerland West     | 51.107.152.0, 51.107.153.0 |
@@ -110,9 +110,9 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | UK South             | 51.140.184.11      |
 | UK West              | 51.141.8.11        |
 | West Central US      | 13.78.145.25       |
-| West Europe          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
+| West Europe          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |
 | West US              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
-| West US 2            | 13.66.226.202, 40.78.240.8  |
+| West US 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
 |                      |                    |
 
 ## Next steps
