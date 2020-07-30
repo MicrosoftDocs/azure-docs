@@ -34,12 +34,14 @@ There are three versions of Azure Functions Core Tools. The version you use depe
 
 Unless otherwise noted, the examples in this article are for version 3.x.
 
+## Prerequisites
+
+Azure Functions Core Tools currently depends on the [Azure CLI](/cli/azure/install-azure-cli) for authenticating with your Azure account. 
+This means that you must install the Azure CLI locally to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
+
 ## Install the Azure Functions Core Tools
 
 [Azure Functions Core Tools] includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
-
->[!IMPORTANT]
->You must have the [Azure CLI](/cli/azure/install-azure-cli) installed locally to be able to publish to Azure from Azure Functions Core Tools.  
 
 ### <a name="v2"></a>Version 3.x and 2.x
 
