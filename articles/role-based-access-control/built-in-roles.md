@@ -8,6 +8,7 @@ ms.workload: identity
 author: rolyon
 ms.author: rolyon
 ms.date: 07/29/2020
+ms.custom: generated
 ---
 
 # Azure built-in roles
