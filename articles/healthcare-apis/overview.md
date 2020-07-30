@@ -6,7 +6,7 @@ author: hansenms
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 0/07/2019
+ms.date: 07/30/2019
 ms.author: mihansen
 ---
 
