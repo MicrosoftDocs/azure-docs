@@ -16,6 +16,7 @@
   expanded: true
   items: 
     - name: Studio
+      expanded: true
       items: 
         - name: Designer (drag-n-drop)
           items: 
@@ -37,6 +38,7 @@
           displayName: tag, tagging, images
           href: tutorial-labeling.md
     - name: Python SDK
+      expanded: true
       items: 
         - name: Create first ML experiment
           items: 
