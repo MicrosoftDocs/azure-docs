@@ -95,7 +95,7 @@ Check that your container image was successfully created and stored in the Azure
 
    Now that you know the registry name, repository name, and tag, you know the full image path of the container. Image paths look like **\<registry_name\>.azurecr.io/tempanomalydetection:1**. You can use the image path to deploy this container to IoT Edge devices.
 
-5. In the container registry, under **Settings** select **Access keys**. You should see a number of access credentials, including **Login server** and the **Username**, and **Password** for an admin user.
+5. In the container registry, under **Settings**, select **Access keys**. You should see a number of access credentials, including **Login server** and the **Username**, and **Password** for an admin user.
 
    These credentials can be included in the deployment manifest to give your IoT Edge device access to pull container images from the registry.
 
