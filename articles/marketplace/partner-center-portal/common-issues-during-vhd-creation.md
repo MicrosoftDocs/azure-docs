@@ -29,7 +29,7 @@ You can't. After a VM is created, users (including owners) can't update the host
 
 These articles explain how to perform RDS resets for Windows- and Linux-based VMs:
 
-* [How to reset the Remote Desktop service or its login password in a Windows VM](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-reset-rdp/)
+* [How to reset the Remote Desktop service or its login password in a Windows VM](azure/virtual-machines/troubleshooting/reset-rdp)
 * [How to reset a Linux VM password or SSH key, fix the SSH configuration, and check disk consistency using the VMAccess extension](azure/virtual-machines/extensions/vmaccess)
 
 ## How do I generate new SSH certificates?
