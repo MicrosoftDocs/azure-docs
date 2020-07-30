@@ -68,7 +68,6 @@ There are two dataset types, based on how users consume them in training:
 ## Create datasets via the SDK
 
 By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost. For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web URLs. 
-FIle and tabular
 
 To create datasets from an [Azure datastore](how-to-access-data.md) by using the Python SDK:
 
