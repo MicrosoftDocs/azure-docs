@@ -16,7 +16,7 @@ ms.custom: how-to, tracking-python
 # Monitor and collect data from ML web service endpoints
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to collect data from and monitor models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI) by enabling Azure Application Insights via 
+In this article, you learn how to collect data from and monitor models deployed to web service endpoints in Azure Kubernetes Service (AKS) or Azure Container Instances (ACI) by querying logs and enabling Azure Application Insights via 
 * [Azure Machine Learning Python SDK](#python)
 * [Azure Machine Learning studio](#studio) at https://ml.azure.com
 
@@ -37,16 +37,7 @@ In addition to collecting an endpoint's output data and response, you can monito
 
 * A trained machine learning model to be deployed to Azure Kubernetes Service (AKS) or Azure Container Instance (ACI). If you don't have one, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial
 
-## Web service metadata and response data
-
-> [!IMPORTANT]
-> Azure Application Insights only logs payloads of up to 64kb. If this limit is reached then you may see errors such as out of memory, or no information may be logged.
-
-To log information for a request to the web service, add `print` statements to your score.py file. Each `print` statement results in one entry in the trace table in Application Insights, under the message `STDOUT`. The contents of the `print` statement will be contained under `customDimensions` and then `Contents` in the trace table. If you print a JSON string, it produces a hierarchical data structure in the trace output under `Contents`.
-
-You can query Azure Application Insights directly to access this data, or set up a [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure Machine Learning to set up labeling, retraining, explainability, data analysis, or other use. 
-
-## Get logs for deployed models
+## Query logs for deployed models
 
 To retrieve logs from a previously deployed web service, load the service and use the `get_logs()` function. The logs may contain detailed information about any errors that occurred during deployment.
 
@@ -57,6 +48,16 @@ from azureml.core.webservice import Webservice
 service = Webservice(name="service-name", workspace=ws)
 logs = service.get_logs()
 ```
+
+## Web service metadata and response data
+
+> [!IMPORTANT]
+> Azure Application Insights only logs payloads of up to 64kb. If this limit is reached then you may see errors such as out of memory, or no information may be logged.
+
+To log information for a request to the web service, add `print` statements to your score.py file. Each `print` statement results in one entry in the trace table in Application Insights, under the message `STDOUT`. The contents of the `print` statement will be contained under `customDimensions` and then `Contents` in the trace table. If you print a JSON string, it produces a hierarchical data structure in the trace output under `Contents`.
+
+You can query Azure Application Insights directly to access this data, or set up a [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure Machine Learning to set up labeling, retraining, explainability, data analysis, or other use. 
+
 
 <a name="python"></a>
 
@@ -171,7 +172,7 @@ To view it:
 1. Go to your Azure Machine Learning workspace in the [studio](https://ml.azure.com/).
 1. Select **Endpoints**.
 1. Select your deployed service.
-1. Scroll down to find the **Application Insights url** and click on the link.
+1. Scroll down to find the **Application Insights url** and select the link.
 
     [![Locate Application Insights url](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 

@@ -1,7 +1,7 @@
 ---
-title: Monitor and view ML experiments logs & metrics
+title: Monitor and view ML run logs & metrics
 titleSuffix: Azure Machine Learning
-description: Monitor your Azure ML experiments and view run metrics to enhance the model creation process. Use widgets and the studio portal to explore run status and 
+description: Monitor your Azure ML experiments and view run metrics to enhance the model creation process. Use widgets and the studio portal to explore run status and view run records.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -13,24 +13,19 @@ ms.topic: conceptual
 ms.custom: how-to
 ---
 
-# Enable logging in Azure ML training runs
+# Monitor and view ML run logs and metrics
+
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-The Azure Machine Learning Python SDK lets log real-time information using both the default Python logging package, and SDK-specific functionality. This can be used to log locally and to send logs to your workspace in the portal. In this article, you learn how to monitor 
+In this article, you learn how to monitor and view logs for Azure Machine Learning runs. For more information on enabling custom logs, see [Enable logging in Azure ML training runs](how-to-track-experiments.md)
 
-Logs can help with diagnosing errors and warnings, or track performance metrics like parameters used and model accuracy across training runs. In this article, you learn different ways of enabling logging in the following areas:
+Logs can help with diagnosing errors and warnings, or track performance metrics like parameters used and model accuracy across training runs. In this article, you learn how to view logs using the following methods:
 
 > [!div class="checklist"]
-> * Interactive training sessions
-> * Submitting training jobs using ScriptRunConfig
-> * Python native `logging` settings
-> * Logging from additional sources
-
-[Create an Azure Machine Learning workspace](how-to-manage-workspace.md). Use the [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) for more information the SDK.
-
-
-
-In this section, you learn how to view your custom logs during run execution.
+> * Monitor runs in the studio
+> * Monitor runs using the Jupyter Notebook widget
+> * View output logs upon completion
+> * View output logs in the studio
 
 For general information on how to manage your experiments, see [Start, monitor, and cancel training runs](how-to-manage-runs.md).
 
@@ -53,7 +48,7 @@ To see the runs for a specific compute target from your browser, use the followi
     > 
     > A run can contain child runs, so one training job can result in multiple entries.
 
-Once a run completes, it is no longer displayed on this page. To view information on completed runs, visit the __Experiments__ section of the studio and select the experiment and run. For more information, see the [View metrics for completed runs](#view-metrics-for-completed-runs) section.
+Once a run completes, it is no longer displayed on this page. To view information on completed runs, visit the __Experiments__ section of the studio and select the experiment and run. For more information, see the section [View metrics for completed runs](#view-the-experiment-in-the-web-portal).
 
 ## Monitor runs using the Jupyter notebook widget
 
@@ -108,7 +103,7 @@ Navigate to the **Experiments** tab and select your experiment. On the experimen
 
 You can drill down to a specific run to view its outputs or logs, or download the snapshot of the experiment you submitted so you can share the experiment folder with others.
 
-You can edit the run list table to select multiple runs and display either the last, minimum or maximum logged value for your runs. Customize your charts to compare the logged metrics values and aggregates across multiple runs.
+You can edit the run list table to select multiple runs and display either the last, minimum, or maximum logged value for your runs. Customize your charts to compare the logged metrics values and aggregates across multiple runs.
 
 :::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Run details in the Azure Machine Learning studio":::
 
@@ -124,14 +119,6 @@ You can use the following methods in the logging APIs to influence how metrics a
 |Log a row with 2 numerical columns repeatedly|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Two-variable line chart|
 |Log table with 2 numerical columns|`run.log_table(name='Sine Wave', value=sines)`|Two-variable line chart|
 
-
-## Example notebooks
-The following notebooks demonstrate concepts in this article:
-* [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
-* [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
-* [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 

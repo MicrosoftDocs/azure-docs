@@ -32,7 +32,7 @@ Use the __Execute Python Script__ module to add logging code to your designer pi
 
 The following example shows you how to log the mean squared error of two trained models using the __Evaluate Model__ and __Execute Python Script__ modules.
 
-1. Connect an __Execute Python Script__ module to the output of the __Evaluate Model__ module. __Evaluate Model__, which can can output evaluation results of 2 models. 
+1. Connect an __Execute Python Script__ module to the output of the __Evaluate Model__ module. __Evaluate Model__, which can output evaluation results of two models. 
 
     ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-track-experiments/designer-logging-pipeline.png)
 
@@ -66,8 +66,7 @@ The following example shows you how to log the mean squared error of two trained
 
 ## Next steps
 
-Try these next steps to learn how to use the Azure Machine Learning SDK for Python:
+In this article, you learned how to use logs in the designer. For next steps, see these related articles:
 
-* See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
-
-* Learn how to [Train PyTorch Models with Azure Machine Learning](how-to-train-pytorch.md).
+* Learn how to troubleshoot designer pipelines, see [Debug & troubleshoot ML pipelines](how-to-debug-pipelines.md#azure-machine-learning-designer-preview).
+* Learn how to use the Python SDK to log metrics in the SDK authoring experience, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).

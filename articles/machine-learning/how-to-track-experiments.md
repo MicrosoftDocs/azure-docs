@@ -39,7 +39,7 @@ You can log multiple data types including scalar values, lists, tables, images, 
 
 Interactive logging sessions are typically used in notebook environments. The method [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) starts an interactive logging session. Any metrics logged during the session are added to the run record in the experiment. The logging session ends with [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-), marks the run as completed and ends the logging session.
 
-The following code snippet use an interactive logging session to logs  training parameters (alpha), performance (mean square error), and uploads the trained model to a specified output location.
+The following code snippet uses an interactive logging session to logs  training parameters (alpha), performance (mean square error), and uploads the trained model to a specified output location.
 
 [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=create_experiment)]
 
@@ -51,7 +51,7 @@ You can use the [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azur
 
 This example performs a parameter sweep over alpha values and captures the results using logs for the experiment run.
 
-1. Create a training script which includes the logging logic, `train.py`.
+1. Create a training script that includes the logging logic, `train.py`.
 
    [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
 
@@ -171,7 +171,7 @@ Navigate to the **Experiments** tab and select your experiment. On the experimen
 
 You can drill down to a specific run to view its outputs or logs, or download the snapshot of the experiment you submitted so you can share the experiment folder with others.
 
-You can edit the run list table to select multiple runs and display either the last, minimum or maximum logged value for your runs. Customize your charts to compare the logged metrics values and aggregates across multiple runs.
+You can edit the run list table to select multiple runs and display either the last, minimum, or maximum logged value for your runs. Customize your charts to compare the logged metrics values and aggregates across multiple runs.
 
 :::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Run details in the Azure Machine Learning studio":::
 
