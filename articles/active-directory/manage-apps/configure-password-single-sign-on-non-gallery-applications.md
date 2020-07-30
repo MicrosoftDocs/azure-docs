@@ -34,7 +34,7 @@ Password-based SSO is a great way to get started integrating applications into A
 
 ## Before you begin
 
-Using Azure AD as your Identity Provider (IdP) and setting up single sign-on (SSO) can be simple or complex depending on the application being used. Some applications can be set up with just a few actions. Others require in-depth configuration. To ramp up quickly, walk through the [quickstart series](view-applications-portal.md) on application management. If the application you're adding is simple, then you probably don't need to read this article. If the application you're adding requires custom configuration and you need to use password-based SSO, then this article is for you.
+Using Azure AD as your Identity Provider and setting up single sign-on (SSO) can be simple or complex depending on the application being used. Some applications can be set up with just a few actions. Others require in-depth configuration. To ramp up quickly, walk through the [quickstart series](view-applications-portal.md) on application management. If the application you're adding is simple, then you probably don't need to read this article. If the application you're adding requires custom configuration and you need to use password-based SSO, then this article is for you.
 
 > [!IMPORTANT] 
 > There are some scenarios where the **Single sign-on** option will not be in the navigation for an application in **Enterprise applications**. 
