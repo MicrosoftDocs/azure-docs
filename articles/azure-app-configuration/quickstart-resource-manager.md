@@ -1,6 +1,6 @@
 ---
 title: ARM template for creating App Configuration store
-description: This quickstart demonstrates how to use Azure Resource Manager templates to deploy an Azure App Configuration store, set key-values to the store and reference key-values from the store.
+description: This quickstart demonstrates how to use Azure Resource Manager templates to deploy an App Configuration store, set key-values to the configuration store and reference key-values from the configuration store.
 author: ZhijunZhao
 ms.author: lcozzens
 ms.date: 07/24/2020
@@ -11,7 +11,7 @@ ms.custom: [mvc, subject-armqs]
 
 # Quickstart: ARM template for creating App Configuration store
 
-This quickstart shows you how to use Azure Resource Manager templates to deploy an Azure App Configuration store. Then you learn how to set key-values to the store and reference the key-values from the store.
+This quickstart shows you how to use Azure Resource Manager templates to deploy an Azure App Configuration store. Then you learn how to set key-values to the configuration store and reference the key-values from the configuration store.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -67,7 +67,7 @@ This section shows the content of the template and how to deploy it.
                 "type": "string",
                 "defaultValue": "<your App Configuration store name>",
                 "metadata": {
-                    "description": "Specifies the name of the app configuration store."
+                    "description": "Specifies the name of the App Configuration store."
                 }
             },
             "keyValueName": {
@@ -147,14 +147,14 @@ For example, to create a key-value pair with key as `AppName:DbEndpoint` and lab
 
 ### Reference key-values in the ARM template
 
-ARM template function `reference` is supported by App Configuration service. In the `outputs` section of the above template, resource id of the key-value is passed to the `reference` function, which returns the key-value object from app configuration store.
+ARM template function `reference` is supported by App Configuration service. In the `outputs` section of the above template, resource id of the key-value is passed to the `reference` function, which returns the key-value object from the App Configuration store.
 
 > [!WARNING]
 > ARM templates can't set or reference key-values in an App Configuration store that has Private Link enabled.
 
 ## Clean up resources
 
-If you aren't going to use the created resource group and config store, delete them by running the following cmdlet:
+If you aren't going to use the created resource group and configuration store, delete them by running the following cmdlet:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup `
