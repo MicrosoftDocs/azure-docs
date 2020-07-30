@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Edge usage and diagnostics data configuration
-description: Learnhow to configure usage and diagnostics data in Azure SQL Edge.
+description: Learn how to configure usage and diagnostics data in Azure SQL Edge.
 services: sql-edge
 ms.service: sql-edge
 ms.topic: conceptual
@@ -56,9 +56,9 @@ group by data_source_type
 
 Usage and diagnostic data collection on Azure SQL Edge can be disabled using either of the below methods.
 
-### Disable Usage and Diagnostics using Environemnt Variables
+### Disable Usage and Diagnostics using Environment Variables
 
-To disable Usage and Dianostics data collection on Azure SQL Edge, add the following environment variable and set its value to `*False*`. For more information on configuring Azure SQL Edge using environment variables, refer [Configure using Environment Variables](configure.md#configure-by-using-environment-variables).
+To disable Usage and Diagnostics data collection on Azure SQL Edge, add the following environment variable and set its value to `*False*`. For more information on configuring Azure SQL Edge using environment variables, refer [Configure using Environment Variables](configure.md#configure-by-using-environment-variables).
 
 `MSSQL_TELEMETRY_ENABLED = TRUE | FALSE`
 
@@ -67,7 +67,7 @@ To disable Usage and Dianostics data collection on Azure SQL Edge, add the follo
 
 ### Disable Usage and Diagnostics using mssql.conf file
 
-To disable Usage and Dianostics data collection on Azure SQL Edge, add the following files in the mssql.conf file on the persistent storage drive that is mapped to the /var/opt/mssql/ folder in the SQL Edge module. For more information on configuring Azure SQL Edge using mssql.conf file, refer [Configure using mssql.conf file](configure.md#configure-by-using-an-mssqlconf-file).
+To disable Usage and Diagnostics data collection on Azure SQL Edge, add the following files in the mssql.conf file on the persistent storage drive that is mapped to the /var/opt/mssql/ folder in the SQL Edge module. For more information on configuring Azure SQL Edge using mssql.conf file, refer [Configure using mssql.conf file](configure.md#configure-by-using-an-mssqlconf-file).
 
 ```ini
 [telemetry]
@@ -82,7 +82,7 @@ The Local Audit component of Azure SQL Edge Usage and Diagnostic Data collection
 
 To enable Local Audit usage and diagnostics data on Azure SQL Edge
 
-1. Create a target directory for new Local Audit log storage. This target directory needs to be created in the same mount volume which is mapped to to /var/opt/mssql/ path on SQL Edge.
+1. Create a target directory for new Local Audit log storage. This target directory needs to be created in the same mount volume that is mapped to /var/opt/mssql/ path on SQL Edge.
 
    ```bash
    sudo mkdir <host mount path>/audit
