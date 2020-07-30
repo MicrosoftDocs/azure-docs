@@ -1,6 +1,6 @@
 ---
 title: Sensitive Data - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: Learn about sensitive data mitigation in the Threat Modeling Tool. See a list of potential threats and mitigation instructions.
 services: security
 documentationcenter: na
 author: jegeib

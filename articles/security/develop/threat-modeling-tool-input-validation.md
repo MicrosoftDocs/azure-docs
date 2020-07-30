@@ -1,6 +1,6 @@
 ---
 title: Input Validation - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: Learn about input validation in the Threat Modeling Tool. See code examples and mitigation instructions.
 services: security
 documentationcenter: na
 author: jegeib
