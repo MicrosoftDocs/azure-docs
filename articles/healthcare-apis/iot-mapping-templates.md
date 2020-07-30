@@ -1,17 +1,17 @@
 ---
-title: 'Concepts: Mapping templates in IoT Connector (preview) feature of Azure API for FHIR'
-description: Learn to create two types of mapping templates in IoT Connector. Device mapping template transforms device data into a normalized schema. FHIR mapping template transforms a normalized message to a FHIR-based Observation resource.
+title: 'Concepts: Mapping templates in Azure IoT Connector for FHIR (preview) feature of Azure API for FHIR'
+description: Learn to create two types of mapping templates in Azure IoT Connector for FHIR (preview). Device mapping template transforms device data into a normalized schema. FHIR mapping template transforms a normalized message to a FHIR-based Observation resource.
 services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 07/31/2020
 ms.author: punagpal
 ---
 
-# IoT Connector (preview) mapping templates
-This article details how to configure IoT Connector using mapping templates.
+# Azure IoT Connector for FHIR (preview) mapping templates
+This article details how to configure IoT Connector* using mapping templates.
 
 The IoT Connector requires two types of JSON-based mapping templates. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). The second type, **FHIR mapping**, controls the mapping for FHIR resource. It allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
@@ -557,10 +557,11 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 
 ## Next steps
 
-Check out frequently asked questions on IoT Connector
+Check out frequently asked questions on Azure IoT Connector for FHIR (preview).
 
 >[!div class="nextstepaction"]
->[IoT Connector FAQs](fhir-faq.md#iot-connector-preview)
+>[Azure IoT Connector for FHIR (preview) FAQs](fhir-faq.md#iot-connector-preview)
 
+*In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
 
 FHIR is the registered trademark of HL7 and is used with the permission of HL7.
