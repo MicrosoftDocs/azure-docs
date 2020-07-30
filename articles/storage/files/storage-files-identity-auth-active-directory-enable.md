@@ -24,6 +24,7 @@ If you are new to Azure file shares, we recommend reading our [planning guide](s
 - Only supported on clients running on OS versions newer than Windows 7 or Windows Server 2008 R2.
 - Only supported against the AD forest that the storage account is registered. You can only access Azure file shares with the AD DS credentials from a single forest by default. If you need to access your Azure file share from a different forest, make sure that you have the proper forest trust configured, see the [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) for details.
 - Does not support authentication against computer accounts created in AD DS. 
+- Does not support On-premises AD DS Nested Groups once Nested Groups are not supported on Azure Active Directory.
 
 When you enable AD DS for Azure file shares over SMB, your AD DS-joined machines can mount Azure file shares using your existing AD DS credentials. This capability can be enabled with an AD DS environment hosted either in on-prem machines or hosted in Azure.
 
