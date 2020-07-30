@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Cosmos account with IP firewall
-description: Create an Azure Cosmos account with IP firewall
+title: Create a Core (SQL) API database and container with autoscale for Azure Cosmos DB
+description: Create a Core (SQL) API database and container with autoscale for Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,18 +9,15 @@ ms.topic: sample
 ms.date: 07/29/2020
 ---
 
-# Create an Azure Cosmos account with IP firewall using Azure CLI
+# Create an Azure Cosmos Core (SQL) API account, database and container with autoscale using Azure CLI
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.9.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0.73 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Sample script
 
-> [!NOTE]
-> This sample demonstrates using a SQL (Core) API account. To use this sample for other APIs, apply the `ip-range-filter` parameter in the script below to `az cosmosdb account create` command for your API specific script.
-
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/ipfirewall.sh "Create an Azure Cosmos account with ip firewall.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/sql/autoscale.sh "Create an Azure Cosmos DB Core (SQL) API account, database, and container with autoscale.")]
 
 ## Clean up deployment
 
@@ -38,6 +35,8 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
+| [az cosmosdb sql database create](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create) | Creates an Azure Cosmos SQL (Core) database. |
+| [az cosmosdb sql container create](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create) | Creates an Azure Cosmos SQL (Core) container. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
