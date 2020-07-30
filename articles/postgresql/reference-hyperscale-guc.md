@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 07/17/2020
+ms.date: 07/28/2020
 ---
 
 # Configuration options
@@ -19,25 +19,11 @@ configuration](http://www.postgresql.org/docs/current/static/runtime-config.html
 section of PostgreSQL documentation.
 
 The rest of this reference aims at discussing Hyperscale (Citus) specific
-configuration parameters. These parameters can be set similar to PostgreSQL
-parameters by modifying postgresql.conf or [by using the SET
-command](http://www.postgresql.org/docs/current/static/config-setting.html).
-
-As an example you can update a setting with:
-
-```postgresql
-ALTER DATABASE citus SET citus.multi_task_query_log_level = 'log';
-```
+configuration parameters. These parameters can be set in the Azure portal under
+**Worker node parameters** under **Settings** for a Hyperscale (Citus) server
+group.
 
 ## General configuration
-
-### citus.max\_worker\_nodes\_tracked (integer)
-
-Hyperscale (Citus) tracks worker nodes' locations and their membership in a
-shared hash table on the coordinator node. This configuration value limits the
-size of the hash table, and consequently the number of worker nodes that can be
-tracked. The default for this setting is 2048. This parameter can only be set
-at server start and is effective on the coordinator node.
 
 ### citus.use\_secondary\_nodes (enum)
 
@@ -102,46 +88,6 @@ ALTER DATABASE foo
 SET citus.node_connection_timeout = 30000;
 ```
 
-### citus.node\_conninfo (text)
-
-The `citus.node_conninfo` GUC sets non-sensitive [libpq connection
-parameters](https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS)
-used for all inter-node connections.
-
-```postgresql
--- key=value pairs separated by spaces.
--- For example, ssl options:
-
-ALTER DATABASE foo
-SET citus.node_conninfo =
-  'sslrootcert=/path/to/citus.crt sslmode=verify-full';
-```
-
-Hyperscale (Citus) honors only a whitelisted subset of the options, namely:
-
--   application\_name
--   connect\_timeout
--   gsslib†
--   keepalives
--   keepalives\_count
--   keepalives\_idle
--   keepalives\_interval
--   krbsrvname†
--   sslcompression
--   sslcrl
--   sslmode (defaults to \"require\")
--   sslrootcert
-
-*(† = subject to the runtime presence of optional PostgreSQL features)*
-
-The `node_conninfo` setting takes effect only on newly opened
-connections. To force all connections to use the new settings, make sure
-to reload the postgres configuration:
-
-```postgresql
-SELECT pg_reload_conf();
-```
-
 ## Query Statistics
 
 ### citus.stat\_statements\_purge\_interval (integer)
@@ -158,17 +104,6 @@ SET citus.stat_statements_purge_interval TO 5;
 
 This parameter is effective on the coordinator and can be changed at
 runtime.
-
-### citus.stat\_statements\_max (integer)
-
-The maximum number of rows to store in
-[citus_stat_statements](reference-hyperscale-metadata.md#query-statistics-table).
-Defaults to 50000, and may be changed to any value in the range 1000 -
-10000000. Note that each row requires 140 bytes of storage, so setting
-stat\_statements\_max to its maximum value of 10M would consume 1.4GB
-of memory.
-
-Changing this GUC will not take effect until PostgreSQL is restarted.
 
 ## Data Loading
 
@@ -221,28 +156,6 @@ and defaults to 1GB. When the source file\'s size (which is used for
 staging) for one shard exceeds this configuration value, the database
 ensures that a new shard gets created. This parameter can be set at
 run-time and is effective on the coordinator.
-
-### citus.replicate\_reference\_tables\_on\_activate (boolean)
-
-Reference table shards must be placed on all nodes which have distributed
-tables. By default, reference table shards are copied to a node at node
-activation time, that is, when such functions as
-[master_add_node](reference-hyperscale-udf.md#master_add_node) or
-[master_activate_node](reference-hyperscale-udf.md#master_activate_node) are
-called. However node activation might be an inconvenient time to copy the
-placements, because it can take a long time when there are large reference
-tables.
-
-You can defer reference table replication by setting the
-`citus.replicate_reference_tables_on_activate` GUC to \'off\'. Reference table
-replication will then happen we create new shards on the node. For instance,
-when calling
-[create_distributed_table](reference-hyperscale-udf.md#create_distributed_table),
-[create_reference_table](reference-hyperscale-udf.md#create_reference_table),
-[upgrade_to_reference_table](reference-hyperscale-udf.md#upgrade_to_reference_table),
-or when the shard rebalancer moves shards to the new node.
-
-The default value for this GUC is \'on\'.
 
 ## Planner Configuration
 
@@ -365,17 +278,6 @@ commands are considered commutative and claim a shared lock, which can
 improve overall throughput. This parameter can be set at runtime and is
 effective on the coordinator.
 
-#### citus.max\_task\_string\_size (integer)
-
-Sets the maximum size (in bytes) of a worker task call string. Changing
-this value requires a server restart, it cannot be changed at runtime.
-
-Active worker tasks are tracked in a shared hash table on the master
-node. This configuration value limits the maximum size of an individual
-worker task, and affects the size of pre-allocated shared memory.
-
-Minimum: 8192, Maximum 65536, Default 12288
-
 #### citus.remote\_task\_check\_interval (integer)
 
 Sets the frequency at which Hyperscale (Citus) checks for statuses of jobs managed by
@@ -434,16 +336,6 @@ HINT:  Queries are split to multiple tasks if they have to be split into several
 STATEMENT:  select * from foo;
 ```
 
-#### citus.propagate\_set\_commands (enum)
-
-Determines which SET commands are propagated from the coordinator to
-workers. The default value for this parameter is \'none\'.
-
-The supported values are:
-
--   **none:** no SET commands are propagated.
--   **local:** only SET LOCAL commands are propagated.
-
 #### citus.enable\_repartition\_joins (boolean)
 
 Ordinarily, attempting to perform repartition joins with the adaptive executor
@@ -451,117 +343,6 @@ will fail with an error message.  However setting
 `citus.enable_repartition_joins` to true allows Hyperscale (Citus) to
 temporarily switch into the task-tracker executor to perform the join.  The
 default value is false.
-
-#### citus.enable\_repartitioned\_insert\_select (boolean)
-
-By default, an INSERT INTO ... SELECT statement that cannot be pushed
-down will attempt to repartition rows from the SELECT statement and
-transfer them between workers for insertion. However, if the target
-table has too many shards then repartitioning will probably not perform
-well. The overhead of processing the shard intervals when determining
-how to partition the results is too great. Repartitioning can be
-disabled manually by setting `citus.enable_repartitioned_insert_select`
-to false.
-
-### Adaptive executor configuration
-
-#### citus.max\_shared\_pool\_size (integer)
-
-Specifies the maximum number of connections that the coordinator node,
-across all simultaneous sessions, is allowed to make per worker node.
-PostgreSQL must allocate fixed resources for every connection and this
-GUC helps ease connection pressure on workers.
-
-Without connection throttling, every multi-shard query creates
-connections on each worker proportional to the number of shards it
-accesses (in particular, up to \#shards/\#workers). Running dozens of
-multi-shard queries at once can easily hit worker nodes\'
-`max_connections` limit, causing queries to fail.
-
-By default, the value is automatically set equal to the coordinator\'s
-own `max_connections`, which isn\'t guaranteed to match that of the
-workers (see the note below). The value -1 disables throttling.
-
-> [!NOTE]
-> There are certain operations that do not obey citus.max\_shared\_pool\_size,
-> most importantly COPY and repartition joins. That\'s why it can be prudent to
-> increase the max\_connections on the workers a bit higher than
-> max\_connections on the coordinator. This gives extra space for connections
-> required for COPY and repartition queries on the workers.
-
-#### citus.max\_adaptive\_executor\_pool\_size (integer)
-
-Whereas [max_shared_pool_size](#citusmax_shared_pool_size-integer) limits
-worker connections across all sessions, `max_adaptive_executor_pool_size`
-limits worker connections from just the *current* session. This GUC is useful
-for:
-
--   Preventing a single backend from getting all the worker resources
--   Providing priority management: designate low priority sessions with
-    low max\_adaptive\_executor\_pool\_size, and high priority sessions
-    with higher values
-
-The default value is 16.
-
-#### citus.executor\_slow\_start\_interval (integer)
-
-Time to wait in milliseconds between opening connections to the same
-worker node.
-
-When the individual tasks of a multi-shard query take very little time,
-they can often be finished over a single (often already cached)
-connection. To avoid redundantly opening additional connections, the
-executor waits between connection attempts for the configured number of
-milliseconds. At the end of the interval, it increases the number of
-connections it is allowed to open next time.
-
-For long queries (those taking \>500ms), slow start might add latency,
-but for short queries it\'s faster. The default value is 10ms.
-
-#### citus.max\_cached\_conns\_per\_worker (integer)
-
-Each backend opens connections to the workers to query the shards. At
-the end of the transaction, the configured number of connections is kept
-open to speed up subsequent commands. Increasing this value will reduce
-the latency of multi-shard queries, but will also increase overhead on
-the workers.
-
-The default value is 1. A larger value such as 2 might be helpful for
-clusters that use a small number of concurrent sessions, but it\'s not
-wise to go much further (e.g. 16 would be too high).
-
-#### citus.force\_max\_query\_parallelization (boolean)
-
-Simulates the deprecated real-time executor. This is used to open as
-many connections as possible to maximize query parallelization.
-
-When this GUC is enabled, Hyperscale (Citus) will force the adaptive executor to use
-as many connections as possible while executing a parallel distributed
-query. If not enabled, the executor might choose to use fewer
-connections to optimize overall query execution throughput. Internally,
-setting this true will end up using one connection per task.
-
-Once place where this is useful is in a transaction whose first query is
-lightweight and requires few connections, while a subsequent query would
-benefit from more connections. Hyperscale (Citus) decides how many connections to use
-in a transaction based on the first statement, which can throttle other
-queries unless we use the GUC to provide a hint.
-
-```postgresql
-BEGIN;
--- add this hint
-SET citus.force_max_query_parallelization TO ON;
-
--- a lightweight query that doesn't require many connections
-SELECT count(*) FROM table WHERE filter = x;
-
--- a query that benefits from more connections, and can obtain
--- them since we forced max parallelization above
-SELECT ... very .. complex .. SQL;
-COMMIT;
-```
-
-The default value is false.
 
 ### Task tracker executor configuration
 
@@ -581,20 +362,6 @@ This parameter can be decreased to trim the delay caused due to the task
 tracker executor by reducing the time gap between the management rounds.
 This is useful in cases when the shard queries are very short and hence
 update their status very regularly.
-
-#### citus.max\_tracked\_tasks\_per\_node (integer)
-
-Sets the maximum number of tracked tasks per node and defaults to 1024.
-This configuration value limits the size of the hash table which is used
-for tracking assigned tasks, and therefore the maximum number of tasks
-that can be tracked at any given time. This value can be set only at
-server start time and is effective on the workers.
-
-This parameter would need to be increased if you want each worker node to be
-able to track more tasks. If this value is lower than what is required,
-Hyperscale (Citus) errors out on the worker node saying it is out of shared
-memory and also gives a hint indicating that increasing this parameter may
-help.
 
 #### citus.max\_assign\_task\_batch\_size (integer)
 
@@ -628,48 +395,6 @@ Hyperscale (Citus) allows for table data to be re-partitioned into multiple
 files when two large tables are being joined. After this partition buffer fills
 up, the repartitioned data is flushed into files on disk.  This configuration
 entry can be set at run-time and is effective on the workers.
-
-### Real-time executor configuration (deprecated)
-
-The Hyperscale (Citus) query planner first prunes away the shards unrelated to
-a query and then hands the plan over to the real-time executor. For executing
-the plan, the real-time executor opens one connection and uses two file
-descriptors per unpruned shard. If the query hits a high number of shards, then
-the executor may need to open more connections than max\_connections or use
-more file descriptors than max\_files\_per\_process.
-
-In such cases, the real-time executor will begin throttling tasks to
-prevent overwhelming the worker resources. Since this throttling can
-reduce query performance, the real-time executor will issue an
-appropriate warning suggesting that increasing these parameters might be
-required to maintain the desired performance. These parameters are
-discussed in brief below.
-
-#### max\_connections (integer)
-
-Sets the maximum number of concurrent connections to the database
-server. The default is typically 100 connections, but might be less if
-your kernel settings will not support it (as determined during initdb).
-The real time executor maintains an open connection for each shard to
-which it sends queries. Increasing this configuration parameter will
-allow the executor to have more concurrent connections and hence handle
-more shards in parallel. This parameter has to be changed on the workers
-as well as the coordinator, and can be done only during server start.
-
-#### max\_files\_per\_process (integer)
-
-Sets the maximum number of simultaneously open files for each server
-process and defaults to 1000. The real-time executor requires two file
-descriptors for each shard it sends queries to. Increasing this
-configuration parameter will allow the executor to have more open file
-descriptors, and hence handle more shards in parallel. This change has
-to be made on the workers as well as the coordinator, and can be done
-only during server start.
-
-> [!NOTE]
-> Along with max\_files\_per\_process, one may also have to increase the
-> kernel limit for open file descriptors per process using the ulimit
-> command.
 
 ### Explain output
 
