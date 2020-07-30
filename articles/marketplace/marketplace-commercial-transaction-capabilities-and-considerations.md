@@ -12,7 +12,7 @@ author: mingshen-ms
 
 ## Transactions by publishing option
 
-Either the publisher or Microsoft is responsible for managing software license transactions for offers in the commercial marketplace. The publishing option you choose for your offer will determine who manages the transaction. See [Determine your publishing option](./determine-your-listing-type.md#choose-a-publishing-option) for availability and explanations of each publishing option.
+Either the publisher or Microsoft is responsible for managing software license transactions for offers in the commercial marketplace. The publishing option you choose for your offer will determine who manages the transaction. See [Determine your publishing option](./determine-your-listing-type.md#choose-a-call-to-action) for availability and explanations of each publishing option.
 
 ### List, trial, and BYOL publishing options
 
