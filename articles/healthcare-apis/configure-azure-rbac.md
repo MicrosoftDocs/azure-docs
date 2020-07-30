@@ -51,4 +51,3 @@ In this article, you learned how to assign Azure RBAC roles for the FHIR data pl
  
 >[!div class="nextstepaction"]
 >[Additional settings Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
-

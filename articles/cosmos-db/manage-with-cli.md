@@ -4,7 +4,7 @@ description: Use Azure CLI to manage your Azure Cosmos DB account, database and 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/03/2020
+ms.date: 07/29/2020
 ms.author: mjbrown
 
 ---
@@ -14,7 +14,7 @@ The following guide describes common commands to automate management of your Azu
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.9.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Azure Cosmos Accounts
 
@@ -303,6 +303,7 @@ az lock delete --ids $lockid
 The following sections demonstrate how to manage the Azure Cosmos DB container, including:
 
 * [Create a container](#create-a-container)
+* [Create a container with autoscale](#create-a-container-with-autoscale)
 * [Create a container with TTL enabled](#create-a-container-with-ttl)
 * [Create a container with custom index policy](#create-a-container-with-a-custom-index-policy)
 * [Change container throughput](#change-container-throughput)
@@ -325,6 +326,25 @@ az cosmosdb sql container create \
     -a $accountName -g $resourceGroupName \
     -d $databaseName -n $containerName \
     -p $partitionKey --throughput $throughput
+```
+
+### Create a container with autoscale
+
+Create a Cosmos container with default index policy, partition key and autoscale RU/s of 4000.
+
+```azurecli-interactive
+# Create a SQL API container
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+partitionKey='/myPartitionKey'
+maxThroughput=4000
+
+az cosmosdb sql container create \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --max-throughput $maxThroughput
 ```
 
 ### Create a container with TTL

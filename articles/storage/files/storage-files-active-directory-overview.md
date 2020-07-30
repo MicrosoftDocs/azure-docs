@@ -118,7 +118,7 @@ You can enable identity-based authentication with either Azure AD DS or on-premi
 
 ### Configure share-level permissions for Azure Files
 
-Once either Azure AD DS or on-premises AD DS authentication is enabled, you can use built-in RBAC roles or configure custom roles for Azure AD identities and assign access rights to any file shares in your storage accounts. The assigned permission allows the granted identity to get access to the share only, nothing else, not even the root directory. You still need to separately configure directory or file-level permissions for Azure file shares.
+Once either Azure AD DS or on-premises AD DS authentication is enabled, you can use Azure built-in roles or configure custom roles for Azure AD identities and assign access rights to any file shares in your storage accounts. The assigned permission allows the granted identity to get access to the share only, nothing else, not even the root directory. You still need to separately configure directory or file-level permissions for Azure file shares.
 
 ### Configure directory or file-level permissions for Azure Files
 

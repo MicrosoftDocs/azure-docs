@@ -70,7 +70,7 @@
      href: How-tos/text-analytics-how-to-keyword-extraction.md
    - name: Named entity recognition
      href: How-tos/text-analytics-how-to-entity-linking.md
-   - name: Text Analytics for Health
+   - name: Text Analytics for health
      href: How-tos/text-analytics-for-health.md
    - name: Use containers
      items:

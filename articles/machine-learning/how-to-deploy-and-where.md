@@ -5,12 +5,12 @@ description: 'Learn how and where to deploy your Azure Machine Learning models, 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2020
-ms.custom: seoapril2019, tracking-python
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 
 ---
 
@@ -214,6 +214,8 @@ myenv = Environment.from_conda_specification(name = 'myenv',
                                              file_path = 'path-to-conda-specification-file'
 myenv.register(workspace=ws)
 ```
+
+For a thorough discussion of using and customizing Python environments with Azure Machine Learning, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md)
 
 ### <a id="script"></a> 2. Define scoring code
 
@@ -632,7 +634,7 @@ See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.
 ### A/B Testing (controlled rollout)
 For more information, see [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) for more information.
 
-## Consume web services
+## Inference using web services
 
 Every deployed web service provides a REST endpoint, so you can create client applications in any programming language.
 If you've enabled key-based authentication for your service, you need to provide a service key as a token in your request header.
