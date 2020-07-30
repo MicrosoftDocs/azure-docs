@@ -1,5 +1,5 @@
 ---
-title: Log ML experiments & metrics
+title: Log custom metrics in the designer (preview)
 titleSuffix: Azure Machine Learning
 description: Monitor your Azure ML experiments and monitor run metrics to enhance the model creation process. Add logging to your training script and view the logged results of a run.  Use run.log, Run.start_logging, or ScriptRunConfig.
 services: machine-learning
