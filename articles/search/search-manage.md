@@ -53,7 +53,7 @@ Regarding access to the endpoint, anyone with access to the service URL and an a
 
 Rights to the service provisioning apparatus is granted through role assignments. [Role-based access (RBAC)](../role-based-access-control/overview.md) is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. 
 
-In the context of Azure Cognitive Search, [RBAC role assignments](search-security-rbac.md) will determine who can perform tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
+In the context of Azure Cognitive Search, [Azure role assignments](search-security-rbac.md) will determine who can perform tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
 
 * Create or delete a service
 * Scale the service
