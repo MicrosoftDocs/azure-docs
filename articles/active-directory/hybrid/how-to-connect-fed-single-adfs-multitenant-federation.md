@@ -58,10 +58,14 @@ Issuer in the domain federation setting will be changed to "http\://contoso.com/
 In Azure AD powershell session perform the following steps:
 Connect to Azure Active Directory that contains the domain fabrikam.com
 
-    Connect-MsolService
+```powershell
+Connect-MsolService
+```
 Convert the fabrikam.com managed domain to federated:
 
-    Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```powershell
+Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```
  
 The above operation will federate the domain fabrikam.com with the same AD FS. You can verify the domain settings by using Get-MsolDomainFederationSettings for both domains.
 

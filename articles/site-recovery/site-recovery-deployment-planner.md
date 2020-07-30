@@ -58,7 +58,7 @@ The tool provides the following details:
 
 ## Support matrix
 
-| | **VMware to Azure** |**Hyper-V to Azure**|**Azure to Azure**|**Hyper-V to secondary site**|**VMware to secondary site**
+| **Category** | **VMware to Azure** |**Hyper-V to Azure**|**Azure to Azure**|**Hyper-V to secondary site**|**VMware to secondary site**
 --|--|--|--|--|--
 Supported scenarios |Yes|Yes|No|Yes*|No
 Supported version | vCenter 6.7, 6.5, 6.0 or 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA
@@ -117,7 +117,7 @@ If you have a previous version of Deployment Planner, do either of the following
 
 ## Version history
 The latest Site Recovery Deployment Planner tool version is 2.5.
-See the [Site Recovery Deployment Planner version history](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) page for the fixes that are added in each update.
+See the [Site Recovery Deployment Planner version history](./site-recovery-deployment-planner-history.md) page for the fixes that are added in each update.
 
 ## Next steps
 [Run Site Recovery Deployment Planner](site-recovery-vmware-deployment-planner-run.md)

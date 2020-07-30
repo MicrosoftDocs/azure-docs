@@ -4,7 +4,7 @@ description: Learn how to create a Linux VM with multiple NICs attached to it us
 author: cynthn
 ms.service: virtual-machines-linux
 ms.subservice: networking
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
@@ -161,7 +161,7 @@ Azure Resource Manager templates use declarative JSON files to define your envir
 }
 ```
 
-Read more about [creating multiple instances using *copy*](../../resource-group-create-multiple.md). 
+Read more about [creating multiple instances using *copy*](../../azure-resource-manager/templates/copy-resources.md). 
 
 You can also use a `copyIndex()` to then append a number to a resource name, which allows you to create `myNic1`, `myNic2`, etc. The following shows an example of appending the index value:
 

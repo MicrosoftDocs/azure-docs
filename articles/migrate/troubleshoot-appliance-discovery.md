@@ -23,7 +23,7 @@ This article helps you troubleshoot issues when deploying the [Azure Migrate](mi
 
 If you receive the error "The provided manifest file is invalid: Invalid OVF manifest entry", do the following:
 
-1. Verify that the Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. [Learn more](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). If the hash value doesn't match, download the OVA file again and retry the deployment.
+1. Verify that the Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. [Learn more](./tutorial-prepare-vmware.md). If the hash value doesn't match, download the OVA file again and retry the deployment.
 2. If deployment still fails, and you're using the VMware vSphere client to deploy the OVF file, try deploying it through the vSphere web client. If deployment still fails, try using a different web browser.
 3. If you're using the vSphere web client and trying to deploy it on vCenter Server 6.5 or 6.7, try to deploy the OVA directly on the ESXi host:
    - Connect to the ESXi host directly (instead of vCenter Server) with the web client (https://<*host IP Address*>/ui).
@@ -36,7 +36,7 @@ This can happen if the appliance machine is behind a proxy.
 
 - Make sure you provide the authorization credentials if the proxy needs them.
 - If you're using a URL-based firewall proxy to control outbound connectivity, add [these URLs](migrate-appliance.md#url-access) to an allow list.
-- If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance VM using [these steps](https://docs.microsoft.com/azure/migrate/concepts-collector).
+- If you're using an intercepting proxy to connect to the internet, import the proxy certificate onto the appliance VM using [these steps](./migrate-appliance.md).
 
 ## Can't sign into Azure from the appliance web app
 
@@ -60,7 +60,7 @@ An error about date and time synchronization (802) indicates that the server clo
 
 If you get this connection error, you might be unable to connect to vCenter Server *Servername*.com:9443. The error details indicate that there's no endpoint listening at `https://\*servername*.com:9443/sdk` that can accept the message.
 
-- Check whether you're running the latest version of the appliance. If you're not, upgrade the appliance to the [latest version](https://docs.microsoft.com/azure/migrate/concepts-collector).
+- Check whether you're running the latest version of the appliance. If you're not, upgrade the appliance to the [latest version](./migrate-appliance.md).
 - If the issue still occurs in the latest version, the appliance might be unable to resolve the specified vCenter Server name, or the specified port might be wrong. By default, if the port is not specified, the collector will try to connect to port number 443.
 
     1. Ping *Servername*.com from the appliance.
@@ -73,10 +73,10 @@ If you get this connection error, you might be unable to connect to vCenter Serv
 
 - Error 60052, "The appliance might not be registered successfully to the Azure Migrate project" occurs if the Azure account used to register the appliance has insufficient permissions.
     - Make sure that the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
-    - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) about required Azure roles and permissions.
+    - [Learn more](./migrate-appliance.md#appliance---vmware) about required Azure roles and permissions.
 - Error 60039, "The appliance might not be registered successfully to the Azure Migrate project" can occur if registration fails because the Azure Migrate project used to the register the appliance can't be found.
     - In the Azure portal and check whether the project exists in the resource group.
-    - If the project doesn't exist, create a new Azure Migrate project in your resource group and register the appliance again. [Learn how to](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) create a new project.
+    - If the project doesn't exist, create a new Azure Migrate project in your resource group and register the appliance again. [Learn how to](./how-to-add-tool-first-time.md#create-a-project-and-add-a-tool) create a new project.
 
 ## Error 60030/60031: Key Vault management operation failed
 
@@ -84,7 +84,7 @@ If you receive the error 60030 or 60031, "An Azure Key Vault management operatio
 - Make sure the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
 - Make sure the account has access to the key vault specified in the error message, and then retry the operation.
 - If the issue persists, contact Microsoft support.
-- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) about the required Azure roles and permissions.
+- [Learn more](./migrate-appliance.md#appliance---vmware) about the required Azure roles and permissions.
 
 ## Error 60028: Discovery couldn't be initiated
 
@@ -99,7 +99,7 @@ Error 60025: "An Azure AD operation failed. The error occurred while creating or
 - Ensure that the user account initiating the discovery is same as the one used to register the appliance.
 - Provide Azure Active Directory application access permissions to the user account for which the discovery operation is failing.
 - Delete the resource group previously created for the Azure Migrate project. Create another resource group to start again.
-- [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) about Azure Active Directory application permissions.
+- [Learn more](./migrate-appliance.md#appliance---vmware) about Azure Active Directory application permissions.
 
 
 ## Error 50004: Can't connect to host or cluster
@@ -140,6 +140,10 @@ If discovered VMs don't appear in the portal or if the VM data is outdated, wait
 
 If you delete VMs and they still appear in the portal, wait 30 minutes. If they still appear, refresh as described above.
 
+## I do not see performance data for some network adapters on my physical servers
+
+This can happen if the physical server has Hyper-V virtualization enabled. Due to a product gap, the network throughput is captured on the virtual network adapters discovered.
+
 ## Error: The file uploaded is not in the expected format
 Some tools have regional settings that create the CSV file with semi-colon as a delimiter. Please change the settings to ensure the delimiter is a comma.
 
@@ -156,6 +160,9 @@ The application discovery runs once every 24 hours. If you would like to see the
 
 ## Unable to export application inventory
 Ensure the user downloading the inventory from the portal has Contributor privileges on the subscription.
+
+## No suitable authentication method found to complete authentication (publickey)
+Key based authentication will not work, use password authentication.
 
 ## Common app discovery errors
 

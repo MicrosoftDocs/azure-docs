@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/29/2020
+ms.date: 07/15/2020
 ---
 
 # Copy data to and from SQL Server by using Azure Data Factory
@@ -35,7 +35,7 @@ You can copy data from a SQL Server database to any supported sink data store. O
 
 Specifically, this SQL Server connector supports:
 
-- SQL Server versions 2016, 2014, 2012, 2008 R2, 2008, and 2005.
+- SQL Server version 2005 and above.
 - Copying data by using SQL or Windows authentication.
 - As a source, retrieving data by using a SQL query or a stored procedure.
 - As a sink, automatically creating destination table if not exists based on the source schema; appending data to a table or invoking a stored procedure with custom logic during copy. 
@@ -185,7 +185,7 @@ To copy data from SQL Server, set the source type in the copy activity to **SqlS
 | sqlReaderQuery |Use the custom SQL query to read data. An example is `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |This property is the name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. |No |
 | storedProcedureParameters |These parameters are for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
-| isolationLevel | Specifies the transaction locking behavior for the SQL source. The allowed values are: **ReadCommitted** (default), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Refer to [this doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) for more details. | No |
+| isolationLevel | Specifies the transaction locking behavior for the SQL source. The allowed values are: **ReadCommitted**, **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. If not specified, the database's default isolation level is used. Refer to [this doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) for more details. | No |
 
 **Points to note:**
 
@@ -290,7 +290,7 @@ To copy data to SQL Server, set the sink type in the copy activity to **SqlSink*
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to **SqlSink**. | Yes |
 | preCopyScript |This property specifies a SQL query for the copy activity to run before writing data into SQL Server. It's invoked only once per copy run. You can use this property to clean up the preloaded data. |No |
-| tableOption | Specifies whether to automatically create the sink table if not exists based on the source schema. Auto table creation is not supported when sink specifies stored procedure or staged copy is configured in copy activity. Allowed values are: `none` (default), `autoCreate`. |No |
+| tableOption | Specifies whether to [automatically create the sink table](copy-activity-overview.md#auto-create-sink-tables) if not exists based on the source schema. Auto table creation is not supported when sink specifies stored procedure or staged copy is configured in copy activity. Allowed values are: `none` (default), `autoCreate`. |No |
 | sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. <br/>This stored procedure is *invoked per batch*. For operations that run only once and have nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property.<br>See example from [Invoke a stored procedure from a SQL sink](#invoke-a-stored-procedure-from-a-sql-sink). | No |
 | storedProcedureTableTypeParameterName |The parameter name of the table type specified in the stored procedure.  |No |
 | sqlWriterTableType |The table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No |

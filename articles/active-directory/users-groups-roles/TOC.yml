@@ -58,6 +58,8 @@
       href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Bulk restore users
       href: users-bulk-restore.md
+    - name: Revoke a user's access
+      href: users-revoke-access.md
     - name: Close an account in an unmanaged directory
       href: users-close-account.md
     - name: Add B2B users  

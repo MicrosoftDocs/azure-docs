@@ -3,7 +3,7 @@ title: Create a premium Azure file share
 description: In this article, you learn how to create a premium Azure file share.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files

@@ -1,11 +1,11 @@
 ---
-title: Bulk load data with Synapse SQL
+title: 'Quickstart: Bulk load data with Synapse SQ'
 description: Use the Synapse Studio to bulk load data in Synapse SQL
 services: synapse-analytics
 author: kevinvngo
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice:
+ms.subservice: sql
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick

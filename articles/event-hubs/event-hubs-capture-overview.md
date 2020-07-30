@@ -84,7 +84,7 @@ A full end-to-end sample is available in the Streaming at Scale repository:
 
 - [HDInsight: Address files in Azure storage][HDInsight: Address files in Azure storage]
 - [Azure Databricks: Azure Blob storage][Azure Databricks: Azure Blob Storage]
-- [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/spark-job) 
+- [Azure Kubernetes Service](../aks/spark-job.md) 
 
 ### Use Avro Tools
 
@@ -144,10 +144,10 @@ Learn how to enable this feature using the Azure portal and Azure Resource Manag
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
-[Avro Tools]: https://www.apache.org/dist/avro/stable/java/avro-tools-1.9.2.jar
+[Avro Tools]: https://downloads.apache.org/avro/stable/java/
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md
 [HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/

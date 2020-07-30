@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -36,7 +36,7 @@ User accounts in Azure Multi-Factor Authentication have the following three dist
 | Status | Description | Non-browser apps affected | Browser apps affected | Modern authentication affected |
 |:---:| --- |:---:|:--:|:--:|
 | Disabled | The default state for a new user not enrolled in Azure Multi-Factor Authentication. | No | No | No |
-| Enabled | The user has been enrolled in Azure Multi-Factor Authentication, but hasn't registered. They receive a prompt to register the next time they sign in. | No.  They continue to work until the registration process is completed. | Yes. After the session expires, Azure Multi-Factor Authentication registration is required.| Yes. After the access token expires, Azure Multi-Factor Authentication registration is required. |
+| Enabled | The user has been enrolled in Azure Multi-Factor Authentication, but hasn't registered authentication methods. They receive a prompt to register the next time they sign in. | No.  They continue to work until the registration process is completed. | Yes. After the session expires, Azure Multi-Factor Authentication registration is required.| Yes. After the access token expires, Azure Multi-Factor Authentication registration is required. |
 | Enforced | The user has been enrolled and has completed the registration process for Azure Multi-Factor Authentication. | Yes. Apps require app passwords. | Yes. Azure Multi-Factor Authentication is required at login. | Yes. Azure Multi-Factor Authentication is required at login. |
 
 A user's state reflects whether an admin has enrolled them in Azure Multi-Factor Authentication, and whether they completed the registration process.
@@ -77,7 +77,7 @@ After you enable users, notify them via email. Tell the users that a prompt is d
 
 ## Change state using PowerShell
 
-To change the user state by using [Azure AD PowerShell](/powershell/azure/overview), you change the `$st.State` parameter for a user account. There are three possible states for a user account:
+To change the user state by using [Azure AD PowerShell](/powershell/azure/), you change the `$st.State` parameter for a user account. There are three possible states for a user account:
 
 * *Enabled*
 * *Enforced*
@@ -176,12 +176,12 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 > [!NOTE]
-> We recently changed the behavior and this PowerShell script. Previously, the script saved off the MFA methods, disabled MFA, and restored the methods. This is no longer necessary now that the default behavior for disable doesn't clear the methods.
->
 > If MFA is re-enabled on a user object that already has registration details, such as phone or email, then administrators need to have that user re-register MFA via Azure portal or PowerShell. If the user doesn't re-register, their MFA state doesn't transition from *Enabled* to *Enforced* in MFA management UI.
 
 ## Next steps
 
-To configure Azure Multi-Factor Authentication settings like trusted IPs, custom voice messages, and fraud alerts, see  [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md). To manage user settings for Azure Multi-Factor Authentication, see [Manage user settings with Azure Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
+To configure Azure Multi-Factor Authentication settings, see  [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md).
+
+To manage user settings for Azure Multi-Factor Authentication, see [Manage user settings with Azure Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
 
 To understand why a user was prompted or not prompted to perform MFA, see [Azure Multi-Factor Authentication reports](howto-mfa-reporting.md).

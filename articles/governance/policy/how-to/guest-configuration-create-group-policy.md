@@ -86,7 +86,7 @@ The next step is to publish the file to blob storage.
 1. The script below contains a function you can use to automate this task. Note, the commands used in the `publish` function require the `Az.Storage` module.
 
    ```azurepowershell-interactive
-    function publish {
+    function Publish-Configuration {
         param(
         [Parameter(Mandatory=$true)]
         $resourceGroup,
@@ -141,25 +141,29 @@ The next step is to publish the file to blob storage.
 
 1. Use the publish function with the assigned parameters to publish the Guest Configuration package to public blob storage.
 
-   ```azurepowershell-interactive
-   $uri = publish `
-   	-resourceGroup $resourceGroup `
-   	-storageAccountName $storageAccount `
-   	-storageContainerName $storageContainer `
-   	-filePath $path `
-   	-blobName $blob
-   	-FullUri
-    ```
 
+   ```azurepowershell-interactive
+   $PublishConfigurationSplat = @{
+       resourceGroup = $resourceGroup
+       storageAccountName = $storageAccount
+       storageContainerName = $storageContainer
+       filePath = $path
+       blobName = $blob
+       FullUri = $true
+   }
+   $uri = Publish-Configuration @PublishConfigurationSplat
+    ```
 1. Once a Guest Configuration custom policy package has been created and uploaded, create the Guest Configuration policy definition. Use the `New-GuestConfigurationPolicy` cmdlet to create the Guest Configuration.
 
    ```azurepowershell-interactive
-   New-GuestConfigurationPolicy `
-   	-ContentUri $Uri `
-	-DisplayName 'Server 2019 Configuration Baseline' `
-	-Description 'Validation of using a completely custom baseline configuration for Windows VMs' `
-	-Path C:\git\policyfiles\policy  `
-	-Platform Windows 
+    $NewGuestConfigurationPolicySplat = @{
+        ContentUri = $Uri 
+        DisplayName = 'Server 2019 Configuration Baseline' 
+        Description 'Validation of using a completely custom baseline configuration for Windows VMs' 
+        Path = 'C:\git\policyfiles\policy'  
+        Platform = Windows 
+        }
+   New-GuestConfigurationPolicy @NewGuestConfigurationPolicySplat
    ```
 	
 1. Publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet. The cmdlet only has the **Path** parameter that points to the location of the JSON files created by `New-GuestConfigurationPolicy`. To run the Publish command, you need access to create policy definitions in Azure. The specific authorization requirements are documented in the [Azure Policy Overview](../overview.md#getting-started) page. The best built-in role is **Resource Policy Contributor**.

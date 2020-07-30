@@ -14,7 +14,7 @@ ms.topic: sample
 
 The following table includes links to Bash scripts built using the Azure CLI that create and manage Azure Storage.
 
-| | |
+| Script | Description |
 |---|---|
 |**Storage accounts**||
 | [Create a storage account and retrieve/rotate the access keys](../scripts/storage-common-rotate-account-keys-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure Storage account and retrieves and rotates its access keys. |

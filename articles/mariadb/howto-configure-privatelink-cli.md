@@ -4,7 +4,7 @@ description: Learn how to configure private link for Azure Database for MariaDB 
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
 ---
 

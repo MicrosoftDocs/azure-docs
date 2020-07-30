@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurepowershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/08/2020
 ---
 # How to back up and restore an Azure Database for PostgreSQL server using PowerShell

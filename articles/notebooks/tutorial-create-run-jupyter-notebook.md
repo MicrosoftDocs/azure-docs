@@ -8,11 +8,11 @@ ms.custom: tracking-python
 
 # Tutorial: create and run a Jupyter notebook with Python
 
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
 This tutorial walks you through the process of using Azure Notebooks to create a complete Jupyter notebook that demonstrates simple linear regression. In the course of this tutorial, you familiarize yourself with the Jupyter notebook UI, which includes creating different cells, running cells, and presenting the notebook as a slide show.
 
 The completed notebook can be found on [GitHub - Azure Notebooks Samples](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). This tutorial, however, begins with a new project and an empty notebook so you can experience creating it step by step.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 In this tutorial, you learn how to:
 

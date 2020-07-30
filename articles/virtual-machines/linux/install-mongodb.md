@@ -6,7 +6,7 @@ manager: gwallace
 ms.service: virtual-machines-linux
 ms.subservice: workloads
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
@@ -209,5 +209,4 @@ These examples deploy the core MongoDB environment for development purposes. App
 
 For more information about creating using templates, see the [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 
-The Azure Resource Manager templates use the Custom Script Extension to download and execute scripts on your VMs. For more information, see [Using the Azure Custom Script Extension with Linux Virtual Machines](extensions-customscript.md).
-
+The Azure Resource Manager templates use the Custom Script Extension to download and execute scripts on your VMs. For more information, see [Using the Azure Custom Script Extension with Linux Virtual Machines](../extensions/custom-script-linux.md).

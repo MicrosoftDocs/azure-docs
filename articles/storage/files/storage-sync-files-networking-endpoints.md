@@ -3,7 +3,7 @@ title: Configuring Azure File Sync network endpoints | Microsoft Docs
 description: An overview of networking options for Azure File Sync.
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files

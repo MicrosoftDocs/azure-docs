@@ -26,15 +26,15 @@ If you have a workspace, but it is not linked to your Automation account, enabli
 
    To add the Update Management feature to your workspace, run the following PowerShell cmdlet:
 
-    ```powershell-interactive
-    Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "Updates" -Enabled $true
-    ```
+```powershell-interactive
+   Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "Updates" -Enabled $true
+```
 
    To add the Change Tracking and Inventory feature to your workspace, run the following PowerShell cmdlet:
 
-    ```powershell-interactive
-    Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "ChangeTracking" -Enabled $true
-    ```
+```powershell-interactive
+   Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "ChangeTracking" -Enabled $true
+```
 
 ### Log Analytics agent
 
@@ -167,7 +167,7 @@ In the search results, you should see heartbeat records for the machine, indicat
 
 2. To confirm the version of the Hybrid Runbook Worker, browse to `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` and note the **version** subfolder.
 
-### Step 3 - Install the runbook environment and connect to Azure Automation
+### Step 2 - Install the runbook environment and connect to Azure Automation
 
 When you configure an agent to report to a Log Analytics workspace, the Azure Automation feature pushes down the `HybridRegistration` PowerShell module, which contains the `Add-HybridRunbookWorker` cmdlet. Use this cmdlet to install the runbook environment on the machine and register it with Azure Automation.
 
@@ -181,28 +181,28 @@ Import-Module .\HybridRegistration.psd1
 Now run the `Add-HybridRunbookWorker` cmdlet using the following syntax.
 
 ```powershell-interactive
-Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
+Add-HybridRunbookWorker –GroupName <String> -Url <Url> -Key <String>
 ```
 
-You can get the information required for the parameters `EndPoint` and `Token` from the **Keys** page in your Automation account. Select **Keys** under the **Account settings** section from the left-hand side of the page.
+You can get the information required for the parameters `Url` and `Key` from the **Keys** page in your Automation account. Select **Keys** under the **Account settings** section from the left-hand side of the page.
 
 ![Manage Keys page](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
-* For the `EndPoint` parameter, copy the value for **URL**.
+* For the `Url` parameter, copy the value for **URL**.
 
-* For the `Token` parameter, copy the value for **PRIMARY ACCESS KEY**.
+* For the `Key` parameter, copy the value for **PRIMARY ACCESS KEY**.
 
 * For the `GroupName` parameter, use the name of the Hybrid Runbook Worker group. If this group already exists in the Automation account, the current machine is added to it. If this group doesn't exist, it's added.
 
 * If required, set the `Verbose` parameter to receive details about the installation.
 
-### Step 4 -  Install PowerShell modules
+### Step 3 -  Install PowerShell modules
 
 Runbooks can use any of the activities and cmdlets defined in the modules installed in your Azure Automation environment. As these modules are not automatically deployed to on-premises machines, you must install them manually. The exception is the Azure module. This module is installed by default and provides access to cmdlets for all Azure services and activities for Azure Automation.
 
-Because the primary purpose of the Hybrid Runbook Worker is to manage local resources, you most likely need to install the modules that support these resources, particularly the `PowerShellGet` module. For information on installing Windows PowerShell modules, see [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
+Because the primary purpose of the Hybrid Runbook Worker is to manage local resources, you most likely need to install the modules that support these resources, particularly the `PowerShellGet` module. For information on installing Windows PowerShell modules, see [Windows PowerShell](/powershell/scripting/developer/windows-powershell).
 
-Modules that are installed must be in a location referenced by the `PSModulePath` environment variable so that the hybrid worker can automatically import them. For more information, see [Install Modules in PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
+Modules that are installed must be in a location referenced by the `PSModulePath` environment variable so that the hybrid worker can automatically import them. For more information, see [Install Modules in PSModulePath](/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
 
 ## <a name="remove-windows-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker from an on-premises Windows machine
 
@@ -213,7 +213,7 @@ Modules that are installed must be in a location referenced by the `PSModulePath
 3. Open a PowerShell session in Administrator mode and run the following command with your URL and primary access key values. Use the `Verbose` parameter for a detailed log of the removal process. To remove stale machines from your Hybrid Worker group, use the optional `machineName` parameter.
 
 ```powershell-interactive
-Remove-HybridRunbookWorker -url <URL> -key <primaryAccessKey> -machineName <computerName>
+Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
 ```
 
 ## Remove a Hybrid Worker group

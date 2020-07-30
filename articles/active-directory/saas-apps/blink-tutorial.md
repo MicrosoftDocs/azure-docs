@@ -82,11 +82,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. In the **Sign on URL** text box, type a URL using one of the following pattern:
 	
-	| | |
-	|-|-|
-	| `https://app.joinblink.com`|
-	| `https://<SUBDOMAIN>.joinblink.com`|
-	| | |
+    ```http
+    https://app.joinblink.com
+    https://<SUBDOMAIN>.joinblink.com
+    ```
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://api.joinblink.com/saml/o-<TENANTID>`

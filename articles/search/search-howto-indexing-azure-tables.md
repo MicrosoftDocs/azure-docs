@@ -9,7 +9,7 @@ ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/11/2020
 ---
 
 # How to index tables from Azure Table storage with Azure Cognitive Search
@@ -45,7 +45,8 @@ For table indexing, the datasource must have the following properties:
 
 To create a datasource:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+```http
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -55,6 +56,7 @@ To create a datasource:
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-table", "query" : "PartitionKey eq '123'" }
     }   
+```
 
 For more information on the Create Datasource API, see [Create Datasource](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
@@ -77,7 +79,8 @@ The index specifies the fields in a document, the attributes, and other construc
 
 To create an index:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+```http
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -88,6 +91,7 @@ To create an index:
             { "name": "SomeColumnInMyTable", "type": "Edm.String", "searchable": true }
           ]
     }
+```
 
 For more information on creating indexes, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
@@ -96,7 +100,8 @@ An indexer connects a datasource with a target search index and provides a sched
 
 After the index and datasource are created, you're ready to create the indexer:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+```http
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -106,6 +111,7 @@ After the index and datasource are created, you're ready to create the indexer:
       "targetIndexName" : "my-target-index",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 This indexer runs every two hours. (The schedule interval is set to "PT2H".) To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is five minutes. The schedule is optional; if omitted, an indexer runs only once when it's created. However, you can run an indexer on demand at any time.   
 
@@ -131,7 +137,8 @@ When you set up a table indexer to run on a schedule, it reindexes only new or u
 
 To indicate that certain documents must be removed from the index, you can use a soft delete strategy. Instead of deleting a row, add a property to indicate that it's deleted, and set up a soft deletion detection policy on the datasource. For example, the following policy considers that a row is deleted if the row has a property `IsDeleted` with the value `"true"`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
+```http
+    PUT https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -142,6 +149,7 @@ To indicate that certain documents must be removed from the index, you can use a
         "container" : { "name" : "table name", "query" : "<query>" },
         "dataDeletionDetectionPolicy" : { "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy", "softDeleteColumnName" : "IsDeleted", "softDeleteMarkerValue" : "true" }
     }   
+```
 
 <a name="Performance"></a>
 ## Performance considerations

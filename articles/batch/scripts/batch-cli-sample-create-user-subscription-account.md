@@ -34,8 +34,8 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [az role assignment create](/cli/azure/role) | Create a new role assignment for a user, group, or service principal. |
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-create) | Creates a key vault. |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy) | Update the security policy of the specified key vault. |
+| [az keyvault create](/cli/azure/keyvault#az-keyvault-create) | Creates a key vault. |
+| [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) | Update the security policy of the specified key vault. |
 | [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Creates the Batch account.  |
 | [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Authenticates against the specified Batch account for further CLI interaction.  |
 | [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |

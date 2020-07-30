@@ -4,7 +4,7 @@ description: Learn how to achieve service-to-service authentication with Azure D
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 
@@ -39,9 +39,9 @@ While following the instructions at the preceding link, make sure you select **W
 ## Step 2: Get application ID, authentication key, and tenant ID
 When programmatically logging in, you need the ID for your application. If the application runs under its own credentials, you also need an authentication key.
 
-* For instructions on how to retrieve the application ID and authentication key (also called the client secret) for your application, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* For instructions on how to retrieve the application ID and authentication key (also called the client secret) for your application, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 
-* For instructions on how to retrieve the tenant ID, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* For instructions on how to retrieve the tenant ID, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 
 ## Step 3: Assign the Azure AD application to the Azure Data Lake Storage Gen1 account file or folder
 

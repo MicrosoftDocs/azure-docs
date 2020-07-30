@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 05/25/2020
+ms.date: 07/16/2020
 ms.custom: references_regions
 #Customer intent: As a DoD mission owner I want to know how to implement a workload at Impact Level 5 in Microsoft Azure Government
 ---
@@ -164,7 +164,7 @@ Azure Automation can be used in Azure Government supporting Impact level 5 workl
 
 Azure Automation can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-- Use the Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the VM that's hosting the role and against resources in your environment. Runbooks are stored and managed in Azure Automation and then delivered to these one or more assigned computers known as Hybrid Runbook Workers. Use Azure Dedicated Host or Isolated Virtual Machine types for Hybrid worker role. [Isolated VM types](#isolated-virtual-machines) when deployed, consume the entire physical host for that VM providing the necessary level of isolation required to support IL5 workloads.
+- Use the [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md) feature of Azure Automation to run runbooks directly on the VM that's hosting the role and against resources in your environment. Runbooks are stored and managed in Azure Automation and then delivered to these one or more assigned computers known as Hybrid Runbook Workers. Use Azure Dedicated Host or Isolated Virtual Machine types for Hybrid worker role. [Isolated VM types](#isolated-virtual-machines) when deployed, consume the entire physical host for that VM providing the necessary level of isolation required to support IL5 workloads.
 
 - [Azure Dedicated Host](#azure-dedicated-hosts) provides physical servers, able to host one or more virtual machines, dedicated to one Azure subscription.
 
@@ -343,11 +343,9 @@ Azure Logic Apps can be used in Azure Government supporting all impact levels wi
 
 | **Service** | **USGov VA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | 
-| **Azure Logic Apps** | X | X | X | | |
+| **Azure Logic Apps** | X | X | X | | X |
 
-Azure Logic Apps relies on [Azure Storage](https://docs.microsoft.com/azure/storage/) to store and automatically encrypt data at rest. This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see [Azure Storage encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) and [Azure Data Encryption-at-Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
-
-If you host and run your logic apps in a dedicated [integration service environment (ISE)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview), rather than in global multi-tenant Azure, and you want more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key". For more information, see [Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/customer-managed-keys-integration-service-environment).
+For more information, see [Secure access and data in Azure Logic Apps - Isolation guidance](../logic-apps/logic-apps-securing-a-logic-app.md#isolation-logic-apps).
 
 ### [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)
 
@@ -522,7 +520,7 @@ Configure Customer-Managed Keys (CMK) for your Log Analytics workspaces and Appl
 
 ### Azure Scheduler
 
-Azure Scheduler is being retired and replaced by [Azure Logic Apps](#logic-apps). To continue working with the jobs that you set up in Scheduler, please migrate to Azure Logic Apps as soon as possible by following this article, [Migrate Azure Scheduler jobs to Azure Logic Apps](https://docs.microsoft.com/scheduler/migrate-from-scheduler-to-logic-apps).
+Azure Scheduler is being retired and replaced by [Azure Logic Apps](#logic-apps). To continue working with the jobs that you set up in Scheduler, please migrate to Azure Logic Apps as soon as possible by following this article, [Migrate Azure Scheduler jobs to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md).
 
 ## Media services
 

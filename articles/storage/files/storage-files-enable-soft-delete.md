@@ -3,7 +3,7 @@ title: Enable soft delete - Azure file shares
 description: Learn how to enable soft delete (preview) on Azure file shares for data recovery and preventing accidental deletion.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
@@ -28,7 +28,7 @@ The following sections show how to enable and use soft delete for Azure file sha
 
 # [PowerShell](#tab/azure-powershell)
 
-To enable soft delete, you must update a file client's service properties. The following example enables soft delete for all file shares in a storage account:
+Soft delete cmdlets are available in the 2.1.1-preview version of the Az.Storage module. To enable soft delete, you must update a file client's service properties. The following example enables soft delete for all file shares in a storage account:
 
 ```azurepowershell-interactive
 $rgName = "yourResourceGroupName"
@@ -65,7 +65,7 @@ To restore a soft deleted file share:
 
 # [PowerShell](#tab/azure-powershell)
 
-To restore a soft deleted file share, use the following command:
+Soft delete cmdlets are available in the 2.1.1-preview version of the Az.Storage module. To restore a soft deleted file share, use the following command:
 
 ```azurepowershell-interactive
 Restore-AzRmStorageShare -ResourceGroupName $rgname -StorageAccountName $accountName -DeletedShareVersion 01D5E2783BDCDA97
@@ -86,7 +86,7 @@ If you wish to stop using soft delete, or permanently delete a file share, follo
 
 # [PowerShell](#tab/azure-powershell)
 
-You can use the following command to disable soft delete on your storage account:
+Soft delete cmdlets are available in the 2.1.1-preview version of the Az.Storage module. You can use the following command to disable soft delete on your storage account:
 
 ```azurepowershell-interactive
 Update-AzStorageFileServiceProperty -ResourceGroupName $rgName -StorageAccountName $accountName -EnableShareDeleteRetentionPolicy $false

@@ -5,7 +5,7 @@ ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.date: 05/15/2019
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Explore Azure Stream Analytics with Visual Studio Code (Preview)

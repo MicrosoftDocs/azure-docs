@@ -3,9 +3,9 @@ title: Connect to Office 365 Outlook
 description: Automate tasks and workflows that manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps 
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 01/08/2020
+ms.date: 07/27/2020
 tags: connectors
 ---
 
@@ -25,9 +25,9 @@ You can use any trigger to start your workflow, for example, when a new email ar
 
 ## Prerequisites
 
-* An [Office 365 account](https://www.office.com/)
+* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). 
+* An [Office 365 account](https://www.office.com/)
 
 * The logic app where you want to access your Office 365 Outlook account. To start your workflow with an Office 365 Outlook trigger, you need to have a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To add an Office 365 Outlook action to your workflow, your logic app needs to already have a trigger.
 
@@ -42,6 +42,10 @@ A [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an event
    ![Select trigger to start your logic app](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
 1. If you're prompted to sign in, provide your Office 365 credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the trigger's properties.
+
+   > [!NOTE]
+   > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
+   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
 
    This example selects the calendar that the trigger checks, for example:
 
@@ -73,6 +77,10 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
 
 1. If you're prompted to sign in, provide your Office 365 credentials so that your logic app can connect to your account. Otherwise, if your connection already exists, provide the information for the action's properties.
 
+   > [!NOTE]
+   > Your connection doesn't expire until revoked, even if you change your sign-in credentials. 
+   > For more information, see [Configurable token lifetimes in Azure Active Directory](../active-directory/active-directory-configurable-token-lifetimes.md).
+
    This example selects the contacts folder where the action creates the new contact, for example:
 
    ![Configure the action's properties](./media/connectors-create-api-office365-outlook/select-contacts-folder.png)
@@ -81,9 +89,9 @@ An [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) is an opera
 
 1. On the designer toolbar, select **Save**.
 
-## Connector-specific details
+## Connector reference
 
-For technical details about triggers, actions, and limits as described in the connector's Swagger file, see the [connector's reference page](/connectors/office365connector/). 
+For technical details about this connector, such as triggers, actions, and limits, as described by the connector's Swagger file, see the [connector's reference page](/connectors/office365/). 
 
 ## Next steps
 

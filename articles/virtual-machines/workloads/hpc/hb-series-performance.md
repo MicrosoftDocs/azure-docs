@@ -115,8 +115,4 @@ OSU MPI Bandwidth Test v5.4.3.
 
 ## Next steps
 
-Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
-
-
-
-
+Learn more about [high-performance computing](/azure/architecture/topics/high-performance-computing/) in Azure.

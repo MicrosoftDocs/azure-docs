@@ -17,10 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 
 # Direct federation with AD FS and third-party providers for guest users (preview)
-|     |
-| --- |
-| Direct federation is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+
+> [!NOTE]
+>  Direct federation is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article describes how to set up direct federation with another organization for B2B collaboration. You can set up direct federation with any organization whose identity provider (IdP) supports the SAML 2.0 or WS-Fed protocol.
 When you set up direct federation with a partner's IdP, new guest users from that domain can use their own IdP-managed organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account.
