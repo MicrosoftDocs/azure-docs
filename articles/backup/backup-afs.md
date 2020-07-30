@@ -145,7 +145,7 @@ The following steps explain how you can configure backup for individual file sha
 
          3. After specifying the retention values and a valid policy name, select **OK**.
 
-           ![Create new backup policy](./media/backup-afs/create-new-backup-policy.png)
+            ![Create new backup policy](./media/backup-afs/create-new-backup-policy.png)
 
 1. Select **Enable backup** to start protecting the file share.
 
