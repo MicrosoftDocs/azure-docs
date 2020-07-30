@@ -626,9 +626,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: Use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported systems.
 
-* [Update Management solution in Azure](../../automation/automation-update-management.md)
+* [Update Management solution in Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Manage updates and patches for your Azure VMs](../../automation/automation-tutorial-update-management.md)
+* [Manage updates and patches for your VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -638,9 +638,9 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 **Guidance**: You may use a third-party patch management solution. You can use the Azure Update Management solution to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported systems.
 
-* [Update Management solution in Azure](../../automation/automation-update-management.md)
+* [Update Management solution in Azure](../../automation/update-management/update-mgmt-overview.md)
 
-* [Manage updates and patches for your Azure VMs](../../automation/automation-tutorial-update-management.md)
+* [Manage updates and patches for your VMs](../../automation/update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Not Available
 
