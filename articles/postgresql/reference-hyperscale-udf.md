@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ---
 
 # Functions in the Hyperscale (Citus) SQL API
