@@ -117,16 +117,16 @@ It's often up to developers and operations teams to run cleanup processes to avo
         - Exist - Query your DNS zones for resources pointing to Azure subdomains such as *.azurewebsites.net or *.cloudapp.azure.com (see [this reference list](azure-domains.md)).
         - You own - Confirm that you own all resources that your DNS subdomains are targeting.
 
-    - Maintain a service catalog of your Azure fully qualified domain name (FQDN) endpoints and the application owners. To build your service catalog, run the following Azure Resource Graph (ARG) query script. This script projects the FQDN endpoint information of the resources you have access to and outputs the same in to a CSV file. If you have access to all the subscriptions of your tenant, the script considers all those subscriptions as you can see below. To limit the results to a specific set of subscriptions, edit the script as shown below.
+    - Maintain a service catalog of your Azure fully qualified domain name (FQDN) endpoints and the application owners. To build your service catalog, run the following Azure Resource Graph query script. This script projects the FQDN endpoint information of the resources you have access to and outputs them in a CSV file. If you have access to all the subscriptions for your tenant, the script considers all those subscriptions as shown in the following sample script. To limit the results to a specific set of subscriptions, edit the script as shown.
 
         >[!IMPORTANT]
-        > **Permissions** - Run the query as a user with access to all of your Azure subscriptions. 
+        > **Permissions** - Run the query as a user who has access to all your Azure subscriptions. 
         >
-        > **Limitations** - Azure Resource Graph has throttling and paging limits that you should consider if you have a large Azure environment. [Learn more](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) about working with large Azure resource data sets. The sample script below uses subscription batching to avoid these limitations.
+        > **Limitations** - Azure Resource Graph has throttling and paging limits that you should consider if you have a large Azure environment. [Learn more](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) about working with large Azure resource data sets. The following sample script uses subscription batching to avoid these limitations.
 
         ```powershell
         
-            # Fetch the full array of subscription IDs
+            # Fetch the full array of subscription IDs.
             $subscriptions = Get-AzSubscription
 
             $subscriptionIds = $subscriptions.Id
@@ -134,8 +134,8 @@ It's often up to developers and operations teams to run cleanup processes to avo
                    $date = get-date
                    $fdate = $date.ToString("MM-dd-yyy hh_mm_ss tt")
                    $fdate #log to console
-                   $rpath = [Environment]::GetFolderPath("MyDocuments") + '\' # Feel free to update your path
-                   $rname = 'Tenant_FQDN_Report_' + $fdate + '.csv' # Feel free to update document name
+                   $rpath = [Environment]::GetFolderPath("MyDocuments") + '\' # Feel free to update your path.
+                   $rname = 'Tenant_FQDN_Report_' + $fdate + '.csv' # Feel free to update the document name.
                    $fpath = $rpath + $rname
                    $fpath #This is the output file of FQDN report.
 
@@ -167,12 +167,12 @@ It's often up to developers and operations teams to run cleanup processes to avo
             $Skip = 0;
             $First = 1000;
 
-            # If you have large number of subscriptions, processing them in batches of 2000
+            # If you have large number of subscriptions, process them in batches of 2,000.
             $counter = [PSCustomObject] @{ Value = 0 }
             $batchSize = 2000
             $response = @()
 
-            # Group the subscriptions into batches
+            # Group the subscriptions into batches.
             $subscriptionsBatch = $subscriptionIds | Group -Property { [math]::Floor($counter.Value++ / $batchSize) }
 
             # Run the query for each subscription batch with paging.
@@ -185,12 +185,12 @@ It's often up to developers and operations teams to run cleanup processes to avo
                 $cont = $y.Count -eq $First; $Skip = $Skip + $First; $y; } while ($cont)
             }
 
-            # View the completed results of the query on all subscriptions
+            # View the completed results of the query on all subscriptions.
             $response | Export-Csv -Path $fpath -Append 
 
         ```
 
-        List of types and their FQDNProperties specified in the above ARG query:
+        List of types and their `FQDNProperty` values as specified in the preceding Resource Graph query:
 
         |Resource name  | `<ResourceType>`  | `<FQDNproperty>`  |
         |---------|---------|---------|
