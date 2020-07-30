@@ -75,6 +75,6 @@ landingContent:
           - text: Use GitHub Actions with Azure Dev Spaces
             url: how-to/github-actions.md
           - text: Use Local Process with Kubernetes with Visual Studio Code
-            url: how-to/local-process-kubernetes-vs-code.md
+            url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
           - text: Use Local Process with Kubernetes with Visual Studio
-            url: how-to/local-process-kubernetes-visual-studio.md
+            url: /visualstudio/containers/local-process-kubernetes

@@ -51,6 +51,23 @@ The following table and graphic provide a high-level view of the components used
 
 ![Components](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
+## Set up outbound network connectivity
+
+For Site Recovery to work as expected, you need to modify outbound network connectivity to allow your environment to replicate.
+
+> [!NOTE]
+> Site Recovery doesn't support using an authentication proxy to control network connectivity.
+
+### Outbound connectivity for URLs
+
+If you're using a URL-based firewall proxy to control outbound connectivity, allow access to these URLs:
+
+| **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`	            | Allows data to be written from the VM to the cache storage account in the source region. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
+| Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Allows the VM to communicate with the Site Recovery service. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
 
 
 ## Replication process

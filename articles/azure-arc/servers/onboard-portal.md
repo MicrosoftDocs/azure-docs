@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/18/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -84,6 +84,10 @@ If the agent fails to start after setup is finished, check the logs for detailed
 
 1. Open an elevated PowerShell command prompt.
 
+    >[!NOTE]
+    >The script only supports running from a 64-bit version of Windows PowerShell.
+    >
+
 1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.ps1` script.
 
 If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *%Programfiles%\AzureConnectedMachineAgentAgent\logs*.
@@ -146,6 +150,9 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 After you install the agent, configure it to communicate with the Azure Arc service by running the following command:
 
 `azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"`
+
+>[!NOTE]
+>You must have *root* access permissions on Linux machines to run **azcmagent**.
 
 ## Verify the connection with Azure Arc
 

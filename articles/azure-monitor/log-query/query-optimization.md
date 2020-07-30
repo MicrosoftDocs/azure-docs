@@ -94,14 +94,14 @@ For example, the following queries produce exactly the same result but the secon
 Heartbeat 
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
 | where IPRegion == "WestCoast"
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 ```Kusto
 //more efficient
 Heartbeat 
 | where RemoteIPLongitude  < -94
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 
 ### Use effective aggregation commands and dimensions in summarize and join
@@ -153,7 +153,7 @@ Heartbeat
 > This indicator presents only CPU from the immediate cluster. In multi-region query, it would represent only one of the regions. In multi-workspace query, it might not include all workspaces.
 
 ### Avoid full XML and JSON parsing when string parsing works
-Full parsing of an XML or JSON object may consume high CPU and memory resources. In many cases, when only one or two parameters are needed and the XML or JSON objects are simple, it is easier to parse them as strings using the [parse operator](/azure/kusto/query/parseoperator) or other [text parsing techniques](/azure/azure-monitor/log-query/parse-text). The performance boost will be more significant as the number of records in the XML or JSON object increases. It is essential when the number of records reaches tens of millions.
+Full parsing of an XML or JSON object may consume high CPU and memory resources. In many cases, when only one or two parameters are needed and the XML or JSON objects are simple, it is easier to parse them as strings using the [parse operator](/azure/kusto/query/parseoperator) or other [text parsing techniques](./parse-text.md). The performance boost will be more significant as the number of records in the XML or JSON object increases. It is essential when the number of records reaches tens of millions.
 
 For example, the following query will return exactly the same results as the queries above without performing full XML parsing. Note that it makes some assumptions on the XML file structure such as that FilePath element comes after FileHash and none of them has attributes. 
 
@@ -217,9 +217,9 @@ SecurityEvent
 ```
 
 ### Avoid multiple scans of same source data using conditional aggregation functions and materialize function
-When a query has several sub-queries that are merged using join or union operators, each sub-query scans the entire source seperately and then merge the results. This multiples the number of times data is scanned - critical factor in very large data sets.
+When a query has several sub-queries that are merged using join or union operators, each sub-query scans the entire source separately and then merge the results. This multiples the number of times data is scanned - critical factor in very large data sets.
 
-A technique to avoid this is by using the conditional aggregation functions. Most of the [aggregation functions](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator#list-of-aggregation-functions) that are used in summary operator has a conditioned version that allow you to use a single summarize operator with multiple conditions. 
+A technique to avoid this is by using the conditional aggregation functions. Most of the [aggregation functions](/azure/data-explorer/kusto/query/summarizeoperator#list-of-aggregation-functions) that are used in summary operator has a conditioned version that allow you to use a single summarize operator with multiple conditions. 
 
 For example, the following queries show the number of login events and the number of process execution events for each account. They return the same results but the first is scanning the data twice, the second scan it only once:
 
@@ -243,7 +243,7 @@ SecurityEvent
 | summarize LoginCount = countif(EventID == 4624), ExecutionCount = countif(EventID == 4688), ExecutedProcesses = make_set_if(Process,EventID == 4688)  by Account
 ```
 
-Another case where sub-queries are unnecessary is pre-filtering for [parse operator](https://docs.microsoft.com/azure/data-explorer/kusto/query/parseoperator?pivots=azuremonitor) to make sure that it processes only records that match specific pattern. This is unessary as the parse operator and other similar operators return empty results when the pattern doesn't match. Here are two queries that return exactly the same results while the second query scan data only once. In the second query, each parse command is relevant only for its events. The extend operator afterwards shows how to refer to empty data situation.
+Another case where sub-queries are unnecessary is pre-filtering for [parse operator](/azure/data-explorer/kusto/query/parseoperator?pivots=azuremonitor) to make sure that it processes only records that match specific pattern. This is unnecessary as the parse operator and other similar operators return empty results when the pattern doesn't match. Here are two queries that return exactly the same results while the second query scan data only once. In the second query, each parse command is relevant only for its events. The extend operator afterwards shows how to refer to empty data situation.
 
 ```Kusto
 //Scan SecurityEvent table twice
@@ -270,7 +270,7 @@ SecurityEvent
 | distinct FilePath, CallerProcessName1
 ```
 
-When the above doesn't allow to avoid using sub-queries, another technique is to hint to the query engine that there is a single source data used in each one of them using the [materialize() function](https://docs.microsoft.com/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). This is useful when the source data is coming from a function that is used several times within the query.
+When the above doesn't allow to avoid using sub-queries, another technique is to hint to the query engine that there is a single source data used in each one of them using the [materialize() function](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). This is useful when the source data is coming from a function that is used several times within the query.
 
 
 
@@ -429,7 +429,7 @@ Query behaviors that can reduce parallelism include:
 - Use of serialization and window functions such as the [serialize operator](/azure/kusto/query/serializeoperator), [next()](/azure/kusto/query/nextfunction), [prev()](/azure/kusto/query/prevfunction), and the [row](/azure/kusto/query/rowcumsumfunction) functions. Time series and user analytics functions can be used in some of these cases. Inefficient serialization may also happen if the following operators are used not at the end of the query: [range](/azure/kusto/query/rangeoperator), [sort](/azure/kusto/query/sortoperator), [order](/azure/kusto/query/orderoperator), [top](/azure/kusto/query/topoperator), [top-hitters](/azure/kusto/query/tophittersoperator), [getschema](/azure/kusto/query/getschemaoperator).
 -    Usage of [dcount()](/azure/kusto/query/dcount-aggfunction) aggregation function force the system to have central copy of the distinct values. When the scale of data is high, consider using the dcount function optional parameters to reduced accuracy.
 -    In many cases, the [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) operator lowers overall parallelism. Examine shuffle join as an alternative when performance is problematic.
--    In resource-scope queries, the pre-execution RBAC checks may linger in situations where there is very large number of RBAC assignments. This may lead to longer checks that would result in lower parallelism. For example, a query is executed on a subscription where there are thousands of resources and each resource has many role assignments in the resource level, not on the subscription or resource group.
+-    In resource-scope queries, the pre-execution RBAC checks may linger in situations where there is very large number of Azure role assignments. This may lead to longer checks that would result in lower parallelism. For example, a query is executed on a subscription where there are thousands of resources and each resource has many role assignments in the resource level, not on the subscription or resource group.
 -    If a query is processing small chunks of data, its parallelism will be low as the system will not spread it across many compute nodes.
 
 
