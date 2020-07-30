@@ -1,49 +1,43 @@
 ---
 title: Use and deploy existing models
 titleSuffix: Azure Machine Learning
-description: 'Learn how you can use Azure Machine Learning with models that were trained outside the service. You can register models created outside Azure Machine Learning, and then deploy them as a web service or Azure IoT Edge module.'
+description: 'Learn how bring your locally trained ML models to the Azure cloud with Azure Machine Learning.  You can register models created outside Azure Machine Learning, and then deploy them as a web service or Azure IoT Edge module.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 03/17/2020
+ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
 ---
 
-# Use an existing model with Azure Machine Learning
+# Register & deploy existing ML model with Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Learn how to use an existing machine learning model with Azure Machine Learning.
+In this article, you'll learn how to register and deploy your existing machine learning model with Azure Machine Learning.  Once deployed, you can monitor your model and detect data drift in Azure Machine Learning. 
 
 If you have a machine learning model that was trained outside Azure Machine Learning, you can still use the service to deploy the model as a web service or to an IoT Edge device. 
 
-> [!TIP]
-> This article provides basic information on registering and deploying an existing model. Once deployed, Azure Machine Learning provides monitoring for your model. It also allows you to store input data sent to the deployment, which can be used for data drift analysis or training new versions of the model.
->
-> For more information on the concepts and terms used here, see [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
->
-> For general information on the deployment process, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+For more information on the concepts and terms used here, see [Manage, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
+
+For information on the deployment process, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Prerequisites
 
-* An Azure Machine Learning workspace. For more information, see [Create a workspace](how-to-manage-workspace.md).
+* [An Azure Machine Learning workspace](how-to-manage-workspace.md)
 
-    > [!TIP]
-    > The Python examples in this article assume that the `ws` variable is set to your Azure Machine Learning workspace.
-    >
-    > The CLI examples use a placeholder of `myworkspace` and `myresourcegroup`. Replace these with the name of your workspace and the resource group that contains it.
+  > [!NOTE]
+  > The Python examples in this article assume that the `ws` variable is set to your Azure Machine Learning workspace.
+  >
+  > The CLI examples use a placeholder of `myworkspace` and `myresourcegroup`. Replace these with the name of your workspace and the resource group that contains it.
 
-* The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
+* The [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 
-* A trained model. The model must be persisted to one or more files on your development environment.
-
-    > [!NOTE]
-    > To demonstrate registering a model trained outside Azure Machine Learning, the example code snippets in this article use the models created by Paolo Ripamonti's Twitter sentiment analysis project: [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
+* A trained model. The model must be persisted to one or more files on your development environment. <br><br>To demonstrate registering a model trained outside Azure Machine Learning, the example code snippets in this article use the models created by Paolo Ripamonti's Twitter sentiment analysis project: [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
 
 ## Register the model(s)
 
@@ -140,7 +134,7 @@ dependencies:
 
 For more information on inference configuration, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
-### Entry script
+### Entry script (score.py)
 
 The entry script has only two required functions, `init()` and `run(data)`. These functions are used to initialize the service at startup and run the model using request data passed in by a client. The rest of the script handles loading and running the model(s).
 
@@ -304,5 +298,4 @@ For more information on how to consume the deployed service, see [Create a clien
 
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)
-* [How and where to deploy models](how-to-deploy-and-where.md)
 * [How to create a client for a deployed model](how-to-consume-web-service.md)
