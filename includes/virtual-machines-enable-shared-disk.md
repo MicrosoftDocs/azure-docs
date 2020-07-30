@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 07/14/2020
+ ms.date: 07/30/2020
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -31,21 +31,29 @@ To deploy a managed disk with the shared disk feature enabled, use the new prope
 > [!IMPORTANT]
 > The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
 
-#### CLI
+# [Azure CLI](#tab/azure-cli)
+
 ```azurecli
-
 az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku PremiumSSD_LRS --max-shares 2
-
 ```
 
-#### PowerShell
-```azurepowershell-interactive
+# [PowerShell](#tab/azure-powershell)
 
+```azurepowershell-interactive
 $dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType PremiumSSD_LRS -CreateOption Empty -MaxSharesCount 2
 
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $dataDiskConfig
-
 ```
+
+# [Resource Manager Template](#tab/azure-resource-manager)
+
+Before using the following template, replace `[parameters('dataDiskName')]`, `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]`, and `[parameters('maxShares')]` with your own values.
+
+- [Premium SSD](https://aka.ms/SharedPremiumDiskARMtemplate)
+
+---
+#### PowerShell
+
 
 ### Deploy an ultra disk as a shared disk
 
@@ -54,7 +62,8 @@ To deploy a managed disk with the shared disk feature enabled, change the `maxSh
 > [!IMPORTANT]
 > The value of `maxShares` can only be set or changed when a disk is unmounted from all VMs. See the [Disk sizes](#disk-sizes) for the allowed values for `maxShares`.
 
-#### CLI
+
+# [Azure CLI](#tab/azure-cli)
 
 ##### Regional disk example
 
@@ -84,7 +93,7 @@ az disk update -g rg1 -n clidisk --disk-iops-read-write 3000 --disk-mbps-read-wr
 az disk show -g rg1 -n clidisk
 ```
 
-#### PowerShell
+# [PowerShell](#tab/azure-powershell)
 
 ##### Regional disk example
 
@@ -103,6 +112,22 @@ $datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -A
 
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
 ```
+
+# [Resource Manager Template](#tab/azure-resource-manager)
+
+##### Regional disk example
+
+Before using the following template, replace `[parameters('dataDiskName')]`, `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]`, `[parameters('maxShares')]`, `[parameters('diskIOPSReadWrite')]`, `[parameters('diskMBpsReadWrite')]`, `[parameters('diskIOPSReadOnly')]`, and `[parameters('diskMBpsReadOnly')]` with your own values.
+
+[Regional ultra disks](https://aka.ms/SharedUltraDiskARMtemplateRegional)
+
+##### Zonal disk example
+
+Before using the following template, replace `[parameters('dataDiskName')]`, `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]`, `[parameters('maxShares')]`, `[parameters('diskIOPSReadWrite')]`, `[parameters('diskMBpsReadWrite')]`, `[parameters('diskIOPSReadOnly')]`, and `[parameters('diskMBpsReadOnly')]` with your own values.
+
+[Zonal ultra disks](https://aka.ms/SharedUltraDiskARMtemplateZonal)
+
+---
 
 ### Using Azure shared disks with your VMs
 
