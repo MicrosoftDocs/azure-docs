@@ -18,6 +18,13 @@ ms.date: 01/06/2020
 
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
 
+## August 2020
+
+| Changes | Details |
+| --- | --- |
+| **Configure ag in portal** | It is now possible to [configure your availability group via the Azure portal](availability-group-az-portal-configure.md). | 
+
+
 ## July 2020
 
 
