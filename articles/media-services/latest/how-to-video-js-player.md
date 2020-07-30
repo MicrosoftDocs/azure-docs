@@ -12,6 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: inhenkel
+ms.custom: devx-track-javascript
 ---
 
 # How to use the Video.js player with Azure Media Services

@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 07/27/2020
+ms.date: 07/29/2020
 ---
 # Copy a transactionally consistent copy of a database in Azure SQL Database
 
@@ -110,6 +110,9 @@ You can use the steps in the [Copy a SQL Database to a different server](#copy-t
 
 > [!NOTE]
 > The [Azure portal](https://portal.azure.com), PowerShell, and the Azure CLI do not support database copy to a different subscription.
+
+> [!TIP]
+> Database copy using T-SQL supports copying a database from a subscription in a different Azure tenant.
 
 ## Monitor the progress of the copying operation
 
