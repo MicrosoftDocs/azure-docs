@@ -56,7 +56,7 @@ New-AzResourceGroup `
 
 This section shows the content of the template and how to deploy it.
 
-1. Copy and paste the following json code into a new file named *appconfig.json*. Replace **GET-UNIQUE** with a unique name for your Configuration Store.
+1. Copy and paste the following json code into a new file named *appconfig.json*. Replace `<your App Configuration store name>` with a unique name for your App Configuration Store.
 
    ```json
     {
@@ -65,7 +65,7 @@ This section shows the content of the template and how to deploy it.
         "parameters": {
             "configStoreName": {
                 "type": "string",
-                "defaultValue": "GET-UNIQUE",
+                "defaultValue": "<your App Configuration store name>",
                 "metadata": {
                     "description": "Specifies the name of the app configuration store."
                 }
@@ -116,7 +116,7 @@ This section shows the content of the template and how to deploy it.
     }
    ```
 
-1. In your PowerShell window, run the following command to deploy the Azure App Configuration store. Don't forget to replace the resource group name and template file path.
+1. In your PowerShell window, run the following command to deploy the App Configuration store. Don't forget to replace the resource group name and template file path.
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
@@ -124,16 +124,16 @@ This section shows the content of the template and how to deploy it.
        -TemplateFile "<path to appconfig.json>"
    ```
 
-Congratulations! You've deployed an app configuration store with one key-value inside.
+Congratulations! You've deployed an App Configuration store with one key-value inside.
 
-### Set key-values in the ARM template
+### Set key-values using the ARM template
 
 In the above template, there are two resource types.
 
-1. `Microsoft.AppConfiguration/configurationStores` for creating the app configuration store.
-1. `Microsoft.AppConfiguration/configurationStores/keyValues` for setting key-values to the app configuration store.
+1. `Microsoft.AppConfiguration/configurationStores` for creating the App Configuration store.
+1. `Microsoft.AppConfiguration/configurationStores/keyValues` for setting key-values to the App Configuration store.
 
-In app configuration store, each key-value pair is uniquely identified by its key and label combination. In ARM template, each key-value pair is represented by a single `Microsoft.AppConfiguration/configurationStores/keyValues` resource, whose name is a combination of key and label. The key and label are joined by delimiter `$`. Label is optional.
+In an App Configuration store, each key-value is uniquely identified by its key and label combination. In ARM template, each key-value pair is represented by a single `Microsoft.AppConfiguration/configurationStores/keyValues` resource, whose name is a combination of key and label. The key and label are joined by delimiter `$`. Label is optional.
 
 In the above template, the key-value name is `myKey$myLabel`, which means the key is `myKey` and the label is `myLabel`. To create a key-value pair without a label, the key-value name shall be like `myKey`.
 
