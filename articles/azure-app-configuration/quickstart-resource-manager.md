@@ -11,7 +11,7 @@ ms.custom: [mvc, subject-armqs]
 
 # Quickstart: ARM template for creating App Configuration store
 
-This quickstart shows you how to use Azure Resource Manager templates to deploy an Azure App Configuration store. Then you learn how to set key-values to the configuration store and reference the key-values from the configuration store.
+This quickstart shows you how to use Azure Resource Manager templates to deploy an Azure App Configuration store. Then you learn how to set key-values to the configuration store and reference key-values from the configuration store.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -116,11 +116,11 @@ This section shows the content of the template and how to deploy it.
     }
    ```
 
-1. In your PowerShell window, run the following command to deploy the App Configuration store. Don't forget to replace the resource group name and template file path.
+1. In your PowerShell window, run the following command to deploy the App Configuration store. Don't forget to replace `<path to appconfig.json>` with actual value.
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
-       -ResourceGroupName "<your resource group name>" `
+       -ResourceGroupName $resourceGroup `
        -TemplateFile "<path to appconfig.json>"
    ```
 
@@ -133,11 +133,11 @@ In the above template, there are two resource types.
 1. `Microsoft.AppConfiguration/configurationStores` for creating the App Configuration store.
 1. `Microsoft.AppConfiguration/configurationStores/keyValues` for setting key-values to the App Configuration store.
 
-In an App Configuration store, each key-value is uniquely identified by its key and label combination. In ARM template, each key-value pair is represented by a single `Microsoft.AppConfiguration/configurationStores/keyValues` resource, whose name is a combination of key and label. The key and label are joined by delimiter `$`. Label is optional.
+In an App Configuration store, each key-value is uniquely identified by its key and label combination. In ARM template, each key-value is represented by a single `Microsoft.AppConfiguration/configurationStores/keyValues` resource, whose name is a combination of key and label. The key and label are joined by delimiter `$`. Label is optional.
 
-In the above template, the key-value name is `myKey$myLabel`, which means the key is `myKey` and the label is `myLabel`. To create a key-value pair without a label, the key-value name shall be like `myKey`.
+In the above template, the key-value name is `myKey$myLabel`, which means the key is `myKey` and the label is `myLabel`. To create a key-value without a label, the key-value name shall be like `myKey`.
 
-To include non-ASCII characters or resource name reserved characters in the key or label, percent-encoding, also known as URL encoding, is supported. `%` is not allowed in ARM resource name. So, `~` is used as the encoding character.
+To include non-ASCII characters or ARM resource name reserved characters in the key or label, percent-encoding, also known as URL encoding, is supported. `%` is not allowed in ARM resource name. So, `~` is used as the encoding character.
 
 1. Encoding character `~` can be encoded as `~7E`.
 2. Delimiter `$` can be encoded as `~24`.
@@ -163,7 +163,7 @@ Remove-AzResourceGroup `
 
 ## Next steps
 
-To learn about creating other applications with Azure App Configuration, continue to the following article:
+To learn about creating an application with Azure App Configuration, continue to the following article:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create an ASP.NET Core app with Azure App Configuration](quickstart-aspnet-core-app.md)
