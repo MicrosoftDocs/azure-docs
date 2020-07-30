@@ -49,7 +49,7 @@ New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $
 
 Before using the following template, replace `[parameters('dataDiskName')]`, `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]`, and `[parameters('maxShares')]` with your own values.
 
-- [Premium SSD](https://aka.ms/SharedPremiumDiskARMtemplate)
+[Premium SSD shared disk template](https://aka.ms/SharedPremiumDiskARMtemplate)
 
 ---
 #### PowerShell
@@ -119,19 +119,22 @@ New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $
 
 Before using the following template, replace `[parameters('dataDiskName')]`, `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]`, `[parameters('maxShares')]`, `[parameters('diskIOPSReadWrite')]`, `[parameters('diskMBpsReadWrite')]`, `[parameters('diskIOPSReadOnly')]`, and `[parameters('diskMBpsReadOnly')]` with your own values.
 
-[Regional ultra disks](https://aka.ms/SharedUltraDiskARMtemplateRegional)
+[Regional shared ultra disks template](https://aka.ms/SharedUltraDiskARMtemplateRegional)
 
 ##### Zonal disk example
 
 Before using the following template, replace `[parameters('dataDiskName')]`, `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]`, `[parameters('maxShares')]`, `[parameters('diskIOPSReadWrite')]`, `[parameters('diskMBpsReadWrite')]`, `[parameters('diskIOPSReadOnly')]`, and `[parameters('diskMBpsReadOnly')]` with your own values.
 
-[Zonal ultra disks](https://aka.ms/SharedUltraDiskARMtemplateZonal)
+[Zonal shared ultra disks template](https://aka.ms/SharedUltraDiskARMtemplateZonal)
 
 ---
 
 ### Using Azure shared disks with your VMs
 
 Once you've deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
+
+> [!NOTE]
+> If you are deploying an ultra disk, make sure it matches the necessary requirements. See the [PowerShell](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) or [CLI](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) section of the ultra disk article for details.
 
 ```azurepowershell-interactive
 
