@@ -52,7 +52,7 @@ If you are an Owner on the subscription, you can run this command yourself. If y
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-For more details about this role requirement and the assignment process, see the [*Set up your user's access permissions* section](how-to-set-up-instance-manual.md#set-up-your-users-access-permissions) of *How-to: Set up an instance and authentication (Manual)*.
+For more details about this role requirement and the assignment process, see the [*Set up your user's access permissions* section](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) of *How-to: Set up an instance and authentication (CLI or portal)*.
 
 If you have this role assignment already and still encounter the 403 issue, continue to the next solution.
 
@@ -70,12 +70,12 @@ First, verify that the Azure Digital Twins permissions settings were properly se
 
 #### Fix issues
 
-If any of this appears differently than described, follow the instructions on how to set up an app registration in the [*Set up access permissions for client applications* section](how-to-set-up-instance-manual.md#set-up-access-permissions-for-client-applications) of *How-to: Set up an instance and authentication (Manual)*.
+If any of this appears differently than described, follow the instructions on how to set up an app registration in the [*Set up access permissions for client applications* section](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) of *How-to: Set up an instance and authentication (CLI or portal)*.
 
 ## Next steps
 
 Read the setup steps for creating and authenticating a new Azure Digital Twins instance:
-* [*How-to: Set up an instance and authentication (Manual)*](how-to-set-up-instance-manual.md)
+* [*How-to: Set up an instance and authentication (CLI)*](how-to-set-up-instance-cli.md)
 
 Read more about security and permissions on Azure Digital Twins:
 * [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md)
