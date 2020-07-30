@@ -24,7 +24,7 @@ Some common scenarios where the link option is valuable include:
 - Add deep links to specific SharePoint pages or other web pages that you just want to appear on your user's Access Panels.
 - Add a link to an app that doesn't require authentication. 
  
- Although the **Linked** option doesn't provide sign-on functionality through Azure AD credentials, you can still use some of the other features of **Enterprise applications**. For example, you can use audit logs and add a custom logo and app name.
+ The **Linked** option doesn't provide sign-on functionality through Azure AD credentials. But, you can still use some of the other features of **Enterprise applications**. For example, you can use audit logs and add a custom logo and app name.
 
 ## Before you begin
 
