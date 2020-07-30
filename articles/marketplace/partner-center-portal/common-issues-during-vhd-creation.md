@@ -54,7 +54,7 @@ Yes, if hosted on Azure. Azure assigns a unique identifier, called the [Azure Vi
 
 ## In a VM, how do I manage the custom script extension in the startup task?
 
-For details on using the Custom Script Extension using the Azure PowerShell module, Azure Resource Manager templates, and troubleshooting steps on Windows systems, see [Custom Script Extension for Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/).
+For details on using the Custom Script Extension using the Azure PowerShell module, Azure Resource Manager templates, and troubleshooting steps on Windows systems, see [Custom Script Extension for Windows](azure/virtual-machines/extensions/custom-script-windows).
 
 ## Are 32-bit applications or services supported in Azure Marketplace?
 
