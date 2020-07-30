@@ -64,6 +64,9 @@ closely resembles your application.
 > possible to perform real-time queries across billions of records in under a
 > second.
 >
+> Tables in real-time analytics data models are typically distributed by
+> columns like user\_id, host\_id, or device\_id.
+>
 > -   **Examples**: Customer-facing analytics dashboards requiring
 >     sub-second response times.
 > -   **Characteristics**: Few tables, often centering around a big
