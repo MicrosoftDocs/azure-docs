@@ -1013,7 +1013,7 @@ Pre-scan any content being uploaded to non-compute Azure resources, such as App 
 
 **Guidance**: Snapshots of your Synapse SQL pool are automatically taken throughout the day creating restore points that are available for seven days. This retention period cannot be changed. SQL pool supports an eight-hour recovery point objective (RPO). You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days. Note that you can also manually trigger snapshots if necessary.
 
-* [Backup and restore in Azure Synapse SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Backup and restore in Azure Synapse SQL pool](azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 **Azure Security Center monitoring**: Not applicable
 
