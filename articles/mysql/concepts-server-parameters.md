@@ -196,6 +196,8 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 
 The lower_case_table_name is set to 1 by default and you can update this parameter in MySQL 5.6.47 and MySQL 5.7.47
 
+Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names) to learn more about this parameter.
+
 > [!NOTE]
 > In MySQL 8.0.15, the lower_case_table_name is set to 1 by default and you cannot change it.
 
