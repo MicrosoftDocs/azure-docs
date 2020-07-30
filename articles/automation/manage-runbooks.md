@@ -220,7 +220,7 @@ To use a custom script:
 
 1. Create an Automation account and obtain a [Contributor role](automation-role-based-access-control.md).
 2. [Link the account to the Azure workspace](../security-center/security-center-enable-data-collection.md).
-3. Enable [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [Update Management](automation-update-management.md), or another Automation feature. 
+3. Enable [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [Update Management](update-management/update-mgmt-overview.md), or another Automation feature. 
 4. If on a Linux machine, you need high permissions. Log in to [turn off signature checks](automation-linux-hrw-install.md#turn-off-signature-validation).
 
 ## Test a runbook
