@@ -24,9 +24,7 @@ Some common scenarios where the link option is valuable include:
 - Add deep links to specific SharePoint pages or other web pages that you just want to appear on your user's Access Panels.
 - Add a link to an app that doesn't require authentication. 
  
- 
-Although the **Linked** option doesn't provide sign-on functionality, you can still use other features of **Enterprise applications**. For example, you can use conditional access, audit logs, and user consent.
-
+ Although the **Linked** option doesn't provide sign-on functionality, you can still use other features of **Enterprise applications**. For example, you can use conditional access, audit logs, and user consent.
 
 ## Before you begin
 
