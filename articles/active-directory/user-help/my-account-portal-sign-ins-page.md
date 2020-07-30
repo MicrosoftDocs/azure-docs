@@ -69,3 +69,5 @@ After viewing your recent sign-in activity, you can:
 - View or manage your [organizations](my-account-portal-organizations-page.md).
 
 - View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
+
+- Change your [My Account portal settings](my-account-portal-settings.md)
