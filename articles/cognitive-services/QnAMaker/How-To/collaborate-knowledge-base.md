@@ -1,6 +1,6 @@
 ---
 title: Collaborating on knowledge base - QnA Maker
-description: QnA Maker allows multiple people to collaborate on a knowledge base. This feature is provided with the Azure Role-Based Access Control.
+description: QnA Maker allows multiple people to collaborate on a knowledge base. This feature is provided with the Azure role-based access control (Azure RBAC).
 ms.topic: conceptual
 ms.date: 07/13/2020
 ---
