@@ -209,6 +209,10 @@ There are two ways to achieve this goal:
 1- You can recreate the cluster and add the additional group at the time of cluster creation. If you're using scoped synchronization in AAD-DS, make sure group B is included in the scoped synchronization.
 2- Add the group as a nested sub group of the previous group that was used to create the ESP cluster. For example, if you've created an ESP cluster with group `A`, you can later on add group `B` as a nested subgroup of `A` and after approximately one hour it will be synced and available in the cluster automatically. 
 
+### Is having a samAccountName mismatch with UPN prefix supported? 
+There are known issues when UPN prefix (for example in bob@contoso.com, the UPN prefix is bob) is not matched with the samAccountName property in AAD-DS. For MapReduce scenarios, the Kerberos authorization might fail. So please make sure that the samAccountName property exactly matches the UPN prefix in AAD-DS. 
+
+
 ## Storage
 
 ### Can I add an Azure Data Lake Storage Gen2 to an existing HDInsight cluster as an additional storage account?
