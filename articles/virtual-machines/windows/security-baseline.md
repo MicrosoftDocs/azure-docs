@@ -560,7 +560,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 * [Role-based access control (RBAC) for Azure resources](../../role-based-access-control/overview.md)
 
-* [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Azure built-in roles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -1089,7 +1089,7 @@ If you are using Azure disk encryption, you can restore the Azure VM with the di
 
 * [Soft delete for VMs](../../backup/soft-delete-virtual-machines.md)
 
-* [Azure Key Vault soft-delete overview](../../key-vault/general/overview-soft-delete.md)
+* [Azure Key Vault soft-delete overview](../../key-vault/general/soft-delete-overview.md)
 
 **Azure Security Center monitoring**: Yes
 

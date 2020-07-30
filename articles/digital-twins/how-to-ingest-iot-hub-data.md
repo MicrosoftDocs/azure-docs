@@ -269,7 +269,7 @@ Now you have an Azure function that is equipped to read and interpret the scenar
 
 ## Debug Azure function apps locally
 
-It is possible to debug Azure functions with an Event Grid trigger locally. For more information about this, see [Debug Event Grid trigger locally](../azure-functions/functions-debug-event-grid-trigger-local.md).
+It is possible to debug Azure functions with an Event Grid trigger locally. For more information about this, see [*Debug Event Grid trigger locally*](../azure-functions/functions-debug-event-grid-trigger-local.md).
 
 ## Next steps
 

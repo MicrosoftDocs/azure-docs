@@ -13,7 +13,17 @@ ms.date: 02/10/2019
 By using View Designer in Azure Monitor, you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. This article presents an overview of View Designer and procedures for creating and editing custom views.
 
 > [!IMPORTANT]
-> Views in Azure Monitor are being phased out and replaced with [workbooks](workbooks-overview.md) which provide additional functionality. See [Azure Monitor view designer to workbooks transition guide](view-designer-conversion-overview.md) for details on converting your existing views to workbooks.
+> Views in Azure Monitor are being phased out and replaced with [workbooks](workbooks-overview.md) which provide additional functionality. See [Azure Monitor view designer to workbooks transition guide](view-designer-conversion-overview.md) for details on converting your existing views to workbooks. See the following table for the steps that will be taken over the next several months.
+> 
+> | Change | What this means | Expected Date |
+> |:---|:---|:---|
+> | Disable the creation of new views created through View Designer. | You will no longer be able to create and save new custom views in the Azure portal.| November 2020 |
+> | Disable the edit function for existing views with View Designer. | You will no longer be able to modify and save changes to your existing custom views. | November 2020 |
+> | Disable deployment of views to Log Analytics workspaces | You will no longer be able to deploy custom views using ARM to Log Analytics workspaces. | March 2021 |
+> | View Designer no longer available in the Azure portal | The portal experience will no longer support View Designer. | June 2021 |
+> | Custom views removed from the Workspace Summary | You will no longer be able to access your custom view data. | December 2021 |
+ 
+
 
 For more information about View Designer, see:
 
