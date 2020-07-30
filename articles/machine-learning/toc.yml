@@ -306,9 +306,12 @@
             - name: Start, monitor or cancel runs
               displayName: cancel, fail, status, child run
               href: how-to-manage-runs.md
-            - name: Log metrics for training runs
+            - name: Enable logs and custom metrics
               displayName: troubleshoot, log, files, tracing
               href: how-to-track-experiments.md
+            - name: View logs and custom metrics
+              displayName: troubleshoot, log, files, tracing
+              href: how-to-monitor-view-training-logs.md
             - name: Track experiments with MLflow
               displayName: log, monitor, metrics, Databricks
               href: how-to-use-mlflow.md
