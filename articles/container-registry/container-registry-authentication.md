@@ -60,7 +60,7 @@ Output displays the access token, abbreviated here:
 }
 ``` 
 
-Then, run `docker login`, passing the username `00000000-0000-0000-0000-000000000000` and using the access token as password:
+Then, run `docker login`, passing `00000000-0000-0000-0000-000000000000` as the username and using the access token as password:
 
 ```console
 docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password eyJhbGciOiJSUzI1NiIs[...]24V7wA
