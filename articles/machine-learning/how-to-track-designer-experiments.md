@@ -1,7 +1,7 @@
 ---
 title: Log custom metrics in the designer (preview)
 titleSuffix: Azure Machine Learning
-description: Monitor your Azure ML designer experiments to enhance the model creation process. Add logging to your training script and view the logged results of a run.
+description: Monitor your Azure ML designer experiments to enhance the model creation process. Add logging using the Execute Python Script module and view the logged results of in the studio.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -26,7 +26,7 @@ For more information on logging metrics using the SDK authoring experience, see 
 - A [designer pipeline draft](tutorial-designer-automobile-price-train-score.md). 
 
 
-## Log designer pipelines
+## Add logging to designer pipelines
 
 Use the __Execute Python Script__ module to add logging code to your designer pipelines. Although you can log any value with this workflow, it's especially useful to log metrics from the __Evaluate Model__ module to track model performance across runs.
 

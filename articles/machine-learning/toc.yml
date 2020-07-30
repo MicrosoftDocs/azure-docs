@@ -421,6 +421,9 @@
           href: how-to-debug-pipelines.md
         - name: Debug pipelines in Application Insights
           href: how-to-debug-pipelines-application-insights.md
+        - name: Designer log custom metrics
+          displayName: designer, logging
+          href: how-to-track-designer-experiments.md
         - name: Designer transform data
           displayName: pipeline
           href: how-to-designer-transform-data.md
