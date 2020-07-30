@@ -61,9 +61,9 @@ landingContent:
 
       - linkListType: learn
         links:
-          - text: Deploy consistent infrastructure
+          - text: Consistent infrastructure
             url: /learn/modules/create-azure-resource-manager-template-vs-code/
-          - text: Deploy to multiple Azure environments
+          - text: Multiple environments
             url: /learn/modules/modify-azure-resource-manager-template-reuse/
           
   # Card
