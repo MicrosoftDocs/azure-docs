@@ -53,7 +53,8 @@ When you're viewing a role's members, select **Description** to see the complete
 ![list of permissions for an admin role](./media/directory-manage-roles-portal/role-description.png)
 
 ## Download role assignments
-If you want to download all assignments to a specific role, select a role on the **Roles and administrators** page and click **Download role assignments**. A CSV file will be downloaded listing assignments at all scopes to that role.
+
+To download all assignments for a specific role, on the **Roles and administrators** page, select a role, and then select **Download role assignments**. A CSV file that lists assignments at all scopes for that role is downloaded.
 
 ![download all assignments for a role](./media/directory-manage-roles-portal/download-role-assignments.png)
 
