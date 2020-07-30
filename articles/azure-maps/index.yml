@@ -80,6 +80,8 @@ landingContent:
             url: drawing-error-visualizer.md
           - text: Use the indoor map module
             url: how-to-use-indoor-module.md
+          - text: Use Azure Digital Twins to update indoor map
+            url: how-to-integrate-maps.md
       - linkListType: reference
         links:
           - text: Conversion service
