@@ -100,7 +100,7 @@ Select the virtual network *azure-spring-cloud-vnet* you created.
     |Role     |Select **Owner**                                  |
     |Select   |Enter *Azure Spring Cloud Resource Provider*      |
 
-    Then select *Azure Spring Cloud Resource Provider*, and select **Save**.
+    Then select *Azure Spring Cloud Resource Provider*, and click **Save**.
 
     ![Grant azure spring cloud resource provider to v-net](./media/spring-cloud-v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
 
