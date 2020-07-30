@@ -36,7 +36,8 @@ Most customers have an existing on-premise deployment of vRealize Operations use
 
 To extend the vRealize Operations capabilities to the AVS private cloud, you create an adapter[ instance for the AVS private cloud resources](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.config.doc/GUID-640AD750-301E-4D36-8293-1BFEB67E2600.html) - to collect data from the AVS private cloud and bring it into on-premises vRealize Operations. The on-premises vRealize Operations Manager instance can directly connect to the vCenter and NSX-T manager on AVS or you can optionally deploy a vRealize Operations Remote Collector on the AVS private cloud. A vRealize Operations Remote Collector compresses and encrypts the data collected from the AVS private cloud before it's sent over the ExpressRoute or VPN network to the vRealize Operations Manager running on-premise. 
 
-Refer to the VMware documentation for step-by-step guide for [installing vRealize Operations Manager](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html). 
+> [!TIP]
+> Refer to the VMware documentation for step-by-step guide for [installing vRealize Operations Manager](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html). 
 
 
 
@@ -48,7 +49,8 @@ Another deployment option is to deploy an instance of vRealize Operations Manage
 
 After deploying the AVS instance of vRealize Operations you can configure vRealize Operations to collect data from vCenter, ESXi, NSX-T, vSAN, and HCX. 
 
-Use the VMware documentation for step-by-step guide for [installing vRealize Operations Manager](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html).
+> [!TIP]
+> Refer to the VMware documentation for step-by-step guide for [installing vRealize Operations Manager](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html).
 
 
 
