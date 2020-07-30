@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 07/29/2020
+ms.date: 07/30/2020
 ---
 
 # Determine your publishing option
@@ -42,9 +42,23 @@ The following table shows the publishing options for offer types in Microsoft Ap
 
 &#42;&#42; Microsoft 365 offers are free to install and can be monetized via SaaS offer as a licensing service. For more information, see [Monetize your Office 365 add-in through the Microsoft commercial marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
+## Choose a call to action
+
+The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Note the calls-to-action that correspond with the publishing option:
+
+| **Publishing option**    | **Description**  |
+| :------------------- | :-------------------|
+| **List** | Simple listing of your application or service that enables a commercial marketplace user to request you to connect with the customer via the **Contact Me** call-to-action. |
+| **Trial** | Use the commercial marketplace to enhance discoverability and automate provisioning of your solution's trial experience, enabling prospective users to use your SaaS, IaaS, or Microsoft in-app experience at no cost for a limited time before they buy. The calls-to-action used for the trial publishing option are either **Free Trial** or **Test Drive**. |
+| **BYOL** | Use the commercial marketplace to enhance discoverability and automate provisioning of your solution, and complete the financial transaction separately. BYOL offer types are ideal for on-premises to cloud migrations. The call-to-action is **Get it Now**.
+| **Transact** | Transact offers are sold through the commercial marketplace. Microsoft is responsible for billing and collections. The call-to-action is **Get it Now**.|
+
+> [!Note]
+> When using the Transact publishing option, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. To learn more, review the article [Commercial marketplace transact capabilities](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+
 ## Selecting a storefront
 
-Each storefront serves unique customer requirements and targets specific audiences. Your offer type, transact capabilities, and category or industry will determine where your offer will be published. Categories and subcategories are mapped to each storefront based on the target audience:
+Each storefront serves unique customer requirements and targets specific audiences. Your offer type, transact capabilities, and category will determine where your offer will be published. Categories and subcategories are mapped to each storefront based on the target audience:
 
 **Microsoft AppSource** targets business users looking for line-of-business or industry solutions and consulting services for Dynamics 365, Microsoft 365, and Power Platform.
 
@@ -77,103 +91,7 @@ Categories and subcategories are mapped to each storefront based on the target a
 - At least one and up to two categories. You have the option to choose a primary and a secondary category.
 - Up to two subcategories for each primary and/or secondary category. If you don’t select any subcategory, your offer will still be discoverable under the selected category.
 
-| [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) |
-| :------------------- |:----------------|
-|**Analytics** | **Analytics** |
-| &nbsp;&nbsp;Data Insights | &nbsp;&nbsp;Advanced Analytics  |
-| &nbsp;&nbsp;Data Analytics |  &nbsp;&nbsp;Visualization & Reporting |
-| &nbsp;&nbsp;Big Data | **AI + Machine Learning**  |
-| &nbsp;&nbsp;Predictive Analytics | &nbsp;&nbsp;AI for Business |
-| &nbsp;&nbsp;Real-time/Streaming Analytics | &nbsp;&nbsp;Bot Apps |
-| **AI + Machine Learning** | **Collaboration** |
-| &nbsp;&nbsp;Bot Service | &nbsp;&nbsp;Contact & People |
-| &nbsp;&nbsp;Cognitive Services | &nbsp;&nbsp;Meeting Management |
-| &nbsp;&nbsp;ML Service | &nbsp;&nbsp;Site Design & Management |
-| &nbsp;&nbsp;Automated ML | &nbsp;&nbsp;Task & Project Management |
-| &nbsp;&nbsp;Business/Robotic Process Automation | &nbsp;&nbsp;Voice & Video Conferencing |
-| &nbsp;&nbsp;Data Labeling | **Compliance & Legal** |
-| &nbsp;&nbsp;Data Preparation | &nbsp;&nbsp;Tax & Audit |
-| &nbsp;&nbsp;Knowledge Mining | &nbsp;&nbsp;Legal |
-| &nbsp;&nbsp;ML Operations | &nbsp;&nbsp;Data, Governance & Privacy |
-| **Blockchain**  | &nbsp;&nbsp;Health & Safety |
-| &nbsp;&nbsp;App Accelerators | **Customer Service**  |
-| &nbsp;&nbsp;Single-node Ledger | &nbsp;&nbsp;Contact Center |
-| &nbsp;&nbsp;Multi-node Ledger | &nbsp;&nbsp;Face to Face Service |
-| &nbsp;&nbsp;Tools | &nbsp;&nbsp;Back Office & Employee Service |
-| **Compute**  | &nbsp;&nbsp;Knowledge & Case Management |
-| &nbsp;&nbsp;Application Infrastructure | &nbsp;&nbsp;Social Media & Omnichannel Engagement |
-| &nbsp;&nbsp;Operating Systems | **Finance** |
-| &nbsp;&nbsp;Cache | &nbsp;&nbsp;Accounting |
-| **Containers**  | &nbsp;&nbsp;Asset Management |
-| &nbsp;&nbsp;Get Started with Containers | &nbsp;&nbsp;Analytics, Consolidation & Reporting |
-| &nbsp;&nbsp;Container Apps | &nbsp;&nbsp;Credit & Collections |
-| &nbsp;&nbsp;Container Images | &nbsp;&nbsp;Compliance & Risk Management |
-| **Databases**  | **Geolocation** |
-| &nbsp;&nbsp;NoSQL Databases | &nbsp;&nbsp;Maps |
-| &nbsp;&nbsp;Relational Databases | &nbsp;&nbsp;News & Weather |
-| &nbsp;&nbsp;Ledger/Blockchain Databases | **Human Resources** |
-| &nbsp;&nbsp;Data Lakes | &nbsp;&nbsp;Talent Acquisition |
-| &nbsp;&nbsp;Data Warehouse | &nbsp;&nbsp;Talent Management |
-| **Developer Tools**  | &nbsp;&nbsp;HR Operations |
-| &nbsp;&nbsp;Tools | &nbsp;&nbsp;Workforce Planning & Analytics |
-| &nbsp;&nbsp;Scripts | **IT & Management Tools** |
-| &nbsp;&nbsp;Developer Service | &nbsp;&nbsp;Management Solutions |
-| **DevOps**  | &nbsp;&nbsp;Business Applications |
-| **Integration**  | **Internet of Things** |
-| &nbsp;&nbsp;Messaging | &nbsp;&nbsp;Asset Management & Operations |
-| **IT & Management Tools**  | &nbsp;&nbsp;Connected Products |
-| &nbsp;&nbsp;Management Solutions | &nbsp;&nbsp;Intelligent Supply Chain |
-| &nbsp;&nbsp;Business Applications | &nbsp;&nbsp;Predictive Maintenance |
-| **Identity**  | &nbsp;&nbsp;Remote Monitoring |
-| &nbsp;&nbsp;Access Management | &nbsp;&nbsp;Safety & Security |
-| **Internet of Things**  | &nbsp;&nbsp;Smart Infrastructure & Resources |
-| &nbsp;&nbsp;IoT Connectivity | &nbsp;&nbsp;Vehicles & Mobility |
-| &nbsp;&nbsp;IoT Core Services | **Marketing** |
-| &nbsp;&nbsp;IoT Edge Modules | &nbsp;&nbsp;Advertisement |
-| &nbsp;&nbsp;IoT Solutions | &nbsp;&nbsp;Analytics |
-| &nbsp;&nbsp;Data Analytics & Visualization | &nbsp;&nbsp;Campaign Management & Automation |
-| **Media**  | &nbsp;&nbsp;Email Marketing |
-| &nbsp;&nbsp;Media Services | &nbsp;&nbsp;Events & Resource Management |
-| &nbsp;&nbsp;Content Protection | &nbsp;&nbsp;Research & Analysis |
-| &nbsp;&nbsp;Live & On-Demand Streaming | &nbsp;&nbsp;Social Media |
-| **Monitoring & Diagnostics**  | **Operations & Supply Chain** |
-| **Migration**  | &nbsp;&nbsp;Asset & Production Management |
-| &nbsp;&nbsp;Data Migration | &nbsp;&nbsp;Demand Forecasting |
-| **Mixed Reality**  | &nbsp;&nbsp;Information Management & Connectivity |
-| **Networking**  | &nbsp;&nbsp;Planning, Purchasing & Reporting |
-| &nbsp;&nbsp;Appliance Managers | &nbsp;&nbsp;Quality & Service Management |
-| &nbsp;&nbsp;Connectivity | &nbsp;&nbsp;Sales & Order Management |
-| &nbsp;&nbsp;Firewalls | &nbsp;&nbsp;Transportation & Warehouse Management |
-| &nbsp;&nbsp;Load Balancers | **Productivity** |
-| **Security**  | &nbsp;&nbsp;Content Creation & Management |
-| &nbsp;&nbsp;Identity & Access Management | &nbsp;&nbsp;Document Management |
-| &nbsp;&nbsp;Threat Protection | &nbsp;&nbsp;Email Management |
-| &nbsp;&nbsp;Information Protection | &nbsp;&nbsp;Language & Translation |
-| **Storage**  | &nbsp;&nbsp;Search & Reference |
-| &nbsp;&nbsp;Backup & Recovery | &nbsp;&nbsp;Gamification |
-| &nbsp;&nbsp;Enterprise Hybrid Storage | **Sales** |
-| &nbsp;&nbsp;File Sharing | &nbsp;&nbsp;Telesales |
-| &nbsp;&nbsp;Data Life-cycle Management | &nbsp;&nbsp;Configure, Price, Quote (CPQ) |
-| **Web**  | &nbsp;&nbsp;Contract Management |
-| &nbsp;&nbsp;Blogs & CMSs | &nbsp;&nbsp;CRM |
-| &nbsp;&nbsp;Starter Web Apps | &nbsp;&nbsp;E-commerce |
-| &nbsp;&nbsp;E-commerce | &nbsp;&nbsp;Business Data Enrichment  |
-| &nbsp;&nbsp;Web App Frameworks | &nbsp;&nbsp;Sales Enablement  |
-| &nbsp;&nbsp;Web Apps |  |
-
-## Choose a publishing option
-
-The publishing options available offer differentiated customer engagement while giving you access to lead sharing and [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Note the calls-to-action that correspond with the publishing option:
-
-| **Publishing option**    | **Description**  |
-| :------------------- | :-------------------|
-| **List** | Simple listing of your application or service that enables a commercial marketplace user to request you to connect with the customer via the **Contact Me** call-to-action. |
-| **Trial** | Use the commercial marketplace to enhance discoverability and automate provisioning of your solution's trial experience, enabling prospective users to use your SaaS, IaaS, or Microsoft in-app experience at no cost for a limited time before they buy. The calls-to-action used for the trial publishing option are either **Free Trial** or **Test Drive**. |
-| **BYOL** | Use the commercial marketplace to enhance discoverability and automate provisioning of your solution, and complete the financial transaction separately. BYOL offer types are ideal for on-premises to cloud migrations. The call-to-action is **Get it Now**.
-| **Transact** | Transact offers are sold through the commercial marketplace. Microsoft is responsible for billing and collections. The call-to-action is **Get it Now**.|
-
-> [!Note]
-> When using the Transact publishing option, it is important to understand the pricing, billing, invoicing, and payout considerations before selecting an offer type and creating your offer. To learn more, review the article [Commercial marketplace transact capabilities](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+[!INCLUDE [categories and subcategories](./includes/categories.md)]
 
 ## Next steps
 
