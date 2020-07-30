@@ -18664,11 +18664,6 @@
             "redirect_url": "/azure/cosmos-db/powershell-samples"
         },
         {
-            "source_path": "articles/cosmos-db/powershell-samples.md",
-            "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/cosmos-db/programming.md",
             "redirect_url": "/azure/cosmos-db/storedprocedures-triggers-udfs"
         },
@@ -18939,11 +18934,6 @@
         {
             "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-sql-container-create-index-none.md",
             "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create-index-none",
-            "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-sql-container-create-large-partition-key.md",
-            "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create-large-partition-key",
             "redirect_document_id": true
         },
         {
