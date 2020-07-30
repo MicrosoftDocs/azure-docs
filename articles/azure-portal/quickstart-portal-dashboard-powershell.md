@@ -143,7 +143,7 @@ $Content = $Content -replace '<location>', $location
 $Content | Out-File -FilePath $myPortalDashboardTemplatePath -Force
 ```
 
-For more information, see [Microsoft portal dashboards template reference](/azure/templates/microsoft.portal/dashboards)
+For more information, see [Microsoft portal dashboards template reference](/azure/templates/microsoft.portal/dashboards).
 
 ## Deploy the dashboard template
 
