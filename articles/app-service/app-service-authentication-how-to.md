@@ -476,7 +476,7 @@ You can change the runtime version used by your app. The new runtime version sho
 #### From the Azure CLI
 You can also view and set the `runtimeVersion` from the Azure CLI.
 
-Using the Azure CLI, view the current runtime version with the [az webapp auth show](https://docs.microsoft.com/en-us/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) command.
+Using the Azure CLI, view the current runtime version with the [az webapp auth show](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) command.
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -495,7 +495,7 @@ You will see the `runtimeVersion` field in the CLI output. It will resemble the 
     ...
 }
 ```
-You can update the `runtimeVersion` setting in the app with the [az webapp auth update](https://docs.microsoft.com/en-us/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update) command.
+You can update the `runtimeVersion` setting in the app with the [az webapp auth update](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update) command.
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \
@@ -505,7 +505,7 @@ az webapp auth update --name <my_app_name> \
 
 Replace `<my_app_name>` with the name of your app. Also replace `<my_resource_group>` with the name of the resource group for your app. Also, replace `<version>` with a valid version of the 1.x runtime or `~1` for the latest version.
 
-You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
+You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](https://docs.microsoft.com/cli/azure/install-azure-cli) to execute this command after executing [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) to sign in.
 
 #### Version Endpoint
 The runtime version 1.2.6 introduces a new endpoint that displays the version details of the application. Open a browser and hit the /.auth/version endpoint to view this runtime version.
