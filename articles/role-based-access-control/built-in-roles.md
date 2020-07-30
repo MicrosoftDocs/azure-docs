@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/16/2020
+ms.date: 07/29/2020
 ---
 
 # Azure built-in roles
@@ -87,6 +87,7 @@ The following table provides a brief description and the unique ID of each built
 > | [Azure Kubernetes Service RBAC Cluster Admin](#azure-kubernetes-service-rbac-cluster-admin) | Lets you manage all resources in the cluster. | b1ff04bb-8a4e-4dc4-8eb5-8693973ce19b |
 > | [Azure Kubernetes Service RBAC Reader](#azure-kubernetes-service-rbac-reader) | Lets you view all resources in cluster/namespace, except secrets. | 7f6c6a51-bcf8-42ba-9220-52d62157d7db |
 > | [Azure Kubernetes Service RBAC Writer](#azure-kubernetes-service-rbac-writer) | Lets you update everything in cluster/namespace, except resource quotas, namespaces, pod security policies, certificate signing requests, (cluster)roles and (cluster)role bindings. | a7ffa36f-339b-4b5c-8bdf-e2c188b2c0eb |
+> | [Kubernetes Cluster - Azure Arc Onboarding](#kubernetes-cluster---azure-arc-onboarding) | Role definition to authorize any user/service to create connectedClusters resource | 34e09817-6cbe-4d01-b1a2-e0eac5743d41 |
 > | **Databases** |  |  |
 > | [Cosmos DB Account Reader Role](#cosmos-db-account-reader-role) | Can read Azure Cosmos DB account data. See [DocumentDB Account Contributor](#documentdb-account-contributor) for managing Azure Cosmos DB accounts. | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
 > | [Cosmos DB Operator](#cosmos-db-operator) | Lets you manage Azure Cosmos DB accounts, but not access data in them. Prevents access to account keys and connection strings. | 230815da-be43-4aae-9cb4-875f7bd000aa |
@@ -3092,7 +3093,7 @@ List cluster user credential action. [Learn more](../aks/control-kubeconfig-acce
 
 ### Azure Kubernetes Service Contributor Role
 
-Grants access to read and write Azure Kubernetes Service clusters
+Grants access to read and write Azure Kubernetes Service clusters [Learn more](../aks/concepts-identity.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3135,7 +3136,7 @@ Grants access to read and write Azure Kubernetes Service clusters
 
 ### Azure Kubernetes Service RBAC Admin
 
-Lets you manage all resources under cluster/namespace, except update or delete resource quotas and namespaces. [Learn more](../aks/concepts-identity.md)
+Lets you manage all resources under cluster/namespace, except update or delete resource quotas and namespaces. [Learn more](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3198,7 +3199,7 @@ Lets you manage all resources under cluster/namespace, except update or delete r
 
 ### Azure Kubernetes Service RBAC Cluster Admin
 
-Lets you manage all resources in the cluster. [Learn more](../aks/concepts-identity.md)
+Lets you manage all resources in the cluster. [Learn more](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3253,7 +3254,7 @@ Lets you manage all resources in the cluster. [Learn more](../aks/concepts-ident
 
 ### Azure Kubernetes Service RBAC Reader
 
-Lets you view all resources in cluster/namespace, except secrets. [Learn more](../aks/concepts-identity.md)
+Lets you view all resources in cluster/namespace, except secrets. [Learn more](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3314,7 +3315,7 @@ Lets you view all resources in cluster/namespace, except secrets. [Learn more](.
 
 ### Azure Kubernetes Service RBAC Writer
 
-Lets you update everything in cluster/namespace, except resource quotas, namespaces, pod security policies, certificate signing requests, (cluster)roles and (cluster)role bindings. [Learn more](../aks/concepts-identity.md)
+Lets you update everything in cluster/namespace, except resource quotas, namespaces, pod security policies, certificate signing requests, (cluster)roles and (cluster)role bindings. [Learn more](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3376,6 +3377,61 @@ Lets you update everything in cluster/namespace, except resource quotas, namespa
     }
   ],
   "roleName": "Azure Kubernetes Service RBAC Writer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Kubernetes Cluster - Azure Arc Onboarding
+
+Role definition to authorize any user/service to create connectedClusters resource [Learn more](../azure-arc/kubernetes/connect-cluster.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/write | Creates or updates an deployment. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/Write | Writes connectedClusters |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/read | Read connectedClusters |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role definition to authorize any user/service to create connectedClusters resource",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/34e09817-6cbe-4d01-b1a2-e0eac5743d41",
+  "name": "34e09817-6cbe-4d01-b1a2-e0eac5743d41",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/write",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Kubernetes/connectedClusters/Write",
+        "Microsoft.Kubernetes/connectedClusters/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Kubernetes Cluster - Azure Arc Onboarding",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -6481,12 +6537,12 @@ View permissions for Security Center. Can view recommendations, alerts, a securi
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/read | Read a classic metric alert |
 > | [Microsoft.operationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/workspaces/*/read | View log analytics data |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/*/read |  |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Security](resource-provider-operations.md#microsoftsecurity)/*/read | Read security components and policies |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/*/read |  |
 > | [Microsoft.Management](resource-provider-operations.md#microsoftmanagement)/managementGroups/read | List management groups for the authenticated user. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -6507,12 +6563,12 @@ View permissions for Security Center. Can view recommendations, alerts, a securi
     {
       "actions": [
         "Microsoft.Authorization/*/read",
-        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/alertRules/read",
         "Microsoft.operationalInsights/workspaces/*/read",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Security/*/read",
-        "Microsoft.Support/*",
+        "Microsoft.Support/*/read",
         "Microsoft.Management/managementGroups/read"
       ],
       "notActions": [],
