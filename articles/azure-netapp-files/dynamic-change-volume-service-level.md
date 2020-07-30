@@ -20,9 +20,6 @@ ms.author: b-juche
 
 You can change the service level of an existing volume by moving the volume to another capacity pool that uses the [service level](azure-netapp-files-service-levels.md) you want for the volume. This in-place service-level change for the volume does not require that you migrate data. It also does not impact access to the volume.  
 
-> [!IMPORTANT] 
-> Using this feature requires whitelisting. Email anffeedback@microsoft.com with your subscription ID to request this feature.
-
 This functionality enables you to meet your workload needs on demand.  You can change an existing volume to use a higher service level for better performance, or to use a lower service level for cost optimization. For example, if the volume is currently in a capacity pool that uses the *Standard* service level and you want the volume to use the *Premium* service level, you can move the volume dynamically to a capacity pool that uses the *Premium* service level.  
 
 The capacity pool that you want to move the volume to must already exist. The capacity pool can contain other volumes.  If you want to move the volume to a brand-new capacity pool, you need to [create the capacity pool](azure-netapp-files-set-up-capacity-pool.md) before you move the volume.  
@@ -34,7 +31,24 @@ The capacity pool that you want to move the volume to must already exist. The ca
 * If you move a volume to a capacity pool of a higher service level (for example, moving from *Standard* to *Premium* or *Ultra* service level), you must wait at least seven days before you can move the volume to a capacity pool of a lower service level again (for example, moving from *Ultra* to *Premium* or *Standard*).  
 This wait period does not apply if you move the volume to a capacity pool that has the same service level or a lower service level.
 
-## Steps
+## Register the feature
+
+1. If this is your first time using the feature to move a volume to another capacity pool, register the feature before using it: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for several minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
+    ```
+
+## Move a volume to another capacity pool
 
 1.	On the Volumes page, right-click the volume whose service level you want to change. Select **Change Pool**.
 
