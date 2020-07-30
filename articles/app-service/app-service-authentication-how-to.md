@@ -468,7 +468,7 @@ The following exhausts possible configuration options within the file:
 An app that has enabled App Service Authentication / Authorization runs on a specific version of the Authentication / Authorization runtime, which currently only supports one major version: 1.x. By default, these apps run on the newest version of this runtime. This article explains how to configure an app in Azure to run on any runtime version you choose. For an overview on the authentication and authorization feature, see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md).
 
 ### Automatic and manual version updates 
-You can target a specific version of the runtime by setting the `runtimeVersion` auth setting for the application. The application runs on the newest runtime version until you choose to explicitly pin it back to a specific version. There will be a few minor versions supported at a time. If you pin to an invalid version that is no longer supported, you'll be serving the newest version instead. To always run the newest runtime version, set `runtimeVersion` to ~1. 
+You can pin your app to a specific version of the platform middleware by setting a `runtimeVersion` setting for the app. Your app always runs on the latest version unless you choose to explicitly pin it back to a specific version. There will be a few versions supported at a time. If you pin to an invalid version that is no longer supported, your app will use the latest version instead. To always run the latest version, set `runtimeVersion` to ~1. 
 
 ### View and update the current runtime version
 You can change the runtime version used by your app. The new runtime version should take effect after restarting the app. 
