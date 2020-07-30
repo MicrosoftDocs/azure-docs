@@ -1,8 +1,8 @@
 ---
 title: Use IoT Plug and Play models in a solution | Microsoft Docs
 description: As a solution builder, learn about how you can use IoT Plug and Play models in your IoT solution.
-author: prashmo
-ms.author: prashmo
+author: arunmannengal
+ms.author: arunmann
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
@@ -33,46 +33,6 @@ IoT Hub notifies the solution with the device model ID as part of the device con
 
 A solution can get the model ID of the IoT Plug and Play device by using one of the following three methods:
 
-### Digital twin change event notification
-
-A device registration results in a [Digital Twin change event](concepts-digital-twin.md#digital-twin-change-events) notification. A solution needs to subscribe to this event notification. To learn how to enable routing for digital twin events, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events).
-
-The solution can use the event shown in the following snippet to learn about the IoT Plug and Play device that's connecting and get its model ID:
-
-```json
-iothub-connection-device-id:sample-device
-iothub-enqueuedtime:7/22/2020 8:02:27 PM
-iothub-message-source:digitalTwinChangeEvents
-correlation-id:100f322dc2c5
-content-type:application/json-patch+json
-content-encoding:utf-8
-[
-  {
-    "op": "replace",
-    "path": "/$metadata/$model",
-    "value": "dtmi:com:example:TemperatureController;1"
-  }
-]
-```
-
-### Get Digital Twin API
-
-The solution can use the [Get Digital Twin](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) API to retrieve the model ID of the model implemented by the IoT Plug and Play device.
-
-In the following digital twin response snippet, `$metadata.$model` contains the model ID of an IoT Plug and Play device:
-
-```json
-{
-    "$dtId": "sample-device",
-    "$metadata": {
-        "$model": "dtmi:com:example:TemperatureController;1",
-        "serialNumber": {
-            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-        }
-    }
-}
-```
-
 ### Get Device Twin API
 
 The solution can use the [Get Device Twin](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) API to retrieve model ID of the IoT Plug and Play device.
@@ -101,6 +61,46 @@ In the following device twin response snippet, `modelId` contains the model ID o
 }
 ```
 
+### Get Digital Twin API
+
+The solution can use the [Get Digital Twin](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin/getdigitaltwin) API to retrieve the model ID of the model implemented by the IoT Plug and Play device.
+
+In the following digital twin response snippet, `$metadata.$model` contains the model ID of an IoT Plug and Play device:
+
+```json
+{
+    "$dtId": "sample-device",
+    "$metadata": {
+        "$model": "dtmi:com:example:TemperatureController;1",
+        "serialNumber": {
+            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+        }
+    }
+}
+```
+
+### Digital twin change event notification
+
+A device connection results in a [Digital Twin change event](concepts-digital-twin.md#digital-twin-change-events) notification. A solution needs to subscribe to this event notification. To learn how to enable routing for digital twin events, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events).
+
+The solution can use the event shown in the following snippet to learn about the IoT Plug and Play device that's connecting and get its model ID:
+
+```json
+iothub-connection-device-id:sample-device
+iothub-enqueuedtime:7/22/2020 8:02:27 PM
+iothub-message-source:digitalTwinChangeEvents
+correlation-id:100f322dc2c5
+content-type:application/json-patch+json
+content-encoding:utf-8
+[
+  {
+    "op": "replace",
+    "path": "/$metadata/$model",
+    "value": "dtmi:com:example:TemperatureController;1"
+  }
+]
+```
+
 ## Retrieve a model definition
 
 A solution uses model ID identified above to retrieve the corresponding model definition.
@@ -113,7 +113,7 @@ Solutions can use the [model repository](concepts-model-repository.md) to retrie
 
 After you identify the model ID for a new device connection, follow these steps:
 
-1. Retrieve the model definition using the model ID from the model repository.
+1. Retrieve the model definition using the model ID from the model repository. For more information, see [Get Models](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
 
 1. Using the model definition of the connected device, you can enumerate the capabilities of the device.
 
