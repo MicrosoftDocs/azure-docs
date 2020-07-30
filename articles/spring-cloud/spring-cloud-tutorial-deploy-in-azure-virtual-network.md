@@ -59,7 +59,7 @@ If you already have a virtual network to host Azure Spring Cloud service instanc
 
 1. Click **Review + create**. Leave the rest as defaults and click **Create**.
 
-## Grant Azure Spring Cloud service permission to the virtual network
+## Grant service permission to the virtual network
 
 Select the virtual network *azure-spring-cloud-vnet* previously created.
 
@@ -85,7 +85,7 @@ Select the virtual network *azure-spring-cloud-vnet* previously created.
 
 1. Select **Review + create**. Leave the rest as defaults.  Click **Create**.
 
-## Grant Azure Spring Cloud service permission to the virtual network
+## Grant service permission to the virtual network
 
 Select the virtual network *azure-spring-cloud-vnet* you created.
 
@@ -160,7 +160,8 @@ Those network resources are connected to your virtual network created above.
 
   ![V-net with connected device](./media/spring-cloud-v-net-injection/vnet-with-connected-device.png)
 
-**Important:** Those resource groups are fully managed by Azure Spring Cloud service. Please do **NOT** manually delete or modify any resource inside.
+   > [!Important]
+   > The resource groups are fully managed by Azure Spring Cloud service. Please do NOT manually delete or modify any resource inside.
 
 ## Limitations
 
