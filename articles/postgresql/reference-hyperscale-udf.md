@@ -340,76 +340,6 @@ SELECT create_distributed_function(
 );
 ```
 
-### master\_create\_distributed\_table
-
-> [!WARNING]
-> This function is deprecated, and replaced by
-> [create_distributed_table](#create_distributed_table).
-
-The master\_create\_distributed\_table() function is used to define a
-distributed table. This function takes in a table name, the distribution
-column and distribution method and inserts appropriate metadata to mark
-the table as distributed.
-
-#### Arguments
-
-**table\_name:** Name of the table which needs to be distributed.
-
-**distribution\_column:** The column on which the table is to be
-distributed.
-
-**distribution\_method:** The method according to which the table is to
-be distributed. Permissible values are append or hash.
-
-#### Return Value
-
-N/A
-
-#### Example
-
-This example informs the database that the github\_events table should
-be distributed by hash on the repo\_id column.
-
-```postgresql
-SELECT master_create_distributed_table('github_events', 'repo_id', 'hash');
-```
-
-### master\_create\_worker\_shards
-
- > [!WARNING]
-> This function is deprecated, and replaced by
-> [create_distributed_table](#create_distributed_table)
-
-The master\_create\_worker\_shards() function creates a specified number of
-worker shards with the desired replication factor for a *hash* distributed
-table. While doing so, the function also assigns a portion of the hash token
-space (which spans between -2 Billion and 2 Billion) to each shard. Once all
-shards are created, this function saves all distributed metadata on the
-coordinator.
-
-#### Arguments
-
-**table\_name:** Name of hash distributed table for which shards are to
-be created.
-
-**shard\_count:** Number of shards to create.
-
-**replication\_factor:** Desired replication factor for each shard.
-
-#### Return Value
-
-N/A
-
-#### Example
-
-This example usage would create a total of 16 shards for the
-github\_events table where each shard owns a portion of a hash token
-space and gets replicated on 2 workers.
-
-```postgresql
-SELECT master_create_worker_shards('github_events', 16, 2);
-```
-
 ### master\_create\_empty\_shard
 
 The master\_create\_empty\_shard() function can be used to create an
@@ -550,33 +480,6 @@ SELECT * from master_apply_delete_command('DELETE FROM github_events WHERE revie
 -----------------------------
                            3
 (1 row)
-```
-
-### master\_modify\_multiple\_shards
-
-The master\_modify\_multiple\_shards() function is used to run data
-modification statements which could span multiple shards. Depending on
-the value of citus.multi\_shard\_commit\_protocol, the commit can be
-done in one- or two-phases.
-
-Limitations:
-
--   It cannot be called inside a transaction block
--   It must be called with simple operator expressions only
-
-#### Arguments
-
-**modify\_query:** A simple DELETE or UPDATE query as a string.
-
-#### Return Value
-
-N/A
-
-#### Example
-
-```postgresql
-SELECT master_modify_multiple_shards(
-  'DELETE FROM customer_delete_protocol WHERE c_custkey > 500 AND c_custkey < 500');
 ```
 
 ## Metadata / Configuration Information
