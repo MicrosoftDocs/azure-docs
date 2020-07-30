@@ -14,17 +14,18 @@ ms.date: 7/14/2020
 ## Picking initial size
 
 The size of a server group, in terms of number of nodes and their hardware
-capacity, is easy to change (see below). However you still need to choose an
-initial size for a new server group. Here are some tips for a reasonable
-choice.
+capacity, is easy to change ([see
+below](#scale-a-hyperscale-citus-server-group)). However you still need to
+choose an initial size for a new server group. Here are some tips for a
+reasonable choice.
 
 ### Multi-Tenant SaaS Use-Case
 
-For those migrating to Hyperscale (Citus) from an existing single-node database
-instance, we recommend choosing a cluster where the number of worker vCores and
-RAM in total equals that of the original instance. In such scenarios we have
-seen 2-3x performance improvements because sharding improves resource
-utilization, allowing smaller indices etc.
+For those migrating to Hyperscale (Citus) from an existing single-node
+PostgreSQL database instance, we recommend choosing a cluster where the number
+of worker vCores and RAM in total equals that of the original instance. In such
+scenarios we have seen 2-3x performance improvements because sharding improves
+resource utilization, allowing smaller indices etc.
 
 The number of vCores required for the coordinator node depends on your existing
 workload (write/read throughput). The coordinator node doesn't require as much
@@ -53,7 +54,9 @@ options](concepts-hyperscale-configuration-options.md) article.
 
 Azure Database for PostgreSQL - Hyperscale (Citus) provides self-service
 scaling to deal with increased load. The Azure portal makes it easy to add new
-worker nodes, and to increase the vCores of existing nodes.
+worker nodes, and to increase the vCores of existing nodes. Adding nodes causes
+no downtime, and even moving shards to the new nodes (called [shard
+rebalancing](#rebalance-shards)) happens without interrupting queries.
 
 ### Add worker nodes
 
@@ -99,10 +102,8 @@ experiments as well as short- or long-term changes to traffic demands.
 
 To change the vCores for all worker nodes, adjust the **vCores** slider under
 **Configuration (per worker node)**. The coordinator node's vCores can be
-adjusted independently. Click the **Change configuration** link under
-**coordinator node**. A dialog will appear with sliders for the vCores and
-Storage capacity of the coordinator. Change the sliders as desired and select
-**OK**.
+adjusted independently. Adjust the **vCores** slider under  **Configuration
+(coordinator node)**.
 
 ## Next steps
 
