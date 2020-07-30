@@ -83,6 +83,10 @@ Excessive requests to App Configuration can result in throttling or overage char
 
 App Configuration offers the option to bulk [import](https://aka.ms/azconfig-importexport1) your configuration settings from your current configuration files using either the Azure portal or CLI. You can also use the same options to export values from App Configuration, for example between related stores. If you’d like to set up an ongoing sync with your GitHub repo, you can use our [GitHub Action](https://aka.ms/azconfig-gha2) so that you can continue using your existing source control practices while getting the benefits of App Configuration.
 
+## Muti-Region Deployment in App Configuration
+
+App Configuration is regional service. For applications with different configurations per region, storing these configurations in one instance can create a single point of failure. Deploying multiple App Configuration instances per region across multiple regions may be a better option. It can help with regional disaster recovery, performance, and security siloing. Configuring by region also improves latency and uses separated throttling quotas, since throttling is per instance. To apply disaster recovery mitigation, you can use [multiple configuration stores](./concept-disaster-recovery.md). 
+
 ## Next steps
 
 * [Keys and values](./concept-key-value.md)
