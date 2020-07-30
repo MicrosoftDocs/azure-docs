@@ -1,6 +1,6 @@
 ---
-title: Configure an apps link in Azure AD
-description: Configure an apps link in Azure AD
+title: Configure linked sign-on
+description: Configure linked sign-on in Azure AD
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -13,7 +13,7 @@ ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ---
 
-# Configure an apps link
+# Configure linked sign-on
 
 In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. In the quickstart guide, you set up SAML-based SSO. Another option is **Linked**. This article goes into more detail about the linked option.
 
