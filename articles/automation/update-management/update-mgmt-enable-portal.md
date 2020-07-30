@@ -36,7 +36,7 @@ Sign in to Azure at https://portal.azure.com.
     > [!TIP]
     > Use the filter controls to select VMs from different subscriptions, locations, and resource groups. You can click the top checkbox to select all virtual machines in a list.
 
-    [ ![Enable Update Management](./media/update-mgmt-enable-portal/onboards-feature.png)](./media/update-mgmt-enable-portal/onboards-feature-expanded.png#lightbox)
+    [ ![Enable Update Management](./media/update-mgmt-enable-portal/onboard-feature.png)](./media/update-mgmt-enable-portal/onboard-feature-expanded.png#lightbox)
 
 3. Select **Services** and select **Update Management** for the Update Management feature.
 
