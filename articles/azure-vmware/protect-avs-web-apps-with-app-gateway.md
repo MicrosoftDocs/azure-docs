@@ -115,20 +115,27 @@ You can use Azure Application Gateway to configure URL path-based routing rules.
 
     The first virtual machine, contoso-web-01, will host the main website.
 
-    `Install-WindowsFeature -Name Web-Server
-Add-Content -Path C:\inetpub\wwwroot\Default.htm -Value $($env:computername)`
+
+    ```powershell
+    Install-WindowsFeature -Name Web-Server
+    Add-Content -Path C:\inetpub\wwwroot\Default.htm -Value $($env:computername)
+    ```
 
     The second virtual machine, contoso-web-02, will host the images site.
-
-    `Install-WindowsFeature -Name Web-Server
-New-Item -Path "C:\inetpub\wwwroot\" -Name "images" -ItemType "directory"
-Add-Content -Path C:\inetpub\wwwroot\images\test.htm -Value $($env:computername)`
+ 
+    ```powershell
+    Install-WindowsFeature -Name Web-Server
+    New-Item -Path "C:\inetpub\wwwroot\" -Name "images" -ItemType "directory"
+    Add-Content -Path C:\inetpub\wwwroot\images\test.htm -Value $($env:computername)
+    ```
 
     The third virtual machine, contoso-web-03, will host the video site.
 
-    `Install-WindowsFeature -Name Web-Server
-New-Item -Path "C:\inetpub\wwwroot\" -Name "video" -ItemType "directory"
-Add-Content -Path C:\inetpub\wwwroot\video\test.htm -Value $($env:computername)`
+    ```powershell
+    Install-WindowsFeature -Name Web-Server
+    New-Item -Path "C:\inetpub\wwwroot\" -Name "video" -ItemType "directory"
+    Add-Content -Path C:\inetpub\wwwroot\video\test.htm -Value $($env:computername)
+    ```
 
 2. Add the backend pools. You will need to add three new backend pools in an existing application gateway instance. Select **Backend pools** from the left menu. Select **Add** and enter the details of the first pool, **contoso-web**. Add one VM as the target. Select **Add**. Repeat this process for **contoso-images** and **contoso-video**, adding one unique VM to each as target. 
 
