@@ -43,7 +43,7 @@ Similarly to deleting data, a tenant administrator can view and export data stor
 
 If you are a tenant administrator, you can view data access policies within the Time Series Insights environment in the Azure portal. For more information, read [Grant data access to a Time Series Insights environment using Azure portal](time-series-insights-data-access.md).
 
-It is also possible to perform export operations on access policies using the "list by environment" operation in the provided REST API. For more information, read [Access Policies - List By Environment](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/listbyenvironment).
+It is also possible to perform export operations on access policies using the "list by environment" operation in the provided REST API. For more information, read [Access Policies - List By Environment](rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment).
 
 ## To delete data stored within Time Series Insights
 
