@@ -245,7 +245,7 @@ The following sample rule filters the account to run the actions on objects that
 
 >[!NOTE]
 >- Lifecycle management only supports block blob type.<br>
->- Lifecycle management does not affect system containers like $logs & $web.
+>- Lifecycle management does not affect system containers like $logs and $web.
 
 - Tier blob to cool tier 30 days after last modification
 - Tier blob to archive tier 90 days after last modification
