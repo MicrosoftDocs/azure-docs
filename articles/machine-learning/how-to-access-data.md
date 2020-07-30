@@ -5,7 +5,7 @@ description: Learn how to use datastores to securely connect to Azure storage se
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam

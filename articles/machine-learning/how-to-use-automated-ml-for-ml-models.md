@@ -5,13 +5,12 @@ description: Create, review, and deploy automated machine learning models with A
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: nibaccam
 author: aniththa
-manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-
+ms.topic: conceptual
+ms.custom: how-to
 ---
 
 # Create, review, and deploy automated machine learning models with Azure Machine Learning

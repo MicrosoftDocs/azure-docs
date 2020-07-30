@@ -9,6 +9,7 @@ ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 06/30/2020
+ms.custom: devx-track-java
 ms.author: aahi
 ---
 

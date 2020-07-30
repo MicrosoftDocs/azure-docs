@@ -5,7 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-
+ms.author: mingshen
+author: mingshen-ms
 ---
 # Commercial marketplace transact capabilities
 
