@@ -19,8 +19,10 @@ This article provides the properties and schema for blob storage events. For an
 
 These events are triggered when a client creates, replaces, or deletes a blob by calling Blob REST APIs.
 
+The $logs container isn't integrated with Event Grid, so you won't receive notifications when log files are written
+
 > [!NOTE]
-> Using the dfs endpoint *`(abfss://URI) `* for non-hierarchical namespace enabled accounts will not generate events. For such accounts, only the blob endpoint *`(wasb:// URI)`* will generate events.
+> The `$logs` and `$blobchangefeed` containers aren't integrated with Event Grid, so activity in these containers will not generate events. Also, using the dfs endpoint *`(abfss://URI) `* for non-hierarchical namespace enabled accounts will not generate events, but the blob endpoint *`(wasb:// URI)`* will generate events.
 
  |Event name |Description|
  |----------|-----------|
