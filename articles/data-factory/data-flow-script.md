@@ -200,13 +200,12 @@ aggregate(updates = countIf(isUpdate(), 1),
 ```
 
 ### Distinct row using all columns
-This snippet will add a new Aggregate transformation to your data flow which will take all incoming columns, generate a hash that is used for grouping to eliminate duplicates, then provide the first occurence of each duplicate as output. You do not need to explicitly name the columns, they will be automatically generated from your incoming data stream.
+This snippet will add a new Aggregate transformation to your data flow which will take all incoming columns, generate a hash that is used for grouping to eliminate duplicates, then provide the first occurrence of each duplicate as output. You do not need to explicitly name the columns, they will be automatically generated from your incoming data stream.
 
 ```
 aggregate(groupBy(mycols = sha2(256,columns())),
     each(match(true()), $$ = first($$))) ~> DistinctRows
 ```
-
 
 ## Next steps
 
