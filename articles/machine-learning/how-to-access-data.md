@@ -110,7 +110,7 @@ You can find account key, SAS token and service principal information on your [A
 
 ### Permissions
 
-For Azure blob contatiner and Azure Data Lake Gen 2 storage make sure your authentication credentials  has **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
+For Azure blob container and Azure Data Lake Gen 2 storage make sure your authentication credentials  has **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
 
 <a name="python"></a>
 
@@ -209,7 +209,7 @@ Create a new datastore in a few steps with the Azure Machine Learning studio.
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 1. Select **Datastores** on the left pane under **Manage**.
 1. Select **+ New datastore**.
-1. Complete the form for a new datastore. The form intelligently updates itself based on your selections for Azure storage type and authentication type. See the [storage access and permissions section](#access-validation) to understand where to find the authentication credentials you need to populated this form.
+1. Complete the form for a new datastore. The form intelligently updates itself based on your selections for Azure storage type and authentication type. See the [storage access and permissions section](#access-validation) to understand where to find the authentication credentials you need to populate this form.
 
 The following example demonstrates what the form looks like when you create an **Azure blob datastore**: 
     
