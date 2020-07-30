@@ -6,6 +6,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: seodec18
+zone_pivot_groups: app-service-platform-windows-linux
 ---
 
 # Tutorial: Authenticate and authorize users end-to-end in Azure App Service

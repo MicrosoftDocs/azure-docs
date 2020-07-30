@@ -5,6 +5,7 @@ description: Learn how to configure a ASP.NET Core app in the native Windows ins
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/02/2020
+zone_pivot_groups: app-service-platform-windows-linux
 
 ---
 

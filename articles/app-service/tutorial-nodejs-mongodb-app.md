@@ -7,6 +7,7 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-javascript
+zone_pivot_groups: app-service-platform-windows-linux
 ---
 
 # Tutorial: Build a Node.js and MongoDB app in Azure

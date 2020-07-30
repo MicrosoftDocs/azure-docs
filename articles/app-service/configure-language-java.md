@@ -9,6 +9,7 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java
+zone_pivot_groups: app-service-platform-windows-linux
 ---
 
 # Configure a Java app for Azure App Service

@@ -5,11 +5,12 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 keywords: azure app service, web app, linux, windows, docker, container
 ms.custom: mvc, seodec18
+zone_pivot_groups: app-service-containers-windows-linux
 ---
 
 # Migrate custom software to Azure App Service using a custom container
 
-::: zone pivot="platform-windows"  
+::: zone pivot="container-windows"  
 
 [Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](operating-system-functionality.md)). However, using a custom Windows container in App Service (Preview) lets you make OS changes that your app needs, so it's easy to migrate on-premises app that requires custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), and then run it in App Service.
 
@@ -202,7 +203,7 @@ The streamed logs looks like this:
 
 ::: zone-end
 
-::: zone pivot="platform-linux"
+::: zone pivot="container-linux"
 
 Azure App Service uses the Docker container technology to host both built-in images and custom images. To see a list of built-in images, run the Azure CLI command, ['az webapp list-runtimes --linux'](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). If those images don't satisfy your needs, you can build and deploy a custom image.
 

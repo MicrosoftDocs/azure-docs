@@ -6,6 +6,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: mvc, cli-validate, seodec18
+zone_pivot_groups: app-service-platform-windows-linux
 ---
 
 # Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service
