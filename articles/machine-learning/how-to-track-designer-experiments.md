@@ -1,14 +1,14 @@
 ---
 title: Log custom metrics in the designer (preview)
 titleSuffix: Azure Machine Learning
-description: Monitor your Azure ML experiments and monitor run metrics to enhance the model creation process. Add logging to your training script and view the logged results of a run.  Use run.log, Run.start_logging, or ScriptRunConfig.
+description: Monitor your Azure ML designer experiments to enhance the model creation process. Add logging to your training script and view the logged results of a run.
 services: machine-learning
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/14/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
 ---
@@ -16,9 +16,9 @@ ms.custom: how-to
 # Add logging to Azure Machine Learning designer (preview) pipelines
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to add custom logging to your designer pipelines. You also learn how to view logs using the studio web portal.
+In this article, you learn how to add custom logging to designer pipelines. You also learn how to view those logs using the studio web portal.
 
-For more information on logging metrics in the SDK authoring experience, see [Monitor Azure ML experiment runs and metrics](how-to-track-experiments.md).
+For more information on logging metrics using the SDK authoring experience, see [Monitor Azure ML experiment runs and metrics](how-to-track-experiments.md).
 
 ## Prerequisites
 
