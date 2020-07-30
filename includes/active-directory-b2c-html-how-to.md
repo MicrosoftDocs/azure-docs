@@ -27,6 +27,7 @@ Your custom page content can contain any HTML elements, including CSS and JavaSc
 <html>
 <head>
     <title>My Product Brand Name</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     <div id="api"></div>
@@ -90,6 +91,7 @@ Create a custom page content with your product's brand name in the title.
    <html>
    <head>
        <title>My Product Brand Name</title>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
    </head>
    <body>
        <div id="api"></div>
