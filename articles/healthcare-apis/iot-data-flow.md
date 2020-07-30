@@ -57,6 +57,6 @@ Click below next step to learn how to create device and FHIR mapping templates.
 >[!div class="nextstepaction"]
 >[Azure IoT Connector for FHIR (preview) mapping templates](iot-mapping-templates.md)
 
-*In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview)
+*In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
 
 FHIR is the registered trademark of HL7 and is used with the permission of HL7.
