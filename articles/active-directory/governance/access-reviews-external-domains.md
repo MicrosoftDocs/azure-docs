@@ -11,40 +11,41 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/11/2020
+ms.date: 07/30/2020
 ms.author: barclayn
 ---
 
 # Use Access Reviews to review and clean up collaboration partners from external organizations
 
-The cloud makes it easier than ever to collaborate people inside your organization or external users. Embracing Office 365, organizations start to see a proliferation of external identities (“Guests”), as users use capabilities to jointly work on data, documents or digital workspaces such as Teams. Organizations need to balance between user-initiated collaboration for greatest possible flexibility and processes and guardrails, to allow security and governance requirements to be fulfilled. Part of these efforts should be evaluating and cleaning out no longer needed external partners and identities from resources and the Azure AD tenant.
+This article describes features and methods that allow you to identify external identities so that you can review them and remove them from Azure AD if they are no longer needed.
+
+The cloud makes it easier than ever to collaborate with internal  or external users. Embracing Office 365, organizations start to see the proliferation of external identities (“Guests”), as users work together on data, documents or digital workspaces such as Teams. Organizations have to balance enabling collaboration and meeting security and governance requirements. Part of these efforts should include evaluating and cleaning out external partners and identities from resources and the Azure AD tenant when they are no longer needed.
 
 >[!NOTE]
 >A valid Azure AD Premium P2, Enterprise Mobility + Security E5 paid, or trial license is required to use Azure AD access reviews. For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
 ## Why should you review partners from external organizations that collaborate with you in your tenant?
 
-While the process of inviting business partners and vendors for collaboration is user-initiated, organizations need to provide resource owners and end users a way to regularly evaluate and attest the partners they invited. For many projects, onboarding of new collaboration partners is planned and accounted for, however off boarding or the removal of users is often neglected.
-Also, for identity life-cycle management reasons, IT organizations may want to keep Azure AD clean, and remove users that no longer have and need access to the organization’s resources. Keeping only the relevant identity references for partners and vendors in the directory also helps reduce the risk of your users inadvertently selecting and granting permission to a partner that’s still there.
-
-This article describes features and methods that allow you to find and review external identities, and – should they no longer be needed – remove them from Azure AD.
+In most organizations, the process of inviting business partners and vendors for collaboration is initiated by end users. The need to collaborate forces organizations to provide resource owners and end users with a way to regularly evaluate and attest external users. Often the onboarding of new collaboration partners is planned and accounted for but the removal of users is neglected.
+Also, identity life-cycle management drives enterprises to keep Azure AD clean, and remove users who no longer need access to the organization’s resources. Keeping only the relevant identity references for partners and vendors in the directory helps reduce the risk of your users inadvertently selecting and granting access to partner identities that should have been removed.
 
 ## Use PowerShell to find partners from a domain
 
 ```PowerShell
+# this appears to be incomplete no? should it not be $users = get-aduser... etc? also if we just print $users.count we just get the number of users that meet the search criteria. Maybe export-csv? 
 Get-AzureADUser -Filter "usertype eq 'Guest'" -All $true | ?{ $_.mail -like
 "@microsoft.com" }
 
 $users.Count
 ```
 
-The Azure AD Governance team has a sample script published on GitHub, that allows for searching, categorizing, and building a simple inventory of where external identities are used in Azure AD. You can find the script here:
+The Azure AD Governance team has published a sample script in GitHub to help manage external identities. The script allows you to search, categorize, and build a simple inventory of external identities used in Azure AD. You can find the script here: (Where?)
 
 ## Create a dynamic group that has external partners as members
 
-You can use Azure AD dynamic groups to build groups that structure external identities based on their home domain. The dynamic group will be kept up to date and, should new partners and  vendors from the same domain, reflect changes in the membership of the group. These groups can later be used to perform Access Reviews on them, or run a script that performs actions on members of these groups.
+You can use Azure AD dynamic groups to build groups that structure external identities based on their home domain. The dynamic group will be kept up to date and automatically add any new partners and vendors from the same domain. These groups can later be managed using Access Reviews. Alternatively, you may also run a script that performs actions on members of these groups.
 
-Administrators create a new dynamic group that contains external identities in Azure AD with the following steps. In this example, all external users from the “microsoft.com” domain are used:
+You can create a new dynamic group in Azure AD for external identities using the following steps:
 
 1. Open the Azure AD Portal.
 2. Select **Azure Active Directory**.
@@ -57,32 +58,26 @@ Administrators create a new dynamic group that contains external identities in A
 9. Click **Add dynamic query**.
 10. In **Dynamic membership rules**, use the following query to scope the group to contain all external identities in your tenant from the “microsoft.com” domain. Click the **Edit** link on the Rule syntax box to enter the following filter:
 
-```
-  (user.userPrincipalName -contains "#EXT#") and (user.mail -contains "@microsoft.com") and (user.accountEnabled -eq true)
-```
+    ```
+      (user.userPrincipalName -contains "#EXT#") and (user.mail -contains "@microsoft.com") and (user.accountEnabled -eq true)
+    ```
+11. Click Save. Click Create.
 
 >[!NOTE]
-> For other domains, replace “microsoft.com” in this sample with the target domains that you look for. 
+> The filter is looking for external identities invited through Azure AD or Office 365 who are still enabled and working in your tenant. The filter used in our example is looking for external identities invited through Azure AD or Office 365 who are still enabled and working in your tenant.
 
 ![Dynamic membership rules](media\access-reviews-external-domains\dynamic-membership-rules.png)
 
-7. Click Save. Click Create.
-
-The query above is looking for external identities that were invited through Azure AD or Office 365, that are still enabled and can work in your tenant.
-
 ### Example: Access Review external partners from a specific domain
 
-1. Navigate to the Azure Active Directory admin center and navigate to “Azure Active Directory”>“Identity Governance”>“Access Reviews”
-2. Select “+ New Access Review” from the top menu.
-
-In the “Create an access review” setup page, you define the settings of a new Access Review. For this scenario, asking a Teams team owner to review the membership list every three months. Upon  declining members, the system will remove users at the end of each review cycle.
-
-1. Provide a “Review name”, a “Start date” for the review cycle.
-2. Select “Quarterly” in the “Frequency” drop-down list.
-3. Select “Never” for the setting to “End” the Access Review cycles.
-4. In the “Users” section of the setup page, select “Members of a group” for “Users to review” and select “Guest users only”, so that reviewers get a chance to review all external users from the dynamic group.
-5. In “Group”, select the dynamic group that you created earlier, containing all external partners from a specific domain.
-6. Under “Reviewers”, select one of the following options:
+1. Navigate to the Azure Active Directory admin center and navigate to **Azure Active Directory”>“Identity Governance”>“Access Reviews**
+2. Select **+ New Access Review** from the top menu. In the “Create an access review” setup page, you define the settings of a new Access Review. For this scenario, asking a Teams team owner to review the membership list every three months. Upon  declining members, the system will remove users at the end of each review cycle.
+3. Provide a **Review name**, a **Start date** for the review cycle.
+4. Select **Quarterly** in the “Frequency” drop-down list.
+5. Select **Never** for the setting to **End** the Access Review cycles.
+6. In the **Users** section of the setup page, select **Members of a group** for **Users to review** and select **Guest users only**, so that reviewers get a chance to review all external users from the dynamic group.
+7. In **Group**, select the dynamic group that you created earlier, containing all external partners from a specific domain.
+8. Under **Reviewers**, select one of the following options:
       - **Group owners** – if you have assigned an owner to the dynamic group, and that owner is the person who manages the relationship with the external partner.
       - **Selected users** – if you want to specify specific users in your organization that should review the partners from that external company.
       - **Members (self)** – if you want to allow all external partners to self-attest whether they need continued access to your company’s resources.
