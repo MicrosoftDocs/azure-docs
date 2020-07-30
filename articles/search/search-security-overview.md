@@ -8,14 +8,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 08/01/2020
 ---
 
 # Security in Azure Cognitive Search - overview
 
-This article describes the key security features in Azure Cognitive Search that can protect content and operations. 
+This article describes the key security features in Azure Cognitive Search that can protect content and operations.
 
-+ At the storage layer, encryption-at-rest is a given at the platform level, but Cognitive Search also offers a "double encryption" option for customers who want the dual protection of both user-owned and Microsoft-managed keys.
++ At the storage layer, encryption-at-rest is built in for all service-managed content saved to disk, including indexes, synonym maps, and the definitions of indexers, data sources, and skillsets. Azure Cognitive Search also supports the addition of customer-managed keys (CMK) for supplemental encryption of indexed content. For services and indexed content created after July 2020, CMK encryption extends to temporary data structures created during indexing and query operations, for full "double encryption" of the relevant indexes and synonym maps.
 
 + Inbound security protects the search service endpoint at increasing levels of security: from API keys on the request, to inbound rules in the firewall, to private endpoints that fully shield your service from the public internet.
 
@@ -48,6 +48,10 @@ Customers who want additional storage protection can encrypt data and objects be
 > CMK encryption is generally available for search services created after January 2019. It is not supported on Free (shared) services. 
 >
 >Enabling this feature will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30%-60% in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it.
+
+### Double encryption
+
+Double encryption is understood to encompass the full 
 
 <a name="service-access-and-authentication"></a>
 

@@ -8,21 +8,29 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/08/2020
+ms.date: 08/01/2020
 ---
 
-# Encryption-at-rest of content in Azure Cognitive Search using customer-managed keys in Azure Key Vault
+# Encryption-at-rest in Azure Cognitive Search using customer-managed keys in Azure Key Vault
 
-By default, Azure Cognitive Search encrypts indexed content at rest with [service-managed keys](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). You can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. This article walks you through the steps.
+Azure Cognitive Search automatically encrypts indexed content at rest with [service-managed keys](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). If more protection is needed, you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. The CMK encryption occurs before the service encryption. This article walks you through the steps of setting up CMK encryption.
 
-Server-side encryption is supported through integration with [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage. 
+CMK encryption is dependent on [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage. 
 
-Encryption with customer-managed keys is configured at the index or synonym map level when those objects are created, and not on the search service level. You cannot encrypt content that already exists. 
+Encryption with customer-managed keys is applied to individual indexes or synonym maps when those objects are created, and is not specified on the search service level itself. Only new objects can be encrypted. You cannot encrypt content that already exists. 
 
 Keys don't all need to be in the same Key Vault. A single search service can host multiple encrypted indexes or synonym maps each encrypted with their own customer-managed encryption keys stored in different Key Vaults.  You can also have indexes and synonym maps in the same service that are not encrypted using customer-managed keys. 
 
-> [!IMPORTANT] 
-> This feature is available on the [REST API](https://docs.microsoft.com/rest/api/searchservice/) and [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). There is currently no support to configure customer managed encryption keys in the Azure portal. The search service must be created after January 2019 and cannot be a Free (shared) service.
+## Restrictions
+
+| Encryption | Applies to |
+|------------|------------|
+| Encryption-at-rest for all search objects created and managed by a search service. | All services, at any tier. No action required. |
+| CMK encryption, selectively applied to individual indexes and synonym maps | Billable services created after January 2019. Apply CMK encryption on new indexes and synonym maps created or updated using the [REST api-version=2019-05-06 or later](https://docs.microsoft.com/rest/api/searchservice/), or [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). |
+| CMK with double encryption, universally applied to all 
+
+
+This feature is available on the [REST API](https://docs.microsoft.com/rest/api/searchservice/) and [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). There is currently no support to configure customer managed encryption keys in the Azure portal. The search service must be created after January 2019 and cannot be a Free (shared) service.
 
 ## Prerequisites
 
