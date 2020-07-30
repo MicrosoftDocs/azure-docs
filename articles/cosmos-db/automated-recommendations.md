@@ -12,7 +12,7 @@ ms.reviewer: sngun
 
 # Automated recommendations for Azure Cosmos DB
 
-All the cloud services including Azure Cosmos DB get frequent updates with new features, capabilities, and improvements. It’s important for your application to keep up with the latest performance and security updates. The Azure portal offers customized recommendations that enable you to maximize the performance of your application. The Azure Advisor in the Azure portal continuously analyzes the usage history of your Azure Cosmos DB resources and provides recommendations based on your workload patterns. These recommendations correspond to areas like partitioning, indexing, network, security etc. These customized recommendations help you to improve the performance of your application.
+All the cloud services including Azure Cosmos DB get frequent updates with new features, capabilities, and improvements. It’s important for your application to keep up with the latest performance and security updates. The Azure portal offers customized recommendations that enable you to maximize the performance of your application. The Azure Cosmos DB's advisory engine continuously analyzes the usage history of your Azure Cosmos DB resources and provides recommendations based on your workload patterns. These recommendations correspond to areas like partitioning, indexing, network, security etc. These customized recommendations help you to improve the performance of your application.
 
 ## View recommendations
 
@@ -36,9 +36,9 @@ In this category, the advisor detects the usage of an old version of SDKs and re
 
 |Name  |Description  |
 |---------|---------|
-| OldSparkConnector | Detects the usage of old versions of the Spark connector and recommends upgrading. |
-| OldDotNetSDK | Detects the usage of old versions of the .NET SDK and recommends upgrading. |
-| OldJavaSDK | Detects the usage of old versions of the Java connector and recommends upgrading. |
+| Old Spark connector | Detects the usage of old versions of the Spark connector and recommends upgrading. |
+| Old .NET SDK | Detects the usage of old versions of the .NET SDK and recommends upgrading. |
+| Old Java SDK | Detects the usage of old versions of the Java connector and recommends upgrading. |
 
 ## Indexing recommendations
 
@@ -46,11 +46,11 @@ In this category, the advisor detects the indexing mode, indexing policy, indexe
 
 |Name  |Description  |
 |---------|---------|
-| LazyIndexing | Detects usage of lazy indexing and recommends using consistent indexing mode instead. The purpose of Azure Cosmos DB’s lazy indexing mode is limited and can impact the freshness of query results in some situations so consistent indexing mode is recommended. |
-| CompositeIndexing	| Detects the accounts where queries could benefit from composite indexes and recommend using them. Composite indexes can dramatically improve the performance and throughput consumption of some queries.|
-| DefaultIndexingWithManyPaths | Detects containers running on default indexing with many indexed paths and recommends customizing the indexing policy.|
-| OrderByHighRuCharge| Detects containers issuing ORDER BY queries with high RU/s charge and recommends exploring composite indexes.|
-| Mongo36NoIndexHighRuCharge| Detects Azure Cosmos DB’s API for MongoDB with 3.6 version of containers issuing queries with high RU/s charge and recommends adding indexes.|
+| Lazy indexing | Detects usage of lazy indexing mode and recommends using consistent indexing mode instead. The purpose of Azure Cosmos DB’s lazy indexing mode is limited and can impact the freshness of query results in some situations so consistent indexing mode is recommended. |
+| Composite indexing| Detects the accounts where queries could benefit from composite indexes and recommend using them. Composite indexes can dramatically improve the performance and throughput consumption of some queries.|
+| Default indexing policy with many indexed paths | Detects containers running on default indexing with many indexed paths and recommends customizing the indexing policy.|
+| ORDER BY queries with high RU/s charge| Detects containers issuing ORDER BY queries with high RU/s charge and recommends exploring composite indexes.|
+| MongoDB 3.6 accounts with no index and high RU/s consumption| Detects Azure Cosmos DB’s API for MongoDB with 3.6 version of containers issuing queries with high RU/s charge and recommends adding indexes.|
 
 ## Cost optimization recommendations
 
@@ -58,9 +58,9 @@ In this category, the advisor detects the RU/s usage and determines that you can
 
 |Name  |Description  |
 |---------|---------|
-| ReservedCapacity | Detects your RU/s utilization and recommends reserved instances to users who can benefit from it. |
-| ContainerInactivity | Detects the containers that haven't been used for more than 30 days and recommends reducing the throughput for such containers or deleting them.|
-| NewSubscriptionHighBurnRate | Detects new subscriptions with accounts spending unusually high RU/s per day and provides them a notification. This notification is specifically to bring awareness to new customers that Azure Cosmos DB operates on provisioned throughput-based model and not consumption-based model. |
+| Reserved capacity | Detects your RU/s utilization and recommends reserved instances to users who can benefit from it. |
+| Inactive containers | Detects the containers that haven't been used for more than 30 days and recommends reducing the throughput for such containers or deleting them.|
+| New subscriptions with high throughput | Detects new subscriptions with accounts spending unusually high RU/s per day and provides them a notification. This notification is specifically to bring awareness to new customers that Azure Cosmos DB operates on provisioned throughput-based model and not consumption-based model. |
 
 ## Migration recommendations
 
@@ -68,7 +68,7 @@ In this category, the advisor detects that you are using legacy features recomme
 
 |Name  |Description  |
 |---------|---------|
-| FixedCollection| Detects fixed-size containers that are approaching their max storage limit and recommends migrating them to partitioned containers.|
+| Non-partitioned containers | Detects fixed-size containers that are approaching their max storage limit and recommends migrating them to partitioned containers.|
 
 ## Query usage recommendations
 
@@ -76,7 +76,9 @@ In this category, the advisor detects the query execution and identifies that th
 
 |Name  |Description  |
 |---------|---------|
-| QueryPageSize | Detects queries issued with a fixed page size and recommends using -1 (no limit on the page size) instead of defining a specific value. This option reduces the number of network round trips required to retrieve all results. |
+| Queries with fixed page size | Detects queries issued with a fixed page size and recommends using -1 (no limit on the page size) instead of defining a specific value. This option reduces the number of network round trips required to retrieve all results. |
 
 ## Next steps
 
+* [Tuning query performance in Azure Cosmos DB](sql-api-query-metrics.md)
+* [Troubleshoot query issues](troubleshoot-query-performance.md) when using Azure Cosmos DB
