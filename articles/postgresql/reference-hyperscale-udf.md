@@ -291,7 +291,7 @@ SELECT * from master_get_table_metadata('github_events');
 (1 row)
 ```
 
-### get\_shard\_id\_for\_distribution\_column {#get_shard_id}
+### get\_shard\_id\_for\_distribution\_column
 
 Hyperscale (Citus) assigns every row of a distributed table to a shard based on
 the value of the row's distribution column and the table's method of
@@ -946,36 +946,4 @@ SELECT isolate_tenant_to_new_shard('lineitem', 135);
 ├─────────────────────────────┤
 │                      102240 │
 └─────────────────────────────┘
-```
-
-### citus\_create\_restore\_point
-
-Temporarily blocks writes to the server group, and creates a named restore
-point on all nodes. This function is similar to
-[pg\_create\_restore\_point](https://www.postgresql.org/docs/10/static/functions-admin.html#FUNCTIONS-ADMIN-BACKUP),
-but applies to all nodes and makes sure the restore point is consistent across
-them. This function is well suited to doing point-in-time recovery, and server
-group forking.
-
-#### Arguments
-
-**name:** The name of the restore point to create.
-
-#### Return Value
-
-**coordinator\_lsn:** Log sequence number of the restore point in the
-coordinator node WAL.
-
-#### Examples
-
-```postgresql
-select citus_create_restore_point('foo');
-```
-
-```
-┌────────────────────────────┐
-│ citus_create_restore_point │
-├────────────────────────────┤
-│ 0/1EA2808                  │
-└────────────────────────────┘
 ```
