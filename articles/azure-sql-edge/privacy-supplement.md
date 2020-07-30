@@ -94,7 +94,6 @@ Data needed to provide Internet-based services, per the Azure SQL Edge EULA.
 - Azure SQL Edge build number
 - Language code
 - An IP address with certain octets removed
-- Map data
 
 ### Permitted usage scenarios
 
@@ -102,28 +101,10 @@ Data needed to provide Internet-based services, per the Azure SQL Edge EULA.
 |---------|---------|---------|
 |May be used by Microsoft to improve features and/or fix bugs in current features. |Limit to Microsoft internal use with no third-party access. Microsoft can expose the data to the original customer.  For example, dashboards |Min 90 days - Max 3 years |
 |Customers with their consent can send User Feedback that contains Customer Content to Microsoft. |Limit to Microsoft internal use with no third-party access. |Customers with their consent can send User Feedback that contains Customer Content to Microsoft. |
-|Power View and SQL Reporting Services Map Item(s) may send data for use of Bing Maps. |Limit to session data |- |
-
-## Organization identifiable information (OII)
-
-Data received from an organization, or generated from their use of the product.
-
-- Linkable to an organization.
-- Does not contain content.
-
-### Examples of organization identifiable information
-
-- Organization Name (example: Microsoft Corp.)
-
-### Permitted usage scenarios
-
-|Scenario  |Access Restrictions  |Retention Requirements|
-|---------|---------|---------|
-| Microsoft may collect generic usage data of Azure SQL Edge instances running in Azure Virtual Machines for the express purpose of giving customers optional benefits within Azure for using Azure SQL Edge within Azure Virtual Machines. | Microsoft can expose data to the customer, such as through the Azure portal, to help customers running Azure SQL Edge in Azure Virtual Machines to access benefits specific to running Azure SQL Edge in Azure. | Min 90 days - Max 3 years |
 
 ## System metadata
 
-Data generated in the course of running the Azure SQL Edge.  The data does not contain customer content.
+Data generated in the course of running Azure SQL Edge.  The system metadata does not contain customer content.
 
 ### Examples of system metadata
 
