@@ -1,6 +1,6 @@
 ---
 title: Create an additional Azure subscription
-description: Learn how to add a new Azure subscription in the Azure portal. See information about billing account forms and your next steps.
+description: Learn how to add a new Azure subscription in the Azure portal. See information about billing account forms and view additional available resources.
 author: amberbhargava
 ms.service: cost-management-billing
 ms.topic: conceptual

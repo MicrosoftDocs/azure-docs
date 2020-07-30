@@ -1,6 +1,6 @@
 ---
 title: Set up billing for Microsoft Customer Agreement - Azure
-description: Learn how to set up your billing account for a Microsoft Customer Agreement. See prerequisites for the setup and view additional available information.
+description: Learn how to set up your billing account for a Microsoft Customer Agreement. See prerequisites for the setup and view additional available resources.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
