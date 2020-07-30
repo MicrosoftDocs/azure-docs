@@ -94,7 +94,7 @@ For complete examples using Key Vault with your applications, see:
 
 The following articles and scenarios provide task-specific guidance for working with Azure Key Vault:
 
-- [Change key vault tenant ID after subscription move](subscription-move-fix.md) - When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. Fix this using this guide.
+- [Change key vault tenant ID after subscription move](move-subscription.md) - When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. Fix this using this guide.
 - [Accessing Key Vault behind firewall](access-behind-firewall.md) - To access a key vault your key vault client application needs to be able to access multiple end-points for various functionalities.
 - [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](../keys/hsm-protected-keys.md) - This will help you plan for, generate and then transfer your own HSM-protected keys to use with Azure Key Vault.
 - [How to pass secure values (such as passwords) during deployment](../../azure-resource-manager/templates/key-vault-parameter.md) - When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an Azure Key Vault and reference the value in other Resource Manager templates.
@@ -116,7 +116,7 @@ These articles are about other scenarios and services that use or integrate with
 
 ## Key Vault overviews and concepts
 
-- [Key Vault soft-delete behavior](overview-soft-delete.md)) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
+- [Key Vault soft-delete behavior](soft-delete-overview.md)) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
 - [Key Vault client throttling](overview-throttling.md) orients you to the basic concepts of throttling and offers an approach for your app.
 - [Key Vault storage account keys overview](../secrets/overview-storage-keys.md)) describes the Key Vault integration Azure Storage Accounts keys.
 - [Key Vault security worlds](overview-security-worlds.md) describes the relationships between regions and security areas.

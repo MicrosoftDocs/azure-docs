@@ -32,7 +32,7 @@ The following services are used in this example.
 
 + [Create an Azure Key Vault resource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) or find an existing vault under your subscription.
 
-+ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is used for configuration tasks.
++ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is used for configuration tasks.
 
 + [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) and [.NET SDK preview](https://aka.ms/search-sdk-preview) can be used to call the REST API. There is no portal support for customer-managed encryption at this time.
 

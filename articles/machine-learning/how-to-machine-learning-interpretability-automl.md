@@ -5,9 +5,10 @@ description: Learn how to get explanations for how your automated ML model deter
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.author: mesameki
-author: mesameki
+ms.topic: conceptual
+ms.custom: how-to
+ms.author: mithigpe
+author: minthigpen
 ms.date: 07/09/2020
 ---
 

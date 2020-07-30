@@ -32,7 +32,7 @@ Using Azure Active Directory (Azure AD) portal, you can bulk download the member
 
 You can see the status of all of your pending bulk requests in the **Bulk operation results** page.
 
-[![](media/groups-bulk-download-members/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-download-members/bulk-center.png#lightbox)
+[![Check status in the Bulk Operations Results page.](media/groups-bulk-download-members/bulk-center.png)](media/groups-bulk-download-members/bulk-center.png#lightbox)
 
 ## Bulk download service limits
 

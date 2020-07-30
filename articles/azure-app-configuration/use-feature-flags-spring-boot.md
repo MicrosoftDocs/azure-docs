@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 
 #Customer intent: I want to control feature availability in my app by using the Spring Boot Feature Manager library.
 ---

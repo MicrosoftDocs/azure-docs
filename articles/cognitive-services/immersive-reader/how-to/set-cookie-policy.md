@@ -11,6 +11,7 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: pasta
+ms.custom: devx-track-javascript
 ---
 
 # How to set the cookie policy for the Immersive Reader

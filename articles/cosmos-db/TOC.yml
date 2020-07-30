@@ -458,12 +458,15 @@
       - name: Parameterized query
         displayName: parameterized query, parameterized, parameter, parameters
         href: sql-query-parameterized-queries.md
-      - name: LINQ to SQL
-        displayName: linq, .NET
-        href: sql-query-linq-to-sql.md
       - name: SQL query execution
         displayName: query performance, query execution
         href: sql-query-execution.md
+      - name: Pagination
+        displayName: page, paging, continuation, token, pagination
+        href: sql-query-pagination.md
+      - name: LINQ to SQL
+        displayName: linq, .NET
+        href: sql-query-linq-to-sql.md
     - name: Work with Azure Cosmos account
       href: account-overview.md
     - name: Containers and items
@@ -574,6 +577,9 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Advanced threat protection
+        - name: Security controls by Azure Policy
+          displayName: regulatory, compliance, standards, domains
+          href: ./security-controls-policy.md
         - name: Security baseline
           href: security-baseline.md
     - name: Enterprise readiness
@@ -586,6 +592,8 @@
         href: policy.md
     - name: Service quotas
       href: concepts-limits.md
+    - name: Automatic recommendations
+      href: automated-recommendations.md
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
     items:
@@ -668,7 +676,7 @@
         - name: Manage using PowerShell
           href: powershell-samples-cassandra.md
         - name: Manage using Azure CLI
-          href: cli-samples-cassandra.md
+          href: cli-samples.md
     - name: MongoDB API
       items:
       - name: Overview
@@ -762,7 +770,7 @@
         - name: Manage using PowerShell
           href: powershell-samples-mongodb.md
         - name: Manage using Azure CLI
-          href: cli-samples-mongodb.md
+          href: cli-samples.md
         - name: Troubleshoot common issues
           href: mongodb-troubleshoot.md
     - name: Gremlin API
@@ -822,7 +830,7 @@
         - name: Manage using PowerShell
           href: powershell-samples-gremlin.md
         - name: Manage using Azure CLI
-          href: cli-samples-gremlin.md
+          href: cli-samples.md
       - name: Reference
         items:
         - name: Response Headers
@@ -893,7 +901,7 @@
         - name: Manage using PowerShell
           href: powershell-samples-table.md
         - name: Manage using Azure CLI
-          href: cli-samples-table.md
+          href: cli-samples.md
       - name: Reference
         items:
           - name: .NET
@@ -988,7 +996,7 @@
         href: how-to-manage-indexing-policy.md
       - name: Define unique keys
         href: how-to-define-unique-keys.md
-    - name: Performance & Troubleshooting
+    - name: Performance
       items:
       - name: Query
         items: 
@@ -996,28 +1004,20 @@
           href: profile-sql-api-query.md
         - name: Tune query performance
           href: sql-api-query-metrics.md
-        - name: Troubleshoot query performance
-          href: troubleshoot-query-performance.md
       - name: .NET
         items: 
         - name: Performance tips for .NET SDK v3
           href: performance-tips-dotnet-sdk-v3-sql.md
         - name: Performance tips for .NET SDK v2
           href: performance-tips.md
-        - name: Troubleshoot .NET SDK
-          href: troubleshoot-dot-net-sdk.md
       - name: Java
         items: 
         - name: Performance tips for Java SDK v4
           href: performance-tips-java-sdk-v4-sql.md  
-        - name: Troubleshoot Java SDK v4
-          href: troubleshoot-java-sdk-v4-sql.md  
         - name: Async Java SDK v2
           href: performance-tips-async-java.md          
         - name: Sync Java SDK v2
           href: performance-tips-java.md
-        - name: Troubleshoot- Async Java SDK v2
-          href: troubleshoot-java-async-sdk.md
       - name: Performance test - sample app
         href: performance-testing.md
       - name: Cost-effective reads and writes
@@ -1026,6 +1026,36 @@
       items:
       - name: Migrate to Java V4 SDK
         href: migrate-java-v4-sdk.md
+    - name: Troubleshooting
+      items:
+      - name: Common errors
+        items:
+        - name: Troubleshoot query performance
+          href: troubleshoot-query-performance.md
+        - name : Troubleshoot service request timeout
+          href: troubleshoot-request-timeout.md
+        - name : Troubleshoot request rate too large
+          href: troubleshoot-request-rate-too-large.md
+        - name : Troubleshoot not found
+          href: troubleshoot-not-found.md
+        - name : Troubleshoot unauthorized
+          href: troubleshoot-unauthorized.md
+      - name: .NET
+        items: 
+        - name: General Troubleshooting .NET SDK
+          href: troubleshoot-dot-net-sdk.md
+        - name : Troubleshoot request header too large
+          href: troubleshoot-dot-net-sdk-request-header-too-large.md
+        - name : Troubleshoot request timeout
+          href: troubleshoot-dot-net-sdk-request-timeout.md
+        - name : Troubleshoot service unavailable
+          href: troubleshoot-service-unavailable.md 
+      - name: .Java
+        items: 
+        - name: Troubleshoot Java SDK v4
+          href: troubleshoot-java-sdk-v4-sql.md  
+        - name: Troubleshoot- Async Java SDK v2
+          href: troubleshoot-java-async-sdk.md
     - name: Change Feed
       items:
       - name: Azure Cosmos DB Trigger logs
@@ -1104,6 +1134,8 @@
       items:
       - name: Restore data from a backup
         href: how-to-backup-and-restore.md
+      - name: Request quota increase
+        href: create-support-request-quota-increase.md
     - name : Monitor
       items:
       - name: Monitor Cosmos DB
@@ -1112,6 +1144,8 @@
         items:
         - name: Azure Monitor for Cosmos (preview)
           href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Scenarios to monitor 
+          href: use-metrics.md
         - name: Monitor server-side latency
           href: monitor-server-side-latency.md
         - name: Monitor request unit usage
@@ -1124,8 +1158,8 @@
           href: cosmosdb-monitor-resource-logs.md
         - name: Audit control plane logs
           href: audit-control-plane-logs.md
-      - name: View metrics from Cosmos DB account
-        href: use-metrics.md
+      - name: Configure alerts
+        href: create-alerts.md
       - name: Monitoring data reference
         href: monitor-cosmos-db-reference.md
       - name: Application logging with Logic Apps
