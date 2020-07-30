@@ -226,9 +226,6 @@
         - name: Use private Python packages
           displayName: pip, Conda, anaconda
           href: how-to-use-private-python-packages.md
-        - name: Enable logging
-          displayName: troubleshoot, log, files, tracing
-          href: how-to-enable-logging.md
         - name: Set input & output directories
           displayName: large data, write, experiment files, size limit
           href: how-to-save-write-experiment-files.md
@@ -310,6 +307,7 @@
               displayName: cancel, fail, status, child run
               href: how-to-manage-runs.md
             - name: Log metrics for training runs
+              displayName: troubleshoot, log, files, tracing
               href: how-to-track-experiments.md
             - name: Track experiments with MLflow
               displayName: log, monitor, metrics, Databricks
