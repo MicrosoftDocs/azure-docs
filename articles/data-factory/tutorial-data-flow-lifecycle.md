@@ -12,7 +12,7 @@ ms.date: 07/29/2020
 
 If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
-In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink using mapping data flow. The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow
+In this tutorial, you'll learn the lifecycle of designing data flows in ADF that includes unit testing, data preview, end-to-end testing in a pipeline, and preparing for publishing to the live factory.
 
 In this tutorial, you do the following steps:
 
@@ -20,8 +20,9 @@ In this tutorial, you do the following steps:
 > * Create a data factory.
 > * Create a pipeline with a Data Flow activity.
 > * Build a mapping data flow with four transformations.
-> * Test run the pipeline.
-> * Monitor a Data Flow activity
+> * Test the transformation logic.
+> * Test the data flow in a pipeline.
+> * Prepare pipeline for publishing.
 
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
