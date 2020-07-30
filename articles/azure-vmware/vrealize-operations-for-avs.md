@@ -2,7 +2,7 @@
 title: Set up vRealize Operations for Azure VMware Solution (AVS)
 description:  
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 08/06/2020
 ---
 
 # Set up vRealize Operations for Azure VMware Solution (AVS)
