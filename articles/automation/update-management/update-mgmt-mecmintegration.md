@@ -34,6 +34,7 @@ Perform the following steps if you are going to continue managing update deploym
 2. In Azure Automation, select **Update Management**. Create a new deployment following the steps described in [Creating an Update Deployment](update-mgmt-deploy-updates.md#schedule-an-update-deployment) and select **Imported groups** on the **Type** dropdown to select the appropriate Windows Endpoint Configuration Manager collection. Keep in mind the following important points:
 
     a. If a maintenance window is defined on the selected Windows Endpoint Configuration Manager device collection, members of the collection honor it instead of the **Duration** setting defined in the scheduled deployment.
+
     b. Members of the target collection must have a connection to the Internet (either direct, through a proxy server or through the Log Analytics gateway).
 
 After completing the update deployment through Azure Automation, the target computers that are members of the selected computer group will install updates at the scheduled time from their local client cache. You can [view update deployment status](update-mgmt-deploy-updates.md#check-deployment-status) to monitor the results of your deployment.
