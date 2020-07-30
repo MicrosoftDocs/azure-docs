@@ -8,7 +8,7 @@ ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 #Customer intent: As a Java developer, I want deploy a java app so that it is hosted on Azure App Service.
 ---
 # Quickstart: Create a Java app on Azure App Service on Linux

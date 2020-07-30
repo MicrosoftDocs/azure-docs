@@ -33,17 +33,21 @@ Backup of Azure VMs requires movement of data from your virtual machine's disk t
 
 ## Private Endpoints for Azure backup
 
-You can now use [Private Endpoints](../private-link/private-endpoint-overview.md) to back up your data securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault, so you do not need to expose your virtual networks to any public IPs. Private Endpoints can be used for backing up and restoring your SQL and SAP HANA databases that run inside your Azure VMs. It can also be used for your on-premises servers using the MARS agent.
+You can now use [Private Endpoints](../private-link/private-endpoint-overview.md) to back up your data securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault, so you don't need to expose your virtual networks to any public IPs. Private Endpoints can be used for backing up and restoring your SQL and SAP HANA databases that run inside your Azure VMs. It can also be used for your on-premises servers using the MARS agent.
 
 Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
 
-## Encryption of data in transit and at rest
+## Encryption of data
 
-Encryption protects your data and helps you to meet your organizational security and compliance commitments. Within Azure, data in transit between Azure storage and the vault is protected by HTTPS. This data remains on the Azure backbone network.
+Encryption protects your data and helps you to meet your organizational security and compliance commitments. Data encryption occurs in many stages in Azure Backup:
 
-* Backup data is automatically encrypted using Microsoft-managed keys. You can also encrypt your backed up managed disk VMs in the Recovery Services Vault using [customer managed keys](backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys) stored in the Azure Key Vault. You don't need to take any explicit action to enable this encryption. It applies to all workloads being backed up to your Recovery Services vault.
+* Within Azure, data in transit between Azure storage and the vault is [protected by HTTPS](backup-support-matrix.md#network-traffic-to-azure). This data remains on the Azure backbone network.
 
-* Azure Backup supports backup and restore of Azure VMs that have their OS/data disks encrypted with Azure Disk Encryption (ADE). [Learn more about encrypted Azure VMs and Azure Backup](./backup-azure-vms-encryption.md).
+* Backup data is automatically encrypted using [Microsoft-managed keys](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys), and you don't need to take any explicit action to enable it. You can also encrypt your backed up data using [customer managed keys](encryption-at-rest-with-cmk.md) stored in the Azure Key Vault. It applies to all workloads being backed up to your Recovery Services vault.
+
+* Azure Backup supports backup and restore of Azure VMs that have their OS/data disks encrypted with [Azure Disk Encryption (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) and [VMs with CMK encrypted disks](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). For more information, [learn more about encrypted Azure VMs and Azure Backup](./backup-azure-vms-encryption.md).
+
+* When data is backed up from on-premises servers with the MARS agent, data is encrypted with a passphrase before upload to Azure Backup and decrypted only after it's downloaded from Azure Backup. Read more about [security features to help protect hybrid backups](#security-features-to-help-protect-hybrid-backups).
 
 ## Protection of backup data from unintentional deletes
 

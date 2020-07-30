@@ -5,13 +5,12 @@ description: Learn about the quotas on resources for Azure Machine Learning and 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
-
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
-ms.custom: contperfq4 
+ms.topic: conceptual
+ms.custom: troubleshooting,contperfq4 
 ---
 
 # Manage & increase quotas for resources with Azure Machine Learning

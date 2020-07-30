@@ -7,6 +7,7 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
+ms.custom: devx-track-javascript
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning (Preview)
 

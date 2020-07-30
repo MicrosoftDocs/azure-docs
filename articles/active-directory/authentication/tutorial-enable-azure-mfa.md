@@ -38,7 +38,7 @@ In this tutorial you learn how to:
 
 To complete this tutorial, you need the following resources and privileges:
 
-* A working Azure AD tenant with Azure AD Premium or trial license enabled.
+* A working Azure AD tenant with at least an Azure AD Premium P1 or trial license enabled.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with *global administrator* privileges.
 * A non-administrator user with a password you know, such as *testuser*. You test the end-user Azure Multi-Factor Authentication experience using this account in this tutorial.
@@ -64,7 +64,7 @@ First, create a Conditional Access policy and assign your test group of users as
 1. Check the box for **Users and groups**, then **Select** to browse the available Azure AD users and groups.
 1. Browse for and select your Azure AD group, such as *MFA-Test-Group*, then choose **Select**.
 
-    [![](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png "Select your Azure AD group to use with the Conditional Access policy")](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
+    [ ![Select your Azure AD group to use with the Conditional Access policy](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png) ](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
 
 1. To apply the Conditional Access policy for the group, select **Done**.
 
