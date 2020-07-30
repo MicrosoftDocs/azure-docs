@@ -24,8 +24,8 @@ Once you define which DNS server your organization needs (Azure DNS or your own 
 
 What’s the difference between using domain names in application rules compared to that of network rules? 
 
-1. FQDN filtering in application rules for HTTP/S and MSSQL is based on an application level transparent proxy and the SNI header. As such, it can discern between two FQDNs that are resolved to the same IP address. This is not the case with FQDN filtering in network rules. Always use application rules when possible.
-2. In application rules, you can use HTTP/S and MSSQL as your selected protocols. In network rules, you can use any TCP/UDP protocol with your destination FQDNs.
+- FQDN filtering in application rules for HTTP/S and MSSQL is based on an application level transparent proxy and the SNI header. As such, it can discern between two FQDNs that are resolved to the same IP address. This is not the case with FQDN filtering in network rules. Always use application rules when possible.
+- In application rules, you can use HTTP/S and MSSQL as your selected protocols. In network rules, you can use any TCP/UDP protocol with your destination FQDNs.
 
 ## Next steps
 
