@@ -63,10 +63,10 @@ The copying of Azure IoT Connector for FHIR mapping files can be useful for edit
 
 ## Next steps
 
-Check out frequently asked questions about the Azure IoT Connector for FHIR.
+Check out frequently asked questions about the Azure IoT Connector for FHIR (preview).
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR FAQs](fhir-faq.md#iot-connector-preview)
+>[Azure IoT Connector for FHIR (preview) FAQs](fhir-faq.md#iot-connector-preview)
 
 In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
 
