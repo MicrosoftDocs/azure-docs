@@ -36718,12 +36718,17 @@
     },
     {
       "source_path": "articles/active-directory/application-provisioning-when-will-provisioning-finish.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user",
       "redirect_document_id": false
     },
     {
