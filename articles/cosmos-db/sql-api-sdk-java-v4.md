@@ -8,8 +8,9 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-
+ms.custom: devx-track-java
 ---
+
 # Azure Cosmos DB Java SDK v4 for Core (SQL) API: release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
@@ -132,6 +133,7 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 * Query Optimizations by removing double serialization / deserialization. 
 * Response Headers optimizations by removing unnecessary copying back and forth. 
 * Optimized `ByteBuffer` serialization / deserialization by removing intermediate String instantiations.
+
 #### Key Bug Fixes
 * Fixed ConnectionPolicy `toString()` Null Pointer Exception.
 * Fixed issue with parsing of query results in case of Value order by queries. 

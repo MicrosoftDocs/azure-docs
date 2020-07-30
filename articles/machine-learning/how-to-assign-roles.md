@@ -5,12 +5,12 @@ description: Learn how to access to an Azure Machine Learning workspace using ro
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
-ms.custom: seodec18
+ms.custom: how-to, seodec18
 
 ---
 
@@ -322,6 +322,7 @@ Yes here are some common scenarios with custom proposed role definitions that yo
     }
     ```
 
+<a name="labeler"></a>
 * __Labeler Custom__: Allows you to define a role scoped only to labeling data:
 
     `labeler_custom_role.json` :
@@ -365,7 +366,7 @@ They can also be found in the list of [Resource provider operations](/azure/role
 
 ### Q. What are some common gotchas when using Azure RBAC?
 
-Here are a few things to be aware of while you use Azure Role Based Access Controls:
+Here are a few things to be aware of while you use Azure role-based access control (Azure RBAC):
 
 - When you create a resource in Azure, say a workspace, you are not directly the owner of the workspace. Your role gets inherited from the highest scope role that you are authorized against in that subscription. As an example if you are a Network Administrator, and had the permissions to create a Machine Learning workspace, you would be assigned the Network Administrator role against that workspace, and not the Owner role.
 - When there are two role assignments to the same AAD user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)

@@ -6,6 +6,7 @@ author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
+ms.custom: devx-track-javascript
 ---
 
 # Service Fabric for Visual Studio Code
