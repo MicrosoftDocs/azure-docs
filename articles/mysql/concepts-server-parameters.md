@@ -201,6 +201,12 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 > [!NOTE]
 > In MySQL 8.0, the lower_case_table_name is set to 1 by default and you cannot change it.
 
+### innodb_strict_mode
+
+If you receive error similar to "Row size too large (> 8126)" then you may want to turn off "innodb_strict_mode". The server parameter "innodb_strict_mode" is not allowed to be modified because if row data size is larger than 8k, the data will be truncated without an error leading to potential data loss. We recommend to modify the schema to fit the page size limit. 
+
+In case you want to set this parameter at a session level then you can set this parameter using init_connect. To set "innodb_strict_mode" at session level, refer to [setting parameter not listed](https://docs.microsoft.com/en-us/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
+
 ### sort_buffer_size
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) to learn more about this parameter.
