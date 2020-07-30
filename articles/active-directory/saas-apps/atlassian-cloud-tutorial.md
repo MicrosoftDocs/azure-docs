@@ -110,9 +110,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![image](./media/atlassian-cloud-tutorial/configuration-urls.png)
    
-   b. Copy **Azure AD Identifier** from Azure → **Identity Provider Entity ID** in Atlassian
+   b. Copy **Azure AD Identifier** value from Azure portal, paste it in the **Identity Provider Entity ID** textbox in Atlassian
    
-   c. Copy **Login URL** from Azure → **Identity Provider SSO URL** in Atlassian
+   c. Copy **Login URL** value from Azure portal, paste it in the **Identity Provider SSO URL** textbox in Atlassian
 
    ![image](./media/atlassian-cloud-tutorial/configuration-urls-azure.png)
 
@@ -128,11 +128,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. If you wish to configure the application in **IDP** initiated mode, edit the **Basic SAML Configuration** section of the **Set up Single Sign-On with SAML** page in Azure copy and open the **SAML single sign-on page** on the Atlassian Admin Portal
 
-   a. Copy **SP Entity ID** from Atlassian → **Identifier (Entity ID)** in Azure and set it as default
+   a. Copy **SP Entity ID** value from Atlassian, paste it in the **Identifier (Entity ID)** box in Azure and set it as default
    
-   b. Copy **SP Assertion Consumer Service URL** from Atlassian → **Reply URL (Assertion Consumer Service URL)** in Azure  and set it as default
+   b. Copy **SP Assertion Consumer Service URL** value from Atlassian, paste it in the **Reply URL (Assertion Consumer Service URL)** box in Azure and set it as default
    
-   c. Copy your **Instance URL** (from step 1)  → **Relay State** in Azure
+   c. Copy your **Instance URL** value, which you copied at step 1 and paste it in the **Relay State** box in Azure
 
    ![image](./media/atlassian-cloud-tutorial/copy-urls.png)
 
@@ -140,7 +140,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![image](./media/atlassian-cloud-tutorial/urls.png)
    
-1. If you wish to configure the application in **SP** initiated mode, edit the **Basic SAML Configuration** section of the **Set up Single Sign-On with SAML** page in Azure. Copy your **Instance URL** (from step 1)  → **Sign On URL** in Azure
+1. If you wish to configure the application in **SP** initiated mode, edit the **Basic SAML Configuration** section of the **Set up Single Sign-On with SAML** page in Azure. Copy your **Instance URL** (from step 1)  and paste it in the **Sign On URL** box in Azure
 
    ![image](./media/atlassian-cloud-tutorial/edit-button.png)
 
@@ -158,7 +158,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
       ![image](./media/atlassian-cloud-tutorial/user-attributes-and-claims.png)
       
-      b. Atlassian Cloud expects the *nameidentifier* (**Unique User Identifier**) to be mapped to the user’s email (**user.email**). Edit the **Source attribute** and change it to **user.mail**. Save the changes to the claim.
+      b. Atlassian Cloud expects the **nameidentifier** (**Unique User Identifier**) to be mapped to the user’s email (**user.email**). Edit the **Source attribute** and change it to **user.mail**. Save the changes to the claim.
 
       ![image](./media/atlassian-cloud-tutorial/unique-user-identifier.png)
       
@@ -172,7 +172,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
       ![image](./media/atlassian-cloud-tutorial/email-address.png)
          
-      b. While Azure does not populate the **user.mail** attribute for users created in Azure AD tenants without Office 365 licenses and stores the email for such users in **userprincipalname** attribute. Atlassian Cloud expects the *nameidentifier* (**Unique User Identifier**) to be mapped to the user’s email (**user.userprincipalname**).  Edit the **Source attribute**  and change it to **user.userprincipalname**. Save the changes to the claim.
+      b. While Azure does not populate the **user.mail** attribute for users created in Azure AD tenants without Office 365 licenses and stores the email for such users in **userprincipalname** attribute. Atlassian Cloud expects the **nameidentifier** (**Unique User Identifier**) to be mapped to the user’s email (**user.userprincipalname**).  Edit the **Source attribute**  and change it to **user.userprincipalname**. Save the changes to the claim.
 
       ![image](./media/atlassian-cloud-tutorial/set-email.png)
          
