@@ -15,7 +15,7 @@ This article summarizes Internet-enabled features that can collect and send anon
 
 - Azure SQL Family of products
 - SQL Server
-- [SQL Server  Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-telemetry-ssms?view=sql-server-2017)
+- [SQL Server  Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-telemetry-ssms)
 - SQL Server Data Tools (SSDT)
 - Azure Data Studio
 - Database Migration Assistant
@@ -26,7 +26,7 @@ Definition of *Permitted usage Scenarios*. For the context of this article, Micr
 
 ## Access control
 
-Credential-related information used to secure logins, users, or accounts within a Azure SQL Edge installation.
+Credential-related information used to secure logins, users, or accounts within an Azure SQL Edge installation.
 
 ### Examples of access control
 
@@ -130,7 +130,7 @@ Data generated in the course of running the Azure SQL Edge.  The data does not c
 The following are considered system metadata when they do not include customer content, object metadata, customer access control data, or EUII:
 
 - Database GUID
-- Hash of docker host name or the Azure SQL Edge containter host name
+- Hash of docker host name or the Azure SQL Edge container host name
 - Application name
 - Behavioral/usage data
 - SQL Customer Experience improvement program data  (SQLCEIP)
