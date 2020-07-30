@@ -29,7 +29,7 @@ Use Spark to manage Spark created databases. For example, delete it through a Sp
 
 If you create objects in a Spark created database using SQL on-demand, or try to drop the database, the operation will succeed. But, the original Spark database won't be changed.
 
-## Handling of name conflicts
+## How name conflicts are handled
 
 If the name of a Spark database conflicts with the name of an existing SQL on-demand database, a suffix is appended in SQL on-demand to the Spark database. The suffix in SQL on-demand is `_<workspace name>-ondemand-DefaultSparkConnector`.
 
@@ -52,9 +52,9 @@ If a security principal requires the ability to create objects or drop objects i
 
 ## Examples
 
-### Create & connect to Spark database - SQL on-demand
+### Create and connect to Spark database with SQL on-demand
 
-First create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that, for example,  using a Spark C# Notebook with the following .NET for Spark statement:
+First create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that, for example, using a Spark C# Notebook with the following .NET for Spark statement:
 
 ```csharp
 spark.Sql("CREATE DATABASE mytestdb")

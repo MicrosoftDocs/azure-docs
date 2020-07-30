@@ -458,12 +458,15 @@
       - name: Parameterized query
         displayName: parameterized query, parameterized, parameter, parameters
         href: sql-query-parameterized-queries.md
-      - name: LINQ to SQL
-        displayName: linq, .NET
-        href: sql-query-linq-to-sql.md
       - name: SQL query execution
         displayName: query performance, query execution
         href: sql-query-execution.md
+      - name: Pagination
+        displayName: page, paging, continuation, token, pagination
+        href: sql-query-pagination.md
+      - name: LINQ to SQL
+        displayName: linq, .NET
+        href: sql-query-linq-to-sql.md
     - name: Work with Azure Cosmos account
       href: account-overview.md
     - name: Containers and items
@@ -671,7 +674,7 @@
         - name: Manage using PowerShell
           href: powershell-samples-cassandra.md
         - name: Manage using Azure CLI
-          href: cli-samples-cassandra.md
+          href: cli-samples.md
     - name: MongoDB API
       items:
       - name: Overview
@@ -765,7 +768,7 @@
         - name: Manage using PowerShell
           href: powershell-samples-mongodb.md
         - name: Manage using Azure CLI
-          href: cli-samples-mongodb.md
+          href: cli-samples.md
         - name: Troubleshoot common issues
           href: mongodb-troubleshoot.md
     - name: Gremlin API
@@ -825,7 +828,7 @@
         - name: Manage using PowerShell
           href: powershell-samples-gremlin.md
         - name: Manage using Azure CLI
-          href: cli-samples-gremlin.md
+          href: cli-samples.md
       - name: Reference
         items:
         - name: Response Headers
@@ -896,7 +899,7 @@
         - name: Manage using PowerShell
           href: powershell-samples-table.md
         - name: Manage using Azure CLI
-          href: cli-samples-table.md
+          href: cli-samples.md
       - name: Reference
         items:
           - name: .NET

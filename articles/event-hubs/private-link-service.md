@@ -1,11 +1,11 @@
 ---
 title: Integrate Azure Event Hubs with Azure Private Link Service
 description: Learn how to integrate Azure Event Hubs with Azure Private Link Service
-ms.date: 06/23/2020
+ms.date: 07/29/2020
 ms.topic: article
 ---
 
-# Integrate Azure Event Hubs with Azure Private Link
+# Allow access to Azure Event Hubs namespaces via private endpoints 
 Azure Private Link Service enables you to access Azure Services (for example, Azure Event Hubs, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a **private endpoint** in your virtual network.
 
 A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your virtual network, effectively bringing the service into your virtual network. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
@@ -37,7 +37,7 @@ To integrate an Event Hubs namespace with Azure Private Link, you'll need the fo
 
 - An Event Hubs namespace.
 - An Azure virtual network.
-- A subnet in the virtual network.
+- A subnet in the virtual network. You can use the **default** subnet. 
 - Owner or contributor permissions for both the namespace and the virtual network.
 
 Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it will automatically filter only virtual networks that are in that region. Your namespace can be in a different region.
@@ -50,10 +50,15 @@ If you already have an Event Hubs namespace, you can create a private link conne
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 2. In the search bar, type in **event hubs**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
-4. Select the **Networking** tab under **Settings**.
+4. Select **Networking** under **Settings** on the left menu.
 
     > [!NOTE]
     > You see the **Networking** tab only for **standard** or **dedicated** namespaces. 
+
+    :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Networks tab - selected networks option" lightbox="./media/private-link-service/selected-networks-page.png":::    
+
+    > [!NOTE]
+    > By default, the **Selected networks** option is selected. If you don't specify an IP firewall rule or add a virtual network, the namespace can be accessed via public internet. 
 1. Select the **Private endpoint connections** tab at the top of the page. 
 1. Select the **+ Private Endpoint** button at the top of the page.
 

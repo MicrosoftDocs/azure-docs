@@ -4,8 +4,8 @@ description: Learn how to create, configure, and publish an IoT Edge module offe
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: anbene
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 07/22/2020
 ---
 

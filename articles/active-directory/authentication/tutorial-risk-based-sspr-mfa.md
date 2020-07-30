@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need the following resources and privileges:
 
-* A working Azure AD tenant with at least an Azure AD Premium P2 trial license enabled.
+* A working Azure AD tenant with at least an Azure AD Premium P2 or trial license enabled.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with *Global Administrator* privileges.
 * Azure AD configured for self-service password reset and Azure Multi-Factor Authentication
