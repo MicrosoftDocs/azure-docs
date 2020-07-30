@@ -4,7 +4,7 @@ description: The Azure IoT Hub security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: iot-hub
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 07/30/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -32,7 +32,7 @@ The Azure Security Baseline for Azure IoT Hub contains recommendations that will
 
 IoT Hub features including message routing, file upload, and bulk device import/export also require connectivity from IoT Hub to a customer-owned Azure resource over its public endpoint. These connectivity paths collectively make up the egress traffic from IoT Hub to customer resources.
 
-Recommend to restrict connectivity to your Azure resources (including Azure IoT Hub) through a virtual network that you own and operate to reduce connectivity exposure in an islolated network and enable on-premises network connectivity directly to Azure backbonr network. Use Azure Private Link and Azure Private Endpoint, where feasible, to enable private access to your services from other virtual networks.
+Recommend to restrict connectivity to your Azure resources (including Azure IoT Hub) through a virtual network that you own and operate to reduce connectivity exposure in an isolated network and enable on-premises network connectivity directly to Azure backbone network. Use Azure Private Link and Azure Private Endpoint, where feasible, to enable private access to your services from other virtual networks.
 
 Keep open hardware ports in your devices to a bare minimum to avoid unwanted access. Additionally, build mechanisms to prevent or detect physical tampering of the device.
 
