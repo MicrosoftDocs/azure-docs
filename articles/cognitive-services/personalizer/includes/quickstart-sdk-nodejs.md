@@ -89,7 +89,7 @@ Open the **sample.js** file in your preferred editor or IDE. Add the following `
 
 ## Add Personalizer resource information
 
-Create variables for your resource's Azure key and endpoint pulled from the environment variables, named `PERSONALIZER_KEY` and `PERSONALIZER_ENDPOINT`. If you created the environment variables after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later in this quickstart.
+Edit the key and endpoint variables toward the top of the code file for your resource's Azure key and endpoint. 
 
 [!code-javascript[Add Personalizer resource information](~/cognitive-services-quickstart-code/javascript/Personalizer/sample.js?name=AuthorizationVariables)]
 

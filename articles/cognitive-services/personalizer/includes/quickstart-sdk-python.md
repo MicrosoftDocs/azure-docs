@@ -69,9 +69,7 @@ From the project directory, open the **sample.py** file in your preferred editor
 
 ## Add Personalizer resource information
 
-Create variables for your resource's Azure key and endpoint pulled from the environment variables, named `PERSONALIZER_RESOURCE_KEY` and `PERSONALIZER_RESOURCE_ENDPOINT`. If you created the environment variables after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later in this quickstart.
-
-The resource name is part of the endpoint URL: `https://<your-resource-name>.api.cognitive.microsoft.com/`.
+Edit the key and endpoint variables toward the top of the code file for your resource's Azure key and endpoint. 
 
 [!code-python[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/cognitive-services-quickstart-code/python/Personalizer/sample.py?name=AuthorizationVariables)]
 

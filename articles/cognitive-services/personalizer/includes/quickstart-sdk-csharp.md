@@ -92,7 +92,7 @@ From the project directory, open the **Program.cs** file in your preferred edito
 
 ## Add Personalizer resource information
 
-In the **Program** class, create variables for your resource's Azure key and endpoint pulled from the environment variables, named `PERSONALIZER_RESOURCE_KEY` and `PERSONALIZER_RESOURCE_ENDPOINT`. If you created the environment variables after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later in this quickstart.
+In the **Program** class, edit the key and endpoint variables toward the top of the code file for your resource's Azure key and endpoint. 
 
 [!code-csharp[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/cognitive-services-quickstart-code/dotnet/Personalizer/Program.cs?name=classVariables)]
 
