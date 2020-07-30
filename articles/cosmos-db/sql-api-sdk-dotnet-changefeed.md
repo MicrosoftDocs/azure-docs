@@ -45,7 +45,7 @@ ms.author: anfeldma
 
 ### <a name="2.3.1"/>2.3.1
 * Corrected a case when `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` close reason was sent to `FeedProcessing.IChangeFeedObserver.CloseAsync` if the partition cannot be found or if the target replica is not up to date up with the read session. In these cases `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` and `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` close reasons are now used.
-* Added a new close reason `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` that is sent to close the change feed observer when SDK determines that the target replica is not up to date up with the read session.
+* Added a new close reason `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` that is sent to close the change feed observer when the target replica is not up to date up with the read session.
 
 ### <a name="2.3.0"/>2.3.0
 * Added a new method `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` and corresponding public interface `ICheckpointPartitionProcessorFactory`. This allows an implementation of the `IPartitionProcessor` interface to use built-in checkpointing mechanism. The new factory is similar to the existing `IPartitionProcessorFactory`, except that its `Create` method also takes the `ILeaseCheckpointer` parameter.
