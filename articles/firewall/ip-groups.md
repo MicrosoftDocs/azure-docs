@@ -64,7 +64,7 @@ You can now select **IP Group** as a **Source type** or **Destination type** for
 IP Groups are available in all public cloud regions.
 
 ## IP address limits
-|
+
 You can have a maximum of 100 IP Groups per firewall with a maximum 5000 individual IP addresses or IP prefixes per each IP Group.
 
 ## Related Azure PowerShell cmdlets
