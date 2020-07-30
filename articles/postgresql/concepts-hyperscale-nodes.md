@@ -138,7 +138,4 @@ WHERE shardid = 102027;
 
 ## Next steps
 
-- Learn how to [choose a distribution column](concepts-hyperscale-choose-distribution-column.md) for distributed tables.
-
-## Next steps
-- Learn about [distributed tables](concepts-hyperscale-distributed-data.md)
+- [Determine your application's type](concepts-hyperscale-app-type.md) to prepare for data modeling
