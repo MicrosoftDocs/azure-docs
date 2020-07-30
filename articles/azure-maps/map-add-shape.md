@@ -1,6 +1,6 @@
 ---
 title: Add a polygon layer to a map | Microsoft Azure Maps
-description: In this article, you will learn how to render a polygon and multi polygon on a map in the Microsoft Azure Maps Web SDK.
+description: Learn how to add a polygon or a circle to a map by using the web SDK. See how to customize these features and how to make them easy to update and maintain.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/29/2019
