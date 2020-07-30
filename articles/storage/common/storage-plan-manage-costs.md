@@ -13,11 +13,11 @@ ms.custom: subject-cost-optimization
 
 # Plan and manage costs for Azure Storage
 
-This article helps you to plan and manage costs for Azure Storage. Start by using the Azure pricing calculator. This calculator helps you to plan for costs before you create your storage account. Then, optimize your storage account so that you pay only for what you need.
+This article helps you plan and manage costs for Azure Storage. Start by using the Azure pricing calculator. First, estimate costs by using the Azure pricing calculator. After you create your storage account, optimize the account so that you pay only for what you need.
 
-Use cost management features to set budgets and monitor costs. You can also review forecasted costs and monitor spending trends to identify areas where you might want to act.
+Then, use cost management features to set budgets and monitor costs. You can also review forecasted costs, and monitor spending trends to identify areas where you might want to act.
 
-Keep in mind that costs for Azure Storage are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan for and manage costs for Azure Storage, you're billed for all Azure services and resources used for your Azure subscription, including the third-party services. After you're familiar with managing costs for Azure Storage, you can apply similar methods to manage costs for all the Azure services used in your subscription.
+Keep in mind that costs for Azure Storage are only a portion of the monthly costs in your Azure bill. Although this article explains how to estimate and manage costs for Azure Storage, you're billed for all Azure services and resources used for your Azure subscription, including the third-party services. After you're familiar with managing costs for Azure Storage, you can apply similar methods to manage costs for all the Azure services used in your subscription.
 
 ## Estimate costs
 
@@ -39,7 +39,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ## Optimize costs
 
-To reduce costs, consider reserving storage capacity. Organize your blobs into access tiers, and then use lifecycle management policies to periodically move blobs to more cost effective tiers.
+To reduce costs, reserve storage capacity, organize blobs into access tiers, and then use lifecycle management policies to periodically move blobs to more cost effective tiers.
 
 ### Reserve storage capacity
 
@@ -49,7 +49,7 @@ To learn more, see [Optimize costs for Blob storage with reserved capacity](http
 
 ### Organize data into access tiers
 
-You can reduce costs by storing blob data to the most appropriate access tier. Azure Storage offers three tiers that are designed to optimize costs based on how you use your data. For example, if you plan to access data frequently, you might use the *hot* access tier. This reduces the cost of accessing the data. If you plan to access data less frequently, the *Cold* access tier is a better choice. Instead of reducing the cost of data access, it reduces the cost of data storage.  
+You can reduce costs by storing blob data to the most appropriate access tier. Azure Storage offers three tiers that are designed to optimize costs based on how you use your data. For example, if you plan to access data frequently, you might use the *hot* access tier. This reduces the cost of accessing the data. If you plan to access data less frequently, the *cold* access tier is a better choice. Instead of reducing the cost of data access, it reduces the cost of data storage.  
 
 To learn more, see [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
 
