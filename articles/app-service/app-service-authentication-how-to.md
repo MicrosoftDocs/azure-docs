@@ -476,7 +476,7 @@ You can change the runtime version used by your app. The new runtime version sho
 #### From the Azure CLI
 You can also view and set the `runtimeVersion` from the Azure CLI.
 
-Using the Azure CLI, view the current runtime version with the [az webapp auth show](/cli/azure/webapp/auth) command.
+Using the Azure CLI, view the current runtime version with the [az webapp auth show](https://docs.microsoft.com/en-us/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) command.
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -495,7 +495,7 @@ You will see the `runtimeVersion` field in the CLI output. It will resemble the 
     ...
 }
 ```
-You can update the `runtimeVersion` setting in the app with the [az webapp auth update](/cli/azure/webapp/auth) command.
+You can update the `runtimeVersion` setting in the app with the [az webapp auth update](https://docs.microsoft.com/en-us/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update) command.
 
 ```azurecli-interactive
 az webapp auth update --name <my_app_name> \
