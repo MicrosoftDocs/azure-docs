@@ -37,7 +37,7 @@ landingContent:
             url: tutorial-1st-r-experiment.md
 
   # Studio
-  - title: 'Use designer & AutoML in studio'
+  - title: 'Use AutoML or drag & drop in studio'
     linkLists:
       - linkListType: overview
         links:
@@ -58,7 +58,15 @@ landingContent:
           - text: Create an image labeling project  
             url: tutorial-labeling.md
 
+  # BYO
+  - title: 'Bring your model to Azure'
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Deploy your local model to the cloud
+          url: how-to-deploy-existing-model.md  
 
+            
   # PYTHON
   - title: 'Train with the Python SDK'
     linkLists:
