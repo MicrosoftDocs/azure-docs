@@ -25,12 +25,12 @@ The following diagram shows the testing scenario used to validate Application Ga
 
 The Application Gateway instance is deployed on the hub in a dedicated subnet. It has an Azure public IP address; activating Standard DDoS protection for the virtual network is recommended. The web server is hosted on an AVS private cloud behind NSX T0 and T1 routers. AVS uses [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) to enable the communication with the hub and on-premises systems.
 
-## Deployment and configuration
-
-### Prerequisites
+## Prerequisites
 
 - An Azure account with an active subscription.
 - An AVS private cloud deployed and running.
+
+## Deployment and configuration
 
 1. In the Azure Portal, search for **Application Gateway** and select **Create application gateway**.
 
@@ -114,7 +114,6 @@ You can use Azure Application Gateway to configure URL path-based routing rules.
     Windows Server 2016 with IIS role installed has been used to illustrate this tutorial. Once the virtual machines are installed, run the following PowerShell commands to configure IIS for the tutorial in each VM. 
 
     The first virtual machine, contoso-web-01, will host the main website.
-
 
     ```powershell
     Install-WindowsFeature -Name Web-Server
