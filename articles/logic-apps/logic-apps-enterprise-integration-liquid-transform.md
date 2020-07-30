@@ -141,19 +141,19 @@ By using [Postman](https://www.getpostman.com/postman) or a similar tool, post J
 
 * Liquid templates follow the [file size limits for maps](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits) in Azure Logic Apps.
 
-* The **Transform JSON to JSON - Liquid** action natively outputs a string and merely indicates that text output from the template must be interpreted as a string. You must escape the backslash character (`\`) and any other reserved JSON characters.
-
 * The **Transform JSON to JSON - Liquid** action follows the [DotLiquid implementation for Liquid](https://github.com/dotliquid/dotliquid). This implementation is a port to the .NET Framework from the [Shopify implementation for Liquid](https://shopify.github.io/liquid/) and differs in [specific cases](https://github.com/dotliquid/dotliquid/issues).
 
   Here are known differences:
+
+  * The **Transform JSON to JSON - Liquid** action natively outputs a string and merely indicates that text output from the template must be interpreted as a string. Make sure that you escape the backslash character (`\`) and any other reserved JSON characters.
 
   * If your template uses [Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters), make sure that you use the [DotLiquid and C# naming conventions](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers#filter-and-output-casing). The **Transform JSON to JSON - Liquid** action uses *sentence casing*, so the filter names in your template also need to use sentence casing. Otherwise, the filters won't work.
 
     For example, when you use the `replace` filter, use `Replace`, not `replace`. The same rule applies if you try out examples at [DotLiquid online](http://dotliquidmarkup.org/try-online). For more information, see [Shopify Liquid filters](https://shopify.dev/docs/themes/liquid/reference/filters) and [DotLiquid Liquid filters](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters). The Shopify specification includes examples for each filter, so for comparison, you can try these examples at [DotLiquid - Try online](https://dotliquidmarkup.org/try-online).
 
-  * The standard `Replace` filter in the [DotLiquid implementation](https://github.com/dotliquid/dotliquid/blob/b6a7d992bf47e7d7dcec36fb402f2e0d70819388/src/DotLiquid/StandardFilters.cs#L425) uses [regular expression (RegEx) matching](/dotnet/standard/base-types/regular-expression-language-quick-reference), while the [Shopify implementation](https://shopify.github.io/liquid/filters/replace/) uses [simple string matching](https://github.com/Shopify/liquid/issues/202). Both implementations appear to work the same way until you use an RegEx-reserved character or an escape character in the match parameter.
+  * The standard `Replace` filter in the [DotLiquid implementation](https://github.com/dotliquid/dotliquid/blob/b6a7d992bf47e7d7dcec36fb402f2e0d70819388/src/DotLiquid/StandardFilters.cs#L425) uses [regular expression (RegEx) matching](/dotnet/standard/base-types/regular-expression-language-quick-reference), while the [Shopify implementation](https://shopify.github.io/liquid/filters/replace/) uses [simple string matching](https://github.com/Shopify/liquid/issues/202). Both implementations appear to work the same way until you use a RegEx-reserved character or an escape character in the match parameter.
 
-    For example, this `Replace` filter shows different behavior when you use the RegEx-reserved backslash (`\`) escape character. While this version works successfully:
+    For example, to escape the RegEx-reserved backslash (`\`) escape character, use `| Replace: '\\', '\\'`, and not `| Replace: '\', '\\'`. These examples show how the `Replace` filter behaves differently you try to escape the backslash character. While this version works successfully:
 
     `{ "SampleText": "{{ 'The quick brown fox "jumped" over the sleeping dog\\' | Replace: '\\', '\\' | Replace: '"', '\"'}}"}`
 
