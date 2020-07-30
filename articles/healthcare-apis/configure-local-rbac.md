@@ -1,5 +1,5 @@
 ---
-title: Configure local Role Based Access Control (RBAC) for Azure API for FHIR
+title: Configure local role-based access control (local RBAC) for Azure API for FHIR
 description: This article describes how to configure the Azure API for FHIR to use an external Azure AD tenant for data plane
 author: hansenms
 ms.service: healthcare-apis
