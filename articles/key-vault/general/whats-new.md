@@ -83,14 +83,14 @@ Here are some ways to detect if your application is impacted:
 
 - If you have an environment where firewall rules are set to allow outbound calls to only specific Certificate Revocation List (CRL) download and/or Online Certificate Status Protocol (OCSP) verification locations. You will need to allow the following CRL and OCSP URLs:
 
-    - https://crl3.digicert.com
-    - https://crl4.digicert.com
-    - https://ocsp.digicert.com
-    - https://www.d-trust.net
-    - https:// root-c3-ca2-2009.ocsp.d-trust.net
-    - https://crl.microsoft.com
-    - https://oneocsp.microsoft.com
-    - https://ocsp.msocsp.com
+    - http://crl3.digicert.com
+    - http://crl4.digicert.com
+    - http://ocsp.digicert.com
+    - http://www.d-trust.net
+    - http://root-c3-ca2-2009.ocsp.d-trust.net
+    - http://crl.microsoft.com
+    - http://oneocsp.microsoft.com
+    - http://ocsp.msocsp.com
 
 ## June 2020
 
@@ -151,7 +151,7 @@ Second preview version (version 2015-02-01-preview) was announced April 20, 2015
 - Update a key - added tags as optional information.
 - Update a secret - added tags as optional information.
 - Changed max size for secrets from 10 K to 25 K Bytes. See, [About keys, secrets, and certificates](about-keys-secrets-certificates.md).    
- 
+
 ## 2014
  
 First preview version (version 2014-12-08-preview) was announced on January 8, 2015.  
