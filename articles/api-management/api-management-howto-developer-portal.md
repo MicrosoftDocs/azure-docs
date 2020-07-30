@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 07/28/2020
 ms.author: apimpm
 ---
 
@@ -101,7 +101,19 @@ You can programmatically access and manage the developer portal's content throug
 
 The API is documented in [the GitHub repository's wiki section][2]. It can be used for automating migrations of portal content between environments - for example, from a test environment to the production environment. You can learn more about this process [in this documentation article](https://aka.ms/apimdocs/migrateportal) on GitHub.
 
+### How do I move from the managed to the self-hosted version?
+
+Refer to the detailed article in [the Wiki section of the developer portal repository on GitHub][2].
+
+### Can I have multiple developer portals in one API Management service?
+
+You can have one managed portal and multiple self-hosted portals. The content of all portals is stored in the same API Management service, so they will be identical. If you want to differentiate portals' appearance and functionality, you can self-host them with your own custom widgets that dynamically customize pages on runtime, for example based on the URL.
+
 ### Does the portal support Azure Resource Manager templates and/or is it compatible with API Management DevOps Resource Kit?
+
+No.
+
+### Is the portal's content saved with the backup/restore functionality in API Management?
 
 No.
 
