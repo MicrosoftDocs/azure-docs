@@ -36,8 +36,8 @@ Unless otherwise noted, the examples in this article are for version 3.x.
 
 ## Prerequisites
 
-Azure Functions Core Tools currently depends on the [Azure CLI](/cli/azure/install-azure-cli) for authenticating with your Azure account. 
-This means that you must install the Azure CLI locally to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
+Azure Functions Core Tools currently depends on the Azure CLI for authenticating with your Azure account. 
+This means that you must [install the Azure CLI locally](/cli/azure/install-azure-cli) to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
 
 ## Install the Azure Functions Core Tools
 
