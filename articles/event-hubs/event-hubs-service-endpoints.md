@@ -2,10 +2,10 @@
 title: Virtual Network service endpoints - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to add a Microsoft.EventHub service endpoint to a virtual network. 
 ms.topic: article
-ms.date: 07/16/2020
+ms.date: 07/29/2020
 ---
 
-# Use Virtual Network service endpoints with Azure Event Hubs
+# Allow access to Azure Event Hubs namespaces from specific virtual networks 
 
 The integration of Event Hubs with [Virtual Network (VNet) Service Endpoints][vnet-sep] enables secure access to messaging capabilities from workloads such as virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends.
 
@@ -51,10 +51,19 @@ The virtual network rule is an association of the Event Hubs namespace with a vi
 This section shows you how to use Azure portal to add a virtual network service endpoint. To limit access, you need to integrate the virtual network service endpoint for this Event Hubs namespace.
 
 1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
-2. On the left menu, select **Networking** option. If you select the **All networks** option, the event hub accepts connections from any IP address. This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
+4. Select **Networking** under **Settings** on the left menu. 
+
+    > [!NOTE]
+    > You see the **Networking** tab only for **standard** or **dedicated** namespaces. 
+
+    By default, the **Selected networks** option is selected. If you don't specify an IP firewall rule or add a virtual network on this page, the namespace can be accessed from all networks including public internet (using the access key). 
+
+    :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Networks tab - selected networks option" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+
+    If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
     ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. To restrict access to specific networks, select the **Selected Networks** option at the top of the page.
+1. To restrict access to specific networks, select the **Selected Networks** option at the top of the page if it isn't already selected.
 2. In the **Virtual Network** section of the page, select **+Add existing virtual network***. Select **+ Create new virtual network** if you want to create a new VNet. 
 
     ![add existing virtual network](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
@@ -72,6 +81,8 @@ This section shows you how to use Azure portal to add a virtual network service 
 
     ![Save network](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 
+    > [!NOTE]
+    > To restrict access to specific IP addresses or ranges, see [Allow access from specific IP addresses or ranges](event-hubs-ip-filtering.md).
 
 ## Use Resource Manager template
 

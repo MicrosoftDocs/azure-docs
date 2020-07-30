@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/digital-twins/how-to-set-up-instance-manual.md",
+      "redirect_url": "/azure/digital-twins/how-to-set-up-instance-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/latest/media-services-high-availability-streaming.md",
       "redirect_url": "articles/media-services/latest/media-services-high-availability-encoding",
       "redirect_document_id": false
@@ -15239,6 +15244,26 @@
     },
     {
       "source_path": "articles/documentdb/documentdb-automation-region-management.md",
+      "redirect_url": "/azure/cosmos-db/cli-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "/azure/cosmos-db/cli-samples-cassandra.md",
+      "redirect_url": "/azure/cosmos-db/cli-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "/azure/cosmos-db/cli-samples-gremlin.md",
+      "redirect_url": "/azure/cosmos-db/cli-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "/azure/cosmos-db/cli-samples-mongodb.md",
+      "redirect_url": "/azure/cosmos-db/cli-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "/azure/cosmos-db/cli-samples-table.md",
       "redirect_url": "/azure/cosmos-db/cli-samples",
       "redirect_document_id": false
     },
