@@ -400,7 +400,7 @@ Use the Visual Studio Code explorer and the Azure IoT Tools extension to deploy 
 
 Make sure that your IoT Edge device is up and running.
 
-1. In the Visual Studio Code explorer, under **Azure IoT Hub**, expand the **Devices** section to see your list of IoT devices.
+1. In the Visual Studio Code explorer, under the **Azure IoT Hub** section, expand **Devices** to see your list of IoT devices.
 
 2. Right-click the name of your IoT Edge device, then select **Create Deployment for Single Device**.
 
