@@ -36,6 +36,10 @@ The following table and chart compare and contrast the vCore-based and the DTU-b
 
 ![Pricing model comparison](./media/purchasing-models/pricing-model.png)
 
+Want to optimize and save on your cloud spending?
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
+
 ## Compute costs
 
 ### Provisioned compute costs

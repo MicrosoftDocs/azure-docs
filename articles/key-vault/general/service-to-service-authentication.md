@@ -16,7 +16,9 @@ ms.subservice: general
 # Service-to-service authentication to Azure Key Vault using .NET
 
 > [!NOTE]
-> The authentication methods documented in this article are no longer considered best practices. We encourage you to adopt the updated authentication methods in [How to authenticate to Azure Key Vault](authentication.md).
+> **Microsoft.Azure.Services.AppAuthentication** is deprecated. 
+> It is replaced wit new Azure Identity library **DefaultAzureCredentials** available for .NET, Java, TypeScript and Python and should be used for all new development. 
+> More information can be found here: [Authentication and the Azure SDK](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html).
 
 To authenticate to Azure Key Vault, you need an Azure Active Directory (Azure AD) credential, either a shared secret or a certificate.
 
@@ -223,17 +225,20 @@ To use a client certificate for service principal authentication:
 
 ## Connection String Support
 
-By default, `AzureServiceTokenProvider` uses multiple methods to retrieve a token.
+By default, `AzureServiceTokenProvider` tries the following authentication methods, in order, to retrieve a token:
 
-To control the process, use a connection string passed to the `AzureServiceTokenProvider` constructor or specified in the *AzureServicesAuthConnectionString* environment variable.
+- [A managed identity for Azure resources](../..//active-directory/managed-identities-azure-resources/overview.md)
+- Visual Studio authentication
+- [Azure CLI authentication](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+- [Integrated Windows authentication](/aspnet/web-api/overview/security/integrated-windows-authentication)
 
-The following options are supported:
+To control the process, use a connection string passed to the `AzureServiceTokenProvider` constructor or specified in the *AzureServicesAuthConnectionString* environment variable.  The following options are supported:
 
 | Connection string option | Scenario | Comments|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | Local development | `AzureServiceTokenProvider` uses AzureCli to get token. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Local development | `AzureServiceTokenProvider` uses Visual Studio to get token. |
-| `RunAs=CurrentUser` | Local development | `AzureServiceTokenProvider` uses Azure AD Integrated Authentication to get token. |
+| `RunAs=CurrentUser` | Local development | Not supported in .NET Core. `AzureServiceTokenProvider` uses Azure AD Integrated Authentication to get token. |
 | `RunAs=App` | [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/index.yml) | `AzureServiceTokenProvider` uses a managed identity to get token. |
 | `RunAs=App;AppId={ClientId of user-assigned identity}` | [User-assigned identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) | `AzureServiceTokenProvider` uses a user-assigned identity to get token. |
 | `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Custom services authentication | `KeyVaultCertificateSecretIdentifier` is the certificate's secret identifier. |

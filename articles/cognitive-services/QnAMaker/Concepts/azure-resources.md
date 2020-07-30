@@ -39,11 +39,11 @@ Typically there are three parameters you need to consider:
 
 The following table gives you some high-level guidelines.
 
-|                        | QnA Maker Management | App Service | Azure Cognitive Search | Limitations                      |
-| ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
-| Experimentation        | Free SKU             | Free Tier   | Free Tier    | Publish Up to 2 KBs, 50 MB size  |
-| Dev/Test Environment   | Standard SKU         | Shared      | Basic        | Publish Up to 14 KBs, 2 GB size    |
-| Production Environment | Standard SKU         | Basic       | Standard     | Publish Up to 49 KBs, 25 GB size |
+|                            | QnA Maker Management | App Service | Azure Cognitive Search | Limitations                      |
+| -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
+| **Experimentation**        | Free SKU             | Free Tier   | Free Tier    | Publish Up to 2 KBs, 50 MB size  |
+| **Dev/Test Environment**   | Standard SKU         | Shared      | Basic        | Publish Up to 14 KBs, 2 GB size    |
+| **Production Environment** | Standard SKU         | Basic       | Standard     | Publish Up to 49 KBs, 25 GB size |
 
 ## Recommended Settings
 

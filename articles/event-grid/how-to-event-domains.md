@@ -1,13 +1,8 @@
 ---
 title: Publish events with event domains with Azure Event Grid
 description: Shows how to manage large sets of topics in Azure Event Grid and publish events to them using event domains.
-services: event-grid
-author: femila
-
-ms.service: event-grid
-ms.author: femila
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 07/07/2020
 ---
 
 # Manage topics and publish events using event domains
@@ -135,7 +130,7 @@ New-AzureRmEventGridSubscription `
 
 If you need a test endpoint to subscribe your events to, you can always deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the incoming events. You can send your events to your test website at `https://<your-site-name>.azurewebsites.net/api/updates`.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 
 Permissions that are set for a topic are stored in Azure Active Directory and must be deleted explicitly. Deleting an event subscription won't revoke a users access to create event subscriptions if they have write access on a topic.
 

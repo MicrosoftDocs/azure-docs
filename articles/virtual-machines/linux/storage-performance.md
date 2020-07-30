@@ -5,7 +5,7 @@ services: virtual-machines-linux
 author: laurenhughes
 ms.service: virtual-machines-linux
 ms-subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
@@ -105,4 +105,4 @@ To learn more about options for backing up data in local storage, see [Backup an
    
 ## Next steps
 
-* See specifications for all [VMs optimized for storage performance](sizes-storage.md) on Azure
+* See specifications for all [VMs optimized for storage performance](../sizes-storage.md) on Azure

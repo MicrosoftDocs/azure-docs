@@ -1,13 +1,8 @@
 ---
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -23,6 +18,9 @@ This article provides the properties and schema for blob storage events. For an
 ### List of events for Blob REST APIs
 
 These events are triggered when a client creates, replaces, or deletes a blob by calling Blob REST APIs.
+
+> [!NOTE]
+> Using the dfs endpoint *`(abfss://URI) `* for non-hierarchical namespace enabled accounts will not generate events. For such accounts, only the blob endpoint *`(wasb:// URI)`* will generate events.
 
  |Event name |Description|
  |----------|-----------|

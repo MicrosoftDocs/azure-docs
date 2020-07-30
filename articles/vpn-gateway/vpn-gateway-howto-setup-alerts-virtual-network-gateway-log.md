@@ -2,7 +2,7 @@
 title: 'Azure VPN Gateway: Configure alerts on diagnostic resource log events'
 description: Steps to configure alerts on VPN Gateway diagnostic resource log events
 services: vpn-gateway
-author: anzaman
+author: kumudD
 
 ms.service: vpn-gateway
 ms.topic: how-to

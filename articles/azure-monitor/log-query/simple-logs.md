@@ -20,7 +20,7 @@ Azure Monitor provides a [rich experience](get-started-portal.md) for creating [
 The Simple Logs experience retrieves data from the *AzureDiagnostics*, *AzureMetrics*, and *AzureActivity* table for the selected resource. 
 
 ## Using Simple Logs
-Navigate to any Cosmos DB or Key Vault in your Azure subscription with [diagnostic settings configured to collect logs in a Log Analytics workspace](../platform/resource-logs-collect-storage.md). Click **Logs** in the **Monitoring** menu to open the Simple Logs experience.
+Navigate to any Cosmos DB or Key Vault in your Azure subscription with [diagnostic settings configured to collect logs in a Log Analytics workspace](../platform/resource-logs.md#send-to-azure-storage). Click **Logs** in the **Monitoring** menu to open the Simple Logs experience.
 
 ![Menu](media/simple-logs/menu.png)
 

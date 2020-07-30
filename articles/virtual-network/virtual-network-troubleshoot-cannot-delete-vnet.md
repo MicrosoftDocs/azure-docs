@@ -85,7 +85,9 @@ Make sure that no virtual machine is in the virtual network.
 
 If the virtual network is stuck in a migration state, it cannot be deleted. Run the following command to abort the migration, and then delete the virtual network.
 
-    Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
+```azurepowershell
+Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
+```
 
 ## Next steps
 

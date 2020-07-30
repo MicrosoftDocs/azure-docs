@@ -1,12 +1,12 @@
 ---
 title: Lead management for commercial marketplace | Azure Marketplace and AppSource
 description: An overview of various topics related to publishing offers and technical artifacts to the Azure Marketplace and AppSource
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
-ms.author: dsindona
 ---
 
 # Lead management for commercial marketplace

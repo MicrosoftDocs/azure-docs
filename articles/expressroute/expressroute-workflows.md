@@ -51,33 +51,37 @@ This section lists out the possible states of an ExpressRoute circuit.
 
 The ExpressRoute circuit will report the following states at resource creation.
 
-    ServiceProviderProvisioningState : NotProvisioned
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : NotProvisioned
+Status                           : Enabled
+```
 
 **When connectivity provider is in the process of provisioning the circuit**
 
 The ExpressRoute circuit will report the following states while the connectivity provider is working to provision the circuit.
 
-    ServiceProviderProvisioningState : Provisioning
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : Provisioning
+Status                           : Enabled
+```
 
 **When connectivity provider has completed the provisioning process**
 
 The ExpressRoute circuit will report the following states once the connectivity provider has successfully provisioned the circuit.
 
-    ServiceProviderProvisioningState : Provisioned
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : Provisioned
+Status                           : Enabled
+```
 
 **When connectivity provider is deprovisioning the circuit**
 
 If the ExpressRoute circuit needs to be deprovisioned, the circuit will report the following states once the service provider has completed the deprovisioning process.
 
-    ServiceProviderProvisioningState : NotProvisioned
-    Status                           : Enabled
-
+```output
+ServiceProviderProvisioningState : NotProvisioned
+Status                           : Enabled
+```
 
 You can choose to re-enable it if needed, or run PowerShell cmdlets to delete the circuit.  
 

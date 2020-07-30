@@ -4,7 +4,7 @@ description: Learn how to create a service principal for automating Azure Analys
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -34,7 +34,7 @@ Service principal credentials and certificates can be stored securely in Azure A
 
 ## Add service principals to server admin role
 
-Before you can use a service principal for Analysis Services server management operations, you must add it to the server administrators role. To learn more, see [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md).
+Before you can use a service principal for Analysis Services server management operations, you must add it to the server administrators role. Service principals must be added directly to the server administrator role. Adding a service principal to a security group, and then adding that security group to the server administrator role is not supported. To learn more, see [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md).
 
 ## Service principals in connection strings
 

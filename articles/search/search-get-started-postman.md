@@ -53,14 +53,16 @@ In this section, use your web tool of choice to set up connections to Azure Cogn
 
 For either tool, you need to choose a command (GET, POST, PUT, and so forth), provide a URL endpoint, and for some tasks, provide JSON in the body of the request. Replace the search service name (YOUR-SEARCH-SERVICE-NAME)  with a valid value. Add `$select=name` to return just the name of each index. 
 
-    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name
+> `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2020-06-30&$select=name`
 
 Notice the HTTPS prefix, the name of the service, the name of an object (in this case, the indexes collection), and the [api-version](search-api-versions.md). The api-version is a required, lowercase string specified as `?api-version=2020-06-30` for the current version. API versions are updated regularly. Including the api-version on each request gives you full control over which one is used.  
 
 Request header composition includes two elements, content type, plus the api-key used to authenticate to Azure Cognitive Search. Replace the admin API key (YOUR-AZURE-SEARCH-ADMIN-API-KEY) with a valid value. 
 
-    api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
-    Content-Type: application/json
+```http
+api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
+Content-Type: application/json
+```
 
 In Postman, formulate a request that looks like the following screenshot. Choose **GET** as the verb, provide the URL, and click **Send**. This command connects to Azure Cognitive Search, reads the indexes collection, and returns HTTP status code 200 on a successful connection. If your service has indexes already, the response will also include index definitions.
 

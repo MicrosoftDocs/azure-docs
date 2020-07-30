@@ -54,7 +54,7 @@ An object identifier has the following general format:
 
 Where:  
 
-|||  
+| Element | Description |  
 |-|-|  
 |`keyvault-name`|The name for a key vault in the Microsoft Azure Key Vault service.<br /><br /> Key Vault names are selected by the user and are globally unique.<br /><br /> Key Vault name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and -.|  
 |`object-type`|The type of the object, "keys",  "secrets", or 'certificates'.|  

@@ -7,7 +7,7 @@ ms.date: 01/07/2020
 
 # Manage Azure file share backups
 
-This article describes common tasks for managing and monitoring the Azure file shares that are backed up by [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview). You'll learn how to do management tasks in the Recovery Services vault.
+This article describes common tasks for managing and monitoring the Azure file shares that are backed up by [Azure Backup](./backup-overview.md). You'll learn how to do management tasks in the Recovery Services vault.
 
 ## Monitor jobs
 
@@ -160,4 +160,4 @@ To unregister the storage account:
 
 ## Next steps
 
-For more information, see [Troubleshoot Azure file shares backup](https://docs.microsoft.com/azure/backup/troubleshoot-azure-files).
+For more information, see [Troubleshoot Azure file shares backup](./troubleshoot-azure-files.md).

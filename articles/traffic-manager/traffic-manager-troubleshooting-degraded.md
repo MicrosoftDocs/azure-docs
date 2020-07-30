@@ -51,9 +51,11 @@ Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirectio
 
 Example output:
 
-    StatusCode StatusDescription
-    ---------- -----------------
-           301 Moved Permanently
+```output
+StatusCode StatusDescription
+---------- -----------------
+        301 Moved Permanently
+```
 
 Notice that we received a redirect response. As stated previously, any StatusCode other than 200 is considered a failure. Traffic Manager changes the endpoint status to Offline. To resolve the problem, check the website configuration to ensure that the proper StatusCode can be returned from the probe path. Reconfigure the Traffic Manager probe to point to a path that returns a 200.
 

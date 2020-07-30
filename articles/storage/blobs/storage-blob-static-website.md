@@ -8,6 +8,8 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/14/2020
 ms.subservice: blobs
+ms.custom: devx-track-javascript
+
 ---
 
 # Static website hosting in Azure Storage
@@ -71,13 +73,15 @@ You can modify the public access level of the **$web** container, but this has n
 
 The following screenshot shows the public access level setting in the Azure portal:
 
-![Screenshot showing how to set public access level in the portal](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+![Screenshot showing how to set public access level in the portal](./media/anonymous-read-access-configure/configure-public-access-container.png)
 
 While the primary static website endpoint is not affected, a change to the public access level does impact the primary blob service endpoint.
 
 For example, if you change the public access level of the **$web** container from **Private (no anonymous access)** to **Blob (anonymous read access for blobs only)**, then the level of public access to the primary static website endpoint `https://contosoblobaccount.z22.web.core.windows.net/index.html` doesn't change.
 
 However, the public access to the primary blob service endpoint `https://contosoblobaccount.blob.core.windows.net/$web/index.html` does change from private to public. Now users can open that file by using either of these two endpoints.
+
+Disabling public access on a storage account does not affect static websites that are hosted in that storage account. For more information, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
 
 ## Mapping a custom domain to a static website URL
 

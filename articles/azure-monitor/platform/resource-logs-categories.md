@@ -11,9 +11,9 @@ ms.date: 06/03/2020
 > [!NOTE]
 > Resource logs were previously known as diagnostic logs. The name was changed in October 2019 as the types of logs gathered by Azure Monitor shifted to include more than just the Azure resource.
 
-[Azure Monitor resource logs](../../azure-monitor/platform/platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
+[Azure Monitor resource logs](./platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
 
-A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. There is a common schema for all resource logs with service specific fields then added for different log categories. For more information,  see [Common and service specific schema for Azure Resource Logs](resource-logs-categories.md)
+A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. There is a common schema for all resource logs with service specific fields then added for different log categories. For more information,  see [Common and service specific schema for Azure Resource Logs]()
 
 ## Supported log categories per resource type
 
@@ -706,7 +706,8 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 
 ## Next Steps
 
-* [Learn more about resource logs](../../azure-monitor/platform/platform-logs-overview.md)
-* [Stream resource resource logs to **Event Hubs**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-* [Change resource log diagnostic settings using the Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [Analyze logs from Azure storage with Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [Learn more about resource logs](./platform-logs-overview.md)
+* [Stream resource resource logs to **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
+* [Change resource log diagnostic settings using the Azure Monitor REST API](/rest/api/monitor/diagnosticsettings)
+* [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
+

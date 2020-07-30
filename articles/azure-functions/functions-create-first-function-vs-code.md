@@ -35,7 +35,7 @@ There's also a [CLI-based version](functions-create-first-azure-function-azure-c
 ::: zone-end
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> If Visual Studio Code isn't your prefered development tool, check out our similar tutorials for Java developers using [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [Gradle](/azure/azure-functions/functions-create-first-java-gradle) and [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
+> If Visual Studio Code isn't your prefered development tool, check out our similar tutorials for Java developers using [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [Gradle](./functions-create-first-java-gradle.md) and [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
 ::: zone-end  
 
 ## Configure your environment

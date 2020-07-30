@@ -1,5 +1,5 @@
 ---
-title: Copy a snapshot to a storage account in another region - CLI sample
+title: Copy a snapshot to a storage account in another region - Windows CLI sample
 description: Azure CLI Script Sample - Export/Copy snapshot as VHD to a storage account in same or different region.
 services: virtual-machines-windows
 documentationcenter: storage
@@ -37,13 +37,13 @@ This script uses following commands to generate SAS URI for a managed snapshot a
 
 | Command | Notes |
 |---|---|
-| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot) | Generates read-only SAS that is used to copy underlying VHD file to a storage account or download it to on-premises  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | Copies a blob asynchronously from one storage account to another |
+| [az snapshot grant-access](/cli/azure/snapshot) | Generates read-only SAS that is used to copy underlying VHD file to a storage account or download it to on-premises  |
+| [az storage blob copy start](/cli/azure/storage/blob/copy) | Copies a blob asynchronously from one storage account to another |
 
 ## Next steps
 
 [Create a managed disk from a VHD](virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional virtual machine and managed disks CLI script samples can be found in the [Azure Windows VM documentation](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

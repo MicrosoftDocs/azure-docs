@@ -129,7 +129,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## Resister all VMs in a resource group
+## Register all VMs in a resource group
 
 Use the following cmdlet to register all SQL Server virtual machines in a single resource group: 
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/12/2020
 ---
 
 # How to schedule indexers in Azure Cognitive Search
@@ -64,6 +64,7 @@ After an indexer has been created, you can change the schedule settings using th
 
 You can define the schedule for an indexer using the REST API. To do this, include the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update an existing indexer:
 
+```http
     PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
@@ -73,6 +74,7 @@ You can define the schedule for an indexer using the REST API. To do this, inclu
         "targetIndexName" : "target index name",
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
+```
 
 The **interval** parameter is required. The interval refers to the time between the start of two consecutive indexer executions. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.
 

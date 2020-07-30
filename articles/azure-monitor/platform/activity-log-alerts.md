@@ -21,11 +21,11 @@ Typically, you create activity log alerts to receive notifications when:
 * Specific operations occur on resources in your Azure subscription, often scoped to particular resource groups or resources. For example, you might want to be notified when any virtual machine in myProductionResourceGroup is deleted. Or, you might want to be notified if any new roles are assigned to a user in your subscription.
 * A service health event occurs. Service health events include notification of incidents and maintenance events that apply to resources in your subscription.
 
-A simple analogy for understanding conditions on which alert rules can be created on activity log, is to explore or filter events via [Activity log in Azure portal](activity-log-view.md#azure-portal). In Azure Monitor - Activity log, one can filter or find necessary event and then create an alert by using the **Add activity log alert** button.
+A simple analogy for understanding conditions on which alert rules can be created on activity log, is to explore or filter events via [Activity log in Azure portal](./activity-log.md#view-the-activity-log). In Azure Monitor - Activity log, one can filter or find necessary event and then create an alert by using the **Add activity log alert** button.
 
 In either case, an activity log alert monitors only for events in the subscription in which the alert is created.
 
-You can configure an activity log alert based on any top-level property in the JSON object for an activity log event. For more information, see [Categories in the Activity Log](activity-log-view.md#categories-in-the-activity-log). To learn more about service health events, see [Receive activity log alerts on service notifications](alerts-activity-log-service-notifications.md). 
+You can configure an activity log alert based on any top-level property in the JSON object for an activity log event. For more information, see [Categories in the Activity Log](./activity-log.md#view-the-activity-log). To learn more about service health events, see [Receive activity log alerts on service notifications](../../service-health/alerts-activity-log-service-notifications-portal.md). 
 
 Activity log alerts have a few common options:
 
@@ -57,4 +57,4 @@ To learn more about action groups, see [Create and manage action groups in the A
 - Get an [overview of alerts](alerts-overview.md).
 - Learn about [create and modify activity log alerts](alerts-activity-log.md).
 - Review the [activity log alert webhook schema](activity-log-alerts-webhook.md).
-- Learn about [service health notifications](service-notifications.md).
+- Learn about [service health notifications](../../service-health/service-notifications.md).

@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller with a static public IP address in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 07/21/2020
 
 
 #Customer intent: As a cluster operator or developer, I want to use an ingress controller with a static IP address to handle the flow of incoming traffic and secure my apps using automatically generated TLS certificates.
@@ -47,6 +47,9 @@ Next, create a public IP address with the *static* allocation method using the [
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 ```
 
+> [!NOTE]
+> The above commands create an IP address that will be deleted if you delete your AKS cluster. Alternatively, you can create an IP address in a different resource group which can be managed separately from your AKS cluster. If you create an IP address in a different resource group, ensure the service principal used by the AKS cluster has delegated permissions to the other resource group, such as *Network Contributor*.
+
 Now deploy the *nginx-ingress* chart with Helm. For added redundancy, two replicas of the NGINX ingress controllers are deployed with the `--set controller.replicaCount` parameter. To fully benefit from running replicas of the ingress controller, make sure there's more than one node in your AKS cluster.
 
 You must pass two additional parameters to the Helm release so the ingress controller is made aware both of the static IP address of the load balancer to be allocated to the ingress controller service, and of the DNS name label being applied to the public IP address resource. For the HTTPS certificates to work correctly, a DNS name label is used to configure an FQDN for the ingress controller IP address.
@@ -62,7 +65,10 @@ The ingress controller also needs to be scheduled on a Linux node. Windows Serve
 > [!TIP]
 > If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, TLS pass-through will not work.
 
-Update the following script with the **IP address** of your ingress controller and a **unique name** that you would like to use for the FQDN prefix:
+Update the following script with the **IP address** of your ingress controller and a **unique name** that you would like to use for the FQDN prefix.
+
+> [!IMPORTANT]
+> You must update replace *STATIC_IP* and *DNS_LABEL* with your own IP address and unique name when running the command.
 
 ```console
 # Create a namespace for your ingress resources
@@ -78,7 +84,7 @@ helm install nginx-ingress stable/nginx-ingress \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="STATIC_IP" \
-    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="demo-aks-ingress"
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="DNS_LABEL"
 ```
 
 When the Kubernetes load balancer service is created for the NGINX ingress controller, your static IP address is assigned, as shown in the following example output:
@@ -262,7 +268,7 @@ In the following example, traffic to the address `https://demo-aks-ingress.eastu
 Create a file named `hello-world-ingress.yaml` and copy in the following example YAML.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -443,7 +449,7 @@ You can also:
 - [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
 
 <!-- LINKS - external -->
-[helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm
+[helm-cli]: ./kubernetes-helm.md
 [cert-manager]: https://github.com/jetstack/cert-manager
 [cert-manager-certificates]: https://cert-manager.readthedocs.io/en/latest/reference/certificates.html
 [cert-manager-cluster-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/clusterissuers.html

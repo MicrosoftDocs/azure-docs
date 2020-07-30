@@ -15,8 +15,8 @@ ms.author: twooley
 
 The table in this article summarizes the differences between Azure Data Lake Storage Gen1 and Azure Blob Storage along some key aspects of big data processing. Azure Blob Storage is a general purpose, scalable object store that is designed for a wide variety of storage scenarios. Azure Data Lake Storage Gen1 is a hyper-scale repository that is optimized for big data analytics workloads.
 
-|  | Azure Data Lake Storage Gen1 | Azure Blob Storage |
-| --- | --- | --- |
+| Category | Azure Data Lake Storage Gen1 | Azure Blob Storage |
+| -------- | ---------------------------- | ------------------ |
 | Purpose |Optimized storage for big data analytics workloads |General purpose object store for a wide variety of storage scenarios, including big data analytics |
 | Use Cases |Batch, interactive, streaming analytics and machine learning data such as log files, IoT data, click streams, large datasets |Any type of text or binary data, such as application back end, backup data, media storage for streaming and general purpose data. Additionally, full support for analytics workloads; batch, interactive, streaming analytics and machine learning data such as log files, IoT data, click streams, large datasets |
 | Key Concepts |Data Lake Storage Gen1 account contains folders, which in turn contains data stored as files |Storage account has containers, which in turn has data in the form of blobs |

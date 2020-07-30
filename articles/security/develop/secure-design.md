@@ -398,14 +398,14 @@ AD)](../../active-directory/fundamentals/active-directory-whatis.md)
 is the Azure solution for identity and access management. These Azure AD
 tools and services help with secure development:
 
-- [Azure AD identity platform (Azure AD for developers)](../../active-directory/develop/about-microsoft-identity-platform.md)
-is a cloud identity service that developers use to build apps that
-securely sign in users. Azure AD assists developers who are building
+- [Microsoft identity platform](/azure/active-directory/develop/)
+is a set of components that developers use to build apps that
+securely sign in users. The platform assists developers who are building
 single-tenant, line-of-business (LOB) apps and developers who are
-looking to develop multi-tenant apps. In addition to basic sign-in,
-apps that are built by using Azure AD can call Microsoft APIs and
-custom APIs that are built on the Azure AD platform. The Azure AD
-identity platform supports industry-standard protocols like OAuth 2.0 and OpenID Connect.
+looking to develop multi-tenant apps. In addition to basic sign-in, apps
+built by using the Microsoft identity platform can call Microsoft APIs
+and custom APIs. The Microsoft identity platform supports industry-standard
+protocols like OAuth 2.0 and OpenID Connect.
 
 - [Azure Active Directory B2C (Azure AD
 B2C)](../../active-directory-b2c/index.yml) is an

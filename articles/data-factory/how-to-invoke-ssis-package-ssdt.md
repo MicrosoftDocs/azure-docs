@@ -78,6 +78,30 @@ By connecting your Azure-enabled projects to SSIS in ADF, you can upload your pa
 
 4. Click on the **Connect** button to complete your connection.  We will display your selected Azure-SSIS IR and Azure Storage account under the **Linked Azure Resources** node in Solution Explorer panel of SSDT.  We will also refresh the status of your Azure-SSIS IR, while you can manage it by right-clicking on its node to pop up a menu and then selecting the **Start\Stop\Manage** menu item that takes you to ADF portal/app to do so.
 
+## Assess SSIS project\packages for Executions in Azure
+### Assess SSIS project or package
+Before executing your packages in Azure, you can assess your package to evaluate whether there is any potential migration blocker or information you need to be aware of. 
+-  You can either assess all packages under project or single package.
+
+   ![Assess Project](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assess-project.png)
+   ![Assess Package](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assess-package.png)
+
+-  You can get assessment report to check each assessment issue and each issue will have detailed description and recommendation. You can also export assessment report as csv file. 
+
+   ![Assess Project result](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assess-project-result.png)
+
+### Suppress Assessment Rule
+If you are sure that some assessment rule not applied for your package, you can choose to suppress it. 
+-  You can directly click the link **Configure Assessment Rule Suppression** in Assessment report.
+
+   ![Assessment Rule Suppression Settings](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assessment-rule-suppression-settings.png)
+
+-  You can also configure via **Azure-Enabled Settings**.
+
+   ![Azure-enabled Settings](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-azure-enabled-setting.png)
+
+   ![Assessment Rule Suppression Settings via Azure-enabled Settings](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assessment-rule-suppression-settings-via-azure-enabled-settings.png)
+
 ## Execute SSIS packages in Azure
 ### Azure-enabled Setting
 Before executing your packages in Azure, you can choose to configure execution settings. If you want to enable Windows authentication for your SSIS packages, please follow below steps:
@@ -155,6 +179,9 @@ To switch package execution environments with Azure-enabled projects, you can cr
 6. Execute this package in Azure. You can easily switch the environment back to the local one by switching the current Visual Studio configuration.
 
    ![Switch Visual Studio Configuration](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-example-switch-configurations.png)
+
+## Current limitations
+-  This SSDT feature doesn't support national cloud right now.
 
 ## Next steps
 Once you are satisfied with running your packages in Azure from SSDT, you can deploy and run them as Execute SSIS Package activities in ADF pipelines, see [Run SSIS packages as Execute SSIS Package activities in ADF pipelines](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).

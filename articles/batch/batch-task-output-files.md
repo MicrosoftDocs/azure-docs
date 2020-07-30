@@ -39,7 +39,7 @@ await container.CreateIfNotExists();
 
 ## Get a shared access signature for the container
 
-After you create the container, get a shared access signature (SAS) with write access to the container. A SAS provides delegated access to the container. The SAS grants access with a specified set of permissions and over a specified time interval. The Batch service needs a SAS with write permissions to write task output to the container. For more information about SAS, see [Using shared access signatures \(SAS\) in Azure Storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+After you create the container, get a shared access signature (SAS) with write access to the container. A SAS provides delegated access to the container. The SAS grants access with a specified set of permissions and over a specified time interval. The Batch service needs a SAS with write permissions to write task output to the container. For more information about SAS, see [Using shared access signatures \(SAS\) in Azure Storage](../storage/common/storage-sas-overview.md).
 
 When you get a SAS using the Azure Storage APIs, the API returns a SAS token string. This token string includes all parameters of the SAS, including the permissions and the interval over which the SAS is valid. To use the SAS to access a container in Azure Storage, you need to append the SAS token string to the resource URI. The resource URI, together with the appended SAS token, provides authenticated access to Azure Storage.
 

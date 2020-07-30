@@ -49,7 +49,7 @@ AMQP 1.0 support in Azure Service Bus means that you can now leverage the Servic
 
 The following figure illustrates an example deployment in which Java clients running on Linux, written using the standard Java Message Service (JMS) API and .NET clients running on Windows, exchange messages via Service Bus using AMQP 1.0.
 
-![][0]
+![Diagram showing one Service Bus exchanging messages with two Linux environments and two Windows environments.][0]
 
 **Figure 1: Example deployment scenario showing cross-platform messaging using Service Bus and AMQP 1.0**
 

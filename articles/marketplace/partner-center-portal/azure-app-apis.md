@@ -1,12 +1,12 @@
 ---
 title: Partner Center submission API to onboard Azure apps in the Microsoft commercial marketplace 
 description: Learn the prerequisites to use the Partner Center submission API for Azure apps in commercial marketplace on Microsoft Partner Center. 
-author: dsindona 
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
+ms.author: mingshen
+author: mingshen-ms
 ---
 
 # Partner Center submission API to onboard Azure apps in Partner Center
