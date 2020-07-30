@@ -5,12 +5,12 @@ author: ggailey777
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.topic: conceptual
 ms.custom: vs-azure
-ms.date: 06/26/2020
+ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
 ---
 
-# Develop and deploy WebJobs using Visual Studio - Azure App Service
+# Develop and deploy WebJobs using Visual Studio
 
 This article explains how to use Visual Studio to deploy a console app project to a web app in [Azure App Service](overview.md) as an [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure portal](https://portal.azure.com), see [Run background tasks with WebJobs in Azure App Service](webjobs-create.md).
 
@@ -188,7 +188,7 @@ The type of a WebJob can be either *triggered* or *continuous*:
 
 ### Scheduling a triggered WebJob
 
-When you publish a .NET Core console app to Azure, Visual Studio sets the type of WebJob to **Triggered** by default, and adds a new *settings.job* file to the project. For triggered WebJob types, you can use this file to set an execution schedule for your WebJob.
+When you publish a console app to Azure, Visual Studio sets the type of WebJob to **Triggered** by default, and adds a new *settings.job* file to the project. For triggered WebJob types, you can use this file to set an execution schedule for your WebJob.
 
 Use the *settings.job* file to set an execution schedule for your WebJob. The following example runs every hour from 9 AM to 5 PM:
 
@@ -198,9 +198,9 @@ Use the *settings.job* file to set an execution schedule for your WebJob. The fo
 }
 ```
 
-This file is located at the root of the WebJobs folder with your WebJob's script, such as `wwwroot\app_data\jobs\triggered\{job name}` or `wwwroot\app_data\jobs\continuous\{job name}`. When you deploy a WebJob from Visual Studio, mark your *settings.job* file properties in Visual Studio as **Copy if newer**. 
+This file is located at the root of the WebJobs folder with your WebJob's script, such as `wwwroot\app_data\jobs\triggered\{job name}` or `wwwroot\app_data\jobs\continuous\{job name}`. When you deploy a WebJob from Visual Studio, mark your *settings.job* file properties in Visual Studio as **Copy if newer**.
 
-When you [create a WebJob from the Azure portal](webjobs-create.md), the *settings.job* file is created for you.
+If you [create a WebJob from the Azure portal](webjobs-create.md), the *settings.job* file is created for you.
 
 #### CRON expressions
 
@@ -214,10 +214,10 @@ The following settings are supported by WebJobs:
 
 | **Setting** | **Type**  | **Description** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | All | Allows the job to run in place without first being copied to a temp folder. For more information, see  [WebJobs working directory](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
-| `is_singleton` | Continuous | Only run the WebJobs on a single instance when scaled out. For more information, see [Set a continuous job as singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Triggered | Run the WebJob on a CRON-based schedule. For more information, see the [timer trigger reference](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
-| `stopping_wait_time`| All | Allows control of the shutdown behavior. To learn more, see [Graceful shutdown](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
+| `is_in_place` | All | Allows the WebJob to run in place without first being copied to a temporary folder. For more information, see [WebJob working directory](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
+| `is_singleton` | Continuous | Only run the WebJob on a single instance when scaled out. For more information, see [Set a continuous job as singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
+| `schedule` | Triggered | Run the WebJob on a CRON-based schedule. For more information, see [NCRONTAB expressions](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
+| `stopping_wait_time`| All | Allows control of the shutdown behavior. For more information, see [Graceful shutdown](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ### Continuous execution
 
