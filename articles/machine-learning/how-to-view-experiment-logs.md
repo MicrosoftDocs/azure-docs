@@ -1,7 +1,7 @@
 ---
-title: Log ML experiments & metrics
+title: Monitor and view ML experiments logs & metrics
 titleSuffix: Azure Machine Learning
-description: Monitor your Azure ML experiments and monitor run metrics to enhance the model creation process. Add logging to your training script using run.log, Run.start_logging, or ScriptRunConfig.
+description: Monitor your Azure ML experiments and view run metrics to enhance the model creation process. Use widgets and the studio portal to explore run status and 
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -16,7 +16,7 @@ ms.custom: how-to
 # Enable logging in Azure ML training runs
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-The Azure Machine Learning Python SDK lets log real-time information using both the default Python logging package, and SDK-specific functionality. This can be used to log locally and to send logs to your workspace in the portal.
+The Azure Machine Learning Python SDK lets log real-time information using both the default Python logging package, and SDK-specific functionality. This can be used to log locally and to send logs to your workspace in the portal. In this article, you learn how to monitor 
 
 Logs can help with diagnosing errors and warnings, or track performance metrics like parameters used and model accuracy across training runs. In this article, you learn different ways of enabling logging in the following areas:
 
@@ -28,74 +28,13 @@ Logs can help with diagnosing errors and warnings, or track performance metrics 
 
 [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). Use the [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) for more information the SDK.
 
-> [!TIP]
-> This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
 
-## Data types
-
-You can log multiple data types including scalar values, lists, tables, images, directories, and more. For more information, and Python code examples for different data types, see the [Run class reference page](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
-
-## Logging with interactive logging session
-
-Interactive logging sessions are typically used in notebook environments. The method [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) starts an interactive logging session. Any metrics logged during the session are added to the run record in the experiment. The logging session ends with [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-), marks the run as completed and ends the logging session.
-
-The following code snippet use an interactive logging session to logs  training parameters (alpha), performance (mean square error), and uploads the trained model to a specified output location.
-
-[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=create_experiment)]
-
-For a complete sample notebook that uses interactive logging, see [Train a model in a notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb).
-
-## Logging with ScriptRunConfig
-
-You can use the [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) class to encapsulate scripts and environments for repeatable runs. Use this option to add logging code inside of ScriptRunConfig runs. You can also use this option to show a visual Jupyter Notebooks widget for monitoring.
-
-This example performs a parameter sweep over alpha values and captures the results using logs for the experiment run.
-
-1. Create a training script which includes the logging logic, `train.py`.
-
-   [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
-
-
-1. Submit the ```train.py``` script to run in a user-managed environment. The entire script folder is submitted for training.
-
-   [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)]
-   [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
-
-To enable local logging of application state during training progress, use the `show_output` parameter. Enabling verbose logging allows you to see details from the training process as well as information about any remote resources or compute targets. Use the following code to enable logging upon experiment submission.
-
-```python
-run = exp.submit(src, show_output=True)
-```
-
-You can also use the same parameter in the `wait_for_completion` function on the resulting run.
-
-```python
-run.wait_for_completion(show_output=True)
-```
-
-For a complete sample notebook that uses ScriptRunConfigs logs, see [Train a mode locally](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb).
-
-## Logging with native Python
-
-Certain logs in the SDK may contain an error that instructs you to set the logging level to DEBUG. To set the logging level, add the following code to your script.
-
-```python
-import logging
-logging.basicConfig(level=logging.DEBUG)
-```
-
-## Logging from additional sources
-
-Azure Machine Learning can also log information from other sources during training, such as automated machine learning runs, or Docker containers that run the jobs. These logs aren't documented, but if you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
-
-
-## Monitor an experiment run
 
 In this section, you learn how to view your custom logs during run execution.
 
 For general information on how to manage your experiments, see [Start, monitor, and cancel training runs](how-to-manage-runs.md).
 
-### Monitor runs from the studio
+## Monitor runs from the studio
 
 To see the runs for a specific compute target from your browser, use the following steps:
 
@@ -116,7 +55,7 @@ To see the runs for a specific compute target from your browser, use the followi
 
 Once a run completes, it is no longer displayed on this page. To view information on completed runs, visit the __Experiments__ section of the studio and select the experiment and run. For more information, see the [View metrics for completed runs](#view-metrics-for-completed-runs) section.
 
-### Monitor runs using the Jupyter notebook widget
+## Monitor runs using the Jupyter notebook widget
 
 When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run using the [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
 
@@ -135,7 +74,7 @@ You can also get a link to the same display in your workspace.
 print(run.get_portal_url())
 ```
 
-#### Monitor automated machine learning runs
+### Monitor automated machine learning runs
 
 For automated machine learning runs, to access the charts from a previous run, replace `<<experiment_name>>` with the appropriate experiment name:
 
@@ -151,19 +90,17 @@ RunDetails(run).show()
 
 ![Jupyter notebook widget for Automated Machine Learning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
-## View metrics for completed runs
-
-### Show output upon completion
+## Show output upon completion
 
 When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output. 
 
 <a id="queryrunmetrics"></a>
-### Query run metrics
+## Query run metrics
 
 You can view the metrics of a trained model using ```run.get_metrics()```. For example, you could use this with the example above to determine the best model by looking for the model with the lowest mean square error (mse) value.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-### View run records in the studio
+## View run records in the studio
 
 You can browse completed run records, including logged metrics, in the [Azure Machine Learning studio](https://ml.azure.com).
 
