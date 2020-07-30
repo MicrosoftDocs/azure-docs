@@ -171,4 +171,4 @@ It takes some time to download a parent image during app start-up. However, you 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Migrate to Windows container in Azure](app-service-web-tutorial-windows-containers-custom-fonts.md)
+> [Migrate to Windows container in Azure](tutorial-custom-container.md)

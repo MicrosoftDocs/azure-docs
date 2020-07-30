@@ -102,8 +102,8 @@ landingContent:
             url: app-service-web-get-started-windows-container.md
       - linkListType: tutorial
         links:
-          - text: Migrate a legacy app to Azure in a Windows container
-            url: app-service-web-tutorial-windows-containers-custom-fonts.md
+          - text: Migrate custom software to Azure in a container
+            url: tutorial-custom-container.md
           - text: Run a Docker Compose app
             url: tutorial-multi-container-app.md
       - linkListType: how-to-guide

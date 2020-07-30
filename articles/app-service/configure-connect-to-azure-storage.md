@@ -104,7 +104,7 @@ az webapp config storage-account list --resource-group <resource-group> --name <
 
 # [Windows container](#tab/wincontainer)
 
-- [Migrate an ASP.NET app to Azure App Service using a Windows container (Preview)](app-service-web-tutorial-windows-containers-custom-fonts.md).
+- [Migrate an ASP.NET app to Azure App Service using a Windows container (Preview)](tutorial-custom-container.md).
 
 # [Linux container](#tab/lincontainer)
 

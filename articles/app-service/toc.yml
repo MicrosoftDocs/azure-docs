@@ -46,7 +46,7 @@
   - name: Custom containers
     items:
     - name: Customize Windows (container)
-      href: app-service-web-tutorial-windows-containers-custom-fonts.md
+      href: tutorial-custom-container.md
     - name: Multi-container app
       href: tutorial-multi-container-app.md
   - name: Access SQL DB securely

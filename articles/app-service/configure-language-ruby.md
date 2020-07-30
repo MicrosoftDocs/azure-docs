@@ -27,7 +27,7 @@ To show all supported Ruby versions, run the following command in the [Cloud She
 az webapp list-runtimes --linux | grep RUBY
 ```
 
-You can run an unsupported version of Ruby by building your own container image instead. For more information, see [use a custom Docker image](containers/tutorial-custom-docker-image.md).
+You can run an unsupported version of Ruby by building your own container image instead. For more information, see [use a custom Docker image](tutorial-custom-container.md).
 
 ## Set Ruby version
 

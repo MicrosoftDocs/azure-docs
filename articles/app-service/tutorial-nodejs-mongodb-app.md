@@ -11,16 +11,18 @@ ms.custom: mvc, cli-validate, seodec18, devx-track-javascript
 
 # Tutorial: Build a Node.js and MongoDB app in Azure
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a Node.js app in App Service on Windows and connect it to a MongoDB database. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in [Azure App Service](overview.md). For simplicity, the sample application uses the [MEAN.js web framework](https://meanjs.org/).
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a Node.js app in App Service on Linux, connect it locally to a MongoDB database, then deploy it to a database in Azure Cosmos DB's API for MongoDB. When you're done, you'll have a MEAN application (MongoDB, Express, AngularJS, and Node.js) running in App Service on Linux. For simplicity, the sample application uses the [MEAN.js web framework](https://meanjs.org/).
 
----
+::: zone-end
 
 ![MEAN.js app running in Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -248,28 +250,32 @@ In this step, you deploy your MongoDB-connected Node.js application to Azure App
 
 ### Create an App Service plan
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
----
+::: zone-end
 
 <a name="create"></a>
 ### Create a web app
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-nodejs-no-h.md)] 
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)] 
 
----
+::: zone-end
 
 ### Configure an environment variable
 
@@ -477,7 +483,7 @@ If you added any articles earlier, you still can see them. Existing data in your
 
 ## Stream diagnostic logs 
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 While your Node.js application runs in Azure App Service, you can get the console logs piped to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
@@ -491,11 +497,13 @@ Once log streaming has started, refresh your Azure app in the browser to get som
 
 Stop log streaming at any time by typing `Ctrl+C`. 
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
----
+::: zone-end
 
 ## Manage your Azure app
 

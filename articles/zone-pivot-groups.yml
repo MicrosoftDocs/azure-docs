@@ -508,7 +508,7 @@ groups:
 # Owner: msangapu
 - id: app-service-platform-windows-linux
   title: App Service platform
-  prompt: Choose a platform
+  prompt: Choose a hosting platform
   pivots:
   - id: platform-linux
     title: Linux

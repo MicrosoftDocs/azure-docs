@@ -32,7 +32,7 @@ Other language stacks, likewise, get the app settings as environment variables a
 - [Node.js](configure-language-nodejs.md#access-environment-variables)
 - [PHP](configure-language-php.md#access-environment-variables)
 - [Python](configure-language-python.md#access-environment-variables)
-- [Java](containers/configure-language-java.md#data-sources)
+- [Java](configure-language-java.md#data-sources)
 - [Ruby](configure-language-ruby.md#access-environment-variables)
 - [Custom containers](configure-custom-container.md#configure-environment-variables)
 
@@ -103,7 +103,7 @@ For example, a MySql connection string named *connectionstring1* can be accessed
 - [Node.js](configure-language-nodejs.md#access-environment-variables)
 - [PHP](configure-language-php.md#access-environment-variables)
 - [Python](configure-language-python.md#access-environment-variables)
-- [Java](containers/configure-language-java.md#data-sources)
+- [Java](configure-language-java.md#data-sources)
 - [Ruby](configure-language-ruby.md#access-environment-variables)
 - [Custom containers](configure-custom-container.md#configure-environment-variables)
 
@@ -233,7 +233,7 @@ For Linux apps, see:
 - [Node.js](configure-language-nodejs.md)
 - [PHP](configure-language-php.md)
 - [Python](configure-language-python.md)
-- [Java](containers/configure-language-java.md)
+- [Java](configure-language-java.md)
 - [Ruby](configure-language-ruby.md)
 
 ## Configure custom containers
