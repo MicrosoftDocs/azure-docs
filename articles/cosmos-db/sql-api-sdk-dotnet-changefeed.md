@@ -41,6 +41,10 @@ ms.author: maquaran
 
 ### v2 builds
 
+### <a name="2.3.1"/>2.3.1
+* Added new observer close reason `Microsoft.Azure.Documents.ChangeFeedProcessor.FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable`.
+* Corrected a case when `Microsoft.Azure.Documents.ChangeFeedProcessor.FeedProcessing.ChangeFeedObserverCloseReason.Unknown` close reason was sent to `Microsoft.Azure.Documents.ChangeFeedProcessor.FeedProcessing.IChangeFeedObserver.CloseAsync` when partition cannot be found or target replica is not up to date up with read session. In these cases `Microsoft.Azure.Documents.ChangeFeedProcessor.FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` and `Microsoft.Azure.Documents.ChangeFeedProcessor.FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` close reasons are now used.
+
 ### <a name="2.3.0"/>2.3.0
 * Added a new method `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` and corresponding public interface `ICheckpointPartitionProcessorFactory`. This allows an implementation of the `IPartitionProcessor` interface to use built-in checkpointing mechanism. The new factory is similar to the existing `IPartitionProcessorFactory`, except that its `Create` method also takes the `ILeaseCheckpointer` parameter.
 * Only one of the two methods, either `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` or `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`, can be used for the same `ChangeFeedProcessorBuilder` instance.
@@ -181,6 +185,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.3.1](#2.3.1) |July 30, 2020 |--- |
 | [2.3.0](#2.3.0) |April 2, 2020 |--- |
 | [2.2.8](#2.2.8) |October 28, 2019 |--- |
 | [2.2.7](#2.2.7) |May 14, 2019 |--- |
