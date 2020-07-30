@@ -130,7 +130,7 @@ HTTP 403 often occurs when the customer's application is not using the client ID
 
 ### Troubleshooting 403
 
-First, turn on logging. For instructions on how to do so, see [Azure Key Vault logging](logging.md)).
+First, turn on logging. For instructions on how to do so, see [Azure Key Vault logging](logging.md).
 
 Once logging is turned on, you can determine if the 403 is due to access policy or firewall policy.
 
