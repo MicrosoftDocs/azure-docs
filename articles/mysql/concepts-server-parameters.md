@@ -192,6 +192,13 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 |Memory Optimized|16|0|0|134217728|
 |Memory Optimized|32|0|0|134217728|
 
+### lower_case_table_names
+
+The lower_case_table_name is set to 1 by default and you can update this parameter in MySQL 5.6.47 and MySQL 5.7.47
+
+> [!NOTE]
+> In MySQL 8.0.15, the lower_case_table_name is set to 1 by default and you cannot change it.
+
 ### sort_buffer_size
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) to learn more about this parameter.
