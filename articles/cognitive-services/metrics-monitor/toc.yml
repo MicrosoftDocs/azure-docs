@@ -1,0 +1,23 @@
+- name: Metrics Monitor
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Metrics Monitor?
+    href: overview.md
+- name: Quickstarts
+  items:
+  - name: Create a Metrics Monitor instance
+    href: create-instance.md
+  - name: Build your first monitor
+    href: build-first-monitor.md
+  - name: Use Metrics Monitor with the Client library or REST API
+    href: rest-api-and-client-library.md
+  - name: Explore example data
+    href: explore-sample-data.md
+- name: How-tos
+  items:
+  - name: Data feeds
+    href: datafeeds.md
+  - name: Use the web portal
+    href: web-portal.md

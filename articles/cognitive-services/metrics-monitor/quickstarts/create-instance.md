@@ -1,20 +1,20 @@
 ---
-title: "Quickstart: Create a Metrics Monitoring instance" 
+title: "Quickstart: Create a Metrics Monitor instance" 
 titleSuffix: Azure Cognitive Services
-description: Learn how to Create a Metrics Monitoring instance. 
+description: Learn how to Create a Metrics Monitor instance. 
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-monitoring
 ms.topic: quickstart
-ms.date: 07/13/2020
+ms.date: 07/30/2020
 ms.author: aahi
 ---
 
-# Quickstart: create a Metrics Monitoring instance
+# Quickstart: create a Metrics Monitor instance
 
-Use this quickstart to get started with Metrics Monitoring by creating an instance in your Azure subscription.
+Use this quickstart to get started with Metrics Monitor by creating an instance in your Azure subscription.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Use this quickstart to get started with Metrics Monitoring by creating an instan
 
 ### Setting up
 
-Metrics Monitoring will use a client application, and your organization's Azure Active Directory for authentication. If you want to use an existing client application, your account should have the *owner* role set for it.
+Metrics Monitor will use a client application, and your organization's Azure Active Directory for authentication. If you want to use an existing client application, your account should have the *owner* role set for it.
 
 ## Create a client application
 
@@ -34,23 +34,23 @@ Metrics Monitoring will use a client application, and your organization's Azure 
 6. Select **Registration**.
 7. Copy & store application(client) ID of this client application.
 
-    ![Azure AD page-create_client_application](../media/dep_createclient.png "Azure AD page-create client application")
+![Azure AD page-create_client_application](../media/create-client.png "Azure AD page-create client application")
 
 ### Get client application and Tenant IDs
 
 After creating above client application, you will need its client ID. You can find it by going to the **Overview** page of your client application, and selecting the  **copy** button next to application(client) ID.
 
-   ![Get client application ID](../media/aad-app-clientid.png "Get Azure Active Directory client application ID")
+   ![Get client application ID](../media/client-id.png "Get Azure Active Directory client application ID")
 
 A tenant represents an organization in Azure Active Directory. It's a dedicated Azure AD service instance that an organization receives and owns after signing up for a Microsoft cloud service. Each Azure AD tenant is distinct and separate from other Azure AD tenants.
 
 To get the tenant ID, select copy button next to **Directory (tenant) ID**.
 
-   ![Get tenant ID](../media/aad-app-tenantid.png "Get Azure Active Directory tenant ID")
+   ![Get tenant ID](../media/tenant-id.png "Get Azure Active Directory tenant ID")
 
-## Create a new Metrics Monitoring resource
+## Create a new Metrics Monitor resource
 
-Use the [Azure Portal](https://aka.ms/newgualala) to create a new Metrics Monitoring resource.
+Use the [Azure Portal](https://aka.ms/newgualala) to create a new Metrics Monitor resource.
 
 On the Create page, provide the following information:
 
@@ -67,7 +67,7 @@ On the Create page, provide the following information:
 
 After inputting all above fields, select **Create** to start deploying an instance. It may take around 30 minutes for deployment to complete.
 
-![Azure portal-create_AD_instance](../media/dep_createinstance1.png "Azure portal-create instance")
+![Azure portal-create_AD_instance](../media/create-instance.png "Azure portal-create instance")
 
 ## Configure the client application
 
@@ -77,21 +77,15 @@ After your resource deploys, you will need to add its URL to your client applica
 2. In the Azure Active Directory panel, select **App Registrations** from the Azure Active Directory left-hand navigation menu.
 3. On the application list, select the client application you created in previous step - **Create a Client application**.
 4. Select **Authentication** in the left panel.
-5. Select **Add a platform** > **Web** to add a web platform as figure below.
-
-    ![Azure AD page-config_client_application](../media/dep_configaad1.png "Azure AD page-config client application")
+5. Select **Add a platform** > **Web** to add a web platform.
 
 6. Add a web redirect URI by pasting the website URL of your resource to the **Redirect URI**  field.
    The URL for your resource will be: `https://<resource-name>.azurewebsites.net`. Replace `<resource-name>` with the name you set in the previous step.
 7. Make sure **Implicit grant** > **ID tokens** is selected.
 8. Select **Save**.
 
-    ![Azure AD page-config_client_application](../media/dep_configaad2.png "Azure AD page-config client application")
-
-You can start using your Metrics monitoring instance with the web portal, and through the REST API. You can check both URLs in the Cognitive service instance you've created.
+You can start using your Metrics Monitor instance with the web portal, and through the REST API. You can check both URLs in the Cognitive service instance you've created.
 If you want to access this service using the REST API or Client library, you will need an authentication key.
-
-   ![Service URLs](../media/dep_configaad3.png "Service URLs")
 
 ## Clean up resources
 
@@ -104,4 +98,3 @@ Right-click on the resource group listing. Select **Delete resource group**, and
 ## Next Steps
 
 - [Build your first monitor on web](build-first-monitor.md)
-- [Use APIs to customize a solution](use-API-to-build-solution.md)

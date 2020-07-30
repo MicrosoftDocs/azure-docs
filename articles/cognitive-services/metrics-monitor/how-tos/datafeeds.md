@@ -1,7 +1,7 @@
 ---
-title: how to add datafeeds to Metrics Monitoring
+title: how to add datafeeds to Metrics Monitor
 titleSuffix: Azure Cognitive Services
-description: add Datafeeds to Metrics Monitoring
+description: add Datafeeds to Metrics Monitor
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 07/13/2020
 ms.author: aahi
 ---
 
-# How to: add data feeds to Metrics Monitoring
+# How to: add data feeds to Metrics Monitor
 
-Learn how to create data feeds in Metrics Monitoring to pull your time series data from different types of data sources. This document starts with key concepts to help you understand the procedures and the common data schema requirements for time series data. Then we demonstrate the general steps to connect a data source with detailed explanations of the desired parameters. 
+Learn how to create data feeds in Metrics Monitor to pull your time series data from different types of data sources. This document starts with key concepts to help you understand the procedures and the common data schema requirements for time series data. Then we demonstrate the general steps to connect a data source with detailed explanations of the desired parameters. 
 
 [!INCLUDE [data schema requirements](../includes/data-schema-requirements.md)]
 
@@ -51,7 +51,7 @@ Select the  **Backfill** button to trigger an immediate ingestion on a time-stam
 
 ## Add a data feed using the web Portal
 
-After signing into your Metrics Monitoring portal with your Active Directory account, click **Get started**. Then, on the main page of the portal, click **Add data feed** from the left menu.
+After signing into your Metrics Monitor portal with your Active Directory account, click **Get started**. Then, on the main page of the portal, click **Add data feed** from the left menu.
 
 ![product portal landing page](../../media/adv2landingpage.png "product portal landing page")
 
@@ -71,7 +71,7 @@ Next, you'll need to specify the connection information of the data source as we
 After the connection string and query string are set, select **Verify and get schema** to verify the connection and run the query to get your data schema from the data source. Normally it takes a few seconds depending on your data source connection. If there's an error at this step, confirm that:
 
 1. Your connection string and query are correct.
-2. Your Metrics Monitoring instance is able to connect to the data source if there are firewall settings.
+2. Your Metrics Monitor instance is able to connect to the data source if there are firewall settings.
 
 ### Schema configuration
 

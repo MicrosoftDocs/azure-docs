@@ -1,13 +1,12 @@
 ---
-title: "Quickstart: [Product name] client library for .NET | Microsoft Docs"
-description: Get started with the [Product Name] client library for .NET...
+title: Metrics Monitor C# quickstart
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice:  
-ms.topic: quickstart
-ms.date: 
+ms.topic: include
+ms.date: 07/30/2020
 ms.author: aahi
 ---
 

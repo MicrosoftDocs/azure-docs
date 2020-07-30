@@ -1,15 +1,15 @@
 ---
-title: "Quickstart: [Product name] client library for Python | Microsoft Docs"
-description: Get started with the [Product Name] client library for Python...
+title: Metrics Monitor Python quickstart
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
-ms.topic: quickstart
-ms.date: 
+ms.topic: include
+ms.date: 07/30/2020
 ms.author: aahi
 ---
+
 
 # Quickstart: [Product Name] client library for Python
 

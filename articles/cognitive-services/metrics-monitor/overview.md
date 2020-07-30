@@ -1,7 +1,7 @@
 ---
-title: What is Metrics Monitoring
+title: What is Metrics Monitor
 titleSuffix: Azure Cognitive Services
-description: What is Metrics Monitoring?
+description: What is Metrics Monitor?
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -13,16 +13,16 @@ ms.author: aahi
 ms.custom: seodec2018
 ---
 
-# What is Metrics Monitoring? 
+# What is Metrics Monitor? 
 
-Metrics Monitoring is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning. Use metrics monitoring to:
+Metrics Monitor is a time series monitoring platform that provides a set of APIs for data ingestion, anomaly detection, and diagnostics, without needing to know machine learning. Use Metrics Monitor to:
 * Analyze multi-dimensional data from multiple data sources 
 * Simplify model building & customization
 * Identify and correlate anomalies
 * Build scalable root cause analysis. 
 
 
-:::image type="content" source="media/metrics-monitoring-overview.png" alt-text="Metrics Monitoring overview":::
+:::image type="content" source="media/metrics-monitoring-overview.png" alt-text="Metrics Monitor overview":::
 
 
 <!--Check out this short video:
@@ -30,7 +30,7 @@ Metrics Monitoring is a time series monitoring platform that provides a set of A
 
 ## Scenarios
 
-:::image type="content" source="media/overview-scenarios.png" alt-text="Metrics Monitoring overview scenarios":::
+:::image type="content" source="media/overview-scenarios.png" alt-text="Metrics Monitor overview scenarios":::
 
 ## Features
 
