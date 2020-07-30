@@ -32,7 +32,7 @@ Also, identity life-cycle management drives enterprises to keep Azure AD clean, 
 ## Use PowerShell to find partners from a domain
 
 ```PowerShell
-# this appears to be incomplete no? should it not be $users = get-aduser... etc? also if we just print $users.count we just get the number of users that meet the search criteria. Maybe export-csv? 
+# this appears to be incomplete no? should it not be $users = get-aduser... etc? assuming we do that if we just print $users.count we get the number of users that meet the search criteria. Maybe export-csv? 
 Get-AzureADUser -Filter "usertype eq 'Guest'" -All $true | ?{ $_.mail -like
 "@microsoft.com" }
 
@@ -81,19 +81,18 @@ You can create a new dynamic group in Azure AD for external identities using the
       - **Group owners** – if you have assigned an owner to the dynamic group, and that owner is the person who manages the relationship with the external partner.
       - **Selected users** – if you want to specify specific users in your organization that should review the partners from that external company.
       - **Members (self)** – if you want to allow all external partners to self-attest whether they need continued access to your company’s resources.
-
-7. In “Upon completion settings”, specify that you do not want to take any actions once the review is completed. Choosing this option allows you to review the results and take manual actions.
-8. Click “Start” to create the Access Review. The review will automatically start at the specified start date – and notify reviewers.
+9. In **Upon completion settings**, specify that you do not want to take any actions once the review completes. Choosing this option allows you to review the results and take manual actions.
+10. Click **Start** to create the Access Review. The review will automatically start at the specified start date – and notify reviewers.
 
 ![Create an access review](media\access-reviews-external-domains\create-access-review.png)
 
-Once the review is completed, the “Results” page will include an overview of the decisions made by every reviewer on every external partner and whether continued access through these external partners is desired. External partners that are no longer needed, as attested by the reviewers, can be removed through the Azure AD Portal or a PowerShell script.
+Once the review finishes, the **Results** page will include an overview of the decisions made by every reviewer on every external partner and whether these external partners should have continued access. External partners that are no longer needed, as attested by the reviewers, can be removed through the Azure AD Portal or a PowerShell script.
 
 ## Example: PowerShell: Disable and delete external partners from the results CSV file, following an Access Review
 
-Administrators or resource owners can take action on the results of an Access Review. The result of all access reviews is available both in the access reviews section of the Azure AD Portal, and as a download. All results are kept as comma-separated value (CSV) files. These files can be used for manual processing and reporting or programmatic action-taking, through PowerShell.
+Administrators or resource owners can take action on the results of an Access Review. The result of all access reviews is available both in the access reviews section of the Azure AD Portal, and as a download. All results are kept as comma-separated value (CSV) files. These files can be used for manual processing and reporting or programmatic action through PowerShell.
 
-The results in a CSV format are available on an access review, in the “Results” menu. Using “Download”, the browser will download the CSV file.
+The results in a CSV format are available on an access review, in the **Results** menu. Using **Download**, the browser will download the CSV file.
 
 The following script parses the results:
 
