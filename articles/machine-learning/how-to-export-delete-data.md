@@ -16,7 +16,7 @@ ms.custom: how-to
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In Azure Machine Learning, you can export or delete your workspace data using either the Portal's graphical interface or the Python SDK. This article describes the Python SDK techniques.
+In Azure Machine Learning, you can export or delete your workspace data using either the Portal's graphical interface or the Python SDK. This article describes both options.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -48,9 +48,31 @@ Run history documents, which may contain personal user information, are stored i
 
 ## Export and delete machine learning resources using Azure Machine Learning studio
 
-Azure Machine Learning studio provides a unified view of your machine learning resources, such as notebooks, datasets, models, and experiments. Azure Machine Learning studio emphasizes preserving a record of your data and experiments. Computational resources such as pipelines and compute resources can be deleted using the browser. Datasets can be unregistered and Experiments can be archived, but these operations do not delete the underlying data. To entirely remove the data, datasets and run data must be deleted at the storage level. Deleting at the storage level is done using the portal, as described previously.
+Azure Machine Learning studio provides a unified view of your machine learning resources, such as notebooks, datasets, models, and experiments. Azure Machine Learning studio emphasizes preserving a record of your data and experiments. Computational resources such as pipelines and compute resources can be deleted using the browser. For these resources, navigate to the resource in question and choose **Delete**. 
 
-## Delete resources using the Python SDK
+Datasets can be unregistered and Experiments can be archived, but these operations do not delete the underlying data. To entirely remove the data, datasets and run data must be deleted at the storage level. Deleting at the storage level is done using the portal, as described previously.
+
+You can download training artifacts from experimental runs using the Studio. Choose the **Experiment** and **Run** in which you are interested. Choose **Output + logs** and navigate to the specific artifacts you wish to download. Choose **...** and **Download**.
+
+You can download a registered model by navigating to the desired **Model** and choosing **Download**. 
+
+:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Screenshot of studio model page with download option highlighted":::
+
+## Export and delete resources using the Python SDK
+
+You can download the outputs of a particular run using: 
+
+```python
+# Retrieved from Azure Machine Learning web UI
+run_id = 'aaaaaaaa-bbbb-cccc-dddd-0123456789AB'
+experiment = ws.experiments['my-experiment']
+run = next(run for run in ex.get_runs() if run.id == run_id)
+metrics_output_port = run.get_pipeline_output('metrics_output')
+model_output_port = run.get_pipeline_output('model_output')
+
+metrics_output_port.download('.', show_progress=True)
+model_output_port.download('.', show_progress=True)
+```
 
 The following machine learning resources can be deleted using the Python SDK: 
 
