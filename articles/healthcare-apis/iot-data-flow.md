@@ -1,6 +1,6 @@
 ---
-title: 'Concepts: Data flow in IoT Connector (preview) feature of Azure API for FHIR'
-description: Understand IoT Connector's data flow. IoT Connector ingests, normalizes, groups, transforms, and persists IoMT data to Azure API for FHIR.
+title: 'Concepts: Data flow in Azure IoT Connector for FHIR (preview) feature of Azure API for FHIR'
+description: Understand Azure IoT Connector for FHIR (preview)'s data flow. Azure IoT Connector for FHIR (preview) ingests, normalizes, groups, transforms, and persists IoMT data to Azure API for FHIR.
 services: healthcare-apis
 author: ms-puneet-nagpal
 ms.service: healthcare-apis
@@ -10,9 +10,9 @@ ms.date: 05/13/2020
 ms.author: punagpal
 ---
 
-# IoT Connector (preview) data flow
+# Azure IoT Connector for FHIR (preview) data flow
 
-This article provides an overview of data flow in IoT Connector. You'll learn about different data processing stages within IoT Connector that transform device data into FHIR-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
+This article provides an overview of data flow in IoT Connector*. You'll learn about different data processing stages within IoT Connector that transform device data into FHIR-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
 
 ![IoT Connector data flow](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
@@ -55,7 +55,8 @@ Once the Observation FHIR resource is generated in the Transform stage, resource
 Click below next step to learn how to create device and FHIR mapping templates.
 
 >[!div class="nextstepaction"]
->[IoT Connector mapping templates](iot-mapping-templates.md)
+>[Azure IoT Connector for FHIR (preview) mapping templates](iot-mapping-templates.md)
 
+*In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview)
 
 FHIR is the registered trademark of HL7 and is used with the permission of HL7.
