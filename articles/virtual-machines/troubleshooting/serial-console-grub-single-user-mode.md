@@ -64,7 +64,7 @@ RHEL comes with GRUB enabled out of the box. To enter GRUB, reboot your VM by ru
 **For RHEL 8**
 
 >[!NOTE]
-> Red Hat recommends using Grubby to configure kernel command line parameters in RHEL 8+. More details are available [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
+> Red Hat recommends using Grubby to configure kernel command line parameters in RHEL 8+. It is currently not possible to update the grub timeout and terminal parameters using grubby. To modify update the GRUB_CMDLINE_LINUX argument for all boot entries, run `grubby --update-kernel=ALL --args="console=ttyS0,115200 console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"`. More details are available [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/managing_monitoring_and_updating_the_kernel/configuring-kernel-command-line-parameters_managing-monitoring-and-updating-the-kernel).
 
 ```
 GRUB_TIMEOUT=5
