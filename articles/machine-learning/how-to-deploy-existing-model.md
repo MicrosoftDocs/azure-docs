@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.custom: how-to, tracking-python
 ---
 
-# Register & deploy existing ML model with Azure Machine Learning
+# Deploy your existing model with Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to register and deploy a machine learning model you trained outside Azure Machine Learning. You can deploy as a web service or to an IoT Edge device.  Once deployed, you can monitor your model and detect data drift in Azure Machine Learning. 
