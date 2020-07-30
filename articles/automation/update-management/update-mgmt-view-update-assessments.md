@@ -19,7 +19,7 @@ Sign in to the [Azure portal](https://portal.azure.com)
 
 In Update Management, you can view information about your machines, missing updates, update deployments, and scheduled update deployments.
 
-![Update Management default view](media/update-mgmt-overview/update-management-view.png)
+[ ![Update Management default view](./media/update-mgmt-overview/update-management-view.png)](./media/update-mgmt-overview/update-management-view-expanded.png#lightbox)
 
 To view an update assessment, perform the following.
 
@@ -33,11 +33,11 @@ To view an update assessment, perform the following.
 
 4. Under **Information link**, select the link for an update to open the support article that gives you important information about the update.
 
-    ![View update status](./media/update-mgmt-manage-updates-for-vm/manageupdates-view-status-win.png)
+     [ ![View update status](./media/update-mgmt-manage-updates-for-vm/manageupdates-view-status-win.png)](./media/update-mgmt-manage-updates-for-vm/manageupdates-view-status-win-expanded.png#lightbox)
 
 5. Click anywhere else on the update to open the Log Search pane. The query for the log search is predefined for that specific update. You can modify this query or create your own query to view detailed information.
 
-    ![View update status](./media/update-mgmt-manage-updates-for-vm/logsearch.png)
+    [ ![View log query results](./media/update-mgmt-manage-updates-for-vm/logsearch.png)](./media/update-mgmt-manage-updates-for-vm/logsearch-expanded.png#lightbox)
 
 ## View missing updates
 
