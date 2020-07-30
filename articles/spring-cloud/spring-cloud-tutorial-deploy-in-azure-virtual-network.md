@@ -93,7 +93,7 @@ Select the virtual network *azure-spring-cloud-vnet* you created.
 
     ![Access control for v-net](./media/spring-cloud-v-net-injection/access-control.png)
 
-2. In **Add role assignment**, enter or select this information:
+2. In the **Add role assignment** dialog, enter or select this information:
 
     |Setting  |Value                                             |
     |---------|--------------------------------------------------|
