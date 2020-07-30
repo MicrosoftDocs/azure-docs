@@ -253,10 +253,6 @@ applies to all workers sequentially it can make a Hyperscale (Citus) cluster
 temporarily less responsive. You may choose to disable this setting and
 propagate changes manually.
 
-> [!NOTE]
-> For a list of DDL propagation support, see
-> `ddl_prop_support`{.interpreted-text role="ref"}.
-
 ## Executor Configuration
 
 ### General

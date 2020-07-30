@@ -721,12 +721,14 @@ SELECT * FROM get_rebalance_progress();
 
 ### citus\_add\_rebalance\_strategy
 
-Append a row to the `pg_dist_rebalance_strategy`.
+Append a row to
+[pg_dist_rebalance_strategy](reference-hyperscale-metadata.md?#rebalancer-strategy-table)
+.
 
 #### Arguments
 
 For more about these arguments, see the corresponding column values in
-[pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table).
+`pg_dist_rebalance_strategy`.
 
 **name:** identifier for the new strategy
 
