@@ -1,7 +1,7 @@
 ﻿---
 
 title: Azure operational security checklist| Microsoft Docs
-description: This article provides a set of checklist for Azure operational security.
+description: Review this checklist to help your enterprise think through Azure operational security considerations.
 services: security
 documentationcenter: na
 author: unifycloud
