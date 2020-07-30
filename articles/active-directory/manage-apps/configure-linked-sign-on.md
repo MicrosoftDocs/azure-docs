@@ -1,6 +1,6 @@
 ---
-title: Configure linked sign-on in Azure AD
-description: Configure linked sign-on in Azure AD
+title: Configure linked sign-on in Azure Active Directory
+description: Configure linked sign-on in Azure AD.
 services: active-directory
 author: kenwith
 manager: celestedg
