@@ -24,13 +24,13 @@ In Azure Machine Learning, you can export or delete your workspace data using ei
 
 ## Control your workspace data
 
-In-product data stored by Azure Machine Learning is available for export and deletion through Azure Machine Learning studio, CLI, SDK, and authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy portal. 
+In-product data stored by Azure Machine Learning is available for export and deletion. You can export and delete using Azure Machine Learning studio, CLI, and SDK. Telemetry data can be accessed through the Azure Privacy portal. 
 
 In Azure Machine Learning, personal data consists of user information in run history documents. 
 
 ## Delete high-level resources using the portal
 
-When you create a workspace, Azure allocates a number of resources within the resource group:
+When you create a workspace, Azure creates a number of resources within the resource group:
 
 - The workspace itself
 - A storage account
@@ -38,7 +38,7 @@ When you create a workspace, Azure allocates a number of resources within the re
 - An Applications Insights instance
 - A key vault
 
-These can be deleted by selecting them from the list and choosing **Delete** 
+These resources can be deleted by selecting them from the list and choosing **Delete** 
 
 :::image type="content" source="media/how-to-export-delete-data/delete-resource-group-resources.png" alt-text="Screenshot of portal, with delete icon highlighted":::
 
@@ -50,7 +50,7 @@ Run history documents, which may contain personal user information, are stored i
 
 Azure Machine Learning studio provides a unified view of your machine learning resources, such as notebooks, datasets, models, and experiments. Azure Machine Learning studio emphasizes preserving a record of your data and experiments. Computational resources such as pipelines and compute resources can be deleted using the browser. For these resources, navigate to the resource in question and choose **Delete**. 
 
-Datasets can be unregistered and Experiments can be archived, but these operations do not delete the underlying data. To entirely remove the data, datasets and run data must be deleted at the storage level. Deleting at the storage level is done using the portal, as described previously.
+Datasets can be unregistered and Experiments can be archived, but these operations don't delete the data. To entirely remove the data, datasets and run data must be deleted at the storage level. Deleting at the storage level is done using the portal, as described previously.
 
 You can download training artifacts from experimental runs using the Studio. Choose the **Experiment** and **Run** in which you are interested. Choose **Output + logs** and navigate to the specific artifacts you wish to download. Choose **...** and **Download**.
 
@@ -78,7 +78,7 @@ The following machine learning resources can be deleted using the Python SDK:
 
 | Type | Function Call | Notes | 
 | --- | --- | --- |
-| `Workspace` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#delete-delete-dependent-resources-false--no-wait-false-) | Use `delete-dependent-resources` to perform deep deletion |
+| `Workspace` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#delete-delete-dependent-resources-false--no-wait-false-) | Use `delete-dependent-resources` to cascade the delete |
 | `Model` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#delete--) | | 
 | `ComputeTarget` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#delete--) | |
 | `WebService` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py) | | 
