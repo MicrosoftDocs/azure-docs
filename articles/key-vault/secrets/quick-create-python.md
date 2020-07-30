@@ -29,7 +29,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Python 2.7, 3.5.3, or later
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/)
 
 This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) in a Linux terminal window.
 
@@ -152,7 +152,7 @@ from azure.keyvault.secrets import SecretClient
 from azure.identity import DefaultAzureCredential
 
 keyVaultName = os.environ["KEY_VAULT_NAME"]
-KVUri = "https://" + keyVaultName + ".vault.azure.net"
+KVUri = f"https://{keyVaultName}.vault.azure.net"
 
 credential = DefaultAzureCredential()
 client = SecretClient(vault_url=KVUri, credential=credential)
@@ -162,7 +162,7 @@ secretName = "mySecret"
 print("Input the value of your secret > ")
 secretValue = raw_input()
 
-print("Creating a secret in " + keyVaultName + " called '" + secretName + "' with the value '" + secretValue + "` ...")
+print(f"Creating a secret in {keyVaultName} called '{secretName}' with the value '{secretValue}` ...")
 
 client.set_secret(secretName, secretValue)
 
@@ -170,14 +170,14 @@ print(" done.")
 
 print("Forgetting your secret.")
 secretValue = ""
-print("Your secret is '" + secretValue + "'.")
+print(f"Your secret is {secretValue}.")
 
-print("Retrieving your secret from " + keyVaultName + ".")
+print(f"Retrieving your secret from {keyVaultName}.")
 
 retrieved_secret = client.get_secret(secretName)
 
-print("Your secret is '" + retrieved_secret.value + "'.")
-print("Deleting your secret from " + keyVaultName + " ...")
+print(f"Your secret is '{retrieved_secret.value}'.")
+print(f"Deleting your secret from {keyVaultName} ...")
 
 client.delete_secret(secretName)
 

@@ -3,7 +3,7 @@ title: Use pod security policies in Azure Kubernetes Service (AKS)
 description: Learn how to control pod admissions by using PodSecurityPolicy in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 07/21/2020
 ---
 
 # Preview - Secure your cluster using pod security policies in Azure Kubernetes Service (AKS)
@@ -343,7 +343,7 @@ kubectl apply -f psp-deny-privileged-clusterrole.yaml
 Now create a ClusterRoleBinding to use the ClusterRole created in the previous step. Create a file named `psp-deny-privileged-clusterrolebinding.yaml` and paste the following YAML manifest:
 
 ```yaml
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: psp-deny-privileged-clusterrolebinding

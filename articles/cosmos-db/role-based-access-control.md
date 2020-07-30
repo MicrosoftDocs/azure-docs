@@ -43,7 +43,7 @@ The Azure Cosmos DB resource provider can be locked down to prevent any changes 
 When this feature is enabled, changes to any resource can only be made from a user with the right RBAC role and Azure Active Directory credentials including Managed Service Identities.
 
 > [!WARNING]
-> Enabling this feature can have impact on your application. Make sure that you understand the impact before enabling this feature.
+> Enabling this feature can have impact on your application. Make sure that you understand the impact before enabling it.
 
 ### Check list before enabling
 

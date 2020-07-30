@@ -40,6 +40,8 @@
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Deploy Azure Spring Cloud in virtual network
       href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
+    - name: Set up autoscale for microservice applications
+      href: spring-cloud-tutorial-setup-autoscale.md
 - name: Samples
   items:  
   - name: Azure Policy built-ins

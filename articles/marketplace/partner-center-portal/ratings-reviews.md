@@ -5,6 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Ratings & Reviews analytics dashboard in Partner Center
@@ -19,7 +21,7 @@ This article provides information on the Ratings & Reviews dashboard in Partner 
 
 ## Access the dashboard
 
-In the [Commercial Marketplace dashboard](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview) in Partner Center, expand the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** section and select **Ratings & Reviews**.
+In the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center, expand the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** section and select **Ratings & Reviews**.
 
 The dashboard displays a graphical representation of the following customer activity:
 

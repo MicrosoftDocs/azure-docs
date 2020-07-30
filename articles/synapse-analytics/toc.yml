@@ -10,20 +10,22 @@
     items: 
     - name: Introduction
       href: get-started.md
-    - name: Step 1 Create and setup a Synapse workspace
+    - name: 1 Create a Synapse workspace
       href: get-started-create-workspace.md
-    - name: Step 2 Analyze using a SQL Pool
+    - name: 2 Analyze using a SQL Pool
       href: get-started-analyze-sql-pool.md
-    - name: Step 3 Analyze using Spark
+    - name: 3 Analyze using Spark
       href: get-started-analyze-spark.md
-    - name: Step 4 Analyze using SQL on-demand
+    - name: 4 Analyze using SQL on-demand
       href: get-started-analyze-sql-on-demand.md
-    - name: Step 5 Analyze data in a storage account
+    - name: 5 Analyze data in a storage account
       href: get-started-analyze-storage.md
-    - name: STEP 6 - Orchestrate with pipelines
+    - name: 6 Orchestrate with pipelines
       href: get-started-pipelines.md
-    - name: STEP 7 - Visualize data with Power BI
+    - name: 7 Visualize with Power BI
       href: get-started-visualize-power-bi.md
+    - name: 8 Monitor
+      href: get-started-monitor.md
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
   - name: FAQ
@@ -32,9 +34,9 @@
     href: release-notes.md
 - name: Quickstarts
   items:
-  - name: Create an Azure Synapse workspace
+  - name: Create a Synapse workspace
     href: quickstart-create-workspace.md
-  - name: Use Azure Synapse Studio 
+  - name: Use Synapse Studio 
     href: quickstart-synapse-studio.md
   - name: Link a Power BI workspace
     href: quickstart-power-bi.md
@@ -280,6 +282,8 @@
           href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Result set caching
         href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
+      - name: Machine learning predictions
+        href: ./sql-data-warehouse/sql-data-warehouse-predict.md
       - name: Tables
         items:
         - name: Overview
@@ -863,6 +867,10 @@
         href: ../data-factory/data-factory-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Connector troubleshooting
         href: ../data-factory/connector-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Copy Data tool troubleshooting
+        href: ../data-factory/copy-data-tool-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Self-hosted Integration Runtimes troubleshooting
+        href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Connect tools to Synapse Analytics
     items:
     - name: Synapse SQL 

@@ -235,8 +235,8 @@ Assign only the necessary [permissions](https://docs.microsoft.com/sql/relationa
   - Make sure to not assign users to unnecessary roles.
 
 - In Azure Resource Manager:
-  - Use built-in roles if available or custom RBAC roles and assign the necessary permissions.
-    - [Built-in roles for Azure](../../role-based-access-control/built-in-roles.md)
+  - Use built-in roles if available or Azure custom roles and assign the necessary permissions.
+    - [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
     - [Azure custom roles](../../role-based-access-control/custom-roles.md)
 
 **Best practices**:
@@ -286,7 +286,7 @@ Separation of Duties, also called Segregation of Duties describes the requiremen
 - Identify a comprehensive hierarchy of users (and automated processes) that access the system.
 
 - Create roles according to the needed user-groups and assign permissions to roles.
-  - For management-level tasks in Azure portal or via PowerShell-automation use RBAC roles. Either find a built-in role matching the requirement, or create a custom RBAC role using the available permissions
+  - For management-level tasks in Azure portal or via PowerShell-automation use RBAC roles. Either find a built-in role matching the requirement, or create an Azure custom role using the available permissions
   - Create Server roles for server-wide tasks (creating new logins, databases) in a managed instance.
   - Create Database Roles for database-level tasks.
 
@@ -319,7 +319,7 @@ Separation of Duties, also called Segregation of Duties describes the requiremen
 
 - Always make sure to have an Audit trail for security-related actions.
 
-- You can retrieve the definition of the built-in RBAC roles to see the permissions used and create a custom role based on excerpts and cumulations of these via PowerShell.
+- You can retrieve the definition of the Azure built-in roles to see the permissions used and create a custom role based on excerpts and cumulations of these via PowerShell.
 
 - Because any member of the db_owner database role can change security settings like Transparent Data Encryption (TDE), or change the SLO, this membership should be granted with care. However, there are many tasks that require db_owner privileges. Task like changing any database setting such as changing DB options. Auditing plays a key role in any solution.
 
@@ -337,7 +337,7 @@ For the readers that want to dive deeper into SoD, we recommend the following re
   - [Signing Stored Procedures](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - For Azure Resource Management:
-  - [Built-in roles for Azure](../../role-based-access-control/built-in-roles.md)
+  - [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
   - [Azure custom roles](../../role-based-access-control/custom-roles.md)
   - [Using Azure AD Privileged Identity Management for elevated access](https://www.microsoft.com/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 

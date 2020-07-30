@@ -40,13 +40,10 @@ The following table describes the capabilities and network support for each of t
 
 IR type | Public network | Private network
 ------- | -------------- | ---------------
-Azure | Data Flow<br/>Data movement<br/>Activity dispatch | &nbsp;
+Azure | Data Flow<br/>Data movement<br/>Activity dispatch | Data Flow<br/>Data movement<br/>Activity dispatch
 Self-hosted | Data movement<br/>Activity dispatch | Data movement<br/>Activity dispatch
 Azure-SSIS | SSIS package execution | SSIS package execution
 
-The following diagram shows how the different integration runtimes can be used in combination to offer rich data integration capabilities and network support:
-
-![Different types of integration runtimes](media/concepts-integration-runtime/different-integration-runtimes.png)
 
 ## Azure integration runtime
 
@@ -58,7 +55,7 @@ An Azure integration runtime can:
 
 ### Azure IR network environment
 
-Azure Integration Runtime supports connecting to data stores and computes services with public accessible endpoints. Use a self-hosted integration runtime for Azure Virtual Network environment.
+Azure Integration Runtime supports connecting to data stores and computes services with public accessible endpoints. Enabling Managed Virtual Network, Azure Integration Runtime supports connecting to data stores using private link service in private network environment.
 
 ### Azure IR compute resource and scaling
 Azure integration runtime provides a fully managed, serverless compute in Azure.  You don't have to worry about infrastructure provision, software installation, patching, or capacity scaling.  In addition, you only pay for the duration of the actual utilization.
@@ -131,7 +128,7 @@ The IR Location defines the location of its back-end compute, and essentially th
 
 You can set a certain location of an Azure IR, in which case the activity execution or dispatch will happen in that specific region.
 
-If you choose to use the auto-resolve Azure IR, which is the default,
+If you choose to use the auto-resolve Azure IR in public network, which is the default,
 
 - For copy activity, ADF will make a best effort to automatically detect your sink data store's location, then use the IR in either the same region if available or the closest one in the same geography; if the sink data store's region is not detectable, IR in the data factory region as alternative is used.
 
@@ -149,6 +146,8 @@ If you choose to use the auto-resolve Azure IR, which is the default,
 
   > [!TIP] 
   > A good practice would be to ensure Data flow runs in the same region as your corresponding data stores (if possible). You can either achieve this by auto-resolve Azure IR (if data store location is same as Data Factory location), or by creating a new Azure IR instance in the same region as your data stores and then execute the data flow on it. 
+
+If you enable Managed Virtual Network for auto-resolve Azure IR, ADF uses the IR in the data factory region. 
 
 You can monitor which IR location takes effect during activity execution in pipeline activity monitoring view on UI or activity monitoring payload.
 
