@@ -215,6 +215,8 @@ myenv = Environment.from_conda_specification(name = 'myenv',
 myenv.register(workspace=ws)
 ```
 
+For a thorough discussion of using and customizing Python environments with Azure Machine Learning, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md)
+
 ### <a id="script"></a> 2. Define scoring code
 
 The entry script receives data submitted to a deployed web service and passes it to the model. It then takes the response returned by the model and returns that to the client. *The script is specific to your model*. It must understand the data that the model expects and returns.
@@ -632,7 +634,7 @@ See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.
 ### A/B Testing (controlled rollout)
 For more information, see [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) for more information.
 
-## Consume web services
+## Inference using web services
 
 Every deployed web service provides a REST endpoint, so you can create client applications in any programming language.
 If you've enabled key-based authentication for your service, you need to provide a service key as a token in your request header.

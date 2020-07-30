@@ -58,7 +58,11 @@ The AKS cluster and the AML workspace can be in different resource groups.
 
 - The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-- If you attach an AKS cluster, which has an [authorized IP range enabled to access the API server](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), enable the AML contol plane IP ranges for the AKS cluster. The AML control plane is deployed across paired regions and deploys inferencing pods on the AKS cluster. Without access to the API server, the inferencing pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) for both the [paired regions]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) when enabling the IP ranges in an AKS cluster
+- If you need a Standard Load Balancer(SLB) deployed in your cluster instead of a Basic Load Balancer(BLB), please create a cluster in the AKS portal/CLI/SDK and then attach it to the AML workspace.
+
+- If you attach an AKS cluster, which has an [authorized IP range enabled to access the API server](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), enable the AML contol plane IP ranges for the AKS cluster. The AML control plane is deployed across paired regions and deploys inferencing pods on the AKS cluster. Without access to the API server, the inferencing pods cannot be deployed. Use the [IP ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) for both the [paired regions]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) when enabling the IP ranges in an AKS cluster.
+
+__Authroized IP ranges only works with Standard Load Balancer.__
  
  - Compute name MUST be unique within a workspace
    - Name is required and must be between 3 to 24 characters long.
@@ -68,7 +72,7 @@ The AKS cluster and the AML workspace can be in different resource groups.
    
  - If you want to deploy models to GPU nodes or FPGA nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
  
- - If you need a Standard Load Balancer(SLB) deployed in your cluster instead of a Basic Load Balancer(BLB), please create a cluster in the AKS portal/CLI/SDK and then attach it to the AML workspace. 
+ 
 
 
 
@@ -252,6 +256,30 @@ For information on using VS Code, see [deploy to AKS via the VS Code extension](
 
 > [!IMPORTANT]
 > Deploying through VS Code requires the AKS cluster to be created or attached to your workspace in advance.
+
+### Understand the deployment processes
+
+The word "deployment" is used in both Kubernetes and Azure Machine Learning. "Deployment" has very different meanings in these two contexts. In Kubernetes, a `Deployment` is a concrete entity, specified with a declarative YAML file. A Kubernetes `Deployment` has a defined lifecycle and concrete relationships to other Kubernetes entities such as `Pods` and `ReplicaSets`. You can learn about Kubernetes from docs and videos at [What is Kubernetes?](https://aka.ms/k8slearning).
+
+In Azure Machine Learning, "deployment" is used in the more general sense of making available and cleaning up your project resources. The steps that Azure Machine Learning considers part of deployment are:
+
+1. Zipping the files in your project folder, ignoring those specified in .amlignore or .gitignore
+1. Scaling up your compute cluster (Relates to Kubernetes)
+1. Building or downloading the dockerfile to the compute node (Relates to Kubernetes)
+    1. The system calculates a hash of: 
+        - The base image 
+        - Custom docker steps (see [Deploy a model using a custom Docker base image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
+        - The conda definition YAML (see [Create & use software environments in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+    1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
+    1. If it is not found, it looks for a match in the global ACR
+    1. If it is not found, the system builds a new image (which will be cached and registered with the workspace ACR)
+1. Downloading your zipped project file to temporary storage on the compute node
+1. Unzipping the project file
+1. The compute node executing `python <entry script> <arguments>`
+1. Saving logs, model files, and other files written to `./outputs` to the storage account associated with the workspace
+1. Scaling down compute, including removing temporary storage (Relates to Kubernetes)
+
+When you're using AKS, the scaling up and down of the compute is controlled by Kubernetes, using the dockerfile built or found as described above. 
 
 ## Deploy models to AKS using controlled rollout (preview)
 

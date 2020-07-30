@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: nodejs
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ---
  
 # Quickstart: Enroll TPM device to IoT Hub Device Provisioning Service using Node.js service SDK

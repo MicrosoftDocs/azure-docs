@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 07/28/2020
 ms.topic: include
-ms.custom: include file
+ms.custom: include file, devx-track-javascript
 ms.author: diberry
 ---
 Use the Language Understanding (LUIS) authoring client library for Node.js to:

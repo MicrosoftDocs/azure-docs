@@ -42,8 +42,10 @@
       href: how-to-use-cli.md
     - name: Set up an instance and authentication (scripted)
       href: how-to-set-up-instance-scripted.md
-    - name: Set up an instance and authentication (manual)
-      href: how-to-set-up-instance-manual.md
+    - name: Set up an instance and authentication (CLI)
+      href: how-to-set-up-instance-cli.md
+    - name: Set up an instance and authentication (portal)
+      href: how-to-set-up-instance-portal.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
   - name: Design models
@@ -68,8 +70,6 @@
       href: how-to-query-graph.md
     - name: View metrics in Azure Monitor
       href: how-to-view-metrics.md
-    - name: Set up diagnostic logs
-      href: how-to-set-up-diagnostics.md
   - name: Connect input
     items:
     - name: Ingest telemetry from IoT Hub
@@ -84,6 +84,8 @@
       href: how-to-integrate-time-series-insights.md
   - name: Troubleshoot
     items:
+    - name: Enable diagnostics logs
+      href: troubleshoot-diagnostics.md
     - name: Known issues
       href: troubleshoot-known-issues.md
     - name: Problem resolution

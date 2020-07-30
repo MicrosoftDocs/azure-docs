@@ -3,7 +3,7 @@ title: Troubleshoot Azure Cosmos DB HTTP 408 or request timeout issues with .NET
 description: How to diagnose and fix .NET SDK request timeout exception
 author: j82w
 ms.service: cosmos-db
-ms.date: 07/13/2020
+ms.date: 07/29/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -11,6 +11,21 @@ ms.reviewer: sngun
 
 # Diagnose and troubleshoot Azure Cosmos DB .NET SDK request timeout
 The HTTP 408 error occurs if the SDK was not able to complete the request before the timeout limit occurs.
+
+## Customizing the timeout on the Azure Cosmos .NET SDK
+
+The SDK has two distinct alternatives to control timeouts, each with a different scope.
+
+### RequestTimeout
+
+The `CosmosClientOptions.RequestTimeout` (or `ConnectionPolicy.RequestTimeout` for SDK V2) configuration allows you to set a timeout that affects each individual network request.  An operation started by a user can span multiple network requests (for example, there could be throttling) and this configuration would apply for each network request on the retry. This is not an end to end operation request timeout.
+
+### CancellationToken
+
+All the async operations in the SDK have an optional CancellationToken parameter. This [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) is used throughout the entire operation, across all network requests. In-between network requests, the CancellationToken might be checked and an operation canceled if the related token is expired. CancellationToken should be used to define an approximate expected timeout on the operation scope.
+
+> [!NOTE]
+> CancellationToken is a mechanism where the library will check the cancellation when it [won't cause an invalid state](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). The operation might not cancel exactly when the time defined in the cancellation is up, but rather, after the time is up, it will cancel when it is safe to do so.
 
 ## Troubleshooting steps
 The following list contains known causes and solutions for request timeout exceptions.
