@@ -13,9 +13,7 @@ ms.custom: subject-cost-optimization
 
 # Plan and manage costs for Azure Storage
 
-This article helps you to plan and manage costs for Azure Storage. Start by using the Azure pricing calculator. This calculator helps you to plan for costs before you create your storage account. 
-
-Consider whether it makes sense to save on costs by reserving storage capacity. Organize blobs into access tiers, and then use lifecycle management policies to periodically move blobs to more cost effective tiers.
+This article helps you to plan and manage costs for Azure Storage. Start by using the Azure pricing calculator. This calculator helps you to plan for costs before you create your storage account. Then, optimize your storage account so that you pay only for what you need.
 
 Use cost management features to set budgets and monitor costs. You can also review forecasted costs and monitor spending trends to identify areas where you might want to act.
 
@@ -39,24 +37,27 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 4. Modify the remaining options to see their affect on your estimate.
 
-## Reserve storage capacity
+## Optimize costs
+
+To reduce costs, consider reserving storage capacity. Organize your blobs into access tiers, and then use lifecycle management policies to periodically move blobs to more cost effective tiers.
+
+### Reserve storage capacity
 
 You can save money on storage costs for blob data with Azure Storage reserved capacity. Azure Storage reserved capacity offers you a discount on capacity for block blobs and for Azure Data Lake Storage Gen2 data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. 
 
 To learn more, see [Optimize costs for Blob storage with reserved capacity](https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity)
 
-## Organize data into access tiers
+### Organize data into access tiers
 
 You can reduce costs by storing blob data to the most appropriate access tier. Azure Storage offers three tiers that are designed to optimize costs based on how you use your data. For example, if you plan to access data frequently, you might use the *hot* access tier. This reduces the cost of accessing the data. If you plan to access data less frequently, the *Cold* access tier is a better choice. Instead of reducing the cost of data access, it reduces the cost of data storage.  
 
 To learn more, see [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
 
-## Automatically move data between access tiers
+### Automatically move data between access tiers
 
 You can create policies that move blob data to a *cooler* access tier (For example: from the hot tier to the cool tier). These policies move data based upon a rules that you specify. For example, you might create a rule that moves blobs to the archive tier if that blob has not been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs.
 
 To learn more, see [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
-
 
 ## Create budgets
 
