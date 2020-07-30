@@ -77,11 +77,13 @@ landingContent:
             url: concept-model-management-and-deployment.md
           - text: How & where to deploy
             url: how-to-deploy-and-where.md
+          - text: MLOps examples repository
+            url: https://github.com/microsoft/MLOps   
           - text: Realtime prediction
             url: how-to-consume-web-service.md
           - text: Batch prediction 
             url: how-to-use-parallel-run-step.md
-
+ 
              
   # PYTHON
   - title: 'Train with the Python SDK'
@@ -100,10 +102,6 @@ landingContent:
         links:
           - text: Set up your environment
             url: how-to-configure-environment.md
-          - text: Interpret & explain models
-            url: how-to-machine-learning-interpretability.md
-          - text: Deep learning vs ML
-            url: concept-deep-learning-vs-machine-learning.md
           - text: Train & register Scikit-learn models 
             url: how-to-train-scikit-learn.md
           - text: Train & register TensorFlow models
@@ -112,8 +110,6 @@ landingContent:
             url: how-to-train-pytorch.md
           - text: Train & register Keras models 
             url: how-to-train-keras.md
-          - text: Reinforcement learning
-            url: how-to-use-reinforcement-learning.md
           - text: What are ML pipelines?
             url: concept-ml-pipelines.md                  
 
@@ -125,9 +121,7 @@ landingContent:
           - text: SDK for Python
             url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
           - text: Designer algorithms & modules
-            url: algorithm-module-reference/module-reference.md
-          - text: MLOps examples repository
-            url: https://github.com/microsoft/MLOps            
+            url: algorithm-module-reference/module-reference.md        
           - text: REST API
             url: https://docs.microsoft.com/rest/api/azureml/
           - text: Machine learning CLI
