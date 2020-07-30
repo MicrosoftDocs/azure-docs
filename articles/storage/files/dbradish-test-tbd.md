@@ -87,7 +87,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
 ## Prepare Windows Server to use with Azure File Sync
 For each server that you intend to use with Azure File Sync, including each server node in a Failover Cluster, disable **Internet Explorer Enhanced Security Configuration**. This is required only for initial server registration. You can re-enable it after the server has been registered.
 
-# [Portal](#tab/csharp)
+# [C#](#tab/csharp)
 > [!Note]  
 > You can skip this step if you're deploying Azure File Sync on Windows Server Core.
 
