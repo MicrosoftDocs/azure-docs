@@ -32,7 +32,7 @@ The following core APIs are supported.
 
 ## Environment APIs
 
-* [Get Environments API](rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment): Returns the list of environments that the caller is authorized to access.
+* [Get Environments API](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment): Returns the list of environments that the caller is authorized to access.
 * [Get Environments Availability API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability): Returns the distribution of event count over the event timestamp `$ts`. This API helps determine if there are any events in the environment by returning the count of events broken into intervals of time, if any exist.
 * [Get Event Schema API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema): Returns the event schema metadata for a given search span. This API helps retrieve all metadata and properties available in the schema for the given search span.
 
