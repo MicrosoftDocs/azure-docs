@@ -15,14 +15,22 @@ Use Azure File Sync to centralize your organization's file shares in Azure Files
 We strongly recommend that you read [Planning for an Azure Files deployment](storage-files-planning.md) and [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) before you complete the steps described in this article.
 
 ## Prerequisites
-* An Azure file share in the same region that you want to deploy Azure File Sync. For more information, see:
+
+# [Portal](#tab/azure-portal)
+
+1. An Azure file share in the same region that you want to deploy Azure File Sync. For more information, see:
     - [Region availability](storage-sync-files-planning.md#azure-file-sync-region-availability) for Azure File Sync.
     - [Create a file share](storage-how-to-create-file-share.md) for a step-by-step description of how to create a file share.
-* At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](storage-sync-files-planning.md#windows-file-server-considerations).
+1. At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](storage-sync-files-planning.md#windows-file-server-considerations).
 
 # [PowerShell](#tab/azure-powershell)
 
-* The Az PowerShell module may be used with either PowerShell 5.1 or PowerShell 6+. You may use the Az PowerShell module for Azure File Sync on any supported system, including non-Windows systems, however the server registration cmdlet must always be run on the Windows Server instance you are registering (this can be done directly or via PowerShell remoting). On Windows Server 2012 R2, you can verify that you are running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
+1. An Azure file share in the same region that you want to deploy Azure File Sync. For more information, see:
+    - [Region availability](storage-sync-files-planning.md#azure-file-sync-region-availability) for Azure File Sync.
+    - [Create a file share](storage-how-to-create-file-share.md) for a step-by-step description of how to create a file share.
+1. At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](storage-sync-files-planning.md#windows-file-server-considerations).
+
+1. The Az PowerShell module may be used with either PowerShell 5.1 or PowerShell 6+. You may use the Az PowerShell module for Azure File Sync on any supported system, including non-Windows systems, however the server registration cmdlet must always be run on the Windows Server instance you are registering (this can be done directly or via PowerShell remoting). On Windows Server 2012 R2, you can verify that you are running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -35,7 +43,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
     > [!Important]  
     > If you plan to use the Server Registration UI, rather than registering directly from PowerShell, you must use PowerShell 5.1.
 
-* If you have opted to use PowerShell 5.1, ensure that at least .NET 4.7.2 is installed. Learn more about [.NET Framework versions and dependencies](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) on your system.
+1. If you have opted to use PowerShell 5.1, ensure that at least .NET 4.7.2 is installed. Learn more about [.NET Framework versions and dependencies](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) on your system.
 
     > [!Important]  
     > If you are installing .NET 4.7.2+ on Windows Server Core, you must install with the `quiet` and `norestart` flags or the installation will fail. For example, if installing .NET 4.8, the command would look like the following:
@@ -43,12 +51,17 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
     > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
     > ```
 
-* The Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+1. The Az PowerShell module, which can be installed by following the instructions here: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
      
     > [!Note]  
     > The Az.StorageSync module is now installed automatically when you install the Az PowerShell module.
 
 # [Azure CLI](#tab/azure-cli)
+
+1. An Azure file share in the same region that you want to deploy Azure File Sync. For more information, see:
+    - [Region availability](storage-sync-files-planning.md#azure-file-sync-region-availability) for Azure File Sync.
+    - [Create a file share](storage-how-to-create-file-share.md) for a step-by-step description of how to create a file share.
+1. At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](storage-sync-files-planning.md#windows-file-server-considerations).
 
 1. [Install the Azure CLI](/cli/azure/install-azure-cli)
 
@@ -122,6 +135,10 @@ if ($installType -ne "Server Core") {
 }
 ``` 
 
+# [Azure CLI](#tab/azure-cli)
+
+Follow the instructions for the Azure Portal or PowerShell.
+
 ---
 
 ## Deploy the Storage Sync Service 
@@ -189,6 +206,10 @@ $storageSyncName = "<my_storage_sync_service>"
 $storageSync = New-AzStorageSyncService -ResourceGroupName $resourceGroup -Name $storageSyncName -Location $region
 ```
 
+# [Azure CLI](#tab/azure-cli)
+
+Follow the instructions for the Azure Portal or PowerShell.
+
 ---
 
 ## Install the Azure File Sync agent
@@ -241,6 +262,9 @@ Start-Process -FilePath "StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
 # You may remove the temp folder containing the MSI and the EXE installer
 Remove-Item -Path ".\StorageSyncAgent.msi" -Recurse -Force
 ```
+# [Azure CLI](#tab/azure-cli)
+
+Follow the instructions for the Azure Portal or PowerShell.
 
 ---
 
@@ -276,6 +300,9 @@ After you have selected the appropriate information, select **Register** to comp
 ```powershell
 $registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 ```
+# [Azure CLI](#tab/azure-cli)
+
+Follow the instructions for the Azure Portal or PowerShell.
 
 ---
 
@@ -346,6 +373,27 @@ New-AzStorageSyncCloudEndpoint `
     -AzureFileShareName $fileShare.Name
 ```
 
+# [Azure CLI](#tab/azure-cli)
+
+Use the [az storagesync sync-group](/cli/azure/ext/storagesync/storagesync/sync-group#ext-storagesync-az-storagesync-sync-group-create) command to create a new sync group.  To default a resource group for all CLI commands, use [az configure](/cli/azure/reference-index#az-configure).
+
+```azurecli
+az storagesync sync-group create --resource-group myResourceGroupName \
+                                 --name myNewSyncGroupName \
+                                 --storage-sync-service myStorageSyncServiceName \
+```
+
+Use the [az storagesync sync-group cloud-endpoint](/cli/azure/ext/storagesync/storagesync/sync-group/cloud-endpoint#ext-storagesync-az-storagesync-sync-group-cloud-endpoint-create) command to create a new cloud endpoint.
+
+```azurecli
+az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup \
+                                                --storage-sync-service myStorageSyncServiceName \
+                                                --sync-group-name mySyncGroupName \
+                                                --name myNewCloudEndpointName \
+                                                --storage-account mystorageaccountname \
+                                                --azure-file-share-name azure-file-share-name
+```
+
 ---
 
 ## Create a server endpoint
@@ -397,6 +445,34 @@ if ($cloudTieringDesired) {
         -ServerResourceId $registeredServer.ResourceId `
         -ServerLocalPath $serverEndpointPath 
 }
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Use the [az storagesync sync-group server-endpoint](/cli/azure/ext/storagesync/storagesync/sync-group/server-endpoint#ext-storagesync-az-storagesync-sync-group-server-endpoint-create) command to create a new server endpoint.
+
+```azurecli
+# Create a new sync group server endpoint 
+az storagesync sync-group server-endpoint create --resource-group myResourceGroupName \
+                                                 --name myNewServerEndpointName
+                                                 --registered-server-id 91beed22-7e9e-4bda-9313-fec96cf286e0
+                                                 --server-local-path d:\myPath
+                                                 --storage-sync-service myStorageSyncServiceNAme
+                                                 --sync-group-name mySyncGroupName
+
+# Create a new sync group server endpoint with additional optional parameters
+az storagesync sync-group server-endpoint create --resource-group myResourceGroupName \
+                                                 --name myNewServerEndpointName \
+                                                 --registered-server-id 91beed22-7e9e-4bda-9313-fec96cf286e0 \
+                                                 --server-local-path d:\myPath \
+                                                 --storage-sync-service myStorageSyncServiceName \
+                                                 --sync-group-name mySyncGroupName \
+                                                 --cloud-tiering on \
+                                                 --offline-data-transfer on \
+                                                 --offline-data-transfer-share-name myfilesharename \
+                                                 --tier-files-older-than-days 15 \
+                                                 --volume-free-space-percent 85 \
+
 ```
 
 ---
