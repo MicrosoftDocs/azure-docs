@@ -485,7 +485,7 @@ az webapp auth show --name <my_app_name> \
 
 In this code, replace `<my_app_name>` with the name of your app. Also replace `<my_resource_group>` with the name of the resource group for your app.
 
-You see the `runtimeVersion` in the following output, which has been truncated for clarity: 
+You will see the `runtimeVersion` field in the CLI output. It will resemble the following example output, which has been truncated for clarity: 
 ```output
 {
   "additionalLoginParams": null,
