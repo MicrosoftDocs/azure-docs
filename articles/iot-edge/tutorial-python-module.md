@@ -66,9 +66,9 @@ The following steps create an IoT Edge Python module by using Visual Studio Code
 
 ### Create a new project
 
-Use the VS Code to create a Python solution template that you can build on top of.
+Create a Python solution template that you can customize with your own code.
 
-1. Select **View** > **Command Palette** to open the VS Code command palette.
+1. In Visual Studio Code, select **View** > **Command Palette** to open the VS Code command palette.
 
 2. In the command palette, enter and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you're already signed in, you can skip this step.
 
