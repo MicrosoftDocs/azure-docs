@@ -463,7 +463,7 @@ The following exhausts possible configuration options within the file:
 }
 ```
 
-## Target App Service Authentication/Authorization Runtime Versions
+## Pin your app to a specific authentication runtime version
 
 An app that has enabled App Service Authentication / Authorization runs on a specific version of the Authentication / Authorization runtime, which currently only supports one major version: 1.x. By default, these apps run on the newest version of this runtime. This article explains how to configure an app in Azure to run on any runtime version you choose. For an overview on the authentication and authorization feature, see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md).
 
