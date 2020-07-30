@@ -1,16 +1,15 @@
 ---
-title: Soft Delete will be enabled on all Azure Key Vaults | Microsoft Docs
-description: Use this document to adopt soft-delete for all key vaults.
+title: What's New for Azure Key Vault | Microsoft Docs
+description: Recent updates for Azure Key Vault
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.author: sudbalas
+ms.author: mbaldwin
 
 #Customer intent: As an Azure Key Vault administrator, I want to react to soft-delete being turned on for all key vaults.
 
@@ -23,7 +22,7 @@ ms.author: sudbalas
 
 ## July 2020
 
-### Soft delete on be default
+### Soft delete on by default
 
 By the end of 2020, the **soft-delete will be on by default for all key vaults**, both new and pre-existing. For full details on this potentially breaking change, as well as steps to find affected key vaults and update them beforehand, see the article [Soft-delete will be enabled on all key vaults](soft-delete-change.md). 
 
@@ -44,7 +43,8 @@ Microsoft is updating Azure services to use TLS certificates from a different se
 
 Today, most of the TLS certificates used by Azure services chain up to the following Root CA:
 
-CURRENT ROOT  
+CURRENT ROOT
+
 | Common name of the CA | Thumbprint (SHA1) |
 |--|--|
 | Baltimore CyberTrust Root | d4de20d05e66fc53fe1a50882c78db2852cae474 |
@@ -54,13 +54,13 @@ TLS certificates used by Azure services will chain up to one of the following Ro
 ROOTS
 
 | Common name of the CA | Thumbprint (SHA1) |
+|--|--|
 | [DigiCert Global Root G2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt) | df3c24f9bfd666761b268073fe06d1cc8d4f82a4 |
 | [DigiCert Global Root CA](https://cacerts.digicert.com/DigiCertGlobalRootCA.crt) | a8985d3a65e5e5c4b2d7d66d40c6dd2fb19c5436 |
 | [Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | d4de20d05e66fc53fe1a50882c78db2852cae474 |
 | [D-TRUST Root Class 3 CA 2 2009](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt) | 58e8abb0361533fb80f79b1b6d29d3ff8d5f00f0 |
-| [Microsoft RSA Root Certificate Authority 2017](http://www.microsoft.com/pkiops/certs/Microsoft RSA Root Certificate Authority 2017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74 | 
-| [Microsoft EV ECC Root Certificate Authority 2017](http://www.microsoft.com/pkiops/certs/Microsoft EV ECC Root Certificate Authority 2017.crt) | 6b1937abfd64e1e40daf2262a27857c015d6228d |
- 
+| [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft RSA Root Certificate Authority 2017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74 | 
+| [Microsoft EV ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft EV ECC Root Certificate Authority 2017.crt) | 6b1937abfd64e1e40daf2262a27857c015d6228d |
 
 #### Frequently asked questions
 
@@ -88,18 +88,18 @@ Here are some ways to detect if your application is impacted:
     - Other hardware devices especially IoT. Contact the device manufacturer. 
 
 _ _You have an environment where firewall rules are set to allow outbound calls to only specific Certificate Revocation List (CRL) download and/or Online Certificate Status Protocol (OCSP) verification locations. You will need to allow the following CRL and OCSP URLs:
-    - http://crl3.digicert.com
-    - http://crl4.digicert.com
-    - http://ocsp.digicert.com
-    - http://www.d-trust.net
-    - http:// root-c3-ca2-2009.ocsp.d-trust.net
-    - http://crl.microsoft.com
-    - http://oneocsp.microsoft.com
-    - http://ocsp.msocsp.com
+    - https://crl3.digicert.com
+    - https://crl4.digicert.com
+    - https://ocsp.digicert.com
+    - https://www.d-trust.net
+    - https:// root-c3-ca2-2009.ocsp.d-trust.net
+    - https://crl.microsoft.com
+    - https://oneocsp.microsoft.com
+    - https://ocsp.msocsp.com
 
 
 
-If you have any questions, please contact us through [support](https://azure.microsoft.com/en-us/support/options/). 
+If you have any questions, please contact us through [support](https://azure.microsoft.com/support/options/). 
 
 ## Next steps
  
