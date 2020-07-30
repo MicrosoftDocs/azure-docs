@@ -18,7 +18,7 @@ The addition of support for long data type affects how we store and index numeri
 
 Beginning June 29 or June 30, 2020, depending on your region, your data will be indexed as **Long** and **Double**.  If you have any questions or concerns about this change, submit a support ticket through the Azure portal and mention this communication.
 
-If you’re impacted by any of the following cases, make the recommended changes:
+If you're affected by any of the following cases, make the recommended changes:
 
 - **Case 1**: You currently use Time Series Model variables and send only integral data types in your telemetry data.
 - **Case 2**: You currently use Time Series Model variables and send both integral and nonintegral data types in your telemetry data.
@@ -31,7 +31,7 @@ If any of the cases apply to you, make changes to your model. Update the Time Se
 - Azure Time Series Insights Gen2 explorer
 - Any custom client that uses our APIs
 
-Depending on your IoT solution and constraints, you might not have visibility into the data that's sent to your Azure Time Series Insights Gen2 environment. If you’re unsure if your data is integral only or both integral and nonintegral, you have a few options:
+Depending on your IoT solution and constraints, you might not have visibility into the data that's sent to your Azure Time Series Insights Gen2 environment. If you're unsure if your data is integral only or both integral and nonintegral, you have a few options:
 
 - You can wait for the feature to be released. Then, explore your raw events in the explorer UI to understand which properties are saved in two separate columns.
 - You can preemptively make the recommended changes for all numeric tags.
@@ -44,7 +44,7 @@ Data can also be observed through the [Event Hub Explorer](https://marketplace.v
 If you use IoT Hub, go to [Read device-to-cloud messages from the built-in endpoint](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) for how to access the built-in endpoint.
 
 > [!NOTE]
-> You might experience a disruption if you don't make the recommended changes. For example, the affected Time Series Insights variables that are accessed via the query APIs or Time Series Insights explorer will return **null** (i.e. show no data in the explorer).
+> You might experience a disruption if you don't make the recommended changes. For example, the affected Time Series Insights variables that are accessed via the query APIs or Time Series Insights explorer will return **null** (that is, show no data in the explorer).
 
 ## Recommended changes
 
@@ -124,7 +124,7 @@ You can also use **coalesce($event.propertyValue.Double, toDouble($event.propert
 You can also use **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** as the custom [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 > [!NOTE]
-> We recommend that you update these variables in all places they might be used. Such as, Time Series Model, saved queries, and Power BI connector queries.
+> We recommend that you update these variables in all places they might be used. These places include Time Series Model, saved queries, and Power BI connector queries.
 
 ### Case 3: Using categorical variables to map integer values to categories
 
@@ -225,7 +225,7 @@ Categorical variables still require the value to be of an integer type. The **Da
 Categorical variables still require the value to be of an integer type. The **DataType** of all the arguments in **coalesce()** must be of type **Long** in the custom [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 > [!NOTE]
-> We recommend that you update these variables in all places they might be used. Such as, Time Series Model, saved queries, and Power BI connector queries.
+> We recommend that you update these variables in all places they might be used. These places include Time Series Model, saved queries, and Power BI connector queries.
 
 ### Case 4: Using the JavaScript SDK to build a custom front-end application
 
