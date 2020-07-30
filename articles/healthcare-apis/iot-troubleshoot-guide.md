@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 07/30/2020
 ms.author: jasteppe
 ---
 # Azure IoT Connector for FHIR (preview) troubleshooting guide
@@ -45,12 +45,12 @@ The copying of Azure IoT Connector for FHIR mapping files can be useful for edit
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
-3. Select **"Configure device mapping"**.
-
 > [!NOTE]
 > This process may also be used for copying and saving the contents of the **"Configure FHIR mapping"** JSON.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+3. Select **"Configure device mapping"**.
+
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. Select the contents of the JSON and do a copy operation (for example: Select Ctrl + c). 
 
