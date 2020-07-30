@@ -314,19 +314,19 @@ Use the Visual Studio Code explorer and the Azure IoT Tools extension to deploy 
 
 Make sure that your IoT Edge device is up and running.
 
-1. In the Visual Studio Code explorer, expand the **Azure IoT Hub / Devices** section to see your list of IoT devices.
+1. In the Visual Studio Code explorer, under the **Azure IoT Hub** section, expand **Devices** to see your list of IoT devices.
 
 2. Right-click the name of your IoT Edge device, then select **Create Deployment for Single Device**.
 
 3. Select the **deployment.amd64.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file.
 
-4. Click the refresh button. You should see the new **CModule** running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**.
+4. Under your device, expand **Modules** to see a list of deployed and running modules. Click the refresh button. You should see the new **CModule** running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**.
+
+    It may take a few minutes for the modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module.
 
 ## View generated data
 
 Once you apply the deployment manifest to your IoT Edge device, the IoT Edge runtime on the device collects the new deployment information and starts executing on it. Any modules running on the device that aren't included in the deployment manifest are stopped. Any modules missing from the device are started.
-
-You can view the status of your IoT Edge device using the **Azure IoT Hub / Devices** section of the Visual Studio Code explorer. Expand the details of your device to see a list of deployed and running modules.
 
 1. In the Visual Studio Code explorer, right-click the name of your IoT Edge device and select **Start Monitoring Built-in Event Endpoint**.
 

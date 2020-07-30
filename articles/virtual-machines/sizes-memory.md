@@ -53,3 +53,5 @@ Azure Compute offers virtual machine sizes that are Isolated to a specific hardw
 ## Next steps
 
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+
+For more information on how Azure names its VMs, see [Azure virtual machine sizes naming conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
