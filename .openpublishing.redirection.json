@@ -1061,6 +1061,91 @@
       "redirect_document": false
     },
     {
+      "source-path": "articles/automation/automation-update-management.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-overview",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-update-management-deploy-template.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-enable-template",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-onboard-solutions-from-browse.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-enable-portal",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-onboard-solutions-from-vm.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-enable-vm",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-onboard-solutions-from-automation-account.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-enable-automation-account",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-onboard-solutions.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-enable-runbook",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-tutorial-update-management.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-manage-updates-for-vm",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/manage-update-multi.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-manage-updates-for-vm",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-view-update-assessments.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-view-update-assessments",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/pre-post-scripts.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-pre-post-scripts",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/updatemgmt-mecmintegration.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-mecmintegration",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-configure-windows-update.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-configure-wuagent",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-update-management-groups.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-groups",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-update-management-query-logs.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-query-logs",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-scope-configurations-update-management.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-scope-configuration",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-unlink-workspace-update-management.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-remove-feature",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-remove-vms-from-update-management.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-remove-vms",
+      "redirect_document": false
+    },
+    {
       "source_path": "articles/active-directory/saas-apps/adobe-identity-management-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
@@ -13615,6 +13700,11 @@
     {
       "source_path": "articles/virtual-wan/virtual-wan-office365-overview.md",
       "redirect_url": "/azure/virtual-wan/virtual-wan-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-wan/scenario-route-between-hubs-firewall.md",
+      "redirect_url": "/azure/virtual-wan/scenario-route-between-vnets-firewall",
       "redirect_document_id": false
     },
     {
@@ -36707,23 +36797,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/application-provisioning-when-will-provisioning-finish-specific-user.md",
+      "source_path": "articles/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish.md",
       "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/application-provisioning-when-will-provisioning-finish.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish",
       "redirect_document_id": false
     },
     {

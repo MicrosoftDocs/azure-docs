@@ -66,7 +66,9 @@ using System.Threading.Tasks;
 ![Upload data with blob index tags](media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png)
 
 # [.NET](#tab/net)
+
 The following example shows how to create an append blob with tags set during creation.
+
 ```csharp
 static async Task BlobIndexTagsOnCreate()
    {
@@ -80,7 +82,7 @@ static async Task BlobIndexTagsOnCreate()
 
           // Create an append blob
           AppendBlobClient appendBlobWithTags = container.GetAppendBlobClient("myAppendBlob0.logs");
-         
+
           // Blob Index tags to upload
           CreateAppendBlobOptions appendOptions = new CreateAppendBlobOptions();
           appendOptions.Tags = new Dictionary<string, string>
