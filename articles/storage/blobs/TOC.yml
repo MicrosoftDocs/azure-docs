@@ -343,6 +343,8 @@
             href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Configure connection strings
             href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Prevent authorization with Shared Key
+            href: 
           - name: Use the Azure Storage REST API
             href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Delegate access with shared access signatures (SAS)
