@@ -81,7 +81,7 @@ landingContent:
           - text: Use the indoor map module
             url: how-to-use-indoor-module.md
           - text: Use Azure Digital Twins to update indoor map
-            url: https://docs.microsoft.com/azure/digital-twins/how-to-integrate-maps.md
+            url: https://docs.microsoft.com/azure/digital-twins/how-to-integrate-maps
       - linkListType: reference
         links:
           - text: Conversion service
