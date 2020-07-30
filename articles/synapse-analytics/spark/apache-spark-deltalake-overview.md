@@ -107,15 +107,13 @@ data.write.format("delta").save(deltaTablePath)
 
 Results in:
 
-+---+
 | id|
-+---+
+|---|
 |  0|
 |  1|
 |  2|
 |  3|
 |  4|
-+---+
 
 ## Read data
 
@@ -150,15 +148,13 @@ df.show()
 
 Results in:
 
-+---+
 | id|
-+---+
+|---|
 |  1|
 |  3|
 |  4|
 |  0|
 |  2|
-+---+
 
 The order of the results is different from above as there was no order explicitly specified before outputting the results.
 
@@ -198,15 +194,13 @@ df.show()
 
 Results in:
 
-+---+
 | id|
-+---+
+|---|
 |  7|
 |  8|
 |  5|
 |  9|
 |  6|
-+---+
 
 Here you can see that all 5 records have been updated to hold new values.
 
@@ -246,12 +240,10 @@ spark.sql("SHOW TABLES").show
 
 Results in:
 
-+--------+------------------+-----------+
 |database|         tableName|isTemporary|
-+--------+------------------+-----------+
+|--------|------------------|-----------|
 | default|externaldeltatable|      false|
 | default| manageddeltatable|      false|
-+--------+------------------+-----------+
 
 With this code you created a new table in the catalog from an existing dataframe, referred to as a managed table. Then you defined a new external table in the catalog that uses an existing location, referred to as an external table. In the output you can see both tables, no matter how they were created, are listed in the catalog.
 
@@ -283,9 +275,8 @@ spark.sql("DESCRIBE EXTENDED ManagedDeltaTable").show(truncate=false)
 
 Results in:
 
-+----------------------------+-------------------------------------------------------------------------------------------------------------+-------+
 |col_name                    |data_type                                                                                                    |comment|
-+----------------------------+-------------------------------------------------------------------------------------------------------------+-------+
+|----------------------------|-------------------------------------------------------------------------------------------------------------|-------|
 |id                          |bigint                                                                                                       |null   |
 |                            |                                                                                                             |       |
 |# Detailed Table Information|                                                                                                             |       |
@@ -304,7 +295,6 @@ Results in:
 |InputFormat                 |org.apache.hadoop.mapred.SequenceFileInputFormat                                                             |       |
 |OutputFormat                |org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat                                                    |       |
 |Storage Properties          |[serialization.format=1]                                                                                     |       |
-+----------------------------+-------------------------------------------------------------------------------------------------------------+-------+
 
 :::zone pivot = "programming-language-python"
 
@@ -332,9 +322,8 @@ spark.sql("DESCRIBE EXTENDED ExternalDeltaTable").show(truncate=false)
 
 Results in:
 
-+----------------------------+----------------------------------------------------------------------+-------+
 |col_name                    |data_type                                                             |comment|
-+----------------------------+----------------------------------------------------------------------+-------+
+|----------------------------|----------------------------------------------------------------------|-------|
 |id                          |bigint                                                                |null   |
 |                            |                                                                      |       |
 |# Detailed Table Information|                                                                      |       |
@@ -352,7 +341,6 @@ Results in:
 |InputFormat                 |org.apache.hadoop.mapred.SequenceFileInputFormat                      |       |
 |OutputFormat                |org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat             |       |
 |Storage Properties          |[serialization.format=1]                                              |       |
-+----------------------------+----------------------------------------------------------------------+-------+
 
 ## Conditional update without overwrite
 
@@ -411,15 +399,13 @@ deltaTable.toDF.show
 
 Results in:
 
-+---+
 | id|
-+---+
+|---|
 |106|
 |108|
 |  5|
 |  7|
 |  9|
-+---+
 
 Here you just added 100 to every even id.
 
@@ -452,13 +438,11 @@ deltaTable.toDF.show
 
 Results in:
 
-+---+
 | id|
-+---+
+|---|
 |  5|
 |  7|
 |  9|
-+---+
 
 You have deleted every even row.
 
@@ -522,9 +506,8 @@ deltaTable.toDF.show()
 
 Results in:
 
-+---+
 | id|
-+---+
+|---|
 | 18|
 | 15|
 | 19|
@@ -545,7 +528,6 @@ Results in:
 | 14|
 | -1|
 | 17|
-+---+
 
 Here you have a combination of the existing data, which has been assigned the value -1 in the update(WhenMatched) code path, and the new data that was created at the top of the snippet and was added via the insert code path (WhenNotMatched).
 
@@ -579,15 +561,13 @@ deltaTable.history.show(false)
 
 Results in:
 
-+-------+-------------------+------+--------+---------+-------------------------------------------------------------------+----+--------+---------+-----------+--------------+-------------+
 |version|          timestamp|userId|userName|operation|                                                operationParameters| job|notebook|clusterId|readVersion|isolationLevel|isBlindAppend|
-+-------+-------------------+------+--------+---------+-------------------------------------------------------------------+----+--------+---------+-----------+--------------+-------------+
+|-------|-------------------|------|--------|---------|-------------------------------------------------------------------|----|--------|---------|-----------|--------------|-------------|
 |      4|2020-04-25 00:36:27|  null|    null|    MERGE|                       [predicate -> (oldData.`id` = newData.`id`)]|null|    null|     null|          3|          null|        false|
 |      3|2020-04-25 00:36:08|  null|    null|   DELETE|[predicate -> ["((`id` % CAST(2 AS BIGINT)) = CAST(0 AS BIGINT))"]]|null|    null|     null|          2|          null|        false|
 |      2|2020-04-25 00:35:51|  null|    null|   UPDATE| [predicate -> ((id#744L % cast(2 as bigint)) = cast(0 as bigint))]|null|    null|     null|          1|          null|        false|
 |      1|2020-04-25 00:35:05|  null|    null|    WRITE|                             [mode -> Overwrite, partitionBy -> []]|null|    null|     null|          0|          null|        false|
 |      0|2020-04-25 00:34:34|  null|    null|    WRITE|                         [mode -> ErrorIfExists, partitionBy -> []]|null|    null|     null|       null|          null|         true|
-+-------+-------------------+------+--------+---------+-------------------------------------------------------------------+----+--------+---------+-----------+--------------+-------------+
 
 Here you can see all of the modifications made over the above code snippets.
 
@@ -626,15 +606,13 @@ df.show()
 
 Results in:
 
-+---+
 | id|
-+---+
+|---|
 |  0|
 |  1|
 |  4|
 |  3|
 |  2|
-+---+
 
 Here you can see you have gone back to the earliest version of the data.
 
@@ -715,9 +693,8 @@ deltaTable.toDF.sort($"id".desc).show
 
 Results in:
 
-+---+
 | id|
-+---+
+|---|
 | 19|
 | 18|
 | 17|
@@ -738,7 +715,6 @@ Results in:
 | -1|
 | -1|
 | -1|
-+---+
 
 :::zone pivot = "programming-language-python"
 
@@ -763,16 +739,14 @@ deltaTable.history.show
 ```
 
 Results in:
-+-------+-------------------+----------------+-------------------------------------------------------------------------------------+-----------+
 |version|          timestamp|       operation|                                                                  operationParameters|readVersion|
-+-------+-------------------+----------------+-------------------------------------------------------------------------------------+-----------+
+|-------|-------------------|----------------|-------------------------------------------------------------------------------------|-----------|
 |      5|2020-04-25 00:37:09|STREAMING UPDATE|[outputMode -> Append, queryId -> d26b4f8a-7e5a-44f2-a5fb-23a7bd02aef7, epochId -> 0]|          4|
 |      4|2020-04-25 00:36:27|           MERGE|                                         [predicate -> (oldData.`id` = newData.`id`)]|          3|
 |      3|2020-04-25 00:36:08|          DELETE|                  [predicate -> ["((`id` % CAST(2 AS BIGINT)) = CAST(0 AS BIGINT))"]]|          2|
 |      2|2020-04-25 00:35:51|          UPDATE|                   [predicate -> ((id#744L % cast(2 as bigint)) = cast(0 as bigint))]|          1|
 |      1|2020-04-25 00:35:05|           WRITE|                                               [mode -> Overwrite, partitionBy -> []]|          0|
 |      0|2020-04-25 00:34:34|           WRITE|                                           [mode -> ErrorIfExists, partitionBy -> []]|       null|
-+-------+-------------------+----------------+-------------------------------------------------------------------------------------+-----------+
 
 ::: zone-end
 
@@ -804,16 +778,15 @@ deltaTable.history.show
 ```
 
 Results in:
-+-------+-------------------+----------------+-------------------------------------------------------------------------------------+-----------+
+
 |version|          timestamp|       operation|                                                                  operationParameters|readVersion|
-+-------+-------------------+----------------+-------------------------------------------------------------------------------------+-----------+
+|-------|-------------------|----------------|-------------------------------------------------------------------------------------|-----------|
 |      5|2020-04-25 00:37:09|STREAMING UPDATE|[outputMode -> Append, queryId -> d26b4f8a-7e5a-44f2-a5fb-23a7bd02aef7, epochId -> 0]|          4|
 |      4|2020-04-25 00:36:27|           MERGE|                                         [predicate -> (oldData.`id` = newData.`id`)]|          3|
 |      3|2020-04-25 00:36:08|          DELETE|                  [predicate -> ["((`id` % CAST(2 AS BIGINT)) = CAST(0 AS BIGINT))"]]|          2|
 |      2|2020-04-25 00:35:51|          UPDATE|                   [predicate -> ((id#744L % cast(2 as bigint)) = cast(0 as bigint))]|          1|
 |      1|2020-04-25 00:35:05|           WRITE|                                               [mode -> Overwrite, partitionBy -> []]|          0|
 |      0|2020-04-25 00:34:34|           WRITE|                                           [mode -> ErrorIfExists, partitionBy -> []]|       null|
-+-------+-------------------+----------------+-------------------------------------------------------------------------------------+-----------+
 
 ::: zone-end
 
@@ -926,16 +899,14 @@ spark.sql(s"DESCRIBE HISTORY delta.`$deltaTablePath`").show()
 
 Results in:
 
-+-------+-------------------+------+--------+----------------+--------------------+----+--------+---------+-----------+--------------+-------------+
 |version|          timestamp|userId|userName|       operation| operationParameters| job|notebook|clusterId|readVersion|isolationLevel|isBlindAppend|
-+-------+-------------------+------+--------+----------------+--------------------+----+--------+---------+-----------+--------------+-------------+
+|-------|-------------------|------|--------|----------------|--------------------|----|--------|---------|-----------|--------------|-------------|
 |      5|2020-04-25 00:37:09|  null|    null|STREAMING UPDATE|[outputMode -> Ap...|null|    null|     null|          4|          null|         true|
 |      4|2020-04-25 00:36:27|  null|    null|           MERGE|[predicate -> (ol...|null|    null|     null|          3|          null|        false|
 |      3|2020-04-25 00:36:08|  null|    null|          DELETE|[predicate -> ["(...|null|    null|     null|          2|          null|        false|
 |      2|2020-04-25 00:35:51|  null|    null|          UPDATE|[predicate -> ((i...|null|    null|     null|          1|          null|        false|
 |      1|2020-04-25 00:35:05|  null|    null|           WRITE|[mode -> Overwrit...|null|    null|     null|          0|          null|        false|
 |      0|2020-04-25 00:34:34|  null|    null|           WRITE|[mode -> ErrorIfE...|null|    null|     null|       null|          null|         true|
-+-------+-------------------+------+--------+----------------+--------------------+----+--------+---------+-----------+--------------+-------------+
 
 :::zone pivot = "programming-language-python"
 
@@ -963,11 +934,9 @@ spark.sql(s"VACUUM delta.`$deltaTablePath`").show()
 
 Results in:
 
-+--------------------+
 |                path|
-+--------------------+
+|--------------------|
 |abfss://data@arca...|
-+--------------------+
 
 Now you are going to verify that a table is not a delta format table, then convert it to delta format using Spark SQL and confirm it was converted correctly.
 
