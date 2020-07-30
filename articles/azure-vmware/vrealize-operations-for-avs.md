@@ -25,18 +25,6 @@ After completing the setup, you can follow the recommended next steps provided a
 * Optionally, review the [vRealize Operations Remote Controller](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-263F9219-E801-4383-8A59-E84F3D01ED6B.html) product documentation for the on-premises vRealize Operations managing AVS deployment option. 
 
 
-
-
-## Software version requirements
-| Component type | Source environment requirements |
-| --- | --- |
-| vRealize Operations Manager |    |
-| vCenter Server |   |
-| ESXi |   |
-| NSX-T |   |
-
-
-
 ## Prerequisites
 * ExpressRoute Global Reach should be configured between on-premises and AVS SDDC ExpressRoute circuits.
 * An AVS private cloud has been deployed in Azure.
