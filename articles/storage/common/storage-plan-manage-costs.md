@@ -13,7 +13,7 @@ ms.custom: subject-cost-optimization
 
 # Plan and manage costs for Azure Storage
 
-This article helps you plan and manage costs for Azure Storage. Start by using the Azure pricing calculator. First, estimate costs by using the Azure pricing calculator. After you create your storage account, optimize the account so that you pay only for what you need.
+This article helps you plan and manage costs for Azure Storage. First, estimate costs by using the Azure pricing calculator. After you create your storage account, optimize the account so that you pay only for what you need.
 
 Then, use cost management features to set budgets and monitor costs. You can also review forecasted costs, and monitor spending trends to identify areas where you might want to act.
 
@@ -49,13 +49,13 @@ To learn more, see [Optimize costs for Blob storage with reserved capacity](http
 
 ### Organize data into access tiers
 
-You can reduce costs by storing blob data to the most appropriate access tier. Azure Storage offers three tiers that are designed to optimize costs based on how you use your data. For example, if you plan to access data frequently, you might use the *hot* access tier. This reduces the cost of accessing the data. If you plan to access data less frequently, the *cold* access tier is a better choice. Instead of reducing the cost of data access, it reduces the cost of data storage.  
+You can reduce costs by choosing cost effective access tiers. Choose from three tiers that are designed to optimize your costs around data use. For example, the *hot* tier reduces the cost of data access, so that tier is a great choice for frequent data access. For less frequent access, the *cold* or *archive* tier makes the most sense because it reduces the cost of of storage.    
 
 To learn more, see [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal).
 
 ### Automatically move data between access tiers
 
-You can create policies that move blob data to a *cooler* access tier (For example: from the hot tier to the cool tier). These policies move data based upon a rules that you specify. For example, you might create a rule that moves blobs to the archive tier if that blob has not been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs.
+You can create lifecycle management policies that move blob data to a *cooler* access tier by using rules that you specify. For example, you might create a rule that moves blobs to the archive tier if that blob hasn't been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs.
 
 To learn more, see [Manage the Azure Blob storage lifecycle](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
 
