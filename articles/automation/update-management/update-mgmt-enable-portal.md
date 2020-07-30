@@ -36,7 +36,7 @@ Sign in to Azure at https://portal.azure.com.
     > [!TIP]
     > Use the filter controls to select VMs from different subscriptions, locations, and resource groups. You can click the top checkbox to select all virtual machines in a list.
 
-    ![Enable Update Management](media/update-mgmt-enable-portal/onboardsolutions.png)
+    [ ![Enable Update Management](./media/update-mgmt-enable-portal/onboards-feature.png)](./media/update-mgmt-enable-portal/onboards-feature-expanded.png#lightbox)
 
 3. Select **Services** and select **Update Management** for the Update Management feature.
 
@@ -44,7 +44,7 @@ Sign in to Azure at https://portal.azure.com.
 
 5. An existing Log Analytics workspace and Automation account are selected by default. If you want to use a different Log Analytics workspace and Automation account, select **CUSTOM** to select them from the Custom Configuration page. When you choose a Log Analytics workspace, a check is made to determine if it is linked with an Automation account. If a linked Automation account is found, you see the following screen. When done, select **OK**.
 
-    ![Select workspace and account](media/update-mgmt-enable-portal/selectworkspaceandaccount.png)
+    [ ![Select workspace and account](./media/update-mgmt-enable-portal/select-workspace-and-account.png)](./media/update-mgmt-enable-portal/select-workspace-and-account-expanded.png#lightbox)
 
 6. If the workspace selected is not linked to an Automation account, you see the following screen. Select an Automation account and select **OK** when finished.
 
