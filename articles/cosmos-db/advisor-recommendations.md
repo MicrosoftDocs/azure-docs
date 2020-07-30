@@ -80,3 +80,5 @@ In this category, the advisor detects the query execution and identifies that th
 
 ## Next steps
 
+* [Tuning query performance in Azure Cosmos DB](sql-api-query-metrics.md)
+* [Troubleshoot query issues](troubleshoot-query-performance.md) when using Azure Cosmos DB
