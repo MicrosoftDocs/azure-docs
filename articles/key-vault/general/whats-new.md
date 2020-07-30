@@ -45,6 +45,10 @@ Today, most of the TLS certificates used by Azure services chain up to the follo
 
 CURRENT ROOT
 
+| Test | Table |
+|--|--|
+| one | two |
+
 | Common name of the CA | Thumbprint (SHA1) |
 |--|--|
 | Baltimore CyberTrust Root | d4de20d05e66fc53fe1a50882c78db2852cae474 |
@@ -59,8 +63,8 @@ ROOTS
 | [DigiCert Global Root CA](https://cacerts.digicert.com/DigiCertGlobalRootCA.crt) | a8985d3a65e5e5c4b2d7d66d40c6dd2fb19c5436 |
 | [Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | d4de20d05e66fc53fe1a50882c78db2852cae474 |
 | [D-TRUST Root Class 3 CA 2 2009](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt) | 58e8abb0361533fb80f79b1b6d29d3ff8d5f00f0 |
-| [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft RSA Root Certificate Authority 2017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74 | 
-| [Microsoft EV ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft EV ECC Root Certificate Authority 2017.crt) | 6b1937abfd64e1e40daf2262a27857c015d6228d |
+| [Microsoft RSA Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft+RSA+Root+Certificate+Authority+2017.crt) | 73a5e64a3bff8316ff0edccc618a906e4eae4d74 | 
+| [Microsoft EV ECC Root Certificate Authority 2017](https://www.microsoft.com/pkiops/certs/Microsoft+EV+ECC+Root+Certificate+Authority+2017.crt) | 6b1937abfd64e1e40daf2262a27857c015d6228d |
 
 #### Frequently asked questions
 
