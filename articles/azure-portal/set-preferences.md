@@ -55,9 +55,13 @@ If your admin has enabled an inactivity timeout policy, select the **Override th
 
 You can change the subscription that opens by default when you sign-in to the Azure portal. This is helpful if you have a primary subscription you work with but use others occasionally. 
 
-:::image type="content" source="/media/set-preferences/filter-subscription-default-view.png" alt-text="Alt Filter resource list by subscription.":::
+:::image type="content" source="media/set-preferences/filter-subscription-default-view.png" alt-text="Filter resource list by subscription.":::
 
-The default subscription setting controls which subscription set when you filter resources. You can choose to set this subscription, if you generally work with one subscription but have several. 
+1. Select the directory and subscription filter icon in the top navigation.
+1. Select the subscriptions you want as the default subscriptions when you launch the portal. 
+
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Select the subscriptions you want as the default subscriptions when you launch the portal."::: 
+
 
 ### Choose your default view 
 
