@@ -433,7 +433,7 @@ For more information, please see the [Jcmd Command Reference](https://docs.oracl
 
 ### Analyzing Recordings
 
-Use [FTPS](../deploy-ftp.md) to download your JFR file to your local machine. To analyze the JFR file, download and install [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). For instructions on Zulu Mission Control, see the [Azul documentation](https://docs.azul.com/zmc/) and the [installation instructions](https://docs.microsoft.com/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
+Use [FTPS](deploy-ftp.md) to download your JFR file to your local machine. To analyze the JFR file, download and install [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/). For instructions on Zulu Mission Control, see the [Azul documentation](https://docs.azul.com/zmc/) and the [installation instructions](https://docs.microsoft.com/java/azure/jdk/java-jdk-flight-recorder-and-mission-control).
 
 ## Customization and tuning
 
@@ -602,7 +602,7 @@ keyStore.load(
 
 You can load certificates manually to the key store. Create an app setting, `SKIP_JAVA_KEYSTORE_LOAD`, with a value of `1` to disable App Service from loading the certificates into the key store automatically. All public certificates uploaded to App Service via the Azure portal are stored under `/var/ssl/certs/`. Private certificates are stored under `/var/ssl/private/`.
 
-You can interact or debug the Java Key Tool by [opening an SSH connection](app-service-linux-ssh-support.md) to your App Service and running the command `keytool`. See the [Key Tool documentation](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) for a list of commands. For more information on the KeyStore API, please refer to [the official documentation](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
+You can interact or debug the Java Key Tool by [opening an SSH connection](configure-linux-open-ssh-session.md) to your App Service and running the command `keytool`. See the [Key Tool documentation](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) for a list of commands. For more information on the KeyStore API, please refer to [the official documentation](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
 
 ## Configure APM platforms
 
