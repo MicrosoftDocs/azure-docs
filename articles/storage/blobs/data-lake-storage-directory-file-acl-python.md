@@ -5,9 +5,10 @@ author: normesta
 ms.service: storage
 ms.date: 04/10/2020
 ms.author: normesta
-ms.topic: article
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
+ms.custom: tracking-python
 ---
 
 # Use Python to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
@@ -88,11 +89,11 @@ def initialize_storage_account_ad(storage_account_name, client_id, client_secret
 > [!NOTE]
 > For more examples, see the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) documentation.
 
-## Create a file system
+## Create a container
 
-A file system acts as a container for your files. You can create one by calling the **FileSystemDataLakeServiceClient.create_file_system** method.
+A container acts as a file system for your files. You can create one by calling the **FileSystemDataLakeServiceClient.create_file_system** method.
 
-This example creates a file system named `my-file-system`.
+This example creates a container named `my-file-system`.
 
 ```python
 def create_file_system():
@@ -110,7 +111,7 @@ def create_file_system():
 
 Create a directory reference by calling the **FileSystemClient.create_directory** method.
 
-This example adds a directory named `my-directory` to a file system. 
+This example adds a directory named `my-directory` to a container. 
 
 ```python
 def create_directory():
@@ -189,6 +190,8 @@ def manage_directory_permissions():
     except Exception as e:
      print(e) 
 ```
+
+You can also get and set the ACL of the root directory of a container. To get the root directory, call the **FileSystemClient._get_root_directory_client** method.
 
 ## Upload a file to a directory 
 

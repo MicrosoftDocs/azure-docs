@@ -5,11 +5,11 @@ description: Learn how to use the Azure CLI to create a new Azure Machine Learni
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
+ms.date: 06/25/2020
+ms.topic: conceptual
+ms.custom: how-to
 ---
 
 # Create a workspace for Azure Machine Learning with Azure CLI
@@ -55,7 +55,13 @@ az extension add -n azure-cli-ml
 The Azure Machine Learning workspace relies on the following Azure services or entities:
 
 > [!IMPORTANT]
-> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group.
+> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group. When attaching your own storage account, make sure that it meets the following criteria:
+>
+> * The storage account is _not_ a premium account (Premium_LRS and Premium_GRS)
+> * Both Azure Blob and Azure File capabilities enabled
+> * Hierarchical Namespace (ADLS Gen 2) is disabled
+>
+> These requirements are only for the _default_ storage account used by the workspace.
 
 | Service | Parameter to specify an existing instance |
 | ---- | ---- |
@@ -143,6 +149,9 @@ To create a workspace that uses existing resources, you must provide the ID for 
     The response from this command is similar to the following text, and is the ID for your storage account:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"`
+
+    > [!IMPORTANT]
+    > If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
 
 + **Azure Application Insights**:
 
@@ -313,7 +322,7 @@ For more information, see the [az ml workspace share](https://docs.microsoft.com
 
 ## Sync keys for dependent resources
 
-If you change access keys for one of the resources used by your workspace, use the following command to sync the new keys with the workspace:
+If you change access keys for one of the resources used by your workspace, it takes around an hour for the workspace to synchronize to the new key. To force the workspace to sync the new keys immediately, use the following command:
 
 ```azurecli-interactive
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>

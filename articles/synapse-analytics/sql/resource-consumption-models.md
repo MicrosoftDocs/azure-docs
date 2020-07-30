@@ -1,5 +1,5 @@
 ---
-title: Synapse Analytics SQL resource consumption
+title: Synapse SQL resource consumption
 description: Learn about Synapse SQL consumption models in Azure Synapse Analytics.
 services: synapse analytics
 author: vvasic-msft
@@ -10,7 +10,7 @@ ms.author: vvasic
 ms.reviewer: jrasnick   
 ---
 
-# Azure Synapse Analytics SQL resource consumption
+# Synapse SQL resource consumption
 
 This article describes resource consumption models of Synapse SQL (preview).
 
@@ -72,7 +72,7 @@ As you increase data warehouse units, you are linearly increasing computing reso
 
 #### Capacity limits
 
-Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
+Each SQL server (for example, myserver.database.windows.net) has a [Database Transaction Unit (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quota that allows a specific number of data warehouse units. For more information, see the [workload management capacity limits](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
 ### How many data warehouse units do I need
 
@@ -94,14 +94,14 @@ SQL pool is a scale-out system that can provision vast amounts of compute and qu
 
 Changing the data warehouse units requires the permissions described in [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Built-in roles for Azure resources such as SQL DB Contributor and SQL Server Contributor can change DWU settings.
+Azure built-in roles such as SQL DB Contributor and SQL Server Contributor can change DWU settings.
 
 #### View current DWU settings
 
 To view the current DWU setting:
 
 1. Open SQL Server Object Explorer in Visual Studio.
-2. Connect to the master database associated with the logical SQL Database server.
+2. Connect to the master database associated with the logical SQL server.
 3. Select from the sys.database_service_objectives dynamic management view. Here is an example:
 
 ```sql
@@ -143,7 +143,7 @@ With T-SQL you can view the current DWUsettings, change the settings, and check 
 
 To change the DWUs:
 
-1. Connect to the master database associated with your logical SQL Database server.
+1. Connect to the master database associated with your server.
 2. Use the [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) TSQL statement. The following example sets the service level objective to DW1000c for the database MySQLDW.
 
 ```Sql
@@ -179,7 +179,7 @@ You cannot check the database state for scale-out operations with the Azure port
 
 To check the status of DWU changes:
 
-1. Connect to the master database associated with your logical SQL Database server.
+1. Connect to the master database associated with your server.
 2. Submit the following query to check database state.
 
 ```sql

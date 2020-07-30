@@ -1,11 +1,12 @@
 ---
 title: Manage indexing policies in Azure Cosmos DB
 description: Learn how to manage indexing policies, include or exclude a property from indexing, how to define indexing using different Azure Cosmos DB SDKs
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: thweiss
+ms.topic: how-to
+ms.date: 04/28/2020
+ms.author: tisande
+ms.custom: tracking-python, devx-track-javascript
 ---
 
 # Manage indexing policies in Azure Cosmos DB
@@ -132,7 +133,7 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
     }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > It is generally recommended to use an **opt-out** indexing policy to let Azure Cosmos DB proactively index any new property that may be added to your model.
 
 ### Using a spatial index on a specific property path only
@@ -168,6 +169,9 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
 ## Composite indexing policy examples
 
 In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](index-policy.md#composite-indexes) on those properties is required. Additionally, composite indexes will have a performance benefit for queries that have a filter and have an ORDER BY clause on different properties.
+
+> [!NOTE]
+> Composite paths have an implicit `/?` since only the scalar value at that path is indexed. The `/*` wildcard is not supported in composite paths. You shouldn't specify `/?` or `/*` in a composite path.
 
 ### Composite index defined for (name asc, age desc):
 
@@ -353,7 +357,7 @@ Azure Cosmos containers store their indexing policy as a JSON document that the 
 
 1. Click **Save** when you are done.
 
-![Manage Indexing using Azure portal](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
+:::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Manage Indexing using Azure portal":::
 
 ## Use the Azure CLI
 
@@ -363,7 +367,9 @@ To create a container with a custom indexing policy see, [Create a container wit
 
 To create a container with a custom indexing policy see, [Create a container with a custom index policy using Powershell](manage-with-powershell.md#create-container-custom-index)
 
-## Use the .NET SDK V2
+## <a id="dotnet-sdk"></a> Use the .NET SDK
+
+# [.NET SDK V2](#tab/dotnetv2)
 
 The `DocumentCollection` object from the [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) exposes an `IndexingPolicy` property that lets you change the `IndexingMode` and add or remove `IncludedPaths` and `ExcludedPaths`.
 
@@ -393,7 +399,7 @@ ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollec
 long indexTransformationProgress = container.IndexTransformationProgress;
 ```
 
-## Use the .NET SDK V3
+# [.NET SDK V3](#tab/dotnetv3)
 
 The `ContainerProperties` object from the [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (see [this Quickstart](create-sql-api-dotnet.md) regarding its usage) exposes an `IndexingPolicy` property that lets you change the `IndexingMode` and add or remove `IncludedPaths` and `ExcludedPaths`.
 
@@ -449,6 +455,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
     .Attach()
     .CreateIfNotExistsAsync();
 ```
+---
 
 ## Use the Java SDK
 
@@ -602,7 +609,9 @@ const containerResponse = await client.database('database').container('container
 const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-collection-index-transformation-progress'];
 ```
 
-## Use the Python SDK V3
+## Use the Python SDK
+
+# [Python SDK V3](#tab/pythonv3)
 
 When using the [Python SDK V3](https://pypi.org/project/azure-cosmos/) (see [this Quickstart](create-sql-api-python.md) regarding its usage), the container configuration is managed as a dictionary. From this dictionary, it is possible to access the indexing policy and all its attributes.
 
@@ -666,7 +675,7 @@ Update the container with changes
 response = client.ReplaceContainer(containerPath, container)
 ```
 
-## Use the Python SDK V4
+# [Python SDK V4](#tab/pythonv4)
 
 When using the [Python SDK V4](https://pypi.org/project/azure-cosmos/), the container configuration is managed as a dictionary. From this dictionary, it is possible to access the indexing policy and all its attributes.
 
@@ -731,6 +740,7 @@ Update the container with changes
 ```python
 response = database_client.replace_container(container_client, container['partitionKey'], indexingPolicy)
 ```
+---
 
 ## Next steps
 

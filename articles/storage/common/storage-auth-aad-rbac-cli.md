@@ -1,25 +1,25 @@
 ---
 title: Use Azure CLI to assign an RBAC role for data access 
 titleSuffix: Azure Storage
-description: Learn how to use Azure CLI to assign permissions to an Azure Active Directory security principal with role-based access control (RBAC). Azure Storage supports built-in and custom RBAC roles for authentication via Azure AD.
+description: Learn how to use Azure CLI to assign permissions to an Azure Active Directory security principal with role-based access control (RBAC). Azure Storage supports built-in and Azure custom roles for authentication via Azure AD.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 07/16/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
 ---
 
 # Use Azure CLI to assign an RBAC role for access to blob and queue data
 
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access blob or queue data.
+Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access blob or queue data.
 
 When an RBAC role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This article describes how to use Azure CLI to list built-in RBAC roles and assign them to users. For more information about using Azure CLI, see [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure).
+This article describes how to use Azure CLI to list Azure built-in roles and assign them to users. For more information about using Azure CLI, see [Azure Command-Line Interface (CLI)](/cli/azure).
 
 ## RBAC roles for blobs and queues
 
@@ -31,7 +31,7 @@ This article describes how to use Azure CLI to list built-in RBAC roles and assi
 
 ## List available RBAC roles
 
-To list available built-in RBAC roles with Azure CLI, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command:
+To list available Azure built-in roles with Azure CLI, use the [az role definition list](/cli/azure/role/definition#az-role-definition-list) command:
 
 ```azurecli-interactive
 az role definition list --out table

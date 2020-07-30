@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 04/14/2020
+ms.topic: how-to
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/28/2020
 ---
 
 # Use Azure Storage Shared Access Signatures to restrict access to data in HDInsight
@@ -26,7 +26,7 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 
 * An existing [storage container](../storage/blobs/storage-quickstart-blobs-portal.md).  
 
-* If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/overview).
+* If using PowerShell, you'll need the [Az Module](https://docs.microsoft.com/powershell/azure/).
 
 * If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -34,7 +34,7 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 
 * If using C#, Visual Studio must be version 2013 or higher.
 
-* The [URI scheme](./hdinsight-hadoop-linux-information.md#URI-and-scheme) for your storage account. This scheme would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`. See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
+* The URI scheme for your storage account. This scheme would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`.
 
 * An existing HDInsight cluster to add a Shared Access Signature to. If not, you can use Azure PowerShell to create a cluster and add a Shared Access Signature during cluster creation.
 
@@ -416,7 +416,9 @@ Use the following steps to verify that you can only read and list items on the S
 
     You receive a message similar to the following text:
 
-        put: java.io.IOException
+    ```output
+    put: java.io.IOException
+    ```
 
     This error occurs because the storage location is read+list only. Use the following command to put the data on the default storage for the cluster, which is writable:
 
@@ -430,5 +432,5 @@ Use the following steps to verify that you can only read and list items on the S
 
 Now that you've learned how to add limited-access storage to your HDInsight cluster, learn other ways to work with data on your cluster:
 
-* [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
+* [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
+* [Authorize users for Apache Ambari Views](hdinsight-authorize-users-to-ambari.md)

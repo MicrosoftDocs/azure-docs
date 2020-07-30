@@ -37,13 +37,13 @@ Microsoft Azure helps you minimize your attack surface to gain stronger data pro
 
 ## Introduction to confidential computing <a id="intro to acc"></a>
 
-Confidential computing is an industry term defined by the [Confidential Computing Consortium](https://confidentialcomputing.io/) (CCC), a foundation dedicated to defining and accelerating the adoption of confidential computing. Confidential computing is the protection of data in use when performing computations. The computations occur in a hardware-based Trusted Execution Environment (TEE).
+Confidential computing is an industry term defined by the [Confidential Computing Consortium](https://confidentialcomputing.io/) (CCC) - a foundation dedicated to defining and accelerating the adoption of confidential computing. The CCC defines Confidential computing as the protection of data in use by performing computations in a hardware-based Trusted Execution Environment (TEE).
 
 A TEE is an environment that enforces execution of only authorized code. Any data in the TEE can't be read or tampered with by any code outside that environment.
 
-### Enclaves and Trusted Execution Environments
+### Enclaves
 
-In the context of confidential computing, TEEs are commonly referred to as *enclaves* or *secure enclaves*. Enclaves are secured portions of a hardware’s processor and memory. There's no way to view data or code inside the enclave, even with a debugger. If untrusted code attempts modify the content in enclave memory, the environment gets disabled and the operations are denied.
+Enclaves are secured portions of a hardware’s processor and memory. There's no way to view data or code inside the enclave, even with a debugger. If untrusted code attempts modify the content in enclave memory, the environment gets disabled and the operations are denied.
 
 When developing applications, you can use [software tools](#oe-sdk) to shield portions of your code and data inside the enclave. These tools will ensure your code and data can't be viewed or modified by anyone outside the trusted environment. 
 
@@ -91,11 +91,11 @@ An application built with enclaves is partitioned in two ways:
 1. An "untrusted" component (the host)
 1. A "trusted" component (the enclave)
 
-**The host** is your enclave application running on an untrusted environment. The code in the host can't access the code loaded into the enclave. 
+**The host** is where your enclave application is running on top of and is an untrusted environment. The enclave code deployed on the host can't be accessed by the host. 
 
-**The enclave** is where code and data run inside the TEE implementation. Secure computations should occur in the enclave to assure secrets and sensitive data stay protected. 
+**The enclave** is where the application code and its cached data/memory runs. Secure computations should occur in the enclaves to ensure secrets and sensitive data, stay protected. 
 
-When you start developing an enclave application, you need to determine what code and data need protection. The code that you choose to put into the trusted component is isolated from the rest of your application. Once the enclave is initialized and the code is loaded to memory, that code can't be read or changed from outside protected environment.
+During application design, it's important to identify and determine what part of the application needs to run in the enclaves. The code that you choose to put into the trusted component is isolated from the rest of your application. Once the enclave is initialized and the code is loaded to memory, that code can't be read or changed from the untrusted components. 
 
 ### Open Enclave Software Development Kit (OE SDK) <a id="oe-sdk"></a>
 

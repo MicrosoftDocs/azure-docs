@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-# How full text search works in Azure Cognitive Search
+# Full text search in Azure Cognitive Search
 
 This article is for developers who need a deeper understanding of how Lucene full text search works in Azure Cognitive Search. For text queries, Azure Cognitive Search will seamlessly deliver expected results in most scenarios, but occasionally you might get a result that seems "off" somehow. In these situations, having a background in the four stages of Lucene query execution (query parsing, lexical analysis, document matching, scoring) can help you identify specific changes to query parameters or index configuration that will deliver the desired outcome. 
 
@@ -48,7 +48,7 @@ A search request is a complete specification of what should be returned in a res
 The following example is a search request you might send to Azure Cognitive Search using the [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
     "searchFields": "description, title",
@@ -235,7 +235,7 @@ To understand retrieval, it helps to know a few basics about indexing. The unit 
 To produce the terms in an inverted index, the search engine performs lexical analysis over the content of documents, similar to what happens during query processing:
 
 1. *Text inputs* are passed to an analyzer, lower-cased, stripped of punctuation, and so forth, depending on the analyzer configuration. 
-2. *Tokens* are the output of text analysis.
+2. *Tokens* are the output of lexical analysis.
 3. *Terms* are added to the index.
 
 It's common, but not required, to use the same analyzers for search and indexing operations so that query terms look more like terms inside the index.

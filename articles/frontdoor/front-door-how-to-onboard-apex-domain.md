@@ -4,7 +4,7 @@ description: Learn how to onboard a root or apex domain to an existing Front Doo
 services: front-door
 author: sharad4u
 ms.service: frontdoor
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
 

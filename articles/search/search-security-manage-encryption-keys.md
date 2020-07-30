@@ -22,7 +22,7 @@ Encryption with customer-managed keys is configured at the index or synonym map 
 Keys don't all need to be in the same Key Vault. A single search service can host multiple encrypted indexes or synonym maps each encrypted with their own customer-managed encryption keys stored in different Key Vaults.  You can also have indexes and synonym maps in the same service that are not encrypted using customer-managed keys. 
 
 > [!IMPORTANT] 
-> This feature is available on the [REST API version 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) and [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). There is currently no support to configure customer managed encryption keys in the Azure portal. The search service must be created after January 2019 and cannot be a Free (shared) service.
+> This feature is available on the [REST API](https://docs.microsoft.com/rest/api/searchservice/) and [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). There is currently no support to configure customer managed encryption keys in the Azure portal. The search service must be created after January 2019 and cannot be a Free (shared) service.
 
 ## Prerequisites
 
@@ -32,9 +32,9 @@ The following services are used in this example.
 
 + [Create an Azure Key Vault resource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) or find an existing vault under your subscription.
 
-+ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is used for configuration tasks.
++ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is used for configuration tasks.
 
-+ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) and [Azure Cognitive Search SDK](https://aka.ms/search-sdk-preview) can be used to call the REST API. There is no portal support for customer-managed encryption at this time.
++ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) and [.NET SDK preview](https://aka.ms/search-sdk-preview) can be used to call the REST API. There is no portal support for customer-managed encryption at this time.
 
 >[!Note]
 > Due to the nature of the encryption with customer-managed keys feature, Azure Cognitive Search will not be able to retrieve your data if your Azure Key vault key is deleted. To prevent data loss caused by accidental Key Vault key deletions, you **must** enable Soft Delete and Purge Protection in Key Vault before it can be used. For more information, see [Azure Key Vault soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   

@@ -14,7 +14,7 @@ ms.author: abnarain
 manager: anandsub
 robots: noindex
 ---
-# Use custom activities in an Azure Data Factory pipeline
+# Use custom activities in an Azure Data Factory version 1 pipeline
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-use-custom-activities.md)
 > * [Version 2 (current version)](../transform-data-using-dotnet-custom-activity.md)
@@ -1026,7 +1026,7 @@ The [Azure Data Factory - local environment](https://github.com/gbrueckl/Azure.D
 
 [batch-net-library]: ../../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../../batch/batch-account-create-portal.md
-[batch-technical-overview]: ../../batch/batch-technical-overview.md
+[batch-technical-overview]:../../azure-sql/database/sql-database-paas-overview.md
 [batch-get-started]: ../../batch/batch-dotnet-get-started.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md

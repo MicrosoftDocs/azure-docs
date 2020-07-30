@@ -67,13 +67,13 @@ az acr import \
 
 ### Import from Microsoft Container Registry
 
-For example, import the latest Windows Server Core image from the `windows` repository in Microsoft Container Registry.
+For example, import the `ltsc2019` Windows Server Core image from the `windows` repository in Microsoft Container Registry.
 
 ```azurecli
 az acr import \
 --name myregistry \
---source mcr.microsoft.com/windows/servercore:latest \
---image servercore:latest
+--source mcr.microsoft.com/windows/servercore:ltsc2019 \
+--image servercore:ltsc2019
 ```
 
 ## Import from another Azure container registry

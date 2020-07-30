@@ -3,7 +3,7 @@ title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this tutorial, you create and deploy your code to Azure Functions as a custom Docker container using a Linux base image. You typically use a custom image when your functions require a specific language version or have a specific dependency or configuration that isn't provided by the built-in image.
 
-You can also use a default Azure App Service container as described on [Create your first function hosted on Linux](functions-create-first-azure-function-azure-cli-linux.md). Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
+You can also use a default Azure App Service container as described on [Create your first function hosted on Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 In this tutorial, you learn how to:
 
@@ -101,6 +101,8 @@ Provide the following values when prompted:
 Type `Y` or press Enter to confirm.
 
 Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
+
+To run on Java 11 in Azure, you must modify the values in the pom.xml file. To learn more, see [Java versions](functions-reference-java.md#java-versions).
 ::: zone-end
 The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
 
@@ -151,7 +153,15 @@ Use **Ctrl**-**C** to stop the host.
 
 ## Build the container image and test locally
 
-(Optional) Examine the *Dockerfile" in the root of the project folder. The Dockerfile describes the required environment to run the function app on Linux.  The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
+(Optional) Examine the *Dockerfile* in the root of the project folder. The Dockerfile describes the required environment to run the function app on Linux.  The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
+
+::: zone pivot="programming-language-java"  
+If you are running on Java 11 (preview), change the `JAVA_VERSION` build argument in the generated Dockerfile to the following: 
+
+```docker
+ARG JAVA_VERSION=11
+```
+::: zone-end
     
 In the root project folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, and provide a name, `azurefunctionsimage`, and tag, `v1.0.0`. Replace `<DOCKER_ID>` with your Docker Hub account ID. This command builds the Docker image for the container.
 
@@ -290,17 +300,24 @@ With the image deployed to the function app on Azure, you can now invoke the fun
 
     # [Portal](#tab/portal)
 
-    1. Sign in to the Azure portal, then locate your function app by entering your function app name in the **Search** box at the top of the page. In the results, select the **App Service** resource.
+    1. Sign in to the Azure portal, then search for and select **Function App**.
 
-    1. In the left navigation panel, under **Functions (Read Only)**, select the name of your function.
+    1. Select the function you want to verify.
 
-    1. In the details panel, select **</> Get function URL**:
+    1. In the left navigation panel, select **Functions**, and then select the function you want to verify.
+
+        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
+
     
-        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)   
+    1. Select **Get Function Url**.
 
-    1. In the popup, select **default (Function key)** and then **Copy**. The key is the string of characters following `?code=`.
+        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
-        ![Copying the function URL from the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key-popup.png)   
+    
+    1. In the pop-up window, select **default (function key)** and then copy the URL to the clipboard. The key is the string of characters following `?code=`.
+
+        ![The Get function URL command on the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
+
 
     > [!NOTE]  
     > Because your function app is deployed as a container, you can't make changes to your function code in the portal. You must instead update the project in the local image, push the image to the registry again, and then redeploy to Azure. You can set up continuous deployment in a later section.
@@ -335,11 +352,11 @@ With the image deployed to the function app on Azure, you can now invoke the fun
 
     ---
 
-1. Paste the function URL into your browser's address bar, adding the parameter `&name=Azure` to the end of this URL. Text like "Hello Azure" should appear in the browser.
+1. Paste the function URL into your browser's address bar, adding the parameter `&name=Azure` to the end of this URL. Text like "Hello, Azure" should appear in the browser.
 
     ![Function response in the browser.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
 
-1. To test authorization, remove the code= parameter from the URL and verify that you get no response from the function.
+1. To test authorization, remove the `code=` parameter from the URL and verify that you get no response from the function.
 
 
 ## Enable continuous deployment to Azure
@@ -397,9 +414,7 @@ SSH enables secure communication between a container and a client. With SSH enab
     FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
     ```
     ::: zone-end
-
-    The differences between the base images are described in the [App Services - Custom docker images tutorial](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections).
-
+    
 1. Rebuild the image by using the `docker build` command again, replacing `<docker_id>` with your Docker ID:
 
     ```
@@ -424,7 +439,7 @@ SSH enables secure communication between a container and a client. With SSH enab
 
 ## Write to an Azure Storage queue
 
-Azure Functions lets you connect your functions to other Azure services and resources having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A *trigger* is a special type of input binding. Although a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+Azure Functions lets you connect your functions to other Azure services and resources without having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A *trigger* is a special type of input binding. Although a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 This section shows you how to integrate your function with an Azure Storage queue. The output binding that you add to this function writes data from an HTTP request to a message in the queue.
 

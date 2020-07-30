@@ -90,3 +90,10 @@
     tocHref: /azure/azure-monitor/insights
     topicHref: /azure/cosmos-db/index
 
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Cosmos DB
+    tocHref: /azure/synapse-analytics/
+    topicHref: /azure/cosmos-db/index

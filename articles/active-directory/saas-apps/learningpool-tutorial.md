@@ -107,11 +107,10 @@ To configure Azure AD single sign-on with Learningpool Act, perform the followin
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 	
-	| |
-	|--|
-	| `https://<subdomain>.Learningpool.com/shibboleth` |
-	| `https://<subdomain>.preview.Learningpool.com/shibboleth` |
-	| | |
+    ```http
+    https://<subdomain>.Learningpool.com/shibboleth
+    https://<subdomain>.preview.Learningpool.com/shibboleth
+    ```
 
 	> [!NOTE]
 	> The Identifier value is not real. Update this value with the actual Identifier. Contact [Learningpool Act Client support team](https://www.learningpool.com/support) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

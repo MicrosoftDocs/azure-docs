@@ -71,6 +71,30 @@ For more information about encryption in transit, see [requiring secure transfer
 ### Encryption at rest
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
+## Data protection
+Azure Files has a multi-layered approach to ensuring your data is backed up, recoverable, and protected from security threats.
+
+### Soft delete
+Soft delete for file shares (preview) is a storage-account level setting that allows you to recover your file share when it is accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted data is recoverable before it's permanently deleted, and undelete the share anytime during this retention period. 
+
+We recommend turning on soft delete for most file shares. If you have a workflow where share deletion is common and expected, you may decide to have a very short retention period or not have soft delete enabled at all.
+
+For more information about soft delete, see [Prevent accidental data deletion](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion).
+
+### Backup
+You can back up your Azure file share via [share snapshots](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files), which are read-only, point-in-time copies of your share. Snapshots are incremental, meaning they they only contain as much data as has changed since the previous snapshot. You can have up to 200 snapshots per file share and retain them for up to 10 years. You can either manually take these snapshots in the Azure portal, via PowerShell, or command-line interface (CLI), or you can use [Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). Snapshots are stored within your file share, meaning that if you delete your file share, your snapshots will also be deleted. To protect your snapshot backups from accidental deletion, ensure soft delete is enabled for your share.
+
+[Azure Backup for Azure file shares](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) handles the scheduling and retention of snapshots. Its grandfather-father-son (GFS) capabilities mean that you can take daily, weekly, monthly, and yearly snapshots, each with their own distinct retention period. Azure Backup also orchestrates the enablement of soft delete and takes a delete lock on a storage account as soon as any file share within it is configured for backup. Lastly, Azure Backup provides certain key monitoring and alerting capabilities that allow customers to have a consolidated view of their backup estate.
+
+You can perform both item-level and share-level restores in the Azure portal using Azure Backup. All you need to do is choose the restore point (a particular snapshot), the particular file or directory if relevant, and then the location (original or alternate) you wish you restore to. The backup service handles copying the snapshot data over and shows your restore progress in the portal.
+
+For more information about backup, see [About Azure file share backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json).
+
+### Advanced Threat Protection for Azure Files (preview)
+Advanced Threat Protection (ATP) for Azure Storage provides an additional layer of security intelligence that provides alerts when it detects anomalous activity on your storage account, for example unusual attempts to access the storage account. ATP also runs malware hash reputation analysis and will alert on known malware. You can configure ATP on a subscription or storage account level via Azure Security Center. 
+
+For more information, see [Advanced Threat protection for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection).
+
 ## Storage tiers
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
@@ -79,13 +103,13 @@ In general, Azure Files features and interoperability with other services are th
     - Premium file shares are billed using a provisioned billing model, which means you pay for how much storage you provision rather than how much storage you actually ask for. 
     - Standard file shares are billed using a pay-as-you-go model, which includes a base cost of storage for how much storage you're actually consuming and then an additional transaction cost based on how you use the share. With standard file shares, your bill will increase if you use (read/write/mount) the Azure file share more.
 - **Redundancy options**
-    - Premium file shares are only available for locally redundant (LRS) and zone redundant (ZRS) storage. 
+    - Premium file shares are only available for locally redundant (LRS) and zone redundant (ZRS) storage.
     - Standard file shares are available for locally redundant, zone redundant, geo-redundant (GRS), and geo-zone redundant (GZRS) storage.
 - **Maximum size of file share**
     - Premium file shares can be provisioned for up to 100 TiB without any additional work.
     - By default, standard file shares can span only up to 5 TiB, although the share limit can be increased to 100 TiB by opting into the *large file share* storage account feature flag. Standard file shares may only span up to 100 TiB for locally redundant or zone redundant storage accounts. For more information on increasing file share sizes, see [Enable and create large file shares](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share).
 - **Regional availability**
-    - Premium file shares are not available in every region, and zone redundant support is available in a smaller subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. To find out what regions support ZRS, see [Azure Availability Zone support by region](../../availability-zones/az-overview.md#services-support-by-region). To help us prioritize new regions and premium tier features, please fill out this [survey](https://aka.ms/pfsfeedback).
+    - Premium file shares are not available in every region, and zone redundant support is available in a smaller subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. To find out what regions support ZRS, see [Azure Availability Zone support by region](../../availability-zones/az-region.md). To help us prioritize new regions and premium tier features, please fill out this [survey](https://aka.ms/pfsfeedback).
     - Standard file shares are available in every Azure region.
 - Azure Kubernetes Service (AKS) supports premium file shares in version 1.13 and later.
 
@@ -155,17 +179,12 @@ New file shares start with the full number of credits in its burst bucket. Burst
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
 ## Migration
-In many cases, you will not be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. There are many tools, provided both by Microsoft and 3rd parties, to do a migration to a file share, but they can roughly be divided into two categories:
+In many cases, you will not be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. Picking the right migration strategy and tool for your scenario is important for the success of your migration. 
 
-- **Tools which maintain file system attributes such as ACLs and timestamps**:
-    - **[Azure File Sync](storage-sync-files-planning.md)**: Azure File Sync can be used as a method to ingest data into an Azure file share, even when the desired end deployment isn't to maintain an on-premises presence. Azure File Sync can be installed in place on existing Windows Server 2012 R2, Windows Server 2016, and Windows Server 2019 deployments. An advantage to using Azure File Sync as an ingest mechanism is that end users can continue to use the existing file share in place; cut-over to the Azure file share can occur after all of the data is finished uploading in the background.
-    - **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy is a well-known copy tool that ships with Windows and Windows Server. Robocopy may be used to transfer data into Azure Files by mounting the file share locally, and then using the mounted location as the destination in the Robocopy command.
-
-- **Tools which do not maintain file system attributes**:
-    - **Data Box**: Data Box provides an offline data transfer mechanism to physical ship data into Azure. This method is designed to increase throughput and save bandwidth, but does not currently support file system attributes like timestamps and ACLs.
-    - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: AzCopy is a command-line utility designed for copying data to and from Azure Files, as well as Azure Blob storage, using simple commands with optimal performance.
+The [migration overview article](storage-files-migration-overview.md) briefly covers the basics and contains a table that leads you to migration guides that likely cover your scenario.
 
 ## Next steps
 * [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md)
 * [Deploying Azure Files](storage-files-deployment-guide.md)
 * [Deploying Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Check out the migration overview article to find the migration guide for your scenario](storage-files-migration-overview.md)

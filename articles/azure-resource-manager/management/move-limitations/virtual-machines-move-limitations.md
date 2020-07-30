@@ -2,7 +2,7 @@
 title: Move Azure VMs to new subscription or resource group
 description: Use Azure Resource Manager to move virtual machines to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 07/21/2020
 ---
 
 # Move guidance for virtual machines
@@ -15,16 +15,28 @@ The following scenarios aren't yet supported:
 
 * Managed Disks in Availability Zones can't be moved to a different subscription.
 * Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP can't be moved.
-* Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. De-provision the virtual machine in the current subscription, and deploy again in the new subscription.
+* Virtual machines created from Marketplace resources with plans attached can't be moved across subscriptions. De-provision the virtual machine in the current subscription, and deploy again in the new subscription.
 * Virtual machines in an existing virtual network can't be moved to a new subscription when you aren't moving all resources in the virtual network.
 * Low priority virtual machines and low priority virtual machine scale sets can't be moved across resource groups or subscriptions.
 * Virtual machines in an availability set can't be moved individually.
+
+## Azure disk encryption
+
+You can't move a virtual machine that is integrated with a key vault to implement [Azure Disk Encryption for Linux VMs](../../../virtual-machines/linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](../../../virtual-machines/windows/disk-encryption-overview.md). To move the VM, you must disable encryption.
+
+```azurecli-interactive
+az vm encryption disable --resource-group demoRG --name myVm1
+```
+
+```azurepowershell-interactive
+Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
+```
 
 ## Virtual machines with Azure Backup
 
 To move virtual machines configured with Azure Backup, you must delete the restore points from the vault.
 
-If [soft delete](../../../backup/backup-azure-security-feature-cloud.md) is enabled for your virtual machine, you can't move the virtual machine while those restore points are kept. Either [disable soft delete](../../../backup/backup-azure-security-feature-cloud.md#disabling-soft-delete) or wait 14 days after deleting the restore points.
+If [soft delete](../../../backup/backup-azure-security-feature-cloud.md) is enabled for your virtual machine, you can't move the virtual machine while those restore points are kept. Either [disable soft delete](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) or wait 14 days after deleting the restore points.
 
 ### Portal
 

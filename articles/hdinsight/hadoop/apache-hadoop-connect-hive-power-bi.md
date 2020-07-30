@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
 ---
@@ -71,4 +71,4 @@ In this article, you learned how to visualize data from HDInsight using Power BI
 
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](./apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Connect Excel to Apache Hadoop by using Power Query](apache-hadoop-connect-excel-power-query.md).
-* [Visualize Interactive Query Apache Hive data with Microsoft Power BI using direct query](/interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
+* [Visualize Interactive Query Apache Hive data with Microsoft Power BI using direct query](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)

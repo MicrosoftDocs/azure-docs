@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Machine Learning documentation
-summary: Learn how to train, deploy, and manage machine learning models, AutoML experiments, and pipelines at scale with Azure Machine Learning. Tutorials, code examples, API references, and more show you how. 
+summary: Learn how to train, deploy, & manage machine learning models, use AutoML, and run pipelines at scale with Azure Machine Learning.  Tutorials, code examples, API references, and more show you how. 
 
 metadata:
   title: Azure Machine Learning documentation
-  description: Learn how to train, deploy, and manage machine learning models, AutoML experiments, and pipelines at scale with Azure Machine Learning. Tutorials, code examples, API references, and more show you how. 
+  description: Learn how to train, deploy, & manage machine learning models, use AutoML, and run pipelines at scale with Azure Machine Learning. Tutorials, code examples, API references, and more show you how. 
  
   services: machine-learning
   ms.service: machine-learning
@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 04/22/2020
+  ms.date: 07/30/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -37,14 +37,16 @@ landingContent:
             url: tutorial-1st-r-experiment.md
 
   # Studio
-  - title: 'Use the studio web experience'
+  - title: 'Use AutoML or drag & drop in studio'
     linkLists:
       - linkListType: overview
         links:
-        - text: What is the designer (drag & drop)?
-          url: concept-designer.md   
-        - text: What is automated machine learning?
+        - text: What's automated machine learning (AutoML)?
           url: concept-automated-ml.md   
+        - text: What's the designer (drag & drop)?
+          url: concept-designer.md   
+        - text: How to choose an algorithm
+          url: how-to-select-algorithms.md   
       - linkListType: tutorial
         links:
           - text: 'AutoML: build a classification model'
@@ -56,9 +58,17 @@ landingContent:
           - text: Create an image labeling project  
             url: tutorial-labeling.md
 
+  # BYO
+  - title: 'Bring your model to Azure'
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+        - text: Deploy your local model to the cloud
+          url: how-to-deploy-existing-model.md  
 
+            
   # PYTHON
-  - title: 'Use the Python SDK'
+  - title: 'Train with the Python SDK'
     linkLists:
       - linkListType: tutorial
         links:
@@ -74,19 +84,25 @@ landingContent:
         links:
           - text: Set up your environment
             url: how-to-configure-environment.md
-          - text: Train with Scikit-learn
+          - text: Interpret & explain models
+            url: how-to-machine-learning-interpretability.md
+          - text: Deep learning vs ML
+            url: concept-deep-learning-vs-machine-learning.md
+          - text: Train & register Scikit-learn models 
             url: how-to-train-scikit-learn.md
-          - text: Train with TensorFlow
+          - text: Train & register TensorFlow models
             url: how-to-train-tensorflow.md
-          - text: Train with PyTorch
+          - text: Train & register PyTorch models
             url: how-to-train-pytorch.md
-          - text: Train with Keras
+          - text: Train & register Keras models 
             url: how-to-train-keras.md
+          - text: Reinforcement learning
+            url: how-to-use-reinforcement-learning.md
           - text: What are ML pipelines?
             url: concept-ml-pipelines.md                  
 
   # MLOps
-  - title: Deploy & manage models
+  - title: 'MLOps: Deploy & manage models'
     linkLists:
       - linkListType: how-to-guide
         links:

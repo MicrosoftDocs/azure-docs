@@ -46,7 +46,7 @@ This table lists the methods that you can use to create a network interface.
 
 ## IP addresses 
 
-You can assign these types of [IP addresses](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) to a NIC in Azure:
+You can assign these types of [IP addresses](../articles/virtual-network/public-ip-addresses.md) to a NIC in Azure:
 
 - **Public IP addresses** - Used to communicate inbound and outbound (without network address translation (NAT)) with the Internet and other Azure resources not connected to a VNet. Assigning a public IP address to a NIC is optional. Public IP addresses have a nominal charge, and there's a maximum number that can be used per subscription.
 - **Private IP addresses** - Used for communication within a VNet, your on-premises network, and the Internet (with NAT). You must assign at least one private IP address to a VM. To learn more about NAT in Azure, read [Understanding outbound connections in Azure](../articles/load-balancer/load-balancer-outbound-connections.md).

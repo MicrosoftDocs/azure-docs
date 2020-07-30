@@ -2,15 +2,13 @@
 title: Automatic instance repairs with Azure virtual machine scale sets
 description: Learn how to configure automatic repairs policy for VM instances in a scale set
 author: avirishuv
-manager: vashan
-tags: azure-resource-manager
-
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: conceptual
-ms.date: 02/28/2020
 ms.author: avverma
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
+ms.date: 02/28/2020
+ms.reviewer: jushiman
+ms.custom: avverma
 
 ---
 # Automatic instance repairs for Azure virtual machine scale sets
@@ -138,7 +136,7 @@ New-AzVmssConfig `
 
 ### Azure CLI 2.0
 
-The following example enables the automatic repairs policy while creating a new scale set using *[az vmss create](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)*. First create a resource group, then create a new scale set with automatic repairs policy grace period set to 30 minutes.
+The following example enables the automatic repairs policy while creating a new scale set using *[az vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create)*. First create a resource group, then create a new scale set with automatic repairs policy grace period set to 30 minutes.
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -150,7 +148,7 @@ az vmss create \
   --generate-ssh-keys \
   --load-balancer <existingLoadBalancer> \
   --health-probe <existingHealthProbeUnderLoaderBalancer> \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 The above example uses an existing load balancer and health probe for monitoring application health status of instances. If you prefer to use an application health extension for monitoring instead, you can create a scale set, configure the application health extension and then enable the automatic instance repairs policy using the *az vmss update*, as explained in the next section.
@@ -206,21 +204,21 @@ Update-AzVmss `
 
 ### Azure CLI 2.0
 
-The following is an example for updating the automatic instance repairs policy of an existing scale set, using *[az vmss update](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)*.
+The following is an example for updating the automatic instance repairs policy of an existing scale set, using *[az vmss update](/cli/azure/vmss?view=azure-cli-latest#az-vmss-update)*.
 
 ```azurecli-interactive
 az vmss update \  
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
   --enable-automatic-repairs true \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 ## Viewing and updating the service state of automatic instance repairs policy
 
 ### REST API 
 
-Use [Get Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getinstanceview) with API version 2019-12-01 or higher for virtual machine scale set to view the *serviceState* for automatic repairs under the property *orchestrationServices*. 
+Use [Get Instance View](/rest/api/compute/virtualmachinescalesets/getinstanceview) with API version 2019-12-01 or higher for virtual machine scale set to view the *serviceState* for automatic repairs under the property *orchestrationServices*. 
 
 ```http
 GET '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/instanceView?api-version=2019-12-01'
@@ -256,7 +254,7 @@ Use *setOrchestrationServiceState* API with API version 2019-12-01 or higher on 
 
 ### Azure CLI 
 
-Use [get-instance-view](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-get-instance-view) cmdlet to view the *serviceState* for automatic instance repairs. 
+Use [get-instance-view](/cli/azure/vmss?view=azure-cli-latest#az-vmss-get-instance-view) cmdlet to view the *serviceState* for automatic instance repairs. 
 
 ```azurecli-interactive
 az vmss get-instance-view \
@@ -264,7 +262,7 @@ az vmss get-instance-view \
     --resource-group MyResourceGroup
 ```
 
-Use [set-orchestration-service-state](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-set-orchestration-service-state) cmdlet to update the *serviceState* for automatic instance repairs. Once the scale set is opted into the automatic repair feature, then you can use this cmdlet to suspend or resume automatic repairs for you scale set. 
+Use [set-orchestration-service-state](/cli/azure/vmss?view=azure-cli-latest#az-vmss-set-orchestration-service-state) cmdlet to update the *serviceState* for automatic instance repairs. Once the scale set is opted into the automatic repair feature, then you can use this cmdlet to suspend or resume automatic repairs for you scale set. 
 
 ```azurecli-interactive
 az vmss set-orchestration-service-state \
@@ -275,7 +273,7 @@ az vmss set-orchestration-service-state \
 ```
 ### Azure PowerShell
 
-Use [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) cmdlet with parameter *InstanceView* to view the *ServiceState* for automatic instance repairs.
+Use [Get-AzVmss](/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) cmdlet with parameter *InstanceView* to view the *ServiceState* for automatic instance repairs.
 
 ```azurepowershell-interactive
 Get-AzVmss `

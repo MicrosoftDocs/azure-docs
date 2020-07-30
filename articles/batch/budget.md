@@ -1,7 +1,7 @@
 ---
 title: Cost analysis and budget
 description: Learn how to get a cost analysis and set a budget for the underlying compute resources and software licenses used to run your Batch workloads.
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/19/2019
 ---
 

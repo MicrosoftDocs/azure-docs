@@ -5,6 +5,7 @@ description: Details on tools included in the Ubuntu Data Science Virtual Machin
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 
 ms.author: gopalv
 ms.date: 09/11/2019
@@ -260,8 +261,10 @@ The VM comes with machine learning tools and algorithms that have been pre-compi
 * **Python**: Anaconda Python comes bundled with machine learning algorithms with libraries like Scikit-learn. You can install other libraries by using the `pip install` command.
 * **LightGBM**: A fast, distributed, high-performance gradient boosting framework based on decision tree algorithms.
 * **R**: A rich library of machine learning functions is available for R. Pre-installed libraries include lm, glm, randomForest, and rpart. You can install other libraries by running this command:
-  
-        install.packages(<lib name>)
+
+    ```r
+    install.packages(<lib name>)
+    ```
 
 Here is some additional information about the first three machine learning tools in the list.
 

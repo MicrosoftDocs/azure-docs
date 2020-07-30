@@ -6,7 +6,7 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to view  document details, so that I can to review list of extracted sentences in a document.
@@ -20,7 +20,7 @@ stamp, and the email address of the user who uploaded the document.
 
 Click on an individual document to view the document details page. The document details page displays the list of extracted sentences from the document.
 
-- By default the “source” language is selected in the dropdown field, but you can toggle to view sentences in the target language.
+- By default the "source" language is selected in the dropdown field, but you can toggle to view sentences in the target language.
 - 20 sentences are displayed per page by default. You can use the pagination control to browse between pages.
 
 ![document details](media/how-to/how-to-view-document-details.png)

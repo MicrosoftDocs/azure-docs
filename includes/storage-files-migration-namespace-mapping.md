@@ -53,7 +53,7 @@ Another important aspect of Azure File Sync and a balanced performance and exper
 > [!IMPORTANT]
 > The most important scale vector for Azure File Sync is the number of items (files and folders) that need to be synchronized.
 
-Azure File Sync supports syncing up to 100,000 items to a single Azure file share. This limit can be exceeded and only shows what the Azure File Sync team tests on a regular basis.
+Azure File Sync supports syncing up to 100 Million items to a single Azure file share. This limit can be exceeded and only shows what the Azure File Sync team tests on a regular basis.
 
 It's a best practice to keep the number of items per sync scope low. That's an important factor to consider in your mapping of folders to Azure file shares.
 
@@ -63,7 +63,7 @@ In your situation, it's possible that a set of folders can logically sync to the
 
 :::row:::
     :::column:::
-        [![](media/storage-files-migration-namespace-mapping/namespace-mapping.png "An example of a mapping table. Download the file below to experience and use the content of this image.")](media/storage-files-migration-namespace-mapping/namespace-mapping-expanded.png#lightbox)
+        [![An example of a mapping table. Download the file below to experience and use the content of this image.](media/storage-files-migration-namespace-mapping/namespace-mapping.png)](media/storage-files-migration-namespace-mapping/namespace-mapping-expanded.png#lightbox)
     :::column-end:::
     :::column:::
         Use a combination of the previous concepts to help determine how many Azure file shares you need, and which parts of your existing data will end up in which Azure file share.

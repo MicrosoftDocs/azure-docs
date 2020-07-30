@@ -1,58 +1,61 @@
 ---
-title: Create a new Managed Service offer in the Commercial Marketplace 
+title: Create a Managed Service offer in Microsoft commercial marketplace 
 description: How to create a new Managed Service offer for listing in Azure Marketplace using the Commercial Marketplace portal in Partner Center. 
-author: JnHs 
-ms.author: jenhayes
-manager: evansma
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/08/2020
+author: Microsoft-BradleyWright
+ms.author: brwrigh
+ms.date: 07/07/2020
 ---
 
-# Create a new Managed Service offer
+# Create a Managed Service offer
 
-> [!IMPORTANT]
-> We're moving the management of your Managed Service offers from Cloud Partner Portal to Partner Center. Until your offers are migrated, please follow the instructions in [Publish a Managed Service offer to Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) to manage your offers in Cloud Partner Portal.
+Managed Service offers help to enable [Azure Lighthouse](../../lighthouse/overview.md) scenarios. When a customer accepts a Managed Service offer, they are then able to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md). Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
-Managed Service offers help to enable [Azure Lighthouse](../../lighthouse/overview.md) scenarios. When a customer accepts a Managed Service offer, they are then able to onboard resources for [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
-
-To begin creating Managed Service offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected. You must have a [Silver or Gold Cloud Platform competency level](https://partner.microsoft.com/membership/cloud-platform-competency) or be an [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) to publish a Managed Service offer.
-
-![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
-
->[!Note]
-> Once an offer has been published, edits to the offer made in Partner Center will only be updated in the system and store fronts after re-publishing. Please ensure that you submit the offer for publication after you make changes.
+You must have a [Silver or Gold Cloud Platform competency level](https://partner.microsoft.com/membership/cloud-platform-competency) or be an [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) to publish a Managed Service offer.
 
 ## Create a new offer
 
-Select the **+ New offer** button, then select the **Managed Service** menu item. The **New offer** dialog box will appear.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
+3. On the Overview page, select **+ New offer** > **Managed Service**.
 
-### Offer ID and alias
+    ![Illustrates the left-navigation menu.](./media/new-offer-managed-service.png)
 
-- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer. This ID can only contain lowercase alphanumeric characters (including hyphens and underscores, but no whitespace), limited to 50 characters, and can't be changed after you select **Create**.  For example, if you enter *test-offer-1* here, the offer URL will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+>[!NOTE]
+>After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
 
-- **Offer alias**: The name used to refer to the offer within the Partner Center. This name won't be used in the marketplace, and is different than the offer name and other values that will be shown to customers. This value can't be changed after you select **Create**.
+## New offer
 
-Once you enter your **Offer ID** and **Offer alias**, select **Create**. You'll then be able to work on all of the different parts of your offer.
+Enter an **Offer ID**. This is a unique identifier for each offer in your account.
+
+* This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
+* Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+* The Offer ID can't be changed after you select **Create**.
+
+Enter an **Offer alias**. This is the name used for the offer in Partner Center.
+
+* This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
+* The Offer alias can't be changed after you select **Create**.
+
+Select **Create** to generate the offer and continue.
 
 ## Offer setup
 
-The **Offer setup** page asks for the following information. Be sure to select **Save** after completing these fields.
-
-## Connect lead management
+### Customer leads
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-Note that per the [Managed Services certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), a **Lead Destination** is required. This will create a record in your CRM system each time a customer deploys your offer.
+Per the [Managed Services certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), a **Lead Destination** is required. This will create a record in your CRM system each time a customer deploys your offer.
 
 For more information, see [Lead management overview](./commercial-marketplace-get-customer-leads.md).
 
-Remember to **Save** the page before moving on to the next section.
+Select **Save draft** before continuing.
 
 ## Properties
 
-The **Properties** page lets you define the categories used to group your offer on the marketplace and the legal contracts supporting your offer. Select **Save** after completing this page.
+This page lets you define the categories used to group your offer on the marketplace and the legal contracts supporting your offer.
 
 ### Category
 
@@ -62,16 +65,29 @@ Select a minimum of one and a maximum of five categories which will be used to p
 
 Provide your own legal terms and conditions in the **Terms and conditions** field. You can also provide the URL where your terms and conditions can be found. Customers will be required to accept these terms before they can try your offer.
 
+Select **Save draft** before continuing.
+
 ## Offer listing
 
-The **Offer listing** page lets you define marketplace details (offer name, description, images, etc.) for your offer.
+This page lets you define marketplace details (such as offer name, description, and images) for your offer.
 
 > [!NOTE]
-> Offer listing content (such as the description, documents, screenshots, terms of use, etc.) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
+> Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English, as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
+
+Here's an example of how offer information appears in the Azure portal:
+
+:::image type="content" source="media/example-managed-services.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
+
+#### Call-out descriptions
+
+1. Title
+2. Description
+3. Useful links
+4. Screenshots
 
 ### Name
 
-The name you enter here will be shown to customers as the title of your offer listing. This field is prepopulated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
+The name you enter here will be shown to customers as the title of your offer listing. This field is pre-populated with the text you entered for **Offer alias** when you created the offer, but you can change this value. This name may be trademarked (and you may include trademark or copyright symbols). The name can't be more than 50 characters and can't include any emojis.
 
 ### Search results summary
 
@@ -83,35 +99,11 @@ Provide a longer description of your offer (up to 256 characters). This long sum
 
 ### Description
 
-Provide a longer description of your offer (up to 3,000 characters). This description will be displayed to customers in the marketplace listing overview. Include your offer's value proposition, key benefits, category and/or industry associations, in-app purchase opportunities, and any required disclosures.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Some tips for writing your description:  
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Clearly describe your offer's value proposition in the first few sentences of your description. Include the following items in your value proposition:
-  - Description of the offer
-  - The type of user that benefits from the offer
-  - Customer needs or pain that the offer addresses
-- Keep in mind that the first few sentences might be displayed in search engine results.  
-- Do not rely on features and functionality to sell your product. Instead, focus on the value you deliver.  
-- Use industry-specific vocabulary or benefit-based wording as much as possible.
-
-To make your offer description more engaging, use the rich text editor to format your description.
-
-![Using the rich text editor](./media/text-editor2.png)
-
-Use the following instructions to use the rich text editor:
-
-- To change the format of your content, highlight the text that you want to format and select a text style, as shown below:
-
-     ![Using the rich text editor to change text format](./media/text-editor3.png)
-
-- To add a bulleted or numbered list to the text, use the options below:
-
-     ![Using the rich text editor to add lists](./media/text-editor4.png)
-
-- To add or remove indentation to the text, use the options below:
-
-     ![Using the rich text editor to indent](./media/text-editor5.png)
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### Privacy policy link
 
@@ -133,12 +125,19 @@ If you have support websites for **Azure Global Customers** and/or **Azure Gover
 
 In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format.
 
->[!Note]
+>[!NOTE]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Marketplace logos
 
-Four logo sizes are required: **Small (40x40)**, **Medium (90x90)**, **Large (115x115)**, and **Wide (255x115)**. Follow these guidelines for your logos:
+Provide your offer's logo in four pixel sizes:
+
+- **Small** (48 x 48)
+- **Medium** (90 x 90)
+- **Large** (216 x 216)
+- **Wide** (255 x 115)
+
+Follow these guidelines for your logos:
 
 - The Azure design has a simple color palette. Limit the number of primary and secondary colors on your logo.
 - The theme colors of the portal are white and black. Don't use these colors as the background color for your logo. Use a color that makes your logo prominent in the portal. We recommend simple primary colors.
@@ -157,7 +156,9 @@ You can optionally add up to five videos that demonstrate your offer. These vide
 
 #### Additional marketplace listing resources
 
-- [Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md)
+
+Select **Save draft** before continuing.
 
 ## Preview
 
@@ -167,9 +168,11 @@ You can define the preview audience by entering Azure subscription IDs in the **
 
 Any customers associated with these subscriptions will be able to view the offer in Azure Marketplace before it goes live. Be sure to include your own subscriptions here so you can preview your offer.
 
+Select **Save draft** before continuing.
+
 ## Plan overview
 
-Each offer must have one or more plans (sometimes referred to as SKUs). You might add multiple plans to support different feature sets at different prices or to customize a specific plan for a limited audience of specific customers. Customers can view the plans that are available to them under the parent offer.
+Each offer must have one or more plans (formerly called SKUs). You might add multiple plans to support different feature sets at different prices or to customize a specific plan for a limited audience of specific customers. Customers can view the plans that are available to them under the parent offer.
 
 On the **Plan overview** page, select **+ Create new plan**. Then enter a **Plan ID** and a **Plan name**. Both of these values can only contain lowercase alphanumeric characters, dashes, and underscores, with a maximum of 50 characters. These values may be visible to customers, and they can't be changed after you publish the offer.
 
@@ -186,6 +189,9 @@ Next, enter a **Description** that provides a more detailed explanation of the p
 Currently, there is only one pricing model that can be used for Managed Service offer: **Bring your own license (BYOL)**. This means that you will bill your customers directly for costs related to this offer, and Microsoft does not charge any fees to you.
 
 The **Plan visibility** section lets you indicate if this plan should be [private](../../marketplace/private-offers.md). If you leave the **This is a private plan** box unchecked, your plan will not be restricted to specific customers (or to a certain number of customers).
+
+> [!NOTE]
+> Private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
 
 To make this plan available only to specific customers, select **Yes**. When you do so, you'll need to identify the customers by providing their subscription IDs. These can be entered one by one (for up to 10 subscriptions) or by uploading a .csv file (for a maximum of 10,000 subscriptions across all plans). Be sure to include your own subscriptions here so you can test and validate the offer.
 
@@ -222,7 +228,7 @@ For each **Authorization**, you'll need to provide the following. You can then s
 
 - **Azure AD Object ID**: The Azure AD identifier of a user, user group, or application which will be granted certain permissions (as defined by the Role Definition) to your customers' resources.
 - **Azure AD Object Display Name**: A friendly name to help the customer understand the purpose of this authorization. The customer will see this name when delegating resources.
-- **Role Definition**: Select one of the available Azure AD built-in roles from the list. This role will determine the permissions that the user in the **Azure AD Object ID** field will have on your customers' resources. For descriptions of these roles, see [Built-in roles](../../role-based-access-control/built-in-roles.md) and [Role support for Azure delegated resource management](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management).
+- **Role Definition**: Select one of the available Azure AD built-in roles from the list. This role will determine the permissions that the user in the **Azure AD Object ID** field will have on your customers' resources. For descriptions of these roles, see [Built-in roles](../../role-based-access-control/built-in-roles.md) and [Role support for Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
   > [!NOTE]
   > As applicable new built-in roles are added to Azure, they will become available here, although there may be some delay before they appear.
 - **Assignable Roles**: This option will appear only if you have selected User Access Administrator in the **Role Definition** for this authorization. If so, you must add one or more assignable roles here. The user in the **Azure AD Object ID** field will be able to assign these roles to [managed identities](../../active-directory/managed-identities-azure-resources/overview.md), which is required in order to [deploy policies that can be remediated](../../lighthouse/how-to/deploy-policy-remediation.md). Note that no other permissions normally associated with the User Access Administrator role will apply to this user.
@@ -232,18 +238,20 @@ For each **Authorization**, you'll need to provide the following. You can then s
 
 Once you've completed all of the sections for your plan, you can select **+ Create new plan** as many times as you need to create additional plans. When you're done, select **Save**.
 
+Select **Save draft** before continuing.
+
 ## Publish
 
 ### Submit offer to preview
 
-Once you have completed all the required sections of the offer, select **publish** in the upper right corner of the portal. You will be redirected to the **Review and publish** page.
+Once you have completed all the required sections of the offer, select **Review and publish** in the upper-right corner of the portal.
 
 If it's your first time publishing this offer, you can:
 
 - See the completion status for each section of the offer.
-  - *Not started* - means the section has not been touched and needs to be completed.
-  - *Incomplete* - means the section has errors that need to be fixed or requires more information to be provided. Go back to the section(s) and update it.
-  - *Complete* - means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
+  - **Not started** - The section has not been touched and needs to be completed.
+  - **Incomplete** - The section has errors that need to be fixed or requires more information to be provided. Go back to the section(s) and update it.
+  - **Complete** - The section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
 - Submit the offer for publishing by selecting **Submit**. We will send you an email when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish your offer to the public (or if a private offer, to the private audience).
 

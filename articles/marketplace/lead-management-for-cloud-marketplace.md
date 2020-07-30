@@ -1,25 +1,21 @@
 ---
 title: Lead management for commercial marketplace | Azure Marketplace and AppSource
 description: An overview of various topics related to publishing offers and technical artifacts to the Azure Marketplace and AppSource
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/14/2020
-ms.author: dsindona
 ---
 
 # Lead management for commercial marketplace
 
-
 Customers are the center of any good business. In the transformation of today's product acquisitions, marketers need to focus on connecting with customers directly and building a relationship. This is why generating high-quality leads is a vital tool for your sales cycle. After listing your offer in [Partner Center](https://partner.microsoft.com/), there are tools enabled for you to programmatically receive customer contact information immediately after a customer expresses interest or deploys your product in the marketplace. 
-
-
 
 ## What are leads in the marketplace?
 
 The leads are from customers who are interested or deploying your products from the Marketplace. Whether your product is listed on Azure Marketplace or AppSource, you will be able to receive leads from customers once it is set up properly from your CRM to your listing(s) in Partner Center. 
-
 
 ## How to connect your CRM system with Partner Center
 
@@ -43,7 +39,7 @@ Once you have configured your lead destination properly and have hit Publish on 
 
 Once the technical setup is in place, you should incorporate these leads into your current sales & marketing strategy and operational processes. We are interested in better understanding your overall sales process and want to work closely with you on providing high-quality leads and enough data to make you successful. We welcome your feedback on how we can optimize and enhance the leads we send you with additional data to help make these customers successful. Let us know if you're interested in providing feedback and suggestions to enable your sales team to be more successful with Marketplace Leads.
 
-## Common lead configuration errors during publishing in Partner Center
+## <a id="publishing-config-errors"></a> Common lead configuration errors during publishing in Partner Center
 
 **Could not save the lead to Dynamics CRM. Check the Dynamics CRM account settings. LastCRMError: Unable to sign in to Dynamics CRM, LastCRMException:** 
 
@@ -85,12 +81,12 @@ Leads are customers who are deploying your products from the Marketplace. Whethe
 
 **Where can I get help in setting up my lead destination?** 
 
-You can find documentation at [Get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) or submit a support ticket at [Help and support](https://partner.microsoft.com/support/v2/?stage=1). Select offer type and lead management. 
+You can find documentation at [Get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) or submit a support ticket at [Help and support](https://aka.ms/marketplacepublishersupport). Select offer type and lead management. 
 
 **Am I required to configure a lead destination in order to publish an offer on Marketplace?**
 
 Yes, if you are publishing a Contact Me SaaS app, or Consulting Services.  
- 
+
 **How can I confirm that the lead configuration is correct?**
 
 After setting up your offer, and lead destination, publish your offer. On lead validation step, Marketplace will send a test lead to the lead destination configured in your offer. 
@@ -99,6 +95,7 @@ After setting up your offer, and lead destination, publish your offer. On lead v
 
 Search for "MSFT_TEST" in your lead destination, here's a sample test lead data: 
 
+```text
 company = MSFT_TEST_636573304831318844 
 
 country = US 
@@ -122,57 +119,43 @@ oid = 00Do0000000ZHog
 phone = 1234567890 
 
 title = MSFT_TEST_636573304831318844 
+```
 
 **I have a live offer, but I'm not seeing any leads?**
 
-Each lead will have data passed in fields in your selected lead destination, the leads will come in this format: **Source-Action|Offer** 
+Each lead will have data passed in fields in your selected lead destination, the leads will come in this format: **Source-Action|Offer**
 
-  *Sources:*
+- *Sources:*
+  - AzureMarketplace
+  - AzurePortal
+  - TestDrive  
+  - SPZA (acronym for AppSource)
 
-    "AzureMarketplace", 
-    "AzurePortal", 
-    "TestDrive",  
-    "SPZA" (acronym for AppSource) 
+- *Actions:*
+  - "INS" - Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product.
+  - "PLT" - Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button.
+  - "DNC" - Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted.
+  - "Create" - This is inside Azure portal only and is whenever a customer purchases your offer to their account.
+  - "StartTestDrive" - This is for Test Drives only and is whenever a customer starts their test drive.
 
-  *Actions:*
+- *Offers:*
+  - "checkpoint.check-point-r77-10sg-byol",
+  - "bitnami.openedxcypress",
+  - "docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a"
 
-    "INS" - Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
-    "PLT" - Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
+*Here's sample data of the customer information*
 
-    "DNC" - Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
-
-    "Create" - This is inside Azure portal only and is whenever a customer purchases your offer to their account. 
-
-    "StartTestDrive" - This is for Test Drives only and is whenever a customer starts their test drive. 
-
-
-  *Offers:*
-
-    "checkpoint.check-point-r77-10sg-byol", 
-    "bitnami.openedxcypress", 
-    "docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a" 
-
- 
-
-  *Here's sample data of the customer information*
-
-    { 
-
-    "FirstName":"John", 
-
-    "LastName":"Smith", 
-
-    "Email":"jsmith@microsoft.com", 
-
-    "Phone":"1234567890", 
-
-    "Country":"US", 
-
-    "Company":"Microsoft", 
-
-    "Title":"CTO" 
-
-    } 
+```json
+{ 
+"FirstName":"John",
+"LastName":"Smith",
+"Email":"jsmith@microsoft.com",
+"Phone":"1234567890",
+"Country":"US",
+"Company":"Microsoft",
+"Title":"CTO"
+}
+```
 
 Find out more under [Lead Info](./partner-center-portal/commercial-marketplace-get-customer-leads.md). 
 
@@ -182,7 +165,7 @@ The lead only gets written when you select Azure BLOB storage as your lead desti
 
 **I received an email from Marketplace, why can't I find the lead in my CRM?**  
 
-It's possible that the end user's email domain is from .edu. For privacy reasons we don't pass personal identifiable data from .edu domain. Submit a support ticket at [Help and support](https://partner.microsoft.com/support/v2/?stage=1).
+It's possible that the end user's email domain is from .edu. For privacy reasons we don't pass personal identifiable data from .edu domain. Submit a support ticket at [Help and support](https://aka.ms/marketplacepublishersupport).
 
 **I have configured Azure Table/Azure BLOB as my lead destination, how can I view the leads?** 
 
@@ -192,7 +175,7 @@ You can access the blob or table from Azure portal, or you can download and inst
 
 Yes, follow the instructions to set up Azure Table + Function on the documentation [here](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md). 
 
-**I have configured Salesforce as my lead destination, why can't I find the leads?** 
+**I have configured Salesforce as my lead destination, why can't I find the leads?**
 
 Check if the web to lead form is a mandatory field based on a picklist. If yes, switch over the field to a non-mandatory text field.  
  

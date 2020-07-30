@@ -47,7 +47,7 @@ Whether you use the tools or APIs, you perform the following steps to create a p
 2. Create **datasets** to represent input and output data for the copy operation.
 3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data to search index, see [JSON example: Copy data from on-premises SQL Server to an Azure Cognitive Search index](#json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index) section of this article.
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data to search index, see [JSON example: Copy data from SQL Server to an Azure Cognitive Search index](#json-example-copy-data-from-sql-server-to-azure-cognitive-search-index) section of this article.
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to a search Index:
 
@@ -108,7 +108,7 @@ The following table specifies whether an Azure Cognitive Search data type is sup
 | String Array | N |
 | GeographyPoint | N |
 
-## JSON example: Copy data from on-premises SQL Server to Azure Cognitive Search index
+## JSON example: Copy data from SQL Server to Azure Cognitive Search index
 
 The following sample shows:
 
@@ -118,7 +118,7 @@ The following sample shows:
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureSearchIndex](#dataset-properties).
 4. A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) and [AzureSearchIndexSink](#copy-activity-properties).
 
-The sample copies time-series data from an on-premises SQL Server database to search index hourly. The JSON properties used in this sample are described in sections following the samples.
+The sample copies time-series data from a SQL Server database to search index hourly. The JSON properties used in this sample are described in sections following the samples.
 
 As a first step, setup the data management gateway on your on-premises machine. The instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 

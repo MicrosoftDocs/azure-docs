@@ -3,20 +3,18 @@ title: Wildcard applications in the Azure AD Application Proxy
 description: Learn how to use Wildcard applications in the Azure Active Directory application proxy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/06/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -59,7 +57,7 @@ While [custom domains](application-proxy-configure-custom-domain.md) are optiona
 1. Create a verified domain within Azure.
 1. Upload a TLS/SSL certificate in the PFX format to your application proxy.
 
-You should consider using a wildcard certificate to match the application you plan to create. Alternatively, you can also use a certificate that only lists specific applications. In this case, only the applications listed in the certificate will be accessible through this wildcard application.
+You should consider using a wildcard certificate to match the application you plan to create. 
 
 For security reasons, this is a hard requirement and we will not support wildcards for applications that cannot use a custom domain for the external URL.
 

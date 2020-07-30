@@ -16,7 +16,7 @@ ms.author: tomfitz
 | Tag key length |512 |
 | Tag value length |256 |
 
-<sup>1</sup>If you reach the limit of 800 deployments per resource group, delete deployments from the history that are no longer needed. Deleting an entry from the deployment history doesn't affect the deployed resources. For more information, see [Resolve error when deployment count exceeds 800](../articles/azure-resource-manager/templates/deployment-quota-exceeded.md).
+<sup>1</sup>Starting in June 2020, deployments will be automatically deleted from the history as you near the limit. Deleting an entry from the deployment history doesn't affect the deployed resources. For more information, see [Automatic deletions from deployment history](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
 
 #### Template limits
 

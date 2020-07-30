@@ -8,9 +8,9 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.topic: conceptual
 ms.date: 12/27/2019
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 ---
 
 # Configure a development environment for Azure Machine Learning
@@ -54,7 +54,7 @@ The Azure Machine Learning [compute instance (preview)](concept-compute-instance
 
 There is nothing to install or configure for a compute instance.  Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
-Learn more about [compute instances](concept-compute-instance.md).
+To learn more about compute instances, including how to install packages, see [compute instances](concept-compute-instance.md).
 
 To stop incurring compute charges, [stop the compute instance](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 
@@ -140,7 +140,7 @@ When you're using a local computer (which might also be a remote virtual machine
     Run the following command to create the environment.
 
     ```bash
-    conda create -n myenv python=3.6.5
+    conda create -n myenv python=3.7.7
     ```
 
     Then activate the environment.
@@ -149,7 +149,7 @@ When you're using a local computer (which might also be a remote virtual machine
     conda activate myenv
     ```
 
-    This example creates an environment using python 3.6.5, but any specific subversions can be chosen. SDK compatibility may not be guaranteed with certain major versions (3.5+ is recommended), and it's recommended to try a different version/subversion in your Anaconda environment if you run into errors. It will take several minutes to create the environment while components and packages are downloaded.
+    This example creates an environment using python 3.7.7, but any specific subversions can be chosen. SDK compatibility may not be guaranteed with certain major versions (3.5+ is recommended), and it's recommended to try a different version/subversion in your Anaconda environment if you run into errors. It will take several minutes to create the environment while components and packages are downloaded.
 
 1. Run the following commands in your new environment to enable environment-specific IPython kernels. This will ensure expected kernel and package import behavior when working with Jupyter Notebooks within Anaconda environments:
 

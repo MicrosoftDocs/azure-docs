@@ -10,10 +10,11 @@ ms.author: sngun
 
 ---
 # Azure Cosmos DB: .NET examples for the SQL API
+
 > [!div class="op_single_selector"]
-> * [.NET Examples](sql-api-dotnet-samples.md)
-> * [Java Examples](sql-api-java-samples.md)
-> * [Async Java Examples](sql-api-async-java-samples.md)
+> * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)
+> * [.NET V3 SDK Examples](sql-api-dotnet-v3sdk-samples.md)
+> * [Java V4 SDK Examples](sql-api-java-sdk-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)
 > * [Python Examples](sql-api-python-samples.md)
 > * [Azure Code Sample Gallery](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)

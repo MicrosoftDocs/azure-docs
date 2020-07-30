@@ -57,9 +57,9 @@ SQL-based sharing requires additional permissions. See Troubleshooting SQL-based
 
 ## Troubleshooting SQL-based sharing
 
-"User x does not exist in SQL database"
+"User x does not exist in SQL Database"
 
-If you receive this error when adding a dataset from a SQL-based source, it may be because you did not create a user for the Azure Data Share managed identity on your SQL Server.  To resolve this issue, run the following script:
+If you receive this error when adding a dataset from a SQL-based source, it may be because you did not create a user for the Azure Data Share managed identity in SQL Database.  To resolve this issue, run the following script:
 
 ```sql
     create user "<share_acct_name>" from external provider; 

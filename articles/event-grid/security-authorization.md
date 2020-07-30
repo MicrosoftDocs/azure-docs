@@ -1,17 +1,13 @@
 ---
 title: Azure Event Grid security and authentication
 description: Describes Azure Event Grid and its concepts.
-services: event-grid
-author: banisadr
-manager: timlt
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.author: babanisa
+ms.date: 07/07/2020
 ---
+
 # Authorizing access to Event Grid resources
 Azure Event Grid allows you to control the level of access given to different users to do various management operations such as list event subscriptions, create new ones, and generate keys. Event Grid uses Azure's role-based access control (RBAC).
+
 
 ## Operation types
 
@@ -177,6 +173,27 @@ You can create custom roles with [PowerShell](../role-based-access-control/custo
 ### Encryption at rest
 
 All events or data written to disk by the Event Grid service is encrypted by a Microsoft-managed key ensuring that it's encrypted at rest. Additionally, the maximum period of time that events or data retained is 24 hours in adherence with the [Event Grid retry policy](delivery-and-retry.md). Event Grid will automatically delete all events or data after 24 hours, or the event time-to-live, whichever is less.
+
+## Permissions for event subscriptions
+If you're using an event handler that isn't a WebHook (such as an event hub or queue storage), you need write access to that resource. This permissions check prevents an unauthorized user from sending events to your resource.
+
+You must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the resource that is the event source. You need this permission because you're writing a new subscription at the scope of the resource. The required resource differs based on whether you're subscribing to a system topic or custom topic. Both types are described in this section.
+
+### System topics (Azure service publishers)
+For system topics, you need permission to write a new event subscription at the scope of the resource publishing the event. The format of the resource is:
+`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+
+For example, to subscribe to an event on a storage account named **myacct**, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:
+`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+
+### Custom topics
+For custom topics, you need permission to write a new event subscription at the scope of the event grid topic. The format of the resource is:
+`/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+
+For example, to subscribe to a custom topic named **mytopic**, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:
+`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+
+
 
 ## Next steps
 

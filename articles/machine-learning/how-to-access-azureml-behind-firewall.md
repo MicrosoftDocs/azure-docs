@@ -1,7 +1,7 @@
 ---
-title: Use Azure Machine Learning behind a firewall
+title: Use a firewall
 titleSuffix: Azure Machine Learning
-description: 'Securely use Azure Machine Learning behind Azure Firewall. Learn about the hosts that you must allow through the firewall for Azure Machine Learning to function correctly.'
+description: 'Control access to Azure Machine Learning workspaces with Azure Firewalls. Learn about the hosts that you must allow through the firewall for Azure Machine Learning to function correctly.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 04/27/2020
+ms.date: 07/17/2020
+ms.custom: how-to, tracking-python
 ---
 
-# Use Azure Machine Learning workspace behind Azure Firewall
+# Use workspace behind Azure Firewall for Azure Machine Learning
 
-This article contains information on configuring Azure Firewall for use with Azure Machine Learning.
+In this article, learn how to configure Azure Firewall for use with an Azure Machine Learning workspace.
 
-Azure Firewall can be used to control access to your Azure Machine Learning workspace and the public internet. If not configured correctly, the firewall can cause problems using your workspace.
+Azure Firewall can be used to control access to your Azure Machine Learning workspace and the public internet. If not configured correctly, the firewall can cause problems using your workspace. There are a variety of host names that are used both by the Azure Machine Learning workspace, which are described in this article.
 
 ## Network rules
 
@@ -35,16 +36,18 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | ---- | ---- |
 | **\*.batchai.core.windows.net** | Training clusters |
 | **ml.azure.com** | Azure Machine Learning studio |
+| **default.exp-tas.com** | Used by the Azure Machine Learning studio |
 | **\*.azureml.ms** | Used by Azure Machine Learning APIs |
-| **\*.experiments.azureml.net** | Used by experiments running in Azure Machine Learning|
+| **\*.experiments.azureml.net** | Used by experiments running in Azure Machine Learning |
 | **\*.modelmanagement.azureml.net** | Used to register and deploy models|
 | **mlworkspace.azure.ai** | Used by the Azure portal when viewing a workspace |
 | **\*.aether.ms** | Used when running Azure Machine Learning pipelines |
 | **\*.instances.azureml.net** | Azure Machine Learning compute instances |
+| **\*.instances.azureml.ms** | Azure Machine Learning compute instances when workspace has Private Link enabled |
 | **windows.net** | Azure Blob Storage |
 | **vault.azure.net** | Azure Key Vault |
-| **microsoft.com** | Base docker images |
 | **azurecr.io** | Azure Container Registry |
+| **mcr.microsoft.com** | Microsoft Container Registry for base docker images |
 
 ## Python hosts
 
@@ -52,8 +55,9 @@ The hosts in this section are used to install Python packages. They are required
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
-| **anaconda.com** | Used when installing conda packages |
-| **pypi.org** | Used when installing pip packages |
+| **anaconda.com** | Used to install default packages. |
+| **\*.anaconda.org** | Used to get repo data. |
+| **pypi.org** | Used to list dependencies from the default index, if any, and the index is not overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
 
 ## R hosts
 

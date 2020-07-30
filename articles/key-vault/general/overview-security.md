@@ -38,7 +38,7 @@ The model of a single mechanism for authentication to both planes has several be
 
 - Organizations can control access centrally to all key vaults in their organization.
 - If a user leaves, they instantly lose access to all key vaults in the organization.
-- Organizations can customize authentication by using the options in Azure AD, such as to enable multi-factor authentication for added security
+- Organizations can customize authentication by using the options in Azure AD, such as to enable multi-factor authentication for added security.
 
 ### Managing administrative access to Key Vault
 
@@ -61,7 +61,7 @@ Key Vault access policies grant permissions separately to keys, secrets, or cert
 > [!IMPORTANT]
 > Key Vault access policies don't support granular, object-level permissions like a specific key, secret, or certificate. When a user is granted permission to create and delete keys, they can perform those operations on all keys in that key vault.
 
-To set access policies for a key vault, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs), or the [Key Vault Management REST APIs](/rest/api/keyvault/).
+To set access policies for a key vault, use the [Azure portal](https://portal.azure.com/), the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/), or the [Key Vault Management REST APIs](/rest/api/keyvault/).
 
 You can restrict data plane access by using [virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)). You can configure [firewalls and virtual network rules](network-security.md) for an additional layer of security.
 
@@ -93,6 +93,6 @@ For recommendation on securely managing storage accounts review the [Azure Stora
 
 ## Next Steps
 
-- [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md))
+- [Virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
-- [virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md))
+- [virtual network service endpoints for Azure Key Vault](overview-vnet-service-endpoints.md)

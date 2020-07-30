@@ -16,7 +16,7 @@ This article covers information about deploying Azure confidential computing vir
 
 ## Azure confidential computing VM Sizes
 
-Azure confidential computing virtual machines are designed to protect the confidentially and integrity of your data and code while it's processed in the cloud 
+Azure confidential computing virtual machines are designed to protect the confidentiality and the integrity of your data and code while it's processed in the cloud 
 
 [DCsv2-Series](../virtual-machines/dcv2-series.md) VMs are the latest and most recent confidential computing size family. These VMs support a larger range of deployment capabilities, have 2x the Enclave Page Cache (EPC) and a larger selection of sizes compared to our DC-Series VMs. The [DC-Series](../virtual-machines/sizes-previous-gen.md#preview-dc-series) VMs are currently in preview and will be deprecated and not included in general availability.
 
@@ -34,7 +34,7 @@ az vm list-skus
     --output table
 ```
 
-As of April 2020, these SKUs are available in the following regions and availability zones:
+As of May 2020, these SKUs are available in the following regions and availability zones:
 
 ```output
 Name              Locations      AZ_a
@@ -64,6 +64,9 @@ az vm list-skus
     --size dc 
     --query "[?family=='standardDCSv2Family']"
 ```
+### Dedicated host requirements
+Deploying a **Standard_DC8_v2** virtual machine size in the DCSv2-Series VM family will occupy the full host and will not be shared with other tenants or subscriptions. This VM SKU family provides the isolation you may need in order to meet compliance and security regulatory requirements that are normally met by having a dedicated host service. When you choose **Standard_DC8_v2** SKU, the physical host server will allocate all of the available hardware resources including EPC memory only to your virtual machine. Please note that this functionality exists by infrastructure design and all the features of the **Standard_DC8_v2** will be supported. This deployment is not the same as the [Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) service that is provided by other Azure VM Families.
+
 
 ## Deployment considerations
 
@@ -81,7 +84,7 @@ Follow a quickstart tutorial to deploy a DCsv2-Series virtual machine in less th
   
 - **Resizing** – Because of their specialized hardware, you can only resize confidential computing instances within the same size family. For example, you can only resize a DCsv2-series VM from one DCsv2-series size to another. Resizing from a non-confidential computing size to a confidential computing size isn't supported.  
 
-- **Image** – To provide Intel Software Guard Extension (Intel SGX) support on confidential compute instances, all deployments need to be run on Generation 2 images. Azure confidential computing supports workloads running on Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, and Windows Server 2016 Gen 2. Read about [support for generation 2 VMs on Azure](../virtual-machines/linux/generation-2.md) to learn more about supported and unsupported scenarios. 
+- **Image** – To provide Intel Software Guard Extension (Intel SGX) support on confidential compute instances, all deployments need to be run on Generation 2 images. Azure confidential computing supports workloads running on Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 gen2, and Windows Server 2016 Gen 2. Read about [support for generation 2 VMs on Azure](../virtual-machines/linux/generation-2.md) to learn more about supported and unsupported scenarios. 
 
 - **Storage** – Azure confidential computing virtual machine data disks and our ephemeral OS disks are on NVMe disks. Instances support only Premium SSD and Standard SSD disks, not Ultra SSD, or Standard HDD. Virtual machine size **DC8_v2** doesn't support Premium storage. 
 
@@ -95,15 +98,15 @@ Azure confidential computing doesn't support zone-redundancy via Availability Zo
 
 ## Deploying via an Azure Resource Manager Template 
 
-Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
+Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You can use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
 To learn about Azure Resource Manager templates, see [Template deployment overview](../azure-resource-manager/templates/overview.md).
 
-To deploy a DCsv2-Series VM in an ARM template you will utilize the [Virtual Machine resource](../virtual-machines/windows/template-description.md). You need to ensure you specify the correct properties for **vmSize** and for your **imageReference**.
+To deploy a DCsv2-Series VM in an Azure Resource Manager template, you will utilize the [Virtual Machine resource](../virtual-machines/windows/template-description.md). Ensure you specify the correct properties for **vmSize** and for your **imageReference**.
 
 ### VM Size
 
-Specify one of the following sizes in your ARM template in the Virtual Machine resource. This string is put as **vmSize** in **properties**.
+Specify one of the following sizes in your Azure Resource Manager template in the Virtual Machine resource. This string is put as **vmSize** in **properties**.
 
 ```json
   [
@@ -119,6 +122,12 @@ Specify one of the following sizes in your ARM template in the Virtual Machine r
 Under **properties**, you will also have to reference an image under **storageProfile**. Use *only one* of the following images for your **imageReference**.
 
 ```json
+      "2019-datacenter-gensecond": {
+        "offer": "WindowsServer",
+        "publisher": "MicrosoftWindowsServer",
+        "sku": "2019-datacenter-gensecond",
+        "version": "latest"
+      },
       "2016-datacenter-gensecond": {
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
@@ -141,7 +150,7 @@ Under **properties**, you will also have to reference an image under **storagePr
 
 ## Next Steps 
 
-In this article you learned about the qualifications and configurations needed when creating confidential computing virtual machine. You can now head to the Azure Marketplace to deploy a DCsv2-Series VM.
+In this article, you learned about the qualifications and configurations needed when creating confidential computing virtual machine. You can now head to the Microsoft Azure Marketplace to deploy a DCsv2-Series VM.
 
 > [!div class="nextstepaction"]
 > [Deploy a DCsv2-Series Virtual Machine in the Azure Marketplace](quick-create-marketplace.md)

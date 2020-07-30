@@ -1,19 +1,8 @@
 ---
 title: Migrate to Azure Event Hubs for Apache Kafka
 description: This article shows how consumers and producers that use different protocols (AMQP, Apache Kafka, and HTTPS) can exchange events when using Azure Event Hubs. 
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: 
-
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/01/2020
-ms.author: shvija
-
+ms.date: 06/23/2020
 ---
 
 # Migrate to Azure Event Hubs for Apache Kafka Ecosystems
@@ -67,4 +56,4 @@ To learn more about Event Hubs and Event Hubs for Kafka, see the following artic
 - [Apache Kafka troubleshooting guide for Event Hubs](apache-kafka-troubleshooting-guide.md)
 - [Frequently asked questions - Event Hubs for Apache Kafka](apache-kafka-frequently-asked-questions.md)
 - [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md)
-- [Recommended configurations](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+- [Recommended configurations](apache-kafka-configurations.md)

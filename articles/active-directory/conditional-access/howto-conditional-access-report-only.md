@@ -5,8 +5,8 @@ description: Using report-only mode in Conditional Access to aid in adoption
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 03/25/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,7 +15,7 @@ ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management
 ---
-# Configure a Conditional Access policy in report-only mode (Preview)
+# Configure a Conditional Access policy in report-only mode
 
 To configure a Conditional Access policy in report-only mode:
 
@@ -39,7 +39,7 @@ To view the result of a report-only policy for a particular sign-in:
 1. Sign into the **Azure portal** as a reports reader, security reader, security administrator, or global administrator.
 1. Browse to **Azure Active Directory** > **Sign-ins**.
 1. Select a sign-in or add filters to narrow results.
-1. In the **Details** drawer, select the **Report-only (Preview)** tab to view the policies evaluated during sign-in.
+1. In the **Details** drawer, select the **Report-only** tab to view the policies evaluated during sign-in.
 
 > [!NOTE]
 > When downloading the Sign-ins logs, choose JSON format to include Conditional Access report-only result data.
@@ -59,7 +59,7 @@ Once you've integrated your Azure AD logs with Azure Monitor, you can monitor th
 
 1. Sign into the **Azure portal** as a security administrator or global administrator.
 1. Browse to **Azure Active Directory** > **Workbooks**.
-1. Select **Conditional Access Insights (Preview)**.
+1. Select **Conditional Access Insights**.
 1. Select one or more policies from the **Conditional Access Policy** dropdown. All enabled policies are selected by default.
 1. Select a time range (if the time range exceeds the available dataset, the report will show all available data). Once you have set the **Conditional Access Policy** and **Time Range** parameters, the report will load.
    1. Optionally, search for individual **Users** or **Apps** to narrow the scope of the report.

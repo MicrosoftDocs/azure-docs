@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 07/15/2020
 ms.author: apimpm
 ---
 
@@ -27,7 +27,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | Azure AD integration<sup>1</sup>                                                             | No          | Yes       | No    | Yes      | Yes     |
 | Virtual Network (VNet) support                                                               | No          | Yes       | No    | No       | Yes     |
 | Multi-region deployment                                                                      | No          | No        | No    | No       | Yes     |
-| Multiple custom domain names                                                                 | No          | No        | No    | No       | Yes     |
+| Multiple custom domain names                                                                 | No          | Yes        | No    | No       | Yes     |
 | Developer portal<sup>2</sup>                                                                 | No          | Yes       | Yes   | Yes      | Yes     |
 | Built-in cache                                                                               | No          | Yes       | Yes   | Yes      | Yes     |
 | Built-in analytics                                                                           | No          | Yes       | Yes   | Yes      | Yes     |
@@ -38,9 +38,9 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | [Backup and restore](api-management-howto-disaster-recovery-backup-restore.md)               | No          | Yes       | Yes   | Yes      | Yes     |
 | [Management over Git](api-management-configuration-repository-git.md)                        | No          | Yes       | Yes   | Yes      | Yes     |
 | Direct management API                                                                        | No          | Yes       | Yes   | Yes      | Yes     |
-| Azure Monitor logs and metrics                                                               | No          | Yes       | Yes   | Yes      | Yes     |
+| Azure Monitor logs and metrics                                                               | Yes         | Yes       | Yes   | Yes      | Yes     |
 | Static IP                                                                                    | No          | Yes       | Yes   | Yes      | Yes     |
 
 <sup>1</sup> Enables the use of Azure AD (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality e.g. users, groups, issues, applications and email templates and notifications.<br/>
-<sup>3</sup> Limited to a single self-hosted gateway deployment with a single gateway node.<br/>
+<sup>3</sup> In the Developer tier self-hosted gateways are limited to single gateway node.<br/>

@@ -4,8 +4,6 @@
   items:
   - name: What is Microsoft identity platform?
     href: v2-overview.md
-  - name: Evolution of Microsoft identity platform
-    href: about-microsoft-identity-platform.md
 - name: Quickstarts
   expanded: true
   items:
@@ -28,7 +26,9 @@
     items:
     - name: Angular
       href: quickstart-v2-angular.md
-    - name: JavaScript
+    - name: JavaScript - Auth code flow
+      href: quickstart-v2-javascript-auth-code.md
+    - name: JavaScript - Implicit flow
       href: quickstart-v2-javascript.md
   - name: Web apps
     items:
@@ -73,7 +73,9 @@
     items:
     - name: Angular
       href: tutorial-v2-angular.md
-    - name: JavaScript
+    - name: JavaScript - Auth code flow
+      href: tutorial-v2-javascript-auth-code.md
+    - name: JavaScript - Implicit flow
       href: tutorial-v2-javascript-spa.md
   - name: Web apps
     items:
@@ -103,7 +105,15 @@
   items:
   - name: Authentication basics
     displayName: Auth basics
-    href: authentication-scenarios.md
+    items:
+    - name: Authentication vs. authorization
+      href: authentication-vs-authorization.md
+    - name: Security tokens
+      href: security-tokens.md
+    - name: Application model
+      href: application-model.md
+    - name: App sign-in flow
+      href: app-sign-in-flow.md
   - name: Authentication flows and app scenarios
     displayName: Auth flows
     href: authentication-flows-app-scenarios.md
@@ -333,8 +343,6 @@
           href: msal-js-use-ie-browser.md
         - name: Known issues - IE and Microsoft Edge
           href: msal-js-known-issues-ie-edge-browsers.md
-        - name: Known issues - Safari
-          href: msal-js-known-issues-safari-browser.md
         - name: Handle errors and exceptions
           href: msal-handling-exceptions.md?tabs=javascript
         - name: Logging
@@ -364,6 +372,11 @@
         displayName: shared device mode, firstline worker, frontline worker, flw
       - name: Handle SameSite cookie changes in Chrome browser
         href: howto-handle-samesite-cookie-changes-chrome-browser.md
+      - name: Scopes for web API accepting v1.0 tokens
+        href: msal-v1-app-scopes.md
+      - name: Migrate apps from ADAL to MSAL
+        href: msal-migration.md
+        displayName: migration
   - name: Authentication protocols
     displayName: Auth protocol
     items:
@@ -398,6 +411,8 @@
         href: id-tokens.md
       - name: Access tokens
         href: access-tokens.md
+      - name: UserInfo endpoint
+        href: userinfo.md
       - name: Certificate credentials
         href: active-directory-certificate-credentials.md
     - name: SAML 2.0 protocol
@@ -425,6 +440,8 @@
       href: supported-accounts-validation.md
     - name: Single tenant and multi-tenant apps
       href: single-and-multi-tenant-apps.md
+    - name: Publisher verification (preview)
+      href: publisher-verification-overview.md
   - name: Permissions and consent
     displayName: Scopes
     items:
@@ -448,9 +465,41 @@
   - name: Automatic user provisioning (SCIM)
     items:
     - name: What is automatic user provisioning?
-      href: /azure/active-directory/manage-apps/user-provisioning
-    - name: Building and integrating a SCIM endpoint
-      href: /azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups
+      href: /azure/active-directory/app-provisioning/user-provisioning
+    - name: Develop and integrating a SCIM endpoint
+      href: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+    - name: Common provisioning scenarios
+      href: /azure/active-directory/app-provisioning/scim-graph-scenarios
+    - name: Automate configuration using MS Graph
+      href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
+  - name: Azure portal help articles
+    items:
+    - name: Token lifetime defaults for a custom-developed application
+      href: registration-config-change-token-lifetime-how-to.md
+    - name: Discover endpoints
+      href: registration-config-how-to.md
+    - name: Select permissions for a given API
+      href: perms-for-given-api.md
+    - name: Authentication protocols
+      href: active-directory-authentication-protocols.md
+    - name: Differences between delegated and application permissions
+      href: delegated-and-app-perms.md
+    - name: How application consent works
+      href: consent-framework-links.md
+    - name: Find a specific API needed for a custom-developed application
+      href: api-find-an-api-how-to.md
+    - name: App registration reference
+      href: active-directory-v2-registration-portal.md
+    - name: Azure portal registration fields for custom-developed apps
+      href: registration-config-specific-application-property-how-to.md
+    - name: Configure a new multitenant application
+      href: setup-multi-tenant-app.md
+    - name: Add a multitenant application to the Azure AD application gallery
+      href: registration-config-multi-tenant-application-add-to-gallery-how-to.md
+    - name: Integrating with Azure Active Directory
+      href: active-directory-how-to-integrate.md
+    - name: Configure single sign-on for an application
+      href: registration-config-sso-how-to.md
 - name: How-to guides
   items:
   - name: Authentication
@@ -463,8 +512,14 @@
       href: active-directory-claims-mapping.md
     - name: Configure optional claims
       href: active-directory-optional-claims.md
+    - name: Use directory schema extension attributes in claims
+      href: active-directory-schema-extensions.md
     - name: Configure token lifetimes
       href: active-directory-configurable-token-lifetimes.md
+    - name: Handle SameSite cookie changes in Chrome browser
+      href: howto-handle-samesite-cookie-changes-chrome-browser.md
+    - name: Handle ITP in Safari
+      href: reference-third-party-cookies-spas.md
   - name: Application configuration
     displayName: App configuration
     items:
@@ -491,6 +546,12 @@
       href: howto-configure-publisher-domain.md
     - name: Configure Terms of Service and Privacy Statement
       href: howto-add-terms-of-service-privacy-statement.md
+    - name: Configure publisher verification for your app
+      items:
+      - name: Mark your app as publisher verified (preview)
+        href: mark-app-as-publisher-verified.md
+      - name: Troubleshoot publisher verification (preview)
+        href: troubleshoot-publisher-verification.md
   - name: Work with Microsoft Authentication Library
     displayName: MSAL
     items:
@@ -518,6 +579,9 @@
             href: msal-js-pass-custom-state-authentication-request.md
           - name: Prompt behavior
             href: msal-js-prompt-behavior.md
+          - name: Migrate SPA from implicit to auth code flow
+            href: migrate-spa-implicit-to-auth-code.md
+            displayName: authorization, single-page app, 2.0
       - name: MSAL for iOS and macOS
         items:
           - name: MSAL for iOS and macOS differences
@@ -556,7 +620,15 @@
       href: vs-active-directory-webapi-what-happened.md
     - name: Diagnose errors during authentication
       href: vs-active-directory-error.md
-- name: References
+  - name: Bring an app to market
+    items:
+    - name: Publish to App Source
+      href: v2-howto-get-appsource-certified.md
+    - name: Publish to Azure AD App Gallery
+      href: v2-howto-app-gallery-listing.md
+    - name: Publish to the Office 365 Seller Dashboard
+      href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+- name: Reference
   items:
   - name: Application manifest
     href: reference-app-manifest.md
@@ -567,7 +639,7 @@
     displayName: MSAL, auth library, SDK
     href: reference-v2-libraries.md
   - name: Identity and access APIs in Microsoft Graph
-    href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta
+    href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview
   - name: Authentication and authorization error codes
     displayName: AADSTS
     href: reference-aadsts-error-codes.md

@@ -19,7 +19,7 @@ ms.reviewer: anilmur
 ---
 # Standard Encoder formats and codecs
 
-This article contains a list of the most common import and export file formats that you can use with [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). For information on how to create custom presets using **StandardEncoderPreset**, see [Create a transform with a custom preset](customize-encoder-presets-how-to.md).
+This article contains a list of the most common import and export file formats that you can use with [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). For information on how to create custom presets using **StandardEncoderPreset**, see [Create a transform with a custom preset](customize-encoder-presets-how-to.md).
 
 ## Input container/file formats
 
@@ -32,7 +32,7 @@ This article contains a list of the most common import and export file formats t
 | Windows Media Video (WMV)/ASF (.wmv, .asf) |Yes |
 | AVI (Uncompressed 8bit/10bit) (.avi) |Yes |
 | MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Yes |
-| [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Yes |
+| [Microsoft Digital Video Recording(DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) (.dvr-ms) |Yes |
 | Matroska/WebM (.mkv) |Yes |
 | WAVE/WAV (.wav) |Yes |
 | QuickTime (.mov) |Yes |

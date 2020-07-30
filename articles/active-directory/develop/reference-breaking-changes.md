@@ -8,8 +8,8 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 3/13/2020
+ms.topic: reference
+ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -17,7 +17,7 @@ ms.custom: aaddev
 
 # What's new for authentication?
 
->Get notified about updates to this page. Just add [this URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us) to your RSS feed reader.
+> Get notified of updates to this page by pasting this URL into your RSS feed reader:<br/>`https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us`
 
 The authentication system alters and adds features on an ongoing basis to improve security and standards compliance. To stay up-to-date with the most recent developments, this article provides you with information about the following details:
 
@@ -33,13 +33,31 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 None scheduled at this time.  Please see below for the changes that are in or are coming to production.
 
+## May 2020
+
+### Azure Government endpoints are changing
+
+**Effective date**: May 5th (Finishing June 2020) 
+
+**Endpoints impacted**: All
+
+**Protocol impacted**: All flows
+
+On 1 June 2018, the official Azure Active Directory (AAD) Authority for Azure Government changed from `https://login-us.microsoftonline.com` to `https://login.microsoftonline.us`. This change also applied to Microsoft 365 GCC High and DoD, which Azure Government AAD also services. If you own an application within a US Government tenant, you must update your application to sign users in on the `.us` endpoint.  
+
+Starting May 5th, Azure AD will begin enforcing the endpoint change, blocking government users from signing into apps hosted in US Government tenants using the public endpoint (`microsoftonline.com`).  Impacted apps will begin seeing an error `AADSTS900439` - `USGClientNotSupportedOnPublicEndpoint`. This error indicates that the app is attempting to sign in a US Government user on the public cloud endpoint. If your app is in a public cloud tenant and intended to support US Government users, you will need to [update your app to support them explicitly](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). This may require creating a new app registration in the US Government cloud. 
+
+Enforcement of this change will be done using a gradual rollout based on how frequently users from the US Government cloud sign in to the application - apps signing in US Government users infrequently will see enforcement first, and apps frequently used by US Government users will be last to have enforcement applied. We expect enforcement to be complete across all apps in June 2020. 
+
+For more details, please see the [Azure Government blog post on this migration](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/). 
+
 ## March 2020
 
 ### User passwords will be restricted to 256 characters.
 
 **Effective date**: March 13, 2020
 
-**Endpoints impacted**: Both v1.0 and v2.0
+**Endpoints impacted**: All
 
 **Protocol impacted**: All user flows.
 

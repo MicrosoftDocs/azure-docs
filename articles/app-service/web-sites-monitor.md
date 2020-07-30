@@ -5,7 +5,7 @@ author: btardif
 
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
 
@@ -48,7 +48,7 @@ If an app exceeds the *CPU (short)*, *CPU (Day)*, or *bandwidth* quota, the app 
 
 ![403 error message][http403]
 
-If the app Memory quota is exceeded, the app is restarted.
+If the app Memory quota is exceeded, the app is stopped temporarily.
 
 If the Filesystem quota is exceeded, any write operation fails. Write operation failures include any writes to logs.
 
@@ -57,7 +57,7 @@ You can increase or remove quotas from your app by upgrading your App Service pl
 ## Understand metrics
 
 > [!NOTE]
-> **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been whitelisted for private preview.
+> **File System Usage** is a new metric being rolled out globally, no data is expected unless you've been granted access for private preview.
 > 
 
 > [!IMPORTANT]
@@ -130,8 +130,7 @@ There are two metrics that reflect CPU usage:
 **CPU percentage**: Useful for apps hosted in Basic, Standard, and Premium plans, because they can be scaled out. CPU percentage is a good indication of the overall usage across all instances.
 
 ## Metrics granularity and retention policy
-
-Metrics for an app and app service plan are logged and aggregated by the service. Metrics are retained for 90 days.
+Metrics for an app and app service plan are logged and aggregated by the service and [retained according to these rules](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).
 
 ## Monitoring quotas and metrics in the Azure portal
 To review the status of the various quotas and metrics that affect an app, go to the [Azure portal](https://portal.azure.com).

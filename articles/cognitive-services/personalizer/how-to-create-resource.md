@@ -1,7 +1,7 @@
 ---
 title: Create Personalizer resource
 description: Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
 ---
 

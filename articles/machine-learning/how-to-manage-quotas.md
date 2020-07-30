@@ -5,26 +5,29 @@ description: Learn about the quotas on resources for Azure Machine Learning and 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 03/05/2020
+ms.date: 05/08/2020
+ms.topic: conceptual
+ms.custom: troubleshooting,contperfq4 
 ---
 
-# Manage and request quotas for Azure resources
+# Manage & increase quotas for resources with Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This article provides details on preconfigured limits on Azure resources for your subscription. Also included are instructions on how to request quota enhancements for each type of resource. These limits are put in place to prevent budget over-runs due to fraud, and to honor Azure capacity constraints.
+In this article, you will learn about preconfigured limits on Azure resources for your [Azure Machine Learning](overview-what-is-azure-ml.md) subscription and what quotas you can manage. These limits are put in place to prevent budget over-runs due to fraud, and to honor Azure capacity constraints. 
 
-As with other Azure services, there are limits on certain resources associated with Azure Machine Learning. These limits range from a cap on the number of workspaces to limits on the actual underlying compute that gets used for model training or inference/scoring. 
+As with other Azure services, there are limits on certain resources associated with Azure Machine Learning. These limits range from a cap on the number of [workspaces](concept-workspace.md) to limits on the actual underlying compute that gets used for model training or inference/scoring. 
 
 As you design and scale your Azure Machine Learning resources for production workloads, consider these limits. For example, if your cluster doesn't reach the target number of nodes, then you may have reached an Azure Machine Learning Compute cores limit for your subscription. If you want to raise the limit or quota above the Default Limit, open an online customer support request at no charge. The limits can't be raised above the Maximum Limit value shown in the following tables due to Azure Capacity constraints. If there is no Maximum Limit column, then the resource doesn't have adjustable limits.
 
+
+Along with managing quotas, you can also learn how to [plan & manage costs for Azure Machine Learning](concept-plan-manage-cost.md).
+
 ## Special considerations
 
-+ A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, contact Azure support.
++ A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, contact Azure support. You can also [increase your quotas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
 
 + Your quota is shared across all the services in your subscriptions including Azure Machine Learning. The only exception is Azure Machine Learning compute which has a separate quota from the core compute quota. Be sure to calculate the quota usage across all services when evaluating your capacity needs.
 
@@ -44,10 +47,10 @@ Virtual machine cores have a regional total limit and a regional per size series
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-For a more detailed and up-to-date list of quota limits, check the Azure-wide quota article [here](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+For a more detailed and up-to-date list of quota limits, check the [Azure-wide quota article](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ### Azure Machine Learning Compute
-For Azure Machine Learning Compute, there is a default quota limit on both the number of cores and number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota above and the core limits are not shared between the two resource types since AmlCompute is a managed service that deploys resources in a hosted-on-behalf-of model.
+For [Azure Machine Learning Compute](concept-compute-target.md#azure-machine-learning-compute-managed), there is a default quota limit on both the number of cores and number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota above and the core limits are not shared between the two resource types since AmlCompute is a managed service that deploys resources in a hosted-on-behalf-of model.
 
 Available resources:
 + Dedicated cores per region have a default limit of 24 - 300 depending on your subscription offer type with higher defaults for EA and CSP offer types.  The number of dedicated cores per subscription can be increased and is different for each VM family. Certain specialized VM families like NCv2, NCv3, or ND series start with a default of zero cores. Contact Azure support by raising a quota request to discuss increase options.
@@ -64,7 +67,7 @@ Available resources:
 | Maximum nodes in a single Azure Machine Learning Compute (AmlCompute) resource | 100 nodes |
 | Maximum GPU MPI processes per node | 1-4 |
 | Maximum GPU workers per node | 1-4 |
-| Maximum job lifetime | 90 days<sup>1</sup> |
+| Maximum job lifetime | 21 days<sup>1</sup> |
 | Maximum job lifetime on a Low-Priority Node | 7 days<sup>2</sup> |
 | Maximum parameter servers per node | 1 |
 
@@ -72,7 +75,7 @@ Available resources:
 <sup>2</sup> Jobs on a Low-Priority node could be preempted anytime there is a capacity constraint. We recommend you implement checkpointing in your job.
 
 ### Azure Machine Learning Pipelines
-For Azure Machine Learning Pipelines, there is a quota limit on the number of steps in a pipeline and on the number of schedule-based runs of published pipelines per region in a subscription.
+For [Azure Machine Learning Pipelines](concept-ml-pipelines.md), there is a quota limit on the number of steps in a pipeline and on the number of schedule-based runs of published pipelines per region in a subscription.
 - Maximum number of steps allowed in a pipeline is 30,000
 - Maximum number of the sum of schedule-based runs and blob pulls for blog-triggered schedules of published pipelines per subscription per month is 100,000
 
@@ -93,7 +96,7 @@ There is a limit on the number of storage accounts per region as well in a given
 
 ## Workspace level quota
 
-To better manage resource allocations for Amlcompute between various workspaces, we have introduced a feature that allows you to distribute subscription level quotas (by VM family) and configure them at the workspace level. The default behavior is that all workspaces have the same quota as the subscription level quota for any VM family. However, as the number of workspaces increases, and workloads of varying priority start sharing the same resources, users want a way to better share capacity and avoid resource contention issues. Azure Machine Learning provides a solution with its managed compute offering by allowing users to set a maximum quota for a particular VM family on each workspace. This is analogous to distributing your capacity between workspaces, and the users can choose to also over-allocate to drive maximum utilization. 
+To better manage resource allocations for Azure Machine Learning Compute target (Amlcompute) between various [workspaces](concept-workspace.md), we have introduced a feature that allows you to distribute subscription level quotas (by VM family) and configure them at the workspace level. The default behavior is that all workspaces have the same quota as the subscription level quota for any VM family. However, as the number of workspaces increases, and workloads of varying priority start sharing the same resources, users want a way to better share capacity and avoid resource contention issues. Azure Machine Learning provides a solution with its managed compute offering by allowing users to set a maximum quota for a particular VM family on each workspace. This is analogous to distributing your capacity between workspaces, and the users can choose to also over-allocate to drive maximum utilization. 
 
 To set quotas at the workspace level, go to any workspace in your subscription, and click on **Usages + quotas** in the left pane. Then select the **Configure quotas** tab to view the quotas, expand any VM family, and set a quota limit on any workspace listed under that VM family. Remember that you cannot set a negative value or a value higher than the subscription level quota. Also, as you would observe, by default all workspaces are assigned the entire subscription quota to allow for full utilization of the allocated quota.
 
@@ -101,7 +104,7 @@ To set quotas at the workspace level, go to any workspace in your subscription, 
 
 
 > [!NOTE]
-> This is an Enterprise edition feature only. If you have both a Basic and an Enterprise edition workspace in your subscription, you can use this to only set quotas on your Enterprise workspaces. Your Basic workspaces will continue to have the subscription level quota which is the default behavior.
+> This is an Enterprise edition feature only. If you have both a [Basic and an Enterprise edition](overview-what-is-azure-ml.md#sku) workspace in your subscription, you can use this to only set quotas on your Enterprise workspaces. Your Basic workspaces will continue to have the subscription level quota which is the default behavior.
 >
 > You need subscription level permissions to set quota at the workspace level. This is enforced so that individual workspace owners do not edit or increase their quotas and start encroaching onto resources set aside for another workspace. Thus a subscription admin is best suited to allocate and distribute these quotas across workspaces.
 
@@ -109,15 +112,9 @@ To set quotas at the workspace level, go to any workspace in your subscription, 
 
 ## View your usage and quotas
 
-Viewing your quota for various resources, such as Virtual Machines, Storage, Network, is easy through the Azure portal.
+Azure Machine Learning Compute is managed separately from other Azure resource quotas in your subscription. To view this quota, you need to drill down into Machine Learning services.  
 
-1. On the left pane, select **All services** and then select **Subscriptions** under the General category.
-
-1. From the list of subscriptions, select the subscription whose quota you are looking for.
-
-   **There is a caveat**, specifically for viewing the Azure Machine Learning Compute quota. As mentioned above, that quota is separate from the compute quota on your subscription.
-
-1. On the left pane, select **Machine Learning service** and then select any workspace from the list shown
+1. On the left pane, select **Machine Learning service** and then select any workspace from the list shown.
 
 1. On the next blade, under the **Support + troubleshooting section** select **Usage + quotas** to view your current quota limits and usage.
 
@@ -128,13 +125,27 @@ Viewing your quota for various resources, such as Virtual Machines, Storage, Net
 
     + **Workspace view:** This allows you to view your usage of core quota by Workspace, expanding it by VM family, and further expanding it by the actual cluster names. This view is optimal for quickly getting into the details of core usage for a particular workspace to see the break-up by VM families and further by the underlying clusters for each of those families.
 
+Viewing your quota for various other Azure resources, such as Virtual Machines, Storage, Network, is easy through the Azure portal.
+
+1. On the left pane, select **All services** and then select **Subscriptions** under the General category.
+
+1. From the list of subscriptions, select the subscription whose quota you are looking for.
+
 ## Request quota increases
 
 If you want to raise the limit or quota above the default limit, [open an online customer support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) at no charge.
 
-The limits can't be raised above the maximum limit value shown in the tables. If there is no maximum limit, then the resource doesn't have adjustable limits. [This](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors) article covers the quota increase process in more detail.
+The limits can't be raised above the maximum limit value shown in the tables. If there is no maximum limit, then the resource doesn't have adjustable limits. [See step by step instructions on how to increase your quota](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
 
 When requesting a quota increase, you need to select the service you are requesting to raise the quota against, which could be services such as Machine Learning service quota, Container instances or Storage quota. In addition for Azure Machine Learning Compute, you can click on the **Request Quota** button while viewing the quota following the steps above.
 
 > [!NOTE]
 > [Free Trial subscriptions](https://azure.microsoft.com/offers/ms-azr-0044p) are not eligible for limit or quota increases. If you have a [Free Trial subscription](https://azure.microsoft.com/offers/ms-azr-0044p), you can upgrade to a [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. For more information, see [Upgrade Azure Free Trial to Pay-As-You-Go](../billing/billing-upgrade-azure-subscription.md) and  [Free Trial subscription FAQ](https://azure.microsoft.com/free/free-account-faq).
+
+## Next steps
+
+Learn more with these articles:
+
++ [Plan & manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
+
++ [How to increase your quota](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
