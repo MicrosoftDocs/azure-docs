@@ -25,6 +25,11 @@
     href: extension-resource-types.md
   - name: Resource instance limit
     href: resources-without-resource-group-limit.md
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
 - name: How to
   items:
   - name: Move - resource groups/subscriptions

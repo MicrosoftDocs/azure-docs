@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 07/17/2020
+ms.date: 07/24/2020
 ms.topic: conceptual
 ---
 
@@ -77,6 +77,7 @@ Most tasks and services can be performed on delegated resources across managed t
 - View activity log details for delegated subscriptions
 - Log analytics: Query data from remote customer workspaces in multiple tenants
 - Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the service provider tenant through webhooks
+- For SAP workloads, [monitor SAP Solutions metrics with an aggregated view across customer tenants](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Azure Networking](../../networking/networking-overview.md):
 

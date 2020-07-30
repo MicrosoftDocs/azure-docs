@@ -195,7 +195,7 @@ If you have trouble, see [Troubleshooting Azure Diagnostics](../azure-diagnostic
 [Debugging an Azure Application]: https://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
 [Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell version 0.8.7 or later]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Install and configure Azure PowerShell version 0.8.7 or later]: /powershell/azure/
 
 
 

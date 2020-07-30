@@ -232,6 +232,10 @@
       href: devtest-lab-mandatory-artifacts.md
     - name: Troubleshoot issues with applying artifacts
       href: devtest-lab-troubleshoot-apply-artifacts.md
+  - name: Encrypt storage and OS disks used by labs
+    items:
+    - name: Encrypt storage used by a lab
+      href: encrypt-storage.md
   - name: Integrate with CI/CD
     items:
     - name: Integrate labs into your Azure Pipelines CI/CD pipeline
@@ -291,7 +295,7 @@
   - name: PowerShell - sample Az.DevTestLabs2 module
     href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library
   - name: REST API
-    href: https://docs.microsoft.com/rest/api/dtl/
+    href: /rest/api/dtl/
   - name: Resource Manager template
     href: /azure/templates/microsoft.devtestlab/allversions
 - name: Resources
@@ -301,7 +305,7 @@
   - name: Pricing 
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-devtestlabs.html
+    href: /answers/topics/azure-devtestlabs.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-devtest-labs
   - name: Videos

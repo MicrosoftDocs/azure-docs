@@ -19,6 +19,9 @@ This article provides the properties and schema for blob storage events. For an
 
 These events are triggered when a client creates, replaces, or deletes a blob by calling Blob REST APIs.
 
+> [!NOTE]
+> The `$logs` and `$blobchangefeed` containers aren't integrated with Event Grid, so activity in these containers will not generate events. Also, using the dfs endpoint *`(abfss://URI) `* for non-hierarchical namespace enabled accounts will not generate events, but the blob endpoint *`(wasb:// URI)`* will generate events.
+
  |Event name |Description|
  |----------|-----------|
  |**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `PutBlob`, `PutBlockList`, or `CopyBlob` operations that are available in the Blob REST API.   |

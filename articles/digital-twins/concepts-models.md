@@ -27,7 +27,7 @@ Models are written using the JSON-LD-based **Digital Twin Definition Language (D
 
 Models for Azure Digital Twins are defined using the Digital Twins Definition language (DTDL). DTDL is based on JSON-LD and is programming-language independent. DTDL is not exclusive to Azure Digital Twins, but is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
 
-Azure Digital Twins uses DTDL *version 2*. For more information about this version of DTDL, see its spec documentation in GitHub: [Digital Twins Definition Language (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Azure Digital Twins uses DTDL *version 2*. For more information about this version of DTDL, see its spec documentation in GitHub: [*Digital Twins Definition Language (DTDL) - version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 > [!TIP] 
 > Not all services that use DTDL implement the exact same features of DTDL. For example, IoT Plug and Play does not use the DTDL features that are for graphs, while Azure Digital Twins does not currently implement DTDL commands. For more information on the DTDL features that are specific to Azure Digital Twins, see the section later in this article on [Azure Digital Twins DTDL implementation specifics](#azure-digital-twins-dtdl-implementation-specifics).
