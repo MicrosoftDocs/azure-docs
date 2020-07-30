@@ -10,6 +10,7 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
+ms.custom: devx-track-javascript
 ---
 
 # Embed Video Indexer widgets in your apps
