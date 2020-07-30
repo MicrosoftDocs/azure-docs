@@ -31,6 +31,8 @@
     href: quickstart-create-security-twin.md
   - name: Create custom security alerts
     href: quickstart-create-custom-alerts.md
+  - name: Investigate security alerts
+    href: quickstart-investigate-security-alerts.md
 - name: Concepts
   items:
   - name: Security agent authentication
