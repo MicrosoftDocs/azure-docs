@@ -5,7 +5,7 @@ services: iot-hub
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
-ms.custom: [mvc, amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
+ms.custom: [mvc, amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', devx-track-javascript]
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub

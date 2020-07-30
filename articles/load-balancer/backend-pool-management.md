@@ -15,7 +15,7 @@ The backend pool is a critical component of the load balancer. The backend pool 
 
 There are two ways of configuring a backend pool:
 * Network Interface Card (NIC)
-* Combination IP address and Virtual Network (VNET) Resource ID
+* Combination of IP address and Virtual Network (VNET) Resource ID
 
 Configure your backend pool by NIC when using existing virtual machines and virtual machine scale sets. This method builds the most direct link between your resource and the backend pool. 
 
