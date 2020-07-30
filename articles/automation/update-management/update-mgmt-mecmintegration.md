@@ -31,7 +31,8 @@ Perform the following steps if you are going to continue managing update deploym
 
 1. Create a software update deployment from the top-level site in your Windows Endpoint Configuration Manager hierarchy using the process described in [Deploy software updates](/configmgr/sum/deploy-use/deploy-software-updates). The only setting that must be configured differently from a standard deployment is the option **Do not install software updates** to control the download behavior of the deployment package. This behavior is managed in Update Management by creating a scheduled update deployment in the next step.
 
-1. In Azure Automation, select **Update Management**. Create a new deployment following the steps described in [Creating an Update Deployment](update-mgmt-deploy-updates.md#schedule-an-update-deployment) and select **Imported groups** on the **Type** dropdown to select the appropriate Windows Endpoint Configuration Manager collection. Keep in mind the following important points:
+2. In Azure Automation, select **Update Management**. Create a new deployment following the steps described in [Creating an Update Deployment](update-mgmt-deploy-updates.md#schedule-an-update-deployment) and select **Imported groups** on the **Type** dropdown to select the appropriate Windows Endpoint Configuration Manager collection. Keep in mind the following important points:
+
     a. If a maintenance window is defined on the selected Windows Endpoint Configuration Manager device collection, members of the collection honor it instead of the **Duration** setting defined in the scheduled deployment.
     b. Members of the target collection must have a connection to the Internet (either direct, through a proxy server or through the Log Analytics gateway).
 
