@@ -92,7 +92,7 @@ You can convert MB/s to IOPS by using the following formula:
 
 ### How do I change the service level of a volume?
 
-Changing the service level of a volume is not currently supported.
+You can change the service level of an existing volume by moving the volume to another capacity pool that uses the [service level](azure-netapp-files-service-levels.md) you want for the volume. See [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md). 
 
 ### How do I monitor Azure NetApp Files performance?
 
