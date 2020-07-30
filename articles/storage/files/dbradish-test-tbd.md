@@ -20,6 +20,10 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
     - [Create a file share](storage-how-to-create-file-share.md) for a step-by-step description of how to create a file share.
 * At least one supported instance of Windows Server or Windows Server cluster to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Windows file server considerations](storage-sync-files-planning.md#windows-file-server-considerations).
 
+# [Portal](#tab/azure-portal)
+
+say something here
+
 # [PowerShell](#tab/azure-powershell)
 
 * The Az PowerShell module may be used with either PowerShell 5.1 or PowerShell 6+. You may use the Az PowerShell module for Azure File Sync on any supported system, including non-Windows systems, however the server registration cmdlet must always be run on the Windows Server instance you are registering (this can be done directly or via PowerShell remoting). On Windows Server 2012 R2, you can verify that you are running at least PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
@@ -87,7 +91,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
 ## Prepare Windows Server to use with Azure File Sync
 For each server that you intend to use with Azure File Sync, including each server node in a Failover Cluster, disable **Internet Explorer Enhanced Security Configuration**. This is required only for initial server registration. You can re-enable it after the server has been registered.
 
-# [C#](#tab/csharp)
+# [Portal](#tab/azure-portal)
 > [!Note]  
 > You can skip this step if you're deploying Azure File Sync on Windows Server Core.
 
@@ -121,6 +125,9 @@ if ($installType -ne "Server Core") {
     Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 }
 ``` 
+# [Azure CLI](#tab/azure-cli)
+
+say something here.
 
 ---
 
