@@ -352,6 +352,33 @@ Available line magics:
 Available cell magics:
 [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
 
+
+## Orchestrate Notebook
+
+### Add a Notebook to Pipeline
+
+Click the **Add to pipeline** button on the upper right corner to add a notebook to an existing pipeline or create a new pipeline.
+
+![add-to-pipeline](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
+
+### Designate a Parameters Cell in Notebook
+
+To parameterize your notebook select the ellipses (...) to access the additional cell actions menu at the far right. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
+
+![toggle-parameter](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
+
+Azure Data Factory looks for the parameters cell and treats this cell as defaults for the parameters passed in at execution time. Execution engine will add a new cell beneath the parameters cell with input parameters in order to overwrite the default values. When there is no parameters cell is designated the injected cell will be inserted at the top of the notebook.
+
+### Assign Parameters Values from a Pipeline
+
+Once you've created a notebook with parameters, you can execute it from a pipeline with the Azure Synapse Notebook activity. After you add the activity to your pipeline canvas, you will be able to set the parameters values under **Base parameters** section on the **Settings** tab. 
+
+![assign-parameter](./media/apache-spark-development-using-notebooks/assign-parameter.png)
+
+When assigning parameter values, you can use the [pipeline expression language](../../data-factory/control-flow-expression-language-functions.md) or [system variables](../../data-factory/control-flow-system-variables.md).
+
+
+
 ## Shortcut keys
 
 Similar to Jupyter Notebooks, Azure Synapse Studio notebooks have a modal user interface. The keyboard does different things depending on which mode the notebook cell is in. Synapse Studio notebooks support the following two modes for a given code cell: command mode and edit mode.
