@@ -137,7 +137,7 @@ if ($installType -ne "Server Core") {
 
 # [Azure CLI](#tab/azure-cli)
 
-Follow the instructions for the Azure Portal or PowerShell.
+Follow the instructions for the Azure portal or PowerShell.
 
 ---
 
@@ -208,7 +208,7 @@ $storageSync = New-AzStorageSyncService -ResourceGroupName $resourceGroup -Name 
 
 # [Azure CLI](#tab/azure-cli)
 
-Follow the instructions for the Azure Portal or PowerShell.
+Follow the instructions for the Azure portal or PowerShell.
 
 ---
 
@@ -264,7 +264,7 @@ Remove-Item -Path ".\StorageSyncAgent.msi" -Recurse -Force
 ```
 # [Azure CLI](#tab/azure-cli)
 
-Follow the instructions for the Azure Portal or PowerShell.
+Follow the instructions for the Azure portal or PowerShell.
 
 ---
 
@@ -302,7 +302,7 @@ $registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 ```
 # [Azure CLI](#tab/azure-cli)
 
-Follow the instructions for the Azure Portal or PowerShell.
+Follow the instructions for the Azure portal or PowerShell.
 
 ---
 
