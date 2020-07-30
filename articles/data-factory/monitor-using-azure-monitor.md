@@ -106,8 +106,8 @@ This solution provides you a summary of overall health of your Data Factory, wit
 Installing this solution creates a default set of views inside the workbooks section of the chosen Log Analytics workspace. As a result, the following metrics become enabled:
 
 * ADF Runs - 1) Pipeline Runs by Data Factory
-* ADF Runs - 2) Activity Runs by Data Factor
-* ADF Runs - 3) Trigger Runs by Data Factor
+* ADF Runs - 2) Activity Runs by Data Factory
+* ADF Runs - 3) Trigger Runs by Data Factory
 * ADF Errors - 1) Top 10 Pipeline Errors by Data Factory
 * ADF Errors - 2) Top 10 Activity Runs by Data Factory
 * ADF Errors - 3) Top 10 Trigger Errors by Data Factory
@@ -196,7 +196,7 @@ Sign in to the Azure portal and select **Monitor** > **Alerts** to create alerts
 
 ### Diagnostic settings
 
-Use diagnostic settings to configure diagnostic logs for noncompute resources. The settings for a resource control have the following features:
+Use diagnostic settings to configure diagnostic logs for non-compute resources. The settings for a resource control have the following features:
 
 * They specify where diagnostic logs are sent. Examples include an Azure storage account, an Azure event hub, or Monitor logs.
 * They specify which log categories are sent.

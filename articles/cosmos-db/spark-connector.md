@@ -91,7 +91,7 @@ writeConfig = {
 }
 
 # Write to Cosmos DB from the flights DataFrame
-flights.write.format("com.microsoft.azure.cosmosdb.spark").options(
+flights.write.mode("overwrite").format("com.microsoft.azure.cosmosdb.spark").options(
     **writeConfig).save()
 ```
 
