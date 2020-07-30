@@ -50,7 +50,7 @@ Network security groups (NSGs) are supported on Application Gateway. But there a
   - Don't remove the default outbound rules.
   - Don't create other outbound rules that deny any outbound connectivity.
 
-- Traffic from the **AzureLoadBalancer** tag must be allowed.
+- Traffic from the **AzureLoadBalancer** tag with the destination subnet as **Any** must be allowed.
 
 #### Allow Application Gateway access to a few source IPs
 
