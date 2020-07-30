@@ -22,7 +22,7 @@ Specifically, Microsoft does not send any of the following types of information 
 
 The following sample scenario includes feature usage information that helps improve the product.
 
-An example query from the queries used for the usage and diagnostics data collection is provided below. The query identifies the count and types of difference streaming data sources being used in Azure SQL Edge. This data helps Microsoft identify which streaming data sources are being used commonly such that Microsoft can improve the performance and user experience associated with these data sources. 
+An example query from the queries used for the usage and diagnostics data collection is provided below. The query identifies the count and types of different streaming data sources being used in Azure SQL Edge. This data helps Microsoft identify which streaming data sources are being used commonly such that Microsoft can improve the performance and user experience associated with these data sources. 
 
 ```sql
 select 
