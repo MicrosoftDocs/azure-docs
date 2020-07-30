@@ -169,16 +169,16 @@
         href: howto-move-regions-portal.md
   - name: Hyperscale (Citus)
     items:
-    - name: Nodes
-      href: concepts-hyperscale-nodes.md
     - name: Distributed data
-      href: concepts-hyperscale-distributed-data.md
-    - name: Determine application type
-      href: concepts-hyperscale-app-type.md
-    - name: Choose a distribution column
-      href: concepts-hyperscale-choose-distribution-column.md
-    - name: Table colocation
-      href: concepts-hyperscale-colocation.md
+      items:
+      - name: Nodes and tables
+        href: concepts-hyperscale-nodes.md
+      - name: Determine application type
+        href: concepts-hyperscale-app-type.md
+      - name: Choose a distribution column
+        href: concepts-hyperscale-choose-distribution-column.md
+      - name: Table colocation
+        href: concepts-hyperscale-colocation.md
     - name: Data access and security
       items:
       - name: Firewall rules
