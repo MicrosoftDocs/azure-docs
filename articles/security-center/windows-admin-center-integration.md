@@ -41,7 +41,7 @@ By combining these two tools, Security Center becomes your single pane of glass 
 1. Follow the instructions to connect your server to Security Center. After you've entered the necessary details and confirmed, Security Center makes the necessary configuration changes to ensure that all of the following are true:
     * An Azure Gateway is registered.
     * The server has a workspace to report to and an associated subscription.
-    * Security Center's standard tier Log Analytics solution is enabled on the workspace. This solution provides Security Center's Standard tier features for *all* servers and virtual machines reporting to this workspace.
+    * Security Center's standard tier Log Analytics solution is enabled on the workspace. This solution provides Security Center's standard tier features for *all* servers and virtual machines reporting to this workspace.
     * Security Center's standard tier pricing for Virtual Machine is enabled on the subscription.
     * The Log Analytics agent is installed on the server and configured to report to the selected workspace. If the server already reports to another workspace, it's configured to report to the newly selected workspace as well.
 

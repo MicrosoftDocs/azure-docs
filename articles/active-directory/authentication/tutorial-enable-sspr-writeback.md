@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need the following resources and privileges:
 
-* A working Azure AD tenant with at least an Azure AD Premium P1 trial license enabled.
+* A working Azure AD tenant with at least an Azure AD Premium P1 or trial license enabled.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * For more information, see [Licensing requirements for Azure AD SSPR](concept-sspr-licensing.md).
 * An account with *global administrator* privileges.
@@ -60,7 +60,7 @@ To correctly work with SSPR writeback, the account specified in Azure AD Connect
 * **Write permissions** on `pwdLastSet`
 * **Extended rights** for "Unexpire Password" on the root object of *each domain* in that forest, if not already set.
 
-If you don't assign these permissions, writeback appears to be configured correctly, but users encounter errors when they manage their on-premises passwords from the cloud. Permissions must be applied to **This object and all descendant objects** for "Unexpire Password" to appear.  
+If you don't assign these permissions, writeback may appear to be configured correctly, but users encounter errors when they manage their on-premises passwords from the cloud. Permissions must be applied to **This object and all descendant objects** for "Unexpire Password" to appear.  
 
 > [!TIP]
 >
@@ -70,7 +70,7 @@ To set up the appropriate permissions for password writeback to occur, complete 
 
 1. In your on-premises AD DS environment, open **Active Directory Users and Computers** with an account that has the appropriate *domain administrator* permissions.
 1. From the **View** menu, make sure that **Advanced features** are turned on.
-1. In the left panel, right-click the object that represents the root of the domain and select **Properties** > **Security** > **Advanced**.
+1. In the left panel, right-select the object that represents the root of the domain and select **Properties** > **Security** > **Advanced**.
 1. From the **Permissions** tab, select **Add**.
 1. For **Principal**, select the account that permissions should be applied to (the account used by Azure AD Connect).
 1. In the **Applies to** drop-down list, select **Descendant User objects**.
@@ -80,7 +80,7 @@ To set up the appropriate permissions for password writeback to occur, complete 
     * **Write lockoutTime**
     * **Write pwdLastSet**
 
-    [![](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png "Set the appropriate permissions in Active Users and Computers for the account that is used by Azure AD Connect")](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
+    [ ![Set the appropriate permissions in Active Users and Computers for the account that is used by Azure AD Connect](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png) ](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
 
 1. When ready, select **Apply / OK** to apply the changes and exit any open dialog boxes.
 

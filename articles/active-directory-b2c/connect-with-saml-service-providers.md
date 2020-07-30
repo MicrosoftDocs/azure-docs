@@ -351,7 +351,7 @@ To complete this tutorial using our [SAML Test Application][samltest]:
 Select **Login** and you should be presented with a user sign-in screen. Upon sign-in, a SAML assertion is issued back to the sample application.
 
 ## Enable Encypted Assertions
-To Encrypt SAML Assertions sent back to the Service Provider, Azure AD B2C will use the Service providers public key certificate. Th epublic key must exist in the SAML Metadata outlined in the above ["samlMetadataUrl"](#samlmetadataurl) as a KeyDescriptor with a use of 'Encryption'.
+To Encrypt SAML Assertions sent back to the Service Provider, Azure AD B2C will use the Service providers public key certificate. The public key must exist in the SAML Metadata outlined in the above ["samlMetadataUrl"](#samlmetadataurl) as a KeyDescriptor with a use of 'Encryption'.
 
 The following is an example of the SAML metadata KeyDescriptor with a use set to Encryption:
 

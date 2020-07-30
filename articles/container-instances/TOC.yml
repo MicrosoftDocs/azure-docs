@@ -16,6 +16,8 @@
   - name: Deploy a container instance - ARM template
     displayName: Resource Manager
     href: container-instances-quickstart-template.md
+  - name: Deploy a container instance - Docker CLI
+    href: container-instances-quickstart-docker-cli.md
 - name: Tutorials
   items:
   - name: Create and deploy container image

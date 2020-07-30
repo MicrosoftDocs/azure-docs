@@ -5,13 +5,12 @@ description: Use an isolated Azure Virtual Network with Azure Machine Learning t
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
-ms.custom: contperfq4, tracking-python
+ms.topic: conceptual
+ms.custom: how-to, contperfq4, tracking-python
 
 ---
 
@@ -54,9 +53,6 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 > [!WARNING]
 > 
 > Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
->
-> Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled. Instead, you can use Azure Kubernetes Service in a virtual network. For more information, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
-
 
 <a id="amlcompute"></a>
 
@@ -123,7 +119,7 @@ You can also override the default datastore on a per-module basis. This gives yo
 1. Expand the **Output settings** section.
 1. Select **Override default output settings**.
 1. Select **Set output settings**.
-1. Specify a new datstore.
+1. Specify a new datastore.
 
 ### Azure Data Lake Storage Gen2 access control
 
@@ -302,8 +298,8 @@ If you don't want to use the default outbound rules and you do want to limit the
 - Deny outbound internet connection by using the NSG rules.
 
 - For a __compute instance__ or a __compute cluster__, limit outbound traffic to the following items:
-   - Azure Storage, by using __Service Tag__ of __Storage__.
-   - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry__.
+   - Azure Storage, by using __Service Tag__ of __Storage.RegionName__. Where `{RegionName}` is the name of an Azure region.
+   - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry.RegionName__. Where `{RegionName}` is the name of an Azure region.
    - Azure Machine Learning, by using __Service Tag__ of __AzureMachineLearning__
    - Azure Resource Manager, by using __Service Tag__ of __AzureResourceManager__
    - Azure Active Directory, by using __Service Tag__ of __AzureActiveDirectory__
@@ -428,6 +424,8 @@ except ComputeTargetException:
 
 When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
 
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
 ### Access data in a Compute Instance notebook
 
 If you're using notebooks on an Azure Compute instance, you must ensure that your notebook is running on a compute resource behind the same virtual network and subnet as your data. 
@@ -444,9 +442,6 @@ To add Azure Kubernetes Service (AKS) in a virtual network to your workspace, us
 > Before you begin the following procedure, follow the prerequisites in the [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) how-to and plan the IP addressing for your cluster.
 >
 > The AKS instance and the Azure virtual network must be in the same region. If you secure the Azure Storage Account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance.
-
-> [!WARNING]
-> Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled.
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
 

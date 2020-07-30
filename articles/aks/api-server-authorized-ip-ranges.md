@@ -57,8 +57,10 @@ az aks create \
 > - The firewall public IP address
 > - Any range that represents networks that you'll administer the cluster from
 > - If you are using Azure Dev Spaces on your AKS cluster, you have to allow [additional ranges based on your region][dev-spaces-ranges].
-
-> The upper limit for the number of IP ranges you can specify is 3500.
+>
+> The upper limit for the number of IP ranges you can specify is 200.
+>
+> The rules can take up to 2min to propagate. Please allow up to that time when testing the connection.
 
 ### Specify the outbound IPs for the Standard SKU load balancer
 

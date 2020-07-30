@@ -19,7 +19,7 @@ Azure App Service is a fully managed platform for building and hosting your web 
 
 To enable advanced threat protection for your Azure App Service plan, you must:
 
-* Subscribe to Azure Security Center's Standard pricing tier
+* Subscribe to Azure Security Center's standard pricing tier
 * Enable the App Service plan as shown below. Security Center is natively integrated with App Service, eliminating the need for deployment and onboarding - the integration is transparent.
 * Have an App Service plan that is associated with dedicated machines. Supported plans are: Basic, Standard, Premium, Isolated, or Linux. Security Center doesn't support the Free, Shared, or Consumption plans. For more information, see [App Service Plans](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
@@ -34,7 +34,7 @@ Security Center leverages the scale of the cloud, and the visibility that Azure 
 2. Go to **Pricing & settings** and choose a subscription.
 3. Under **Pricing tier**, in the **App service** row, toggle your plan to **Enabled**.
 
-    [![Enabling app services in your Standard tier subscription](media/security-center-app-services/app-services-toggle.png)](media/security-center-app-services/app-services-toggle.png#lightbox)
+    [![Enabling app services in your standard tier subscription](media/security-center-app-services/app-services-toggle.png)](media/security-center-app-services/app-services-toggle.png#lightbox)
 
 
 >[!NOTE]

@@ -52,8 +52,12 @@
   - name: Access and identity
     href: concepts-identity.md
   - name: Security
-    href: concepts-security.md
     items:
+    - name: Security for applications and clusters
+      href: concepts-security.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
   - name: Networking
     href: concepts-network.md
   - name: Storage
@@ -66,6 +70,9 @@
     items:
     - name: Overview
       href: best-practices.md
+    - name: Baseline architecture for an AKS cluster
+      href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+      maintainContext: True
     - name: For cluster operators
       items:
       - name: Multi-tenancy and cluster isolation
@@ -246,9 +253,9 @@
       href: update-credentials.md
     - name: Enable Azure Active Directory integration
       items:
-        - name: AKS-managed AAD (preview)
+        - name: AKS-managed AAD
           href: managed-aad.md
-        - name: Use the Azure CLI
+        - name: AAD integration (legacy)
           href: azure-ad-integration-cli.md
     - name: Use Azure RBAC for Kubernetes Authorization (preview)
       href: manage-azure-rbac.md
@@ -295,8 +302,6 @@
     items:
     - name: Use Local Process with Kubernetes with Visual Studio Code (preview)
       href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
-    - name: Use Local Process with Kubernetes with Visual Studio (preview)
-      href: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
     - name: Install existing applications with Helm
       href: kubernetes-helm.md
     - name: Use OpenFaaS

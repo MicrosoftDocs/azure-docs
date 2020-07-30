@@ -20,7 +20,7 @@ In this article, you'll learn how to:
 > * Run an on-demand backup job
 
 >[!NOTE]
->[Get started](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) with SAP HANA backup preview for RHEL (7.4, 7.6, 7.7 or 8.1). For further queries write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>As of August 1st, 2020, SAP HANA backup for RHEL (7.4, 7.6, 7.7 & 8.1) is generally available.
 
 >[!NOTE]
 >**Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads** is now available in preview.<br>
@@ -48,25 +48,25 @@ More details around using these options are shared below:
 
 #### Private endpoints
 
-Private endpoints allow you to connect securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault. The network traffic between your resources inside the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Read more on private endpoints for Azure Backup [here](https://docs.microsoft.com/azure/backup/private-endpoints).
+Private endpoints allow you to connect securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault. The network traffic between your resources inside the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
 
 #### NSG tags
 
-If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) for *Azure AD* and *Azure Storage*.  The following steps describe the process to create a rule for the Azure Backup tag:
+If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/security-overview.md#service-tags) for *Azure AD* and *Azure Storage*.  The following steps describe the process to create a rule for the Azure Backup tag:
 
 1. In **All Services**, go to **Network security groups** and select the network security group.
 
 1. Select **Outbound security rules** under **Settings**.
 
-1. Select **Add**. Enter all the required details for creating a new rule as described in [security rule settings](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Ensure the option **Destination** is set to *Service Tag* and **Destination service tag** is set to *AzureBackup*.
+1. Select **Add**. Enter all the required details for creating a new rule as described in [security rule settings](../virtual-network/manage-network-security-group.md#security-rule-settings). Ensure the option **Destination** is set to *Service Tag* and **Destination service tag** is set to *AzureBackup*.
 
 1. Click **Add**  to save the newly created outbound security rule.
 
-You can similarly create NSG outbound security rules for Azure Storage and Azure AD.
+You can similarly create NSG outbound security rules for Azure Storage and Azure AD. For more information on service tags, see [this article](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
 
 #### Azure Firewall tags
 
-If you're using Azure Firewall, create an application rule by using the *AzureBackup* [Azure Firewall FQDN tag](https://docs.microsoft.com/azure/firewall/fqdn-tags). This allows all outbound access to Azure Backup.
+If you're using Azure Firewall, create an application rule by using the *AzureBackup* [Azure Firewall FQDN tag](../firewall/fqdn-tags.md). This allows all outbound access to Azure Backup.
 
 #### Allow access to service IP ranges
 
@@ -80,7 +80,7 @@ You can also use the following FQDNs to allow access to the required services fr
 | -------------- | ------------------------------------------------------------ |
 | Azure  Backup  | `*.backup.windowsazure.com`                             |
 | Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
-| Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+| Azure  AD      | Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
 
 #### Use an HTTP proxy server to route traffic
 
@@ -208,5 +208,5 @@ If you want to take a local backup (using HANA Studio) of a database that's bein
 
 ## Next steps
 
-* Learn how to [restore SAP HANA databases running on Azure VMs](https://docs.microsoft.com/azure/backup/sap-hana-db-restore)
-* Learn how  to [manage SAP HANA databases that are backed up using Azure Backup](https://docs.microsoft.com/azure/backup/sap-hana-db-manage)
+* Learn how to [restore SAP HANA databases running on Azure VMs](./sap-hana-db-restore.md)
+* Learn how to [manage SAP HANA databases that are backed up using Azure Backup](./sap-hana-db-manage.md)

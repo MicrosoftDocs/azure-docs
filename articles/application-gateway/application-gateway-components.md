@@ -5,7 +5,7 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 07/20/2020
 ms.author: absha
 ---
 
@@ -64,13 +64,13 @@ There are two types of listeners:
 
 - **Basic**. This type of listener listens to a single domain site, where it has a single DNS mapping to the IP address of the application gateway. This listener configuration is required when you host a single site behind an application gateway.
 
-- **Multi-site**. This listener configuration is required when you configure more than one web application on the same application gateway instance. It allows you to configure a more efficient topology for your deployments by adding up to 100 websites to one application gateway. Each website can be directed to its own backend pool. For example, three subdomains, abc.contoso.com, xyz.contoso.com, and pqr.contoso.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting.
+- **Multi-site**. This listener configuration is required when you want to configure routing based on host name or domain name for more than one web application on the same application gateway. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three [multi-site listeners](multiple-site-overview.md) and configure each listener for the respective port and protocol setting. 
 
-    For more information, see [Multiple-site hosting](application-gateway-web-app-overview.md).
+    You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener (preview)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
-After you create a listener, you associate it with a request routing rule. This rule determines how the request received on the listener should be routed to the backend.
+    For more information on how to configure a multi-site listener, see [Multiple-site hosting in Application Gateway using Azure portal](create-multiple-sites-portal.md).
 
-Application Gateway processes listeners in the [order shown](configuration-overview.md#order-of-processing-listeners).
+After you create a listener, you associate it with a request routing rule. This rule determines how the request received on the listener should be routed to the backend. The request routing rule also contains the backend pool to be routed to and the HTTP setting where the backend port, protocol, etc. are mentioned.
 
 ## Request routing rules
 

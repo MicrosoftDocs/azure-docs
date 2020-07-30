@@ -48,6 +48,9 @@
         displayName: compliance, fedramp, soc, fact, fisc, hitrust, pci, iso
       - name: Best practices
         href: database/security-best-practice.md
+      - name: Security controls by Azure Policy
+        displayName: regulatory, compliance, standards, domains
+        href: ./database/security-controls-policy.md
       - name: Security baseline
         href: database/security-baseline.md
       - name: Security attributes
@@ -79,6 +82,8 @@
           href: database/authentication-mfa-ssms-configure.md
         - name: Conditional Access
           href: database/conditional-access-configure.md
+        - name: Service principals (Applications)
+          href: database/authentication-aad-service-principal.md
       - name: Transparent Data Encryption (TDE)
         items:
         - name: Overview
@@ -147,6 +152,8 @@
 
     - name: Security  
       items: 
+      - name: Create Azure AD guest users and set as an Azure AD admin
+        href: database/authentication-aad-guest-users.md
       - name: Configure TDE with BYOK
         href: database/transparent-data-encryption-byok-configure.md 
       - name: Store vulnerability scans in storage
@@ -213,9 +220,11 @@
       - name: Java
         items:
         - name: Use Spring Data JDBC
-          href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/sql-database/toc.json
+          href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
         - name: Use Spring Data JPA
-          href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/sql-database/toc.json
+          href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+        - name: Use Spring Data R2DBC
+          href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
 
 - name: SQL Database (SQL DB)
   items:
@@ -244,8 +253,6 @@
         href: database/service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
-      - name: Migrate from Premium RS
-        href: database/service-tiers-prs.md     
 
   - name: Quickstarts
     href: database/quickstart-content-reference-guide.md
@@ -290,6 +297,8 @@
         href: database/transparent-data-encryption-byok-key-rotation.md
       - name: Remove TDE protector
         href: database/transparent-data-encryption-byok-remove-tde-protector.md
+      - name: Create users using service principals
+        href: database/authentication-aad-service-principal-tutorial.md
     - name: Move data
       items: 
       - name: Migrate using DMS
@@ -416,6 +425,12 @@
           href: database/connect-query-go.md
         - name: Java
           href: database/connect-query-java.md
+        - name: Java with Spring Data JDBC
+          href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+        - name: Java with Spring Data JPA
+          href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json
+        - name: Java with Spring Data R2DBC
+          href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json
         - name: Node.js
           href: database/connect-query-nodejs.md
         - name: PHP
@@ -751,7 +766,7 @@
           - name: Train and score a model
             href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
           - name: Deploy ONNX models
-            href: /azure/azure-sql-edge/deploy-onnx?toc=/azure/azure-sql/toc.json
+            href: /azure/azure-sql-edge/deploy-onnx?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
         - name: R
           items:
           - name: Run R scripts
@@ -1047,7 +1062,7 @@
     - name: Reference
       items:
       - name: Azure PowerShell
-        href: /powershell/azure/overview
+        href: /powershell/azure/
       - name: Azure CLI
         href: /cli/azure/
       - name: T-SQL
