@@ -71,7 +71,7 @@ To schedule a new update deployment:
 
 13. When you're finished configuring the deployment schedule, select **Create**.
 
-    ![Update Schedule Settings pane](./media/update-mgmt-manage-updates-for-vm/manageupdates-schedule-win.png)
+    ![Update Schedule Settings pane](./media/update-mgmt-deploy-updates/manageupdates-schedule-win.png)
 
 14. You're returned to the status dashboard. Select **Scheduled Update deployments** to show the deployment schedule that you've created.
 
@@ -89,7 +89,7 @@ After your scheduled deployment starts, you can see its status on the **Update d
 
 When the deployment is finished, you can select it to see its results.
 
-![Update deployment status dashboard for a specific deployment](./media/update-mgmt-manage-updates-for-vm/manageupdates-view-results.png)
+[ ![Update deployment status dashboard for a specific deployment](.media/update-mgmt-deploy-updates/manageupdates-view-results.png)](media/update-mgmt-deploy-updates/manageupdates-view-results-expanded.png#lightbox)
 
 Under **Update results**, a summary provides the total number of updates and deployment results on the target VMs. The table on the right shows a detailed breakdown of the updates and the installation results for each.
 
