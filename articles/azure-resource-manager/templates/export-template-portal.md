@@ -2,7 +2,7 @@
 title: Export template in Azure portal
 description: Use Azure portal to export an Azure Resource Manager template from resources in your subscription.
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 07/29/2020
 ---
 # Single and multi-resource export to a template in Azure portal
 
@@ -46,6 +46,8 @@ When exporting from a resource group or resource, the exported template is gener
 The export template feature doesn't support exporting Azure Data Factory resources. To learn about how you can export Data Factory resources, see [Copy or clone a data factory in Azure Data Factory](https://aka.ms/exportTemplateViaAdf).
 
 To export resources created through classic deployment model, you must [migrate them to the Resource Manager deployment model](https://aka.ms/migrateclassicresourcetoarm).
+
+If you get a warning when exporting a template that indicates a resource type wasn't exported, you can still discover the properties for that resource. To learn about the different options for viewing resource properties, see [Discover resource properties](view-resources.md). You can also look at the [Azure REST API](/rest/api/azure/) for the resource type.
 
 ## Export template from a resource group
 

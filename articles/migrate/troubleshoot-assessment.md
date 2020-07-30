@@ -47,7 +47,7 @@ Conditionally ready Internet Protocol | Only applicable to Azure VMware Solution
 
 ## Suggested migration tool in import-based AVS assessment marked as unknown
 
-For machines imported via a CSV file, the default migration tool in and AVS assessment is unknown. Though, for VMware machines, its is recommended to use the VMWare Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/hybrid-cloud-extension-installation.md).
+For machines imported via a CSV file, the default migration tool in and AVS assessment is unknown. Though, for VMware machines, its is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 ## Linux VMs are "conditionally ready" in an Azure VM assessment
 
@@ -175,6 +175,9 @@ After migrating machines with dependency visualization enabled to Azure, machine
 
 ## Dependencies export CSV shows "Unknown process"
 In agentless dependency analysis, the process names are captured on a best-effort basis. In certain scenarios, although the source and destination server names and the destination port are captured, it is not feasible to determine the process names at both ends of the dependency. In such cases, the process is marked as "Unknown process".
+
+## My Log Analytics workspace is not listed when trying to configure the workspace in Server Assessment
+Azure Migrate currently supports creation of OMS workspace in East US, Southeast Asia and West Europe regions. If the workspace is created outside of Azure Migrate in any other region, it currently cannot be associated with an Azure Migrate project.
 
 
 ## Capture network traffic

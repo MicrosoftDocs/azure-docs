@@ -5,11 +5,11 @@ description: Learn how to use the Azure CLI to create a new Azure Machine Learni
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
 ms.author: larryfr
 author: Blackmist
 ms.date: 06/25/2020
+ms.topic: conceptual
+ms.custom: how-to
 ---
 
 # Create a workspace for Azure Machine Learning with Azure CLI

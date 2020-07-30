@@ -8,11 +8,9 @@ ms.author: keli19
 ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.workload: data-services
-ms.topic: how-to
 ms.date: 07/14/2020
-
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: how-to
 ---
 
 # Monitor Azure ML experiment runs and metrics
