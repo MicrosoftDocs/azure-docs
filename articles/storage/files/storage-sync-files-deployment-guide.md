@@ -50,7 +50,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
 
 # [Azure CLI](#tab/azure-cli)
 
-1. [Install the Azure CLI](install-azure-cli.md)
+1. [Install the Azure CLI](/cli/azure/install-azure-cli)
 
    If you prefer, you can also use Azure Cloud Shell to complete the steps in this tutorial.  Azure Cloud Shell is an interactive shell environment that you use through your browser.  Start Cloud Shell by using one of these methods:
 
@@ -82,7 +82,7 @@ We strongly recommend that you read [Planning for an Azure Files deployment](sto
    The installed extension 'storagesync' is experimental and not covered by customer support. Please use with discretion.
    ```
 
-***
+---
 
 ## Prepare Windows Server to use with Azure File Sync
 For each server that you intend to use with Azure File Sync, including each server node in a Failover Cluster, disable **Internet Explorer Enhanced Security Configuration**. This is required only for initial server registration. You can re-enable it after the server has been registered.
@@ -122,15 +122,17 @@ if ($installType -ne "Server Core") {
 }
 ``` 
 
-***
+---
 
-## Deploy the Storage Sync Service 
+## Deploy the Storage Sync Service
+
 The deployment of Azure File Sync starts with placing a **Storage Sync Service** resource into a resource group of your selected subscription. We recommend provisioning as few of these as needed. You will create a trust relationship between your servers and this resource and a server can only be registered to one Storage Sync Service. As a result, it is recommended to deploy as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services cannot sync with each other.
 
 > [!Note]
 > The Storage Sync Service inherits access permissions from the subscription and resource group it has been deployed into. We recommend that you carefully check who has access to it. Entities with write access can start syncing new sets of files from servers registered to this storage sync service and cause data to flow to Azure storage that is accessible to them.
 
 # [Portal](#tab/azure-portal)
+
 To deploy a Storage Sync Service, go to the [Azure portal](https://portal.azure.com/), click *Create a resource* and then search for Azure File Sync. In the search results, select **Azure File Sync**, and then select **Create** to open the **Deploy Storage Sync** tab.
 
 On the pane that opens, enter the following information:
@@ -143,6 +145,7 @@ On the pane that opens, enter the following information:
 When you are finished, select **Create** to deploy the Storage Sync Service.
 
 # [PowerShell](#tab/azure-powershell)
+
 Replace `<Az_Region>`, `<RG_Name>`, and `<my_storage_sync_service>` with your own values, then use the following commands to create and deploy a Storage Sync Service:
 
 ```powershell
@@ -189,7 +192,7 @@ $storageSyncName = "<my_storage_sync_service>"
 $storageSync = New-AzStorageSyncService -ResourceGroupName $resourceGroup -Name $storageSyncName -Location $region
 ```
 
-***
+---
 
 ## Install the Azure File Sync agent
 The Azure File Sync agent is a downloadable package that enables Windows Server to be synced with an Azure file share. 
@@ -367,7 +370,7 @@ az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup
                                                 --azure-file-share-name azure-file-share-name
 ```
 
-***
+---
 
 ## Create a server endpoint
 A server endpoint represents a specific location on a registered server, such as a folder on a server volume. A server endpoint must be a path on a registered server (rather than a mounted share), and to use cloud tiering, the path must be on a non-system volume. Network attached storage (NAS) is not supported.
@@ -419,6 +422,7 @@ if ($cloudTieringDesired) {
         -ServerLocalPath $serverEndpointPath 
 }
 ```
+
 # [Azure CLI](#tab/azure-cli)
 
 Use the [az storagesync sync-group server-endpoint](/cli/azure/ext/storagesync/storagesync/sync-group/server-endpoint#ext-storagesync-az-storagesync-sync-group-server-endpoint-create) command to create a new server endpoint.
@@ -446,7 +450,8 @@ az storagesync sync-group server-endpoint create --resource-group myResourceGrou
                                                  --volume-free-space-percent 85 \
 
 ```
-***
+
+---
 
 ## Configure firewall and virtual network settings
 
