@@ -9,6 +9,19 @@ ms.author: rogarana
 ms.subservice: files
 ---
 
+# test tabs
+
+# [Azure CLI](#tab/azure-cli)
+say something here - cli
+
+# [PowerShell](#tab/azure-powershell)
+say something here - ps
+
+# [Portal](#tab/azure-portal)
+say something here - portal
+
+---
+
 # Deploy Azure File Sync
 Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
