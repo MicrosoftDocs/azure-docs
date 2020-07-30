@@ -19,13 +19,13 @@ In this article, you'll prepare your environment to create an Azure Red Hat Open
 > * Setup the prerequisites and install the necessary tools
 > * Create an Azure Red Hat OpenShift 4 application backup
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Before you begin
 
 ## Install Velero
 
-To [install](https://velero.io/docs/master/basic-install/) Velero on your system, use the recommended process for your operating system.
+To [install](https://velero.io/docs/master/basic-install/) Velero on your system, follow the recommended process for your operating system.
 
 ### Set up Azure storage account and Blob container
 
@@ -34,8 +34,8 @@ This step will create a resource group outside of the ARO cluster's resource gro
 ```bash
 AZURE_BACKUP_RESOURCE_GROUP=Velero_Backups
 az group create -n $AZURE_BACKUP_RESOURCE_GROUP --location eastus
-AZURE_STORAGE_ACCOUNT_ID="velero$(uuidgen | cut -d '-' -f5 | tr '[A-Z]' '[a-z]')"
 
+AZURE_STORAGE_ACCOUNT_ID="velero$(uuidgen | cut -d '-' -f5 | tr '[A-Z]' '[a-z]')"
 az storage account create \
     --name $AZURE_STORAGE_ACCOUNT_ID \
     --resource-group $AZURE_BACKUP_RESOURCE_GROUP \
@@ -44,6 +44,7 @@ az storage account create \
     --https-only true \
     --kind BlobStorage \
     --access-tier Hot
+
 BLOB_CONTAINER=velero
 az storage container create -n $BLOB_CONTAINER --public-access off --account-name $AZURE_STORAGE_ACCOUNT_ID
 ```
@@ -52,23 +53,23 @@ az storage container create -n $BLOB_CONTAINER --public-access off --account-nam
 
 ### Create service principal
 
-Velero needs permissions to do backups and restores. When you create a service principal, you're giving Velero permission to access the resource group you define in the previous step.
+Velero needs permissions to do backups and restores. When you create a service principal, you're giving Velero permission to access the resource group you define in the previous step. This step will get the cluster's resource group:
 
 ```bash
-export AZURE_RESOURCE_GROUP=$RESOURCEGROUP
+export AZURE_RESOURCE_GROUP=aro-$(az aro show --name <name of cluster> --resource-group <name of resource group> | jq -r '.clusterProfile.domain')
 ```
 
 
 ```bash
-AZURE_SUBSCRIPTION_ID=`az account list --query '[?isDefault].id' -o tsv`
+AZURE_SUBSCRIPTION_ID=$(az account list --query '[?isDefault].id' -o tsv)
 
-AZURE_TENANT_ID=`az account list --query '[?isDefault].tenantId' -o tsv`
+AZURE_TENANT_ID=$(az account list --query '[?isDefault].tenantId' -o tsv)
 ```
 
 ```bash
-AZURE_CLIENT_SECRET=`az ad sp create-for-rbac --name "velero" --role "Contributor" --query 'password' -o tsv \
---scopes  /subscriptions/$AZURE_SUBSCRIPTION_ID`
-AZURE_CLIENT_ID=`az ad sp list --display-name "velero" --query '[0].appId' -o tsv`
+AZURE_CLIENT_SECRET=$(az ad sp create-for-rbac --name "velero" --role "Contributor" --query 'password' -o tsv \
+--scopes  /subscriptions/$AZURE_SUBSCRIPTION_ID)
+AZURE_CLIENT_ID=$(az ad sp list --display-name "velero" --query '[0].appId' -o tsv)
 
 ```
 
@@ -85,7 +86,8 @@ EOF
 
 ## Install Velero on Azure Red Hat OpenShift 4 cluster
 
-This step will install velero into its own project and the [custom resource definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessary to do backups and restores with Velero.
+This step will install velero into its own project and the [custom resource definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessary to do backups and restores with Velero. Make sure you are successfully logged in to a Azure Red Hat OpenShift v4 cluster.
+
 
 ```bash
 velero install \

@@ -19,7 +19,7 @@ In this article, you'll prepare your environment to create an Azure Red Hat Open
 > * Setup the prerequisites and install the necessary tools
 > * Create an Azure Red Hat OpenShift 4 application restore
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Before you begin
 
@@ -32,7 +32,7 @@ To create an Azure Red Hat OpenShift 4 application backup, see [Create an Azure 
 These steps will allow you to restore an application that has been previously backed up with Velero.
 You can check the list of backups that are currently recognized by the cluster to see what backups are available for restore.  To do this step, you'll need to execute the following command:
 
-_(This step assumes that the project you installed Velero is indeed velero)_
+_(This step assumes that you installed Velero in a project named "velero")_
 
 ```bash
 oc get backups -n velero
@@ -41,7 +41,7 @@ oc get backups -n velero
 Once you have the backup that you would like to restore, you'll need to perform the restore with the following command:
 
 ```bash
-velero restores create --from-backup <name of backup from above output list>
+velero restore create --from-backup <name of backup from above output list>
 ```
 
 This step will create the Kubernetes objects that were backed up from the previous step when creating a backup.
