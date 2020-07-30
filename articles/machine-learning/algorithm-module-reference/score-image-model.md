@@ -1,5 +1,5 @@
 ---
-title: "Score Image Model"
+title: Use the Score Image Model module
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Score Image Model module in Azure Machine Learning to generate predictions using a trained image model.
 services: machine-learning

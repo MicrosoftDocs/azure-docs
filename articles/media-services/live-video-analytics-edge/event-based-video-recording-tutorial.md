@@ -27,9 +27,9 @@ Read these articles before you begin:
 * [Live Video Analytics on IoT Edge terminology](terminology.md)
 * [Media graph concepts](media-graph-concept.md) 
 * [Event-based video recording](event-based-video-recording-concept.md)
-* [Tutorial: Developing an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [Tutorial: Developing an IoT Edge module](../../iot-edge/tutorial-develop-for-linux.md)
 * [How to edit deployment.*.template.json](https://github.com/microsoft/vscode-azure-iot-edge/wiki/How-to-edit-deployment.*.template.json)
-* Section on [how to declare routes in IoT Edge deployment manifest](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)
+* Section on [how to declare routes in IoT Edge deployment manifest](../../iot-edge/module-composition.md#declare-routes)
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ At the end of these steps, you'll have relevant Azure resources deployed in your
 * Azure IoT Hub
 * Azure Storage account
 * Azure Media Services account
-* Linux VM in Azure, with the [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installed
+* Linux VM in Azure, with the [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installed
 
 ## Concepts
 
@@ -130,9 +130,9 @@ Open src/edge/deployment.objectCounter.template.json. There are four entries und
 * **rtspsim**: This is the RTSP simulator.
 * **objectCounter**: This is the module that looks for specific objects in the results from yolov3.
 
-For the objectCounter module, see the string (${MODULES.objectCounter}) used for the "image" value. This is based on the [tutorial](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux) on developing an IoT Edge module. Visual Studio Code automatically recognizes that the code for the objectCounter module is under src/edge/modules/objectCounter. 
+For the objectCounter module, see the string (${MODULES.objectCounter}) used for the "image" value. This is based on the [tutorial](../../iot-edge/tutorial-develop-for-linux.md) on developing an IoT Edge module. Visual Studio Code automatically recognizes that the code for the objectCounter module is under src/edge/modules/objectCounter. 
 
-Read [this section](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) on how to declare routes in the IoT Edge deployment manifest. Then examine the routes in the template JSON file. Note how:
+Read [this section](../../iot-edge/module-composition.md#declare-routes) on how to declare routes in the IoT Edge deployment manifest. Then examine the routes in the template JSON file. Note how:
 
 * LVAToObjectCounter is used to send specific events to a specific endpoint in the objectCounter module.
 * ObjectCounterToLVA is used to send a trigger event to a specific endpoint (which should be the IoT Hub source node) in the lvaEdge module.
@@ -145,7 +145,7 @@ Read [this section](https://docs.microsoft.com/azure/iot-edge/module-composition
 
 The deployment manifest defines what modules are deployed to an edge device and the configuration settings for those modules. Follow these steps to generate a manifest from the template file, and then deploy it to the edge device.
 
-Using Visual Studio Code, follow [these instructions](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux#build-and-push-your-solution) to sign in to Docker. Then select **Build and Push IoT Edge Solution**. Use src/edge/deployment.objectCounter.template.json for this step.
+Using Visual Studio Code, follow [these instructions](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution) to sign in to Docker. Then select **Build and Push IoT Edge Solution**. Use src/edge/deployment.objectCounter.template.json for this step.
 
 ![Build and Push IoT Edge Solution](./media/event-based-video-recording-tutorial/build-push.png)
 
@@ -254,7 +254,7 @@ To see the events from the objectCounter module and from the Live Video Analytic
 
 ## Interpret the results 
 
-When you run the media graph, the Live Video Analytics on IoT Edge module sends certain diagnostic and operational events to the IoT Edge hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a body section and an applicationProperties section. To understand what these sections represent, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the media graph, the Live Video Analytics on IoT Edge module sends certain diagnostic and operational events to the IoT Edge hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a body section and an applicationProperties section. To understand what these sections represent, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the application properties and the content of the body are defined by the Live Video Analytics module.
 
@@ -408,4 +408,4 @@ If you intend to try the other tutorials, hold on to the resources you created. 
 ## Next steps
 
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the [ONVIF conformant products page](https://www.onvif.org/conformant-products/) by looking for devices that conform with profiles G, S, or T.
-* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) quickstart to register the device with Azure IoT Hub.
+* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md) quickstart to register the device with Azure IoT Hub.

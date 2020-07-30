@@ -59,6 +59,8 @@ Object replication is supported for general-purpose v2 storage accounts only. Ob
 - France Central
 - Canada East
 - Canada Central
+- US East 2
+- US Central
 
 Both the source and destination accounts must reside in one of these regions in order to use object replication. The accounts can be in two different regions.
 

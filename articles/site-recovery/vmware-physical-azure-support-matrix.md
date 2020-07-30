@@ -12,6 +12,9 @@ This article summarizes supported components and settings for disaster recovery 
 - [Learn more](vmware-azure-architecture.md) about VMware VM/physical server disaster recovery architecture.
 - Follow our [tutorials](tutorial-prepare-azure.md) to try out disaster recovery.
 
+> [!NOTE]
+> Site Recovery does not move or store customer data out of the target region, in which disaster recovery has been setup for the source machines. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
+
 ## Deployment scenarios
 
 **Scenario** | **Details**

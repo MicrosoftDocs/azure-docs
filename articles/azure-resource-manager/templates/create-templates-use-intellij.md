@@ -4,6 +4,7 @@ description: Learn how to create your first Azure Resource Manager template usin
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
+ms.custom: devx-track-java
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use the IntelliJ IDEA to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 ---
 
@@ -23,7 +24,7 @@ To complete this article, you need:
 
 * An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition or Community Edition installed
 * The [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053) installed, check [IntelliJ's plugins management guide](https://www.jetbrains.com/help/idea/managing-plugins.html) for more information
-* Be [signed in](/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions) to your Azure account for the Azure Toolkit for IntelliJ
+* Be [signed in](/azure/developer/java/toolkit-for-intellij/sign-in-instructions) to your Azure account for the Azure Toolkit for IntelliJ
 
 ## Deploy a Quickstart template
 

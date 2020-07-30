@@ -4,7 +4,7 @@ description: Personalizer uses terminology from reinforcement learning. These te
 ms.topic: conceptual
 ms.date: 04/23/2020
 ---
-# Terminology
+# Personalizer terminology
 
 Personalizer uses terminology from reinforcement learning. These terms are used in the Azure portal and the APIs.
 

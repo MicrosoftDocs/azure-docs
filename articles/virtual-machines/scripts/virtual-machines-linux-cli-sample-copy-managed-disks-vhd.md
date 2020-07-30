@@ -1,5 +1,5 @@
 ---
-title: Copy a managed disks to a storage account - CLI sample
+title: Copy a managed disks to a storage account - Linux CLI sample
 description: Azure CLI sample - Export or copy a managed disks to a storage account.
 services: virtual-machines-linux
 documentationcenter: storage

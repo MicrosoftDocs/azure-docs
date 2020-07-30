@@ -1,5 +1,5 @@
 ---
-title: Linux Virtual Machines security baseline for Azure Security Benchmark
+title: Azure security baseline for Linux Virtual Machines
 description: The Linux Virtual Machines security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: virtual-machines-linux
@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 ---
 
-# Linux Virtual Machines security baseline for Azure Security Benchmark
+# Azure security baseline for Linux Virtual Machines
 
 The Azure Security Baseline for Linux Virtual Machines contains recommendations that will help you improve the security posture of your deployment.
 
@@ -254,7 +254,7 @@ If your organization would like to retain the security event log data from the v
 
 **Guidance**: Ensure that any storage accounts or Log Analytics workspaces used for storing virtual machine logs has the log retention period set according to your organization's compliance regulations.
 
-* [How to monitor virtual machines in Azure](../windows/monitor.md)
+* [How to monitor virtual machines in Azure](../../azure-monitor/insights/monitor-vm-azure.md)
 
 * [How to configure Log Analytics Workspace Retention Period](../../azure-monitor/platform/manage-cost-storage.md)
 
@@ -566,7 +566,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 * [Role-based access control (RBAC) for Azure resources](../../role-based-access-control/overview.md)
 
-* [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Azure built-in roles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Azure Security Center monitoring**: Not Available
 
@@ -1094,7 +1094,7 @@ If you are using Azure disk encryption, you can restore the Azure VM with the di
 
 * [Soft delete for VMs](../../backup/soft-delete-virtual-machines.md)
 
-* [Azure Key Vault soft-delete overview](../../key-vault/general/overview-soft-delete.md)
+* [Azure Key Vault soft-delete overview](../../key-vault/general/soft-delete-overview.md)
 
 **Azure Security Center monitoring**: Yes
 

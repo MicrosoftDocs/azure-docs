@@ -28,10 +28,13 @@ With Custom Keyword's customization, performance, and integration features, you 
 
 ## Get started with custom keywords
 
-* Tutorial: How to [create a custom keyword using Speech Studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
-* Tutorial: How to [voice-activate your product with the Speech SDK, using C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-* Quickstart: [Recognize keywords with the Speech SDK, on Universal Windows Platform using C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
-* Quickstart: [Recognize keywords with the Speech SDK, on Android using Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
+* See [custom keyword basics](custom-keyword-basics.md) for basic usage and design patterns.
+* How to [voice-activate your product with the Speech SDK, using C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## See samples on GitHub
+
+* [Recognize keywords with the Speech SDK, on Universal Windows Platform using C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
+* [Recognize keywords with the Speech SDK, on Android using Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
 
 ## Next steps
 

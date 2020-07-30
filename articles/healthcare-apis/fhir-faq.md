@@ -77,10 +77,6 @@ When you're running IoMT FHIR Connector for Azure, you have direct access to the
 
 From a development standpoint, every feature is deployed to the open-source IoMT FHIR Connector for Azure first. Once it has been validated in open-source, it will be released to the PaaS IoT Connector feature of Azure API for FHIR service. The time between the release in open-source and PaaS depends on the complexity of the feature and other road-map priorities.
 
-### Is IoT Connector an FDA-regulated medical device and/or whether IoT Connector requires QMS certification?
-No, IoT Connector is not a FDA-regulated medical device and doesn't require to comply with FDA's Quality System regulations. If you want to use IoT Connector with devices that have QMS requirements, Microsoft is available to work with you to help conduct any evaluation processes you may have.
-
-
 ## Next steps
 
 In this article, you've read some of the frequently asked questions about the Azure API for FHIR. Read about the supported features in FHIR Server for Azure:
