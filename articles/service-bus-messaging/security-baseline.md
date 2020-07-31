@@ -4,7 +4,7 @@ description: The Service Bus security baseline provides procedural guidance and 
 author: msmbaldwin
 ms.service: service-bus-messaging
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 07/31/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -26,7 +26,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 1.1: Protect Azure resources within virtual networks
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32074).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32074.).
 
 **Guidance**: None.
 
@@ -37,7 +37,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32075).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32075.).
 
 **Guidance**: None.
 
@@ -48,7 +48,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 1.3: Protect critical web applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32076).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32076.).
 
 **Guidance**: None.
 
@@ -59,7 +59,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 1.4: Deny communications with known-malicious IP addresses
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32077).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32077.).
 
 **Guidance**: None.
 
@@ -70,7 +70,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 1.5: Record network packets
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32078).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32078.).
 
 **Guidance**: None.
 
@@ -81,7 +81,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32079).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32079.).
 
 **Guidance**: None.
 
@@ -92,7 +92,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 1.7: Manage traffic to web applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32080).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32080.).
 
 **Guidance**: None.
 
@@ -103,7 +103,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32081).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32081.).
 
 **Guidance**: None.
 
@@ -114,7 +114,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 1.9: Maintain standard security configurations for network devices
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32082).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32082.).
 
 **Guidance**: None.
 
@@ -125,7 +125,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 1.10: Document traffic configuration rules
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32083).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32083.).
 
 **Guidance**: None.
 
@@ -136,7 +136,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32084).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32084.).
 
 **Guidance**: None.
 
@@ -151,7 +151,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 2.2: Configure central security log management
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32086).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32086.).
 
 **Guidance**: None.
 
@@ -162,7 +162,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 2.3: Enable audit logging for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32087).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32087.).
 
 **Guidance**: None.
 
@@ -173,7 +173,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 2.4: Collect security logs from operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32088).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32088.).
 
 **Guidance**: None.
 
@@ -184,7 +184,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 2.5: Configure security log storage retention
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32089).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32089.).
 
 **Guidance**: None.
 
@@ -195,7 +195,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 2.6: Monitor and review logs
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32090).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32090.).
 
 **Guidance**: None.
 
@@ -206,7 +206,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 2.7: Enable alerts for anomalous activities
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32091).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32091.).
 
 **Guidance**: None.
 
@@ -217,7 +217,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 2.8: Centralize anti-malware logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32092).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32092.).
 
 **Guidance**: None.
 
@@ -228,7 +228,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 2.9: Enable DNS query logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32093).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32093.).
 
 **Guidance**: None.
 
@@ -239,7 +239,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 2.10: Enable command-line audit logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32094).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32094.).
 
 **Guidance**: None.
 
@@ -254,7 +254,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 3.1: Maintain an inventory of administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32095).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32095.).
 
 **Guidance**: None.
 
@@ -265,7 +265,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 3.2: Change default passwords where applicable
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32096).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32096.).
 
 **Guidance**: None.
 
@@ -276,7 +276,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 3.3: Use dedicated administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32097).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32097.).
 
 **Guidance**: None.
 
@@ -287,7 +287,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 3.4: Use Azure Active Directory single sign-on (SSO)
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32098).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32098.).
 
 **Guidance**: None.
 
@@ -298,7 +298,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32099).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32099.).
 
 **Guidance**: None.
 
@@ -309,7 +309,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 3.6: Use secure, Azure-managed workstations for administrative tasks
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32100).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32100.).
 
 **Guidance**: None.
 
@@ -320,7 +320,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 3.7: Log and alert on suspicious activities from administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32101).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32101.).
 
 **Guidance**: None.
 
@@ -331,7 +331,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 3.8: Manage Azure resources from only approved locations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32102).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32102.).
 
 **Guidance**: None.
 
@@ -342,7 +342,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 3.9: Use Azure Active Directory
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32103).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32103.).
 
 **Guidance**: None.
 
@@ -353,7 +353,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 3.10: Regularly review and reconcile user access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32104).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32104.).
 
 **Guidance**: None.
 
@@ -364,7 +364,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 3.11: Monitor attempts to access deactivated credentials
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32105).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32105.).
 
 **Guidance**: None.
 
@@ -375,7 +375,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 3.12: Alert on account sign-in behavior deviation
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32106).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32106.).
 
 **Guidance**: None.
 
@@ -386,7 +386,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32107).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32107.).
 
 **Guidance**: None.
 
@@ -401,7 +401,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 4.1: Maintain an inventory of sensitive Information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32108).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32108.).
 
 **Guidance**: None.
 
@@ -412,7 +412,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 4.2: Isolate systems storing or processing sensitive information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32109).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32109.).
 
 **Guidance**: None.
 
@@ -423,7 +423,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32110).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32110.).
 
 **Guidance**: None.
 
@@ -434,7 +434,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 4.4: Encrypt all sensitive information in transit
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32111).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32111.).
 
 **Guidance**: None.
 
@@ -445,7 +445,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 4.5: Use an active discovery tool to identify sensitive data
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32112).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32112.).
 
 **Guidance**: None.
 
@@ -456,7 +456,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 4.6: Use Role-based access control to control access to resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32113).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32113.).
 
 **Guidance**: None.
 
@@ -467,7 +467,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 4.7: Use host-based data loss prevention to enforce access control
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32114).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32114.).
 
 **Guidance**: None.
 
@@ -478,7 +478,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 4.8: Encrypt sensitive information at rest
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32115).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32115.).
 
 **Guidance**: None.
 
@@ -489,7 +489,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 4.9: Log and alert on changes to critical Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32116).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32116.).
 
 **Guidance**: None.
 
@@ -504,7 +504,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 5.1: Run automated vulnerability scanning tools
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32117).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32117.).
 
 **Guidance**: None.
 
@@ -515,7 +515,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 5.2: Deploy automated operating system patch management solution
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32118).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32118.).
 
 **Guidance**: None.
 
@@ -526,7 +526,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 5.3: Deploy automated patch management solution for third-party software titles
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32119).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32119.).
 
 **Guidance**: None.
 
@@ -537,7 +537,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 5.4: Compare back-to-back vulnerability scans
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32120).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32120.).
 
 **Guidance**: None.
 
@@ -548,7 +548,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32121).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32121.).
 
 **Guidance**: None.
 
@@ -563,7 +563,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 6.1: Use automated asset discovery solution
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32122).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32122.).
 
 **Guidance**: None.
 
@@ -574,7 +574,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 6.2: Maintain asset metadata
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32123).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32123.).
 
 **Guidance**: None.
 
@@ -585,7 +585,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 6.3: Delete unauthorized Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32124).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32124.).
 
 **Guidance**: None.
 
@@ -596,7 +596,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 6.4: Define and maintain inventory of approved Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32125).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32125.).
 
 **Guidance**: None.
 
@@ -607,7 +607,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 6.5: Monitor for unapproved Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32126).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32126.).
 
 **Guidance**: None.
 
@@ -618,7 +618,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 6.6: Monitor for unapproved software applications within compute resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32127).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32127.).
 
 **Guidance**: None.
 
@@ -629,7 +629,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 6.7: Remove unapproved Azure resources and software applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32128).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32128.).
 
 **Guidance**: None.
 
@@ -640,7 +640,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 6.8: Use only approved applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32129).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32129.).
 
 **Guidance**: None.
 
@@ -651,7 +651,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 6.9: Use only approved Azure services
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32130).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32130.).
 
 **Guidance**: None.
 
@@ -662,7 +662,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 6.10: Maintain an inventory of approved software titles
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32131).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32131.).
 
 **Guidance**: None.
 
@@ -673,7 +673,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32132).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32132.).
 
 **Guidance**: None.
 
@@ -684,7 +684,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 6.12: Limit users' ability to execute scripts within compute resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32133).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32133.).
 
 **Guidance**: None.
 
@@ -695,7 +695,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 6.13: Physically or logically segregate high risk applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32134).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32134.).
 
 **Guidance**: None.
 
@@ -710,7 +710,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 7.1: Establish secure configurations for all Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32135).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32135.).
 
 **Guidance**: None.
 
@@ -721,7 +721,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 7.2: Establish secure operating system configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32136).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32136.).
 
 **Guidance**: None.
 
@@ -732,7 +732,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 7.3: Maintain secure Azure resource configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32137).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32137.).
 
 **Guidance**: None.
 
@@ -743,7 +743,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 7.4: Maintain secure operating system configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32138).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32138.).
 
 **Guidance**: None.
 
@@ -754,7 +754,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 7.5: Securely store configuration of Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32139).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32139.).
 
 **Guidance**: None.
 
@@ -765,7 +765,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 7.6: Securely store custom operating system images
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32140).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32140.).
 
 **Guidance**: None.
 
@@ -776,7 +776,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 7.7: Deploy configuration management tools for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32141).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32141.).
 
 **Guidance**: None.
 
@@ -787,7 +787,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 7.8: Deploy configuration management tools for operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32142).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32142.).
 
 **Guidance**: None.
 
@@ -798,7 +798,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32143).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32143.).
 
 **Guidance**: None.
 
@@ -809,7 +809,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 7.10: Implement automated configuration monitoring for operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32144).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32144.).
 
 **Guidance**: None.
 
@@ -820,7 +820,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 7.11: Manage Azure secrets securely
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32145).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32145.).
 
 **Guidance**: None.
 
@@ -831,7 +831,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 7.12: Manage identities securely and automatically
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32146).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32146.).
 
 **Guidance**: None.
 
@@ -842,7 +842,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 7.13: Eliminate unintended credential exposure
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32147).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32147.).
 
 **Guidance**: None.
 
@@ -857,7 +857,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 8.1: Use centrally-managed anti-malware software
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32148).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32148.).
 
 **Guidance**: None.
 
@@ -868,7 +868,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32149).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32149.).
 
 **Guidance**: None.
 
@@ -879,7 +879,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 8.3: Ensure anti-malware software and signatures are updated
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32150).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32150.).
 
 **Guidance**: None.
 
@@ -894,7 +894,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 9.1: Ensure regular automated back-ups
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32151).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32151.).
 
 **Guidance**: How data is backed up/made redundant is dependent on the service. LRS, ZRS, GRS for Storage Accounts, Global Replication for CosmosDB, built-in backup and DR for Virtual Machines
 
@@ -905,7 +905,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 9.2: Perform complete system backups and backup any customer-managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32152).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32152.).
 
 **Guidance**: None.
 
@@ -916,7 +916,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 9.3: Validate all backups including customer-managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32153).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32153.).
 
 **Guidance**: None.
 
@@ -927,7 +927,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 9.4: Ensure protection of backups and customer-managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32154).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32154.).
 
 **Guidance**: None.
 
@@ -942,7 +942,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 10.1: Create an incident response guide
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32155).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32155.).
 
 **Guidance**: None.
 
@@ -953,7 +953,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 10.2: Create an incident scoring and prioritization procedure
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32156).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32156.).
 
 **Guidance**: None.
 
@@ -964,7 +964,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 10.3: Test security response procedures
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32161).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32161.).
 
 **Guidance**: None.
 
@@ -975,7 +975,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32157).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32157.).
 
 **Guidance**: None.
 
@@ -986,7 +986,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 10.5: Incorporate security alerts into your incident response system
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32158).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32158.).
 
 **Guidance**: None.
 
@@ -997,7 +997,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 10.6: Automate the response to security alerts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32159).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32159.).
 
 **Guidance**: None.
 
@@ -1012,7 +1012,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32160).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32160.).
 
 **Guidance**: None.
 
