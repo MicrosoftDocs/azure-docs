@@ -212,7 +212,7 @@ Azure Maps uses a key-based authentication scheme. When you create your account,
 
 Note - Azure Maps shares customer-provided address/location queries ("Queries") with third-party TomTom for mapping functionality purposes. Queries aren't linked to any customer or end user when shared with TomTom and can't be used to identify individuals. The Mobility and Weather services, which include integration with Moovit, and AccuWeather are currently in [PREVIEW](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Microsoft is currently in the process of adding TomTom, Moovit and AccuWeather to the Online Services Subcontractor List.
+Microsoft is currently in the process of adding TomTom, Moovit, and AccuWeather to the Online Services Subcontractor List.
 
 ## Supported regions
 
