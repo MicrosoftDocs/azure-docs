@@ -226,9 +226,9 @@ Add this code to the end of the `Main` method:
 
 ```csharp
 // Download the blob to a local file
-// Append the string "DOWNLOAD" before the .txt extension 
+// Append the string "DOWNLOADED" before the .txt extension 
 // so you can compare the files in the data directory
-string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOAD.txt");
+string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOADED.txt");
 
 Console.WriteLine("\nDownloading blob to\n\t{0}\n", downloadFilePath);
 

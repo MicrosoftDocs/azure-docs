@@ -124,19 +124,19 @@ When you enable replication for an Azure VM, the following happens:
 
 If outbound access for VMs is controlled with URLs, allow these URLs.
 
-| **URL** | **Details** |
-| ------- | ----------- |
-| *.blob.core.windows.net | Allows data to be written from the VM to the cache storage account in the source region. |
-| login.microsoftonline.com | Provides authorization and authentication to Site Recovery service URLs. |
-| *.hypervrecoverymanager.windowsazure.com | Allows the VM to communicate with the Site Recovery service. |
-| *.servicebus.windows.net | Allows the VM to write Site Recovery monitoring and diagnostics data. |
-| *.vault.azure.net | Allows access to enable replication for ADE-enabled virtual machines via portal
-| *.automation.ext.azure.com | Allows enabling auto-upgrade of mobility agent for a replicated item via portal
+| **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`	             | Allows data to be written from the VM to the cache storage account in the source region. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
+| Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`	  | Allows the VM to communicate with the Site Recovery service. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
+| Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Allows access to enable replication for ADE-enabled virtual machines via portal |
+| Azure Automation          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | Allows enabling auto-upgrade of mobility agent for a replicated item via portal |
 
 ### Outbound connectivity for IP address ranges
 
 To control outbound connectivity for VMs using IP addresses, allow these addresses.
-Please note that details of network connectivity requirements can be found in  [networking white paper](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
+Please note that details of network connectivity requirements can be found in [networking white paper](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
 
 #### Source region rules
 

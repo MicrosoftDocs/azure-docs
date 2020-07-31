@@ -53,9 +53,6 @@ You can also [enable Azure Private Link](how-to-configure-private-link.md) to co
 > [!WARNING]
 > 
 > Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
->
-> Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled. Instead, you can use Azure Kubernetes Service in a virtual network. For more information, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
-
 
 <a id="amlcompute"></a>
 
@@ -445,9 +442,6 @@ To add Azure Kubernetes Service (AKS) in a virtual network to your workspace, us
 > Before you begin the following procedure, follow the prerequisites in the [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) how-to and plan the IP addressing for your cluster.
 >
 > The AKS instance and the Azure virtual network must be in the same region. If you secure the Azure Storage Account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance.
-
-> [!WARNING]
-> Azure Machine Learning does not support using an Azure Kubernetes Service that has private link enabled.
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
 
