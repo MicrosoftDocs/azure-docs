@@ -1,6 +1,6 @@
 ---
 title: Understand admin roles for Enterprise in Azure
-description: Learn about Enterprise administrator roles in Azure.
+description: Learn about Enterprise administrator roles in Azure. You can assign five distinct administrative roles.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
@@ -97,7 +97,7 @@ You may see different pricing in the Azure portal depending on your administrati
 
 To learn how to set these policies, see [Manage access to billing information for Azure](manage-billing-access.md).
 
-The following table shows the relationship between the Enterprise Agreement admin roles, the view charges policy, the role-based access control (RBAC) role in the Azure portal, and the pricing that you see in the Azure portal. The Enterprise Administrator always sees usage details based on the organization's EA pricing. However, the Department Administrator and Account Owner see different pricing views based on the view charge policy and their RBAC role. The Department Admin role listed in the following table refers to both Department Admin and Department Admin (read only) roles.
+The following table shows the relationship between the Enterprise Agreement admin roles, the view charges policy, the Azure role in the Azure portal, and the pricing that you see in the Azure portal. The Enterprise Administrator always sees usage details based on the organization's EA pricing. However, the Department Administrator and Account Owner see different pricing views based on the view charge policy and their Azure role. The Department Admin role listed in the following table refers to both Department Admin and Department Admin (read only) roles.
 
 |Enterprise Agreement admin role|View charges policy for role|RBAC role|Pricing view|
 |---|---|---|---|

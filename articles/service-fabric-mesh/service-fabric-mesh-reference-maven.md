@@ -5,7 +5,9 @@ author: suhuruli
 ms.author: suhuruli
 ms.date: 11/26/2018
 ms.topic: reference
+ms.custom: devx-track-java
 ---
+
 # Maven Plugin for Service Fabric Mesh
 
 ## Prerequisites

@@ -5,6 +5,7 @@ author: suhuruli
 
 ms.topic: conceptual
 ms.date: 11/02/2017
+ms.custom: devx-track-java
 ms.author: suhuruli
 ---
 # Debug your Java Service Fabric application using Eclipse

@@ -4,7 +4,7 @@ description: This article provides instructions on enabling Microsoft Azure Disk
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
@@ -413,7 +413,7 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - Kernel Crash Dump (kdump).
 - Oracle ACFS (ASM Cluster File System).
 - Gen2 VMs (see: [Support for generation 2 VMs on Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
-- Lsv2 series VMs (see: [Lsv2-series](../lsv2-series.md)).
+- The NVMe disks of Lsv2 series VMs (see: [Lsv2-series](../lsv2-series.md)).
 - A VM with "nested mount points"; that is, multiple mount points in a single path (such as "/1stmountpoint/data/2stmountpoint").
 - A VM with a data drive mounted on top of an OS folder.
 - M-series VMs with Write Accelerator disks.

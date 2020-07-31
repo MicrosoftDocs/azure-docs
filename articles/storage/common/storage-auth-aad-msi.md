@@ -41,7 +41,7 @@ After authenticating, the Azure Identity client library gets a token credential.
 
 For more information about the Azure Identity client library for .NET, see [Azure Identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity). For reference documentation for the Azure Identity client library, see [Azure.Identity Namespace](/dotnet/api/azure.identity).
 
-### Assign role-based access control (RBAC) roles for access to data
+### Assign Azure roles for access to data
 
 When an Azure AD security principal attempts to access blob or queue data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an RBAC role that grants access to blob or queue data in Azure Storage. For information about assigning permissions via RBAC, see the section titled **Assign RBAC roles for access rights** in [Authorize access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
 
@@ -83,7 +83,7 @@ The `az ad sp create-for-rbac` command returns a list of service principal prope
 ```
 
 > [!IMPORTANT]
-> RBAC role assignments may take a few minutes to propagate.
+> Azure role assignments may take a few minutes to propagate.
 
 #### Set environment variables
 

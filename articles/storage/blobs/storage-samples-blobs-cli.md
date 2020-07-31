@@ -7,7 +7,8 @@ ms.author: mhopkins
 ms.date: 06/13/2017
 ms.service: storage
 ms.subservice: blobs
-ms.topic: sample
+ms.topic: sample 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI samples for Azure Blob storage
