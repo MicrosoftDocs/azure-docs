@@ -80,7 +80,7 @@ The output of a skillset is really a tree of information called the enriched doc
 
 The next image shows a sample indexer debug session representation of the indexer stages: document cracking, field mappings, skillset execution, and output field mappings.
 
-:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="sample debug wession" lightbox="medi/search-indexer-overview/sample-debug-session.png":::
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="sample debug session" lightbox="medi/search-indexer-overview/sample-debug-session.png":::
 
 ## Basic configuration steps
 
