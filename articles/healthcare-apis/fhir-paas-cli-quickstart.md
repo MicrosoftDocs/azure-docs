@@ -7,7 +7,8 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 10/15/2019
-ms.author: mihansen
+ms.author: mihansen 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Deploy Azure API for FHIR using Azure CLI
