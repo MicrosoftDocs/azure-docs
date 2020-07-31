@@ -73,7 +73,7 @@ Metrics having to do with data ingress:
 | --- | --- | --- | --- | --- | --- |
 | IngressEvents | Ingress Events (Preview) | Count | Total | The number of incoming telemetry events into Azure Digital Twins. | Result |
 | IngressEventsLatency | Ingress Events Latency (Preview) | Milliseconds | Average | The time from when an event arrives to when it is ready to be egressed by Azure Digital Twins, at which point the service sends a success/fail result. | Result |
-| IngressEventsFailureRate | Ingress Events Failure Rate (Preview) | Percent | Average	The percentage of incoming telemetry events for which the service returns an internal error (500) response code. | Result |
+| IngressEventsFailureRate | Ingress Events Failure Rate (Preview) | Percent | Average | The percentage of incoming telemetry events for which the service returns an internal error (500) response code. | Result |
 
 #### Billing metrics
 
