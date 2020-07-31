@@ -3448,6 +3448,31 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/powershell-samples-cassandra.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples"
+    },
+    {
+        "source_path": "articles/cosmos-db/powershell-samples-gremlin.md",
+        "redirect_url": "/azure/cosmos-db/powershell-samples"
+    },
+    {
+        "source_path": "articles/cosmos-db/powershell-samples-mongodb.md",
+        "redirect_url": "/azure/cosmos-db/powershell-samples"
+    },
+    {
+        "source_path": "articles/cosmos-db/powershell-samples-sql.md",
+        "redirect_url": "/azure/cosmos-db/powershell-samples",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/cosmos-db/powershell-samples-table.md",
+        "redirect_url": "/azure/cosmos-db/powershell-samples"
+    },
+    {
+      "source_path": "articles/cosmos-db/powershell-samples-sql.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples"
+    },
+    {
       "source_path": "articles/cosmos-db/scripts/create-cassandra-database-account-cli.md",
       "redirect_url": "/azure/cosmos-db/scripts/cli/cassandra/create",
       "redirect_document_id": false
