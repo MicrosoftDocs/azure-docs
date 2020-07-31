@@ -4,6 +4,8 @@
   items:
   - name: What is Data Lake Analytics?
     href: data-lake-analytics-overview.md
+  - name: What's new in Data Lake Analytics?
+    href: data-lake-analytics-whats-new.md
 - name: Get started
   items:
   - name: Azure portal
