@@ -2,15 +2,15 @@
 title: Authentication, requests and responses
 description: Authenticate to AD for using Key Vault
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: mbaldwin
+ms.date: 09/15/2020
+ms.author: ambapat
 
 ---
 
@@ -20,8 +20,8 @@ Azure Key Vault provides two types of containers to store and manage secrets for
 
 |Container type|Supported object types|Data-plane endpoint|
 |--|--|--|
-**Vaults**|<ul><li>Software-protected keys</li><li>HSM-protected keys (with Premium SKU)</li><li>Certificates</li><li>Storage account keys</li></ul>|https://\<vaultname\>.vault.azure.net
-|**Managed HSM pools** |<ul><li>HSM-protected keys</li></ul> | https://\<hsmname\>.managedhsm.azure.net
+**Vaults**|<ul><li>Software-protected keys</li><li>HSM-protected keys (with Premium SKU)</li><li>Certificates</li><li>Storage account keys</li></ul>|https://{vault-name}.vault.azure.net
+|**Managed HSM pools** |<ul><li>HSM-protected keys</li></ul> | https://{hsm-name}.managedhsm.azure.net
 |||
 
 Here are the URL suffixes used to access each type of object
