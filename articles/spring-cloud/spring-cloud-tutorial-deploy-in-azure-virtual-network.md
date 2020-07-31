@@ -65,7 +65,7 @@ If you already have a virtual network to host Azure Spring Cloud service instanc
 
 ## Grant service permission to the virtual network
 
-Select the virtual network *azure-spring-cloud-vnet* you created.
+Select the virtual network *azure-spring-cloud-vnet* you prviously created.
 
 1. Select **Access control (IAM)**, then select **Add > Add role assignment**.
 
