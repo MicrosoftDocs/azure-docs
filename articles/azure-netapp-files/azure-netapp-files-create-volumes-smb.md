@@ -1,6 +1,6 @@
 ---
 title: Create an SMB volume for Azure NetApp Files | Microsoft Docs
-description: Describes how to create an SMB volume for Azure NetApp Files.
+description: This article shows you how to create an SMBv3 volume in Azure NetApp Files. Learn about requirements for Active Directory connections and Domain Services.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
