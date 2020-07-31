@@ -62,7 +62,6 @@ If the previous recommendations aren't enough, and you can't get a virtual machi
 
 * Scale out to a cluster using a distributed framework. In this option, data processing loads are split up and processed on multiple CPUs that work in parallel, with the final result gathered at the end.
 
-
 ### Recommended distributed frameworks
 
 The following table recommends distributed frameworks that are integrated with Azure Machine Learning based on your code preference or data size.

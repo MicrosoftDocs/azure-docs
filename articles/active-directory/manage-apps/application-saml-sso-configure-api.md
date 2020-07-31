@@ -189,6 +189,8 @@ Use the response from the previous call to retrieve and save the application obj
 
 In this example, you'll set `saml` as the single sign-on mode in the [servicePrincipal resource type](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-1.0). Other SAML SSO properties that you can configure are: `notificationEmailAddresses`, `loginUrl`, and `samlSingleSignOnSettings.relayState`
 
+Before this query will work you need to provide consent on the **Modify permissions** tab in Graph Explorer. Also, make sure you are using the **servicePrincipal** id obtained earlier.
+
 #### Request
 
 <!-- {
@@ -219,6 +221,8 @@ HTTP/1.1 204
 ### Set basic SAML URLs such as identifier, reply URL, sign-on URL
 
 Set the identifier and reply URLs for AWS in the application object.
+
+Make sure you are using the **application** id obtained earlier.
 
 #### Request
 

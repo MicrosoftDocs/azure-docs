@@ -6,7 +6,8 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurecli
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
