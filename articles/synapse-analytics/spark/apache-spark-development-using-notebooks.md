@@ -276,13 +276,13 @@ The output of **%%sql** magic commands appear in the rendered table view by defa
 
    [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
 
-### Visualizing built-in charts from large-scale dataset 
+### Visualize built-in charts from large-scale dataset 
 
 By default the <code>display(df)</code> function will only take the first 1000 rows of the data to render the charts. Check the **Aggregation over all results** and click **Apply** button, you will apply the chart generation from the whole dataset. A spark job will be triggered when the chart setting changes, it takes a while to complete the calculation and render the chart. 
     [![builtin-charts-aggregation-all](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
 
 
-### Visualizing data statistic information
+### Visualize data statistic information
 You can use <code>display(df, summary = true)</code> to check the statistics summary of a given spark DataFrame that include the column name, column type, unique values, and missing values for each column. You can also select on specific column to see its Minimal value, Maximal value, Mean value and Standard Deviation.
     [ ![builtin-charts-summary](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png) ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
 
