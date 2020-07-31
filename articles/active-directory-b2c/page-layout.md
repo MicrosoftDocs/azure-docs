@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/26/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -19,6 +19,14 @@ ms.subservice: B2C
 Page layout packages are periodically updated to include fixes and improvements in their page elements. The following change log specifies the changes introduced in each version.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+## 2.1.0
+
+- Self-asserted page (`selfasserted`)
+  - Localization and accessibility fixes.
+- Unified SSP page (`unifiedssp`)
+  - Added support for multiple sign-up links.
+  - Added support for user input validation according to the predicate rules defined in the policy.
 
 ## 2.0.0
 
@@ -36,6 +44,8 @@ Page layout packages are periodically updated to include fixes and improvements 
   - Support for Chrome translate
 - Unified and self-asserted pages
   - The username/email and password fields now use the `form` HTML element to allow Edge and Internet Explorer (IE) to properly save this information.
+- Self-asserted page
+  - Added a configurable user input validation delay for improved user experience.
 
 ## 1.1.0
 
