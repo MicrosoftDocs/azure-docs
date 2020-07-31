@@ -9,12 +9,13 @@ ms.author: cynthn
 
 ---
 
-# Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure 
-With a secure shell (SSH) key pair, you can create a Linux virtual machine that uses SSH keys for authentication. This articles shows you how to create and use an SSH RSA public-private key file pair for SSH client connections. 
+# Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure
+
+With a secure shell (SSH) key pair, you can create a Linux virtual machine that uses SSH keys for authentication. This article shows you how to create and use an SSH RSA public-private key file pair for SSH client connections.
 
 If you want quick commands, see [How to create an SSH public-private key pair for Linux VMs in Azure](mac-create-ssh-keys.md).
 
-To create SSH keys and use them to connect to a from a **Windows** computer, see [How to use SSH keys with Windows on Azure](ssh-from-windows.md). You can also use the [Azure portal](../ssh-keys-portal.md) to create an managed SSH keys for creating VMs in the portal.
+To create SSH keys and use them to connect to a from a **Windows** computer, see [How to use SSH keys with Windows on Azure](ssh-from-windows.md). You can also use the [Azure portal](../ssh-keys-portal.md) to create and manage SSH keys for creating VMs in the portal.
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 

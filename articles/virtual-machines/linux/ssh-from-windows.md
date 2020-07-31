@@ -65,7 +65,7 @@ az vm create \
    --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-With Powershell, use `New-AzVM` and add the SSH key to the VM configuration using`. For an example, see [Quickstart: Create a Linux virtual machine in Azure with PowerShell](quick-create-powershell.md).
+With PowerShell, use `New-AzVM` and add the SSH key to the VM configuration using`. For an example, see [Quickstart: Create a Linux virtual machine in Azure with PowerShell](quick-create-powershell.md).
 
 If you do a lot of deployments using the portal, you might want to upload your public key to Azure, where it can be easily selected when creating a VM from the portal. For more information, see [Upload an SSH key](../ssh-keys-portal.md#upload-an-ssh-key).
 
