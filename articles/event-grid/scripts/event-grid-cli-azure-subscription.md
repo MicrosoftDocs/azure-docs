@@ -36,4 +36,4 @@ This script uses the following command to create the event subscription. Each co
 ## Next steps
 
 * For information about querying subscriptions, see [Query Event Grid subscriptions](../query-event-subscriptions.md).
-* For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+* For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).

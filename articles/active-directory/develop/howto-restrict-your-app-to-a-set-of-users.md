@@ -22,7 +22,7 @@ Applications registered in an Azure Active Directory (Azure AD) tenant are, by d
 
 Similarly, in case of a [multi-tenant](howto-convert-app-to-be-multi-tenant.md) app, all users in the Azure AD tenant where this app is provisioned will be able to access this application once they successfully authenticate in their respective tenant.
 
-Tenant administrators and developers often have requirements where an app must be restricted to a certain set of users. Developers can accomplish the same by using popular authorization patterns like Role Based Access Control (RBAC), but this approach requires a significant amount of work on part of the developer.
+Tenant administrators and developers often have requirements where an app must be restricted to a certain set of users. Developers can accomplish the same by using popular authorization patterns like Azure role-based access control (Azure RBAC), but this approach requires a significant amount of work on part of the developer.
 
 Tenant administrators and developers can restrict an app to a specific set of users or security groups in the tenant by using this built-in feature of Azure AD as well.
 
