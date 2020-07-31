@@ -136,7 +136,7 @@ The `none` mode has the least runtime overhead and also slightly better loading 
 
 * `metadataKeys` - Allows you to specify keys of node metadata properties that you want to keep in the conversion result. You can specify exact keys or wildcard keys. Wildcard keys are of the format "ABC*" and match any key that starts with "ABC". Supported metadata value types are `bool`, `int`, `float`, and `string`.
 
-    For GLTF files this data comes from the "extras" object. For FBX files this data comes from the "Properties70" node.
+    For GLTF files this data comes from the [extras object on nodes](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). For FBX files this data comes from the `Properties70` data on `Model nodes`. Please consult the documentation of your 3D Asset Tool for further details.
 
 ### :::no-loc text="Vertex"::: format
 
