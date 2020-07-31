@@ -258,7 +258,7 @@ Access to perform privileged actions within Azure is based on roles that are ass
 
 |Resources |Link |
 |---|---|
-|Azure Role Based Access Control|[https://docs.microsoft.com/azure/role-based-access-control](https://docs.microsoft.com/azure/role-based-access-control)|
+|Azure role-based access control (Azure RBAC)|[https://docs.microsoft.com/azure/role-based-access-control](https://docs.microsoft.com/azure/role-based-access-control)|
 |Understand Role Definitions|[https://docs.microsoft.com/azure/role-based-access-control/role-definitions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions)|
 
 ### Privileged Identity Management (PIM)
