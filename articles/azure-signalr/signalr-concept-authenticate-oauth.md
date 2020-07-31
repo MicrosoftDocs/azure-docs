@@ -6,6 +6,7 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
+ms.custom: devx-track-javascript
 ---
 # Azure SignalR Service authentication
 

@@ -132,7 +132,7 @@ To help you protect your backup data and meet the security needs of your busines
 
 ### Authentication and authorization
 
-* Azure Role-Based Access Control (RBAC) enables fine-grained access management, segregation of  duties within your team and granting only the amount of access to users necessary to perform their jobs. [Learn more here](backup-rbac-rs-vault.md).
+* Azure role-based access control (Azure RBAC) enables fine-grained access management, segregation of  duties within your team and granting only the amount of access to users necessary to perform their jobs. [Learn more here](backup-rbac-rs-vault.md).
 
 * Azure Backup provides three built-in roles to control backup management operations: Backup contributors, operators, and readers. [Learn more here](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions).
 

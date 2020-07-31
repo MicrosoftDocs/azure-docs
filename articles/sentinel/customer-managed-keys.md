@@ -62,9 +62,9 @@ To provision CMK, follow these steps: 
 
 1.  [Turn on recovery options:](../key-vault/general/best-practices.md#turn-on-recovery-options)
 
-    -   Make sure [Soft Delete](../key-vault/general/overview-soft-delete.md) is turned on.
+    -   Make sure [Soft Delete](../key-vault/general/soft-delete-overview.md) is turned on.
 
-    -   Turn on [Purge protection](../key-vault/general/overview-soft-delete.md#purge-protection) to guard against forced deletion of the secret/vault even after soft delete.
+    -   Turn on [Purge protection](../key-vault/general/soft-delete-overview.md#purge-protection) to guard against forced deletion of the secret/vault even after soft delete.
 
 ### STEP 2: Enable CMK on your Log Analytics workspace
 

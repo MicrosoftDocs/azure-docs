@@ -60,6 +60,10 @@
         href: backup-avs-vms-with-mabs.md
     - name: Application Gateway on AVS
       href: protect-avs-web-apps-with-app-gateway.md
+  - name: VMware solutions
+    items:
+    - name: Set up vRealize Operations for AVS
+      href: vrealize-operations-for-avs.md  
 - name: Reference
   items:
 - name: Resources

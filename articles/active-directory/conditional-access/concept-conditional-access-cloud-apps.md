@@ -114,6 +114,7 @@ In addition to the Microsoft apps, administrators can add any Azure AD registere
 - [Applications added from the gallery](../manage-apps/add-application-portal.md)
 - [Custom applications not in the gallery](../manage-apps/add-non-gallery-app.md)
 - [Legacy applications published through app delivery controllers and networks](../manage-apps/secure-hybrid-access.md)
+- Applications that use [password based single sing-on](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 > [!NOTE]
 > Since Conditional access policy sets the requirements for accessing a service you are not able to apply it to a client (public/native) application. Other words the policy is not set directly on a client (public/native) application, but is applied when a client calls a service. For example, a policy set on SharePoint service applies to the clients calling SharePoint. A policy set on Exchange applies to the attempt to access the email using Outlook client. That is why client (public/native) applications are not available for selection in the Cloud Apps picker and Conditional Access option is not available in the application settings for the client (public/native) application registered in your tenant. 

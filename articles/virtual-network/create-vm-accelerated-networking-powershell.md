@@ -1,6 +1,6 @@
 ---
 title: Create Windows VM with accelerated networking - Azure PowerShell
-description: Learn how to create a Linux virtual machine with accelerated networking.
+description: Create a Windows virtual machine (VM) with accelerated networking to greatly improve its networking performance.
 services: virtual-network
 documentationcenter: ''
 author: gsilva5

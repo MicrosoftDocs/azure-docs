@@ -26,6 +26,8 @@ This tutorial shows you how to create a JavaScript single-page application (SPA)
 
 MSAL.js 2.0 improves on MSAL.js 1.0 by supporting the authorization code flow in the browser instead of the implicit grant flow. MSAL.js 2.0 does **NOT** support the implicit flow.
 
+[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
+
 ## How the tutorial app works
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagram showing the authorization code flow in a single-page application":::
@@ -369,7 +371,7 @@ let username = "";
 
 function loadPage() {
     /**
-     * See here for more info on account retrieval: 
+     * See here for more info on account retrieval:
      * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
      */
     const currentAccounts = myMSALObj.getAllAccounts();
@@ -409,7 +411,7 @@ function signOut() {
 
 function getTokenPopup(request) {
     /**
-     * See here for more info on account retrieval: 
+     * See here for more info on account retrieval:
      * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
      */
     request.account = myMSALObj.getAccountByUsername(username);
@@ -419,13 +421,13 @@ function getTokenPopup(request) {
             // fallback to interaction when silent call fails
             return myMSALObj.acquireTokenPopup(request).then(tokenResponse => {
                 console.log(tokenResponse);
-                
+
                 return tokenResponse;
             }).catch(error => {
                 console.error(error);
             });
         } else {
-            console.warn(error);   
+            console.warn(error);
         }
     });
 }
@@ -474,7 +476,7 @@ function handleResponse(resp) {
         showWelcomeMessage(resp.account);
     } else {
         /**
-         * See here for more info on account retrieval: 
+         * See here for more info on account retrieval:
          * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
          */
         const currentAccounts = myMSALObj.getAllAccounts();
@@ -504,7 +506,7 @@ function signOut() {
 
 function getTokenRedirect(request) {
     /**
-     * See here for more info on account retrieval: 
+     * See here for more info on account retrieval:
      * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
      */
     request.account = myMSALObj.getAccountByUsername(username);
@@ -514,7 +516,7 @@ function getTokenRedirect(request) {
                 // fallback to interaction when silent call fails
                 return myMSALObj.acquireTokenRedirect(request);
             } else {
-                console.warn(error);   
+                console.warn(error);
             }
         });
 }

@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 03/27/2020
+ms.date: 07/27/2020
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
@@ -233,8 +233,6 @@ The following two procedures show you how to provision an Azure Active Directory
 
 1. In the [Azure portal](https://portal.azure.com/), in the upper-right corner, select your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription-associated Active Directory with server making sure that the same subscription is used for both Azure AD and the server.
 
-    ![choose-ad][8]
-
 2. Search for and select **SQL server**.
 
     ![Search for and select SQL servers](./media/authentication-aad-configure/search-for-and-select-sql-servers.png)
@@ -357,7 +355,7 @@ Because SQL Managed Instance supports Azure AD server principals (logins), using
 However, using Azure Active Directory authentication with SQL Database and Azure Synapse requires using contained database users based on an Azure AD identity. A contained database user does not have a login in the master database, and maps to an identity in Azure AD that is associated with the database. The Azure AD identity can be either an individual user account or a group. For more information about contained database users, see [Contained Database Users- Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Database users (with the exception of administrators) cannot be created using the Azure portal. RBAC roles are not propagated to the database in SQL Database, the SQL Managed Instance, or Azure Synapse. Azure RBAC roles are used for managing Azure Resources, and do not apply to database permissions. For example, the **SQL Server Contributor** role does not grant access to connect to the database in SQL Database, the SQL Managed Instance, or Azure Synapse. The access permission must be granted directly in the database using Transact-SQL statements.
+> Database users (with the exception of administrators) cannot be created using the Azure portal. Azure roles are not propagated to the database in SQL Database, the SQL Managed Instance, or Azure Synapse. Azure roles are used for managing Azure Resources, and do not apply to database permissions. For example, the **SQL Server Contributor** role does not grant access to connect to the database in SQL Database, the SQL Managed Instance, or Azure Synapse. The access permission must be granted directly in the database using Transact-SQL statements.
 
 > [!WARNING]
 > Special characters like  colon `:` or ampersand `&` when included as user names in the T-SQL `CREATE LOGIN` and `CREATE USER` statements are not supported.
@@ -535,9 +533,11 @@ Guidance on troubleshooting issues with Azure AD authentication can be found in 
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](firewall-configure.md).
+- For information about how to set an Azure AD guest user as the Azure AD admin, see [Create Azure AD guest users and set as an Azure AD admin](authentication-aad-guest-users.md).
+- For information on how to service principals with Azure SQL, see [Create Azure AD users using Azure AD applications](authentication-aad-service-principal-tutorial.md)
 
 <!--Image references-->
+
 [11]: ./media/authentication-aad-configure/active-directory-integrated.png
 [12]: ./media/authentication-aad-configure/12connect-using-pw-auth2.png
 [13]: ./media/authentication-aad-configure/13connect-to-db2.png
-
