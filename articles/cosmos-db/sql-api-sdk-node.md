@@ -8,7 +8,7 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-
+ms.custom: devx-track-javascript
 
 ---
 # Azure Cosmos DB Node.js SDK for SQL API: Release notes and resources
@@ -405,17 +405,8 @@ Not always the most visible changes, but they help our team ship better code, fa
 * GA SDK.
 
 ## Release & Retirement Dates
-Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
-New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible.
-
-Any request to Cosmos DB using a retired SDK will be rejected by the service.
-
-> [!WARNING]
-> All versions **1.x** of the Node client SDK for SQL API will be retired on **August 30, 2020**. This affects only the client-side Node SDK and does not affect server-side scripts (stored procedures, triggers, and UDFs).
-> 
->
-<br/>
+Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version. New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |

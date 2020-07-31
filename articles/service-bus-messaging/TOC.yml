@@ -220,11 +220,11 @@
         href: service-bus-resource-manager-namespace-topic-with-rule.md
   - name: Secure
     items:
-    - name: Configure firewalls
+    - name: Allow access from specific IP addresses
       href: service-bus-ip-filtering.md
-    - name: Configure virtual network service endpoints
+    - name: Allow access from specific virtual networks
       href: service-bus-service-endpoints.md
-    - name: Configure private endpoints
+    - name: Allow access via private endpoints
       href: private-link-service.md
     - name: Configure customer-managed keys
       href: configure-customer-managed-key.md

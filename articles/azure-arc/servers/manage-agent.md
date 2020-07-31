@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/14/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
 ---
 
@@ -176,6 +176,9 @@ To disconnect with your elevated logged-on credentials (interactive), run the fo
 `azcmagent disconnect --tenant-id <tenantID>`
 
 ### Reconnect
+
+> [!WARNING]
+> The `reconnect` command is deprecated and should not be used. The command will be removed in a future agent release and existing agents will be unable to complete the reconnect request. Instead, [disconnect](#disconnect) your machine then [connect](#connect) it again.
 
 This parameter reconnects the already registered or connected machine with Azure Arc for servers (preview). This may be necessary if the machine has been turned off, at least 45 days, for its certificate to expire. This parameter uses the authentication options provided to retrieve new credentials corresponding to the Azure Resource Manager resource representing this machine.
 

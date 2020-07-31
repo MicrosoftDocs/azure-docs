@@ -44,7 +44,7 @@ The following list describes the levels at which you can scope access to Service
 - **Subscription**: Role assignment applies to all the Service Bus resources in all of the resource groups in the subscription.
 
 > [!NOTE]
-> Keep in mind that RBAC role assignments may take up to five minutes to propagate. 
+> Keep in mind that Azure role assignments may take up to five minutes to propagate. 
 
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
@@ -146,7 +146,7 @@ When you run the console application, you are prompted to select a scenario. Sel
 
 ## Next steps
 - To learn more about RBAC, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?
-- To learn how to assign and manage RBAC role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:
+- To learn how to assign and manage Azure role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:
     - [Manage role-based access control (RBAC) with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
     - [Manage role-based access control (RBAC) with Azure CLI](../role-based-access-control/role-assignments-cli.md)
     - [Manage role-based access control (RBAC) with the REST API](../role-based-access-control/role-assignments-rest.md)
