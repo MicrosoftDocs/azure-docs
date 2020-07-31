@@ -40,13 +40,13 @@ When monitoring data flow performance, there are four possible bottlenecks to lo
 
 Cluster start-up time is the time it takes to spin up an Apache Spark cluster. This value is located in the top-right corner of the monitoring screen. Data flows run on a just-in-time model where each job uses an isolated cluster. This start-up time generally takes 3-5 minutes. For sequential jobs, this can be reduced by enabling a time to live value. For more information, see [optimizing the Azure Integration Runtime](#ir).
 
-Data flows utilize a Spark optimizer that reorders and runs your business logic in 'stages' to perform as quickly as possible. For each sink that your data flow writes to, the monitoring output lists the duration of each transformation stage, along with the time it take to write data into the sink. The time that is the largest is likely the bottleneck of your data flow. If the transformation stage that takes the largest contains a source, then you may want to look at further optimizing your read time. If a transformation is taking a long time, then you may need to repartition or increase the size of your integration runtime. If the sink processing time is very large, you may need to scale up your database or verify you are not outputting to a single file.
+Data flows utilize a Spark optimizer that reorders and runs your business logic in 'stages' to perform as quickly as possible. For each sink that your data flow writes to, the monitoring output lists the duration of each transformation stage, along with the time it takes to write data into the sink. The time that is the largest is likely the bottleneck of your data flow. If the transformation stage that takes the largest contains a source, then you may want to look at further optimizing your read time. If a transformation is taking a long time, then you may need to repartition or increase the size of your integration runtime. If the sink processing time is large, you may need to scale up your database or verify you are not outputting to a single file.
 
 Once you have identified the bottleneck of your data flow, use the below optimizations strategies to improve performance.
 
 ## Optimize tab
 
-The **Optimize** tab contains settings to configure the partitioning scheme of the Spark cluster. This tab is exists in every transformation of data flow and specifies whether you want to repartition the data **after** the transformation has completed. Adjusting the partitioning provides control over the distribution of your data across compute nodes and data locality optimizations that can have both positive and negative effects on your overall data flow performance.
+The **Optimize** tab contains settings to configure the partitioning scheme of the Spark cluster. This tab exists in every transformation of data flow and specifies whether you want to repartition the data **after** the transformation has completed. Adjusting the partitioning provides control over the distribution of your data across compute nodes and data locality optimizations that can have both positive and negative effects on your overall data flow performance.
 
 ![Optimize](media/data-flow/optimize1.png "Optimize")
 
@@ -94,17 +94,15 @@ There are three available options for the type of Spark cluster spun up: general
 
 **General purpose** clusters are the default selection and will be ideal for most data flow workloads. These tend to be the best balance of performance and cost.
 
-If your data flow has a lot of joins and lookups, you may want to use a **memory optimized** cluster. Memory optimized clusters can store more data in memory and will minimize any out-of-memory errors  you may get. Memory optimized have the highest price-point per core, but also tend to result in more successful pipelines. If you experience any out of memory errors when executing data flows, switch to a memory optimized Azure IR configuration. 
+If your data flow has many joins and lookups, you may want to use a **memory optimized** cluster. Memory optimized clusters can store more data in memory and will minimize any out-of-memory errors you may get. Memory optimized have the highest price-point per core, but also tend to result in more successful pipelines. If you experience any out of memory errors when executing data flows, switch to a memory optimized Azure IR configuration. 
 
 **Compute optimized** aren't ideal for ETL workflows and aren't recommended by the Azure Data Factory team for most production workloads. For simpler, non-memory intensive data transformations such as filtering data or adding derived columns, compute-optimized clusters can be used at a cheaper price per core.
 
-For more information, learn about [Azure Virtual Machines types](virtual-machines/sizes.md).
-
 ### Cluster size
 
-Data flows distribute the data processing over different nodes in a Spark cluster to perform operations in parallel. A Spark cluster with more cores increases the number of nodes in the compute environment. More nodes increases the processing power of the data flow. Increasing the size of the cluster is often an easy way to reduce the processing time.
+Data flows distribute the data processing over different nodes in a Spark cluster to perform operations in parallel. A Spark cluster with more cores increases the number of nodes in the compute environment. More nodes increase the processing power of the data flow. Increasing the size of the cluster is often an easy way to reduce the processing time.
 
-The default cluster size is four driver nodes and four worker nodes which is the smallest possible cluster size. As you process more data, larger clusters are recommended. Below are the possible sizing options:
+The default cluster size is four driver nodes and four worker nodes.  As you process more data, larger clusters are recommended. Below are the possible sizing options:
 
 | Worker cores | Driver cores | Total cores | Notes |
 | ------------ | ------------ | ----------- | ----- |
@@ -116,7 +114,7 @@ The default cluster size is four driver nodes and four worker nodes which is the
 | 128 | 16 | 144 | |
 | 256 | 16 | 272 | |
 
-Data flows are priced at vcore-hrs meaning that both cluster size and execution time factor into this. As you scale up, your cluster cost per minute will increase, but your overall time will decrease.
+Data flows are priced at vcore-hrs meaning that both cluster size and execution-time factor into this. As you scale up, your cluster cost per minute will increase, but your overall time will decrease.
 
 > [!TIP]
 > There is a ceiling on how much the size of a cluster affects the performance of a data flow. Depending on the size of your data, there is a point where increasing the size of a cluster will stop improving performance. For example, If you have more nodes than partitions of data, adding additional nodes won't help. 
@@ -124,7 +122,7 @@ A best practice is to start small and scale up to meet your performance needs.
 
 ### Time to live
 
-By default, every data flow activity spins up a new cluster based upon the IR configuration. Cluster spin up time takes a few minutes and data processing can't start until it is complete. If you're pipelines contain multiple **sequential** data flows, you can enable a time to live (TTL) value. Specifying a time to live value keeps a cluster alive for a certain period of time after its execution completes. If a new job starts using the IR during the TTL time, it will reuse the existing cluster and start up time will be in seconds rather than minutes. After the second job completes, the cluster will again stay alive for the TTL time.
+By default, every data flow activity spins up a new cluster based upon the IR configuration. Cluster start-up time takes a few minutes and data processing can't start until it is complete. If your pipelines contain multiple **sequential** data flows, you can enable a time to live (TTL) value. Specifying a time to live value keeps a cluster alive for a certain period of time after its execution completes. If a new job starts using the IR during the TTL time, it will reuse the existing cluster and start up time will be in seconds rather than minutes. After the second job completes, the cluster will again stay alive for the TTL time.
 
 Only one job can run on a single cluster at a time. If there is an available cluster, but two data flows start, only one will use the live cluster. The second job will spin up its own isolated cluster.
 
@@ -144,7 +142,7 @@ Any custom partitioning happens *after* Spark reads in the data and will negativ
 
 ### Azure SQL Database sources
 
-Azure SQL Database has a unique partitioning option called 'Source' partitioning. Enabling source partitioning can improve your read times from Azure SQL DB by enabling parallel connections on the source system. Specify the number of partitions and how to partition your data. It is recommended to use a partition column with high cardinality. You can also enter a query that matches the partitioning scheme of your source table.
+Azure SQL Database has a unique partitioning option called 'Source' partitioning. Enabling source partitioning can improve your read times from Azure SQL DB by enabling parallel connections on the source system. Specify the number of partitions and how to partition your data. Use a partition column with high cardinality. You can also enter a query that matches the partitioning scheme of your source table.
 
 > [!TIP]
 > For source partitioning, the I/O of the SQL Server is the bottleneck. Adding too many partitions may saturate your source database. Generally four or five partitions is ideal when using this option.
@@ -157,11 +155,11 @@ The isolation level of the read on an Azure SQL source system has an impact on p
 
 #### Read using query
 
-In Azure SQL Database you can read a table or using a SQL query. If you are executing a SQL query, the query must complete before transformation can start. SQL Queries can be useful to push down operations that may execute faster and reduce the amount of data read from a SQL Server such as SELECT, WHERE and JOIN statements. When pushing down operations, you lose the ability to track lineage and performance of the transformations before the data comes into the data flow.
+You can read from Azure SQL Database using a table or a SQL query. If you are executing a SQL query, the query must complete before transformation can start. SQL Queries can be useful to push down operations that may execute faster and reduce the amount of data read from a SQL Server such as SELECT, WHERE, and JOIN statements. When pushing down operations, you lose the ability to track lineage and performance of the transformations before the data comes into the data flow.
 
 ### Azure Synapse Analytics sources
 
-When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows ADF to read from Synapse using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15) which greatly improves read performance. Enabling PolyBase requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
+When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows ADF to read from Synapse using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15), which greatly improves read performance. Enabling PolyBase requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
 
 ![Enable staging](media/data-flow/enable-staging.png "Enable staging")
 
@@ -171,7 +169,7 @@ While data flows support a variety of file types, the Azure Data Factory recomme
 
 If you're running the same data flow on a set of files, we recommend reading from a folder, using wildcard paths or reading from a list of files. A single data flow activity run can process all of your files in batch. More information on how to set these settings can be found in the connector documentation such as [Azure Blob Storage](connector-azure-blob-storage.md#source-transformation).
 
-If possible, avoid using the For-Each activity to run data flows over a set of files. This will cause each iteration of the for-each to spin up its own Spark cluster which is often not necessary and can be expensive. 
+If possible, avoid using the For-Each activity to run data flows over a set of files. This will cause each iteration of the for-each to spin up its own Spark cluster, which is often not necessary and can be expensive. 
 
 ## Optimizing sinks
 
@@ -191,7 +189,7 @@ After the write has completed, rebuild the indexes using the following command:
 
 `ALTER INDEX ALL ON dbo.[Table Name] REBUILD`
 
-These can both be done natively using Pre and Post SQL scripts within a Azure SQL DB or Synapse sink in mapping data flows.
+These can both be done natively using Pre and Post-SQL scripts within an Azure SQL DB or Synapse sink in mapping data flows.
 
 ![Disable indexes](media/data-flow/disable-indexes-sql.png "Disable indexes")
 
@@ -204,7 +202,7 @@ Schedule a resizing of your source and sink Azure SQL DB and DW before your pipe
 
 ### Azure Synapse Analytics sinks
 
-When writing to Azure Synapse Analytics, make sure that **Enable staging** is set to true. This enables ADF to write using PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) which effectively loads the data in bulk. You will need to reference a Azure Data Lake Storage gen2 or Azure Blob Storage account for staging of the data when using PolyBase.
+When writing to Azure Synapse Analytics, make sure that **Enable staging** is set to true. This enables ADF to write using PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) which effectively loads the data in bulk. You will need to reference an Azure Data Lake Storage gen2 or Azure Blob Storage account for staging of the data when using PolyBase.
 
 Other than PolyBase, the same best practices apply to Azure Synapse Analytics as Azure SQL Database.
 
@@ -234,9 +232,9 @@ When writing to CosmosDB, altering throughput and batch size during data flow ex
 
 **Batch size:** Calculate the rough row size of your data, and make sure that row size * batch size is less than two million. If it is, increase the batch size to get better throughput
 
-**Throughput:** Set a higher throughput setting here to allow documents to write faster to CosmosDB. Please keep in mind the higher RU costs based upon a high throughput setting.
+**Throughput:** Set a higher throughput setting here to allow documents to write faster to CosmosDB. Keep in mind the higher RU costs based upon a high throughput setting.
 
-**Write Throughput Budget:** Use a value which is smaller than total RUs per minute. If you have a data flow with a high number of Spark partitions, setting a a budget throughput will allow more balance across those partitions.
+**Write Throughput Budget:** Use a value which is smaller than total RUs per minute. If you have a data flow with a high number of Spark partitions, setting a budget throughput will allow more balance across those partitions.
 
 
 ## Optimizing transformations
@@ -247,7 +245,7 @@ When writing to CosmosDB, altering throughput and batch size during data flow ex
 
 In joins, lookups, and exists transformations, if one or both data streams are small enough to fit into worker node memory, you can optimize performance by enabling **Broadcasting**. Broadcasting is when you send small data frames to all nodes in the cluster. This allows for the Spark engine to perform a join without reshuffling the data in the large stream. By default, the Spark engine will automatically decide whether or not to broadcast one side of a join. If you are familiar with your incoming data and know that one stream will be significantly smaller than the other, you can select **Fixed** broadcasting. Fixed broadcasting forces Spark to broadcast the selected stream. 
 
-If the size of the broadcasted data is too big for the Spark node, you may get an out of memory error. To avoid out of memory errors, use **memory optimized** clusters. If you experience broadcast timeouts during data flow executions, you can switch off the broadcast optimization. However, this will result in slower performing data flows.
+If the size of the broadcasted data is too large for the Spark node, you may get an out of memory error. To avoid out of memory errors, use **memory optimized** clusters. If you experience broadcast timeouts during data flow executions, you can switch off the broadcast optimization. However, this will result in slower performing data flows.
 
 ![Join Transformation optimize](media/data-flow/joinoptimize.png "Join Optimization")
 
@@ -265,7 +263,7 @@ Certain transformations such as joins and aggregates reshuffle your data partiti
 
 ![Skewness and kurtosis](media/data-flow/skewness-kurtosis.png "Skewness and kurtosis")
 
-The monitoring display will show how the data is distributed across each partition along with two metrics, skewness and kurtosis. **Skewness** is a measure of how asymmetrical the data is and can have a positive, zero, negative, or undefined value. Negative skew means the left tail is longer than the right. **Kurtosis** is the measure of whether the data is heavy-tailed or light-tailed. High kurtosis values are not desirable. Ideal ranges of skewness lie between -3 and 3 and ranges of kurtosis are generally less than ten. An easy way to interpret these numbers is looking at the partition chart and seeing if one bar is significantly larger than the rest.
+The monitoring display will show how the data is distributed across each partition along with two metrics, skewness and kurtosis. **Skewness** is a measure of how asymmetrical the data is and can have a positive, zero, negative, or undefined value. Negative skew means the left tail is longer than the right. **Kurtosis** is the measure of whether the data is heavy-tailed or light-tailed. High kurtosis values are not desirable. Ideal ranges of skewness lie between -3 and 3 and ranges of kurtosis are less than 10. An easy way to interpret these numbers is looking at the partition chart and seeing if 1 bar is significantly larger than the rest.
 
 If your data is not evenly partitioned after a transformation, you can use the [optimize tab](#optimize-tab) to repartition. Reshuffling data takes time and may not improve your data flow performance.
 
