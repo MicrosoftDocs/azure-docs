@@ -31,7 +31,9 @@ If you have an existing Azure AD B2C tenant that was linked to a subscription pr
 * Upgrade to the monthly active users (MAU) billing model, or
 * Stay on the per-authentication billing model
 
-### Upgrade to monthly active users billing model
+### Switch to the new monthly active users billing model (recommended)
+
+This is recommended because it's more cost-effective for you...
 
 Azure subscription owners that have administrative access to the Azure AD B2C resource can switch to the MAU billing model. Billing options are configured in your Azure AD B2C resource.
 
