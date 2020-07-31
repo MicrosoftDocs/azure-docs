@@ -19,7 +19,7 @@ PAL enables Microsoft to identify and recognize partners who drive Azure custome
 
 Before you link your partner ID, your customer must give you access to their Azure resources by using one of the following options:
 
-- **Guest user**: Your customer can add you as a guest user and assign any role-based access control (RBAC) roles. For more information, see [Add guest users from another directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Guest user**: Your customer can add you as a guest user and assign any Azure roles. For more information, see [Add guest users from another directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
 - **Directory account**: Your customer can create a user account for you in their own directory and assign any RBAC role.
 
@@ -168,4 +168,3 @@ The PAL association to existing credentials provides no new customer data to Mic
 **Does this impact the security of a customer’s Azure Environment?**
 
 PAL association only adds partner’s MPN ID to the credential already provisioned and it does not alter any permissions (RBAC role) or provide additional Azure service data to partner or Microsoft. 
-

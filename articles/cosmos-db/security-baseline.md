@@ -320,7 +320,7 @@ How to programmatically access keys using Azure Active Directory: https://docs.m
 
 ### 3.3: Use dedicated administrative accounts
 
-**Guidance**: Not applicable; Azure Cosmos DB does not support administrator accounts.  All access is integrated with Azure Active Directory and Azure role-based access control (RBAC).
+**Guidance**: Not applicable; Azure Cosmos DB does not support administrator accounts.  All access is integrated with Azure Active Directory and Azure role-based access control (Azure RBAC).
 
 
 
