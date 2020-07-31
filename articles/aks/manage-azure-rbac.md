@@ -280,7 +280,7 @@ az group delete -n MyResourceGroup
 
 - Read more about AKS Authentication, Authorization, and RBAC [here](concepts-identity.md).
 - Read more about Azure RBAC [here](../role-based-access-control/overview.md).
-- Read more about the all the actions you can use to granularly define custom Azure RBAC roles for Kubernetes authorization [here](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
+- Read more about the all the actions you can use to granularly define custom Azure roles for Kubernetes authorization [here](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
 
 
 <!-- LINKS - Internal -->

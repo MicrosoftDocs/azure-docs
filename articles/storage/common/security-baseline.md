@@ -289,7 +289,7 @@ Also, Enable Advanced Threat Protection for your Azure Storage account. Advanced
 
 ### 3.2: Change Default Passwords where Applicable
 
-**Guidance**: Azure Storage accounts nor Azure Active Directory have the concept of default or blank passwords. Azure Storage implements an access control model that supports Azure role-based access control (RBAC) as well as Shared Key and Shared Access Signatures (SAS). A characteristic of Shared Key and SAS authentication is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed. 
+**Guidance**: Azure Storage accounts nor Azure Active Directory have the concept of default or blank passwords. Azure Storage implements an access control model that supports Azure role-based access control (Azure RBAC) as well as Shared Key and Shared Access Signatures (SAS). A characteristic of Shared Key and SAS authentication is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed. 
 
 - [Authorizing access to data in Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
 

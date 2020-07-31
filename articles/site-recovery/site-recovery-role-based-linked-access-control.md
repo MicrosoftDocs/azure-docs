@@ -10,7 +10,7 @@ ms.author: mayg
 ---
 # Manage Site Recovery access with role-based access control (RBAC)
 
-Azure role-based access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate responsibilities within your team and grant only specific access permissions to users as needed to perform specific jobs.
+Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate responsibilities within your team and grant only specific access permissions to users as needed to perform specific jobs.
 
 Azure Site Recovery provides 3 built-in roles to control Site Recovery management operations. Learn more on [Azure built-in roles](../role-based-access-control/built-in-roles.md)
 
