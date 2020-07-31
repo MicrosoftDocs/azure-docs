@@ -1,6 +1,6 @@
 ---
 title: Overview of how to use Linux Foundation Delta Lake in Apache Spark for Azure Synapse Analytics
-description: Learn how to use Delta Lake in Apache Spark for Azure Synapse Analytics to create and use tables with ACID properties.
+description: Learn how to use Delta Lake in Apache Spark for Azure Synapse Analytics, to create, and use tables with ACID properties.
 services: synapse-analytics
 author: euangMS
 ms.service:  synapse-analytics
@@ -14,7 +14,7 @@ zone_pivot_groups: programming-languages-spark-all-minus-sql
 
 # Linux Foundation Delta Lake Overview
 
-This article has been adapted for more clarity from its original counterpart [here](https://docs.delta.io/latest/quick-start.html). This article helps you quickly explore the main features of [Delta Lake](https://delta.io). It provides code snippets that show how to read from and write to Delta Lake tables from interactive, batch, and streaming queries. It is also available as a notebook [PySpark here](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/PySpark/Hitchikers%20Guide%20to%20Delta%20Lake%20-%20Python.ipynb), [Scala here](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/Scala/Hitchikers%20Guide%20to%20Delta%20Lake%20-%20Scala.ipynb) and [C# here](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/Spark.NET%20C%23/Hitchikers%20Guide%20to%20Delta%20Lake%20-%20CSharp.ipynb)
+This article has been adapted for more clarity from its original counterpart [here](https://docs.delta.io/latest/quick-start.html). This article helps you quickly explore the main features of [Delta Lake](https://delta.io). The article provides code snippets that show how to read from and write to Delta Lake tables from interactive, batch, and streaming queries. The code snippets are also available in a set of notebooks [PySpark here](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/PySpark/Hitchikers%20Guide%20to%20Delta%20Lake%20-%20Python.ipynb), [Scala here](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/Scala/Hitchikers%20Guide%20to%20Delta%20Lake%20-%20Scala.ipynb), and [C# here](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/Spark.NET%20C%23/Hitchikers%20Guide%20to%20Delta%20Lake%20-%20CSharp.ipynb)
 
 Here's what we will cover:
 
@@ -30,7 +30,7 @@ Here's what we will cover:
 
 ## Configuration
 
-Make sure you modify this as appropriate for your environment.
+Make sure you modify the below as appropriate for your environment.
 
 :::zone pivot = "programming-language-python"
 
@@ -117,7 +117,7 @@ Results in:
 
 ## Read data
 
-You read data in your Delta Lake table by specifying the path to the files and the delta format explicitly.
+You read data in your Delta Lake table by specifying the path to the files and the delta format.
 
 :::zone pivot = "programming-language-python"
 
@@ -202,7 +202,7 @@ Results in:
 |  9|
 |  6|
 
-Here you can see that all 5 records have been updated to hold new values.
+Here you can see that all five records have been updated to hold new values.
 
 ## Save as catalog tables
 
@@ -245,7 +245,7 @@ Results in:
 | default|externaldeltatable|      false|
 | default| manageddeltatable|      false|
 
-With this code you created a new table in the catalog from an existing dataframe, referred to as a managed table. Then you defined a new external table in the catalog that uses an existing location, referred to as an external table. In the output you can see both tables, no matter how they were created, are listed in the catalog.
+With this code, you created a new table in the catalog from an existing dataframe, referred to as a managed table. Then you defined a new external table in the catalog that uses an existing location, referred to as an external table. In the output you can see both tables, no matter how they were created, are listed in the catalog.
 
 Now you can look at the extended properties of both of these tables
 
@@ -444,7 +444,7 @@ Results in:
 |  7|
 |  9|
 
-You have deleted every even row.
+Notice that every even row has been deleted.
 
 :::zone pivot = "programming-language-python"
 
@@ -526,11 +526,11 @@ Results in:
 | -1|
 | 17|
 
-Here you have a combination of the existing data, which has been assigned the value -1 in the update(WhenMatched) code path, and the new data that was created at the top of the snippet and was added via the insert code path (WhenNotMatched).
+Here you have a combination of the existing data. The existing data has been assigned the value -1 in the update(WhenMatched) code path. The new data that was created at the top of the snippet and was added via the insert code path (WhenNotMatched), was also added.
 
 ### History
 
-Delta's most powerful feature is the ability to allow looking into history i.e., the changes that were made to the underlying Delta Table. The cell below shows how simple it is to inspect the history.
+Delta Lake's has the ability to allow looking into history of a table. That is, the changes that were made to the underlying Delta Table. The cell below shows how simple it is to inspect the history.
 
 :::zone pivot = "programming-language-python"
 
@@ -570,7 +570,7 @@ Here you can see all of the modifications made over the above code snippets.
 
 ## Read older versions of data using Time Travel
 
-You can query previous snapshots of your Delta Lake table by using a feature called Time Travel. If you want to access the data that you overwrote, you can query a snapshot of the table before you overwrote the first set of data using the versionAsOf option.
+It's possible to query previous snapshots of your Delta Lake table by using a feature called Time Travel. If you want to access the data that you overwrote, you can query a snapshot of the table before you overwrote the first set of data using the versionAsOf option.
 
 Once you run the cell below, you should see the first set of data from before you overwrote it. Time Travel is an extremely powerful feature that takes advantage of the power of the Delta Lake transaction log to access data that is no longer in the table. Removing the version 0 option (or specifying version 1) would let you see the newer data again. For more information, see [Query an older snapshot of a table](https://docs.delta.io/latest/delta-batch.html#deltatimetravel).
 
@@ -615,7 +615,7 @@ Here you can see you have gone back to the earliest version of the data.
 
 ## Write a stream of data to a table
 
-You can also write to a Delta Lake table using Spark's Structured Streaming. The Delta Lake transaction log guarantees exactly-once processing, even when there are other streams or batch queries running concurrently against the table. By default, streams run in append mode, which adds new records to the table.
+You can also write to a Delta Lake table using Spark's Structured Streaming. The Delta Lake transaction log guarantees exactly once processing, even when there are other streams or batch queries running concurrently against the table. By default, streams run in append mode, which adds new records to the table.
 
 For more information about Delta Lake integration with Structured Streaming, see [Table Streaming Reads and Writes](https://docs.delta.io/latest/delta-streaming.html).
 
@@ -624,9 +624,9 @@ In the cells below, here's what we are doing:
 Cell 30 Show the newly appended data
 Cell 31 Inspect history
 Cell 32 Stop the structured streaming job
-Cell 33 Inspect history <-- You'll notice appends have stopped
+Cell 33 Inspect history <--You'll notice appends have stopped
 
-First you are going to setup a simple Spark Streaming job to generate a sequence and make the job write to your Delta Table.
+First you are going to set up a simple Spark Streaming job to generate a sequence and make the job write to your Delta Table.
 
 :::zone pivot = "programming-language-python"
 
