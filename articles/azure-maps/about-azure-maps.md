@@ -172,7 +172,7 @@ Developers can use the [Get Weather along route API](https://docs.microsoft.com/
 
 The [Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) allows you to request past, current and future radar and satellite tiles.
 
-![Example of map with real time weather radar tiles]()
+![Example of map with real time weather radar tiles](media/about-azure-maps/intro_weather.png)
 
 ### Maps Creator service
 
