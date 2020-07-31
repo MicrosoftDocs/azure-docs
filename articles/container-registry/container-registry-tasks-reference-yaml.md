@@ -504,7 +504,7 @@ ACR Tasks includes a default set of variables that are available to task steps w
 * `Run.TaskName`
 
 The variable names are generally self-explanatory. Details follow for commonly used variables. As of YAML version `v1.1.0`, you can use an abbreviated, predefined [task alias](#aliases) in place of most run variables. For example, in place of `{{.Run.Registry}}`, use the `$Registry` alias.
-ƒ
+
 ### Run.ID
 
 Each Run, through `az acr run`, or trigger based execution of tasks created through `az acr task create`, has a unique ID. The ID represents the Run currently being executed.
