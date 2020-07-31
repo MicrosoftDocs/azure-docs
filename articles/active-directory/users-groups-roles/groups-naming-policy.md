@@ -67,7 +67,7 @@ Blocked word list rules:
 To configure naming policy, one of the following roles is required:
 - Global administrator
 - Group administrator
-- User administrator
+
 
 Selected administrators can be exempted from these policies, across all group workloads and endpoints, so that they can create groups using blocked words and with their own naming conventions. The following are the list of administrator roles exempted from the group naming policy.
 
