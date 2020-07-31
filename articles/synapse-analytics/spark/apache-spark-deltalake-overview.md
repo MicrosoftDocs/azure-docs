@@ -71,9 +71,9 @@ Results in:
 
 ## Create a table
 
-To create a Delta Lake table, write a DataFrame out in the delta format. You can change the format from Parquet, CSV, JSON, and so on, to delta.
+To create a Delta Lake table, write a DataFrame out a DataFrame in the delta format. You can change the format from Parquet, CSV, JSON, and so on, to delta.
 
-The code that follows shows you how to create a new Delta Lake table using the schema that was inferred from your DataFrame..
+The code that follows shows you how to create a new Delta Lake table using the schema inferred from your DataFrame.
 
 :::zone pivot = "programming-language-python"
 
