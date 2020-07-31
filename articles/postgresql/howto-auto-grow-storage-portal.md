@@ -4,7 +4,7 @@ description: This article describes how you can configure storage auto-grow usin
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/29/2019
 ---
 # Auto grow storage using the Azure portal in Azure Database for PostgreSQL - Single Server

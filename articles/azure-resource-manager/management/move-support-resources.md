@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 07/13/2020
 ---
 
 # Move operation support for resources
@@ -31,7 +31,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
 > - [Microsoft.Batch](#microsoftbatch)
-> - [Microsoft.BatchAI](#microsoftbatchai)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
 > - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
@@ -49,12 +48,10 @@ Jump to a resource provider namespace:
 > - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
 > - [Microsoft.ClassicStorage](#microsoftclassicstorage)
 > - [Microsoft.ClassicSubscription](#microsoftclassicsubscription)
-> - [Microsoft.Cognition](#microsoftcognition)
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
 > - [Microsoft.Consumption](#microsoftconsumption)
-> - [Microsoft.Container](#microsoftcontainer)
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
@@ -122,7 +119,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.MachineLearningCompute](#microsoftmachinelearningcompute)
 > - [Microsoft.MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
 > - [Microsoft.MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
-> - [Microsoft.MachineLearningOperationalization](#microsoftmachinelearningoperationalization)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.Maintenance](#microsoftmaintenance)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
@@ -147,12 +143,10 @@ Jump to a resource provider namespace:
 > - [Microsoft.Peering](#microsoftpeering)
 > - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
 > - [Microsoft.Portal](#microsoftportal)
-> - [Microsoft.PortalSdk](#microsoftportalsdk)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
 > - [Microsoft.PowerPlatform](#microsoftpowerplatform)
 > - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
-> - [Microsoft.ProjectOxford](#microsoftprojectoxford)
 > - [Microsoft.ProviderHub](#microsoftproviderhub)
 > - [Microsoft.Quantum](#microsoftquantum)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
@@ -176,7 +170,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.Solutions](#microsoftsolutions)
 > - [Microsoft.Sql](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
-> - [Microsoft.SqlVM](#microsoftsqlvm)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StorageCache](#microsoftstoragecache)
 > - [Microsoft.StorageSync](#microsoftstoragesync)
@@ -188,7 +181,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.Subscription](#microsoftsubscription)
 > - [microsoft.support](#microsoftsupport)
 > - [Microsoft.Synapse](#microsoftsynapse)
-> - [Microsoft.TerraformOSS](#microsoftterraformoss)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.Token](#microsofttoken)
 > - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
@@ -200,6 +192,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Web](#microsoftweb)
 > - [Microsoft.WindowsESU](#microsoftwindowsesu)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft.WorkloadBuilder](#microsoftworkloadbuilder)
 > - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
 
 ## Microsoft.AAD
@@ -290,6 +283,9 @@ Jump to a resource provider namespace:
 
 ## Microsoft.ApiManagement
 
+> [!IMPORTANT]
+> An API Management service that is set to the Consumption SKU can't be moved.
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -300,9 +296,6 @@ Jump to a resource provider namespace:
 > | reportfeedback | No | No |
 > | service | Yes | Yes |
 > | validateservicename | No | No |
-
-> [!IMPORTANT]
-> An API Management service that is set to the Consumption SKU can't be moved.
 
 ## Microsoft.AppConfiguration
 
@@ -332,15 +325,15 @@ Jump to a resource provider namespace:
 
 ## Microsoft.AppService
 
+> [!IMPORTANT]
+> See [App Service move guidance](./move-limitations/app-service-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | apiapps | No | No |
 > | appidentities | No | No |
 > | gateways | No | No |
-
-> [!IMPORTANT]
-> See [App Service move guidance](./move-limitations/app-service-move-limitations.md).
 
 ## Microsoft.Attestation
 
@@ -377,6 +370,11 @@ Jump to a resource provider namespace:
 
 ## Microsoft.Automation
 
+> [!IMPORTANT]
+> Runbooks must exist in the same resource group as the Automation Account.
+>
+> For information, see [Move your Azure Automation account to another subscription](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -390,9 +388,6 @@ Jump to a resource provider namespace:
 > | automationaccounts / softwareupdateconfigurations | No | No |
 > | automationaccounts / webhooks | No | No |
 > | operations | No | No |
-
-> [!IMPORTANT]
-> Runbooks must exist in the same resource group as the Automation Account.
 
 ## Microsoft.AVS
 
@@ -461,21 +456,6 @@ Jump to a resource provider namespace:
 > | locations / checknameavailability | No | No |
 > | locations / quotas | No | No |
 > | operations | No | No |
-
-## Microsoft.BatchAI
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | clusters | No | No |
-> | fileservers | No | No |
-> | jobs | No | No |
-> | operations | No | No |
-> | workspaces | No | No |
-> | workspaces / clusters | No | No |
-> | workspaces / experiments | No | No |
-> | workspaces / experiments / jobs | No | No |
-> | workspaces / fileservers | No | No |
 
 ## Microsoft.Billing
 
@@ -641,6 +621,9 @@ Jump to a resource provider namespace:
 
 ## Microsoft.Cache
 
+> [!IMPORTANT]
+> If the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Networking move limitations](./move-limitations/networking-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -653,9 +636,6 @@ Jump to a resource provider namespace:
 > | redis / eventgridfilters | No | No |
 > | redis / privatelinkresources | No | No |
 > | redisenterprise | No | No |
-
-> [!IMPORTANT]
-> If the Azure Cache for Redis instance is configured with a virtual network, the instance can't be moved to a different subscription. See [Networking move limitations](./move-limitations/networking-move-limitations.md).
 
 ## Microsoft.Capacity
 
@@ -715,6 +695,9 @@ Jump to a resource provider namespace:
 
 ## Microsoft.CertificateRegistration
 
+> [!IMPORTANT]
+> See [App Service move guidance](./move-limitations/app-service-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -722,9 +705,6 @@ Jump to a resource provider namespace:
 > | certificateorders / certificates | No | No |
 > | operations | No | No |
 > | validatecertificateregistrationinformation | No | No |
-
-> [!IMPORTANT]
-> See [App Service move guidance](./move-limitations/app-service-move-limitations.md).
 
 ## Microsoft.ChangeAnalysis
 
@@ -734,6 +714,9 @@ Jump to a resource provider namespace:
 > | operations | No | No |
 
 ## Microsoft.ClassicCompute
+
+> [!IMPORTANT]
+> See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -761,20 +744,20 @@ Jump to a resource provider namespace:
 > | virtualmachines / metricdefinitions | No | No |
 > | virtualmachines / metrics | No | No |
 
+## Microsoft.ClassicInfrastructureMigrate
+
 > [!IMPORTANT]
 > See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
-
-## Microsoft.ClassicInfrastructureMigrate
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | classicinfrastructureresources | No | No |
 
+## Microsoft.ClassicNetwork
+
 > [!IMPORTANT]
 > See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
-
-## Microsoft.ClassicNetwork
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -791,10 +774,10 @@ Jump to a resource provider namespace:
 > | virtualnetworks / remotevirtualnetworkpeeringproxies | No | No |
 > | virtualnetworks / virtualnetworkpeerings | No | No |
 
+## Microsoft.ClassicStorage
+
 > [!IMPORTANT]
 > See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
-
-## Microsoft.ClassicStorage
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -822,25 +805,15 @@ Jump to a resource provider namespace:
 > | storageaccounts / vmimages | No | No |
 > | vmimages | No | No |
 
+## Microsoft.ClassicSubscription
+
 > [!IMPORTANT]
 > See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
-
-## Microsoft.ClassicSubscription
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | operations | No | No |
-
-> [!IMPORTANT]
-> See [Classic deployment move guidance](./move-limitations/classic-model-move-limitations.md). Classic deployment resources can be moved across subscriptions with an operation specific to that scenario.
-
-## Microsoft.Cognition
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | syntheticsaccounts | No | No |
 
 ## Microsoft.CognitiveServices
 
@@ -865,6 +838,9 @@ Jump to a resource provider namespace:
 > | usageaggregates | No | No |
 
 ## Microsoft.Compute
+
+> [!IMPORTANT]
+> See [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md).
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
@@ -911,9 +887,6 @@ Jump to a resource provider namespace:
 > | virtualmachinescalesets / virtualmachines | No | No |
 > | virtualmachinescalesets / virtualmachines / networkinterfaces | No | No |
 
-> [!IMPORTANT]
-> See [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md).
-
 ## Microsoft.Consumption
 
 > [!div class="mx-tableFixed"]
@@ -943,13 +916,6 @@ Jump to a resource provider namespace:
 > | tenants | No | No |
 > | terms | No | No |
 > | usagedetails | No | No |
-
-## Microsoft.Container
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | containergroups | No | No |
 
 ## Microsoft.ContainerInstance
 
@@ -1529,7 +1495,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domains | Yes | Yes |
-> | eventSubscriptions | No - can't be moved independently but automatically moved with subscribed resource. | No - can't be moved independently but automatically moved with subscribed resource. |
 > | domains / topics | No | No |
 > | eventsubscriptions | No - can't be moved independently but automatically moved with subscribed resource. | No - can't be moved independently but automatically moved with subscribed resource. |
 > | extensiontopics | No | No |
@@ -1643,6 +1608,11 @@ Jump to a resource provider namespace:
 
 ## Microsoft.HDInsight
 
+> [!IMPORTANT]
+> You can move HDInsight clusters to a new subscription or resource group. However, you can't move across subscriptions the networking resources linked to the HDInsight cluster (such as the virtual network, NIC, or load balancer). In addition, you can't move to a new resource group a NIC that is attached to a virtual machine for the cluster.
+>
+> When moving an HDInsight cluster to a new subscription, first move other resources (like the storage account). Then, move the HDInsight cluster by itself.
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -1657,11 +1627,6 @@ Jump to a resource provider namespace:
 > | locations / usages | No | No |
 > | locations / validatecreaterequest | No | No |
 > | operations | No | No |
-
-> [!IMPORTANT]
-> You can move HDInsight clusters to a new subscription or resource group. However, you can't move across subscriptions the networking resources linked to the HDInsight cluster (such as the virtual network, NIC, or load balancer). In addition, you can't move to a new resource group a NIC that is attached to a virtual machine for the cluster.
->
-> When moving an HDInsight cluster to a new subscription, first move other resources (like the storage account). Then, move the HDInsight cluster by itself.
 
 ## Microsoft.HealthcareApis
 
@@ -1729,6 +1694,9 @@ Jump to a resource provider namespace:
 
 ## microsoft.insights
 
+> [!IMPORTANT]
+> Make sure moving to new subscription doesn't exceed [subscription quotas](azure-subscription-service-limits.md#azure-monitor-limits).
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -1784,9 +1752,6 @@ Jump to a resource provider namespace:
 > | workbooks | Yes | Yes |
 > | workbooktemplates | Yes | Yes |
 
-> [!IMPORTANT]
-> Make sure moving to new subscription doesn't exceed [subscription quotas](azure-subscription-service-limits.md#azure-monitor-limits).
-
 ## Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
@@ -1809,6 +1774,9 @@ Jump to a resource provider namespace:
 
 ## Microsoft.KeyVault
 
+> [!IMPORTANT]
+> Key Vaults used for disk encryption can't be moved to a resource group in the same subscription or across subscriptions.
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -1825,9 +1793,6 @@ Jump to a resource provider namespace:
 > | vaults / accesspolicies | No | No |
 > | vaults / eventgridfilters | No | No |
 > | vaults / secrets | No | No |
-
-> [!IMPORTANT]
-> Key Vaults used for disk encryption can't be moved to a resource group in the same subscription or across subscriptions.
 
 ## Microsoft.Kubernetes
 
@@ -1942,13 +1907,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | accounts | No | No |
-
-## Microsoft.MachineLearningOperationalization
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | hostingaccounts | No | No |
 
 ## Microsoft.MachineLearningServices
 
@@ -2152,6 +2110,9 @@ Jump to a resource provider namespace:
 
 ## Microsoft.Network
 
+> [!IMPORTANT]
+> See [Networking move guidance](./move-limitations/networking-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -2225,7 +2186,7 @@ Jump to a resource provider namespace:
 > | locations / usages | No | No |
 > | locations / validateresourceownership | No | No |
 > | locations / virtualnetworkavailableendpointservices | No | No |
-> | natgateways | Yes | Yes |
+> | natgateways | No | No |
 > | networkexperimentprofiles | No | No |
 > | networkintentpolicies | Yes | Yes |
 > | networkinterfaces | Yes | Yes |
@@ -2274,9 +2235,6 @@ Jump to a resource provider namespace:
 > | vpnserverconfigurations | No | No |
 > | vpnsites (Virtual WAN) | No | No |
 
-> [!IMPORTANT]
-> See [Networking move guidance](./move-limitations/networking-move-limitations.md).
-
 ## Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -2309,6 +2267,11 @@ Jump to a resource provider namespace:
 
 ## Microsoft.OperationalInsights
 
+> [!IMPORTANT]
+> Make sure that moving to a new subscription doesn't exceed [subscription quotas](azure-subscription-service-limits.md#azure-monitor-limits).
+>
+> Workspaces that have a linked automation account can't be moved. Before you begin a move operation, be sure to unlink any automation accounts.
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -2326,11 +2289,6 @@ Jump to a resource provider namespace:
 > | workspaces / metadata | No | No |
 > | workspaces / query | No | No |
 > | workspaces / scopedprivatelinkproxies | No | No |
-
-> [!IMPORTANT]
-> Make sure that moving to a new subscription doesn't exceed [subscription quotas](azure-subscription-service-limits.md#azure-monitor-limits).
->
-> Workspaces that have a linked automation account can't be moved. Before you begin a move operation, be sure to unlink any automation accounts.
 
 ## Microsoft.OperationsManagement
 
@@ -2384,13 +2342,6 @@ Jump to a resource provider namespace:
 > | operations | No | No |
 > | usersettings | No | No |
 
-## Microsoft.PortalSdk
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | rootresources | No | No |
-
 ## Microsoft.PowerBI
 
 > [!div class="mx-tableFixed"]
@@ -2428,13 +2379,6 @@ Jump to a resource provider namespace:
 > | checknameavailability | No | No |
 > | operations | No | No |
 
-## Microsoft.ProjectOxford
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | accounts | No | No |
-
 ## Microsoft.ProviderHub
 
 > [!div class="mx-tableFixed"]
@@ -2457,6 +2401,9 @@ Jump to a resource provider namespace:
 
 ## Microsoft.RecoveryServices
 
+> [!IMPORTANT]
+> See [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -2477,9 +2424,6 @@ Jump to a resource provider namespace:
 > | operations | No | No |
 > | replicationeligibilityresults | No | No |
 > | vaults | Yes | Yes |
-
-> [!IMPORTANT]
-> See [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## Microsoft.RedHatOpenShift
 
@@ -2583,6 +2527,9 @@ Jump to a resource provider namespace:
 
 ## Microsoft.Search
 
+> [!IMPORTANT]
+> You can't move several Search resources in different regions in one operation. Instead, move them in separate operations.
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -2591,9 +2538,6 @@ Jump to a resource provider namespace:
 > | operations | No | No |
 > | resourcehealthmetadata | No | No |
 > | searchservices | Yes | Yes |
-
-> [!IMPORTANT]
-> You can't move several Search resources in different regions in one operation. Instead, move them in separate operations.
 
 ## Microsoft.Security
 
@@ -2799,13 +2743,15 @@ Jump to a resource provider namespace:
 
 ## Microsoft.Sql
 
+> [!IMPORTANT]
+> A database and server must be in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure Synapse Analytics databases.
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | checknameavailability | No | No |
 > | instancepools | No | No |
 > | locations | Yes | Yes |
-> | locations | No | No |
 > | locations / administratorazureasyncoperation | No | No |
 > | locations / administratoroperationresults | No | No |
 > | locations / auditingsettingsazureasyncoperation | No | No |
@@ -2974,9 +2920,6 @@ Jump to a resource provider namespace:
 > | servers / vulnerabilityassessments | No | No |
 > | virtualclusters | Yes | Yes |
 
-> [!IMPORTANT]
-> A database and server must be in the same resource group. When you move a SQL server, all its databases are also moved. This behavior applies to Azure SQL Database and Azure SQL Data Warehouse databases.
-
 ## Microsoft.SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
@@ -2991,13 +2934,6 @@ Jump to a resource provider namespace:
 > | sqlvirtualmachinegroups | Yes | Yes |
 > | sqlvirtualmachinegroups / availabilitygrouplisteners | No | No |
 > | sqlvirtualmachines | Yes | Yes |
-
-## Microsoft.SqlVM
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | dwvm | No | No |
 
 ## Microsoft.Storage
 
@@ -3071,6 +3007,9 @@ Jump to a resource provider namespace:
 
 ## Microsoft.StreamAnalytics
 
+> [!IMPORTANT]
+> Stream Analytics jobs can't be moved when in running state.
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -3079,9 +3018,6 @@ Jump to a resource provider namespace:
 > | locations / quotas | No | No |
 > | operations | No | No |
 > | streamingjobs | Yes | Yes |
-
-> [!IMPORTANT]
-> Stream Analytics jobs can't be moved when in running state.
 
 ## Microsoft.StreamAnalyticsExplorer
 
@@ -3135,14 +3071,6 @@ Jump to a resource provider namespace:
 > | workspaces / operationstatuses | No | No |
 > | workspaces / sqlpools | Yes | Yes |
 
-## Microsoft.TerraformOSS
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | providerregistrations | No | No |
-> | resources | No | No |
-
 ## Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
@@ -3177,6 +3105,9 @@ Jump to a resource provider namespace:
 
 ## microsoft.visualstudio
 
+> [!IMPORTANT]
+> To change the subscription for Azure DevOps, see [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -3185,9 +3116,6 @@ Jump to a resource provider namespace:
 > | account / project | No | No |
 > | checknameavailability | No | No |
 > | operations | No | No |
-
-> [!IMPORTANT]
-> To change the subscription for Azure DevOps, see [change the Azure subscription used for billing](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 ## Microsoft.VMware
 
@@ -3245,6 +3173,9 @@ Jump to a resource provider namespace:
 
 ## Microsoft.Web
 
+> [!IMPORTANT]
+> See [App Service move guidance](./move-limitations/app-service-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
@@ -3300,9 +3231,6 @@ Jump to a resource provider namespace:
 > | validate | No | No |
 > | verifyhostingenvironmentvnet | No | No |
 
-> [!IMPORTANT]
-> See [App Service move guidance](./move-limitations/app-service-move-limitations.md).
-
 ## Microsoft.WindowsESU
 
 > [!div class="mx-tableFixed"]
@@ -3320,6 +3248,16 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | deviceservices | No | No |
 > | operations | No | No |
+
+## Microsoft.WorkloadBuilder
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription |
+> | ------------- | ----------- | ---------- |
+> | locations | No | No |
+> | locations / operationstatuses | No | No |
+> | operations | No | No |
+> | workloads | No | No |
 
 ## Microsoft.WorkloadMonitor
 

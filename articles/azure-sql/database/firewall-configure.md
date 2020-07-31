@@ -1,6 +1,6 @@
 ---
 title: IP firewall rules
-description: Configure server-level IP firewall rules for a database in Azure SQL Database or Azure Synapse Analytics firewall. Manage access and configure database-level IP firewall rules for a single or pooled database.
+description: Configure server-level IP firewall rules for a database in Azure SQL Database or Azure Synapse Analytics firewall. Manage access and configure database-level IP firewall rules for SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 03/18/2019
+ms.date: 06/17/2020
 ---
 # Azure SQL Database and Azure Synapse IP firewall rules
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -96,6 +96,14 @@ To allow applications hosted inside Azure to connect to your SQL server, Azure c
 
 > [!IMPORTANT]
 > This option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. If you select this option, make sure that your login and user permissions limit access to authorized users only.
+
+## Permissions
+
+To be able to create and manage IP firewall rules for the Azure SQL Server, you will need to either be:
+
+- in the [SQL Server Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor) role
+- in the [SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) role
+- the owner of the resource that contains the Azure SQL Server
 
 ## Create and manage IP firewall rules
 

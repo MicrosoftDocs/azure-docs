@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -24,7 +24,9 @@ This article describes how to configure object replication for your storage acco
 
 Before you configure object replication, create the source and destination storage accounts if they do not already exist. Both accounts must be general-purpose v2 storage accounts. For more information, see [Create an Azure Storage account](../common/storage-account-create.md).
 
-Also, make sure that you have registered for the following feature previews:
+A storage account can serve as the source account for up to two destination accounts. And a destination account may have no more than two source accounts. The source and destination accounts may all be in different regions. You can configure separate replication policies to replicate data to each of the destination accounts.
+
+Before you begin, make sure that you have registered for the following feature previews:
 
 - [Object replication (preview)](object-replication-overview.md)
 - [Blob versioning (preview)](versioning-overview.md)
@@ -37,7 +39,7 @@ Before you configure object replication in the Azure portal, create the source a
 To create a replication policy in the Azure portal, follow these steps:
 
 1. Navigate to the source storage account in the Azure portal.
-1. Under **Settings**, select **Object replication**.
+1. Under **Blob service**, select **Object replication**.
 1. Select **Set up replication**.
 1. Select the destination subscription and storage account.
 1. In the **Container pairs** section, select a source container from the source account, and a destination container from the destination account. You can create up to 10 container pairs per replication policy.
@@ -46,7 +48,7 @@ To create a replication policy in the Azure portal, follow these steps:
 
     :::image type="content" source="media/object-replication-configure/configure-replication-policy.png" alt-text="Screenshot showing replication rules in Azure portal":::
 
-1. If desired, specify one or more filters to copy only blobs that match a prefix pattern. For example, if you specify a prefix `b`, only blobs whose name begin with that letter are replicated. You can specify a virtual directory as part of the prefix.
+1. If desired, specify one or more filters to copy only blobs that match a prefix pattern. For example, if you specify a prefix `b`, only blobs whose name begin with that letter are replicated. You can specify a virtual directory as part of the prefix. The prefix string does not support wildcard characters.
 
     The following image shows filters that restrict which blobs are copied as part of a replication rule.
 
@@ -62,7 +64,7 @@ To create a replication policy in the Azure portal, follow these steps:
 
 # [PowerShell](#tab/powershell)
 
-To create a replication policy with PowerShell, first install version [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) of the Az.Storage PowerShell module. Follow these steps to install the preview module:
+To create a replication policy with PowerShell, first install version [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) or later of the Az.Storage PowerShell module. Follow these steps to install the preview module:
 
 1. Uninstall any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
 

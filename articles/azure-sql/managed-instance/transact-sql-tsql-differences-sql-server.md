@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
-ms.date: 03/11/2020
+ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
 ---
 
@@ -427,7 +427,7 @@ For more information about configuring transactional replication, see the follow
   - `FROM URL` (Azure Blob storage) is the only supported option.
   - `FROM DISK`/`TAPE`/backup device isn't supported.
   - Backup sets aren't supported.
-- `WITH` options aren't supported, such as no `DIFFERENTIAL` or `STATS`.
+- `WITH` options aren't supported. Restore attempts including `WITH` like `DIFFERENTIAL`, `STATS`, `REPLACE`, etc., will fail.
 - `ASYNC RESTORE`: Restore continues even if the client connection breaks. If your connection is dropped, you can check the `sys.dm_operation_status` view for the status of a restore operation, and for a CREATE and DROP database. See [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 The following database options are set or overridden and can't be changed later: 

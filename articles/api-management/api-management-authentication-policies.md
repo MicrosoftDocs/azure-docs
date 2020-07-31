@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 06/12/2020
 ms.author: apimpm
 ---
 # API Management authentication policies
@@ -55,7 +55,7 @@ This topic provides a reference for the following API Management policies. For i
 |password|Specifies the password of the Basic credential.|Yes|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 
@@ -106,19 +106,21 @@ In this example, the client certificate is set in the policy rather than retriev
 |password|Password for the client certificate.|Used if certificate specified in `body` is password protected.|N/A|
   
 ### Usage  
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).  
   
 -   **Policy sections:** inbound  
   
 -   **Policy scopes:** all scopes  
 
 ##  <a name="ManagedIdentity"></a> Authenticate with managed identity  
- Use the `authentication-managed-identity` policy to authenticate with a backend service using the managed identity of the API Management service. This policy essentially uses the managed identity to obtain an access token from Azure Active Directory for accessing the specified resource. After successfully obtaining the token, the policy will set the value of the token in the `Authorization` header using the `Bearer` scheme.
+ Use the `authentication-managed-identity` policy to authenticate with a backend service using the managed identity. This policy essentially uses the managed identity to obtain an access token from Azure Active Directory for accessing the specified resource. After successfully obtaining the token, the policy will set the value of the token in the `Authorization` header using the `Bearer` scheme.
+
+Both system-assigned identity and any of the multiple user-assigned identity can be used to request token. If `client-id` is not provided system-assigned identity is assumed. If the `client-id` variable is provided token is requested for that user-assigned identity from Azure Active Directory
   
 ### Policy statement  
   
 ```xml  
-<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+<authentication-managed-identity resource="resource" client-id="clientid of user-assigned identity" output-token-variable-name="token-variable" ignore-error="true|false"/>  
 ```  
   
 ### Example  
@@ -133,7 +135,7 @@ In this example, the client certificate is set in the policy rather than retriev
 <authentication-managed-identity resource="https://vault.azure.net"/> <!--Azure Key Vault-->
 ```
 ```xml  
-<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Busr-->
+<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Bus-->
 ```
 ```xml  
 <authentication-managed-identity resource="https://storage.azure.com/"/> <!--Azure Blob Storage-->
@@ -175,12 +177,13 @@ In this example, the client certificate is set in the policy rather than retriev
   
 |Name|Description|Required|Default|  
 |----------|-----------------|--------------|-------------|  
-|resource|String. The App ID of the target web API (secured resource) in Azure Active Directory.|Yes|N/A|  
+|resource|String. The App ID of the target web API (secured resource) in Azure Active Directory.|Yes|N/A|
+|client-id|String. The App ID of the user-assigned identity in Azure Active Directory.|No|system-assigned identity|
 |output-token-variable-name|String. Name of the context variable that will receive token value as an object type `string`. |No|N/A|  
 |ignore-error|Boolean. If set to `true`, the policy pipeline will continue to execute even if an access token is not obtained.|No|false|  
   
 ### Usage  
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).  
   
 -   **Policy sections:** inbound  
   
@@ -191,5 +194,5 @@ For more information working with policies, see:
 
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
 + [Policy samples](policy-samples.md)

@@ -140,7 +140,7 @@ For information about configuring Azure AD, see:
 - [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md)
 - [Microsoft Azure now supports federation with Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administer your Azure AD directory](../../active-directory/fundamentals/active-directory-whatis.md)
-- [Manage Azure AD using PowerShell](/powershell/azure/overview?view=azureadps-2.0)
+- [Manage Azure AD using PowerShell](/powershell/azure/?view=azureadps-2.0)
 - [Hybrid identity required ports and protocols](../../active-directory/hybrid/reference-connect-ports.md)
 
 ## Manage database access
@@ -295,7 +295,7 @@ To enable auditing:
     ![Audit records](./media/secure-database-tutorial/audit-records.png)
 
 > [!IMPORTANT]
-> See [SQL database auditing](../../azure-sql/database/auditing-overview.md) on how to further customize audit events using PowerShell or REST API.
+> See [SQL Database auditing](../../azure-sql/database/auditing-overview.md) on how to further customize audit events using PowerShell or REST API.
 
 ### Dynamic data masking
 

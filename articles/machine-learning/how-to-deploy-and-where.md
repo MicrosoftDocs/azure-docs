@@ -5,12 +5,12 @@ description: 'Learn how and where to deploy your Azure Machine Learning models, 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 04/28/2020
-ms.custom: seoapril2019, tracking-python
+ms.date: 07/08/2020
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 
 ---
 
@@ -27,6 +27,11 @@ The workflow is similar no matter [where you deploy](#target) your model:
 1. Test the deployed model, also called a web service.
 
 For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
+
+> [!IMPORTANT]
+> It is highly advised to debug locally before deploying to the web service, for more information see [Debug Locally](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+>
+> You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## Prerequisites
 
@@ -55,7 +60,7 @@ The following code shows how to connect to an Azure Machine Learning workspace b
 
 + **Using Visual Studio Code**
 
-   When you use Visual Studio Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) in the Visual Studio Code extension documentation.
+   When you use Visual Studio Code, you select the workspace by using a graphical interface. For more information, see [Deploy and manage models](how-to-manage-resources-vscode.md#endpoints) in the Visual Studio Code extension documentation.
 
 ## <a id="registermodel"></a> Register your model
 
@@ -210,6 +215,8 @@ myenv = Environment.from_conda_specification(name = 'myenv',
 myenv.register(workspace=ws)
 ```
 
+For a thorough discussion of using and customizing Python environments with Azure Machine Learning, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md)
+
 ### <a id="script"></a> 2. Define scoring code
 
 The entry script receives data submitted to a deployed web service and passes it to the model. It then takes the response returned by the model and returns that to the client. *The script is specific to your model*. It must understand the data that the model expects and returns.
@@ -251,9 +258,34 @@ file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'skl
 ```
 
 **Multiple model example**
+
+In this scenario, two models are registered with the workspace:
+
+* `my_first_model`: Contains one file (`my_first_model.pkl`) and there is only one version (`1`).
+* `my_second_model`: Contains one file (`my_second_model.pkl`) and there are two versions; `1` and `2`.
+
+When the service was deployed, both models are provided in the deploy operation:
+
+```python
+first_model = Model(ws, name="my_first_model", version=1)
+second_model = Model(ws, name="my_second_model", version=2)
+service = Model.deploy(ws, "myservice", [first_model, second_model], inference_config, deployment_config)
+```
+
+In the Docker image that hosts the service, the `AZUREML_MODEL_DIR` environment variable contains the directory where the models are located.
+In this directory, each of the models is located in a directory path of `MODEL_NAME/VERSION`. Where `MODEL_NAME` is the name of the registered model, and `VERSION` is the version of the model. The files that make up the registered model are stored in these directories.
+
+In this example, the paths would be `$AZUREML_MODEL_DIR/my_first_model/1/my_first_model.pkl` and `$AZUREML_MODEL_DIR/my_second_model/2/my_second_model.pkl`.
+
+
 ```python
 # Example when the model is a file, and the deployment contains multiple models
-model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 'sklearn_regression_model.pkl')
+first_model_name = 'my_first_model'
+first_model_version = '1'
+first_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), first_model_name, first_model_version, 'my_first_model.pkl')
+second_model_name = 'my_second_model'
+second_model_version = '2'
+second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_name, second_model_version, 'my_second_model.pkl')
 ```
 
 ##### get_model_path
@@ -412,9 +444,9 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 In this example, the configuration specifies the following settings:
 
-* That the model requires Python.
-* The [entry script](#script), which is used to handle web requests sent to the deployed service.
-* The Conda file that describes the Python packages needed for inference.
+* That the model requires Python
+* The [entry script](#script), which is used to handle web requests sent to the deployed service
+* The Conda file that describes the Python packages needed for inference
 
 For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
@@ -430,7 +462,7 @@ In order to profile your model, you will need:
 > [!IMPORTANT]
 > At this point we only support profiling of services that expect their request data to be a string, for example: string serialized json, text, string serialized image, etc. The content of each row of the dataset (string) will be put into the body of the HTTP request and sent to the service encapsulating the model for scoring.
 
-Below is an example of how you can construct an input dataset to profile a service that expects its incoming request data to contain serialized json. In this case, we created a dataset based one hundred instances of the same request data content. In real world scenarios we suggest that you use larger datasets containing various inputs, especially if your model resource usage/behavior is input dependent.
+Below is an example of how you can construct an input dataset to profile a service that expects its incoming request data to contain serialized json. In this case, we created a dataset based 100 instances of the same request data content. In real world scenarios we suggest that you use larger datasets containing various inputs, especially if your model resource usage/behavior is input dependent.
 
 ```python
 import json
@@ -508,13 +540,17 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## Deploy to target
 
-Deployment uses the inference configuration deployment configuration to deploy the models. The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different because you must provide a reference to the AKS cluster.
+Deployment uses the inference configuration deployment configuration to deploy the models. The deployment process is similar regardless of the compute target. Deploying to Azure Kubernetes Service (AKS) is slightly different because you must provide a reference to the AKS cluster.
 
 ### Choose a compute target
 
 You can use the following compute targets, or compute resources, to host your web service deployment:
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+> [!NOTE]
+> * ACI is suitable only for small models <1GB in size. 
+> * We recommend to use single node AKS for dev-test of larger models.
 
 ### Define your deployment configuration
 
@@ -596,9 +632,9 @@ See [Deploy to Azure Container Instances](how-to-deploy-azure-container-instance
 See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ### A/B Testing (controlled rollout)
-See [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) for more information.
+For more information, see [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) for more information.
 
-## Consume web services
+## Inference using web services
 
 Every deployed web service provides a REST endpoint, so you can create client applications in any programming language.
 If you've enabled key-based authentication for your service, you need to provide a service key as a token in your request header.
@@ -845,7 +881,7 @@ No-code model deployment is currently in preview and supports the following mach
 ### Tensorflow SavedModel format
 Tensorflow models need to be registered in **SavedModel format** to work with no-code model deployment.
 
-Please see [this link](https://www.tensorflow.org/guide/saved_model) for information on how to create a SavedModel.
+See [this link](https://www.tensorflow.org/guide/saved_model) for information on how to create a SavedModel.
 
 ```python
 from azureml.core import Model
@@ -881,8 +917,13 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-If you're using Pytorch, [
-Exporting models from PyTorch to ONNX](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) has the details on conversion and limitations. 
+To score a model, see [Consume an Azure Machine Learning model deployed as a web service](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Many ONNX projects use protobuf files to compactly store training and validation data, which can make it difficult to know what the data format expected by the service. As a model developer, you should document for your developers:
+
+* Input format (JSON or binary)
+* Input data shape and type (for example, an array of floats of shape [100,100,3])
+* Domain information (for instance, for an image, the color space, component order, and whether the values are normalized)
+
+If you're using Pytorch, [Exporting models from PyTorch to ONNX](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) has the details on conversion and limitations. 
 
 ### Scikit-learn models
 
@@ -907,7 +948,7 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-NOTE: Models which support predict_proba will use that method by default. To override this to use predict you can modify the POST body as below:
+NOTE: Models that support predict_proba will use that method by default. To override this to use predict you can modify the POST body as below:
 ```python
 import json
 
@@ -1134,7 +1175,7 @@ import requests
 # Load image data
 data = open('example.jpg', 'rb').read()
 # Post raw data to scoring URI
-res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
+res = requests.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
 ```
 
 <a id="cors"></a>

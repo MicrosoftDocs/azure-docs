@@ -4,7 +4,7 @@ description: This article provides information on how to disable and re-enable t
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: caya
 ---

@@ -4,7 +4,7 @@ description: Learn how to migrate to Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: cherylmc
 

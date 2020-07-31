@@ -32,7 +32,7 @@ The lifecycle management policy is available with General Purpose v2 (GPv2) acco
 
 ## Pricing
 
-The lifecycle management feature is free of charge. Customers are charged the regular operation cost for the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) and [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API calls. Delete operation is free. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+The lifecycle management feature is free of charge. Customers are charged the regular operation cost for the [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API calls. Delete operation is free. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Regional availability
 
@@ -244,7 +244,8 @@ Each rule definition includes a filter set and an action set. The [filter set](#
 The following sample rule filters the account to run the actions on objects that exist inside `container1` and start with `foo`.  
 
 >[!NOTE]
->Lifecycle management only supports block blob type.  
+>- Lifecycle management only supports block blob type.<br>
+>- Lifecycle management does not affect system containers like $logs and $web.
 
 - Tier blob to cool tier 30 days after last modification
 - Tier blob to archive tier 90 days after last modification
@@ -353,7 +354,7 @@ This example shows how to transition block blobs prefixed with `container1/foo` 
 Some data stays idle in the cloud and is rarely, if ever, accessed once stored. The following lifecycle policy is configured to archive data shortly after it is ingested. This example transitions block blobs in the storage account within container `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time:
 
 > [!NOTE] 
-> It is recommended to upload your blobs directly the archive tier to be more efficient. You can use the x-ms-acess-tier header for [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) or [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) with REST version 2018-11-09 and newer or our latest blob storage client libraries. 
+> It is recommended to upload your blobs directly the archive tier to be more efficient. You can use the x-ms-access-tier header for [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) or [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) with REST version 2018-11-09 and newer or our latest blob storage client libraries. 
 
 ```json
 {

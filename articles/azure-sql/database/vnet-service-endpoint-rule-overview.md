@@ -15,7 +15,7 @@ ms.date: 11/14/2019
 # Use virtual network service endpoints and rules for servers in Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*Virtual network rules* are one firewall security feature that controls whether the server for your databases and elastic pools in [Azure SQL Database](sql-database-paas-overview.md) or for your databases in [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure SQL database and SQL Data Warehouse.
+*Virtual network rules* are one firewall security feature that controls whether the server for your databases and elastic pools in [Azure SQL Database](sql-database-paas-overview.md) or for your databases in [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your database in Azure SQL Database and SQL Data Warehouse.
 
 > [!NOTE]
 > This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics.
@@ -25,8 +25,6 @@ To create a virtual network rule, there must first be a [virtual network service
 ## How to create a virtual network rule
 
 If you only create a virtual network rule, you can skip ahead to the steps and explanation [later in this article](#anchor-how-to-by-using-firewall-portal-59j).
-
-<!--<a name="anch-details-about-vnet-rules-38q"/> -->
 
 ## Details about virtual network rules
 
@@ -68,7 +66,7 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 
 For Azure SQL Database, the virtual network rules feature has the following limitations:
 
-- In the firewall for your database in Azure SQL Database, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the Azure SQL database.
+- In the firewall for your database in Azure SQL Database, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the database.
 
 - Each server can have up to 128 ACL entries for any given virtual network.
 
@@ -135,7 +133,7 @@ PolyBase is commonly used to load data into Azure Synapse Analytics from Azure S
 1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to the server hosting your Azure Synapse Analytics which you've registered with Azure Active Directory (AAD) as in step #1.
 
    > [!NOTE]
-   > Only members with Owner privilege  on the storage account can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Only members with Owner privilege  on the storage account can perform this step. For various Azure built-in roles, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Polybase connectivity to the Azure Storage account:**
 

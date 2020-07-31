@@ -106,7 +106,7 @@ Popular web frameworks let you access the `X-Forwarded-*` information in your st
 If you need to make changes to your PHP installation, you can change any of the [php.ini directives](https://www.php.net/manual/ini.list.php) by following these steps.
 
 > [!NOTE]
-> The best way to see the PHP version and the current *php.ini* configuration is to call [phpinfo()](https://www.php.net/manual/function.phpinfo.php) in your app.
+> The best way to see the PHP version and the current *php.ini* configuration is to call [phpinfo()](https://php.net/manual/function.phpinfo.php) in your app.
 >
 
 ### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>Customize-non-PHP_INI_SYSTEM directives
@@ -184,7 +184,7 @@ For the changes to take effect, restart the app.
 
 ## Access diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## Open SSH session in browser
 
@@ -195,7 +195,7 @@ For the changes to take effect, restart the app.
 When a working PHP app behaves differently in App Service or has errors, try the following:
 
 - [Access the log stream](#access-diagnostic-logs).
-- Test the app locally in production mode. App Service runs your Node.js apps in production mode, so you need to make sure that your project works as expected in production mode locally. For example:
+- Test the app locally in production mode. App Service runs your app in production mode, so you need to make sure that your project works as expected in production mode locally. For example:
     - Depending on your *composer.json*, different packages may be installed for production mode (`require` vs. `require-dev`).
     - Certain web frameworks may deploy static files differently in production mode.
     - Certain web frameworks may use custom startup scripts when running in production mode.

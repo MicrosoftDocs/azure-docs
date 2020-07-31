@@ -36,7 +36,7 @@ To complete this tutorial, make sure you have:
 To complete the tutorial, make sure you have the following items:
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 
 # [The Azure CLI](#tab/azure-cli)
 
@@ -219,7 +219,7 @@ Test failover using the Azure portal.
 1. Select **Failover** from the task pane to fail over your failover group containing your sample database.
 1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected.
 
-   ![Fail over your failover group containing your database in SQL database](./media/failover-group-add-single-database-tutorial/failover-sql-db.png)
+   ![Fail over your failover group containing your database](./media/failover-group-add-single-database-tutorial/failover-sql-db.png)
 
 1. Review which server is now primary and which server is secondary. If failover succeeded, the two servers should have swapped roles.
 1. Select **Failover** again to fail the servers back to their original roles.

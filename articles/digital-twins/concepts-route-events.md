@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Route events within and outside of Azure Digital Twins
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Azure Digital twins uses **event routes** to send data to consumers outside the service. 
 
@@ -50,7 +47,7 @@ Alternatively, the event message also contains the ID of the source twin that se
 
 The compute resource also needs to establish security and access permissions independently.
 
-To walk through the process of setting up an Azure function to process digital twin events, see [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md).
+To walk through the process of setting up an Azure function to process digital twin events, see [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md).
 
 ## Create an endpoint
 
@@ -60,7 +57,7 @@ To define an event route, developers first must define endpoints. An **endpoint*
 * Service Bus
 
 Endpoints are set up using control plane APIs (supported by the [Azure Digital Twins CLI](how-to-use-cli.md), or via the Azure portal. An endpoint definition gives:
-* The endpoint's ID (or friendly name)
+* The endpoint's name
 * The endpoint type (Event Grid, Event Hub, or Service Bus)
 * The primary connection string and secondary connection string to authenticate 
 * The topic path of the endpoint, such as *your-topic.westus2.eventgrid.azure.net*
@@ -68,18 +65,18 @@ Endpoints are set up using control plane APIs (supported by the [Azure Digital T
 The endpoint APIs that are available in control plane are:
 * Create endpoint
 * Get list of endpoints
-* Get endpoint by ID (pass in endpoint ID)
-* Delete endpoint by ID (pass in endpoint ID)
+* Get endpoint by name
+* Delete endpoint by name
 
 ## Create an event route
  
 Event routes are created in a client application with the following [.NET (C#) SDK](how-to-use-apis-sdks.md) call: 
 
 ```csharp
-await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-ID>"));
+await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-name>"));
 ```
 
-* The `endpoint-ID` identifies an endpoint, such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
+* The `endpoint-name` identifies an endpoint, such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
 
 The event route object passed to `EventRoutes.Add` also takes a [**filter** parameter](./how-to-manage-routes.md#filter-events), which can be used to restrict the types of events that follow this route.
 
@@ -94,7 +91,7 @@ Different types of events in IoT Hub and Azure Digital Twins produce different t
 ## Next steps
 
 See how to set up and manage an event route:
-* [How-to: Manage endpoints and routes](how-to-manage-routes.md)
+* [*How-to: Manage endpoints and routes*](how-to-manage-routes.md)
 
 Or, see how to use Azure Functions to route events within Azure Digital Twins:
-* [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md)
+* [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md)

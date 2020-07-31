@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Manage a twin model
+title: Manage custom models
 titleSuffix: Azure Digital Twins
 description: See how to create, edit, and delete a model within Azure Digital Twins.
 author: baanders
@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Manage Azure Digital Twins models
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 You can manage the [models](concepts-models.md) that your Azure Digital Twins instance knows about using the [**DigitalTwinsModels APIs**](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md). 
 
@@ -69,8 +66,11 @@ This model defines a name and a unique ID for the patient room, and properties t
 
 Following this method, you can go on to define models for the hospital's wards, zones, or the hospital itself.
 
-> [!TIP]
-> There is a client-side library available for parsing and validating DTDL. It generates a C# object model of the DTDL content, which can be used in model-driven development scenarios, like generating UI elements. You can also use this library to make sure your models have no syntax errors before you upload them. For more information about this library and access to a sample built on it for a DTDL Validator, see [How-to: Parse and validate models](how-to-use-parser.md).
+### Validate syntax
+
+There is a client-side library available for parsing and validating DTDL. It generates a C# object model of the DTDL content, which can be used in model-driven development scenarios, like generating UI elements. You can also use this library to make sure your models have no syntax errors before you upload them. 
+
+For more information about this library and access to a sample built on it for a DTDL Validator, see [*How-to: Parse and validate models*](how-to-use-parser.md).
 
 ## Manage models with APIs.
 
@@ -86,7 +86,10 @@ The following sections show how to complete different model management operation
 
 Once models are created, you can upload them to the Azure Digital Twins instance.
 
-Here is a code snippet showing how to do this:
+> [!TIP]
+> It's recommended to validate your models offline before uploading them to your Azure Digital Twins instance. You can use the [DTDL client-side parser library](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) and [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) described in [*How-to: Parse and validate models*](how-to-use-parser.md) to check your models before you upload them to the service.
+
+When you're ready to upload a model, you can use the following code snippet:
 
 ```csharp
 // 'client' is an instance of DigitalTwinsClient
@@ -130,10 +133,7 @@ Model files can contain more than a single model. In this case, the models need 
 ]
 ```
  
-On upload, model files are validated.
-
-> [!TIP] 
-> Note that you can also use the [DTDL client-side parser library](how-to-use-parser.md) to validate models on the client side.
+On upload, model files are validated by the service.
 
 ### Retrieve models
 
@@ -194,7 +194,7 @@ A model's decommissioning status is included in the `ModelData` records returned
 
 You can delete all models in your instance at once, or you can do it on an individual basis.
 
-For an example of how to delete all models, download the sample app used in the [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllModels` function.
+For an example of how to delete all models, download the sample app used in the [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllModels` function.
 
 The rest of this section breaks down model deletion into closer detail, and shows how to do it for an individual model.
 
@@ -251,9 +251,9 @@ Azure Digital Twins does not prevent this state, so be careful to patch twins ap
 
 ## Manage models with CLI
 
-Models can also be managed using the Azure Digital Twins CLI. The commands can be found in [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md).
+Models can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
 
 ## Next steps
 
 See how to create and manage digital twins based on your models:
-* [How-to: Manage a digital twin](how-to-manage-twin.md)
+* [*How-to: Manage digital twins*](how-to-manage-twin.md)

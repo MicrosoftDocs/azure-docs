@@ -1,10 +1,10 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them. 
-ms.date: 04/15/2020
+ms.date: 07/06/2020
 ms.topic: overview
 ---
-# Organize your resources with Azure management groups
+# What are Azure management groups?
 
 If your organization has many subscriptions, you may need a way to efficiently manage access,
 policies, and compliance for those subscriptions. Azure management groups provide a level of scope
@@ -55,7 +55,7 @@ over different subscriptions.
 
 Each directory is given a single top-level management group called the "Root" management group. This
 root management group is built into the hierarchy to have all management groups and subscriptions
-fold up to it. This root management group allows for global policies and RBAC assignments to be
+fold up to it. This root management group allows for global policies and Azure role assignments to be
 applied at the directory level. The [Azure AD Global Administrator needs to elevate
 themselves](../../role-based-access-control/elevate-access-global-admin.md) to the User Access
 Administrator role of this root group initially. After elevating access, the administrator can
@@ -133,8 +133,7 @@ If you have questions on this backfill process, contact: `managementgroups@micro
   
 ## Management group access
 
-Azure management groups support [Azure Role-Based Access Control
-(RBAC)](../../role-based-access-control/overview.md) for all resource accesses and role definitions.
+Azure management groups support [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for all resource accesses and role definitions.
 These permissions are inherited to child resources that exist in the hierarchy. Any RBAC role can be
 assigned to a management group that will inherit down the hierarchy to the resources. For example,
 the RBAC role VM contributor can be assigned to a management group. This role has no action on the
@@ -157,11 +156,11 @@ The following chart shows the list of roles and the supported actions on managem
 management group to and from it. See [Manage your resources with management groups](manage.md) for
 details on moving items within the hierarchy.
 
-## Custom RBAC role definition and assignment
+## Azure custom role definition and assignment
 
-Custom RBAC role support for management groups is currently in preview with some
+Azure custom role support for management groups is currently in preview with some
 [limitations](#limitations). You can define the management group scope in the Role Definition's
-assignable scope. That custom RBAC Role will then be available for assignment on that management
+assignable scope. That Azure custom role will then be available for assignment on that management
 group and any management group, subscription, resource group, or resource under it. This custom role
 will inherit down the hierarchy like any built-in role.  
 
@@ -296,6 +295,4 @@ To learn more about management groups, see:
 
 - [Create management groups to organize Azure resources](./create.md)
 - [How to change, delete, or manage your management groups](./manage.md)
-- [Review management groups in Azure PowerShell Resources Module](/powershell/module/az.resources#resources)
-- [Review management groups in REST API](/rest/api/resources/managementgroups)
-- [Review management groups in Azure CLI](/cli/azure/account/management-group)
+- See options for [How to protect your resource hierarchy](./how-to/protect-resource-hierarchy.md)

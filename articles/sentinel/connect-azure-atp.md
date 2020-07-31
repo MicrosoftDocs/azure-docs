@@ -1,6 +1,6 @@
 ---
 title: Connect Azure ATP data to Azure Sentinel| Microsoft Docs
-description: Learn how to connect Azure ATP data to Azure Sentinel.
+description: Learn how to stream logs from Azure Advanced Threat Protection (ATP) into Azure Sentinel with a single click.
 services: sentinel
 documentationcenter: na
 author: yelevin

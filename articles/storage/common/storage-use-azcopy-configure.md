@@ -3,8 +3,8 @@ title: Configure, optimize, and troubleshoot AzCopy with Azure Storage | Microso
 description: Configure, optimize, and troubleshoot AzCopy.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
-ms.date: 04/10/2020
+ms.topic: how-to
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
@@ -58,7 +58,7 @@ This section helps you perform these optimization tasks:
 
 ### Run benchmark tests
 
-You can run a performance benchmark test on specific blob containers or file shares to view general performance statistics and to identity performance bottlenecks. 
+You can run a performance benchmark test on specific blob containers or file shares to view general performance statistics and to identity performance bottlenecks. You can run the test by uploading or downloading generated test data. 
 
 Use the following command to run a performance benchmark test.
 
@@ -72,13 +72,11 @@ Use the following command to run a performance benchmark test.
 
 This command runs a performance benchmark by uploading test data to a specified destination. The test data is generated in memory, uploaded to the destination, then deleted from the destination after the test is complete. You can specify how many files to generate and what size you'd like them to be by using optional command parameters.
 
-For detailed reference docs, see [azcopy benchmark](storage-ref-azcopy-bench.md).
-
-To view detailed help guidance for this command, type `azcopy benchmark -h` and then press the ENTER key.
+If you prefer to run this test by downloading data, set the `mode` parameter to `download`. For detailed reference docs, see [azcopy benchmark](storage-ref-azcopy-bench.md). 
 
 ### Optimize throughput
 
-You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabytes (MB) per second. 
+You can use the `cap-mbps` flag in your commands to place a ceiling on the throughput data rate. For example, the following command resumes a job and caps throughput to `10` megabits (Mb) per second. 
 
 ```azcopy
 azcopy jobs resume <job-id> --cap-mbps 10

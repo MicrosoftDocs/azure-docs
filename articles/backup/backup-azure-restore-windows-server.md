@@ -46,7 +46,7 @@ If you accidentally deleted a file and want to restore it to the same machine (f
    > The option to restore individual files and folders requires .NET Framework 4.5.2 or later. If you do not see the **Individual files and folders** option, you must upgrade .NET Framework to version 4.5.2 or later, and try again.
 
    > [!TIP]
-   > The **Individual files and folders** option allows for quick access to the recovery point data. It is suitable for recovering individual files, with sizes totalling not more than 80 GB, and offers transfer or copy speeds up to 6 MBps during recovery. The **Volume** option recovers all backed up data in a specified volume. This option provides faster transfer speeds (up to 60 MBps), which is ideal for recovering large-sized data or entire volumes.
+   > The **Individual files and folders** option allows for quick access to the recovery point data. It is suitable for recovering individual files, with sizes totaling not more than 80 GB, and offers transfer or copy speeds up to 6 MBps during recovery. The **Volume** option recovers all backed up data in a specified volume. This option provides faster transfer speeds (up to 40 MBps), which is ideal for recovering large-sized data or entire volumes.
 
 5. On the **Select Volume and Date** page, select the volume that contains the files and folders you want to restore.
 

@@ -65,6 +65,8 @@
     href: network-best-practices.md
   - name: DDoS Protection
     href: ddos-best-practices.md
+  - name: Dangling DNS and subdomain takeover
+    href: subdomain-takeover.md
   - name: Secure hybrid network architecture
     href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 
@@ -103,6 +105,8 @@
     href: https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Customer Lockbox
     href: customer-lockbox-overview.md
+  - name: Security baseline for Customer Lockbox
+    href: customer-lockbox-security-baseline.md
 
 - name: Application
   items:
@@ -151,4 +155,5 @@
     href: event-support-ticket.md
   - name: Pen testing
     href: pen-testing.md
-
+  - name: Azure domains
+    href: azure-domains.md

@@ -38,12 +38,12 @@ Machine Learning Services in SQL Managed Instance and SQL Server support both Py
 
 - The initial versions of Python and R are different between Machine Learning Services in SQL Managed Instance and SQL Server:
 
-  |                      | Python | R     |
+  | System               | Python | R     |
   |----------------------|--------|-------|
   | SQL Managed Instance | 3.7.1  | 3.5.2 |
   | SQL Server           | 3.5.2  | 3.3.3 |
 
-- There is no need to configure `external scripts enabled` via `sp_configure`. Once you are [signed up](machine-learning-services-overview.md#signup) for the preview, machine learning is enabled for your SQL database.
+- There is no need to configure `external scripts enabled` via `sp_configure`. Once you are [signed up](machine-learning-services-overview.md#signup) for the preview, machine learning is enabled for Azure SQL Managed Instance.
 
 ## Packages
 

@@ -5,7 +5,7 @@ author: djpmsft
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 07/07/2020
 ms.author: daperlov
 ---
 
@@ -14,7 +14,7 @@ ms.author: daperlov
 
 The Common Data Model (CDM) metadata system makes it possible for data and its meaning to be easily shared across applications and business processes. To learn more, see the [Common Data Model](https://docs.microsoft.com/common-data-model/) overview.
 
-In Azure Data Factory, users can transform to and from CDM entities stored in [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) using mapping data flows.
+In Azure Data Factory, users can transform to and from CDM entities stored in [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) using mapping data flows. Choose between model.json and manifest style CDM sources and write to CDM manifest files.
 
 > [!NOTE]
 > Common Data Model (CDM) format connector for ADF data flows is currently available as a public preview.
@@ -22,6 +22,9 @@ In Azure Data Factory, users can transform to and from CDM entities stored in [A
 ## Mapping data flow properties
 
 The Common Data Model is available as an [inline dataset](data-flow-source.md#inline-datasets) in mapping data flows as both a source and a sink.
+
+> [!NOTE]
+> When writing CDM entities, you must have an existing CDM entity definition (metadata schema) already defined. The ADF data flow sink will read that CDM entity file and import the schema into your sink for field mapping.
 
 ### Source properties
 
@@ -46,37 +49,38 @@ The below table lists the properties supported by a CDM source. You can edit the
 
 #### Import schema
 
-CDM is only available as an inline dataset and, by default, doesn't have an associated schema. To get column metadata, click the **Import schema** button in the **Projection** tab. This will allow you to reference the column names and data types specified by the corpus. To import the schema, a [data flow debug session](concepts-data-flow-debug-mode.md) must be active.
+CDM is only available as an inline dataset and, by default, doesn't have an associated schema. To get column metadata, click the **Import schema** button in the **Projection** tab. This will allow you to reference the column names and data types specified by the corpus. To import the schema, a [data flow debug session](concepts-data-flow-debug-mode.md) must be active and you must have an existing CDM entity definition file to point to.
 
-![Import schema](media/format-common-data-model/import-schema-source.png)
+> [!NOTE]
+>  When using model.json source type that originates from Power BI or Power Platform dataflows, you may encounter "corpus path is null or empty" errors from the source transformation. This is likely due to formatting issues of the partition location path in the model.json file. To fix this, follow these steps: 
 
-### CDM source example
+1. Open the model.json file in a text editor
+2. Find the partitions.Location property 
+3. Change "blob.core.windows.net" to "dfs.core.windows.net"
+4. Fix any "%2F" encoding in the URL to "/"
+ 
 
-The below image is an example of a CDM source configuration in mapping data flows.
-
-![CDM source](media/format-common-data-model/data-flow-source.png)
-
-The associated data flow script is:
+### CDM source data flow script example
 
 ```
 source(output(
-		ServingSizeId as integer,
-		ServingSize as integer,
-		ServingSizeUomId as string,
-		ServingSizeNote as string,
+		ProductSizeId as integer,
+		ProductColor as integer,
+		CustomerId as string,
+		Note as string,
 		LastModifiedDate as timestamp
 	),
 	allowSchemaDrift: true,
 	validateSchema: false,
-	entity: 'ServingSize.cdm.json/ServingSize',
+	entity: 'Product.cdm.json/Product',
 	format: 'cdm',
 	manifestType: 'manifest',
-	manifestName: 'ServingSizeManifest',
-	entityPath: 'ServingSize',
-	corpusPath: 'ProductAhold_Updated',
+	manifestName: 'ProductManifest',
+	entityPath: 'Product',
+	corpusPath: 'Products',
 	corpusStore: 'adlsgen2',
 	adlsgen2_fileSystem: 'models',
-	folderPath: 'ServingSizeData',
+	folderPath: 'ProductData',
 	fileSystem: 'data') ~> CDMSource
 ```
 
@@ -103,24 +107,20 @@ The below table lists the properties supported by a CDM sink. You can edit these
 | Column delimiter | If writing to DelimitedText, how to delimit columns | yes, if writing to DelimitedText | String | columnDelimiter |
 | First row as header | If using DelimitedText, whether the column names are added as a header | no | `true` or `false` | columnNamesAsHeader |
 
-### CDM sink example
-
-The below image is an example of a CDM sink configuration in mapping data flows.
-
-![CDM source](media/format-common-data-model/data-flow-sink.png)
+### CDM sink data flow script example
 
 The associated data flow script is:
 
 ```
 CDMSource sink(allowSchemaDrift: true,
 	validateSchema: false,
-	entity: 'ServingSize.cdm.json/ServingSize',
+	entity: 'Product.cdm.json/Product',
 	format: 'cdm',
-	entityPath: 'ServingSize',
-	manifestName: 'ServingSizeManifest',
-	corpusPath: 'ProductAhold_Updated',
+	entityPath: 'ProductSize',
+	manifestName: 'ProductSizeManifest',
+	corpusPath: 'Products',
 	partitionPath: 'adf',
-	folderPath: 'ServingSizeData',
+	folderPath: 'ProductSizeData',
 	fileSystem: 'cdm',
 	subformat: 'parquet',
 	corpusStore: 'adlsgen2',

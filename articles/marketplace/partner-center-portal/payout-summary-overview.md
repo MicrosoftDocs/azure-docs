@@ -1,12 +1,12 @@
 ---
 title: Payout summary overview - Azure Marketplace
 description: The Payout summary shows you details about the money you've earned with your offer. It also lets you know when you'll receive payments and how much you'll be paid.
-author: mingshen
-ms.author: mingshen
-ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/24/2020
+ms.service: marketplace 
+ms.topic: article
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 07/14/2020
 ---
 
 # Payout summary overview
@@ -18,7 +18,7 @@ If you sell offerings in the Azure Marketplace, you'll also see info on successf
 > [!NOTE]
 > To be eligible for payout, your proceeds must reach the [payment threshold](./payment-thresholds-methods-timeframes.md) of $50. For details about the payment threshold, see the [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
 
-All reporting and insights for the transact publishing option are available in the Analytics section of Partner Center, accessed using this icon in the upper-right corner of the portal:
+To view payout details, sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) and select the payout icon in the upper-right corner of the screen:
 
 ![Illustrates the Payout icon in the upper right corner of the Partner Center portal.](./media/payout-overview.png)
 
@@ -37,19 +37,6 @@ These are roles and permissions to access the payout report:
 | Tax profile | Can update | No access | No access | No access | Can update | No access |
 | Payout summary | Can view | No access | No access | No access | Can view | No access  |
 | | | | | | | |
-
-## Payout report differences
-
-These are the differences in the payout report between Cloud Partner Portal (old) and Partner Center (new):
-
-| Cloud Partner Portal | Partner Center |
-| --- | --- |
-| **Link**: https://cloudpartner.azure.com/ | **Link**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory and https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navigation**: Payout reporting provided in Insights Payout | **Navigation**: Payout reporting provided in Partner Center – Payout Icon |
-| **Scope**:<ul><li>Transaction per line item is visible, for collection in progress, collected, and paid.</li><li>Reporting – shows all line items once purchase order is created, including collection in progress and billing in progress, and collection status and line items that are not yet eligible to be paid.</li></ul> | **Scope**:<ul><li>Shows the line items after they're deemed as eligible earnings.</li><li>The customers pay to Microsoft first, and then ISVs can see the payout report starting.</li><li>Payout report won't show collection in progress and billing in Progress.</li></ul> |
-| **Transaction not ready for payout**: Billing in Progress | **Transaction not ready for payout**: Next estimated payment: The payout status is in the unprocessed state. |
-| **Payout status**: n/a | **Payout status**:<ul><li>Unprocessed: The earning is eligible for payment.</li><li>Upcoming: The earning will be sent to the publisher in the next monthly payout.</li><li>Sent: The payment has been sent to your bank.</li></ul> |
-| | |
 
 ## Payment schedules
 

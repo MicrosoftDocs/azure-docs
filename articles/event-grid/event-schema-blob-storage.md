@@ -1,13 +1,8 @@
 ---
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -23,6 +18,9 @@ This article provides the properties and schema for blob storage events. For an
 ### List of events for Blob REST APIs
 
 These events are triggered when a client creates, replaces, or deletes a blob by calling Blob REST APIs.
+
+> [!NOTE]
+> The `$logs` and `$blobchangefeed` containers aren't integrated with Event Grid, so activity in these containers will not generate events. Also, using the dfs endpoint *`(abfss://URI) `* for non-hierarchical namespace enabled accounts will not generate events, but the blob endpoint *`(wasb:// URI)`* will generate events.
 
  |Event name |Description|
  |----------|-----------|
@@ -48,8 +46,7 @@ These events are triggered if you enable a hierarchical namespace on the storage
 > [!NOTE]
 > If you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `FlushWithClose` REST API call. This API call triggers the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
-<a id="example-event" />
-
+<a name="example-event"></a>
 ### The contents of an event response
 
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint.

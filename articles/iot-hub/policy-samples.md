@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure IoT Hub
 description: Lists Azure Policy built-in policy definitions for Azure IoT Hub. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 06/10/2020
+ms.date: 07/10/2020
 ms.topic: sample
 author: robinsh
 ms.author: robinsh
@@ -9,9 +9,11 @@ ms.service: iot-hub
 ms.custom: subject-policy-samples
 ---
 
-# Azure Policy built-in policy definitions for Azure IoT Hub
+# Azure Policy built-in definitions for Azure IoT Hub
 
-For IoT Hub sample code that shows how to implement common IoT scenarios, see the [IoT Hub quickstarts](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-cli). There are quickstarts for multiple programming languages including C, Node.js, and Python.
+For IoT Hub sample code that shows how to implement common IoT scenarios, see the
+[IoT Hub quickstarts](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-cli). There
+are quickstarts for multiple programming languages including C, Node.js, and Python.
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure IoT Hub. For additional Azure Policy built-ins for other services,

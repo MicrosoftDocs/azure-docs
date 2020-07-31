@@ -1,5 +1,5 @@
 - name: Azure AD B2C Documentation
-  href: index.yml 
+  href: index.yml
 - name: Overview
   items:
   - name: About Azure AD B2C
@@ -36,6 +36,9 @@
       href: tutorial-desktop-app.md
     - name: Single page
       href: tutorial-single-page-app.md
+    - name: Python
+      href: tutorial-web-app-python.md
+      displayName: flask
   - name: Grant API access
     items:
     - name: ASP.NET
@@ -188,8 +191,12 @@
         displayName: ux, input, cors, html, css
       - name: Customize language
         href: custom-policy-localization.md
-      - name: Custom email
-        href: custom-email.md
+      - name: Custom email verification
+        items:
+        - name: Mailjet
+          href: custom-email-mailjet.md
+        - name: SendGrid
+          href: custom-email-sendgrid.md
         displayName: verification
       - name: Disable email verification
         href: custom-policy-disable-email-verification.md
@@ -322,6 +329,8 @@
           - name: Azure Multi-Factor Authentication
             href: multi-factor-auth-technical-profile.md
             displayName: mfa
+          - name: Azure AD SSPR
+            href: aad-sspr-technical-profile.md
           - name: Claims transformation
             href: claims-transformation-technical-profile.md
           - name: JWT token issuer
@@ -336,10 +345,10 @@
           - name: OpenID Connect
             href: openid-connect-technical-profile.md
           - name: Phone factor
-            href: phone-factor-technical-profile.md 
+            href: phone-factor-technical-profile.md
           - name: REST
             href: restful-technical-profile.md
-          - name: SAML identity provider 
+          - name: SAML identity provider
             href: saml-identity-provider-technical-profile.md
           - name: SAML token issuer
             href: saml-issuer-technical-profile.md
@@ -354,6 +363,26 @@
         href: relyingparty.md
       - name: Claim resolvers
         href: claim-resolver-overview.md
+  - name: Partner integration
+    items:
+    - name: Azure AD B2C partner gallery
+      href: partner-gallery.md
+    - name: Arkose Labs
+      href: partner-arkose-labs.md
+    - name: Experian
+      href: partner-experian.md
+    - name: IDology
+      href: partner-idology.md
+    - name: itsme
+      href: partner-itsme.md
+    - name: LexisNexis
+      href: partner-lexisnexis.md
+    - name: Trusona
+      href: partner-trusona.md
+    - name: Twilio
+      href: partner-twilio.md
+    - name: TypingDNA
+      href: partner-typingdna.md
   - name: Use b2clogin.com
     items:
     - name: b2clogin.com overview
@@ -411,7 +440,7 @@
   - name: Extensions app
     href: extensions-app.md
   - name: IEF release notes
-    href: custom-policy-developer-notes.md 
+    href: custom-policy-developer-notes.md
   - name: Microsoft Graph API operations
     href: microsoft-graph-operations.md
   - name: Page layout versions

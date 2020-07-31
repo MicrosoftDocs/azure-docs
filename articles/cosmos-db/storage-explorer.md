@@ -3,7 +3,7 @@ title: Manage Azure Cosmos DB resources using Azure Storage Explorer
 description: Learn how to connect to Azure Cosmos DB and manage its resources by using Azure Storage Explorer.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
@@ -25,23 +25,23 @@ Install the newest Azure Storage Explorer bits here: [Azure Storage Explorer](ht
 
 1. After installing the **Azure Storage Explorer**, click the **plug-in** icon on the left as shown in the following image:
 
-   ![Plug in icon](./media/storage-explorer/plug-in-icon.png)
+   :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="Plug in icon":::
 
 2. Select **Add an Azure Account**, and then click **Sign-in**.
 
-   ![Connect to Azure subscription](./media/storage-explorer/connect-to-azure-subscription.png)
+   :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Connect to Azure subscription":::
 
 2. In the **Azure Sign in** dialog box, select **Sign in**, and then enter your Azure credentials.
 
-    ![Sign in](./media/storage-explorer/sign-in.png)
+    :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Sign in":::
 
 3. Select your subscription from the list and then click **Apply**.
 
-    ![Apply](./media/storage-explorer/apply-subscription.png)
+    :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Apply":::
 
     The Explorer pane updates and displays the accounts in the selected subscription.
 
-    ![Account list](./media/storage-explorer/account-list.png)
+    :::image type="content" source="./media/storage-explorer/account-list.png" alt-text="Account list":::
 
     You have successfully connected to your **Cosmos DB account** to your Azure subscription.
 
@@ -51,11 +51,11 @@ An alternative way of connecting to an Azure Cosmos DB is to use a connection st
 
 1. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, choose **Connect to Cosmos DB...**
 
-    ![Connect to Cosmos DB by connection string](./media/storage-explorer/connect-to-db-by-connection-string.png)
+    :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Connect to Cosmos DB by connection string":::
 
 2. Only support SQL and Table API currently. Choose API, paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Azure Cosmos DB account. For information on retrieving the primary connection string, see [Get the connection string](manage-with-powershell.md#list-keys).
 
-    ![Connection-string](./media/storage-explorer/connection-string.png)
+    :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Connection-string":::
 
 ## Connect to Azure Cosmos DB by using local emulator
 
@@ -66,11 +66,11 @@ Use the following steps to connect to an Azure Cosmos DB by Emulator, only suppo
 
 2. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, choose **Connect to Cosmos DB Emulator...**
 
-    ![Connect to Cosmos DB by Emulator](./media/storage-explorer/emulator-entry.png)
+    :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Connect to Cosmos DB by Emulator":::
 
 3. Only support SQL API currently. Paste **Connection String**, input **Account label**, click **Next** to check the summary, and then click **Connect** to connect Azure Cosmos DB account. For information on retrieving the primary connection string, see [Get the connection string](manage-with-powershell.md#list-keys).
 
-    ![Connect to Cosmos DB by Emulator dialog](./media/storage-explorer/emulator-dialog.png)
+    :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Connect to Cosmos DB by Emulator dialog":::
 
 
 ## Azure Cosmos DB resource management
@@ -90,52 +90,52 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 * Right-click an Azure Cosmos DB account or a database, you can choose **Open in Portal** and manage the resource in the browser on the Azure portal.
 
-     ![Open in portal](./media/storage-explorer/open-in-portal.png)
+     :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Open in portal":::
 
 * You can also add Azure Cosmos DB account, database, collection to **Quick Access**.
 * **Search from Here** enables keyword search under the selected path.
 
-    ![search from here](./media/storage-explorer/search-from-here.png)
+    :::image type="content" source="./media/storage-explorer/search-from-here.png" alt-text="search from here":::
 
 ### Database and collection management
 #### Create a database
 -   Right-click the Azure Cosmos DB account, choose **Create Database**, input the database name, and press **Enter** to complete.
 
-    ![Create database](./media/storage-explorer/create-database.png)
+    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Create database":::
 
 #### Delete a database
 - Right-click the database, click **Delete Database**, and click **Yes** in the pop-up window. The database node is deleted, and the Azure Cosmos DB account refreshes automatically.
 
-    ![Delete database1](./media/storage-explorer/delete-database1.png)
+    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Delete database1":::
 
-    ![Delete database2](./media/storage-explorer/delete-database2.png)
+    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Delete database2":::
 
 #### Create a collection
 1. Right-click your database, choose **Create Collection**, and then provide the following information like **Collection ID**, **Storage capacity**, etc. Click **OK** to finish.
 
-    ![Create collection1](./media/storage-explorer/create-collection.png)
+    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Create collection1":::
 
-    ![Create collection2](./media/storage-explorer/create-collection2.png)
+    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Create collection2":::
 
 2. Select **Unlimited** to be able to specify partition key, then click **OK** to finish.
 
     If a partition key is used when creating a collection, once creation is completed, the partition key value can't be changed on the collection.
 
-    ![Partition key](./media/storage-explorer/partitionkey.png)
+    :::image type="content" source="./media/storage-explorer/partitionkey.png" alt-text="Partition key":::
 
 #### Delete a collection
 - Right-click the collection, click **Delete Collection**, and then click **Yes** in the pop-up window.
 
     The collection node is deleted, and the database refreshes automatically.
 
-    ![Delete collection](./media/storage-explorer/delete-collection.png)
+    :::image type="content" source="./media/storage-explorer/delete-collection.png" alt-text="Delete collection":::
 
 ### Document management
 
 #### Create and modify documents
 - To create a new document, open **Documents** in the left window, click **New Document**, edit the contents in the right pane, then click **Save**. You can also update an existing document, and then click **Save**. Changes can be discarded by clicking **Discard**.
 
-    ![Document](./media/storage-explorer/document.png)
+    :::image type="content" source="./media/storage-explorer/document.png" alt-text="Document":::
 
 #### Delete a document
 - Click the **Delete** button to delete the selected document.
@@ -143,7 +143,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 #### Query for documents
 - Edit the document filter by entering a [SQL query](how-to-sql-query.md) and then click **Apply**.
 
-    ![Document Filter](./media/storage-explorer/document-filter.png)
+    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Document Filter":::
 
 
 
@@ -153,7 +153,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 1. To create a new vertex, open **Graph** from the left window, click **New Vertex**, edit the contents, then click **OK**.
 2. To modify an existing vertex, click the pen icon in the right pane.
 
-    ![Graph](./media/storage-explorer/vertex.png)
+    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Graph":::
 
 #### Delete a graph
 - To delete a vertex, click the recycle bin icon beside the vertex name.
@@ -161,7 +161,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 #### Filter for graph
 - Edit the graph filter by entering a [gremlin query](gremlin-support.md) and then click **Apply Filter**.
 
-    ![Graph Filter](./media/storage-explorer/graph-filter.png)
+    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Graph Filter":::
 
 ### Table management
 
@@ -169,29 +169,29 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 1. To create a new table, open **Entities** from the left window, click **Add**, edit the content in **Add Entity** dialog, add property by clicking button **Add Property**, then click **Insert**.
 2. To modify a table, click **Edit**, modify the content, then click **Update**.
 
-    ![Table](./media/storage-explorer/table.png)
+    :::image type="content" source="./media/storage-explorer/table.png" alt-text="Table":::
 
 #### Import and export table
 1. To import, click **Import** button and choose an existing table.
 2. To export, click **Export** button and choose a destination.
 
-    ![Table Import and Export](./media/storage-explorer/table-import-export.png)
+    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Table Import and Export":::
 
 #### Delete entities
 - Select the entities and click button **Delete**.
 
-    ![Table delete](./media/storage-explorer/table-delete.png)
+    :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Table delete":::
 
 #### Query table
 - Click **Query** button, input query condition, then click **Execute Query** button. Close Query pane by clicking **Close Query** button.
 
-    ![Table Query](./media/storage-explorer/table-query.png)
+    :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Table Query":::
 
 ### Manage stored procedures, triggers, and UDFs
 * To create a stored procedure, in the left tree, right-click **Stored Procedure**, choose **Create Stored Procedure**, enter a name in the left, type the stored procedure scripts in the right window, and then click **Create**.
 * You can also edit existing stored procedures by double-clicking, making the update, and then clicking **Update** to save, or click **Discard** to cancel the change.
 
-    ![Stored procedure](./media/storage-explorer/stored-procedure.png)
+    :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Stored procedure":::
 * The operations for **Triggers** and **UDF** are similar with **Stored Procedures**.
 
 ## Troubleshooting
@@ -241,7 +241,7 @@ If you're unable to retrieve your subscriptions after you successfully signed in
   - .extaccounts
 - Watch the developer tools console (f12) while signing in for any error messages
 
-![console](./media/storage-explorer/console.png)
+:::image type="content" source="./media/storage-explorer/console.png" alt-text="console":::
 
 #### Unable to see the authentication page
 
@@ -274,19 +274,19 @@ You cannot list Azure Cosmos DB nodes in left tree when configuring http/https p
 
 There is no response after clicking the "Development" node under "Local and Attached" node in left tree.  The behavior is expected. Azure Cosmos DB local emulator will be supported in next release.
 
-![Development node](./media/storage-explorer/development.png)
+:::image type="content" source="./media/storage-explorer/development.png" alt-text="Development node":::
 
 ### Attaching Azure Cosmos DB account in "Local and Attached" node error
 
 If you see below error after attaching Azure Cosmos DB account in "Local and Attached" node, then check if you're using the right connection string.
 
-![Attaching Azure Cosmos DB in Local and Attached error](./media/storage-explorer/attached-error.png)
+:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Attaching Azure Cosmos DB in Local and Attached error":::
 
 ### Expand Azure Cosmos DB node error
 
 You may see below error while trying to expand the tree nodes in left.
 
-![Expand Error](./media/storage-explorer/expand-error.png)
+:::image type="content" source="./media/storage-explorer/expand-error.png" alt-text="Expand Error":::
 
 Try the following suggestions:
 

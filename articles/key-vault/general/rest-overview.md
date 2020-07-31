@@ -70,7 +70,7 @@ An object identifier has the following general format (depending on container ty
 
 Where:  
 
-|||  
+| Element | Description |  
 |-|-|  
 |`vault-name` or `hsm-name`|The name for a vault or an Managed HSM pool in the Microsoft Azure Key Vault service.<br /><br />Vault names and Managed HSM pool names are selected by the user and are globally unique.<br /><br />Vault name and Managed HSM pool name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and -.|  
 |`object-type`|The type of the object, "keys",  "secrets", or 'certificates'.|  

@@ -3,14 +3,13 @@ title: Use Microsoft Graph APIs to configure SAML-based single sign-on
 titleSuffix: Azure Active Directory
 description: Need to set up SAML-based single sign-on for multiple instances of an application? Learn how to save time by using the Microsoft Graph APIs to automate the configuration of SAML-based single sign-on.
 services: active-directory
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon
 ---
 
@@ -107,6 +106,8 @@ Content-type: application/json
 
 Using the template ID that you retrieved for your application in the last step, [create an instance](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) of the application and service principal in your tenant.
 
+> [!NOTE] 
+> You can use applicationTemplate API to instantiate [Non-Gallery apps](add-non-gallery-app.md). Use applicationTemplateId `8adf8e6e-67b2-4cf2-a259-e3dc5476c621`.
 #### Request
 
 <!-- {
@@ -420,7 +421,7 @@ Content-type: claimsMappingPolicies/json
   "name": "servicePrincipals"
 }-->
 ```msgraph-interactive
-POST https://graph.microsoft.com/v1.0/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e/claimsMappingPolicies/$ref
+POST https://graph.microsoft.com/beta/servicePrincipals/f47a6776-bca7-4f2e-bc6c-eec59d058e3e/claimsMappingPolicies/$ref
 
 Content-type: claimsMappingPolicies/json
 
@@ -595,7 +596,7 @@ Assign the following user to the service principal and assign the AWS_Role1.
 | User ID (principalId) | 6cad4079-4e79-4a3f-9efb-ea30a14bdb26 |
 | Type (principalType) | User |
 | App role ID (appRoleId) | 454dc4c2-8176-498e-99df-8c4efcde41ef |
-| servicePrincipalID (resourceId) | 515f62cb-d18a-4dca-bec3-bb0bf31deeea |
+| servicePrincipalID (resourceId) | f47a6776-bca7-4f2e-bc6c-eec59d058e3e |
 
 #### Request
 
@@ -612,7 +613,7 @@ Content-type: appRoleAssignments/json
   "principalId": "6cad4079-4e79-4a3f-9efb-ea30a14bdb26",
   "principalType": "User",
   "appRoleId":"454dc4c2-8176-498e-99df-8c4efcde41ef",
-  "resourceId":"515f62cb-d18a-4dca-bec3-bb0bf31deeea"
+  "resourceId":"f47a6776-bca7-4f2e-bc6c-eec59d058e3e"
 }
 ```
 #### Response
@@ -633,7 +634,7 @@ Content-type: appRoleAssignments/json
     "principalId": "6cad4079-4e79-4a3f-9efb-ea30a14bdb26",
     "principalType": "User",
     "resourceDisplayName": "AWS API Created",
-    "resourceId": "515f62cb-d18a-4dca-bec3-bb0bf31deeea"
+    "resourceId": "f47a6776-bca7-4f2e-bc6c-eec59d058e3e"
 }
 ```
 

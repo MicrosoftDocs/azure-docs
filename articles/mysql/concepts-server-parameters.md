@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/5/2020
+ms.date: 6/25/2020
 ---
 # Server parameters in Azure Database for MySQL
 
@@ -22,6 +22,32 @@ Azure Database for MySQL exposes the ability to change the value of various MySQ
 The list of supported server parameters is constantly growing. Use the server parameters tab in the Azure portal to view the full list and configure server parameters values.
 
 Refer to the following sections below to learn more about the limits of the several commonly updated server parameters. The limits are determined by the pricing tier and vCores of the server.
+
+### Thread pools
+
+MySQL traditionally assigns a thread for every client connection. As the number of concurrent users grows, there is a corresponding drop in performance. Many active threads can impact the performance significantly due to increased context switching, thread contention, and bad locality for CPU caches.
+
+Thread pools which is a server side feature and distinct from connection pooling, maximize performance by introducing a dynamic pool of worker thread that can be used to limit the number of active threads running on the server and minimize thread churn. This helps ensure that a burst of connections will not cause the server to run out of resources or crash with an out of memory error. Thread pools are most efficient for short queries and CPU intensive workloads, for example OLTP workloads.
+
+To learn more about thread pools, refer to [Introducing thread pools in Azure Database for MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/introducing-thread-pools-in-azure-database-for-mysql-service/ba-p/1504173)
+
+> [!NOTE]
+> Thread pool feature is not supported for MySQL 5.6 version. 
+
+### Configuring the thread pool
+To enable thread pool, update the `thread_handling` server parameter to "pool-of-threads". By default, this parameter is set to `one-thread-per-connection`, which means MySQL creates a new thread for each new connections. Please note that this is a static parameter and requires a server restart to apply.
+
+You can also configure the maximum and minimum number of threads in the pool by setting the following server parameters: 
+- `thread_pool_max_threads`: This value ensures that there will not be more than this number of threads in the pool.
+- `thread_pool_min_threads`: This value sets the number of threads that will be reserved even after connections are closed.
+
+To improve performance issues of short queries on the thread pool, Azure Database for MySQL allows you to enable batch execution where instead of returning back to the thread pool immediately after executing a query, threads will keep active for a short time to wait for the next query through this connection. The thread then executes the query rapidly and once complete, waits for the next one, until the overall time consumption of this process exceeds a threshold. The batch execution behavior is determined using the following server parameters:  
+
+-  `thread_pool_batch_wait_timeout`: This value specifies the time a thread waits for another query to process.
+- `thread_pool_batch_max_time`: This value determines the max time a thread will repeat the cycle of query execution and waiting for the next query.
+
+> [!IMPORTANT]
+> Please test thread pool before turning it ON in production. 
 
 ### innodb_buffer_pool_size
 
@@ -118,6 +144,9 @@ When connections exceed the limit, you may receive the following error:
 
 Creating new client connections to MySQL takes time and once established, these connections occupy database resources, even when idle. Most applications request many short-lived connections, which compounds this situation. The result is fewer resources available for your actual workload leading to decreased performance. A connection pooler that decreases idle connections and reuses existing connections will help avoid this. To learn about setting up ProxySQL, visit our [blog post](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
 
+>[!Note]
+>ProxySQL is an open source community tool. It is supported by Microsoft on a best effort basis. In order to get production support with authoritative guidance, you can evaluate and reach out to [ProxySQL Product support](https://proxysql.com/services/support/).
+
 ### max_heap_table_size
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) to learn more about this parameter.
@@ -205,7 +234,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 
 ### time_zone
 
-The time zone tables can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench. Refer to the [Azure portal](howto-server-parameters.md#working-with-the-time-zone-parameter) or [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) articles for how to call the stored procedure and set the global or session-level time zones.
+Upon initial deployment, an Azure for MySQL server includes systems tables for time zone information, but these tables are not populated. The time zone tables can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench. Refer to the [Azure portal](howto-server-parameters.md#working-with-the-time-zone-parameter) or [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) articles for how to call the stored procedure and set the global or session-level time zones.
 
 ## Non-configurable server parameters
 

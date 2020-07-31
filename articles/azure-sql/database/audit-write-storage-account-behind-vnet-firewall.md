@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 06/09/2020
+ms.date: 06/17/2020
 ms.custom: azure-synapse
 ---
 # Write audit to a storage account behind VNet and firewall
@@ -114,7 +114,7 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
 2. Open [Azure portal](https://portal.azure.com). Navigate to your storage account. Locate **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to the server hosting the database that you registered with Azure Active Directory (Azure AD) as in the previous step.
 
    > [!NOTE]
-   > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+   > Only members with Owner privilege can perform this step. For various Azure built-in roles, refer to [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 3. Configure the [server's blob auditing policy](/rest/api/sql/server%20auditing%20settings/createorupdate), without specifying a *storageAccountAccessKey*:
 
@@ -139,6 +139,18 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
 
 - [Create or Update Database Auditing Policy (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
 - [Create or Update Server Auditing Policy (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
+
+## Using Azure Resource Manager template
+
+You can configure auditing to write database events on a storage account behind virtual network and firewall using [Azure Resource Manager](../../azure-resource-manager/management/overview.md) template, as shown in the following example:
+
+> [!IMPORTANT]
+> In order to use storage account behind virtual network and firewall, you need to set **isStorageBehindVnet** parameter to true
+
+- [Deploy an Azure SQL server with Auditing enabled to write audit logs to a blob storage](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+
+> [!NOTE]
+> The linked sample is on an external public repository and is provided 'as is', without warranty, and are not supported under any Microsoft support program/service.
 
 ## Next steps
 

@@ -66,7 +66,7 @@ A technical profile can include another technical profile to change settings or 
 
 For example, the **AAD-UserReadUsingAlternativeSecurityId-NoError** technical profile includes the **AAD-UserReadUsingAlternativeSecurityId**. This technical profile sets the `RaiseErrorIfClaimsPrincipalDoesNotExist` metadata item to `true`, and raises an error if a social account does not exist in the directory. **AAD-UserReadUsingAlternativeSecurityId-NoError** overrides this behavior, and disables that error message.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
   <Metadata>
     <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">false</Item>
@@ -77,7 +77,7 @@ For example, the **AAD-UserReadUsingAlternativeSecurityId-NoError** technical pr
 
 **AAD-UserReadUsingAlternativeSecurityId** includes the `AAD-Common` technical profile.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">Read</Item>
@@ -101,7 +101,7 @@ For example, the **AAD-UserReadUsingAlternativeSecurityId-NoError** technical pr
 
 Both **AAD-UserReadUsingAlternativeSecurityId-NoError** and  **AAD-UserReadUsingAlternativeSecurityId** don't specify the required **Protocol** element, because it's specified in the **AAD-Common** technical profile.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-Common">
   <DisplayName>Azure Active Directory</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

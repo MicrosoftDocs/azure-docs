@@ -92,6 +92,8 @@
       href: troubleshoot-reboot-loop.md
     - name: Stuck at Windows update
       href: troubleshoot-stuck-updating-boot-error.md
+    - name: Unexpected restart or error
+      href: troubleshoot-unexpected-restart-error-during-vm-boot.md
     - name: VM startup is stuck
       href: troubleshoot-vm-boot-configure-update.md
     - name: VM cannot boot due to windows boot manager
@@ -100,6 +102,10 @@
       href: unresponsive-vm-apply-windows-update.md
     - name: VM is unresponsive when applying group policy
       href: unresponsive-vm-apply-group-policy.md
+    - name: VM is unresponsive when applying security policy
+      href: unresponsive-vm-apply-security-policy.md
+    - name: Windows stop error - Status No Memory
+      href: troubleshoot-windows-stop-error.md
 - name: Cannot connect to my VM
   items:
   - name: RDP
@@ -195,6 +201,8 @@
     href: storage-resource-deletion-errors.md
   - name: Errors when deleting classic storage resources
     href: storage-classic-cannot-delete-storage-account-container-vhd.md
+  - name: VHD is not supported when you create a VM in Azure
+    href: vhd-not-supported-vm-azure.md
   - name: Use nested virtualization
     href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: VM Performance issues

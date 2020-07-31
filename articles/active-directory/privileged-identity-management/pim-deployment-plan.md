@@ -47,7 +47,8 @@ To use Privileged Identity Management, your directory must have one of the follo
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5
-- Microsoft 365 M5
+- Microsoft 365 Education A5
+- Microsoft 365 Enterprise E5
 
 For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
 

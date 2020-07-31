@@ -4,7 +4,7 @@ description: Lists the previous generations of sizes available for virtual machi
 services: virtual-machines
 ms.subservice: sizes
 author: mimckitt
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
@@ -165,7 +165,7 @@ The A8-A11 and H-series sizes are also known as *compute-intensive instances*. T
 
 ### D-series  
 
-**Newer size recommendation**: [Dv3-series](dv3-dsv3-series.md)
+**Newer size recommendation**: [Dav4-series](dav4-dasv4-series.md), [Dv4-series](dv4-dsv4-series.md) and [Ddv4-series](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -186,7 +186,7 @@ Premium Storage caching:  Not Supported
 
 ### D-series - memory optimized  
 
-**Newer size recommendation**: [Dv3-series](dv3-dsv3-series.md)
+**Newer size recommendation**: [Dav4-series](dav4-dasv4-series.md), [Dv4-series](dv4-dsv4-series.md) and [Ddv4-series](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -227,7 +227,7 @@ The DC-series uses the latest generation of 3.7GHz Intel XEON E-2176G Processor 
 
 ### DS-series  
 
-**Newer size recommendation**: [Dsv3-series](dv3-dsv3-series.md)
+**Newer size recommendation**: [Dasv4-series](dav4-dasv4-series.md), [Dsv4-series](dv4-dsv4-series.md) and [Ddsv4-series](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -248,7 +248,7 @@ Premium Storage caching:  Supported
 
 ### DS-series - memory optimized  
 
-**Newer size recommendation**: [Dsv3-series](dv3-dsv3-series.md)
+**Newer size recommendation**: [Dasv4-series](dav4-dasv4-series.md), [Dsv4-series](dv4-dsv4-series.md) and [Ddsv4-series](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1,2</sup>
 
@@ -269,6 +269,8 @@ Premium Storage caching:  Supported
 <br>
 
 ### Ls-series
+
+**Newer size recommendation**: [Lsv2-series](lsv2-series.md)
 
 The Ls-series offers up to 32 vCPUs, using the [Intel® Xeon® processor E5 v3 family](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). The Ls-series gets the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per vCPU.
 
@@ -293,6 +295,8 @@ The maximum disk throughput possible with Ls-series VMs may be limited by the nu
 
 ### GS-series
 
+**Newer size recommendation**: [Easv4-series](eav4-easv4-series.md), [Esv4-series](ev4-esv4-series.md), [Edsv4-series](edv4-edsv4-series.md) and [M-series](m-series.md)
+
 ACU: 180 - 240 <sup>1</sup>
 
 Premium Storage:  Supported
@@ -316,6 +320,8 @@ Premium Storage caching:  Supported
 <br>
 
 ### G-series
+
+**Newer size recommendation**: [Eav4-series](eav4-easv4-series.md), [Ev4-series](ev4-esv4-series.md) and [Edv4-series](edv4-edsv4-series.md) and [M-series](m-series.md)
 
 ACU: 180 - 240
 

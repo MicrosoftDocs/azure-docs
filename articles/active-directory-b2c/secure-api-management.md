@@ -7,7 +7,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -167,7 +167,7 @@ With the access token and APIM subscription key recorded, you're now ready to te
 
 1. Select the **Send** button in Postman to execute the request. If you've configured everything correctly, you should be presented with a JSON response with a collection of conference speakers (shown here truncated):
 
-    ```JSON
+    ```json
     {
       "collection": {
         "version": "1.0",
@@ -202,7 +202,7 @@ Now that you've made a successful request, test the failure case to ensure that 
 
 1. Select the **Send** button to execute the request. With an invalid token, the expected result is a `401` unauthorized status code:
 
-    ```JSON
+    ```json
     {
         "statusCode": 401,
         "message": "Unauthorized. Access token is missing or invalid."
@@ -215,7 +215,7 @@ If you see the `401` status code, you've verified that only callers with a valid
 
 Several applications typically interact with a single REST API. To enable your API to accept tokens intended for multiple applications, add their application IDs to the `<audiences>` element in the APIM inbound policy.
 
-```XML
+```xml
 <!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
@@ -225,7 +225,7 @@ Several applications typically interact with a single REST API. To enable your A
 
 Similarly, to support multiple token issuers, add their endpoint URIs to the `<issuers>` element in the APIM inbound policy.
 
-```XML
+```xml
 <!-- Accept tokens from multiple issuers -->
 <issuers>
     <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
@@ -245,7 +245,7 @@ You can follow this general process to perform a staged migration:
 
 The following example APIM inbound policy illustrates how to accept tokens issued by both b2clogin.com and login.microsoftonline.com. Additionally, it supports API requests from two applications.
 
-```XML
+```xml
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

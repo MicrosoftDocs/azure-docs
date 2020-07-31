@@ -5,12 +5,12 @@ description: Learn how to work around, solve, and troubleshoot the common Docker
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
 author: clauren42
 ms.author:  clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: contperfq4, tracking-python
+ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4, tracking-python
 ---
 
 # Troubleshoot Docker deployment of models with Azure Kubernetes Service and Azure Container Instances 
@@ -96,6 +96,8 @@ Once you have broken down the deployment process into individual tasks, we can l
 
 If you encounter problems deploying a model to ACI or AKS, try deploying it as a local web service. Using a local web service makes it easier to troubleshoot problems. The Docker image containing the model is downloaded and started on your local system.
 
+You can find a sample [local deployment notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) in the  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) repo to explore a runnable example.
+
 > [!WARNING]
 > Local web service deployments are not supported for production scenarios.
 
@@ -177,6 +179,9 @@ print(service.get_logs())
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
 print(ws.webservices['mysvc'].get_logs())
 ```
+If you see the line `Booting worker with pid: <pid>` occurring multiple times in the logs, it means, there isn't enough memory to start the worker.
+You can address the error by increasing the value of `memory_gb` in `deployment_config`
+ 
 ## Container cannot be scheduled
 
 When deploying a service to an Azure Kubernetes Service compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If after 5 minutes, there are no nodes available in the cluster with the appropriate amount of resources available, the deployment will fail with the message `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. You can address this error by either adding more nodes, changing the SKU of your nodes or changing the resource requirements of your service. 
@@ -272,7 +277,7 @@ For more information on setting `autoscale_target_utilization`, `autoscale_max_r
 
 A 504 status code indicates that the request has timed out. The default timeout is 1 minute.
 
-You can increase the timeout or try to speed up the service by modifying the score.py to remove unnecessary calls. If these actions do not correct the problem, use the information in this article to debug the score.py file. The code may be in a hung state or an infinite loop.
+You can increase the timeout or try to speed up the service by modifying the score.py to remove unnecessary calls. If these actions do not correct the problem, use the information in this article to debug the score.py file. The code may be in a non-responsive state or an infinite loop.
 
 ## Advanced debugging
 

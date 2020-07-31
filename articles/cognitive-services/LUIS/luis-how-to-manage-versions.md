@@ -62,5 +62,5 @@ You can import a `.json` or a `.lu` version of your application.
 
 * To **delete** a version, select a version from the list, then select **Delete** from the toolbar. Select **Ok**.
 * To **rename** a version, select a version from the list, then select **Rename** from the toolbar. Enter new name and select **Done**.
-* To **export** a version, select a version from the list, then select **Export app** from the toolbar. Choose JSON to export for backup, choose **Export for container** to [use this app in a LUIS container](luis-container-howto.md).
+* To **export** a version, select a version from the list, then select **Export app** from the toolbar. Choose JSON or LU to export for a backup or to save in source control, choose **Export for container** to [use this app in a LUIS container](luis-container-howto.md).
 

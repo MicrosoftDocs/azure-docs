@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 04/21/2020
+ms.date: 06/17/2020
 ms.topic: overview
 ---
 # What is Azure Policy?
@@ -85,7 +85,7 @@ on Channel 9.
 ### Azure Policy and RBAC
 
 There are a few key differences between Azure Policy and role-based access control (RBAC). Azure
-Policy evaluates state by examining properties on resources which are represented in Resource
+Policy evaluates state by examining properties on resources that are represented in Resource
 Manager and properties of some Resource Providers. Azure Policy doesn't restrict actions (also
 called _operations_). Azure Policy ensures that resource state is compliant to your business rules
 without concern for who made the change or who has permission to make a change.
@@ -123,7 +123,7 @@ If none of the Built-in roles have the permissions required, create a
 Azure Policy evaluates all resources in Azure. For certain resource providers such as
 [Guest Configuration](./concepts/guest-configuration.md),
 [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and
-[Azure Key Vault](../../key-vault/key-vault-overview.md), there's a deeper integration for managing
+[Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing
 settings and objects. To find out more, see
 [Resource Provider modes](./concepts/definition-structure.md).
 
@@ -250,6 +250,9 @@ options:
 When creating value options in an initiative definition, you're unable to input a different value
 during the initiative assignment because it's not part of the list.
 
+To learn more about the structures of initiative definitions, review
+[Initiative Definition Structure](./concepts/initiative-definition-structure.md).
+
 ### Assignments
 
 An assignment is a policy definition or initiative that has been assigned to take place within a
@@ -273,9 +276,10 @@ on the child management group or subscription level. If any assignment results i
 denied, then the only way to allow the resource is to modify the denying assignment.
 
 For more information on setting assignments through the portal, see [Create a policy assignment to
-identify non-compliant resources in your Azure environment](assign-policy-portal.md). Steps for
-[PowerShell](assign-policy-powershell.md) and [Azure CLI](assign-policy-azurecli.md) are also
-available.
+identify non-compliant resources in your Azure environment](./assign-policy-portal.md). Steps for
+[PowerShell](./assign-policy-powershell.md) and [Azure CLI](./assign-policy-azurecli.md) are also
+available. For information on the assignment structure, see
+[Assignments Structure](./concepts/assignment-structure.md).
 
 ## Maximum count of Azure Policy objects
 

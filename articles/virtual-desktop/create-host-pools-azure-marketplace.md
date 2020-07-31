@@ -13,10 +13,7 @@ manager: lizross
 # Tutorial: Create a host pool with the Azure portal
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Any objects you create with Windows Virtual Desktop Fall 2019 can't be managed with the Azure portal.
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Any objects you create with Windows Virtual Desktop (classic) can't be managed with the Azure portal.
 
 Host pools are a collection of one or more identical virtual machines (VMs) within Windows Virtual Desktop environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
@@ -36,7 +33,7 @@ You'll also need to know the following things:
 - Where the source of the image you want to use is. Is it from Azure Gallery or is it a custom image?
 - Your domain join credentials.
 
-Also, make sure you've registered the Microsoft.DesktopVirtualization resource provider. If you haven't already, go to **Subscriptions** , select the name of yoru subscription, and then select **Azure resource providers**.
+Also, make sure you've registered the Microsoft.DesktopVirtualization resource provider. If you haven't already, go to **Subscriptions**, select the name of your subscription, and then select **Azure resource providers**.
 
 When you create a Windows Virtual Desktop host pool with the Azure Resource Manager template, you can create a virtual machine from the Azure gallery, a managed image, or an unmanaged image. To learn more about how to create VM images, see [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) and [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
 
@@ -62,20 +59,23 @@ To start creating your new host pool:
    
    The Azure geography associated with the regions you selected is where the metadata for this host pool and its related objects will be stored. Make sure you choose the regions inside the geography you want the service metadata to be stored in.
 
-     ![A screenshot of the Azure portal showing the Location field with the East US location selected. Next to the field is text that says, "Metadata will be stored in East US."](media/portal-location-field.png)
+     > [!div class="mx-imgBorder"]
+     > ![A screenshot of the Azure portal showing the Location field with the East US location selected. Next to the field is text that says, "Metadata will be stored in East US."](media/portal-location-field.png)
 
 8. Under Host pool type, select whether your host pool will be **Personal** or **Pooled**.
 
     - If you choose **Personal**, then select either **Automatic** or **Direct** in the Assignment Type field.
 
-      ![A screenshot of the assignment type field drop-down menu. The user has selected Automatic.](media/assignment-type-field.png)
+      > [!div class="mx-imgBorder"]
+      > ![A screenshot of the assignment type field drop-down menu. The user has selected Automatic.](media/assignment-type-field.png)
 
 9. If you choose **Pooled**, enter the following information:
 
      - For **Max session limit**, enter the maximum number of users you want load-balanced to a single session host.
      - For **Load balancing algorithm**, choose either breadth-first or depth-first, based on your usage pattern.
 
-       ![A screenshot of the assignment type field with "Pooled" selected. The User is hovering their cursor over Breadth-first on the load balancing drop-down menu.](media/pooled-assignment-type.png)
+       > [!div class="mx-imgBorder"]
+       > ![A screenshot of the assignment type field with "Pooled" selected. The User is hovering their cursor over Breadth-first on the load balancing drop-down menu.](media/pooled-assignment-type.png)
 
 10. Select **Next: VM details**.
 
@@ -112,11 +112,13 @@ To set up your virtual machine within the host pool setup process:
 
      If you don't see the image you want, select **Browse all images and disks**, which lets you select either another image in your gallery or an image provided by Microsoft and other publishers.
 
-     ![A screenshot of the Marketplace with a list of images from Microsoft displayed.](media/marketplace-images.png)
+     > [!div class="mx-imgBorder"]
+     > ![A screenshot of the Marketplace with a list of images from Microsoft displayed.](media/marketplace-images.png)
 
      You can also go to **My Items** and choose a custom image you've already uploaded.
 
-     ![A screenshot of the My Items tab.](media/my-items.png)
+     > [!div class="mx-imgBorder"]
+     > ![A screenshot of the My Items tab.](media/my-items.png)
 
     - If you choose **Storage Blob**, you can leverage your own image build through Hyper-V or on an Azure VM. All you have to do is enter the location of the image in the storage blob as a URI.
 
@@ -131,7 +133,8 @@ To set up your virtual machine within the host pool setup process:
     >[!NOTE]
     >For greater security, we recommend that you don't open public inbound ports.
 
-    ![A screenshot of the security group page that shows a list of available ports in a drop-down menu.](media/available-ports.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the security group page that shows a list of available ports in a drop-down menu.](media/available-ports.png)
     
     If you choose **Advanced**, select an existing network security group that you've already configured.
 
