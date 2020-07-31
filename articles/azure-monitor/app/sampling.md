@@ -73,7 +73,7 @@ In [`ApplicationInsights.config`](./configuration-with-applicationinsights-confi
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
-    The target rate of [logical operations](./correlation.md/#data-model-for-telemetry-correlation) that the adaptive algorithm aims to collect **on each server host**. If your web app runs on many hosts, reduce this value so as to remain within your target rate of traffic at the Application Insights portal.
+    The target rate of [logical operations](./correlation.md#data-model-for-telemetry-correlation) that the adaptive algorithm aims to collect **on each server host**. If your web app runs on many hosts, reduce this value so as to remain within your target rate of traffic at the Application Insights portal.
 
 * `<EvaluationInterval>00:00:15</EvaluationInterval>` 
   
