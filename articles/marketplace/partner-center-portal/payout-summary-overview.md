@@ -18,7 +18,7 @@ If you sell offerings in the Azure Marketplace, you'll also see info on successf
 > [!NOTE]
 > To be eligible for payout, your proceeds must reach the [payment threshold](./payment-thresholds-methods-timeframes.md) of $50. For details about the payment threshold, see the [Microsoft Azure Marketplace Publisher Agreement](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
 
-All reporting and insights for the transact publishing option are available in the Analytics section of Partner Center, accessed using this icon in the upper-right corner of the portal:
+To view payout details, sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) and select the payout icon in the upper-right corner of the screen:
 
 ![Illustrates the Payout icon in the upper right corner of the Partner Center portal.](./media/payout-overview.png)
 
