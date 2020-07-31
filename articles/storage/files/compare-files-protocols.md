@@ -51,7 +51,7 @@ SMB use cases here.
 
 ## NFS (preview)
 
-NFS description here. NFS is currently in preview and should not be used for production data.
+Azure Files offers NFS v4.1 protocol which is fully managed, network-attached storage. It is highly scalable, highly durable, and highly available. This is a fully POSIX compliant offer which is a standard across variants of Unix and other *nix based operating systems. This enterprise-grade file storage service scales up to meet your storage needs and can be accessed concurrently by thousands of compute instances. You can start with a file system that contains only 100 GiB data to 100 TiB per volume. Moreover, your data and metadata are protected with encryption at rest by default. NFS is currently in preview and should not be used for production data.
 
 ### Restrictions
 
@@ -64,20 +64,23 @@ The following Azure Files features are not available with NFS shares:
 - Soft delete
 
 - Currently only available in East US
-- Both encryption-in-transit and encryption-at-rest are not currently available
+- Encryption-in-transit is not currently available
 - Must create a new storage account in order to create an NFS share.
 - Does not currently support storage explorer, Databox, or AzCopy.
 
 ### Use cases
 
-Enterprise Applications (Databases, CRM, LOB apps) 
+#### Container storage 
+
+Containers deliver "build once, run anywhere" capabilities that enable developers to accelerate innovation. For the containers that access raw data at every start, a shared file system allows these containers to access the file system no matter which instance they run on. NFS is ideal for container storage because it provides persistent shared access to file data and has very low attach-detach latencies.
+
+#### Enterprise Applications (Databases, CRM, LOB apps) 
 
 With high scalability, elasticity, availability, and persistence, NFS can be used to store the files of enterprise applications and the applications delivered as services.   
-
-Container storage 
-
-Containers deliver "build once, run anywhere" capabilities that enable developers to accelerate innovation. For the containers that access raw data at every start, a shared file system is required to allow these containers to access the file system no matter which instance they run on. NFS is ideal for container storage because it provides persistent shared access to file data and has very low attach-detach latencies. 
 
 Many More 
 
 Web applications, DevOps, HPC, Log Directories, Video Streaming etc. Basically, any application ever written for Linux, assumes POSIX semantics. NFS is the native choice for any Linux applications. 
+
+- Linux-centric workloads that do not require SMB access.
+- Inherent locking system that you do not need to manage.
