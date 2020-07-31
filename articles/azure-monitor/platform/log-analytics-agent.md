@@ -174,6 +174,12 @@ The Windows agent will begin to exclusively use SHA-2 signing on August 17, 2020
 4. Recommended to configure the agent to [use TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12). 
 
 
+## Cache information
+Data from the Log Analytics agent is cached on the local machine at *C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State* before it's sent to Azure Monitor. The agent attempts to upload every 20 seconds. If it fails, it will wait an exponentially increasing length of time until it succeeds. It will wait 30 seconds before the second attempt, 60 seconds before the next, 120 seconds, and so on to a maximum of 8.5 hours between retries until it successfully connects again. This wait time is slightly randomized to avoid all agents simultaneously attempting connection. Oldest data is discarded when the maximum buffer is reached.
+
+The default cache size is 50 MB but can be configured between a minimum of 5 MB and maximum of 1.5 GB. It's stored in the registry key *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Persistence Cache Maximum*. The value represents the number of pages, with 8 KB per page.
+
+
 ## Network requirements
 The agent for Linux and Windows communicates outbound to the Azure Monitor service over TCP port 443, and if the machine connects through a firewall or proxy server to communicate over the Internet, review requirements below to understand the network configuration required. If your IT security policies do not allow computers on the network to connect to the Internet, you can set up a [Log Analytics gateway](gateway.md) and then configure the agent to connect through the gateway to Azure Monitor logs. The agent can then receive configuration information and send data collected depending on what data collection rules and monitoring solutions you have enabled in your workspace.
 
