@@ -1,6 +1,6 @@
 ---
 title: Pay for Azure subscriptions by invoice
-description: Describes how to pay for Azure subscriptions by invoice.
+description: Learn how to pay for Azure subscriptions by invoice. See frequently asked questions and view additional resources.
 author: bandersmsft
 ms.reviewer: judupont
 tags: billing
