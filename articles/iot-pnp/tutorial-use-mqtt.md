@@ -93,19 +93,20 @@ In the **TelemetryMQTTWin32** project, open the **MQTT_Mosquitto.cpp** source fi
 * `PWD` identifier with the shared access signature value you generated for the device.
 
 Verify the code is working correctly, by starting Azure IoT explorer, start listening the telemetry.
-Run the application (Ctrl+F5), after couple of seconds you should see something like:
+
+Run the application (Ctrl+F5), after couple of seconds you see output that looks like:
 
 :::image type="content" source="media/tutorial-use-mqtt/mqtt-sample-output.png" alt-text="Output from MQTT sample application":::
 
-In Azure IoT explorer, you should see, clearly not an IoT Plug and Play device:
+In Azure IoT explorer, you can see that the device isn't not an IoT Plug and Play device:
 
 :::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Non-IoT Plug and Play device in Azure IoT explorer":::
 
 ### Make the device an IoT Plug and Play device
 
-IoT Plug and Play device must follow a set of simple conventions. If a device sends a **Model ID** when it connects, it becomes an IoT Plug and Play device.
+IoT Plug and Play device must follow a set of simple conventions. If a device sends a model ID when it connects, it becomes an IoT Plug and Play device.
 
-In this sample, you add a **Model ID**** to the MQTT connection packet. You pass the **Model ID** as querystring parameter in the `USERNAME` and change the `api-version` to `2020-05-31-preview`:
+In this sample, you add a model ID** to the MQTT connection packet. You pass the model ID as querystring parameter in the `USERNAME` and change the `api-version` to `2020-05-31-preview`:
 
 ```c
 // computed Host Username and Topic
@@ -118,7 +119,7 @@ In this sample, you add a **Model ID**** to the MQTT connection packet. You pass
 
 Rebuild and run the sample.
 
-The device twin now includes the **Model ID**:
+The device twin now includes the model ID:
 
 :::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="View the model ID in Azure IoT explorer":::
 
@@ -148,7 +149,7 @@ For more information about MQTT, visit the [MQTT Samples for Azure IoT](https://
 
 ## Next steps
 
-In this tutorial, you learned how to modify a simple MQTT device client to follow the IoT Plug and Play conventions. To learn more about how IoT Plug and Play, see:
+In this tutorial, you learned how to modify an MQTT device client to follow the IoT Plug and Play conventions. To learn more about IoT Plug and Play, see:
 
 > [!div class="nextstepaction"]
 > [Architecture](concepts-architecture.md)
