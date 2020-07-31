@@ -61,7 +61,7 @@ Before you can send messages to a batch, that batch must first exist as the dest
    | **Release Criteria** | Applies only to **Inline** batch mode and selects the criteria to meet before processing each batch: <p>- **Message count based**: Release the batch based on the number of messages collected by the batch. <br>- **Size based**: Release the batch based on the total size in bytes for all messages collected by that batch. <br>- **Schedule**: Release the batch based on a recurrence schedule, which specifies an interval and frequency. In the advanced options, you can also select a time zone and provide a start date and time. <br>- **Select all**: Use all the specified criteria. |
    | **Message Count** | The number of messages to collect in the batch, for example, 10 messages. A batch's limit is 8,000 messages. |
    | **Batch Size** | The total size in bytes to collect in the batch, for example, 10 MB. A batch's size limit is 80 MB. |
-   | **Schedule** | The interval and frequency between batch releases, for example, 10 minutes. The minimum recurrence is 60 seconds or 1 minute. Fractional minutes are effectively rounded up to 1 minute. To specify a time zone or a start date and time, select **Add new parameter**. |
+   | **Schedule** | The interval and frequency between batch releases, for example, 10 minutes. The minimum recurrence is 60 seconds or 1 minute. Fractional minutes are effectively rounded up to 1 minute. To specify a time zone or a start date and time, open the **Add new parameter** list, and select the corresponding properties. |
    |||
 
    > [!NOTE]
@@ -181,7 +181,7 @@ Now create one or more batch sender logic apps that send messages to the batch r
 
       ![In "Message Content", select "Expression", enter "utcnow()", and select "OK".](./media/logic-apps-batch-process-send-receive-messages/batch-sender-details.png)
 
-1. Now set up a partition for the batch. In the `BatchReceiver` action, select **Add new parameter**, and select these properties:
+1. Now set up a partition for the batch. In the `BatchReceiver` action, open the **Add new parameter** list, and select these properties:
 
    | Property | Description |
    |----------|-------------|
