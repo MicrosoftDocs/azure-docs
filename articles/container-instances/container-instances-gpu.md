@@ -2,7 +2,7 @@
 title: Deploy GPU-enabled container instance 
 description: Learn how to deploy Azure container instances to run compute-intensive container apps using GPU resources.
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 07/22/2020
 ---
 
 # Deploy container instances that use GPU resources
@@ -28,9 +28,6 @@ Support will be added for additional regions over time.
 
 ## About GPU resources
 
-> [!IMPORTANT]
-> GPU resources are available only upon request. To request access to GPU resources, please submit an [Azure support request][azure-support].
-
 ### Count and SKU
 
 To use GPUs in a container instance, specify a *GPU resource* with the following information:
@@ -47,6 +44,9 @@ To use GPUs in a container instance, specify a *GPU resource* with the following
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
 When deploying GPU resources, set CPU and memory resources appropriate for the workload, up to the maximum values shown in the preceding table. These values are currently larger than the CPU and memory resources available in container groups without GPU resources.  
+
+> [!IMPORTANT]
+> Default [subscription limits](container-instances-quotas.md) (quotas) for GPU resources differ by SKU. The default CPU limits for the P100 and V100 SKUs are initially set to 0. To request an increase in an available region, please submit an [Azure support request][azure-support].
 
 ### Things to know
 

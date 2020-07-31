@@ -83,7 +83,7 @@ The `az ad sp create-for-rbac` command returns a list of service principal prope
 ```
 
 > [!IMPORTANT]
-> RBAC role assignments may take a few minutes to propagate.
+> Azure role assignments may take a few minutes to propagate.
 
 #### Set environment variables
 

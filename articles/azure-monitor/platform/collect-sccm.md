@@ -37,7 +37,7 @@ The following steps summarize the steps to configure Configuration Manager integ
 
 ## Grant Configuration Manager with permissions to Log Analytics
 
-In the following procedure, you grant the *Contributor* role in your Log Analytics workspace to the AD application and service principal you created earlier for Configuration Manager. If you do not already have a workspace, see [Create a workspace in Azure Monitor](../../azure-monitor/learn/quick-create-workspace.md) before proceeding. This allows Configuration Manager to authenticate and connect to your Log Analytics workspace.  
+In the following procedure, you grant the *Contributor* role in your Log Analytics workspace to the AD application and service principal you created earlier for Configuration Manager. If you do not already have a workspace, see [Create a workspace in Azure Monitor](../learn/quick-create-workspace.md) before proceeding. This allows Configuration Manager to authenticate and connect to your Log Analytics workspace.  
 
 > [!NOTE]
 > You must specify permissions in the Log Analytics workspace for Configuration Manager. Otherwise, you receive an error message when you use the configuration wizard in Configuration Manager.
@@ -135,14 +135,15 @@ After you have completed initial configuration to import device collections from
 
 ## View data from Configuration Manager
 
-After you've added a Log Analytics connection to Configuration Manager and installed the agent on the computer running the Configuration Manager service connection point site system role, data from the agent is sent to the Log Analytics workspace in Azure Monitor. In Azure Monitor, your Configuration Manager collections appear as [computer groups](../../azure-monitor/platform/computer-groups.md). You can view the groups from the **Configuration Manager** page under **Settings\Computer Groups**.
+After you've added a Log Analytics connection to Configuration Manager and installed the agent on the computer running the Configuration Manager service connection point site system role, data from the agent is sent to the Log Analytics workspace in Azure Monitor. In Azure Monitor, your Configuration Manager collections appear as [computer groups](./computer-groups.md). You can view the groups from the **Configuration Manager** page under **Settings\Computer Groups**.
 
 After the collections are imported, you can see how many computers with collection memberships have been detected. You can also see the number of collections that have been imported.
 
 ![Computer Groups - SCCM tab](./media/collect-sccm/sccm-computer-groups02.png)
 
-When you click either one, log query editor opens displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](../../azure-monitor/log-query/log-query-overview.md), you can perform further in-depth analysis the collection membership data.
+When you click either one, log query editor opens displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](../log-query/log-query-overview.md), you can perform further in-depth analysis the collection membership data.
 
 ## Next steps
 
-Use [Log Search](../../azure-monitor/log-query/log-query-overview.md) to view detailed information about your Configuration Manager data.
+Use [Log Search](../log-query/log-query-overview.md) to view detailed information about your Configuration Manager data.
+

@@ -17,9 +17,9 @@ In this article, you'll learn how to write a query using SQL on-demand (preview)
 - Standard JSON files where multiple JSON documents are stored as a JSON array.
 - Line-delimited JSON files, where JSON documents are separated with new-line character. Common extensions for these types of files are `jsonl`, `ldjson`, and `ndjson`.
 
-## Reading JSON documents
+## Read JSON documents
 
-The easiest way to see to the content of your JSON file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and set values `0x0b` for `fieldterminator` and `fieldquote`. If you need to read line-delimited JSON files this is enough. If you have classic JSON file you would need to set values `0x0b` for `rowterminator`. `OPENROWSET` function will parse JSON and return every document in the following format:
+The easiest way to see to the content of your JSON file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and set values `0x0b` for `fieldterminator` and `fieldquote`. If you need to read line-delimited JSON files, then this is enough. If you have classic JSON file, you would need to set values `0x0b` for `rowterminator`. `OPENROWSET` function will parse JSON and return every document in the following format:
 
 | doc |
 | --- |
@@ -28,11 +28,11 @@ The easiest way to see to the content of your JSON file is to provide file URL t
 |{"date_rep":"2020-07-26","day":26,"month":7,"year":2020,"cases":4,"deaths":0,"geo_id":"AF"}|
 |{"date_rep":"2020-07-27","day":27,"month":7,"year":2020,"cases":8,"deaths":0,"geo_id":"AF"}|
 
-If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using the query like the one shown in the following examples.
+If the file is publicly available, or if your Azure AD identity can access this file, you should be able to see the content of the file using the query like the one shown in the following examples.
 
 ### Read JSON files
 
-The following sample query reads JSON and line-delimited JSON files, and return every document as a separate row.
+The following sample query reads JSON and line-delimited JSON files, and returns every document as a separate row.
 
 ```sql
 select top 10 *
@@ -53,9 +53,9 @@ from openrowset(
     ) with (doc nvarchar(max)) as rows
 ```
 
-This query will return each JSON document as a separate row of the result set. Make sure that you can access this file. If your file is protected with SAS key or custom identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
+This query will return each JSON document as a separate row of the result set. Make sure that you can access this file. If your file is protected with SAS key or custom identity, you would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
 
-### Using data source
+### Data source usage
 
 Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage, and use that data source and the relative path to the file in `OPENROWSET` function:
 
@@ -83,13 +83,13 @@ from openrowset(
     ) with (doc nvarchar(max)) as rows
 ```
 
-If a data source is protected with SAS key or custom identity you can configure [data source with database scoped credential](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
+If a data source is protected with SAS key or custom identity, you can configure [data source with database scoped credential](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
 
-In the following sections you can see how to query various types of JSON files.
+In the following sections, you can see how to query various types of JSON files.
 
 ## Parse JSON documents
 
-The queries in the previous examples return every JSON document as a single string in a separate row of the result set. You can use functions `JSON_VALUE` and `OPENJSON` to parse the values in JSON documents and return them as relational values, as it is shown in the following example:
+The queries in the previous examples return every JSON document as a single string in a separate row of the result set. You can use functions `JSON_VALUE` and `OPENJSON` to parse the values in JSON documents and return them as relational values, as it's shown in the following example:
 
 | date\_rep | cases | geo\_id |
 | --- | --- | --- |

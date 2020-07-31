@@ -238,7 +238,7 @@ The number of selected storage accounts has a limit of 200, regardless of the nu
 
 ### How to change the coloring and threshold for availability?
 
-Refer to the [Modify the availability threshold](storage-insights-overview.md#modify-the-availability-threshold)
+Refer to the [Modify the availability threshold](#modify-the-availability-threshold)
 section for the detailed steps on how to change the coloring and thresholds for availability.
 
 ### How to analyze and troubleshoot the data shown in Azure Monitor for Storage?
@@ -271,3 +271,4 @@ Each workbook is saved in the storage account that you saved it in. Try to find 
 * Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).
 
 * For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
+

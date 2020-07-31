@@ -42,6 +42,8 @@
   items:
   - name: Use Form Recognizer with Cognitive Search
     href: https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form
+  - name: Use Form Recognizer with AI Builder
+    href: tutorial-ai-builder.md
 - name: How-to guides
   items:
   - name: Build a training data set
