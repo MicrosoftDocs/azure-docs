@@ -103,17 +103,32 @@ Now you can assign the previously created identity permissions to your key vault
 az keyvault set-policy --name "<your-unique-keyvault-name>" --object-id "<systemAssignedIdentity>" --secret-permissions get list
 ```
 
-## Open port 80 for web traffic
+## Log in to the VM
 
-By default, only SSH connections are opened when you create a Linux VM in Azure. Use [az vm open-port](/cli/azure/vm) to open TCP port 80 for use with the NGINX web server:
+To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Linux](../../virtual-machines/linux/login-using-aad.md) or [Connect and sign in to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md).
 
-```azurecli-interactive
-az vm open-port --port 80 --resource-group myResourceGroup --name myVM
+
+To log into a Linux VM, you can use the ssh command with the "<publicIpAddress>" given in the [Create a virtual machine](#create-a-virtual-machine) step:
+
+```terminal
+ssh azureuser@<PublicIpAddress>
 ```
 
-## Upload sample.py to the VM
+## Install Python libraries on the VM
 
-Modify this Python script by replacing "<your-unique-keyvault-name>" with the name of your key vault, then save it as **sample.py**.
+On the virtual machine, install the two Python libraries we'll be using in our Python script: `azure-keyvault-secrets` and `azure.identity`.  
+
+On a Linux VM, for instance, you can install these using `pip3`:
+
+```bash
+pip3 install azure-keyvault-secrets
+
+pip3 install azure.identity
+```
+
+## Create and edit the sample Python script
+
+On the virtual machine, create a Python file called **sample.py**. Edit the file to contain the following code, replacing "<your-unique-keyvault-name>" with the name of your key vault:
 
 ```python
 from azure.keyvault.secrets import SecretClient
@@ -130,49 +145,23 @@ retrieved_secret = client.get_secret(secretName)
 print(f"The value of secret '{secretName}' in '{keyVaultName}' is: '{retrieved_secret.value}'")
 ```
 
-Now place this script to your virtual machine. There are a few ways to accomplish this.
-
-First, you can connect to your virtual machine, cut and paste the script into a native text editor (vim on Linux, for example), and save it remotely as **sample.py**.
-
-Alternatively, you can save the script locally and uploaded it to your virtual machine. Again using a Linux VM as an example, you could copy the file to your virtual machine with `scp`, replacing "<publicIpAddress>" with the value from the output in the [Create a virtual machine](#create-a-virtual-machine) step.
-
-```bash
-scp ./sample.py azureuser@<publicIpAddress>:sample.py
-```
-
-## Log on to the virtual machine
-
-To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Linux](../../virtual-machines/linux/login-using-aad.md) or [Connect and sign in to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md).
-
-To log into a Linux VM, you can use the ssh command with the <publicIpAddress>" given in the [Create a virtual machine](#create-a-virtual-machine) step.
-
-```bash
-ssh azureuser@<publicIpAddress>
-```
-
-## Install the libraries
-
-On the virtual machine, install the two Python libraries used by **sample.py*: `azure-keyvault-secrets` and `azure.identity`.  On a Linux VM, for instance, you can install these using `pip3`:
-
-```bash
-pip3 install azure-keyvault-secrets
-
-pip install azure.identity
-```
-
 ## Run the sample Python app
 
 Lastly, run **sample.py**. If all has gone well, it should return the value of your secret:
 
 ```bash
-python3 ./sample.py
+python3 sample.py
 
-The value of secret 'mySecret' in 'msb-python-vm' is: 'Success!'
+The value of secret 'mySecret' in '<your-unique-keyvault-name>' is: 'Success!'
 ```
 
 ## Clean up resources
 
-When they are no longer needed, delete the virtual machine and your key vault.
+When they are no longer needed, delete the virtual machine and your key vault.  You can do this quickly by simply deleting the resource group to which they belong:
+
+```azurecli
+az group delete -g myResourceGroup
+```
 
 ## Next steps
 
