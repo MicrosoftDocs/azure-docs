@@ -25,7 +25,7 @@ Azure Spatial Anchors for Unity is currently distributed using a Unity Asset Pac
 
 ### Import the asset package
 
-1. Download the `AzureSpatialAnchors.unitypackage` file for the version you wan to target from the [GitHub releases](https://github.com/Azure/azure-spatial-anchors-samples/releases).
+1. Download the `AzureSpatialAnchors.unitypackage` file for the version you want to target from the [GitHub releases](https://github.com/Azure/azure-spatial-anchors-samples/releases).
 2. Follow the instructions [here](https://docs.unity3d.com/Manual/AssetPackagesImport.html) to import the Unity asset package into your project.
 
 ## Next steps
