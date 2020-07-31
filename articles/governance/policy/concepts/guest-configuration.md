@@ -108,7 +108,7 @@ used to reference the Guest Configuration service.
 For Arc connected servers in private datacenters, allow traffic using the following patterns:
 
 - Port: Only TCP 443 required for outbound internet access
-- Global URL: *.guestconfiguration.azure.com
+- Global URL: `*.guestconfiguration.azure.com`
 
 ## Managed identity requirements
 
