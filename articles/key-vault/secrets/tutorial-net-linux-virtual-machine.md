@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Tutorial: Use a Linux VM and a .NET app to store secrets in Azure Key Vault
 
-Azure Key Vault helps you to protect secrets such as API Keys and database connection strings that are needed to access your applications, services, and IT resources.
+Azure Key Vault helps you to protect keys, secrets, and certificates, such as API keys and database connection strings.
 
 In this tutorial, you set up a .NET console application to read information from Azure Key Vault by using managed identities for Azure resources. You learn how to:
 
