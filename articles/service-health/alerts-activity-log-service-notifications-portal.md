@@ -50,7 +50,7 @@ For information on how to configure service health notification alerts by using 
 
 1. Select the **Subscription**, **Services**, and **Regions** for which you want to be alerted.
 
-    ![The "Add activity log alert" dialog box](media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)
+    [![The "Add activity log alert" dialog box](media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)](media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png#lightbox)
 
 > [!NOTE]
 >This subscription is used to save the activity log alert. The alert resource is deployed to this subscription and monitors events in the activity log for it.
