@@ -409,7 +409,7 @@
       - name: In the portal
         href: ../ssh-keys-portal.md
       - name: On Windows
-        href: ssh-from-windows.md
+        href: ../linux/ssh-from-windows.md
     - name: Use Azure Hybrid Benefit license
       href: hybrid-use-benefit-licensing.md
     - name: Use Multitenant Hosting Rights for Windows 10
