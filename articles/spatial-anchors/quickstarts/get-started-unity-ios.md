@@ -6,7 +6,7 @@ manager: vriveras
 services: azure-spatial-anchors
 
 ms.author: crtreasu
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ---
@@ -30,7 +30,7 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-- A macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.3</a>, the latest version of <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a>, and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
+- A macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a>, the latest version of <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a>, and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
 - Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git` and `brew install git-lfs`.
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
