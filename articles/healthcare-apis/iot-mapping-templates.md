@@ -11,11 +11,11 @@ ms.author: punagpal
 ---
 
 # Azure IoT Connector for FHIR (preview) mapping templates
-This article details how to configure IoT Connector* using mapping templates.
+This article details how to configure Azure IoT Connector for FHIR* using mapping templates.
 
-The IoT Connector requires two types of JSON-based mapping templates. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). The second type, **FHIR mapping**, controls the mapping for FHIR resource. It allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
+The Azure IoT Connector for FHIR requires two types of JSON-based mapping templates. The first type, **Device mapping**, is responsible for mapping the device payloads sent to the `devicedata` Azure Event Hub end point. It extracts types, device identifiers, measurement date time, and the measurement value(s). The second type, **FHIR mapping**, controls the mapping for FHIR resource. It allows configuration of the length of the observation period, FHIR data type used to store the values, and terminology code(s). 
 
-The mapping templates are composed into a JSON document based on their type. These JSON documents are then added to your IoT Connector through the Azure portal. The Device mapping document is added through the **Configure Device mapping** page and the FHIR mapping document through the **Configure FHIR mapping** page.
+The mapping templates are composed into a JSON document based on their type. These JSON documents are then added to your Azure IoT Connector for FHIR through the Azure portal. The Device mapping document is added through the **Configure Device mapping** page and the FHIR mapping document through the **Configure FHIR mapping** page.
 
 > [!NOTE]
 > Mapping templates are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately. 
@@ -560,7 +560,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 Check out frequently asked questions on Azure IoT Connector for FHIR (preview).
 
 >[!div class="nextstepaction"]
->[Azure IoT Connector for FHIR (preview) FAQs](fhir-faq.md#iot-connector-preview)
+>[Azure IoT Connector for FHIR FAQs](fhir-faq.md#iot-connector-preview)
 
 *In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
 
