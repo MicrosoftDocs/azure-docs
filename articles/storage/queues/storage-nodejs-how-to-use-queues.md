@@ -9,7 +9,7 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.custom: seo-javascript-september2019
+ms.custom: seo-javascript-september2019, devx-track-javascript
 ---
 
 # Use Azure Queue Service to create and delete queues from Node.js

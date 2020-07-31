@@ -9,7 +9,7 @@ ms.date: 06/23/2020
 The [Troubleshoot connectivity issues](troubleshooting-guide.md) article provides tips for troubleshooting connectivity issues with Azure Event Hubs. This article provides tips and recommendations for troubleshooting authentication and authorization issues with Azure Event Hubs. 
 
 ## If you are using Azure Active Directory
-If you are using Azure Active Directory (Azure AD) to authenticate and authorize with Azure Event Hubs, confirm that the identity accessing the event hub is a member of the right **role-based access control (RBAC) role** at the right **resource scope** (consumer group, event hub, namespace, resource group, or subscription).
+If you are using Azure Active Directory (Azure AD) to authenticate and authorize with Azure Event Hubs, confirm that the identity accessing the event hub is a member of the right **Azure role** at the right **resource scope** (consumer group, event hub, namespace, resource group, or subscription).
 
 ### RBAC roles
 - [Azure Event Hubs Data owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) for complete access to Event Hubs resources.

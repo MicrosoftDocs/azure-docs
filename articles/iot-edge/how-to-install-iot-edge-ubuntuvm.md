@@ -9,7 +9,8 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.author: pdecarlo
+ms.author: pdecarlo 
+ms.custom: devx-track-azurecli
 ---
 # Run Azure IoT Edge on Ubuntu Virtual Machines
 

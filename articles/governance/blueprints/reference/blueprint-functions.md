@@ -180,7 +180,7 @@ Define parameter _principalIds_ in the blueprint definition:
                 "type": "array",
                 "metadata": {
                     "displayName": "Principal IDs",
-                    "description": "This is a blueprint parameter that any artifact can reference. We'll display these descriptions for you in the info bubble. Supply principal IDs for the users,groups, or service principals for the RBAC assignment.",
+                    "description": "This is a blueprint parameter that any artifact can reference. We'll display these descriptions for you in the info bubble. Supply principal IDs for the users,groups, or service principals for the Azure role assignment.",
                     "strongType": "PrincipalId"
                 }
             }

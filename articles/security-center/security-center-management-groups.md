@@ -22,7 +22,7 @@ This article explains how to manage your organization’s security posture at sc
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Management groups
-Azure management groups provide the ability to efficiently manage access, policies, and reporting on groups of subscriptions, as well as effectively manage the entire Azure estate by performing actions on the root management group. Each Azure AD tenant is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This group allows global policies and RBAC assignments to be applied at the directory level. 
+Azure management groups provide the ability to efficiently manage access, policies, and reporting on groups of subscriptions, as well as effectively manage the entire Azure estate by performing actions on the root management group. Each Azure AD tenant is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This group allows global policies and Azure role assignments to be applied at the directory level. 
 
 The root management group is created automatically when you do any of the following actions: 
 1. Opt in to use Azure management groups by navigating to **Management Groups** in the [Azure portal](https://portal.azure.com).
@@ -189,4 +189,3 @@ In this article, you learned how to gain tenant-wide visibility for Azure Securi
 
 > [!div class="nextstepaction"]
 > [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-

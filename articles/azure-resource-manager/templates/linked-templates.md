@@ -2,7 +2,7 @@
 title: Link templates for deployment
 description: Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 07/21/2020
 ---
 # Using linked and nested templates when deploying Azure resources
 
@@ -312,6 +312,11 @@ When referencing a linked template, the value of `uri` must not be a local file 
 > `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
 Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item.
+
+[Template specs](./template-specs.md) (currently in private preview) allows you to share ARM templates with other users in your organization. Templates specs can also be used to package a main template and its linked templates. For more information, see:
+
+- [Tutorial: Create a template spec with linked templates](./template-specs-create-linked.md).
+- [Tutorial: Deploy a template spec as a linked template](./template-specs-deploy-linked-template.md).
 
 ### Parameters for linked template
 

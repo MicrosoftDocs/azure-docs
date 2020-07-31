@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to create Java applications to send
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
 # Quickstart: Use Azure Service Bus queues with Java to send and receive messages

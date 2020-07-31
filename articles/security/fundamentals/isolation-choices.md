@@ -61,9 +61,9 @@ The concept of tenant containers is deeply ingrained in the directory service at
 
 Even when metadata from multiple Azure Active Directory tenants is stored on the same physical disk, there is no relationship between the containers other than what is defined by the directory service, which in turn is dictated by the tenant administrator.
 
-### Azure Role-Based Access Control (RBAC)
+### Azure role-based access control (Azure RBAC)
 
-[Azure Role-Based Access Control (RBAC)](../../role-based-access-control/overview.md) helps you to share various components available within an Azure subscription by providing fine-grained access management for Azure. Azure RBAC enables you to segregate duties within your organization and grant access based on what users need to perform their jobs. Instead of giving everybody unrestricted permissions in Azure subscription or resources, you can allow only certain actions.
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) helps you to share various components available within an Azure subscription by providing fine-grained access management for Azure. Azure RBAC enables you to segregate duties within your organization and grant access based on what users need to perform their jobs. Instead of giving everybody unrestricted permissions in Azure subscription or resources, you can allow only certain actions.
 
 Azure RBAC has three basic roles that apply to all resource types:
 
@@ -73,7 +73,7 @@ Azure RBAC has three basic roles that apply to all resource types:
 
 - **Reader** can view existing Azure resources.
 
-![Azure Role-Based Access Control](./media/isolation-choices/azure-isolation-fig3.png)
+![Azure role-based access control (Azure RBAC)](./media/isolation-choices/azure-isolation-fig3.png)
 
 The rest of the RBAC roles in Azure allow management of specific Azure resources. For example, the Virtual Machine Contributor role allows the user to create and manage virtual machines. It does not give them access to the Azure Virtual Network or the subnet that the virtual machine connects to.
 

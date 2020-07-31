@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -41,7 +41,7 @@ To restrict an admin to only manage user sessions, such as sending messages to u
 
 ## Does Windows Virtual Desktop support split Azure Active Directory models?
 
-When a user is assigned to an app group, the service does a simple Azure role-based access control (RBAC) role assignment. As a result, the user’s Azure Active Directory (AD) and the app group’s Azure AD must be in the same location. All service objects, such as host pools, app groups, and workspaces, also must be in the same Azure AD as the user.
+When a user is assigned to an app group, the service does a simple Azure role assignment. As a result, the user’s Azure Active Directory (AD) and the app group’s Azure AD must be in the same location. All service objects, such as host pools, app groups, and workspaces, also must be in the same Azure AD as the user.
 
 You can create virtual machines (VMs) in a different Azure AD as long as you sync the Active Directory with the user's Azure AD in the same virtual network (VNET).
 
@@ -116,7 +116,7 @@ The following table gives an example of how any resources an FSLogix profile nee
 | Resource | Requirement |
 |---|---|
 | Steady state IOPS | 10 |
-| Sign in/sign out IOPS | 5 |
+| Sign in/sign out IOPS | 50 |
 
 The example in this table is of a single user, but can be used to estimate requirements for the total number of users in your environment. For example, you'd need around 1,000 IOPS for 100 users, and around 5,000 IOPS during sign-in and sign-out.
 
