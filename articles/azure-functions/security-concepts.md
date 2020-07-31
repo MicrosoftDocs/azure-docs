@@ -80,7 +80,7 @@ As with any application or service, the goal is run your function app with the l
 
 #### User management permissions
 
-Functions supports built-in [Azure role-based access control (RBAC)](../role-based-access-control/overview.md). RBAC roles supported by Functions are [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Owner](../role-based-access-control/built-in-roles.md#owner), and [Reader](../role-based-access-control/built-in-roles.md#owner). 
+Functions supports built-in [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). Azure roles supported by Functions are [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Owner](../role-based-access-control/built-in-roles.md#owner), and [Reader](../role-based-access-control/built-in-roles.md#owner). 
 
 Permissions are effective at the function app level. The Contributor role is required to perform most function app-level tasks. Only the Owner role can delete a function app. 
 
@@ -204,4 +204,3 @@ Gateway services, such as [Azure Application Gateway](../application-gateway/ove
 
 + [Azure Security Baseline for Azure Functions](security-baseline.md)
 + [Azure Functions diagnostics](functions-diagnostics.md)
-        

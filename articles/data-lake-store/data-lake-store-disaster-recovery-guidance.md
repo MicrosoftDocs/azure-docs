@@ -13,6 +13,8 @@ ms.author: twooley
 
 Data Lake Storage Gen1 provides locally redundant storage (LRS). Therefore, the data in your Data Lake Storage Gen1 account is resilient to transient hardware failures within a datacenter through automated replicas. This ensures durability and high availability, meeting the Data Lake Storage Gen1 SLA. This article provides guidance on how to further protect your data from rare region-wide outages or accidental deletions.
 
+The restoration of a deleted item is possible via the [Az.DataLakeStore](https://docs.microsoft.com/powershell/module/az.datalakestore/?view=azps-2.8.0) module for Azure Data Lake Storage Gen 1. The command required for the restoration of items is [Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem?view=azps-2.8.0).
+
 ## Disaster recovery guidance
 
 It's critical for you to prepare a disaster recovery plan. Review the information in this article and these additional resources to help you create your own plan.
