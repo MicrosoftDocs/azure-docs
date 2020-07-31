@@ -65,7 +65,7 @@
 - name: How-to guides
   items:
     - name: Deploy object and motion detection application
-      href: howto-deploy-security-safety -application.md
+      href: howto-deploy-video-analytics-template.md
     - name: Connect devices
       items:
         - name: Prepare and connect an MXChip IoT DevKit

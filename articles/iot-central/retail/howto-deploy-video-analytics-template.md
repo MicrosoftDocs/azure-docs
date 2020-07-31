@@ -18,7 +18,7 @@ For an overview of the key *video analytics - object and motion detection* appli
     - Create the IoT Central application from the video analytics - object and motion detection application template.
     - Configure a gateway device in the IoT Central application. The gateway enables camera devices to connect to the application.
 
-1. Complete the [Create an IoT Edge instance for video analytics (Linux VM)](tutorial-video-analytics-create-iot-edge-vm.md) tutorial to:
+1. Complete the [Create an IoT Edge instance for video analytics (Linux VM)](tutorial-video-analytics-iot-edge-vm.md) tutorial to:
     - Create an Azure VM with the Azure IoT Edge runtime installed.- Prepare the IoT Edge installation to host the video analytics module.
     - Connect the IoT Edge device to your IoT Central application.
 

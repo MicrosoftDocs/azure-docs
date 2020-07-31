@@ -133,57 +133,24 @@ To prepare the deployment manifest:
 
 1. Open the *deployment.amd64.json* file, which you saved in the *lva-configuration* folder, using a text editor.
 
-<!--
-Not required if following the tutorial - maybe relevant if you're customizing modules in tutorial 4.
-
-1. If you are creating custom modules follow this step, otherwise skip to step 3.
-
-    1. Locate the `\$edgeAgent` object.
-
-    1. Modify the registry credentials only if you're building custom modules.
+1. Find the `LvaEdgeGatewayModule` settings and change the image name as shown in the following snippet:
 
     ```json
-    {
-        "properties.desired": {
-          "schemaVersion": "1.0",
-          "runtime": {
-               "type": "docker",
-               "settings": {
-                    "minDockerVersion": "v1.25",
-                    "loggingOptions": "",
-                    "registryCredentials": {
-                         "meshams": {
-                              "address": "[UserName].azurecr.io",
-                              "password": "****",
-                              "username": "[UserName]"
-
-                         }
-                    }
-               }
-          }
-        }
-    }
+    "LvaEdgeGatewayModule": {
+        "settings": {
+            "image": "mcr.microsoft.com/lva-utilities/lva-edge-iotc-gateway:1.0-amd64",
     ```
-
-    1. For each of the modules listed under `modules` update the image element with the correct version:
-
-    | Module name | Image | Description |
-    | ----------- | ----- | ------------|
-    |LvaEdgeGatewayModule|   meshams.azurecr.io/lva-edge-gateway:latest-amd64 | Bridge to connect the device twins to IoT central|
-    |lvaYolov3|              mcr.microsoft.com/lva-utilities/yolov3-onnx:1.0| Models to detect inference classes using object graphs |
-    |lvaEdge|                mcr.microsoft.com/media/live-video-analytics:1| Pipe to route the Video Analytics with Yolo3 | 
--->
 
 1. Add the name of your Media Services account in the `env` node in the `LvaEdgeGatewayModule` section. You made a note of this account name in the *scratchpad.txt* file:
 
     ```json
     "env": {
-         "lvaEdgeModuleId": {
-              "value": "lvaEdge"
-         },
-         "amsAccountName": {
-              "value": "<YOUR_AZURE_MEDIA_ACCOUNT_NAME>"
-         }
+        "lvaEdgeModuleId": {
+            "value": "lvaEdge"
+        },
+        "amsAccountName": {
+            "value": "<YOUR_AZURE_MEDIA_ACCOUNT_NAME>"
+        }
     }
     ```
 
@@ -284,7 +251,7 @@ To add a view to the device template:
     * A 2x1 last known value tile showing the **IoT Central Client State** telemetry.
     * A 2x1 last known value tile showing the **Module State** telemetry.
     * A 1x1 last known value tile showing the **System Heartbeat** telemetry.
-    * A 1x1 last known value tile showing the **Connected Cameras**.
+    * A 1x1 last known value tile showing the **Connected Cameras** telemetry.
 
     :::image type="content" source="media/tutorial-video-analytics-create-app/gateway_dash.png" alt-text="Dashboard":::
 

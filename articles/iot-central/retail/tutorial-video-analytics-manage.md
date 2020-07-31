@@ -33,7 +33,7 @@ Use the values in the following table as the parameter values for the **Add Came
 
 | Field| Description| Sample value|
 |---------|---------|---------|
-| Camera ID      | Device ID for provisioning | camera-001 |
+| Camera ID      | Device ID for provisioning | camera-003 |
 | Camera Name    | Friendly name           | Object detection camera |
 | RTSP Url       | Address of the stream   | RTSP://10.0.0.4:554/media/camera-300s.mkv|
 | RTSP Username  |                         | user    |
@@ -61,7 +61,7 @@ The camera devices also appear in the list on the **Devices** page in the applic
 
 ## Configure and manage the camera
 
-Navigate to the **camera-001** device and select the **Manage** tab.
+Navigate to the **camera-003** device and select the **Manage** tab.
 
 Use the default values, or modify if you need to customize the device properties:
 
@@ -71,14 +71,6 @@ Use the default values, or modify if you need to customize the device properties
 |-|-|-|
 | Video Playback Host | Host for the Azure Media Player viewer | http://localhost:8094 |
 
-**AI Object Detection**
-
-| Property | Description | Suggested Value |
-|-|-|-|
-| Confidence Threshold | Qualification percentage to determine if the object detection is valid | 70 |
-| Detection Classes | Strings, delimited by commas, with the detection tags. For more information, see the [list of supported tags](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/yolov3-onnx/tags.txt) | truck, bus |
-| Inference Frame Sample Rate (fps) | [Description Here] | [Default Here] |
-
 **LVA Operations and Diagnostics**
 
 | Property | Description | Suggested Value |
@@ -87,29 +79,36 @@ Use the default values, or modify if you need to customize the device properties
 | Debug Telemetry | Event Traces | Optional |
 |Inference Timeout (sec)| The amount of time used to determine that inferences have stopped | 20 |
 
+**AI Object Detection**
+
+| Property | Description | Suggested Value |
+|-|-|-|
+| Max Inference Capture Time (sec) | Maximum capture time | 15 |
+| Detection Classes | Strings, delimited by commas, with the detection tags. For more information, see the [list of supported tags](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/yolov3-onnx/tags.txt) | truck, bus |
+| Confidence Threshold | Qualification percentage to determine if the object detection is valid | 70 |
+| Inference Frame Sample Rate (fps) | [Description Here] | 2 |
+
 Select **Save**.
 
-After a few seconds you see the **synced** confirmation message for each setting:
+After a few seconds you see the **Accepted** confirmation message for each setting:
 
 :::image type="content" source="media/tutorial-video-analytics-manage/object_detect.png" alt-text="Object Detect":::
 
 ## Start LVA processing
 
-Navigate to the **camera-001** device and select the **Commands** tab.
+Navigate to the **camera-003** device and select the **Commands** tab.
 
 Run the **Start LVA Processing** command.
 
-Make sure the command worked
-
-[Screenshot here]
+When the command completes, view the command history to make sure there are no errors.
 
 ## Monitor the cameras
 
-Navigate to the **camera-100** device and select the **Dashboard** tab.
+Navigate to the **camera-003** device and select the **Dashboard** tab.
 
 The **Detection Count** tile shows the average detection count for each of the selected detection classes objects during a one-second detection interval.
 
-The **Inference** pie chart shows the percentage of detections class type.
+The **Inference** pie chart shows the percentage of detections for each class type.
 
 The **Inference Event Video** is a list of links to the assets in Azure Media Services that contain the detections. The link uses the host player described in the following section.
 
@@ -125,21 +124,14 @@ Start the Media Services endpoint to enable your client Media Player application
 
 The days of watching cameras and reacting to suspicious images are over. With automatic event tagging and direct links to the stored video with the inferred detection, security operators can find events of interest in a list and then follow the link to view the video.
 
-<!-- TODO: fix the link to the video player repo -->
-You can use the [AMP video player](https://github.com/sseiber/amp-player) to view the video stored in your Azure Media Services account.
+You can use the [AMP video player](https://github.com/Azure/live-video-analytics/tree/master/utilities/amp-viewer) to view the video stored in your Azure Media Services account.
 
 The IoT Central application stores the video in Azure Media Services from where you can stream it. You need a video player to play the video stored in Azure Media Services.
 
-<!-- Can't it just run at a command prompt? Otherwise we need to add VS Code as a prereq -->
-
 Open a command prompt and use the following command to run the video player in a Docker container on your local machine. Replace the placeholders in the command with the values you made a note of previously in the *scratchpad.txt* file. You made a note of the `amsAadClientId`, `amsAadSecret`, `amsAadTenantId`, `amsSubscriptionId`, and `amsAccountName` when you created the service principal for your Media Services account:
 
-<!--You have to log into docker if this is not a public repo-->
-
-<!-- Do we need instructions to start the streaming endpoint? It was stopped in my environment... -->
-
 ```bash
-docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FROM_AZURE_PORTAL>" -e amsAadTenantId="<FROM_AZURE_PORTAL>" -e amsArmAadAudience="https://management.core.windows.net" -e amsArmEndpoint="https://management.azure.com" -e amsAadEndpoint="https://login.microsoftonline.com" -e amsSubscriptionId="<FROM_AZURE_PORTAL>" -e amsResourceGroup="<FROM_AZURE_PORTAL>" -e amsAccountName="<FROM_AZURE_PORTAL>" -p 8094:8094 meshams.azurecr.io/scotts/amp-viewer:1.0.8-amd64
+docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FROM_AZURE_PORTAL>" -e amsAadTenantId="<FROM_AZURE_PORTAL>" -e amsArmAadAudience="https://management.core.windows.net" -e amsArmEndpoint="https://management.azure.com" -e amsAadEndpoint="https://login.microsoftonline.com" -e amsSubscriptionId="<FROM_AZURE_PORTAL>" -e amsResourceGroup="<FROM_AZURE_PORTAL>" -e amsAccountName="<FROM_AZURE_PORTAL>" -p 8094:8094 mcr.microsoft.com/lva-utilities/amp-viewer:1.0-amd64
 ```
 
 |Docker parameter | AMS API access (JSON)|
@@ -159,20 +151,22 @@ The application dashboards are originally populated with telemetry and propertie
 
 1. Navigate to the **Real Camera Monitor** dashboard.
 1. Select **Edit**.
-1. On the **Detection Count** tile, select the configure icon.
+1. On the **Inference Count** tile, select the configure icon.
 1. In the **Configure Chart** section, select one or more real cameras in the **LVA Edge Object Detector** device group.
-1. Check the **Inference Count** telemetry field.
+1. Select the `AI Inference Interface/Inference Count` telemetry field.
 1. Select **Update**.
 
    :::image type="content" source="media/tutorial-video-analytics-manage/update_real_cameras.png" alt-text="Ream Cameras":::
 
 1. Repeat the steps for the following tiles:
-    1. **Detection** uses `AI Inference Interface/Inference/entity/tag/value` pie chart.
-    1. **Object Detected** uses `AI Inference Interface/Inference/entity/tag/value` last known value.
+    1. **Detection** pie chart uses the `AI Inference Interface/Inference/entity/tag/value` telemetry type.
+    1. **Inference** uses `AI Inference Interface/Inference/entity/tag/value` last known value.
     1. **Confidence %** uses `AI Inference Interface/Inference/entity/tag/confidence` last known value.
     1. **Snapshot** uses `AI Inference Interface/Inference Image` shown as an image.
     1. **Inference Event Video** uses `AI Inference Interface/Inference Event Video` shown as a link.
 1. Select **Save**.
+
+The **Real Camera Monitor** dashboard now shows values from your real camera device.
 
 ## Pause processing
 

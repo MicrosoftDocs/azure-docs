@@ -99,10 +99,10 @@ These instructions use the [Live555 Media Server](http://www.live555.com/mediaSe
 > [!NOTE]
 > References to third-party software in this repo are for informational and convenience purposes only. Microsoft does not endorse nor provide rights for the third-party software. For more information, see [Live555 Media Server](http://www.live555.com/mediaServer/).
 
-Use the following command to run the **rtspvideo** utility in a docker container on your IoT Edge VM. The docker container creates a background RTSP stream.
+Use the following command to run the **rtspvideo** utility in a docker container on your IoT Edge VM. The docker container creates a background RTSP stream:
 
 ```bash
-sudo docker run -d --name live555 --rm -p 554:554 mcr.microsoft.com/lvautilities/rtspsim-live555:1.2
+sudo docker run -d --name live555 --rm -p 554:554 mcr.microsoft.com/lva-utilities/rtspsim-live555:1.2
 ```
 
 Use the following command to list the docker containers:

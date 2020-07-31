@@ -9,6 +9,7 @@ ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
 ---
+
 # Tutorial: Modify and build the live video analytics gateway modules
 
 This tutorial shows you how to modify the IoT Edge module code for the live video analytics (LVA) modules.
@@ -29,17 +30,15 @@ To complete the steps in this tutorial, you need:
 
 If you haven't already cloned the repository, use the following command to clone it to a suitable location on your local machine:
 
-<!-- TODO - be sure to update the address of this repository -->
-
 ```cmd
-git clone https://github.com/SOMEWHERE/lva-gateway
+git clone https://github.com/Azure/live-video-analytics
 ```
 
-Open the local **lva-gateway** repository folder with VS Code.
+Open the local *live-video-analytics* repository folder with VS Code.
 
 ## Edit the deployment.amd64.json file
 
-1. If you haven't already done so, create a folder called *storage* in the local copy of the **lva-gateway** repository. This folder is ignored by Git so as to prevent you accidentally checking in any confidential information.
+1. If you haven't already done so, create a folder called *ref-apps/lva-edge-iot-central-gateway/storage* in the local copy of the **lva-gateway** repository. This folder is ignored by Git so as to prevent you accidentally checking in any confidential information.
 1. Copy the file *deployment.amd64.json* from the *setup* folder to the *storage* folder.
 1. In VS Code, open the the *storage/deployment.amd64.json* file.
 1. Edit the `registryCredentials` section to add your Azure Container Registry credentials.
@@ -55,7 +54,7 @@ Open the local **lva-gateway** repository folder with VS Code.
     > [!TIP]
     > If you pull a newer version of the repository GitHub repo, delete the *node_modules* folder and run `npm install` again.
 
-1. Edit the **./setup/imageConfig.json** file to update the image named based on your container registry name:
+1. Edit the *./setup/imageConfig.json* file to update the image named based on your container registry name:
 
     ```json
     {
