@@ -67,8 +67,8 @@ The Application Gateway instance is deployed on the hub in a dedicated subnet. I
 
 In this section, you will learn how to configure Application Gateway with AVS virtual machines as the backend pools for the following use cases: 
 
-- [Hosting multiple sites](#Hosting-multiple-sites)
-- [Routing by URL](#Routing-by-URL)
+- [Hosting multiple sites](#hosting-multiple-sites)
+- [Routing by URL](#routing-by-url)
 
 ### Hosting multiple sites
 
