@@ -3273,38 +3273,33 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cosmos-db/powershell-samples.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/cosmos-db/scripts/powershell/create-and-configure-cassandra-database.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-cassandra",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/create-graph-database-account-powershell.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-gremlin",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/create-mongodb-database-account-powershell.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-mongodb",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/create-table-database-account-powershell.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-table",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-delete.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-tags-update.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
@@ -3374,12 +3369,12 @@
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-delete.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-delete.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
@@ -3409,7 +3404,7 @@
     },
     {
       "source_path": "articles/cosmos-db/scripts/create-firewall-powershell.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
@@ -3449,28 +3444,28 @@
     },
     {
       "source_path": "articles/cosmos-db/powershell-samples-cassandra.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples"
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
+      "redirect_document_id": false
     },
     {
         "source_path": "articles/cosmos-db/powershell-samples-gremlin.md",
-        "redirect_url": "/azure/cosmos-db/powershell-samples"
+        "redirect_url": "/azure/cosmos-db/powershell-samples",
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/cosmos-db/powershell-samples-mongodb.md",
-        "redirect_url": "/azure/cosmos-db/powershell-samples"
+        "redirect_url": "/azure/cosmos-db/powershell-samples",
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/cosmos-db/powershell-samples-sql.md",
         "redirect_url": "/azure/cosmos-db/powershell-samples",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/cosmos-db/powershell-samples-table.md",
-        "redirect_url": "/azure/cosmos-db/powershell-samples"
-    },
-    {
-      "source_path": "articles/cosmos-db/powershell-samples-sql.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples"
+        "redirect_url": "/azure/cosmos-db/powershell-samples",
+        "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/create-cassandra-database-account-cli.md",
