@@ -95,7 +95,7 @@ To add a custom domain to your app, you need to verify your ownership of the dom
 
 ![Get Custom Domain Verification ID](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
 
-[!WARNING] 
+[!WARNING]
 Adding domain verification IDs to your custom domain can prevent dangling DNS entries and to avoid subdomain takeovers. For more information on this common high-severity threat, see [Subdomain takeover](../security/fundamentals/subdomain-takeover.md).
 
 ## Map your domain
