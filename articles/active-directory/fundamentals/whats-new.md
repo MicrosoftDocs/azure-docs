@@ -181,13 +181,13 @@ For more information about how to better secure your organization by using autom
 
 ---
 
-### View role assignments at all scopes and ability to export them (per role)
+### View role assignments across all scopes and ability to download them to a csv file
 
 **Type:** Changed feature  
 **Service category:** RBAC  
 **Product capability:** Access Control
  
-You can now see role assignments at all scopes for a role in the "Roles and administrators" blade in the Azure portal. You can also export those role assignments, per role, into a CSV file. For guidance on viewing role assignments, see [View and assign administrator roles in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
+You can now view role assignments across all scopes for a role in the "Roles and administrators" tab in the Azure AD portal. You can also download those role assignments for each role into a CSV file. For guidance on viewing and adding role assignments, see [View and assign administrator roles in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
  
 ---
 
