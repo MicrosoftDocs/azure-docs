@@ -7,7 +7,8 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart 
 ms.date: 02/07/2019
-ms.author: mihansen
+ms.author: mihansen 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Deploy Open Source FHIR server using Azure CLI
@@ -39,7 +40,7 @@ az group deployment create -g $servicename --template-uri https://raw.githubuser
 
 Obtain a capability statement from the FHIR server with:
 
-```console
+```azurecli-interactive
 metadataurl="https://${servicename}.azurewebsites.net/metadata"
 curl --url $metadataurl
 ```

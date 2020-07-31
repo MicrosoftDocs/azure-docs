@@ -1,23 +1,17 @@
 ---
-title: Synchronize attributes to Azure AD for mapping | Microsoft Docs
+title: Synchronize attributes to Azure AD for mapping
 description: Learn how to synchronize attributes from your on-premises Active Directory to Azure AD. When configuring user provisioning to SaaS apps, use the directory extension feature to add source attributes that aren't synchronized by default.
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/13/2019
-ms.author: mimart
-ms.custom: 
-
-ms.collection: M365-identity-device-management
+ms.author: kenwith
 ---
+
 # Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application
 
 When customizing attribute mappings for user provisioning, you might find that the attribute you want to map doesn't appear in the **Source attribute** list. This article shows you how to add the missing attribute by synchronizing it from your on-premises Active Directory (AD) to Azure Active Directory (Azure AD).

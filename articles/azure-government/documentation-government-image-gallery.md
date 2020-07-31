@@ -4,17 +4,13 @@ description: This article provides an overview of the Azure Government image gal
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: gsacavdm
-manager: pathuff
 
-ms.assetid: f6dd4386-7b79-448a-8ae3-409258cc257b
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 12/11/2018
-ms.author: gsacavdm
 
 ---
 # Azure Government Marketplace images

@@ -3,7 +3,7 @@ title: Attach a data disk to a Linux VM
 description: Use the portal to attach new or existing data disk to a Linux VM.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
@@ -174,6 +174,7 @@ Writing superblocks and filesystem accounting information: done
 The fdisk utility needs interactive input and hence is not ideal for use within automation scripts. However, the [parted](https://www.gnu.org/software/parted/) utility can be scripted and hence lends itself better in automation scenarios. The parted utility can be used to partition and to format a data disk. For the walkthrough below, we use a new data disk /dev/sdc and format it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
 partprobe /dev/sdc1
 ```
 As seen above, we use the [partprobe](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is immediately aware of the new partition and filesystem. Failure to use partprobe can cause the blkid or lslbk commands to not return the UUID for the new filesystem immediately.
@@ -223,7 +224,7 @@ When done, save the */etc/fstab* file and reboot the system.
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
 > 
-> The *nofail* option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+> The *nofail* option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
 
 ### TRIM/UNMAP support for Linux in Azure
 Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. This feature is primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded, and can save money if you create large files and then delete them.

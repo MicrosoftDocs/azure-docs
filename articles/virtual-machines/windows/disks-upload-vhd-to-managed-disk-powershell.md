@@ -3,9 +3,9 @@ title: Upload a VHD to Azure or copy a disk across regions - Azure PowerShell
 description: Learn how to upload a VHD to an Azure managed disk and copy a managed disk across regions, using Azure PowerShell, via direct upload.    
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
-ms.topic: article
-ms.service: virtual-machines-linux
+ms.date: 06/15/2020
+ms.topic: how-to
+ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
 ---
@@ -29,7 +29,7 @@ To upload your VHD to Azure, you'll need to create an empty managed disk that is
 
 This kind of managed disk has two unique states:
 
-- ReadToUpload, which means the disk is ready to receive an upload but, no [secure access signature](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) has been generated.
+- ReadToUpload, which means the disk is ready to receive an upload but, no [secure access signature](../../storage/common/storage-sas-overview.md) (SAS) has been generated.
 - ActiveUpload, which means that the disk is ready to receive an upload and the SAS has been generated.
 
 > [!NOTE]
@@ -39,9 +39,12 @@ This kind of managed disk has two unique states:
 
 Before you can create an empty standard HDD for uploading, you'll need the file size of the VHD you want to upload, in bytes. The example code will get that for you but, to do it yourself you can use: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`. This value is used when specifying the **-UploadSizeInBytes** parameter.
 
-Now, on your local shell, create an empty standard HDD for uploading by specifying the **Upload** setting in the **-CreateOption** parameter as well as the **-UploadSizeInBytes** parameter in the [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) cmdlet. Then call [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) to create the disk.
+Now, on your local shell, create an empty standard HDD for uploading by specifying the **Upload** setting in the **-CreateOption** parameter as well as the **-UploadSizeInBytes** parameter in the [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) cmdlet. Then call [New-AzDisk](/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) to create the disk.
 
 Replace `<yourdiskname>`, `<yourresourcegroupname>`, and `<yourregion>` then run the following commands:
+
+> [!TIP]
+> If you are creating an OS disk, add -HyperVGeneration '<yourGeneration>' to `New-AzDiskConfig`.
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
@@ -72,7 +75,7 @@ Use AzCopy v10 to upload your local VHD file to a managed disk by specifying the
 This upload has the same throughput as the equivalent [standard HDD](disks-types.md#standard-hdd). For example, if you have a size that equates to S4, you will have a throughput of up to 60 MiB/s. But, if you have a size that equates to S70, you will have a throughput of up to 500 MiB/s.
 
 ```
-AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
+AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
 ```
 
 After the upload is complete, and you no longer need to write any more data to the disk, revoke the SAS. Revoking the SAS will change the state of the managed disk and allow you to attach the disk to a VM.
@@ -93,6 +96,9 @@ The follow script will do this for you, the process is similar to the steps desc
 > You need to add an offset of 512 when you're providing the disk size in bytes of a managed disk from Azure. This is because Azure omits the footer when returning the disk size. The copy will fail if you do not do this. The following script already does this for you.
 
 Replace the `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` and `<yourTargetLocationHere>` (an example of a location value would be uswest2) with your values, then run the following script in order to copy a managed disk.
+
+> [!TIP]
+> If you are creating an OS disk, add -HyperVGeneration '<yourGeneration>' to `New-AzDiskConfig`.
 
 ```powershell
 

@@ -2,7 +2,7 @@
 title: Develop locally with the Azure Cosmos Emulator
 description: Using the Azure Cosmos Emulator, you can develop and test your application locally for free, without creating an Azure subscription.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
@@ -35,6 +35,7 @@ Because the Azure Cosmos Emulator provides an emulated environment running on th
 * The Azure Cosmos Emulator does not offer [multi-region replication](distribute-data-globally.md).
 * As your copy of the Azure Cosmos Emulator might not always be up-to-date with the most recent changes in the Azure Cosmos DB service, you should refer to the [Azure Cosmos DB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate the production throughput (RUs) needs of your application.
 * When using the Azure Cosmos Emulator, by default, you can create up to 25 fixed size containers (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers using the Azure Cosmos Emulator. For more information about changing this value, see [Setting the PartitionCount value](#set-partitioncount).
+* Emulator supports max id property size of 254 characters.
 
 ## System requirements
 
@@ -58,9 +59,11 @@ You can download and install the Azure Cosmos Emulator from the [Microsoft Downl
 
 To start the Azure Cosmos Emulator, select the Start button or press the Windows key. Begin typing **Azure Cosmos Emulator**, and select the emulator from the list of applications.
 
-![Select the Start button or press the Windows key, begin typing **Azure Cosmos Emulator**, and select the emulator from the list of applications](./media/local-emulator/database-local-emulator-start.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-start.png" alt-text="Select the Start button or press the Windows key, begin typing Azure Cosmos Emulator, and select the emulator from the list of applications":::
 
-When the emulator is running, you'll see an icon in the Windows taskbar notification area. ![Azure Cosmos DB local emulator task bar notification](./media/local-emulator/database-local-emulator-taskbar.png)
+When the emulator is running, you'll see an icon in the Windows taskbar notification area. 
+
+:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Azure Cosmos DB local emulator task bar notification":::
 
 The Azure Cosmos Emulator by default runs on the local machine ("localhost") listening on port 8081.
 
@@ -70,7 +73,7 @@ The Azure Cosmos Emulator is installed to `C:\Program Files\Azure Cosmos DB Emul
 
 When the Azure Cosmos  Emulator launches, it automatically opens the Azure Cosmos Data Explorer in your browser. The address appears as `https://localhost:8081/_explorer/index.html`. If you close the explorer and would like to reopen it later, you can either open the URL in your browser or launch it from the Azure Cosmos Emulator in the Windows Tray Icon as shown below.
 
-![Azure Cosmos local emulator data explorer launcher](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Azure Cosmos local emulator data explorer launcher":::
 
 ## Checking for updates
 
@@ -216,7 +219,7 @@ Start emulator from an administrator command prompt with "/EnableGremlinEndpoint
 
 In order to obtain a certificate to use with languages and runtimes that do not integrate with the Windows Certificate Store, you will need to export it using the Windows Certificate Manager. You can start it by running certlm.msc or follow the step by step instructions in [Export the Azure Cosmos Emulator Certificates](./local-emulator-export-ssl-certificates.md). Once the certificate manager is running, open the Personal Certificates as shown below and export the certificate with the friendly name "DocumentDBEmulatorCertificate" as a BASE-64 encoded X.509 (.cer) file.
 
-![Azure Cosmos DB local emulator TLS/SSL certificate](./media/local-emulator/database-local-emulator-ssl_certificate.png)
+:::image type="content" source="./media/local-emulator/database-local-emulator-ssl_certificate.png" alt-text="Azure Cosmos DB local emulator TLS/SSL certificate":::
 
 The X.509 certificate can be imported into the Java certificate store by following the instructions in [Adding a Certificate to the Java CA Certificates Store](https://docs.microsoft.com/azure/java-add-certificate-ca-store). Once the certificate is imported into the certificate store, clients for SQL and Azure Cosmos DB's API for MongoDB will be able to connect to the Azure Cosmos Emulator.
 
@@ -227,7 +230,9 @@ From the installation location, you can use the command-line to start and stop t
 
 ### Command-line syntax
 
-    Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```
 
 To view the list of options, type `Microsoft.Azure.Cosmos.Emulator.exe /?` at the command prompt.
 
@@ -412,7 +417,7 @@ Closing the interactive shell once the emulator has been started will shut down 
 
 To open the Data Explorer, navigate to the following URL in your browser. The emulator endpoint is provided in the response message shown above.
 
-    https://<emulator endpoint provided in response>/_explorer/index.html
+**https\://**\<emulator endpoint provided in response>**/_explorer/index.html**
 
 If you have a .NET client application running on a Linux docker container and if you are running Azure Cosmos emulator on a host machine, please follow the below section for Linux to import the certificate into the Linux docker container.
 
@@ -462,7 +467,7 @@ If you are working on Linux, .NET relays on OpenSSL to do the validation:
    update-ca-certificates
    ```
 
-### Mac OS
+### macOS
 
 Use the following steps if you are working on Mac:
 
@@ -476,7 +481,7 @@ Use the following steps if you are working on Mac:
 
 1. Open the context menu for that particular item, select *Get Item* and under *Trust* > *When using this certificate* option, select *Always Trust*. 
 
-   ![Open the context menu for that particular item, select Get Item and under Trust - When using this certificate option, select Always Trust](./media/local-emulator/mac-trust-certificate.png)
+   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Open the context menu for that particular item, select Get Item and under Trust - When using this certificate option, select Always Trust":::
 
 After following these steps, your environment will trust the certificate used by the Emulator when connecting to the IP address exposes by `/AllowNetworkAccess`.
 

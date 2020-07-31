@@ -113,11 +113,8 @@ To configure Azure AD single sign-on with ZenQMS, perform the following steps:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
 
-    | |
-	|-|-|
-	| `https://<INSTANCE>.zenqms.com/<ID>`|
-	| `https://<INSTANCE>.zenqms.com/<EMAIL DOMAIN>/`|
-	| |
+	- `https://<INSTANCE>.zenqms.com/<ID>`
+	- `https://<INSTANCE>.zenqms.com/<EMAIL DOMAIN>/`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [ZenQMS Client support team](mailto:help@zenqms.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

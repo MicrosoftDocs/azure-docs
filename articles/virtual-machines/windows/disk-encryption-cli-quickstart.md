@@ -3,9 +3,11 @@ title: Create and encrypt a Windows VM with Azure CLI
 description: In this quickstart, you learn how to use Azure CLI to create and encrypt a Windows virtual machine
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: virtual-machines-windows
+ms.subservice: security
 ms.topic: quickstart
-ms.date: 05/17/2019
+ms.date: 05/17/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create and encrypt a Windows VM with the Azure CLI

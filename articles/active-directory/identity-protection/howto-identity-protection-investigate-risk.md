@@ -5,8 +5,8 @@ description: Learn how to investigate risky users, detections, and sign-ins in A
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 12/13/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -71,6 +71,9 @@ Administrators can then choose to take action on these events. Administrators ca
 
 - Confirm sign-in compromise
 - Confirm sign-in safe
+
+> [!NOTE] 
+> Identity Protection evaluates risk for all authentication flows, whether it be interactive or non-interactive. However, the sign-in report shows only the interactive sign-ins. You may see risky sign-ins that occurred on non-interactive sign-ins, but the sign-in will not show up in the Azure AD sign-ins report.
 
 ## Risk detections
 

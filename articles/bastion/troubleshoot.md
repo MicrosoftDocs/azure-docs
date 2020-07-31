@@ -5,7 +5,7 @@ services: bastion
 author: charwen
 
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
 
@@ -25,7 +25,7 @@ This article shows you how to troubleshoot Azure Bastion.
 2. Diagnostics logging and others – Outbound on 443 to AzureCloud (Regional tags within this service tag are not supported yet.)
 3. Target VM – Outbound for 3389 and 22 to VirtualNetwork
 
-An example of the NSG rules is available for reference in the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion).
+An example of the NSG rules is available for reference in the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 For more information, see [NSG guidance for Azure Bastion](bastion-nsg.md).
 
 ## <a name="sshkey"></a>Unable to use my SSH key with Azure Bastion

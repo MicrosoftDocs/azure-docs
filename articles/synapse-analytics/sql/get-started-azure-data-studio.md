@@ -1,5 +1,5 @@
 ---
-title: "Azure Data Studio (preview): Connect and query Synapse SQL" 
+title: Connect to Synapse SQL with Azure Data Studio (preview)
 description: Use Azure Data Studio (preview) to connect to and query Synapse SQL in Azure Synapse Analytics. 
 services: synapse analytics
 author: azaricstefan 
@@ -56,11 +56,11 @@ To use Azure Active Directory, you need to choose the needed authentication type
 
 ![AAD Authentication](./media/get-started-azure-data-studio/3-aad-auth.png)
 
-This screenshot shows the **Connection Details** for **Windows Authentication**:
+The following screenshot shows the **Connection Details** for **Windows Authentication**:
 
 ![Windows Authentication](./media/get-started-azure-data-studio/3-windows-auth.png)
 
-This screenshot shows the **Connection Details** using **SQL Login**:
+The following screenshot shows the **Connection Details** using **SQL Login**:
 
 ![SQL Login](./media/get-started-azure-data-studio/2-database-details.png)
 

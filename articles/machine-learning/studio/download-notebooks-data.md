@@ -1,17 +1,18 @@
 ---
-title: How to download notebooks(preview) data
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): How to download notebooks(preview) data - Azure'
 description: How to download notebooks(preview) data in ML Studio(classic). 
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.date: 04/15/2020
 ---
 
 # Download Notebooks(preview) data
+
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 The Notebooks(preview) feature was removed on *April 13 2020*. The removal of the Notebooks(preview) tab and user notebook files is currently rolling out to Azure regions worldwide.
 

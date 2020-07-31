@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 04/17/2020
+ms.date: 04/20/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -54,7 +54,6 @@ To configure the integration of Meraki Dashboard into Azure AD, you need to add 
 1. In the **Add from the gallery** section, type **Meraki Dashboard** in the search box.
 1. Select **Meraki Dashboard** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
 ## Configure and test Azure AD single sign-on for Meraki Dashboard
 
 Configure and test Azure AD SSO with Meraki Dashboard using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Meraki Dashboard.
@@ -78,8 +77,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
+1. On the **Basic SAML Configuration** section, perform the following steps:
+     
+    In the **Reply URL** textbox, type a URL using the following pattern:
+    `https://n27.meraki.com/saml/login/m9ZEgb/< UNIQUE ID >`
 
+    > [!NOTE]
+    > The Reply URL value is not real. Update this value with the actual Reply URL value, which is explained later in the tutorial.
+
+1. Click the **Save** button.
 
 1. Meraki Dashboard application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -89,8 +95,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	
 	| Name | Source Attribute|
 	| ---------------| --------- |
-	| username | user.userprincipalname |
-	| role | user.assignedroles |
+	| `https://dashboard.meraki.com/saml/attributes/username` | user.userprincipalname |
+	| `https://dashboard.meraki.com/saml/attributes/role` | user.assignedroles |
 
     > [!NOTE]
     > To understand how to configure roles in Azure AD, see [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
@@ -103,7 +109,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     ![Copy Thumbprint value](common/copy-thumbprint.png)
 
-1. On the **Set up Meraki Dashboard** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up Meraki Dashboard** section, copy the Logout URL value and save it on your computer.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -153,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Meraki Dashboard Configuration](./media/meraki-dashboard-tutorial/configure3.png)
 
-1. Paste the **Thumbprint** Value, which you have copied from the Azure portal into **X.590 cert SHA1 fingerprint** textbox. Then click **Save**.
+1. Paste the **Thumbprint** Value, which you have copied from the Azure portal into **X.590 cert SHA1 fingerprint** textbox. Then click **Save**. After saving, the Consumer URL will show up. Copy Consumer URL value and paste this into **Reply URL** textbox in the **Basic SAML Configuration Section** in the Azure portal.
 
     ![Meraki Dashboard Configuration](./media/meraki-dashboard-tutorial/configure4.png)
 

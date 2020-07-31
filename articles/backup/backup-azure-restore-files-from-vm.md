@@ -3,6 +3,7 @@ title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: conceptual
 ms.date: 03/01/2019
+ms.custom: references_regions
 ---
 # Recover files from Azure virtual machine backup
 
@@ -47,7 +48,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
     ![Generated password](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
-7. From the download location (usually the Downloads folder), right-click the executable or script and run it with Administrator credentials. When prompted, type the password or paste the password from memory, and press **Enter**. Once the valid password is entered, the script connects to the recovery point.
+7. Make sure [you have the right machine](#selecting-the-right-machine-to-run-the-script) to execute the script. If the right machine is the same machine where you downloaded the script, then you can continue to the download section. From the download location (usually the *Downloads* folder), right-click the executable or script and run it with Administrator credentials. When prompted, type the password or paste the password from memory, and press **Enter**. Once the valid password is entered, the script connects to the recovery point.
 
     ![File recovery menu](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
@@ -79,6 +80,23 @@ Once the disks have been unmounted, you receive a message. It may take a few min
 
 In Linux, after the connection to the recovery point is severed, the OS doesn't remove the corresponding mount paths automatically. The mount paths exist as "orphan" volumes and are visible, but throw an error when you access/write the files. They can be manually removed. The script, when run, identifies any such volumes existing from any previous recovery points and cleans them up upon consent.
 
+## Selecting the right machine to run the script
+
+If the script is successfully downloaded, then the next step is to verify whether the machine on which you plan to execute the script  is the right machine. Following are the requirements to be fulfilled on the machine.
+
+### Original backed up machine versus another machine
+
+1. If the backed-up machine is a large disk VM - that is, the number of disks is greater than 16 disks or each disk is greater than 4 TB, then the script **must be executed on another machine** and [these requirements](#file-recovery-from-virtual-machine-backups-having-large-disks) have to be met.
+1. Even if the backed-up machine isn't a large disk VM, in [these scenarios](#special-configurations) the script can't be run on the same backed-up VM.
+
+### OS requirements on the machine
+
+The machine where the script needs to be executed must meet [these OS requirements](#system-requirements).
+
+### Access requirements for the machine
+
+The machine where the script needs to be executed must meet [these access requirements](#access-requirements).
+
 ## Special configurations
 
 ### Dynamic disks
@@ -108,26 +126,106 @@ To bring these partitions online, run the commands in the following sections.
 
 #### For LVM partitions
 
-To list the volume group names under a physical volume:
+Once the script is run, the LVM partitions are mounted in the physical volume(s)/disk(s) specified in the script output. The process is to
+
+1. Get the unique list of volume group names from the physical volumes or disks
+2. Then list the logical volumes in those volume groups
+3. Then mount the logical volumes to a desired path.
+
+##### Listing volume group names from physical volumes
+
+To list the volume group names:
+
+```bash
+pvs -o +vguuid
+```
+
+This command will list all physical volumes (including the ones present before running the script), their corresponding volume group names and the volume group's unique user IDs (UUIDs). A sample output of the command is shown below.
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdf   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+
+  /dev/sdd   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+```
+
+The 1st column (PV) shows the physical volume, the subsequent columns show the relevant volume group name, format, attributes, size, free space and the unique ID of the volume group. The command output shows all physical volumes. Refer to the script output and identify the volumes related to the backup. In the above example, the script output would have shown /dev/sdf and /dev/sdd. And so, the datavg_db volume group belongs to script and the Appvg_new volume group belongs to the machine. The final idea is to make sure that a unique volume group name should have 1 unique ID.
+
+###### Duplicate Volume groups
+
+There are scenarios where volume group names can have 2 UUIDs after running the script. It means that the volume group names in the machine where the script is executed and in the backed up VM are same. Then we need to rename the backed-up VMs volume groups. Take a look at the below example.
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdg   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdh   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdm2  rootvg    lvm2 a--  194.57g  127.57g efohjX-KUGB-ETaH-4JKB-MieG-EGOc-XcfLCt
+```
+
+The script output would have shown /dev/sdg, /dev/sdh, /dev/sdm2 as attached. So, the corresponding VG names are Appvg_new and rootvg. But the same names are also present in the machine's VG list. We can verify that 1 VG name has 2 UUIDs.
+
+Now we need to rename VG names for script based volumes i.e., /dev/sdg, /dev/sdh, /dev/sdm2. To rename the volume group, use the following command
+
+```bash
+vgimportclone -n rootvg_new /dev/sdm2
+vgimportclone -n APPVg_2 /dev/sdg /dev/sdh
+```
+
+Now we have all VG names with unique IDs.
+
+###### Active volume groups
+
+Make sure that the Volume groups corresponding to script's volumes are active. The below command is used to display active volume groups. Check whether the script's related volume groups are present in this list.
+
+```bash
+vgdisplay -a
+```  
+
+Otherwise, activate the volume group by using the below command.
 
 ```bash
 #!/bin/bash
-pvs <volume name as shown above in the script output>
+vgchange –a y  <volume-group-name>
 ```
 
-To list all logical volumes, names, and their paths in a volume group:
+##### Listing logical volumes within Volume groups
+
+Once we get the unique, active list of VGs related to the script, then the logical volumes present in those volume groups can be listed using the below command.
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs command's results>
+lvdisplay <volume-group-name>
 ```
+
+This command display the path of each logical volume as 'LV Path'.
+
+##### Mounting logical volumes
 
 To mount the logical volumes to the path of your choice:
 
 ```bash
 #!/bin/bash
-mount <LV path> </mountpath>
+mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
+
+> [!WARNING]
+> Do not use 'mount -a'. This command mounts all devices described in '/etc/fstab'. This might mean duplicate devices can get mounted. Data can be redirected to devices created by script, which do not persist the data, and hence might result in data loss.
 
 #### For RAID arrays
 
@@ -196,7 +294,7 @@ If you run the script on a computer with restricted access, ensure there is acce
 
 - `download.microsoft.com`
 - Recovery Service URLs (geo-name refers to the region where the recovery service vault resides)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (For Azure public geos)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (For Azure public regions)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (For Azure China 21Vianet)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us` (For Azure US Government)
   - `https://pod01-rec2.geo-name.backup.windowsazure.de` (For Azure Germany)
@@ -204,7 +302,7 @@ If you run the script on a computer with restricted access, ensure there is acce
 
 > [!NOTE]
 >
-> - The downloaded script file name will have the **geo-name** to be filled in the URL. For exampple: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like *ContosoVM_wcus_12345678*
+> - The downloaded script file name will have the **geo-name** to be filled in the URL. For example: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like *ContosoVM_wcus_12345678*
 > - The URL would be <https://pod01-rec2.wcus.backup.windowsazure.com>"
 >
 
@@ -212,13 +310,11 @@ For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to 
 
 The access to `download.microsoft.com` is required to download components used to build a secure channel between the machine where the script is run and the data in the recovery point.
 
-You can run the script on any machine that has the same (or compatible) operating system as the backed-up VM. See the [Compatible OS table](backup-azure-restore-files-from-vm.md#system-requirements) for compatible operating systems. If the protected Azure virtual machine uses Windows Storage Spaces (for Windows Azure VMs) or LVM/RAID Arrays (for Linux VMs), you can't run the executable or script on the same virtual machine. Instead, run the executable or script on any other machine with a compatible operating system.
-
 ## File recovery from Virtual machine backups having large disks
 
-This section explains how to perform file recovery from backups of Azure Virtual machines with more than 16 disks and each disk size is greater than 32 TB.
+This section explains how to perform file recovery from backups of Azure Virtual machines with more than 16 disks or each disk size is greater than 4 TB.
 
-Since file recovery process attaches all disks from the backup, when large number of disks (>16) or large disks (> 32 TB each) are used, the following action points are recommended:
+Since file recovery process attaches all disks from the backup, when large number of disks (>16) or large disks (> 4 TB each) are used, the following action points are recommended:
 
 - Keep a separate restore server (Azure VM D2v3 VMs) for file recovery. You can use that only for file recovery and then shut it down when not required. Restoring on the original machine isn't recommended since it will have significant impact on the VM itself.
 - Then run the script once to check if the file recovery operation succeeds.
@@ -240,7 +336,7 @@ Since file recovery process attaches all disks from the backup, when large numbe
   - In the file /etc/iscsi/iscsid.conf, change the setting from:
     - node.conn[0].timeo.noop_out_timeout = 5  to node.conn[0].timeo.noop_out_timeout = 30
 - After making the change above, run the script again. With these changes, it's highly probable that the file recovery will succeed.
-- Each time user downloads a script, Azure Backup initiates the process of preparing the recovery point for download. With large disks, this process will take considerable time. If there are successive bursts of requests, the target preparation will go into a download spiral. Therefore, it's recommended to download a script from Portal/Powershell/CLI, wait for 20-30 minutes (a heuristic) and then run it. By this time, the target is expected to be ready for connection from script.
+- Each time user downloads a script, Azure Backup initiates the process of preparing the recovery point for download. With large disks, this process will take considerable time. If there are successive bursts of requests, the target preparation will go into a download spiral. Therefore, it's recommended to download a script from Portal/PowerShell/CLI, wait for 20-30 minutes (a heuristic) and then run it. By this time, the target is expected to be ready for connection from script.
 - After file recovery, make sure you go back to the portal and click **Unmount disks** for recovery points where you weren't able to mount volumes. Essentially, this step will clean any existing processes/sessions and increase the chance of recovery.
 
 ## Troubleshooting
@@ -298,6 +394,6 @@ The script gives read-only access to a recovery point and is valid for only 12 h
 ## Next steps
 
 - For any problems while restoring files, refer to the [Troubleshooting](#troubleshooting) section
-- Learn how to [restore files via Powershell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)
-- Learn how to [restore files via Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-files)
-- After VM is restored, learn how to [manage backups](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms)
+- Learn how to [restore files via PowerShell](./backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
+- Learn how to [restore files via Azure CLI](./tutorial-restore-files.md)
+- After VM is restored, learn how to [manage backups](./backup-azure-manage-vms.md)

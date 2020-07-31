@@ -24,7 +24,7 @@ As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-h
 Therefore, Traffic Manager does not provide an endpoint or IP address for clients to connect to. If you want static IP address for your service, that must be configured at the service, not in Traffic Manager.
 
 ### What types of traffic can be routed using Traffic Manager?
-As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), a Traffic Manager endpoint can be any internet facing service hosted inside or outside of Azure. Hence, Traffic Manager can route traffic that originates from the public internet to a set of endpoints that are also internet facing. If you have endpoints that are inside a private network (for example, an internal version of [Azure Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer)) or have users making DNS requests from such internal networks, then you cannot use Traffic Manager to route this traffic.
+As explained in [How Traffic Manager Works](../traffic-manager/traffic-manager-how-it-works.md), a Traffic Manager endpoint can be any internet facing service hosted inside or outside of Azure. Hence, Traffic Manager can route traffic that originates from the public internet to a set of endpoints that are also internet facing. If you have endpoints that are inside a private network (for example, an internal version of [Azure Load Balancer](../load-balancer/components.md#frontend-ip-configurations)) or have users making DNS requests from such internal networks, then you cannot use Traffic Manager to route this traffic.
 
 ### Does Traffic Manager support "sticky" sessions?
 
@@ -303,7 +303,7 @@ Traffic View pricing is based on the number of data points used to create the ou
 
 Using endpoints from multiple subscriptions is not possible with Azure Web Apps. Azure Web Apps requires that any custom domain name used with Web Apps is only used within a single subscription. It is not possible to use Web Apps from multiple subscriptions with the same domain name.
 
-For other endpoint types, it is possible to use Traffic Manager with endpoints from more than one subscription. In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](../role-based-access-control/role-assignments-portal.md).
+For other endpoint types, it is possible to use Traffic Manager with endpoints from more than one subscription. In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](../role-based-access-control/role-assignments-portal.md). Endpoints from other subscriptions can be added using [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) or the [Azure CLI](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
 
 ### Can I use Traffic Manager with Cloud Service 'Staging' slots?
 

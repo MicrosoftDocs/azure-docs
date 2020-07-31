@@ -82,17 +82,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Sign on URL** text box, type a URL using the following pattern:
 
-    | |
-	|-|-|
-	| `https://<sub-domain>.sapanalytics.cloud/` |
-	| `https://<sub-domain>.sapbusinessobjects.cloud/` |
+    - `https://<sub-domain>.sapanalytics.cloud/`
+    - `https://<sub-domain>.sapbusinessobjects.cloud/`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-	
-    | |
-	|-|-|
-	| `<sub-domain>.sapbusinessobjects.cloud` |
-	| `<sub-domain>.sapanalytics.cloud` |
+
+    - `<sub-domain>.sapbusinessobjects.cloud`
+    - `<sub-domain>.sapanalytics.cloud`
 
 	> [!NOTE] 
 	> The values in these URLs are for demonstration only. Update the values with the actual sign-on URL and identifier URL. To get the sign-on URL, contact the [SAP Analytics Cloud Client support team](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). You can get the identifier URL by downloading the SAP Analytics Cloud metadata from the admin console. This is explained later in the tutorial.

@@ -3,8 +3,8 @@ title: Use customer-manged keys to encrypt data in Azure HPC Cache
 description: How to use Azure Key Vault with Azure HPC Cache to control encryption key access instead of using the default Microsoft-managed encryption keys
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
-ms.date: 04/15/2020
+ms.topic: how-to
+ms.date: 07/20/2020
 ms.author: v-erkel
 ---
 
@@ -15,11 +15,9 @@ You can use Azure Key Vault to control ownership of the keys used to encrypt you
 > [!NOTE]
 > All data stored in Azure, including on the cache disks, is encrypted at rest using Microsoft-managed keys by default. You only need to follow the steps in this article if you want to manage the keys used to encrypt your data.
 
-This feature is available only in these Azure regions:
+Azure HPC Cache also is protected by [VM host encryption](../virtual-machines/linux/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) on the managed disks that hold your cached data, even if you add a customer key for the cache disks. Adding a customer-managed key for double encryption gives an extra level of security for customers with high security needs. Read [Server-side encryption of Azure disk storage](../virtual-machines/linux/disk-encryption.md) for details.
 
-* East US
-* South Central US
-* West US 2
+This feature is available only in some of the Azure regions where Azure HPC Cache is available. Refer to the [Region availability](hpc-cache-overview.md#region-availability) list for details.
 
 There are three steps to enable customer-managed key encryption for Azure HPC Cache:
 
@@ -29,7 +27,7 @@ There are three steps to enable customer-managed key encryption for Azure HPC Ca
 
 Encryption is not completely set up until after you authorize it from the newly created cache (step 3). This is because you must pass the cache's identity to the key vault to make it an authorized user. You can't do this before creating the cache, because the identity does not exist until the cache is created.
 
-After you create the cache, you cannot change between customer-managed keys and Microsoft-managed keys. However, if your cache uses customer-managed keys you can [change](#update-key-settings) the encryption key, the key version, and the key vault as needed.
+After you create the cache, you can't change between customer-managed keys and Microsoft-managed keys. However, if your cache uses customer-managed keys you can [change](#update-key-settings) the encryption key, the key version, and the key vault as needed.
 
 ## Understand key vault and key requirements
 
@@ -43,7 +41,7 @@ Key vault properties:
 * **Soft delete** - Azure HPC Cache will enable soft delete if it is not already configured on the key vault.
 * **Purge protection** - Purge protection must be enabled.
 * **Access policy** - Default settings are sufficient.
-* **Network connectivity** - Azure HPC Cache must be able to access the key vault regardless of the endpoint settings you choose.
+* **Network connectivity** - Azure HPC Cache must be able to access the key vault, regardless of the endpoint settings you choose.
 
 Key properties:
 
@@ -66,7 +64,7 @@ At cache creation time you must specify a vault, key, and key version to use for
 Read the [Azure Key Vault documentation](../key-vault/key-vault-overview.md) for details.
 
 > [!NOTE]
-> The Azure Key Vault must use the same subscription and be in the same region as the Azure HPC Cache. Use one of the supported regions listed at the beginning of this article.
+> The Azure Key Vault must use the same subscription and be in the same region as the Azure HPC Cache. Make sure that the region you choose [supports the customer-managed keys feature](hpc-cache-overview.md#region-availability).
 
 ## 2. Create the cache with customer-managed keys enabled
 
@@ -96,7 +94,10 @@ Continue with the rest of the specifications and create the cache as described i
 ## 3. Authorize Azure Key Vault encryption from the cache
 <!-- header is linked from create article, update if changed -->
 
-After a few minutes, the new Azure HPC Cache appears in your Azure portal. Go to the **Overview** page to authorize it to access your Azure Key Vault and enable customer-managed key encryption. (The cache might appear in the resources list before the "deployment underway" messages clear.)
+After a few minutes, the new Azure HPC Cache appears in your Azure portal. Go to the **Overview** page to authorize it to access your Azure Key Vault and enable customer-managed key encryption.
+
+> [!TIP]
+> The cache might appear in the resources list before the "deployment underway" messages clear. Check your resources list after a minute or two instead of waiting for a success notification.
 
 This two-step process is necessary because the Azure HPC Cache instance needs an identity to pass to the Azure Key Vault for authorization. The cache identity doesn't exist until after its initial creation steps are complete.
 
@@ -117,7 +118,9 @@ After you authorize encryption, Azure HPC Cache goes through several more minute
 
 ## Update key settings
 
-You can change the key vault, key, or key version for your cache from the Azure portal. Click the cache's **Encryption** settings link to open the **Customer key settings** page. (You cannot change a cache between customer-managed keys and system-managed keys.)
+You can change the key vault, key, or key version for your cache from the Azure portal. Click the cache's **Encryption** settings link to open the **Customer key settings** page.
+
+You cannot change a cache between customer-managed keys and system-managed keys.
 
 ![screenshot of "Customer keys settings" page, reached by clicking Settings > Encryption from the cache page in the Azure portal](media/change-key-click.png)
 
@@ -136,7 +139,7 @@ After you choose the new encryption key values, click **Select**. A confirmation
 These articles explain more about using Azure Key Vault and customer-managed keys to encrypt data in Azure:
 
 * [Azure storage encryption overview](../storage/common/storage-service-encryption.md)
-* [Disk encryption with customer-managed keys](../virtual-machines/linux/disk-encryption.md#customer-managed-keys) - Documentation for using Azure Key Vault and managed disks, which is similar to the process used with Azure HPC Cache
+* [Disk encryption with customer-managed keys](../virtual-machines/linux/disk-encryption.md#customer-managed-keys) - Documentation for using Azure Key Vault with managed disks, which is a similar scenario to Azure HPC Cache
 
 ## Next steps
 

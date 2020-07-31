@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: overview
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: kexia
@@ -23,7 +23,7 @@ We are changing our Azure Active Directory (Azure AD) sign-in behavior to make r
 
 Historically, home realm discovery was governed by the domain that is provided at sign-in or by a Home Realm Discovery policy for some legacy applications. For example, in our discovery behavior an Azure Active Directory user could mistype their username but would still arrive at their organization's credential collection screen. This occurs when the user correctly provides the organization's domain name “contoso.com”. This behavior does not allow the granularity to customize experiences for an individual user.
 
-To support a wider range of credentials and increase usability, Azure Active Directory’s username lookup behavior during the sign-in process is now updated. The new behavior makes intelligent decisions by reading tenant and user level settings based on the username entered on the sign-in page. To make this possible, Azure Active Directory will check to see if the username that is entered on the sign-in page exists in their specified domain or redirects the user to provide their credentials.
+To support a wider range of credentials and increase usability, Azure Active Directory’s username lookup behavior during the sign-in process is now updated. The new behavior makes intelligent decisions by reading organization-level and user-level settings based on the username entered on the sign-in page. To make this possible, Azure Active Directory will check to see if the username that is entered on the sign-in page exists in their specified domain or redirects the user to provide their credentials.
 
 An additional benefit of this work is improved error messaging. Here are some examples of the improved error messaging when signing in to an application that supports Azure Active Directory users only.
 

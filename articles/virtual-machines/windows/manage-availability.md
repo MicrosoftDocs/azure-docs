@@ -1,19 +1,10 @@
 ---
 title: Manage the availability of Windows VMs in Azure 
 description: Learn how to use multiple virtual machines to ensure high availability for your Windows application in Azure
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-
-tags: azure-resource-manager,azure-service-management
-
-ms.assetid: 02351953-7b6a-4657-b9e1-de2ea8f6aa05
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
@@ -30,5 +21,5 @@ To learn more about load balancing your virtual machines, see [Load Balancing vi
 
 View Reference Architectures for running N-tier applications on SQL Server in IaaS
 
-* [Windows N-tier application on Azure with SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-* [Run an N-tier application in multiple Azure regions for high availability](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+* [Windows N-tier application on Azure with SQL Server](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Run an N-tier application in multiple Azure regions for high availability](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

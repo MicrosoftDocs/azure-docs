@@ -4,23 +4,21 @@ description: Learn how managed identities work in Azure App Service and Azure Fu
 author: mattchenderson
 
 ms.topic: article
-ms.date: 04/14/2020
+ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
+ms.custom: tracking-python
 
 ---
 
 # How to use managed identities for App Service and Azure Functions
 
+This topic shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources. 
+
 > [!Important] 
-> Managed identities for App Service and Azure Functions will not behave as expected if your app is migrated across subscriptions/tenants. The app will need to obtain a new identity, which can be done by disabling and re-enabling the feature. See [Removing an identity](#remove) below. Downstream resources will also need to have access policies updated to use the new identity.
+> Managed identities for App Service and Azure Functions won't behave as expected if your app is migrated across subscriptions/tenants. The app needs to obtain a new identity, which is done by disabling and re-enabling the feature. See [Removing an identity](#remove) below. Downstream resources also need to have access policies updated to use the new identity.
 
-This topic shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources. A managed identity from Azure Active Directory (Azure AD) allows your app to easily access other Azure AD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
-
-Your application can be granted two types of identities:
-
-- A **system-assigned identity** is tied to your application and is deleted if your app is deleted. An app can only have one system-assigned identity.
-- A **user-assigned identity** is a standalone Azure resource that can be assigned to your app. An app can have multiple user-assigned identities.
+[!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
 ## Add a system-assigned identity
 
@@ -39,6 +37,11 @@ To set up a managed identity in the portal, you will first create an application
 4. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
     ![Managed identity in App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
+
+
+> [!NOTE] 
+> To find the managed identity for your web app or slot app in the Azure portal, under **Enterprise applications**, look in the **User settings** section. Usually, the slot name is similar to `<app name>/slots/<slot name>`.
+
 
 ### Using the Azure CLI
 
@@ -74,28 +77,49 @@ The following steps will walk you through creating a web app and assigning it an
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-The following steps will walk you through creating a web app and assigning it an identity using Azure PowerShell:
+The following steps will walk you through creating an app and assigning it an identity using Azure PowerShell. The instructions for creating a web app and a function app are different.
 
-1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzAccount` to create a connection with Azure.
+#### Using Azure PowerShell for a web app
+
+1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/), and then run `Login-AzAccount` to create a connection with Azure.
 
 2. Create a web application using Azure PowerShell. For more examples of how to use Azure PowerShell with App Service, see [App Service PowerShell samples](../app-service/samples-powershell.md):
 
     ```azurepowershell-interactive
     # Create a resource group.
-    New-AzResourceGroup -Name myResourceGroup -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
 
     # Create an App Service plan in Free tier.
-    New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
+    New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName $resourceGroupName -Tier Free
 
     # Create a web app.
-    New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
+    New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName $resourceGroupName
     ```
 
 3. Run the `Set-AzWebApp -AssignIdentity` command to create the identity for this application:
 
     ```azurepowershell-interactive
-    Set-AzWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
+    Set-AzWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName $resourceGroupName 
     ```
+
+#### Using Azure PowerShell for a function app
+
+1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/), and then run `Login-AzAccount` to create a connection with Azure.
+
+2. Create a function app using Azure PowerShell. For more examples of how to use Azure PowerShell with Azure Functions, see the [Az.Functions reference](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions):
+
+    ```azurepowershell-interactive
+    # Create a resource group.
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create a storage account.
+    New-AzStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -SkuName $sku
+
+    # Create a function app with a system-assigned identity.
+    New-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -Location $location -StorageAccountName $storageAccountName -Runtime $runtime -IdentityType SystemAssigned
+    ```
+
+You can also update an existing function app using `Update-AzFunctionApp` instead.
 
 ### Using an Azure Resource Manager template
 
@@ -150,6 +174,15 @@ When the site is created, it has the following additional properties:
 
 The tenantId property identifies what Azure AD tenant the identity belongs to. The principalId is a unique identifier for the application's new identity. Within Azure AD, the service principal has the same name that you gave to your App Service or Azure Functions instance.
 
+If you need to reference these properties in a later stage in the template, you can do so via the [`reference()` template function](../azure-resource-manager/templates/template-functions-resource.md#reference) with the `'Full'` flag, as in this example:
+
+```json
+{
+    "tenantId": "[reference(resourceId('Microsoft.Web/sites', variables('appName')), '2018-02-01', 'Full').identity.tenantId]",
+    "objectId": "[reference(resourceId('Microsoft.Web/sites', variables('appName')), '2018-02-01', 'Full').identity.principalId]",
+}
+```
+
 ## Add a user-assigned identity
 
 Creating an app with a user-assigned identity requires that you create the identity and then add its resource identifier to your app config.
@@ -171,6 +204,35 @@ First, you'll need to create a user-assigned identity resource.
 6. Search for the identity you created earlier and select it. Click **Add**.
 
     ![Managed identity in App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
+
+### Using Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+The following steps will walk you through creating an app and assigning it an identity using Azure PowerShell.
+
+> [!NOTE]
+> The current version of the Azure PowerShell commandlets for Azure App Service do not support user-assigned identities. The below instructions are for Azure Functions.
+
+1. If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/), and then run `Login-AzAccount` to create a connection with Azure.
+
+2. Create a function app using Azure PowerShell. For more examples of how to use Azure PowerShell with Azure Functions, see the [Az.Functions reference](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions). The below script also makes use of `New-AzUserAssignedIdentity` which must be installed separately as per [Create, list or delete a user-assigned managed identity using Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+
+    ```azurepowershell-interactive
+    # Create a resource group.
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create a storage account.
+    New-AzStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -SkuName $sku
+
+    # Create a user-assigned identity. This requires installation of the "Az.ManagedServiceIdentity" module.
+    $userAssignedIdentity = New-AzUserAssignedIdentity -Name $userAssignedIdentityName -ResourceGroupName $resourceGroupName
+
+    # Create a function app with a user-assigned identity.
+    New-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -Location $location -StorageAccountName $storageAccountName -Runtime $runtime -IdentityType UserAssigned -IdentityId $userAssignedIdentity.Id
+    ```
+
+You can also update an existing function app using `Update-AzFunctionApp` instead.
 
 ### Using an Azure Resource Manager template
 
@@ -375,7 +437,7 @@ $accessToken = $tokenResponse.access_token
 
 ### <a name="asal"></a>Using the Microsoft.Azure.Services.AppAuthentication library for .NET
 
-For .NET applications and functions, the simplest way to work with a managed identity is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from Visual Studio, the [Azure CLI](/cli/azure), or Active Directory Integrated Authentication. For more on local development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference]. This section shows you how to get started with the library in your code.
+For .NET applications and functions, the simplest way to work with a managed identity is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from Visual Studio, the [Azure CLI](/cli/azure), or Active Directory Integrated Authentication. When hosted in the cloud, it will default to using a system-assigned identity, but you can customize this behavior using a connection string environment variable which references the client ID of a user-assigned identity. For more on development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference]. This section shows you how to get started with the library in your code.
 
 1. Add references to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and any other necessary NuGet packages to your application. The below example also uses [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
@@ -391,7 +453,17 @@ For .NET applications and functions, the simplest way to work with a managed ide
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
 
-To learn more about Microsoft.Azure.Services.AppAuthentication and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference] and the [App Service and KeyVault with MSI .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+If you want to use a user-assigned managed identity, you can set the `AzureServicesAuthConnectionString` application setting to `RunAs=App;AppId=<clientId-guid>`. Replace `<clientId-guid>` with the client ID of the identity you want to use. You can define multiple such connection strings by using custom application settings and passing their values into the AzureServiceTokenProvider constructor.
+
+```csharp
+    var identityConnectionString1 = Environment.GetEnvironmentVariable("UA1_ConnectionString");
+    var azureServiceTokenProvider1 = new AzureServiceTokenProvider(identityConnectionString1);
+    
+    var identityConnectionString2 = Environment.GetEnvironmentVariable("UA2_ConnectionString");
+    var azureServiceTokenProvider2 = new AzureServiceTokenProvider(identityConnectionString2);
+```
+
+To learn more about configuring AzureServiceTokenProvider and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference] and the [App Service and KeyVault with MSI .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ### Using the Azure SDK for Java
 
@@ -423,7 +495,11 @@ For Java applications and functions, the simplest way to work with a managed ide
 
 ## <a name="remove"></a>Remove an identity
 
-A system-assigned identity can be removed by disabling the feature using the portal, PowerShell, or CLI in the same way that it was created. User-assigned identities can be removed individually. To remove all identities, set the type to "None" in the [ARM template](#using-an-azure-resource-manager-template):
+A system-assigned identity can be removed by disabling the feature using the portal, PowerShell, or CLI in the same way that it was created. User-assigned identities can be removed individually. To remove all identities, set the identity type to "None".
+
+Removing a system-assigned identity in this way will also delete it from Azure AD. System-assigned identities are also automatically removed from Azure AD when the app resource is deleted.
+
+To remove all identities in an [ARM template](#using-an-azure-resource-manager-template):
 
 ```json
 "identity": {
@@ -431,7 +507,12 @@ A system-assigned identity can be removed by disabling the feature using the por
 }
 ```
 
-Removing a system-assigned identity in this way will also delete it from Azure AD. System-assigned identities are also automatically removed from Azure AD when the app resource is deleted.
+To remove all identities in Azure PowerShell (Azure Functions only):
+
+```azurepowershell-interactive
+# Update an existing function app to have IdentityType "None".
+Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -IdentityType None
+```
 
 > [!NOTE]
 > There is also an application setting that can be set, WEBSITE_DISABLE_MSI, which just disables the local token service. However, it leaves the identity in place, and tooling will still show the managed identity as "on" or "enabled." As a result, use of this setting is not recommended.

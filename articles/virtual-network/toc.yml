@@ -35,8 +35,9 @@
     href: powershell-samples.md
   - name: Resource Manager templates
     href: template-samples.md
-  - name: Azure Policy templates
-    href: policy-samples.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Business continuity
@@ -79,14 +80,18 @@
       href: virtual-network-for-azure-services.md 
   - name: IP services
     items:
-    - name: IP addressing
-      href: virtual-network-ip-addresses-overview-arm.md
+    - name: Public IPs
+      href: public-ip-addresses.md
+    - name: Private IPs
+      href: private-ip-addresses.md
     - name: Public IP prefix
       href: public-ip-address-prefix.md
     - name: IPv6 for Azure VNet
       href: ipv6-overview.md
     - name: Public IPv6 address prefix
-      href: ipv6-public-ip-address-prefix.md 
+      href: ipv6-public-ip-address-prefix.md
+    - name: Routing preference
+      href: routing-preference-overview.md 
   - name: Security
     items:
     - name: Network security groups
@@ -221,18 +226,27 @@
         href: manage-public-ip-address-prefix.md
       - name: Add or remove IP address from NICs
         href: virtual-network-network-interface-addresses.md
+      - name: Routing preference
+        items:
+        - name: Create public IP address
+          items:
+          - name: Azure portal
+            href: routing-preference-portal.md
+          - name: Azure PowerShell
+            href: routing-preference-powershell.md
+          - name: Azure CLI
+            href: routing-preference-cli.md
+        - name: Configure VM with internet routing preference
+          items:
+          - name: Azure portal
+            href: tutorial-routing-preference-virtual-machine-portal.md
+          - name: Azure PowerShell
+            href: configure-routing-preference-virtual-machine-powershell.md
+          - name: Azure CLI
+            href: configure-routing-preference-virtual-machine-cli.md
+
   - name: Security
     items:
-    - name: Restrict access with network security groups
-      items:
-      - name: Azure portal
-        href: tutorial-restrict-network-access-to-resources.md
-      - name: Azure PowerShell
-        href: tutorial-restrict-network-access-to-resources-powershell.md
-      - name: Azure CLI
-        href: tutorial-restrict-network-access-to-resources-cli.md
-      - name: Manage network security groups
-        href: manage-network-security-group.md
     - name: Filter network traffic
       items:
       - name: Azure portal
@@ -270,7 +284,9 @@
     - name: Manage DDoS protection
       href: manage-ddos-protection.md
     - name: Onboard partners to DDoS Protection Standard
-      href: ddos-protection-partner-onboarding.md     
+      href: ddos-protection-partner-onboarding.md
+    - name: Manage network security groups
+      href: manage-network-security-group.md    
     - name: Security scenarios
       items:
       - name: Secure networks with virtual appliances
@@ -398,7 +414,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.network
   - name: .NET
-    href: /api/overview/azure/virtual-network
+    href: /dotnet/api/overview/azure/virtual-network
   - name: Java
     href: /java/api/
   - name: Node.js
@@ -419,8 +435,8 @@
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Networking blog
     href: https://azure.microsoft.com/blog/topics/networking
-  - name: Networking forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Microsoft Q&A question page for Networking
+    href: https://docs.microsoft.com/answers/topics/azure-virtual-network.html
   - name: Networking feedback
     href: https://feedback.azure.com/forums/217313-networking?category_id=77469
   - name: Pricing

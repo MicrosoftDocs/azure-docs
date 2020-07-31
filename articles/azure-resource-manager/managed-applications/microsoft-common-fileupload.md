@@ -14,7 +14,7 @@ A control that allows a user to specify one or more files to upload.
 
 ## UI sample
 
-![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
+![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft-common-fileupload.png)
 
 ## Schema
 
@@ -79,7 +79,7 @@ When testing a CreateUiDefinition, some browsers (like Google Chrome) truncate U
 - `constraints.accept` specifies the types of files that are shown in the browser's file dialog. See the [HTML5 specification](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) for allowed values. The default value is **null**.
 - If `options.multiple` is set to **true**, the user is allowed to select more than one file in the browser's file dialog. The default value is **false**.
 - This element supports uploading files in two modes based on the value of `options.uploadMode`. If **file** is specified, the output has the contents of the file as a blob. If **url** is specified, then the file is uploaded to a temporary location, and the output has the URL of the blob. Temporary blobs will be purged after 24 hours. The default value is **file**.
-- An uploaded file is protected. The output URL includes a [SAS token](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for accessing the file during deployment.
+- An uploaded file is protected. The output URL includes a [SAS token](../../storage/common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json) for accessing the file during deployment.
 - The value of `options.openMode` determines how the file is read. If the file is expected to be plain text, specify **text**; else, specify **binary**. The default value is **text**.
 - If `options.uploadMode` is set to **file** and `options.openMode` is set to **binary**, the output is base64-encoded.
 - `options.encoding` specifies the encoding to use when reading the file. The default value is **UTF-8**, and is used only when `options.openMode` is set to **text**.

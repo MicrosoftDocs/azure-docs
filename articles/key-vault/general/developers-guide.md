@@ -34,7 +34,7 @@ Before working with keys, secrets or certificates in your key vault, you'll crea
 
 - [Create and manage Key Vaults with CLI](../secrets/quick-create-cli.md)
 - [Create and manage Key Vaults with PowerShell](../secrets/quick-create-powershell.md)
-- [Create and manage Key Vaults with the Azure port](../secrets/quick-create-portal.md)
+- [Create and manage Key Vaults with the Azure portal](../secrets/quick-create-portal.md)
 - [Create and manage Key Vaults with Python](../secrets/quick-create-python.md)
 - [Create and manage Key Vaults with Java](../secrets/quick-create-java.md)
 - [Create and manage Key Vaults with Node.js](../secrets/quick-create-node.md)
@@ -69,11 +69,11 @@ For more information on the 2.x version of the .NET SDK, see the [Release notes]
 
 In Node.js, the Key Vault management API and the Key Vault object API are separate. The following overview article gives you access to both. 
 
-[Azure Key Vault modules for Node.js](/javascript/api/overview/azure/key-vault?view=azure-node-latest)
+[Azure Key Vault modules for Node.js](https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest)
 
 #### Python
 
-[Azure Key Vault libraries for Python](/python/api/overview/azure/key-vault?view=azure-python)
+[Azure Key Vault libraries for Python](https://docs.microsoft.com/python/api/overview/azure/key-vault-index?view=azure-python)
 
 #### Azure CLI
 
@@ -94,13 +94,12 @@ For complete examples using Key Vault with your applications, see:
 
 The following articles and scenarios provide task-specific guidance for working with Azure Key Vault:
 
-- [Change key vault tenant ID after subscription move](subscription-move-fix.md) - When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. Fix this using this guide.
+- [Change key vault tenant ID after subscription move](move-subscription.md) - When you move your Azure subscription from tenant A to tenant B, your existing key vaults are inaccessible by the principals (users and applications) in tenant B. Fix this using this guide.
 - [Accessing Key Vault behind firewall](access-behind-firewall.md) - To access a key vault your key vault client application needs to be able to access multiple end-points for various functionalities.
 - [How to Generate and Transfer HSM-Protected Keys for Azure Key Vault](../keys/hsm-protected-keys.md) - This will help you plan for, generate and then transfer your own HSM-protected keys to use with Azure Key Vault.
 - [How to pass secure values (such as passwords) during deployment](../../azure-resource-manager/templates/key-vault-parameter.md) - When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an Azure Key Vault and reference the value in other Resource Manager templates.
 - [How to use Key Vault for extensible key management with SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) - The SQL Server Connector for Azure Key Vault enables SQL Server and SQL-in-a-VM to leverage the Azure Key Vault service as an Extensible Key Management (EKM) provider to protect its encryption keys for applications link; Transparent Data Encryption, Backup Encryption, and Column Level Encryption.
 - [How to deploy Certificates to VMs from Key Vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - A cloud application running in a VM on Azure needs a certificate. How do you get this certificate into this VM today?
-- [How to set up Key Vault with end to end key rotation and auditing](../secrets/key-rotation-log-monitoring.md) - This walks through how to set up key rotation and auditing with Azure Key Vault.
 - [Deploying Azure Web App Certificate through Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) provides step-by-step instructions for deploying certificates stored in Key Vault as part of [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) offering.
 - [Grant permission to many applications to access a key vault](group-permissions-for-apps.md) Key Vault access control policy  supports up to 1024 entries. However you can create an Azure Active Directory security group. Add all the associated service principals to this security group and then grant access to this security group to Key Vault.
 - For more task-specific guidance on integrating and using Key Vaults with Azure, see [Ryan Jones' Azure Resource Manager template examples for Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
@@ -117,7 +116,7 @@ These articles are about other scenarios and services that use or integrate with
 
 ## Key Vault overviews and concepts
 
-- [Key Vault soft-delete behavior](overview-soft-delete.md)) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
+- [Key Vault soft-delete behavior](soft-delete-overview.md)) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
 - [Key Vault client throttling](overview-throttling.md) orients you to the basic concepts of throttling and offers an approach for your app.
 - [Key Vault storage account keys overview](../secrets/overview-storage-keys.md)) describes the Key Vault integration Azure Storage Accounts keys.
 - [Key Vault security worlds](overview-security-worlds.md) describes the relationships between regions and security areas.

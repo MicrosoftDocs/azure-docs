@@ -36,12 +36,12 @@ This topic shows you how to configure Azure App Service or Azure Functions to us
 
 1. Go to your application in the [Azure portal].
 1. Select **Settings** > **Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.
-1. Under **Authentication Providers**, select **Azure Active Directory**. Select **Advanced** under **Management mode**. Paste in the Application (client) ID and client secret that you obtained earlier. Use **https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0** for the **Issuer Url** field.
+1. Under **Authentication Providers**, select **Azure Active Directory**. Select **Advanced** under **Management mode**. Paste in the Application (client) ID and client secret that you obtained earlier. Use **`https://login.microsoftonline.com/9188040d-6c67-4c5b-b112-36a304b66dad/v2.0`** for the **Issuer Url** field.
 1. Select **OK**.
 
    App Service provides authentication, but doesn't restrict authorized access to your site content and APIs. You must authorize users in your app code.
 
-1. (Optional) To restrict access to Microsoft account users, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. When you set this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated requests to use AAD for authentication. Note that becuase you have configured your **Issuer Url** to use the Microsoft Account tenant, only personal acccounts will successfully authenticate.
+1. (Optional) To restrict access to Microsoft account users, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. When you set this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated requests to use AAD for authentication. Note that because you have configured your **Issuer Url** to use the Microsoft Account tenant, only personal acccounts will successfully authenticate.
 
    > [!CAUTION]
    > Restricting access in this way applies to all calls to your app, which might not be desirable for apps that have a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** might be preferred so that the app manually starts authentication itself. For more information, see [Authentication flow](overview-authentication-authorization.md#authentication-flow).

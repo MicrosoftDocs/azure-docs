@@ -63,7 +63,7 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Soft Delete for Azure VM backup data
+          - text: Soft Delete for Azure Backup
             url: backup-azure-security-feature-cloud.md
           - text: SQL Server on Azure VMs restore as files
             url: restore-sql-database-azure-vm.md#restore-as-files
@@ -159,10 +159,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Azure Backup pricing calculator
-            url: https://azure.microsoft.com/pricing/details/backup/
+          - text: Azure Backup pricing 
+            url: azure-backup-pricing.md
           - text: Azure Backup service updates
             url: https://azure.microsoft.com/updates/?product=backup
-          - text: Azure Backup MSDN Forum
-            url: https://social.msdn.microsoft.com/Forums/home?forum=windowsazureonlinebackup
-                          
+          - text: Azure Backup Microsoft Q&A question page
+            url: /answers/topics/azure-backup.html

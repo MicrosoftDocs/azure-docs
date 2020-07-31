@@ -64,7 +64,9 @@ _Effective permissions_ are the permissions that your app will have when making 
 
 ## OpenID Connect scopes
 
-The Microsoft identity platform implementation of OpenID Connect has a few well-defined scopes that do not apply to a specific resource: `openid`, `email`, `profile`, and `offline_access`. The `address` and `phone` OpenID Connect scopes are not supported.
+The Microsoft identity platform implementation of OpenID Connect has a few well-defined scopes that are also hosted on the Microsoft Graph: `openid`, `email`, `profile`, and `offline_access`. The `address` and `phone` OpenID Connect scopes are not supported.
+
+Requesting the OIDC scopes and a token will give you a token to call the [UserInfo endpoint](userinfo.md).
 
 ### openid
 
@@ -93,7 +95,7 @@ For more information about how to get and use refresh tokens, see the [Microsoft
 
 In an [OpenID Connect or OAuth 2.0](active-directory-v2-protocols.md) authorization request, an app can request the permissions it needs by using the `scope` query parameter. For example, when a user signs in to an app, the app sends a request like the following example (with line breaks added for legibility):
 
-```
+```HTTP
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
@@ -175,15 +177,15 @@ When you sign the user into your app, you can identify the organization to which
 
 When you're ready to request permissions from your organization's admin, you can redirect the user to the Microsoft identity platform *admin consent endpoint*.
 
-```
+```HTTP
 // Line breaks are for legibility only.
-  GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
-  client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-  &state=12345
-  &redirect_uri=http://localhost/myapp/permissions
-  &scope=
-  https://graph.microsoft.com/calendars.read
-  https://graph.microsoft.com/mail.send
+GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&state=12345
+&redirect_uri=http://localhost/myapp/permissions
+&scope=
+https://graph.microsoft.com/calendars.read
+https://graph.microsoft.com/mail.send
 ```
 
 
@@ -202,7 +204,7 @@ At this point, Azure AD requires a tenant administrator to sign in to complete t
 
 If the admin approves the permissions for your app, the successful response looks like this:
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
@@ -216,7 +218,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 If the admin does not approve the permissions for your app, the failed response looks like this:
 
-```
+```HTTP
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
@@ -231,7 +233,7 @@ After you've received a successful response from the admin consent endpoint, you
 
 After the user consents to permissions for your app, your app can acquire access tokens that represent your app's permission to access a resource in some capacity. An access token can be used only for a single resource, but encoded inside the access token is every permission that your app has been granted for that resource. To acquire an access token, your app can make a request to the Microsoft identity platform token endpoint, like this:
 
-```
+```HTTP
 POST common/oauth2/v2.0/token HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/json
@@ -283,7 +285,7 @@ In this example, the user has already consented to `mail.read` for the client. T
 
 A special case of the `/.default` scope exists where a client requests its own `/.default` scope. The following example demonstrates this scenario.
 
-```
+```HTTP
 // Line breaks are for legibility only.
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?

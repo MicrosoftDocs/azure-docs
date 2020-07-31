@@ -149,7 +149,7 @@ For capacity reservation, you define a selected capacity reservation for ingesti
    >* "name": "CapacityReservation",
    >* "capacityReservationLevel": 100
 
-2. Edit the template to meet your requirements. Consider creating a [Resource Manager parameters file](../../azure-resource-manager/templates/parameter-files.md) instead of passing parameters as inline values. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) reference to learn what properties and values are supported. 
+2. Edit the template to meet your requirements. Consider creating a [Resource Manager parameters file](../../azure-resource-manager/templates/parameter-files.md) instead of passing parameters as inline values. Review [Microsoft.OperationalInsights/workspaces template](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) reference to learn what properties and values are supported. 
 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
 
@@ -313,7 +313,7 @@ The following template sample illustrates how to:
         {
           "apiVersion": "2015-03-20",
           "name": "VMSS Queries2",
-          "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
+          "type": "savedSearches",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
           ],
@@ -328,7 +328,7 @@ The following template sample illustrates how to:
         {
           "apiVersion": "2017-04-26-preview",
           "name": "Cross workspace function",
-          "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
+          "type": "savedSearches",
             "dependsOn": [
              "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
             ],
@@ -347,7 +347,7 @@ The following template sample illustrates how to:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "Microsoft.OperationalInsights/workspaces/datasources",
+          "type": "datasources",
           "name": "sampleWindowsEvent1",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -367,7 +367,7 @@ The following template sample illustrates how to:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "Microsoft.OperationalInsights/workspaces/datasources",
+          "type": "datasources",
           "name": "sampleWindowsPerfCounter1",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -382,7 +382,7 @@ The following template sample illustrates how to:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "Microsoft.OperationalInsights/workspaces/datasources",
+          "type": "datasources",
           "name": "sampleIISLog1",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -394,7 +394,7 @@ The following template sample illustrates how to:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "Microsoft.OperationalInsights/workspaces/datasources",
+          "type": "datasources",
           "name": "sampleSyslog1",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -423,7 +423,7 @@ The following template sample illustrates how to:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "Microsoft.OperationalInsights/workspaces/datasources",
+          "type": "datasources",
           "name": "sampleSyslogCollection1",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -435,7 +435,7 @@ The following template sample illustrates how to:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "Microsoft.OperationalInsights/workspaces/datasources",
+          "type": "datasources",
           "name": "sampleLinuxPerf1",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -469,7 +469,7 @@ The following template sample illustrates how to:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "Microsoft.OperationalInsights/workspaces/dataSources",
+          "type": "dataSources",
           "name": "[concat(parameters('workspaceName'), parameters('customLogName'))]",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', '/', parameters('workspaceName'))]"
@@ -518,7 +518,7 @@ The following template sample illustrates how to:
         },
         {
           "apiVersion": "2015-11-01-preview",
-          "type": "Microsoft.OperationalInsights/workspaces/datasources",
+          "type": "datasources",
           "name": "sampleLinuxPerfCollection1",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -531,7 +531,7 @@ The following template sample illustrates how to:
         {
           "apiVersion": "2015-03-20",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
-          "type": "Microsoft.OperationalInsights/workspaces/storageinsightconfigs",
+          "type": "storageinsightconfigs",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
           ],

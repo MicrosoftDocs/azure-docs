@@ -5,49 +5,63 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 08/29/2019
+ms.topic: how-to
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Create a host pool with PowerShell
+# Create a Windows Virtual Desktop host pool with PowerShell
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+>[!IMPORTANT]
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md).
+
+Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can be associated with multiple RemoteApp groups, one desktop app group, and multiple session hosts.
+
+## Prerequisites
+
+This article assumes you've already followed the instructions in [Set up the PowerShell module](powershell-module.md).
 
 ## Use your PowerShell client to create a host pool
 
-First, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already.
-
-Run the following cmdlet to sign in to the Windows Virtual Desktop environment
+Run the following cmdlet to sign in to the Windows Virtual Desktop environment:
 
 ```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname>
 ```
 
-Next, run this cmdlet to create a new host pool in your Windows Virtual Desktop tenant:
-
-```powershell
-New-RdsHostPool -TenantName <tenantname> -Name <hostpoolname>
-```
+This cmdlet will create the host pool, workspace and desktop app group. Additionally, it will register the desktop app group to the workspace. You can either create a workspace with this cmdlet or use an existing workspace.
 
 Run the next cmdlet to create a registration token to authorize a session host to join the host pool and save it to a new file on your local computer. You can specify how long the registration token is valid by using the -ExpirationHours parameter.
 
+>[!NOTE]
+>The token's expiration date can be no less than an hour and no more than one month. If you set *-ExpirationTime* outside of that limit, the cmdlet won't create the token.
+
 ```powershell
-New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token | Out-File -FilePath <PathToRegFile>
+New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddDays(1).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
+```
+
+For example, if you want to create a token that expires in two hours, run this cmdlet:
+
+```powershell
+New-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> -ExpirationTime $((get-date).ToUniversalTime().AddHours(2).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
 ```
 
 After that, run this cmdlet to add Azure Active Directory users to the default desktop app group for the host pool.
 
 ```powershell
-Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName "Desktop Application Group" -UserPrincipalName <userupn>
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+"-DAG"> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-The **Add-RdsAppGroupUser** cmdlet doesn't support adding security groups and only adds one user at a time to the app group. If you want to add multiple users to the app group, rerun the cmdlet with the appropriate user principal names.
+Run this next cmdlet to add Azure Active Directory user groups to the default desktop app group for the host pool:
+
+```powershell
+New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <hostpoolname+“-DAG”> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
+```
 
 Run the following cmdlet to export the registration token to a variable, which you will use later in [Register the virtual machines to the Windows Virtual Desktop host pool](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 
 ```powershell
-$token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token
+$token = Get-AzWvdRegistrationInfo -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname>
 ```
 
 ## Create virtual machines for the host pool
@@ -61,9 +75,9 @@ You can create a virtual machine in multiple ways:
 - [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-user-image-data-disks)
 
 >[!NOTE]
->If you're deploying a virtual machine using Windows 7 as the host OS, the creation and deployment process will be a little different. For more details, see [Deploy a Windows 7 virtual machine on Windows Virtual Desktop](deploy-windows-7-virtual-machine.md).
+>If you're deploying a virtual machine using Windows 7 as the host OS, the creation and deployment process will be a little different. For more details, see [Deploy a Windows 7 virtual machine on Windows Virtual Desktop](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
 
-After you've created your session host virtual machines, [apply a Windows license to a session host VM](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) to run your Windows or Windows Server virtual machines without paying for another license. 
+After you've created your session host virtual machines, [apply a Windows license to a session host VM](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) to run your Windows or Windows Server virtual machines without paying for another license.
 
 ## Prepare the virtual machines for Windows Virtual Desktop agent installations
 
@@ -92,15 +106,13 @@ To register the Windows Virtual Desktop agents, do the following on each virtual
 1. [Connect to the virtual machine](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
 2. Download and install the Windows Virtual Desktop Agent.
    - Download the [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
-   - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
-   - Run the installer. When the installer asks you for the registration token, enter the value you got from the **Export-RdsRegistrationInfo** cmdlet.
+   - Run the installer. When the installer asks you for the registration token, enter the value you got from the **Get-AzWvdRegistrationInfo** cmdlet.
 3. Download and install the Windows Virtual Desktop Agent Bootloader.
    - Download the [Windows Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
-   - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
    - Run the installer.
 
 >[!IMPORTANT]
->To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](../security-center/security-center-just-in-time.md).
+>To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](../security-center/security-center-just-in-time.md). We also recommend you don't assign your VMs to a public IP.
 
 ## Next steps
 

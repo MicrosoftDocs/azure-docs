@@ -1,6 +1,6 @@
 ---
-title: Data to collect when you open a case for Microsoft Azure Automation| Microsoft Docs
-description: This article describes some of the information that you should gather before you open a case for Azure Automation with Microsoft Azure Support.
+title: Data to collect when opening a case for Microsoft Azure Automation | Microsoft Docs
+description: This article describes the information to gather before opening a case for Azure Automation with Microsoft Azure Support.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: v-miegge
@@ -17,7 +17,7 @@ ms.date: 09/23/2019
 ms.author: v-miegge
 ---
 
-# Data to collect when you open a case for Microsoft Azure Automation
+# Data to collect when opening a case for Microsoft Azure Automation
 
 This article describes some of the information that you should gather before you open a case for Azure Automation with Microsoft Azure Support. This information is not required to open the case. However, it can help Microsoft resolve your problem more quickly. Also, you may be asked for this data by the support engineer after you open the case.
 

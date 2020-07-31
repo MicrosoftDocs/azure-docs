@@ -3,7 +3,7 @@ title: Debug Rendering
 description: Overview of server-side debugging rendering effects
 author: jumeder
 ms.author: jumeder
-ms.date: 04/09/2020
+ms.date: 06/15/2020
 ms.topic: article
 ---
 
@@ -17,11 +17,11 @@ The debug rendering API provides a range of global options to alter server-side 
 |---------------------------------|:-------------------------------------|
 |Frame counter                    | Renders a text overlay into the top-left corner of the frame. The text shows the current server-side frame ID, which is continuously incremented as rendering proceeds. |
 |Polygon count                    | Renders a text overlay into the top-left corner of the frame. The text shows the currently rendered amount of polygons, the same value as queried by [Server-side performance queries](performance-queries.md)| 
-|Wireframe                        | If enabled, all object geometry loaded on the server will be rendered in wireframe mode. Only the edges of polygons will be rasterized n this mode. |
+|Wireframe                        | If enabled, all object geometry loaded on the server will be rendered in wireframe mode. Only the edges of polygons will be rasterized in this mode. |
 
 The following code enables these debugging effects:
 
-``` cs
+```cs
 void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 {
     DebugRenderingSettings settings = session.Actions.DebugRenderingSettings;
@@ -34,6 +34,22 @@ void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 
     // Enable wireframe rendering of object geometry on the server
     settings.RenderWireframe = true;
+}
+```
+
+```cpp
+void EnableDebugRenderingEffects(ApiHandle<AzureSession> session, bool highlight)
+{
+    ApiHandle<DebugRenderingSettings> settings = *session->Actions()->DebugRenderingSettings();
+
+    // Enable frame counter text overlay on the server side rendering
+    settings->RenderFrameCount(true);
+
+    // Enable polygon count text overlay on the server side rendering
+    settings->RenderPolygonCount(true);
+
+    // Enable wireframe rendering of object geometry on the server
+    settings->RenderWireframe(true);
 }
 ```
 
@@ -51,7 +67,7 @@ However, the provided effects do no give any detailed introspection into service
 ## Performance considerations
 
 * Enabling the text overlays incurs little to no performance overhead.
-* Additionally enabling the overlay does incur a non-trivial performance overhead, though it may vary depending on the scene. For complex scenes, this mode can cause the framerate to drop below the 60-Hz target.
+* Enabling the wireframe mode does incur a non-trivial performance overhead, though it may vary depending on the scene. For complex scenes, this mode can cause the frame rate to drop below the 60-Hz target.
 
 ## Next steps
 

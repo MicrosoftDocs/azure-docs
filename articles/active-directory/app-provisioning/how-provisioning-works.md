@@ -2,27 +2,22 @@
 title: Understand how Azure AD provisioning works | Microsoft Docs
 description: Understand how Azure AD provisioning works 
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/10/2019
-ms.author: mimart
+ms.date: 05/20/2020
+ms.author: kenwith
 ms.reviewer: arvinh
-
-ms.collection: M365-identity-device-management
 ---
+
 # How provisioning works
 
 Automatic provisioning refers to creating user identities and roles in the cloud applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Before you start a deployment, you can review this article to learn how Azure AD provision works and get configuration recommendations. 
 
-The **Azure AD Provisioning Service** provisions users to SaaS apps and other systems by connecting to a System for Cross-Domain Identity Management (SCIM) 2.0 user management API endpoint provided by the application vendor. This SCIM endpoint allows Azure AD to programmatically create, update, and remove users. For selected applications, the provisioning service can also create, update, and remove additional identity-related objects, such as groups and roles. The channel used for provisioning between Azure AD and the application is encrypted using HTTPS TLS encryption.
+The **Azure AD Provisioning Service** provisions users to SaaS apps and other systems by connecting to a System for Cross-Domain Identity Management (SCIM) 2.0 user management API endpoint provided by the application vendor. This SCIM endpoint allows Azure AD to programmatically create, update, and remove users. For selected applications, the provisioning service can also create, update, and remove additional identity-related objects, such as groups and roles. The channel used for provisioning between Azure AD and the application is encrypted using HTTPS TLS 1.2 encryption.
 
 
 ![Azure AD Provisioning Service](./media/how-provisioning-works/provisioning0.PNG)
@@ -63,7 +58,7 @@ When you configure provisioning to a SaaS application, one of the types of attri
 
 For outbound provisioning from Azure AD to a SaaS application, relying on [user or group assignments](../manage-apps/assign-user-or-group-access-portal.md) is the most common way to determine which users are in scope for provisioning. Because user assignments are also used for enabling single sign-on, the same method can be used for managing both access and provisioning. Assignment-based scoping doesn't apply to inbound provisioning scenarios such as Workday and Successfactors.
 
-* **Groups.** With an Azure AD Premium license plan, you can use groups to assign access to a SaaS application. Then, when the provisioning scope is set to **Sync only assigned users and groups**, the Azure AD provisioning service will provision or de-provision users based on whether they're members of a group that's assigned to the application. The group object itself isn't provisioned unless the application supports group objects. Ensure that groups assigned to your application have the property "SecurityEnabled" set to "False".
+* **Groups.** With an Azure AD Premium license plan, you can use groups to assign access to a SaaS application. Then, when the provisioning scope is set to **Sync only assigned users and groups**, the Azure AD provisioning service will provision or de-provision users based on whether they're members of a group that's assigned to the application. The group object itself isn't provisioned unless the application supports group objects. Ensure that groups assigned to your application have the property "SecurityEnabled" set to "True".
 
 * **Dynamic groups.** The Azure AD user provisioning service can read and provision users in [dynamic groups](../users-groups-roles/groups-create-rule.md). Keep these caveats and recommendations in mind:
 
@@ -163,7 +158,7 @@ The provisioning job exits quarantine after all of the offending errors are fixe
 
 ### How long provisioning takes
 
-Performance depends on whether your provisioning job is running an initial provisioning cycle or an incremental cycle. For details about how long provisioning takes and how to monitor the status of the provisioning service, see [Check the status of user provisioning](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md).
+Performance depends on whether your provisioning job is running an initial provisioning cycle or an incremental cycle. For details about how long provisioning takes and how to monitor the status of the provisioning service, see [Check the status of user provisioning](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 ### How to tell if users are being provisioned properly
 
@@ -173,7 +168,7 @@ All operations run by the user provisioning service are recorded in the Azure AD
 
 The Azure AD provisioning service keeps source and target systems in sync by de-provisioning accounts when users should not have access anymore. 
 
-The Azure AD provisioning service will soft delete a user in an application when the application suupports soft deletes (update request with active = false) and any of the following events occur:
+The Azure AD provisioning service will soft delete a user in an application when the application supports soft deletes (update request with active = false) and any of the following events occur:
 
 * The user account is deleted in Azure AD
 *	The user is unassigned from the application

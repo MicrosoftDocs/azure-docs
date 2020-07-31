@@ -1,23 +1,14 @@
 ---
 title: Create an unmanaged image of a generalized VM in Azure 
 description: Create an unmanged image of a generalized Windows VM to use to create multiple copies of a VM in Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-
+ms.custom: storage-accounts
 ---
 
 # How to create an unmanaged VM image from an Azure VM
@@ -29,9 +20,9 @@ This article shows you how to use Azure PowerShell to create an image of a gener
  
 
 ## Generalize the VM 
-This section shows you how to generalize your Windows virtual machine for use as an image. Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx).
+This section shows you how to generalize your Windows virtual machine for use as an image. Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
 
-Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
 > If you are uploading your VHD to Azure for the first time, make sure you have [prepared your VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) before running Sysprep. 
@@ -146,7 +137,7 @@ Create the vNet and subnet of the [virtual network](../../virtual-network/virtua
     ```    
 
 ### Create a public IP address and network interface
-To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
+To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/public-ip-addresses.md) and a network interface.
 
 1. Create a public IP address. This example creates a public IP address named **myPip**. 
    
@@ -256,5 +247,3 @@ When complete, you should see the newly created VM in the [Azure portal](https:/
 
 ## Next steps
 To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
-

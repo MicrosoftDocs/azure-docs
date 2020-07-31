@@ -2,14 +2,12 @@
 title: include file
 description: include file
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 02/08/2020
-ms.author: diberry
+ms.date: 04/27/2020
 ---
 
 This cURL-based quickstart walks you through getting an answer from your knowledge base.
@@ -72,9 +70,11 @@ Use the knowledge base from the previous quick to query for an answer based on m
     }
     ```
 
-    If there is a question and answer set that didn't meet the search term but did meet the filter, it would not be returned. Instead, the general answer `No good match found in KB.` is returned.
+    If there is a question and answer pair that didn't meet the search term but did meet the filter, it would not be returned. Instead, the general answer `No good match found in KB.` is returned.
 
 ## Use debug query property
+> [!NOTE]
+>We don't recommend to use Debug property for any dependency. This property has been added to help the product team in troubleshooting.
 
 Debug information helps you understand how the returned answer was determined. While it is helpful, it is not necessary. To generate an answer with debug information, add the `debug` property:
 
@@ -291,120 +291,7 @@ The JSON response uses the same schema as the published knowledge base query.
 
     Because the question of `Thank you` exactly matched a Chit-chat question, QnA Maker is completely confident with the score of 100. QnA Maker also returned all the related questions, as well as the metadata property containing the Chit-chat metadata tag information.
 
-## Use cURL with threshold and default answer
-
-You can request a minimum threshold for the answer. If the threshold is not met, the default answer is returned.
-
-1. Use the following cURL command, replacing with your own resource name, knowledge base ID, and endpoint key, to ask for an answer to `size` with a threshold of 80% or better. The knowledge base should not find that answer because the question's score is 71%, and instead return the default answer you provided when you created the knowledge base.
-
-    ```bash
-    curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
-    ```
-
-1. Run the cURL command and receive the JSON response, including the score and answer.
-
-    ```json
-    {
-        "answers": [
-            {
-                "questions": [],
-                "answer": "No good match found in KB.",
-                "score": 0.0,
-                "id": -1,
-                "source": null,
-                "metadata": []
-            }
-        ],
-        "debugInfo": null,
-        "activeLearningEnabled": true
-    }
-    ```
-
-    QnA Maker returned a score of `0`, which means no confidence. It also returned the default answer.
-
-    ```json
-    {
-      "answers": [
-          {
-              "questions": [
-                  "I thank you",
-                  "Oh, thank you",
-                  "My sincere thanks",
-                  "My humblest thanks to you",
-                  "Marvelous, thanks",
-                  "Marvelous, thank you kindly",
-                  "Marvelous, thank you",
-                  "Many thanks to you",
-                  "Many thanks",
-                  "Kthx",
-                  "I'm grateful, thanks",
-                  "Ahh, thanks",
-                  "I'm grateful for that, thank you",
-                  "Perfecto, thanks",
-                  "I appreciate you",
-                  "I appreciate that",
-                  "I appreciate it",
-                  "I am very thankful for that",
-                  "How kind, thank you",
-                  "Great, thanks",
-                  "Great, thank you",
-                  "Gracias",
-                  "Gotcha, thanks",
-                  "Gotcha, thank you",
-                  "Awesome thanks!",
-                  "I'm grateful for that, thank you kindly",
-                  "thank you pal",
-                  "Wonderful, thank you!",
-                  "Wonderful, thank you very much",
-                  "Why thank you",
-                  "Thx",
-                  "Thnx",
-                  "That's very kind",
-                  "That's great, thanks",
-                  "That is lovely, thanks",
-                  "That is awesome, thanks!",
-                  "Thanks bot",
-                  "Thanks a lot",
-                  "Okay, thanks!",
-                  "Thank you so much",
-                  "Perfect, thanks",
-                  "Thank you my friend",
-                  "Thank you kindly",
-                  "Thank you for that",
-                  "Thank you bot",
-                  "Thank you",
-                  "Right on, thanks very much",
-                  "Right on, thanks a lot",
-                  "Radical, thanks",
-                  "Rad, thanks",
-                  "Rad thank you",
-                  "Wonderful, thanks!",
-                  "Thanks"
-              ],
-              "answer": "You're welcome.",
-              "score": 100.0,
-              "id": 75,
-              "source": "qna_chitchat_Professional.tsv",
-              "metadata": [
-                  {
-                      "name": "editorial",
-                      "value": "chitchat"
-                  }
-              ],
-              "context": {
-                  "isContextOnly": false,
-                  "prompts": []
-              }
-          }
-      ],
-      "debugInfo": null,
-      "activeLearningEnabled": true
-    }
-    ```
-
-    Because the question of `Thank you` exactly matched a Chit-chat question, QnA Maker is completely confident with the score of 100. QnA Maker also returned all the related questions, as well as the metadata property containing the Chit-chat metadata tag information.
-
-## Use cURL with threshold and default answer
+## Use threshold and default answer
 
 You can request a minimum threshold for the answer. If the threshold is not met, the default answer is returned.
 

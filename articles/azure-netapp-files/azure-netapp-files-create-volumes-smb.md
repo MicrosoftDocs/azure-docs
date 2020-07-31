@@ -12,8 +12,8 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/03/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -53,7 +53,7 @@ A subnet must be delegated to Azure NetApp Files.
     |    SAM/LSA            |    445       |    UDP           |
     |    w32time            |    123       |    UDP           |
 
-* The site topology for the targeted Active Directory Domain Services must adhere to best practices, in particular the Azure VNet where Azure NetApp Files is deployed.  
+* The site topology for the targeted Active Directory Domain Services must adhere to the guidelines, in particular the Azure VNet where Azure NetApp Files is deployed.  
 
     The address space for the virtual network where Azure NetApp Files is deployed must be added to a new or existing Active Directory site (where a domain controller reachable by Azure NetApp Files is). 
 
@@ -74,7 +74,7 @@ A subnet must be delegated to Azure NetApp Files.
 
     For example, if your Active Directory has only the AES-128 capability, you must enable the AES-128 account option for the user credentials. If your Active Directory has the AES-256 capability, you must enable the AES-256 account option (which also supports AES-128). If your Active Directory does not have any Kerberos encryption capability, Azure NetApp Files uses DES by default.  
 
-    You can enable the account options in the properties of the Active Directory Users and Computers MMC console:   
+    You can enable the account options in the properties of the Active Directory Users and Computers Microsoft Management Console (MMC):   
 
     ![Active Directory Users and Computers MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
 -->
@@ -93,7 +93,7 @@ You can use your preferred [Active Directory Sites and Services](https://docs.mi
 
 To find your site name when you use ADDS, you can contact the administrative group in your organization that is responsible for Active Directory Domain Services. The example below shows the Active Directory Sites and Services plugin where the site name is displayed: 
 
-![Active Directory Sites and Services](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-and-services.png)
+![Active Directory Sites and Services](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-services.png)
 
 When you configure an AD connection for Azure NetApp Files, you specify the site name in scope for the **AD Site Name** field.
 
@@ -147,11 +147,32 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
         The service will create additional machine accounts in Active Directory as needed.
 
+        > [!IMPORTANT] 
+        > Renaming the SMB server prefix after you create the Active Directory connection is disruptive. You will need to re-mount existing SMB shares after renaming the SMB server prefix.
+
     * **Organizational unit path**  
         This is the LDAP path for the organizational unit (OU) where SMB server machine accounts will be created. That is, OU=second level, OU=first level. 
 
         If you are using Azure NetApp Files with Azure Active Directory Domain Services, the organizational unit path is `OU=AADDC Computers` when you configure Active Directory for your NetApp account.
-        
+
+     * **Backup policy users**  
+        You can include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. The specified accounts will be allowed to change the NTFS permissions at the file or folder level. For example, you can specify a non-privileged service account used for migrating data to an SMB file share in Azure NetApp Files.  
+
+        The **Backup policy users** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
+
+        Check the status of the feature registration: 
+
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for several minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
+        ```
+
     * Credentials, including your **username** and **password**
 
     ![Join Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
@@ -161,9 +182,6 @@ This setting is configured in the **Active Directory Connections** under **NetAp
     The Active Directory connection you created appears.
 
     ![Active Directory Connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
-
-> [!NOTE] 
-> You can edit the username and password fields after saving the Active Directory connection. No other values can be edited after saving the connection. If you need to change any other values, you must first delete any deployed SMB volumes, then delete and re-create the Active Directory connection.
 
 ## Add an SMB volume
 
@@ -205,6 +223,12 @@ This setting is configured in the **Active Directory Connections** under **NetAp
     
         ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
+    * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, and select a snapshot policy in the pull-down menu. 
+
+        For information about creating a snapshot policy, see [Manage snapshots](azure-netapp-files-manage-snapshots.md).
+
+        ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
+
 4. Click **Protocol** and complete the following information:  
     * Select **SMB** as the protocol type for the volume. 
     * Select your **Active Directory** connection from the drop-down list.
@@ -217,6 +241,23 @@ This setting is configured in the **Active Directory Connections** under **NetAp
     The volume you created appears in the Volumes page. 
  
     A volume inherits subscription, resource group, location attributes from its capacity pool. To monitor the volume deployment status, you can use the Notifications tab.
+
+## Control access to an SMB volume  
+
+Access to an SMB volume is managed through permissions.  
+
+### Share permissions  
+
+By default, a new volume has the **Everyone / Full Control** share permissions. Members of the Domain Admins group can change the share permissions by using Computer Management on the computer account that is used for the Azure NetApp Files volume.
+
+![SMB mount path](../media/azure-netapp-files/smb-mount-path.png) 
+![Set share permissions](../media/azure-netapp-files/set-share-permissions.png) 
+
+### NTFS file and folder permissions  
+
+You can set permissions for a file or folder by using the **Security** tab of the object's properties in the Windows SMB client.
+ 
+![Set file and folder permissions](../media/azure-netapp-files/set-file-folder-permissions.png) 
 
 ## Next steps  
 

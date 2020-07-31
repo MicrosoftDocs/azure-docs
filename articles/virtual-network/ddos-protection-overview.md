@@ -1,6 +1,6 @@
 ---
 title: Azure DDoS Protection Standard Overview
-description: Learn about the Azure DDoS Protection service.
+description: Learn how the Azure DDoS Protection Standard, when combined with application design best practices, provides defense against DDoS attacks.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -28,7 +28,7 @@ Azure DDoS protection, combined with application design best practices, provide 
 |Automatic attack mitigations                    |Yes                                   |Yes                                           |
 |Availability guarantee                          |Azure Region                          |Application                                   |
 |Mitigation policies                             |Tuned for Azure traffic region volume |Tuned for application traffic volume          |
-|Metrics & alerts                                |No                                    |Real time attack metrics & diagnostic logs via                                                                                            Azure monitor                                 |
+|Metrics & alerts                                |No                                    |Real time attack metrics & resource logs via                                                                                            Azure Monitor                                 |
 |Mitigation reports                              |No                                    |Post attack mitigation reports                |
 |Mitigation flow logs                            |No                                    |NRT log stream for SIEM integration           |
 |Mitigation policy customization                 |No                                    |Engage DDoS Experts                           |

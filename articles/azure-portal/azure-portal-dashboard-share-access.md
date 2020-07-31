@@ -10,7 +10,7 @@ manager: mtillman
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
@@ -84,6 +84,5 @@ You can assign a group of users to a role for that dashboard.
 
 ## Next steps
 
-* For a list of roles, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
+* For a list of roles, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 * To learn about managing resources, see [Manage Azure resources by using the Azure portal](resource-group-portal.md).
-

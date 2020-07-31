@@ -142,7 +142,7 @@ How to create an Azure Blueprint: https://docs.microsoft.com/azure/governance/bl
 
 **Guidance**: Use tags for resources related to network security and traffic flow for your Azure Database for MySQL instances to provide metadata and logical organization.
 
-Use any of the built-in Azure policy definitions related to tagging, such as, "Require tag and its value," to ensure that all resources are created with tags and to notify you of existing untagged resources.
+Use any of the built-in Azure Policy definitions related to tagging, such as, "Require tag and its value," to ensure that all resources are created with tags and to notify you of existing untagged resources.
 
 You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
 
@@ -546,7 +546,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure role-based access control (RBAC) to control access to the Azure Database for MySQL control plane (e.g. Azure portal). For data plane access (within the database itself), use SQL queries to create users and configure user permissions. RBAC does not affect user permissions within the database.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the Azure Database for MySQL control plane (e.g. Azure portal). For data plane access (within the database itself), use SQL queries to create users and configure user permissions. RBAC does not affect user permissions within the database.
 
 How to configure RBAC in Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -693,7 +693,7 @@ How to create and use tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 ### 6.5: Monitor for unapproved Azure resources
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
 - Not allowed resource types
 
@@ -735,7 +735,7 @@ How to create queries with Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### 6.9: Use only approved Azure services
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
 - Not allowed resource types
 
@@ -811,7 +811,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -831,7 +831,7 @@ Understand Azure Policy Effects: https://docs.microsoft.com/azure/governance/pol
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: If using custom Azure policy definitions for your Azure Database for MySQL instances and related resources, use Azure Repos to securely store and manage your code.
+**Guidance**: If using custom Azure Policy definitions for your Azure Database for MySQL instances and related resources, use Azure Repos to securely store and manage your code.
 
 How to store code in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
@@ -869,7 +869,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 ### 7.9: Implement automated configuration monitoring for Azure services
 
-**Guidance**: Use Azure Policy aliases in the "Microsoft.DBforMySQL" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure Database for MySQL instances and related resources.
+**Guidance**: Use Azure Policy aliases in the "Microsoft.DBforMySQL" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure Database for MySQL instances and related resources.
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -901,7 +901,7 @@ How to provide Key Vault authentication with a managed identity: https://docs.mi
 
 ### 7.12: Manage identities securely and automatically
 
-**Guidance**: Azure Database for MySQL instance supports Azure Active Directory authentication (in preview) to access databases.  While creating the Azure Database for MySQL instance, you provide credentials for an administrator user. This administrator can be used to create additional database users.  
+**Guidance**: Azure Database for MySQL instance supports Azure Active Directory authentication to access databases.  While creating the Azure Database for MySQL instance, you provide credentials for an administrator user. This administrator can be used to create additional database users.  
 
 For Azure Virtual Machines or web applications running on Azure App Service being used to access your Azure Database for MySQL instances, use Managed Service Identity in conjunction with Azure Key Vault to store and retrieve credentials for Azure Database for MySQL instance. Ensure Key Vault Soft Delete is enabled.
 

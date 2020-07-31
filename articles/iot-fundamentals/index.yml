@@ -24,6 +24,10 @@ highlightedContent:
       itemType: download
       url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
     # Card
+    - title: Start building with Azure CLI for Azure IoT
+      itemType: reference
+      url: https://docs.microsoft.com/en-us/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest
+    # Card
     - title: Browse Azure IoT code samples
       itemType: overview
       url: https://docs.microsoft.com/samples/browse/?term=iot
@@ -73,7 +77,7 @@ conceptualContent:
         - url: ../iot-central/core/quick-deploy-iot-central.md
           itemType: quickstart
           text: Create an IoT Central application
-        - url: ../iot-central/core/tutorial-connect-device.md
+        - url: ../iot-central/core/tutorial-connect-device-nodejs.md
           itemType: tutorial
           text: Connect a device
       # footerLink

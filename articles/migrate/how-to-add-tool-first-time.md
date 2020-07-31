@@ -8,8 +8,17 @@ ms.date: 04/16/2020
 
 # Add an assessment/migration tool for the first time
 
-This article describes how to add an assessment or migration tool to an [Azure Migrate](migrate-overview.md) project for the first time.  
+This article describes how to add an assessment or migration tool to an [Azure Migrate](./migrate-services-overview.md) project for the first time.  
 Azure Migrate provides a central hub to track discovery, assessment and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as other tools and independent software vendor (ISV) [offerings](migrate-services-overview.md#isv-integration) . 
+
+## Check permissions to create project
+
+If you haven't yet created an Azure Migrate project, check you have the right permissions.
+
+1. In the Azure portal, open the subscription, and select **Access control (IAM)**.
+2. In Check access, find the relevant account, and click it to view permissions. You should have Contributor or Owner permissions.
+    - If you just created a free Azure account, you're the owner of your subscription.
+    - If you're not the subscription owner, work with the owner to assign the role.
 
 ## Create a project and add a tool
 
@@ -62,4 +71,6 @@ In some circumstances, you might need to create additional Azure Migrate project
 
 ## Next steps
 
-Learn how to add additional [assessment](how-to-assess.md) and [migration](how-to-migrate.md) tools. 
+- Get started with [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool), or [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
+- If you added an ISV tool, or Movere, [review steps](prepare-isv-movere.md) to prepare for linking the tool to Azure Migrate.
+- Learn how to add additional [assessment](how-to-assess.md) and [migration](how-to-migrate.md) tools. 

@@ -129,17 +129,13 @@ To configure Azure AD single sign-on with SilkRoad Life Suite, perform the follo
 
     b. In the **Identifier** box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<subdomain>.silkroad-eng.com/Authentication/SP`|
-	| `https://<subdomain>.silkroad.com/Authentication/SP`|
+	- `https://<subdomain>.silkroad-eng.com/Authentication/SP`
+	- `https://<subdomain>.silkroad.com/Authentication/SP`
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<subdomain>.silkroad-eng.com/Authentication/`|
-	| `https://<subdomain>.silkroad.com/Authentication/`|
+	- `https://<subdomain>.silkroad-eng.com/Authentication/`
+	- `https://<subdomain>.silkroad.com/Authentication/`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [SilkRoad Life Suite Client support team](https://www.silkroad.com/locations/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

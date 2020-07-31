@@ -10,13 +10,14 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
+ms.custom: devx-track-javascript
 ---
 
 # Embed Video Indexer widgets in your apps
 
 This article shows how you can embed Video Indexer widgets in your apps. Video Indexer supports embedding three types of widgets into your apps: *Cognitive Insights*, *Player*, and *Editor*.
 
-Starting with version 2, the widget base URL includes the region of the specified account. For example, an account in the West US region generates: `https://wus2.videoindexer.ai/embed/insights/...`.
+Starting with version 2, the widget base URL includes the region of the specified account. For example, an account in the West US region generates: `https://www.videoindexer.ai/embed/insights/.../?location=westus2`.
 
 ## Widget types
 
@@ -31,6 +32,7 @@ A Cognitive Insights widget includes all visual insights that were extracted fro
 |`language`|A short language code (language name)|Controls insights language.<br/>Example: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>or `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | A short language code | Controls the language of the UI. The default value is `en`. <br/>Example: `locale=de`.|
 |`tab` | The default selected tab | Controls the **Insights** tab that's rendered by default. <br/>Example: `tab=timeline` renders the insights with the **Timeline** tab selected.|
+|`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter.| 
 
 ### Player widget
 
@@ -44,6 +46,7 @@ You can use the Player widget to stream video by using adaptive bit rate. The Pl
 |`type`| | Activates an audio player skin (the video part is removed).<br/> Example: `type=audio`. |
 |`autoplay` | A Boolean value | Indicates if the player should start playing the video when loaded. The default value is `true`.<br/> Example: `autoplay=false`. |
 |`language`/`locale` | A language code | Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`.|
+|`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter.| 
 
 ### Editor widget
 
@@ -54,24 +57,29 @@ You can use the Editor widget to create new projects and manage a video's insigh
 |`accessToken`<sup>*</sup> | String | Provides access to videos that are only in the account that's used to embed the widget.<br> The Editor widget requires the `accessToken` parameter. |
 |`language` | A language code | Controls the player language. The default value is `en-US`.<br/>Example: `language=de-DE`. |
 |`locale` | A short language code | Controls the insights language. The default value is `en`.<br/>Example: `language=de`. |
+|`location` ||The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter.| 
 
 <sup>*</sup>The owner should provide `accessToken` with caution.
 
-## Embedding public content
+## Embedding videos
+
+This section discusses embedding the public and private content into apps.
+
+The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter. For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+
+> [!IMPORTANT]
+> Sharing a link for the **Player** or **Insights** widget will include the access token and grant the read-only permissions to your account.
+
+### Public content
 
 1. Sign in to the [Video Indexer](https://www.videoindexer.ai/) website.
-2. Select the video that you want to work with.
-3. Select the embed button (**</>**) that appears under the video.
-
-    After you select the **Embed** button, you can select the widget that you want to embed in your app.
-4. Select the type of widget that you want (**Cognitive Insights**, **Player**, or **Editor**).
+1. Select the video that you want to work with and press **Play**.
+1. Select the type of widget that you want (**Cognitive Insights**, **Player**, or **Editor**).
+1. Click **&lt;/&gt; Embed**.
 5. Copy the embed code (appears in **Copy the embedded code** in the **Share & Embed** dialog).
 6. Add the code to your app.
 
-> [!NOTE]
-> If you have issues sharing your video URLs, add the `location` parameter to the link. The parameter should be set to the [Azure regions in which Video Indexer exists](regions.md). For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
-
-## Embedding private content
+### Private content
 
 To embed a private video, you must pass an access token in the `src` attribute of the iframe:
 
@@ -119,47 +127,48 @@ This section shows how to achieve interaction between a Cognitive Insights widge
 1. Add a Video Indexer plug-in for the AMP player:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
 2. Instantiate Azure Media Player with the Video Indexer plug-in.
 
-        // Init the source.
-        function initSource() {
-            var tracks = [{
-            kind: 'captions',
-            // To load vtt from VI, replace it with your vtt URL.
-            src: this.getSubtitlesUrl("c4c1ad4c9a", "English"),
-            srclang: 'en',
-            label: 'English'
-            }];
-
-            myPlayer.src([
-            {
-                "src": "//amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest",
-                "type": "application/vnd.ms-sstr+xml"
-            }
-            ], tracks);
+    ```javascript
+    // Init the source.
+    function initSource() {
+        var tracks = [{
+        kind: 'captions',
+        // To load vtt from VI, replace it with your vtt URL.
+        src: this.getSubtitlesUrl("c4c1ad4c9a", "English"),
+        srclang: 'en',
+        label: 'English'
+        }];
+        myPlayer.src([
+        {
+            "src": "//amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest",
+            "type": "application/vnd.ms-sstr+xml"
         }
+        ], tracks);
+    }
 
-        // Init your AMP instance.
-        var myPlayer = amp('vid1', { /* Options */
-            "nativeControlsForTouch": false,
-            autoplay: true,
-            controls: true,
-            width: "640",
-            height: "400",
-            poster: "",
-            plugins: {
-            videobreakedown: {}
-            }
-        }, function () {
-            // Activate the plug-in.
-            this.videobreakdown({
-            videoId: "c4c1ad4c9a",
-            syncTranscript: true,
-            syncLanguage: true,
-            location: "trial" /* location option for paid accounts (default is trial) */
-            });
-
-            // Set the source dynamically.
-            initSource.call(this);
+    // Init your AMP instance.
+    var myPlayer = amp('vid1', { /* Options */
+        "nativeControlsForTouch": false,
+        autoplay: true,
+        controls: true,
+        width: "640",
+        height: "400",
+        poster: "",
+        plugins: {
+        videobreakedown: {}
+        }
+    }, function () {
+        // Activate the plug-in.
+        this.videobreakdown({
+        videoId: "c4c1ad4c9a",
+        syncTranscript: true,
+        syncLanguage: true,
+        location: "trial" /* location option for paid accounts (default is trial) */
         });
+
+        // Set the source dynamically.
+        initSource.call(this);
+    });
+    ```
 
 3. Copy the Cognitive Insights embed code.
 
@@ -175,42 +184,46 @@ If you use a video player other than Azure Media Player, you must manually manip
 
     For example, a standard HTML5 player:
 
-        <video id="vid1" width="640" height="360" controls autoplay preload>
-           <source src="//breakdown.blob.core.windows.net/public/Microsoft%20HoloLens-%20RoboRaid.mp4" type="video/mp4" /> 
-           Your browser does not support the video tag.
-        </video>    
+    ```html
+    <video id="vid1" width="640" height="360" controls autoplay preload>
+       <source src="//breakdown.blob.core.windows.net/public/Microsoft%20HoloLens-%20RoboRaid.mp4" type="video/mp4" /> 
+       Your browser does not support the video tag.
+    </video>
+    ```
 
 2. Embed the Cognitive Insights widget.
 3. Implement communication for your player by listening to the "message" event. For example:
 
-        <script>
+    ```javascript
+    <script>
     
-            (function(){
-            // Reference your player instance.
-            var playerInstance = document.getElementById('vid1');
+        (function(){
+        // Reference your player instance.
+        var playerInstance = document.getElementById('vid1');
         
-            function jumpTo(evt) {
-              var origin = evt.origin || evt.originalEvent.origin;
+        function jumpTo(evt) {
+          var origin = evt.origin || evt.originalEvent.origin;
         
-              // Validate that the event comes from the videobreakdown domain.
-              if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
+          // Validate that the event comes from the videobreakdown domain.
+          if ((origin === "https://www.videobreakdown.com") && evt.data.time !== undefined){
                 
-                // Call your player's "jumpTo" implementation.
-                playerInstance.currentTime = evt.data.time;
+            // Call your player's "jumpTo" implementation.
+            playerInstance.currentTime = evt.data.time;
                
-                // Confirm the arrival to us.
-                if ('postMessage' in window) {
-                  evt.source.postMessage({confirm: true, time: evt.data.time}, origin);
-                }
-              }
+            // Confirm the arrival to us.
+            if ('postMessage' in window) {
+              evt.source.postMessage({confirm: true, time: evt.data.time}, origin);
             }
+          }
+        }
         
-            // Listen to the message event.
-            window.addEventListener("message", jumpTo, false);
+        // Listen to the message event.
+        window.addEventListener("message", jumpTo, false);
           
-            }())    
+        }())    
         
-        </script>
+    </script>
+    ```
 
 For more information, see the [Azure Media Player + VI Insights demo](https://codepen.io/videoindexer/pen/YEyPLd).
 

@@ -9,7 +9,7 @@ ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
 ---
@@ -26,7 +26,7 @@ You can view all of your recent work or school account sign-in activity, from th
 
 ## View your recent sign-in activity
 
-1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
 2. Select **My Sign-ins (preview)** from the left navigation pane or select the **Review recent activity** link from the **My sign-ins (preview)** block.
 
@@ -69,3 +69,5 @@ After viewing your recent sign-in activity, you can:
 - View or manage your [organizations](my-account-portal-organizations-page.md).
 
 - View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
+
+- Change your [My Account portal settings](my-account-portal-settings.md)

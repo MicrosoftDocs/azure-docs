@@ -1,14 +1,15 @@
 ---
-title: 'Input and output data from ML pipelines'
+title: 'Moving data in ML pipelines'
 titleSuffix: Azure Machine Learning
-description: Prepare, consume, and generate data in Azure Machine Learning pipelines
+description: Learn about input & output of data in Azure Machine Learning pipelines.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 04/01/2020
+ms.date: 07/20/2020
+ms.topic: conceptual
+ms.custom: how-to, contperfq4, tracking-python
 # As a data scientist using Python, I want to get data into my pipeline and flowing between steps
 ---
 
@@ -16,7 +17,7 @@ ms.date: 04/01/2020
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Data is central to machine learning pipelines. This article provides code for importing, transforming, and moving data between steps in an Azure Machine Learning pipeline. For an overview of how data works in Azure Machine Learning, see [Access data in Azure storage services](how-to-access-data.md). For the benefits and structure of Azure Machine Learning pipelines, see [What are Azure Machine Learning pipelines?](concept-ml-pipelines.md).
+This article provides code for importing, transforming, and moving data between steps in an Azure Machine Learning pipeline. For an overview of how data works in Azure Machine Learning, see [Access data in Azure storage services](how-to-access-data.md). For the benefits and structure of Azure Machine Learning pipelines, see [What are Azure Machine Learning pipelines?](concept-ml-pipelines.md).
 
 This article will show you how to:
 

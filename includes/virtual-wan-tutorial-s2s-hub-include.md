@@ -19,7 +19,7 @@
 
    * Region (previously referred to as Location)
    * Name
-   * Hub private address space. The minimum address space is /24 to create a hub, which implies anything range from /25 to /32 will produce an error during creation.
+   * Hub private address space. The minimum address space is /24 to create a hub, which implies anything range from /25 to /32 will produce an error during creation. Azure Virtual WAN being a managed service by Microsoft creates the appropriate subnets in the virtual hub for the different gateways/services (e.g VPN Gateways, ExpressRoute Gateways, User VPN/Point-to-site Gateways, Firewall, Routing etc.). There is no need for the user to explicitly plan for subnet address space for the services in the Virtual Hub as Microsoft does this as a part of the service.
 4. Select **Next: Site-to-site**.
 
     ![Site-to-site](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Site-to-site")

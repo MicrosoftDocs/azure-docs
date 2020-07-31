@@ -15,14 +15,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/16/2020
+ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: 
 
 ---
 # SAP certifications and configurations running on Microsoft Azure
 
-SAP and Microsoft have a long history of working together in a strong partnership that has mutual benefits for their customers. Microsoft is constantly updating its platform and submitting new certification details to SAP in order to ensure Microsoft Azure is the best platform on which to run your SAP workloads. The following tables outline Azure supported configurations and list of growing SAP certifications. This list is an overview list that might deviate here and there from the official SAP lists. How to get to the detailed data is documented in the article [What SAP software is supported for Azure deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure)
+SAP and Microsoft have a long history of working together in a strong partnership that has mutual benefits for their customers. Microsoft is constantly updating its platform and submitting new certification details to SAP in order to ensure Microsoft Azure is the best platform on which to run your SAP workloads. The following tables outline Azure supported configurations and list of growing SAP certifications. This list is an overview list that might deviate here and there from the official SAP lists. How to get to the detailed data is documented in the article [What SAP software is supported for Azure deployments](./sap-supported-product-on-azure.md)
 
 ## SAP HANA certifications
 References:
@@ -62,6 +62,7 @@ References:
 | SAP BPC 10.01 MS SP08 | Windows and Linux | | All NetWeaver Certified VM types<br /> SAP Note #2451795 |
 | SAP Business Objects BI platform | Windows and Linux | | SAP Note #2145537 |
 | SAP Data Services 4.2 | | | SAP Note #2288344 |
-| SAP Hybris Commerce Platform  | Windows | SQL Server, Oracle | All NetWeaver certified VM types <br /> [Hybris Wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
-| SAP Hybris Commerce Platform  | SLES 12 or more recent | SAP HANA | All NetWeaver certified VM types <br /> [Hybris Wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
-| SAP Hybris Commerce Platform  | RHEL 7 or more recent | SAP HANA | All NetWeaver certified VM types <br /> [Hybris Wiki](https://cxwiki.sap.com/display/cloudss/Using+the+hybris+Platform+with+the+Cloud) |
+| SAP Hybris Commerce Platform  | Windows | SQL Server, Oracle | All NetWeaver certified VM types <br /> [Hybris Documentation](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/6.7.0.0/en-US/8c71300f866910149b40c88dfc0de431.html) |
+| SAP Hybris Commerce Platform  | SLES 12 or more recent | SAP HANA | All NetWeaver certified VM types <br /> [Hybris Documentation](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/6.7.0.0/en-US/8c71300f866910149b40c88dfc0de431.html) |
+| SAP Hybris Commerce Platform  | RHEL 7 or more recent | SAP HANA | All NetWeaver certified VM types <br /> [Hybris Documentation]https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/6.7.0.0/en-US/8c71300f866910149b40c88dfc0de431.html) |
+| SAP (Hybris) Commerce Platform 1811 and later  | Windows, SLES, or RHEL | SQL Azure DB | All NetWeaver certified VM types <br /> [Hybris Documentation](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html) |

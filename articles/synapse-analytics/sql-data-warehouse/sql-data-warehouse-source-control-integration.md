@@ -6,7 +6,7 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
@@ -75,4 +75,4 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
 ## Next steps
 
-- [Developing for Developing for SQL pool](sql-data-warehouse-overview-develop.md)
+- [Developing for SQL pool](sql-data-warehouse-overview-develop.md)

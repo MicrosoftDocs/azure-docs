@@ -12,9 +12,9 @@ ms.reviewer: jamesbak
 
 # Access control in Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (RBAC) and POSIX-like access control lists (ACLs). This article summarizes the basics of the access control model for Data Lake Storage Gen2.
+Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). This article summarizes the basics of the access control model for Data Lake Storage Gen2.
 
-<a id="azure-role-based-access-control-rbac" />
+<a id="azure-role-based-access-control-rbac"></a>
 
 ## Role-based access control
 
@@ -29,9 +29,9 @@ To learn how to assign roles to security principals in the scope of your storage
 
 ### The impact of role assignments on file and directory level access control lists
 
-While using RBAC role assignments is a powerful mechanism to control access permissions, it is a very coarsely grained mechanism relative to ACLs. The smallest granularity for RBAC is at the container level and this will be evaluated at a higher priority than ACLs. Therefore, if you assign a role to a security principal in the scope of a container, that security principal has the authorization level associated with that role for ALL directories and files in that container, regardless of ACL assignments.
+While using Azure role assignments is a powerful mechanism to control access permissions, it is a very coarsely grained mechanism relative to ACLs. The smallest granularity for RBAC is at the container level and this will be evaluated at a higher priority than ACLs. Therefore, if you assign a role to a security principal in the scope of a container, that security principal has the authorization level associated with that role for ALL directories and files in that container, regardless of ACL assignments.
 
-When a security principal is granted RBAC data permissions through a [built-in role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), or through a custom role, these permissions are evaluated first upon authorization of a request. If the requested operation is authorized by the security principal's RBAC assignments then authorization is immediately resolved and no additional ACL checks are performed. Alternatively, if the security principal does not have an RBAC assignment, or the request's operation does not match the assigned permission, then ACL checks are performed to determine if the security principal is authorized to perform the requested operation.
+When a security principal is granted RBAC data permissions through a [built-in role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), or through a custom role, these permissions are evaluated first upon authorization of a request. If the requested operation is authorized by the security principal's Azure role assignments then authorization is immediately resolved and no additional ACL checks are performed. Alternatively, if the security principal does not have an Azure role assignment, or the request's operation does not match the assigned permission, then ACL checks are performed to determine if the security principal is authorized to perform the requested operation.
 
 > [!NOTE]
 > If the security principal has been assigned the Storage Blob Data Owner built-in role assignment, then the security principal is considered a *super-user* and is granted full access to all mutating operations, including setting the owner of a directory or file as well as ACLs for directories and files for which they are not the owner. Super-user access is the only authorized manner to change the owner of a resource.
@@ -60,7 +60,7 @@ You can't use access control lists to provide a level of access that is lower th
 
 To set file and directory level permissions, see any of the following articles:
 
-|||
+| Environment | Article |
 |--------|-----------|
 |Azure Storage Explorer |[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
 |.NET |[Use .NET to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
@@ -282,7 +282,7 @@ If HNS is turned OFF, the Azure RBAC authorization rules still apply.
 
 ### What is the best way to apply ACLs?
 
-Always use Azure AD security groups as the assigned principal in ACLs. Resist the opportunity to directly assign individual users or service principals. Using this structure will allow you to add and remove users or service principals without the need to reapply ACLs to an entire directory structure. ) Instead, you simply need to add or remove them from the appropriate Azure AD security group. Keep in mind that ACLs are not inherited and so reapplying ACLs requires updating the ACL on every file and subdirectory. 
+Always use Azure AD security groups as the assigned principal in ACLs. Resist the opportunity to directly assign individual users or service principals. Using this structure will allow you to add and remove users or service principals without the need to reapply ACLs to an entire directory structure. Instead, you simply need to add or remove them from the appropriate Azure AD security group. Keep in mind that ACLs are not inherited and so reapplying ACLs requires updating the ACL on every file and subdirectory. 
 
 ### Which permissions are required to recursively delete a directory and its contents?
 
@@ -328,7 +328,7 @@ When you have the correct OID for the service principal, go to the Storage Explo
 
 ### Does Data Lake Storage Gen2 support inheritance of ACLs?
 
-Azure RBAC assignments do inherit. Assignments flow from subscription, resource group, and storage account resources down to the container resource.
+Azure role assignments do inherit. Assignments flow from subscription, resource group, and storage account resources down to the container resource.
 
 ACLs do not inherit. However, default ACLs can be used to set ACLs for child subdirectories and files created under the parent directory. 
 

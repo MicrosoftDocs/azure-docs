@@ -19,9 +19,9 @@ ms.custom: mvc
 
 # Collect details about all VMs in a subscription with PowerShell
 
-This script creates a csv that contains the VM Name, Resource Group Name, Region, Virtual Network, Subnet, Private IP Address, OS Type, and Public IP Address of the VMs in the provided subscription.
+This script creates a csv that contains the VM Name, Resource Group Name, Region, Vm Size, Virtual Network, Subnet, Private IP Address, OS Type, and Public IP Address of the VMs in the provided subscription.
 
-If you don't have an [Azure subscription](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free) before you begin.
+If you don't have an [Azure subscription](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free) before you begin.
 
 ## Launch Azure Cloud Shell
 
@@ -44,7 +44,7 @@ $vms = Get-AzVM
 $publicIps = Get-AzPublicIpAddress 
 $nics = Get-AzNetworkInterface | ?{ $_.VirtualMachine -NE $null} 
 foreach ($nic in $nics) { 
-    $info = "" | Select VmName, ResourceGroupName, Region, VirturalNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress 
+    $info = "" | Select VmName, ResourceGroupName, Region, VmSize, VirtualNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress, NicName, ApplicationSecurityGroup 
     $vm = $vms | ? -Property Id -eq $nic.VirtualMachine.id 
     foreach($publicIp in $publicIps) { 
         if($nic.IpConfigurations.id -eq $publicIp.ipconfiguration.Id) {
@@ -55,12 +55,15 @@ foreach ($nic in $nics) {
         $info.VMName = $vm.Name 
         $info.ResourceGroupName = $vm.ResourceGroupName 
         $info.Region = $vm.Location 
-        $info.VirturalNetwork = $nic.IpConfigurations.subnet.Id.Split("/")[-3] 
+        $info.VmSize = $vm.HardwareProfile.VmSize
+        $info.VirtualNetwork = $nic.IpConfigurations.subnet.Id.Split("/")[-3] 
         $info.Subnet = $nic.IpConfigurations.subnet.Id.Split("/")[-1] 
         $info.PrivateIpAddress = $nic.IpConfigurations.PrivateIpAddress 
+        $info.NicName = $nic.Name 
+        $info.ApplicationSecurityGroup = $nic.IpConfigurations.ApplicationSecurityGroups.Id 
         $report+=$info 
     } 
-$report | ft VmName, ResourceGroupName, Region, VirturalNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress 
+$report | ft VmName, ResourceGroupName, Region, VmSize, VirtualNetwork, Subnet, PrivateIpAddress, OsType, PublicIPAddress, NicName, ApplicationSecurityGroup 
 $report | Export-CSV "$home/$reportName"
 ```
 
@@ -69,15 +72,13 @@ This script uses following commands to create a csv export of the details of VMs
 
 |Command|Notes|
 |-|-|
-|[Select-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)|Sets the tenant, subscription, and environment for cmdlets to use in the current session.|
-|[Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM)|Gets the properties of a virtual machine.|
-|[Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzPublicIpAddress)|Gets a public IP address.|
-|[Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzNetworkInterface)|Gets a network interface.|
+|[Select-AzSubscription](/powershell/module/az.accounts/set-azcontext)|Sets the tenant, subscription, and environment for cmdlets to use in the current session.|
+|[Get-AzVM](/powershell/module/az.compute/get-azvm)|Gets the properties of a virtual machine.|
+|[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)|Gets a public IP address.|
+|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface)|Gets a network interface.|
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples?toc=/azure/virtual-machines/windows/toc.json).
-
-
+Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../windows/powershell-samples.md?toc=/azure/virtual-machines/windows/toc.json).

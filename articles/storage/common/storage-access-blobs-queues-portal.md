@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
 ---
 
@@ -21,7 +21,7 @@ You can also specify how to authorize an individual blob upload operation in the
 
 ## Permissions needed to access blob or queue data
 
-Depending on how you want to authorize access to blob or queue data in the Azure portal, you'll need specific permissions. In most cases, these permissions are provided via role-based access control (RBAC). For more information about RBAC, see [What is role-based access control (RBAC)?](../../role-based-access-control/overview.md).
+Depending on how you want to authorize access to blob or queue data in the Azure portal, you'll need specific permissions. In most cases, these permissions are provided via role-based access control (RBAC). For more information about RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md).
 
 ### Use the account access key
 
@@ -34,7 +34,7 @@ To access blob and queue data with the account access key, you must have an RBAC
 When you attempt to access blob or queue data in the Azure portal, the portal first checks whether you have been assigned a role with **Microsoft.Storage/storageAccounts/listkeys/action**. If you have been assigned a role with this action, then the portal uses the account key for accessing blob and queue data. If you have not been assigned a role with this action, then the portal attempts to access data using your Azure AD account.
 
 > [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, including the **Microsoft.Storage/storageAccounts/listkeys/action**, so a user with one of these administrative roles can also access blob and queue data with the account key. For more information, see [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [Owner](../../role-based-access-control/built-in-roles.md#owner) role. The **Owner** role includes all actions, including the **Microsoft.Storage/storageAccounts/listkeys/action**, so a user with one of these administrative roles can also access blob and queue data with the account key. For more information, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### Use your Azure AD account
 
@@ -53,7 +53,7 @@ The built-in roles that support access to your blob or queue data include:
 - [Storage Queue Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Read/write/delete permissions for queues.
 - [Storage Queue Data Reader](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): Read-only permissions for queues.
 
-Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating custom RBAC roles, see [Custom roles for Azure resources](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
+Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
 
 Listing queues with a classic subscription administrator role is not supported. To list queues, a user must have assigned to them the Azure Resource Manager **Reader** role, the **Storage Queue Data Reader** role, or the **Storage Queue Data Contributor** role.
 

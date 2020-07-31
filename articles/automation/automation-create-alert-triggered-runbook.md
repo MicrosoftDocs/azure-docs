@@ -1,6 +1,6 @@
 ---
 title: Use an alert to trigger an Azure Automation runbook
-description: Learn how to trigger a runbook to run when an Azure alert is raised.
+description: This article tells how to trigger a runbook to run when an Azure alert is raised.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
@@ -10,16 +10,13 @@ ms.topic: conceptual
 
 You can use [Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) to monitor base-level metrics and logs for most services in Azure. You can call Azure Automation runbooks by using [action groups](../azure-monitor/platform/action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) or by using classic alerts to automate tasks based on alerts. This article shows you how to configure and run a runbook by using alerts.
 
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
-
 ## Alert types
 
 You can use automation runbooks with three alert types:
 
 * Common alerts
 * Activity log alerts
-* Near real-time metric alerts
+* Near-real-time metric alerts
 
 > [!NOTE]
 > The common alert schema standardizes the consumption experience for alert notifications in Azure today. Historically, the three alert types in Azure today (metric, log, and activity log) have had their own email templates, webhook schemas, etc. To learn more, see [Common alert schema](../azure-monitor/platform/alerts-common-schema.md)
@@ -42,7 +39,7 @@ As described in the preceding section, each type of alert has a different schema
 
 This example uses an alert from a VM. It retrieves the VM data from the payload, and then uses that information to stop the VM. The connection must be set up in the Automation account where the runbook is run. When using alerts to trigger runbooks, it is important to check the alert status in the runbook that is triggered. The runbook triggers each time the alert changes state. Alerts have multiple states, with the two most common being Activated and Resolved. Check for state in your runbook logic to ensure that the runbook does not run more than once. The example in this article shows how to look for alerts with state Activated only.
 
-The runbook uses the connection asset `AzureRunAsConnection` [Run As account](automation-create-runas-account.md) to authenticate with Azure to perform the management action against the VM.
+The runbook uses the connection asset `AzureRunAsConnection` [Run As account](./manage-runas-account.md) to authenticate with Azure to perform the management action against the VM.
 
 Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**. You can modify the PowerShell script, and use it with many different resources.
 
@@ -188,9 +185,8 @@ Alerts use action groups, which are collections of actions that are triggered by
 
 ## Next steps
 
-* For more information about starting an Automation runbook by using a webhook, see [Start a runbook from a webhook](automation-webhooks.md).
-* For details about different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md).
-* To learn how to create an activity log alert, see [Create activity log alerts](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
+* To start a runbook using a webhook, see [Start a runbook from a webhook](automation-webhooks.md).
+* To discover different ways to start a runbook, see [Start a runbook](./start-runbooks.md).
+* To create an activity log alert, see [Create activity log alerts](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * To learn how to create a near real-time alert, see [Create an alert rule in the Azure portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
-* For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).

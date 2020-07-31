@@ -8,13 +8,74 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 07/28/2020
 ms.author: aahi
 ---
 
 # What's new in the Text Analytics API?
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## July 2020
+
+### Text Analytics for health container - Public gated preview
+
+The Text Analytics for health container is now in public gated preview, which lets you extract information from unstructured English-language text in clinical documents such as: patient intake forms, doctor's notes, research papers and discharge summaries. Currently, you will not be billed for Text Analytics for health container usage. 
+
+The container offers the following features:
+
+* Named Entity Recognition
+* Relation extraction
+* Entity linking
+* Negation
+
+
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics for health container](how-tos/text-analytics-for-health.md)
+
+## May 2020
+
+### Text Analytics API v3 General Availability
+
+Text Analysis API v3 is now generally available with the following updates:
+
+* Model version `2020-04-01`
+* New [data limits](concepts/data-limits.md) for each feature
+* Updated [language support](language-support.md) for [Sentiment Analysis (SA) v3](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* Separate endpoint for Entity Linking 
+* New "Address" entity category in [Named Entity Recognition (NER) v3](how-tos/text-analytics-how-to-entity-linking.md).
+* New subcategories in NER v3:
+   * Location - Geographical
+   * Location - Structural
+   * Organization - Stock Exchange
+   * Organization - Medical
+   * Organization - Sports
+   * Event - Cultural
+   * Event - Natural
+   * Event - Sports
+
+The following properties in the JSON response have been added:
+   * `SentenceText` in Sentiment Analysis
+   * `Warnings` for each document 
+
+The names of the following properties in the JSON response have been changed, where applicable:
+
+* `score` has been renamed to `confidenceScore`
+    * `confidenceScore` has two decimal points of precision. 
+* `type` has been renamed to `category`
+* `subtype` has been renamed to `subcategory`
+
+[!INCLUDE [v3 region availability](includes/v3-region-availability.md)]
+
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics API v3](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)
+
+### Text Analytics API v3.1 Public Preview
+   * New Sentiment Analysis feature - [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
+   * New [Personal (`PII`) domain filter](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) for protected health information (`PHI`).
+
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics API v3.1 Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
 
 ## February 2020
 
@@ -25,13 +86,13 @@ As part of the [unified Azure SDK release](https://techcommunity.microsoft.com/t
    * [Python](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-python)
    * [JavaScript (Node.js)](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-javascript)
    * [Java](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3&pivots=programming-language-java)
-
-> [!div class="nextstepaction"]
+   
+   > [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3 SDK](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk?tabs=version-3)
 
 ### Named Entity Recognition v3 public preview
 
-Additional entity types are now available in the Named Entity Recognition (NER) v3 public preview service as we expand the detection of general and personal information entities found in text. This update introduces [model version](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) `2020-02-01`, which includes:
+Additional entity types are now available in the Named Entity Recognition (NER) v3 public preview service as we expand the detection of general and personal information entities found in text. This update introduces [model version](concepts/model-versioning.md) `2020-02-01`, which includes:
 
 * Recognition of the following general entity types (English only):
     * PersonType
@@ -61,7 +122,7 @@ Additional entity types are now available in the Named Entity Recognition (NER) 
 
 * Separate endpoints for [entity recognition](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) and [entity linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking).
 
-* [Model version](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) `2019-10-01`, which includes:
+* [Model version](concepts/model-versioning.md) `2019-10-01`, which includes:
     * Expanded detection and categorization of entities found in text. 
     * Recognition of the following new entity types:
         * Phone number
@@ -72,7 +133,7 @@ Entity linking supports English and Spanish. NER language support varies by the 
 #### Sentiment Analysis v3 public preview
 
 * A [new endpoint](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) for analyzing sentiment.
-* [Model version](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) `2019-10-01`, which includes:
+* [Model version](concepts/model-versioning.md) `2019-10-01`, which includes:
 
     * Significant improvements in the accuracy and detail of the API's text categorization and scoring.
     * Automatic labeling for different sentiments in text.

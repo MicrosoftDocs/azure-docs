@@ -5,8 +5,8 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive
+ms.topic: how-to
+ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
 ---
 
@@ -103,6 +103,7 @@ For more information on the nodes within the cluster, select **Hosts**. Then sel
 
 The **Services** sidebar on the dashboard provides quick insight into the status of the services running on the cluster. Various icons are used to indicate status or actions that should be taken. For example, a yellow recycle symbol is displayed if a service needs to be recycled.
 
+
 ![Apache Ambari services side bar](./media/hdinsight-hadoop-manage-ambari/apache-ambari-service-bar.png)
 
 > [!NOTE]  
@@ -130,7 +131,7 @@ Selecting any of these links opens a new tab in your browser, which displays the
 
 ### Ambari users, groups, and permissions
 
-Working with users, groups, and permissions are supported when using a [domain joined](./domain-joined/hdinsight-security-overview.md) HDInsight cluster. For information on using the Ambari Management UI on a domain-joined cluster, see [Manage domain-joined HDInsight clusters](./domain-joined/hdinsight-security-overview.md).
+Working with users, groups, and permissions is supported. For local administration, see [Authorize users for Apache Ambari Views](./hdinsight-authorize-users-to-ambari.md). For domain-joined clusters, see [Manage domain-joined HDInsight clusters](./domain-joined/hdinsight-security-overview.md).
 
 > [!WARNING]  
 > Do not change the password of the Ambari watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password breaks the ability to use script actions or perform scaling operations with your cluster.
@@ -165,10 +166,10 @@ The **Hosts** page lists all hosts in the cluster. To manage hosts, follow these
 
 From the **Dashboard** or **Services** page, use the **Actions** button at the bottom of the list of services to stop and start all services.
 
-![Apache Ambari service actions list](./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png)
+:::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png" alt-text="Apache Ambari service actions list." border="true":::
 
 > [!WARNING]  
-> While **Add Service** is listed in this menu, it should not be used to add services to the HDInsight cluster. New services should be added using a Script Action during cluster provisioning. For more information on using Script Actions, see [Customize HDInsight clusters using Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
+> New services should be added using a Script Action during cluster provisioning. For more information on using Script Actions, see [Customize HDInsight clusters using Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
 While the **Actions** button can restart all services, often you want to start, stop, or restart a specific service. Use the following steps to do actions on an individual service:
 
@@ -198,7 +199,7 @@ To configure a service, use the following steps:
 
 ## Ambari views
 
-Ambari Views allow developers to plug UI elements into the Ambari Web UI using the [Apache Ambari Views Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight provides the following views with Hadoop cluster types:
+Ambari Views allow developers to plug UI elements into the Ambari Web UI using the Apache Ambari Views Framework. HDInsight provides the following views with Hadoop cluster types:
 
 * Hive View: The Hive View allows you to run Hive queries directly from your web browser. You can save queries, view results, save results to the cluster storage, or download results to your local system. For more information on using Hive Views, see [Use Apache Hive Views with HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 

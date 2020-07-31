@@ -11,7 +11,8 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.date: 11/09/2018
-ms.author: juliako
+ms.author: juliako 
+ms.custom: devx-track-azurecli
 ---
 
 # Create and monitor Media Services events with Event Grid using the Azure CLI
@@ -27,7 +28,7 @@ In this article, you use the Azure CLI to subscribe to events for your Azure Med
 
     Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 
-- [Create a Media Services account](create-account-cli-how-to.md).
+- [Create a Media Services account](./create-account-howto.md).
 
     Make sure to remember the values that you used for the resource group name and Media Services account name.
 
@@ -106,4 +107,3 @@ View your web app again, and notice that a subscription validation event has bee
 ## Next steps
 
 [Upload, encode, and stream](stream-files-tutorial-with-api.md)
-

@@ -64,7 +64,7 @@ Ensure that there are no [locks on your virtual network and resource group](../.
 
 ## Unsupported component versions
 
-Ensure that you are using a [supported version of Azure HDInsight](../hdinsight-component-versioning.md) and any [Apache Hadoop components](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions) in your solution.  
+Ensure that you are using a [supported version of Azure HDInsight](../hdinsight-component-versioning.md) and any [Apache Hadoop components](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions) in your solution.  
 
 ## Storage account name restrictions
 

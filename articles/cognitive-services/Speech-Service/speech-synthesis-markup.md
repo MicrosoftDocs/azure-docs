@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
+ms.custom: devx-track-javascript
 ---
 
 # Improve synthesis with Speech Synthesis Markup Language (SSML)
@@ -186,11 +187,12 @@ speechConfig!.setPropertyTo(
 > [!IMPORTANT]
 > The adjustment of speaking styles will only work with neural voices.
 
-By default, the text-to-speech service synthesizes text using a neutral speaking style for both standard and neural voices. With neural voices, you can adjust the speaking style to express cheerfulness, empathy, or sentiment with the `<mstts:express-as>` element. This is an optional element unique to the Speech service.
+By default, the text-to-speech service synthesizes text using a neutral speaking style for both standard and neural voices. With neural voices, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm, or optimize the voice for different scenarios like custom service, newscasting and voice assistant, using the <mstts:express-as> element. This is an optional element unique to the Speech service.
 
 Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-AriaNeural`
 * `zh-CN-XiaoxiaoNeural`
+* `zh-CN-YunyangNeural`
 
 Changes are applied at the sentence level, and style vary by voice. If a style isn't supported, the service will return speech in the default neutral speaking style.
 
@@ -218,7 +220,8 @@ Use this table to determine which speaking styles are supported for each neural 
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
 |                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
 |                         | `style="assistant"`       | Expresses a warm and relaxed tone for digital assistants    |
-|                         | `style="lyrical"`         | Expresses emotions in a melodic and sentimental way         |
+|                         | `style="lyrical"`         | Expresses emotions in a melodic and sentimental way         |   
+| `zh-CN-YunyangNeural`   | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  | 
 
 **Example**
 
@@ -269,7 +272,7 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-AriaNeural">
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
@@ -323,7 +326,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>`ipa` &ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet <span class="docon docon-navigate-external x-hidden-focus"></span></a></li><li>`sapi` &ndash; [Speech service phonetic alphabet](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash; Universal Phone Set</li></ul><br>The alphabet applies only to the `phoneme` in the element.. | Optional |
+| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>`ipa` &ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet <span class="docon docon-navigate-external x-hidden-focus"></span></a></li><li>`sapi` &ndash; [Speech service phonetic alphabet](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash;<a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank"> Universal Phone Set</a></li></ul><br>The alphabet applies only to the `phoneme` in the element.. | Optional |
 | `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, the text-to-speech (TTS) service rejects the entire SSML document and produces none of the speech output specified in the document. | Required if using phonemes. |
 
 **Examples**
@@ -354,7 +357,10 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ## Use custom lexicon to improve pronunciation
 
-Sometimes TTS cannot accurately pronounce a word, for example, a company or foreign name. Developers can define the reading of these entities in SSML using `phoneme` and `sub` tag, or define the reading of multiple entities by referring to a custom lexicon file using `lexicon` tag.
+Sometimes the text-to-speech service cannot accurately pronounce a word. For example, the name of a company, or a medical term. Developers can define how single entities are read in SSML using the `phoneme` and `sub` tags. However, if you need to define how multiple entities are read, you can create a custom lexicon using the `lexicon` tag.
+
+> [!NOTE]
+> Custom lexicon currently supports UTF-8 encoding. 
 
 **Syntax**
 
@@ -370,14 +376,10 @@ Sometimes TTS cannot accurately pronounce a word, for example, a company or fore
 
 **Usage**
 
-Step 1: Define custom lexicon 
-
-You can define the reading of entities by a list of custom lexicon items, stored as an .xml or .pls file.
-
-**Example**
+To define how multiple entities are read, you can create a custom lexicon, which is stored as an .xml or .pls file. The following is a sample .xml file.
 
 ```xml
-<?xml version="1.0" encoding="UTF-16"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -395,39 +397,61 @@ You can define the reading of entities by a list of custom lexicon items, stored
 </lexicon>
 ```
 
-Each `lexeme` element is a lexicon item. `grapheme` contains text describing the orthograph of `lexeme`. Readout form can be provided as `alias`. Phone string could be provided in `phoneme` element.
+The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text describing the <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"></span></a>. The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text describing how the `lexeme` is pronounced.
 
-The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alais`, and `phoneme` elements. The `grapheme` element contains text describing the <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"></span></a>. The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text describing how the `lexeme` is pronounced.
+It's important to note, that you cannot directly set the pronunciation of a word using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
 
-For more information about custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/) on the W3C website.
+```xml
+  <lexeme>
+    <grapheme>Scotland MV</grapheme> 
+    <alias>ScotlandMV</alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme>ScotlandMV</grapheme> 
+    <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
+  </lexeme>
+```
 
-Step 2: Upload custom lexicon file created in step 1 online, you could store it anywhere, and we suggest you to store it in Microsoft Azure, for example [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+> [!IMPORTANT]
+> The `phoneme` element cannot contain white spaces when using IPA.
 
-Step 3: Refer to custom lexicon file in SSML
+For more information about custom lexicon file, see [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/).
+
+Next, publish your custom lexicon file. While we don't have restrictions on where this file can be stored, we do recommend using [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+After you've published your custom lexicon, you can reference it from your SSML.
+
+> [!NOTE]
+> The `lexicon` element must be inside the `voice` element.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
           xmlns:mstts="http://www.w3.org/2001/mstts" 
           xml:lang="en-US">
-<lexicon uri="http://www.example.com/customlexicon.xml"/>
-BTW, we will be there probably 8:00 tomorrow morning.
-Could you help leave a message to Robert Benigni for me?
+    <voice name="en-US-AriaRUS">
+        <lexicon uri="http://www.example.com/customlexicon.xml"/>
+        BTW, we will be there probably at 8:00 tomorrow morning.
+        Could you help leave a message to Robert Benigni for me?
+    </voice>
 </speak>
 ```
-"BTW" will be read as "By the way". "Benigni" will be read with provided IPA "bɛˈniːnji".  
 
-**Limitation**
+When using this custom lexicon, "BTW" will be read as "By the way". "Benigni" will be read with the provided IPA "bɛˈniːnji".  
+
+**Limitations**
 - File size: custom lexicon file size maximum limit is 100KB, if beyond this size, synthesis request will fail.
 - Lexicon cache refresh: custom lexicon will be cached with URI as key on TTS Service when it's first loaded. Lexicon with same URI won't be reloaded within 15 mins, so custom lexicon change needs to wait at most 15 mins to take effect.
 
 **Speech service phonetic sets**
 
-In the sample above, we're using the International Phonetic Alphabet, also known as the IPA phone set. We suggest developers use the IPA, because it is the international standard. Considering that the IPA is not easy to remember, the Speech service defines a phonetic set for seven languages (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`).
+In the sample above, we're using the International Phonetic Alphabet, also known as the IPA phone set. We suggest developers use the IPA, because it is the international standard. For some IPA characters, they have the 'precomposed' and 'decomposed' version when being represented with Unicode. Custom lexicon only support the decomposed unicodes.
+
+Considering that the IPA is not easy to remember, the Speech service defines a phonetic set for seven languages (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`).
 
 You can use the `sapi` as the vale for the `alphabet` attribute with custom lexicons as demonstrated below:
 
 ```xml
-<?xml version="1.0" encoding="UTF-16"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -464,7 +488,7 @@ Because prosodic attribute values can vary over a wide range, the speech recogni
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `pitch` | Indicates the baseline pitch for the text. You may express the pitch as:<ul><li>An absolute value, expressed as a number followed by "Hz" (Hertz). For example, 600 Hz.</li><li>A relative value, expressed as a number preceded by "+" or "-" and followed by "Hz" or "st", that specifies an amount to change the pitch. For example: +80 Hz or -2st. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.</li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul>. | Optional |
-| `contour` | Contour isn't supported for neural voices. Contour represents changes in pitch. These changes are represented as an array of targets at specified time positions in the speech output. Each target is defined by sets of parameter pairs. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch, using a relative value or an enumeration value for pitch (see `pitch`). | Optional |
+| `contour` |Contour now supports both neural and standard voices. Contour represents changes in pitch. These changes are represented as an array of targets at specified time positions in the speech output. Each target is defined by sets of parameter pairs. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch, using a relative value or an enumeration value for pitch (see `pitch`). | Optional |
 | `range` | A value that represents the range of pitch for the text. You may express `range` using the same absolute values, relative values, or enumeration values used to describe `pitch`. | Optional |
 | `rate` | Indicates the speaking rate of the text. You may express `rate` as:<ul><li>A relative value, expressed as a number that acts as a multiplier of the default. For example, a value of *1* results in no change in the rate. A value of *0.5* results in a halving of the rate. A value of *3* results in a tripling of the rate.</li><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Optional |
 | `duration` | The period of time that should elapse while the speech synthesis (TTS) service reads the text, in seconds or milliseconds. For example, *2s* or *1800ms*. | Optional |
@@ -472,13 +496,13 @@ Because prosodic attribute values can vary over a wide range, the speech recogni
 
 ### Change speaking rate
 
-Speaking rate can be applied to standard voices at the word or sentence-level. Whereas speaking rate can only be applied to neural voices at the sentence level.
+Speaking rate can be applied to Neural voices and standard voices at the word or sentence-level. 
 
 **Example**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-Guy24kRUS">
+    <voice name="en-US-GuyNeural">
         <prosody rate="+30.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -519,15 +543,15 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 ### Change pitch contour
 
 > [!IMPORTANT]
-> Pitch contour changes aren't supported with neural voices.
+> Pitch contour changes are now supported with neural voices.
 
 **Example**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
-        <prosody contour="(80%,+20%) (90%,+30%)" >
-            Good morning.
+    <voice name="en-US-AriaNeural">
+        <prosody contour="(60%,-60%) (100%,+80%)" >
+            Were you the only person in the room? 
         </prosody>
     </voice>
 </speak>

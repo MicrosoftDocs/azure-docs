@@ -5,12 +5,12 @@ description: Learn how to use Azure Machine Learning to deploy a model to an Azu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-
+ms.topic: conceptual
+ms.custom: how-to, racking-python
 
 ---
 
@@ -52,6 +52,7 @@ Before deploying, you must define what is needed to run the model as a web servi
     >
     > By default when packaging for functions, the input is treated as text. If you are interested in consuming the raw bytes of the input (for instance for Blob triggers), you should use [AMLRequest to accept raw data](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
 
+For more information on entry script, see [Define scoring code](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script)
 
 * **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
 
@@ -105,7 +106,7 @@ blob.wait_for_creation(show_output=True)
 print(blob.location)
 ```
 
-When `show_output=True`, the output of the Docker build process is shown. Once the process finishes, the image has been created in the Azure Container Registry for your workspace. Once the image has been built, the location in your Azure Container Registry is displayed. The location returned is in the format `<acrinstance>.azurecr.io/package@sha256:<hash>`.
+When `show_output=True`, the output of the Docker build process is shown. Once the process finishes, the image has been created in the Azure Container Registry for your workspace. Once the image has been built, the location in your Azure Container Registry is displayed. The location returned is in the format `<acrinstance>.azurecr.io/package@sha256:<imagename>`.
 
 > [!NOTE]
 > Packaging for functions currently supports HTTP Triggers, Blob triggers and Service bus triggers. For more information on triggers, see [Azure Functions bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).

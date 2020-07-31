@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
-ms.topic: article
+ms.topic: end-user-help
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
@@ -25,7 +25,7 @@ Managing your team members in My Staff is simple. To start, [go to My Staff](htt
 
 If you manage more than one location, when you go to My Staff you must select a location to see the team member who are assigned to the location.
 
-If you don't yet have sufficient permissions to access My Staff, you'll see the following message "Oops, seem you're not authorized to see My Staff at this time. Please contact your admin for more information."
+If you don't yet have sufficient permissions to access My Staff, you'll see the following message "Oops, seems you're not authorized to see My Staff at this time. Please contact your admin for more information."
 
 ### Find a staff member in My Staff
 

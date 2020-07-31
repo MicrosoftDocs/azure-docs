@@ -27,12 +27,15 @@ Examples of output field mappings:
 
 * You don’t have a skillset but are indexing a complex type from a Cosmos DB database. You would like to get to a node on that complex type and map it into a field in your index.
 
+> [!NOTE]
+> We recently enabled the functionality of mapping functions on output field mappings. For more details on mapping functions, see [Field mapping functions](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions)
+
 ## Use outputFieldMappings
 
 To map fields, add `outputFieldMappings` to your indexer definition as shown below:
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -57,7 +60,10 @@ The body of the request is structured as follows:
     "outputFieldMappings": [
         {
             "sourceFieldName": "/document/content/organizations/*/description",
-            "targetFieldName": "descriptions"
+            "targetFieldName": "descriptions",
+            "mappingFunction": {
+                "name": "base64Decode"
+            }
         },
         {
             "sourceFieldName": "/document/content/organizations",

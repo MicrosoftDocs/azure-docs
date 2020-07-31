@@ -41,7 +41,7 @@ The key scenarios why one should use Application Gateway behind Front Door are:
 
 - Front Door can perform path-based load balancing only at the global level but if one wants to load balance traffic even further within their virtual network (VNET) then they should use Application Gateway.
 - Since Front Door doesn't work at a VM/container level, so it cannot do Connection Draining. However, Application Gateway allows you to do Connection Draining. 
-- With an Application Gateway behind AFD, one can achieve 100% TLS/SSL offload and route only HTTP requests within their virtual network (VNET).
+- With an Application Gateway behind Front Door, one can achieve 100% TLS/SSL offload and route only HTTP requests within their virtual network (VNET).
 - Front Door and Application Gateway both support session affinity. While Front Door can direct subsequent traffic from a user session to the same cluster or backend in a given region, Application Gateway can direct affinitize the traffic to the same server within the cluster.  
 
 ### Can we deploy Azure Load Balancer behind Front Door?
@@ -86,14 +86,14 @@ To lock down your application to accept traffic only from your specific Front Do
 
 - Configure IP ACLing for your backends to accept traffic from Azure Front Door's backend IP address space and Azure's infrastructure services only. Refer the IP details below for ACLing your backend:
  
-    - Refer *AzureFrontDoor.Backend* section in [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for Front Door's IPv4 backend IP address range or you can also use the service tag *AzureFrontDoor.Backend* in your [network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) or with [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags).
+    - Refer *AzureFrontDoor.Backend* section in [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for Front Door's IPv4 backend IP address range or you can also use the service tag *AzureFrontDoor.Backend* in your [network security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules).
     - Front Door's **IPv6** backend IP space while covered in the service tag, is not listed in the Azure IP ranges JSON file. If you are looking for explicit IPv6 address range, it is currently limited to `2a01:111:2050::/44`
     - Azure's [basic infrastructure services](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) through virtualized host IP addresses: `168.63.129.16` and `169.254.169.254`
 
     > [!WARNING]
     > Front Door's backend IP space may change later, however, we will ensure that before that happens, that we would have integrated with [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519). We recommend that you subscribe to [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519) for any changes or updates.
 
--    Perform a GET operation on your Front Door with the API version `2020-01-01` or higher. In the API call, look for `frontdoorID` field. Filter on the incoming header '**X-Azure-FDID**' sent by Front Door to your backend with the value as that of the field `frontdoorID`. 
+-    Perform a GET operation on your Front Door with the API version `2020-01-01` or higher. In the API call, look for `frontdoorID` field. Filter on the incoming header '**X-Azure-FDID**' sent by Front Door to your backend with the value as that of the field `frontdoorID`. You can also find `Front Door ID` value under the Overview section from Front Door portal page. 
 
 ### Can the anycast IP change over the lifetime of my Front Door?
 

@@ -21,15 +21,22 @@ This article describes the workflow automation feature of Azure Security Center.
 > If you previously used the Playbooks (Preview) view on the sidebar, you'll find the same features together with the expanded functionality in the new workflow automation page.
 
 
-## Requirements
 
-* To work with Azure Logic Apps workflows, you must have the following Logic Apps roles/permissions:
+## Availability
 
-    * [Logic App Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)
-
-    * [Logic App Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) permissions are required for Logic App creation and modification
-
-* If you want to use Logic App connectors, you may need additional credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances)
+- Release state: **Generally Available**
+- Required roles and permissions:
+    - **Reader** on the subscription containing the export configuration
+    - **Security admin role** on the resource group (or **Owner**)
+    - Must also have write permissions for the target resource
+    - Also, to work with Azure Logic Apps workflows, you must have the following Logic Apps roles/permissions:
+        - [Logic App Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)
+        - [Logic App Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) permissions are required for Logic App creation and modification
+        - If you want to use Logic App connectors, you may need additional credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances)
+- Clouds: 
+    - ✔ Commercial clouds
+    - ✔ US government cloud
+    - ✘ China government cloud, other gov clouds
 
 
 ## Create a Logic App and define when it should automatically run 

@@ -34,7 +34,7 @@ The scenario outlined in this tutorial assumes that you have:
 * A user account in Cornerstone OnDemand with admin permissions.
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the [Cornerstone OnDemand web service](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_-_Summary_of_Web_Services_v20151106.pdf). This service is available to Cornerstone OnDemand teams.
+> The Azure AD provisioning integration relies on the [Cornerstone OnDemand web service](https://www.cornerstoneondemand.com/). This service is available to Cornerstone OnDemand teams.
 
 ## Add Cornerstone OnDemand from the Azure Marketplace
 

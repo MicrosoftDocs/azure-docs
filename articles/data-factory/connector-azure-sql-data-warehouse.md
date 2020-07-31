@@ -10,23 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/25/2020
+ms.date: 07/15/2020
 ---
 
-# Copy and transform data in Azure Synapse Analytics (formerly Azure SQL Data Warehouse) by using Azure Data Factory 
+# Copy and transform data in Azure Synapse Analytics (formerly Azure SQL Data Warehouse) by using Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
-> * [Current version](connector-azure-sql-data-warehouse.md)
+>
+> - [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
+> - [Current version](connector-azure-sql-data-warehouse.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Synapse Analytics, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
-
-
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure SQL Data Warehouse, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Synapse Analytics, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
@@ -43,11 +37,11 @@ For Copy activity, this Azure Synapse Analytics connector supports these functio
 
 - Copy data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieve data by using a SQL query or stored procedure.
-- As a sink, load data by using [PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) or [COPY statement](#use-copy-statement) (preview) or bulk insert. We recommend PolyBase or COPY statement (preview) for better copy performance.
+- As a sink, load data by using [PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) or [COPY statement](#use-copy-statement) (preview) or bulk insert. We recommend PolyBase or COPY statement (preview) for better copy performance. The connector also supports automatically creating destination table if not exists based on the source schema.
 
 > [!IMPORTANT]
-> If you copy data by using Azure Data Factory Integration Runtime, configure an [Azure SQL server firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) so that Azure services can access the server.
-> If you copy data by using a self-hosted integration runtime, configure the Azure SQL server firewall to allow the appropriate IP range. This range includes the machine's IP that is used to connect to Azure Synapse Analytics.
+> If you copy data by using Azure Data Factory Integration Runtime, configure a [server-level firewall rule](../azure-sql/database/firewall-configure.md) so that Azure services can access the [logical SQL server](../azure-sql/database/logical-servers.md).
+> If you copy data by using a self-hosted integration runtime, configure the firewall to allow the appropriate IP range. This range includes the machine's IP that is used to connect to Azure Synapse Analytics.
 
 ## Get started
 
@@ -109,13 +103,13 @@ For different authentication types, refer to the following sections on prerequis
         "type": "AzureSqlDW",
         "typeProperties": {
             "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "<Azure Key Vault linked service name>",
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "<secretName>"
             }
         },
         "connectVia": {
@@ -130,15 +124,15 @@ For different authentication types, refer to the following sections on prerequis
 
 To use service principal-based Azure AD application token authentication, follow these steps:
 
-1. **[Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** from the Azure portal. Make note of the application name and the following values that define the linked service:
+1. **[Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)** from the Azure portal. Make note of the application name and the following values that define the linked service:
 
-    - Application ID
-    - Application key
-    - Tenant ID
+   - Application ID
+   - Application key
+   - Tenant ID
 
-2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
+2. **[Provision an Azure Active Directory administrator](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database)** for your server in the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-3. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
+3. **[Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
@@ -151,7 +145,6 @@ To use service principal-based Azure AD application token authentication, follow
     ```
 
 5. **Configure an Azure Synapse Analytics linked service** in Azure Data Factory.
-
 
 #### Linked service example that uses service principal authentication
 
@@ -183,9 +176,9 @@ A data factory can be associated with a [managed identity for Azure resources](d
 
 To use managed identity authentication, follow these steps:
 
-1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
+1. **[Provision an Azure Active Directory administrator](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-database)** for your server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-2. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Data Factory Managed Identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL. 
+2. **[Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities)** for the Data Factory Managed Identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL.
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
@@ -197,7 +190,7 @@ To use managed identity authentication, follow these steps:
     EXEC sp_addrolemember db_owner, [your Data Factory name];
     ```
 
-5. **Configure an Azure Synapse Analytics linked service** in Azure Data Factory.
+4. **Configure an Azure Synapse Analytics linked service** in Azure Data Factory.
 
 **Example:**
 
@@ -219,7 +212,7 @@ To use managed identity authentication, follow these steps:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
+For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article.
 
 The following properties are supported for Azure Synapse Analytics dataset:
 
@@ -230,7 +223,7 @@ The following properties are supported for Azure Synapse Analytics dataset:
 | table | Name of the table/view. |No for source, Yes for sink  |
 | tableName | Name of the table/view with schema. This property is supported for backward compatibility. For new workload, use `schema` and `table`. | No for source, Yes for sink |
 
-#### Dataset properties example
+### Dataset properties example
 
 ```json
 {
@@ -265,7 +258,7 @@ To copy data from Azure Synapse Analytics, set the **type** property in the Copy
 | sqlReaderQuery               | Use the custom SQL query to read data. Example: `select * from MyTable`. | No       |
 | sqlReaderStoredProcedureName | The name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. | No       |
 | storedProcedureParameters    | Parameters for the stored procedure.<br/>Allowed values are name or value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No       |
-| isolationLevel | Specifies the transaction locking behavior for the SQL source. The allowed values are: **ReadCommitted** (default), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Refer to [this doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) for more details. | No |
+| isolationLevel | Specifies the transaction locking behavior for the SQL source. The allowed values are: **ReadCommitted**, **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. If not specified, the database's default isolation level is used. Refer to [this doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) for more details. | No |
 
 **Example: using SQL query**
 
@@ -360,7 +353,7 @@ Azure Data Factory supports three ways to load data into SQL Data Warehouse.
 
 ![SQL DW sink copy options](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
 
-- [Use PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 
+- [Use PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse)
 - [Use COPY statement (preview)](#use-copy-statement)
 - Use bulk insert
 
@@ -378,7 +371,7 @@ To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to 
 | writeBatchSize    | Number of rows to inserts into the SQL table **per batch**.<br/><br/>The allowed value is **integer** (number of rows). By default, Data Factory dynamically determines the appropriate batch size based on the row size. | No.<br/>Apply  when using bulk insert.     |
 | writeBatchTimeout | Wait time for the batch insert operation to finish before it times out.<br/><br/>The allowed value is **timespan**. Example: "00:30:00" (30 minutes). | No.<br/>Apply  when using bulk insert.        |
 | preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Data Warehouse in each run. Use this property to clean up the preloaded data. | No                                            |
-| tableOption | Specifies whether to automatically create the sink table if not exists based on the source schema. Auto table creation is not supported when staged copy is configured in copy activity. Allowed values are: `none` (default), `autoCreate`. |No |
+| tableOption | Specifies whether to [automatically create the sink table](copy-activity-overview.md#auto-create-sink-tables) if not exists based on the source schema. Auto table creation is not supported when staged copy is configured in copy activity. Allowed values are: `none` (default), `autoCreate`. |No |
 | disableMetricsCollection | Data Factory collects metrics such as SQL Data Warehouse DWUs for copy performance optimization and recommendations. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 
 #### SQL Data Warehouse sink example
@@ -401,11 +394,11 @@ To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to 
 
 Using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure Synapse Analytics with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. For a walkthrough with a use case, see [Load 1 TB into Azure Synapse Analytics](v1/data-factory-load-sql-data-warehouse.md).
 
-* If your source data is in **Azure Blob, Azure Data Lake Storage Gen1 or Azure Data Lake Storage Gen2**, and the **format is PolyBase compatible**, you can use copy activity to directly invoke PolyBase to let Azure SQL Data Warehouse pull the data from source. For details, see **[Direct copy by using PolyBase](#direct-copy-by-using-polybase)**.
-* If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy by using PolyBase](#staged-copy-by-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format, stores the data in Azure Blob storage., then calls PolyBase to load data into SQL Data Warehouse.
+- If your source data is in **Azure Blob, Azure Data Lake Storage Gen1 or Azure Data Lake Storage Gen2**, and the **format is PolyBase compatible**, you can use copy activity to directly invoke PolyBase to let Azure SQL Data Warehouse pull the data from source. For details, see **[Direct copy by using PolyBase](#direct-copy-by-using-polybase)**.
+- If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy by using PolyBase](#staged-copy-by-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format, stores the data in Azure Blob storage, then calls PolyBase to load data into SQL Data Warehouse.
 
->[!TIP]
->Learn more on [Best practices for using PolyBase](#best-practices-for-using-polybase).
+> [!TIP]
+> Learn more on [Best practices for using PolyBase](#best-practices-for-using-polybase).
 
 The following PolyBase settings are supported under `polyBaseSettings` in copy activity:
 
@@ -434,7 +427,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Account key authentication, managed identity authentication |
 
     >[!IMPORTANT]
-    >If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication - refer to [Impact of using VNet Service Endpoints with Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Learn the required configurations in Data Factory from [Azure Blob - managed identity authentication](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2 - managed identity authentication](connector-azure-data-lake-storage.md#managed-identity) section respectively.
+    >If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication - refer to [Impact of using VNet Service Endpoints with Azure storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Learn the required configurations in Data Factory from [Azure Blob - managed identity authentication](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2 - managed identity authentication](connector-azure-data-lake-storage.md#managed-identity) section respectively.
 
 2. The **source data format** is of **Parquet**, **ORC**, or **Delimited text**, with the following configurations:
 
@@ -494,7 +487,7 @@ When your source data is not natively compatible with PolyBase, enable data copy
 To use this feature, create an [Azure Blob Storage linked service](connector-azure-blob-storage.md#linked-service-properties) that refers to the Azure storage account with the interim blob storage. Then specify the `enableStaging` and `stagingSettings` properties for the Copy Activity as shown in the following code.
 
 >[!IMPORTANT]
->If your staging Azure Storage is configured with VNet service endpoint, you must use managed identity authentication - refer to [Impact of using VNet Service Endpoints with Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Learn the required configurations in Data Factory from [Azure Blob - managed identity authentication](connector-azure-blob-storage.md#managed-identity).
+>If your staging Azure Storage is configured with VNet service endpoint, you must use managed identity authentication - refer to [Impact of using VNet Service Endpoints with Azure storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Learn the required configurations in Data Factory from [Azure Blob - managed identity authentication](connector-azure-blob-storage.md#managed-identity).
 
 ```json
 "activities":[
@@ -564,7 +557,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 ```
 
 The solution is to unselect "**Use type default**" option (as false) in copy activity sink -> PolyBase settings. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
-)" is a PolyBase native configuration, which specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file. 
+)" is a PolyBase native configuration, which specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.
 
 **`tableName` in Azure Synapse Analytics**
 
@@ -612,7 +605,7 @@ Using COPY statement supports the following configuration:
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Delimited text](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Account key authentication, service principal authentication, managed identity authentication |
 
     >[!IMPORTANT]
-    >If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication - refer to [Impact of using VNet Service Endpoints with Azure storage](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Learn the required configurations in Data Factory from [Azure Blob - managed identity authentication](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2 - managed identity authentication](connector-azure-data-lake-storage.md#managed-identity) section respectively.
+    >If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication - refer to [Impact of using VNet Service Endpoints with Azure storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Learn the required configurations in Data Factory from [Azure Blob - managed identity authentication](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2 - managed identity authentication](connector-azure-data-lake-storage.md#managed-identity) section respectively.
 
 2. Format settings are with the following:
 
@@ -626,9 +619,9 @@ Using COPY statement supports the following configuration:
       5. `skipLineCount` is left as default or set to 0.
       6. `compression` can be **no compression** or **GZip**.
 
-3. If your source is a folder, `recursive` in copy activity must be set to true.
+3. If your source is a folder, `recursive` in copy activity must be set to true, and `wildcardFilename` need to be `*`. 
 
-4. `wildcardFolderPath` , `wildcardFilename`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` and `additionalColumns` are not specified.
+4. `wildcardFolderPath` , `wildcardFilename` (other than `*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd` and `additionalColumns` are not specified.
 
 The following COPY statement settings are supported under `allowCopyCommand` in copy activity:
 
@@ -664,17 +657,17 @@ The following COPY statement settings are supported under `allowCopyCommand` in 
             },
             "sink": {
                 "type": "SqlDWSink",
-                "allowCopyCommand": true, 
+                "allowCopyCommand": true,
                 "copyCommandSettings": {
-                    "defaultValues": [ 
-                        { 
-                            "columnName": "col_string", 
-                            "defaultValue": "DefaultStringValue" 
+                    "defaultValues": [
+                        {
+                            "columnName": "col_string",
+                            "defaultValue": "DefaultStringValue"
                         }
                     ],
-                    "additionalOptions": { 
-                        "MAXERRORS": "10000", 
-                        "DATEFORMAT": "'ymd'" 
+                    "additionalOptions": {
+                        "MAXERRORS": "10000",
+                        "DATEFORMAT": "'ymd'"
                     }
                 }
             },
@@ -684,39 +677,31 @@ The following COPY statement settings are supported under `allowCopyCommand` in 
 ]
 ```
 
-
-## Lookup activity properties
-
-To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
-
-## GetMetadata activity properties
-
-To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
-
-## Data type mapping for Azure SQL Data Warehouse
-
 ## Mapping data flow properties
 
 When transforming data in mapping data flow, you can read and write to tables from Azure Synapse Analytics. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows.
 
 ### Source transformation
 
-Settings specific to Azure Synapse Analytics are available in the **Source Options** tab of the source transformation. 
+Settings specific to Azure Synapse Analytics are available in the **Source Options** tab of the source transformation.
 
-**Input:** Select whether you point your source at a table (equivalent of ```Select * from <table-name>```) or enter a custom SQL query.
+**Input** Select whether you point your source at a table (equivalent of ```Select * from <table-name>```) or enter a custom SQL query.
 
-**Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups. 
+**Enable Staging** It is highly recommended that you use this option in production workloads with Synapse DW sources. When you execute a data flow activity with Synapase sources from a pipeline, ADF will prompt you for a staging location storage account and will use that for staged data loading. It is the fastest mechanism to load data from Synapse DW.
 
-* SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+**Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups.
 
-**Batch size**: Enter a batch size to chunk large data into reads. In data flows, ADF will use this setting to set Spark columnar caching. This is an option field which will use Spark defaults if it is left blank.
+SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+
+**Batch size**: Enter a batch size to chunk large data into reads. In data flows, ADF will use this setting to set Spark columnar caching. This is an option field, which will use Spark defaults if it is left blank.
 
 **Isolation Level**: The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:
-* Read Committed
-* Read Uncommitted
-* Repeatable Read
-* Serializable
-* None (ignore isolation level)
+
+- Read Committed
+- Read Uncommitted
+- Repeatable Read
+- Serializable
+*- None (ignore isolation level)
 
 ![Isolation Level](media/data-flow/isolationlevel.png "Isolation Level")
 
@@ -727,9 +712,10 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 **Update method:** Determines what operations are allowed on your database destination. The default is to only allow inserts. To update, upsert, or delete rows, an alter-row transformation is required to tag rows for those actions. For updates, upserts and deletes, a key column or columns must be set to determine which row to alter.
 
 **Table action:** Determines whether to recreate or remove all rows from the destination table prior to writing.
-* None: No action will be done to the table.
-* Recreate: The table will get dropped and recreated. Required if creating a new table dynamically.
-* Truncate: All rows from the target table will get removed.
+
+- None: No action will be done to the table.
+- Recreate: The table will get dropped and recreated. Required if creating a new table dynamically.
+- Truncate: All rows from the target table will get removed.
 
 **Enable staging:** Determines whether or not to use [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15) when writing to Azure Synapse Analytics
 
@@ -738,6 +724,14 @@ Settings specific to Azure Synapse Analytics are available in the **Settings** t
 **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
 
 ![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md)
 
 ## Data type mapping for Azure Synapse Analytics
 
@@ -777,4 +771,5 @@ When you copy data from or to Azure Synapse Analytics, the following mappings ar
 | varchar                               | String, Char[]                 |
 
 ## Next steps
+
 For a list of data stores supported as sources and sinks by Copy Activity in Azure Data Factory, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

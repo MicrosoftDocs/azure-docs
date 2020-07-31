@@ -2,21 +2,17 @@
 title: Enable automatic user provisioning for multi-tenant applications - Azure AD
 description: A guide for independent software vendors for enabling automated provisioning
 services: active-directory
-documentationcenter: 'azure'
-author: BarbaraSelden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
+ms.topic: reference
 ms.workload: identity
 ms.date: 07/23/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: zhchia
-
-ms.collection: active-directory
 ---
+
 # Enable automatic user provisioning for your multi-tenant application
 
 Automatic user provisioning is the process of automating the creation, maintenance, and removal of user identities in target systems like your software-as-a-service applications.
@@ -114,4 +110,4 @@ SAML JIT uses the claims information in the SAML token to create and update user
 
 * [Submit your application listing](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) and partner with Microsoft to create documentation on Microsoft’s site.
 
-* [Join the Microsoft Partner Network (free) and create your go to market plan](https://partner.microsoft.com/en-us/explore/commercial).
+* [Join the Microsoft Partner Network (free) and create your go to market plan](https://partner.microsoft.com/explore/commercial).

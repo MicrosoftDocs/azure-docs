@@ -3,10 +3,11 @@ title: Create a premium Azure file share
 description: In this article, you learn how to create a premium Azure file share.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2019
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurecli
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
@@ -42,6 +43,9 @@ Every storage account must belong to an Azure resource group. A resource group i
 1. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and can include numbers and lowercase letters only.
 1. Select a location for your storage account, or use the default location.
 1. For **Performance** select **Premium**.
+
+    You must select **Premium** for **FileStorage** to be an available option in the **Account kind** dropdown.
+
 1. Select **Account kind** and choose **FileStorage**.
 1. Leave **Replication** set to its default value of **Locally-redundant storage (LRS)**.
 

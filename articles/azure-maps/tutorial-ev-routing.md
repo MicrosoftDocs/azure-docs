@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Route electric vehicles by using Azure Notebooks (Python) | Microsoft Azure Maps'
 description: Route electric vehicles by using Microsoft Azure Maps routing APIs and Azure Notebooks.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 ---
 
 # Tutorial: Route electric vehicles by using Azure Notebooks (Python)
@@ -34,7 +34,7 @@ In this tutorial, you will:
 
 To complete this tutorial, you first need to create an Azure Maps account and get your primary key (subscription key). 
 
-To create an Azure Maps account subscription, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps). You need an Azure Maps account subscription with the S1 price tier. 
+To create an Azure Maps account subscription, follow instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account). You need an Azure Maps account subscription with the S1 price tier. 
 
 To get the primary subscription key for your account, follow the instructions in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 

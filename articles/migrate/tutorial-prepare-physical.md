@@ -10,7 +10,7 @@ ms.custom: mvc
 
 This article describes how to prepare for assessment of on-premises physical servers with [Azure Migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
+[Azure Migrate](./migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
 
 This tutorial is the first in a series that shows you how to assess physical servers with Azure Migrate. In this tutorial, you learn how to:
 
@@ -70,11 +70,11 @@ The tenant/global admin can grant permissions as follows:
     ![Azure AD permissions](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> This is a default setting that isn't sensitive. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> This is a default setting that isn't sensitive. [Learn more](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 #### Assign Application Developer role
 
-The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+The tenant/global admin can assign the Application Developer role to an account. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 
 ## Prepare Azure for physical server migration
@@ -100,10 +100,9 @@ Prepare Azure to migrate physical servers, using Server Migration.
 ### Assign Azure account permissions
 
 Assign the Virtual Machine Contributor role to the Azure account. This provides permissions to:
-
-    - Create a VM in the selected resource group.
-    - Create a VM in the selected virtual network.
-    - Write to an Azure managed disk. 
+  - Create a VM in the selected resource group.
+  - Create a VM in the selected virtual network.
+  - Write to an Azure managed disk. 
 
 ### Create an Azure network
 
@@ -134,10 +133,7 @@ Before setting up the Azure Migrate appliance and beginning assessment in the ne
 
 Azure Migrate needs permissions to discover on-premises servers.
 
-- **Windows:** Set up a local user account on all the Windows servers that you want to include in the discovery. The user account needs to be added to the following groups:
-        - Remote Management Users
-        - Performance Monitor Users
-        - Performance Log users
+- **Windows:** You need a domain account to discover domain-joined servers, and a local account to discover machines that are not domain-joined. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
 - **Linux:** You need a root account on the Linux servers that you want to discover.
 
 ## Prepare for physical server migration
@@ -147,12 +143,14 @@ Review the requirements for migration of physical servers.
 > [!NOTE]
 > When migrating physical machines, Azure Migrate:Server Migration uses the same replication architecture as agent-based disaster recovery in the Azure Site Recovery service, and some components share the same code base. Some content might link to Site Recovery documentation.
 
-- [Review](migrate-support-matrix-physical-migration.md#physical-server-requirements) physical server requirements for migration.
-- Azure Migrate:Server Migration uses a replication server for physical server migration:
+1. [Review](migrate-support-matrix-physical-migration.md#physical-server-requirements) physical server requirements for migration.
+2. Azure Migrate:Server Migration uses a replication server for physical server migration:
     - [Review](migrate-replication-appliance.md#appliance-requirements) the deployment requirements for the replication appliance, and the [options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
     - Review the [Azure URLs](migrate-appliance.md#url-access) required for the replication appliance to access public and government clouds.
     - Review [port] (migrate-replication-appliance.md#port-access) access requirements for the replication appliance.
-
+3. There are some changes needed on VMs before you migrate them to Azure.
+    - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
+    - Review [Windows](prepare-for-migration.md#windows-machines) and [Linux](prepare-for-migration.md#linux-machines) changes you need to make.
 
 
 

@@ -8,7 +8,7 @@ ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 
 # Monitoring Azure Backup workloads
 
-Azure Backup provides multiple backup solutions based on the backup requirement and infrastructure topology (On-premises vs Azure). Any backup user or admin should see what is going on across all solutions and expected to be notified in important scenarios. This article details the monitoring and notification capabilities provided by Azure Backup service.
+Azure Backup provides multiple backup solutions based on the backup requirement and infrastructure topology (On-premises vs Azure). Any backup user or admin should see what is going on across all solutions and can expect to be notified in important scenarios. This article details the monitoring and notification capabilities provided by Azure Backup service.
 
 ## Backup Jobs in Recovery Services vault
 
@@ -16,19 +16,19 @@ Azure Backup provides in-built monitoring and alerting capabilities for workload
 
 ![RS vault inbuilt monitoring](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltmonitoring.png)
 
-Jobs are generated when operations such as configuring backup, backup, restore, delete backup, and so on, are performed.
+Jobs are generated when operations such as configuring backup, back up, restore, delete backup, and so on, are performed.
 
 Jobs from the following Azure Backup solutions are shown here:
 
 - Azure VM backup
 - Azure File backup
-- Azure workload backup such as SQL and SAP HANA
-- Azure Backup agent (MAB)
+- Azure workload back up such as SQL and SAP HANA
+- Microsoft Azure Recovery Services (MARS) agent
 
 Jobs from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) are NOT displayed.
 
 > [!NOTE]
-> Azure workloads such as SQL and SAP HANA backups within Azure VMs have huge number of backup jobs. For example, log backups can run for every 15 minutes. Hence, for such DB workloads, only user triggered operations are displayed. Scheduled backup operations are NOT displayed.
+> Azure workloads such as SQL and SAP HANA backups within Azure VMs have huge number of backup jobs. For example, log backups can run for every 15 minutes. So for such DB workloads, only user triggered operations are displayed. Scheduled backup operations are NOT displayed.
 
 ## Backup Alerts in Recovery Services vault
 
@@ -39,7 +39,7 @@ Alerts are primarily scenarios where users are notified so that they can take re
 The following scenarios are defined by service as alertable scenarios.
 
 - Backup/Restore failures
-- Backup succeeded with warnings for Azure Backup Agent (MAB)
+- Backup succeeded with warnings for Microsoft Azure Recovery Services (MARS) agent
 - Stop protection with retain data/Stop protection with delete data
 
 ### Alerts from the following Azure Backup solutions are shown here
@@ -47,14 +47,14 @@ The following scenarios are defined by service as alertable scenarios.
 - Azure VM backups
 - Azure File backups
 - Azure workload backups such as SQL, SAP HANA
-- Azure Backup agent (MAB)
+- Microsoft Azure Recovery Services (MARS) agent 
 
 > [!NOTE]
 > Alerts from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) are NOT displayed here.
 
 ### Consolidated Alerts
 
-For Azure workload backup solutions such as SQL and SAP HANA, log backups can be generated very frequently (up to every 15 minutes according to the policy). So it's also possible that the log backup failures are also very frequent (up to every 15 minutes). In this scenario, the end user will be overwhelmed if an alert is raised for each failure occurrence. So an alert is sent for the first occurrence and if the subsequent failures are because of the same root cause, then further alerts are not generated. The first alert is updated with the failure count. But if the alert is inactivated by the user, the next occurrence will trigger another alert and this will be treated as the first alert for that occurrence. This is how Azure Backup performs alert consolidation for SQL and SAP HANA backups.
+For Azure workload backup solutions such as SQL and SAP HANA, log backups can be generated very frequently (up to every 15 minutes according to the policy). So it's also possible that the log backup failures are also very frequent (up to every 15 minutes). In this scenario, the end user will be overwhelmed if an alert is raised for each failure occurrence. So an alert is sent for the first occurrence and if the later failures are because of the same root cause, then further alerts aren't generated. The first alert is updated with the failure count. But if the alert is inactivated by the user, the next occurrence will trigger another alert and this will be treated as the first alert for that occurrence. This is how Azure Backup performs alert consolidation for SQL and SAP HANA backups.
 
 ### Exceptions when an alert is not raised
 
@@ -72,8 +72,8 @@ The above exceptions are designed from the understanding that the result of thes
 Based on alert severity, alerts can be defined in three types:
 
 - **Critical**: In principle, any backup or recovery failure (scheduled or user triggered) would lead to generation of an alert and would be shown as a Critical alert and also destructive operations such as delete backup.
-- **Warning**: If the backup operation succeeds but with few warnings, they are listed as Warning alerts.
-- **Informational**: As of today, no informational alert is generated by Azure Backup service.
+- **Warning**: If the backup operation succeeds but with few warnings, they're listed as Warning alerts. Warning alerts are currently available only for Azure Backup Agent backups.
+- **Informational**: Currently, no informational alert is generated by Azure Backup service.
 
 ## Notification for Backup Alerts
 
@@ -84,9 +84,9 @@ Once an alert is raised, users are notified. Azure Backup provides an inbuilt no
 
 ![RS Vault inbuilt email notification](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
 
-When notification is configured, you will receive a welcome or introductory email. This confirms that Azure Backup can send emails to these addresses when an alert is raised.<br>
+When notification is configured, you'll receive a welcome or introductory email. This confirms that Azure Backup can send emails to these addresses when an alert is raised.<br>
 
-If the frequency was set to an hourly digest and an alert was raised and resolved within an hour, it will not be a part of the upcoming hourly digest.
+If the frequency was set to an hourly digest and an alert was raised and resolved within an hour, it won't be a part of the upcoming hourly digest.
 
 > [!NOTE]
 >

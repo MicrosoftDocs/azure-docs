@@ -4,8 +4,9 @@ description: Learn how to configure private link for Azure Database for PostgreS
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 01/09/2020
+ms.topic: how-to
+ms.date: 01/09/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Create and manage Private Link for Azure Database for PostgreSQL - Single server using CLI
@@ -44,7 +45,7 @@ az network vnet create \
 ```
 
 ## Disable subnet private endpoint policies 
-Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint network policies. Update a subnet configuration named *mySubnet* with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint [network policies](../private-link/disable-private-endpoint-network-policy.md). Update a subnet configuration named *mySubnet* with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -67,7 +68,7 @@ az vm create \
 Create a Azure Database for PostgreSQL with the az postgres server create command. Remember that the name of your PostgreSQL Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value: 
 
 ```azurecli-interactive
-# Create a logical server in the resource group 
+# Create a server in the resource group 
 az postgres server create \
 --name mydemoserver \
 --resource-group myresourcegroup \
@@ -77,19 +78,17 @@ az postgres server create \
 --sku-name GP_Gen5_2
 ```
 
-Note the PostgreSQL Server ID is similar to ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/servername.``` 
-You will use the PostgreSQL Server ID in the next step. 
-
 ## Create the Private Endpoint 
 Create a private endpoint for the PostgreSQL server in your Virtual Network: 
+
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "<PostgreSQL Server ID>" \  
-    --group-ids postgresqlServer \  
+    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforPostgreSQL/servers" --query "id") \    
+    --group-id postgresqlServer \  
     --connection-name myConnection  
  ```
 
@@ -120,6 +119,10 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 > [!NOTE] 
 > The FQDN in the customer DNS setting does not resolve to the private IP configured. You will have to setup a DNS zone for the configured FQDN as shown [here](../dns/dns-operations-recordsets-portal.md).
 
+> [!NOTE]
+> In some cases the Azure Database for PostgreSQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+> - Make sure that both the subscription has the **Microsoft.DBforPostgreSQL** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
+
 ## Connect to a VM from the internet
 
 Connect to the VM *myVm* from the internet as follows:
@@ -147,7 +150,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 ## Access the PostgreSQL server privately from the VM
 
-1. In the Remote Desktop of *myVM*, open PowerShell.
+1. In the Remote Desktop of *myVM*, open PowerShell.
 
 2. Enter  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
@@ -190,3 +193,6 @@ az group delete --name myResourceGroup --yes
 
 ## Next steps
 - Learn more about [What is Azure private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

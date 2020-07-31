@@ -86,7 +86,7 @@ after creation of the initial assignment.
 
 This field must be the full path name of either a policy definition or an initiative definition.
 `policyDefinitionId` is a string and not an array. It's recommended that if multiple policies are
-often assigned together, to use an [initiative](./definition-structure.md#initiatives) instead.
+often assigned together, to use an [initiative](./initiative-definition-structure.md) instead.
 
 ## Parameters
 

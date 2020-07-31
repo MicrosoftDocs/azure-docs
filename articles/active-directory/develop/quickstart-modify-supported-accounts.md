@@ -66,6 +66,8 @@ By default, OAuth 2.0 implicit grant is disabled for applications. You can enabl
 
 ### To enable OAuth 2.0 implicit grant
 
+1. In the left-hand navigation pane, select the **Azure Active Directory** service and then select **App registrations**.
+1. Find and select the application you want to configure. Once you've selected the app, you'll see the application's **Overview** or main registration page.
 1. From the app's **Overview** page, select the **Authentication** section.
 1. Under **Advanced settings**, locate the **Implicit grant** section.
 1. Select **ID tokens**, **Access tokens**, or both.

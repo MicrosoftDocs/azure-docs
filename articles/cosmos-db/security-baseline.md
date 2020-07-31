@@ -74,7 +74,7 @@ Configure Cross-Origin Resource Sharing: https://docs.microsoft.com/azure/cosmos
 
 Enable DDoS Protection Standard on the Virtual Networks associated with your Azure Cosmos DB instances to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
 
-How to configureAzure Cosmos DB Advanced Threat Protection: https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
+How to configure Azure Cosmos DB Advanced Threat Protection: https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
 How to configure DDoS protection: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
@@ -117,7 +117,7 @@ How to configure Cosmos DB Advanced Threat Protection: https://docs.microsoft.co
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
-**Guidance**: For resources that need access to your Azure Cosmos account, use Virtual Network service tags to define network access controls on network securitygGroups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., AzureCosmosDB) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+**Guidance**: For resources that need access to your Azure Cosmos account, use Virtual Network service tags to define network access controls on network security groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., AzureCosmosDB) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
 For more information about using service tags: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
@@ -320,7 +320,7 @@ How to programmatically access keys using Azure Active Directory: https://docs.m
 
 ### 3.3: Use dedicated administrative accounts
 
-**Guidance**: Not applicable; Azure Cosmos DB does not support administrator accounts.  All access is integrated with Azure Active Directory and Azure role-based access control (RBAC).
+**Guidance**: Not applicable; Azure Cosmos DB does not support administrator accounts.  All access is integrated with Azure Active Directory and Azure role-based access control (Azure RBAC).
 
 
 
@@ -680,7 +680,7 @@ How to create and use Tags: https://docs.microsoft.com/azure/azure-resource-mana
 
 ### 6.5: Monitor for unapproved Azure resources
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
 - Not allowed resource types
 
@@ -807,7 +807,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -828,7 +828,7 @@ Understand Azure Policy Effects: https://docs.microsoft.com/azure/governance/pol
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: If using custom Azure policy definitions for your Cosmos DB or related resources, use Azure Repos to securely store and manage your code.
+**Guidance**: If using custom Azure Policy definitions for your Cosmos DB or related resources, use Azure Repos to securely store and manage your code.
 
 Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
@@ -865,7 +865,7 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 ### 7.9: Implement automated configuration monitoring for Azure services
 
-**Guidance**: Use Azure Policy aliases in the "Microsoft.DocumentDB" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure Cosmos DB instances and related resources. 
+**Guidance**: Use Azure Policy aliases in the "Microsoft.DocumentDB" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure Policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure Cosmos DB instances and related resources. 
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 

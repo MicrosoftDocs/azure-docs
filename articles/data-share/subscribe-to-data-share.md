@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Accept & receive data - Azure Data Share'
 description: Tutorial - Accept and receive data using Azure Data Share 
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/10/2019
+ms.date: 07/30/2020
 ---
 # Tutorial: Accept and receive data using Azure Data Share  
 
@@ -66,9 +66,11 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Open invitation
 
-1. Check your inbox for an invitation from your data provider. The invitation is from Microsoft Azure, titled **Azure Data Share invitation from <yourdataprovider@domain.com>**. Take note of the share name to ensure you're accepting the correct share if there are multiple invitations. 
+1. You can open invitation from email or directly from Azure portal. 
 
-1. Select on **View invitation** to see your invitation in Azure. This takes you to your Received Shares view.
+   To open invitation from email, check your inbox for an invitation from your data provider. The invitation is from Microsoft Azure, titled **Azure Data Share invitation from <yourdataprovider@domain.com>**. Click on **View invitation** to see your invitation in Azure. 
+
+   To open invitation from Azure portal directly, search for **Data Share Invitations** in Azure portal. This takes you to the list of Data Share invitations.
 
    ![Invitations](./media/invitations.png "List of invitations") 
 

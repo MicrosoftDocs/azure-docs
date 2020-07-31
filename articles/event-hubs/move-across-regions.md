@@ -1,16 +1,8 @@
 ---
 title: Move an Azure Event Hubs namespace to another region | Microsoft Docs
 description: This article shows you how to move an Azure Event Hubs namespace from the current region to another region. 
-services: event-hubs
-author: spelluru
-
-ms.service: event-hubs
 ms.topic: how-to
-ms.custom: subject-moving-resources
-ms.date: 04/14/2020
-ms.author: spelluru 
-ms.reviewer: shvija
-#Customer intent: As an Azure administrator, I want to move an Event Hubs namespace to a different region so that it's closer to customers.
+ms.date: 06/23/2020
 ---
 
 # Move an Azure Event Hubs namespace to another region
@@ -24,7 +16,7 @@ There are various scenarios in which you'd want to move your existing Event Hubs
 - Ensure that the services and features that your account uses are supported in the target region.
 - For preview features, ensure that your subscription is whitelisted for the target region.
 - If you have **capture feature** enabled for event hubs in the namespace, move [Azure Storage or Azure Data Lake Store Gen 2](../storage/common/storage-account-move.md) or [Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-migration-cross-region.md) accounts before moving the Event Hubs namespace. You can also move the resource group that contains both Storage and Event Hubs namespaces to the other region by following steps similar to the ones described in this article. 
-- If the Event Hubs namespace is in an **Event Hubs cluster**, [create a dedicated cluster](event-hubs-dedicated-cluster-create-portal.md) in the **target region** before you go through steps in this article. 
+- If the Event Hubs namespace is in an **Event Hubs cluster**, [create a dedicated cluster](event-hubs-dedicated-cluster-create-portal.md) in the **target region** before you go through steps in this article. You can also use the [quickstart template on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-cluster-namespace-eventhub/) to create an Event Hubs cluster. In the template, remove the namespace portion of the JSON to create only the cluster. 
 
 ## Prepare
 To get started, export a Resource Manager template. This template contains settings that describe your Event Hubs namespace.
@@ -111,5 +103,5 @@ To delete an Event Hubs namespace (source or target) by using the Azure portal:
 In this tutorial, you moved an Azure Event Hubs namespace from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
 
-- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Move Azure VMs to another region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)

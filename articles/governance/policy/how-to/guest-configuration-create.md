@@ -6,7 +6,7 @@ ms.topic: how-to
 ---
 # How to create Guest Configuration policies for Windows
 
-Before creating custom policies, it's a good idea to read the conceptual overview information at the
+Before creating custom policy definitions, it's a good idea to read the conceptual overview information at the
 page [Azure Policy Guest Configuration](../concepts/guest-configuration.md).
  
 To learn about creating Guest Configuration policies for Linux, see the page
@@ -14,7 +14,7 @@ To learn about creating Guest Configuration policies for Linux, see the page
 
 When auditing Windows, Guest Configuration uses a
 [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) resource module to
-and configuration file. The DSC configuration defines the condition that the machine should be in.
+create the configuration file. The DSC configuration defines the condition that the machine should be in.
 If the evaluation of the configuration fails, the policy effect **auditIfNotExists** is triggered
 and the machine is considered **non-compliant**.
 
@@ -28,15 +28,20 @@ non-Azure machine.
 > Custom policies with Guest Configuration is a Preview feature.
 >
 > The Guest Configuration extension is required to perform audits in Azure virtual machines.
-> To deploy the extension at scale, assign the following policy definitions:
->   - Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.
->   - Deploy prerequisites to enable Guest Configuration Policy on Linux VMs.
+> To deploy the extension at scale across all Windows machines, assign the following policy definitions:
+>   - [Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
 
 ## Install the PowerShell module
 
-Creating a Guest Configuration artifact, automated testing of the artifact, creating a policy
-definition, and publishing the policy, is entirely automatable using the Guest Configuration module
-in PowerShell. The module can be installed on a machine running Windows, macOS, or Linux with
+The Guest Configuration module automates the process of creating custom content
+including:
+
+- Creating a Guest Configuration content artifact (.zip)
+- Automated testing of the artifact
+- Creating a policy definition
+- Publishing the policy
+
+The module can be installed on a machine running Windows, macOS, or Linux with
 PowerShell 6.2 or later running locally, or with [Azure Cloud Shell](https://shell.azure.com), or
 with the
 [Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).
@@ -90,7 +95,7 @@ For an overview of DSC concepts and terminology, see
 
 ### How Guest Configuration modules differ from Windows PowerShell DSC modules
 
-When Guest Configuration audits a machine:
+When Guest Configuration audits a machine the sequence of events is different than in Windows PowerShell DSC.
 
 1. The agent first runs `Test-TargetResource` to determine if the configuration is
 in the correct state.
@@ -98,6 +103,9 @@ in the correct state.
 Manager status for the Guest Assignment should be Compliant/Not-Compliant.
 1. The provider runs `Get-TargetResource` to return the current state of each setting so details are available both about
 why a machine isn't compliant and to confirm that the current state is compliant.
+
+Parameters in Azure Policy that pass values to Guest Configuration assignments must be _string_ type.
+It isn't possible to pass arrays through parameters, even if the DSC resource supports arrays.
 
 ### Get-TargetResource requirements
 
@@ -159,7 +167,7 @@ class ResourceName : OMI_BaseResource
 
 The name of the custom configuration must be consistent everywhere. The name of
 the .zip file for the content package, the configuration name in the MOF file, and the guest
-assignment name in the Resource Manager template, must be the same.
+assignment name in the Azure Resource Manager template (ARM template), must be the same.
 
 ### Scaffolding a Guest Configuration project
 
@@ -195,7 +203,7 @@ The package format must be a .zip file.
 The .zip package must be stored in a location that is accessible by the managed virtual machines.
 Examples include GitHub repositories, an Azure Repo, or Azure storage. If you prefer to not make the
 package public, you can include a
-[SAS token](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) in the URL.
+[SAS token](../../../storage/common/storage-sas-overview.md) in the URL.
 You could also implement
 [service endpoint](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)
 for machines in a private network, although this configuration applies only to accessing the package
@@ -209,6 +217,9 @@ to audit for a running service. The configuration script can be executed from a 
 machine.
 
 ```powershell
+# Add PSDscResources module to environment
+Install-Module 'PSDscResources'
+
 # Define the DSC configuration and import GuestConfiguration
 Configuration AuditBitLocker
 {
@@ -229,7 +240,7 @@ AuditBitLocker ./Config
 ```
 
 Save this file with name `config.ps1` in the project folder. Run it in PowerShell by executing `./config.ps1`
-in the terminal. A new mof file will be created.
+in the terminal. A new mof file is created.
 
 The `Node AuditBitlocker` command isn't technically required but it produces a file named
 `AuditBitlocker.mof` rather than the default, `localhost.mof`. Having the .mof file name follow the
@@ -260,8 +271,7 @@ development environment as is used inside Azure machines. Using this solution, y
 integration testing locally before releasing to billed cloud environments.
 
 Since the agent is actually evaluating the local environment, in most cases you need to run the
-Test- cmdlet on the same OS platform as you plan to audit. The test will only use modules that are included
-in the content package.
+Test- cmdlet on the same OS platform as you plan to audit. The test only uses modules that are included in the content package.
 
 Parameters of the `Test-GuestConfigurationPackage` cmdlet:
 
@@ -377,6 +387,15 @@ The following files are created by `New-GuestConfigurationPolicy`:
 The cmdlet output returns an object containing the initiative display name and path of the policy
 files.
 
+> [!Note]
+> The latest Guest Configuration module includes a new parameters:
+> - **Tag** adds one or more tag filters to the policy definition
+>   - See the section [Filtering Guest Configuration policies using Tags](#filtering-guest-configuration-policies-using-tags).
+> - **Category** sets the category metadata field in the policy definition
+>   - If the parameter is not included, the category defaults to Guest Configuration.
+> These features are in preview and require Guest Configuration module
+> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
+
 Finally, publish the policy definitions using the `Publish-GuestConfigurationPolicy` cmdlet. The
 cmdlet only has the **Path** parameter that points to the location of the JSON files created by
 `New-GuestConfigurationPolicy`.
@@ -411,7 +430,7 @@ initiative with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-poli
 > assigned, the prerequisites aren't deployed and the policy always shows that '0' servers are
 > compliant.
 
-Assigning an policy definition with _DeployIfNotExists_ effect requires an additional level of
+Assigning a policy definition with _DeployIfNotExists_ effect requires an additional level of
 access. To grant the least privilege, you can create a custom role definition that extends
 **Resource Policy Contributor**. The example below creates a role named **Resource Policy
 Contributor DINE** with the additional permission _Microsoft.Authorization/roleAssignments/write_.
@@ -429,7 +448,42 @@ $role.AssignableScopes.Add("/subscriptions/$subscriptionid")
 New-AzRoleDefinition -Role $role
 ```
 
-### Using parameters in custom Guest Configuration policies
+### Filtering Guest Configuration policies using Tags
+
+> [!Note]
+> This feature is in preview and requires Guest Configuration module
+> version 1.20.1, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
+
+The policy definitions created by cmdlets in the Guest Configuration module can optionally include
+a filter for tags. The **Tag** parameter of `New-GuestConfigurationPolicy` supports
+an array of hashtables containing individual tag entires. The tags are added
+to the `If` section of the policy definition and can not be modified by a policy assignment.
+
+An example snippet of a policy definition that filters for tags is given below.
+
+```json
+"if": {
+  "allOf" : [
+    {
+      "allOf": [
+        {
+          "field": "tags.Owner",
+          "equals": "BusinessUnit"
+        },
+        {
+          "field": "tags.Role",
+          "equals": "Web"
+        }
+      ]
+    },
+    {
+      // Original Guest Configuration content
+    }
+  ]
+}
+```
+
+### Using parameters in custom Guest Configuration policy definitions
 
 Guest Configuration supports overriding properties of a Configuration at run time. This feature
 means that the values in the MOF file in the package don't have to be considered static. The
@@ -437,7 +491,7 @@ override values are provided through Azure Policy and don't impact how the Confi
 authored or compiled.
 
 The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a
-parameter named **Parameters**. This parameter takes a hashtable definition including all details
+parameter named **Parameter**. This parameter takes a hashtable definition including all details
 about each parameter and creates the required sections of each file used for the Azure Policy
 definition.
 
@@ -463,8 +517,154 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Windows Service.' `
     -Description 'Audit if a Windows Service is not enabled on Windows machine.' `
     -Path '.\policyDefinitions' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
+```
+
+## Extending Guest Configuration with third-party tools
+
+> [!Note]
+> This feature is in preview and requires Guest Configuration module
+> version 1.20.3, which can be installed using `Install-Module GuestConfiguration -AllowPrerelease`.
+> In version 1.20.3, this feature is only available for policy definitions that audit Windows machines
+
+The artifact packages for Guest Configuration can be extended to include third-party tools.
+Extending Guest Configuration requires development of two components.
+
+- A Desired State Configuration resource that handles all activity related to managing the third-party tool
+  - Install
+  - Invoke
+  - Convert output
+- Content in the correct format for the tool to natively consume
+
+The DSC resource requires custom development if a community solution does not already exist.
+Community solutions can be discovered by searching the PowerShell Gallery for tag
+[GuestConfiguration](https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22).
+
+> [!Note]
+> Guest Configuration extensibility is a "bring your own
+> license" scenario. Ensure you have met the terms and conditions of any third
+> party tools before use.
+
+After the DSC resource has been installed in the development environment, use the
+**FilesToInclude** parameter for `New-GuestConfigurationPackage` to include
+content for the third-party platform in the content artifact.
+
+### Step by step, creating a content artifact that uses third-party tools
+
+Only the `New-GuestConfigurationPackage` cmdlet requires a change from
+the step-by-step guidance for DSC content artifacts. For this example,
+use the `gcInSpec` module to extend Guest Configuration to audit Windows machines
+using the InSpec platform rather than the built-in module used on Linux. The
+community module is maintained as an
+[open source project in GitHub](https://github.com/microsoft/gcinspec).
+
+Install required modules in your development environment:
+
+```azurepowershell-interactive
+# Update PowerShellGet if needed to allow installing PreRelease versions of modules
+Install-Module PowerShellGet -Force
+
+# Install GuestConfiguration module prerelease version
+Install-Module GuestConfiguration -allowprerelease
+
+# Install commmunity supported gcInSpec module
+Install-Module gcInSpec
+```
+
+First, create the YaML file used by InSpec. The file provides basic information about the
+environment. An example is given below:
+
+```YaML
+name: wmi_service
+title: Verify WMI service is running
+maintainer: Microsoft Corporation
+summary: Validates that the Windows Service 'winmgmt' is running
+copyright: Microsoft Corporation
+license: MIT
+version: 1.0.0
+supports:
+  - os-family: windows
+```
+
+Save this file named `wmi_service.yml` in a folder named `wmi_service` in your project directory.
+
+Next, create the Ruby file with the InSpec language abstraction used to audit the machine.
+
+```Ruby
+control 'wmi_service' do
+  impact 1.0
+  title 'Verify windows service: winmgmt'
+  desc 'Validates that the service, is installed, enabled, and running'
+
+  describe service('winmgmt') do
+    it { should be_installed }
+    it { should be_enabled }
+    it { should be_running }
+  end
+end
+
+```
+
+Save this file `wmi_service.rb` in a new folder named `controls` inside the `wmi_service` directory.
+
+Finally, create a configuration, import the **GuestConfiguration** resource module, and use the
+`gcInSpec` resource to set the name of the InSpec profile.
+
+```powershell
+# Define the configuration and import GuestConfiguration
+Configuration wmi_service
+{
+    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.1.0'}
+    node 'wmi_service'
+    {
+        gcInSpec wmi_service
+        {
+            InSpecProfileName       = 'wmi_service'
+            InSpecVersion           = '3.9.3'
+            WindowsServerVersion    = '2016'
+        }
+    }
+}
+
+# Compile the configuration to create the MOF files
+wmi_service -out ./Config
+```
+
+You should now have a project structure as below:
+
+```file
+/ wmi_service
+    / Config
+        wmi_service.mof
+    / wmi_service
+        wmi_service.yml
+        / controls
+            wmi_service.rb 
+```
+
+The supporting files must be packaged together. The completed package is used by
+Guest Configuration to create the Azure Policy definitions.
+
+The `New-GuestConfigurationPackage` cmdlet creates the package. For third-party
+content, use the **FilesToInclude** parameter to add the InSpec content to the
+package. You do not need to specify the **ChefProfilePath** as for Linux packages.
+
+- **Name**: Guest Configuration package name.
+- **Configuration**: Compiled configuration document full path.
+- **Path**: Output folder path. This parameter is optional. If not specified, the package is created
+  in current directory.
+- **FilesoInclude**: Full path to InSpec profile.
+
+Run the following command to create a package using the configuration given in
+the previous step:
+
+```azurepowershell-interactive
+New-GuestConfigurationPackage `
+  -Name 'wmi_service' `
+  -Configuration './Config/wmi_service.mof' `
+  -FilesToInclude './wmi_service'  `
+  -Path './package' 
 ```
 
 ## Policy lifecycle

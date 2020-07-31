@@ -103,10 +103,10 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
 
 	a. In the **Sign on URL** text box, type any of the URLs:
     
-	| |
-	|--|
-	| `https://app.periscopedata.com/` |
-	| `https://app.periscopedata.com/app/<SITENAME>` |
+    ```https
+    https://app.periscopedata.com/
+    https://app.periscopedata.com/app/<SITENAME>
+    ```
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://app.periscopedata.com/<SITENAME>/sso`

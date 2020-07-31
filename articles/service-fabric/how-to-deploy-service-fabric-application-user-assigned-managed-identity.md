@@ -18,40 +18,42 @@ To deploy a Service Fabric application with managed identity, the application ne
 
 ## User-Assigned Identity
 
-To enable application with User-Assigned identity, first add the **identity** property to the application resource with type **userAssigned** and the referenced user-assigned identities. Then add a **managedIdentities** section inside the **properties** section for the **application** resource which contains a list of friendly name to principalId mapping for each of the user-assigned identities. For more information about User Assigned Identities see [Create, list or delete a user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell).
+To enable application with User-Assigned identity, first add the **identity** property to the application resource with type **userAssigned** and the referenced user-assigned identities. Then add a **managedIdentities** section inside the **properties** section for the **application** resource which contains a list of friendly name to principalId mapping for each of the user-assigned identities. For more information about User Assigned Identities see [Create, list or delete a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
 ### Application template
 
 To enable application with User Assigned identity, first add **identity** property to the application resource with type **userAssigned** and the referenced user assigned identities, then add a **managedIdentities** object inside the **properties** section that contains a list of friendly name to principalId mapping for each of the user assigned identities.
 
-    {
-      "apiVersion": "2019-06-01-preview",
-      "type": "Microsoft.ServiceFabric/clusters/applications",
-      "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applicationTypes/', parameters('applicationTypeName'), '/versions/', parameters('applicationTypeVersion'))]",
-        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]"
-      ],
-      "identity": {
-        "type" : "userAssigned",
-        "userAssignedIdentities": {
-            "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]": {}
-        }
-      },
-      "properties": {
-        "typeName": "[parameters('applicationTypeName')]",
-        "typeVersion": "[parameters('applicationTypeVersion')]",
-        "parameters": {
-        },
-        "managedIdentities": [
-          {
-            "name" : "[parameters('userAssignedIdentityName')]",
-            "principalId" : "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName')), '2018-11-30').principalId]"
-          }
-        ]
-      }
+```json
+{
+  "apiVersion": "2019-06-01-preview",
+  "type": "Microsoft.ServiceFabric/clusters/applications",
+  "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applicationTypes/', parameters('applicationTypeName'), '/versions/', parameters('applicationTypeVersion'))]",
+    "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]"
+  ],
+  "identity": {
+    "type" : "userAssigned",
+    "userAssignedIdentities": {
+        "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName'))]": {}
     }
+  },
+  "properties": {
+    "typeName": "[parameters('applicationTypeName')]",
+    "typeVersion": "[parameters('applicationTypeVersion')]",
+    "parameters": {
+    },
+    "managedIdentities": [
+      {
+        "name" : "[parameters('userAssignedIdentityName')]",
+        "principalId" : "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('userAssignedIdentityName')), '2018-11-30').principalId]"
+      }
+    ]
+  }
+}
+```
 
 In the example above the resource name of the user assigned identity is being used as the friendly name of the managed identity for the application. The following examples assume the actual friendly name is "AdminUser".
 

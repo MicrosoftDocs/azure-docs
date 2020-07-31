@@ -6,14 +6,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 07/27/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
+ms.custom: devx-track-javascript
 ---
 
 <a name="HOLTop"></a>
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 [v3 Reference documentation](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [v3 Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 Package (NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
@@ -26,7 +27,7 @@ ms.reviewer: sumeh, assafi
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org/).
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
@@ -51,12 +52,12 @@ npm init
 ```
 ### Install the client library
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 Install the `@azure/ai-text-analytics` NPM packages:
 
 ```console
-npm install --save @azure/ai-text-analytics@1.0.0-preview.4
+npm install --save @azure/ai-text-analytics@5.0.0
 ```
 
 > [!TIP]
@@ -78,7 +79,7 @@ npm install --save @azure/cognitiveservices-textanalytics
 Your app's `package.json` file will be updated with the dependencies.
 Create a file named `index.js` and add the following:
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 ```javascript
 "use strict";
@@ -101,7 +102,7 @@ Create variables for your resource's Azure endpoint and key.
 
 ```javascript
 const key = '<paste-your-text-analytics-key-here>';
-const endpoint = `<paste-your-text-analytics-endpoint-here>`;
+const endpoint = '<paste-your-text-analytics-endpoint-here>';
 ```
 
 ## Object model
@@ -123,7 +124,7 @@ The response object is a list containing the analysis information for each docum
 
 ## Client Authentication
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 Create a new `TextAnalyticsClient` object with your key and endpoint as parameters.
 
@@ -141,7 +142,7 @@ Create a new [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@az
 
 ## Sentiment analysis
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 Create an array of strings containing the document you want to analyze. Call the client's `analyzeSentiment()` method and get the returned `SentimentBatchResult` object. Iterate through the list of results, and print each document's ID, document level sentiment with confidence scores. For each document, result contains sentence level sentiment along with offsets, length, and confidence scores.
 
@@ -208,7 +209,7 @@ Run your code with `node index.js` in your console window.
 
 ## Language detection
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 Create an array of strings containing the document you want to analyze. Call the client's `detectLanguage()` method and get the returned `DetectLanguageResultCollection`. Then iterate through the results, and print each document's ID with respective primary language.
 
@@ -257,10 +258,10 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ## Named Entity Recognition (NER)
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 > [!NOTE]
-> In version `3.0-preview`:
+> In version `3.0`:
 > * Entity linking is a separate request than NER.
 
 Create an array of strings containing the document you want to analyze. Call the client's `recognizeEntities()` method and get the `RecognizeEntitiesResult` object. Iterate through the list of results, and print the entity name, type, subtype, offset, length, and score.
@@ -278,7 +279,7 @@ async function entityRecognition(client){
         console.log(`Document ID: ${document.id}`);
         document.entities.forEach(entity => {
             console.log(`\tName: ${entity.text} \tCategory: ${entity.category} \tSubcategory: ${entity.subCategory ? entity.subCategory : "N/A"}`);
-            console.log(`\tScore: ${entity.score}`);
+            console.log(`\tScore: ${entity.confidenceScore}`);
         });
     });
 }
@@ -292,26 +293,20 @@ Run your code with `node index.js` in your console window.
 ```console
 Document ID: 0
         Name: Microsoft         Category: Organization  Subcategory: N/A
-        Score: 1
+        Score: 0.29
         Name: Bill Gates        Category: Person        Subcategory: N/A
-        Score: 0.67
+        Score: 0.78
         Name: Paul Allen        Category: Person        Subcategory: N/A
-        Score: 0.81
+        Score: 0.82
         Name: April 4, 1975     Category: DateTime      Subcategory: Date
         Score: 0.8
-        Name: interpreters      Category: PersonType    Subcategory: N/A
-        Score: 0.6
         Name: 8800      Category: Quantity      Subcategory: Number
         Score: 0.8
 Document ID: 1
-        Name: Microsoft         Category: Organization  Subcategory: N/A
-        Score: 0.96
-        Name: Redmond   Category: Location      Subcategory: GPE
-        Score: 0.09
         Name: 21        Category: Quantity      Subcategory: Number
         Score: 0.8
         Name: Seattle   Category: Location      Subcategory: GPE
-        Score: 0.31
+        Score: 0.25
 ```
 
 ## Entity Linking
@@ -332,8 +327,8 @@ async function linkedEntityRecognition(client){
             console.log(`\tName: ${entity.name} \tID: ${entity.dataSourceEntityId} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
             console.log(`\tMatches:`)
             entity.matches.forEach(match => {
-                console.log(`\t\tText: ${match.text} \tScore: ${match.score.toFixed(2)}`);
-            });
+                console.log(`\t\tText: ${match.text} \tScore: ${match.confidenceScore.toFixed(2)}`);
+        })
         });
     });
 }
@@ -348,24 +343,24 @@ Run your code with `node index.js` in your console window.
 Document ID: 0
         Name: Altair 8800       ID: Altair 8800         URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
         Matches:
-                Text: Altair 8800       Score: 0.78
+                Text: Altair 8800       Score: 0.88
         Name: Bill Gates        ID: Bill Gates  URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
         Matches:
-                Text: Bill Gates        Score: 0.55
-                Text: Gates     Score: 0.55
+                Text: Bill Gates        Score: 0.63
+                Text: Gates     Score: 0.63
         Name: Paul Allen        ID: Paul Allen  URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
         Matches:
-                Text: Paul Allen        Score: 0.53
+                Text: Paul Allen        Score: 0.60
         Name: Microsoft         ID: Microsoft   URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
         Matches:
-                Text: Microsoft         Score: 0.47
-                Text: Microsoft         Score: 0.47
+                Text: Microsoft         Score: 0.55
+                Text: Microsoft         Score: 0.55
         Name: April 4   ID: April 4     URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
         Matches:
-                Text: April 4   Score: 0.25
+                Text: April 4   Score: 0.32
         Name: BASIC     ID: BASIC       URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
         Matches:
-                Text: BASIC     Score: 0.28
+                Text: BASIC     Score: 0.33
 ```
 
 #### [Version 2.1](#tab/version-2)
@@ -413,7 +408,7 @@ Document ID: 2
 
 ## Key phrase extraction
 
-#### [Version 3.0-preview](#tab/version-3)
+#### [Version 3.0](#tab/version-3)
 
 Create an array of strings containing the document you want to analyze. Call the client's `extractKeyPhrases()` method and get the returned `ExtractKeyPhrasesResult` object. Iterate through the results and print each document's ID, and any detected key phrases.
 

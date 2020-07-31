@@ -36,18 +36,18 @@ highlightedContent:
     - title: Compare Media Services v3 presets and Video Indexer
       itemType: concept
       url: ./video-indexer/compare-video-indexer-with-media-services-presets.md    
+    - title: Live Video Analytics on IoT Edge (preview)
+      itemType: overview
+      url: ./live-video-analytics-edge/overview.md
+    - title: Azure Media Player
+      itemType: overview
+      url: https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-overview     
     - title: About Azure Media Services v2 (legacy)
       itemType: overview
       url: ./previous/media-services-overview.md  
     - title: Migrate Media Services v2 to v3
       itemType: concept
       url: ./latest/migrate-from-v2-to-v3.md      
-    - title: Azure Media Services specifications
-      itemType: concept
-      url: media-services-specifications-live-timed-metadata.md
-    - title: Azure Media Player
-      itemType: overview
-      url: azure-media-player/azure-media-player-overview.md
 
 conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -57,10 +57,12 @@ conceptualContent:
           - url: ./latest/media-services-apis-overview.md
             itemType: concept
             text: Develop with Media Services v3
-          - url: https://docs.microsoft.com/samples/browse/?products=azure-media-services
+          - url: /samples/browse/?products=azure-media-services
             itemType: sample
             text: Code samples
-            
+          - url: ./latest/release-notes.md
+            itemType: concept
+            text: Find out what's new in Media Services v3
     - title: Stream live 
       links: 
         - url: ./latest/live-streaming-overview.md 
@@ -108,7 +110,28 @@ conceptualContent:
           - url: ./latest/analyze-videos-tutorial-with-api.md
             itemType: tutorial
             text: Analyze videos            
-                     
+
+    - title: Learn about Media Services specifications
+      links:
+          - url: media-services-specifications-live-timed-metadata.md
+            itemType: concept
+            text: Timed Metadata in Live Streaming (RTMP & Smooth Streaming)
+          - url: media-services-specifications-ms-sstr-amendment-hevc.md
+            itemType: concept
+            text: Smooth Streaming protocol (MS-SSTR) amendment for HEVC
+          - url: media-services-fmp4-live-ingest-overview.md
+            itemType: concept
+            text:  Smooth Streaming ingest protocol   
+            
+    - title: Live Video Analytics on IoT Edge (preview)         
+      links:
+          - url: ./live-video-analytics-edge/overview.md
+            itemType: overview
+            text: Overview
+          - url: ./live-video-analytics-edge/use-your-model-quickstart.md
+            itemType: quickstart
+            text: Run Live Video Analytics with your own model  
+
 additionalContent:
   sections:
     - items:      
@@ -120,7 +143,4 @@ additionalContent:
         url: https://docs.microsoft.com/azure/cdn         
       - title: Event Grid
         summary: Learn how to use Azure Event Grid to react to relevant events     
-        url: https://docs.microsoft.com/azure/event-grid/
-        
-
-  
+        url: ../event-grid/index.yml

@@ -6,7 +6,7 @@ ms.author: routlaw
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
 # Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
@@ -163,7 +163,7 @@ bash-3.2$ mvn package spring-boot:run
 [INFO] TodoApplication - Started TodoApplication in 45.573 seconds (JVM running for 76.534)
 ```
 
-You can access Spring TODO App locally using this link once the app is started: [http://localhost:8080/](http://localhost:8080/).
+You can access Spring TODO App locally using this link once the app is started: `http://localhost:8080/`.
 
  ![Access Spring TODO app locally](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
@@ -183,7 +183,7 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.9.0</version>
+        <version>1.9.1</version>
         <configuration>
             <schemaVersion>v2</schemaVersion>
 
@@ -248,7 +248,9 @@ bash-3.2$ mvn azure-webapp:deploy
 [INFO] Building spring-todo-app 2.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
-[INFO] --- azure-webapp-maven-plugin:1.9.0:deploy (default-cli) @ spring-todo-app ---
+[INFO] --- azure-webapp-maven-plugin:1.9.1:deploy (default-cli) @ spring-todo-app ---
+[INFO] Auth Type : AZURE_CLI, Auth Files : [C:\Users\testuser\.azure\azureProfile.json, C:\Users\testuser\.azure\accessTokens.json]
+[INFO] Subscription : xxxxxxxxx
 [INFO] Target Web App doesn't exist. Creating a new one...
 [INFO] Creating App Service Plan 'ServicePlanb6ba8178-5bbb-49e7'...
 [INFO] Successfully created App Service Plan.
@@ -280,7 +282,7 @@ You should see the app running with the remote URL in the address bar:
 
 ## Stream diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 
 ## Scale out the TODO App

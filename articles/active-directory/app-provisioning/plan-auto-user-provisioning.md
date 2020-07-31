@@ -2,16 +2,15 @@
 title: Plan an automatic user provisioning deployment for Azure Active Directory
 description: Guidance for planning and executing automatic user provisioning
 services: active-directory
-author: martincoetzer
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/17/2019
-ms.author: martinco
-ms.reviewer: arvindha
-ms.collection: M365-identity-device-management
+ms.author: kenwith
+ms.reviewer: arvindha, celested
 #customer intent: As an admin, I want to automate user provisioning to SaaS apps
 ---
 
@@ -253,7 +252,7 @@ Choose the steps that align to your solution requirements.
 
 When the Azure AD provisioning service runs for the first time, the initial cycle against the source system and target systems creates a snapshot of all user objects for each target system.
 
-When enabling automatic provisioning for an application, the initial cycle can take anywhere from 20 minutes to several hours. The duration depends on the size of the Azure AD directory and the number of users in scope for provisioning. See [How to improve provisioning performance](../app-provisioning/application-provisioning-when-will-provisioning-finish.md).
+When enabling automatic provisioning for an application, the initial cycle can take anywhere from 20 minutes to several hours. The duration depends on the size of the Azure AD directory and the number of users in scope for provisioning.
 
 The provisioning service stores the state of both systems after the initial cycle, improving performance of subsequent incremental cycles.
 
@@ -296,8 +295,6 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 * [Problem configuring user provisioning to an Azure AD Gallery application](../app-provisioning/application-provisioning-config-problem.md)
 
 * [Sync an attribute from your on-premises Active Directory to Azure AD for provisioning to an application](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
-
-* [User provisioning to an Azure AD Gallery application is taking hours or more](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)
 
 * [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
 

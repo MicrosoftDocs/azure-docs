@@ -6,6 +6,8 @@
   href: sample-v1-code.md
 - name: Concepts
   items:
+  - name: Evolution of Microsoft identity platform
+    href: about-microsoft-identity-platform.md
   - name: Why update to v2.0
     href: azure-ad-endpoint-comparison.md
   - name: Application types
@@ -158,7 +160,7 @@
   - name: Use the Microsoft Graph API
     href: ../develop/microsoft-graph-intro.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
   - name: AD FS for developers
-    href: https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers
+    href: https://docs.microsoft.com/windows-server/identity/ad-fs/ad-fs-overview
 - name: References
   items:
   - name: Authentication libraries

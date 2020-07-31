@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 07/27/2020
 ms.author: aahi
 ---
 
@@ -29,7 +29,7 @@ In this tutorial, you'll learn how to:
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Download at no charge](https://powerbi.microsoft.com/get-started/).
-- A Microsoft Azure account. [Start a free trial](https://azure.microsoft.com/free/) or [sign in](https://portal.azure.com/).
+- A Microsoft Azure account. [Create a free account](https://azure.microsoft.com/free/cognitive-services/) or [sign in](https://portal.azure.com/).
 - A Cognitive Services API account with the Text Analytics API. If you don't have one, you can [sign up](../../cognitive-services-apis-create-account.md)
  and use the free tier for 5,000 transactions/month (see [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) to complete this tutorial.
 - The [Text Analytics access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
@@ -87,7 +87,7 @@ You might also consider filtering out blank messages using the Remove Empty filt
 
 The [Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) of the Text Analytics service can process up to a thousand text documents per HTTP request. Power BI prefers to deal with records one at a time, so in this tutorial your calls to the API will include only a single document each. The Key Phrases API requires the following fields for each document being processed.
 
-| | |
+| Field | Description |
 | - | - |
 | `id`  | A unique identifier for this document within the request. The response also contains this field. That way, if you process more than one document, you can easily associate the extracted key phrases with the document they came from. In this tutorial, because you're processing only one document per request, you can hard-code the value of `id` to be the same for each request.|
 | `text`  | The text to be processed. The value of this field comes from the `Merged` column you created in the [previous section](#PreparingData), which contains the combined subject line and comment text. The Key Phrases API requires this data be no longer than about 5,120 characters.|

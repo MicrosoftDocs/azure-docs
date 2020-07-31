@@ -9,7 +9,7 @@
       href: data-box-gateway-overview.md
   - name: Tutorials
     items:
-    - name: 1 - Prepare
+    - name: 1 - Prepare 
       href: data-box-gateway-deploy-prep.md
     - name: 2A - Provision in Hyper-V
       href: data-box-gateway-deploy-provision-hyperv.md
@@ -31,6 +31,8 @@
       href: data-box-gateway-use-cases.md
   - name: How to
     items:
+    - name: Update
+      href: data-box-gateway-apply-updates.md
     - name: Manage
       items:
         - name: Shares
@@ -48,10 +50,14 @@
     - name: Troubleshoot
       href: data-box-gateway-troubleshoot.md
     - name: Contact Microsoft Support
-      href: data-box-edge-contact-microsoft-support.md
+      href: azure-stack-edge-contact-microsoft-support.md
   - name: Release notes
     items:
-      - name: 1906 - Current
+      - name: 2007 - Current
+        href: data-box-gateway-2007-release-notes.md
+      - name: 1911
+        href: data-box-gateway-1911-release-notes.md
+      - name: 1906
         href: data-box-gateway-1906-release-notes.md
       - name: 1905
         href: data-box-gateway-1905-release-notes.md
@@ -62,67 +68,85 @@
   - name: Overview
     items:
     - name: What is Azure Stack Edge?
-      href: data-box-edge-overview.md
+      href: azure-stack-edge-overview.md
   - name: Tutorials
     items:
     - name: 1 - Prepare
-      href: data-box-edge-deploy-prep.md
+      href: azure-stack-edge-deploy-prep.md
     - name: 2 - Install
-      href: data-box-edge-deploy-install.md
+      href: azure-stack-edge-deploy-install.md
     - name: 3 - Connect, set up, activate
-      href: data-box-edge-deploy-connect-setup-activate.md
+      href: azure-stack-edge-deploy-connect-setup-activate.md
     - name: 4 - Add, connect to share
-      href: data-box-edge-deploy-add-shares.md
+      href: azure-stack-edge-deploy-add-shares.md
     - name: 5A - Configure compute (simple)
-      href: data-box-edge-deploy-configure-compute.md
+      href: azure-stack-edge-deploy-configure-compute.md
     - name: 5B - Configure compute (advanced)
-      href: data-box-edge-deploy-configure-compute-advanced.md
+      href: azure-stack-edge-deploy-configure-compute-advanced.md
   - name: Concepts
     items:
     - name: Review requirements
-      href: data-box-edge-system-requirements.md
+      href: azure-stack-edge-system-requirements.md
     - name: Understand limits
-      href: data-box-edge-limits.md
+      href: azure-stack-edge-limits.md
     - name: Security overview
-      href: data-box-edge-security.md
+      href: azure-stack-edge-security.md
     - name: Review specifications
-      href: data-box-edge-technical-specifications-compliance.md
+      items:
+      - name: Device specifications
+        href: azure-stack-edge-technical-specifications-compliance.md
+      - name: Power cord specifications
+        href: azure-stack-edge-technical-specifications-power-cords-regional.md
   - name: How to
     items:
     - name: Develop C# module
-      href: data-box-edge-create-iot-edge-module.md
+      href: azure-stack-edge-create-iot-edge-module.md
     - name: Manage 
       items:
       - name: Edge compute
-        href: data-box-edge-manage-compute.md
+        href: azure-stack-edge-manage-compute.md
       - name: Edge compute network
-        href: data-box-edge-extend-compute-access-modules.md
+        href: azure-stack-edge-extend-compute-access-modules.md
       - name: Shares
-        href: data-box-edge-manage-shares.md
+        href: azure-stack-edge-manage-shares.md
       - name: Users
-        href: data-box-edge-manage-users.md
+        href: azure-stack-edge-manage-users.md
       - name: Bandwidth schedules
-        href: data-box-edge-manage-bandwidth-schedules.md
+        href: azure-stack-edge-manage-bandwidth-schedules.md
       - name: Power, access, connectivity
-        href: data-box-edge-manage-access-power-connectivity-mode.md
+        href: azure-stack-edge-manage-access-power-connectivity-mode.md
       - name: Via PowerShell
-        href: data-box-edge-connect-powershell-interface.md
+        href: azure-stack-edge-connect-powershell-interface.md
     - name: Troubleshoot 
-      href: data-box-edge-troubleshoot.md
+      href: azure-stack-edge-troubleshoot.md
     - name: Contact Microsoft Support
-      href: data-box-edge-contact-microsoft-support.md
+      href: azure-stack-edge-contact-microsoft-support.md
     - name: Monitor
-      href: data-box-edge-monitor.md
-    - name: Return or replace device
-      href: data-box-edge-return-device.md
+      href: azure-stack-edge-monitor.md
+    - name: Return device
+      href: azure-stack-edge-return-device.md
+    - name: Replace device
+      href: azure-stack-edge-replace-device.md   
   - name: Release notes
     items:
-    - name: 1906 - Current
+    - name: 2007 - Current
+      href: data-box-gateway-2007-release-notes.md
+    - name: 1911
+      href: data-box-gateway-1911-release-notes.md
+    - name: 1906
       href: data-box-gateway-1906-release-notes.md
     - name: 1905
       href: data-box-gateway-1905-release-notes.md
     - name: General availability (GA)
       href: data-box-gateway-release-notes.md
+  - name: Reference
+    items:
+    - name: Azure PowerShell
+      href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+    - name: REST API
+      href: https://docs.microsoft.com/rest/api/databoxedgegateway
+    - name: .NET SDK
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet   
 - name: Resources
   items:
   - name: Azure Stack Edge C# module samples (.NET)

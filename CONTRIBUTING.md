@@ -11,7 +11,7 @@ For more information, see the [Code of Conduct FAQ](https://opensource.microsoft
 
 ## How can I contribute?
 
-There are a variety of ways to contribute to the documentation, review the sections below to find out which one is right for you.
+There are many ways to contribute to the documentation, review the sections below to find out which one is right for you.
 
 ### Reporting Bugs and Suggesting Enhancements
 

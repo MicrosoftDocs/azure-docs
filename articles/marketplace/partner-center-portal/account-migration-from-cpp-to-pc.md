@@ -1,15 +1,15 @@
 ---
-title: Account migration from Cloud Partner Portal to Partner Center - commercial marketplace for Azure
-description: How to migrate your account from CPP to Partner Center. - commercial marketplace for Azure
-author: dsindona
-ms.author: dsindona
+title: Migrate accounts from Cloud Partner Portal to Microsoft commercial marketplace
+description: Learn how to migrate your account from Cloud Partner Portal to Partner Center in Microsoft commercial marketplace for Azure
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 09/23/2019
 ---
 
-# Account migration from Cloud Partner Portal to Partner Center
+# How to migrate your account from Cloud Partner Portal to Partner Center
 
 If you have an existing Cloud Partner Portal (CPP) account, your account settings need to be migrated to Partner Center.
 
@@ -22,7 +22,7 @@ If you're a user with the Owner role in CPP for a given account, a yellow banner
 
 ### Your account has been migrated to Partner Center
 
-For all accounts that have completed migration from the CPP to Partner Center, account management will happen in Partner Center. Changes such as user addition/deletion will be synced back to CPP.
+You now manage your account in Partner Center. Changes such as user addition/deletion will be synced back to CPP.
 
 ### You have not yet migrated your account to Partner Center
 
@@ -38,13 +38,23 @@ Click on the banner to start your account migration process. You're expected to 
 
     If your CPP account doesn't have a Microsoft Partner Network ID or has one that's invalid, you'll need to sign up for the Microsoft Partner Network program as part of the activation process.
 
+## Publishers moving from CPP
+
+If your account was migrated from the CPP, you don't need to create a new Partner Center account. You should have received a customized link to your new Partner Center account in email and in a banner notification after logging in to your existing CPP account.
+
+Once you've enabled your new Partner Center account by visiting this customized link, you can return to your account by visiting the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
+
+The publishing agreement and company profile information will be migrated to your new Partner Center account, along with any previously set up account payout profile information, user accounts and permissions, and active offers associated with your CPP account.
+
+After your account information is moved from CPP to Partner Center, you'll no longer use CPP to make account updates, or manage users, permissions, and billing. For a limited time, any account updates you make in Partner Center will automatically be updated in your read-only CPP account until the CPP portal is eventually deprecated.
+
 ## Sign up for Microsoft Partner Network program
 
 Companies that want to partner with Microsoft must join the Microsoft Partner Network (MPN) and get an MPN ID. If you're already a member of the Microsoft Partner Network and have an MPN ID, keep the information handy as you'll need it during the account activation process.  
 
 If you're not a member of the Microsoft Partner Network, you can [join here](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) to get an MPN ID. Make a note of your MPN ID as you'll need to enter it during the account activation process.
 
-To learn more about the Microsoft Partner Network, see [Join the Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) on the partner website. To learn more about ISV benefits in the Microsoft Partner Network, see the [ISV Resource Hub](https://partner.microsoft.com/isv-resource-hub).  
+To learn more about the Microsoft Partner Network, see [Join the Microsoft Partner Network](https://partner.microsoft.com/membership) on the partner website. To learn more about ISV benefits in the Microsoft Partner Network, see the [ISV Resource Hub](https://partner.microsoft.com/isv-resource-hub).  
 
 ## Move Dynamics 365 and PowerApps offers to Partner Center
 
@@ -70,7 +80,7 @@ For specific information on what needs to be done by **October 15, 2019** for yo
 
 Get help from experts and peers in forums and discover blogs, webinars, videos, events, and more at [Microsoft Dynamics CRM](https://community.dynamics.com/crm?wa=wsignin1.0).
 
-If you need help publishing, certifying, or managing your marketplace offers, [submit a support ticket](https://partner.microsoft.com/support/v2/?stage=1).
+If you need help publishing, certifying, or managing your marketplace offers, [submit a support ticket](https://aka.ms/MarketplacePublisherSupport).
 
 ## Next step
 

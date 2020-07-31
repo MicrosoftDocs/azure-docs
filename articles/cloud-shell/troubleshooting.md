@@ -42,8 +42,8 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 ### Storage Dialog - Error: 403 RequestDisallowedByPolicy
 
-- **Details**: When creating a storage account through Cloud Shell, it is unsuccessful due to an Azure policy placed by your admin. Error message will include: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **Resolution**: Contact your Azure administrator to remove or update the Azure policy denying storage creation.
+- **Details**: When creating a storage account through Cloud Shell, it is unsuccessful due to an Azure Policy assignment placed by your admin. Error message will include: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Resolution**: Contact your Azure administrator to remove or update the Azure Policy assignment denying storage creation.
 
 ### Storage Dialog - Error: 400 DisallowedOperation
 
@@ -138,26 +138,6 @@ Take caution when editing .bashrc, doing so can cause unexpected errors in Cloud
 ### Preview version of AzureAD module
 
 Currently, `AzureAD.Standard.Preview`, a preview version of .NET Standard-based, module is available. This module provides the same functionality as `AzureAD`.
-
-### `SqlServer` module functionality
-
-The `SqlServer` module included in Cloud Shell has only prerelease support for PowerShell Core. In particular, `Invoke-SqlCmd` is not available yet.
-
-### Default file location when created from Azure drive
-
-Using PowerShell cmdlets, users cannot create files under the Azure drive. When users create new files using other tools, such as vim or nano, the files are saved to the `$HOME` by default.
-
-### Tab completion can throw PSReadline exception
-
-If the user's PSReadline EditMode is set to Emacs, the user tries to display all possibilities via tab completion, and the window size is too small to display all the possibilities, PSReadline will throw unhandled exception.
-
-### Large gap after displaying progress bar
-
-If a command or user action displays a progress bar, such a tab completing while in the `Azure:` drive, then it is possible that the cursor is not set properly and a gap appears where the progress bar was previously.
-
-### Random characters appear inline
-
-The cursor position sequence codes, for example `5;13R`, can appear in the user input. The characters can be manually removed.
 
 ## Personal data in Cloud Shell
 

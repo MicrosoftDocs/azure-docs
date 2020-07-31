@@ -6,8 +6,9 @@ ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
+
 # Troubleshoot common Azure Spring Cloud issues
 
 This article provides instructions for troubleshooting Azure Spring Cloud development issues. For additional information, see [Azure Spring Cloud FAQ](spring-cloud-faq.md).
@@ -196,7 +197,9 @@ Look for the child node named `systemEnvironment`.  This node contains your appl
 
 Go to **App management** to ensure that the application statuses are _Running_ and _UP_.
 
-If you can see metrics from _JVM_ but no metrics from _Tomcat_, check to see whether the `spring-boot-actuator` dependency is enabled in your application package and that it successfully boots up.
+Check to see weather _JMX_ is enabled in your application package. This feature can be enabled with the configuration property `spring.jmx.enabled=true`.  
+
+Check to see whether the `spring-boot-actuator` dependency is enabled in your application package and that it successfully boots up.
 
 ```xml
 <dependency>

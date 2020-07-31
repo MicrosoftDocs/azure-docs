@@ -1,11 +1,11 @@
 ---
-title: Optimize Spark jobs for performance in Azure Synapse Analytics
+title: Optimize Spark jobs for performance
 description: This article provides an introduction to Apache Spark in Azure Synapse Analytics and the different concepts.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: 
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang

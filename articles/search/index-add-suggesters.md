@@ -13,7 +13,7 @@ ms.date: 04/21/2020
 
 # Create a suggester to enable autocomplete and suggested results in a query
 
-In Azure Cognitive Search, "search-as-you-type" is enabled through a **suggester** construct added to a [search index](search-what-is-an-index.md). A suggester supports two experiences: *autocomplete*, which completes the term or phrase, and *suggestions* that return a short list of matching documents.  
+In Azure Cognitive Search, "search-as-you-type" is enabled through a **suggester** construct added to a [search index](search-what-is-an-index.md). A suggester supports two experiences: *autocomplete*, which completes a partial input for a whole term query, and *suggestions* that invites click through to a particular match. Autocomplete produces a query. Suggestions produce a matching document.
 
 The following screenshot from [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) illustrates both. Autocomplete anticipates a potential term, finishing "tw" with "in". Suggestions are mini search results, where a field like hotel name represents a matching hotel search document from the index. For suggestions, you can surface any field that provides descriptive information.
 
@@ -151,7 +151,7 @@ In a search application, client code should leverage a library like [jQuery UI A
 API usage is illustrated in the following call to the Autocomplete REST API. There are two takeaways from this example. First, as with all queries, the operation is against the documents collection of an index and the query includes a **search** parameter, which in this case provides the partial query. Second, you must add **suggesterName** to the request. If a suggester is not defined in the index, a call to autocomplete or suggestions will fail.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 {
   "search": "minecraf",
   "suggesterName": "sg"
