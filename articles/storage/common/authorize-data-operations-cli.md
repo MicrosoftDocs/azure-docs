@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurecli
 ---
 
 # Authorize access to blob or queue data with Azure CLI

@@ -13,7 +13,8 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
-ms.lastreviewed: 03/18/2020
+ms.lastreviewed: 03/18/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create an Azure notification hub using the Azure CLI
