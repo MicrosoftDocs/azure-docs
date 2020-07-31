@@ -59,7 +59,7 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 The command for updating an existing domain is similar (`az eventgrid domain update`).
 
 ## Supported destinations and RBAC roles
-After you enable identity for your event grid topic or domain, Azure automatically creates an identity in Azure Active Directory. Add this identity to appropriate role-based access control (RBAC) roles so that the topic or domain can forward events to supported destinations. For example, add the identity to the **Azure Event Hubs Data Sender** role for an Azure Event Hubs namespace so that the event grid topic can forward events to event hubs in that namespace. 
+After you enable identity for your event grid topic or domain, Azure automatically creates an identity in Azure Active Directory. Add this identity to appropriate Azure roles so that the topic or domain can forward events to supported destinations. For example, add the identity to the **Azure Event Hubs Data Sender** role for an Azure Event Hubs namespace so that the event grid topic can forward events to event hubs in that namespace. 
 
 Currently, Azure event grid supports topics or domains configured with a system-assigned managed identity to forward events to the following destinations. This table also gives you the roles that the identity should be in so that the topic can forward the events.
 

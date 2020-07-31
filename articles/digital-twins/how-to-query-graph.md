@@ -19,9 +19,13 @@ ms.service: digital-twins
 
 This article offers examples and more detail for using the [Azure Digital Twins Query Store language](concepts-query-language.md) to query the [twin graph](concepts-twins-graph.md) for information. You run queries on the graph using the Azure Digital Twins [**Query APIs**](how-to-use-apis-sdks.md).
 
+[!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
+
+The rest of this article provides examples of how to use these operations.
+
 ## Query syntax
 
-Here are some sample queries that illustrate the query language structure and perform possible query operations.
+This section contains sample queries that illustrate the query language structure and perform possible query operations.
 
 Get [digital twins](concepts-twins-graph.md) by properties (including ID and metadata):
 ```sql
@@ -32,16 +36,55 @@ AND T.$dtId in ['123', '456']
 AND T.Temperature = 70
 ```
 
-Get digital twins by [model](concepts-models.md)
-```sql
-SELECT  * 
-FROM DigitalTwins T  
-WHERE IS_OF_MODEL(T , 'dtmi:com:contoso:Space;3')
-AND T.roomSize > 50
-```
-
 > [!TIP]
 > The ID of a digital twin is queried using the metadata field `$dtId`.
+
+You can also get twins by their *tag* properties, as described in [Add tags to digital twins](how-to-use-tags.md):
+```sql
+select * from digitaltwins where is_defined(tags.red) 
+```
+
+### Select top items
+
+You can select the several "top" items in a query using the `Select TOP` clause.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE property = 42
+```
+
+### Query by model
+
+The `IS_OF_MODEL` operator can be used to filter based on the twin's [model](concepts-models.md). It supports inheritance and has several overload options.
+
+The simplest use of `IS_OF_MODEL` takes only a `twinTypeName` parameter: `IS_OF_MODEL(twinTypeName)`.
+Here is a query example that passes a value in this parameter:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+```
+
+To specify a twin collection to search when there is more than one (like when a `JOIN` is used), add the `twinCollection` parameter: `IS_OF_MODEL(twinCollection, twinTypeName)`.
+Here is a query example that adds a value for this parameter:
+
+```sql
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+```
+
+To do an exact match, add the `exact` parameter: `IS_OF_MODEL(twinTypeName, exact)`.
+Here is a query example that adds a value for this parameter:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+```
+
+You can also pass all three arguments together: `IS_OF_MODEL(twinCollection, twinTypeName, exact)`.
+Here is a query example specifying a value for all three parameters:
+
+```sql
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+```
 
 ### Query based on relationships
 

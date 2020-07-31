@@ -76,8 +76,8 @@ Task properties typically appear at the top of an `acr-task.yaml` file, and are 
 | `stepTimeout` | int (seconds) | Yes | The maximum number of seconds a step can run. If the property is specified on a task, it sets the default `timeout` property of all the steps. If the `timeout` property is specified on a step, it overrides the property provided by the task. | Yes | 600 (10 minutes) |
 | `workingDirectory` | string | Yes | The working directory of the container during runtime. If the property is specified on a task, it sets the default `workingDirectory` property of all the steps. If specified on a step, it overrides the property provided by the task. | Yes | `/workspace` |
 | `env` | [string, string, ...] | Yes |  Array of strings in `key=value` format that define the environment variables for the task. If the property is specified on a task, it sets the default `env` property of all the steps. If specified on a step, it overrides any environment variables inherited from the task. | Yes | None |
-| `secrets` | [secret, secret, ...] | Yes | Array of [secret](#secret) objects. No | None |
-| `networks` | [network, network, ...] | Yes | Array of [network](#network) objects. No | None |
+| `secrets` | [secret, secret, ...] | Yes | Array of [secret](#secret) objects. | No | None |
+| `networks` | [network, network, ...] | Yes | Array of [network](#network) objects. | No | None |
 | `volumes` | [volume, volume, ...] | Yes | Array of [volume](#volume) objects. Specifies volumes with source content to mount to a step. | No | None |
 
 ### secret
