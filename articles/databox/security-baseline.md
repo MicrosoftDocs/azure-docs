@@ -214,7 +214,7 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 ### 3.1: Maintain an inventory of administrative accounts
 
-**Guidance**: Maintain an inventory of the user accounts that have administrative access to your Azure Data Box. You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.You can control who can access your order when the order is first created. Set up Role-based Access Control (RBAC) roles at various scopes to control the access to the Data Box order. An RBAC role determines the type of access – read-write, read-only, read-write to a subset of operations.
+**Guidance**: Maintain an inventory of the user accounts that have administrative access to your Azure Data Box. You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.You can control who can access your order when the order is first created. Set up Azure roles at various scopes to control the access to the Data Box order. An RBAC role determines the type of access – read-write, read-only, read-write to a subset of operations.
 
 * [Understand custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
