@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 07/30/2020
+ms.date: 07/31/2020
 ---
 
 # Archived release notes
