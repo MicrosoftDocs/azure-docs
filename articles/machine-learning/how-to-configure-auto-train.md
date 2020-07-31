@@ -340,7 +340,7 @@ There are a few options you can define to end your experiment.
 
 ### Explore model metrics
 
-You can view your training results in a widget or inline if you are in a notebook. See [Track and evaluate models](how-to-track-experiments.md#monitor-automated-machine-learning-runs) for more details.
+You can view your training results in a widget or inline if you are in a notebook. See [Track and evaluate models](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) for more details.
 
 For details on how to download or register a model for deployment to a web service, see [how and where to deploy a model](how-to-deploy-and-where.md).
 
