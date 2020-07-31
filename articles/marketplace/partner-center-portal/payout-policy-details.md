@@ -15,7 +15,7 @@ This article discusses Microsoft's payout process, payout schedule, where to fin
 
 ## Where to find upcoming payouts
 
-In Partner Center, select **Payout** at the upper-right of the portal:
+In Partner Center, select the **payout** in the upper-right corner of the screen:
 
 ![Illustrates the Payout icon in the upper-right of the Partner Center portal.](./media/payout-overview.png)
 
@@ -104,6 +104,19 @@ The following is an example schedule:
 | Payout is deducted | 3/1/2021 | Publisher will see negative transaction in Partner Center Payout Statement |
 | Payout is withheld | 3/15/2021 | Future payouts will be shown in Partner Center Payout Statement. Publisher will not receive payment until balance is no longer negative.  |
 |||
+
+## Number of days for payments to reach a payout account
+
+We typically send any payment due in a given month on the 15th day of that month, but it takes additional time for the payment to reach your account. The amount of days depends on the payment method we use for your account, as described below.
+
+> [!NOTE]
+> The days shown below are approximate; any payment may take a longer or shorter amount of time to reach your account.
+
+| Payment method     | Number of days to reach payout account     |
+|--------------------|--------------------------------------------|
+| PayPal             | 1 business day                             |
+| ACH/SEPA           | 2-3 business days                          |
+| Wire Transfer      | 7-10 business days                         |
 
 ## Next Step
 
