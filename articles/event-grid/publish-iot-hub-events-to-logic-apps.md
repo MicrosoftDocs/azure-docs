@@ -6,7 +6,8 @@ author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.author: robinsh
+ms.author: robinsh 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Send email notifications about Azure IoT Hub events using Event Grid and Logic Apps

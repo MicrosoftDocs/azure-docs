@@ -3,7 +3,8 @@ title: Azure CLI script sample - Subscribe to resource group | Microsoft Docs
 description: This article provides a sample Azure CLI script that shows how to subscribe to Azure Event Grid events for a resource group.
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 07/08/2020
+ms.date: 07/08/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Subscribe to events for a resource group with Azure CLI
