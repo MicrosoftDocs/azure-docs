@@ -1,7 +1,7 @@
 ---
 title: Create datasets with Azure Open Datasets
 titleSuffix: Azure Machine Learning
-description: Learn how to use datastores to securely connect to Azure storage services during training with Azure Machine Learning
+description: Learn how to create an Azure Machine Learning dataset from to access data for your local or remote experiments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -20,9 +20,13 @@ ms.custom: seodec18, tracking-python
 
 In this article, you learn how to create an Azure Machine Learning dataset from [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) to access data for your local or remote experiments. To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
-Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. Open Datasets are in the cloud on Microsoft Azure and are included in both the Azure Machine Learning Python SDK and the Azure Machine Learning studio.
-
 By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. Also datasets are lazily-evaluated, which aids in workflow performance speeds. [Learn more about Azure Machine Learning datasets](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets). 
+
+Open Datasets are in the cloud on Microsoft Azure and are included in both the [Azure Machine Learning Python SDK](#create-datasets-with-the-sdk) and the [Azure Machine Learning studio](#create-datasets-with-the-studio).
+
+## Why use Azure Open Datasets? 
+
+Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. 
 
 ## Prerequisites
 
@@ -62,21 +66,24 @@ When you register a dataset created from Open Datasets, no data is immediately d
 
 You can also create datasets from Open Datasets classes through the UI. In your workspace, select the **Datasets** tab under **Assets**. On the **Create dataset** drop-down menu, select **From Open Datasets**.
 
-![Open Dataset with the UI](./media/how-to-create-register-datasets/open-datasets-1.png)
+![Open Dataset with the UI](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
 
 Select a dataset by selecting its tile. (You have the option to filter by using the search bar.) Select **Next**.
 
-![Choose dataset](./media/how-to-create-register-datasets/open-datasets-2.png)
+![Choose dataset](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
 Choose a name under which to register the dataset, and optionally filter the data by using the available filters. In this case, for the public holidays dataset, you filter the time period to one year and the country code to only the US. Select **Create**.
 
-![Set dataset params and create dataset](./media/how-to-create-register-datasets/open-datasets-3.png)
+![Set dataset params and create dataset](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 
 The dataset is now available in your workspace under **Datasets**. You can use it in the same way as other datasets you've created.
+
+## Example notebooks
+For examples and demonstrations of Open datasets functionality please see these [notebooks](https://github.com/Azure/OpenDatasetsNotebooks/tree/master/tutorials).
 
 ## Next steps
 
 * [Create an Azure machine learning dataset](how-to-create-register-datasets.md).
-* Learn more about how to use Azure Machine Learning with these [example notebooks](https://github.com/Azure/OpenDatasetsNotebooks/tree/master/tutorials).
+
 * [Train a model](how-to-train-ml-models.md).
 
