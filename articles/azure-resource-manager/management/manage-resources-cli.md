@@ -4,7 +4,8 @@ description: Use Azure CLI and Azure Resource Manager to manage your resources. 
 author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 ---
 # Manage Azure resources by using Azure CLI
 
