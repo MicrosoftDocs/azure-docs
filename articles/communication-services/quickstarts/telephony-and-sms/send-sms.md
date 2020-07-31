@@ -3,12 +3,12 @@ title: Get Started With SMS
 description: TODO
 author: mikben    
 manager: jken
-services: azure-project-spool
+services: azure-communication-services
 
 ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
-ms.service: azure-project-spool
+ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-diberry-3core
 ---
@@ -22,7 +22,7 @@ zone_pivot_groups: programming-languages-set-diberry-3core
 
 Azure Communication Services lets you easily send and receive SMS messages. In this quickstart, learn how to use Communication Services to send SMS messages using the ACS SDKs.
 
-You can receive SMS messages and Delivery Reports by using ACS' EventGrid integration to subscribe to webhooks, and have ACS call your service when an SMS message is received. See the [EventGrid concept for more information.](../concepts/acs-event-grid.md)
+You can receive SMS messages and Delivery Reports by using ACS' EventGrid integration to subscribe to webhooks, and have ACS call your service when an SMS message is received. See the [EventGrid concept for more information.](../../concepts/event-handling.md)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .Net SDK](./includes/send-sms-net.md)]

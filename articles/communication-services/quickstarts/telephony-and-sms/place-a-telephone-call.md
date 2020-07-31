@@ -3,12 +3,12 @@ title: Place a telephone call
 description: TODO
 author: stkozak    
 manager: rampras
-services: azure-project-spool
+services: azure-communication-services
 
 ms.author: stkozak
 ms.date: 06/23/2020
 ms.topic: overview
-ms.service: azure-project-spool
+ms.service: azure-communication-services
 
 ---
 # Quickstart: Place a telephone call

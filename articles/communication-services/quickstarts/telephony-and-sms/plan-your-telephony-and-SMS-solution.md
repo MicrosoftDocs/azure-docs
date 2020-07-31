@@ -1,17 +1,17 @@
 ---
-title: Plan your Telephony and SMS solution
+title: Plan your telephony and SMS solution
 description: TODO
 author: stkozak    
 manager: rampras
-services: azure-project-spool
+services: azure-communication-services
 
 ms.author: stkozak
 ms.date: 06/23/2020
 ms.topic: overview
-ms.service: azure-project-spool
+ms.service: azure-communication-services
 
 ---
-# Quickstart: Plan your Telephony and SMS solution
+# Quickstart: Plan your telephony and SMS solution
 
 > [!IMPORTANT]
 > Azure Communication Services is currently in public preview.
@@ -88,7 +88,6 @@ Now as we understand the numbers types, let look at specific number types availa
 
 ### Phone number types in Microsoft direct offer
 
-
 Microsoft offers Regional, Toll-Free, and plans to offer the Short codes and Mobile numbers (in countries where applicable).
 The table below summarizes the types of offers. 
 
@@ -110,11 +109,12 @@ Microsoft offers the following capabilities
 
 *Quickstarts*
 
--	Use quick start to Search and aqcuire a phone number	
-- Use quick start to make your first call or send an SMS
+- Buy a phone number	
+- Place a call
+- Send an SMS
 
-*More related concept documents*
+*Conceptual documentation*
 
--	Familiarize with call types available in ACS
--	Review call flows and SMS flows
--	Understand for what you will and will not be charged 
+-	Call Types
+-	Call Flows and SMS Flows
+-	Pricing

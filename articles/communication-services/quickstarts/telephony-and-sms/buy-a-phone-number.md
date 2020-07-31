@@ -1,14 +1,14 @@
 ---
 title: Buy a phone number
 description: Setting up the SMS SDK for ACS in Javascript
-author: dademath    
+author: ddematheu2  
 manager: nimag
-services: azure-project-spool
+services: azure-communication-services
 
-ms.author: dademath
+ms.author: ddematheu2
 ms.date: 07/09/2020
 ms.topic: quickstart
-ms.service: azure-project-spool
+ms.service: azure-communication-services
 
 ---
 
