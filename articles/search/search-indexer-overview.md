@@ -34,7 +34,7 @@ Initially, a new indexer is announced as a preview feature. Preview features are
 
 ## Permissions
 
-All operations related to indexers, including GET requests for status or definitions, require an [admin api-key](search-security-api-keys.md). 
+All operations related to indexers, including GET requests for status or definitions, require an [admin api-key](search-security-api-keys.md).
 
 <a name="supported-data-sources"></a>
 
@@ -50,7 +50,40 @@ Indexers crawl data stores on Azure.
 * [SQL Server on Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 * [SQL Managed instances on Azure](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
+## Indexer Stages
+
+When an indexer is run, it will read the data source to check if it there are changes that require it to update the index. For instance, it will identify document or records that have not yet been indexed or files that got edited or deleted since the last time the indexer ran. For each of those documents/records, it will perform the following operations.
+
+![Indexer Stages](./media/search-indexer-overview/indexer-stages.png "indexer stages")
+
+### 1. Document cracking
+
+Depending on the type of data source, the indexer will try performing different operations to extract potentially indexable content.  
+
+Examples:  
+
+* When the document is a record in an [Azure SQL data source](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), the indexer will extract each of the fields for the record.
+* When the document is a PDF file in an [Azure Blob Storage data source](search-howto-indexing-azure-blob-storage.md), the indexer will extract the text, images and metadata for the file.
+* When the document is a  record in a [Cosmos DB data source](search-howto-index-cosmosdb.md), the indexer will extract the fields and subfields from the Cosmos DB document.
+
+### 2. Field mappings
+
+[Field mappings](search-indexer-field-mappings.md) are optional, and allow you to rename and transform fields in preparation for further processing. This step occurs right after document cracking. Learn how to define [field mappings](search-indexer-field-mappings.md).
+
+### 3. Skillset execution
+
+Azure Cognitive Search allows you to perform AI enrichments and transformations as part of the ingestion process. We call extraction and enrichment steps cognitive skills. A set of cognitive skills is called a [skillset](cognitive-search-defining-skillset.md), and it gets executed after the field mapping stage. Learn how to [create a skillset](cognitive-search-quickstart-blob.md).
+
+### 4. Output Field mappings
+
+The output of a skillset is really a tree of information called the enriched document. Output field mappings allow you to select which parts of this tree to map into fields in your index. Learn how to [define output field mappings](cognitive-search-output-field-mapping.md).
+
+The next image shows a sample indexer debug session representation of the indexer stages: document cracking, field mappings, skillset execution, and output field mappings.
+
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="sample debug wession" lightbox="medi/search-indexer-overview/sample-debug-session.png":::
+
 ## Basic configuration steps
+
 Indexers can offer features that are unique to the data source. In this respect, some aspects of indexer or data source configuration will vary by indexer type. However, all indexers share the same basic composition and requirements. Steps that are common to all indexers are covered below.
 
 ### Step 1: Create a data source

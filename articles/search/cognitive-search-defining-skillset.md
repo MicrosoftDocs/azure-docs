@@ -13,6 +13,8 @@ ms.date: 11/04/2019
 
 # How to create a skillset in an AI enrichment pipeline in Azure Cognitive Search 
 
+![indexer stages](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "indexer stages")
+
 AI enrichment extracts and enriches data to make it searchable in Azure Cognitive Search. We call extraction and enrichment steps *cognitive skills*, combined into a *skillset* referenced during indexing. A skillset can use [built-in skills](cognitive-search-predefined-skills.md) or custom skills (see [Example: Creating a custom skill in an AI enrichment pipeline](cognitive-search-create-custom-skill-example.md) for more information).
 
 In this article, you learn how to create an enrichment pipeline for the skills you want to use. A skillset is attached to an Azure Cognitive Search [indexer](search-indexer-overview.md). One part of pipeline design, covered in this article, is constructing the skillset itself. 
