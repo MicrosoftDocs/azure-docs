@@ -13,10 +13,10 @@ ms.custom: tracking-python
 
 Following is a list of troubleshooting guides for common issues in Python functions:
 
-* [ModuleNotFoundError and ImportError](#troubleshoot-module-not-found-error)
+* [ModuleNotFoundError and ImportError](#troubleshoot-modulenotfounderror)
 * [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
 
-## Troubleshoot module not found error
+## Troubleshoot ModuleNotFoundError
 
 This section helps you troubleshoot module-related errors in your Python function app. These errors typically result in the following Azure Functions error message:
 

@@ -690,7 +690,7 @@ CORS is fully supported for Python function apps.
 
 Following is a list of troubleshooting guides for common issues:
 
-* [ModuleNotFoundError and ImportError](recover-python-functions.md#troubleshoot-module-not-found-error)
+* [ModuleNotFoundError and ImportError](recover-python-functions.md#troubleshoot-modulenotfounderror)
 * [Cannot import 'cygrpc'](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
 
 All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
