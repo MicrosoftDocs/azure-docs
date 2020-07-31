@@ -17,13 +17,13 @@ Microsoft Azure Storage Explorer enables you to easily work with Azure Storage d
 
 - **Always use the latest version of Storage Explorer.** Storage Explorer releases may contain security updates. Staying up to date helps ensure general security.
 - **Only connect to resources you trust.** Data that you download from untrusted sources could be malicious, and uploading data to an untrusted source may result in lost or stolen data.
-- **Use HTTPS whenever possible.** Storage Explorer uses HTTPS by default. Some scenarios allow you to use HTTP, but this should only be done as a last resort.
+- **Use HTTPS whenever possible.** Storage Explorer uses HTTPS by default. Some scenarios allow you to use HTTP, but HTTP should be used only as a last resort.
 - **Ensure only the needed permissions are given to the people who need them.** Avoid being overly permissive when granting anyone access to your resources.
 - **Use caution when executing critical operations.** Certain operations, such as delete and overwrite, are irreversible and may cause data loss. Make sure you're working with the correct resources before executing these operations.
 
 ## Choosing the right authentication method
 
-Storage Explorer provides various ways to access your Azure Storage resources. Whatever method you choose, here are our recommends.
+Storage Explorer provides various ways to access your Azure Storage resources. Whatever method you choose, here are our recommendations.
 
 ### Azure AD authentication
 
@@ -35,13 +35,13 @@ The easiest and most secure way to access your Azure Storage resources is to sig
 
 Use Azure AD authentication whenever possible.
 
-This section describes the two Azure AD based technologies that can be used to secure your storage resources.
+This section describes the two Azure AD-based technologies that can be used to secure your storage resources.
 
 #### Role-based Access Control (RBAC)
 
-[Role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) provides fine-grained access management of Azure resources. RBAC roles and permissions can be managed from the Azure portal.
+[Role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) give you fine-grained access control over your Azure resources. RBAC roles and permissions can be managed from the Azure portal.
 
-Storage Explorer supports RBAC access to Storage Accounts, Blobs, and Queues. If you need access to File Shares or Tables, you will need assign RBAC roles that grant permission to list storage account keys.
+Storage Explorer supports RBAC access to Storage Accounts, Blobs, and Queues. If you need access to File Shares or Tables, you'll need to assign RBAC roles that grant permission to list storage account keys.
 
 #### Access control lists (ACLs)
 
@@ -57,22 +57,22 @@ If you can't use Azure AD authentication, we recommend using shared access signa
 However, with shared access signatures, you can't:
 
 - Restrict who can use a SAS. A valid SAS can be used by anyone who has it.
-- Revoke a SAS if not generated from a SAP.
+- Revoke a SAS if not generated from a shared access policy (SAP).
 
 When using SAS in Storage Explorer, we recommend the following guidelines:
 
 - **Limit the distribution of SAS tokens and URIs.** Only distribute SAS tokens and URIs to trusted individuals. Limiting SAS distribution reduces the chance a SAS could be misused.
 - **Only use SAS tokens and URIs from entities you trust.**
 - **Use shared access policies (SAP) when generating SAS tokens and URIs if possible.** A SAS based on a shared access policy is more secure than a bare SAS, because the SAS can be revoked by deleting the SAP.
-- **Generate tokens with minimal resource access and permissions.** This limits the potential damage that could be done if a SAS is misused.
-- **Generate tokens that are only valid for as long as necessary.** This is especially important for bare SAS, because there's no way to revoke them once generated.
+- **Generate tokens with minimal resource access and permissions.** Minimal permissions limits the potential damage that could be done if a SAS is misused.
+- **Generate tokens that are only valid for as long as necessary.** A short lifespan is especially important for bare SAS, because there's no way to revoke them once generated.
 
 > [!IMPORTANT]
 > When sharing SAS tokens and URIs for troubleshooting purposes, such as in service requests or bug reports, always redact at least the signature portion of the SAS.
 
 ### Storage Account Keys
 
-Storage account keys grant unrestricted access to the services and resources within a storage account. For this reason, we don't recommended using keys to access resources in Storage Explorer. Use RBAC features or SAS to provide access instead.
+Storage account keys grant unrestricted access to the services and resources within a storage account. For this reason, we recommend limiting the use of keys to access resources in Storage Explorer. Use RBAC features or SAS to provide access instead.
 
 Some RBAC roles grant permission to retrieve storage account keys. Individuals with these roles can effectively circumvent permissions granted or denied by RBAC. We recommend not granting this permission unless it's necessary.
 
