@@ -88,41 +88,9 @@ The first tab in each transformation's configuration pane contains the settings 
 
 #### Optimize
 
-The **Optimize** tab contains settings to configure partitioning schemes.
+The **Optimize** tab contains settings to configure partitioning schemes. To learn more about how to optimize your data flows, see the [mapping data flow performance guide](concepts-data-flow-performance.md).
 
 ![Optimize](media/data-flow/optimize1.png "Optimize")
-
-The default setting is **Use current partitioning**, which instructs Azure Data Factory to use the partitioning scheme native to data flows running on Spark. In most scenarios, we recommend this setting.
-
-There are instances where you might want to adjust the partitioning. For instance, if you want to output your transformations to a single file in the lake, select **Single partition** in a sink transformation.
-
-Another case where you might want to control the partitioning schemes is optimizing performance. Adjusting the partitioning provides control over the distribution of your data across compute nodes and data locality optimizations that can have both positive and negative effects on your overall data flow performance. For more information, see the [Data flow performance guide](concepts-data-flow-performance.md).
-
-To change the partitioning on any transformation, select the **Optimize** tab and select the **Set Partitioning** radio button. You are presented with a series of options for partitioning. The best method of partitioning differs based on your data volumes, candidate keys, null values, and cardinality. 
-
-A best practice is to start with default partitioning and then try different partitioning options. You can test by using pipeline debug runs, and view execution time and partition usage in each transformation grouping from the monitoring view. For more information, see [Monitoring data flows](concepts-data-flow-monitoring.md).
-
-The following partitioning options are available.
-
-##### Round robin 
-
-Round robin is a simple partition that automatically distributes data equally across partitions. Use round-robin when you don't have good key candidates to implement a solid, smart partitioning strategy. You can set the number of physical partitions.
-
-##### Hash
-
-Azure Data Factory produces a hash of columns to produce uniform partitions such that rows with similar values fall in the same partition. When you use the Hash option, test for possible partition skew. You can set the number of physical partitions.
-
-##### Dynamic range
-
-The dynamic range uses Spark dynamic ranges based on the columns or expressions that you provide. You can set the number of physical partitions. 
-
-##### Fixed range
-
-Build an expression that provides a fixed range for values within your partitioned data columns. To avoid partition skew, you should have a good understanding of your data before you use this option. The values you enter for the expression are used as part of a partition function. You can set the number of physical partitions.
-
-##### Key
-
-If you have a good understanding of the cardinality of your data, key partitioning might be a good strategy. Key partitioning creates partitions for each unique value in your column. You can't set the number of partitions because the number is based on unique values in the data.
 
 #### Inspect
 
