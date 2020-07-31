@@ -11,11 +11,11 @@
 ---
 ## Overview of SSH and keys
 
-[SSH](https://www.ssh.com/ssh/) is an encrypted connection protocol that allows secure sign-ins over unsecured connections. SSH is the default connection protocol for Linux VMs hosted in Azure. Although SSH itself provides an encrypted connection, using passwords with SSH connections still leaves the VM vulnerable to brute-force attacks. We recommend connecting to a VM over SSH using a public-private key pair, also known as *SSH keys*. 
+[SSH](https://www.ssh.com/ssh/) is an encrypted connection protocol that provides secure sign-ins over unsecured connections. SSH is the default connection protocol for Linux VMs hosted in Azure. Although SSH itself provides an encrypted connection, using passwords with SSH connections still leaves the VM vulnerable to brute-force attacks. We recommend connecting to a VM over SSH using a public-private key pair, also known as *SSH keys*. 
 
-* The *public key* is placed on your Linux VM.
+- The *public key* is placed on your Linux VM.
 
-* The *private key* remains on your local system. Protect this private key. Do not share it.
+- The *private key* remains on your local system. Protect this private key. Do not share it.
 
 When you use an SSH client to connect to your Linux VM (which has the public key), the remote VM tests the client to make sure it has the correct private key. If the client has the private key, it's granted access to the VM. 
 
