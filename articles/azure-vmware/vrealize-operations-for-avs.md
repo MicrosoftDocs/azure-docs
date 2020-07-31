@@ -10,7 +10,7 @@ ms.date: 08/06/2020
 
 vRealize Operations Manager is an operations management platform that allows VMware infrastructure administrators to monitor system resources. These system resources could be application-level or infrastructure level (both physical and virtual) objects. Historically, most VMware administrators have used vRealize Operations to monitor and manage the VMware private cloud components – vCenter, ESXi, NSX-T, vSAN, and Hybrid Cloud Extension (HCX). Each AVS private cloud is provisioned with a dedicated vCenter, NSX-T, vSAN, and HCX deployment. 
 
-Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#prerequisites) first. Then, we'll walk you through the two typical deployment toplogies for vRealize Operations Manager with AVS:
+Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#prerequisites) first. Then, we'll walk you through the two typical deployment topologies for vRealize Operations Manager with AVS:
 
 > [!div class="checklist"]
 > * [On-premises vRealize Operations managing AVS deployment ](#on-premises-vrealize-operations-managing-avs-deployment)
