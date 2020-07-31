@@ -189,7 +189,7 @@ prerequisites to enable Guest Configuration Policy on Windows VMs_. You can comb
 definitions in an initiative if you choose.
 
 > [!NOTE]
-> The built-in time zone policy is the only definition that currently supports configuring settings
+> The built-in time zone policy is the only definition that supports configuring settings
 > inside machines and custom policies that configure settings inside machines are not supported.
 
 #### Assigning policies to machines outside of Azure
