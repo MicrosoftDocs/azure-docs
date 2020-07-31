@@ -1,5 +1,5 @@
 ---
-title: 'QuickStart: Windows container (Preview)'
+title: 'Quickstart: Windows container (Preview)'
 description: Deploy your first custom Windows container to Azure App Service. Take advantage of containerization, customize the Windows container the way you like it. 
 ms.topic: quickstart
 ms.date: 08/30/2019
