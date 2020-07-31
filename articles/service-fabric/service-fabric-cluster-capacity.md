@@ -150,7 +150,7 @@ The capacity needs of your cluster will be determined by your specific workload 
 
 #### Virtual machine sizing
 
-**For production workloads, the recommended VM size (SKU) is Standard D2_V2 (or equivalent) with a minimum of 50 GB of local SSD.** A minimum of 50 GB local SSD is recommended, however some workloads (such as those running Windows containers) will require larger disks. When choosing other [VM sizes](../virtual-machines/sizes-general.md) for production workloads, keep in mind the following constraints:
+**For production workloads, the recommended VM size (SKU) is [Standard D2_V2](../virtual-machines/dv2-dsv2-series.md) (or equivalent) with a minimum of 50 GB of local SSD, 2 cores, and 4 GiB of memory.** A minimum of 50 GB local SSD is recommended, however some workloads (such as those running Windows containers) will require larger disks. When choosing other [VM sizes](../virtual-machines/sizes-general.md) for production workloads, keep in mind the following constraints:
 
 - Partial core VM sizes like Standard A0 are not supported.
 - *A-series* VM sizes are not supported for performance reasons.
