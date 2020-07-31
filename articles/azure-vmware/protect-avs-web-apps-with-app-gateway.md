@@ -2,7 +2,7 @@
 title: Use Azure Application Gateway to protect your web apps on Azure VMware Solution
 description: Configure Azure Application Gateway to securely expose your web apps running on Azure VMware Solution (AVS).
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 07/31/2020
 ---
 
 # Use Azure Application Gateway to protect your web apps on Azure VMware Solution
@@ -74,7 +74,7 @@ In this section, you will learn how to configure Application Gateway with AVS vi
 
 You can use the Azure portal to configure hosting multiple websites when you create an application gateway. In this tutorial, you define backend address pools using virtual machines running on an AVS private cloud on an existing application gateway. The application gateway is part of a Hub virtual network as described in [Integrate AVS in a hub and spoke architecture](concepts-avs-hub-and-spoke-integration.md). This tutorial assumes you own multiple domains, and it uses examples of www.contoso.com and www.fabrikam.com.
 
-1. Create the virtual machines. On the AVS Software Defined Datacenter (SDDC), create two different pools of virtual machines; one will represent Contoso and the second Fabrikam. 
+1. Create the virtual machines. On the AVS private cloud, create two different pools of virtual machines; one will represent Contoso and the second Fabrikam. 
 
     :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-multi-backendpool-avs.png" alt-text="Web server pool on AVS":::
 
@@ -107,7 +107,7 @@ You can use the Azure portal to configure hosting multiple websites when you cre
 
 You can use Azure Application Gateway to configure URL path-based routing rules. In this tutorial, you define backend address pools using virtual machines running on an AVS private cloud on an existing application gateway. The application gateway is part of a Hub virtual network as described in [AVS Azure Native integration documentation](concepts-avs-hub-and-spoke-integration.md). You then create routing rules that make sure web traffic arrives at the appropriate servers in the pools.
 
-1. Create the virtual machines. On the AVS SDDC, create a pool of virtual machines to represent the web farm. 
+1. Create the virtual machines. On the AVS private cloud, create a pool of virtual machines to represent the web farm. 
 
     :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-url-route-backendpool-avs.png" alt-text="Web server pool on AVS":::
 
