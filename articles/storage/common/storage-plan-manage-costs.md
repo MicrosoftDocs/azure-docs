@@ -49,9 +49,19 @@ This section covers each option in more detail.
 
 #### Reserve storage capacity
 
+You can reserve storage capacity for Blob storage or for Azure managed disks.
+
+##### Reserve capacity for Blob storage
+
 You can save money on storage costs for blob data with Azure Storage reserved capacity. Azure Storage reserved capacity offers you a discount on capacity for block blobs and for Azure Data Lake Storage Gen2 data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. 
 
-To learn more, see [Optimize costs for Blob storage with reserved capacity](https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity)
+To learn more, see [Optimize costs for Blob storage with reserved capacity](https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity).
+
+##### Reserve capacity for Azure managed disks
+
+You can save on your Azure Disk Storage usage by using reserved capacity. Azure Disk Storage reservations combined with Azure Reserved Virtual Machine Instances let you lower your total virtual machine (VM) costs. 
+
+To learn more, see [Reduce costs with Azure Disks Reservation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-reserved-capacity).
 
 #### Organize data into access tiers
 
