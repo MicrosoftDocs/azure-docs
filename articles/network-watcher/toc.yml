@@ -7,8 +7,6 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Connection Monitor (Preview)
-    href: connection-monitor-preview.md
   - name: Diagnose VM traffic filter problem - Portal
     href: diagnose-vm-network-traffic-filtering-problem.md
   - name: Diagnose VM traffic filter problem - PowerShell
@@ -27,6 +25,8 @@
     href: network-watcher-nsg-flow-logging-portal.md
 - name: Concepts
   items:
+  - name: Connection Monitor (Preview)
+    href: connection-monitor-preview.md
   - name: Diagnose VM network traffic filter problems
     href: network-watcher-ip-flow-verify-overview.md
   - name: Diagnose VM routing problems
