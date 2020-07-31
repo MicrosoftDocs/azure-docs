@@ -22,7 +22,7 @@ Azure Files offers two protocols for connecting and mounting your Azure file sha
 The following Azure Files features are not available with NFS shares:
 
 - Azure File Sync
-- - Identity-based authentication
+- Identity-based authentication
 - Azure Backup support
 - Snapshots
 - Soft delete
