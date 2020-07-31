@@ -1,7 +1,7 @@
 ---
 title: Azure PowerShell script sample - Configure IPv6 endpoints
 titlesuffix: Azure Virtual Network
-description: Enable IPv6 endpoints using Powershell in Azure Virtual Network
+description: Configure IPv6 endpoints in virtual network with an Azure PowerShell script and find links to command-specific documentation to help with the PowerShell sample.
 services: virtual-network
 documentationcenter: na
 author: KumudD

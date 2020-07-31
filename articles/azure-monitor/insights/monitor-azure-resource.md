@@ -92,7 +92,7 @@ Many services will include monitoring data on their **Overview** page as a quick
 
 
 ### Insights and Solutions 
-Some services will provide tools beyond the standard features of Azure Monitor. [Insights](../insights/insights-overview.md) provide a customized monitoring experience built on the Azure Monitor data platform and standard features. [Solutions](../insights/solutions.md) provide predefined monitoring logic built on Azure Monitor Logs. 
+Some services will provide tools beyond the standard features of Azure Monitor. [Insights](./insights-overview.md) provide a customized monitoring experience built on the Azure Monitor data platform and standard features. [Solutions](./solutions.md) provide predefined monitoring logic built on Azure Monitor Logs. 
 
 If a service has an Azure Monitor insight, you can access it from **Monitoring** in each resource's menu. Access all insights and solutions from the **Azure Monitor** menu.
 
@@ -160,3 +160,4 @@ Use **Alerts** from a resource's menu to view alerts and manage alert rules for 
 ## Next steps
 
 * See [Supported services, schemas, and categories for Azure Resource Logs](../platform/resource-logs-schema.md) for details of resource logs for different Azure services.  
+

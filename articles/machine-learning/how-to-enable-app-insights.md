@@ -5,12 +5,12 @@ description: Monitor web services deployed with Azure Machine Learning using Azu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
 ms.date: 07/23/2020
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 ---
 
 # Monitor and collect data from ML web service endpoints
@@ -123,6 +123,8 @@ If you want to log custom traces, follow the standard deployment process for AKS
 
 3. Build an image and deploy it on [AKS or ACI](how-to-deploy-and-where.md).
 
+For more information on logging and data collection, see [Enable logging in Azure Machine Learning](how-to-enable-logging.md) and [Collect data from models in production](how-to-enable-data-collection.md).
+
 ### Disable tracking in Python
 
 To disable Azure Application Insights, use the following code:
@@ -161,7 +163,7 @@ To view it:
 
     [![Locate Application Insights url](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. In Application Isights, from the **Overview** tab or the __Monitoring__ section in the list on the left, select __Logs__.
+1. In Application Insights, from the **Overview** tab or the __Monitoring__ section in the list on the left, select __Logs__.
 
     [![Overview tab of monitoring](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 

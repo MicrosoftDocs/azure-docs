@@ -312,7 +312,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 When you first deploy Azure SQL, you specify an admin login and an associated password for that login. This administrative account is called Server admin. You can identify the administrator accounts for a database by opening the Azure portal and navigating to the properties tab of your server or managed instance. You can also configure an Azure AD admin account with full administrative permissions, this is required if you want to enable Azure Active Directory authentication.
 
-For management operations, use the built-in Azure role-based access control (Azure RBAC) roles which must be explicitly assigned. Use the Azure AD PowerShell module to perform ad-hoc queries to discover accounts that are members of administrative groups.
+For management operations, use the Azure built-in roles which must be explicitly assigned. Use the Azure AD PowerShell module to perform ad-hoc queries to discover accounts that are members of administrative groups.
 
 * [Authentication for SQL Database](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
 
@@ -326,7 +326,7 @@ For management operations, use the built-in Azure role-based access control (Azu
 
 * [How to manage existing logins and admin accounts in Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
 
-* [Azure RBAC built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+* [Azure built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1012,7 +1012,7 @@ Pre-scan any content being uploaded to non-compute Azure resources, such as App 
 
 **Guidance**: Snapshots of your Synapse SQL pool are automatically taken throughout the day creating restore points that are available for seven days. This retention period cannot be changed. SQL pool supports an eight-hour recovery point objective (RPO). You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days. Note that you can also manually trigger snapshots if necessary.
 
-* [Backup and restore in Azure Synapse SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Backup and restore in Azure Synapse SQL pool](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1024,7 +1024,7 @@ Pre-scan any content being uploaded to non-compute Azure resources, such as App 
 
 If you are using a customer-managed key to encrypt your Database Encryption Key, ensure your key is being backed up.
 
-* [Backup and restore in Azure Synapse SQL pool](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Backup and restore in Azure Synapse SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 * [How to backup Azure Key Vault keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 

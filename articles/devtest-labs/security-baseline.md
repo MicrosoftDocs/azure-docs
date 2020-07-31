@@ -9,18 +9,18 @@ ms.date: 07/23/2020
 
 The Azure Security Baseline for Azure DevTest Labs contains recommendations that will help you improve the security posture of your deployment.
 
-The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure.
+The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure.
 
-For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
 
 ## Logging and Monitoring
 
-*For more information, see [Security Control: Logging and Monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security Control: Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
 **Guidance:** Microsoft maintains time sources for Azure resources. However, you can manage time synchronization settings for your compute resources.
 
-See the following article to learn about configuring time synchronization for Azure compute resources: [Time sync for Windows VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync). 
+See the following article to learn about configuring time synchronization for Azure compute resources: [Time sync for Windows VMs in Azure](../virtual-machines/windows/time-sync.md). 
 
 **Azure Security Center monitoring:** Currently not available
 
@@ -188,7 +188,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 ### 3.7: Log and alert on suspicious activity from administrative accounts
 **Guidance:** Use Azure Active Directory (Azure AD) security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
-- [How to identify Azure AD users flagged for risky activity](../active-directory/reports-monitoring/concept-user-at-risk.md)  
+- [How to identify Azure AD users flagged for risky activity](../active-directory/identity-protection/overview-identity-protection.md)  
 - [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)  
 
 **Azure Security Center monitoring:** Currently not available
@@ -237,7 +237,7 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 ### 3.12: Alert on account login behavior deviation
 **Guidance:** Use Azure Active Directory (Azure AD) Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities.
 
-- [How to view Azure AD risky sign-ins](../active-directory/reports-monitoring/concept-risky-sign-ins.md)  
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)  
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)  
 
 **Azure Security Center monitoring:** Currently not available
@@ -270,7 +270,7 @@ Microsoft performs vulnerability management on the underlying resources that sup
 ### 5.2: Deploy automated operating system patch management solution
 **Guidance:** Use Azure Update Management to ensure the most recent security updates are installed on your Windows and Linux VMs hosted within DevTest Labs. For Windows VMs, ensure Windows Update has been enabled and set to update automatically. This setting is not currently available to configure through DevTest Labs, however lab admin/subscription admin can configure this setting on the underlying compute VMs in their subscription. 
 
-- [How to configure Update Management for VMs in Azure](../automation/automation-update-management.md)
+- [How to configure Update Management for VMs in Azure](../automation/update-management/update-mgmt-overview.md)
 - [Understand Azure security policies monitored by Security Center](../security-center/security-center-policy-definitions.md)
 
 **Azure Security Center monitoring:** Not applicable
@@ -284,8 +284,8 @@ Learn more about [DevTest Labs Image Factory](image-factory-create.md), which is
 
 As a subscription admin, you can also use the Azure Update Management solution to manage updates and patches for DevTest Labs VMs. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-- [Update Management solution in Azure](../automation/automation-update-management.md)
-- [Manage updates and patches for your Azure VMs](../automation/automation-tutorial-update-management.md)
+- [Update Management solution in Azure](../automation/update-management/update-mgmt-overview.md)
+- [Manage updates and patches for your VMs](../automation/update-management/update-mgmt-overview.md)
 
 **Azure Security Center monitoring:** Not applicable
 
@@ -454,7 +454,7 @@ See the following articles:
 - [Network security overview](../virtual-network/security-overview.md)
 - [Azure Virtual Network overview]()
 - [Organize your resources with Azure management groups](../governance/management-groups/overview.md)
-- [Subscription decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/)
+- [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
 
 **Azure Security Center monitoring:** Not Available
 
@@ -543,7 +543,7 @@ If you're using Azure disk encryption, you can restore the Azure VM with the dis
 **Guidance:** When you back up managed disks with Azure Backup, VMs are encrypted at rest with Storage Service Encryption (SSE). Azure Backup can also back up Azure VMs that are encrypted by using Azure Disk Encryption. Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.
 
 - [Soft delete for VMs](../backup/soft-delete-virtual-machines.md)
-- [Azure Key Vault - soft-delete overview](../key-vault/general/overview-soft-delete.md)
+- [Azure Key Vault - soft-delete overview](../key-vault/general/soft-delete-overview.md)
 
 **Azure Security Center monitoring:** Yes
 
@@ -569,7 +569,7 @@ If you're using Azure disk encryption, you can restore the Azure VM with the dis
 Additionally, clearly mark subscriptions (for ex. production, non-prod) using tags and create a naming system to clearly identify and categorize Azure resources, especially those processing sensitive data. It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
-- [Use tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring:** Yes
 

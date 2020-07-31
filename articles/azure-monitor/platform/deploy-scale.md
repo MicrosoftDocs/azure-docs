@@ -39,7 +39,7 @@ To view the built-in policy definitions related to monitoring, perform the follo
 
 
 ## Diagnostic settings
-[Diagnostic settings](../platform/diagnostic-settings.md) collect resource logs and metrics from Azure resources to multiple locations, typically to a Log Analytics workspace which allows you to analyze the data with [log queries](../log-query/log-query-overview.md) and [log alerts](alerts-log.md). Use Policy to automatically create a diagnostic setting each time you create a resource.
+[Diagnostic settings](./diagnostic-settings.md) collect resource logs and metrics from Azure resources to multiple locations, typically to a Log Analytics workspace which allows you to analyze the data with [log queries](../log-query/log-query-overview.md) and [log alerts](alerts-log.md). Use Policy to automatically create a diagnostic setting each time you create a resource.
 
 Each Azure resource type has a unique set of categories that need to be listed in the diagnostic setting. Because of this, each resource type requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you need to create a custom definition.
 
@@ -75,7 +75,7 @@ The script [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Crea
    Create-AzDiagPolicy.ps1 -SubscriptionID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ResourceType Microsoft.Sql/servers/databases  -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
    ```
 
-5. The script creates separate folders for each policy definition, each containing three files named azurepolicy,json, azurepolicy.rules.json, azurepolicy.parameters.json. If you want to create the policy manually in the Azure portal, you can copy and paste the contents of azurepolicy.json since it includes the entire policy definition. Use the other two files with PowerShell or CLI to create the policy definition from a command line.
+5. The script creates separate folders for each policy definition, each containing three files named azurepolicy.json, azurepolicy.rules.json, azurepolicy.parameters.json. If you want to create the policy manually in the Azure portal, you can copy and paste the contents of azurepolicy.json since it includes the entire policy definition. Use the other two files with PowerShell or CLI to create the policy definition from a command line.
 
     The following examples show how to install the policy definition from both PowerShell and CLI. Each includes metadata to specify a category of **Monitoring** to group the new policy definition with the built-in policy definitions.
 
@@ -115,19 +115,65 @@ The initiative will apply to each virtual machine as it's created. A [remediatio
 ![Initiative remediation](media/deploy-scale/initiative-remediation.png)
 
 
-## Azure Monitor for VMs
-[Azure Monitor for VMs](../insights/vminsights-overview.md) is the primary tool in Azure Monitor for monitoring virtual machines. Enabling Azure Monitor for VMs installs both the Log Analytics agent and the Dependency agent. Rather than performing these tasks manually, use Azure Policy to ensure have each virtual machine configured as you create it.
+## Azure Monitor for VMs and virtual machine agents
+[Azure Monitor for VMs](../insights/vminsights-overview.md) is the primary tool in Azure Monitor for monitoring virtual machines and virtual machine scale sets. To enabling Azure Monitor for VMs you must install both the Log Analytics agent and the Dependency agent on each client. You may also install the Log Analytics agent on its own to support other monitoring scenarios. Rather than performing these tasks manually, use Azure Policy to ensure have each virtual machine configured as you create it.
 
-Azure Monitor for VMs includes two built-in initiatives called **Enable Azure Monitor for VMs** and **Enable Azure Monitor for Virtual Machine Scale Sets**. These initiatives include a set of policy definitions required to install the Log Analytics agent and the Dependency agent required for enabling Azure Monitor for VMs. 
+> [!NOTE]
+> Azure Monitor for VMs includes a feature called **Azure Monitor for VMs Policy Coverage** that allows you to discover and remediate noncompliant VMs in your environment. You can use this feature rather than working directly with Azure Policy for Azure VMs and for hybrid virtual machines connected with Azure Arc. For Azure virtual machine scale sets, you must create the assignment using Azure Policy.
+ 
 
+Azure Monitor for VMs includes the following built-in initiatives that install both agents to enable full monitoring. 
+
+|Name |Description |
+|:---|:---|
+|Enable Azure Monitor for VMs | Installs the Log Analytics agent and Dependency agent on Azure VMs and hybrid VMs connected with Azure Arc. |
+|Enable Azure Monitor for virtual machine scale sets | Installs the Log Analytics agent and Dependency agent on Azure virtual machine scale set. |
+
+
+### Virtual machines
 Instead of creating assignments for these initiatives using the Azure Policy interface, Azure Monitor for VMs includes a feature that allows you to inspect the number of virtual machines in each scope to determine whether the initiative has been applied. You can then configure the workspace and create any required assignments using that interface.
 
 For details of this process, see [Enable Azure Monitor for VMs by using Azure Policy](../insights/vminsights-enable-at-scale-policy.md).
 
 ![Azure Monitor for VMs policy](../platform/media/deploy-scale/vminsights-policy.png)
 
+### Virtual machine scale sets
+To use Azure Policy to enable monitoring for virtual machine scale sets, assign the **Enable Azure Monitor for virtual machine scale sets** initiative to an Azure management group, subscription, or resource group depending on the scope of your resources to monitor. A [management group](../../governance/management-groups/overview.md) is particularly useful for scoping policy especially if your organization has multiple subscriptions.
+
+![Initiative assignment](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
+
+Select the workspace the data will be sent to. This workspace must have the *VMInsights* solution installed as described in []().
+
+![Select workspace](media/deploy-scale/virtual-machine-scale-set-workspace.png)
+
+Create a remediation task if you have existing virtual machine scale set that need to be assigned this policy.
+
+![Remediation task](media/deploy-scale/virtual-machine-scale-set-remediation.png)
+
+### Log Analytics agent
+You may have scenarios where you want to install the Log Analytics agent but not the dependency agent. There is no built-in initiative for just the agent, but you can create your own based on the built-in policy definitions provided by Azure Monitor for VMs.
+
+> [!NOTE]
+> There would be no reason to deploy the Dependency agent on its own since it requires the Log Analytics agent to deliver its data to Azure Monitor.
+
+
+|Name |Description |
+|-----|------------|
+|Audit Log Analytics agent deployment – VM image (OS) unlisted |Reports VMs as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |
+|Deploy Log Analytics agent for Linux VMs |Deploy Log Analytics agent for Linux VMs if the VM image (OS) is defined in the list and the agent isn't installed. |
+|Deploy Log Analytics agent for Windows VMs |Deploy Log Analytics agent for Windows VMs if the VM image (OS) is defined in the list and the agent isn't installed. |
+| [Preview]: Log Analytics agent should be installed on your Linux Azure Arc machines |Reports hybrid Azure Arc machines as noncompliant for Linux VMs if the VM image (OS) is defined in the list and the agent isn't installed. |
+| [Preview]: Log Analytics agent should be installed on your Windows Azure Arc machines |Reports hybrid Azure Arc machines as noncompliant for Windows VMs if the VM image (OS) is defined in the list and the agent isn't installed. |
+| [Preview]: Deploy Log Analytics agent to Linux Azure Arc machines |Deploy Log Analytics agent for Linux hybrid Azure Arc machines if the VM image (OS) is defined in the list and the agent isn't installed. |
+| [Preview]: Deploy Log Analytics agent to Windows Azure Arc machines |Deploy Log Analytics agent for Windows hybrid Azure Arc machines if the VM image (OS) is defined in the list and the agent isn't installed. |
+|Audit Dependency agent deployment in virtual machine scale sets – VM image (OS) unlisted |Reports virtual machine scale set as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |
+|Audit Log Analytics agent deployment in virtual machine scale sets – VM image (OS) unlisted |Reports virtual machine scale set as noncompliant if the VM image (OS) isn't defined in the list and the agent isn't installed. |
+|Deploy Log Analytics agent for Linux virtual machine scale sets |Deploy Log Analytics agent for Linux virtual machine scale sets if the VM Image (OS) is defined in the list and the agent isn't installed. |
+|Deploy Log Analytics agent for Windows virtual machine scale sets |Deploy Log Analytics agent for Windows virtual machine scale sets if the VM image (OS) is defined in the list and the agent isn't installed. |
+
 
 ## Next steps
 
 - Read more about [Azure Policy](../../governance/policy/overview.md).
 - Read more about [diagnostic settings](diagnostic-settings.md).
+

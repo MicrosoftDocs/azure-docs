@@ -5,11 +5,11 @@ description: Learn how to run your scikit-learn training scripts on Azure Machin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.date: 07/24/2020
-ms.custom: seodec18, tracking-python
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---

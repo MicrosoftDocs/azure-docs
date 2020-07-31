@@ -138,6 +138,8 @@ SELECT create_distributed_table('clicks',      'company_id');
 SELECT create_distributed_table('impressions', 'company_id');
 ```
 
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../includes/azure-postgresql-hyperscale-dist-alert.md)]
+
 ## Ingest sample data
 
 Outside of psql now, in the normal command line, download sample data sets:

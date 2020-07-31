@@ -5,6 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
+ms.author: mingshen
+author: mingshen-ms
 ---
 
 # Handling review feedback for Azure application offers
