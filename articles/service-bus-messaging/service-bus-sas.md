@@ -2,7 +2,7 @@
 title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 07/30/2020
 ---
 
 # Service Bus access control with Shared Access Signatures
@@ -84,6 +84,9 @@ The resource URI is the full URI of the Service Bus resource to which access is 
 The shared access authorization rule used for signing must be configured on the entity specified by this URI, or by one of its hierarchical parents. For example, `http://contoso.servicebus.windows.net/contosoTopics/T1` or `http://contoso.servicebus.windows.net` in the previous example.
 
 A SAS token is valid for all resources prefixed with the `<resourceURI>` used in the `signature-string`.
+
+> [!NOTE]
+> For examples of generating a SAS token using different programming languages, see [Generate SAS token](/rest/api/eventhub/generate-sas-token). 
 
 ## Regenerating keys
 
