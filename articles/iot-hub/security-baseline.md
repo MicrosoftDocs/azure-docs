@@ -4,7 +4,7 @@ description: The Azure IoT Hub security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: iot-hub
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 07/31/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -26,7 +26,7 @@ The Azure Security Baseline for Azure IoT Hub contains recommendations that will
 ### 1.1: Protect Azure resources within virtual networks
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32437).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32437.).
 
 **Guidance**: By default, IoT Hub's hostnames map to a public endpoint with a publicly routable IP address over the internet. Different customers share this IoT Hub public endpoint, and IoT devices in over wide-area networks and on-premises networks can all access it.
 
@@ -48,7 +48,7 @@ Keep open hardware ports in your devices to a bare minimum to avoid unwanted acc
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32438).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32438.).
 
 **Guidance**: Use Azure Security Center and follow the network protection recommendations to help secure your Azure network resources. Enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
  
@@ -65,7 +65,7 @@ Keep open hardware ports in your devices to a bare minimum to avoid unwanted acc
 ### 1.3: Protect critical web applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32439).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32439.).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -76,7 +76,7 @@ Keep open hardware ports in your devices to a bare minimum to avoid unwanted acc
 ### 1.4: Deny communications with known malicious IP addresses
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32440).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32440.).
 
 **Guidance**: Enable DDoS Protection Standard on the virtual networks associated with your Azure IoT Hub to guard against distributed denial-of-service (DDoS) attacks.
 
@@ -91,7 +91,7 @@ Keep open hardware ports in your devices to a bare minimum to avoid unwanted acc
 ### 1.5: Record network packets
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32441).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32441.).
 
 **Guidance**: None.
 
@@ -102,7 +102,7 @@ Keep open hardware ports in your devices to a bare minimum to avoid unwanted acc
 ### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32442).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32442.).
 
 **Guidance**: Select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  When payload inspection is not a requirement, Azure Firewall threat intelligence can be used. Azure Firewall threat intelligence-based filtering is used to alert on and/or block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
 
@@ -121,7 +121,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 ### 1.7: Manage traffic to web applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32443).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32443.).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -132,7 +132,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32444).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32444.).
 
 **Guidance**: For resources that need access to your Azure IoT Hub, use Virtual Network service tags to define network access controls on network security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (for example, AzureIoTHub) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
@@ -146,7 +146,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 ### 1.9: Maintain standard security configurations for network devices
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32445).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32445.).
 
 **Guidance**: Define and implement standard security configurations for network resources associated with your Azure IoT Hub namespaces with Azure Policy. &lt;--- Use Azure Policy aliases in the "Microsoft.???IoT???" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Machine Learning namespaces. Don't find aliases that are related to IoT namespaces, need owners to clarify, note, only found IoTCentral as IoTApps type and IoTSpaces as Graph type ---&gt;
 
@@ -159,7 +159,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 ### 1.10: Document traffic configuration rules
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32446).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32446.).
 
 **Guidance**: Use tags for network resources associated with your Azure IoT Hub deployment in order to logically organize them into a taxonomy.
 
@@ -172,7 +172,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32447).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32447.).
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to Azure IoT Hub. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
@@ -191,7 +191,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 ### 2.1: Use approved time synchronization sources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32448).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32448.).
 
 **Guidance**: Microsoft maintains the time source used for Azure resources such as Azure IoT Hub for timestamps in the logs.
 
@@ -202,7 +202,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 ### 2.2: Configure central security log management
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32449).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32449.).
 
 **Guidance**: Ingest logs via Azure Monitor to aggregate security data generated by Azure IoT Hub. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term/archival storage. Alternatively, you can enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM).
 
@@ -216,7 +216,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 ### 2.3: Enable audit logging for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32450).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32450.).
 
 **Guidance**: Enable Azure IoT diagnostic settings on Azure resources for access to audit, security, and diagnostic logs. Activity logs, which are automatically available, include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
@@ -233,7 +233,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 ### 2.4: Collect security logs from operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32451).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32451.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -244,7 +244,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 ### 2.5: Configure security log storage retention
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32452).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32452.).
 
 **Guidance**: In Azure Monitor, set the log retention period for Log Analytics workspaces associated with your Azure IoT Hub instances according to your organization's compliance regulations.
 
@@ -257,7 +257,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 ### 2.6: Monitor and review Logs
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32453).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32453.).
 
 **Guidance**: Analyze and monitor logs for anomalous behavior and regularly review the results from your Azure IoT Hub. Use Azure Monitor and a Log Analytics workspace to review logs and perform queries on log data.
 
@@ -277,7 +277,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 ### 2.7: Enable alerts for anomalous activities
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32454).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32454.).
 
 **Guidance**: Use Azure Security Center with a Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events. Alternatively, you can enable and on-board data to Azure Sentinel.
 
@@ -293,7 +293,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 ### 2.8: Centralize anti-malware logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32455).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32455.).
 
 **Guidance**: Not applicable; Azure IoT Hub does not process or produce anti-malware related logs.
 
@@ -304,7 +304,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 ### 2.9: Enable DNS query logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32456).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32456.).
 
 **Guidance**: Not applicable; Azure IoT Hub does not process or produce DNS-related logs.
 
@@ -315,7 +315,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 ### 2.10: Enable command-line audit logging
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32457).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32457.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -330,7 +330,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 ### 3.1: Maintain an inventory of administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32458).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32458.).
 
 **Guidance**: &lt;--- Online searches don't come out dedicated topics on IoT hub and AAD integration and admin account management. There is Microsoft IoT solution accelerartor available, https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-remote-monitoring-rbac, enable AAD based RBAC in which Admin role is created by default, more details are available in the link, not sure we can use it as reference the baseline, actually this solution accelerator is mentioned in official IoT doc at https://docs.microsoft.com/azure/iot-fundamentals/iot-security-ground-up#secure-processing-and-storage-in-the-cloud ---&gt; 
 
@@ -345,7 +345,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 ### 3.2: Change default passwords where applicable
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32459).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32459.).
 
 **Guidance**: Access management to Azure IoT Hub resources is controlled through Azure Active Directory (Azure AD). Azure AD does not have the concept of default passwords.
 
@@ -358,7 +358,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 ### 3.3: Use dedicated administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32460).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32460.).
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts.
 
@@ -373,7 +373,7 @@ You can also enable just-in-time access to administrative accounts by using Azur
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32461).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32461.).
 
 **Guidance**: &lt;--- needs service team to confirm SSO supported or not, if yes, a summary on how is needed ---&gt;
 
@@ -384,7 +384,7 @@ You can also enable just-in-time access to administrative accounts by using Azur
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32462).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32462.).
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center recommendations.
 
@@ -400,7 +400,7 @@ You can also enable just-in-time access to administrative accounts by using Azur
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32463).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32463.).
 
 **Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks that require elevated privileges.
 
@@ -417,7 +417,7 @@ You can also enable just-in-time access to administrative accounts by using Azur
 ### 3.7: Log and alert on suspicious activities from administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32464).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32464.).
 
 **Guidance**: Use Azure Active Directory security reports and monitoring to detect when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
@@ -431,7 +431,7 @@ You can also enable just-in-time access to administrative accounts by using Azur
 ### 3.8: Manage Azure resources only from approved locations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32465).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32465.).
 
 **Guidance**: Each IoT Hub has an identity registry that can be used to create per-device resources in the service. Individual or groups of device identities can be added to an allow list, or a block list, enabling complete control over device access.
 
@@ -449,7 +449,7 @@ Use Azure AD named locations to allow access only from specific logical grouping
 ### 3.9: Use Azure Active Directory
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32466).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32466.).
 
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 &lt;--- again, AAD question before we can use this guideline ---&gt;
@@ -466,7 +466,7 @@ IoT Hub uses security tokens and Shared Access Signature (SAS) tokens to authent
 ### 3.10: Regularly review and reconcile user access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32467).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32467.).
 
 **Guidance**: Azure AD provides logs to help discover stale accounts. In addition, use Azure AD identity and access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access. 
 &lt;--- again, AAD question before we can use this guideline ---&gt;
@@ -484,7 +484,7 @@ Use Azure AD Privileged Identity Management (PIM) for generation of logs and ale
 ### 3.11: Monitor attempts to access deactivated credentials
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32468).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32468.).
 
 **Guidance**: Each IoT Hub has an identity registry that can be used to create per-device resources in the service. Individual or groups of device identities can be added to an allow list, or a block list, enabling complete control over device access.
 
@@ -503,7 +503,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 3.12: Alert on account login behavior deviation
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32469).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32469.).
 
 **Guidance**: Use Azure AD Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
   
@@ -520,7 +520,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32470).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32470.).
 
 **Guidance**: &lt;--- Currently not available; Customer Lockbox not yet supported for Azure Database for IoT, need confirmation from service owner ---&gt;
 
@@ -535,7 +535,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.1: Maintain an inventory of sensitive Information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32471).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32471.).
 
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
  
@@ -548,7 +548,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.2: Isolate systems storing or processing sensitive information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32472).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32472.).
 
 **Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure RBAC.
   
@@ -563,7 +563,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32473).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32473.).
 
 **Guidance**: Use a third-party solution from Azure Marketplace in network perimeters to monitor for unauthorized transfer of sensitive information and block such transfers while alerting information security professionals.
 
@@ -578,7 +578,7 @@ For the underlying platform managed by Microsoft, Microsoft treats all customer 
 ### 4.4: Encrypt all sensitive information in transit
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32474).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32474.).
 
 **Guidance**: IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devices and services. Three versions of the TLS protocol are currently supported, namely versions 1.0, 1.1, and 1.2. It is strongly recommended that you use TLS 1.2 as the preferred TLS version when connecting to IoT Hub.
 
@@ -594,7 +594,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 ### 4.5: Use an active discovery tool to identify sensitive data
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32475).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32475.).
 
 **Guidance**: Data identification, classification, and loss prevention features are not yet available for Azure IoT Hub. Implement a third-party solution if required for compliance purposes.
 
@@ -609,7 +609,7 @@ For the underlying Azure platform managed by Microsoft, Microsoft treats all cus
 ### 4.6: Use Azure RBAC to manage access to resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32476).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32476.).
 
 **Guidance**: &lt;--- again, AAD question before we can use this guideline , below content can be applied if yes. IoT solution accelerator might be used as reference ---&gt;
 
@@ -624,7 +624,7 @@ Use Azure RBAC to control access to data and resources, otherwise use service sp
 ### 4.7: Use host-based data loss prevention to enforce access control
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32477).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32477.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -639,7 +639,7 @@ Microsoft manages the underlying infrastructure for Azure IoT Hub and has implem
 ### 4.8: Encrypt sensitive information at rest
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32478).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32478.).
 
 **Guidance**: IoT Hub supports encryption of data at rest with customer-managed keys (CMK), also known as "bring your own key" (BYOK).
 
@@ -656,7 +656,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 ### 4.9: Log and alert on changes to critical Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32479).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32479.).
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure IoT Hub and other critical or related resources.
 
@@ -673,7 +673,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 ### 5.1: Run automated vulnerability scanning tools
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32480).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32480.).
 
 **Guidance**: Not applicable; Microsoft performs vulnerability management on the underlying systems that support Azure IoT Hub.
 
@@ -686,7 +686,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 ### 5.2: Deploy automated operating system patch management solution
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32481).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32481.).
 
 **Guidance**: Not applicable; Microsoft performs patch management on the underlying systems that support Azure IoT Hub.
 
@@ -699,7 +699,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 ### 5.3: Deploy an automated patch management solution for third-party software titles
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32482).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32482.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -710,7 +710,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 ### 5.4: Compare back-to-back vulnerability scans
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32483).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32483.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -721,7 +721,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32484).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32484.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -736,7 +736,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 ### 6.1: Use automated asset discovery solution
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32485).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32485.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -747,7 +747,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 ### 6.2: Maintain asset metadata
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32486).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32486.).
 
 **Guidance**: Apply tags to Azure resources (not all resources support tags, but most do) to logically organize them into a taxonomy.
 
@@ -760,7 +760,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 ### 6.3: Delete unauthorized Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32487).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32487.).
 
 **Guidance**: Use tagging, management groups, and separate subscriptions where appropriate, to organize and track assets. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
   
@@ -777,7 +777,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 ### 6.4: Define and maintain an inventory of approved Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32488).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32488.).
 
 **Guidance**: Create an inventory of approved Azure resources and approved software for compute resources as per your organizational needs.
 
@@ -792,7 +792,7 @@ Each IoT Hub has an identity registry that can be used to create per-device reso
 ### 6.5: Monitor for unapproved Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32489).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32489.).
 
 **Guidance**: Each IoT Hub has an identity registry that can be used to create per-device resources in the service. Individual or groups of device identities can be added to an allow list, or a block list, enabling complete control over device access.
 
@@ -815,7 +815,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 ### 6.6: Monitor for unapproved software applications within compute resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32490).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32490.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -826,7 +826,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 ### 6.7: Remove unapproved Azure resources and software applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32491).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32491.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -837,7 +837,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 ### 6.8: Use only approved applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32492).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32492.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -848,7 +848,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 ### 6.9: Use only approved Azure services
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32493).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32493.).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 
@@ -867,7 +867,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 ### 6.10: Maintain an inventory of approved software titles
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32494).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32494.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -878,7 +878,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32495).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32495.).
 
 **Guidance**: Use Azure AD Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
   
@@ -891,7 +891,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 ### 6.12: Limit users' ability to execute scripts in compute resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32496).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32496.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -902,7 +902,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 ### 6.13: Physically or logically segregate high risk applications
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32497).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32497.).
 
 **Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
 
@@ -917,7 +917,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 ### 7.1: Establish secure configurations for all Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32498).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32498.).
 
 **Guidance**: &lt;--- what is Azure IoT Hub alias? Found namespace Microsoft.IoTCentral, below content can be used if we found one ---&gt;
 
@@ -942,7 +942,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 ### 7.2: Establish secure operating system configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32499).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32499.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -953,7 +953,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 ### 7.3: Maintain secure Azure resource configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32500).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32500.).
 
 **Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources. In addition, you can use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization.  
  
@@ -968,7 +968,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 ### 7.4: Maintain secure operating system configurations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32501).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32501.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -979,7 +979,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 ### 7.5: Securely store configuration of Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32502).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32502.).
 
 **Guidance**: If using custom Azure Policy definitions for your Azure IoT Hub or related resources, use Azure Repos to securely store and manage your code.
 
@@ -993,7 +993,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 ### 7.6: Securely store custom operating system images
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32503).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32503.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -1004,7 +1004,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 ### 7.7: Deploy configuration management tools for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32504).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32504.).
 
 **Guidance**: &lt;--- what is Azure IoT Hub alias? Found namespace Microsoft.IoTCentral, below content can be used if we found one ---&gt;
 
@@ -1020,7 +1020,7 @@ Use Azure Policy aliases in the "Microsoft.???" namespace to create custom polic
 ### 7.8: Deploy configuration management tools for operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32505).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32505.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -1031,7 +1031,7 @@ Use Azure Policy aliases in the "Microsoft.???" namespace to create custom polic
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32506).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32506.).
 
 **Guidance**: Use Azure Security Center to perform baseline scans for your Azure Resources. Additionally, use Azure Policy to alert and audit Azure resource configurations. 
  
@@ -1044,7 +1044,7 @@ Use Azure Policy aliases in the "Microsoft.???" namespace to create custom polic
 ### 7.10: Implement automated configuration monitoring for operating systems
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32507).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32507.).
 
 **Guidance**: Not applicable; this guideline is intended for compute resources.
 
@@ -1055,7 +1055,7 @@ Use Azure Policy aliases in the "Microsoft.???" namespace to create custom polic
 ### 7.11: Manage Azure secrets securely
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32508).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32508.).
 
 **Guidance**: IoT Hub uses security tokens and Shared Access Signature (SAS) tokens to authenticate devices and services to avoid sending keys on network. 
 
@@ -1073,7 +1073,7 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 ### 7.12: Manage identities securely and automatically
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32509).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32509.).
 
 **Guidance**: IoT Hub uses security tokens and Shared Access Signature (SAS) tokens to authenticate devices and services to avoid sending keys on the network. 
 
@@ -1089,7 +1089,7 @@ Use managed identities to provide Azure services with an automatically-managed i
 ### 7.13: Eliminate unintended credential exposure
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32510).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32510.).
 
 **Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault. 
  
@@ -1106,7 +1106,7 @@ Use managed identities to provide Azure services with an automatically-managed i
 ### 8.1: Use centrally managed antimalware software
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32511).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32511.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -1119,7 +1119,7 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32512).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32512.).
 
 **Guidance**: Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure IoT Hub), however it does not run on customer content.
 
@@ -1132,7 +1132,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 8.3: Ensure antimalware software and signatures are updated
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32513).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32513.).
 
 **Guidance**: Not applicable; this benchmark is intended for compute resources. Microsoft Antimalware is enabled on the underlying host that supports Azure services, however it does not run on customer content.
 
@@ -1147,7 +1147,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 9.1: Ensure regular automated back ups
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32514).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32514.).
 
 **Guidance**: Azure IoT Hub service provides methods and framework to make your IoT Hub services highly available and recoverable from disasters based on specific business objectives. 
 
@@ -1160,7 +1160,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 9.2: Perform complete system backups and backup any customer-managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32515).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32515.).
 
 **Guidance**: Azure IoT Hub recommends the secondary IoT hub must contain all device identities that can connect to the solution. The solution should keep geo-replicated backups of device identities, and upload them to the secondary IoT hub before switching the active endpoint for the devices. The device identity export functionality of IoT Hub is useful in this context.
 
@@ -1173,7 +1173,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 ### 9.3: Validate all backups including customer-managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32516).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32516.).
 
 **Guidance**: Azure IoT Hub recommends the secondary IoT hub must contain all device identities that can connect to the solution. The solution should keep geo-replicated backups of device identities, and upload them to the secondary IoT hub before switching the active endpoint for the devices. The device identity export functionality of IoT Hub is useful in this context.
 
@@ -1188,7 +1188,7 @@ Periodically perform data restoration of content in backup. Ensure that you can 
 ### 9.4: Ensure protection of backups and customer-managed keys
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32517).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32517.).
 
 **Guidance**: Enable soft delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. If Azure Storage is used to store backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted.
  
@@ -1207,7 +1207,7 @@ Periodically perform data restoration of content in backup. Ensure that you can 
 ### 10.1: Create an incident response guide
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32518).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32518.).
 
 **Guidance**: Develop an incident response guide for your organization. Ensure there are written incident response plans that define all the roles of personnel as well as the phases of incident handling and management from detection to post-incident review. 
   
@@ -1224,7 +1224,7 @@ Periodically perform data restoration of content in backup. Ensure that you can 
 ### 10.2: Create an incident scoring and prioritization procedure
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32519).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32519.).
 
 **Guidance**: Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
   
@@ -1241,7 +1241,7 @@ Periodically perform data restoration of content in backup. Ensure that you can 
 ### 10.3: Test security response procedures
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32524).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32524.).
 
 **Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence to help protect your Azure resources. Identify weak points and gaps and then revise your response plan as needed.
   
@@ -1254,7 +1254,7 @@ Periodically perform data restoration of content in backup. Ensure that you can 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32520).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32520.).
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
   
@@ -1267,7 +1267,7 @@ Periodically perform data restoration of content in backup. Ensure that you can 
 ### 10.5: Incorporate security alerts into your incident response system
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32521).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32521.).
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the continuous export feature to help identify risks to Azure resources. Continuous export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You can use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
   
@@ -1282,7 +1282,7 @@ Periodically perform data restoration of content in backup. Ensure that you can 
 ### 10.6: Automate the response to security alerts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32522).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32522.).
 
 **Guidance**: Use workflow automation feature Azure Security Center to automatically trigger responses to security alerts and recommendations to protect your Azure resources.
   
@@ -1299,7 +1299,7 @@ Periodically perform data restoration of content in backup. Ensure that you can 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32523).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32523.).
 
 **Guidance**: Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
