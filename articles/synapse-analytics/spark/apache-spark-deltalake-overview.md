@@ -6,7 +6,7 @@ author: euangMS
 ms.service:  synapse-analytics
 ms.reviewer: euang
 ms.topic: overview
-ms.subservice: machine-learning
+ms.subservice: spark
 ms.date: 07/28/2020
 ms.author: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
@@ -71,9 +71,9 @@ Results in:
 
 ## Create a table
 
-To create a Delta Lake table, write a DataFrame out in the delta format. You can change the format from parquet, csv, json, and so on, to delta.
+To create a Delta Lake table, write a DataFrame out in the delta format. You can change the format from Parquet, CSV, JSON, and so on, to delta.
 
-These operations create a new Delta Lake table using the schema that was inferred from your DataFrame. For the full set of options available when you create a new Delta Lake table, see Create a table and Write to a table (subsequent cells in this notebook).
+The code that follows shows you how to create a new Delta Lake table using the schema that was inferred from your DataFrame..
 
 :::zone pivot = "programming-language-python"
 
@@ -160,7 +160,7 @@ The order of the results is different from above as there was no order explicitl
 
 ## Update table data
 
-Delta Lake supports several operations to modify tables using standard DataFrame APIs, this is one of the big enhancements that delta format adds. This example runs a batch job to overwrite the data in the table.
+Delta Lake supports several operations to modify tables using standard DataFrame APIs, this is one of the big enhancements that delta format adds. The following example runs a batch job to overwrite the data in the table.
 
 :::zone pivot = "programming-language-python"
 
@@ -344,7 +344,7 @@ Results in:
 
 ## Conditional update without overwrite
 
-Delta Lake provides programmatic APIs to conditional update, delete, and merge (this is commonly referred to as an upsert) data into tables. For more information on these operations, see Table Deletes, Updates, and Merges.
+Delta Lake provides programmatic APIs to conditional update, delete, and merge (this is commonly referred to as an upsert) data into tables.
 
 :::zone pivot = "programming-language-python"
 
@@ -449,7 +449,6 @@ You have deleted every even row.
 :::zone pivot = "programming-language-python"
 
 ```python
-# Upsert (merge) new data
 new_data = spark.range(0,20).alias("newData")
 
 delta_table.alias("oldData")\
@@ -466,7 +465,6 @@ delta_table.toDF().show(100)
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-// Upsert (merge) new data
 var newData = spark.Range(20).As("newData");
 
 deltaTable
@@ -486,7 +484,6 @@ deltaTable.ToDF().Show(100);
 :::zone pivot = "programming-language-scala"
 
 ```scala
-// Upsert (merge) new data
 val newData = spark.range(0, 20).toDF
 
 deltaTable.as("oldData").
@@ -575,7 +572,7 @@ Here you can see all of the modifications made over the above code snippets.
 
 You can query previous snapshots of your Delta Lake table by using a feature called Time Travel. If you want to access the data that you overwrote, you can query a snapshot of the table before you overwrote the first set of data using the versionAsOf option.
 
-Once you run the cell below, you should see the first set of data, from before you overwrote it. Time Travel is an extremely powerful feature that takes advantage of the power of the Delta Lake transaction log to access data that is no longer in the table. Removing the version 0 option (or specifying version 1) would let you see the newer data again. For more information, see [Query an older snapshot of a table](https://docs.delta.io/latest/delta-batch.html#deltatimetravel).
+Once you run the cell below, you should see the first set of data from before you overwrote it. Time Travel is an extremely powerful feature that takes advantage of the power of the Delta Lake transaction log to access data that is no longer in the table. Removing the version 0 option (or specifying version 1) would let you see the newer data again. For more information, see [Query an older snapshot of a table](https://docs.delta.io/latest/delta-batch.html#deltatimetravel).
 
 :::zone pivot = "programming-language-python"
 
@@ -985,4 +982,3 @@ DeltaTable.isDeltaTable(parquetPath)
 Results in:
 
 True
-
