@@ -29,7 +29,9 @@ This script creates a sample logic app through the [Azure CLI Logic Apps extensi
 Validate your environment before you begin:
 
 * Sign in to the Azure portal and check that your subscription is active by running `az login`.
+
 * Check your version of the Azure CLI in a terminal or command window by running `az --version`. For the latest version, see the [latest release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli&view=azure-cli-latest).
+
   * If you don't have the latest version, update your installation by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### Sample workflow explanation
@@ -39,7 +41,9 @@ This example workflow definition file creates the same basic logic app as the [L
 This sample workflow: 
 
 1. Specifies a schema, `$schema`, for the logic app.
+
 1. Defines a trigger for the logic app in the list of triggers, `triggers`. The trigger recurs (`recurrence`) every 3 hours. The actions are triggered when a new feed item is published (`When_a_feed_item_is_published`) for the specified RSS feed (`feedUrl`).
+
 1. Defines an action for the logic app in the list of actions, `actions`. The action sends an email (`Send_an_email_(V2)`) through Microsoft 365 with details from the RSS feed items as specified in the body section (`body`) of the action's inputs (`inputs`).
 
 ## Sample workflow definition
@@ -47,6 +51,7 @@ This sample workflow:
 Before you run the sample script, you must first create a sample [workflow definition](#prerequisites).
 
 1. Create a JSON file, `testDefinition.json` on your computer. 
+
 1. Copy the following content into the JSON file: 
     ```json
     
@@ -123,10 +128,15 @@ Before you run the sample script, you must first create a sample [workflow defin
     }
     
     ```
+
 1. Update the placeholder values with your own information:
+
     1. Replace the placeholder email address (`"To": "test@example.com"`). You need to use an email address compatible with Logic Apps connectors. For more information, see the [prerequisites](#prerequisites).
+
     1. Replace additional connector details if you're using another email connector than the Office 365 Outlook connector.
+
     1. Replace the placeholder subscription values (`00000000-0000-0000-0000-000000000000`) for your connection identifiers (`connectionId` and `id`) under the connections parameter (`$connections`) with your own subscription values.
+
 1. Save your changes.
 
 ## Sample script
@@ -190,4 +200,4 @@ This sample script uses the following commands to create a new resource group an
 
 For more information on the Azure CLI, see the [Azure CLI documentation](/cli/azure/?view=azure-cli-latest).
 
-You can find additional Logic Apps CLI script samples in [Microsoft's code samples browser](https://docs.microsoft.com/samples/browse/?products=azure-logic-apps).
+You can find additional Logic Apps CLI script samples in [Microsoft's code samples browser](/samples/browse/?products=azure-logic-apps).
