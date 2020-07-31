@@ -19,7 +19,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
-| [link](link) | Security | Double-encryption extended to include data that is internal to the service. | Search services created after August 1, 2020 in certain regions. You can use the portal or management APIs or SDKs to create the service. |
+| [Customer-managed key "double encryption" enhancement](search-security-manage-encryption-keys.md) | Security | Enable customer-managed key (CMK) encryption to get full double encryption of content that is internal to the service. | Search services created after August 1, 2020 in certain regions. You can use the portal or management APIs or SDKs to create the service. |
 
 ### July 2020
 

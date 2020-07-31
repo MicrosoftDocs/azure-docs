@@ -52,8 +52,6 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 [Premium SSD shared disk template](https://aka.ms/SharedPremiumDiskARMtemplate)
 
 ---
-#### PowerShell
-
 
 ### Deploy an ultra disk as a shared disk
 
@@ -129,7 +127,7 @@ Before using the following template, replace `[parameters('dataDiskName')]`, `[r
 
 ---
 
-### Using Azure shared disks with your VMs
+## Using Azure shared disks with your VMs
 
 Once you've deployed a shared disk with `maxShares>1`, you can mount the disk to one or more of your VMs.
 

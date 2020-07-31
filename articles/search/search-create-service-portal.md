@@ -27,7 +27,7 @@ The following service properties are fixed for the lifetime of the service - cha
 
 * service name becomes part of the URL endpoint ([review tips](#name-the-service) for helpful service names).
 * service tier [affects billing](search-sku-tier.md) and sets an upward limit on capacity.
-* service region can determine the availability of certain scenarios. If you are interested in knowledge mining and AI enrichment, you need Cognitive Services and possibly Azure Machine Learning in the same region as Azure Cognitive Search.
+* service region can determine the availability of certain scenarios. If you are interested in knowledge mining and AI enrichment, you need Cognitive Services and possibly Azure Machine Learning in the same region as Azure Cognitive Search. If you require [double encryption](search-security-overview.md#encryption), Azure Key Vault and Azure Cognitive Search must be in the same region.
 
 ## Subscribe (free or paid)
 
@@ -85,6 +85,8 @@ Azure Cognitive Search is available in most regions. The list of supported regio
 
 > [!Note]
 > Central India and UAE North are currently unavailable for new services. For services already in those regions, you can scale up with no restrictions, and your service is fully supported in that region. The restrictions are temporary and limited to new services only. We will remove this note when the restrictions no longer apply.
+>
+> Double encryption is only available in certain regions. For more information, see [Encrypted transmissions and storage](search-security-overview.md#encryption).
 
 ### Requirements
 

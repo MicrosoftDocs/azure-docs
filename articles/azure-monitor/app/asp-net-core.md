@@ -452,7 +452,9 @@ This SDK requires `HttpContext`, and hence does not work in any non-HTTP applica
 
 ## Open-source SDK
 
-[Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
+* [Read and contribute to the code](https://github.com/microsoft/ApplicationInsights-dotnet#recent-updates).
+
+For the latest updates and bug fixes [consult the release notes](./release-notes.md).
 
 ## Next steps
 
