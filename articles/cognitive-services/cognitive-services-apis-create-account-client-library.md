@@ -100,7 +100,7 @@ When you create a new resource, you'll need to know the "kind" of service you wa
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-Or, see the list of SKUs and pricing information below. 
+See the list of SKUs and pricing information below. 
 
 #### Multi-service
 
