@@ -37,7 +37,7 @@ These classic IaaS resources are supported during migration
 
 | Service | Configuration |
 | --- | --- |
-| Azure AD Domain Services | [Virtual networks that contain Azure AD Domain services](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/migrate-from-classic-vnet) |
+| Azure AD Domain Services | [Virtual networks that contain Azure AD Domain services](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) |
 
 ## Supported scopes of migration
 There are four different ways to complete migration of compute, network, and storage resources:
