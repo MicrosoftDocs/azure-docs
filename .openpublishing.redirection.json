@@ -13703,6 +13703,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-wan/scenario-route-between-hubs-firewall.md",
+      "redirect_url": "/azure/virtual-wan/scenario-route-between-vnets-firewall",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-wan/global-peering-vnet.md",
       "redirect_url": "/azure/virtual-wan/virtual-wan-about",
       "redirect_document_id": false
@@ -36792,23 +36797,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/application-provisioning-when-will-provisioning-finish-specific-user.md",
+      "source_path": "articles/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish.md",
       "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/application-provisioning-when-will-provisioning-finish.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish",
       "redirect_document_id": false
     },
     {
@@ -37769,6 +37759,11 @@
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-api-dotnet.md",
       "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-hub/quickstart-send-telemetry-xamarinforms.md",
+      "redirect_url": "/azure/iot-hub/about-iot-hub",
       "redirect_document_id": true
     },
     {
