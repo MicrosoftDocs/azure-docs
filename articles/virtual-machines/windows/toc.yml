@@ -329,7 +329,7 @@
     - name: Shared disks
       href: disks-shared.md
     - name: Ephemeral OS disks
-      href: ephemeral-os-disks.md
+      href: ../ephemeral-os-disks.md
   - name: Networking
     href: ../network-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Scale sets
@@ -848,7 +848,7 @@
     - name: Upload a vhd to a disk - PowerShell
       href: disks-upload-vhd-to-managed-disk-powershell.md
     - name: Securely import/export a disk - Portal
-      href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Resize a disk
       href: expand-os-disk.md
     - name: Use Storage Explorer to manage disks
@@ -865,14 +865,18 @@
       href: incremental-snapshots.md
     - name: Encryption
       items:
-      - name: Enable host-based encryption - PowerShell
+      - name: Enable encryption at host - PowerShell
         href: disks-enable-host-based-encryption-powershell.md
+      - name: Enable encryption at host - Portal
+        href: disks-enable-host-based-encryption-portal.md
       - name: Enable customer-managed keys - PowerShell
         href: disks-enable-customer-managed-keys-powershell.md
       - name: Enable customer-managed keys - Portal
         href: disks-enable-customer-managed-keys-portal.md
       - name: Enable double encryption-at-rest
         href: disks-enable-double-encryption-at-rest-powershell.md
+      - name: Enable double encryption at rest - Portal
+        href: disks-enable-double-encryption-at-rest-portal.md
     - name: Migration and conversion
       items:
         - name: Convert disk between Standard and Premium
