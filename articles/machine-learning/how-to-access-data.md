@@ -10,7 +10,7 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
-ms.custom: seodec18, tracking-python
+ms.custom: how-to, seodec18, tracking-python
 
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute to train my machine learning models.
 ---
@@ -111,6 +111,7 @@ You can find account key, SAS token, and service principal information on your [
 ### Permissions
 
 For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials  has **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
+=======
 
 <a name="python"></a>
 
@@ -199,7 +200,9 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 
 <a name="studio"></a>
 
+
 ## Create datastores in the studio 
+
 
 Create a new datastore in a few steps with the Azure Machine Learning studio.
 
@@ -216,7 +219,6 @@ The following example demonstrates what the form looks like when you create an *
 ![Form for a new datastore](media/how-to-access-data/new-datastore-form.png)
 
 <a name="train"></a>
-
 ## Use data in your datastores
 
 After you create a datastore, [create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with your data. Datasets package your data into a lazily evaluated consumable object for machine learning tasks, like training. They also provide the ability to [download or mount](how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services like, Azure Blob storage and ADLS Gen 2. You can also use them to load tabular data into a pandas or Spark DataFrame.
