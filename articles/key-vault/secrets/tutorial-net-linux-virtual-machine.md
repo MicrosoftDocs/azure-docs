@@ -87,13 +87,7 @@ At this point, only your Azure account is authorized to perform any operations o
 
 ## Add a secret to the key vault
 
-Now, you add a secret. In a real-world scenario, you might be storing a SQL connection string or any other information that you need to keep securely, but make available to your application.
-
-For this tutorial, type the following commands to create a secret in the key vault. The secret is called **AppSecret** and its value is **MySecret**.
-
-```azurecli
-az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
-```
+[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]`
 
 ## Create a Linux virtual machine
 

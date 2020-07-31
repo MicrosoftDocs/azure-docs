@@ -17,19 +17,17 @@ ms.custom: mvc, tracking-python
 
 # Tutorial: Use Azure Key Vault with a virtual machine in Python
 
-Azure Key Vault helps you to protect secrets such as API keys, the database connection strings you need to access your applications, services, and IT resources.
+Azure Key Vault helps you to protect secrets such as API Keys and database connection strings that are needed to access your applications, services, and IT resources.
 
-In this tutorial, you learn how to get a console application to read information from Azure Key Vault. To do so, you use managed identities for Azure resources. 
-
-The tutorial shows you how to:
+In this tutorial, you set up a Python application to read information from Azure Key Vault by using managed identities for Azure resources. You learn how to:
 
 > [!div class="checklist"]
-> * Create a key vault.
-> * Add a secret to the key vault.
-> * Retrieve a secret from the key vault.
-> * Create an Azure virtual machine.
-> * Enable a managed identity.
-> * Assign permissions to the VM identity.
+> * Create a key vault
+> * Store a secret in Key Vault
+> * Create an Azure Linux virtual machine
+> * Enable a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for the virtual machine
+> * Grant the required permissions for the console application to read data from Key Vault
+> * Retrieve a secret from Key Vault
 
 Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
 
@@ -55,15 +53,7 @@ az login
 
 ## Add a secret to the key vault
 
-We're adding a secret to help illustrate how this works. The secret might be a SQL connection string or any other information that you need to keep both secure and available to your application.
-
-To create a secret in the key vault called **AppSecret**, enter the following command:
-
-```azurecli
-az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
-```
-
-This secret stores the value **MySecret**.
+[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
 
 ## Create a virtual machine
 You can create a virtual machine by using one of the following methods:
