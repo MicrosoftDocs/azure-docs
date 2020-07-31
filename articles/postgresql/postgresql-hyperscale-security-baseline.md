@@ -482,7 +482,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.6: Use Role-based access control to control access to resources
 
-**Guidance**: Use Azure role-based access control (RBAC) to control access to the Hyperscale (Citus) control plane (e.g. Azure portal). RBAC does not affect user permissions within the database.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the Hyperscale (Citus) control plane (e.g. Azure portal). RBAC does not affect user permissions within the database.
 
 To modify user privileges at the database level, use standard PostgreSQL commands, using a tool such as PgAdmin or psql.
 
