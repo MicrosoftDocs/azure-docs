@@ -725,9 +725,9 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 | microsoft.directory/directoryRoleTemplates/allProperties/allTasks | Create and delete directoryRoleTemplates, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/domains/allProperties/allTasks | Create and delete domains, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/groups/allProperties/allTasks | Create and delete groups, and read and update all properties in Azure Active Directory. |
-| microsoft.directory/groups.assignableToRoles/allProperties/update | Update groups with isAssignableToRoles property set to true in Azure Active Directory. |
-| microsoft.directory/groups.assignableToRoles/create | Create groups with isAssignableToRoles property set to true in Azure Active Directory. |
-| microsoft.directory/groups.assignableToRoles/delete | Delete groups with isAssignableToRoles property set to true in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/allProperties/update | Update groups with isAssignableToRole property set to true in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/create | Create groups with isAssignableToRole property set to true in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/delete | Delete groups with isAssignableToRole property set to true in Azure Active Directory. |
 | microsoft.directory/groupSettings/allProperties/allTasks | Create and delete groupSettings, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/groupSettingTemplates/allProperties/allTasks | Create and delete groupSettingTemplates, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/loginTenantBranding/allProperties/allTasks | Create and delete loginTenantBranding, and read and update all properties in Azure Active Directory. |
@@ -1515,9 +1515,9 @@ Can manage role assignments in Azure AD,and all aspects of Privileged Identity M
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.directory/groups.assignableToRoles/allProperties/update | Update groups with isAssignableToRoles property set to true in Azure Active Directory. |
-| microsoft.directory/groups.assignableToRoles/create | Create groups with isAssignableToRoles property set to true in Azure Active Directory. |
-| microsoft.directory/groups.assignableToRoles/delete | Delete groups with isAssignableToRoles property set to true in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/allProperties/update | Update groups with isAssignableToRole property set to true in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/create | Create groups with isAssignableToRole property set to true in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/delete | Delete groups with isAssignableToRole property set to true in Azure Active Directory. |
 | microsoft.directory/privilegedIdentityManagement/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.aad.privilegedIdentityManagement. |
 | microsoft.directory/servicePrincipals/appRoleAssignedTo/allTasks | Read and configure servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
 | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | Read and configure servicePrincipals.oAuth2PermissionGrants property in Azure Active Directory. |
