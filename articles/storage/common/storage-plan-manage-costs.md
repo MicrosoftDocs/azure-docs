@@ -39,11 +39,11 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 Consider using these options to reduce costs. 
 
-:heavy_check_mark: Reserve storage capacity
+- Reserve storage capacity
 
-:heavy_check_mark: Organize data into access tiers
+- Organize data into access tiers
 
-:heavy_check_mark: Automatically move data between access tiers
+- Automatically move data between access tiers
 
 This section covers each option in more detail. 
 
