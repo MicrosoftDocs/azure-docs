@@ -182,7 +182,7 @@ about file changes provide evidence why an assignment is an exception to the exp
 #### Applying configurations using Guest Configuration
 
 Only the definition _Configure the time zone on Windows machines_ makes changes to the machine
-by configuring the time zone. Custom policy definitions for configuring settings inside machines are not yet supported.
+by configuring the time zone. Custom policy definitions for configuring settings inside machines aren't yet supported.
 
 When assigning definitions that begin with _Configure_, you must also assign the definition _Deploy
 prerequisites to enable Guest Configuration Policy on Windows VMs_. You can combine these
