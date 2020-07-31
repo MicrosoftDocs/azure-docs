@@ -34,7 +34,7 @@ This error occurs when a user who is not a company administrator attempts to use
 
 This error can also occur when a user is prevented from consenting to an application due to Microsoft detecting that the permissions request is risky. In this case, an audit event will also be logged with a Category of "ApplicationManagement", Activity Type of "Consent to application" and Status Reason of "Risky application detected".
 
-Another scenario when this error might occur is when the user assignment is required for the application and no Administrator Consent was provided at that moment. In this case Administrator has to provide the Administrator Consent first.   
+Another scenario in which this error might occur is when the user assignment is required for the application, but no administrator consent was provided. In this case, the administrator must first provide administrator consent.   
 
 ## Policy prevents granting permissions error
 * **AADSTS90093:** An administrator of &lt;tenantDisplayName&gt; has set a policy that prevents you from granting &lt;name of app&gt; the permissions it is requesting. Contact an administrator of &lt;tenantDisplayName&gt;, who can grant permissions to this app on your behalf.
