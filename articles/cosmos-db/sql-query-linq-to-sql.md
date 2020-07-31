@@ -54,16 +54,16 @@ The query provider supports the following scalar expressions:
 You can create a LINQ query with `GetItemLinqQueryable`. This example shows LINQ query generation and asynchronous execution with a `FeedIterator`:
 
 ```csharp
- using (FeedIterator<Person> setIterator = container.GetItemLinqQueryable<Person>()
-                      .Where(c => c.age > 20)
-                      .ToFeedIterator<Person>())
+using (FeedIterator<Book> setIterator = container.GetItemLinqQueryable<Book>()
+                      .Where(b => b.Title == "War and Peace")
+                      .ToFeedIterator<Book>())
  {
      //Asynchronous query execution
      while (setIterator.HasMoreResults)
      {
          foreach(var item in await setIterator.ReadNextAsync()){
          {
-             // do something with query result
+             Console.WriteLine(item.cost);
          }
        }
      }
