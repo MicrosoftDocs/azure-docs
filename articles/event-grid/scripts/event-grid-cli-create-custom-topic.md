@@ -24,10 +24,10 @@ This script uses the following command to create the custom topic. Each command 
 
 | Command | Notes |
 |---|---|
-| [az eventgrid topic create](https://docs.microsoft.com/cli/azure/eventgrid/topic#az-eventgrid-topic-create) | Create an Event Grid custom topic. |
+| [az eventgrid topic create](/cli/azure/eventgrid/topic#az-eventgrid-topic-create) | Create an Event Grid custom topic. |
 
 
 ## Next steps
 
 * For information about querying subscriptions, see [Query Event Grid subscriptions](../query-event-subscriptions.md).
-* For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+* For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
