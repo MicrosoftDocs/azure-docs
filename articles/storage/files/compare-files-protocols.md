@@ -15,13 +15,24 @@ Azure Files is a serverless distributed file system that provides access to the 
 
 Azure Files offers two protocols for connecting and mounting your Azure file shares. Server Message Block (SMB) and Network File System (NFS) (preview). Before you create a storage account and Azure file shares, you need to determine which protocol best suits your needs.
 
-## Limitations
+## NFS (preview)
 
-## Use cases
+### Restrictions
 
-Home Directories 
+The following Azure Files features are not available with NFS shares:
 
-NFS shares allows directories to be shared across multiple client VMs. That said, users to access their home directories from any VM that has access to NFS shares. The data will be persistent even if the client VM is compromised or corrupted. 
+- Azure File Sync
+- - Identity-based authentication
+- Azure Backup support
+- Snapshots
+- Soft delete
+
+- Currently only available in East US
+- Both encryption-in-transit and encryption-at-rest are not currently available
+- Must create a new storage account in order to create an NFS share.
+- Does not currently support storage explorer, Databox, or AzCopy.
+
+### Use cases
 
 Enterprise Applications (Databases, CRM, LOB apps) 
 
@@ -47,15 +58,6 @@ Web applications, DevOps, HPC, Log Directories, Video Streaming etc. Basically, 
 |Security     |Authentication         |Host-based authentication         |Identity-based authentication, user-based authentication         |
 |Security     |Permissions         |UNIX-style permissions         |NTFS-style permissions         |
 |Security     |Encryption in transit         |Not currently supported         |Supported         |
-|Data protection     |Backup         |Third-party support available         |First and third party support available         |
-|Data protection     |Snapshots         |Not currently supported         |Supported         |
-|Data protection     |Soft delete         |Not currently supported         |Supported         |
-|Data protection     |Monitoring         |Azure monitor based monitoring/diagnostics         |Azure monitor based monitoring/diagnostics         |
-|Data access and data movement     |REST API         |Management plane only         |Management and data plane         |
-|Data access and data movement     |Storage explorer         |Not currently supported         |Supported         |
-|Data access and data movement     |Databox support         |Not currently supported         |Supported         |
-|Data access and data movement     |AzCopy support         |Not currently supported         |Supported         |
-|Data access and data movement     |Azure file sync         |Not currently supported         |Supported         |
 |File system features     |File system semantics         |Fully POSIX compliant         |Not POSIX compliant         |
 |File system features     |Case sensitivity         |NFS is case sensitive         |SMB is not case sensitive         |
 |File system features     |Hardlinks support         |Supported         |Not supported         |
