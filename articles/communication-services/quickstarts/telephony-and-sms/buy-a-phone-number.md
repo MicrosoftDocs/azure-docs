@@ -5,7 +5,7 @@ author: ddematheu2
 manager: nimag
 services: azure-communication-services
 
-ms.author: ddematheu2
+ms.author: dademath
 ms.date: 07/09/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -23,7 +23,7 @@ ms.service: azure-communication-services
 Before proceeding, please review the [Plan your telephony and SMS solution](./plan-your-telephony-and-sms-solution.md) quickstart.
 
 The wizard on the "Phone number" portal will walk you through a series of questions to define the right choice of numbers for your scenario.
-When you start selecting the number, you define the ["Number Type"](./plan-your-telephony-and-sms-solution.md#phone-number-types-in-microsoft-direct-offer/) and select ["Plans"](./plan-your-telephony-and-sms-solution.md#plans/) appropriately for your project.
+When you start selecting the number, you define the ["Number Type"](./plan-your-telephony-and-sms-solution.md#phone-number-types-in-microsoft-direct-offer) and select ["Plans"](./plan-your-telephony-and-sms-solution.md#plans) appropriately for your project.
 
 ![Search experience](../media/qs-search-and-acquire-main-page.png)
 
