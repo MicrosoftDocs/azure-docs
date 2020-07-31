@@ -16,14 +16,11 @@ ms.subservice: B2C
 # Legacy user flow versions in Azure Active Directory B2C
 
 > [!IMPORTANT]
-> This article describes the legacy versioning method for user flows, which offers V1 (production-ready) versions, and V1.1 and V2 (preview) versions of user flows. Environments other than the Azure public cloud will continue to use this versioning method. In the Azure public cloud, this method being replaced by [new **Recommended** and **Preview** versions](user-flow-versions.md).
+> This article describes the legacy versioning method for user flows, which offers V1 (production-ready) versions, and V1.1 and V2 (preview) versions of user flows. Environments other than the Azure public cloud will continue to use this legacy versioning method. In the Azure public cloud, this method being replaced by [new **Recommended** and **Preview** versions](user-flow-versions.md).
 > 
-User flows in Azure Active Directory B2C (Azure AD B2C) help you to set up common [policies](user-flow-overview.md) that fully describe customer identity experiences. These experiences include sign-up, sign-in, password reset, or profile editing. In Azure AD B2C, you can select from a collection of both recommended user flows and preview user flows.
+User flows in Azure Active Directory B2C (Azure AD B2C) help you to set up common [policies](user-flow-overview.md) that fully describe customer identity experiences. These experiences include sign-up, sign-in, password reset, or profile editing.
 
-In the tables below, user flows are marked as **Recommended** if they've been thoroughly tested. User flows will be considered in preview until marked as recommended. Use a recommended user flow for any production application, but choose from other versions to test new functionality as it becomes available. You shouldn't use older versions of recommended user flows.
-
->[!IMPORTANT]
-> Unless a user flow is identified as **Recommended** in the table below, it is considered to be in *preview*. You should use only recommended user flows for your production applications.
+In the table below, unless a user flow is identified as **Recommended**, it is considered to be in *preview*. You should use only recommended user flows for your production applications.
 
 ## V1
 
