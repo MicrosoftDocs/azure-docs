@@ -101,13 +101,17 @@ az role assignment create \
 
 1. Open the Azure portal using at https://ms.portal.azure.com/?AppPlatformExtension=vnet.
 
-2. From the top search box, search for **Azure Spring Cloud**, and select **Azure Spring Cloud** from the result.
+1. From the top search box, search for **Azure Spring Cloud**, and select **Azure Spring Cloud** from the result.
 
-3. On the **Azure Spring Cloud** page, select **+ Add**.
+1. On the **Azure Spring Cloud** page, select **+ Add**.
 
-4. Fill out the form on the Azure Spring Cloud **Create** page. Please select the same region as the virtual network.
+1. Fill out the form on the Azure Spring Cloud **Create** page. 
 
-5. Select **Networking** tab and select the following:
+1. Select the same resource group and region as the virtual network.
+
+1. For **Name** under **Service Details**, select *azure-spring-cloud-vnet*.
+
+1. Select **Networking** tab and select the following:
 
     |Setting                                |Value                                             |
     |---------------------------------------|--------------------------------------------------|
@@ -118,11 +122,9 @@ az role assignment create \
 
     ![Creation networking tab](./media/spring-cloud-v-net-injection/creation-blade-networking-tab.png)
 
-6. Click **Review and create**.
+1. Click **Review and create**.
 
-7. Verify your specifications, and click **Create**.
-
-    ![Verification](media/spring-cloud-v-net-injection/creation-blade-verification.png)
+1. Verify your specifications, and click **Create**.
 
 After the deployment, two additional resource groups will be created in your subscription to host the network resources for the Azure Spring Cloud service instance.
 
