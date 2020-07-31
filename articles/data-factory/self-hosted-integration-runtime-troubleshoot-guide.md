@@ -87,9 +87,7 @@ There is a limitation for the setting as the value depends on the computer logic
 
 Self-hosted IR work node has reported the error below:
 
-`Failed to pull shared states from primary node net.tcp://b2bdp-pprd-ir02.cloud.corp.telstra.com:8060/ExternalService.svc/.
-Activity ID: 1cba7381-8eda-498f-afe9-8590d870505b
-The X.509 certificate CN=b2bdp-pprd-ir02.cloud.corp.telstra.com, OU=Customer Product and Data, O=Telstra Corporation Limited, L=Melbourne, S=VIC, C=AU chain building failed. The certificate that was used has a trust chain that cannot be verified. Replace the certificate or change the certificateValidationMode. The revocation function was unable to check revocation because the revocation server was offline.`
+`Failed to pull shared states from primary node net.tcp://abc.cloud.corp.Microsoft.com:8060/ExternalService.svc/. Activity ID: XXXXX The X.509 certificate CN=abc.cloud.corp.Microsoft.com, OU=test, O=Microsoft chain building failed. The certificate that was used has a trust chain that cannot be verified. Replace the certificate or change the certificateValidationMode. The revocation function was unable to check revocation because the revocation server was offline.`
 
 #### Cause
 
