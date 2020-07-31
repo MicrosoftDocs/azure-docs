@@ -42,8 +42,22 @@ You can create volume snapshots on demand.
 
 You can schedule for volume snapshots to be taken automatically by using snapshot policies. You can also modify a snapshot policy as needed, or delete a snapshot policy that you no longer need.  
 
-> [!IMPORTANT] 
-> Using the snapshot policy functionality requires whitelisting. Email anffeedback@microsoft.com with your subscription ID to request this feature.
+### Register the feature
+
+1. The **snapshot policy** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for several minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
 
 ### Create a snapshot policy 
 
