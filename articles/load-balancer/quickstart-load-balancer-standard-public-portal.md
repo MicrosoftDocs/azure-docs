@@ -463,6 +463,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 5. Select the **Management** tab, or select **Next** > **Management**.
 
 6. In the **Management** tab, select or enter:
+    
     | Setting | Value |
     |---|---|
     | **Monitoring** | |
@@ -492,7 +493,7 @@ The VMs created in the previous steps must be added to the backend pool of **myL
 
 4. In the **Virtual machines** section, select **+ Add**.
 
-5. Select the boxes next to **myVM1** and **myVM2**.
+5. Select the boxes next to **myVM1**, **myVM2**, and **myVM3**.
 
 6. Select **Add**.
 
