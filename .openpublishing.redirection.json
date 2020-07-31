@@ -3198,6 +3198,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/sql-query-execution.md",
+      "redirect_url": "/azure/cosmos-db/sql-query-pagination",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/use-notebook-features-and-commands.md",
       "redirect_url": "/azure/cosmos-db/use-python-notebook-features-and-commands",
       "redirect_document_id": true
@@ -3273,38 +3278,33 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cosmos-db/powershell-samples.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/cosmos-db/scripts/powershell/create-and-configure-cassandra-database.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-cassandra",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/create-graph-database-account-powershell.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-gremlin",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/create-mongodb-database-account-powershell.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-mongodb",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/create-table-database-account-powershell.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-table",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-delete.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-tags-update.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
@@ -3374,12 +3374,12 @@
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-delete.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-delete.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
@@ -3409,7 +3409,7 @@
     },
     {
       "source_path": "articles/cosmos-db/scripts/create-firewall-powershell.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
@@ -3446,6 +3446,31 @@
       "source_path": "articles/cosmos-db/manage-account-with-powershell.md",
       "redirect_url": "/azure/cosmos-db/manage-with-powershell",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/powershell-samples-cassandra.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
+      "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/powershell-samples-gremlin.md",
+        "redirect_url": "/azure/cosmos-db/powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/powershell-samples-mongodb.md",
+        "redirect_url": "/azure/cosmos-db/powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/powershell-samples-sql.md",
+        "redirect_url": "/azure/cosmos-db/powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/powershell-samples-table.md",
+        "redirect_url": "/azure/cosmos-db/powershell-samples",
+        "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/create-cassandra-database-account-cli.md",
@@ -16914,12 +16939,12 @@
     },
     {
       "source_path": "articles/log-analytics/log-analytics-system-update.md",
-      "redirect_url": "/azure/automation/automation-update-management",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operations-management-suite/oms-solution-update-management.md",
-      "redirect_url": "/azure/automation/automation-update-management",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-overview",
       "redirect_document_id": false
     },
     {
@@ -34639,17 +34664,17 @@
     },
     {
       "source_path": "articles/notification-hubs/notification-hubs-backend-service-flutter.md",
-      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_url": "/azure/developer/mobile-apps/notification-hubs-backend-service-flutter",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notification-hubs/notification-hubs-backend-service-react-native.md",
-      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_url": "/azure/developer/mobile-apps/notification-hubs-backend-service-react-native",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notification-hubs/notification-hubs-backend-service-xamarin-forms.md",
-      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_url": "/azure/developer/mobile-apps/notification-hubs-backend-service-xamarin-forms",
       "redirect_document_id": false
     },
     {
@@ -37759,6 +37784,11 @@
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-api-dotnet.md",
       "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-hub/quickstart-send-telemetry-xamarinforms.md",
+      "redirect_url": "/azure/iot-hub/about-iot-hub",
       "redirect_document_id": true
     },
     {

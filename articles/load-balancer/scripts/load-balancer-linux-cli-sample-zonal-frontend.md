@@ -13,7 +13,8 @@ ms.topic: sample
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 06/14/2018
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI script example: Load balance traffic to VMs within a specific availability zone
