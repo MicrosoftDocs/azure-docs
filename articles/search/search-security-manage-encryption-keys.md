@@ -13,7 +13,7 @@ ms.date: 08/01/2020
 
 # Encryption-at-rest in Azure Cognitive Search using customer-managed keys in Azure Key Vault
 
-Azure Cognitive Search automatically encrypts indexed content at rest with [service-managed keys](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). If more protection is needed, you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. The CMK encryption occurs before the service encryption. This article walks you through the steps of setting up CMK encryption.
+Azure Cognitive Search automatically encrypts indexed content at rest with [service-managed keys](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). If more protection is needed, you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. This article walks you through the steps of setting up CMK encryption.
 
 CMK encryption is dependent on [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage. 
 
@@ -21,16 +21,17 @@ Encryption with customer-managed keys is applied to individual indexes or synony
 
 Keys don't all need to be in the same Key Vault. A single search service can host multiple encrypted indexes or synonym maps each encrypted with their own customer-managed encryption keys stored in different Key Vaults.  You can also have indexes and synonym maps in the same service that are not encrypted using customer-managed keys. 
 
-## Restrictions
+## Double encryption enhancement to CMK encryption
 
-| Encryption | Applies to |
-|------------|------------|
-| Encryption-at-rest for all search objects created and managed by a search service. | All services, at any tier. No action required. |
-| CMK encryption, selectively applied to individual indexes and synonym maps | Billable services created after January 2019. Apply CMK encryption on new indexes and synonym maps created or updated using the [REST api-version=2019-05-06 or later](https://docs.microsoft.com/rest/api/searchservice/), or [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). |
-| CMK with double encryption, universally applied to all 
+For services created after August 1, 2020 and in specific regions, the scope of CMK encryption extends to temporary data structures that are created by the search service during indexing and query operations. There is no additional flag or setting. Double encryption, which is understood to be two-fold encryption and comprehensive in scope, is a behavior of the CMK implementation in Azure Cognitive Search, and not a new standalone feature.
 
+Follow these steps to ensure your content is doubly encrypted:
 
-This feature is available on the [REST API](https://docs.microsoft.com/rest/api/searchservice/) and [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). There is currently no support to configure customer managed encryption keys in the Azure portal. The search service must be created after January 2019 and cannot be a Free (shared) service.
+1. Create a new, billable Azure Cognitive Search service (a service must be created after August 1 to have this capability) in one of these regions: West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona. You can use the portal, REST API, or an SDK.
+
+1. Create or use an existing Azure Key Vault service in the same region.
+
+1. Set up a customer-managed key and apply it to selected indexes and synonym maps, as described in this article. You can use the REST API, or [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md) to create indexes or synonyms that use a customer-managed key. Currently, you cannot use the portal or the version 10 Azure SDKs to create the objects.
 
 ## Prerequisites
 
@@ -38,7 +39,7 @@ The following services are used in this example.
 
 + [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. 
 
-+ [Create an Azure Key Vault resource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) or find an existing vault under your subscription.
++ [Create an Azure Key Vault resource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) or find an existing vault in the same region as Azure Cognitive Search.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is used for configuration tasks.
 

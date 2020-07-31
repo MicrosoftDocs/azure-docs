@@ -31,12 +31,13 @@ Watch this fast-paced video for an overview of the security architecture and eac
 
 Encryption is pervasive in Azure Cognitive Search, starting with connections and transmissions, extending to content stored on disk. For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) are not supported.
 
-The following table describes encryption layers for data written to disk.
+The following table describes the [data encryption models](../security/fundamentals/encryption-atrest.md#data-encryption-models
+) supported by Azure Cognitive Search for content that is handled by the service.
 
 | Encryption model | Keys | Requirements | Restrictions | Applies to |
 |------------------|-------|-------------|--------------|------------|
 | server-side encryption | service-managed keys (internally managed by Microsoft) | None (built-in) | None, available on all tiers, in all regions, for content created after January 24 2018. | Content (indexes and synonym maps) and definitions (indexers, data sources, skillsets) |
-| server-side encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, for content created after January 2019. | Content (indexes and synonym maps)| 
+| server-side encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, for content created after January 2019. | Content (indexes and synonym maps)|
 | service-side "double encryption" | customer-managed keys | Azure Key Vault | Available on billable tiers, in selected regions, for content created after August 1 2020. | Content (indexes and synonym maps) and any temporary data structures created for those objects during indexing and query operations |
 
 Service-managed encryption is based on [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). It occurs automatically on all indexing, including on incremental updates to indexes that are not fully encrypted (created before January 2018).
