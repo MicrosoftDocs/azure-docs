@@ -4834,7 +4834,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/key-vault/tutorial-python-linux-virtual-machine.md",
+      "source_path": "articles/key-vault/secrets/tutorial-python-linux-virtual-machine.md",
       "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
       "redirect_document_id": false
     },
