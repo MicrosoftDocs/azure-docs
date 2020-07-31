@@ -53,3 +53,11 @@ An audit record is created each time a query is run. If you send the data to a L
 
 ## Log query alerts
 Audit data will be created for test queries performed during the initial creation of an alert rule. Audit data will be created for queries run regularly during normal operation of the alert rule.
+
+## Sample queries
+
+To be completed.
+
+## Next steps
+
+To be completed.
