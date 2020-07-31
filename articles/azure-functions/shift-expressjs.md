@@ -1,9 +1,9 @@
 ---
 title: Shifting from Express.js to Azure Functions
-description: Refactoring Express.js endpoints to Azure Functions
+description: Learn to refactor Express.js endpoints to Azure Functions.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 07/31/2020
 ms.author: cshoe
 ---
 
@@ -19,7 +19,7 @@ When migrating code to a serverless architecture, refactoring Express.js endpoin
 
 - **Default route**: By default, Azure Functions endpoints are exposed under the `api` route. Routing rules are configurable via [`routePrefix` in the _host.json_ file](./functions-bindings-http-webhook-output.md#hostjson-settings).
 
-- **Configuration and conventions**: There are a few configuration and conventions you need to consider as you move to Azure Functions. A Functions app uses the _function.json_ file to define HTTP verbs, define security policies, and can configure the function's [input and output](./functions-triggers-bindings.md). Also, by convention, the folder name, which contains the function files defines the endpoint name.
+- **Configuration and conventions**: A Functions app uses the _function.json_ file to define HTTP verbs, define security policies, and can configure the function's [input and output](./functions-triggers-bindings.md). By default, the folder name that which contains the function files defines the endpoint name, but you can change the name via the route property in the [function.json](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) file..
 
 > [!TIP]
 > Learn more through the interactive tutorial [Refactor Node.js and Express APIs to Serverless APIs with Azure Functions](https://docs.microsoft.com/learn/modules/shift-nodejs-express-apis-serverless/).
@@ -42,7 +42,7 @@ app.get('/hello', (req, res) => {
 });
 ```
 
-When a `GET` request is sent to `/hello`, an `HTTP 200` response containing `Success` is returned. If the endpoint returns an error, the response is an `HTTP 500` with the error details.
+When a `GET` request is sent to `/hello`, an `HTTP 200` response containing `Success` is returned. If the endpoint encounters an error, the response is an `HTTP 500` with the error details.
 
 ### Azure Functions
 
@@ -104,9 +104,9 @@ When moving to Functions, the following changes are made:
 
 - **Context  and response object**: The [`context`](./functions-reference-node.md#context-object) allows you to communicate with the Function's runtime. From the context, you can read request data and set the function's response. Synchronous code requires you to call `context.done()` to complete execution, while `asyc` functions resolve the request implicitly.
 
-- **Naming convention**: The folder name used to contain the Azure Functions files is used as the endpoint name by default (this can be overridden in the _function.json_).
+- **Naming convention**: The folder name used to contain the Azure Functions files is used as the endpoint name by default (this can be overridden in the [function.json](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint)).
 
-- **Configuration**: You define the HTTP verbs in the _function.json_ file such as `POST` or `PUT`.
+- **Configuration**: You define the HTTP verbs in the [function.json](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint) file such as `POST` or `PUT`.
 
 The following _function.json_ file holds configuration information for the function.
 
