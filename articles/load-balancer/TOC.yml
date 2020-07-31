@@ -10,14 +10,16 @@
     href: load-balancer-faqs.md
 - name: Quickstart
   items:
-  - name: Create Load Balancer - Portal
+  - name: Create public load balancer - Portal
     href: quickstart-load-balancer-standard-public-portal.md
-  - name: Create Load Balancer - Azure CLI
+  - name: Create public load balancer - Azure CLI
     href: quickstart-load-balancer-standard-public-cli.md
-  - name: Create Load Balancer - Azure PowerShell
+  - name: Create public load balancer - Azure PowerShell
     href: quickstart-create-standard-load-balancer-powershell.md
-  - name: Create Load Balancer - ARM template
+  - name: Create public load balancer - ARM template
     href: quickstart-load-balancer-standard-public-template.md
+  - name: Create internal load balancer - Portal
+    href: quickstart-load-balancer-standard-internal-portal.md
   expanded: true
 - name: Tutorials
   items:
