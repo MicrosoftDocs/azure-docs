@@ -4835,7 +4835,12 @@
     },
     {
       "source_path": "articles/key-vault/tutorial-net-linux-virtual-machine.md",
-      "redirect_url": "/azure/key-vault/secrets/tutorial-net-linux-virtual-machine",
+      "redirect_url": "/azure/key-vault/general/tutorial-net-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/secrets/tutorial-net-linux-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-net-virtual-machine",
       "redirect_document_id": false
     },
     {
@@ -4850,9 +4855,15 @@
     },
     {
       "source_path": "articles/key-vault/tutorial-python-linux-virtual-machine.md",
-      "redirect_url": "/azure/key-vault/secrets/tutorial-python-linux-virtual-machine",
+      "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/key-vault/secrets/tutorial-python-linux-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
+      "redirect_document_id": false
+    },
+
     {
       "source_path": "articles/key-vault/tutorial-python-windows-virtual-machine.md",
       "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
