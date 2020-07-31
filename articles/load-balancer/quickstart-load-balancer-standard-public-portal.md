@@ -464,7 +464,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 6. In the **Management** tab, select or enter:
     | Setting | Value |
-    |-|-|
+    |---|---|
     | **Monitoring** | |
     | Boot diagnostics | Select **Off** |
 
