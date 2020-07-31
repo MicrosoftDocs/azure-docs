@@ -64,7 +64,7 @@ When using SAS in Storage Explorer, we recommend the following guidelines:
 - **Limit the distribution of SAS tokens and URIs.** Only distribute SAS tokens and URIs to trusted individuals. Limiting SAS distribution reduces the chance a SAS could be misused.
 - **Only use SAS tokens and URIs from entities you trust.**
 - **Use shared access policies (SAP) when generating SAS tokens and URIs if possible.** A SAS based on a shared access policy is more secure than a bare SAS, because the SAS can be revoked by deleting the SAP.
-- **Generate tokens with minimal resource access and permissions.** Minimal permissions limits the potential damage that could be done if a SAS is misused.
+- **Generate tokens with minimal resource access and permissions.** Minimal permissions limit the potential damage that could be done if a SAS is misused.
 - **Generate tokens that are only valid for as long as necessary.** A short lifespan is especially important for bare SAS, because there's no way to revoke them once generated.
 
 > [!IMPORTANT]
