@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 Budgets are supported for the following types of Azure account types and scopes:
 
-- Azure Role-Based Access Control scopes
+- Azure role-based access control (Azure RBAC) scopes
     - Management groups
     - Subscription
 - Enterprise Agreement scopes
