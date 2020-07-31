@@ -9,7 +9,8 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 06/04/2020
-ms.author: tamram
+ms.author: tamram 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create, download, and list blobs with Azure CLI

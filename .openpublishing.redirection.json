@@ -3198,6 +3198,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/sql-query-execution.md",
+      "redirect_url": "/azure/cosmos-db/sql-query-pagination",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/use-notebook-features-and-commands.md",
       "redirect_url": "/azure/cosmos-db/use-python-notebook-features-and-commands",
       "redirect_document_id": true
@@ -16914,12 +16919,12 @@
     },
     {
       "source_path": "articles/log-analytics/log-analytics-system-update.md",
-      "redirect_url": "/azure/automation/automation-update-management",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operations-management-suite/oms-solution-update-management.md",
-      "redirect_url": "/azure/automation/automation-update-management",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-overview",
       "redirect_document_id": false
     },
     {
@@ -34639,17 +34644,17 @@
     },
     {
       "source_path": "articles/notification-hubs/notification-hubs-backend-service-flutter.md",
-      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_url": "/azure/developer/mobile-apps/notification-hubs-backend-service-flutter",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notification-hubs/notification-hubs-backend-service-react-native.md",
-      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_url": "/azure/developer/mobile-apps/notification-hubs-backend-service-react-native",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notification-hubs/notification-hubs-backend-service-xamarin-forms.md",
-      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_url": "/azure/developer/mobile-apps/notification-hubs-backend-service-xamarin-forms",
       "redirect_document_id": false
     },
     {
