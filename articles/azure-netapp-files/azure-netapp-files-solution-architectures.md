@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 07/30/2020
 ms.author: b-juche
 ---
 # Solution architectures using Azure NetApp Files
@@ -40,6 +40,7 @@ This section provides references for Windows applications and SQL Server solutio
 ### File sharing and Global File Caching
 
 * [Talon / Azure NetApp Files Deployment](https://youtu.be/91LKb1qsLIM)
+* [Build Your Own Azure NFS? Wrestling Linux File Shares into Cloud](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
 
 ### SQL Server
 
