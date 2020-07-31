@@ -70,6 +70,10 @@ The following steps will help create a Conditional Access policy to require thos
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 
+> [!NOTE]
+>
+> This policy does not support administrators scoped over administrative units or scoped directly on an object. 
+
 ## Next steps
 
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
