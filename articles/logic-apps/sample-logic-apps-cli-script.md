@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 07/21/2020
+ms.date: 07/30/2020
 ---
 
 # Azure CLI script sample - create a logic app
@@ -22,7 +22,7 @@ This script creates a sample logic app through the [Azure CLI Logic Apps extensi
 * The [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) installed on your local computer.
 * The [Logic Apps Azure CLI extension](/cli/azure/azure-cli-extensions-list?view=azure-cli-latest) installed on your computer. To install this extension, use this command: `az extension add --name logic`
 * A [workflow definition](quickstart-logic-apps-azure-cli.md#workflow-definition) for your logic app. This JSON file must follow the [Workflow Definition language schema](logic-apps-workflow-definition-language.md).
-* A connected email account through a supported [Logic Apps connector](../connectors/apis-list.md). This example uses the [Office 365 Outlook](/connectors/office365/) connector, but you can also use other connectors like [Outlook.com](/connectors/outlook/) or [Gmail](/connectors/gmail/).
+* An API connection to an email account through a supported [Logic Apps connector](../connectors/apis-list.md) in the same resource group as your logic app. This example uses the [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md) connector, but you can also use other connectors like [Outlook.com](../connectors/connectors-create-api-outlook.md).
 
 ### Prerequisite check
 
@@ -31,6 +31,16 @@ Validate your environment before you begin:
 * Sign in to the Azure portal and check that your subscription is active by running `az login`.
 * Check your version of the Azure CLI in a terminal or command window by running `az --version`. For the latest version, see the [latest release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli&view=azure-cli-latest).
   * If you don't have the latest version, update your installation by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+### Sample workflow explanation
+
+This example workflow definition file creates the same basic logic app as the [Logic Apps quickstart for the Azure portal](quickstart-create-first-logic-app-workflow.md). 
+
+This sample workflow: 
+
+1. Specifies a schema, `$schema`, for the logic app.
+1. Defines a trigger for the logic app in the list of triggers, `triggers`. The trigger recurs (`recurrence`) every 3 hours. The actions are triggered when a new feed item is published (`When_a_feed_item_is_published`) for the specified RSS feed (`feedUrl`).
+1. Defines an action for the logic app in the list of actions, `actions`. The action sends an email (`Send_an_email_(V2)`) through Microsoft 365 with details from the RSS feed items as specified in the body section (`body`) of the action's inputs (`inputs`).
 
 ## Sample workflow definition
 
@@ -118,16 +128,6 @@ Before you run the sample script, you must first create a sample [workflow defin
     1. Replace additional connector details if you're using another email connector than the Office 365 Outlook connector.
     1. Replace the placeholder subscription values (`00000000-0000-0000-0000-000000000000`) for your connection identifiers (`connectionId` and `id`) under the connections parameter (`$connections`) with your own subscription values.
 1. Save your changes.
-
-### Sample workflow explanation
-
-This example workflow definition file creates the same basic logic app as the [Logic Apps quickstart for the Azure portal](quickstart-create-first-logic-app-workflow.md). 
-
-This sample workflow: 
-
-1. Specifies a schema, `$schema`, for the logic app.
-1. Defines a trigger for the logic app in the list of triggers, `triggers`. The trigger recurs (`recurrence`) every 3 hours. The actions are triggered when a new feed item is published (`When_a_feed_item_is_published`) for the specified RSS feed (`feedUrl`).
-1. Defines an action for the logic app in the list of actions, `actions`. The action sends an email (`Send_an_email_(V2)`) through Microsoft 365 with details from the RSS feed items as specified in the body section (`body`) of the action's inputs (`inputs`).
 
 ## Sample script
 
