@@ -17,7 +17,7 @@ ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
-# Approve or deny activation requests for group members and owners in Privileged Identity Management
+# Approve activation requests for privileged access group members and owners (preview)
 
 With Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), you can configure privileged access group members and owners to require approval for activation, and choose users or groups from your Azure AD organization as delegated approvers. We recommend selecting two or more approvers for each group to reduce workload for the privileged role administrator. Delegated approvers have 24 hours to approve requests. If a request is not approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window is not configurable.
 

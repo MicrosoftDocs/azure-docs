@@ -16,7 +16,7 @@ ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ---
-# View activity and audit history for privileged access group assignments in Privileged Identity Management
+# Audit activity history for privileged access group assignments (preview) in Privileged Identity Management
 
 With Privileged Identity Management (PIM), you can view activity, activations, and audit history for Azure privileged access group members and owners within your Azure Active Directory (Azure AD) organization.
 
