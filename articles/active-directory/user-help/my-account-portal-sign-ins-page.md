@@ -42,7 +42,7 @@ You should recognize your own activity as being normal. However, if you notice a
 
 Before you determine something is incorrect, make sure you're not seeing a false positive (where the item looks questionable, but is okay). For example, we determine your approximate location and map based on your IP Address. Mobile networks are especially hard to pinpoint since they sometimes route traffic through distant locations. So, if you signed in using your mobile device in Washington state, the location might show the sign-in coming from California. Because of this, we strongly suggest that you check more details, beyond just the location. You should also make sure the operating system, browser, and app all make sense, too.
 
-### If you see an Unsuccessful sign-in
+### If you see an unsuccessful sign-in
 
 An unsuccessful sign-in, with no session activity, means that your primary verification method (username/password) failed. This could mean that you mistyped your username or password, but it could also mean that an attacker was trying to guess your password. If you think it was attacker trying unsuccessfully to guess your password, you don't have to change your password, but we strongly suggest that you register for Azure Multi-Factor Authentication (MFA). With MFA, even if the hacker eventually guesses your password, it won't be enough to access your account.
 
