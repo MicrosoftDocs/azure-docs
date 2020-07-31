@@ -18,7 +18,7 @@ This article teaches you how to grant permissions to the managed identity in Azu
 >[!NOTE]
 >This workspace managed identity will be referred to as managed identity through the rest of this document.
 
-## Grant the managed identity  permissions to the SQL pool
+## Grant managed identity permissions to the SQL pool
 
 The managed identity grants permissions to the SQL pools in the workspace. With permissions granted, you can orchestrate pipelines that perform SQL pool-related activities. When you create an Azure Synapse workspace using Azure portal, you can grant the managed identity CONTROL permissions on SQL pools.
 
