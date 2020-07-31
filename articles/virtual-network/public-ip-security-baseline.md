@@ -4,7 +4,7 @@ description: The Azure Public IP security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: N/A
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 07/31/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -26,7 +26,7 @@ The Azure Security Baseline for Azure Public IP contains recommendations that wi
 ### 2.2: Configure central security log management
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32273).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32273.).
 
 **Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Azure Public IP instances. Other than at the control plane (e.g. Azure portal), Azure Public IP itself does not generate logs related to network traffic. Azure Public IP provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
 
@@ -37,7 +37,7 @@ The Azure Security Baseline for Azure Public IP contains recommendations that wi
 ### 2.3: Enable audit logging for Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32274).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32274.).
 
 **Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Azure Public IP instances. Other than at the control plane (e.g. Azure portal), Azure Public IP itself does not generate audit logs. Azure Public IP provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
 
@@ -50,7 +50,7 @@ The Azure Security Baseline for Azure Public IP contains recommendations that wi
 ### 2.5: Configure security log storage retention
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32276).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32276.).
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with Azure Public IP according to your organization's compliance regulations.
 
@@ -63,7 +63,7 @@ The Azure Security Baseline for Azure Public IP contains recommendations that wi
 ### 2.6: Monitor and review Logs
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32277).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32277.).
 
 **Guidance**: Use Azure Activity Log to monitor configurations and detect changes for your Azure Public IP instances. Other than at the control plane (e.g. Azure portal), Azure Public IP itself does not generate logs related to network traffic. Azure Public IP provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
 
@@ -76,7 +76,7 @@ The Azure Security Baseline for Azure Public IP contains recommendations that wi
 ### 2.7: Enable alerts for anomalous activities
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32278).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32278.).
 
 **Guidance**: You can configure to receive alerts based on activity logs related to Azure Public IP. Azure Monitor allows you to configure an alert to send an email notification, call a webhook, or invoke an Azure Logic App.
 
@@ -93,7 +93,7 @@ The Azure Security Baseline for Azure Public IP contains recommendations that wi
 ### 3.1: Maintain an inventory of administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32282).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32282.).
 
 **Guidance**: Maintain an inventory of the user accounts that have administrative access to the control plane (e.g. Azure portal) of Azure Public IP.
 
@@ -108,7 +108,7 @@ You can use the Identity and Access control (IAM) pane in the Azure portal for y
 ### 3.2: Change default passwords where applicable
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32283).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32283.).
 
 **Guidance**: Azure AD does not have the concept of default passwords. Other Azure resources requiring a password forces a password to be created with complexity requirements and a minimum password length, which differs depending on the service. You are responsible for third-party applications and marketplace services that may use default passwords.
 
@@ -119,7 +119,7 @@ You can use the Identity and Access control (IAM) pane in the Azure portal for y
 ### 3.3: Use dedicated administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32284).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32284.).
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
 
@@ -139,7 +139,7 @@ How to use Azure Policy
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32286).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32286.).
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management recommendations.
 
@@ -154,7 +154,7 @@ How to use Azure Policy
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32287).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32287.).
 
 **Guidance**: Use a Privileged Access Workstation (PAW) with Azure Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Sentinel-related resources.
 
@@ -169,7 +169,7 @@ How to use Azure Policy
 ### 3.7: Log and alert on suspicious activities from administrative accounts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32288).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32288.).
 
 **Guidance**: Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
@@ -186,7 +186,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 ### 3.8: Manage Azure resources only from approved locations
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32289).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32289.).
 
 **Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.
 
@@ -199,7 +199,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 ### 3.9: Use Azure Active Directory
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32290).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32290.).
 
 **Guidance**: Use Azure Active Directory (Azure AD) as the central authentication and authorization system for your Azure Sentinel instances. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
@@ -212,7 +212,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 ### 3.10: Regularly review and reconcile user access
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32291).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32291.).
 
 **Guidance**: Azure Active Directory (AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
@@ -227,7 +227,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 ### 3.11: Monitor attempts to access deactivated credentials
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32292).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32292.).
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for Azure Public IP. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
@@ -246,7 +246,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 3.12: Alert on account login behavior deviation
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32293).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32293.).
 
 **Guidance**: or account login behavior deviation on the control plane (e.g. Azure portal), use Azure AD Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
@@ -267,7 +267,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.4: Encrypt all sensitive information in transit
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32298).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32298.).
 
 **Guidance**: If you are using Azure VPN Gateway to create a secure connection between your on-premises network and your Azure virtual networks, ensure that your on-premises local network gateway has been configured with compatible IPsec communication and encryption parameters. Any misconfiguration will lead to loss of connectivity between the on-premises network and Azure.
 
@@ -282,7 +282,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.6: Use Azure RBAC to manage access to resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32300).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32300.).
 
 **Guidance**: You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.
 
@@ -295,7 +295,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 4.9: Log and alert on changes to critical Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32303).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32303.).
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to Azure Public IP and other critical or related resources.
 
@@ -312,7 +312,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 ### 6.1: Use automated asset discovery solution
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32309).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32309.).
 
 **Guidance**: Use Azure Resource Graph to query/discover all resources (such as compute, storage, network, ports, and protocols etc.) within your subscription(s). Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
 
@@ -331,7 +331,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 ### 6.3: Delete unauthorized Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32311).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32311.).
 
 **Guidance**: Use tagging, management groups, and separate subscriptions, where appropriate, to organize and track Azure resources. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
 
@@ -352,7 +352,7 @@ Allowed resource types
 ### 6.4: Define and maintain an inventory of approved Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32312).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32312.).
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources.
 
@@ -363,7 +363,7 @@ Allowed resource types
 ### 6.5: Monitor for unapproved Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32313).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32313.).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscriptions.
 
@@ -380,7 +380,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 ### 6.9: Use only approved Azure services
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32317).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32317.).
 
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
@@ -397,7 +397,7 @@ Allowed resource types
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32319).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32319.).
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
@@ -414,7 +414,7 @@ Allowed resource types
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32336).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32336.).
 
 **Guidance**: Not applicable; this recommendation is meant for Azure Compute resources
 
@@ -429,7 +429,7 @@ Allowed resource types
 ### 10.1: Create an incident response guide
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32342).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32342.).
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
@@ -448,7 +448,7 @@ Allowed resource types
 ### 10.2: Create an incident scoring and prioritization procedure
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32343).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32343.).
 
 **Guidance**: Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
@@ -461,7 +461,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 ### 10.3: Test security response procedures
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32344).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32344.).
 
 **Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
@@ -474,7 +474,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32345).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32345.).
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
@@ -487,7 +487,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 ### 10.5: Incorporate security alerts into your incident response system
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32346).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32346.).
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
 
@@ -502,7 +502,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 ### 10.6: Automate the response to security alerts
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32347).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32347.).
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
@@ -519,7 +519,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
 >[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_queries/edit/32348).
+> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32348.).
 
 **Guidance**: Follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies:  https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1
 
