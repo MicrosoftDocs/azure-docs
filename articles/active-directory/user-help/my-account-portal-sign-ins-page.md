@@ -34,7 +34,7 @@ You can view all of your recent work or school account sign-in activity, from th
 
 3. Expand and review each of the sign-in items, making sure that you recognize each one. If you find a sign-in item that doesn't look familiar, we highly recommend you change your password to help protect your account if it was compromised.
 
-    ![Recent activity page with expanded sign-in details](media/my-account-portal/my-account-portal-sign-ins-page.png)
+    ![Recent activity page with expanded sign-in details](media/my-account-portal-sign-ins-page/recent-activity.png)
 
 ### If you see a Successful sign-in
 
@@ -56,7 +56,7 @@ You can search your recent sign-in activity by any of the available information.
 
 2. Select the **Search** button to begin searching.
 
-    ![Recent Activity page, showing highlighted search bar, search button, and results](media/my-account-portal/my-account-portal-sign-ins-page-search.png)
+    ![Recent Activity page, showing highlighted search bar, search button, and results](media/my-account-portal-sign-ins-page/sign-in-search.png)
 
 ## Next steps
 
