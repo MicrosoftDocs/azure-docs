@@ -35,12 +35,12 @@ Your public key can be shared with anyone, but only you (or your local security 
 
 Recent versions of Windows 10 include [OpenSSH client commands](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) to create and manage SSH keys and make SSH connections from a command prompt or a PowerShell prompt. This is the easiest way to create an SSH connection to your Linux VM, from a Windows computer. 
 
-You can also install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) to connect to your VM over SSH and use other native Linux tools natively within a Bash shell. This can be useful if you need to develop and test something locally, before moving it to your VM.
+You can also install the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) to connect to your VM over SSH and use other native Linux tools within a Bash shell. This can be useful if you need to develop and test something locally, before moving it to your VM.
 
-You can also use the Bash in the [Azure Cloud Shell](../../cloud-shell/overview.md) to connect to your VM. 
+You can also use Bash in the [Azure Cloud Shell](../../cloud-shell/overview.md) to connect to your VM. 
 
-* Access Cloud Shell in your web browser at [https://shell.azure.com](https://shell.azure.com) or from the [Azure portal](https://portal.azure.com). 
-* Access Cloud Shell as a terminal from within Visual Studio Code by installing the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
+- Access Cloud Shell in your web browser at [https://shell.azure.com](https://shell.azure.com) or from the [Azure portal](https://portal.azure.com). 
+- Access Cloud Shell as a terminal in Visual Studio Code by installing the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ## Create an SSH key pair
 
