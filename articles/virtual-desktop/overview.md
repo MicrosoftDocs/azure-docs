@@ -10,7 +10,7 @@ ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
 ---
-# What is Windows Virtual Desktop? 
+# What is Windows Virtual Desktop?
 
 Windows Virtual Desktop is a desktop and app virtualization service that runs on the cloud.
 
@@ -73,7 +73,7 @@ Your infrastructure needs the following things to support Windows Virtual Deskto
   * Azure AD Connect (for hybrid organizations)
   * Azure AD Domain Services (for hybrid or cloud organizations)
 * An Azure subscription that contains a virtual network that either contains or is connected to the Windows Server Active Directory
-  
+
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
 * [Standard domain-joined](../active-directory-domain-services/active-directory-ds-comparison.md) or [Hybrid AD-joined](../active-directory/devices/hybrid-azuread-join-plan.md). Virtual machines can't be Azure AD-joined.
@@ -100,7 +100,7 @@ The following Remote Desktop clients support Windows Virtual Desktop:
 * [Web](connect-web.md)
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
-* [Android (Preview)](connect-android.md)
+* [Android](connect-android.md)
 
 > [!IMPORTANT]
 > Windows Virtual Desktop doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
@@ -123,7 +123,7 @@ Windows Virtual Desktop supports the following x64 operating system images:
 
 Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, or Windows 10 Enterprise KN operating system images. Windows 7 also doesn't support any VHD or VHDX-based profile solutions hosted on managed Azure Storage due to a sector size limitation.
 
-Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
+Available automation and deployment options depend on which OS and version you choose, as shown in the following table:
 
 |Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|

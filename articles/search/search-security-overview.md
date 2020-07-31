@@ -8,14 +8,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 07/30/2020
 ---
 
 # Security in Azure Cognitive Search - overview
 
 This article describes the key security features in Azure Cognitive Search that can protect content and operations. 
 
-+ At the storage layer, encryption-at-rest is a given at the platform level, but Cognitive Search also offers a "double encryption" option for customers who want the dual protection of both user-owned and Microsoft-managed keys.
++ At the storage layer, encryption-at-rest is a given at the platform level, but Cognitive Search also offers customer-managed keys through Azure Key Vault for an additional encryption layer.
 
 + Inbound security protects the search service endpoint at increasing levels of security: from API keys on the request, to inbound rules in the firewall, to private endpoints that fully shield your service from the public internet.
 
@@ -110,7 +110,7 @@ If you require granular, per-user control over search results, you can build sec
 
 ## Administrative rights
 
-[Role-based access (RBAC)](../role-based-access-control/overview.md) is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. In Azure Cognitive Search, Resource Manager is used to create or delete the service, manage API keys, and scale the service. As such, RBAC role assignments will determine who can perform those tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+[Role-based access (RBAC)](../role-based-access-control/overview.md) is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. In Azure Cognitive Search, Resource Manager is used to create or delete the service, manage API keys, and scale the service. As such, Azure role assignments will determine who can perform those tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
 In contrast, admin rights over content hosted on the service, such as the ability to create or delete an index, is conferred through API keys as described in the [previous section](#index-access).
 
@@ -120,6 +120,10 @@ In contrast, admin rights over content hosted on the service, such as the abilit
 ## Certifications and compliance
 
 Azure Cognitive Search has been certified compliant for multiple global, regional, and industry-specific standards for both the public cloud and Azure Government. For the complete list, download the [**Microsoft Azure Compliance Offerings** whitepaper](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) from the official Audit reports page.
+
+For compliance, you can use [Azure Policy](../governance/policy/overview.md) to help you implement the high-security best practices of [Azure Security Benchmark](../security/benchmarks/introduction.md). Azure Security Benchmark is a collection of security recommendations, codified into security controls that map to key actions you should take to mitigate threats to services and data. There are currently 11 security controls, including [Network Security](../security/benchmarks/security-control-network-security.md), [Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md), and [Data Protection](../security/benchmarks/security-control-data-protection.md) to name a few.
+
+Azure Policy is a capability built into Azure that helps you manage compliance for multiple standards, including those of Azure Security Benchmark. For well-known benchmarks, Azure Policy provides built-in definitions so that you can create policies more easily. For Azure Cognitive Search, there is currently one built-in definition for diagnostic logging, which means that you can assign a policy that identifies and fixes any search service that is non-compliant with the logging and monitoring security control. For more information, see [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](security-controls-policy.md).
 
 ## See also
 

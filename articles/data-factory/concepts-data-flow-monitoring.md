@@ -1,9 +1,9 @@
 ---
-title: Mapping data flow Visual Monitoring
-description: How to visually monitor Azure Data Factory Data Flows
+title: Monitoring mapping data flows
+description: How to visually monitor mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
@@ -22,7 +22,7 @@ When you execute your pipeline, you can monitor the pipeline and all of the acti
 
 You see statistics at this level as well including the run times and status. The Run ID at the activity level is different than the Run ID at the pipeline level. The Run ID at the previous level is for the pipeline. Selecting the eyeglasses gives you deep details on your data flow execution.
 
-![Data Flow Monitoring](media/data-flow/mon002.png "Data Flow Monitoring")
+![Data Flow Monitoring](media/data-flow/monitoring-details.png "Data Flow Monitoring")
 
 When you're in the graphical node monitoring view, you can see a simplified view-only version of your data flow graph.
 

@@ -116,7 +116,7 @@ These articles are about other scenarios and services that use or integrate with
 
 ## Key Vault overviews and concepts
 
-- [Key Vault soft-delete behavior](overview-soft-delete.md)) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
+- [Key Vault soft-delete behavior](soft-delete-overview.md)) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
 - [Key Vault client throttling](overview-throttling.md) orients you to the basic concepts of throttling and offers an approach for your app.
 - [Key Vault storage account keys overview](../secrets/overview-storage-keys.md)) describes the Key Vault integration Azure Storage Accounts keys.
 - [Key Vault security worlds](overview-security-worlds.md) describes the relationships between regions and security areas.
