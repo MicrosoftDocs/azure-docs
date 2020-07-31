@@ -146,7 +146,7 @@ Dynamic packaging also supports audio files that are stored in the MP4 file cont
 
 Dynamic packaging supports multiple audio tracks with DASH or HLS (version 4 or later) for streaming assets that have multiple audio tracks with multiple codecs and languages.
 
-For all of the above audio codecs, the encoded audio must be stored in the MP4 container format to work with Dynamic Packaging. The service does not support raw elementary stream file formats on blob storage (for example the following would not be support - .dts, .ac3) 
+For all of the above audio codecs, the encoded audio must be stored in the MP4 container format to work with Dynamic Packaging. The service does not support raw elementary stream file formats on blob storage (for example the following would not be supported - .dts, .ac3.) 
 
 Only files with the .mp4 of .mp4a extension are supported for audio packaging. 
 
