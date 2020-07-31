@@ -46,7 +46,7 @@ The Azure Blockchain Development Kit for Ethereum uses project templates and Tru
 
 1. From the VS Code command palette, choose **Azure Blockchain: New Solidity Project**.
 1. Choose **Create basic project**.
-1. Create a new folder named `HelloBlockchain` and **Select new project path**.
+1. Create a new folder named `HelloWorld` and **Select new project path**.
 
 The Azure Blockchain Development Kit creates and initializes a new Solidity project for you. The basic project includes a sample **HelloBlockchain** smart contract and all the necessary files to build and deploy to your consortium member in Azure Blockchain Service. It may take several minutes for the project to be created. You can monitor the progress in VS Code's terminal panel by selecting the output for Azure Blockchain.
 
@@ -80,6 +80,10 @@ Azure Blockchain Development Kit uses Truffle to execute the migration script to
 ![Successfully deployed contract](./media/send-transaction/deploy-contract.png)
 
 ## Call a contract function
+
+> [!IMPORTANT]
+> No version of the extension support Smart Contract Interaction with remote contracts (including ABS). This will only work for locally deployed contracts.
+>
 
 The **HelloBlockchain** contract's **SendRequest** function changes the **RequestMessage** state variable. Changing the state of a blockchain network is done via a transaction. You can use the Azure Blockchain Development Kit smart contract interaction page to call the **SendRequest** function via a transaction.
 
