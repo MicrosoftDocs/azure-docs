@@ -77,10 +77,7 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 The `Microsoft.Azure.CosmosDB.Table` library is currently available for .NET Framework only, and is in maintenance mode and will be deprecated soon. New features and functionalities and optimizations are only added to the .NET Standard library [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), as such it is recommended that you upgrade to [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
 
-The [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) preview package has been deprecated. The WindowsAzure.Storage-PremiumTable SDK will be retired on November 15, 2018, at which time requests to the retired SDK will not be permitted. 
-
-Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
-<br/>
+The [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) preview package has been deprecated. The WindowsAzure.Storage-PremiumTable SDK will be retired on November 15, 2018, at which time requests to the retired SDK will not be permitted.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
