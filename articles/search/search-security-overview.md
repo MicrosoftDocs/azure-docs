@@ -34,17 +34,23 @@ Encryption is pervasive in Azure Cognitive Search, starting with connections and
 The following table describes the [data encryption models](../security/fundamentals/encryption-atrest.md#data-encryption-models
 ) supported by Azure Cognitive Search for content that is handled by the service.
 
-| Encryption model | Keys | Requirements | Restrictions | Applies to |
+| Encryption model | Keys&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requirements&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrictions | Applies to |
 |------------------|-------|-------------|--------------|------------|
-| server-side encryption | service-managed keys (internally managed by Microsoft) | None (built-in) | None, available on all tiers, in all regions, for content created after January 24 2018. | Content (indexes and synonym maps) and definitions (indexers, data sources, skillsets) |
+| server-side encryption | Microsoft-managed keys | None (built-in) | None, available on all tiers, in all regions, for content created after January 24 2018. | Content (indexes and synonym maps) and definitions (indexers, data sources, skillsets) |
 | server-side encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, for content created after January 2019. | Content (indexes and synonym maps)|
-| service-side "double encryption" | customer-managed keys | Azure Key Vault | Available on billable tiers, in selected regions, for content created after August 1 2020. | Content (indexes and synonym maps) and any temporary data structures created for those objects during indexing and query operations |
+| double encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in selected regions, for content created after August 1 2020. | Content (indexes and synonym maps) plus temporary data structures |
 
-Service-managed encryption is based on [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). It occurs automatically on all indexing, including on incremental updates to indexes that are not fully encrypted (created before January 2018).
+### Service-managed keys
+
+Service-managed encryption is a Microsoft-internal operations, based on [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). It occurs automatically on all indexing, including on incremental updates to indexes that are not fully encrypted (created before January 2018).
+
+### Customer-managed keys
 
 Customer-managed keys require an additional billable service, Azure Key Vault, which must be in the same region as Azure Cognitive Search, although it can be under a different subscription. Enabling CMK encryption will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30%-60% in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it. For more information, see [Customer-managed encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
 
-Double encryption in Azure Cognitive Search is an extension of CMK. It is understood to be two-fold encryption (once by CMK, and again by service-managed keys), and comprehensive in how it is applied, extending to any content that is written to disk including temporary data structures created for internal caching purposes and memory management. The difference between CMK before August 1 2020 and after is the encryption of temporary data structures created and handled by a search service.
+### Double encryption 
+
+In Azure Cognitive Search, double encryption is an extension of CMK. It is understood to be two-fold encryption (once by CMK, and again by service-managed keys), and comprehensive in how it is applied, extending to any content that is written to disk including temporary data structures created for internal caching purposes and memory management. The difference between CMK before August 1 2020 and after is the encryption of temporary data structures created and handled by a search service.
 
 Double encryption is currently available in these regions:
 

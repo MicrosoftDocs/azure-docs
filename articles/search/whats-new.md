@@ -19,7 +19,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
-| [Customer-managed key "double encryption" enhancement](search-security-overview.md#encryption) | Security | Enable customer-managed key (CMK) encryption to get full double encryption of content that is internal to the service. | Search services created after August 1, 2020 in these regions: West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona. You can use the portal or management APIs or SDKs to create the service. After the service is created, [configure and apply customer-managed keys](search-security-manage-encryption-keys.md) as you would normally to get double encryption over the relevant content.|
+| ["double encryption" enhancement](search-security-overview.md#encryption) | Security | Enable customer-managed key (CMK) encryption on new search services to get full double encryption of content that is internal to the service. After the service is created, [configure and apply customer-managed keys](search-security-manage-encryption-keys.md) as you would normally to get double encryption over the relevant content. | Search services created after August 1, 2020 in these regions: West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona. Use the portal or management APIs or SDKs to create the service. |
 
 ### July 2020
 

@@ -21,7 +21,9 @@ Encryption with customer-managed keys is applied to individual indexes or synony
 
 Keys don't all need to be in the same Key Vault. A single search service can host multiple encrypted indexes or synonym maps each encrypted with their own customer-managed encryption keys stored in different Key Vaults.  You can also have indexes and synonym maps in the same service that are not encrypted using customer-managed keys. 
 
-## Double encryption enhancement to CMK encryption
+## Double encryption
+
+In Azure Cognitive Search, double encryption is an enhancement that manifests as a new behavior of CMK encryption.
 
 For services created after August 1, 2020 and in specific regions, the scope of CMK encryption extends to temporary data structures that are created by the search service during indexing and query operations. There is no additional flag or setting. Double encryption, which is understood to be two-fold encryption and comprehensive in scope, is a behavior of the CMK implementation in Azure Cognitive Search, and not a new standalone feature.
 
@@ -31,7 +33,7 @@ Follow these steps to ensure your content is doubly encrypted:
 
 1. Create or use an existing Azure Key Vault service in the same region.
 
-1. Set up a customer-managed key and apply it to selected indexes and synonym maps, as described in this article. You can use the REST API, or [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md) to create indexes or synonyms that use a customer-managed key. Currently, you cannot use the portal or the version 10 Azure SDKs to create the objects.
+1. Set up a customer-managed key and apply it to selected indexes and synonym maps, as described in this article. You can use the REST API, or [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md) to create indexes or synonyms that use a customer-managed key. Currently, you cannot use the portal or the version 10 Azure SDKs to create objects that accept a customer-managed key as a property.
 
 ## Prerequisites
 

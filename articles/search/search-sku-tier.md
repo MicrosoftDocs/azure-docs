@@ -57,8 +57,11 @@ You can find out more about the various tiers on the [pricing page](https://azur
 A solution built on Azure Cognitive Search can incur costs in the following ways:
 
 + Cost of the service itself, running 24x7, at minimum configuration (one partition and replica)
+
 + Adding capacity (replicas or partitions)
+
 + Bandwidth charges (outbound data transfer)
+
 + Add-on services required for specific capabilities or features:
 
   + AI enrichment (requires Cognitive Services)
