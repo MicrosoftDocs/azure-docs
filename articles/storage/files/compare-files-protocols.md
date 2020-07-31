@@ -15,6 +15,10 @@ Azure Files is a serverless distributed file system that provides access to the 
 
 Azure Files offers two protocols for connecting and mounting your Azure file shares. Server Message Block (SMB) and Network File System (NFS) (preview). Before you create a storage account and Azure file shares, you need to determine which protocol best suits your needs.
 
+## SMB
+
+SMB description here.
+
 ## NFS (preview)
 
 ### Restrictions
