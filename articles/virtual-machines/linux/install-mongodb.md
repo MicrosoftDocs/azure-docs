@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurecli
 
 ---
 # How to install and configure MongoDB on a Linux VM

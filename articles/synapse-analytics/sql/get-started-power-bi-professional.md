@@ -86,7 +86,7 @@ SECRET = '';
 GO
 ```
 
-## Creating Power BI desktop report
+## Create a Power BI desktop report
 
 Open the Power BI desktop application and select the **Get data** option.
 

@@ -72,7 +72,7 @@ Possible causes:
 
 *The user trying to create a VM or virtual machine scale set doesn’t have the read access to the image version.*
 
-Contact the subscription owner and ask them to give read access to the image version or the parent resources (like the shared image gallery or image definition) through [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Contact the subscription owner and ask them to give read access to the image version or the parent resources (like the shared image gallery or image definition) through [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 *The image version is not found.*
 

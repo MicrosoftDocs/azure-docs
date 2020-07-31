@@ -32,7 +32,7 @@ Every Azure subscription has an associated Azure Active Directory that manages u
 
 When you assign an RBAC role to a security principal, you also indicate the scope at which the permissions granted by the role are in effect. For management operations, you can assign a role at the level of the subscription, the resource group, or the storage account. You can assign an RBAC role to a security principal by using the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../../cli-install-nodejs.md), [PowerShell](/powershell/azure/), or the [Azure Storage resource provider REST API](/rest/api/storagerp).
 
-For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) and [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) and [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### Built-in roles for management operations
 
