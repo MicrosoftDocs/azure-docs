@@ -17,7 +17,7 @@ ms.author: allensu
 ms.custom: mvc
 ---
 
-# Quickstart: Create a load balancer to load balance VMs using the Azure portal
+# Quickstart: Create a public load balancer to load balance VMs using the Azure portal
 
 Get started with Azure Load Balancer by using the Azure portal to create a public load balancer and three virtual machines.
 
@@ -31,7 +31,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ---
 
-# [Option 1 (default): Create a load balancer (Standard SKU)](#tab/option-1-create-load-balancer-standard)
+# [Option 1 (default): Create a public load balancer (Standard SKU)](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
@@ -71,7 +71,7 @@ In this section, you configure:
 
 * Load balancer settings for a backend address pool.
 * A health probe.
-* A load balancer rule and an automatic outbound rule.
+* A load balancer rule.
 
 ### Create a backend pool
 
@@ -276,7 +276,7 @@ For more information on outbound connections, see [Outbound connections in Azure
 
 8. Select **Save**.
 
-# [Option 2: Create a load balancer (Basic SKU)](#tab/option-1-create-load-balancer-basic)
+# [Option 2: Create a public load balancer (Basic SKU)](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
@@ -479,6 +479,24 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Name |  **myVM2** |**myVM3**|
     | Availability set| Select **myAvailabilitySet** | Select **myAvailabilitySet**|
     | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
+
+### Add virtual machines to the backend pool
+
+The VMs created in the previous steps must be added to the backend pool of **myLoadBalancer**.
+
+1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
+
+2. Under **Settings**, select **Backend pools**, then select **myBackendPool**.
+
+3. Select **Virtual machines** in **Associated to**.
+
+4. In the **Virtual machines** section, select **+ Add**.
+
+5. Select the boxes next to **myVM1** and **myVM2**.
+
+6. Select **Add**.
+
+7. Select **Save**.
 
 ---
 
