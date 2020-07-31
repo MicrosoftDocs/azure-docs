@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solution.
-ms.date: 07/17/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
 ---
 
