@@ -325,7 +325,7 @@ For most performance problems, particularly the ones not rooted in storage perfo
 
 ### How long would it take to scale up and down a compute replica
 
-Scaling compute up or down should take up to 5 minutes regardless of data size.
+Scaling compute up or down typically takes up to 2 minutes regardless of data size.
 
 ### Is my database offline while the scaling up/down operation is in progress
 
