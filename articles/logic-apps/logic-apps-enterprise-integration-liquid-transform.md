@@ -5,9 +5,9 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 07/25/2020
+ms.date: 07/31/2020
 
 # Customer intent: As a developer, I want to convert JSON and XML by using Liquid templates as maps in Azure Logic Apps
 ---
@@ -145,11 +145,13 @@ By using [Postman](https://www.getpostman.com/postman) or a similar tool, post J
 
   Here are known differences:
 
-  * The **Transform JSON to JSON - Liquid** action natively outputs a string and merely indicates that text output from the template must be interpreted as a string. Make sure that you escape the backslash character (`\`) and any other reserved JSON characters.
+  * The **Transform JSON to JSON - Liquid** action natively outputs a string and merely indicates that text output from the template must be interpreted as a JSON string. Make sure that you escape the backslash character (`\`) and any other reserved JSON characters.
 
-  * If your template uses [Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters), make sure that you use the [DotLiquid and C# naming conventions](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers#filter-and-output-casing). The **Transform JSON to JSON - Liquid** action uses *sentence casing*, so the filter names in your template also need to use sentence casing. Otherwise, the filters won't work.
+  * If your template uses [Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters), make sure that you follow the [DotLiquid and C# naming conventions](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers#filter-and-output-casing), which use *sentence casing*. For all Liquid transforms, make sure that filter names in your template also use sentence casing. Otherwise, the filters won't work.
 
     For example, when you use the `replace` filter, use `Replace`, not `replace`. The same rule applies if you try out examples at [DotLiquid online](http://dotliquidmarkup.org/try-online). For more information, see [Shopify Liquid filters](https://shopify.dev/docs/themes/liquid/reference/filters) and [DotLiquid Liquid filters](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters). The Shopify specification includes examples for each filter, so for comparison, you can try these examples at [DotLiquid - Try online](https://dotliquidmarkup.org/try-online).
+
+  * The `json` filter from the Shopify extension filters is currently [not implemented in DotLiquid](https://github.com/dotliquid/dotliquid/issues/384). Typically, you can use this filter to prepare text output for JSON string parsing, but instead, you need to use the `Replace` filter instead.
 
   * The standard `Replace` filter in the [DotLiquid implementation](https://github.com/dotliquid/dotliquid/blob/b6a7d992bf47e7d7dcec36fb402f2e0d70819388/src/DotLiquid/StandardFilters.cs#L425) uses [regular expression (RegEx) matching](/dotnet/standard/base-types/regular-expression-language-quick-reference), while the [Shopify implementation](https://shopify.github.io/liquid/filters/replace/) uses [simple string matching](https://github.com/Shopify/liquid/issues/202). Both implementations appear to work the same way until you use a RegEx-reserved character or an escape character in the match parameter.
 
@@ -214,6 +216,8 @@ Here's the Liquid template that's used for this example:
       {{item}}
   {% endJSONArrayFor -%}]
 ```
+
+The `JSONArrayFor` loop is a custom looping mechanism for XML input so that you can create JSON payloads that avoid a trailing comma. Also, the `where` condition for this custom looping mechanism uses the XML element's name for comparison, rather than the element's value like other Liquid filters. For more information, see [Deep Dive on set-body Policy - Collections of Things](https://azure.microsoft.com/blog/deep-dive-on-set-body-policy).
 
 Here are the sample inputs and outputs:
 
