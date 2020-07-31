@@ -2,27 +2,28 @@
 title: Troubleshoot login to registry
 description: Symptoms, causes, and resolution of common problems when logging into an Azure container registry
 ms.topic: article
-ms.date: 07/22/2020
+ms.date: 07/31/2020
 ---
 
 # Troubleshoot registry login
 
 This article helps you troubleshoot common problems when logging into an Azure container registry. 
 
-Symptoms can include:
+## Symptoms
 
 * Unable to login to registry using `docker login`, `az acr login`, or both
 * Unable to login to registry and you receive Docker error `unauthorized: authentication required`
 * Unable to login to registry and you receive Azure CLI error `Could not connect to the registry login server`
 * Unable to push or pull images and you receive Docker error `unauthorized: authentication required`
 * Unable to access registry from Azure Kubernetes Service, Azure DevOps, or another Azure service
-* Unable to access registry in Azure portal or manage registry using the Azure CLI
+* Unable to access or view registry settings in Azure portal or manage registry using the Azure CLI
 
 > [!NOTE]
-> Certain login errors can also occur if there are firewall or network configurations that prevent registry access. See [Troubleshoot network access to registry](container-registry-troubleshoot-access.md).
+> Some authentication or authorization errors can also occur if there are firewall or network configurations that prevent registry access. See [Troubleshoot network access to registry](container-registry-troubleshoot-access.md).
 
 ## Causes
 
+* Docker isn't configured properly in your environment - [solution](#check-docker-configuration)
 * The registry doesn't exist or the name is incorrect - [solution](#specify-correct-registry-name)
 * The registry credentials aren't valid - [solution](#confirm-credentials-to-access-registry)
 * The credentials aren't authorized for push, pull, or Azure Resource Manager operations - [solution](#confirm-credentials-are-authorized-to-access-registry)
@@ -32,9 +33,23 @@ If you don't resolve your problem here, see [Next steps](#next-steps) for other 
 
 ## Potential solutions
 
+### Check Docker configuration
+
+Most Azure Container Registry authentication flows require a local Docker installation. Confirm that the Docker CLI client and daemon (Docker Engine) are running in your environment. You need Docker client version 18.03 or later. 
+
+Related links:
+
+* [Authentication overview](container-registry-authentication.md#authentication-options)
+* [Container registry FAQ](container-registry-faq.md)
+
 ### Specify correct registry name
 
-* To login to the registry using `docker login`, specify the login server name of the registry. Ensure that you use only lowercase letters and the suffix `azurecr.io`. Example: `myregistry.azurecr.io`
+* To login to the registry using `docker login`, specify the login server name of the registry. Ensure that you use only lowercase letters and the suffix `azurecr.io`:
+
+  ```console
+  `docker login myregistry.azurecr.io`
+  ```
+
 * To login to the registry using [az acr login](/cli/azure/acr#az-acr-login) with an enabled Azure Active Directory identity, first [sign into the Azure CLI](/cli/azure/authenticate-azure-cli), and then specify the Azure resource name of the registry as follows:
 
   ```azurecli
@@ -53,6 +68,7 @@ Check that the credentials you use for your scenario, or that were provided to y
   * User name - service principal application ID (also called *client ID*)
   * Password - service principal password (also called *client secret*)
 * If using an Azure service such as Azure Kubernetes Service or Azure DevOps to access the registry, confirm the registry configuration for your service.
+* If you ran `az acr login` with the `--expose-token` option, to enable registry login without using the Docker daemon, ensure that you authenticate with the username `00000000-0000-0000-0000-000000000000`.
 
 Related links:
 
@@ -62,6 +78,8 @@ Related links:
 * [Login with managed identity](container-registry-authentication-managed-identity.md)
 * [Login with repository-scoped token](container-registry-repository-scoped-permissions.md)
 * [Login with admin account](container-registry-authentication.md#admin-account)
+* [Azure AD authentication and authorization error codes](../active-directory/develop/reference-aadsts-error-codes.md)
+* [az acr login](/cli/azure/acr#az-acr-login) reference
 
 ### Confirm credentials are authorized to access registry
 
@@ -96,7 +114,7 @@ Related links:
 
 ## Further troubleshooting
 
-If permissions to registry resources allow, check the health of the registry environment or review registry logs.
+If your permissions to registry resources allow, check the health of the registry environment or review registry logs.
 
 Related links:
 
@@ -107,8 +125,8 @@ Related links:
 ## Next steps
 
 * Other registry troubleshooting topics include:
-  * Troubleshoot network access and connectivity [add link when available]
-  * Troubleshoot registry performance [add link when available]
+  * [Troubleshoot network access to registry](container-registry-troubleshoot-access.md)
+  * [Troubleshoot registry performance](container-registry-troubleshoot-performance.md)
 * [Community support](https://azure.microsoft.com/support/community/) options
 * [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
 * [Open a support ticket](https://azure.microsoft.com/support/create-ticket/)
