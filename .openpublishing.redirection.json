@@ -37902,6 +37902,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/iot-hub/quickstart-send-telemetry-xamarinforms.md",
+      "redirect_url": "/azure/iot-hub/about-iot-hub",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet.md",
       "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api",
       "redirect_document_id": false
