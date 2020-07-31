@@ -3410,7 +3410,7 @@
     {
       "source_path": "articles/cosmos-db/scripts/ha-failover-policy-powershell.md",
       "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-failover-priority-update",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/ps-account-failover-priority-update.md",
@@ -3420,7 +3420,7 @@
     {
       "source_path": "articles/cosmos-db/scripts/scale-multiregion-powershell.md",
       "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-ru-update",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/secure-get-account-key-powershell.md",
@@ -3430,7 +3430,7 @@
     {
       "source_path": "articles/cosmos-db/scripts/secure-mongo-connection-string-powershell.md",
       "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/secure-regenerate-key-powershell.md",
