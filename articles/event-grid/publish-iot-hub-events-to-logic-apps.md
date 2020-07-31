@@ -20,17 +20,17 @@ This article walks through a sample configuration that uses IoT Hub and Event Gr
 
 * An active Azure subscription. If you don't have a subscription, you can [create a free Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
-* An email account from any email provider that is supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. This email account is used to send the event notifications. For a complete list of supported Logic App connectors, see the [Connectors overview](https://docs.microsoft.com/connectors/).
+* An email account from any email provider that is supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. This email account is used to send the event notifications. For a complete list of supported Logic App connectors, see the [Connectors overview](/connectors/).
 
   > [!IMPORTANT]
   > Before you use Gmail, check whether you have a G-Suite business account (email address with a custom domain) 
   > or a Gmail consumer account (email address with @gmail.com or @googlemail.com). Only G-Suite business accounts 
   > can use the Gmail connector with other connectors without restriction in logic apps. If you have a Gmail consumer account, 
   > you can use the Gmail connector with only specific Google-approved services, or you can 
-  > [create a Google client app to use for authentication](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+  > [create a Google client app to use for authentication](/connectors/gmail/#authentication-and-bring-your-own-application). 
   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md) for a walkthrough.
+* An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](../iot-hub/quickstart-send-telemetry-dotnet.md) for a walkthrough.
 
 ## Create a logic app
 
@@ -248,7 +248,7 @@ Test your logic app by creating a new device to trigger an event notification em
 
 ## Use the Azure CLI
 
-Instead of using the Azure portal, you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) and [creating an IoT device](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity).
+Instead of using the Azure portal, you can accomplish the IoT Hub steps using the Azure CLI. For details, see the Azure CLI pages for [creating an event subscription](/cli/azure/eventgrid/event-subscription) and [creating an IoT device](/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 ## Clean up resources
 

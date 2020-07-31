@@ -45,21 +45,47 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-SA` | Arabic (Saudi Arabia)             | No                                                |
 | `ar-SY` | Arabic (Syria)                    | Language model                                    |
 | `ca-ES` | Catalan                           | Language model                                    |
+| `cs-CZ` | Czech (Czech Republic)            | Language Model                                    | 
 | `da-DK` | Danish (Denmark)                  | Language model                                    |
 | `de-DE` | German (Germany)                  | Acoustic model<br>Language model<br>Pronunciation |
 | `en-AU` | English (Australia)               | Acoustic model<br>Language model                  |
 | `en-CA` | English (Canada)                  | Acoustic model<br>Language model                  |
 | `en-GB` | English (United Kingdom)          | Acoustic model<br>Language model<br>Pronunciation |
+| `en-HK` | English (Hong kong)               | Language Model                                    | 
+| `en-IE` | English (Ireland)                 | Language Model                                    | 
 | `en-IN` | English (India)                   | Acoustic model<br>Language model                  |
 | `en-NZ` | English (New Zealand)             | Acoustic model<br>Language model                  |
+| `en-PH` | English (Philippines)             | Language Model                                    | 
+| `en-SG` | English (Singapore)               | Language Model                                    | 
 | `en-US` | English (United States)           | Acoustic model<br>Language model<br>Pronunciation |
+| `en-ZA` | English (South Africa)            | Language Model                                    | 
+| `es-AR` | Spanish (Argentina)               | Language Model                                    | 
+| `es-BO` | Spanish (Bolivia)                 | Language Model                                    | 
+| `es-CL` | Spanish (Chile)                   | Language Model                                    | 
+| `es-CO` | Spanish (Colombia)                | Language Model                                    | 
+| `es-CR` | Spanish (Costa Rica)              | Language Model                                    | 
+| `es-CU` | Spanish (Cuba)                    | Language Model                                    | 
+| `es-DO` | Spanish (Dominican Republic)      | Language Model                                    | 
+| `es-EC` | Spanish (Ecuador)                 | Language Model                                    | 
 | `es-ES` | Spanish (Spain)                   | Acoustic model<br>Language model                  |
+| `es-GT` | Spanish (Guatemala)               | Language Model                                    | 
+| `es-HN` | Spanish (Honduras)                | Language Model                                    | 
 | `es-MX` | Spanish (Mexico)                  | Acoustic model<br>Language model                  |
+| `es-NI` | Spanish (Nicaragua)               | Language Model                                    | 
+| `es-PA` | Spanish (Panama)                  | Language Model                                    | 
+| `es-PE` | Spanish (Peru)                    | Language Model                                    | 
+| `es-PR` | Spanish (Puerto Rico)             | Language Model                                    | 
+| `es-PY` | Spanish (Paraguay)                | Language Model                                    | 
+| `es-SV` | Spanish (El Salvador)             | Language Model                                    | 
+| `es-US` | Spanish (USA)                     | Language Model                                    | 
+| `es-UY` | Spanish (Uruguay)                 | Language Model                                    | 
+| `es-VE` | Spanish (Venezuela)               | Language Model                                    | 
 | `fi-FI` | Finnish (Finland)                 | Language model                                    |
 | `fr-CA` | French (Canada)                   | Acoustic model<br>Language model                  |
 | `fr-FR` | French (France)                   | Acoustic model<br>Language model<br>Pronunciation |
 | `gu-IN` | Gujarati (Indian)                 | Language model                                    |
 | `hi-IN` | Hindi (India)                     | Acoustic model<br>Language model                  |
+| `hu-HU` | Hungarian (Hungary)               | Language Model                                    | 
 | `it-IT` | Italian (Italy)                   | Acoustic model<br>Language model<br>Pronunciation |
 | `ja-JP` | Japanese (Japan)                  | Language model                                    |
 | `ko-KR` | Korean (Korea)                    | Language model                                    |
