@@ -90,7 +90,7 @@ The first tab in each transformation's configuration pane contains the settings 
 
 The **Optimize** tab contains settings to configure partitioning schemes. To learn more about how to optimize your data flows, see the [mapping data flow performance guide](concepts-data-flow-performance.md).
 
-![Optimize](media/data-flow/optimize1.png "Optimize")
+![Optimize](media/data-flow/optimize.png "Optimize")
 
 #### Inspect
 

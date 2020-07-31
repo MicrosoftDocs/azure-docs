@@ -27,14 +27,14 @@ When designing and testing data flows from the ADF UX, debug mode allows you to 
 
 Once you verify your transformation logic using debug mode, run your data flow end-to-end as an activity in a pipeline. Data flows are operationalized in a pipeline using the [execute data flow activity](control-flow-execute-data-flow-activity.md). The data flow activity has a unique monitoring experience compared to other Azure Data Factory activities that displays a detailed execution plan and performance profile of the transformation logic. To view detailed monitoring information of a data flow, click on the eyeglasses icon in the activity run output of a pipeline. For more information, see [Monitoring mapping data flows](concepts-data-flow-monitoring.md).
 
-![Data Flow Monitor](media/data-flow/mon002.png "Data Flow Monitor 2")
+![Data Flow Monitor](media/data-flow/monitoring-details.png "Data Flow Monitor 2")
 
 When monitoring data flow performance, there are four possible bottlenecks to look out for:
 
-1. Cluster start-up time
-1. Reading from a source
-1. Transformation time
-1. Writing to a sink 
+* Cluster start-up time
+* Reading from a source
+* Transformation time
+* Writing to a sink 
 
 ![Data Flow Monitoring](media/data-flow/monitoring-performance.png "Data Flow Monitor 3")
 
@@ -48,7 +48,7 @@ Once you have identified the bottleneck of your data flow, use the below optimiz
 
 The **Optimize** tab contains settings to configure the partitioning scheme of the Spark cluster. This tab exists in every transformation of data flow and specifies whether you want to repartition the data **after** the transformation has completed. Adjusting the partitioning provides control over the distribution of your data across compute nodes and data locality optimizations that can have both positive and negative effects on your overall data flow performance.
 
-![Optimize](media/data-flow/optimize1.png "Optimize")
+![Optimize](media/data-flow/optimize.png "Optimize")
 
 By default, *Use current partitioning* is selected which instructs Azure Data Factory keep the current output partitioning of the transformation. As repartitioning data takes time, *Use current partitioning* is recommended in most scenarios. Scenarios where you may want to repartition your data include after aggregates and joins that significantly skew your data or when using Source partitioning on a SQL DB.
 
@@ -128,7 +128,7 @@ Only one job can run on a single cluster at a time. If there is an available clu
 
 If most of your data flows execute in parallel, it is not recommended that you enable TTL. 
 
-> ![NOTE]
+> [!NOTE]
 > Time to live is not available when using the auto-resolve integration runtime
 
 ## Optimizing sources
@@ -202,7 +202,7 @@ Schedule a resizing of your source and sink Azure SQL DB and DW before your pipe
 
 ### Azure Synapse Analytics sinks
 
-When writing to Azure Synapse Analytics, make sure that **Enable staging** is set to true. This enables ADF to write using PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) which effectively loads the data in bulk. You will need to reference an Azure Data Lake Storage gen2 or Azure Blob Storage account for staging of the data when using PolyBase.
+When writing to Azure Synapse Analytics, make sure that **Enable staging** is set to true. This enables ADF to write using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) which effectively loads the data in bulk. You will need to reference an Azure Data Lake Storage gen2 or Azure Blob Storage account for staging of the data when using PolyBase.
 
 Other than PolyBase, the same best practices apply to Azure Synapse Analytics as Azure SQL Database.
 
