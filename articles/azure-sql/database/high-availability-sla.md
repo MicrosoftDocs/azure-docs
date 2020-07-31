@@ -98,11 +98,8 @@ A failover can be initiated using PowerShell, REST API, or Azure CLI:
 |:---|:---|:---|:---|
 |Database|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Database failover](/rest/api/sql/databases(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest)|
 |Elastic pool|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Elastic pool failover](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest)|
-|Managed Instance|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Managed Instances - Failover](/rest/api/sql/managed%20instances%20-%20failover/failover/)|[az sql mi failover](/cli/azure/sql/mi/)|
+|Managed Instance|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Managed Instances - Failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
-
-
-. For REST API, see [Database failover](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) and [Elastic pool failover](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover). For PowerShell, see  and . The REST API calls can also be made from Azure CLI using [az rest](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest) command.
 
 > [!IMPORTANT]
 > The Failover command is not currently available in the Hyperscale service tier.
