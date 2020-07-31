@@ -458,12 +458,6 @@
       - name: Parameterized query
         displayName: parameterized query, parameterized, parameter, parameters
         href: sql-query-parameterized-queries.md
-      - name: SQL query execution
-        displayName: query performance, query execution
-        href: sql-query-execution.md
-      - name: Pagination
-        displayName: page, paging, continuation, token, pagination
-        href: sql-query-pagination.md
       - name: LINQ to SQL
         displayName: linq, .NET
         href: sql-query-linq-to-sql.md
@@ -592,6 +586,8 @@
         href: policy.md
     - name: Service quotas
       href: concepts-limits.md
+    - name: Automatic recommendations
+      href: automated-recommendations.md
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
     items:

@@ -26,6 +26,7 @@ A control that can be used to edit unformatted text.
     "label": "Name",
     "defaultValue": "contoso123",
     "toolTip": "Use only allowed characters",
+    "placeholder": "",
     "constraints": {
         "required": true,
         "validations": [
@@ -57,6 +58,7 @@ A control that can be used to edit unformatted text.
 - The `isValid` property contains an expression that evaluates to true or false. Within the expression, you define the condition that determines whether the text box is valid.
 - The `message` property is a string to display when the text box's value fails validation.
 - It's possible to specify a value for `regex` when `required` is set to **false**. In this scenario, a value isn't required for the text box to validate successfully. If one is specified, it must match the regular expression pattern.
+- The `placeholder` property is help text that disappears when the user begins editing. If the `placeholder` and `defaultValue` are both defined, the `defaultValue` takes precedence and is shown.
 
 ## Example
 

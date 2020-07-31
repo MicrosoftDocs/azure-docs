@@ -217,7 +217,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ## Examples
 
-**Accessing publicly available data source**
+### **Access a publicly available data source**
 
 Use the following script to create a table that accesses publicly available data source.
 
@@ -246,7 +246,7 @@ SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
 GO
 ```
 
-**Accessing data source using credential**
+### **Access a data source using credentials**
 
 Modify the following script to create an external table that accesses Azure storage using SAS token, Azure AD identity of user, or managed identity of workspace.
 
