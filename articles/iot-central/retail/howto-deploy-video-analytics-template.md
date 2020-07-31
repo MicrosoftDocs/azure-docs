@@ -7,7 +7,7 @@ ms.subservice: iot-central-retail
 ms.topic: how-to
 ms.author: nandab
 author: KishorIoT
-ms.date: 07/01/2020
+ms.date: 07/31/2020
 ---
 # How to deploy an IoT Central application using the video analytics - security and safety application template
 

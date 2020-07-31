@@ -29,10 +29,10 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* A device, such as an Intel NUC, running Linux, that can run Docker containers, and has enough processing power to run video analysis.
-* The [IoT Edge runtime installed](../../iot-edge/how-to-install-iot-edge-linux.md) and running on the device.
-* To connect to the IoT Edge device from your Windows machine, you need the [PuTTY SSH client](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) or an equivalent utility.
 * Before you start, you should complete the previous [Create a live video analytics application in Azure IoT Central](./tutorial-video-analytics-create-app.md) tutorial.
+* A device, such as an Intel NUC, running Linux, that can run Docker containers, and has enough processing power to run video analytics.
+* The [IoT Edge runtime installed](../../iot-edge/how-to-install-iot-edge-linux.md) and running on the device.
+* Be able to connect to the IoT Edge device from your Windows machine, you need the [PuTTY SSH client](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) or an equivalent utility.
 * You also need an Azure subscription. If you don't have an Azure subscription, you can create one for free on the [Azure sign-up page](https://aka.ms/createazuresubscription).
 
 ## Configure the IoT Edge device
@@ -59,17 +59,15 @@ To update the IoT Edge runtime:
     sudo chmod -R 777 /data
     ```
 
-To add the *state.json* configuration file to the */data/storage* folder:
+To add the *state.json* configuration file to the */data/storage* folder on your IoT Edge device:
 
-1. In your local copy of the **lva-gateway** repository, copy the file *state.json* from the *setup* folder to the *storage* folder.
-
-1. Use a text editor to open the copy of the *state.json* file in the *storage* folder.
+1. Use a text editor to open the *state.json* file in the *lva-configuration* folder on your local machine.
 
 1. Update the `system` and `iotCentral > properties` placeholders with string values that describe your gateway device. You can view these values later in the IoT Central application dashboard.
 
 1. Update the `iotCentral > appKeys` placeholders with the values you made a note of in the *scratchpad.txt* file in the previous tutorial. Save the changes.
 
-1. Use the PuTTY `scp` utility in a command prompt to copy the *state.json* file you created in the previous tutorial into the IoT Edge device. This example uses `192.168.0.144` as an example IP address, replace it with the IP address of your IoT Edge device:
+1. Use the PuTTY `scp` utility in a command prompt to copy the *state.json* file you just edited to */data/storage* folder on your IoT Edge device. This example uses `192.168.0.144` as an example IP address, replace it with the IP address of your IoT Edge device:
 
     ```cmd
     scp state.json YourUserName@192.168.0.144:/data/storage/state.json`

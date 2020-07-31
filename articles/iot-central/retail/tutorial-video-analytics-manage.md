@@ -7,8 +7,9 @@ ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
-ms.date: 07/01/2020
+ms.date: 07/31/2020
 ---
+
 # Tutorial: Monitor and manage a video analytics - security and safety application
 
 In this tutorial, you learn how to:
@@ -21,7 +22,6 @@ In this tutorial, you learn how to:
 Before you start, you should complete:
 
 * The [Create a live video analytics application in Azure IoT Central](./tutorial-video-analytics-create-app.md) tutorial.
-
 * One of the previous [Create an IoT Edge instance for live video analytics (Linux VM)](tutorial-video-analytics-iot-edge-vm.md) or [Create an IoT Edge instance for live video analytics (Linux VM)](tutorial-video-analytics-iot-edge-nuc.md) tutorials.
 
 You should have [Docker](https://www.docker.com/products/docker-desktop) installed on your local machine to run the video viewer application.
@@ -41,7 +41,7 @@ Use the values in the following table as the parameter values for the **Add Came
 | RTSP Password  |                         | password    |
 | Detection Type | Dropdown                | Object Detection       |
 
-Select **Run** to add the camera device.
+Select **Run** to add the camera device:
 
 :::image type="content" source="media/tutorial-video-analytics-manage/add_camera.png" alt-text="Add Camera":::
 
@@ -54,7 +54,7 @@ If you have two cameras connected to your IoT Edge gateway device, repeat the pr
 
 ## View the downstream devices
 
-Select the **Downstream Devices** tab for the **LVA Gateway 001** device to see the camera devices you just added.
+Select the **Downstream Devices** tab for the **LVA Gateway 001** device to see the camera devices you just added:
 
 :::image type="content" source="media/tutorial-video-analytics-manage/inspect_downstream.png" alt-text="Inspect":::
 
@@ -66,7 +66,7 @@ Navigate to the **camera-001** device and select the **Manage** tab.
 
 Use the default values, or modify if you need to customize the device properties:
 
-**Camera settings**
+**Camera Settings**
 
 | Property | Description | Suggested Value |
 |-|-|-|
@@ -98,7 +98,7 @@ After a few seconds you see the **synced** confirmation message for each setting
 
 Navigate to the **camera-001** device and select the **Commands** tab.
 
-Run the **Start LVA Processing** command
+Run the **Start LVA Processing** command.
 
 Make sure the command worked
 
@@ -106,20 +106,20 @@ Make sure the command worked
 
 ## Monitor the cameras
 
-Navigate to the **camera-100** device select the **Dashboard** tab.
+Navigate to the **camera-100** device and select the **Dashboard** tab.
 
 The **Detection Count** tile shows the average detection count for each of the selected detection classes objects during a one-second detection interval.
 
-The **Inference** pie chart shows the count percentage by detection class type.
+The **Inference** pie chart shows the percentage of detections class type.
 
 The **Inference Event Video** is a list of links to the assets in Azure Media Services that contain the detections. The link uses the host player described in the following section.
 
 ## Start the streaming endpoint
 
-Start the endpoint to deliver content directly to your client Media Player application:
+Start the Media Services endpoint to enable your client Media Player application to stream the recorded video:
 
 * In the Azure portal, navigate to the **lva-rg** resource group.
-* Click on the **Streaming Endpoint** resource.
+* Open the **Streaming Endpoint** resource.
 * On the **Streaming endpoint details** page, select **Start**. You see a warning that billing starts when the endpoint starts.
 
 ## View stored video

@@ -7,7 +7,7 @@ ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
-ms.date: 07/01/2020
+ms.date: 07/31/2020
 ---
 # Tutorial: Create an IoT Edge instance for live video analytics (Linux VM)
 

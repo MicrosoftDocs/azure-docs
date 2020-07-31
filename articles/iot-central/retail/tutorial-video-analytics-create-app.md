@@ -7,7 +7,7 @@ ms.subservice: iot-central-retail
 ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
-ms.date: 07/01/2020
+ms.date: 07/31/2020
 ---
 # Tutorial: Create a video analytics - security and safety application in Azure IoT Central
 
