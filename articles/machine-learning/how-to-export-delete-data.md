@@ -16,7 +16,7 @@ ms.custom: how-to
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In Azure Machine Learning, you can export or delete your workspace data using either the Portal's graphical interface or the Python SDK. This article describes both options.
+In Azure Machine Learning, you can export or delete your workspace data using either the portal's graphical interface or the Python SDK. This article describes both options.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
