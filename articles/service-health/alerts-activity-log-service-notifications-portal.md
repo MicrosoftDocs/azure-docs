@@ -14,7 +14,7 @@ Service health notifications are stored in the [Azure activity log](../azure-mon
 
 You can receive an alert when Azure sends service health notifications to your Azure subscription. You can configure the alert based on:
 
-- The class of service health notification (Service issues, Planned maintenance, Health advisories, Security Advisories).
+- The class of service health notification (Service issues, Planned maintenance, Health advisories, Security advisories).
 - The subscription affected.
 - The service(s) affected.
 - The region(s) affected.
