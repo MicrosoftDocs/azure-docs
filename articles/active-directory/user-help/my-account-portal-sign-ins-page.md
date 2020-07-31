@@ -32,23 +32,23 @@ You can view all of your recent work or school account sign-in activity, from th
 
     ![My Account page, showing highlighted Recent activity links](media/my-account-portal/my-account-portal-sign-ins.png)
 
-3. Expand and review each of the sign-in items, making sure that you recognize each one. If you find a sign-in item that doesn't look familiar, we highly recommend you change your password to help protect your account if it was compromised.
+3. Expand and review each of the sign-in items, making sure that you recognize each one. If you find a sign-in item that doesn't look familiar, change your password to protect the account in case it's compromised.
 
     ![Recent activity page with expanded sign-in details](media/my-account-portal-sign-ins-page/recent-activity.png)
 
-### If you see a Successful sign-in
+### If you see a successful sign-in
 
-You should recognize your own activity as being normal. However, if you notice a Successful sign-in from strange location, browser, or operating system, it could mean that an attacker has gained access to your account. In this situation, we recommend you immediately change your password, and then go to the [Security info](https://mysignins.microsoft.com/security-info) page to update your security settings.
+You can recognize your own normal activity, but some time you might see a successful sign-in from an unfamiliar location, browser, or operating system. Unfamiliar sign-ins can mean an attacker has gained access to your account. If you see activity that you didn't authorize, we recommend you immediately change your password, and then go to [Security info](https://mysignins.microsoft.com/security-info) to update your security settings.
 
-Before you determine something is incorrect, make sure you're not seeing a false positive (where the item looks questionable, but is okay). For example, we determine your approximate location and map based on your IP Address. Mobile networks are especially hard to pinpoint since they sometimes route traffic through distant locations. So, if you signed in using your mobile device in Washington state, the location might show the sign-in coming from California. Because of this, we strongly suggest that you check more details, beyond just the location. You should also make sure the operating system, browser, and app all make sense, too.
+Before you determine something is incorrect, make sure you're not seeing a false positive (where the item looks questionable, but is okay). For example, we determine your approximate location and map based on your IP address. Mobile networks are especially hard to pinpoint since they sometimes route traffic through distant locations. Even if you sign in using your mobile device in Washington state, the location might show the sign-in coming from California. We strongly suggest that you check details beyond just the location. Make sure the operating system, browser, and app all make sense, too.
 
 ### If you see an unsuccessful sign-in
 
-An unsuccessful sign-in, with no session activity, means that your primary verification method (username/password) failed. This could mean that you mistyped your username or password, but it could also mean that an attacker was trying to guess your password. If you think it was attacker trying unsuccessfully to guess your password, you don't have to change your password, but we strongly suggest that you register for Azure Multi-Factor Authentication (MFA). With MFA, even if the hacker eventually guesses your password, it won't be enough to access your account.
+If you see an unsuccessful sign-in, it could mean that you mistyped your credentials. It could also mean that an attacker was trying to guess your password. To respond to this risk, you don't have to change your password, but we recommend that you register for Azure Multi-Factor Authentication (MFA). With multi-factor authentication, even if the hacker guesses your password, it won't be enough to access the account.
 
 ![Unsuccessful sign-in tile](media/my-account-portal-sign-ins-page/unsuccessful.png)
 
-If you see an unsuccessful sign-in, with a note under Session activity that says, **Additional verification failed, invalid code**, it means that your primary authentication (username/password) succeeded, but MFA failed. If this was an attacker, they correctly guessed your password but were still unable to pass the MFA challenge. In this case, we recommend that you still change your password, since the attacker got that part right, and then go to the [Security info](https://mysignins.microsoft.com/security-info) page to update your security settings.
+If you see an unsuccessful sign-in, with a note under Session activity that says, **Additional verification failed, invalid code**, it means that your primary authentication credentials succeeded, but multi-factor authentication failed. This condition could mean that an attacker correctly guessed your password but was unable to pass the MFA challenge. We recommend that you still change your password, since the attacker might have that already, and go to the [Security info](https://mysignins.microsoft.com/security-info) page to update your security settings.
 
 ## Search for specific sign-in activity
 
