@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Create a internal load balancer - Azure portal"
+title: "Quickstart: Create an internal load balancer - Azure portal"
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create a internal load balancer by using the Azure portal.
+description: This quickstart shows how to create an internal load balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
 author: asudbring 
@@ -17,9 +17,9 @@ ms.author: allensu
 ms.custom: mvc
 ---
 
-# Quickstart: Create a internal load balancer to load balance VMs using the Azure portal
+# Quickstart: Create an internal load balancer to load balance VMs using the Azure portal
 
-Get started with Azure Load Balancer by using the Azure portal to create a internal load balancer and two virtual machines.
+Get started with Azure Load Balancer by using the Azure portal to create an internal load balancer and two virtual machines.
 
 ## Prerequisites
 
@@ -40,7 +40,9 @@ In this section, you create a load balancer that load balances virtual machines.
 
 You can create a public load balancer or an internal load balancer. 
 
-When you create a internal load balancer, you create a virtual network that is configured as the network where the load balancer will will reside. A private IP address in the virtual network is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer. 
+When you create an internal load balancer, a virtual network is configured as the network for the load balancer. 
+
+A private IP address in the virtual network is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer. 
 
 The frontend IP address can be **Static** or **Dynamic**.
 
@@ -243,7 +245,9 @@ In this section, you create a load balancer that load balances virtual machines.
 
 You can create a public load balancer or an internal load balancer. 
 
-When you create a internal load balancer, you create a virtual network that is configured as the network where the load balancer will will reside. A private IP address in the virtual network is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer. 
+When you create an internal load balancer, a virtual network is configured as the network for the load balancer. 
+
+A private IP address in the virtual network is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer. 
 
 The frontend IP address can be **Static** or **Dynamic**.
 
