@@ -34,7 +34,7 @@ This example shows how to use a Recovery Services vault to do a VM test failover
 
 1. Select a vault and go to **Protected items** > **Replicated items** and select a VM.
 1. In **Test Failover**, select a recovery point to use for the failover:
-   - **Latest**: Processes all the data in Site Recovery and provides the lowest RTO (Recovery Time Objective).
+   - **Latest**: Processes all the data in Site Recovery and provides the lowest RPO (Recovery Point Objective).
    - **Latest processed**: Fails the VM over to the latest recovery point that was processed by Site Recovery. The time stamp is shown. With this option, no time is spent processing data, so it provides a low RTO.
    - **Latest app-consistent**: This option fails over all VMs to the latest app-consistent recovery point. The time stamp is shown.
    - **Custom**: Fail over to particular recovery point. Custom is only available when you fail over a single VM, and not for failover with a recovery plan.
