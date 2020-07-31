@@ -25,12 +25,17 @@ For more information on consenting to applications, see [Azure Active Directory 
 Granting tenant-wide admin consent requires you to sign in as [Global Administrator](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), an [Application Administrator](../users-groups-roles/directory-assign-admin-roles.md#application-administrator), or a [Cloud Application Administrator](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
 
 > [!IMPORTANT]
-> When an application has been granted tenant-wide admin consent, all users will be able to sign in to the app unless it has been configured to require user assignment. To restrict which users can sign in to an application,  require user assignment and then assign users or groups to the application. For more information, see [Methods for assigning users and groups](methods-for-assigning-users-and-groups.md).
->For admin consent to Microsoft Graph API, it's required a Global Administrator role.
+> When an application has been granted tenant-wide admin consent, all users will be able to sign in to the app unless it has been configured to require user assignment. To restrict which users can sign in to an application, require user assignment and then assign users or groups to the application. For more information, see [Methods for assigning users and groups](methods-for-assigning-users-and-groups.md).
+>
+> The Global Administrator role is required in order to provide admin consent for the Microsoft Graph API.
+>
+
 
 > [!WARNING]
 > Granting tenant-wide admin consent to an application will grant the app and the app's publisher access to your organization's data. Carefully review the permissions the application is requesting before granting consent.
->For admin consent to Microsoft Graph API, it's required a Global Administrator role.
+>
+> The Global Administrator role is required in order to provide admin consent for the Microsoft Graph API.
+>
 
 ## Grant admin consent from the Azure portal
 
