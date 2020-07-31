@@ -82,7 +82,7 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 
 For more information about Azure Resource Manager templates, see the following articles:
 
-* [Azure Resource Manager documentation](/azure/azure-resource-manager)
+* [Azure Resource Manager documentation](../azure-resource-manager/index.yml)
 * [Define resources in Azure Resource Manager templates](/azure/templates/)
 * [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/)
 * [Azure Event Grid templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).
