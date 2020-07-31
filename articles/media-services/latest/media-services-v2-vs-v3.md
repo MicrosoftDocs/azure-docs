@@ -79,7 +79,8 @@ The v3 API has the following feature gaps with respect to the v2 API. Closing th
     * Inserting a silent audio track when input has no audio
     * Inserting a video track when input has no video
 * Live Events with transcoding currently do not support Slate insertion mid-stream and ad marker insertion via API call. 
- 
+* Refer to `https://github.com/Azure-Samples/media-services-v2-dotnet-core-restsharp-sample.git` sample code for best practices and patterns regarding using V2 REST API on .NETCore SDK.
+
 ## Asset specific changes
 
 ### Map v3 asset properties to v2
