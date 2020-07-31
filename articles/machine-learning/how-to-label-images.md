@@ -7,7 +7,7 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
+ms.date: 07/27/2020
 
 ---
 
@@ -33,11 +33,9 @@ After your project administrator [creates a labeling project](https://docs.micro
 
 1. Select **Data labeling** on the left-hand side to find the project.  
 
-1. Select the project name in the list.
-
 ## Understand the labeling task
 
-Once you've selected the project, at the top of the page, select **Label data**.
+In the table of data labeling projects, select **Label link** for your project.
 
 You see instructions that are specific to your project. They explain the type of data that you're facing, how you should make your decisions, and other relevant information. After you read this information, at the top of the page select **Tasks**.  Or at the bottom of the page, select **Start labeling**.
 
@@ -61,6 +59,11 @@ Azure enables the **Submit** button when you've tagged all the images on the pag
 After you submit tags for the data at hand, Azure refreshes the page with a new set of images from the work queue.
 
 ### Assisted machine learning (preview) 
+
+> [!IMPORTANT]
+> Assisted machine learning is currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Machine learning algorithms may be triggered. If these algorithms are enabled in your project, you may see the following:
 

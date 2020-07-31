@@ -4,6 +4,7 @@ description: Learn how to secure pods with Azure Policy on Azure Kubernetes Serv
 services: container-service
 ms.topic: article
 ms.date: 07/06/2020
+author: jluk
 ---
 
 # Secure pods with Azure Policy (Preview)
@@ -58,7 +59,7 @@ This document details how to use Azure Policy to secure pods in an AKS cluster a
 
 After installing the Azure Policy Add-on, no policies are applied by default.
 
-There are fourteen (14) built-in individual Azure policies and two (2) built-in initiatives that specifically secure pods in an AKS cluster.
+There are eleven (11) built-in individual Azure policies and two (2) built-in initiatives that specifically secure pods in an AKS cluster.
 Each policy can be customized with an effect. A full list of [AKS policies and their supported effects is listed here][policy-samples]. Read more about [Azure Policy effects](../governance/policy/concepts/effects.md).
 
 Azure policies can be applied at the management group, subscription or resource group level. When assigning a policy at the resource group level, ensure the target AKS cluster's resource group is selected within scope of the policy. Every cluster in the assigned scope with the Azure Policy Add-on installed is in scope for the policy.
@@ -73,24 +74,41 @@ Azure Policy for Kubernetes offers two built-in initiatives which secure pods, [
 
 Both built-in initiatives are built from definitions used in [pod security policy from Kubernetes](https://github.com/kubernetes/website/blob/master/content/en/examples/policy/baseline-psp.yaml).
 
-|[Pod security policy control](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)| Azure Policy Definition Link| Baseline initiative | Restricted initiative |
+|[Pod security policy control](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)| Azure Policy Definition Link| [Baseline initiative](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) | [Restricted initiative](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) |
 |---|---|---|---|
 |Disallow running of privileged containers|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F95edb821-ddaf-4404-9732-666045e056b4)| Yes | Yes
 |Disallow shared usage of host namespaces|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8)| Yes | Yes
-|Restrict usage of host networking and ports to a known list|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe)| Yes | Yes
-|Restrict usage of the host filesystem|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Yes | Yes
-|Adding Linux capabilities beyond the [default set](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Yes | Yes
-|Restrict usage of defined volume types|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Yes
+|Restrict all usage of host networking and ports|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe)| Yes | Yes
+|Restrict any usage of the host filesystem|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Yes | Yes
+|Restrict Linux capabilities to the [default set](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Yes | Yes
+|Restrict usage of defined volume types|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Yes - allowed volume types are `configMap`, `emptyDir`, `projected`, `downwardAPI`, `persistentVolumeClaim`|
 |Privilege escalation to root|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Yes |
-|Restrict the user and group IDs of the container|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Yes |
-|Restrict allocating an FSGroup that owns the pod's volumes|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Yes |
-|Requires seccomp profile to be used|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | - |
-|Restrict the sysctl profile used by containers|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56d0a13f-712f-466b-8416-56fb354fb823) | - | - |
-|Default Proc Mount types are defined to reduce attack surface|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff85eb0dd-92ee-40e9-8a76-db25a507d6d3) | - | - |
-|Restrict to specific FlexVolume drivers|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | - | - |
-|Allow mounts that are not read only|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | - | - |
-|Define the custom SELinux context of a container|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e6c427-07d9-46ab-9689-bfa85431e636) | - | - |
-|Define the AppArmor profile used by containers|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | - | - |
+|Restrict the user and group IDs of the container|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Yes|
+|Restrict allocating an FSGroup that owns the pod's volumes|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Yes - allowed rules are `runAsUser: mustRunAsNonRoot`, `supplementalGroup: mustRunAs 1:65536`, `fsGroup: mustRunAs 1:65535`, `runAsGroup: mustRunAs 1:65535`.  |
+|Requires seccomp profile|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | Yes, allowedProfiles are *`docker/default` or `runtime/default` |
+
+\* docker/default is deprecated in Kubernetes since v1.11
+
+### Additional optional policies
+
+There are additional Azure policies which can be singly applied outside of applying an initiative. Consider appending these policies in addition to initiatives if your requirements are not met by the built-in initiatives.
+
+|[Pod security policy control](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)| Azure Policy Definition Link| Apply in addition to Baseline initiative | Apply in addition to Restricted initiative |
+|---|---|---|---|
+|Define the AppArmor profile used by containers|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | Optional | Optional |
+|Allow mounts that are not read only|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | Optional | Optional |
+|Restrict to specific FlexVolume drivers|[Public Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | Optional - use if you only want to restrict FlexVolume drivers, but not others set by "Restrict usage of defined volume types" | Not applicable - The restricted initiative includes "Restrict usage of defined volume types" which disallows all FlexVolume drivers |
+
+### Unsupported built-in policies for managed AKS clusters
+
+> [!NOTE]
+> The following 3 policies are **not supported in AKS** due to customizing aspects managed and secured by AKS as a managed service. These policies are built specifically for Azure Arc connected clusters with unmanaged control planes.
+
+|[Pod security policy control](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)|
+|---|
+|Define the custom SELinux context of a container|
+|Restrict the sysctl profile used by containers|
+|Default Proc Mount types are defined to reduce attack surface|
 
 <!---
 # Removing until custom initiatives are supported the week after preview

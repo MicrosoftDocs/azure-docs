@@ -2,7 +2,7 @@
 title: Support matrix for VMware/physical disaster recovery in Azure Site Recovery
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/14/2020
 ---
 
 # Support matrix for disaster recovery  of VMware VMs and physical servers to Azure
@@ -11,6 +11,9 @@ This article summarizes supported components and settings for disaster recovery 
 
 - [Learn more](vmware-azure-architecture.md) about VMware VM/physical server disaster recovery architecture.
 - Follow our [tutorials](tutorial-prepare-azure.md) to try out disaster recovery.
+
+> [!NOTE]
+> Site Recovery does not move or store customer data out of the target region, in which disaster recovery has been setup for the source machines. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
 
 ## Deployment scenarios
 
@@ -83,7 +86,7 @@ Linux: CentOS | 5.2 to 5.11</b><br/> 6.1 to 6.10</b><br/> 7.0 to 7.8<br/> <br/> 
 Ubuntu | Ubuntu 14.04 LTS server [(review supported kernel versions)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) </br> Ubuntu 18.04 LTS server [(review supported kernel versions)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 (includes support for all 7. *x*, 8. *x* versions) [(review supported kernel versions)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(review supported kernel versions)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(review supported kernel versions)](#suse-linux-enterprise-server-15-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> Upgrading replicated machines from SUSE Linux Enterprise Server 11 SP3 to SP4 isn't supported. To upgrade, disable replication and re-enable after the upgrade.
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery)<br/><br/> Running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5)
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [8.0](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/help/4573888/)  <br/> Running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>[8.1](https://support.microsoft.com/help/4573888/)<br/>Running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported. Support for rest of the RedHat kernels will be available in 9.36, expected by end of August.
 
 > [!Note]
 > For each of the Windows versions, Azure Site Recovery only supports [Long-Term Servicing Channel (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) builds.  [Semi-Annual Channel](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) releases are currently unsupported at this time.
@@ -92,15 +95,16 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 **Supported release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-14.04 LTS | [9.32][9.32 UR], [9.33](https://support.microsoft.com/help/4564347/), [9.34](https://support.microsoft.com/help/4570609) | 3.13.0-24-generic to 3.13.0-170-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-148-generic,<br/>4.15.0-1023-azure to 4.15.0-1045-azure |
+14.04 LTS | [9.32][9.32 UR], [9.33](https://support.microsoft.com/help/4564347/), [9.34](https://support.microsoft.com/help/4570609), [9.35](https://support.microsoft.com/help/4573888/) | 3.13.0-24-generic to 3.13.0-170-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-148-generic,<br/>4.15.0-1023-azure to 4.15.0-1045-azure |
 14.04 LTS | [9.31][9.31 UR] | 3.13.0-24-generic to 3.13.0-170-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-148-generic,<br/>4.15.0-1023-azure to 4.15.0-1045-azure |
-14.04 LTS | [9.30][9.30 UR] | 3.13.0-24-generic to 3.13.0-170-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-148-generic,<br/>4.15.0-1023-azure to 4.15.0-1045-azure |
 |||
+16.04 LTS | [9.35](https://support.microsoft.com/help/4573888/) | 4.4.0-21-generic to 4.4.0-184-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-106-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1089-azure |
 16.04 LTS | [9.34](https://support.microsoft.com/help/4570609) | 4.4.0-21-generic to 4.4.0-178-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-101-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1083-azure |
 16.04 LTS | [9.33](https://support.microsoft.com/help/4564347/) | 4.4.0-21-generic to 4.4.0-178-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-99-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1082-azure|
 16.04 LTS | [9.32][9.32 UR] | 4.4.0-21-generic to 4.4.0-171-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-74-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1066-azure|
 16.04 LTS | [9.31][9.31 UR] | 4.4.0-21-generic to 4.4.0-170-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-72-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1063-azure|
 |||
+18.04 LTS | [9.35](https://support.microsoft.com/help/4573888/) | 4.15.0-20-generic to 4.15.0-108-generic </br> 4.18.0-13-generic to 4.18.0-25-generic </br> 5.0.0-15-generic to 5.0.0-52-generic </br> 5.3.0-19-generic to 5.3.0-61-generic </br> 4.15.0-1009-azure to 4.15.0-1089-azure </br> 4.18.0-1006-azure to 4.18.0-1025-azure </br> 5.0.0-1012-azure to 5.0.0-1036-azure </br> 5.3.0-1007-azure to 5.3.0-1031-azure|
 18.04 LTS | [9.34](https://support.microsoft.com/help/4570609) | 4.15.0-20-generic to 4.15.0-101-generic </br> 4.18.0-13-generic to 4.18.0-25-generic </br> 5.0.0-15-generic to 5.0.0-48-generic </br> 5.3.0-19-generic to 5.3.0-53-generic </br> 4.15.0-1009-azure to 4.15.0-1083-azure </br> 4.18.0-1006-azure to 4.18.0-1025-azure </br> 5.0.0-1012-azure to 5.0.0-1036-azure </br> 5.3.0-1007-azure to 5.3.0-1022-azure|
 18.04 LTS | [9.33](https://support.microsoft.com/help/4564347/) | 4.15.0-20-generic to 4.15.0-99-generic </br> 4.18.0-13-generic to 4.18.0-25-generic </br> 5.0.0-15-generic to 5.0.0-47-generic </br> 5.3.0-19-generic to 5.3.0-51-generic </br> 4.15.0-1009-azure to 4.15.0-1082-azure </br> 4.18.0-1006-azure to 4.18.0-1025-azure </br> 5.0.0-1012-azure to 5.0.0-1036-azure </br> 5.3.0-1007-azure to 5.3.0-1020-azure|
 18.04 LTS | [9.32][9.32 UR]| 4.15.0-20-generic to 4.15.0-74-generic </br> 4.18.0-13-generic to 4.18.0-25-generic </br> 5.0.0-15-generic to 5.0.0-37-generic </br> 5.3.0-19-generic to 5.3.0-24-generic </br> 4.15.0-1009-azure to 4.15.0-1037-azure </br> 4.18.0-1006-azure to 4.18.0-1025-azure </br> 5.0.0-1012-azure to 5.0.0-1028-azure </br> 5.3.0-1007-azure to 5.3.0-1009-azure|
@@ -111,22 +115,25 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 **Supported release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-Debian 7 | [9.31][9.31 UR], [9.32][9.32 UR], [9.33](https://support.microsoft.com/help/4564347/), [9.34](https://support.microsoft.com/help/4570609)| 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.31][9.31 UR], [9.32][9.32 UR], [9.33](https://support.microsoft.com/help/4564347/), [9.34](https://support.microsoft.com/help/4570609), [9.35](https://support.microsoft.com/help/4573888/)| 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
+Debian 8 | [9.35](https://support.microsoft.com/help/4573888/) | 3.16.0-4-amd64 to 3.16.0-11-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.11-amd64 |
 Debian 8 | [9.31][9.31 UR], [9.32][9.32 UR], [9.33](https://support.microsoft.com/help/4564347/), [9.34](https://support.microsoft.com/help/4570609) | 3.16.0-4-amd64 to 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.11-amd64 |
 
 ### SUSE Linux Enterprise Server 12 supported kernel versions
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.34](https://support.microsoft.com/help/4570609) | All stock SUSE 12 SP1,SP2,SP3,SP4 kernels are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.43-azure </br> 4.12.14-16.7-azure to 4.12.14-16.13-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.32, [9.33](https://support.microsoft.com/help/4564347/) | All stock SUSE 12 SP1,SP2,SP3,SP4 kernels are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.34-azure  |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.31 | All stock SUSE 12 SP1,SP2,SP3,SP4 kernels are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.29-azure  |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.35](https://support.microsoft.com/help/4573888/) | All [stock SUSE 12 SP1,SP2,SP3,SP4 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.43-azure </br> 4.12.14-16.7-azure to 4.12.14-16.19-azure  |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.34](https://support.microsoft.com/help/4570609) | All [stock SUSE 12 SP1,SP2,SP3,SP4 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.43-azure </br> 4.12.14-16.7-azure to 4.12.14-16.13-azure  |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.32, [9.33](https://support.microsoft.com/help/4564347/) | All [stock SUSE 12 SP1,SP2,SP3,SP4 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.34-azure  |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.31 | All [stock SUSE 12 SP1,SP2,SP3,SP4 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.29-azure  |
 
 ### SUSE Linux Enterprise Server 15 supported kernel versions
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 15 and 15 SP1 | [9.35](https://support.microsoft.com/help/4573888/)  | By default, all [stock SUSE 15 and 15 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.12.14-5.5-azure to 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure to 4.12.14-8.33-azure 
 SUSE Linux Enterprise Server 15 and 15 SP1 | [9.34](https://support.microsoft.com/help/4570609)  | By default, all [stock SUSE 15 and 15 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.12.14-5.5-azure to 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure to 4.12.14-8.30-azure 
 SUSE Linux Enterprise Server 15 and 15 SP1 | [9.33](https://support.microsoft.com/help/4564347/) | By default, all [stock SUSE 15 and 15 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.12.14-5.5-azure to 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure to 4.12.14-8.30-azure |
 SUSE Linux Enterprise Server 15 and 15 SP1 | [9.32](https://support.microsoft.com/help/4550047/) | By default, all [stock SUSE 15 and 15 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 4.12.14-5.5-azure to 4.12.14-8.22-azure
@@ -171,7 +178,7 @@ Guest/server network IPv6 | No.
 Guest/server network static IP (Windows) | Yes.
 Guest/server network static IP (Linux) | Yes. <br/><br/>VMs are configured to use DHCP on failback.
 Guest/server network multiple NICs | Yes.
-
+Private link access to Site Recovery service | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 ## Azure VM network (after failover)

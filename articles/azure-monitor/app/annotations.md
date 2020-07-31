@@ -8,7 +8,7 @@ ms.date: 07/01/2019
 
 # Annotations on metric charts in Application Insights
 
-Annotations show where you deployed a new build, or other significant events. Annotations make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/) build system. You can also create annotations to flag any event you like by creating them from PowerShell.
+Annotations show where you deployed a new build, or other significant events. Annotations make it easy to see whether your changes had any effect on your application's performance. They can be automatically created by the [Azure Pipelines](/azure/devops/pipelines/tasks/) build system. You can also create annotations to flag any event you like by creating them from PowerShell.
 
 ## Release annotations with Azure Pipelines build
 
@@ -30,7 +30,7 @@ You only need to install the extension once for your Azure DevOps organization. 
 
 Create a separate API key for each of your Azure Pipelines release templates.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. Or if you don't have one, [create a new Application Insights resource](../../azure-monitor/app/app-insights-overview.md).
+1. Sign in to the [Azure portal](https://portal.azure.com) and open the Application Insights resource that monitors your application. Or if you don't have one, [create a new Application Insights resource](./app-insights-overview.md).
    
 1. Open the **API Access** tab and copy the **Application Insights ID**.
    
@@ -111,5 +111,6 @@ You can modify the script, for example to create annotations for the past.
 
 ## Next steps
 
-* [Create work items](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automation with PowerShell](../../azure-monitor/app/powershell.md)
+* [Create work items](./diagnostic-search.md#create-work-item)
+* [Automation with PowerShell](./powershell.md)
+

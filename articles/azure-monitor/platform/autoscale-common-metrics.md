@@ -11,7 +11,7 @@ ms.subservice: autoscale
 
 Azure Monitor autoscaling allows you to scale the number of running instances up or down, based on telemetry data (metrics). This document describes common metrics that you might want to use. In the Azure portal, you can choose the metric of the resource to scale by. However, you can also choose any metric from a different resource to scale by.
 
-Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Other Azure services use different scaling methods.
+Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](../../api-management/api-management-key-concepts.md). Other Azure services use different scaling methods.
 
 ## Compute metrics for Resource Manager-based VMs
 By default, Resource Manager-based Virtual Machines and Virtual Machine Scale Sets emit basic (host-level) metrics. In addition, when you configure diagnostics data collection for an Azure VM and VMSS,  the Azure diagnostic extension also emits guest-OS performance counters (commonly known as "guest-OS metrics").  You use all these metrics in autoscale rules.
@@ -27,8 +27,8 @@ If either preceding case is true, then review [Use PowerShell to enable Azure Di
 ### Host metrics for Resource Manager-based Windows and Linux VMs
 The following host-level metrics are emitted by default for Azure VM and VMSS in both Windows and Linux instances. These metrics describe your Azure VM, but are collected from the Azure VM host rather than via agent installed on the guest VM. You may use these metrics in autoscaling rules.
 
-- [Host metrics for Resource Manager-based Windows and Linux VMs](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
-- [Host metrics for Resource Manager-based Windows and Linux VM Scale Sets](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
+- [Host metrics for Resource Manager-based Windows and Linux VMs](./metrics-supported.md#microsoftcomputevirtualmachines)
+- [Host metrics for Resource Manager-based Windows and Linux VM Scale Sets](./metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### Guest OS metrics for Resource Manager-based Windows VMs
 When you create a VM in Azure, diagnostics is enabled by using the Diagnostics extension. The diagnostics extension emits a set of metrics taken from inside of the VM. This means you can autoscale off of metrics that are not emitted by default.

@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
@@ -116,7 +116,7 @@ You can configure storage accounts to allow access only from specific subnets. T
 
 Enable a [Service endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) for Azure Storage within the VNet. The service endpoint routes traffic from the VNet through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the storage account that allow requests to be received from specific subnets in a VNet. Clients granted access via these network rules must continue to meet the authorization requirements of the storage account to access the data.
 
-Each storage account supports up to 100 virtual network rules, which may be combined with [IP network rules](#grant-access-from-an-internet-ip-range).
+Each storage account supports up to 200 virtual network rules, which may be combined with [IP network rules](#grant-access-from-an-internet-ip-range).
 
 ### Available virtual network regions
 
@@ -384,6 +384,7 @@ The **Allow trusted Microsoft services...** setting also allows a particular ins
 
 | Service                        | Resource Provider Name                 | Purpose            |
 | :----------------------------- | :------------------------------------- | :----------------- |
+| Azure API Management           | Microsoft.ApiManagement/service        | Enables Api Management service access to storage accounts behind firewall using policies. [Learn more](/azure/api-management/api-management-authentication-policies#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Enables Cognitive Search services to access storage accounts for indexing, processing and querying. |
 | Azure Container Registry Tasks | Microsoft.ContainerRegistry/registries | ACR Tasks can access storage accounts when building container images. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Allows access to storage accounts through the ADF runtime. |

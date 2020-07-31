@@ -3,9 +3,9 @@ title: 'Configure security to grant data access - Azure Time Series Insights | M
 description: Learn how to configure security, permissions, and manage data access policies in your Azure Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: dpalled
+author: shipra1mishra    
+ms.author: shmishr
+manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
@@ -59,7 +59,7 @@ The `Guest` role isn't a management role. It's a term used for an account that's
 
 Follow these steps to grant guest access to an Azure Time Series Insights environment to an Azure AD user from another tenant.
 
-1. Select **Data Access Policies**, and then select **+ Invite**.
+1. Go to Azure portal, click on  **Azure Active Directory**, scroll down on the **Overview** tab and then select **Guest user**.
 
     [![Select Data Access Polices, then + Invite](media/data-access/data-access-invite-another-aad-tenant.png)](media/data-access/data-access-invite-another-aad-tenant.png#lightbox)
 
@@ -67,11 +67,11 @@ Follow these steps to grant guest access to an Azure Time Series Insights enviro
 
     [![Enter the email address to find the selected user](media/data-access/data-access-invite-guest-by-email.png)](media/data-access/data-access-invite-guest-by-email.png#lightbox)
 
-1. Look for the confirmation bubble that appears on the screen.
+1. Look for the confirmation bubble that appears on the screen. You can also click on **Notifications** to confirm that the guest user was added.
 
     [![Look for the confirmation bubble to appear](media/data-access/data-access-confirmation-bubble.png)](media/data-access/data-access-confirmation-bubble.png#lightbox)
 
-1. Choose **Select user**. Search for the email address of the guest user you invited to locate the user you want to add. Then, **Select** to confirm the selection.
+1. Go back to your Time Series Insights environment to add the newly created guest user. Click on **Data Access Policies** as described under **Grant data access**. **Select user**. Search for the email address of the guest user you invited to locate the user you want to add. Then, **Select** to confirm the selection.
 
     [![Select the user and confirm the selection](media/data-access/data-access-select-invited-person-confirmation.png)](media/data-access/data-access-select-invited-person-confirmation.png#lightbox)
 

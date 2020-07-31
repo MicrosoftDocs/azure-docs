@@ -4,7 +4,7 @@ description: Learn to use Python to create and manage a Windows VM in Azure.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: tracking-python
@@ -27,7 +27,7 @@ It takes about 20 minutes to do these steps.
 
 ## Create a Visual Studio project
 
-1. If you haven't already, install [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Select **Python development** on the Workloads page, and then click **Install**. In the summary, you can see that **Python 3 64-bit (3.6.0)** is automatically selected for you. If you have already installed Visual Studio, you can add the Python workload using the Visual Studio Launcher.
+1. If you haven't already, install [Visual Studio](/visualstudio/install/install-visual-studio). Select **Python development** on the Workloads page, and then click **Install**. In the summary, you can see that **Python 3 64-bit (3.6.0)** is automatically selected for you. If you have already installed Visual Studio, you can add the Python workload using the Visual Studio Launcher.
 2. After installing and starting Visual Studio, click **File** > **New** > **Project**.
 3. Click **Templates** > **Python** > **Python Application**, enter *myPythonProject* for the name of the project, select the location of the project, and then click **OK**.
 
@@ -561,6 +561,5 @@ Because you are charged for resources used in Azure, it's always a good practice
 
 ## Next steps
 
-- If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../../resource-manager-troubleshoot-deployments-portal.md)
-- Learn more about the [Azure Python Library](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
-
+- If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../../azure-resource-manager/templates/deployment-history.md)
+- Learn more about the [Azure Python Library](/python/api/overview/azure/?view=azure-python)

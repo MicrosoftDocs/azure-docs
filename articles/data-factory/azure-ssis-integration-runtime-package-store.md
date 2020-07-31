@@ -11,7 +11,7 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 07/13/2020
+ms.date: 07/20/2020
 ---
 
 # Manage packages with Azure-SSIS Integration Runtime package store
@@ -123,6 +123,8 @@ You can use [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-
 
 Consequently, to avoid run-time upgrades, deploying packages to run on Azure-SSIS IR in Package Deployment Model should use dtutil 2017 that comes with SQL Server/SSIS 2017 installation. You can download and install the free [SQL Server/SSIS 2017 Developer Edition](https://go.microsoft.com/fwlink/?linkid=853016) for this purpose. Once installed, you can find dtutil 2017 on this folder: `YourLocalDrive:\Program Files\Microsoft SQL Server\140\DTS\Binn`.
 
+### Deploying multiple packages from file system on premises into Azure Files with dtutil
+
  To deploy multiple packages from file system into Azure Files and switch their protection level at the same time, you can run the following commands at a command prompt. Please replace all strings that are specific to your case.
   
 ```dos
@@ -145,7 +147,9 @@ To deploy multiple packages from legacy SSIS package stores on top of file syste
 
 If you've configured Azure-SSIS IR package stores on top of Azure Files, your deployed packages will appear in them when you connect to your Azure-SSIS IR on SSMS 2019 or later versions.
 
- To deploy multiple packages from MSDB hosted by SQL Server or legacy SSIS package stores on top of MSDB into MSDB hosted by Azure SQL Managed Instance or Azure-SSIS IR package stores on top of MSDB and switch their protection level at the same time, you can connect to your SQL Server on SSMS, right-click on `Databases->System Databases->msdb` node on the **Object Explorer** of SSMS to open a **New Query** window, and run the following T-SQL script. Please replace all strings that are specific to your case:  
+### Deploying multiple packages from MSDB on premises into MSDB in Azure with dtutil
+
+ To deploy multiple packages from MSDB hosted by SQL Server or legacy SSIS package stores on top of MSDB into MSDB hosted by Azure SQL Managed Instance and switch their protection level at the same time, you can connect to your SQL Server on SSMS, right-click on `Databases->System Databases->msdb` node on the **Object Explorer** of SSMS to open a **New Query** window, and run the following T-SQL script. Please replace all strings that are specific to your case:  
   
 ```sql
 BEGIN
@@ -158,17 +162,47 @@ END
 
 To use the private/public endpoint of your Azure SQL Managed Instance, replace `YourSQLManagedInstanceEndpoint` with `YourSQLMIName.YourDNSPrefix.database.windows.net`/`YourSQLMIName.public.YourDNSPrefix.database.windows.net,3342`, respectively.
 
-The script will generate dtutil command lines for all packages in MSDB that you can multiselect, copy, paste, and run at a command prompt.
+The script will generate dtutil command lines for all packages in MSDB that you can multiselect, copy & paste, and run at a command prompt.
 
 ![Generate dtutil command lines](media/azure-ssis-integration-runtime-package-store/sql-server-msdb-to-sql-mi-msdb.png)
 
 ```dos
-dtutil /SQL YourFolder\YourPackage1 /ENCRYPT SQL;YourFolder\YourPackage1;2;YourEncryptionPassword /DestServer YourSQLManagedInstanceEndpoint /DestUser YourUserName /DestPassword YourPassword
-dtutil /SQL YourFolder\YourPackage2 /ENCRYPT SQL;YourFolder\YourPackage2;2;YourEncryptionPassword /DestServer YourSQLManagedInstanceEndpoint /DestUser YourUserName /DestPassword YourPassword
-dtutil /SQL YourFolder\YourPackage3 /ENCRYPT SQL;YourFolder\YourPackage3;2;YourEncryptionPassword /DestServer YourSQLManagedInstanceEndpoint /DestUser YourUserName /DestPassword YourPassword
+dtutil /SQL YourFolder\YourPackage1 /ENCRYPT SQL;YourFolder\YourPackage1;2;YourEncryptionPassword /DestServer YourSQLManagedInstanceEndpoint /DestUser YourUserName /DestPassword YourPassword
+dtutil /SQL YourFolder\YourPackage2 /ENCRYPT SQL;YourFolder\YourPackage2;2;YourEncryptionPassword /DestServer YourSQLManagedInstanceEndpoint /DestUser YourUserName /DestPassword YourPassword
+dtutil /SQL YourFolder\YourPackage3 /ENCRYPT SQL;YourFolder\YourPackage3;2;YourEncryptionPassword /DestServer YourSQLManagedInstanceEndpoint /DestUser YourUserName /DestPassword YourPassword
 ```
 
 If you've configured Azure-SSIS IR package stores on top of MSDB, your deployed packages will appear in them when you connect to your Azure-SSIS IR on SSMS 2019 or later versions.
+
+### Deploying multiple packages from MSDB on premises into Azure Files with dtutil
+
+ To deploy multiple packages from MSDB hosted by SQL Server or legacy SSIS package stores on top of MSDB into Azure Files and switch their protection level at the same time, you can connect to your SQL Server on SSMS, right-click on `Databases->System Databases->msdb` node on the **Object Explorer** of SSMS to open a **New Query** window, and run the following T-SQL script. Please replace all strings that are specific to your case:  
+  
+```sql
+BEGIN
+  SELECT 'dtutil /SQL '+f.foldername+'\'+NAME+' /ENCRYPT FILE;Z:\'+f.foldername+'\'+NAME+'.dtsx;2;YourEncryptionPassword' 
+  FROM msdb.dbo.sysssispackages p
+  inner join msdb.dbo.sysssispackagefolders f
+  ON p.folderid = f.folderid
+END
+```
+
+The script will generate dtutil command lines for all packages in MSDB that you can multiselect, copy & paste, and run at a command prompt.
+
+```dos
+REM Persist the access credentials for Azure Files on your local machine
+cmdkey /ADD:YourStorageAccountName.file.core.windows.net /USER:azure\YourStorageAccountName /PASS:YourStorageAccountKey
+
+REM Connect Azure Files to a drive on your local machine
+net use Z: \\YourStorageAccountName.file.core.windows.net\YourFileShare /PERSISTENT:Yes
+
+REM Multiselect, copy & paste, and run the T-SQL-generated dtutil command lines to deploy your packages from MSDB on premises into Azure Files while switching their protection level
+dtutil /SQL YourFolder\YourPackage1 /ENCRYPT FILE;Z:\YourFolder\YourPackage1.dtsx;2;YourEncryptionPassword
+dtutil /SQL YourFolder\YourPackage2 /ENCRYPT FILE;Z:\YourFolder\YourPackage2.dtsx;2;YourEncryptionPassword
+dtutil /SQL YourFolder\YourPackage3 /ENCRYPT FILE;Z:\YourFolder\YourPackage3.dtsx;2;YourEncryptionPassword
+```
+
+If you've configured Azure-SSIS IR package stores on top of Azure Files, your deployed packages will appear in them when you connect to your Azure-SSIS IR on SSMS 2019 or later versions.
 
 ## Next steps
 

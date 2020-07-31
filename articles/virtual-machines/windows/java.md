@@ -7,6 +7,7 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 07/17/2017
+ms.custom: devx-track-java
 ms.author: cynthn
 
 ---
@@ -460,5 +461,4 @@ It should take about five minutes for this console application to run completely
 
 
 ## Next steps
-* Learn more about using the [Azure libraries for Java](https://docs.microsoft.com/java/azure/java-sdk-azure-overview).
-
+* Learn more about using the [Azure libraries for Java](/java/azure/java-sdk-azure-overview).

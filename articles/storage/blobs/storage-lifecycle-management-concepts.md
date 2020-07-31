@@ -32,7 +32,7 @@ The lifecycle management policy is available with General Purpose v2 (GPv2) acco
 
 ## Pricing
 
-The lifecycle management feature is free of charge. Customers are charged the regular operation cost for the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) and [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API calls. Delete operation is free. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+The lifecycle management feature is free of charge. Customers are charged the regular operation cost for the [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API calls. Delete operation is free. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## Regional availability
 
@@ -244,7 +244,8 @@ Each rule definition includes a filter set and an action set. The [filter set](#
 The following sample rule filters the account to run the actions on objects that exist inside `container1` and start with `foo`.  
 
 >[!NOTE]
->Lifecycle management only supports block blob type.  
+>- Lifecycle management only supports block blob type.<br>
+>- Lifecycle management does not affect system containers like $logs and $web.
 
 - Tier blob to cool tier 30 days after last modification
 - Tier blob to archive tier 90 days after last modification

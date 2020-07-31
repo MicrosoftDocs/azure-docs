@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/18/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
 ---
 
@@ -138,6 +138,9 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc for server
 
 You can perform a **Connect**, **Disconnect**, and **Reconnect** manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md). If you did not use a service principal to register the machine with Azure Arc for servers (preview), see the following [article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) to create a service principal.
 
+>[!NOTE]
+>You must have *root* access permissions on Linux machines to run **azcmagent**.
+
 ### Connect
 
 This parameter specifies a resource in Azure Resource Manager representing the machine is created in Azure. The resource is in the subscription and resource group specified, and data about the machine is stored in the Azure region specified by the `--location` setting. The default resource name is the hostname of this machine if not specified.
@@ -173,6 +176,9 @@ To disconnect with your elevated logged-on credentials (interactive), run the fo
 `azcmagent disconnect --tenant-id <tenantID>`
 
 ### Reconnect
+
+> [!WARNING]
+> The `reconnect` command is deprecated and should not be used. The command will be removed in a future agent release and existing agents will be unable to complete the reconnect request. Instead, [disconnect](#disconnect) your machine then [connect](#connect) it again.
 
 This parameter reconnects the already registered or connected machine with Azure Arc for servers (preview). This may be necessary if the machine has been turned off, at least 45 days, for its certificate to expire. This parameter uses the authentication options provided to retrieve new credentials corresponding to the Azure Resource Manager resource representing this machine.
 

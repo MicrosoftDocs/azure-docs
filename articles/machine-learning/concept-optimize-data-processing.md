@@ -4,8 +4,8 @@ titleSuffix: Azure Machine Learning
 description: Learn best practices for optimizing data processing speeds and what integrations Azure Machine Learning supports for data processing at scale.
 services: machine-learning
 ms.service: machine-learning
-author: sgilley
 ms.author: sgilley
+author: sdgilley
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
@@ -79,4 +79,4 @@ You can create `Dask` clusters on Azure ML compute cluster with the [dask-cloudp
 ## Next steps
 
 * [Data ingestion options with Azure Machine Learning](concept-data-ingestion.md).
-* [Data ingestion with Azure Data Factory](how-to-data-ingest-adf.md).
+* [Create and register datasets](how-to-create-register-datasets.md).

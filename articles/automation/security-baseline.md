@@ -218,7 +218,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 * [Supported regions for linked Log Analytics workspace](./how-to/region-mappings.md)
 
-* [Query Update Management Logs](./automation-update-management-query-logs.md)
+* [Query Update Management Logs](./update-management/update-mgmt-query-logs.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -644,9 +644,9 @@ When using Hybrid Runbook Workers, the virtual disks on the virtual machines are
 
 If you are using Hybrid Runbook Workers backed by Azure virtual machines, then use Azure Update Management to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-* [Update Management in Azure](./automation-update-management.md)
+* [Update Management in Azure](./update-management/update-mgmt-overview.md)
 
-* [Manage updates and patches for your Azure VMs](./automation-tutorial-update-management.md)
+* [Manage updates and patches for your VMs](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -658,9 +658,9 @@ If you are using Hybrid Runbook Workers backed by Azure virtual machines, then u
 
 If you are using Hybrid Runbook Workers backed by Azure virtual machines, then you can use Azure Update Management to manage updates and patches for your virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allows you to publish custom updates into Windows Server Update Services (WSUS). This scenario enables Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
 
-* [Update Management solution in Azure](./automation-update-management.md)
+* [Update Management solution in Azure](./update-management/update-mgmt-overview.md)
 
-* [Manage updates and patches for your Azure VMs](./automation-tutorial-update-management.md)
+* [Manage updates and patches for your Azure VMs](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Azure Security Center monitoring**: Not applicable
 

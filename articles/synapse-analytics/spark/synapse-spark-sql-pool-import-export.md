@@ -1,5 +1,5 @@
 ---
-title: Import and Exporting data between Spark pools (preview) and SQL pools
+title: Import and Export data between Spark pools (preview) and SQL pools
 description: This article provides information on how to use the custom connector for moving data back and forth between SQL pools and Spark pools (preview).
 services: synapse-analytics 
 author: euangMS 

@@ -22,7 +22,7 @@ ms.author: rogardle
 
 You can use Azure CLI to create and manage Azure resources at a command prompt, or use scripts. In this article, we use Azure CLI scripts to deploy an Oracle Database 12c database from an Azure Marketplace gallery image.
 
-Before you begin, make sure that Azure CLI is installed. For more information, see the [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Before you begin, make sure that Azure CLI is installed. For more information, see the [Azure CLI installation guide](/cli/azure/install-azure-cli).
 
 ## Prepare the environment
 
@@ -30,7 +30,7 @@ Before you begin, make sure that Azure CLI is installed. For more information, s
 
 *   To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database 12c. The Marketplace image you use to create the VM is named *Oracle:Oracle-Database-Ee:12.1.0.2:latest*.
 
-    To learn how to create an Oracle database, see the [Oracle create database quickstart](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
+    To learn how to create an Oracle database, see the [Oracle create database quickstart](./oracle-database-quick-create.md).
 
 
 ### Step 2: Connect to the VM
@@ -570,6 +570,3 @@ az group delete --name myResourceGroup
 [Tutorial: Create highly available VMs](../../linux/create-cli-complete.md)
 
 [Explore VM deployment Azure CLI samples](../../linux/cli-samples.md)
-
-
-

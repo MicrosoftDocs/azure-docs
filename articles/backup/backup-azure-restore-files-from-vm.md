@@ -126,28 +126,96 @@ To bring these partitions online, run the commands in the following sections.
 
 #### For LVM partitions
 
-To list the volume group names under a physical volume:
+Once the script is run, the LVM partitions are mounted in the physical volume(s)/disk(s) specified in the script output. The process is to
+
+1. Get the unique list of volume group names from the physical volumes or disks
+2. Then list the logical volumes in those volume groups
+3. Then mount the logical volumes to a desired path.
+
+##### Listing volume group names from physical volumes
+
+To list the volume group names:
+
+```bash
+pvs -o +vguuid
+```
+
+This command will list all physical volumes (including the ones present before running the script), their corresponding volume group names and the volume group's unique user IDs (UUIDs). A sample output of the command is shown below.
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdf   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+
+  /dev/sdd   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+```
+
+The 1st column (PV) shows the physical volume, the subsequent columns show the relevant volume group name, format, attributes, size, free space and the unique ID of the volume group. The command output shows all physical volumes. Refer to the script output and identify the volumes related to the backup. In the above example, the script output would have shown /dev/sdf and /dev/sdd. And so, the datavg_db volume group belongs to script and the Appvg_new volume group belongs to the machine. The final idea is to make sure that a unique volume group name should have 1 unique ID.
+
+###### Duplicate Volume groups
+
+There are scenarios where volume group names can have 2 UUIDs after running the script. It means that the volume group names in the machine where the script is executed and in the backed up VM are same. Then we need to rename the backed-up VMs volume groups. Take a look at the below example.
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdg   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdh   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdm2  rootvg    lvm2 a--  194.57g  127.57g efohjX-KUGB-ETaH-4JKB-MieG-EGOc-XcfLCt
+```
+
+The script output would have shown /dev/sdg, /dev/sdh, /dev/sdm2 as attached. So, the corresponding VG names are Appvg_new and rootvg. But the same names are also present in the machine's VG list. We can verify that 1 VG name has 2 UUIDs.
+
+Now we need to rename VG names for script based volumes i.e., /dev/sdg, /dev/sdh, /dev/sdm2. To rename the volume group, use the following command
+
+```bash
+vgimportclone -n rootvg_new /dev/sdm2
+vgimportclone -n APPVg_2 /dev/sdg /dev/sdh
+```
+
+Now we have all VG names with unique IDs.
+
+###### Active volume groups
+
+Make sure that the Volume groups corresponding to script's volumes are active. The below command is used to display active volume groups. Check whether the script's related volume groups are present in this list.
+
+```bash
+vgdisplay -a
+```  
+
+Otherwise, activate the volume group by using the below command.
 
 ```bash
 #!/bin/bash
-pvs <volume name as shown above in the script output>
+vgchange –a y  <volume-group-name>
 ```
 
-To list all logical volumes, names, and their paths in a volume group:
+##### Listing logical volumes within Volume groups
+
+Once we get the unique, active list of VGs related to the script, then the logical volumes present in those volume groups can be listed using the below command.
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs commands results>
+lvdisplay <volume-group-name>
 ```
 
-The ```lvdisplay``` command also shows whether the volume groups are active are not. If the volume group is marked as inactive, it needs to be activated again to be mounted. If volume-group is shown as inactive, use the following command to activate it.
+This command display the path of each logical volume as 'LV Path'.
 
-```bash
-#!/bin/bash
-vgchange –a y  <volume-group-name from the pvs commands results>
-```
-
-After the volume group name is active, run the ```lvdisplay``` command once more to see all the relevant attributes.
+##### Mounting logical volumes
 
 To mount the logical volumes to the path of your choice:
 
@@ -155,6 +223,9 @@ To mount the logical volumes to the path of your choice:
 #!/bin/bash
 mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
+
+> [!WARNING]
+> Do not use 'mount -a'. This command mounts all devices described in '/etc/fstab'. This might mean duplicate devices can get mounted. Data can be redirected to devices created by script, which do not persist the data, and hence might result in data loss.
 
 #### For RAID arrays
 
@@ -323,6 +394,6 @@ The script gives read-only access to a recovery point and is valid for only 12 h
 ## Next steps
 
 - For any problems while restoring files, refer to the [Troubleshooting](#troubleshooting) section
-- Learn how to [restore files via PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)
-- Learn how to [restore files via Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-files)
-- After VM is restored, learn how to [manage backups](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms)
+- Learn how to [restore files via PowerShell](./backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
+- Learn how to [restore files via Azure CLI](./tutorial-restore-files.md)
+- After VM is restored, learn how to [manage backups](./backup-azure-manage-vms.md)

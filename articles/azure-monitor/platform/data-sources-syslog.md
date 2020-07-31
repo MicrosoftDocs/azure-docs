@@ -50,7 +50,7 @@ You can add a new facility by first selecting the option **Apply below configura
 By default, all configuration changes are automatically pushed to all agents. If you want to configure Syslog manually on each Linux agent, then uncheck the box *Apply below configuration to my machines*.
 
 ### Configure Syslog on Linux agent
-When the [Log Analytics agent is installed on a Linux client](../../azure-monitor/learn/quick-collect-linux-computer.md), it installs a default syslog configuration file that defines the facility and severity of the messages that are collected. You can modify this file to change the configuration. The configuration file is different depending on the Syslog daemon that the client has installed.
+When the [Log Analytics agent is installed on a Linux client](../learn/quick-collect-linux-computer.md), it installs a default syslog configuration file that defines the facility and severity of the messages that are collected. You can modify this file to change the configuration. The configuration file is different depending on the Syslog daemon that the client has installed.
 
 > [!NOTE]
 > If you edit the syslog configuration, you must restart the syslog daemon for the changes to take effect.
@@ -85,7 +85,6 @@ You can remove a facility by removing its section of the configuration file. You
 ```config
 user.error    @127.0.0.1:25224
 ```
-
 
 #### syslog-ng
 The configuration file for syslog-ng is location at **/etc/syslog-ng/syslog-ng.conf**.  Its default contents are shown below. This collects syslog messages sent from the local agent for all facilities and all severities.   
@@ -159,17 +158,16 @@ You can change the port number by creating two configuration files: a FluentD co
 
 * The FluentD config file should be a new file located in: `/etc/opt/microsoft/omsagent/conf/omsagent.d` and replace the value in the **port** entry with your custom port number.
 
-    ```config
+    ```xml
     <source>
-      type syslog
-      port %SYSLOG_PORT%
-      bind 127.0.0.1
-      protocol_type udp
-      tag oms.syslog
+        type syslog
+        port %SYSLOG_PORT%
+        bind 127.0.0.1
+        protocol_type udp
+        tag oms.syslog
     </source>
     <filter oms.syslog.**>
-      type filter_syslog
-    </filter>
+        type filter_syslog
     ```
 
 * For rsyslog, you should create a new configuration file located in: `/etc/rsyslog.d/` and replace the value %SYSLOG_PORT% with your custom port number.  
@@ -225,6 +223,7 @@ The following table provides different examples of log queries that retrieve Sys
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Count of Syslog records by facility. |
 
 ## Next steps
-* Learn about [log queries](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
-* Use [Custom Fields](../../azure-monitor/platform/custom-fields.md) to parse data from syslog records into individual fields.
-* [Configure Linux agents](../../azure-monitor/learn/quick-collect-linux-computer.md) to collect other types of data.
+* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.
+* Use [Custom Fields](./custom-fields.md) to parse data from syslog records into individual fields.
+* [Configure Linux agents](../learn/quick-collect-linux-computer.md) to collect other types of data.
+

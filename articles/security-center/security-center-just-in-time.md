@@ -1,6 +1,6 @@
 ---
 title: Just-in-time virtual machine access in Azure Security Center | Microsoft Docs
-description: This document demonstrates how just-in-time VM access in Azure Security Center helps you control access to your Azure virtual machines.
+description: This document demonstrates how just-in-time VM access (JIT) in Azure Security Center helps you control access to your Azure virtual machines.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -31,7 +31,8 @@ This page teaches you how to include JIT in your security program. You'll learn 
 - Pricing: **Standard tier**. [Learn more about pricing](/azure/security-center/security-center-pricing).
 - Required roles and permissions:
     - **Reader** and **SecurityReader** roles can both view the JIT status and parameters.
-    - To create custom roles that can work with JIT, see [What permissions are needed to configure and use JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).
+    - To create custom roles that can work with JIT, see [What permissions are needed to configure and use JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)
+    - To create a least-privileged role for users that need to request JIT access to a VM, and perform no other JIT operations, use the [Set-JitLeastPrivilegedRole script](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) from the Security Center GitHub community pages.
 - Supported VMs: 
     - ✔ VMs deployed through Azure Resource Manager.
     - ✘ VMs deployed with classic deployment models. [Learn more about these deployment models](../azure-resource-manager/management/deployment-models.md).
@@ -89,11 +90,13 @@ From Security Center, you can enable and configure the JIT VM access.
     - Add custom ports with the **Add** button. 
     - Modify one of the default ports, by selecting it from the list.
 
-    In the **Add port configuration** pane for each port you modify, both custom and default, you can edit the following settings:
+    For each port (custom and default) the **Add port configuration** pane offers the following options:
 
     - **Protocol**- The protocol that is allowed on this port when a request is approved
     - **Allowed source IPs**- The IP ranges that are allowed on this port when a request is approved
     - **Maximum request time**- The maximum time window during which a specific port can be opened
+
+     1. Set the port security to your needs.
 
      1. Select **OK**.
 
@@ -125,7 +128,7 @@ To edit the existing JIT rules for a VM:
 
 You can enable JIT on a VM from the Azure virtual machines pages of the Azure portal.
 
-![Configuring JIT VM access in Azure Virtual machines](./media/security-center-just-in-time/jit-config-virtual-machines.gif)
+![Configuring JIT VM access in Azure virtual machines](./media/security-center-just-in-time/jit-config-virtual-machines.gif)
 
 > [!TIP]
 > If a VM already has just-in-time enabled, when you go to its configuration page you'll see that just-in-time is enabled and you can use the link to open the just-in-time VM access page in Security Center, and view and change the settings.
@@ -268,7 +271,7 @@ When a VM has a JIT enabled, you have to request access to connect to it. You ca
 
 When a VM has a JIT enabled, you have to request access to connect to it. You can request access in any of the supported ways, regardless of how you enabled JIT.
 
-  >![jit request](./media/security-center-just-in-time/jit-request-vm.png)
+  >![jit just-in-time request](./media/security-center-just-in-time/jit-request-vm.png)
 
 
 To request access from Azure virtual machines:
@@ -350,7 +353,7 @@ You can gain insights into VM activities using log search. To view the logs:
  
 1. Select **Activity Log** from the menu.
 
-   ![Select activity log](./media/security-center-just-in-time/jit-select-activity-log.png)
+   ![Select just-in-time JIT activity log](./media/security-center-just-in-time/jit-select-activity-log.png)
 
    The activity log provides a filtered view of previous operations for that VM along with time, date, and subscription.
 

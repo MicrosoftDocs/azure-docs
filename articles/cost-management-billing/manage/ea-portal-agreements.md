@@ -3,7 +3,7 @@ title: Azure EA agreements and amendments
 description: This article explains how Azure EA agreements and amendments affect your Azure EA portal use.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/06/2020
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
