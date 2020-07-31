@@ -81,7 +81,7 @@ Before you can send messages to a batch, that batch must first exist as the dest
 
    1. In the search box, enter `send email` as your filter. Based on your email provider, select an email connector.
 
-      For example, if you have a work or school account, such as @fabrikam.com or @fabrikam.onmicrosoft.com, select the **Microsoft 365 Outlook** connector. If you have a personal account, such as @outlook.com or @hotmail.com, select the **Outlook.com** connector. This example uses the Office 365 Outlook connector.
+      For example, if you have a work or school account, such as @fabrikam.com or @fabrikam.onmicrosoft.com, select the **Microsoft 365 Outlook** connector. If you have a personal account, such as @outlook.com or @hotmail.com, select the **Outlook.com** connector. This example uses the Microsoft 365 Outlook connector.
 
    1. Select the "send an email" action for your provider, for example:
 
