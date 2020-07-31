@@ -19,7 +19,14 @@ You can check your permission level by running this command in Cloud Shell:
 az role assignment list --assignee <your-Azure-email>
 ```
 
-If you are an owner, the `roleDefinitionName` value in the output is *Owner*:
+> [!TIP]
+> If this command returns an error saying that the CLI cannot find your user in the graph database, use the [Azure portal page of Azure Active Directory users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select your user account and open its details. Copy your user's *ObjectID*:
+>
+> :::image type="content" source="../articles/digital-twins/media/includes/user-id.png" alt-text="View of user page in Azure portal highlighting the GUID in the 'Object ID' field" border="false":::
+>
+> Then, repeat the role assignment list command using your user's *Object ID* in place of your email.
+
+After running the role assignment list command, if you are an owner, the `roleDefinitionName` value in the output is *Owner*:
 
 :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/cloud-shell/owner-role.png" alt-text="Cloud Shell window showing output of the az role assignment list command":::
 
