@@ -95,7 +95,7 @@ This resource library contains additional links and references that are relevant
 * [Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 * [Azure Governance](https://docs.microsoft.com/azure/governance/)
 * [Azure Management Groups](https://docs.microsoft.com/azure/governance/management-groups/)
-* [Azure Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 ## Next steps
 

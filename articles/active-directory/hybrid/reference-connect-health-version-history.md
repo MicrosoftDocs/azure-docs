@@ -214,7 +214,7 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 ## November 2015
 **New features:**
 
-* Support for [Role Based Access Control](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
+* Support for [Azure role-based access control (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
 
 **New preview features:**
 
@@ -250,4 +250,3 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 
 ## Next steps
 Learn more about [Monitor your on-premises identity infrastructure and synchronization services in the cloud](whatis-hybrid-identity-health.md).
-
