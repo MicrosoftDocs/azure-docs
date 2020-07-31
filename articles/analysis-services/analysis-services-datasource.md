@@ -123,7 +123,9 @@ Direct Query mode is not supported with OAuth credentials.
 
 In some cases, DAX queries to an Oracle data source may return unexpected results. This can be due to the provider being used for the data source connection.
 
-As described in the [Understanding providers](#understanding-providers) section, tabular models connect to data sources as either a *structured* data source or a *provider* data source. For models with an Oracle data source specified as a provider data source, ensure the specified provider is Oracle Data Provider for .NET (Oracle.DataAccess.Client). If the Oracle data source is specified as a structured data source, enable the **MDataEngine\UseManagedOracleProvider** server property. Setting this property ensures your model connects to the Oracle data source using the recommended Oracle Data Provider for .NET managed provider.
+As described in the [Understanding providers](#understanding-providers) section, tabular models connect to data sources as either a *structured* data source or a *provider* data source. For models with an Oracle data source specified as a provider data source, ensure the specified provider is Oracle Data Provider for .NET (Oracle.DataAccess.Client). 
+
+If the Oracle data source is specified as a structured data source, enable the **MDataEngine\UseManagedOracleProvider** server property. Setting this property ensures your model connects to the Oracle data source using the recommended Oracle Data Provider for .NET managed provider.
  
 To enable Oracle managed provider:
 
