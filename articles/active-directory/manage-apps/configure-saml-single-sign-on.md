@@ -20,7 +20,7 @@ In the [quickstart series](view-applications-portal.md) on application managemen
 
 ## Before you begin
 
-Using Azure AD as your Identity Provider and setting up single sign-on (SSO) can be simple or complex depending on the application being used. Some applications can be set up with just a few actions. Others require in-depth configuration. To ramp up quickly, walk through the [quickstart series](view-applications-portal.md) on application management. If the application you're adding is simple, then you probably don't need to read this article. If the application you're adding requires custom configuration for SAML-based SSO, then this article is for you.
+Using Azure AD as your Identity Provider (IdP) and setting up single sign-on (SSO) can be simple or complex depending on the application being used. Some applications can be set up with just a few actions. Others require in-depth configuration. To ramp up quickly, walk through the [quickstart series](view-applications-portal.md) on application management. If the application you're adding is simple, then you probably don't need to read this article. If the application you're adding requires custom configuration for SAML-based SSO, then this article is for you.
 
 In the [quickstart series](view-applications-portal.md), there's an article on configuring single sign-on. In it, you learn how to access the SAML configuration page for an app. The SAML configuration page includes five sections. These sections are discussed in detail in this article.
 

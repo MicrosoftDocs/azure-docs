@@ -61,6 +61,9 @@ Yes, you can import certificates from any CA but key vault will not be able to a
 ### If I import a certificate from a partner CA, will the auto renew feature still work?
 Yes, you need to make sure that once uploaded you specify the autorotation in the certificate’s issuance policy. Also, the changes will be reflected until the next cycle or certificate version.
 
+### Unable to see the App Service Certificate imported to Key Vault? 
+If the certificate was successfully imported, please review in under secrets blade.
+
 
 ## Next steps
 
