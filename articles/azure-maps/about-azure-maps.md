@@ -21,7 +21,7 @@ Azure Maps is a collection of geospatial services and SDKs that use fresh mappin
 * Search services to locate addresses, places, and points of interest around the world.
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, electric vehicle, commercial vehicle, traffic influenced, and matrix routing.
 * Traffic flow view and incidents view, for applications that require real-time traffic information.
-* Mobility service to request public transit information, plan routes by blending different travel modes and real time arrivals.
+* Mobility service to request public transit information, plan routes by blending different travel modes and real-time arrivals.
 * Time zone and geolocation services.
 * Geofencing service and mapping data storage, with location information hosted in Azure.
 * Location intelligence through geospatial analytics.
@@ -78,7 +78,7 @@ The [Render service V2](https://docs.microsoft.com/est/api/maps/renderv2) that i
 
 For more details, read the [Render service V2 documentation](https://docs.microsoft.com/rest/api/maps/renderv2).
 
-To learn more about the Render service V1 that is in GA (General Availability), please see the [Render service V1 documentation](https://docs.microsoft.com/rest/api/maps/render).  
+To learn more about the Render service V1 that is in GA (General Availability), see the [Render service V1 documentation](https://docs.microsoft.com/rest/api/maps/render).  
 
 ### Route service
 
