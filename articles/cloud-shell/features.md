@@ -80,7 +80,7 @@ Cloud Shell includes pre-configured authentication for open-source tools such as
 
 |Language   |Version   |
 |---|---|
-|.NET Core  |2.2.402       |
+|.NET Core  |[1.0.1](https://github.com/dotnet/core/blob/master/release-notes/1.0/1.0.1-sdk-release-notes.md), [2.2.402](https://github.com/dotnet/core/blob/master/release-notes/2.2/2.2.7/2.2.402-download.md), and [3.1.302](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1.6/3.1.302-download.md) (default)       |
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.16.0      |
