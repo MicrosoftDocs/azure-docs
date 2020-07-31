@@ -72,7 +72,7 @@ To learn more about the service, see the [Mobility service documentation](https:
 
 ### Render service
 
-The [Render service V2](https://docs.microsoft.com/est/api/maps/renderv2) that is now in Preview introduces a new version of the [Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). The Get Map Tile V2 API now allows customers to request Azure Maps road tiles, weather tiles, or the map tiles created using Azure Maps Creator. It is recommended that you use the new Get Map Tile V2 API.  
+The [Render service V2](https://docs.microsoft.com/est/api/maps/renderv2) that is now in Preview introduces a new version of the [Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). The Get Map Tile V2 API now allows customers to request Azure Maps road tiles, weather tiles, or the map tiles created using Azure Maps Creator. It's recommended that you use the new Get Map Tile V2 API.  
 
 ![Example of a map from the Render service V2](media/about-azure-maps/intro_map.png)
 
@@ -96,7 +96,7 @@ For details on the routing capabilities, read the [Route service documentation](
 
 ### Search service
 
-The Search service helps developers search for addresses, places, business listings by name or category, and other geographic information. In addition to supporting traditional geocoding, services can also [reverse geocode](https://en.wikipedia.org/wiki/Reverse_geocoding) addresses and cross streets based on latitudes and longitudes.
+The Search service helps developers search for addresses, places, business listings by name or category, and other geographic information. Also, services can [reverse geocode](https://en.wikipedia.org/wiki/Reverse_geocoding) addresses and cross streets based on latitudes and longitudes.
 
 ![Example of a search on a map](media/about-azure-maps/intro_search.png)
 
@@ -170,9 +170,9 @@ The Weather service offers APIs that developers can use to retrieve weather info
 
 Developers can use the [Get Weather along route API](https://docs.microsoft.com/rest/api/maps/weather/getweatheralongroutepreview) to retrieve weather information along a particular route. Also, the service supports the generation of weather notifications for waypoints that are affected by weather hazards, such as flooding or heavy rain.
 
-The [Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) allows you to request past, current and future radar and satellite tiles.
+The [Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) allows you to request past, current, and future radar and satellite tiles.
 
-![Example of map with real time weather radar tiles](media/about-azure-maps/intro_weather.png)
+![Example of map with real-time weather radar tiles](media/about-azure-maps/intro_weather.png)
 
 ### Maps Creator service
 
@@ -210,7 +210,7 @@ To access Azure Maps services, go to the [Azure portal](https://portal.azure.com
 
 Azure Maps uses a key-based authentication scheme. When you create your account, two keys are generated. To authenticate for Azure Maps services, you can use either key.
 
-Note - Azure Maps shares customer-provided address/location queries ("Queries") with third-party TomTom for mapping functionality purposes. Queries aren't linked to any customer or end user when shared with TomTom and can't be used to identify individuals. The Mobility and Weather services, which include integration with Moovit and AccuWeather are currently in [PREVIEW](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Note - Azure Maps shares customer-provided address/location queries ("Queries") with third-party TomTom for mapping functionality purposes. Queries aren't linked to any customer or end user when shared with TomTom and can't be used to identify individuals. The Mobility and Weather services, which include integration with Moovit, and AccuWeather are currently in [PREVIEW](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Microsoft is currently in the process of adding TomTom, Moovit and AccuWeather to the Online Services Subcontractor List.
 
