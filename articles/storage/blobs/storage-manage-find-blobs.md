@@ -59,7 +59,7 @@ You can apply multiple tags on your blob to be more descriptive of the data.
 > "Priority" = '01' 
 >
 
-To modify the existing index tag attributes, you must first retrieve the existing tag attributes, modify the tag attributes, and replace with the SetBlobTags operation. To remove all index tags from the blob, call the SetBlobTags operation with no tag attributes specified. As blob index tags are a sub-resource to the blob data contents, SetBlobTags does not modify any underlying content and does not change the blob's last-modified-time or ETag (entity tag). You can create or modify index tags for all current base blobs and previous versions; however tags on snapshots or soft deleted blobs cannot be modified. 
+To modify the existing index tag attributes, you must first retrieve the existing tag attributes, modify the tag attributes, and replace with the SetBlobTags operation. To remove all index tags from the blob, call the SetBlobTags operation with no tag attributes specified. As blob index tags are a sub-resource to the blob data contents, SetBlobTags does not modify any underlying content and does not change the blob's last-modified-time or eTag (entity tag). You can create or modify index tags for all current base blobs and previous versions; however tags on snapshots or soft deleted blobs cannot be modified. 
 
 The following limits apply to Blob Index tags:
 - Each blob can have up to 10 blob index tags
@@ -290,7 +290,7 @@ This section describes known issues and conditions in the current public preview
 -	Account failover is currently not supported. The blob index may not update properly after failover.
 -	Lifecycle management currently only supports equality checks with Blob Index Match.
 -	CopyBlob does not copy blob index tags from the source blob to the new destination blob. You can specify the tags you want applied to the destination blob during the copy operation. 
-- CopyBlob (Async copy) from another storage account with applied tags on the destination blob currently causes the blob index engine to not return the blob and its tags in the filter set. It is recommended to use CopyBlob from URL (Sync copy) in the mean time.
+- CopyBlob (Async copy) from another storage account with applied tags on the destination blob currently causes the blob index engine to not return the blob and its tags in the filter set. It is recommended to use CopyBlob from URL (Sync copy) in the interim.
 -	Tags are persisted on snapshot creation; however promoting a snapshot is currently not supported and may result in an empty tag set.
 
 ## FAQ
