@@ -37,7 +37,7 @@ Azure Cache for Redis is available in the following tiers:
 | Tier | Description |
 |---|---|
 Basic | A single node cache. This tier supports multiple memory sizes (250 MB - 53 GB)and is ideal for development/test and non-critical workloads. The Basic tier has no service-level agreement (SLA) |
-| Standard | A replicated cache in a two-node, primary/secondary, configuration managed by Azure with a high-availability SLA (99.9%) |
+| Standard | A replicated cache in a two-node, primary/replica, configuration managed by Azure with a high-availability SLA (99.9%) |
 | Premium | The Premium tier is the Enterprise-ready tier. Premium tier Caches support more features and have higher throughput with lower latencies. Caches in the Premium tier are deployed on more powerful hardware providing better performance compared to the Basic or Standard Tier. This advantage means the throughput for a cache of the same size will be higher in Premium compared to Standard tier. |
 
 > [!TIP]

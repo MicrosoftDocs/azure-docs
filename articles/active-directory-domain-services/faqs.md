@@ -14,7 +14,7 @@ ms.date: 06/05/2020
 ms.author: iainfou
 
 ---
-# Frequently asked questions (FAQs)
+# Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services
 
 This page answers frequently asked questions about Azure Active Directory Domain Services.
 

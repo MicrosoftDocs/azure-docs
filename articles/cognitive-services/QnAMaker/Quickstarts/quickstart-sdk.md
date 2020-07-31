@@ -2,14 +2,14 @@
 title: "Quickstart: Use SDK to create and manage knowledge base - QnA Maker"
 description: This quickstart shows you how to create and manage your knowledge base using the client SDK.
 ms.topic: quickstart
-ms.date: 06/11/2020
-ms.custom: tracking-python
+ms.date: 06/18/2020
+ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-six
 ---
 
-# Quickstart: QnA Maker client library for .NET
+# Quickstart: QnA Maker client library
 
-Get started with the QnA Maker client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.
+Get started with the QnA Maker client library. Follow these steps to install the package and try out the example code for basic tasks.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# and REST](../includes/quickstart-sdk-csharp.md)]

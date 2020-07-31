@@ -81,14 +81,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     1. In the **Identifier** box, enter a URL in this pattern:
 
-        | |
-        |--|
-	    | `https://go.promapp.com/TENANTNAME/`|
-	    | `https://au.promapp.com/TENANTNAME/`|
-	    | `https://us.promapp.com/TENANTNAME/`|
-	    | `https://eu.promapp.com/TENANTNAME/`|
-	    | `https://ca.promapp.com/TENANTNAME/`|
-	    |   |
+        ```https
+        https://go.promapp.com/TENANTNAME/
+        https://au.promapp.com/TENANTNAME/
+        https://us.promapp.com/TENANTNAME/
+        https://eu.promapp.com/TENANTNAME/
+        https://ca.promapp.com/TENANTNAME/
+        ```
 
 	   > [!NOTE]
 	   > Azure AD integration with Nintex Promapp is currently configured only for service-initiated authentication. (That is, going to a Nintex Promapp URL initiates the authentication process.) But the **Reply URL** field is a required field.

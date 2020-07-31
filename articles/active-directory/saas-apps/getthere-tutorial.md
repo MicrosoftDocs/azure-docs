@@ -84,19 +84,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Identifier** text box, type a URL:
 
-	| |
-	|--|
-	| `getthere.com` |
-	| `http://idp.getthere.com` |
+    ```http
+    getthere.com
+    http://idp.getthere.com
+    ```
 
     b. In the **Reply URL** text box, type any one of the below URLs:
 
-	| |
-	|--|
-	| `https://wx1.getthere.net/login/saml/post.act` |
-	| `https://gtx2-gcte2.getthere.net/login/saml/post.act` |
-	| `https://gtx2-gcte2.getthere.net/login/saml/ssoaasvalidate.act` |
-	| `https://wx1.getthere.net/login/saml/ssoaavalidate.act` |
+    ```http
+    https://wx1.getthere.net/login/saml/post.act
+    https://gtx2-gcte2.getthere.net/login/saml/post.act
+    https://gtx2-gcte2.getthere.net/login/saml/ssoaasvalidate.act
+    https://wx1.getthere.net/login/saml/ssoaavalidate.act
+    ```
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 

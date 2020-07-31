@@ -26,7 +26,7 @@ The **ContentDefinitions** element contains URLs to HTML5 templates that can be 
 
 The following example shows the content definition identifier and the definition of localized resources:
 
-```XML
+```xml
 <ContentDefinition Id="api.localaccountsignup">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -42,7 +42,7 @@ The following example shows the content definition identifier and the definition
 
 The metadata of the **LocalAccountSignUpWithLogonEmail** self-asserted technical profile contains the content definition identifier **ContentDefinitionReferenceId** set to `api.localaccountsignup`
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -162,7 +162,7 @@ The **LocalizedResourcesReference** element contains the following attributes:
 
 The following example shows a sign-up or sign-in content definition with a reference to localization for English, French and Spanish:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>

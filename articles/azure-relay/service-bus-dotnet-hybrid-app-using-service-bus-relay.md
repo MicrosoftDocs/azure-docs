@@ -1,22 +1,10 @@
 ---
 title: Azure Windows Communication Foundation (WCF) Relay hybrid on-premises/cloud application (.NET) | Microsoft Docs
 description: Learn how to expose an on-premises WCF service to a web application in the cloud by using Azure Relay 
-services: service-bus-relay
-documentationcenter: .net
-author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
-ms.service: service-bus-relay
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
+
 # Expose an on-premises WCF service to a web application in the cloud by using Azure Relay
 
 This article shows how to build a hybrid cloud application with Microsoft Azure and Visual Studio. You create an application that uses multiple Azure resources in the cloud. This tutorial helps you learn:

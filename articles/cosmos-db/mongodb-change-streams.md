@@ -4,9 +4,10 @@ description: Learn how to use change streams n Azure Cosmos DB’s API for Mongo
 author: srchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: srchi
+ms.custom: devx-track-javascript
 ---
 
 # Change streams in Azure Cosmos DB’s API for MongoDB
@@ -80,7 +81,7 @@ enumerator.Dispose();
 
 # [Java](#tab/java)
 
-The following example shows how to use change stream functionality in Java, for the complete example, see this [GitHub repo](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/master/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java)
+The following example shows how to use change stream functionality in Java, for the complete example, see this [GitHub repo](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-changestream/blob/master/mongostream/src/main/java/com/azure/cosmos/mongostream/App.java). This example also shows how to use the `resumeAfter` method to seek all the changes from last read. 
 
 ```java
 Bson match = Aggregates.match(Filters.in("operationType", asList("update", "replace", "insert")));

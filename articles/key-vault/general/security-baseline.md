@@ -707,7 +707,7 @@ Get subscriptions that the current account can access.:
 
 https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
 
-What is role-based access control (RBAC) for Azure resources?
+What is Azure role-based access control (Azure RBAC)?
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 

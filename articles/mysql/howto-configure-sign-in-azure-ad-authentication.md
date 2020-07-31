@@ -4,11 +4,11 @@ description: Learn about how to set up Azure Active Directory (Azure AD) for aut
 author: lfittl-msft
 ms.author: lufittl
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 01/22/2019
+ms.topic: how-to
+ms.date: 07/23/2020
 ---
 
-# Use Azure Active Directory for authenticating with MySQL
+# Use Azure Active Directory for authentication with MySQL
 
 This article will walk you through the steps how to configure Azure Active Directory access with Azure Database for MySQL, and how to connect using an Azure AD token.
 

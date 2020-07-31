@@ -35,7 +35,7 @@ Some connectivity partners may extend the automation to include creating the Azu
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-The following partners are slated on our roadmap for the near future: 128 Technologies, Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, Oracle SD-WAN and SharpLink.
+The following partners are slated on our roadmap for the near future: 128 Technologies, Arista, Aruba HPE, Cisco Systems (Viptela), F5 Networks, Open Systems, Oracle SD-WAN and SharpLink.
 
 ## <a name="locations"></a>Locations
 

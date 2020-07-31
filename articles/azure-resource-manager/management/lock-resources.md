@@ -2,7 +2,8 @@
 title: Lock resources to prevent changes
 description: Prevent users from updating or deleting critical Azure resources by applying a lock for all users and roles.
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 06/17/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Lock resources to prevent unexpected changes
@@ -221,22 +222,26 @@ az lock delete --ids $lockid
 
 ## REST API
 
-You can lock deployed resources with the [REST API for management locks](https://docs.microsoft.com/rest/api/resources/managementlocks). The REST API enables you to create and delete locks, and retrieve information about existing locks.
+You can lock deployed resources with the [REST API for management locks](/rest/api/resources/managementlocks). The REST API enables you to create and delete locks, and retrieve information about existing locks.
 
 To create a lock, run:
 
-    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```http
+PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
+```
 
 The scope could be a subscription, resource group, or resource. The lock-name is whatever you want to call the lock. For api-version, use **2016-09-01**.
 
 In the request, include a JSON object that specifies the properties for the lock.
 
-    {
-      "properties": {
-        "level": "CanNotDelete",
-        "notes": "Optional text notes."
-      }
-    }
+```json
+{
+  "properties": {
+  "level": "CanNotDelete",
+  "notes": "Optional text notes."
+  }
+}
+```
 
 ## Next steps
 

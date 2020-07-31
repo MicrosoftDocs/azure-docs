@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -18,9 +17,7 @@ ROBOTS: NOINDEX, NOFOLLOW
 
 # Explore Azure Digital Twins with a sample client app
 
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
-
-This tutorial introduces a sample application that implements a command-line client application, for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [Tutorial: Code a client app](tutorial-code.md).
+This tutorial introduces a sample application that implements a command-line client application, for interacting with an Azure Digital Twins instance. The client app is similar to the one written in [*Tutorial: Code a client app*](tutorial-code.md).
 
 You can use this sample to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the code of the sample to learn about the Azure Digital Twins APIs, and practice implementing your own commands by modifying the sample project however you would like.
 
@@ -44,7 +41,7 @@ The first step in creating an Azure Digital Twins solution is defining twin [**m
 Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They are written in a JSON-like language called **Digital Twins Definition Language (DTDL)**, and can define a twin's *properties*, *telemetry*, *relationships*, and *components*.
 
 > [!NOTE]
-> DTDL also allows allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
+> DTDL also allows for the definition of *commands* on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
 
 In your Visual Studio window where the _**AdtE2ESample**_ project is open, use the *Solution Explorer* pane to navigate to the *AdtSampleApp\SampleClientApp\Models* folder. This folder contains sample models.
 
@@ -82,7 +79,7 @@ Make sure to save the file before moving on.
 > If you want to try creating your own model, you can paste the *Room* model code into a new file that you save with a *.json* extension in the *AdtSampleApp\SampleClientApp\Models* folder. Then, play around with adding properties and relationships to represent whatever you'd like. You can also look at the other sample models in this folder for ideas.
 
 > [!TIP] 
-> There is a language-agnostic [DTDL Validator sample](https://github.com/Azure-Samples/DTDL-Validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [How-to: Parse and validate models](how-to-use-parser.md).
+> There is a language-agnostic [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [*How-to: Parse and validate models*](how-to-use-parser.md).
 
 ### Get started with the command-line app
 
@@ -132,7 +129,8 @@ Re-run the `CreateModels` command to try re-uploading one of the same models you
 CreateModels Room
 ```
 
-As models cannot be overwritten, this will now return a service error:
+As models cannot be overwritten, this will now return a service error.
+For the details on how to delete existing models, see [*How-to: Manage custom models*](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -288,7 +286,7 @@ A main feature of Azure Digital Twins is the ability to [query](concepts-query-l
 
 ## Clean up resources
 
-The project in this tutorial forms the basis for the next tutorial, [Tutorial: Connect an end-to-end solution](tutorial-end-to-end.md). If you plan to continue to the next tutorial, you can keep the resources you set up here to continue using this Azure Digital Twins instance and configured sample app.
+The project in this tutorial forms the basis for the next tutorial, [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md). If you plan to continue to the next tutorial, you can keep the resources you set up here to continue using this Azure Digital Twins instance and configured sample app.
 * In this case, you can use the sample app's `DeleteAllTwins` and `DeleteAllModels` commands to clear the twins and models in your instance, respectively. This will give you a clean slate for the next tutorial.
 
 If you no longer need the resources created in this tutorial, follow these steps to delete them.
@@ -319,10 +317,10 @@ In this tutorial, you got started with Azure Digital Twins by setting up an inst
 Continue to the next tutorial to use the sample command-line app in combination with other Azure services to complete a data-driven, end-to-end scenario:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Connect an end-to-end solution](tutorial-end-to-end.md)
+> [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)
 
 Or, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
-* [Concepts: Custom models](concepts-models.md)
+* [*Concepts: Custom models*](concepts-models.md)
 
 You can also go more in-depth on the processes in this tutorial by starting the how-to articles:
-* [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md)
+* [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)

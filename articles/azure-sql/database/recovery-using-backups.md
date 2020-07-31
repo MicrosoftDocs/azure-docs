@@ -3,8 +3,8 @@ title: Restore a database from a backup
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Learn about point-in-time restore, which enables you to roll back a database in Azure SQL Database or an instance in Azure SQL Managed Instance up to 35 days.
 services: sql-database
-ms.service: sql-database
-ms.subservice: operations
+ms.service: sql-db-mi
+ms.subservice: service
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
@@ -45,11 +45,11 @@ For a large or very active database, the restore might take several hours. If th
 
 For a single subscription, there are limitations on the number of concurrent restore requests. These limitations apply to any combination of point-in-time restores, geo-restores, and restores from long-term retention backup.
 
-| | **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
+|| **Max # of concurrent requests being processed** | **Max # of concurrent requests being submitted** |
 | :--- | --: | --: |
-|Single database (per subscription)|10|60|
-|Elastic pool (per pool)|4|200|
-||||
+|**Single database (per subscription)**|10|60|
+|**Elastic pool (per pool)**|4|200|
+
 
 There isn't a built-in method to restore the entire server. For an example of how to accomplish this task, see [Azure SQL Database: Full server recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
 
@@ -58,7 +58,7 @@ There isn't a built-in method to restore the entire server. For an example of ho
 
 ## Point-in-time restore
 
-You can restore a standalone, pooled, or instance database to an earlier point in time by using the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases). The request can specify any service tier or compute size for the restored database. Ensure that you have sufficient resources on the server to which you are restoring the database. 
+You can restore a standalone, pooled, or instance database to an earlier point in time by using the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), or the [REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#creates-a-database-from-pointintimerestore.). The request can specify any service tier or compute size for the restored database. Ensure that you have sufficient resources on the server to which you are restoring the database. 
 
 When complete, the restore creates a new database on the same server as the original database. The restored database is charged at normal rates, based on its service tier and compute size. You don't incur charges until the database restore is complete.
 
@@ -78,7 +78,7 @@ You can recover a single or instance database to a point in time from the overvi
 
 #### SQL Database
 
-To recover a single or pooled database to a point in time by using the Azure portal, open the database overview page and select **Restore** on the toolbar. Choose the backup source, and select the point-in-time backup point from which a new database will be created.
+To recover a database to a point in time by using the Azure portal, open the database overview page and select **Restore** on the toolbar. Choose the backup source, and select the point-in-time backup point from which a new database will be created.
 
   ![Screenshot of database restore options](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
@@ -104,7 +104,7 @@ You restore deleted databases from the Azure portal from the server or managed i
 
 #### SQL Database
 
-To recover a single or pooled deleted database to the deletion time by using the Azure portal, open the server overview page, and select **Deleted databases**. Select a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
+To recover a deleted database to the deletion time by using the Azure portal, open the server overview page, and select **Deleted databases**. Select a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
 
   ![Screenshot of restore deleted database](./media/recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
@@ -224,7 +224,7 @@ To restore a managed instance database, see [Restore-AzSqlInstanceDatabase](/pow
 
 ### REST API
 
-To restore a single or pooled database by using the REST API:
+To restore a database by using the REST API:
 
 | API | Description |
 | --- | --- |
@@ -235,7 +235,7 @@ To restore a single or pooled database by using the REST API:
 
 #### SQL Database
 
-To restore a single or pooled database by using the Azure CLI, see [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
+To restore a database by using the Azure CLI, see [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
 
 #### SQL Managed Instance
 

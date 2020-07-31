@@ -11,7 +11,7 @@ ms.author: aahi
 ---
 
 > [!NOTE]
-> To detect `PHI`, use the `domain=phi` parameter and model version `2020-04-01` or later.
+> To detect `PHI` (protected health information), use the `domain=phi` parameter and model version `2020-04-01` or later.
 >
 > For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi&model-version=2020-04-01`
  
@@ -46,7 +46,7 @@ This entity category includes identifiable Azure information including authentic
 |---------------------------------------|-----------------------------------------------------------------------------|
 | Azure DocumentDB Auth Key             | Authorization key for an Azure DocumentDB server.                           |
 | Azure IAAS Database Connection String and Azure SQL Connection String | Connection string for an Azure Infrastructure as a service (IaaS) database, and SQL connection string. |
-| Azure SQL Connection String           | Connection string for an Azure SQL database.                                |
+| Azure SQL Connection String           | Connection string for a database in Azure SQL Database.                                |
 | Azure IoT Connection String           | Connection string for Azure Internet of things(IoT).                        |
 | Azure Publish Setting Password        | Password for Azure Publish settings.                                        |
 | Azure Redis Cache Connection String   | Connection string for an Azure Cache for Redis.                             |

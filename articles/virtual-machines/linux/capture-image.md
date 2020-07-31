@@ -7,7 +7,7 @@ ms.subservice: imaging
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.custom: legacy
+ms.custom: legacy, devx-track-azurecli
 ---
 # How to create a managed image of a virtual machine or VHD
 
@@ -19,7 +19,7 @@ To create a managed image, you'll need to remove personal account information. I
 
 To create a copy of your existing Linux VM for backup or debugging, or to upload a specialized Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](upload-vhd.md).  
 
-You can use the **Azure VM Image Builder (Public Preview)** service to build your custom image, no need to learn any tools, or setup build pipelines, simply providing an image configuration, and the Image Builder will create the Image. For more information, see [Getting Started with Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+You can use the **Azure VM Image Builder (Public Preview)** service to build your custom image, no need to learn any tools, or setup build pipelines, simply providing an image configuration, and the Image Builder will create the Image. For more information, see [Getting Started with Azure VM Image Builder](./image-builder-overview.md).
 
 You'll need the following items before creating an image:
 
@@ -131,4 +131,4 @@ az vm show \
 ```
 
 ## Next steps
-To create, store and share images at scale, see [Shared Image Galleries](shared-images.md).
+To create, store and share images at scale, see [Shared Image Galleries](../shared-images-cli.md).

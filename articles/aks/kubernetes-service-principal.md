@@ -107,6 +107,9 @@ You may use advanced networking where the virtual network and subnet or public I
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
+  - If using [custom route tables on Kubenet clusters](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) add these additional permissions:
+    - *Microsoft.Network/routeTables/write*
+    - *Microsoft.Network/routeTables/read*
 - Or, assign the [Network Contributor][rbac-network-contributor] built-in role on the subnet within the virtual network
 
 ### Storage

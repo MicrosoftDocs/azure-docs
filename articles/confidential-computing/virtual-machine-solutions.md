@@ -64,6 +64,9 @@ az vm list-skus
     --size dc 
     --query "[?family=='standardDCSv2Family']"
 ```
+### Dedicated host requirements
+Deploying a **Standard_DC8_v2** virtual machine size in the DCSv2-Series VM family will occupy the full host and will not be shared with other tenants or subscriptions. This VM SKU family provides the isolation you may need in order to meet compliance and security regulatory requirements that are normally met by having a dedicated host service. When you choose **Standard_DC8_v2** SKU, the physical host server will allocate all of the available hardware resources including EPC memory only to your virtual machine. Please note that this functionality exists by infrastructure design and all the features of the **Standard_DC8_v2** will be supported. This deployment is not the same as the [Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) service that is provided by other Azure VM Families.
+
 
 ## Deployment considerations
 

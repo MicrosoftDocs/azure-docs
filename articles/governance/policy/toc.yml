@@ -93,12 +93,21 @@
   - name: Design Policy as Code workflows
     displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
     href: ./concepts/policy-as-code.md
-  - name: Azure Policy for Kubernetes (preview)
-    displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
-    href: ./concepts/policy-for-kubernetes.md
+  - name: Kubernetes integration
+    items:
+    - name: Azure Policy for Kubernetes (preview)
+      displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
+      href: ./concepts/policy-for-kubernetes.md
+    - name: Secure pods with Azure Policy (preview)
+      displayName: aks, psp, rego, opa
+      href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Audit VMs with Guest Configuration
     displayName: provider, tools, definition
     href: ./concepts/guest-configuration.md
+  - name: Security
+    items:
+    - name: Security baseline for Azure Security Benchmark
+      href: ./concepts/azure-security-benchmark-baseline.md
 - name: How-to guides
   items:
   - name: Azure Policy extension for VS Code
@@ -110,12 +119,17 @@
   - name: Author policies for array properties
     displayName: array property, alias, aliases, in, notIn, type, defaultValue
     href: ./how-to/author-policies-for-arrays.md
-  - name: Create a Guest Configuration policy on Windows
-    displayName: powershell, dsc, chef, windows
-    href: ./how-to/guest-configuration-create.md
-  - name: Create a Guest Configuration policy on Linux
-    displayName: powershell, dsc, chef, linux
-    href: ./how-to/guest-configuration-create-linux.md
+  - name: Guest Configuration
+    items:
+    - name: Create a Guest Configuration policy on Windows
+      displayName: powershell, dsc, chef, windows
+      href: ./how-to/guest-configuration-create.md
+    - name: Create a Guest Configuration policy on Linux
+      displayName: powershell, dsc, chef, linux
+      href: ./how-to/guest-configuration-create-linux.md
+    - name: Create a Guest Configuration policy from Group Policy
+      displayName: powershell, dsc, grouppolicy, windows
+      href: ./how-to/guest-configuration-create-group-policy.md
   - name: Get compliance data
     displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/get-compliance-data.md
@@ -129,7 +143,7 @@
     items:
     - name: Integrate Key Vault with Azure Policy
       displayName: key vault, certificate, key
-      href: ../../key-vault/azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: ../../key-vault/general/azure-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
   - name: Azure Lighthouse integration
     items:
     - name: Deploy a policy at scale
@@ -172,7 +186,7 @@
       href: /java/api/com.microsoft.azure.management.resources.policyassignment?view=azure-java-stable
     - name: Policy Definitions
       href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
-  - name: Azure SDK for Node
+  - name: Azure SDK for JavaScript
     items:
     - name: Policy
       href: /javascript/api/@azure/arm-policy
@@ -214,6 +228,8 @@
       href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Resources
   items:
+  - name: Known issues
+    href: https://github.com/azure/azure-policy#known-issues
   - name: GitHub - Azure Policy samples
     href: https://github.com/Azure/azure-policy
   - name: GitHub - Community Policy repo
@@ -232,8 +248,8 @@
       href: https://www.youtube.com/watch?v=fbZBaxcjA-Y
     - name: Remediation Task
       href: https://www.youtube.com/watch?v=URE4DUYMgmg
-  - name: Video - Build 2018
-    href: https://channel9.msdn.com/events/Build/2018/THR2030
+  - name: Video - Ignite 2019
+    href: https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator

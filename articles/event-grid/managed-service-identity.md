@@ -1,13 +1,8 @@
 ---
 title: Event delivery with managed service identity
 description: This article describes how to enable managed service identity for an Azure event grid topic. Use it to forward events to supported destinations. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 06/18/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Event delivery with a managed identity
@@ -40,6 +35,8 @@ Similarly, you can use the `az eventgrid domain create` command to create a doma
 In the previous section, you learned how to enable a system-managed identity while you created a topic or a domain. In this section, you learn how to enable a system-managed identity for an existing topic or domain. 
 
 ### Use the Azure portal
+The following procedure shows you how to enable system-managed identity for a topic. The steps for enabling an identity for a domain are similar. 
+
 1. Go to the [Azure portal](https://portal.azure.com).
 2. Search for **event grid topics** in the search bar at the top.
 3. Select the **topic** for which you want to enable the managed identity. 
@@ -62,14 +59,14 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 The command for updating an existing domain is similar (`az eventgrid domain update`).
 
 ## Supported destinations and RBAC roles
-After you enable identity for your event grid topic or domain, Azure automatically creates an identity in Azure Active Directory. Add this identity to appropriate role-based access control (RBAC) roles so that the topic or domain can forward events to supported destinations. For example, add the identity to the **Azure Event Hubs Data Sender** role for an Azure Event Hubs namespace so that the event grid topic can forward events to event hubs in that namespace. 
+After you enable identity for your event grid topic or domain, Azure automatically creates an identity in Azure Active Directory. Add this identity to appropriate Azure roles so that the topic or domain can forward events to supported destinations. For example, add the identity to the **Azure Event Hubs Data Sender** role for an Azure Event Hubs namespace so that the event grid topic can forward events to event hubs in that namespace. 
 
 Currently, Azure event grid supports topics or domains configured with a system-assigned managed identity to forward events to the following destinations. This table also gives you the roles that the identity should be in so that the topic can forward the events.
 
 | Destination | RBAC role | 
 | ----------- | --------- | 
-| Service Bus queues and topics | [Azure Service Bus Data Sender](../service-bus-messaging/authenticate-application.md#built-in-rbac-roles-for-azure-service-bus) |
-| Azure Event Hubs | [Azure Event Hubs Data Sender](../event-hubs/authorize-access-azure-active-directory.md#built-in-rbac-roles-for-azure-event-hubs) | 
+| Service Bus queues and topics | [Azure Service Bus Data Sender](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
+| Azure Event Hubs | [Azure Event Hubs Data Sender](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
 | Azure Blob storage | [Storage Blob Data Contributor](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
 | Azure Queue storage |[Storage Queue Data Message Sender](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
 

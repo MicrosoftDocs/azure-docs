@@ -191,7 +191,7 @@ Now that you have established a connection to the flow logs using Logstash and s
 
    Once you launch the input, you should see it appear under the **Local inputs** section, as shown in the following picture:
 
-   ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
+   ![Screenshot that shows the Local inputs section that contains the input you launched.](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
    To learn more about Graylog message inputs, refer to the [documentation](https://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
 

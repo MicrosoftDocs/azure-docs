@@ -4,7 +4,7 @@ description: Lists the previous generations of sizes available for virtual machi
 services: virtual-machines
 ms.subservice: sizes
 author: mimckitt
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
@@ -295,7 +295,7 @@ The maximum disk throughput possible with Ls-series VMs may be limited by the nu
 
 ### GS-series
 
-**Newer size recommendation**: [Easv4-series](eav4-easv4-series.md), [Esv4-series](ev4-esv4-series.md) and [Edsv4-series](edv4-edsv4-series.md) and [M-series](m-series.md)
+**Newer size recommendation**: [Easv4-series](eav4-easv4-series.md), [Esv4-series](ev4-esv4-series.md), [Edsv4-series](edv4-edsv4-series.md) and [M-series](m-series.md)
 
 ACU: 180 - 240 <sup>1</sup>
 

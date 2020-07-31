@@ -42,4 +42,4 @@ Customers might also be interested in managed applications from multiple service
 ## Next steps
 
 - Learn about [Azure managed applications](../../azure-resource-manager/managed-applications/overview.md).
-- Learn how to [onboard a subscription to Azure delegated resource management](../how-to/onboard-customer.md).
+- Learn how to [onboard a subscription to Azure Lighthouse](../how-to/onboard-customer.md).

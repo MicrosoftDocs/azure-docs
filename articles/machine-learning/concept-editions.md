@@ -14,13 +14,6 @@ ms.date: 06/11/2020
 
 Azure Machine Learning offers two editions tailored for your machine learning needs. These editions determine which machine learning tools are available to developers and data scientists from their workspace.
 
-<br/>
-<br/>
-
-| Basic edition | Enterprise edition                 |
-|------------------------------------------------------------------------------------|-----------|
-|Great for: <br/>+ open-source development <br/>+ at cloud scale with a<br/>+ code-first experience <br/><br/>Basic workspaces allow you to continue using Azure Machine Learning and [pay only for the Azure resources consumed](concept-plan-manage-cost.md) during the ML process. |All of Basic edition, plus:<br/>+ the studio web interface <br/>+ secure, comprehensive ML lifecycle management <br/>+ for all skill levels<br/><br/>Enterprise edition workspaces are charged only for their Azure consumption while the edition is in preview. |
-
 ## Choose an edition
 
 You assign the edition whenever you create a workspace. Customers are responsible for costs incurred on compute and other Azure resources during this time. Learn how to [manage costs for Azure Machine Learning](concept-plan-manage-cost.md).
@@ -106,7 +99,6 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 | Batch inferencing                                                                  | All                     |
 | FPGA based Hardware Accelerated Models                                             | All                     |
 | Model profiling                                                                    | All                     |
-| Explainability in UI                                                               | Enterprise edition only |
 
 <br/>
 <br/>

@@ -5,7 +5,7 @@ description: Get started using Azure Active Directory terms of use to present in
 services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2019
 
 ms.author: joflore

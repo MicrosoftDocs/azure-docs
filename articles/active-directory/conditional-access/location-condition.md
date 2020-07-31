@@ -5,8 +5,7 @@ description: Learn how to use the location condition to control access to your c
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.workload: identity
+ms.topic: conceptual
 ms.date: 06/15/2020
 
 ms.author: joflore
@@ -193,7 +192,7 @@ When a cloud proxy is in place, a policy that is used to require a domain joined
 
 ### API support and PowerShell
 
-API and PowerShell is not yet supported for named locations.
+A preview version of the Graph API for named locations is available, for more information see the [namedLocation API](/graph/api/resources/namedlocation?view=graph-rest-beta).
 
 ## Next steps
 

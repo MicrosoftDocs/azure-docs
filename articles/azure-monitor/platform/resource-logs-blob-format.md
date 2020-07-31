@@ -12,7 +12,7 @@ ms.subservice: logs
 # Prepare for format change to Azure Monitor platform logs archived to a storage account
 
 > [!WARNING]
-> If you are sending [Azure resource logs or metrics to a storage account using diagnostic settings](resource-logs-collect-storage.md) or [activity logs to a storage account using log profiles](resource-logs-collect-storage.md), the format of the data in the storage account changed to JSON Lines on Nov. 1, 2018. The instructions below describe the impact and how to update your tooling to handle the new format.
+> If you are sending [Azure resource logs or metrics to a storage account using diagnostic settings](./resource-logs.md#send-to-azure-storage) or [activity logs to a storage account using log profiles](./resource-logs.md#send-to-azure-storage), the format of the data in the storage account changed to JSON Lines on Nov. 1, 2018. The instructions below describe the impact and how to update your tooling to handle the new format.
 >
 
 ## What changed
@@ -24,9 +24,9 @@ Azure Monitor offers a capability that enables you to send resource logs and act
 * Setting a diagnostic setting between prior to November 1 continued to emit data in the current format until November 1.
 * This change occurred at once across all public cloud regions. The change will not occur in Microsoft Azure Operated by 21Vianet, Azure Germany, or Azure Government clouds yet.
 * This change impacts the following data types:
-  * [Azure resource logs](archive-diagnostic-logs.md) ([see list of resources here](diagnostic-logs-schema.md))
+  * [Azure resource logs](./resource-logs.md#send-to-azure-storage) ([see list of resources here](./resource-logs-schema.md))
   * [Azure resource metrics being exported by diagnostic settings](diagnostic-settings.md)
-  * [Azure Activity log data being exported by log profiles](activity-log-collect.md)
+  * [Azure Activity log data being exported by log profiles](./activity-log.md)
 * This change does not impact:
   * Network flow logs
   * Azure service logs not made available through Azure Monitor yet (for example, Azure App Service resource logs, storage analytics logs)
@@ -118,7 +118,7 @@ The new format uses [JSON lines](http://jsonlines.org/), where each event is a l
 {"time": "2016-01-05T01:33:56.5264523Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "83","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}
 ```
 
-This new format enables Azure Monitor to push log files using [append blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs), which are more efficient for continuously appending new event data.
+This new format enables Azure Monitor to push log files using [append blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs), which are more efficient for continuously appending new event data.
 
 ## How to update
 
@@ -128,6 +128,5 @@ Custom tools should be updated to handle both the current format and the JSON Li
 
 ## Next steps
 
-* Learn about [archiving resource resource logs to a storage account](./../../azure-monitor/platform/archive-diagnostic-logs.md)
-* Learn about [archiving activity log data to a storage account](./../../azure-monitor/platform/archive-activity-log.md)
-
+* Learn about [archiving resource resource logs to a storage account](./resource-logs.md#send-to-azure-storage)
+* Learn about [archiving activity log data to a storage account](./activity-log.md#legacy-collection-methods)

@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
-ms.date: 08/15/2019
+ms.date: 06/18/2020
 ms.custom: seodec18
 ---
 
@@ -83,7 +83,7 @@ See [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearnin
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-Samples for usage in other languages can be found in the [ONNX Runtime Github](https://github.com/microsoft/onnxruntime/tree/master/samples).
+Samples for usage in other languages can be found in the [ONNX Runtime GitHub](https://github.com/microsoft/onnxruntime/tree/master/samples).
 
 ## More info
 

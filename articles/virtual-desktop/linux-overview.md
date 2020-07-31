@@ -64,7 +64,7 @@ Before you can develop a Linux client for Windows Virtual Desktop, you need to d
 
 Check out our documentation for the following clients:
 
-- [Windows Desktop client](connect-windows-7-and-10.md)
+- [Windows Desktop client](connect-windows-7-10.md)
 - [Web client](connect-web.md)
 - [Android client](connect-android.md)
 - [macOS client](connect-macos.md)
