@@ -465,15 +465,18 @@ The following exhausts possible configuration options within the file:
 
 ## Pin your app to a specific authentication runtime version
 
-An app that has enabled App Service Authentication / Authorization runs on a specific version of the Authentication / Authorization runtime, which currently only supports one major version: 1.x. By default, these apps run on the newest version of this runtime. This article explains how to configure an app in Azure to run on any runtime version you choose. For an overview on the authentication and authorization feature, see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md).
+When you enable Authentication / Authorization, platform middleware is injected into your HTTP request pipeline as described in the [feature overview](overview-authentication-authorization.md#how-it-works). This platform middleware is periodically updated with new features and improvements as part of routine platform updates. By default, your web or function app will run on the latest version of this platform middleware. These automatic updates are always backwards compatible. However, in the rare event that this automatic update introduces a runtime issue for your web or function app, you can temporarily roll back to the previous middleware version. This article explains how to temporarily pin an app to a specific version of the authentication middleware.
 
 ### Automatic and manual version updates 
+
 You can pin your app to a specific version of the platform middleware by setting a `runtimeVersion` setting for the app. Your app always runs on the latest version unless you choose to explicitly pin it back to a specific version. There will be a few versions supported at a time. If you pin to an invalid version that is no longer supported, your app will use the latest version instead. To always run the latest version, set `runtimeVersion` to ~1. 
 
 ### View and update the current runtime version
+
 You can change the runtime version used by your app. The new runtime version should take effect after restarting the app. 
 
 #### From the Azure CLI
+
 You can also view and set the `runtimeVersion` from the Azure CLI.
 
 Using the Azure CLI, view the current runtime version with the [az webapp auth show](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) command.
