@@ -3,12 +3,11 @@ title: Data Lake Analytics recent changes
 description: This article provides an ongoing list of recent changes that are made to Data Lake Analytics. 
 services: data-lake-analytics
 author: xujiang1
-editor: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: overview
 ms.author: xujiang1
-s.date: 07/31/2020
+ms.date: 07/31/2020
 ---
 
 # What's new in Data Lake Analytics?
