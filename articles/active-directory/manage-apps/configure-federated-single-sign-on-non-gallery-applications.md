@@ -19,8 +19,7 @@ ms.collection: M365-identity-device-management
 
 # How to configure federated single sign-on for a non-gallery application
 
-## Overview of steps required
-Below is a high-level overview of the steps required to configure federated single sign-on with SAML 2.0 for a non-gallery (e.g. custom) application.
+This article provides a high-level overview of the steps required to configure federated single sign-on with SAML 2.0 for a non-gallery (e.g., custom) application.
 
 -   Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)
 
