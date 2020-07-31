@@ -40,7 +40,9 @@ In this section, you create a load balancer that load balances virtual machines.
 
 You can create a public load balancer or an internal load balancer. 
 
-When you create a public load balancer, you create a virtual network that is configured as the network where the load balancer will will reside. A private IP address in the virtual network is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer.  The frontend IP address can be **Static** or **Dynamic**.
+When you create a internal load balancer, you create a virtual network that is configured as the network where the load balancer will will reside. A private IP address in the virtual network is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer. 
+
+The frontend IP address can be **Static** or **Dynamic**.
 
 ## Virtual network and parameters
 
@@ -202,7 +204,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Subnet | **myBackendSubnet** |
     | Public IP | Accept the default of **myVM-ip**. </br> IP will automatically be a standard SKU IP in Zone 1. |
     | NIC network security group | Select **Advanced**|
-    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myHTTPRule** </br> Select **Add** </br> Select **OK** |
+    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Select **OK** |
     | **Load balancing**  |
     | Place this virtual machine behind an existing load balancing solution? | Select **Yes** |
     | **Load balancing settings** |
@@ -241,39 +243,9 @@ In this section, you create a load balancer that load balances virtual machines.
 
 You can create a public load balancer or an internal load balancer. 
 
-When you create a public load balancer, you create a new public IP address that is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer.
+When you create a internal load balancer, you create a virtual network that is configured as the network where the load balancer will will reside. A private IP address in the virtual network is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer. 
 
-1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
-
-2. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
-
-    | Setting                 | Value                                              |
-    | ---                     | ---                                                |
-    | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **Create new** and type **myResourceGroupLB** in the text box.|
-    | Name                   | Enter **myLoadBalancer**                                   |
-    | Region         | Select **West Europe**.                                        |
-    | Type          | Select **Public**.                                        |
-    | SKU           | Select **Basic** |
-    | Public IP address | Select **Create new**. If you have an existing Public IP you would like to use, select **Use existing**. |
-    | Public IP address name | Type **myPublicIP** in the text box.|
-    | Assignment | Select **Dynamic** |
-    | Add a public IPv6 address | Select **No**. </br> For more information on IPv6 addresses and load balancer, see [What is IPv6 for Azure Virtual Network?](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)  |
-
-3. Accept the defaults for the remaining settings, and then select **Review + create**.
-
-4. In the **Review + create** tab, select **Create**.   
-
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Create a basic load balancer" border="true":::
-
-## Create load balancer resources
-
-In this section, you configure:
-
-* Create a virtual network.
-* Load balancer settings for a backend address pool.
-* A health probe.
-* A load balancer rule.
+The frontend IP address can be **Static** or **Dynamic**.
 
 ## Virtual network and parameters
 
@@ -289,6 +261,38 @@ In this section, you'll replace the parameters in the steps with the information
 | **\<subnet-address-range>** | 10.1.0.0\24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
+
+## Create load balancer
+
+1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
+
+2. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
+
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
+    | Subscription               | Select your subscription.    |    
+    | Resource group         | Select **myResourceGroupLB** created in the previous step.|
+    | Name                   | Enter **myLoadBalancer**                                   |
+    | Region         | Select **West Europe**.                                        |
+    | Type          | Select **Internal**.                                        |
+    | SKU           | Select **Basic** |
+    | Virtual network | Select **myVNet** created in the previous step. |
+    | Subnet  | Select **myBackendSubnet** created in the previous step. |
+    | IP address assignment | Select **Dynamic**. |
+
+3. Accept the defaults for the remaining settings, and then select **Review + create**.
+
+4. In the **Review + create** tab, select **Create**.   
+
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Create a standard internal load balancer" border="true":::
+
+## Create load balancer resources
+
+In this section, you configure:
+
+* Load balancer settings for a backend address pool.
+* A health probe.
+* A load balancer rule.
 
 ### Create a backend pool
 
@@ -307,6 +311,8 @@ Create the backend address pool **myBackendPool** to include virtual machines fo
     | Name | Enter **myBackendPool**. |
     | Virtual network | Select **myVNet**. |
     | Associated to | Select **Virtual machines** |
+
+4. Select **Add**.
 
 ### Create a health probe
 
@@ -365,7 +371,7 @@ In this section, you'll create a load balancer rule:
 
 In this section, you:
 
-* Create three virtual machines for the backend pool of the load balancer.
+* Create two virtual machines for the backend pool of the load balancer.
 * Create an availability set for the virtual machines.
 * Install IIS on the virtual machines to test the load balancer.
 
@@ -373,9 +379,9 @@ In this section, you:
 
 Public IP SKUs and load balancer SKUs must match. For basic load balancer, use VMs with basic IP addresses in the backend pool. 
 
-In this section, you'll create three VMs (**myVM1**, **myVM2**, and **myVM3**) with a basic public IP address.  
+In this section, you'll create two VMs (**myVM1**, and **myVM2**) with a basic public IP address.  
 
-The three VMs will be added to an availability set named **myAvailabilitySet**.
+The two VMs will be added to an availability set named **myAvailabilitySet**.
 
 These VMs are added to the backend pool of the load balancer that was created earlier.
 
@@ -412,7 +418,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Subnet | Select **myBackendSubnet** |
     | Public IP | Select **Create new** </br> Enter **myVM-ip** in name. </br> Select **OK** |
     | NIC network security group | Select **Advanced**|
-    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myHTTPRule** </br> Select **Add** </br> Select **OK** |
+    | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Select **OK** |
     | **Load balancing**  |
     | Place this virtual machine behind an existing load balancing solution? | Select **No** |
  
@@ -428,14 +434,31 @@ These VMs are added to the backend pool of the load balancer that was created ea
   
 8. Review the settings, and then select **Create**.
 
-9. Follow the steps 1 to 8 to create two additional VMs with the following values and all the other settings the same as **myVM1**:
+9. Follow the steps 1 to 8 to create one additional VM with the following values and all the other settings the same as **myVM1**:
 
-    | Setting | VM 2| VM 3|
-    | ------- | ----- |---|
-    | Name |  **myVM2** |**myVM3**|
-    | Availability set| Select **myAvailabilitySet** | Select **myAvailabilitySet**|
-    | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
+    | Setting | VM 2 |
+    | ------- | ----- |
+    | Name |  **myVM2** |
+    | Availability set| Select **myAvailabilitySet** |
+    | Network security group | Select the existing **myNSG**|
 
+### Add virtual machines to the backend pool
+
+The VMs created in the previous steps must be added to the backend pool of **myLoadBalancer**.
+
+1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
+
+2. Under **Settings**, select **Backend pools**, then select **myBackendPool**.
+
+3. Select **Virtual machines** in **Associated to**.
+
+4. In the **Virtual machines** section, select **+ Add**.
+
+5. Select the boxes next to **myVM1** and **myVM2**.
+
+6. Select **Add**.
+
+7. Select **Save**.
 ---
 
 ## Create test virtual machine
@@ -541,8 +564,8 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
 
 4. Copy the private IP address, and then paste it into the address bar of the browser. The default page of IIS Web server is displayed on the browser.
 
-   ![IIS Web server](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
-
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Create a standard internal load balancer" border="true":::
+   
 To see the load balancer distribute traffic across all three VMs, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
 
 ## Clean up resources
@@ -553,8 +576,8 @@ When no longer needed, delete the resource group, load Balancer, and all related
 
 In this quickstart, you:
 
-* Created an Azure Standard or Basic Load Balancer
-* Attached 3 VMs to the load balancer.
+* Created an Azure Standard or Basic Internal Load Balancer
+* Attached 2 VMs to the load balancer.
 * Configured the load balancer traffic rule, health probe, and then tested the load balancer. 
 
 To learn more about Azure Load Balancer, continue to [What is Azure Load Balancer?](load-balancer-overview.md) and [Load Balancer frequently asked questions](load-balancer-faqs.md).
