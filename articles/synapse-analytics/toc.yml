@@ -220,6 +220,8 @@
         href: ./spark/apache-spark-version-support.md
       - name: What is Delta Lake
         href: ./spark/apache-spark-what-is-delta-lake.md
+      - name: Delta Lake functional overview
+        href: ./spark/apache-spark-deltalake-overview.md
       - name: Apache Spark performance
         href: ./spark/apache-spark-performance.md
       - name: Apache Spark Auto Scale behavior
