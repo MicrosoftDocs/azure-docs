@@ -133,8 +133,7 @@ If you have questions on this backfill process, contact: `managementgroups@micro
   
 ## Management group access
 
-Azure management groups support [Azure Role-Based Access Control
-(RBAC)](../../role-based-access-control/overview.md) for all resource accesses and role definitions.
+Azure management groups support [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for all resource accesses and role definitions.
 These permissions are inherited to child resources that exist in the hierarchy. Any RBAC role can be
 assigned to a management group that will inherit down the hierarchy to the resources. For example,
 the RBAC role VM contributor can be assigned to a management group. This role has no action on the

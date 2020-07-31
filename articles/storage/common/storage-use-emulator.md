@@ -206,7 +206,7 @@ The following differences apply to Blob storage in the emulator:
 * Incremental copy allows snapshots from overwritten blobs to be copied, which returns a failure on the service.
 * Get Page Ranges Diff doesn't work between snapshots copied using Incremental Copy Blob.
 * A Put Blob operation may succeed against a blob that exists in the storage emulator with an active lease even if the lease ID hasn't been specified in the request.
-* Append Blob operations are not supported by the emulator. Attempting an operation on an append blob returns a FeatureNotSupportedByEmulator error (HTTP status code 400 - Bad Request).
+* Append blob operations are not supported by the emulator. Attempting an operation on an append blob returns a FeatureNotSupportedByEmulator error (HTTP status code 400 - Bad Request).
 
 ### Differences for Table storage
 
@@ -300,7 +300,7 @@ There are no differences specific to Queue storage in the emulator.
 
 ### Version 4.1
 
-* The storage emulator now supports version 2015-02-21 of the storage services on Blob, Queue, and Table service endpoints. It doesn't support the new Append Blob features.
+* The storage emulator now supports version 2015-02-21 of the storage services on Blob, Queue, and Table service endpoints. It doesn't support the new append blob features.
 * The emulator now returns a meaningful error message for unsupported versions of storage services. We recommend using the latest version of the emulator. If you get a VersionNotSupportedByEmulator error (HTTP status code 400 - Bad Request), download the latest version of the emulator.
 * Fixed a bug wherein a race condition caused table entity data to be incorrect during concurrent merge operations.
 
