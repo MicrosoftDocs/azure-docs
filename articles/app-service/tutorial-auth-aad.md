@@ -6,19 +6,22 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: seodec18
+zone_pivot_groups: app-service-platform-windows-linux
 ---
 
 # Tutorial: Authenticate and authorize users end-to-end in Azure App Service
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [user authentication and authorization](overview-authentication-authorization.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses a ASP.NET Core app with an Angular.js front end as an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. In addition, App Service has built-in support for [user authentication and authorization](overview-authentication-authorization.md). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an ASP.NET Core app with an Angular.js front end as an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
 
----
+::: zone-end
 
 ![Simple authentication and authorization](./media/tutorial-auth-aad/simple-auth.png)
 
@@ -82,7 +85,7 @@ In this step, you deploy the project to two App Service apps. One is the front-e
 
 ### Create Azure resources
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 In the Cloud Shell, run the following commands to create two Windows web apps. Replace _\<front-end-app-name>_ and _\<back-end-app-name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md).
 
@@ -93,7 +96,9 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <back-end-app-name> --deployment-local-git --query deploymentLocalGitUrl
 ```
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 In the Cloud Shell, run the following commands to create two web apps. Replace _\<front-end-app-name>_ and _\<back-end-app-name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [Create a .NET Core app in Azure App Service](app-service-web-get-started-dotnet.md?tabs=linux).
 
@@ -106,6 +111,8 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 az webapp config set --resource-group myAuthResourceGroup --name <front-end-app-name> --linux-fx-version "DOTNETCORE|3.1"
 az webapp config set --resource-group myAuthResourceGroup --name <back-end-app-name> --linux-fx-version "DOTNETCORE|3.1"
 ```
+
+::: zone-end
 
 > [!NOTE]
 > Save the URLs of the Git remotes for your front-end app and back-end app, which are shown in the output from `az webapp create`.

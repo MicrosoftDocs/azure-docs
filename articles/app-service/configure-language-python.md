@@ -33,7 +33,7 @@ To show all supported Python versions, run the following command in the [Cloud S
 az webapp list-runtimes --linux | grep PYTHON
 ```
 
-You can run an unsupported version of Python by building your own container image instead. For more information, see [use a custom Docker image](containers/tutorial-custom-docker-image.md).
+You can run an unsupported version of Python by building your own container image instead. For more information, see [use a custom Docker image](tutorial-custom-container.md).
 
 ## Set Python version
 
@@ -194,7 +194,7 @@ Popular web frameworks let you access the `X-Forwarded-*` information in your st
 > [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Deploy from private container repository](containers/tutorial-custom-docker-image.md)
+> [Tutorial: Deploy from private container repository](tutorial-custom-container.md)
 
 > [!div class="nextstepaction"]
 > [App Service Linux FAQ](faq-app-service-linux.md)

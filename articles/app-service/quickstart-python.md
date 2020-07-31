@@ -250,4 +250,4 @@ The command may take a minute to complete.
 > [Configure Python app](configure-language-python.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Run Python app in custom container](containers/tutorial-custom-docker-image.md)
+> [Tutorial: Run Python app in custom container](tutorial-custom-container.md)

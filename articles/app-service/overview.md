@@ -79,4 +79,4 @@ Create your first web app.
 > [HTML (on Windows or Linux)](app-service-web-get-started-html.md)
 
 > [!div class="nextstepaction"]
-> [Custom container (Windows or Linux)](containers/tutorial-custom-docker-image.md)
+> [Custom container (Windows or Linux)](tutorial-custom-container.md)

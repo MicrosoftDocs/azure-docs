@@ -5,6 +5,7 @@ ms.custom: devx-track-javascript
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
+zone_pivot_groups: app-service-platform-windows-linux
 
 ---
 
@@ -16,7 +17,7 @@ This guide provides key concepts and instructions for Node.js developers who dep
 
 ## Show Node.js version
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 To show the current Node.js version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -30,7 +31,9 @@ To show all supported Node.js versions, run the following command in the [Cloud 
 az webapp list-runtimes | grep node
 ```
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 To show the current Node.js version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -44,11 +47,11 @@ To show all supported Node.js versions, run the following command in the [Cloud 
 az webapp list-runtimes --linux | grep NODE
 ```
 
----
+::: zone-end
 
 ## Set Node.js version
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 To set your app to a [supported Node.js version](#show-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com) to set `WEBSITE_NODE_DEFAULT_VERSION` to a supported version:
 
@@ -61,7 +64,9 @@ This setting specifies the Node.js version to use, both at runtime and during au
 > [!NOTE]
 > You should set the Node.js version in your project's `package.json`. The deployment engine runs in a separate process that contains all the supported Node.js versions.
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 To set your app to a [supported Node.js version](#show-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -74,12 +79,9 @@ This setting specifies the Node.js version to use, both at runtime and during au
 > [!NOTE]
 > You should set the Node.js version in your project's `package.json`. The deployment engine runs in a separate container that contains all the supported Node.js versions.
 
----
+::: zone-end
 
-# [Windows](#tab/windows)
-
-
-# [Linux](#tab/linux)
+::: zone pivot="platform-linux"
 
 ## Customize build automation
 
@@ -189,7 +191,7 @@ In the Azure explorer, find the app you want to debug, right-click it and select
 
 Once finished with debugging, stop the debugger by selecting **Disconnect**. When prompted, you should click **Yes** to disable remote debugging. To disable it later, right-click your app again in the Azure explorer and select **Disable Remote Debugging**.
 
----
+::: zone-end
 
 ## Access environment variables
 
@@ -294,15 +296,17 @@ if (req.secure) {
 
 ## Access diagnostic logs
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
 
----
+::: zone-end
 
 ## Troubleshooting
 
@@ -315,13 +319,11 @@ When a working Node.js app behaves differently in App Service or has errors, try
     - Certain web frameworks may use custom startup scripts when running in production mode.
 - Run your app in App Service in development mode. For example, in [MEAN.js](https://meanjs.org/), you can set your app to development mode in runtime by [setting the `NODE_ENV` app setting](configure-common.md).
 
-# [Windows](#tab/windows)
-
-# [Linux](#tab/linux)
+::: zone pivot="platform-linux"
 
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
----
+::: zone-end
 
 ## Next steps
 

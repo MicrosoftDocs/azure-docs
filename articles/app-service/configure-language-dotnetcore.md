@@ -5,6 +5,7 @@ description: Learn how to configure a ASP.NET Core app in the native Windows ins
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/02/2020
+zone_pivot_groups: app-service-platform-windows-linux
 
 ---
 
@@ -17,7 +18,7 @@ ASP.NET Core apps must be deployed to Azure App Service as compiled binaries. Th
 
 This guide provides key concepts and instructions for ASP.NET Core developers. If you've never used Azure App Service, follow the [ASP.NET Core quickstart](app-service-web-get-started-dotnet.md) and [ASP.NET Core with SQL Database tutorial](tutorial-dotnetcore-sqldb-app.md) first.
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 ## Show supported .NET Core runtime versions
 
@@ -27,7 +28,9 @@ In App Service, the Windows instances already have all the supported .NET Core v
 dotnet --info
 ```
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 ## Show .NET Core version
 
@@ -43,15 +46,17 @@ To show all supported .NET Core versions, run the following command in the [Clou
 az webapp list-runtimes --linux | grep DOTNETCORE
 ```
 
----
+::: zone-end
 
 ## Set .NET Core version
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 Set the target framework in the project file for your ASP.NET Core project. For more information, see [Select the .NET Core version to use](https://docs.microsoft.com/dotnet/core/versions/selection) in .NET Core documentation.
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 Run the following command in the [Cloud Shell](https://shell.azure.com) to set the .NET Core version to 2.1:
 
@@ -59,11 +64,9 @@ Run the following command in the [Cloud Shell](https://shell.azure.com) to set t
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|2.1"
 ```
 
----
+::: zone-end
 
-# [Windows](#tab/windows)
-
-# [Linux](#tab/linux)
+::: zone pivot="platform-linux"
 
 ## Customize build automation
 
@@ -87,7 +90,7 @@ For additional environment variables to customize build automation, see [Oryx co
 
 For more information on how App Service runs and builds ASP.NET Core apps in Linux, see [Oryx documentation: How .NET Core apps are detected and built](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/dotnetcore.md).
 
----
+::: zone-end
 
 ## Access environment variables
 
@@ -203,9 +206,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 For more information, see [Configure ASP.NET Core to work with proxy servers and load balancers](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
 
-# [Windows](#tab/windows)
-
-# [Linux](#tab/linux)
+::: zone pivot="platform-linux"
 
 ## Open SSH session in browser
 
@@ -213,7 +214,7 @@ For more information, see [Configure ASP.NET Core to work with proxy servers and
 
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
----
+::: zone-end
 
 ## Next steps
 

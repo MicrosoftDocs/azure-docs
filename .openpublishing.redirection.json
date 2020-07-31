@@ -7740,17 +7740,17 @@
     },
     {
       "source_path": "articles/app-service/containers/app-service-linux-java.md",
-      "redirect_url": "/azure/app-service/containers/configure-language-java",
+      "redirect_url": "/azure/app-service/configure-language-java",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/containers/app-service-java-enterprise.md",
-      "redirect_url": "/azure/app-service/containers/configure-language-java",
+      "redirect_url": "/azure/app-service/configure-language-java",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/containers/how-to-java-apm-monitoring.md",
-      "redirect_url": "/azure/app-service/containers/configure-language-java",
+      "redirect_url": "/azure/app-service/configure-language-java",
       "redirect_document_id": false
     },
     {
@@ -10853,6 +10853,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service/app-service-web-tutorial-windows-containers-custom-fonts.md",
+      "redirect_url": "/azure/app-service/tutorial-custom-container",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/tutorial-custom-docker-image.md",
+      "redirect_url": "/azure/app-service/tutorial-custom-container",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/configure-language-java.md",
+      "redirect_url": "/azure/app-service/configure-language-java",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service-web/app-service-agile-software-development.md",
       "redirect_url": "/azure/app-service/deploy-continuous-deployment",
       "redirect_document_id": false
@@ -13715,6 +13730,11 @@
     {
       "source_path": "articles/app-service/containers/configure-language-nodejs.md",
       "redirect_url": "/azure/app-service/configure-language-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/index.yml",
+      "redirect_url": "/azure/app-service/",
       "redirect_document_id": false
     },
     {
@@ -49847,7 +49867,7 @@
     },
     {
       "source_path": "articles/service-bus-messaging/migrate-java-apps-wild-fly.md",
-      "redirect_url": "/azure/app-service/containers/configure-language-java#use-service-bus-as-a-message-broker",
+      "redirect_url": "/azure/app-service/configure-language-java#use-service-bus-as-a-message-broker",
       "redirect_document_id": false
     },
     {
@@ -50932,7 +50952,7 @@
     },
     {
       "source_path": "articles/app-service/containers/tutorial-java-enterprise-postgresql-app.md",
-      "redirect_url": "/azure/app-service/containers/configure-language-java",
+      "redirect_url": "/azure/app-service/configure-language-java",
       "redirect_document_id": false
     },
     {

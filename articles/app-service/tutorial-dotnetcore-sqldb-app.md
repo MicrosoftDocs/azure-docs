@@ -6,19 +6,22 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: mvc, cli-validate, seodec18
+zone_pivot_groups: app-service-platform-windows-linux
 ---
 
 # Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. This tutorial shows how to create a .NET Core app and connect it to SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service on Windows.
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a .NET Core app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service on Linux.
 
----
+::: zone-end
 
 ![app running in App Service](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
@@ -228,27 +231,31 @@ In this step, you deploy your SQL Database-connected .NET Core application to Ap
 
 ### Create an App Service plan
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
----
+::: zone-end
 
 ### Create a web app
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)]
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)]
 
----
+::: zone-end
 
 ### Configure connection string
 
@@ -264,7 +271,7 @@ To see how the connection string is referenced in your code, see [Configure app 
 
 ### Push to Azure from Git
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 [!INCLUDE [push-to-azure-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
@@ -295,7 +302,9 @@ To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
  * [new branch]      master -> master
 </pre>
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [!INCLUDE [push-to-azure-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
@@ -327,7 +336,7 @@ To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
  * [new branch]      master -> master
 </pre>
 
----
+::: zone-end
 
 ### Browse to the Azure app
 

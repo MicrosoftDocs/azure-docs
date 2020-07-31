@@ -7,19 +7,22 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 06/15/2020
 ms.custom: mvc, cli-validate, seodec18
+zone_pivot_groups: app-service-platform-windows-linux
 ---
 
 # Tutorial: Build a PHP and MySQL app in Azure App Service
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Windows operating system. This tutorial shows how to create a PHP app in Azure and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Windows.
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a PHP app in Azure and connect it to a MySQL database. When you're finished, you'll have a [Laravel](https://laravel.com/) app running on Azure App Service on Linux.
 
----
+::: zone-end
 
 ![PHP app running in Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
@@ -262,7 +265,7 @@ By default, Azure Database for MySQL enforces TLS connections from clients. To c
 
 Open _config/database.php_ and add the `sslmode` and `options` parameters to `connections.mysql`, as shown in the following code.
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 ```php
 'mysql' => [
@@ -274,7 +277,9 @@ Open _config/database.php_ and add the `sslmode` and `options` parameters to `co
 ],
 ```
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 ```php
 'mysql' => [
@@ -286,7 +291,7 @@ Open _config/database.php_ and add the `sslmode` and `options` parameters to `co
 ],
 ```
 
----
+::: zone-end
 
 The certificate `BaltimoreCyberTrustRoot.crt.pem` is provided in the repository for convenience in this tutorial. 
 
@@ -339,28 +344,32 @@ In this step, you deploy the MySQL-connected PHP application to Azure App Servic
 
 ### Create an App Service plan
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
----
+::: zone-end
 
 <a name="create"></a>
 ### Create a web app
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 [!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-php-linux-no-h.md)] 
 
----
+::: zone-end
 
 ### Configure database settings
 
@@ -405,7 +414,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 ### Set the virtual application path
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 Set the virtual application path for the app. This step is required because the [Laravel application lifecycle](https://laravel.com/docs/5.4/lifecycle) begins in the _public_ directory instead of the application's root directory. Other PHP frameworks whose lifecycle start in the root directory can work without manual configuration of the virtual application path.
 
@@ -417,17 +426,19 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 
 By default, Azure App Service points the root virtual application path (_/_) to the root directory of the deployed application files (_sites\wwwroot_).
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [Laravel application lifecycle](https://laravel.com/docs/5.4/lifecycle) begins in the _public_ directory instead of the application's root directory. The default PHP Docker image for App Service uses Apache, and it doesn't let you customize the `DocumentRoot` for Laravel. However, you can use `.htaccess` to rewrite all requests to point to _/public_ instead of the root directory. In the repository root, an `.htaccess` is added already for this purpose. With it, your Laravel application is ready to be deployed.
 
 For more information, see [Change site root](configure-language-php.md#change-site-root).
 
----
+::: zone-end
 
 ### Push to Azure from Git
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
@@ -456,7 +467,9 @@ remote: Running deployment command...
 > You can use this approach to add any step to your Git-based deployment to App Service. For more information, see [Custom Deployment Script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 >
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
@@ -475,7 +488,7 @@ remote: Running deployment command...
 &lt; Output has been truncated for readability &gt;
 </pre>
 
----
+::: zone-end
 
 ### Browse to the Azure app
 
@@ -629,7 +642,7 @@ If you added any tasks, they are retained in the database. Updates to the data s
 
 ## Stream diagnostic logs
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 While the PHP application runs in Azure App Service, you can get the console logs piped to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
 
@@ -643,11 +656,13 @@ Once log streaming has started, refresh the Azure app in the browser to get some
 
 To stop log streaming at anytime, type `Ctrl`+`C`.
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
----
+::: zone-end
 
 > [!TIP]
 > A PHP application can use the standard [error_log()](https://php.net/manual/function.error-log.php) to output to the console. The sample application uses this approach in _app/Http/routes.php_.

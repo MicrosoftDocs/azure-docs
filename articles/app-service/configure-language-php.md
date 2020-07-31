@@ -5,6 +5,7 @@ description: Learn how to configure a PHP app in the native Windows instances, o
 ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
+zone_pivot_groups: app-service-platform-windows-linux
 
 ---
 
@@ -16,7 +17,7 @@ This guide provides key concepts and instructions for PHP developers who deploy 
 
 ## Show PHP version
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 To show the current PHP version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -30,7 +31,9 @@ To show all supported PHP versions, run the following command in the [Cloud Shel
 az webapp list-runtimes | grep php
 ```
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 To show the current PHP version, run the following command in the [Cloud Shell](https://shell.azure.com):
 
@@ -44,11 +47,11 @@ To show all supported PHP versions, run the following command in the [Cloud Shel
 az webapp list-runtimes --linux | grep PHP
 ```
 
----
+::: zone-end
 
 ## Set PHP version
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 7.4:
 
@@ -56,7 +59,9 @@ Run the following command in the [Cloud Shell](https://shell.azure.com) to set t
 az webapp config set --name <app-name> --resource-group <resource-group-name> --php-version 7.4
 ```
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 7.2:
 
@@ -64,9 +69,9 @@ Run the following command in the [Cloud Shell](https://shell.azure.com) to set t
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "PHP|7.2"
 ```
 
----
+::: zone-end
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 ## Run Composer
 
@@ -186,7 +191,9 @@ if [ -e "$DEPLOYMENT_TARGET/Gruntfile.js" ]; then
 fi
 ```
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 ## Customize build automation
 
@@ -217,7 +224,7 @@ By default, the built-in PHP container runs the Apache server. At start-up, it r
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
 ```
 
----
+::: zone-end
 
 ## Access environment variables
 
@@ -229,7 +236,7 @@ getenv("DB_HOST")
 
 ## Change site root
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 The web framework of your choice may use a subdirectory as the site root. For example, [Laravel](https://laravel.com/), uses the *public/* subdirectory as the site root.
 
@@ -241,7 +248,9 @@ az resource update --name web --resource-group <group-name> --namespace Microsof
 
 By default, Azure App Service points the root virtual application path (_/_) to the root directory of the deployed application files (_sites\wwwroot_).
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 The web framework of your choice may use a subdirectory as the site root. For example, [Laravel](https://laravel.com/), uses the `public/` subdirectory as the site root.
 
@@ -257,7 +266,7 @@ The default PHP image for App Service uses Apache, and it doesn't let you custom
 
 If you would rather not use *.htaccess* rewrite, you can deploy your Laravel application with a [custom Docker image](containers/quickstart-docker-go.md) instead.
 
----
+::: zone-end
 
 ## Detect HTTPS session
 
@@ -281,7 +290,7 @@ If you need to make changes to your PHP installation, you can change any of the 
 
 ### <a name="Customize-non-PHP_INI_SYSTEM directives"></a>Customize-non-PHP_INI_SYSTEM directives
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), add a `.user.ini` file to the root directory of your app.
 
@@ -300,7 +309,9 @@ Redeploy your app with the changes and restart it.
 
 As an alternative to using a `.user.ini` file, you can use [ini_set()](https://www.php.net/manual/function.ini-set.php) in your app to customize these non-PHP_INI_SYSTEM directives.
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), add an *.htaccess* file to the root directory of your app.
 
@@ -320,11 +331,11 @@ Redeploy your app with the changes and restart it. If you deploy it with Kudu (f
 
 As an alternative to using *.htaccess*, you can use [ini_set()](https://www.php.net/manual/function.ini-set.php) in your app to customize these non-PHP_INI_SYSTEM directives.
 
----
+::: zone-end
 
 ### <a name="customize-php_ini_system-directives"></a>Customize PHP_INI_SYSTEM directives
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 To customize PHP_INI_SYSTEM directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), you can't use the *.htaccess* approach. App Service provides a separate mechanism using the `PHP_INI_SCAN_DIR` app setting.
 
@@ -348,7 +359,9 @@ echo "expose_php = Off" >> ini/setting.ini
 
 For the changes to take effect, restart the app.
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 To customize PHP_INI_SYSTEM directives (see [php.ini directives](https://www.php.net/manual/ini.list.php)), you can't use the *.htaccess* approach. App Service provides a separate mechanism using the `PHP_INI_SCAN_DIR` app setting.
 
@@ -378,11 +391,11 @@ echo "expose_php = Off" >> ini/setting.ini
 
 For the changes to take effect, restart the app.
 
----
+::: zone-end
 
 ## Enable PHP extensions
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 The built-in PHP installations contain the most commonly used extensions. You can enable additional extensions in the same way that you [customize php.ini directives](#customize-php_ini_system-directives).
 
@@ -405,7 +418,9 @@ zend_extension=d:\home\site\wwwroot\bin\xdebug.so
 
 For the changes to take effect, restart the app.
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 The built-in PHP installations contain the most commonly used extensions. You can enable additional extensions in the same way that you [customize php.ini directives](#customize-php_ini_system-directives).
 
@@ -428,21 +443,23 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
 
 For the changes to take effect, restart the app.
 
----
+::: zone-end
 
 ## Access diagnostic logs
 
-# [Windows](#tab/windows)
+::: zone pivot="platform-windows"  
 
 Use the standard [error_log()](https://php.net/manual/function.error-log.php) utility to make your diagnostic logs to show up in Azure App Service.
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
-# [Linux](#tab/linux)
+::: zone-end
+
+::: zone pivot="platform-linux"
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
 
----
+::: zone-end
 
 ## Troubleshooting
 
@@ -455,13 +472,11 @@ When a working PHP app behaves differently in App Service or has errors, try the
     - Certain web frameworks may use custom startup scripts when running in production mode.
 - Run your app in App Service in debug mode. For example, in [Laravel](https://meanjs.org/), you can configure your app to output debug messages in production by [setting the `APP_DEBUG` app setting to `true`](configure-common.md#configure-app-settings).
 
-# [Windows](#tab/windows)
-
-# [Linux](#tab/linux)
+::: zone pivot="platform-linux"
 
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
----
+::: zone-end
 
 ## Next steps
 
