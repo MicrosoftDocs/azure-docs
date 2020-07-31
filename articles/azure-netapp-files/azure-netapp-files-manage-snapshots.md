@@ -44,7 +44,7 @@ You can schedule for volume snapshots to be taken automatically by using snapsho
 
 ### Register the feature
 
-1. If this is your first time using the **snapshot policy** feature, register the feature before using it: 
+1. The **snapshot policy** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy

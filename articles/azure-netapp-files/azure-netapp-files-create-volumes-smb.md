@@ -158,7 +158,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
      * **Backup policy users**  
         You can include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. The specified accounts will be allowed to change the NTFS permissions at the file or folder level. For example, you can specify a non-privileged service account used for migrating data to an SMB file share in Azure NetApp Files.  
 
-        If this is your first time using **Backup policy users**, register the feature before using it: 
+        The **Backup policy users** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
 
         ```azurepowershell-interactive
         Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
