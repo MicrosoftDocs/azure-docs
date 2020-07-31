@@ -82,8 +82,8 @@ The LINQ provider included with the SQL .NET SDK supports the following operator
 - **CompareTo**: Translates to range comparisons. Commonly used for strings, since they're not comparable in .NET.
 - **Skip** and **Take**: Translates to [OFFSET and LIMIT](sql-query-offset-limit.md) for limiting results from a query and doing pagination.
 - **Math functions**: Supports translation from .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, and `Truncate` to the equivalent [built-in mathematical functions](sql-query-mathematical-functions.md).
-- **String functions**: Supports translation from .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`, and `TrimStart` to the equivalent [built-in string functions](sql-query-string-functions).
-- **Array functions**: Supports translation from .NET `Concat`, `Contains`, and `Count` to the equivalent [built-in array functions](sql-query-array-functions).
+- **String functions**: Supports translation from .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`, and `TrimStart` to the equivalent [built-in string functions](sql-query-string-functions.md).
+- **Array functions**: Supports translation from .NET `Concat`, `Contains`, and `Count` to the equivalent [built-in array functions](sql-query-array-functions.md).
 - **Geospatial Extension functions**: Supports translation from stub methods `Distance`, `IsValid`, `IsValidDetailed`, and `Within` to the equivalent [built-in geospatial functions](sql-query-geospatial-query.md).
 - **User-Defined Function Extension function**: Supports translation from the stub method `UserDefinedFunctionProvider.Invoke` to the corresponding [user-defined function](sql-query-udfs.md).
 - **Miscellaneous**: Supports translation of `Coalesce` and conditional [operators](sql-query-operators.md). Can translate `Contains` to String CONTAINS, ARRAY_CONTAINS, or IN, depending on context.

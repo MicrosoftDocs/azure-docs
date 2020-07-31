@@ -33,7 +33,8 @@ If the result of the scalar expression is `Undefined`, the item isn't included i
 For example, the following query's comparison between a number and string value produces `Undefined`. Therefore, the filter does not include any results.
 
 ```sql
-SELECT * FROM c
+SELECT *
+FROM c
 WHERE 7 = 'a'
 ```
 
