@@ -65,6 +65,16 @@ Metrics having to do with routing:
 | RoutingLatency | Routing Latency (Preview) | Milliseconds | Average | Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to the endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation </br>Result |
 | RoutingFailureRate | Routing Failure Rate (Preview) | Percent | Average | The percentage of events that result in an error as they are routed from Azure Digital Twins to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation </br>Result |
 
+#### Ingress metrics
+
+Metrics having to do with data ingress:
+
+| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
+| --- | --- | --- | --- | --- | --- |
+| IngressEvents | Ingress Events (Preview) | Count | Total | The number of incoming telemetry events into Azure Digital Twins. | Result |
+| IngressEventsLatency | Ingress Events Latency (Preview) | Milliseconds | Average | The time from when an event arrives to when it is ready to be egressed by Azure Digital Twins, at which point the service sends a success/fail result. | Result |
+| IngressEventsFailureRate | Ingress Events Failure Rate (Preview) | Percent | Average	The percentage of incoming telemetry events for which the service returns an internal error (500) response code. | Result |
+
 #### Billing metrics
 
 Metrics having to do with billing:
