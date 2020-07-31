@@ -6,7 +6,7 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 07/31/2020
 ms.author: punagpal
 ---
 
@@ -16,7 +16,7 @@ This article provides an overview of data flow in Azure IoT Connector for FHIR*.
 
 ![Azure IoT Connector for FHIR data flow](media/concepts-iot-data-flow/iot-connector-data-flow.png)
 
-Diagram above shows different data flow stages within Azure IoT Connector for FHIR. 
+Diagram above shows common data flows using Azure IoT Connector for FHIR. 
 
 ## Ingest
 Ingest is the first stage where device data is received into Azure IoT Connector for FHIR. The ingestion endpoint for device data is hosted on an [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/). Azure Event Hub platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables Azure IoT Connector for FHIR to consume messages asynchronously, removing the need for devices to wait while device data gets processed.
