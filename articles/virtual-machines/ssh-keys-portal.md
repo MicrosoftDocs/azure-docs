@@ -12,16 +12,13 @@ ms.author: cynthn
 
 # Generate and store SSH keys in the Azure portal
 
-You can create and reuse SSH keys in the Azure portal. You can create a SSH keys when you first create a VM, and reuse them for other VMs. You can also create SSH keys separately, so that you have a set of keys stored in Azure to fit your organizations needs. And, if you have existing keys and you want to simplify using the with Azure VMs, you can upload them and store them in Azure for reuse.
+If you frequently use the portal to deploy Linux VMs, you can make using SSH keys simpler by creating them directly in the portal, or uploading them from your computer.
 
+You can create a SSH keys when you first create a VM, and reuse them for other VMs. Or, you can create SSH keys separately, so that you have a set of keys stored in Azure to fit your organizations needs. 
 
-************ Portal currently links to https://docs.microsoft.com/en-us/azure/virtual-machines/linux/create-ssh-keys-detailed from the SSH thing using this fwlink: https://go.microsoft.com/fwlink/?linkid=2118349  Owners are listed as mdepiet;arunrab;venkatb.**********
+If you have existing keys and you want to simplify using them in the portal, you can upload them and store them in Azure for reuse.
 
-
-SSH is an encrypted connection protocol that allows secure sign-ins over unsecured connections. SSH is the default connection protocol for Linux VMs hosted in Azure. Although SSH itself provides an encrypted connection, using passwords with SSH connections still leaves the VM vulnerable to brute-force attacks or guessing of passwords. A more secure and preferred method of connecting to a VM using SSH is by using a public-private key pair, also known as SSH keys.
-
-The public key is stored in Azure. The private key remains on your local system. Protect this private key. Do not share it.
-
+For more detailed information about creating and using SSH keys with Linux VMs, see (Use SSH keys to connect to Linux VMs )[./linux/ssh-from-windows.md].
 
 ## Generate new keys
 
@@ -60,11 +57,12 @@ On your local computer, open a PowerShell prompt and type:
 ssh -i <path to the .pem file> username@<ipaddress of the VM>
 ```
 
-For example, type: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.8901`
+For example, type: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
+
 
 ## Upload an SSH key
 
-You can also upload a public SSH key to store in Azure. For information about how to create an SSH key pair, see XXXXXXXX.
+You can also upload a public SSH key to store in Azure. For information about how to create an SSH key pair, see [Use SSH keys to connect to Linux VMs ](./linux/ssh-from-windows.md).
 
 1. Open the [Azure portal](https://portal.azure.com.
 
@@ -90,4 +88,4 @@ Once the key has been uploaded, you can choose to use it when you create a VM.
 
 ## Next steps
 
-To learn more about using SSH keys with Azure VMs, see 
+To learn more about using SSH keys with Azure VMs, see (Use SSH keys to connect to Linux VMs )[./linux/ssh-from-windows.md].
