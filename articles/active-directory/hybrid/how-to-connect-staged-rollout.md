@@ -47,6 +47,8 @@ For an overview of the feature, view this "Azure Active Directory: What is stage
 
 -   To enable *seamless SSO* on a specific Active Directory forest, you need to be a domain administrator.
 
+-  If you are deploying Hybrid Azure AD or Azure AD join, you must upgrade to Windows 10 1903 update.
+
 
 ## Supported scenarios
 

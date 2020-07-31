@@ -35,7 +35,7 @@ In this tutorial, the actions are types of food:
 * coffee
 * soup
 
-To help Personalizer learn about your actions, send both __actions with features_ and _context features_ with each Rank API request.
+To help Personalizer learn about your actions, send both _actions with features_ and _context features_ with each Rank API request.
 
 A **feature** of the model is information about the action or context that can be aggregated (grouped) across members of your web app user base. A feature _isn't_ individually specific (such as a user ID) or highly specific (such as an exact time of day).
 
