@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial - Create a live video analytics IoT Edge instance in Azure IoT Central (Linux VM)'
-description: This tutorial shows how to create a live video analytics IoT Edge instance to use with the video analytics - security and safety application template.
+title: 'Tutorial - Create a video analytics IoT Edge instance in Azure IoT Central (Linux VM)'
+description: This tutorial shows how to create a video analytics IoT Edge instance to use with the video analytics - object and motion detection application template.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -9,7 +9,7 @@ ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
 ---
-# Tutorial: Create an IoT Edge instance for live video analytics (Linux VM)
+# Tutorial: Create an IoT Edge instance for video analytics (Linux VM)
 
 Azure IoT Edge is a fully managed service that delivers cloud intelligence locally by deploying and running:
 
@@ -19,7 +19,7 @@ Azure IoT Edge is a fully managed service that delivers cloud intelligence local
 
 In IoT Edge, these services run directly on cross-platform IoT devices, enabling you to run your IoT solution securely and at scale in the cloud or offline.
 
-This tutorial shows you how to prepare an IoT Edge device in an Azure VM. The IoT Edge instance runs the live video analytics modules that the Azure IoT Central video analytics - security and safety application template uses.
+This tutorial shows you how to prepare an IoT Edge device in an Azure VM. The IoT Edge instance runs the live video analytics modules that the Azure IoT Central video analytics - object and motion detection application template uses.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you start, you should complete the previous [Create a live video analytics application in Azure IoT Central](./tutorial-video-analytics-create-app.md) tutorial.
+Before you start, you should complete the previous [Create a video analytics application in Azure IoT Central](./tutorial-video-analytics-create-app.md) tutorial.
 
 You also need an Azure subscription. If you don't have an Azure subscription, you can create one for free on the [Azure sign-up page](https://aka.ms/createazuresubscription).
 
@@ -36,9 +36,7 @@ You also need an Azure subscription. If you don't have an Azure subscription, yo
 
 To create an Azure VM with the latest IoT Edge runtime and live video analytics modules installed, select the following button:
 
-<!-- TODO:  Update link when repo is live -->
-
-[![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsseiber%2Flva-gateway%2Fuk%2Fbi8100%2Fvm_deploy%2FedgeModuleVMDeploy.json)
+[![Deploy to Azure Button for iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Flive-video-analytics%2Fmaster%2Fref-apps%2Flva-edge-iot-central-gateway%2Fvm_deploy%2FedgeModuleVMDeploy.json)
 
 Use the information in the following table to complete the **Custom deployment** form:
 
@@ -88,15 +86,15 @@ The deployment configured the following five IoT Edge modules to run:
 * lvaEdge
 * lvaYolov3
 
-The deployment created a custom IoT Edge environment with the required modules for live video analytics. The deployment updated the default **config.yaml** to ensure the IoT Edge runtime used the IoT Device Provisioning Service to connect to IoT Central. The deployment also created a file called **state.json** in the **/data/storage** folder to provide additional configuration data to the modules. For more information, see the [Create an IoT Edge instance for live video analytics (Intel NUC)](./tutorial-video-analytics-iot-edge-nuc.md) tutorial.
+The deployment created a custom IoT Edge environment with the required modules for live video analytics. The deployment updated the default **config.yaml** to ensure the IoT Edge runtime used the IoT Device Provisioning Service to connect to IoT Central. The deployment also created a file called **state.json** in the **/data/storage** folder to provide additional configuration data to the modules. For more information, see the [Create an IoT Edge instance for video analytics (Intel NUC)](./tutorial-video-analytics-iot-edge-nuc.md) tutorial.
 
 To troubleshoot the IoT Edge device, see [Troubleshoot your IoT Edge device](https://docs.microsoft.com/azure/iot-edge/troubleshoot)
 
 ## Use the RTSP simulator
 
-If you don't have real camera devices to connect to your IoT Edge device, you can use the two simulated camera devices in the video analytics - security and safety application template. This section shows you how to use a simulated video stream in your IoT Edge device.
+If you don't have real camera devices to connect to your IoT Edge device, you can use the two simulated camera devices in the video analytics application template. This section shows you how to use a simulated video stream in your IoT Edge device.
 
-These instructions show you how to use the [Live555 Media Server](http://www.live555.com/mediaServer/) as an RTSP simulator in a docker container.
+These instructions use the [Live555 Media Server](http://www.live555.com/mediaServer/) as an RTSP simulator in a docker container.
 
 > [!NOTE]
 > References to third-party software in this repo are for informational and convenience purposes only. Microsoft does not endorse nor provide rights for the third-party software. For more information, see [Live555 Media Server](http://www.live555.com/mediaServer/).
@@ -117,9 +115,9 @@ The list includes a container called **live555**.
 
 ## Next steps
 
-You've now deployed the IoT Edge runtime, the LVA modules, and the live555 simulation stream in a Linux VM running on Azure.
+You've now deployed the IoT Edge runtime, the LVA modules, and the Live555 simulation stream in a Linux VM running on Azure.
 
 To manage the cameras, follow the next tutorial
 
 > [!div class="nextstepaction"]
-> [Monitor and manage a video analytics - security and safety application](./tutorial-video-analytics-manage.md)
+> [Monitor and manage a video analytics - object and motion detection application](./tutorial-video-analytics-manage.md)

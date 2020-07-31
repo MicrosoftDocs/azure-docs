@@ -1,15 +1,15 @@
 ---
-title: 'Tutorial - Create a live video analytics IoT Edge instance in Azure IoT Central (Intel NUC)'
-description: This tutorial shows how to create a live video analytics IoT Edge instance to use with the video analytics - security and safety application template.
+title: 'Tutorial - Create a video analytics IoT Edge instance in Azure IoT Central (Intel NUC)'
+description: This tutorial shows how to create a video analytics IoT Edge instance to use with the video analytics - object and motion detection application template.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
-ms.date: 07/01/2020
+ms.date: 07/27/2020
 ---
-# Tutorial: Create an IoT Edge instance for live video analytics (Intel NUC)
+# Tutorial: Create an IoT Edge instance for video analytics (Intel NUC)
 
 Azure IoT Edge is a fully managed service that delivers cloud intelligence locally by deploying and running:
 
@@ -150,4 +150,4 @@ You've now deployed the IoT Edge runtime and the LVA modules to the Intel NUC ga
 To manage the cameras, follow the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Monitor and manage a video analytics - security and safety application](./tutorial-video-analytics-manage.md)
+> [Monitor and manage a video analytics - object and motion detection application](./tutorial-video-analytics-manage.md)

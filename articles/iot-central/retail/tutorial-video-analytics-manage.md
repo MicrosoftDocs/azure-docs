@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial - Monitor video using the Azure IoT Central video analytics - security and safety application template'
-description: This tutorial shows how to use the dashboards in the video analytics - security and safety application template to manage your cameras and monitor the video.
+title: 'Tutorial - Monitor video using the Azure IoT Central video analytics - object and motion detection application template'
+description: This tutorial shows how to use the dashboards in the video analytics - object and motion detection application template to manage your cameras and monitor the video.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -9,8 +9,7 @@ ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
 ---
-
-# Tutorial: Monitor and manage a video analytics - security and safety application
+# Tutorial: Monitor and manage a video analytics - object and motion detection application
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]

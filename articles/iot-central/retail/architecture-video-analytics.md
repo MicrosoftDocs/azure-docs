@@ -1,22 +1,22 @@
 ---
-title: Azure IoT Central video analytics security and safety | Microsoft Docs
-description: Learn to build an IoT Central application using the video analytics - security and safety application template in IoT Central. This template uses live video analytics and connected cameras.
+title: Azure IoT Central video analytics object and motion detection | Microsoft Docs
+description: Learn to build an IoT Central application using the video analytics - object and motion detection application template in IoT Central. This template uses live video analytics and connected cameras.
 author: KishorIoT
 ms.author: nandab
-ms.date: 06/20/2020
+ms.date: 07/27/2020
 ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 ---
 
-# Video analytics - security and safety application architecture
+# Video analytics - object and motion detection application architecture
 
-The **Video analytics - security and safety** application template lets you build solutions that...
+The **Video analytics - object and motion detection** application template lets you build IoT solutions include live video analytics capabilities.
 
 :::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Architecture":::
 
-The key components of the video analytics - security and safety solution include:
+The key components of the video analytics solution include:
 
 ## Live video analytics (LVA)
 
@@ -26,7 +26,7 @@ For more information, see [Live Video Analytics](https://github.com/Azure/live-v
 
 ## IoT Edge LVA gateway module
 
-The IoT Edge LVA gateway module instantiates cameras as new devices and connects them directly to IoT Central using the Device Client SDK.
+The IoT Edge LVA gateway module instantiates cameras as new devices and connects them directly to IoT Central using the IoT device client SDK.
 
 In this reference implementation, devices connect to the solution using symmetric keys from the edge. For more information about device connectivity, see [Get connected to Azure IoT Central](../core/concepts-get-connected.md)
 
@@ -36,4 +36,4 @@ Media graph lets you define where to capture the media from, how to process it, 
 
 ## Next steps
 
-The suggested next step is to learn how to [Create a video analytics - security and safety application in Azure IoT Central](tutorial-video-analytics-create-app.md).
+The suggested next step is to learn how to [Create a video analytics application in Azure IoT Central](tutorial-video-analytics-create-app.md).

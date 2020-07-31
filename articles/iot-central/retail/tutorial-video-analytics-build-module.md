@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial - Modify the IoT Edge live video analytics modules'
-description: This tutorial shows you how to modify and build the live video analytics gateway modules that the video analytics - security and safety application template uses.
+description: This tutorial shows you how to modify and build the live video analytics gateway modules that the video analytics - object and motion detection application template uses.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -46,7 +46,7 @@ Open the local **lva-gateway** repository folder with VS Code.
 1. Edit the `LvaEdgeGatewayModule` module section to add the name of your image and your AMS account name in the `env:amsAccountName:value`.
 1. Edit the `lvaYolov3` module section and add the name of your image.
 1. Edit the `lvaEdge` module section and add the name of your image.
-1. See the [Create a live video analytics application in Azure IoT Central](tutorial-video-analytics-create-app.md) for more information about how to complete the configuration.
+1. See the [Create a video analytics application in Azure IoT Central](tutorial-video-analytics-create-app.md) for more information about how to complete the configuration.
 
 ## Build the code
 
@@ -72,7 +72,7 @@ Open the local **lva-gateway** repository folder with VS Code.
 
 ## Next steps
 
-Now that you've learned about the video analytics - security and safety application template and the LVA IoT Edge modules, the suggested next step is to learn more about:
+Now that you've learned about the video analytics - object and motion detection application template and the LVA IoT Edge modules, the suggested next step is to learn more about:
 
 > [!div class="nextstepaction"]
 > [Building retail solutions with Azure IoT Central](overview-iot-central-retail.md)

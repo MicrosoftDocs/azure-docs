@@ -28,19 +28,19 @@
       href: tutorial-iot-central-digital-distribution-center.md 
   - name : Micro-fulfillment center 
     items:    
-    - name: Create a micro-fulfillment  center application
+    - name: Create a micro-fulfillment center application
       href: tutorial-micro-fulfillment-center.md 
-  - name : Video analytics - security and safety
+  - name : Video analytics - object and motion detection
     items:
-    - name: 1 - Create a video analytics - security and safety application
+    - name: 1 - Create a video analytics application
       href: tutorial-video-analytics-create-app.md
     - name: 2 - Configure an IoT Edge device
       items:
-      - name: Create live video analytics device on the edge (Linux VM)
+      - name: Create video analytics device on the edge (Linux VM)
         href: tutorial-video-analytics-iot-edge-vm.md
-      - name: Create live video analytics device on the edge (Intel NUC)
+      - name: Create video analytics device on the edge (Intel NUC)
         href: tutorial-video-analytics-iot-edge-nuc.md
-    - name: 3 -Monitor and manage a video analytics - security and safetys application
+    - name: 3 -Monitor and manage a video analytics application
       href: tutorial-video-analytics-manage.md
     - name: 4 - Modify and build the live video analytics gateway modules
       href: tutorial-video-analytics-build-module.md
@@ -56,7 +56,7 @@
       href: store-analytics-architecture.md 
     - name: Micro-fulfillment center app template architecture
       href: architecture-micro-fulfillment-center.md
-    - name: Security and safety video analytics architecture
+    - name: object and motion detection video analytics architecture
       href: architecture-video-analytics.md
     - name: Connectivity
       href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
@@ -64,7 +64,7 @@
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
 - name: How-to guides
   items:
-    - name: Deploy security and safety application
+    - name: Deploy object and motion detection application
       href: howto-deploy-security-safety -application.md
     - name: Connect devices
       items:

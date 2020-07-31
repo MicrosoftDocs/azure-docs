@@ -147,11 +147,11 @@ The following screenshot shows the out-of-the-box dashboard in the application t
 
 To learn more, see the [Deploy and walk through the micro-fulfillment center application template](./tutorial-micro-fulfillment-center.md) tutorial.
 
-## Video analytics - security and safety application
+## Video analytics - object and motion detection
 
-The IoT Central video analytics - security and safety application template lets you quickly experience how to deploy, manage, and monitor a solution that uses intelligent edge cameras to detect objects and motion. The solution enables you to identify your physical security issues quickly and accurately.
+The *IoT Central video analytics - object and motion detection* application template lets you quickly experience how to deploy, manage, and monitor a solution that uses intelligent edge cameras to detect objects and motion.
 
-The video analytics - security and safety application uses a [live video analytics (LVA)](#live-video-analytics) module running in IoT Edge. The LVA module provides a platform for you to build intelligent video applications that span the edge and the cloud. The platform offers the capability to capture, record, analyze live video, and publish the results, which could be video or video analytics, to Azure services. The Azure services could be running in the cloud or the edge. You can use the platform to enhance IoT solutions, such as the video analytics - security and safety application, with video analytics.
+The video analytics application uses a [live video analytics (LVA)](#live-video-analytics) module running in IoT Edge. The LVA module provides a platform for you to build intelligent video applications that span the edge and the cloud. You can use the platform to enhance IoT solutions, such as the video analytics application, with object and motion detection.
 
 The application template includes four application dashboards:
 
@@ -160,11 +160,11 @@ The application template includes four application dashboards:
 * **Real Cameras** lets you view information from your real cameras such as detection counts and camera events.
 * **Monitor** lets you view detailed information from all of your cameras.
 
-:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Video analytics - security and safety":::
+:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Video analytics - object and motion detection":::
 
-To learn more about the architecture of the solution, see [Video analytics - security and safety application architecture](architecture-video-analytics.md).
+To learn more about the architecture of the solution, see [Video analytics application architecture](architecture-video-analytics.md).
 
-To learn how to deploy the solution, see the [Create a video analytics - security and safety application in Azure IoT Central](tutorial-video-analytics-create-app.md) tutorial.
+To learn how to deploy the solution, see the [Create a video analytics application in Azure IoT Central](tutorial-video-analytics-create-app.md) tutorial.
 
 ### Live video analytics
 
