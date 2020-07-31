@@ -40,8 +40,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-
-* FortiGate SSL VPN supports **IDP** initiated SSO
+* FortiGate SSL VPN supports **SP** initiated SSO
 * Once you configure FortiGate SSL VPN you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding FortiGate SSL VPN from the gallery
@@ -54,7 +53,6 @@ To configure the integration of FortiGate SSL VPN into Azure AD, you need to add
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **FortiGate SSL VPN** in the search box.
 1. Select **FortiGate SSL VPN** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for FortiGate SSL VPN
 
@@ -81,14 +79,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<FQDN>/remote/login`
+
+    b. In the **Identifier** text box, type a URL using the following pattern:
     `https://<FQDN>/remote/saml/metadata`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
+    c. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<FQDN>/remote/saml/login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [FortiGate SSL VPN Client support team](mailto:tac_amer@fortinet.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL, Identifier and Reply URL. Contact [FortiGate SSL VPN Client support team](mailto:tac_amer@fortinet.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. FortiGate SSL VPN application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
