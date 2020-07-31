@@ -290,6 +290,7 @@ This section describes known issues and conditions in the current public preview
 -	Account failover is currently not supported. The blob index may not update properly after failover.
 -	Lifecycle management currently only supports equality checks with Blob Index Match.
 -	CopyBlob does not copy blob index tags from the source blob to the new destination blob. You can specify the tags you want applied to the destination blob during the copy operation. 
+- CopyBlob (Async copy) from another storage account with applied tags on the destination blob currently causes the blob index engine to not return the blob and its tags in the filter set. It is recommended to use CopyBlob from URL (Sync copy) in the mean time.
 -	Tags are persisted on snapshot creation; however promoting a snapshot is currently not supported and may result in an empty tag set.
 
 ## FAQ
@@ -305,5 +306,7 @@ No, Azure Resource Manager tags help organize control plane resources such as su
 
 ## Next steps
 
-See an example of how to utilize Blob Index. See [Utilize Blob Index to manage and find data](storage-blob-index-how-to.md)
+For an example of how to utilize Blob Index, see [Utilize Blob Index to manage and find data](storage-blob-index-how-to.md).
+
+Learn about [lifecycle management](storage-lifecycle-management-concepts.md) and set a rule with Blob Index match.
 
