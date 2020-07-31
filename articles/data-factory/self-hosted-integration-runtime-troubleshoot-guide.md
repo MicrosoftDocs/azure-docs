@@ -183,7 +183,7 @@ From the error below, you can clearly see the assembly *System.ValueTuple* is no
  
 `<LogProperties><ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]</ErrorInfo></LogProperties>`
  
-For more information about GAC, see [this article](https://docs.microsoft.com/en-us/dotnet/framework/app-domains/gac).
+For more information about GAC, see [this article](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
 
 
 ### How to audit Self-hosted IR key missing
@@ -265,7 +265,7 @@ The only way to avoid this issue is to make sure two nodes are in credentials sy
     ```
 
 
-## Self-hosted IR Setup
+## Self-hosted IR setup
 
 ### The Integration Runtime registration error 
 
@@ -349,7 +349,7 @@ Since the release of the *Integration Runtime 3.0*, the **Register** button on a
     > [!IMPORTANT] 
     > In the process below, select Yes. Do not keep data during the uninstall process.
 
-    ![](media/self-hosted-integration-runtime-troubleshoot-guide/delete-data.png)
+    ![Delete data](media/self-hosted-integration-runtime-troubleshoot-guide/delete-data.png)
 
 - If you don't have the Integration runtime installer MSI, go to [download center](https://www.microsoft.com/en-sg/download/details.aspx?id=39717) to download the latest Integration Runtime.
 - Install the MSI and register the Integration Runtime.
