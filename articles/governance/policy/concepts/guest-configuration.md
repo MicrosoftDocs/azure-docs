@@ -190,7 +190,7 @@ definitions in an initiative if you choose.
 
 > [!NOTE]
 > The built-in time zone policy is the only definition that supports configuring settings
-> inside machines and custom policies that configure settings inside machines are not supported.
+> inside machines and custom policies that configure settings inside machines aren't supported.
 
 #### Assigning policies to machines outside of Azure
 
