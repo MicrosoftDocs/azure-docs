@@ -16,6 +16,11 @@ ms.service: azure-communication-services
 
 # Get Started With The 1:N Group Chat Sample
 
+> [!IMPORTANT]
+> Azure Communication Services is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 This sample application allows multiple users to connect with an agent simultaneously and use different chat features including chat, emoticons, read receipts, typing indicator among others.
 
 The chat application is a web application implemented with React (client) and .NET core (server) to demonstrate a set of features built on top of the Azure Communication Service platform. It shows how to use the the ACS Chat SDK JS, ACS configuration SDK C# and direct calls from the Contoso server to the ACS Chat Gateway APIs.   
@@ -61,7 +66,7 @@ On the Chat project, update the following 2 settings on the appSettings.json fil
 
 ## Running the chat application
 ### 1. Set the Chat project as the 'Startup project' in Visual Studio.
-![StartUp](../media/chat-group-sample-5.png) 
+![StartUp](../media/chat-group-sample-5.png)
 
 ### 2. Hit F5 to start a debugging session
 

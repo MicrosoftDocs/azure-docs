@@ -12,7 +12,8 @@ ms.service: azure-communication-services
 
 ---
 
-# What is Azure Communication Services?
+
+# What Is Azure Communication Services?
 
 > [!IMPORTANT]
 > Azure Communication Services is currently in public preview.

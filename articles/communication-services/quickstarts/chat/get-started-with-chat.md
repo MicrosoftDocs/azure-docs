@@ -1,5 +1,5 @@
 ---
-title: Get started with chat (JS)
+title: Get started with chat
 titleSuffix: An Azure Communication Services quickstart
 description: TODO
 author: gelli  
@@ -15,6 +15,11 @@ ms.service: azure-communication-services
 
 
 # Get Started With Chat
+
+> [!IMPORTANT]
+> Azure Communication Services is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This quickstart will teach you how to use Azure Communication Services to send chat messages back and forth between two web application clients with the JavaScript SDK.
 

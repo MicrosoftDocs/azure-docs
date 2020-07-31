@@ -1,5 +1,14 @@
 - name: Azure Communication Services Documentation
   href: index.yml
+- name: Meta [Temporary]
+  expanded: true
+  items:
+  - name: Contributor Quickstart
+    href: contribute.md
+  - name: Docs Philosophy
+    href: docs-philosophy.md
+  - name: Generating Reference Docs
+    href: reference-docs-guidance.md
 - name: Overview
   expanded: true
   items:
@@ -16,22 +25,18 @@
         href: quickstarts/chat/get-started-with-chat.md
       - name: Build a Chat browser sample
         href: quickstarts/chat/group-chat-sample.md
-  - name: Networking
-    items:
-      - name: Route Events
-        href: quickstarts/networking/route-events.md
   - name: Telephony and SMS 
     items:
-      - name: Request A Telephone Number
+      - name: Request A Telephone Number (private preview)
         href: quickstarts/telephony-and-sms/request-phone-numbers.md
+      - name: Plan Your Telephony and SMS Solution 
+        href: quickstarts/telephony-and-sms/plan-your-telephony-and-sms-solution.md
       - name: Buy A Telephone Number
-        href: quickstarts/telephony-and-sms/search-and-acquire-phone-number.md
+        href: quickstarts/telephony-and-sms/buy-a-phone-number.md
       - name: Place a Telephone Call
         href: quickstarts/telephony-and-sms/place-a-telephone-call.md
-      - name: Send an SMS (JS)
-        href: quickstarts/telephony-and-sms/send-sms-js.md
-      - name: Send an SMS (.NET)
-        href: quickstarts/telephony-and-sms/send-sms-net.md
+      - name: Get started with SMS
+        href: quickstarts/telephony-and-sms/send-sms.md
       - name: Assign A Telephone Number To A Bot
         href: quickstarts/telephony-and-sms/assign-a-telephone-number-to-an-acs-bot.md
       - name: Handle SMS Events
@@ -42,6 +47,8 @@
       href: quickstarts/voice-and-video-calling/get-started-with-voice-and-video.md
     - name: Place a Voice Call
       href: quickstarts/voice-and-video-calling/place-a-voice-call.md
+    - name: Add VOIP Calling to an iOS App
+      href: quickstarts/voice-and-video-calling/ios-quickstart.md
   - name: Get Started
     href: quickstarts/get-started.md
   - name: Create a Communication Services Resource
@@ -51,8 +58,8 @@
   items:
   - name: Chat
     items:
-    - name: Placeholder
-      href: quickstarts/acs-events-quickstart.md
+    - name: Building an E2E chat application in JavaScript
+      href: tutorials/chat/chat-e2e-javascript.md
   - name: Networking
     items:
     - name: Placeholder
@@ -67,7 +74,7 @@
     items:
     - name: Using the Calling Client API
       href: quickstarts/voice-and-video-calling/calling-client-samples.md
-- name: Concepts
+- name: Concepts 
   expanded: true
   items:
   - name: Chat
@@ -96,8 +103,6 @@
         href: concepts/telephony-and-sms/push-notifications-overview-2.md
       - name: Registering For Push Notifications
         href: concepts/telephony-and-sms/notifications-azure-portal-registration.md
-      - name: Plan Your Telephony and SMS Solution 
-        href: concepts/telephony-and-sms/plan-your-telephony-and-sms-solution.md
       - name: Call Flows
         href: concepts/telephony-and-sms/call-flows.md
       - name: Call Analytics
