@@ -40,7 +40,7 @@ The following table lists the topics that are relevant to SQL pool vs. SQL on-de
 | [Statistics](#statistics)                                    | Yes                | Yes                     |
 | [Primary key and unique key](#primary-key-and-unique-key)    | Yes                | No                      |
 | [Commands for creating tables](#commands-for-creating-tables) | Yes                | No                      |
-| [Aligning source data with the data warehouse](#aligning-source-data-with-the-data-warehouse) | Yes                | No                      |
+| [Aligning source data with the data warehouse](#align-source-data-with-the-data-warehouse) | Yes                | No                      |
 | [Unsupported table features](#unsupported-table-features)    | Yes                | No                      |
 | [Table size queries](#table-size-queries)                    | Yes                | No                      |
 
