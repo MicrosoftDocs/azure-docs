@@ -14,28 +14,24 @@ ms.author: mbaldwin
 
 # Azure Key Vault REST API overview
 
-Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data. Key Vault resource provider supports two types of containers, vaults and managed HSM pools. Managed HSM enables the use of single-tenant, fully managed, zone-resilient, highly available, HSM pools to store and manage your cryptographic keys protected in Hardware Security Modules (HSM), most suitable for high value keys, and to meet specific compliance or regulatory requirements. For more information, see [What is Azure Key Vault Managed HSM?](../managed-hsm/overview.md)
+Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data. Key Vault resource provider supports two types of containers: vaults and managed HSM pools. The table below shows the data-plane endpoint URL format, object types and their suffixes.
 
-Here's a quick summary of the object types supported by each container type:
-
-## Object type support
-Object type|Vaults|Managed HSM pools
------------|------|-----------------
-HSM-protected cryptographic keys|Yes (Premium SKU only)|Yes
-Software-protected cryptographic keys|Yes|No
-Secrets|Yes|No
-Certificates|Yes|No
-Storage account keys|Yes|No
+Object type|URL Suffix|Vaults<br/>https://{vault-name}.vault.azure.net|Managed HSM Pools<br/>https://{hsm-name}.managedhsm.azure.net
+--|--|--|--
+**Cryptographic keys**||
+HSM-protected keys|/keys|Supported|Supported
+Software-protected keys|/keys|Supported|Not supported
+**Other object types**||
+Secrets|/secrets|Supported|Not supported
+Certificates|/certificates|Supported|Not supported
+Storage account keys|/storageaccount|Supported|Not supported
 |||
+- **Cryptographic keys**: Supports multiple key types and algorithms, and enables the use of software-protected and HSM-protected keys. For more information, see [About keys](about-keys.md).
+- **Secrets**: Provides secure storage of secrets, such as passwords and database connection strings. For more information, see [About secrets](../secrets/about-secrets.md).
+- **Certificates**: Supports certificates, which are built on top of keys and secrets and add an automated renewal feature. For more information, see [About certificates](../certificates/about-certificates.md).
+- **Azure Storage account keys**: Can manage keys of an Azure Storage account for you. Internally, Key Vault can list (sync) keys with an Azure Storage Account, and regenerate (rotate) the keys periodically. For more information, see [Manage storage account keys with Key Vault](../secrets/overview-storage-keys.md).
 
-
-- Cryptographic keys: Supports multiple key types and algorithms, and enables the use of Hardware Security Modules (HSM) for high value keys. For more information, see [About keys](about-keys.md).  
-- Secrets: Provides secure storage of secrets, such as passwords and database connection strings. 
-- For more information, see [About secrets](../secrets/about-secrets.md).
-- Certificates: Supports certificates, which are built on top of keys and secrets and add an automated renewal feature. For more information, see [About certificates](../certificates/about-certificates.md).
-- Azure Storage: Can manage keys of an Azure Storage account for you. Internally, Key Vault can list (sync) keys with an Azure Storage Account, and regenerate (rotate) the keys periodically. For more information, see [Manage storage account keys with Key Vault](../secrets/overview-storage-keys.md).
-
-For more general information about Key Vault, see [About Azure Key Vault](overview.md).
+For more general information about Key Vault, see [About Azure Key Vault](overview.md). For more information about Managed HSM pools, see What is [Azure Key Vault Managed HSM?](../managed-hsm/overview.md)
 
 ## Data types
 
@@ -64,10 +60,10 @@ For more information, see [Authentication, requests, and responses](authenticati
 
 An object identifier has the following general format (depending on container type):  
 
-**For Vaults**:
-`https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+- **For Vaults**:
+`https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-**For Managed HSM pools**:
+- **For Managed HSM pools**:
 `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
 
 >[!NOTE] See [Object type support](#object-type-support) for types of objects supported by each container type.
@@ -76,7 +72,7 @@ Where:
 
 |||  
 |-|-|  
-|`keyvault-name`|The name for a key vault in the Microsoft Azure Key Vault service.<br /><br /> Key Vault names are selected by the user and are globally unique.<br /><br /> Key Vault name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and -.|  
+|`vault-name` or `hsm-name`|The name for a vault or an Managed HSM pool in the Microsoft Azure Key Vault service.<br /><br />Vault names and Managed HSM pool names are selected by the user and are globally unique.<br /><br />Vault name and Managed HSM pool name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and -.|  
 |`object-type`|The type of the object, "keys",  "secrets", or 'certificates'.|  
 |`object-name`|An `object-name` is a user provided name for and must be unique within a Key Vault. The name must be a 1-127 character string, starting with a letter and containing only 0-9, a-z, A-Z, and -.|  
 |`object-version`|An `object-version` is a system-generated, 32 character string identifier that is optionally used to address a unique version of an object.|  
