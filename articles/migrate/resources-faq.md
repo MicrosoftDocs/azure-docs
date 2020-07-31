@@ -30,7 +30,7 @@ The Azure Migrate: Server Migration tool uses some back-end Site Recovery functi
 
 ## I have a project with the previous Classic experience of Azure Migrate. How do I start using the new version?
 
-You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](how-to-add-tool-first-time.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a v1 project, you can attach it to a project of current version after you delete the v1 project.
+You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](how-to-add-tool-first-time.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a Classic project, you can attach it to a project of current version after you delete the Classic project.
 
 ## What's the difference between Azure Migrate: Server Assessment and the MAP Toolkit?
 

@@ -6,7 +6,7 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/10/2020
 ---
 # Introduction to Stream Analytics windowing functions
 
@@ -29,7 +29,8 @@ Hopping window functions hop forward in time by a fixed period. It may be easy t
 ![Stream Analytics hopping window](media/stream-analytics-window-functions/stream-analytics-window-functions-hopping-intro.png)
 
 ## Sliding window
-Sliding window functions, unlike Tumbling or Hopping windows, produce an output **only**  when an event occurs. Every window will have at least one event and the window continuously moves forward by an ε (epsilon). Like hopping windows, events can belong to more than one sliding window.
+
+Sliding windows, unlike Tumbling or Hopping windows, output events only for points in time when the content of the window actually changes. In other words, when an event enters or exits the window. Every window has  at least one event, like in the case of Hopping windows, events can belong to more than one sliding window
 
 ![Stream Analytics sliding window](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
@@ -44,6 +45,11 @@ If events keep occurring within the specified timeout, the session window will k
 
 When a partition key is provided, the events are grouped together by the key and session window is applied to each group independently. This partitioning is useful for cases where you need different session windows for different users or devices.
 
+## Snapshot window
+
+Snapshot windows groups events that have the same timestamp. Unlike other windowing types, which require a specific window function (such as [SessionWindow()](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics), you can apply a snapshot window by adding System.Timestamp() to the GROUP BY clause.
+
+![Stream Analytics snapshot window](media/stream-analytics-window-functions/snapshot.png)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

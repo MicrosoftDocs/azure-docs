@@ -17,7 +17,6 @@ This feature is helpful in scenarios in which Azure Event Hubs should be only ac
 >
 > Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
 > - Azure Stream Analytics
-> - Integration with Azure Event Grid
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
 >

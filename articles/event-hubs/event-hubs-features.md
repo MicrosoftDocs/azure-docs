@@ -113,7 +113,7 @@ When connecting to partitions, it's common practice to use a leasing mechanism t
 - The [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) for .NET
 - The [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient) for Java
 - The [EventHubConsumerClient](/python/api/azure-eventhub/azure.eventhub.aio.eventhubconsumerclient) for Python
-- The [EventHubSoncumerClient](/javascript/api/@azure/event-hubs/eventhubconsumerclient) for JavaScript/TypeScript
+- The [EventHubConsumerClient](/javascript/api/@azure/event-hubs/eventhubconsumerclient) for JavaScript/TypeScript
 
 #### Read events
 

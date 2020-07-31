@@ -66,6 +66,9 @@
     items:
     - name: Overview
       href: best-practices.md
+    - name: Baseline architecture for an AKS cluster
+      href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+      maintainContext: True
     - name: For cluster operators
       items:
       - name: Multi-tenancy and cluster isolation

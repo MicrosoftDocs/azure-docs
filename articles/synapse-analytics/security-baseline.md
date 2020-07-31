@@ -1,10 +1,10 @@
 ---
-title: Synapse Analytics security baseline for Azure Security Benchmark
+title: Azure security baseline for Synapse Analytics
 description: The Synapse Analytics security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 ---
 
-# Synapse Analytics security baseline for Azure Security Benchmark
+# Azure security baseline for Synapse Analytics
 
 The Azure Security Baseline for Synapse Analytics contains recommendations that will help you improve the security posture of your deployment.
 
@@ -26,9 +26,9 @@ For more information, see [Azure Security Baselines overview](https://docs.micro
 
 ### 1.1: Protect Azure resources within virtual networks
 
-**Guidance**: Secure Azure SQL Database to a virtual network via Private Link. Azure Private Link enables you to access Azure PaaS services over a private endpoint in your virtual network. Traffic between your virtual network and the service travels the Microsoft backbone network.
+**Guidance**: Secure your Azure SQL Server to a virtual network via Private Link. Azure Private Link enables you to access Azure PaaS services over a private endpoint in your virtual network. Traffic between your virtual network and the service travels the Microsoft backbone network.
 
-Alternatively, when connecting to your Synapse SQL pool, narrow down the scope of the outgoing connection to SQL Database by using a network security group. Disable all Azure service traffic to SQL Database via the public endpoint by setting Allow Azure Services to OFF. Ensure no public IP addresses are allowed in the firewall rules.
+Alternatively, when connecting to your Synapse SQL pool, narrow down the scope of the outgoing connection to the SQL database by using a network security group. Disable all Azure service traffic to the SQL database via the public endpoint by setting Allow Azure Services to OFF. Ensure no public IP addresses are allowed in the firewall rules.
 
 * [Understand Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
@@ -42,7 +42,7 @@ Alternatively, when connecting to your Synapse SQL pool, narrow down the scope o
 
 **Responsibility**: Customer
 
-### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
+### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and network interfaces
 
 **Guidance**: When connecting to your Azure Synapse SQL pool, and you have enabled network security group (NSG) flow logs, send logs into an Azure Storage Account for traffic auditing.
 
@@ -68,7 +68,7 @@ You may also send NSG flow logs to a Log Analytics workspace and use Traffic Ana
 
 **Responsibility**: Not applicable
 
-### 1.4: Deny communications with known malicious IP addresses
+### 1.4: Deny communications with known-malicious IP addresses
 
 **Guidance**: Use Advanced Threat Protection (ATP) for Azure Synapse SQL. ATP detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases and it can trigger various alerts, such as, "Potential SQL injection," and, "Access from unusual location." ATP is part of the Advanced data security (ADS) offering and can be accessed and managed via the central SQL ADS portal.
 
@@ -122,7 +122,7 @@ Enable DDoS Protection Standard on the Virtual Networks associated with Azure Sy
 
 **Guidance**: Use virtual network service tags to define network access controls on network security groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., ApiManagement) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-When using a service endpoint for your Azure Synapse SQL pool, outbound to Azure SQL Database Public IP addresses is required: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG service tags for Azure SQL Database.
+When using a service endpoint for your Azure Synapse SQL pool, outbound to Azure SQL database Public IP addresses is required: Network Security Groups (NSGs) must be opened to Azure SQL Database IPs to allow connectivity. You can do this by using NSG service tags for Azure SQL Database.
 
 * [Understand service tags with service endpoints for Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
 
@@ -134,7 +134,7 @@ When using a service endpoint for your Azure Synapse SQL pool, outbound to Azure
 
 ### 1.9: Maintain standard security configurations for network devices
 
-**Guidance**: Define and implement network security configurations for resources related to your SQL pool with Azure Policy. You may use the "Microsoft.Sql" namespace to define custom policy definitions or use any of the built-in policy definitions designed for Azure SQL Database/server network protection. An example of an applicable built-in network security policy for Azure SQL Database server would be: "SQL Server should use a virtual network service endpoint".
+**Guidance**: Define and implement network security configurations for resources related to your SQL pool with Azure Policy. You may use the "Microsoft.Sql" namespace to define custom policy definitions or use any of the built-in policy definitions designed for Azure SQL database/server network protection. An example of an applicable built-in network security policy for Azure SQL Database server would be: "SQL Server should use a virtual network service endpoint".
 
 Use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Management templates, role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
@@ -242,7 +242,7 @@ Auditing can be enabled both on the database or server level, and is suggested t
 
 **Responsibility**: Customer
 
-### 2.6: Monitor and review Logs
+### 2.6: Monitor and review logs
 
 **Guidance**: Analyze and monitor logs for anomalous behaviors and regularly review results. Use Advanced Threat Protection for Azure SQL Database in conjunction with Azure Security Center to alert on unusual activity related to your SQL database. Alternatively, configure alerts based on metric values or Azure Activity Log entries related to your SQL database.
 
@@ -358,7 +358,7 @@ To identify the administrator accounts for a database, open the Azure portal, an
 
 **Responsibility**: Customer
 
-### 3.4: Use single sign-on (SSO) with Azure Active Directory
+### 3.4: Use Azure Active Directory single sign-on (SSO)
 
 **Guidance**: Use an Azure app registration (service principal) to retrieve a token that can be used to interact with your data warehouse at the control plane (Azure portal) via API calls.
 
@@ -372,7 +372,7 @@ To identify the administrator accounts for a database, open the Azure portal, an
 
 **Responsibility**: Customer
 
-### 3.5: Use multi-factor authentication for all Azure Active Directory based access
+### 3.5: Use multi-factor authentication for all Azure Active Directory-based access
 
 **Guidance**: Enable Azure Active Directory (AD) Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and Access Management recommendations.
 
@@ -386,7 +386,7 @@ To identify the administrator accounts for a database, open the Azure portal, an
 
 **Responsibility**: Customer
 
-### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
+### 3.6: Use secure, Azure-managed workstations for administrative tasks
 
 **Guidance**: Use a Privileged Access Workstation (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
 
@@ -474,7 +474,7 @@ When using SQL authentication, create contained database users in the database. 
 
 **Responsibility**: Customer
 
-### 3.12: Alert on account login behavior deviation
+### 3.12: Alert on account sign-in behavior deviation
 
 **Guidance**: Use Azure Active Directory (Azure AD) Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. Additionally, you can on-board and ingest data into Azure Sentinel for further investigation.
 
@@ -582,7 +582,7 @@ Additionally, you can set up a dynamic data masking (DDM) policy in the Azure po
 
 ### 4.6: Use Role-based access control to control access to resources
 
-**Guidance**: Use Azure role-based access control (RBAC) to manage access to Azure SQL Database in your Synapse SQL pool.
+**Guidance**: Use Azure role-based access control (RBAC) to manage access to Azure SQL databases in your Synapse SQL pool.
 
 Authorization is controlled by your user account's database role memberships and object-level permissions. As a best practice, you should grant users the least privileges necessary.
 
@@ -640,9 +640,9 @@ Additionally, you can set up alerts for databases in your SQL Synapse pool using
 
 ### 5.1: Run automated vulnerability scanning tools
 
-**Guidance**: Enable Advanced Data Security and follow recommendations from Azure Security Center on performing vulnerability assessments on SQL Database.
+**Guidance**: Enable Advanced Data Security and follow recommendations from Azure Security Center on performing vulnerability assessments on your Azure SQL databases.
 
-* [How to run vulnerability assessments on Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [How to run vulnerability assessments on your Azure SQL databases](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
 
 * [How to enable Advanced Data Security](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
 
@@ -696,7 +696,7 @@ Data Discovery &amp; Classification is built into Azure Synapse SQL. It provides
 
 *For more information, see [Security control: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
-### 6.1: Use automated Asset Discovery solution
+### 6.1: Use automated asset discovery solution
 
 **Guidance**: Use Azure Resource Graph to query and discover all resources related to your Synapse SQL pool within your subscription(s). Ensure you have appropriate (read) permissions in your tenant and are able to enumerate all Azure subscriptions as well as resources within your subscriptions.
 
@@ -736,7 +736,7 @@ Although classic Azure resources may be discovered via Azure Resource Graph, it 
 
 **Responsibility**: Customer
 
-### 6.4: Define and Maintain an inventory of approved Azure resources
+### 6.4: Define and maintain inventory of approved Azure resources
 
 **Guidance**: Define a list of approved Azure resources related to your Synapse SQL pool.
 
@@ -844,8 +844,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 ### 7.1: Establish secure configurations for all Azure resources
 
-**Guidance**: Use Azure Policy aliases in the "Microsoft.Sql" namespace to create custom policies to audit or enforce the configuration of resources related to your Synapse SQL pool. You may also make use of built-in policy definitions for Azure Databases, such as:
-
+**Guidance**: Use Azure Policy aliases in the "Microsoft.Sql" namespace to create custom policies to audit or enforce the configuration of resources related to your Synapse SQL pool. You may also make use of built-in policy definitions for Azure Database/Server, such as:
 - Deploy Threat Detection on SQL servers
 - SQL Server should use a virtual network service endpoint
 
@@ -977,7 +976,7 @@ Use Azure Resource Graph to query/discover resources within your subscription(s)
 
 *For more information, see [Security control: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
 
-### 8.1: Use centrally managed anti-malware software
+### 8.1: Use centrally-managed anti-malware software
 
 **Guidance**: Not applicable; this recommendation is intended for compute resources. Microsoft handles anti-malware for underlying platform.
 
@@ -1009,7 +1008,7 @@ Pre-scan any content being uploaded to non-compute Azure resources, such as App 
 
 *For more information, see [Security control: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
 
-### 9.1: Ensure regular automated back ups
+### 9.1: Ensure regular automated back-ups
 
 **Guidance**: Snapshots of your Synapse SQL pool are automatically taken throughout the day creating restore points that are available for seven days. This retention period cannot be changed. SQL pool supports an eight-hour recovery point objective (RPO). You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days. Note that you can also manually trigger snapshots if necessary.
 
@@ -1025,7 +1024,7 @@ Pre-scan any content being uploaded to non-compute Azure resources, such as App 
 
 If you are using a customer-managed key to encrypt your Database Encryption Key, ensure your key is being backed up.
 
-* [Backup and restore in Azure Synapse SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Backup and restore in Azure Synapse SQL pool](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 * [How to backup Azure Key Vault keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
@@ -1039,7 +1038,7 @@ If you are using a customer-managed key to encrypt your Database Encryption Key,
 
 * [How to restore Azure Key Vault keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-* [Backup and restore in Azure Synapse SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Backup and restore in Azure Synapse SQL pool](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 * [How to restore an existing SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw)
 
@@ -1089,7 +1088,7 @@ By default, data in a storage account is encrypted with Microsoft-managed keys. 
 
 ### 10.3: Test security response procedures
 
-**Guidance**: Conduct exercises to test your systems' incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
+**Guidance**: Conduct exercises to test your systems’ incident response capabilities on a regular cadence. Identify weak points and gaps and revise plan as needed.
 
 * [You can refer to NIST's publication: Guide to Test, Training, and Exercise Programs for IT Plans and Capabilities](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -1137,7 +1136,7 @@ By default, data in a storage account is encrypted with Microsoft-managed keys. 
 
 **Guidance**: * [Please follow the Microsoft Rules of Engagement to ensure your Penetration Tests are not in violation of Microsoft policies](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.)
 
-* [You can find more information on Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [You can find more information on Microsoft’s strategy and execution of Red Teaming and live site penetration testing against Microsoft managed cloud infrastructure, services and applications, here](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Azure Security Center monitoring**: Not applicable
 
