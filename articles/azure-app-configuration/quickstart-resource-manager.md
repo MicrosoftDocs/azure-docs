@@ -1,5 +1,6 @@
 ---
 title: ARM template for creating App Configuration store
+titleSuffix: Azure App Configuration
 description: This quickstart demonstrates how to use Azure Resource Manager templates to deploy an App Configuration store, set key-values to the configuration store and reference key-values from the configuration store.
 author: ZhijunZhao
 ms.author: lcozzens
@@ -131,24 +132,24 @@ Congratulations! You've deployed an App Configuration store with one key-value i
 
 In the above template, there are two resource types.
 
-1. `Microsoft.AppConfiguration/configurationStores` for creating the App Configuration store.
-1. `Microsoft.AppConfiguration/configurationStores/keyValues` for setting key-values to the App Configuration store.
+- `Microsoft.AppConfiguration/configurationStores` for creating the App Configuration store.
+- `Microsoft.AppConfiguration/configurationStores/keyValues` for setting key-values to the App Configuration store.
 
 In an App Configuration store, each key-value is uniquely identified by its key and label combination. In ARM template, each key-value is represented by a single `Microsoft.AppConfiguration/configurationStores/keyValues` resource, whose name is a combination of key and label. The key and label are joined by delimiter `$`. Label is optional.
 
 In the above template, the key-value resource name is `myKey$myLabel`, which means the key is `myKey` and the label is `myLabel`. To create a key-value without a label, the key-value resource name shall be like `myKey`.
 
-To use characters that are not allowed by ARM resource name in keys or labels, percent-encoding, also known as URL encoding, is required. However, as `%` is not allowed in the ARM resource name either, `~` is used as the replacement of `%` as the encoding character. Therefore, keys and labels should be encoded like this:
+To use characters that are not allowed by ARM template resource name in keys or labels, percent-encoding, also known as URL encoding, is required. However, as `%` is not allowed in the ARM template resource name either, `~` is used as the replacement of `%` as the encoding character. Therefore, keys and labels should be encoded like this:
 
-1. URL encode
-2. Replace `~` with `~7E`
-3. Replace `%` with `~`
+- Apply URL encoding
+- Replace `~` with `~7E`
+- Replace `%` with `~`
 
 For example, to create a key-value pair with key as `AppName:DbEndpoint` and label as `Test`, the resource name should be `AppName~3ADbEndpoint$Test`.
 
 ### Reference key-values in the ARM template
 
-The ARM template function `reference` is supported by App Configuration. In the `outputs` section of the above template, the resource id of the key-value is passed to the `reference` function, which returns the key-value object from the App Configuration store.
+The ARM template function `reference` is supported by App Configuration. In the `outputs` section of the above template, the resource ID of the key-value is passed to the `reference` function, which returns the key-value object from the App Configuration store.
 
 > [!WARNING]
 > As the ARM template is executed outside of your virtual network, it will not be allowed to set or reference key-values in an App Configuration store that has Private Endpoint enabled but without allowing public network access.
