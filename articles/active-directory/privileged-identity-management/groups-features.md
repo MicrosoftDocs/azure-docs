@@ -1,5 +1,5 @@
 ---
-title: Managing privileged access groups in Privileged Identity Management (PIM) | Microsoft Docs
+title: Managing privileged Azure AD groups in Privileged Identity Management (PIM) | Microsoft Docs
 description: How to manage members and owners of privileged access groups in Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -22,9 +22,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a dev or IT admin, I want to manage group assignments in PIM, so that I can grant eligibility for elevation to a role assigned via group membership
 ---
 
-# Management capabilities for privileged access groups (preview) in Privileged Identity Management
+# Management capabilities for privileged access Azure AD groups (preview)
 
-In Privileged Identity Management (PIM), you can now assign eligibility for membership or ownership of privileged access groups. Starting with this preview, you can assign Azure AD built-in roles to cloud groups and use PIM to manage group member and owner eligibility and activation.
+In Privileged Identity Management (PIM), you can now assign eligibility for membership or ownership of privileged access groups. Starting with this preview, you can assign Azure Active Directory (Azure AD) built-in roles to cloud groups and use PIM to manage group member and owner eligibility and activation. For more information about role-assignable groups in Azure AD, see [Use cloud groups to manage role assignments in Azure Active Directory (preview)](../users-groups-roles/roles-groups-concept.md).
 
 ## Require different policies for each role assignable group
 
@@ -45,5 +45,5 @@ Both user-initiated actions require an approval from a Global administrator or P
 
 ## Next steps
 
-- [Assign an privileged access group owner or member](pim-groups-assign-member-owner.md)
-- [Approve or deny activation requests for privileged access group members and owners](pim-groups-approval-workflow.md)
+- [Assign an privileged access group owner or member](groups-assign-member-owner.md)
+- [Approve or deny activation requests for privileged access group members and owners](groups-approval-workflow.md)

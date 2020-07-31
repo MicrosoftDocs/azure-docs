@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Assign eligibility for a role-assignable group in Privileged Identity Management
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can help you manage the eligibility and activation of assignments to privileged access groups in Azure AD. You can assign elegibility to members or owners of the group.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can help you manage the eligibility and activation of assignments to privileged access groups in Azure AD. You can assign eligibility to members or owners of the group.
 
 >[!NOTE]
 >Every user who is eligible for membership in or ownership of a role-assignable group must have an Azure AD Premium P2 license. For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
@@ -38,21 +38,21 @@ Follow these steps to make a user eligible to be a member or owner of a privileg
 
 1. You can search for a group name and use the **Group type** to filter the list to select the group you want to manage.
 
-    ![List of privileged access groups to manage](./media/pim-groups-assign-member-owner/privileged-access-list.png)
+    ![List of privileged access groups to manage](./media/groups-assign-member-owner/privileged-access-list.png)
 
 1. Under **Manage**, select **Assignments**.
 
 1. Select **Add assignments**.
 
-    ![New assignment pane](./media/pim-groups-assign-member-owner/groups-add-assignment.png)
+    ![New assignment pane](./media/groups-assign-member-owner/groups-add-assignment.png)
 
 1. Select the members or owners you want to make eligible for the privileged access group.
 
-    ![Select a member or group pane](./media/pim-groups-assign-member-owner/add-assignments.png)
+    ![Select a member or group pane](./media/groups-assign-member-owner/add-assignments.png)
 
 1. Select **Next** to set the membership or ownership duration.
 
-    ![Select a member or group pane](./media/pim-groups-assign-member-owner/assignment-duration.png)
+    ![Select a member or group pane](./media/groups-assign-member-owner/assignment-duration.png)
 
 1. In the **Assignment type** list, select **Eligible** or **Active**. Privileged access groups provide two distinct assignment types:
 
@@ -66,7 +66,7 @@ Follow these steps to make a user eligible to be a member or owner of a privileg
 
 1. To create the new role assignment, select **Add**. A notification of the status is displayed.
 
-    ![New assignment - Notification](./media/pim-groups-assign-member-owner/groups-assignment-notification.png)
+    ![New assignment - Notification](./media/groups-assign-member-owner/groups-assignment-notification.png)
 
 ## Update or remove an existing role assignment
 
@@ -78,7 +78,7 @@ Follow these steps to update or remove an existing role assignment.
 
 1. You can search for a group name and use the **Group type** to filter the list to select the group you want to manage.
 
-    ![List of privileged access groups to manage](./media/pim-groups-assign-member-owner/privileged-access-list.png)
+    ![List of privileged access groups to manage](./media/groups-assign-member-owner/privileged-access-list.png)
 
 1. Under **Manage**, select **Assignments**.
 
@@ -86,7 +86,7 @@ Follow these steps to update or remove an existing role assignment.
 
 1. Find the role assignment on the **Eligible roles** or **Active roles** tabs.
 
-    ![Update or remove role assignment](./media/pim-groups-assign-member-owner/groups-add-assignment.png)
+    ![Update or remove role assignment](./media/groups-assign-member-owner/groups-add-assignment.png)
 
 1. Select **Update** or **Remove** to update or remove the role assignment.
 

@@ -90,17 +90,19 @@
   - name: Manage Privileged access groups (Preview)
     items:
     - name: Privileged access overview
-      href: pim-groups-features.md
+      href: groups-features.md
+    - name: Discover groups
+      href: groups-discover-groups.md
     - name: Assign member or owner
-      href: pim-groups-assign-member-owner.md
+      href: groups-assign-member-owner.md
     - name: Approve requests
-      href: pim-groups-approval-workflow.md
+      href: groups-approval-workflow.md
     - name: Extend or renew assignments
-      href: pim-groups-renew-extend.md
+      href: groups-renew-extend.md
     - name: Configure role settings
-      href: pim-groups-role-settings.md
+      href: groups-role-settings.md
     - name: View audit history
-      href: pim-groups-audit.md
+      href: groups-audit.md
   - name: Troubleshoot PIM
     href: pim-troubleshoot.md
   - name: Access reviews

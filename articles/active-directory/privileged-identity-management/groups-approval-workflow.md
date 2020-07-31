@@ -33,7 +33,7 @@ As a delegated approver, you'll receive an email notification when an Azure reso
 
 1. Select **Approve requests**.
 
-    ![Approve requests - Azure resources page showing request to review](./media/pim-groups-approval-workflow/groups-select-request.png)
+    ![Approve requests - Azure resources page showing request to review](./media/groups-approval-workflow/groups-select-request.png)
 
     In the **Requests for role activations** section, you'll see a list of requests pending your approval.
 
@@ -41,7 +41,7 @@ As a delegated approver, you'll receive an email notification when an Azure reso
 
 1. Find and select the request that you want to approve and select **Approve**.
 
-    ![Approve requests - approve or deny pane with details and Justification box](./media/pim-groups-approval-workflow/groups-confirm-approval.png)
+    ![Approve requests - approve or deny pane with details and Justification box](./media/groups-approval-workflow/groups-confirm-approval.png)
 
 1. In the **Justification** box, enter the business justification.
 
@@ -51,7 +51,7 @@ As a delegated approver, you'll receive an email notification when an Azure reso
 
 1. Find and select the request that you want to deny and select **Deny**.
 
-    ![Approve requests - approve or deny pane with details and Justification box](./media/pim-groups-approval-workflow/groups-confirm-denial.png)
+    ![Approve requests - approve or deny pane with details and Justification box](./media/groups-approval-workflow/groups-confirm-denial.png)
 
 1. In the **Justification** box, enter the business justification.
 

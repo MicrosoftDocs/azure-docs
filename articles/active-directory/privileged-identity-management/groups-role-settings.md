@@ -33,34 +33,34 @@ Follow these steps to open the settings for an Azure privileged access group rol
 
 1. Select the group that you want to manage.
 
-    ![Privileged access groups filtered by a group name](./media/pim-groups-role-settings/group-select.png)
+    ![Privileged access groups filtered by a group name](./media/groups-role-settings/group-select.png)
 
 1. Select **Settings**.
 
-    ![Settings page listing group settings for the selected group](./media/pim-groups-role-settings/group-settings-select-role.png)
+    ![Settings page listing group settings for the selected group](./media/groups-role-settings/group-settings-select-role.png)
 
 1. Select the Owner or Member role whose settings you want to view or change. You can view the current settings for the role in the **Role setting details** page.
 
-    ![Role setting details page listing several assignment and activation settings](./media/pim-groups-role-settings/group-role-setting-details.png)
+    ![Role setting details page listing several assignment and activation settings](./media/groups-role-settings/group-role-setting-details.png)
 
 1. Select **Edit** to open the **Edit role setting** page. The **Activation** tab allows you to change the  role activation settings, including whether to allow permanent eligible and active assignments.
 
-    ![Edit role settings page with Activation tab open](./media/pim-groups-role-settings/role-settings-activation-tab.png)
+    ![Edit role settings page with Activation tab open](./media/groups-role-settings/role-settings-activation-tab.png)
 
 1. Select the **Assignment** tab  to open the assignment settings tab. These settings control the Privileged Identity Management assignment settings for this role.
 
-    ![Role Assignment tab in role settings page](./media/pim-groups-role-settings/role-settings-assignment-tab.png)
+    ![Role Assignment tab in role settings page](./media/groups-role-settings/role-settings-assignment-tab.png)
 
 1. Use the **Notification** tab or the **Next: Activation** button at the bottom of the page to get to the notification setting tab for this role. These settings control all the email notifications related to this role.
 
-    ![Role Notifications tab in role settings page](./media/pim-groups-role-settings/role-settings-notification-tab.png)
+    ![Role Notifications tab in role settings page](./media/groups-role-settings/role-settings-notification-tab.png)
 
 1. Select the **Update** button at any time to update the role settings.
 
 In the **Notifications** tab on the role settings page, Privileged Identity Management enables granular control over who receives notifications and which notifications they receive.
 
 - **Turning off an email**<br>You can turn off specific emails by clearing the default recipient check box and deleting any additional recipients.  
-- **Limit emails to specified email addresses**<br>You can turn off emails sent to default recipients by clearing the default recipient checkbox. You can then add additional email addresses as additional recipients. If you want to add more than one email address, separate them usia semicolon (;).
+- **Limit emails to specified email addresses**<br>You can turn off emails sent to default recipients by clearing the default recipient checkbox. You can then add additional email addresses as additional recipients. If you want to add more than one email address, separate them using a semicolon (;).
 - **Send emails to both default recipients and additional recipients**<br>You can send emails to both default recipient and additional recipient by selecting the default recipient checkbox and adding email addresses for additional recipients.
 - **Critical emails only**<br>For each type of email, you can select the checkbox to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the configured recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while an emails requiring admins to approve an extension request will be triggered.
 
@@ -119,7 +119,7 @@ If you want to require approval to activate a role, follow these steps.
 
 1. Select **Select approvers** to open the **Select a member or group** page.
 
-    ![Select a user or group pane to select approvers](./media/pim-groups-role-settings/group-settings-select-approvers.png)
+    ![Select a user or group pane to select approvers](./media/groups-role-settings/group-settings-select-approvers.png)
 
 1. Select at least one user or group and then click **Select**. You can add any combination of users and groups. You must select at least one approver. There are no default approvers.
 
@@ -129,4 +129,4 @@ If you want to require approval to activate a role, follow these steps.
 
 ## Next steps
 
-- [Assign privileged access group membership or ownership in PIM](pim-groups-assign-member-owner.md)
+- [Assign privileged access group membership or ownership in PIM](groups-assign-member-owner.md)

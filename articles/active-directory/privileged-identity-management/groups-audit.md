@@ -37,7 +37,7 @@ Follow these steps to view the audit history for privileged access groups.
 
 1. Filter the history using a predefined date or custom range.
 
-    ![Resource audit list with filters](media/pim-groups-audit/groups-resource-audit.png)
+    ![Resource audit list with filters](media/groups-audit/groups-resource-audit.png)
 
 ## View my audit
 
@@ -57,6 +57,6 @@ My audit enables you to view your personal role activity.
 
 ## Next steps
 
-- [Assign group membership and ownership in Privileged Identity Management](pim-groups-assign-member-owner.md)
-- [Approve or deny requests for privileged access groups in PIM](pim-groups-approval-workflow.md)
-- [View audit history for Azure AD roles in PIM](pim-groups-audit.md)
+- [Assign group membership and ownership in Privileged Identity Management](groups-assign-member-owner.md)
+- [Approve or deny requests for privileged access groups in PIM](groups-approval-workflow.md)
+- [View audit history for Azure AD roles in PIM](groups-audit.md)
