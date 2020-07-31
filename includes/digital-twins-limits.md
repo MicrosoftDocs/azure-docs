@@ -15,7 +15,6 @@ The table below lists the functional limits of Azure Digital Twins in the curren
 | --- | --- | --- | --- |
 | Azure resource | Number of Azure Digital Twins instances in a region, per subscription | 10 | Yes |
 | Digital twins | Number of twins in an Azure Digital Twins instance | 200,000 | Yes |
-| Digital twins | Number of properties on a single twin | 300 | No |
 | Digital twins | Number of incoming relationships to a single twin | 5,000 | No |
 | Digital twins | Number of outgoing relationships from a single twin | 5,000 | No |
 | Routing | Number of endpoints for a single Azure Digital Twins instance | 6 | No |
