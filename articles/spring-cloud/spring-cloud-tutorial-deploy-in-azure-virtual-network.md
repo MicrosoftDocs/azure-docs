@@ -53,37 +53,15 @@ If you already have a virtual network to host Azure Spring Cloud service instanc
     |Name             |Enter *azure-spring-cloud-vnet*                   |
     |Location         |Select **East US**                                |
 
+1. Click **Next: IP Addresses >**. 
+ 
+1. For IPv4 address space, enter 10.1.0.0/16.
+
 1. Select **Add subnet**, then enter *service-runtime-subnet* for **Subnet name** and 10.1.0.0/24 for **Subnet address range**. Then click **Add**.
 
 1. Select **Add subnet** again, then enter *apps-subnet* for **Subnet name** and 10.1.1.0/24 for **Subnet address range**.  Click **Add**.
 
 1. Click **Review + create**. Leave the rest as defaults and click **Create**.
-
-## Grant service permission to the virtual network
-
-Select the virtual network *azure-spring-cloud-vnet* previously created.
-
-1. Select **Access control (IAM)** from the left navigation pane, then select **Add** > **Add role assignment**.
-
-    ![Access control](./media/spring-cloud-v-net-injection/access-control.png)
-
-1. In the **Add role assignment** dialog, enter or select the following information:
-
-    |Setting          |Value                                             |
-    |-----------------|--------------------------------------------------|
-    |Subscription     |Select your subscription.                         |
-    |Resource group   |Select your resource group, or create a new one.  |
-    |Name             |Enter *azure-spring-cloud-vnet*                   |
-    |Location         |Select **East US**                                |
-
-
-1. Select **Next: IP Addresses**, and enter 10.1.0.0/16 for **IPv4 address space**.
-
-1. Select **Add subnet**, then enter *service-runtime-subnet* for Subnet name and 10.1.0.0/24 for **Subnet address range**.  Click **Add**.
-
-1. Select **Add subnet** again, then enter *apps-subnet* for Subnet name and 10.1.1.0/24 for **Subnet address range**.  Click **Add**.
-
-1. Select **Review + create**. Leave the rest as defaults.  Click **Create**.
 
 ## Grant service permission to the virtual network
 
