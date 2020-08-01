@@ -1,11 +1,11 @@
 ---
 title: Configure a dataset mapping in Azure Data Share
 description: Learn how to configure a dataset mapping for a received share using Azure Data Share.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 07/10/2019
+ms.date: 07/30/2020
 ---
 # How to configure a dataset mapping for a received share in Azure Data Share
 

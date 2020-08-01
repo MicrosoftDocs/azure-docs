@@ -582,7 +582,7 @@ Additionally, you can set up a dynamic data masking (DDM) policy in the Azure po
 
 ### 4.6: Use Role-based access control to control access to resources
 
-**Guidance**: Use Azure role-based access control (RBAC) to manage access to Azure SQL databases in your Synapse SQL pool.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to manage access to Azure SQL databases in your Synapse SQL pool.
 
 Authorization is controlled by your user account's database role memberships and object-level permissions. As a best practice, you should grant users the least privileges necessary.
 
