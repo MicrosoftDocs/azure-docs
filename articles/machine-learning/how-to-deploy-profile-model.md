@@ -1,7 +1,7 @@
 ---
 title: Profile model memory and CPU usage
 titleSuffix: Azure Machine Learning
-description: 'Learn to profile your model's memory and CPU usage.'
+description: Learn to profile your model memory and CPU usage
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
