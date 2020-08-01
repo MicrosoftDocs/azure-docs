@@ -108,6 +108,11 @@ Using the template ID that you retrieved for your application in the last step, 
 
 > [!NOTE] 
 > You can use applicationTemplate API to instantiate [Non-Gallery apps](add-non-gallery-app.md). Use applicationTemplateId `8adf8e6e-67b2-4cf2-a259-e3dc5476c621`.
+
+> [!NOTE]
+> Allow some time for the app to be provisioned into your Azure AD tenant. It is not instant. One strategy is to do a GET query on the application / service principal object every 5-10 seconds until the query is successful.
+
+
 #### Request
 
 <!-- {
@@ -339,6 +344,9 @@ In addition to the basic claims, configure the following claims for Azure AD to 
 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | userprincipalname |
 
 For more information, see [Customize claims emitted in token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping).
+
+> [!NOTE]
+> Some keys in the claims mapping policy are case sensitive (e.g. "Version"). If you receive an error message such as "Property has an invalid value", it could be a case sensitive issue.
 
 #### Request
 
