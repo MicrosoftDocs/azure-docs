@@ -16,11 +16,15 @@ ms.author: ambapat
 # About keys
 
 Azure Key Vault provides two types of containers to store and manage cryptographic keys:
-|Container type|Key protection methods|Benefits and use cases|
+|Container type|Key protection methods|Base URL|
 |--|--|--|
-**Vaults**|Software-protected<br/><br/>and<br/><br/>HSM-protected (with Premium SKU)</li></ul>|Vaults provide a low-cost, easy to deploy, multi-tenant, zone-resilient (where available), highly available key management solution suitable for most common cloud application scenarios.
-|**Managed HSM pools** | HSM-protected| Managed HSM provides single-tenant, zone-resilient ( (where available)), highly available HSM pools to store and manage your cryptographic keys. Most suitable for applications and usage scenarios that handle high value keys. Also helps to meet most stringent security, compliance, and regulatory requirements. 
+**Vaults**|Software-protected<br/><br/>and<br/><br/>HSM-protected (with Premium SKU)</li></ul>|https://{vault-name}.vault.azure.net
+|**Managed HSM pools** | HSM-protected| https://{hsm-name}.managedhsm.azure.net
 |||
+
+- **Vaults** - Vaults provide a low-cost, easy to deploy, multi-tenant, zone-resilient (where available), highly available key management solution suitable for most common cloud application scenarios.
+- **Managed HSM pools** - Managed HSM provides single-tenant, zone-resilient ( (where available)), highly available HSM pools to store and manage your cryptographic keys. Most suitable for applications and usage scenarios that handle high value keys. Also helps to meet most stringent security, compliance, and regulatory requirements. 
+
 
 >[!NOTE] Vaults also allow you to store and manage several types of objects like secrets, certificates and storage account keys, in addition to cryptographic keys.
 
