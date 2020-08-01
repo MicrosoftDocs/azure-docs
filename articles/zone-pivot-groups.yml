@@ -510,8 +510,6 @@ groups:
   title: Azure Machine Learning control plane
   prompt: Choose an Azure Machine control plane interface
   pivots:
-  - id: ui
-    title: User Interface (UI)
   - id: py-sdk
     title: Python Software Development Kit (SDK)
   - id: cli
