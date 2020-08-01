@@ -29,20 +29,19 @@ Watch this fast-paced video for an overview of the security architecture and eac
 
 ## Encrypted transmissions and storage
 
-Encryption is pervasive in Azure Cognitive Search, starting with connections and transmissions, extending to content stored on disk. For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) are not supported.
+In Azure Cognitive Search, encryption starts with connections and transmissions, and extends to content stored on disk. For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) are not supported.
 
-The following table describes the [data encryption models](../security/fundamentals/encryption-atrest.md#data-encryption-models
-) supported by Azure Cognitive Search for content that is handled by the service.
+For data handled internally by the search service, the following table describes the [data encryption models](../security/fundamentals/encryption-atrest.md#data-encryption-models). Some features, such as knowledge store, incremental enrichment, and indexer-based indexing, read from or write to data structures in other Azure Services. Those services have their own levels of encryption support separate from Azure Cognitive Search.
 
-| Encryption model | Keys&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requirements&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrictions | Applies to |
+| Model | Keys&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requirements&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrictions | Applies to |
 |------------------|-------|-------------|--------------|------------|
 | server-side encryption | Microsoft-managed keys | None (built-in) | None, available on all tiers, in all regions, for content created after January 24 2018. | Content (indexes and synonym maps) and definitions (indexers, data sources, skillsets) |
 | server-side encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, for content created after January 2019. | Content (indexes and synonym maps)|
-| double encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in selected regions, for content created after August 1 2020. | Content (indexes and synonym maps) plus temporary data structures |
+| server-side double encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in selected regions, for content created after August 1 2020. | Content (indexes and synonym maps) plus temporary data structures |
 
 ### Service-managed keys
 
-Service-managed encryption is a Microsoft-internal operations, based on [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). It occurs automatically on all indexing, including on incremental updates to indexes that are not fully encrypted (created before January 2018).
+Service-managed encryption is a Microsoft-internal operation, based on [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). It occurs automatically on all indexing, including on incremental updates to indexes that are not fully encrypted (created before January 2018).
 
 ### Customer-managed keys
 
@@ -50,7 +49,7 @@ Customer-managed keys require an additional billable service, Azure Key Vault, w
 
 ### Double encryption 
 
-In Azure Cognitive Search, double encryption is an extension of CMK. It is understood to be two-fold encryption (once by CMK, and again by service-managed keys), and comprehensive in how it is applied, extending to any content that is written to disk including temporary data structures created for internal caching purposes and memory management. The difference between CMK before August 1 2020 and after is the encryption of temporary data structures created and handled by a search service.
+In Azure Cognitive Search, double encryption is an extension of CMK. It is understood to be two-fold encryption (once by CMK, and again by service-managed keys), and comprehensive in how it is applied, extending to any content that is written to disk including temporary data structures created for internal caching purposes and memory management. The difference between CMK before August 1 2020 and after, and what makes CMK a double encryption feature in Azure Cognitive Search, is the additional encryption of temporary data structures created and handled by a search service.
 
 Double encryption is currently available in these regions:
 
@@ -60,7 +59,7 @@ Double encryption is currently available in these regions:
 + US Gov Virginia
 + US Gov Arizona
 
-Remember to check regions before you begin setting up additional services. For a list of regional requirements that impact the availability of Azure Cognitive Search functionality, see [Choose a location](search-create-service-portal.md#choose-a-location).
+To use double encryption, Azure Key Vault must be in the same region as Azure Cognitive Search. Be sure to check regions before you start configuring keys and services. For a list of Azure Cognitive Search features that have region restrictions, see [Choose a location](search-create-service-portal.md#choose-a-location).
 
 <!-- ### Data encryption-at-rest
 
