@@ -197,7 +197,7 @@ For information on how to enable support for binary data in your service, see [B
 
 ### Cross-origin resource sharing (CORS)
 
-For information on enabling CORS support in your service, see [Cross-origin resource sharing](how-to-consume-web-service.md#cors).
+For information on enabling CORS support in your service, see [Cross-origin resource sharing](how-to-deploy-advanced-entry-script.md#cors).
 
 ## Call the service (C#)
 

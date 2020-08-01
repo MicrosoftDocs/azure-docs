@@ -10,9 +10,9 @@ ms.author: gopalv
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../articles/machine-learning/how-to-manage-workspace.md).
 - A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
-- The [Azure Command Line Interface (CLI) extension for the Machine Learning service](reference-azure-machine-learning-cli.md)
+- The [Azure Command Line Interface (CLI) extension for the Machine Learning service](../articles/machine-learning/reference-azure-machine-learning-cli.md)
 
 
 ## Connect to your workspace
@@ -32,7 +32,7 @@ to see the workspaces you have access to.
 A registered model is a logical container for one or more files that make up your model. For example, if you have a model that's stored in multiple files, you can register them as a single model in the workspace. After you register the files, you can then download or deploy the registered model and receive all the files that you registered.
 
 > [!TIP]
-> When you register a model, you provide the path of either a cloud location (from a training run) or a local directory. This path is just to locate the files for upload as part of the registration process. It doesn't need to match the path used in the entry script. For more information, see [Locate model files in your entry script](#load-model-files-in-your-entry-script).
+> When you register a model, you provide the path of either a cloud location (from a training run) or a local directory. This path is just to locate the files for upload as part of the registration process. It doesn't need to match the path used in the entry script. For more information, see [Locate model files in your entry script](../articles/machine-learning/how-to-deploy-advanced-entry-script.md#load-registered-models).
 
 Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or from somewhere else. When registering a model, you can optionally provide metadata about the model. The `tags` and `properties` dictionaries that you apply to a model registration can then be used to filter models.
 
@@ -75,7 +75,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 In this example, the configuration specifies the following settings:
 
 * That the model requires Python
-* The [entry script](#script), which is used to handle web requests sent to the deployed service
+* The [entry script](#define-an-entry-script), which is used to handle web requests sent to the deployed service
 * The Conda file that describes the Python packages needed for inference
 
 For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](../articles/machine-learning/how-to-deploy-custom-docker-image.md).
@@ -130,7 +130,7 @@ You can continuously deploy models by using the Machine Learning extension for [
 
 1. Use service connections to set up a service principal connection to your Azure Machine Learning workspace so you can access your artifacts. Go to project settings, select **Service connections**, and then select **Azure Resource Manager**:
 
-    [![Select Azure Resource Manager](../articles/machine-learning/media/how-to-deploy-and-where/view-service-connection.png)](../articles/machinelearning/media/how-to-deploy-and-where/view-service-connection-expanded.png)
+    [![Select Azure Resource Manager](../articles/machine-learning/media/how-to-deploy-and-where/view-service-connection.png)](../articles/machine-learning/media/how-to-deploy-and-where/view-service-connection-expanded.png)
 
 1. In the **Scope level** list, select **AzureMLWorkspace**, and then enter the rest of the values:
 
@@ -138,11 +138,11 @@ You can continuously deploy models by using the Machine Learning extension for [
 
 1. To continuously deploy your machine learning model by using Azure Pipelines, under pipelines, select **release**. Add a new artifact, and then select the **AzureML Model** artifact and the service connection that you created earlier. Select the model and version to trigger a deployment:
 
-    [![Select AzureML Model](../articles/machinelearning/media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](../articles/machinelearning/media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
+    [![Select AzureML Model](../articles/machine-learning/media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](../articles/machine-learning/media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
 
 1. Enable the model trigger on your model artifact. When you turn on the trigger, every time the specified version (that is, the newest version) of that model is registered in your workspace, an Azure DevOps release pipeline is triggered.
 
-    [![Enable the model trigger](../articles/machinelearning/media/how-to-deploy-and-where/set-modeltrigger.png)](../articles/machinelearning/media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
+    [![Enable the model trigger](../articles/machine-learning/media/how-to-deploy-and-where/set-modeltrigger.png)](../articles/machine-learning/media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
 
 For more sample projects and examples, see these sample repos in GitHub:
 

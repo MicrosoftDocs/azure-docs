@@ -78,4 +78,4 @@ For more examples, see the following scripts:
 * [Keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 * [AutoML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features)
 * [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
-* [Binary Data](articles\machine-learning\how-to-deploy-advanced-entry-script)
+* [Binary Data](articles\machine-learning\how-to-deploy-advanced-entry-script.md#binary-data)

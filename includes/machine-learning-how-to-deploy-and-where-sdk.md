@@ -10,7 +10,7 @@ ms.author: gopalv
 
 ## Prerequisites
 
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../articles/machinelearning/how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../articles/machine-learning/how-to-manage-workspace.md).
 - A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
 - The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 
@@ -93,7 +93,7 @@ You can register a model by providing the local path of the model. You can provi
 
 For more information, see the documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-For more information on working with models trained outside Azure Machine Learning, see [How to deploy an existing model](../articles/machinelearning/how-to-deploy-existing-model.md).
+For more information on working with models trained outside Azure Machine Learning, see [How to deploy an existing model](../articles/machine-learning/how-to-deploy-existing-model.md).
 
 
 ## Define an entry script
@@ -134,9 +134,9 @@ myenv = Environment.from_conda_specification(name = 'myenv',
 myenv.register(workspace=ws)
 ```
 
-For a thorough discussion of using and customizing Python environments with Azure Machine Learning, see [Create & use software environments in Azure Machine Learning](../articles/machinelearning/how-to-use-environments.md)
+For a thorough discussion of using and customizing Python environments with Azure Machine Learning, see [Create & use software environments in Azure Machine Learning](../articles/machine-learning/how-to-use-environments.md)
 
-For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](../articles/machinelearning/how-to-deploy-custom-docker-image.md).
+For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](../articles/machine-learning/how-to-deploy-custom-docker-image.md).
 
 
 The following example demonstrates loading an environment from your workspace and then using it with the inference configuration:
@@ -151,7 +151,7 @@ inference_config = InferenceConfig(entry_script='path-to-score.py',
                                     environment=myenv)
 ```
 
-For more information on environments, see [Create and manage environments for training and deployment](../articles/machinelearning/how-to-use-environments.md).
+For more information on environments, see [Create and manage environments for training and deployment](../articles/machine-learning/how-to-use-environments.md).
 
 For more information on inference configuration, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class documentation.
 
