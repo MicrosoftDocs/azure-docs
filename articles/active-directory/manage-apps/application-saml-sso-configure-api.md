@@ -514,11 +514,11 @@ namespace Self_signed_cert
 
             // Print out the start date in ISO 8601 format.
             DateTime startDate = DateTime.Parse(selfsignedCert.GetEffectiveDateString()).ToUniversalTime();
-            Console.WriteLine("Private key Start Date: " + startDate.ToString("o"));
+            Console.WriteLine("For All startDateTime: " + startDate.ToString("o"));
 
             // Print out the end date in ISO 8601 format.
             DateTime endDate = DateTime.Parse(selfsignedCert.GetExpirationDateString()).ToUniversalTime();
-            Console.WriteLine("Private key End Date: " + endDate.ToString("o"));
+            Console.WriteLine("For All endDateTime: " + endDate.ToString("o"));
 
             // Print the GUID used for keyId
             string signAndPasswordGuid = Guid.NewGuid().ToString();
@@ -528,6 +528,9 @@ namespace Self_signed_cert
 
             // Print out the password.
             Console.WriteLine("Password is: {0}", password);
+
+            // Print out a displayName to use as an example.
+            Console.WriteLine("displayName to use: CN=Example");
             Console.WriteLine();
 
             // Print out the public key.
