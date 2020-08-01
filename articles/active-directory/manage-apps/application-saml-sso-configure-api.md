@@ -487,7 +487,7 @@ Export-Certificate -cert $path -FilePath $cerFile
 
 Alternatively, the following C# console app can be used as a Proof of Concept to understand how the required values can be obtained. Note that this code is for **learning and reference ONLY** and should not be used as-is in production.
 
-```
+```csharp
 using System;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
@@ -559,6 +559,8 @@ namespace Self_signed_cert
                 return new X509Certificate2(certificate.Export(X509ContentType.Pfx, password), password, X509KeyStorageFlags.Exportable);
             }
         }
+        
+        // You can generate the customkeyIdentifier by getting the hash of the cert's thumbprint.
         public static string GetSha256FromThumbprint(string thumbprint)
         {
             var message = Encoding.ASCII.GetBytes(thumbprint);
@@ -580,18 +582,7 @@ Add the following information to the service principal:
 
 Extract the private and public key Base64 encoded from the PFX file. To learn more about the properties, read [keyCredential resource type](https://docs.microsoft.com/graph/api/resources/keycredential?view=graph-rest-1.0).
 
-Make sure that the keyId for the keyCredential used for "Sign" matches the keyId of the passwordCredential.
-
-You can generate the `customkeyIdentifier` by getting the hash of the cert's thumbprint.
-
-```csharp
-  public string GetSha256FromThumbprint(string thumbprint)
-  {
-      var message = Encoding.ASCII.GetBytes(thumbprint);
-      SHA256Managed hashString = new SHA256Managed();
-      return Convert.ToBase64String(hashString.ComputeHash(message));
-  }
-```
+Make sure that the keyId for the keyCredential used for "Sign" matches the keyId of the passwordCredential. You can generate the `customkeyIdentifier` by getting the hash of the cert's thumbprint. See C# reference code above.
 
 #### Request
 
