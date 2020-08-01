@@ -55,18 +55,18 @@ Azure Files offers NFS v4.1 protocol which is fully managed, network-attached st
 
 ### Restrictions
 
-The following Azure Files features are not available with NFS shares:
+- Currently only available in East US
+- Encryption-in-transit is not currently available
+- Must create a new storage account in order to create an NFS share.
+- Does not currently support storage explorer, Databox, or AzCopy.
+
+Also, the following Azure Files features are not available with NFS shares:
 
 - Azure File Sync
 - Identity-based authentication
 - Azure Backup support
 - Snapshots
 - Soft delete
-
-- Currently only available in East US
-- Encryption-in-transit is not currently available
-- Must create a new storage account in order to create an NFS share.
-- Does not currently support storage explorer, Databox, or AzCopy.
 
 ### Use cases
 
