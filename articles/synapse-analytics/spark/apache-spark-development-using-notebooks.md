@@ -268,7 +268,7 @@ You can access data in the primary storage account directly. There's no need to 
 
 ## Visualize data in a notebook
 
-### Display(df, [summary=true])
+### Produce rendered table view
 
 A tabular results view is provided with the option to create a bar chart, line chart, pie chart, scatter chart, and area chart. You can visualize your data without having to write code. The charts can be customized in the **Chart Options**. 
 
@@ -286,7 +286,7 @@ By default the <code>display(df)</code> function will only take the first 1000 r
 You can use <code>display(df, summary = true)</code> to check the statistics summary of a given spark DataFrame that include the column name, column type, unique values, and missing values for each column. You can also select on specific column to see its Minimal value, Maximal value, Mean value and Standard Deviation.
     [ ![builtin-charts-summary](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png) ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
 
-### DisplayHTML()
+### Render HTML or interactive libraries
 
 You can render HTML or interactive libraries, like **bokeh**, using the **displayHTML()**.
 
@@ -353,15 +353,15 @@ Available cell magics:
 [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages)
 
 
-## Orchestrate Notebook
+## Orchestrate notebook
 
-### Add a Notebook to Pipeline
+### Add a notebook to a pipeline
 
 Click the **Add to pipeline** button on the upper right corner to add a notebook to an existing pipeline or create a new pipeline.
 
 ![add-to-pipeline](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
 
-### Designate a Parameters Cell in Notebook
+### Designate a parameters cell
 
 To parameterize your notebook select the ellipses (...) to access the additional cell actions menu at the far right. Then select **Toggle parameter cell** to designate the cell as the parameters cell.
 
@@ -369,7 +369,7 @@ To parameterize your notebook select the ellipses (...) to access the additional
 
 Azure Data Factory looks for the parameters cell and treats this cell as defaults for the parameters passed in at execution time. Execution engine will add a new cell beneath the parameters cell with input parameters in order to overwrite the default values. When there is no parameters cell is designated the injected cell will be inserted at the top of the notebook.
 
-### Assign Parameters Values from a Pipeline
+### Assign parameters values from a pipeline
 
 Once you've created a notebook with parameters, you can execute it from a pipeline with the Azure Synapse Notebook activity. After you add the activity to your pipeline canvas, you will be able to set the parameters values under **Base parameters** section on the **Settings** tab. 
 
