@@ -420,7 +420,7 @@ print(token)
 
 ## Update the web service
 
-[!INCLUDE [aml-update-web-service](../../includes/machine-learning-update-web-service.md)]
+[!INCLUDE [aml-update-web-service](how-to-deploy-update-web-service.md)]
 
 ## Next steps
 

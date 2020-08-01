@@ -1,4 +1,5 @@
 ---
+title: Author entry script for advanced scenarios
 author: gvashishtha
 services: machine-learning
 ms.service: machine-learning

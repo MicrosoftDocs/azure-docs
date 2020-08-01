@@ -182,7 +182,7 @@ The web service can accept multiple sets of data in one request. It returns a JS
 
 ### Binary data
 
-For information on how to enable support for binary data in your service, see [Binary data](how-to-deploy-and-where.md#binary).
+For information on how to enable support for binary data in your service, see [Binary data](how-to-deploy-advanced-entry-script.md#binary-data).
 
 > [!TIP]
 > Enabling support for binary data happens in the score.py file used by the deployed model. From the client, use the HTTP functionality of your programming language. For example, the following snippet sends the contents of a JPG file to a web service:
@@ -197,7 +197,7 @@ For information on how to enable support for binary data in your service, see [B
 
 ### Cross-origin resource sharing (CORS)
 
-For information on enabling CORS support in your service, see [Cross-origin resource sharing](how-to-deploy-and-where.md#cors).
+For information on enabling CORS support in your service, see [Cross-origin resource sharing](how-to-consume-web-service.md#cors).
 
 ## Call the service (C#)
 

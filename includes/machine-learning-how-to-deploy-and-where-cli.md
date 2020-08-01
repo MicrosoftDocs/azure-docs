@@ -44,7 +44,7 @@ The following examples demonstrate how to register a model.
 az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid --tag area=mnist
 ```
 
-[!INCLUDE [install extension](../../includes/machine-learning-service-install-extension.md)]
+[!INCLUDE [install extension](machine-learning-service-install-extension.md)]
 
 The `--asset-path` parameter refers to the cloud location of the model. In this example, the path of a single file is used. To include multiple files in the model registration, set `--asset-path` to the path of a folder that contains the files.
 
@@ -60,11 +60,11 @@ For more information on `az ml model register`, consult the [reference documenta
 
 ## Define an entry script
 
-[!INCLUDE [write entry script](../../includes/machine-learning-entry-script.md)]
+[!INCLUDE [write entry script](machine-learning-entry-script.md)]
 
 ## Define an inference configuration
 
-[!INCLUDE [inference config](../../includes/machine-learning-service-inference-config.md)]
+[!INCLUDE [inference config](machine-learning-service-inference-config.md)]
 
 The following command demonstrates how to deploy a model by using the CLI:
 
@@ -78,13 +78,13 @@ In this example, the configuration specifies the following settings:
 * The [entry script](#script), which is used to handle web requests sent to the deployed service
 * The Conda file that describes the Python packages needed for inference
 
-For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
+For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](../articles/machine-learning/how-to-deploy-custom-docker-image.md).
 
 ## Choose a compute target
 
 The compute target you use to host your model will affect the cost and availability of your deployed endpoint. Use the table below to choose an appropriate compute target.
 
-[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+[!INCLUDE [aml-compute-target-deploy](aml-compute-target-deploy.md)]
 
 > [!NOTE]
 > * Azure Container Instances (ACI) are suitable only for small models less than 1 GB in size. 
@@ -94,7 +94,7 @@ The compute target you use to host your model will affect the cost and availabil
 
 The options available for a deployment configuration differ depending on the compute target you choose.
 
-[!INCLUDE [aml-local-deploy-config](../../includes/machine-learning-service-local-deploy-config.md)]
+[!INCLUDE [aml-local-deploy-config](machine-learning-service-local-deploy-config.md)]
 
 For more information, see the [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) documentation.
 
@@ -122,7 +122,7 @@ az ml model deploy --ic inferenceconfig.json --dc deploymentconfig.json
 
 You can continuously deploy models by using the Machine Learning extension for [Azure DevOps](https://azure.microsoft.com/services/devops/). You can use the Machine Learning extension for Azure DevOps to trigger a deployment pipeline when a new machine learning model is registered in an Azure Machine Learning workspace.
 
-1. Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), which makes continuous integration and delivery of your application to any platform or cloud possible. (Note that Azure Pipelines isn't the same as [Machine Learning pipelines](concept-ml-pipelines.md#compare).)
+1. Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), which makes continuous integration and delivery of your application to any platform or cloud possible. (Note that Azure Pipelines isn't the same as [Machine Learning pipelines](../articles/machine-learning/concept-ml-pipelines.md#compare).)
 
 1. [Create an Azure DevOps project.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
 
@@ -130,19 +130,19 @@ You can continuously deploy models by using the Machine Learning extension for [
 
 1. Use service connections to set up a service principal connection to your Azure Machine Learning workspace so you can access your artifacts. Go to project settings, select **Service connections**, and then select **Azure Resource Manager**:
 
-    [![Select Azure Resource Manager](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png)
+    [![Select Azure Resource Manager](../articles/machine-learning/media/how-to-deploy-and-where/view-service-connection.png)](../articles/machinelearning/media/how-to-deploy-and-where/view-service-connection-expanded.png)
 
 1. In the **Scope level** list, select **AzureMLWorkspace**, and then enter the rest of the values:
 
-    ![Select AzureMLWorkspace](./media/how-to-deploy-and-where/resource-manager-connection.png)
+    ![Select AzureMLWorkspace](../articles/machine-learning/media/how-to-deploy-and-where/resource-manager-connection.png)
 
 1. To continuously deploy your machine learning model by using Azure Pipelines, under pipelines, select **release**. Add a new artifact, and then select the **AzureML Model** artifact and the service connection that you created earlier. Select the model and version to trigger a deployment:
 
-    [![Select AzureML Model](media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
+    [![Select AzureML Model](../articles/machinelearning/media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](../articles/machinelearning/media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
 
 1. Enable the model trigger on your model artifact. When you turn on the trigger, every time the specified version (that is, the newest version) of that model is registered in your workspace, an Azure DevOps release pipeline is triggered.
 
-    [![Enable the model trigger](media/how-to-deploy-and-where/set-modeltrigger.png)](media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
+    [![Enable the model trigger](../articles/machinelearning/media/how-to-deploy-and-where/set-modeltrigger.png)](../articles/machinelearning/media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
 
 For more sample projects and examples, see these sample repos in GitHub:
 
