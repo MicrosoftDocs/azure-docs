@@ -345,6 +345,9 @@ In addition to the basic claims, configure the following claims for Azure AD to 
 
 For more information, see [Customize claims emitted in token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping).
 
+> [!NOTE]
+> Some keys in the claims mapping policy are case sensitive (e.g. "Version"). If you receive an error message such as "Property has an invalid value", it could be a case sensitive issue.
+
 #### Request
 
 <!-- {
