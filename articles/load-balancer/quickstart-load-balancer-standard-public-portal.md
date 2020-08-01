@@ -270,7 +270,7 @@ For more information on outbound connections, see [Outbound connections in Azure
 
 5. In **Virtual machines**, select **+ Add**.
 
-6. Check the boxes next to **myVM1**, **myVM2**, and **myVM3**. 
+6. Check the boxes next to **myVM1**, **myVM2**, and **myVM3**. --> These 3 VMs are already added to "myBackendPool" adding them again to "myBackendPoolOutbound" will raise an error regarding a conflict with the NicUpdate
 
 7. Select **Add**.
 
