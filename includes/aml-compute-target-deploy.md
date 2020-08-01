@@ -11,6 +11,9 @@ ms.topic: "include"
 ms.date: 06/25/2020
 ---
 
+
+The compute target you use to host your model will affect the cost and availability of your deployed endpoint. Use the table below to choose an appropriate compute target.
+
 | Compute target | Used for | GPU support | FPGA support | Description |
 | ----- | ----- | ----- | ----- | ----- |
 | [Local&nbsp;web&nbsp;service](../articles/machine-learning/how-to-deploy-and-where.md#local) | Testing/debugging | &nbsp; | &nbsp; | Use for limited testing and troubleshooting. Hardware acceleration depends on use of libraries in the local system.
@@ -26,3 +29,7 @@ ms.date: 06/25/2020
 > Although compute targets like local, Azure Machine Learning compute instance, and Azure Machine Learning compute clusters support GPU for training and experimentation, using GPU for inference __when deployed as a web service__ is supported only on Azure Kubernetes Service.
 >
 > Using a GPU for inference __when scoring with a machine learning pipeline__ is supported only on Azure Machine Learning Compute.
+
+> [!NOTE]
+> * Azure Container Instances (ACI) are suitable only for small models less than 1 GB in size. 
+> * We recommend using single-node Azure Kubernetes Service (AKS) clusters for dev-test of larger models.

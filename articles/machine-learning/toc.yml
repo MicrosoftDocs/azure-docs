@@ -363,7 +363,7 @@
       - name: Where and how to deploy
         displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
         href: how-to-deploy-and-where.md
-      - name: Deployment scenarios
+      - name: Deployment targets
         items:
         - name: Use existing models
           displayName: publish existing model
@@ -394,9 +394,15 @@
           href: how-to-deploy-fpga-web-service.md
       - name: Troubleshoot & debug
         href: how-to-troubleshoot-deployment.md
-      - name: Create clients
+      - name: Consume webservice
         displayName: create client consume request response synchronous
         href: how-to-consume-web-service.md
+      - name: Update webservice
+        displayName: update hot reload model mounting
+        href: how-to-deploy-update-web-service.md
+      - name: Advanced entry script authoring
+        displayName: swagger inference schema binary cors
+        href: how-to-deploy-advanced-entry-script.md
       - name: Monitor models
         items:
         - name: Collect & evaluate model data
@@ -407,6 +413,15 @@
       - name: Deploy encrypted inferencing service
         displayName: homomorhic,encryption,deployment
         href: how-to-homomorphic-encryption-seal.md
+      - name: Profile models
+        displayName: profile resource requirement
+        href: how-to-deploy-profile-model.md
+      - name: (Preview) No code deployment
+        displayName: no code
+        href: how-to-deploy-no-code-deployment.md
+        name: Package model
+        displayName: docker file download
+        href: how-to-deploy-package-models.md
     - name: Build & use ML pipelines
       displayName: pipelines
       items: 
