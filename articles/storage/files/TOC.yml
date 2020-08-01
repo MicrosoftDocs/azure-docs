@@ -27,6 +27,8 @@
     items: 
     - name: Planning for an Azure Files deployment
       href: storage-files-planning.md
+    - name: Select a protocol
+      href: compare-files-protocols.md
     - name: Identity-based authentication and authorization
       href: storage-files-active-directory-overview.md
     - name: Networking considerations for direct access
@@ -85,6 +87,8 @@
       href: storage-files-how-to-create-large-file-share.md
     - name: Create a premium file share
       href: storage-how-to-create-premium-fileshare.md
+    - name: Create an NFS share
+      href: how-to-enable-nfs.md
   - name: Deploy
     items:
     - name: Deploy Azure Files
