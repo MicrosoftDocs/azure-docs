@@ -12,7 +12,7 @@ ms.date: 07/31/2020
 In this article, we'll walk through a common scenario using Application Gateway in front of a web server farm with a set of configurations and recommendations to protect a web app running on Azure VMware Solution (AVS). 
 
 ## Topology
-As shown in the following figure, Application Gateway can be used to protect Azure IaaS virtual machines, Azure VM scale sets, or on-premises servers. AVS virtual machines will be treated as on-premises servers by Application Gateway.
+As shown in the following figure, Application Gateway can be used to protect Azure IaaS virtual machines, Azure virtual machine scale sets, or on-premises servers. AVS virtual machines will be treated as on-premises servers by Application Gateway.
 
 ![Application Gateway protects AVS VMs.](media/protect-avs-web-apps-with-app-gw/app-gateway-protects.png)
 
@@ -32,7 +32,7 @@ The Application Gateway instance is deployed on the hub in a dedicated subnet. I
 
 ## Deployment and configuration
 
-1. In the Azure Portal, search for **Application Gateway** and select **Create application gateway**.
+1. In the Azure portal, search for **Application Gateway** and select **Create application gateway**.
 
 2. Provide the basic details as in the following figure; then select **Next:Frontends>**. 
 
@@ -76,7 +76,7 @@ You can use the Azure portal to configure hosting multiple websites when you cre
 
 1. Create the virtual machines. On the AVS private cloud, create two different pools of virtual machines; one will represent Contoso and the second Fabrikam. 
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-multi-backendpool-avs.png" alt-text="Web server pool on AVS":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs.png" alt-text="Web server pool on AVS":::
 
     To illustrate this tutorial, we've used Windows Server 2016 with Internet Information Services (IIS) role installed. Once the virtual machines are installed, run the following PowerShell commands to configure IIS on each of the VMs. 
 
@@ -87,13 +87,13 @@ You can use the Azure portal to configure hosting multiple websites when you cre
 
 2. Add the backend pools. In an existing application gateway instance, select **Backend pools** from the left menu, select  **Add**, and enter the details of the new pools. Select **Add** in the right pane.
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-multi-backendpool-avs-02.png" alt-text="Backend pool configuration" lightbox="media/protect-avs-web-apps-with-app-gw/app-gw-multi-backendpool-avs-02.png":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs-02.png" alt-text="Backend pool configuration" lightbox="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs-02.png":::
 
 3. In the **Listeners** section, create a new listener for each website. Enter the details for each listener and select **Add**.
 
 4. On the left navigation, select **HTTP settings** and select **Add** in the left pane. Fill in the details to create a new HTTP setting and select **Save**.
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-multi-backendpool-avs-03.png" alt-text="HTP settings configuration" lightbox="media/protect-avs-web-apps-with-app-gw/app-gw-multi-backendpool-avs-03.png":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs-03.png" alt-text="HTP settings configuration" lightbox="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs-03.png":::
 
 5. Create the rules in the **Rules** section of the left menu. Associate each rule with the corresponding listener. Select **Add**.
 
@@ -101,7 +101,7 @@ You can use the Azure portal to configure hosting multiple websites when you cre
 
 7. Test the connection. Open your preferred browser and navigate to the different websites hosted on your AVS environment, for example http://www.fabrikam.com.
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-multi-backendpool-avs-07.png" alt-text="Rule backend configuration":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs-07.png" alt-text="Rule backend configuration":::
 
 ### Routing by URL
 
@@ -109,7 +109,7 @@ You can use Azure Application Gateway to configure URL path-based routing rules.
 
 1. Create the virtual machines. On the AVS private cloud, create a pool of virtual machines to represent the web farm. 
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-url-route-backendpool-avs.png" alt-text="Web server pool on AVS":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs.png" alt-text="Web server pool on AVS":::
 
     Windows Server 2016 with IIS role installed has been used to illustrate this tutorial. Once the virtual machines are installed, run the following PowerShell commands to configure IIS for the tutorial in each VM. 
 
@@ -138,29 +138,29 @@ You can use Azure Application Gateway to configure URL path-based routing rules.
 
 2. Add the backend pools. You will need to add three new backend pools in an existing application gateway instance. Select **Backend pools** from the left menu. Select **Add** and enter the details of the first pool, **contoso-web**. Add one VM as the target. Select **Add**. Repeat this process for **contoso-images** and **contoso-video**, adding one unique VM to each as target. 
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-url-route-backendpool-avs-02.png" alt-text="Backend pool creation" lightbox="media/protect-avs-web-apps-with-app-gw/app-gw-url-route-backendpool-avs-02.png":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-02.png" alt-text="Backend pool creation" lightbox="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-02.png":::
 
 3. In the **Listeners** section, create a new listener of type Basic using port 8080.
 
 4. On the left navigation, select **HTTP settings** and select **Add** in the left pane. Fill in the details to create a new HTTP setting and select **Save**.
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-url-route-backendpool-avs-04.png" alt-text="HTP settings configuration":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-04.png" alt-text="HTP settings configuration":::
 
 5. Create the rules in the **Rules** section of the left menu. Associate each rule with the previously created listener. Then configure the main backend pool and HTTP settings. Select **Add**.
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-url-route-backendpool-avs-07.png" alt-text="Rule backend configuration":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-07.png" alt-text="Rule backend configuration":::
 
-6. Test the configuration. Access the application gateway on the Azure Portal and in the **Overview** section, copy the public IP address. Then open a new browser window and enter the URL `http://<app-gw-ip-address>:8080`. 
+6. Test the configuration. Access the application gateway on the Azure portal and in the **Overview** section, copy the public IP address. Then open a new browser window and enter the URL `http://<app-gw-ip-address>:8080`. 
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-url-route-backendpool-avs-08.png" alt-text="Configuration test":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-08.png" alt-text="Configuration test":::
 
     Change the URL to `http://<app-gw-ip-address>:8080/images/test.htm`.
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-url-route-backendpool-avs-09.png" alt-text="Configuration test":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-09.png" alt-text="Configuration test":::
 
     Change the URL again to `http://<app-gw-ip-address>:8080/video/test.htm`.
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-url-route-backendpool-avs-10.png" alt-text="Configuration test":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-10.png" alt-text="Configuration test":::
 
 ## Next Steps
 
