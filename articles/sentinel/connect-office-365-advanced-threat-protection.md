@@ -22,7 +22,7 @@ ms.author: yelevin
 > [!IMPORTANT]
 > Ingestion of Office 365 Advanced Threat Protection alerts is currently in public preview. This feature is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
-[Office 365 Advanced Threat Protection](https://docs.microsoft.com/microsoft-365/security/office-365-security/office-365-atp?view=o365-worldwide) (ATP) safeguards your organization against advanced **(targeted?)** threats posed by email messages, URL links, and collaboration tools. By ingesting Office 365 ATP alerts into Azure Sentinel, you'll include information about email- and URL-based threats into your security operations. You can then more comprehensively analyze security events across your organization and build playbooks for effective and immediate response.
+[Office 365 Advanced Threat Protection](https://docs.microsoft.com/office365/servicedescriptions/office-365-advanced-threat-protection-service-description) (ATP) safeguards your organization against zero-day and other advanced threats posed by unknown malware in email messages, malicious URL links, and collaboration tools. By ingesting Office 365 ATP alerts into Azure Sentinel, you'll be able to utilize information about email-, file sharing-, and URL-based threats in your security operations. You can then more comprehensively analyze security events across your organization and build playbooks for effective and immediate response.
 
 The connector imports the following alerts:
 
