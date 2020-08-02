@@ -122,7 +122,7 @@ An application security group enables you to group together servers with similar
     | Priority                | Enter 110                                                                                                       |
     | Name                    | Allow-RDP-All                                                                                                   |
 
-    In this tutorial, RDP (port 3389) is exposed to the internet for the VM that is assigned to the *myAsgMgmtServers* application security group. For production environments, instead of exposing port 3389 to the internet, it's recommended that you connect to Azure resources that you want to manage using a VPN or private network connection.
+    In this tutorial, RDP (port 3389) is exposed to the internet for the VM that is assigned to the *myAsgMgmtServers* application security group. For production environments, instead of exposing port 3389 to the internet, it's recommended that you connect to Azure resources that you want to manage using a VPN or private network connection or using Azure Bastion.
 
 Once you've completed steps 1-3, review the rules you created. Your list should look like the list in the following picture:
 
