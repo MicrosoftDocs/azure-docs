@@ -13,7 +13,9 @@ ms.date: 08/01/2020
 
 # Get customer-managed key information from indexes and synonym maps
 
-In Azure Cognitive Search, customer-managed encryption keys are created, stored, and managed in Azure Key Vault. If you need to determine whether an object is encrypted, or what key name or version was used, use the REST API or an SDK to retrieve the **encryptionKey** property in an index or synonym map definition. The portal does not expose encryption key properties.
+In Azure Cognitive Search, customer-managed encryption keys are created, stored, and managed in Azure Key Vault. If you need to determine whether an object is encrypted, or what key name or version was used, use the REST API or an SDK to retrieve the **encryptionKey** property from an index or synonym map definition. 
+
+The portal does not show synonym maps, nor the encryption key properties of indexes.
 
 ## Get the admin API key
 
@@ -23,7 +25,7 @@ To get object definitions from a search service, you will need to authenticate w
 
 1. On the left side, click **Keys** and copy an admin API. An admin key is required for index and synonym map retrieval.
 
-## Use PowerShell
+## Use PowerShell and REST
 
 Run the following commands to set up the variables and get object definitions.
 
@@ -45,11 +47,13 @@ Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 $uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes?api-version=2020-06-30&$select=name'
 Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 
-<# Return a specific synonym map definition. The encryptionKey property is at the end.
-$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/synonyms/<YOUR-SYNONYM-NAME>?api-version=2020-06-30'
+<# Return a specific synonym map definition. The encryptionKey property is at the end #>
+$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/synonyms/<YOUR-SYNONYM-MAP-NAME>?api-version=2020-06-30'
+Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 
-<# Return a specific index definition. The encryptionKey property is at the end.
+<# Return a specific index definition. The encryptionKey property is at the end #>
 $uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/<YOUR-INDEX-NAME>?api-version=2020-06-30'
+Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 ```
 
 ## Next steps
