@@ -27,7 +27,7 @@ The following service properties are fixed for the lifetime of the service - cha
 
 * service name becomes part of the URL endpoint ([review tips](#name-the-service) for helpful service names).
 * service tier [affects billing](search-sku-tier.md) and sets an upward limit on capacity.
-* service region can determine the availability of certain scenarios. If you are interested in knowledge mining and AI enrichment, you need Cognitive Services and possibly Azure Machine Learning in the same region as Azure Cognitive Search. If you require [double encryption](search-security-overview.md#encryption), Azure Key Vault and Azure Cognitive Search must be in the same region.
+* service region can determine the availability of certain scenarios. If you are interested in knowledge mining and AI enrichment, you need Cognitive Services and possibly Azure Machine Learning in the same region as Azure Cognitive Search. 
 
 ## Subscribe (free or paid)
 
