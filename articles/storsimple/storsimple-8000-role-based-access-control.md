@@ -1,6 +1,6 @@
 ---
 title: Use Role-based Access Control for StorSimple | Microsoft Docs
-description: Describes how to use Azure Role-based Access Control (RBAC) in the context of StorSimple.
+description: Describes how to use Azure role-based access control (Azure RBAC) in the context of StorSimple.
 services: storsimple
 documentationcenter: ''
 author: alkohli

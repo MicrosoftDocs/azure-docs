@@ -65,7 +65,7 @@ To enable Azure AD authentication for your Windows VMs in Azure, you need to ens
 
 ## Enabling Azure AD login in for Windows VM in Azure
 
-To use Azure AD login in for Windows VM in Azure, you need to first enable Azure AD login option for your Windows VM and then you need to configure RBAC role assignments for users who are authorized to login in to the VM.
+To use Azure AD login in for Windows VM in Azure, you need to first enable Azure AD login option for your Windows VM and then you need to configure Azure role assignments for users who are authorized to login in to the VM.
 There are multiple ways you can enable Azure AD login for your Windows VM:
 
 - Using the Azure portal experience when creating a Windows VM

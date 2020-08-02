@@ -21,7 +21,7 @@ Marketplace Rewards is designed to support you at your specific stage of growth,
 
 The program creates a positive feedback loop: the benefits at each stage of growth are designed to progress you to the next stage, allowing you to grow your business to Microsoft customers, with Microsoft's field, and through Microsoft's channel by leveraging the commercial marketplace as your platform.
 
-Your benefits are differentiated based on whether your offer is [List, Trial, or Transact](determine-your-listing-type.md#choose-a-publishing-option).
+Your benefits are differentiated based on whether your offer is [List, Trial, or Transact](determine-your-listing-type.md#choose-a-call-to-action).
 
 You will be contacted by a member of the Rewards team when your offer goes live, based on your eligibility.
 
@@ -101,9 +101,15 @@ All the activities described on this page are covered by the [marketplace publis
 Microsoft reserves the right to revoke and terminate Marketplace Rewards benefits to publishers who: 
 
 * Engage in illegal activity using their marketplace listing.
+* Receive a purchase that is known or believed to be fraudulent.
 * Are de-listed from the commercial marketplace. 
 * Use their offer to show marketing or other content that violates copyright or trademark laws.
 * Violate the policies of the [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/), including, but not limited to, using the Azure sponsorship funding for their own internal operations or Bitcoin mining.
+
+Microsoft reserves the right to revoke and terminate Marketplace Rewards when:
+
+* The customer making the purchase did so accidentally and wishes to cancel the purchase. 
+* The customer cancels before using the partner’s product.
 
 ### Offer availability
 
