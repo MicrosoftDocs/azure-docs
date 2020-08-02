@@ -141,7 +141,7 @@ management group, but will inherit to all VMs under that management group.
 
 The following chart shows the list of roles and the supported actions on management groups.
 
-| Azure role Name             | Create | Rename | Move\*\* | Delete | Assign Access | Assign Policy | Read  |
+| Azure Role Name             | Create | Rename | Move\*\* | Delete | Assign Access | Assign Policy | Read  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Owner                       | X      | X      | X        | X      | X             | X             | X     |
 |Contributor                 | X      | X      | X        | X      |               |               | X     |
