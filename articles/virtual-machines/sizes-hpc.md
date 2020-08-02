@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 08/01/2020
 ms.author: amverma
 ms.reviewer: jushiman
 ---
@@ -37,13 +37,15 @@ This interface allows the RDMA-capable instances to communicate over an InfiniBa
 > RDMA over IB is supported for all RDMA-capable VMs.
 > IP over IB is only supported on the SR-IOV enabled VMs.
 
-- **Operating System** - Linux is very well supported for HPC VMs; distros such as CentOS, RHEL, Ubuntu, SUSE are commonly used. Regarding Windows support, Windows Server 2016 and newer versions are supported on all the HPC series VMs. Windows Server 2012 R2, Windows Server 2012 are also supported on the non-SR-IOV enabled VMs (H16r, H16mr, A8 and A9). Note that [Windows Server 2012 R2 is not supported on HBv2 and other VMs with more than 64 (virtual or physical) cores](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- **Operating System** - Linux is very well supported for HPC VMs; distros such as CentOS, RHEL, Ubuntu, SUSE are commonly used. Regarding Windows support, Windows Server 2016 and newer versions are supported on all the HPC series VMs. Windows Server 2012 R2, Windows Server 2012 are also supported on the non-SR-IOV enabled VMs (H16r, H16mr, A8 and A9). Note that [Windows Server 2012 R2 is not supported on HBv2 and other VMs with more than 64 (virtual or physical) cores](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows). See [VM Images](./workloads/hpc/configure.md) for a list of supported VM Images on the Marketplace and how they can be configured appropriately.
 
-- **InfiniBand and RDMA Drivers** - On InfiniBand enabled VMs, the appropriate drivers are required to enable RDMA. On Linux, the CentOS-HPC VM images in the Marketplace come pre-configured with the appropriate drivers. The Ubuntu VM images can be configured with the right drivers using the [instructions here](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). On SR-IOV enabled H- and N-series VMs, the [InfiniBandDriverLinux VM extension](./extensions/hpc-compute-infiniband-linux.md) can be used to install the Mellanox OFED drivers and enable InfiniBand. Learn more about enabling InfiniBand on RDMA-capable VM sat [HPC Workloads](./workloads/hpc/overview.md).
+- **InfiniBand and RDMA Drivers** - On InfiniBand enabled VMs, the appropriate drivers are required to enable RDMA. On Linux, for both SR-IOV and non-SR-IOV enabled VMs, the CentOS-HPC VM images in the Marketplace come pre-configured with the appropriate drivers. The Ubuntu VM images can be configured with the right drivers using the [instructions here](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). See [Configure and Optimize VMs for Linux OS](./workloads/hpc/configure.md) for more details on ready-to-use VM Linux OS images.
 
-On Windows, the [InfiniBandDriverWindows VM extension](./extensions/hpc-compute-infiniband-windows.md) installs Windows Network Direct drivers (on non-SR-IOV VMs) or Mellanox OFED drivers (on SR-IOV VMs) for RDMA connectivity. In certain deployments of A8 and A9 instances, the HpcVmDrivers extension is added automatically. Note that the HpcVmDrivers VM extension is being deprecated; it will not be updated.
+   On Linux, the [InfiniBandDriverLinux VM extension](./extensions/hpc-compute-infiniband-linux.md) can be used to install the Mellanox OFED drivers and enable InfiniBand on the SR-IOV enabled H- and N-series VMs. Learn more about enabling InfiniBand on RDMA-capable VMs at [HPC Workloads](./workloads/hpc/enable-infiniband.md).
 
-To add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azure/) cmdlets. For more information, see [Virtual machine extensions and features](./extensions/overview.md). You can also work with extensions for VMs deployed in the [classic deployment model](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
+   On Windows, the [InfiniBandDriverWindows VM extension](./extensions/hpc-compute-infiniband-windows.md) installs Windows Network Direct drivers (on non-SR-IOV VMs) or Mellanox OFED drivers (on SR-IOV VMs) for RDMA connectivity. In certain deployments of A8 and A9 instances, the HpcVmDrivers extension is added automatically. Note that the HpcVmDrivers VM extension is being deprecated; it will not be updated.
+
+   To add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azure/) cmdlets. For more information, see [Virtual machine extensions and features](./extensions/overview.md). You can also work with extensions for VMs deployed in the [classic deployment model](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
 - **MPI** - The SR-IOV enabled VM sizes on Azure (HBv2, HB, HC, NCv3, NDv2) allow almost any flavor of MPI to be used with Mellanox OFED.
 On non-SR-IOV enabled VMs, supported MPI implementations use the Microsoft Network Direct (ND) interface to communicate between VMs. Hence, only Microsoft MPI (MS-MPI) 2012 R2 or later and Intel MPI 5.x versions are supported. Later versions (2017, 2018) of the Intel MPI runtime library may or may not be compatible with the Azure RDMA drivers.
@@ -93,6 +95,6 @@ Azure provides several options to create clusters of Windows HPC VMs that can co
 
 ## Next steps
 
-- Learn more about optimizing your HPC application for Azure and some examples at [HPC Workloads](./workloads/hpc/overview.md) 
-
-- Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+- Learn more about optimizing your HPC applications for Azure and some examples at [HPC Workloads](./workloads/hpc/overview.md).
+- Read about the latest announcements and some HPC examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

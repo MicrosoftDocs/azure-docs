@@ -281,7 +281,7 @@ Updated Request Body (used by `2020-07-31`):
 
 Alternatively, the `value` can also be `$event['Bar-Pressure-Offset'].Double`. If no data type is specified, the data type is always assumed to be Double. The bracket notation must be used to escape the special character (`-`).
 
-#### GetAggregateSeries
+#### AggregateSeries
 
 Old Request Body (used by `2018-11-01-preview`):
 
