@@ -25,9 +25,9 @@ Keys don't all need to be in the same Key Vault. A single search service can hos
 
 ## Double encryption
 
-In Azure Cognitive Search, double encryption is an extension of the previous CMK encryption implementation.
+In Azure Cognitive Search, double encryption is an extension of the previous CMK implementation, and not a new standalone feature.
 
-For services created after August 1, 2020 and in specific regions, the scope of CMK encryption extends to temporary data structures that are created by the search service during indexing and query operations. There is no additional flag or setting to configure. Double encryption, which is understood to be two-fold encryption and comprehensive in scope, is a behavior of the CMK implementation in Azure Cognitive Search, and not a new standalone feature.
+For services created after August 1, 2020 and in specific regions, the scope of CMK encryption includes temporary data structures that are created by the search service during indexing and query operations. There is no additional flag or setting to configure. Double encryption, which is understood to be two-fold encryption and comprehensive in scope, occurs automatically on new services when you configure CMK and encrypt specific objects.
 
 Follow these steps to ensure your content is doubly encrypted:
 
