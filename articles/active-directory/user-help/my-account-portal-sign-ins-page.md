@@ -46,7 +46,7 @@ If you see an unsuccessful sign-in, it could mean that you mistyped your credent
 
 ![Unsuccessful sign-in tile](media/my-account-portal-sign-ins-page/unsuccessful.png)
 
-If you see an unsuccessful sign-in, with a note under Session activity that says, **Additional verification failed, invalid code**, it means that your primary authentication credentials succeeded, but multi-factor authentication failed. This condition could mean that an attacker correctly guessed your password but was unable to pass the MFA challenge. We recommend that you still change your password, since the attacker might have that already, and go to the [Security info](https://mysignins.microsoft.com/security-info) page to update your security settings.
+If you see an unsuccessful sign-in, with a note under **Session activity** that says, `Additional verification failed, invalid code`, it means that your primary authentication credentials succeeded, but multi-factor authentication failed. This condition could mean that an attacker correctly guessed your password but was unable to pass the multi-factor authentication challenge. We recommend that you still change your password, because the attacker might have that already, and go to the [Security info](https://mysignins.microsoft.com/security-info) page to update your security settings.
 
 ## Search for specific sign-in activity
 
