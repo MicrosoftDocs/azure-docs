@@ -25,7 +25,7 @@ Keys don't all need to be in the same Key Vault. A single search service can hos
 
 ## Double encryption
 
-In Azure Cognitive Search, double encryption manifests as a new behavior of CMK encryption.
+In Azure Cognitive Search, double encryption is an extension of the previous CMK encryption implementation.
 
 For services created after August 1, 2020 and in specific regions, the scope of CMK encryption extends to temporary data structures that are created by the search service during indexing and query operations. There is no additional flag or setting to configure. Double encryption, which is understood to be two-fold encryption and comprehensive in scope, is a behavior of the CMK implementation in Azure Cognitive Search, and not a new standalone feature.
 
@@ -33,9 +33,9 @@ Follow these steps to ensure your content is doubly encrypted:
 
 1. Create a new, billable Azure Cognitive Search service (a service must be created after August 1 to have this capability) in one of these regions: West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona. You can use the portal, REST API, or an SDK.
 
-1. Create or find an existing Azure Key Vault service.
+1. Create or find an existing Azure Key Vault service, then create and apply a customer-managed key using the instructions in this article. You can encrypt individual indexes or synonym maps. 
 
-1. Set up a customer-managed key and apply it to selected indexes or synonym maps, as described in this article. You can use the REST API or an SDK to create indexes or synonyms that use a customer-managed key. The portal does not expose the **encryptionKey** property.
+Use the REST API or an SDK to create indexes or synonyms that use a customer-managed key. The portal does not expose the **encryptionKey** property.
 
 ## Prerequisites
 

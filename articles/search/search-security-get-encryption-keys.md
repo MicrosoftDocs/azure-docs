@@ -15,8 +15,6 @@ ms.date: 08/01/2020
 
 In Azure Cognitive Search, customer-managed encryption keys are created, stored, and managed in Azure Key Vault. If you need to determine whether an object is encrypted, or what key name or version was used, use the REST API or an SDK to retrieve the **encryptionKey** property from an index or synonym map definition. 
 
-The portal does not show synonym maps, nor the encryption key properties of indexes.
-
 ## Get the admin API key
 
 To get object definitions from a search service, you will need to authenticate with admin rights. The easiest way to get the admin API key is through the portal.
@@ -24,6 +22,8 @@ To get object definitions from a search service, you will need to authenticate w
 1. Sign in to the [Azure portal](https://portal.azure.com/) and open the search service overview page.
 
 1. On the left side, click **Keys** and copy an admin API. An admin key is required for index and synonym map retrieval.
+
+For the remaining steps, switch to PowerShell and the REST API. The portal does not show synonym maps, nor the encryption key properties of indexes.
 
 ## Use PowerShell and REST
 
