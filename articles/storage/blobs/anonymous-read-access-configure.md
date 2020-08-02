@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
 ---
@@ -160,7 +160,7 @@ To allow or disallow public access for a storage account with a template, create
     ```
 
 1. Save the template.
-1. Specify resource group parameter, then choose the **Review + create** button to deploy the template and create a storage account with the **MinimumTLSVersion** property configured.
+1. Specify resource group parameter, then choose the **Review + create** button to deploy the template and create a storage account with the **allowBlobPublicAccess** property configured.
 
 ---
 
