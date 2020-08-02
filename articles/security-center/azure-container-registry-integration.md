@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center and Azure Container Registry
-description: "Learn about Azure Security Center's integration with Azure Container Registry"
+description: "Learn about scanning your container registries with Azure Security Center"
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,31 +10,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2020
+ms.date: 08/02/2020
 ms.author: memildin
 
 ---
 
-# Azure Container Registry integration with Security Center
+# Azure Container Registry image scanning by Security Center
 
 Azure Container Registry (ACR) is a managed, private Docker registry service that stores and manages your container images for Azure deployments in a central registry. It's based on the open-source Docker Registry 2.0.
 
 If you're on Azure Security Center's standard tier, you can add the Container Registries bundle. This optional feature brings deeper visibility into the vulnerabilities of the images in your ARM-based registries. Enable or disable the bundle at the subscription level to cover all registries in a subscription. This feature is charged per image, as shown on the [pricing page](security-center-pricing.md). Enabling the Container Registries bundle, ensures that Security Center is ready to scan images that get pushed to the registry. 
 
-
 ## Availability
 
 - Release state: **General availability**
 - Required roles: **Security reader** and [Azure Container Registry reader role](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
-- Supported registries:
+- Supported registries and images:
     - ✔ Linux-hosted ACR registries that are accessible from the public internet and provide shell access.
     - ✘ Windows-hosted ACR registries.
-    - ✘ 'Private' registries - Security Center requires your registries to be accessible from the public internet. If you've limited access to your registries with a firewall, a service endpoint, or by using private endpoint (for example, Azure Private Link), Security Center can't currently connect to, or scan, your registry.
+    - ✘ 'Private' registries - Security Center requires your registries to be accessible from the public internet. Security Center can't currently connect to, or scan, registries with access limited with a firewall, a service endpoint, or private endpoints such as Azure Private Link.
     - ✘ Super minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS.
 - Clouds: 
     - ✔ Commercial clouds
     - ✘ US Government cloud
-    - ✘ China Government cloud, other gov clouds
+    - ✘ China Government cloud, other government clouds
 
 
 ## When are images scanned?
@@ -58,20 +57,23 @@ Security Center identifies ARM-based ACR registries in your subscription and sea
 
 
 
-## ACR with Security Center FAQ
+## FAQ for Azure Container Registry image scanning
 
-### How does Azure Security Center scan an image?
+### How does Security Center scan an image?
 The image is pulled from the registry. It's then run in an isolated sandbox with the Qualys scanner that extracts a list of known vulnerabilities.
 
 Security Center filters and classifies findings from the scanner. When an image is healthy, Security Center marks it as such. Security Center generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Security Center reduces the potential for unwanted informational alerts.
 
-### How often does Azure Security Center scan my images?
+### How often does Security Center scan my images?
 Image scans are triggered on every push.
 
 ### Can I get the scan results via REST API?
 Yes. The results are under [Sub-Assessments Rest API](/rest/api/securitycenter/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
  
+### What registry types are scanned? What types are billed?
+The [availability section](#availability) lists the types of container registries supported by the Container Registries bundle. 
 
+If registries that aren't supported are connected to your Azure subscription, they won't be scanned and you will not be billed for them.
 
 
 ## Next steps
