@@ -11,7 +11,8 @@ ms.topic: quickstart
 ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
-ms.lastreviewed: 02/14/2019
+ms.lastreviewed: 02/14/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Set up push notifications in a notification hub

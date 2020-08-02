@@ -2,7 +2,8 @@
 title: Publish events with event domains with Azure Event Grid
 description: Shows how to manage large sets of topics in Azure Event Grid and publish events to them using event domains.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/07/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Manage topics and publish events using event domains
@@ -73,7 +74,7 @@ Note the `endpoint` and `id` as they're required to manage the domain and publis
 
 ## Manage access to topics
 
-Managing access to topics is done via [role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). Role assignment uses role-based access control to limit operations on Azure resources to authorized users at a certain scope.
+Managing access to topics is done via [role assignment](../role-based-access-control/role-assignments-cli.md). Role assignment uses role-based access control to limit operations on Azure resources to authorized users at a certain scope.
 
 Event Grid has two built-in roles, which you can use to assign particular users access on various topics within a domain. These roles are `EventGrid EventSubscription Contributor (Preview)`, which allows for creation and deletion of subscriptions, and `EventGrid EventSubscription Reader (Preview)`, which only allows for listing of event subscriptions.
 
