@@ -33,9 +33,7 @@ Follow these steps to ensure your content is doubly encrypted:
 
 1. Create a new, billable Azure Cognitive Search service (a service must be created after August 1 to have this capability) in one of these regions: West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona. You can use the portal, REST API, or an SDK.
 
-1. Create or find an existing Azure Key Vault service, then create and apply a customer-managed key using the instructions in this article. You can encrypt individual indexes or synonym maps. 
-
-Use the REST API or an SDK to create indexes or synonyms that use a customer-managed key. The portal does not expose the **encryptionKey** property.
+1. Create or find an existing Azure Key Vault service, then create and apply a customer-managed key using the instructions in this article. You can encrypt individual indexes or synonym maps. Use the REST API or an SDK to set the **encryptionKey** property. The portal does not expose synonym maps or encryption properties.
 
 ## Prerequisites
 
