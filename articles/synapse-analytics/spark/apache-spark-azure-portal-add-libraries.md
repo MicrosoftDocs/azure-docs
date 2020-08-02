@@ -15,7 +15,7 @@ Apache Spark depends on many libraries to provide functionality. These libraries
 
 Python packages can be added at the Spark pool (preview) level and .jar based packages can be added at the Spark job definition level.
 
-## Adding or updating Python libraries
+## Add or update Python libraries
 
 Apache Spark in Azure Synapse Analytics has a full Anacondas install plus additional libraries. The full libraries list can be found at [Apache Spark version support](apache-spark-version-support.md).
 
@@ -45,7 +45,7 @@ Upload the environment configuration file using the file selector in the **Packa
 
 ![Add Python libraries](./media/apache-spark-azure-portal-add-libraries/add-python-libraries.png "Add Python libraries")
 
-### Verifying installed libraries
+### Verify installed libraries
 
 To verify if the correct versions of the correct libraries are installed run the following code
 

@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurecli
 ---
 
 # Use Azure CLI to assign an RBAC role for access to blob and queue data

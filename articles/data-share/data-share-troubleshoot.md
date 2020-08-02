@@ -2,11 +2,11 @@
 title: Troubleshoot Azure Data Share 
 description: Learn how to troubleshoot issues with invitations and errors when creating or receiving data shares with Azure Data Share.
 services: data-share
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 07/30/2020
 ---
 
 # Troubleshoot common issues in Azure Data Share 
