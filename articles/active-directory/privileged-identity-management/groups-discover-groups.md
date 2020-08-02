@@ -16,9 +16,9 @@ ms.author: curtand
 ms.collection: M365-identity-device-management
 ---
 
-# Identify a group to privileged access groups (preview) in Privileged Identity Management
+# Bring a privileged access groups (preview) into Privileged Identity Management
 
-In Azure Active Directory (Azure AD), you can assign Azure AD built-in roles to cloud groups to simplify how you manage role assignments. To protect Azure AD roles and to secure access, now you can use Privileged Identity Management (PIM) to manage just-in-time access for members or owners of these groups. To manage an Azure AD role-assignable group as a privileged access group in Privileged Identity Management, you must bring it under management in PIM.
+In Azure Active Directory (Azure AD), you can assign Azure AD built-in roles to cloud groups to simplify how you manage role assignments. To protect Azure AD roles and to secure access, you can now use Privileged Identity Management (PIM) to manage just-in-time access for members or owners of these groups. To manage an Azure AD role-assignable group as a privileged access group in Privileged Identity Management, you must bring it under management in PIM.
 
 ## Identify groups to manage
 
