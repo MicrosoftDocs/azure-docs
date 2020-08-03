@@ -218,7 +218,7 @@ The following sections explain the optional parameters in MSAL.NET.
 
 The `WithPrompt()` parameter controls interactivity with the user by specifying a prompt.
 
-<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" alt="This diagram shows the members of the Prompt struct, including Consent, ForceLogin, Never, NoPrompt, and SelectAccount." width="25%" />
+![Image showing the fields in the Prompt structure. These constant values control interactivity with the user by defining the type of prompt displayed by the WithPrompt() parameter.](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
 
 The class defines the following constants:
 
