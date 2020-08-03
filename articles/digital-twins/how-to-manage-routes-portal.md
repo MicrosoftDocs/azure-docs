@@ -35,7 +35,7 @@ Once your instance is set up, log into the [Azure portal](https://portal.azure.c
 
 Select your instance from the results and you'll land on the following page showing the details of your instance:
 
-:::image type="content" source="media/how-to-manage-routes-portal/ADT-instance-details.png" alt-text="Azure Digital Twins instance details":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Azure Digital Twins instance details":::
 
 ## Create an endpoint for Azure Digital Twins
 
@@ -60,7 +60,7 @@ On the *Create an Endpoint* page that opens up, you can create an endpoint of ty
 
 Then, create your endpoint by hitting _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-EventGrid-type.png" alt-text="Create endpoint of type Event Grid":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Create endpoint of type Event Grid":::
 
 You can verify that the endpoint is successfully created by checking the notification icon in the top Azure portal bar: 
 
@@ -84,7 +84,7 @@ On the *Create an Endpoint* page that opens up, you can create an endpoint of ty
 
 Then, create your endpoint by hitting _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-EventHub-type.png" alt-text="Create endpoint of type Event Hubs":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Create endpoint of type Event Hubs":::
 
 You can verify that the endpoint is successfully created by checking the notification icon in the top Azure portal bar. 
 
@@ -104,7 +104,7 @@ On the *Create an Endpoint* page that opens up, you can create an endpoint of ty
 
 Then, create your endpoint by hitting _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-servicebus-type.png" alt-text="Create end point of type service bus":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Create endpoint of type Service Bus":::
 
 You can verify that the endpoint is successfully created by checking the notification icon in the top Azure portal bar. 
 
