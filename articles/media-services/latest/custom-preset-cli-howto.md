@@ -9,7 +9,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.custom: 
+ms.custom: devx-track-azurecli
 ms.date: 05/14/2019
 ms.author: juliako
 

@@ -35,7 +35,7 @@ Windows Virtual Desktop delegated access supports the following values for each 
 
 Before you start, make sure to follow the instructions in [Set up the PowerShell module](powershell-module.md) to set up the Windows Virtual Desktop PowerShell module if you haven't already.
 
-Windows Virtual Desktop uses Azure role-based access control (RBAC) while publishing app groups to users or user groups. The Desktop Virtualization User role is assigned to the user or user group and the scope is the app group. This role gives the user special data access on the app group.  
+Windows Virtual Desktop uses Azure role-based access control (Azure RBAC) while publishing app groups to users or user groups. The Desktop Virtualization User role is assigned to the user or user group and the scope is the app group. This role gives the user special data access on the app group.  
 
 Run the following cmdlet to add Azure Active Directory users to an app group:
 
