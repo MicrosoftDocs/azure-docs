@@ -18,8 +18,8 @@ This article helps you troubleshoot problems you might encounter with the perfor
 
 ## Causes
 
-* Your network connection speed may slow registry operations - [solution](#check-network-speed)
-* You're reaching a limit in your registry service tier  - [solution](#review-service-imits)
+* Your network connection speed may slow registry operations - [solution](#check-expected-network-speed)
+* You're reaching a limit in your registry service tier  - [solution](#review-service-limits)
 * Your geo-replicated registry has replicas in nearby regions - [solution](#configure-geo-replicated-registry)
 
 If you don't resolve your problem here, see [Next steps](#next-steps) for other options.

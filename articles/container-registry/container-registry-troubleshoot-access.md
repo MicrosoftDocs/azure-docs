@@ -7,7 +7,7 @@ ms.date: 07/31/2020
 
 # Troubleshoot network access to registry
 
-This article helps you troubleshoot problems you might encounter when accessing an Azure container registry that has virtual network or firewall configurations. 
+This article helps you troubleshoot problems you might encounter when accessing an Azure container registry in a virtual network or behind a firewall. 
 
 ## Symptoms
 
@@ -70,6 +70,8 @@ If the registry is set up in a virtual network, review NSG rules and service tag
 If a service endpoint to the registry is configured in a virtual network, confirm that a network rule is added to the registry that allows access from that network subnet. The service endpoint only supports access from virtual machines and AKS clusters in the network.
 
 If Azure Firewall or a similar solution is configured in the network, check that egress traffic from other resources such as an AKS cluster is enabled to reach the registry endpoints.
+
+Confirm that the virtual network is configured with either a private endpoint for Private Link or a service endpoint. Currently an Azure Bastion endpoint isn't supported.
 
 Related links:
 
