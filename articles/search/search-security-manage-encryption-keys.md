@@ -19,7 +19,7 @@ CMK encryption is dependent on [Azure Key Vault](https://docs.microsoft.com/azur
 
 Encryption with customer-managed keys is applied to individual indexes or synonym maps when those objects are created, and is not specified on the search service level itself. Only new objects can be encrypted. You cannot encrypt content that already exists.
 
-For services created after August 1, 2020 and in specific regions, the scope of CMK encryption includes temporary data structures, achieving full double encryption. Double encryption is currently available in these regions: 
+For services created after August 1, 2020 and in specific regions, the scope of CMK encryption includes temporary disks, achieving full double encryption. [Double encryption](search-security-overview.md#double-encryption) is currently available in these regions: 
 
 + West US 2
 + East US
@@ -49,8 +49,6 @@ The following services and services are used in this example.
 > Due to the nature of encryption with customer-managed keys, Azure Cognitive Search will not be able to retrieve your data if your Azure Key vault key is deleted. To prevent data loss caused by accidental Key Vault key deletions, soft-delete and purge protection must be enabled on the key vault. Soft-delete is enabled by default, so you will only encounter issues if you purposely disabled it. Purge protection is not enabled by default, but it is required for Azure Cognitive Search CMK encryption. For more information, see [soft-delete](../key-vault/key-vault-ovw-soft-delete.md) and [purge protection](../key-vault/general/soft-delete-overview.md#purge-protection) overviews.
 
 ## 1 - Enable key recovery
-
-Verify that the key vault shares the same subscription as your search service. 
 
 The key vault must have **soft-delete** and **purge protection** enabled. You can set those features using the portal or the following PowerShell or Azure CLI commands.
 
