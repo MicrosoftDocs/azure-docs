@@ -108,6 +108,11 @@ Using the template ID that you retrieved for your application in the last step, 
 
 > [!NOTE] 
 > You can use applicationTemplate API to instantiate [Non-Gallery apps](add-non-gallery-app.md). Use applicationTemplateId `8adf8e6e-67b2-4cf2-a259-e3dc5476c621`.
+
+> [!NOTE]
+> Allow some time for the app to be provisioned into your Azure AD tenant. It is not instant. One strategy is to do a GET query on the application / service principal object every 5-10 seconds until the query is successful.
+
+
 #### Request
 
 <!-- {
@@ -340,6 +345,9 @@ In addition to the basic claims, configure the following claims for Azure AD to 
 
 For more information, see [Customize claims emitted in token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping).
 
+> [!NOTE]
+> Some keys in the claims mapping policy are case sensitive (e.g. "Version"). If you receive an error message such as "Property has an invalid value", it could be a case sensitive issue.
+
 #### Request
 
 <!-- {
@@ -450,7 +458,7 @@ Using the [applicationTemplate](https://docs.microsoft.com/graph/api/resources/a
 
 ### Create a custom signing certificate
 
-To test, you can use the following PowerShell command to get a self-signed certificate. Use the best security practice from your company to create a signing certificate for production.
+To test, you can use the following PowerShell command to get a self-signed certificate. You will then need to manipulate and pull the values you need manually using other tools. Use the best security practice from your company to create a signing certificate for production.
 
 ```powershell
 Param(
@@ -477,6 +485,99 @@ Export-PfxCertificate -cert $path -FilePath $pfxFile -Password $pwdSecure
 Export-Certificate -cert $path -FilePath $cerFile
 ```
 
+Alternatively, the following C# console app can be used as a Proof of Concept to understand how the required values can be obtained. Note that this code is for **learning and reference ONLY** and should not be used as-is in production.
+
+```csharp
+using System;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+
+
+/* CONSOLE APP - PROOF OF CONCEPT CODE ONLY!!
+ * This code uses a self signed certificate and should not be used 
+ * in production. This code is for reference and learning ONLY.
+ */
+namespace Self_signed_cert
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Generate a guid to use as a password and then create the cert.
+            string password = Guid.NewGuid().ToString();
+            var selfsignedCert = buildSelfSignedServerCertificate(password);
+
+            // Print values so we can copy paste into the JSON fields.
+            // Print out the private key in base64 format.
+            Console.WriteLine("Private Key: {0}{1}", Convert.ToBase64String(selfsignedCert.Export(X509ContentType.Pfx, password)), Environment.NewLine);
+
+            // Print out the start date in ISO 8601 format.
+            DateTime startDate = DateTime.Parse(selfsignedCert.GetEffectiveDateString()).ToUniversalTime();
+            Console.WriteLine("For All startDateTime: " + startDate.ToString("o"));
+
+            // Print out the end date in ISO 8601 format.
+            DateTime endDate = DateTime.Parse(selfsignedCert.GetExpirationDateString()).ToUniversalTime();
+            Console.WriteLine("For All endDateTime: " + endDate.ToString("o"));
+
+            // Print the GUID used for keyId
+            string signAndPasswordGuid = Guid.NewGuid().ToString();
+            string verifyGuid = Guid.NewGuid().ToString();
+            Console.WriteLine("GUID to use for keyId for keyCredentials->Usage == Sign and passwordCredentials: " + signAndPasswordGuid);
+            Console.WriteLine("GUID to use for keyId for keyCredentials->Usage == Verify: " + verifyGuid);
+
+            // Print out the password.
+            Console.WriteLine("Password is: {0}", password);
+
+            // Print out a displayName to use as an example.
+            Console.WriteLine("displayName to use: CN=Example");
+            Console.WriteLine();
+
+            // Print out the public key.
+            Console.WriteLine("Public Key: {0}{1}", Convert.ToBase64String(selfsignedCert.Export(X509ContentType.Cert)), Environment.NewLine);
+            Console.WriteLine();
+
+            // Generate the customKeyIdentifier using hash of thumbprint.
+            Console.WriteLine("You can generate the customKeyIdentifier by getting the SHA256 hash of the certs thumprint.\nThe certs thumbprint is: {0}{1}", selfsignedCert.Thumbprint, Environment.NewLine);
+            Console.WriteLine("The hash of the thumbprint that we will use for customeKeyIdentifier is:");
+            string keyIdentifier = GetSha256FromThumbprint(selfsignedCert.Thumbprint);
+            Console.WriteLine(keyIdentifier);
+        }
+
+        // Generate a self-signed certificate.
+        private static X509Certificate2 buildSelfSignedServerCertificate(string password)
+        {
+            const string CertificateName = @"Microsoft Azure Federated SSO Certificate TEST";
+            DateTime certificateStartDate = DateTime.UtcNow;
+            DateTime certificateEndDate = certificateStartDate.AddYears(2).ToUniversalTime();
+
+            X500DistinguishedName distinguishedName = new X500DistinguishedName($"CN={CertificateName}");
+
+            using (RSA rsa = RSA.Create(2048))
+            {
+                var request = new CertificateRequest(distinguishedName, rsa, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+
+                request.CertificateExtensions.Add(
+                    new X509KeyUsageExtension(X509KeyUsageFlags.DataEncipherment | X509KeyUsageFlags.KeyEncipherment | X509KeyUsageFlags.DigitalSignature, false));
+
+                var certificate = request.CreateSelfSigned(new DateTimeOffset(certificateStartDate), new DateTimeOffset(certificateEndDate));
+                certificate.FriendlyName = CertificateName;
+
+                return new X509Certificate2(certificate.Export(X509ContentType.Pfx, password), password, X509KeyStorageFlags.Exportable);
+            }
+        }
+
+        // Generate hash from thumbprint.
+        public static string GetSha256FromThumbprint(string thumbprint)
+        {
+            var message = Encoding.ASCII.GetBytes(thumbprint);
+            SHA256Managed hashString = new SHA256Managed();
+            return Convert.ToBase64String(hashString.ComputeHash(message));
+        }
+    }
+}
+```
+
 ### Add a custom signing key
 
 Add the following information to the service principal:
@@ -487,18 +588,7 @@ Add the following information to the service principal:
 
 Extract the private and public key Base64 encoded from the PFX file. To learn more about the properties, read [keyCredential resource type](https://docs.microsoft.com/graph/api/resources/keycredential?view=graph-rest-1.0).
 
-Make sure that the keyId for the keyCredential used for "Sign" matches the keyId of the passwordCredential.
-
-You can generate the `customkeyIdentifier` by getting the hash of the cert's thumbprint.
-
-```csharp
-  public string GetSha256FromThumbprint(string thumbprint)
-  {
-      var message = Encoding.ASCII.GetBytes(thumbprint);
-      SHA256Managed hashString = new SHA256Managed();
-      return Convert.ToBase64String(hashString.ComputeHash(message));
-  }
-```
+Make sure that the keyId for the keyCredential used for "Sign" matches the keyId of the passwordCredential. You can generate the `customkeyIdentifier` by getting the hash of the cert's thumbprint. See C# reference code above.
 
 #### Request
 
@@ -521,7 +611,7 @@ Content-type: servicePrincipals/json
             "endDateTime": "2021-04-22T22:10:13Z",
             "keyId": "4c266507-3e74-4b91-aeba-18a25b450f6e",
             "startDateTime": "2020-04-22T21:50:13Z",
-            "type": "AsymmetricX509Cert",
+            "type": "X509CertAndPassword",
             "usage": "Sign",
             "key":"MIIKIAIBAz.....HBgUrDgMCERE20nuTptI9MEFCh2Ih2jaaLZBZGeZBRFVNXeZmAAgIH0A==",
             "displayName": "CN=awsAPI"

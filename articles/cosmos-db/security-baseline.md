@@ -282,7 +282,7 @@ Create, view, and manage log alerts using Azure Monitor: https://docs.microsoft.
 
 **Guidance**: You can use the Identity and Access control (IAM) pane in the Azure portal to configure role-based access control (RBAC) and maintain inventory on Azure Cosmos DB resources. The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.
 
-Azure Cosmos DB provides built-in RBAC for common management scenarios in Azure Cosmos DB. An individual who has a profile in Azure Active Directory (AD) can assign these RBAC roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources.
+Azure Cosmos DB provides built-in RBAC for common management scenarios in Azure Cosmos DB. An individual who has a profile in Azure Active Directory (AD) can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources.
 
 You can also use the Azure AD PowerShell module to perform adhoc queries to discover accounts that are members of administrative groups. 
 
@@ -524,7 +524,7 @@ Understand customer data protection in Azure: https://docs.microsoft.com/azure/s
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Azure Cosmos DB provides built-in role-based access control (RBAC) for common management scenarios in Azure Cosmos DB. An individual who has a profile in Azure Active Directory can assign these RBAC roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources. Role assignments are scoped to control-plane access only, which includes access to Azure Cosmos accounts, databases, containers, and offers (throughput).
+**Guidance**: Azure Cosmos DB provides built-in role-based access control (RBAC) for common management scenarios in Azure Cosmos DB. An individual who has a profile in Azure Active Directory can assign these Azure roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Cosmos DB resources. Role assignments are scoped to control-plane access only, which includes access to Azure Cosmos accounts, databases, containers, and offers (throughput).
 
 How to implement RBAC in Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 

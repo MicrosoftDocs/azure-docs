@@ -87,7 +87,7 @@ You can use the following combinations of authorization and Azure Storage types:
 \* SAS token and Azure AD Identity can be used to access a storage that is not protected with firewall.
 
 > [!IMPORTANT]
-> When accessing storage that is protected with the firewall, only Managed Identity can be used. You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an RBAC role](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the RBAC role assigned to the managed identity.
+> When accessing storage that is protected with the firewall, only Managed Identity can be used. You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an Azure role](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
 >
 
 ## Credentials
