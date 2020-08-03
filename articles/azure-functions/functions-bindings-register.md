@@ -10,7 +10,7 @@ ms.author: cshoe
 
 # Register Azure Functions binding extensions
 
-Starting with Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow other functions access to all bindings through a configuration setting.
+    Starting with Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow other functions access to all bindings through a configuration setting.
 
 Consider the following items related to binding extensions:
 
@@ -22,10 +22,12 @@ The following table indicates when and how you register bindings.
 
 | Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 3.x/2.x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Azure portal|Automatic|Automatic|
+|Azure portal|Automatic|Automatic<sup>*</sup>|
 |Non-.NET languages or local Azure Core Tools development|Automatic|[Use Azure Functions Core Tools and extension bundles](#extension-bundles)|
 |C# class library using Visual Studio|[Use NuGet tools](#vs)|[Use NuGet tools](#vs)|
 |C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](#vs-code)|
+
+<sup>*</sup> Portal uses extension bundles.
 
 ## <a name="extension-bundles"></a>Extension bundles for local development
 
