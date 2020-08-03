@@ -19,7 +19,9 @@ CMK encryption is dependent on [Azure Key Vault](https://docs.microsoft.com/azur
 
 Encryption with customer-managed keys is applied to individual indexes or synonym maps when those objects are created, and is not specified on the search service level itself. Only new objects can be encrypted. You cannot encrypt content that already exists.
 
-For services created after August 1, 2020 and in specific regions, the scope of CMK encryption includes temporary disks, achieving full double encryption. [Double encryption](search-security-overview.md#double-encryption) is currently available in these regions: 
+## Double encryption
+
+For services created after August 1, 2020 and in specific regions, the scope of CMK encryption includes temporary disks, achieving full [double encryption](search-security-overview.md#double-encryption), currently available in these regions: 
 
 + West US 2
 + East US
