@@ -132,6 +132,8 @@ Artifact name|Artifact type|Parameter name|Description|
 |Deploy Auditing on SQL servers |Policy assignment |Resource group name for storage account for SQL server auditing |Auditing writes database events to an audit log in your Azure Storage account (a storage account is created in each region where a SQL Server is created that is shared by all servers in that region). Important - for proper operation of Auditing don't delete or rename the resource group or the storage accounts. |
 |Deploy diagnostic settings for Network Security Groups |Policy assignment |Storage account prefix for network security group diagnostics |This prefix is combined with the network security group location to form the created storage account name. |
 |Deploy diagnostic settings for Network Security Groups |Policy assignment |Resource group name for storage account for network security group diagnostics (must exist) |The resource group that the storage account is created in. This resource group must already exist. |
+|\[Preview\]: Deploy Log Analytics Agent for Linux VM Scale Sets (VMSS) |Policy assignment |Log Analytics workspace for Linux VM Scale Sets (VMSS) |If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID. |
+|\[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS) |Policy assignment |Log Analytics workspace for Linux VM Scale Sets (VMSS) |If this workspace is outside of the scope of the assignment you must manually grant 'Log Analytics Contributor' permissions (or similar) to the policy assignment's principal ID. |
 
 ## Next steps
 
