@@ -4,7 +4,7 @@ description: The Azure Sentinel security baseline provides procedural guidance a
 author: msmbaldwin
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/03/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
