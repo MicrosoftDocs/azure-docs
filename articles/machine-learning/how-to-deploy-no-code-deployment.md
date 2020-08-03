@@ -86,7 +86,8 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-NOTE: Models that support predict_proba will use that method by default. To override this to use predict you can modify the POST body as below:
+> [!NOTE] Models that support predict_proba will use that method by default. To override this to use predict you can modify the POST body as below:
+
 ```python
 import json
 
@@ -104,7 +105,7 @@ output = service.run(input_payload)
 print(output)
 ```
 
-NOTE: These dependencies are included in the prebuilt scikit-learn inference container:
+> [!NOTE] These dependencies are included in the prebuilt scikit-learn inference container:
 
 ```yaml
     - dill

@@ -1,5 +1,6 @@
 ---
 title: Author entry script for advanced scenarios
+titleSuffix: Azure Machine Learning entry script authoring
 author: gvashishtha
 services: machine-learning
 ms.service: machine-learning
