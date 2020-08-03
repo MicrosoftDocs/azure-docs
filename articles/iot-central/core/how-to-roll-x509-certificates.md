@@ -10,7 +10,7 @@ services: iot-central
 
 ---
 
-# How to roll X.509 device certificates
+# How to roll X.509 device certificates in IoT Central Application
 
 During the lifecycle of your IoT solution, you'll need to roll certificates. Two of the main reasons for rolling certificates would be a security breach, and certificate expirations. 
 
