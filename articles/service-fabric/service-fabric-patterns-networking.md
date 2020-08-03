@@ -95,6 +95,8 @@ In the examples in this article, we use the Service Fabric template.json. You ca
             },*/
     ```
 
+   You also can comment out the parameter with the name "virtualNetworkName" so that it won't prompt you to enter the virtual network name twice in the cluster deployment blade in the Azure portal.
+
 2. Comment out `nicPrefixOverride` attribute of `Microsoft.Compute/virtualMachineScaleSets`, because you are using existing subnet and you have disabled this variable in step 1.
 
     ```json

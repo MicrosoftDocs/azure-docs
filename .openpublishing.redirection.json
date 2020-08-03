@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/digital-twins/how-to-set-up-instance-manual.md",
+      "redirect_url": "/azure/digital-twins/how-to-set-up-instance-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/latest/media-services-high-availability-streaming.md",
       "redirect_url": "articles/media-services/latest/media-services-high-availability-encoding",
       "redirect_document_id": false
@@ -13,6 +18,21 @@
     {
       "source_path": "articles/virtual-machines/azure-cli-arm-commands.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/azure-cli-arm-commands",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/ephemeral-os-disks.md",
+      "redirect_url": "/azure/virtual-machines/ephemeral-os-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/ephemeral-os-disks.md",
+      "redirect_url": "/azure/virtual-machines/ephemeral-os-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/ephemeral-os-disks.md",
+      "redirect_url": "/azure/virtual-machines/ephemeral-os-disks",
       "redirect_document_id": false
     },
     {
@@ -1038,6 +1058,91 @@
     {
       "source-path": "articles/automation/automation-create-account-template.md",
       "redirect_url": "/azure/automation/quickstart-create-automation-account-template",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-update-management.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-overview",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-update-management-deploy-template.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-enable-template",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-onboard-solutions-from-browse.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-enable-portal",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-onboard-solutions-from-vm.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-enable-vm",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-onboard-solutions-from-automation-account.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-enable-automation-account",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-onboard-solutions.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-enable-runbook",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-tutorial-update-management.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-manage-updates-for-vm",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/manage-update-multi.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-manage-updates-for-vm",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-view-update-assessments.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-view-update-assessments",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/pre-post-scripts.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-pre-post-scripts",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/updatemgmt-mecmintegration.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-mecmintegration",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-configure-windows-update.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-configure-wuagent",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-update-management-groups.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-groups",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-update-management-query-logs.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-query-logs",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-scope-configurations-update-management.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-scope-configuration",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-unlink-workspace-update-management.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-remove-feature",
+      "redirect_document": false
+    },
+    {
+      "source-path": "articles/automation/automation-remove-vms-from-update-management.md",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-remove-vms",
       "redirect_document": false
     },
     {
@@ -3093,6 +3198,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/sql-query-execution.md",
+      "redirect_url": "/azure/cosmos-db/sql-query-pagination",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/use-notebook-features-and-commands.md",
       "redirect_url": "/azure/cosmos-db/use-python-notebook-features-and-commands",
       "redirect_document_id": true
@@ -3168,179 +3278,199 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cosmos-db/powershell-samples.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/cosmos-db/scripts/powershell/create-and-configure-cassandra-database.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-cassandra",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/create-graph-database-account-powershell.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-gremlin",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/create-mongodb-database-account-powershell.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-mongodb",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/create-table-database-account-powershell.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-table",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-delete.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-tags-update.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-get.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-update",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/list-get",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-firewall-create.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/firewall-create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-key-get.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/keys-connection-strings",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-create.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-create.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-index-custom.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-shared.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-key-regenerate.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/keys-connection-strings",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-connection-string-get.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/keys-connection-strings",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-unique-key-ttl.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-index-none.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-container-create-index-none",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create-index-none",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-conflict-policy.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-delete.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-delete.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-get.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-list-get",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/list-get",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-get.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-list-get",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/list-get",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-list.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-list-get",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/list-get",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-list.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-list-get",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/list-get",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-create-shared.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-create",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/create-firewall-powershell.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/firewall-create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/ha-failover-policy-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-failover-priority-update",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/failover-priority-update",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/ps-account-failover-priority-update.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-failover-priority-update",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/failover-priority-update",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/scale-multiregion-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/ps-sql-ru-update",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/sql/throughput-update",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/secure-get-account-key-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/keys-connection-strings",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/secure-mongo-connection-string-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/keys-connection-strings",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/secure-regenerate-key-powershell.md",
-      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+      "redirect_url": "/azure/cosmos-db/scripts/powershell/common/keys-connection-strings",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/manage-account-with-powershell.md",
       "redirect_url": "/azure/cosmos-db/manage-with-powershell",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/powershell-samples-cassandra.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples",
+      "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/powershell-samples-gremlin.md",
+        "redirect_url": "/azure/cosmos-db/powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/powershell-samples-mongodb.md",
+        "redirect_url": "/azure/cosmos-db/powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/powershell-samples-sql.md",
+        "redirect_url": "/azure/cosmos-db/powershell-samples",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/powershell-samples-table.md",
+        "redirect_url": "/azure/cosmos-db/powershell-samples",
+        "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/create-cassandra-database-account-cli.md",
@@ -4549,7 +4679,12 @@
     },
     {
       "source_path": "articles/key-vault/key-vault-ovw-soft-delete.md",
-      "redirect_url": "/azure/key-vault/general/overview-soft-delete",
+      "redirect_url": "/azure/key-vault/general/soft-delete-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/overview-soft-delete.md",
+      "redirect_url": "/azure/key-vault/general/soft-delete-overview",
       "redirect_document_id": false
     },
     {
@@ -4700,7 +4835,12 @@
     },
     {
       "source_path": "articles/key-vault/tutorial-net-linux-virtual-machine.md",
-      "redirect_url": "/azure/key-vault/secrets/tutorial-net-linux-virtual-machine",
+      "redirect_url": "/azure/key-vault/general/tutorial-net-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/secrets/tutorial-net-linux-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-net-virtual-machine",
       "redirect_document_id": false
     },
     {
@@ -4715,9 +4855,15 @@
     },
     {
       "source_path": "articles/key-vault/tutorial-python-linux-virtual-machine.md",
-      "redirect_url": "/azure/key-vault/secrets/tutorial-python-linux-virtual-machine",
+      "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/key-vault/secrets/tutorial-python-linux-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
+      "redirect_document_id": false
+    },
+
     {
       "source_path": "articles/key-vault/tutorial-python-windows-virtual-machine.md",
       "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
@@ -5061,6 +5207,11 @@
     {
       "source_path": "articles/azure-resource-manager/templates/template-samples.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-syntax",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/templates/cross-resource-group-deployment.md",
+      "redirect_url": "/azure/azure-resource-manager/templates/cross-scope-deployment",
       "redirect_document_id": false
     },
     {
@@ -8849,7 +9000,7 @@
     },
     {
       "source_path": "articles/automation/oms-solution-updatemgmt-sccmintegration.md",
-      "redirect_url": "/azure/automation/updatemgmt-mecmintegration",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-mecmintegration",
       "redirect_document_id": false
     },
     {
@@ -8945,11 +9096,6 @@
     {
       "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
       "redirect_url": "/azure/automation/manage-runas-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/automation/automation-unlink-from-log-analytics.md",
-      "redirect_url": "/azure/automation/automation-onboard-solutions-from-browse",
       "redirect_document_id": false
     },
     {
@@ -13588,6 +13734,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-wan/scenario-route-between-hubs-firewall.md",
+      "redirect_url": "/azure/virtual-wan/scenario-route-between-vnets-firewall",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-wan/global-peering-vnet.md",
       "redirect_url": "/azure/virtual-wan/virtual-wan-about",
       "redirect_document_id": false
@@ -15218,6 +15369,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "/azure/cosmos-db/cli-samples-cassandra.md",
+      "redirect_url": "/azure/cosmos-db/cli-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "/azure/cosmos-db/cli-samples-gremlin.md",
+      "redirect_url": "/azure/cosmos-db/cli-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "/azure/cosmos-db/cli-samples-mongodb.md",
+      "redirect_url": "/azure/cosmos-db/cli-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "/azure/cosmos-db/cli-samples-table.md",
+      "redirect_url": "/azure/cosmos-db/cli-samples",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/access-control.md",
       "redirect_url": "/azure/cosmos-db/secure-access-to-data",
       "redirect_document_id": false
@@ -16774,12 +16945,12 @@
     },
     {
       "source_path": "articles/log-analytics/log-analytics-system-update.md",
-      "redirect_url": "/azure/automation/automation-update-management",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-overview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/operations-management-suite/oms-solution-update-management.md",
-      "redirect_url": "/azure/automation/automation-update-management",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-overview",
       "redirect_document_id": false
     },
     {
@@ -23666,7 +23837,7 @@
       "source_path": "articles/virtual-machines/windows/sizes.md",
       "redirect_url": "/azure/virtual-machines/sizes",
       "redirect_document_id": false
-    }, 
+    },
     {
       "source_path": "articles/virtual-machines/linux/cloudfoundry-deploy-your-first-app.md",
       "redirect_url": "/azure/cloudfoundry/cloudfoundry-deploy-your-first-app",
@@ -23826,6 +23997,11 @@
       "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-windesktop.md",
       "redirect_url": "/azure/active-directory/develop/tutorial-v2-windows-desktop",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-mobileanddesktopapp-windowsdesktop-configure-arp.md",
+      "redirect_url": "/azure/active-directory/develop/tutorial-v2-windows-desktop",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-uwp-v2.md",
@@ -25674,6 +25850,11 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/upload-image.md",
+      "redirect_url": "/azure/virtual-machines/windows/upload-generalized-managed",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines-windows-upload-image.md",
       "redirect_url": "/azure/virtual-machines/windows/upload-generalized-managed",
       "redirect_document_id": false
     },
@@ -34398,6 +34579,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/manage-apps/add-non-gallery-app.md",
+      "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-application-proxy-get-started.md",
       "redirect_url": "/azure/active-directory/manage-apps/application-proxy",
       "redirect_document_id": false
@@ -34484,17 +34670,17 @@
     },
     {
       "source_path": "articles/notification-hubs/notification-hubs-backend-service-flutter.md",
-      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_url": "/azure/developer/mobile-apps/notification-hubs-backend-service-flutter",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notification-hubs/notification-hubs-backend-service-react-native.md",
-      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_url": "/azure/developer/mobile-apps/notification-hubs-backend-service-react-native",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/notification-hubs/notification-hubs-backend-service-xamarin-forms.md",
-      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_url": "/azure/developer/mobile-apps/notification-hubs-backend-service-xamarin-forms",
       "redirect_document_id": false
     },
     {
@@ -36292,13 +36478,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md",
+      "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-enterprise-apps-manage-sso.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/manage-apps/configure-single-sign-on-portal.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
       "redirect_document_id": false
     },
     {
@@ -36378,8 +36569,8 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-custom-apps.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-customizing-attribute-mappings.md",
@@ -36523,12 +36714,12 @@
     },
     {
       "source_path": "articles/active-directory/application-config-sso-how-to-configure-federated-sso-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/manage-apps/configure-federated-single-sign-on-gallery-applications.md",
-      "redirect_url": "/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications",
+      "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
       "redirect_document_id": false
     },
     {
@@ -36637,23 +36828,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/application-provisioning-when-will-provisioning-finish-specific-user.md",
+      "source_path": "articles/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish.md",
       "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/application-provisioning-when-will-provisioning-finish.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish",
       "redirect_document_id": false
     },
     {
@@ -37614,6 +37790,11 @@
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-devquickstarts-api-dotnet.md",
       "redirect_url": "/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-hub/quickstart-send-telemetry-xamarinforms.md",
+      "redirect_url": "/azure/iot-hub/about-iot-hub",
       "redirect_document_id": true
     },
     {
@@ -41628,6 +41809,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-at-scale-policy.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-policy",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-at-scale-powershell.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-powershell",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-single-vm.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-hybrid-cloud.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-hybrid",
+      "redirect_document_id": false
+    },  
+    {
       "source_path": "articles/azure-monitor/platform/resource-logs-append-blobs.md",
       "redirect_url": "/azure/azure-monitor/platform/resource-logs-blob-format",
       "redirect_document_id": false
@@ -42650,6 +42851,11 @@
     {
       "source_path": "articles/virtual-machines/windows/classic/capture-image-classic.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines-linux-capture-image.md",
+      "redirect_url": "/azure/virtual-machines/linux/capture-image",
       "redirect_document_id": false
     },
     {
@@ -45698,12 +45904,12 @@
     },
     {
       "source_path": "articles/iot-central/howto-connect-devkit.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-devkit/",
+      "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/howto-connect-devkit-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-devkit/",
+      "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
     },
     {
@@ -46058,7 +46264,7 @@
     },
     {
       "source_path": "articles/iot-central/core/tutorial-connect-pnp-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-connect-pnp-device/",
+      "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
     },
     {
@@ -46083,7 +46289,7 @@
     },
     {
       "source_path": "articles/iot-central/core/howto-connect-devkit-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-devkit/",
+      "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
     },
     {
@@ -46308,7 +46514,7 @@
     },
     {
       "source_path": "articles/iot-central/preview/howto-connect-devkit.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-devkit/",
+      "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
     },
     {
@@ -46483,7 +46689,12 @@
     },
     {
       "source_path": "articles/iot-central/preview/tutorial-connect-pnp-device.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-connect-pnp-device/",
+      "redirect_url": "/azure/iot-central/core/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-connect-pnp-device.md",
+      "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
     },
     {
@@ -46538,24 +46749,148 @@
     },
     {
       "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-linux.md",
-      "redirect_url": "/azure/iot-pnp/quickstart-connect-pnp-device-c-linux/",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device-c/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-c-linux.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device-c/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-pnp/quickstart-connect-pnp-device.md",
-      "redirect_url": "/azure/iot-pnp/quickstart-connect-pnp-device-c-windows/",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device-c/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-c-windows.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device-c/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-solution.md",
-      "redirect_url": "/azure/iot-pnp/quickstart-connect-pnp-device-solution-node/",
+      "redirect_url": "/azure/iot-pnp/quickstart-service-node/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-solution-node.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service-node/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-solution-java.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service-node/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-solution-csharp.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service-node/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/howto-develop-solution.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service-node/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/howto-connect-pnp-device-solution.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-service-node/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-pnp/quickstart-create-pnp-device.md",
-      "redirect_url": "/azure/iot-pnp/quickstart-create-pnp-device-windows/",
+      "redirect_url": "/azure/iot-pnp/tutorial-visual-studio-code-windows/",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/iot-pnp/quickstart-create-pnp-device-linux.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-visual-studio-code-linux/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-pnp-visual-studio-code.md",
+      "redirect_url": "/azure/iot-pnp/tutorial-visual-studio-code-windows/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-csharp.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-java.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-certification-test.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/howto-onboard-portal.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/howto-develop-with-vs-vscode.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-build-device-certification.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-visual-studio-code-linux.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-visual-studio-code-windows.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/quickstart-connect-pnp-device-node.md",
+      "redirect_url": "/azure/iot-pnp/quickstart-connect-device-node",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-pnp/howto-install-pnp-cli.md",
+      "redirect_url": "/azure/iot-pnp/howto-use-pnp-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/howto-generate-sas-token.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/concepts-common-interfaces.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/tutorial-build-solution.md",
+      "redirect_url": "/azure/iot-pnp/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-pnp/howto-install-iot-explorer.md",
+      "redirect_url": "/azure/iot-pnp/howto-use-iot-explorer",
+      "redirect_document_id": true
+    },
+
+    {
+      "source_path": "articles/iot-pnp/howto-manage-models.md",
+      "redirect_url": "/azure/iot-pnp/concepts-model-discovery",
+      "redirect_document_id": true
+    },
+
+
+
     {
       "source_path": "articles/iot-central/core/overview-iot-options.md",
       "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies/",
@@ -49863,7 +50198,7 @@
     },
     {
       "source_path": "articles/billing/billing-understand-vm-reservation-charges.md",
-      "redirect_url": "/azure/cost-management-billing/manage/understand-vm-reservation-charges",
+      "redirect_url": "/azure/cost-management-billing/manage/understand-vm-reservation-charges?toc=/azure/cost-management-billing/reservations/toc.json",
       "redirect_document_id": true
     },
     {
@@ -54736,6 +55071,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/data-share/azure-cli-references-for-data-share.md",
+      "redirect_url": "https://docs.microsoft.com/cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-vs-code.md",
       "redirect_url": "https://code.visualstudio.com/docs/containers/local-process-kubernetes",
       "redirect_document_id": false
@@ -54747,7 +55087,7 @@
     },
     {
       "source_path": "articles/dev-spaces/how-dev-spaces-works-local-process-kubernetes.md",
-      "redirect_url": "/visualstudio/containers/overview-local-process-kubernetes.md",
+      "redirect_url": "/visualstudio/containers/overview-local-process-kubernetes",
       "redirect_document_id": false
     },
     {
@@ -54758,6 +55098,21 @@
     {
       "source_path": "articles/azure-sql/database/service-tiers-prs.md",
       "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/configure-load-balancer-outbound-portal.md",
+      "redirect_url": "/azure/load-balancer/quickstart-create-standard-load-balancer-powershell?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/configure-load-balancer-outbound-cli.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/configure-load-balancer-outbound-powershell.md",
+      "redirect_url": "/azure/load-balancer/quickstart-create-standard-load-balancer-powershell?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration",
       "redirect_document_id": false
     }
   ]

@@ -624,7 +624,7 @@ Alternately, to test OS patches first before going to production, use the manual
 
 * [How to bring VMs up-to-date with the latest scale set model](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)
 
-* [Azure Automation Update Management overview](https://docs.microsoft.com/azure/automation/automation-update-management)
+* [Azure Automation Update Management overview](https://docs.microsoft.com/azure/automation/update-management/update-mgmt-overview)
 
 **Azure Security Center monitoring**: Currently not available
 

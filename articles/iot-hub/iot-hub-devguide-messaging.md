@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
+ms.custom: ['Role: Cloud Development']
 ---
 
 # Send device-to-cloud and cloud-to-device messages with IoT Hub

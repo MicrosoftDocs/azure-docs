@@ -9,7 +9,7 @@ ms.reviewer: sergkanz
 
 # Metric telemetry: Application Insights data model
 
-There are two types of metric telemetry supported by [Application Insights](../../azure-monitor/app/app-insights-overview.md): single measurement and pre-aggregated metric. Single measurement is just a name and value. Pre-aggregated metric specifies minimum and maximum value of the metric in the aggregation interval and standard deviation of it.
+There are two types of metric telemetry supported by [Application Insights](./app-insights-overview.md): single measurement and pre-aggregated metric. Single measurement is just a name and value. Pre-aggregated metric specifies minimum and maximum value of the metric in the aggregation interval and standard deviation of it.
 
 Pre-aggregated metric telemetry assumes that aggregation period was one minute.
 
@@ -61,6 +61,7 @@ Metric with the custom property `CustomPerfCounter` set to `true` indicate that 
 
 ## Next steps
 
-- Learn how to use [Application Insights API for custom events and metrics](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
+- Learn how to use [Application Insights API for custom events and metrics](./api-custom-events-metrics.md#trackmetric).
 - See [data model](data-model.md) for Application Insights types and data model.
-- Check out [platforms](../../azure-monitor/app/platforms.md) supported by Application Insights.
+- Check out [platforms](./platforms.md) supported by Application Insights.
+

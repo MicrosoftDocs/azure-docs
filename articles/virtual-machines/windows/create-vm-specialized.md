@@ -4,7 +4,7 @@ description: Create a new Windows VM by attaching a specialized managed disk as 
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
 

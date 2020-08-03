@@ -4,7 +4,7 @@ description: Learn how to use the Azure Queue .NET v12 library to create a queue
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 11/22/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
@@ -13,9 +13,6 @@ ms.topic: quickstart
 # Quickstart: Azure Queue storage client library v12 for .NET
 
 Get started with the Azure Queue storage client library version 12 for .NET. Azure Queue storage is a service for storing large numbers of messages for later retrieval and processing. Follow these steps to install the package and try out example code for basic tasks.
-
-> [!NOTE]
-> To get started with the previous SDK version, see [Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue](storage-quickstart-queues-dotnet-legacy.md).
 
 Use the Azure Queue storage client library v12 for .NET to:
 

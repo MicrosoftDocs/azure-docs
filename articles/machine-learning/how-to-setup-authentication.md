@@ -8,9 +8,9 @@ ms.author: larryfr
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 06/17/2020
-ms.custom: has-adal-ref
+ms.topic: conceptual
+ms.custom: how-to, has-adal-ref, devx-track-javascript
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
@@ -62,7 +62,7 @@ Most examples in the documentation and samples use interactive authentication. F
 
 ## Service principal authentication
 
-To use service principal (SP) authentication, you must first create the SP and grant it access to your workspace. As mentioned earlier, Azure role-based access control (RBAC) is used to control access, so you must also decide what access to grant the SP.
+To use service principal (SP) authentication, you must first create the SP and grant it access to your workspace. As mentioned earlier, Azure role-based access control (Azure RBAC) is used to control access, so you must also decide what access to grant the SP.
 
 > [!IMPORTANT]
 > When using a service principal, grant it the __minimum access required for the task__ it is used for. For example, you would not grant a service principal owner or contributor access if all it is used for is reading the access token for a web deployment.

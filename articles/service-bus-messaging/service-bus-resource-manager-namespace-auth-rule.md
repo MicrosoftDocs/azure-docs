@@ -5,7 +5,8 @@ author: spelluru
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
-ms.author: spelluru
+ms.author: spelluru 
+ms.custom: devx-track-azurecli
 ---
 
 # Create a Service Bus authorization rule for namespace and queue using an Azure Resource Manager template
