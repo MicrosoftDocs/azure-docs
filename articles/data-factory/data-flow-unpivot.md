@@ -41,7 +41,7 @@ Lastly, choose the aggregation that you wish to use for the pivoted values and h
 
 For instance, pivoting "Sales" by "Region" would simply give you new column values from each sales value. For example: "25", "50", "1000", ... However, if you set a prefix value of "Sales", then "Sales" will be prefixed to the values.
 
-<img src="media/data-flow/unpivot3.png" width="400">
+<img src="media/data-flow/unpivot3.png" alt="This diagram shows the result of pivoting Sales by Region using a prefix value of Sales, which prefixes Sales to the values." width="400">
 
 Setting the Column Arrangement to "Normal" will group together all of the pivoted columns with their aggregated values. Setting the columns arrangement to "Lateral" will alternate between column and value.
 
