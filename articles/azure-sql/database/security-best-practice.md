@@ -286,7 +286,7 @@ Separation of Duties, also called Segregation of Duties describes the requiremen
 - Identify a comprehensive hierarchy of users (and automated processes) that access the system.
 
 - Create roles according to the needed user-groups and assign permissions to roles.
-  - For management-level tasks in Azure portal or via PowerShell-automation use RBAC roles. Either find a built-in role matching the requirement, or create an Azure custom role using the available permissions
+  - For management-level tasks in Azure portal or via PowerShell-automation use Azure roles. Either find a built-in role matching the requirement, or create an Azure custom role using the available permissions
   - Create Server roles for server-wide tasks (creating new logins, databases) in a managed instance.
   - Create Database Roles for database-level tasks.
 
@@ -313,7 +313,7 @@ Separation of Duties, also called Segregation of Duties describes the requiremen
 
 - Create and use user-defined roles when built-in roles grant too many permissions or insufficient permissions.
 
-- Role assignments can also be done temporarily, also known as Dynamic Separation of Duties (DSD), either within SQL Agent Job steps in T-SQL or using Azure PIM for RBAC roles.
+- Role assignments can also be done temporarily, also known as Dynamic Separation of Duties (DSD), either within SQL Agent Job steps in T-SQL or using Azure PIM for Azure roles.
 
 - Make sure that DBAs don't have access to the encryption keys or key stores, and that Security Administrators with access to the keys have no access to the database in turn. The use of [Extensible Key Management (EKM)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) can make this separation easier to achieve. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) can be used to implement EKM.
 

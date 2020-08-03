@@ -20,21 +20,41 @@ The following section shows how a lab owner can set up encryption using a custom
 
 ## Pre-requisites
 
-- The disk encryption set needs to be in same region and subscription as your lab. 
-- Ensure you (lab owner) have at least a **reader-level access** to the disk encryption set that will be used to encrypt lab OS disks. If you don’t have a disk encryption set, follow this article to [set up a Key Vault and a Disk Encryption Set](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#set-up-your-azure-key-vault). 
-- For the lab to handle encryption for all the lab OS disks, lab owner needs to explicitly grant the lab’s system-assigned identity the permission to the disk encryption set. Lab owner can do so by completing the following steps:
+1. If you don’t have a disk encryption set, follow this article to [set up a Key Vault and a Disk Encryption Set](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#set-up-your-azure-key-vault). Note the following requirements for the disk encryption set: 
+
+    - The disk encryption set needs to be **in same region and subscription as your lab**. 
+    - Ensure you (lab owner) have at least a **reader-level access** to the disk encryption set that will be used to encrypt lab OS disks.  
+2. For the lab to handle encryption for all the lab OS disks, lab owner needs to explicitly grant the lab’s **system-assigned identity** the permission to the disk encryption set. Lab owner can do so by completing the following steps:
+
+    > [!IMPORTANT]
+    > You need to do these steps for labs created on or after 8/1/2020. No action required for labs that were created prior to that date.
+
     1. Ensure you are a member of [User Access Admin role](/role-based-access-control/built-in-roles.md#user-access-administrator) at the Azure subscription level so that you can manage user access to Azure resources. 
     1. On the **Disk Encryption Set** page, select **Access control (IAM)** on the left menu. 
     1. Select **+ Add** on the toolbar and select **Add a role assignment**.  
 
         :::image type="content" source="./media/encrypt-disks-customer-managed-keys/add-role-management-menu.png" alt-text="Add role management - menu":::
-    1. Select the **Reader** role or a role that allows more access. 
+    1. On the **Add role assignment** page, select the **Reader** role or a role that allows more access. 
     1. Type the lab name for which the disk encryption set will be used and select the lab name (system-assigned identity for the lab) from the dropdown-list. 
     
         :::image type="content" source="./media/encrypt-disks-customer-managed-keys/select-lab.png" alt-text="Select system-managed identity of the lab":::        
     1. Select **Save** on the toolbar. 
 
         :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="Save role assignment":::
+3. Add the lab's **system-assigned identity** to the **Virtual Machine Contributor** role using the **Subscription** -> **Access control (IAM)** page. The steps are similar to the ones in the previous steps. 
+
+    > [!IMPORTANT]
+    > You need to do these steps for labs created on or after 8/1/2020. No action required for labs that were created prior to that date.
+
+    1. Navigate to the **Subscription** page in the Azure portal. 
+    1. Select **Access control (IAM)**. 
+    1. Select **+Add** on the toolbar, and select **Add a role assignment**. 
+    
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/subscription-access-control-page.png" alt-text="Subscription -> Access control (IAM) page":::
+    1. On the **Add role assignment** page, select **Virtual Machine Contributor** for the role.
+    1. Type the lab name, and select the **lab name** (system-assigned identity for the lab) from the dropdown-list. 
+    1. Select **Save** on the toolbar. 
+
 ## Encrypt lab OS disks with a customer-managed key 
 
 1. On the home page for your lab in the Azure portal, select **Configuration and policies** on the left menu. 
