@@ -108,7 +108,7 @@ Connection Monitor (Preview) includes the following entities:
 
  ![Diagram showing a connection monitor, defining the relationship between test groups and tests](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-You can create a connection monitor preview using [portal](connection-monitor-preview-create-using-portal.md) or [ARM Client](connection-monitor-preview-create-using-arm-client.md)
+You can create a connection monitor preview using [Portal](connection-monitor-preview-create-using-portal.md) or [ARM Client](connection-monitor-preview-create-using-arm-client.md)
 
 All sources, destinations, and test configurations that you add to a test group get broken down to individual tests. Here's an example of how sources and destinations are broken down:
 
