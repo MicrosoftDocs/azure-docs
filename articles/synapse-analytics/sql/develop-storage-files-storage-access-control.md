@@ -78,7 +78,7 @@ In the table below you can find the available authorization types:
 
 You can use the following combinations of authorization and Azure Storage types:
 
-|                     | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
+| Authorization type  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Supported\*      | Not  supported   | Supported\*     |
 | [Managed Identity](?tabs=managed-identity#supported-storage-authorization-types) | Supported      | Supported        | Supported     |
@@ -186,7 +186,7 @@ SQL users cannot use Azure AD authentication to access storage.
 
 ### [Shared access signature](#tab/shared-access-signature)
 
-The following script creates a credential that is used to access files on storage using SAS token specified in the credential.
+The following script creates a credential that is used to access files on storage using SAS token specified in the credential. The script will create a sample external data source that uses this SAS token to access storage.
 
 ```sql
 -- Optional: Create MASTER KEY if not exists in database:
@@ -204,7 +204,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ### [Managed Identity](#tab/managed-identity)
 
-The following script creates a database-scoped credential that can be used to impersonate current Azure AD user as Managed Identity of service. 
+The following script creates a database-scoped credential that can be used to impersonate current Azure AD user as Managed Identity of service. The script will create a sample external data source that uses workspace identity to access storage.
 
 ```sql
 -- Optional: Create MASTER KEY if not exists in database:
