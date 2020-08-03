@@ -48,7 +48,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **vault.azure.net** | Azure Key Vault |
 | **azurecr.io** | Azure Container Registry |
 | **mcr.microsoft.com** | Microsoft Container Registry for base docker images |
-| **amlprivateli\*\*\*\*\*\*.azurecr.io** | Only needed if your Azure Container Registry is behind the virtual network. In this configuration, a private link is created from the Microsoft environment to the ACR instance in your subscription. |
+| **your-acr-server-name.azurecr.io** | Only needed if your Azure Container Registry is behind the virtual network. In this configuration, a private link is created from the Microsoft environment to the ACR instance in your subscription. Use the ACR server name for your Azure Machine Learning workspace. |
 
 ## Python hosts
 
