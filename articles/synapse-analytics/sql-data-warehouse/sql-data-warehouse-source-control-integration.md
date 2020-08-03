@@ -40,7 +40,7 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
    ![Clone repo](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "Clone repo")
 
-For additional information about connecting projects using Visual Studio, see the [Connect to projects in Team Explorer](https://docs.microsoft.com/visualstudio/ide/connect-team-project?view=vs-2019). For guidance on cloning a repo using Visual Studio, review the [Clone an exiting Git repo](https://docs.microsoft.com/azure/devops/repos/git/clone?view=azure-devops&tabs=visual-studio) article. 
+For more information about connecting projects using Visual Studio, see the [Connect to projects in Team Explorer](https://docs.microsoft.com/visualstudio/ide/connect-team-project?view=vs-2019). For guidance on cloning a repo using Visual Studio, review the [Clone an exiting Git repo](https://docs.microsoft.com/azure/devops/repos/git/clone?view=azure-devops&tabs=visual-studio) article. 
 
 ## Create and connect your project
 
