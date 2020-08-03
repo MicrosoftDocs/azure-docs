@@ -1,5 +1,5 @@
 ---
-title: Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
+title: Discover, assess, and migrate Amazon Web Services (AWS) EC2 VMs to Azure
 description: This article describes how to migrate AWS VMs to Azure with Azure Migrate.
 ms.topic: tutorial
 ms.date: 06/16/2020
@@ -236,7 +236,7 @@ A Mobility service agent must be installed on the source AWS VMs to be migrated.
 2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
 4. In **Process Server**, select the name of the replication appliance. 
-5. In **Guest credentials**, please select the dummy account created previously during the [replication installer setup](#Download-the-replication-appliance-installer) to install the Mobility service manually (push install is not supported). Then click **Next: Virtual machines**.   
+5. In **Guest credentials**, please select the dummy account created previously during the [replication installer setup](#download-the-replication-appliance-installer) to install the Mobility service manually (push install is not supported). Then click **Next: Virtual machines**.   
  
     ![Replicate VMs](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 6. In **Virtual Machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
