@@ -139,7 +139,7 @@ When we handle cases related to SSL/TLS handshake, we might encounter some issue
  
         The certificate chain can be built up successfully if the certificate from AIA is "Verified", and the certificate from CDP or OCSP is "Verified".
 
-        If you see failure like below when retrieving AIA, CDP, please work with network team to get the client machine ready to connect to target URL. It will be enough if either the http path or the ldap path is able to be verified.
+        If you see failure like below when retrieving AIA, CDP, work with network team to get the client machine ready to connect to target URL. It will be enough if either the http path or the ldap path is able to be verified.
 
         ![Retrieving failure](media/self-hosted-integration-runtime-troubleshoot-guide/retrieving-failure.png)
 
