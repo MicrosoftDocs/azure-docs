@@ -34,7 +34,7 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 
 You can log multiple data types including scalar values, lists, tables, images, directories, and more. For more information, and Python code examples for different data types, see the [Run class reference page](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-## Logging with interactive logging session
+## Interactive logging session
 
 Interactive logging sessions are typically used in notebook environments. The method [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) starts an interactive logging session. Any metrics logged during the session are added to the run record in the experiment. The method [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) ends the sessions and marks the run as completed.
 
@@ -44,7 +44,7 @@ The following code snippet uses an interactive logging session to log training p
 
 For a complete sample notebook that uses interactive logging, see [Train a model in a notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb).
 
-## Logging with ScriptRunConfig
+## ScriptRunConfig logs
 
 In this section, you learn how to add logging code inside of ScriptConfig runs. You can use the [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) class to encapsulate scripts and environments for repeatable runs. You can also use this option to show a visual Jupyter Notebooks widget for monitoring.
 
@@ -74,7 +74,7 @@ run.wait_for_completion(show_output=True)
 
 For a complete sample notebook that uses ScriptRunConfigs logs, see [Train a model locally](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb).
 
-## Logging with native Python
+## Native Python logging
 
 Some logs in the SDK may contain an error that instructs you to set the logging level to DEBUG. To set the logging level, add the following code to your script.
 
@@ -83,7 +83,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 ```
 
-## Logging from additional sources
+## Additional logging sources
 
 Azure Machine Learning can also log information from other sources during training, such as automated machine learning runs, or Docker containers that run the jobs. These logs aren't documented, but if you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
