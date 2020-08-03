@@ -52,6 +52,8 @@ The script to automate the download and installation, and to establish the conne
 
 1. Launch the Azure Arc service in the Azure portal by clicking **All services**, then searching for and selecting **Machines - Azure Arc**.
 
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Search for Arc for servers in All Services" border="false":::
+
 1. On the **Machines - Azure Arc** page, select either **Add**, at the upper left, or the **Create machine - Azure Arc** option at the bottom of the middle pane.
 
 1. On the **Select a method** page, select the **Add machines using interactive script** tile, and then select **Generate script**.
