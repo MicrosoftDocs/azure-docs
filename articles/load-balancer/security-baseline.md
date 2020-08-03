@@ -4,7 +4,7 @@ description: The Azure Load Balancer security baseline provides procedural guida
 author: msmbaldwin
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/03/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
