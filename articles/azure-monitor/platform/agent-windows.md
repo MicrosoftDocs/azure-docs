@@ -5,11 +5,11 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/07/2019
+ms.date: 08/03/2020
 
 ---
 
-# Connect Windows computers to Azure Monitor
+# Install Log Analytics agent for Azure Monitor on Windows computers
 
 In order to monitor and manage virtual machines or physical computers in your local datacenter or other cloud environment with Azure Monitor, you need to deploy the Log Analytics agent (also referred to as the Microsoft Monitoring Agent (MMA)) and configure it to report to one or more Log Analytics workspaces. The agent also supports the Hybrid Runbook Worker role for Azure Automation.  
 
@@ -28,7 +28,35 @@ The agent may be installed by using one of the following methods. Most installat
 
 If you need to configure the agent to report to more than one workspace, this cannot be performed during initial setup, only afterwards by updating the settings from Control Panel or PowerShell as described in [Adding or removing a workspace](agent-manage.md#adding-or-removing-a-workspace).  
 
-To understand the supported configuration, review [supported Windows operating systems](log-analytics-agent.md#supported-windows-operating-systems) and [network firewall configuration](log-analytics-agent.md#network-requirements).
+## Supported operating systems
+
+The following versions of the Windows operating system are officially supported for the Windows agent:
+
+* Windows Server 2019
+* Windows Server 2016, version 1709 and 1803
+* Windows Server 2012, 2012 R2
+* Windows Server 2008 R2
+* Windows 10 Enterprise (including multi-session) and Pro
+* Windows 8 Enterprise and Pro 
+* Windows 7 SP1
+
+>[!NOTE]
+>While the Log Analytics agent for Windows was designed to support server monitoring scenarios, we realize you may run Windows client to support workloads configured and optimized for the server operating system. The agent does support Windows client, however our monitoring solutions don't focus on client monitoring scenarios unless explicitly stated.
+
+## SHA-2 Code Signing Support Requirement 
+The Windows agent will begin to exclusively use SHA-2 signing on August 17, 2020. This change will impact customers using the Log Analytics agent on a legacy OS as part of any Azure service (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). The change does not require any customer action unless you are running the agent on a legacy OS version (Windows 7, Windows Server 2008 R2 and Windows Server 2008). Customers running on a legacy OS version are required to take the following actions on their machines before August 17, 2020 or their agents will stop sending data to their Log Analytics workspaces:
+
+1. Install the latest Service Pack for your OS. The required service pack versions are:
+    - Windows 7 SP1
+    - Windows Server 2008 SP2
+    - Windows Server 2008 R2 SP1
+
+2. Install the SHA-2 signing Windows updates for your OS as described in [2019 SHA-2 Code Signing Support requirement for Windows and WSUS](https://support.microsoft.com/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus)
+3. Update to the latest version of the Windows agent (version 10.20.18029).
+4. Recommended to configure the agent to [use TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12). 
+
+## Network requirements
+See [Log Analytics agent overview](log-analytics-agent.md#network-requirements) for the network requirements for the Windows agent.
 
 ## Obtain workspace ID and key
 Before installing the Log Analytics agent for Windows, you need the workspace ID and key for your Log Analytics workspace.  This information is required during setup from each installation method to properly configure the agent and ensure it can successfully communicate with Azure Monitor in Azure commercial and US Government cloud. 
@@ -194,6 +222,13 @@ You can also perform a simple log query in the Azure portal.
     ```
 
 In the search results returned, you should see heartbeat records for the computer indicating it is connected and reporting to the service.   
+
+## Cache information
+
+Data from the Log Analytics agent is cached on the local machine at *C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State* before it's sent to Azure Monitor. The agent attempts to upload every 20 seconds. If it fails, it will wait an exponentially increasing length of time until it succeeds. It will wait 30 seconds before the second attempt, 60 seconds before the next, 120 seconds, and so on to a maximum of 8.5 hours between retries until it successfully connects again. This wait time is slightly randomized to avoid all agents simultaneously attempting connection. Oldest data is discarded when the maximum buffer is reached.
+
+The default cache size is 50 MB but can be configured between a minimum of 5 MB and maximum of 1.5 GB. It's stored in the registry key *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Persistence Cache Maximum*. The value represents the number of pages, with 8 KB per page.
+
 
 ## Next steps
 

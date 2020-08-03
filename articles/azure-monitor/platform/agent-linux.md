@@ -5,11 +5,11 @@ ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/21/2020
+ms.date: 08/03/2020
 
 ---
 
-# Connect Linux computers to Azure Monitor
+# Install Log Analytics agent for Azure Monitor on Linux computers
 
 In order to monitor and manage virtual machines or physical computers in your local datacenter or other cloud environment with Azure Monitor, you need to deploy the Log Analytics agent and configure it to report to a Log Analytics workspace. The agent also supports the Hybrid Runbook Worker role for Azure Automation.
 
@@ -22,6 +22,81 @@ To understand the supported configuration, review [supported Linux operating sys
 
 >[!NOTE]
 >The Log Analytics agent for Linux cannot be configured to report to more than one Log Analytics workspace. It can only be configured to report to both a System Center Operations Manager management group and Log Analytics workspace concurrently, or to either individually.
+
+## Supported operating systems
+
+
+The following versions of the Linux operating system are officially supported for the Linux agent:
+
+* Amazon Linux 2017.09 (x64)
+* CentOS Linux 6 (x64) and 7 (x64)  
+* Oracle Linux 6 and 7 (x64) 
+* Red Hat Enterprise Linux Server 6 (x64), 7 (x64), and 8 (x64)
+* Debian GNU/Linux 8 and 9 (x64)
+* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x64), and 18.04 LTS (x64)
+* SUSE Linux Enterprise Server 12 (x64) and 15 (x64)
+
+>[!NOTE]
+>OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit) and OpenSSL earlier than 1.x is not supported on any platform.
+>
+
+
+Starting with versions released after August 2018, we are making the following changes to our support model:  
+
+* Only the server versions are supported, not client.  
+* Focus support on any of the [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md). Note that there may be some delay between a new distro/version being Azure Linux Endorsed and it being supported for the Log Analytics Linux agent.
+* All minor releases are supported for each major version listed.
+* Versions that have passed their manufacturer's end-of-support date are not supported.  
+* New versions of AMI are not supported.  
+* Only versions that run SSL 1.x by default are supported.
+
+>[!NOTE]
+>If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
+
+### Python 2 requirement
+
+ The Log Analytics agent requires Python 2. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+The python2 executable must be aliased to "python" using the following command:
+
+```
+alternatives --set python `which python2`
+```
+
+### Supported Linux hardening
+The OMS Agent has limited customization support for Linux. 
+
+The following are currently supported: 
+- FIPs
+
+The following are planned but not yet supported:
+- CIS
+-SELINUX
+
+Other hardening and customization methods are not supported nor planned for OMS Agent.  
+
+## Agent prerequisites
+
+The following table highlights the packages required for [supported Linux distros](log-analytics-agent.md#supported-operating-systems) that the agent will be installed on.
+
+|Required package |Description |Minimum version |
+|-----------------|------------|----------------|
+|Glibc |    GNU C Library | 2.5-12 
+|Openssl    | OpenSSL Libraries | 1.0.x or 1.1.x |
+|Curl | cURL web client | 7.15.5 |
+|Python | | 2.6+ or 3.3+
+|Python-ctypes | | 
+|PAM | Pluggable Authentication Modules | | 
+
+>[!NOTE]
+>Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog.
+
+## Network requirements
+See [Log Analytics agent overview](log-analytics-agent.md#network-requirements) for the network requirements for the Linux agent.
 
 ## Agent install package
 
@@ -159,17 +234,6 @@ The agent attempts to upload every 20 seconds. If it fails, it will wait an expo
 
 The default cache size is 10 MB but can be modified in the [omsagent.conf file](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf).
 
-## Supported Linux hardening
-The OMS Agent has limited customization support for Linux. 
-
-The following are currently supported: 
-- FIPs
-
-The following are planned but not yet supported:
-- CIS
--SELINUX
-
-Other hardening and customization methods are not supported nor planned for OMS Agent.  
 
 
 ## Upgrade from a previous release

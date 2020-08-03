@@ -79,105 +79,14 @@ There are multiple methods to install the Log Analytics agent and connect your m
 | System Center Operations Manager|[Integrate Operations Manager with Log Analytics](./om-agents.md) | Configure integration between Operations Manager and Azure Monitor logs to forward collected data from Windows computers reporting to a management group.|  
 
 
-## Supported Windows operating systems
 
-The following versions of the Windows operating system are officially supported for the Windows agent:
-
-* Windows Server 2019
-* Windows Server 2016, version 1709 and 1803
-* Windows Server 2012, 2012 R2
-* Windows Server 2008 SP2 (x64), 2008 R2
-* Windows 10 Enterprise (including multi-session) and Pro
-* Windows 8 Enterprise and Pro 
-* Windows 7 SP1
-
->[!NOTE]
->While the Log Analytics agent for Windows was designed to support server monitoring scenarios, we realize you may run Windows client to support workloads configured and optimized for the server operating system. The agent does support Windows client, however our monitoring solutions don't focus on client monitoring scenarios unless explicitly stated.
-
-## Supported Linux operating systems
-
-This section provides details about the supported Linux distributions.
-
-Starting with versions released after August 2018, we are making the following changes to our support model:  
-
-* Only the server versions are supported, not client.  
-* Focus support on any of the [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md). Note that there may be some delay between a new distro/version being Azure Linux Endorsed and it being supported for the Log Analytics Linux agent.
-* All minor releases are supported for each major version listed.
-* Versions that have passed their manufacturer's end-of-support date are not supported.  
-* New versions of AMI are not supported.  
-* Only versions that run SSL 1.x by default are supported.
-
->[!NOTE]
->If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
-
-
-### Python 2 requirement
- The Log Analytics agent requires Python 2. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
-
- - Red Hat, CentOS, Oracle: `yum install -y python2`
- - Ubuntu, Debian: `apt-get install -y python2`
- - SUSE: `zypper install -y python2`
-
-The python2 executable must be aliased to "python" using the following command:
-
-```
-alternatives --set python `which python2`
-```
-
-### Supported distros
-
-The following versions of the Linux operating system are officially supported for the Linux agent:
-
-* Amazon Linux 2017.09 (x64)
-* CentOS Linux 6 (x64) and 7 (x64)  
-* Oracle Linux 6 and 7 (x64) 
-* Red Hat Enterprise Linux Server 6 (x64), 7 (x64), and 8 (x64)
-* Debian GNU/Linux 8 and 9 (x64)
-* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x64), and 18.04 LTS (x64)
-* SUSE Linux Enterprise Server 12 (x64) and 15 (x64)
-
->[!NOTE]
->OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit) and OpenSSL earlier than 1.x is not supported on any platform.
->
-
-### Agent prerequisites
-
-The following table highlights the packages required for supported Linux distros that the agent will be installed on.
-
-|Required package |Description |Minimum version |
-|-----------------|------------|----------------|
-|Glibc |    GNU C Library | 2.5-12 
-|Openssl    | OpenSSL Libraries | 1.0.x or 1.1.x |
-|Curl | cURL web client | 7.15.5 |
-|Python | | 2.6+ or 3.3+
-|Python-ctypes | | 
-|PAM | Pluggable Authentication Modules | | 
-
->[!NOTE]
->Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog.
 
 ## TLS 1.2 protocol
 
 To ensure the security of data in transit to Azure Monitor logs, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.  For additional information, review [Sending data securely using TLS 1.2](data-security.md#sending-data-securely-using-tls-12). 
 
 
-## SHA-2 Code Signing Support Requirement for Windows
-The Windows agent will begin to exclusively use SHA-2 signing on August 17, 2020. This change will impact customers using the Log Analytics agent on a legacy OS as part of any Azure service (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). The change does not require any customer action unless you are running the agent on a legacy OS version (Windows 7, Windows Server 2008 R2 and Windows Server 2008). Customers running on a legacy OS version are required to take the following actions on their machines before August 17, 2020 or their agents will stop sending data to their Log Analytics workspaces:
 
-1. Install the latest Service Pack for your OS. The required service pack versions are:
-    - Windows 7 SP1
-    - Windows Server 2008 SP2
-    - Windows Server 2008 R2 SP1
-
-2. Install the SHA-2 signing Windows updates for your OS as described in [2019 SHA-2 Code Signing Support requirement for Windows and WSUS](https://support.microsoft.com/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus)
-3. Update to the latest version of the Windows agent (version 10.20.18029).
-4. Recommended to configure the agent to [use TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12). 
-
-
-## Cache information
-Data from the Log Analytics agent is cached on the local machine at *C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State* before it's sent to Azure Monitor. The agent attempts to upload every 20 seconds. If it fails, it will wait an exponentially increasing length of time until it succeeds. It will wait 30 seconds before the second attempt, 60 seconds before the next, 120 seconds, and so on to a maximum of 8.5 hours between retries until it successfully connects again. This wait time is slightly randomized to avoid all agents simultaneously attempting connection. Oldest data is discarded when the maximum buffer is reached.
-
-The default cache size is 50 MB but can be configured between a minimum of 5 MB and maximum of 1.5 GB. It's stored in the registry key *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Persistence Cache Maximum*. The value represents the number of pages, with 8 KB per page.
 
 
 ## Network requirements
