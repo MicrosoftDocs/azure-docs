@@ -4,7 +4,7 @@ description: This article describes how to scale the compute and storage resourc
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, references_regions
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein

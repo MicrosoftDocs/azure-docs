@@ -4,7 +4,7 @@ description: Learn about service tiers in the DTU-based purchase model for Azure
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom:
+ms.custom: references_regions
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
