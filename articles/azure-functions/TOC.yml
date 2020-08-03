@@ -103,6 +103,7 @@
           href: functions-bindings-example.md
         - name: Register binding extensions
           href: functions-bindings-register.md
+          displayName: bundles, extension bundles
         - name: Binding expression patterns
           href: functions-bindings-expressions-patterns.md
         - name: Use binding return values

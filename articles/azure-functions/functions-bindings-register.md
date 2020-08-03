@@ -10,7 +10,7 @@ ms.author: cshoe
 
 # Register Azure Functions binding extensions
 
-In Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow other functions access to all bindings through a configuration setting.
+Starting with Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow other functions access to all bindings through a configuration setting.
 
 Consider the following items related to binding extensions:
 
@@ -20,7 +20,7 @@ Consider the following items related to binding extensions:
 
 The following table indicates when and how you register bindings.
 
-| Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 2.x  |
+| Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 3.x/2.x  |
 |-------------------------|------------------------------------|------------------------------------|
 |Azure portal|Automatic|Automatic|
 |Non-.NET languages or local Azure Core Tools development|Automatic|[Use Azure Functions Core Tools and extension bundles](#extension-bundles)|
@@ -42,6 +42,10 @@ To use extension bundles, update the *host.json* file to include the following e
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 <a name="local-csharp"></a>
+
+## Manually add extensions
+
+If you aren't able to use extension bundles, the Azure Functions Core Tools lets you manually add specific extension packages at a specific version. Use the `func extension install` command to add an extension package to your local project. For more information, see [Register individual extensions](functions-run-local.md#register-individual-extensions).
 
 ## <a name="vs"></a> C\# class library with Visual Studio
 
