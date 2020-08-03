@@ -14,10 +14,10 @@ ms.author: amjads
 Extensions are small applications that provide post-deployment configuration and automation on Azure VMs. The Azure platform hosts many extensions covering VM configuration, monitoring, security, and utility applications. Publishers take an application, wrap it into an extension, and simplify the installation. All you need to do is provide mandatory parameters. 
 
 ## How can I find What extensions are available?
-You can view available extensions in the VM blade in the Portal, under extensions, this represents just a small amount, for the full list, you can use the CLI tools, see [Discovering VM Extensions for Linux](features-linux.md) and [Discovering VM Extensions for Windows](features-windows.md).
+You can view available extensions by selecting a VM, the selecting **Extentions** in the left menu. To pull a full list of extensions, see [Discovering VM Extensions for Linux](features-linux.md) and [Discovering VM Extensions for Windows](features-windows.md).
 
 ## How can I install an extension?
-Azure VM extensions can be managed using either the Azure CLI, Azure PowerShell, Azure Resource Manager templates, and the Azure portal. To try an extension, go to the Azure portal, select the Custom Script Extension, then pass in a command or script to run the extension.
+Azure VM extensions can be managed using the Azure CLI, PowerShell, Resource Manager templates, and the Azure portal. To try an extension, go to the Azure portal, select the Custom Script Extension, then pass in a command or script to run the extension.
 
 For more information, see [Windows Custom Script Extension](custom-script-windows.md) and [Linux Custom Script Extension](custom-script-linux.md).
 
@@ -46,14 +46,14 @@ Troubleshooting information for each extension can be found in the **Troubleshoo
 | microsoft.enterprisecloud.monitoring.omsagentforlinux | [Azure Monitor for Linux](oms-linux.md#troubleshoot-and-support)
 | microsoft.enterprisecloud.monitoring.microsoftmonitoringagent | [Azure Monitor for Windows](oms-windows.md#troubleshoot-and-support) |
 | stackify.linuxagent.extension.stackifylinuxagentextension | [Stackify Retrace for Linux](stackify-retrace-linux.md#troubleshoot-and-support) |
-| vmaccessforlinux.microsoft.ostcextensions | [Reset password (VMAccess) for Linux](vmaccess.md#troubleshoot-and-support) |
+| vmaccessforlinux.microsoft.ostcextensions | [Reset password for Linux](vmaccess.md#troubleshoot-and-support) |
 | microsoft.recoveryservices.vmsnapshot | [Snapshot for Linux](vmsnapshot-linux.md#troubleshoot-and-support) |
 | microsoft.recoveryservices.vmsnapshot | [Snapshot for Windows](vmsnapshot-windows.md#troubleshoot-and-support) |
 
 
 ## Next steps
-* For more information about how the Linux Agent and Extensions work, see [Azure VM extensions and features for Linux](features-linux.md).
-* For more information about how the Windows Guest Agent and Extensions work, see [Azure VM extensions and features for Windows](features-windows.md).  
+* For more information about how the Linux Agent and extensions work, see [Azure VM extensions and features for Linux](features-linux.md).
+* For more information about how the Windows Guest Agent and extensions work, see [Azure VM extensions and features for Windows](features-windows.md).  
 * To install the Windows Guest Agent, see [Azure Windows Virtual Machine Agent Overview](agent-windows.md).  
 * To install the Linux Agent, see [Azure Linux Virtual Machine Agent Overview](agent-linux.md).  
 
