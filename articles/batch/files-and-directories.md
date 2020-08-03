@@ -15,7 +15,7 @@ Tasks can access the root directory by referencing the `AZ_BATCH_NODE_ROOT_DIR` 
 
 The root directory contains the following directory structure:
 
-![Diagram of the compute node directory structure.](media\files-and-directories\node-folder-structure.png)
+![Screenshot of the compute node directory structure.](media\files-and-directories\node-folder-structure.png)
 
 - **applications**: Contains information about the details of application packages installed on the compute node. Tasks can access this directory by referencing the `AZ_BATCH_APP_PACKAGE` environment variable.
 
