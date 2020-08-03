@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 06/23/2020
+ms.date: 08/03/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo

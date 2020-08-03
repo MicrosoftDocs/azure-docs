@@ -106,10 +106,10 @@ To configure Azure AD single sign-on with Nomadic, perform the following steps:
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 	
-	| |
-	|--|
-	| `https://<company name>.nomadic.fm/auth/saml2/sp` |
-	| `https://<company name>.staging.nomadic.fm/auth/saml2/sp` |
+    ```http
+    https://<company name>.nomadic.fm/auth/saml2/sp
+    https://<company name>.staging.nomadic.fm/auth/saml2/sp
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Nomadic Client support team](mailto:help@nomadic.fm) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

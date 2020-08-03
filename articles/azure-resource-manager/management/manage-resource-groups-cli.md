@@ -4,7 +4,8 @@ description: Use Azure CLI to manage your resource groups through Azure Resource
 author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 ---
 
 # Manage Azure Resource Manager resource groups by using Azure CLI
@@ -70,7 +71,7 @@ See [Deploy resources to an existing resource group](manage-resources-cli.md#dep
 
 ## Deploy a resource group and resources
 
-You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-group-and-resources).
+You can create a resource group and deploy resources to the group by using a Resource Manager template. For more information, see [Create resource group and deploy resources](../templates/deploy-to-subscription.md#resource-groups).
 
 ## Redeploy when deployment fails
 
@@ -145,5 +146,5 @@ For more information, see [Single and multi-resource export to template in Azure
 
 - To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
 - To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/template-syntax.md).
-- To learn how to develop templates, see the [step-by-step tutorials](/azure/azure-resource-manager/).
+- To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

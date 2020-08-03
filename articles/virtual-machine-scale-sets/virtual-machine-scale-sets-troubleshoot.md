@@ -6,7 +6,7 @@ ms.author: avverma
 ms.topic: troubleshooting
 ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
-ms.date: 11/16/2017
+ms.date: 06/25/2020
 ms.reviwer: jushiman
 ms.custom: avverma
 ---
@@ -68,7 +68,7 @@ Some things to consider include:
     If the data is not there, it implies the problem is with the diagnostic extension running in the VMs. If the data is there, it implies there is either a problem with your scale rules, or with the Insights service. Check [Azure Status](https://azure.microsoft.com/status/).
     
     Once you’ve been through these steps, if you're still having autoscale problems, you can try the following resources: 
-    * Read the forums on [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html), or [Stack overflow](https://stackoverflow.com/questions/tagged/azure) 
+    * Read the forums on [Microsoft Q&A question page](/answers/topics/azure-virtual-machines.html), or [Stack overflow](https://stackoverflow.com/questions/tagged/azure) 
     * Log a support call. Be prepared to share the template and a view of your performance data.
 
 [audit]: ./media/virtual-machine-scale-sets-troubleshoot/image3.png

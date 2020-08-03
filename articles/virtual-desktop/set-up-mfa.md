@@ -6,11 +6,14 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
 ---
 # Enable Azure Multi-Factor Authentication for Windows Virtual Desktop
+
+>[!IMPORTANT]
+> If you're visiting this page from the Windows Virtual Desktop (classic) documentation, make sure to [return to the Windows Virtual Desktop (classic) documentation](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) once you're finished.
 
 The Windows client for Windows Virtual Desktop is an excellent option for integrating Windows Virtual Desktop with your local machine. However, when you configure your Windows Virtual Desktop account into the Windows Client, there are certain measures you'll need to take to keep yourself and your users safe.
 
@@ -31,27 +34,39 @@ Here's what you'll need to get started:
 
 ## Create a Conditional Access policy
 
-This section will show you how to create a Conditional Access policy that requires multi-factor authentication when connecting to Windows Virtual Desktop.
+Here's how to create a Conditional Access policy that requires multi-factor authentication when connecting to Windows Virtual Desktop:
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 2. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 3. Select **New policy**.
 4. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 5. Under **Assignments**, select **Users and groups**.
-   - Under **Include**, select **Select users and groups** > **Users and groups** > Choose the group created in the prerequisites stage.
-   - Select **Done**.
-6. Under **Cloud apps or actions** > **Include**, select **Select apps**.
-   - Choose **Windows Virtual Desktop** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07), then **Select**, and then then **Done**.
+6. Under **Include**, select **Select users and groups** > **Users and groups** > Choose the group you created in the [prerequisites](#prerequisites) stage.
+7. Select **Done**.
+8. Under **Cloud apps or actions** > **Include**, select **Select apps**.
+9. Select one of the following groups of apps based on which version of Windows Virtual Desktop you're using.
+   - If you're using Windows Virtual Desktop (classic), choose these two apps:
+       - **Windows Virtual Desktop** (App ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
+       - **Windows Virtual Desktop Client** (App ID fa4345a4-a730-4230-84a8-7d9651b86739)
+   - If you're using Windows Virtual Desktop, choose these two apps instead:
+       -  **Windows Virtual Desktop** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
+       -  **Windows Virtual Desktop Client** (App ID a85cf173-4192-42f8-81fa-777a763e6e2c)
 
-     ![A screenshot of the Cloud apps or actions page. The Windows Virtual Desktop and Windows Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise.png)
+   >[!IMPORTANT]
+   > The Windows Virtual Desktop Client apps are used for the web client. However, don't select the app called Windows Virtual Desktop Azure Resource Manager Provider (50e95039-b200-4007-bc97-8d5790743a63). This app is only used for retrieving the user feed and shouldn't have MFA.
+  
+1. Once you've selected your app, choose **Select**, and then select **Done**.
 
-     >[!NOTE]
-     >To find the App ID of the app you want to select, go to **Enterprise Applications** and select **Microsoft Applications** from the application type drop-down menu.
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the Cloud apps or actions page. The Windows Virtual Desktop and Windows Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise.png)
 
-7. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and then **Select**.
-8. Under **Access controls** > **Session**, select **Sign-in frequency**, set the value to **1** and the unit to **Hours**, and then select **Select**.
-9. Confirm your settings and set **Enable policy** to **On**.
-10. Select **Create** to enable your policy.
+   >[!NOTE]
+   >To find the App ID of the app you want to select, go to **Enterprise Applications** and select **Microsoft Applications** from the application type drop-down menu.
+
+10. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and then **Select**.
+11. Under **Access controls** > **Session**, select **Sign-in frequency**, set the value to **1** and the unit to **Hours**, and then select **Select**.
+12. Confirm your settings and set **Enable policy** to **On**.
+13. Select **Create** to enable your policy.
 
 ## Next steps
 

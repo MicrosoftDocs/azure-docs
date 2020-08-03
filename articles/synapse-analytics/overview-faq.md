@@ -5,7 +5,7 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice:
+ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
@@ -28,6 +28,8 @@ A: Azure Synapse is an integrated data platform for BI, AI, and continuous intel
 - Manage your metadata across engines. Create a Spark table and it will be automatically available in your Azure Synapse databases.
 - Interact with the data through a unified user experience. Synapse Studio brings Big Data Developers, Data Engineers, DBAs, Data Analysts, and Data Scientists on to the same platform.
 
+For more information, see [What is Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/overview-what-is).
+
 ### Q: What are the main components of Azure Synapse Analytics
 
 A: Azure Synapse has the following capabilities:
@@ -43,6 +45,10 @@ A: Azure Synapse has the following capabilities:
 A: Azure Synapse Analytics is an evolution of Azure SQL Data Warehouse into an analytics platform, which includes SQL pool as the data warehouse solution. This platform combines data exploration, ingestion, transformation, preparation, and a serving analytics layer.
 
 ## Use cases
+
+### Q: How do I rename a published artifact (dataset, notebook, sql script and so on) in Azure Synapse?
+
+A: To rename a published artifact file, first clone the file and rename the new file to name that you prefer. You will need to manually update all the references of the artifact to the new file name and delete the old one.
 
 ### Q: What is a good use case for Synapse SQL pool
 

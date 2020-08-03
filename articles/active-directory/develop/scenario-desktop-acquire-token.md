@@ -210,7 +210,7 @@ Remarks:
 
 `WithPrompt()` is used to control the interactivity with the user by specifying a prompt.
 
-<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
+<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" alt="This diagram shows the members of the Prompt struct, including Consent, ForceLogin, Never, NoPrompt, and SelectAccount." width="25%" />
 
 The class defines the following constants:
 

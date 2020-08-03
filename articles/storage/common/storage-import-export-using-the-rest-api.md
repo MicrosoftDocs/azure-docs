@@ -4,7 +4,7 @@ description: Learn where to find resources for using the Azure Import/Export ser
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common

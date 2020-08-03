@@ -1,17 +1,8 @@
 ---
 title: Congigure IP firewall for Azure Relay namespace
 description: This article describes how to Use firewall rules to allow connections from specific IP addresses to Azure Relay namespaces. 
-services: service-bus-relay
-documentationcenter: ''
-author: spelluru
-
-ms.service: service-bus-relay
-ms.devlang: na
-ms.custom: seodec18
 ms.topic: article
-ms.date: 05/13/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Configure IP firewall for an Azure Relay namespace
@@ -134,4 +125,4 @@ To learn about other network security-related features, see [Network security](n
 
 <!-- Links -->
 
-[express-route]:  /azure/expressroute/expressroute-faqs#supported-services
+[express-route]:  ../expressroute/expressroute-faqs.md#supported-services

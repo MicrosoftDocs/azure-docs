@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: gateway
-ms.topic: how-to
+ms.topic: troubleshooting
 ms.date: 03/20/2019
 ms.author: alkohli
 ---

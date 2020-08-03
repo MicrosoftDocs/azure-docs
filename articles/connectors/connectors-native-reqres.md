@@ -19,7 +19,7 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 
 * Receive and respond to an HTTPS call from another logic app.
 
-The Request trigger supports [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) for authorizing inbound calls to your logic app. For more information about enabling this authentication, see [Secure access and data in Azure Logic Apps - Enable Azure AD OAuth authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+The Request trigger supports [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) for authorizing inbound calls to your logic app. For more information about enabling this authentication, see [Secure access and data in Azure Logic Apps - Enable Azure AD OAuth authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ The Request trigger supports [Azure Active Directory Open Authentication](../act
 
 ## Transport Layer Security (TLS)
 
-* Inbound calls support *only* Transport Layer Security (TLS) 1.2. If you get TLS handshake errors, make sure that you use TLS 1.2. For more information, see [Solving the TLS 1.0 problem](https://docs.microsoft.com/security/solving-tls1-problem). Outbound calls support TLS 1.0, 1.1, and 1.2, based on the target endpoint's capability.
+* Inbound calls support *only* Transport Layer Security (TLS) 1.2. If you get TLS handshake errors, make sure that you use TLS 1.2. For more information, see [Solving the TLS 1.0 problem](/security/solving-tls1-problem). Outbound calls support TLS 1.0, 1.1, and 1.2, based on the target endpoint's capability.
 
 * Inbound calls support these cipher suites:
 
@@ -152,7 +152,7 @@ This built-in trigger creates a manually callable HTTPS endpoint that can receiv
          "account": {
             "name": "Contoso",
             "ID": "12345",
-            "address": { 
+            "address": {
                "number": "1234",
                "street": "Anywhere Street",
                "city": "AnyTown",
@@ -167,9 +167,9 @@ This built-in trigger creates a manually callable HTTPS endpoint that can receiv
 1. To check that the inbound call has a request body that matches your specified schema, follow these steps:
 
    1. In the Request trigger's title bar, select the ellipses button (**...**).
-   
+
    1. In the trigger's settings, turn on **Schema Validation**, and select **Done**.
-   
+
       If the inbound call's request body doesn't match your schema, the trigger returns an `HTTP 400 Bad Request` error.
 
 1. To specify additional properties, open the **Add new parameter** list, and select the parameters that you want to add.
@@ -201,7 +201,7 @@ This built-in trigger creates a manually callable HTTPS endpoint that can receiv
    ![URL to use triggering your logic app](./media/connectors-native-reqres/generated-url.png)
 
    > [!NOTE]
-   > If you want to include the hash or pound symbol (**#**) in the URI 
+   > If you want to include the hash or pound symbol (**#**) in the URI
    > when making a call to the Request trigger, use this encoded version instead: `%25%23`
 
 1. To trigger your logic app, send an HTTP POST to the generated URL.
@@ -229,7 +229,7 @@ You can use the Response action to respond with a payload (data) to an incoming 
 Your logic app keeps the incoming request open only for a [limited time](../logic-apps/logic-apps-limits-and-config.md#request-limits). Assuming that your logic app workflow includes a Response action, if the logic app doesn't return a response after this time passes, your logic app returns a `504 GATEWAY TIMEOUT` to the caller. Otherwise, if your logic app doesn't include a Response action, your logic app immediately returns a `202 ACCEPTED` response to the caller.
 
 > [!IMPORTANT]
-> If a Response action includes these headers, Logic Apps removes these headers 
+> If a Response action includes these headers, Logic Apps removes these headers
 > from the generated response message without showing any warning or error:
 >
 > * `Allow`
@@ -240,7 +240,7 @@ Your logic app keeps the incoming request open only for a [limited time](../logi
 > * `Set-Cookie`
 > * `Transfer-Encoding`
 >
-> Although Logic Apps won't stop you from saving logic apps that have a 
+> Although Logic Apps won't stop you from saving logic apps that have a
 > Response action with these headers, Logic Apps ignores these headers.
 
 1. In the Logic App Designer, under the step where you want to add a Response action, select **New step**.
@@ -257,7 +257,7 @@ Your logic app keeps the incoming request open only for a [limited time](../logi
 
    The Request trigger is collapsed in this example for simplicity.
 
-1. Add any values that are required for the response message. 
+1. Add any values that are required for the response message.
 
    In some fields, clicking inside their boxes opens the dynamic content list. You can then select tokens that represent available outputs from previous steps in the workflow. Properties from the schema specified in the earlier example now appear in the dynamic content list.
 
@@ -269,7 +269,7 @@ Your logic app keeps the incoming request open only for a [limited time](../logi
 
    ![Headers - Switch to text view](./media/connectors-native-reqres/switch-to-text-view.png)
 
-   Here is more information about the properties that you can set in the Response action. 
+   Here is more information about the properties that you can set in the Response action.
 
    | Property name | JSON property name | Required | Description |
    |---------------|--------------------|----------|-------------|
@@ -280,8 +280,9 @@ Your logic app keeps the incoming request open only for a [limited time](../logi
 
 1. To specify additional properties, such as a JSON schema for the response body, open the **Add new parameter** list, and select the parameters that you want to add.
 
-1. When you're done, save your logic app. On the designer toolbar, select **Save**. 
+1. When you're done, save your logic app. On the designer toolbar, select **Save**.
 
 ## Next steps
 
 * [Connectors for Logic Apps](../connectors/apis-list.md)
+

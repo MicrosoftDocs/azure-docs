@@ -9,7 +9,7 @@ ms.author: mhopkins
 ms.date: 08/06/2019
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Get storage account type and SKU name with .NET

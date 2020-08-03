@@ -18,7 +18,7 @@ ms.date: 01/16/2018
 
 The following table includes links to sample Azure PowerShell scripts for Azure Data Factory.
 
-| |  |
+| Script | Description  |
 |---|---|
 |**Copy data**||
 |[Copy blobs from a folder to another folder in an Azure Blob Storage](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script copies blobs from a folder in Azure Blob Storage to another folder in the same Blob Storage. |

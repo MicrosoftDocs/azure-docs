@@ -174,7 +174,7 @@ az group delete --name $ResourceGroupName
 ```
 
 If you are finished working with your cluster, you can remove the certificate from your certificate store. For example:
-- On Windows: Use the [Certificates MMC snap-in](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Be sure to select **My user account** when adding the snap-in. Navigate to `Certificates - Current User\Personal\Certificates` and remove the certificate.
+- On Windows: Use the [Certificates MMC snap-in](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Be sure to select **My user account** when adding the snap-in. Navigate to `Certificates - Current User\Personal\Certificates` and remove the certificate.
 - On Mac: Use the Keychain app.
 - On Ubuntu: Follow the steps you used to view certificates and remove the certificate.
 

@@ -1,13 +1,13 @@
 - name: Azure Cognitive Search Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Cognitive Search?
     href: search-what-is-azure-search.md
   - name: What's new
     href: whats-new.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Portal
     items:
@@ -15,7 +15,7 @@
       href: search-create-service-portal.md
     - name: Create an index
       href: search-get-started-portal.md
-    - name: Create an app
+    - name: Create a demo app
       href: search-create-app-portal.md
     - name: Create a skillset
       href: cognitive-search-quickstart-blob.md
@@ -72,6 +72,8 @@
       href: cognitive-search-tutorial-blob-python.md
   - name: Debug a skillset
     href: cognitive-search-tutorial-debug-sessions.md
+  - name: Create a custom analyzer
+    href: tutorial-create-custom-analyzer.md
   - name: Query from Power Apps   
     href: search-howto-powerapps.md  
 - name: Samples
@@ -85,7 +87,7 @@
   - name: Python samples
     href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python
   - name: REST samples
-    href: https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest
+    href: https://docs.microsoft.com/samples/browse/?languages=http&expanded=azure&products=azure-cognitive-search
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-samples.md
@@ -108,14 +110,19 @@
       href: knowledge-store-projection-overview.md
     - name: Incremental enrichment
       href: cognitive-search-incremental-indexing-conceptual.md
+  - name: Security
+    items:
+    - name: Security overview
+      href: search-security-overview.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
 - name: How-to guides
   items:
   - name: Create indexes and constructs
     items:
-    - name: Create a basic index
+    - name: Create an index
       href: search-what-is-an-index.md
-    - name: Create an index (portal)
-      href: search-create-index-portal.md
     - name: Create a multi-language index
       href: search-language-support.md
     - name: Analyzers
@@ -324,8 +331,6 @@
       href: search-api-migration.md
   - name: Security
     items:
-    - name: Overview
-      href: search-security-overview.md
     - name: Data encryption
       items:
       - name: Customer-managed keys
@@ -380,26 +385,38 @@
     href: /powershell/module/az.search 
   - name: Resource Manager template
     href: /azure/templates/microsoft.search/searchservices
-  - name: .NET
-    items:
-    - name: microsoft.azure.search
-      href: /dotnet/api/overview/azure/search?view=azure-dotnet
-    - name: microsoft.azure.management.search
-      href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
   - name: REST
     items:
-    - name: Search 2019-05-06
+    - name: Search 2020-06-30
       href: /rest/api/searchservice
-    - name: Search 2019-05-06-Preview
-      href: /rest/api/searchservice/index-2019-05-06-preview
+    - name: Search 2020-06-30-Preview
+      href: /rest/api/searchservice/index-preview
     - name: Management 2020-03-13
       href: /rest/api/searchmanagement
     - name: Management 2019-10-01-Preview
       href: /rest/api/searchmanagement/index-2019-10-01-preview
-  - name: Python
+  - name: .NET
+    items:
+    - name: Search API
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet
+    - name: Management API
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet
+  - name: Java
     items:
     - name: Management API
-      href: /python/api/overview/azure/search?view=azure-python
+      href: https://docs.microsoft.com/java/api/overview/azure/search/management?view=azure-java-stable
+  - name: JavaScript
+    items:
+    - name: Search API
+      href: https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest
+    - name: Management API
+      href: https://docs.microsoft.com/javascript/api/overview/azure/search/management?view=azure-node-latest
+  - name: Python
+    items:
+    - name: Search API
+      href: https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python
+    - name: Management API
+      href: https://docs.microsoft.com/python/api/overview/azure/search/management?view=azure-python
   - name: OData language reference
     items:
     - name: Overview

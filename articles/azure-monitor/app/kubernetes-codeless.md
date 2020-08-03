@@ -11,8 +11,8 @@ ms.date: 05/13/2020
 # Zero instrumentation application monitoring for Kubernetes - Azure Monitor Application Insights
 
 > [!IMPORTANT]
->  Currently you can enable monitoring for your Java apps running on Kubernetes without instrumenting your code - use the [Java standalone agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent). 
-> While the solution to seamlessly enabling application monitoring is in the works for other languages, use the SDKs to monitor your apps running on AKS: [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core), [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net), [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs), [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript), and [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+>  Currently you can enable monitoring for your Java apps running on Kubernetes without instrumenting your code - use the [Java standalone agent](./java-in-process-agent.md). 
+> While the solution to seamlessly enabling application monitoring is in the works for other languages, use the SDKs to monitor your apps running on AKS: [ASP.NET Core](./asp-net-core.md), [ASP.NET](./asp-net.md), [Node.js](./nodejs.md), [JavaScript](./javascript.md), and [Python](./opencensus-python.md).
 
 ## Application monitoring without instrumenting the code
 Currently, only Java lets you enable application monitoring without instrumenting the code. To monitor applications in other languages use the SDKs. 
@@ -20,18 +20,18 @@ Currently, only Java lets you enable application monitoring without instrumentin
 ## Java
 Once enabled, the Java agent will automatically collect a multitude of requests, dependencies, logs, and metrics from the most widely used libraries and frameworks.
 
-Follow [the detailed instructions](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) to monitor your Java apps running in Kubernetes apps, as well as other environments. 
+Follow [the detailed instructions](./java-in-process-agent.md) to monitor your Java apps running in Kubernetes apps, as well as other environments. 
 
 ## Other languages
 
 For the applications in other languages we currently recommend using the SDKs:
-* [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
-* [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)
-* [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs) 
-* [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
-* [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
+* [ASP.NET Core](./asp-net-core.md)
+* [ASP.NET](./asp-net.md)
+* [Node.js](./nodejs.md) 
+* [JavaScript](./javascript.md)
+* [Python](./opencensus-python.md)
 
 ## Next steps
 
-* Learn more about [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) and [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
-* Get an overview of [Distributed Tracing](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing) and see what [Application Map](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net) can do for your business
+* Learn more about [Azure Monitor](../overview.md) and [Application Insights](./app-insights-overview.md)
+* Get an overview of [Distributed Tracing](./distributed-tracing.md) and see what [Application Map](./app-map.md?tabs=net) can do for your business

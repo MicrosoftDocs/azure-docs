@@ -38,7 +38,7 @@ When the data transfer is complete, the snapshot is removed and a recovery point
 
 To restore a disk, you select a recovery point as the source for the recovery data. As the default policy creates a recovery point each day and retains them for 30 days, you can keep a set of recovery points that allows you to select a particular point in time for recovery.
 
-To see a list of available recovery points, use [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). The recovery point **name** is used to recover disks. In this tutorial, we want the most recent recovery point available. The `--query [0].name` parameter selects the most recent recovery point name as follows:
+To see a list of available recovery points, use [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). The recovery point **name** is used to recover disks. In this tutorial, we want the most recent recovery point available. The `--query [0].name` parameter selects the most recent recovery point name as follows:
 
 ```azurecli-interactive
 az backup recoverypoint list \
@@ -60,7 +60,7 @@ az backup recoverypoint list \
 
 If the backed up VM has managed disks and if the intent is to restore managed disks from the recovery point, you first provide an Azure storage account. This storage account is used to store the VM configuration and the deployment template that can be later used to deploy the VM from the restored disks. Then, you also provide a target resource group for the managed disks to be restored into.
 
-1. To create a storage account, use [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
+1. To create a storage account, use [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
 
     ```azurecli-interactive
     az storage account create \
@@ -69,7 +69,7 @@ If the backed up VM has managed disks and if the intent is to restore managed di
         --sku Standard_LRS
     ```
 
-2. Restore the disk from your recovery point with [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Replace *mystorageaccount* with the name of the storage account you created in the preceding command. Replace *myRecoveryPointName* with the recovery point name you obtained in the output from the previous [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) command. ***Also provide the target resource group to which the managed disks are restored into***.
+2. Restore the disk from your recovery point with [az backup restore restore-disks](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Replace *mystorageaccount* with the name of the storage account you created in the preceding command. Replace *myRecoveryPointName* with the recovery point name you obtained in the output from the previous [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) command. ***Also provide the target resource group to which the managed disks are restored into***.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -78,7 +78,7 @@ If the backed up VM has managed disks and if the intent is to restore managed di
         --container-name myVM \
         --item-name myVM \
         --storage-account mystorageaccount \
-        --rp-name myRecoveryPointName
+        --rp-name myRecoveryPointName \
         --target-resource-group targetRG
     ```
 
@@ -92,7 +92,7 @@ If the backed up VM has managed disks and if the intent is to restore managed di
     --container-name myVM \
     --item-name myVM \
     --storage-account mystorageaccount \
-    --rp-name myRecoveryPointName
+    --rp-name myRecoveryPointName \
     --restore-as-unmanaged-disk
     ```
 
@@ -104,7 +104,7 @@ If the backed up VM has unmanaged disks and if the intent is to restore disks fr
 
 In additional steps, the restored disk is used to create a VM.
 
-1. To create a storage account, use [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
+1. To create a storage account, use [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
 
     ```azurecli-interactive
     az storage account create \
@@ -113,7 +113,7 @@ In additional steps, the restored disk is used to create a VM.
         --sku Standard_LRS
     ```
 
-2. Restore the disk from your recovery point with [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Replace *mystorageaccount* with the name of the storage account you created in the preceding command. Replace *myRecoveryPointName* with the recovery point name you obtained in the output from the previous [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) command:
+2. Restore the disk from your recovery point with [az backup restore restore-disks](/cli/azure/backup/restore?view=azure-cli-latest#az-backup-restore-restore-disks). Replace *mystorageaccount* with the name of the storage account you created in the preceding command. Replace *myRecoveryPointName* with the recovery point name you obtained in the output from the previous [az backup recoverypoint list](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) command:
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -134,13 +134,13 @@ As mentioned above, the unmanaged disks will be restored to their original stora
         --container-name myVM \
         --item-name myVM \
         --storage-account mystorageaccount \
-        --rp-name myRecoveryPointName
+        --rp-name myRecoveryPointName \
         --restore-to-staging-storage-account
     ```
 
 ## Monitor the restore job
 
-To monitor the status of restore job, use [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
+To monitor the status of restore job, use [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list):
 
 ```azurecli-interactive
 az backup job list \
@@ -176,7 +176,7 @@ az backup job show \
     -n 1fc2d55d-f0dc-4ca6-ad48-aca0fe5d0414
 ```
 
-The output of this query will give all details but we are interested only in the storage account contents. We can use the [query capability](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest) of Azure CLI to fetch the relevant details
+The output of this query will give all details but we are interested only in the storage account contents. We can use the [query capability](/cli/azure/query-azure-cli?view=azure-cli-latest) of Azure CLI to fetch the relevant details
 
 ```azurecli-interactive
 az backup job show \
@@ -221,7 +221,7 @@ https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName
 
 So, the template name from the above example will be ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` and the container name is ```myVM-daa1931199fd4a22ae601f46d8812276```
 
-Now get the SAS token for this container and template as detailed [here](https://docs.microsoft.com/azure/azure-resource-manager/templates/secure-template-with-sas-token?tabs=azure-cli#provide-sas-token-during-deployment)
+Now get the SAS token for this container and template as detailed [here](../azure-resource-manager/templates/secure-template-with-sas-token.md?tabs=azure-cli#provide-sas-token-during-deployment)
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
@@ -245,7 +245,7 @@ url=$(az storage blob url \
 
 ### Deploy the template to create the VM
 
-Now deploy the template to create the VM as explained [here](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli).
+Now deploy the template to create the VM as explained [here](../azure-resource-manager/templates/deploy-cli.md).
 
 ```azurecli-interactive
 az group deployment create \

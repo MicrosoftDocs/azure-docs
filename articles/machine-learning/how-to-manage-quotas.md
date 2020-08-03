@@ -5,13 +5,12 @@ description: Learn about the quotas on resources for Azure Machine Learning and 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
-
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
-ms.custom: contperfq4 
+ms.topic: conceptual
+ms.custom: troubleshooting,contperfq4 
 ---
 
 # Manage & increase quotas for resources with Azure Machine Learning
@@ -68,7 +67,7 @@ Available resources:
 | Maximum nodes in a single Azure Machine Learning Compute (AmlCompute) resource | 100 nodes |
 | Maximum GPU MPI processes per node | 1-4 |
 | Maximum GPU workers per node | 1-4 |
-| Maximum job lifetime | 90 days<sup>1</sup> |
+| Maximum job lifetime | 21 days<sup>1</sup> |
 | Maximum job lifetime on a Low-Priority Node | 7 days<sup>2</sup> |
 | Maximum parameter servers per node | 1 |
 

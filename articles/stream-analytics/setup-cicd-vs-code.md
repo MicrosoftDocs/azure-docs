@@ -6,7 +6,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2020
 ---
 
@@ -34,13 +34,13 @@ azure-streamanalytics-cicd build -scriptPath "/Users/roger/projects/samplejob/sc
 
 When a Stream Analytics Visual Studio Code project builds successfully, it generates the following two Azure Resource Manager template files under the **bin/[Debug/Retail]/Deploy** folder: 
 
-*  Resource Manager template file
+* Resource Manager template file
 
-       [ProjectName].JobTemplate.json 
+   `[ProjectName].JobTemplate.json`
 
-*  Resource Manager parameters file
+* Resource Manager parameters file
 
-       [ProjectName].JobTemplate.parameters.json   
+   `[ProjectName].JobTemplate.parameters.json`   
 
 The default parameters in the parameters.json file are from the settings in your Visual Studio Code project. If you want to deploy to another environment, replace the parameters accordingly.
 

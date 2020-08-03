@@ -4,7 +4,7 @@ description: Tutorial - Learn how to run Python scripts as part of a pipeline th
 author: mammask
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/11/2019
+ms.date: 07/29/2020
 ms.author: komammas
 ms.custom: mvc, tracking-python
 ---
@@ -94,7 +94,7 @@ df = df[df['Species'] == "setosa"]
 df.to_csv("iris_setosa.csv", index = False)
 
 # Upload iris dataset
-blobService.create_blob_from_text(containerName, "iris_setosa.csv", "iris_setosa.csv")
+blobService.create_blob_from_path(containerName, "iris_setosa.csv", "iris_setosa.csv")
 ```
 
 Save the script as `main.py` and upload it to the **Azure Storage** container. Be sure to test and validate its functionality locally before uploading it to your blob container:
@@ -111,27 +111,27 @@ In this section, you'll create and validate a pipeline using your Python script.
 1. In the **Factory Resources** box, select the + (plus) button and then select **Pipeline**
 1. In the **General** tab, set the name of the pipeline as "Run Python"
 
-    ![](./media/run-python-batch-azure-data-factory/create-pipeline.png)
+    ![In the General tab, set the name of the pipeline as "Run Python"](./media/run-python-batch-azure-data-factory/create-pipeline.png)
 
 1. In the **Activities** box, expand **Batch Service**. Drag the custom activity from the **Activities** toolbox to the pipeline designer surface.
 1. In the **General** tab, specify **testPipeline** for Name
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task.png)
+    ![In the General tab, specify testPipeline for Name](./media/run-python-batch-azure-data-factory/create-custom-task.png)
 1. In the **Azure Batch** tab, add the **Batch Account** that was created in the previous steps and **Test connection** to ensure that it is successful
 
-    ![](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
+    ![In the Azure Batch tab, add the Batch Account that was created in the previous steps, then test connection](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
 
 1. In the **Settings** tab, enter the command `python main.py`.
 1. For the **Resource Linked Service**, add the storage account that was created in the previous steps. Test the connection to ensure it is successful.
 1. In the **Folder Path**, select the name of the **Azure Blob Storage** container that contains the Python script and the associated inputs. This will download the selected files from the container to the pool node instances before the execution of the Python script.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
+    ![In the Folder Path, select the name of the Azure Blob Storage container](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
 1. Click **Validate** on the pipeline toolbar above the canvas to validate the pipeline settings. Confirm that the pipeline has been successfully validated. To close the validation output, select the &gt;&gt; (right arrow) button.
 1. Click **Debug** to test the pipeline and ensure it works accurately.
 1. Click **Publish** to publish the pipeline.
 1. Click **Trigger** to run the Python script as part of a batch process.
 
-    ![](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
+    ![Click Trigger to run the Python script as part of a batch process](./media/run-python-batch-azure-data-factory/create-custom-task-py-success-run.png)
 
 ### Monitor the log files
 

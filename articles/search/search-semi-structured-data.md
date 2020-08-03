@@ -109,13 +109,13 @@ In Headers, set "Content-type" to `application/json` and set `api-key` to the ad
 
   ![Postman request URL and header](media/search-get-started-postman/postman-url.png "Postman request URL and header")
 
-URIs must specify an api-version and each call should return a **201 Created**. The generally available api-version for using JSON arrays is `2019-05-06`.
+URIs must specify an api-version and each call should return a **201 Created**. The generally available api-version for using JSON arrays is `2020-06-30`.
 
 ## 3 - Create a data source
 
 The [Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) creates an Azure Cognitive Search object that specifies what data to index.
 
-1. Set the endpoint of this call to `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Replace `[service name]` with the name of your search service. 
+1. Set the endpoint of this call to `https://[service name].search.windows.net/datasources?api-version=2020-06-30`. Replace `[service name]` with the name of your search service. 
 
 1. Copy the following JSON into the request body.
 
@@ -158,7 +158,7 @@ The [Create Data Source API](https://docs.microsoft.com/rest/api/searchservice/c
     
 The second call is [Create Index API](https://docs.microsoft.com/rest/api/searchservice/create-index), creating an Azure Cognitive Search index that stores all searchable data. An index specifies all the parameters and their attributes.
 
-1. Set the endpoint of this call to `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Replace `[service name]` with the name of your search service.
+1. Set the endpoint of this call to `https://[service name].search.windows.net/indexes?api-version=2020-06-30`. Replace `[service name]` with the name of your search service.
 
 1. Copy the following JSON into the request body.
 
@@ -233,7 +233,7 @@ The second call is [Create Index API](https://docs.microsoft.com/rest/api/search
 
 An indexer connects to the data source, imports data into the target search index, and optionally provides a schedule to automate the data refresh. The REST API is [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-1. Set the URI for this call to `https://[service name].search.windows.net/indexers?api-version=2019-05-06`. Replace `[service name]` with the name of your search service.
+1. Set the URI for this call to `https://[service name].search.windows.net/indexers?api-version=2020-06-30`. Replace `[service name]` with the name of your search service.
 
 1. Copy the following JSON into the request body.
 
@@ -278,7 +278,7 @@ You can start searching as soon as the first document is loaded.
 
 1. Change the verb to **GET**.
 
-1. Set the URI for this call to `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2019-05-06&$count=true`. Replace `[service name]` with the name of your search service.
+1. Set the URI for this call to `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&api-version=2020-06-30&$count=true`. Replace `[service name]` with the name of your search service.
 
 1. Send the request. This is an unspecified full text search query that returns all of the fields marked as retrievable in the index, along with a document count. The response should look like:
 
@@ -310,7 +310,7 @@ You can start searching as soon as the first document is loaded.
             . . . 
     ```
 
-1. Add the `$select` query parameter to limit the results to fewer fields: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2019-05-06&$count=true`.  For this query, 100 documents match, but by default, Azure Cognitive Search only returns 50 in the results.
+1. Add the `$select` query parameter to limit the results to fewer fields: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true`.  For this query, 100 documents match, but by default, Azure Cognitive Search only returns 50 in the results.
 
    ![Parameterized query](media/search-semi-structured-data/lastquery.png "Paramterized query")
 
@@ -330,7 +330,7 @@ In the early experimental stages of development, the most practical approach for
 You can use the portal to delete indexes, indexers, and data sources. Or use **DELETE** and provide URLs to each object. The following command deletes an indexer.
 
 ```http
-DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2019-05-06
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2020-06-30
 ```
 
 Status code 204 is returned on successful deletion.

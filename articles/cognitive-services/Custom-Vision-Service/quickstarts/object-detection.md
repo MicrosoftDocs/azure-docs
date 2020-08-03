@@ -7,7 +7,7 @@ ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.custom: tracking-python
+ms.custom: tracking-python, devx-track-javascript
 
 zone_pivot_groups: programming-languages-set-one
 ---

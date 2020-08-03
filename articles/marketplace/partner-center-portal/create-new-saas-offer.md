@@ -1,17 +1,20 @@
 ---
-title: Create a new SaaS offer for the Microsoft commercial marketplace 
-description: How to create a new Software as a Service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the Microsoft commercial marketplace program in Microsoft Partner Center. 
-author: dsindona 
-ms.author: dsindona
+title: Create a SaaS offer, Azure Marketplace and Microsoft AppSource
+description: How to create a Software as a Service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the Microsoft commercial marketplace program in Microsoft Partner Center. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 07/22/2020
+author: mingshen-ms
+ms.author: mingshen
 ---
 
-# Create a new SaaS offer in the commercial marketplace
+# Create a SaaS offer
 
 To begin creating Software as a Service (SaaS) offers in the commercial marketplace, ensure that you first [create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
+
+> [!NOTE]
+> If you're creating a transactable SaaS offer please make sure you implement integration with [SaaS fulfillment APIs](./pc-saas-fulfillment-apis.md).  Integration with the APIs is the only way for the transactability in Marketplace to work properly. You also need to make sure your app uses Azure AD authentication with single sign on (SSO). See [Azure AD and transactable SaaS offers in the commercial marketplace](../azure-ad-saas.md).
 
 ## Create a new offer
 
@@ -37,10 +40,6 @@ Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 - This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
 - The Offer alias can't be changed after you select **Create**.
 
-<!---
-![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
--->
-
 Select **Create** to generate the offer and continue.
 
 ## Offer overview
@@ -59,8 +58,8 @@ The **Offer overview** menu contains a list of links for performing operations o
 This page asks for the following information.
 
 - **Would you like to sell through Microsoft?** (Yes/No)
-    - **Yes**, I would like to sell through Microsoft and have Microsoft host transactions on my behalf
-    - **No**, I would prefer to only list my offer through the marketplaces and process transactions independently.
+  - **Yes**, I would like to sell through Microsoft and have Microsoft host transactions on my behalf
+  - **No**, I would prefer to only list my offer through the marketplaces and process transactions independently.
 
 ### Sell through Microsoft
 
@@ -71,7 +70,7 @@ Selling through Microsoft provides better customer discovery and acquisition, al
 In order to list Software as a Service (SaaS) offers with Commercial Marketplace on Partner Center, the following criteria must be met:
 
 - Your offer must use [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for identity management and authentication.
-- Your offer must use [SaaS Fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to integrate with the Azure Marketplace.
+- Your offer must use [SaaS Fulfillment APIs](pc-saas-fulfillment-api-v2.md) to integrate with the Azure Marketplace.
 
 #### SaaS pricing and billing options
 
@@ -91,24 +90,21 @@ This is a sample breakdown of costs and payouts to demonstrate the agency model 
 |Microsoft pays you 80% of your license cost <br>**For qualified SaaS apps, Microsoft pays 90% of your license cost*|$80.00 per month <br>*$*90.00 per month*|
 
 - In this example, Microsoft bills $100.00 to the customer for your software license and pays out $80.00 to the publisher.
-- Partners who have qualified for the **Reduced Marketplace Service Fee** will see a reduced transaction fee on the SaaS offers from May 2019 until June 2020. In this scenario, Microsoft bills $100.00 for your software license and pays out $90.00 to the publisher.
 
 > [!NOTE]
-> **Reduced Marketplace Service Fee** – For certain SaaS offers that you have published on our Commercial Marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. In order for your offer to qualify, at least one of your offers must have been designated by Microsoft as being either IP co-sell ready or IP co-sell prioritized. Eligibility must be met at least five (5) business days before the end of each calendar month in order to receive this reduced Marketplace Service Fee for the month.  The Reduced Marketplace Service Fee does not apply to VMs, Managed Apps or any other products made available through our Commercial Marketplace. The Reduced Marketplace Service Fee will only be available to qualified offers for license charges collected by Microsoft between May 1, 2019 and June 30, 2020. After this time, the Marketplace Service Fee will return to its normal amount.
+> **Reduced Marketplace Service Fee** – For certain SaaS offers that you have published on the commercial marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. For your offer(s) to qualify, your offer(s) must have been designated by Microsoft as Azure IP Co-sell incentivized. Eligibility must be met at least five (5) business days before the end of each calendar month to receive the Reduced Marketplace Service Fee for the month. The Reduced Marketplace Service Fee also applies to Azure IP Co-sell incentivized VMs, Managed Apps and any other qualified transactable IaaS offers made available through the commercial marketplace.
 
 ### List through Microsoft
 
 Promote your business with Microsoft by creating a marketplace listing. Selecting to list your offer only and not transact through Microsoft means that Microsoft doesn't participate directly in software license transactions. There is no associated transaction fee and the publisher keeps 100% of any software licensing fees collected from the customer. However, the publisher is responsible for supporting all aspects of the software license transaction, including but not limited to: order fulfillment, metering, billing, invoicing, payment, and collection.
 
-<!-- - **How do you want potential customers to interact with this listing offer?** -->
-
 #### Get it now (free)
 
-List your offer to customers for free by providing a valid address (beginning with *http* or *https*) where they can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). For example, `https://contoso.com/saas-app`.
+List your offer to customers for free by providing a valid address (beginning with *http* or *https*) where they can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)). For example, `https://contoso.com/saas-app`.
 
 #### Free trial (listing)
 
-List your offer to customers with a link to a free trial by providing a valid address (beginning with *http* or *https*), where they can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials). For example, `https://contoso.com/trial/saas-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+List your offer to customers with a link to a free trial by providing a valid address (beginning with *http* or *https*), where they can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](../marketplace-saas-applications-technical-publishing-guide.md#using-azure-active-directory-to-enable-trials)). For example, `https://contoso.com/trial/saas-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 
 > [!NOTE]
 > The tokens your application will receive through your trial link can only be used to obtain user information through Azure AD to automate account creation in your app. Microsoft Accounts (MSA) are not supported for authentication using this token.
@@ -118,8 +114,6 @@ List your offer to customers with a link to a free trial by providing a valid ad
 Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Customer leads](#customer-leads).
 
 #### Example marketplace offer listing
-
-<!-- ![Example marketplace offer listing with notes](./media/marketplace-offer.svg) -->
 
 Here's an example of how offer information appears in Microsoft AppSource:
 
@@ -152,15 +146,15 @@ Here's an example of how offer information appears in Microsoft AppSource:
 
 ## Enable a test drive
 
-A test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and the generation of highly qualified leads. [Learn more about test drives](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
+A test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and the generation of highly qualified leads. [Learn more about test drives](../what-is-test-drive.md).
 
 To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box.
 
-For additional information, see [Test drive your offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
+For additional information, see [Test drive your offer in the commercial marketplace](test-drive.md).
 
 ### Test drive resources
 
-- [Marketing best practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [What is a test drive?](../what-is-test-drive.md)
 - [Technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; make sure your pop-up blocker is off)
 
@@ -169,8 +163,8 @@ For additional information, see [Test drive your offer in the commercial marketp
 [!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### Additional lead management resources
-- [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Lead management FAQs](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
+- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
 - [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
 Select **Save draft** before continuing.
@@ -181,11 +175,18 @@ This page asks you to define the categories and industries used to group your of
 
 ### Category
 
-Select at least one and up to three categories for grouping your offer into the appropriate marketplace search areas. Describe how your offer supports these categories in the offer description.
+Your offer will be published to AppSource or Azure Marketplace depending on the transaction capabilities associated with your offer and your category selection. See [Comparing Microsoft AppSource and Azure Marketplace](../comparing-appsource-azure-marketplace.md) for details. Select categories and subcategories that best align with your offer and your intended audience. Select:
+
+- At least one and up to two categories, including a primary and a secondary category (optional).
+- Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
+
+See the full list of categories and subcategories applicable to each Storefront in [Offer Listing Best Practices](../gtm-offer-listing-best-practices.md).
 
 ### Industries
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
+
+Industry selection applies only for offers published to AppSource.
 
 ### App version
 
@@ -247,7 +248,7 @@ Provide details to be displayed in the marketplace, including descriptions of yo
 
 - **Name** (required) – The name defined here will appear as the title of your offer listing on the marketplace(s) you have chosen. The name is prepopulated based on your previous **New offer** entry. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
 - **Summary** (required) – Provide a short description of your offer to be used in marketplace listing(s) search results. Up to 100 characters of text can be entered in this field.
-- **Description** (required) – Provide a description of your offer to be displayed in the marketplace listing(s) overview. Consider including a value proposition, key benefits, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more. Up to 3,000 characters of text can be entered in this field, including markup. For additional tips, see [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
+- **Description** (required) – Provide a description of your offer to be displayed in the marketplace listing(s) overview. Consider including a value proposition, key benefits, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more. Up to 3,000 characters of text can be entered in this field, including markup. For additional tips, see [Write a great app description](/windows/uwp/publish/write-a-great-app-description).
 - **Search keywords** – Enter up to three search keywords that customers can use to find your offer in the marketplace(s).
 - **Getting started instructions** (required) – Explain how to configure and start using your app for potential customers.  This quickstart can contain links to more detailed online documentation. Up to 3,000 characters of text can be entered in this field.
 
@@ -262,27 +263,26 @@ This field is required.
 #### Links
 
 - **Privacy Policy** (required) – Link to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy
-- **CSP Program Marketing Materials** (optional) – Provide a link to marketing materials if you choose to extend your offer to the [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) program. CSP extends your offer to a broader range of qualified customers by enabling CSP partners to bundle, market, and resell your offer. These resellers will need access to materials for marketing your offer. For more information, see [Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
+- **CSP Program Marketing Materials** (optional) – Provide a link to marketing materials if you choose to extend your offer to the [Cloud Solution Provider (CSP)](../cloud-solution-providers.md) program. CSP extends your offer to a broader range of qualified customers by enabling CSP partners to bundle, market, and resell your offer. These resellers will need access to materials for marketing your offer. For more information, see [Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 - **Useful Links** (optional) – Optional supplemental online documents about your app or related services listed by providing a **Title**  and  **URL**. Add additional useful links by clicking  **+ Add a URL**.
 
 #### Contact information
 
 - **Contacts** – For each customer contact, provide an employee  **Name**,  **Phone number**, and **Email** address (these *will not* be displayed publicly). A **Support URL**  is required for the **Support Contact** group (this *will* be displayed publicly).
 
-    - **Support contact** (required) – For general support questions.
-    - **Engineering contact** (required) – For technical questions.
-    - **Channel Manager contact** (required) – For reseller questions related to the CSP program.
+  - **Support contact** (required) – For general support questions.
+  - **Engineering contact** (required) – For technical questions.
+  - **Channel Manager contact** (required) – For reseller questions related to the CSP program.
 
 #### Files and Images
 
 - **Documents** (required) – Add related marketing documents for your offer, in PDF format, of at least one and up to three documents per offer.
 - **Images** (optional) – There are multiple places where your offer's logo images may appear throughout the marketplace(s), requiring the following pixel sizes in PNG format:
 
-    - **Small** (48 x 48, required)
-    - **Medium** (90 x 90, required)
-    - **Large** (216 x 216, required)
-    - **Wide** (255 x 115)
-    - **Hero** (815 x 290)
+  - **Small** (48 x 48, required)
+  - **Medium** (90 x 90, required)
+  - **Large** (216 x 216, required)
+  - **Wide** (255 x 115)
 
 - **Screenshots** (required) – Add a maximum of five screenshots demonstrating your offer, sized at 1280 x 720 pixels. All images must be in .PNG format.
 - **Videos** (optional) – Add links to videos demonstrating your offer. You can use links to YouTube and/or Vimeo videos, which are shown along with your offer to customers. You will also need to enter a thumbnail image of the video, sized to 1280 x 720 pixels in PNG format. You can display a maximum of four videos per offer.
@@ -292,7 +292,7 @@ This field is required.
 
 #### Additional marketplace listing resources
 
-- [Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Best practices for marketplace offer listings](../gtm-offer-listing-best-practices.md)
 
 Select **Save draft** before continuing.
 
@@ -314,25 +314,25 @@ Select **Save draft** before continuing.
 
 ## Technical configuration
 
-The **Technical configuration** tab defines the technical details used by marketplace to communicate to your SaaS service. This connection enables us to provision your offer for the end customer if they choose to acquire and manage it. 
+The **Technical configuration** tab defines the technical details used by marketplace to communicate to your SaaS service. This connection enables us to provision your offer for the end customer if they choose to acquire and manage it.
 
->[!Note]
->You must implement integration with [SaaS fulfillment APIs](./pc-saas-fulfillment-api-v2.md) before configuring these details in offer's details.
+>[!NOTE]
+>You must implement integration with [SaaS fulfillment APIs](./pc-saas-fulfillment-api-v2.md) before configuring these details in offer's details. You must also create a landing page and your app must use Azure AD authentication with single sign on (SSO). For more information, see [Azure AD and transactable SaaS offers in the commercial marketplace](../azure-ad-saas.md).
 
 Diagrams and detailed explanations describing the usage of the collected fields are available in documentation for [the APIs](./pc-saas-fulfillment-api-v2.md).
 
 - **Landing page URL** (required) – Define the SaaS site URL (for example: `https://contoso.com/signup`) that end customers will land on after acquiring your offer from the marketplace and triggering the configuration process from the newly created SaaS subscription.  This URL will be called with the marketplace purchase identification token parameter which uniquely identifies the specific end customer's SaaS purchase.  You must exchange this token for the corresponding SaaS subscription details using the [resolve](./pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) API.  Those details and any others you wish to collect should be used as part of a customer-interactive web page built in your experience to complete end customer registration and activate their purchase.  On this page the user should sign up through one-click authentication by using Azure Active Directory (Azure AD). <br> <br> This URL with marketplace purchase identification token parameter will also be called when end customer launches Managed SaaS experience from Azure portal or M365 Admin Center. You should handle both flows, when the token is provided first time after purchase for new customers and when it's provided for existing customer managing his SaaS. <br> <br> The Landing page you configure here should be up and running 24/7. This is the only way you will be notified about new purchases of your SaaS offers made in the marketplace, or configuration requests of an active subscription of an offer.
 
-- **Connection webhook** (required) – For all asynchronous events that Microsoft needs to send to you (for example, SaaS subscription has been canceled), we require you to provide a connection webhook URL. We will call this URL to notify you on the event. <br> <br> The webhook you provide should be up and running 24/7 as this is the only way you will be notified about updates about your customers' SaaS subscriptions purchased via the marketplace.  If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (for example, `https://prod-1westus.logic.azure.com:443/work`). For more information, see [Call, trigger, or nest workflows with HTTP endpoints in logic apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Connection webhook** (required) – For all asynchronous events that Microsoft needs to send to you (for example, SaaS subscription has been canceled), we require you to provide a connection webhook URL. We will call this URL to notify you on the event. <br> <br> The webhook you provide should be up and running 24/7 as this is the only way you will be notified about updates about your customers' SaaS subscriptions purchased via the marketplace.  If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (for example, `https://prod-1westus.logic.azure.com:443/work`). For more information, see [Call, trigger, or nest workflows with HTTP endpoints in logic apps](../../logic-apps/logic-apps-http-endpoint.md).
 
-- **Azure AD tenant ID** (required) – Inside the Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (such as 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD tenant ID** (required) – Inside the Azure portal, we require that you [create an Azure Active Directory (AD) app](../../active-directory/develop/howto-create-service-principal-portal.md) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (such as 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD app ID** (required) – You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). To get its value, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
+- **Azure AD app ID** (required) – You also need your [application ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). To get its value, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
 
->[!Note]
+>[!NOTE]
 >The Azure AD app ID is associated to your publisher ID in your Partner Center account.  Make sure that the same application ID is used in all your offers.
 
->[!Note]
+>[!NOTE]
 >If the publisher has two or more different accounts in Partner Center, two or more different Azure AD app IDs should be used, each for one of the accounts. Each partner account in Partner Center should use unique Azure AD app ID for all the SaaS offers that are published via this account.
 
 Select **Save draft** before continuing.
@@ -419,7 +419,7 @@ You can configure a free trial for each plan in your offer here. Select the chec
 >[!NOTE]
 >Once your transactable offer has been published with a free trial, it cannot be disabled for that plan. Make sure this setting is correct for the first publish to avoid having to re-create the plan.
 
-To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. For more information, see the [SaaS Get Subscription API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
+To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. For more information, see the [SaaS Get Subscription API](pc-saas-fulfillment-api-v2.md#get-subscription).
 
 >[!NOTE]
 >Free trials are not supported for plans that leverage the marketplace metering service.
@@ -454,8 +454,6 @@ Select **Save draft** before continuing.
 1. Plan name
 2. Plan description
 
-<br>
-
 ## Cloud Solution Provider (CSP) Reseller Audience
 
 Electing to make your offer available in the CSP program enables Cloud Solution Providers to sell your product as part of a bundled solution to their customers. For more information, see [Cloud Solution Providers](https://go.microsoft.com/fwlink/?linkid=2111109).
@@ -469,12 +467,12 @@ Once you have completed all the required sections of the offer, select **Review 
 If this is your first time publishing this offer, you can:
 
 - See the completion status for each section of the offer.
-    - **Not started** – The section has not been touched and needs to be completed.
-    - **Incomplete** – The section has errors that need to be fixed or requires more information to be provided. You'll need to go back to the section and update it.
-    - **Complete** – The section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
+  - **Not started** – The section has not been touched and needs to be completed.
+  - **Incomplete** – The section has errors that need to be fixed or requires more information to be provided. You'll need to go back to the section and update it.
+  - **Complete** – The section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - Provide testing instructions to the certification team to ensure your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
 - Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** to publish your offer to the public (or if a private offer, to the private audience).
 
-## Next step
+## Next steps
 
 - [Update an existing offer in the Commercial Marketplace](./update-existing-offer.md)

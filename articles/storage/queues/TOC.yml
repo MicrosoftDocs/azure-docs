@@ -164,6 +164,8 @@
           href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Check the encryption key model for the account
         href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Enable infrastructure encryption for a storage account
+        href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Configure client-side encryption
       items:
       - name: .NET
@@ -178,8 +180,12 @@
         href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Require secure transfer
         href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Enable Transport Layer Security
-        href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Manage Transport Layer Security (TLS)
+        items:
+        - name: Enforce minimum TLS version for incoming requests
+          href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json 
+        - name: Configure TLS version for a client application
+          href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Manage data redundancy
     items:
     - name: Change how data is replicated

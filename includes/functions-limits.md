@@ -17,7 +17,7 @@ ms.author: glenga
 | Max memory (GB per instance) | 1.5 | 3.5-14 | 1.75-14 | 3.5 - 14 | Any node is supported |
 | Function apps per plan |100 |100 |unbounded<sup>4</sup> | unbounded | unbounded |
 | [App Service plans](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resource group |100 per resource group | - | - |
-| Storage<sup>5</sup> |1 GB |250 GB |50-1000 GB | 1 TB | n/a |
+| Storage<sup>5</sup> |5 TB |250 GB |50-1000 GB | 1 TB | n/a |
 | Custom domains per app</a> |500<sup>6</sup> |500 |500 | 500 | n/a |
 | Custom domain [SSL support](../articles/app-service/configure-ssl-bindings.md) |unbounded SNI SSL connection included | unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | unbounded SNI SSL and 1 IP SSL connections included | n/a |
 

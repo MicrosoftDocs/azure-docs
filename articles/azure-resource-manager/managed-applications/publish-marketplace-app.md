@@ -94,7 +94,7 @@ A SKU appears under the parent offer in the marketplace. It appears as its own p
 
      For available actions, see [Azure Resource Manager resource provider operations](../../role-based-access-control/resource-provider-operations.md). For example, to permit consumers to restart virtual machines, add `Microsoft.Compute/virtualMachines/restart/action` to the allowed actions. The `*/read` action is automatically allowed so you don't need to include that setting.
    * **PrincipalId**: This property is the Azure Active Directory (Azure AD) identifier of a user, user group, or application that's granted access to the resources in the customer's subscription. The Role Definition describes the permissions.
-   * **Role Definition**: This property is a list of all the built-in Role-Based Access Control (RBAC) roles provided by Azure AD. You can select the role that's most appropriate to use to manage the resources on behalf of the customer.
+   * **Role Definition**: This property is a list of all the Azure built-in roles provided by Azure AD. You can select the role that's most appropriate to use to manage the resources on behalf of the customer.
    * **Policy Settings**: Apply an [Azure Policy](../../governance/policy/overview.md) to your managed application to specify compliance requirements for the deployed solutions. From the available options, select the policies to apply. For **Policy Parameters**, provide a JSON string with the parameter values. For policy definitions and the format of the parameter values, see [Azure Policy Samples](../../governance/policy/samples/index.md).
 
 You can add several authorizations. We recommend that you create an AD user group and specify its ID in **PrincipalId**. This way, you can add more users to the user group without the need to update the SKU.
@@ -168,6 +168,6 @@ After you fill out all the sections, select **Publish** to start the process tha
 
 ## Next steps
 
-* For information about what happens after you click **Publish**, see [Publish Azure application offer](../../marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+* For information about what happens after you click **Publish**, see [Publish Azure application offer](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
 * For an introduction to managed applications, see [Managed application overview](overview.md).
 * For information about publishing a Service Catalog managed application, see [Create and publish a Service Catalog managed application](publish-service-catalog-app.md).

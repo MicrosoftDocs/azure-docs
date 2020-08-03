@@ -8,13 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 07/28/2020
 ms.author: aahi
 ---
 
 # What's new in the Text Analytics API?
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## July 2020
+
+### Text Analytics for health container - Public gated preview
+
+The Text Analytics for health container is now in public gated preview, which lets you extract information from unstructured English-language text in clinical documents such as: patient intake forms, doctor's notes, research papers and discharge summaries. Currently, you will not be billed for Text Analytics for health container usage. 
+
+The container offers the following features:
+
+* Named Entity Recognition
+* Relation extraction
+* Entity linking
+* Negation
+
+
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics for health container](how-tos/text-analytics-for-health.md)
 
 ## May 2020
 
@@ -56,9 +73,6 @@ The names of the following properties in the JSON response have been changed, wh
 ### Text Analytics API v3.1 Public Preview
    * New Sentiment Analysis feature - [Opinion Mining](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
    * New [Personal (`PII`) domain filter](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) for protected health information (`PHI`).
-   * New Personal (`PII`) categories:
-      * International Classification of Diseases (ICD-9-CM)
-      * International Classification of Diseases (ICD-10-CM)
 
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3.1 Preview](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)

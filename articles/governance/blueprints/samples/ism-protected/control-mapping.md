@@ -360,7 +360,7 @@ This blueprint helps you restrict the location for the deployment of all resourc
 
 ## Next steps
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

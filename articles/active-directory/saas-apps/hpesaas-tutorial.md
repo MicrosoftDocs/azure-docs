@@ -109,7 +109,7 @@ To configure Azure AD single sign-on with HPE SaaS, perform the following steps:
     `https://<subdomain>.saas.hpe.com`
 
 	> [!NOTE]
-	> The Identifier value is not real. Update this value with the actual Identifier. Contact [HPE SaaS Client support team](https://saas.hpe.com/en-us/contact) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Identifier value is not real. Update this value with the actual Identifier. Contact [HPE SaaS Client support team](https://www.sas.com/en_us/contact.html) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -127,7 +127,7 @@ To configure Azure AD single sign-on with HPE SaaS, perform the following steps:
 
 ### Configure HPE SaaS Single Sign-On
 
-To configure single sign-on on **HPE SaaS** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [HPE SaaS support team](https://saas.hpe.com/en-us/contact). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **HPE SaaS** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [HPE SaaS support team](https://www.sas.com/en_us/contact.html). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -182,7 +182,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create HPE SaaS test user
 
-In this section, you create a user called Britta Simon in HPE SaaS. Work with [HPE SaaS support team](https://saas.hpe.com/en-us/contact) to add the users in the HPE SaaS platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in HPE SaaS. Work with [HPE SaaS support team](https://www.sas.com/en_us/contact.html) to add the users in the HPE SaaS platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 

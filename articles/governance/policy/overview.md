@@ -123,7 +123,7 @@ If none of the Built-in roles have the permissions required, create a
 Azure Policy evaluates all resources in Azure. For certain resource providers such as
 [Guest Configuration](./concepts/guest-configuration.md),
 [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and
-[Azure Key Vault](../../key-vault/key-vault-overview.md), there's a deeper integration for managing
+[Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing
 settings and objects. To find out more, see
 [Resource Provider modes](./concepts/definition-structure.md).
 

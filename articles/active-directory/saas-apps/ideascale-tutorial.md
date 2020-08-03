@@ -107,10 +107,10 @@ To configure Azure AD single sign-on with IdeaScale, perform the following steps
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     
-	| |
-	|--|
-	| `http://<companyname>.ideascale.com`  |
-	| `https://<companyname>.ideascale.com` |
+    ```http
+    http://<companyname>.ideascale.com
+    https://<companyname>.ideascale.com
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [IdeaScale Client support team](https://support.ideascale.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
