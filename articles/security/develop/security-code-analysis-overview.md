@@ -1,6 +1,6 @@
 ---
 title: Microsoft Security Code Analysis documentation overview
-description: This article is an overview of the Microsoft Security Code Analysis extension
+description: Learn about the Microsoft Security Code Analysis extension. With this extension, you can add security code analysis to Azure DevOps CI/ID pipelines.
 author: sukhans
 manager: sukhans
 ms.author: terrylan
