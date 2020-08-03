@@ -104,4 +104,4 @@ After you install the agent, configure it to communicate with the Azure Arc serv
 
 After you install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has been successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
 
-![A successful server connection](../media/onboard-portal/arc-for-servers-successful-onboard.png)
+:::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="A successful machine connection" border="false":::
