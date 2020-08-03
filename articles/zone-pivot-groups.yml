@@ -508,7 +508,7 @@ groups:
 - id: aml-control-methods
   # Owner: gopalv
   title: Azure Machine Learning control plane
-  prompt: Choose an Azure Machine control plane interface
+  prompt: Choose an Azure Machine Learning control plane interface
   pivots:
   - id: py-sdk
     title: Python SDK
