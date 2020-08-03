@@ -17,13 +17,14 @@ ms.custom: how-to
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to monitor and view logs for Azure Machine Learning runs. For more information on enabling custom logs, see [Enable logging in Azure ML training runs](how-to-track-experiments.md)
+In this article, you learn how to monitor and view logs for Azure Machine Learning runs. Before you can view logs, you have to enable them first. For more information, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
 
-Logs can help with diagnosing errors and warnings, or track performance metrics like parameters used and model accuracy across training runs. In this article, you learn how to view logs using the following methods:
+Logs can help you diagnose errors and warnings, or track performance metrics like parameters and model accuracy. In this article, you learn how to view logs using the following methods:
 
 > [!div class="checklist"]
 > * Monitor runs in the studio
 > * Monitor runs using the Jupyter Notebook widget
+> * Monitor automated machine learning runs
 > * View output logs upon completion
 > * View output logs in the studio
 
@@ -69,7 +70,7 @@ You can also get a link to the same display in your workspace.
 print(run.get_portal_url())
 ```
 
-### Monitor automated machine learning runs
+## Monitor automated machine learning runs
 
 For automated machine learning runs, to access the charts from a previous run, replace `<<experiment_name>>` with the appropriate experiment name:
 
@@ -87,7 +88,7 @@ RunDetails(run).show()
 
 ## Show output upon completion
 
-When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output. 
+When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output. For more information, see the ScriptRunConfig section of [How to enable logging](how-to-track-experiments.md#logging-with-scriptrunconfig).
 
 <a id="queryrunmetrics"></a>
 ## Query run metrics
@@ -101,16 +102,16 @@ You can browse completed run records, including logged metrics, in the [Azure Ma
 
 Navigate to the **Experiments** tab and select your experiment. On the experiment run dashboard, you can see tracked metrics and logs for each run. 
 
-You can drill down to a specific run to view its outputs or logs, or download the snapshot of the experiment you submitted so you can share the experiment folder with others.
+Drill down to a specific run to view its outputs or logs, or download the snapshot of the experiment so you can share the experiment folder with others.
 
-You can edit the run list table to select multiple runs and display either the last, minimum, or maximum logged value for your runs. Customize your charts to compare the logged metrics values and aggregates across multiple runs.
+You can also edit the run list table to select multiple runs and display either the last, minimum, or maximum logged value for your runs. Customize your charts to compare the logged metrics values and aggregates across multiple runs.
 
 :::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Run details in the Azure Machine Learning studio":::
 
 
 ### Format charts in the studio
 
-You can use the following methods in the logging APIs to influence how metrics are visualized in the Azure Machine Learning studio.
+Use the following methods in the logging APIs to influence the studio visualizes your metrics.
 
 |Logged Value|Example code| Format in portal|
 |----|----|----|
@@ -122,8 +123,9 @@ You can use the following methods in the logging APIs to influence how metrics a
 
 ## Next steps
 
-Try these next steps to learn how to use the Azure Machine Learning SDK for Python:
+Try these next steps to learn how to use Azure Machine Learning:
+
+* Learn how to [track experiments and custom logs in the Azure Machine Learning designer (preview)](how-to-track-designer-experiments.md).
 
 * See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-* Learn how to [Train PyTorch Models with Azure Machine Learning](how-to-train-pytorch.md).
