@@ -1,7 +1,7 @@
 ---
-title: Create a Cognitive Services resource using the Azure Management client library
+title: Create Cognitive Services resource using Azure Management client library
 titleSuffix: Azure Cognitive Services
-description: Get started with Azure Cognitive Services by creating and subscribing to a resource using the Azure Management client library.
+description: Create and manage Azure Cognitive Services resources using the Azure Management client library.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: pafarley
 
 # Create a Cognitive Services resource using the Azure Management client library
 
-Use this quickstart to get started with Azure Cognitive Services using the Azure Management client library. You'll learn how to sign up for Azure Cognitive Services and create and manage services. These services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) that you create in your Azure subscription. After creating the resource, you use the keys and endpoint generated to authenticate your applications.
+Use this quickstart to create and manage Azure Cognitive Services resources using the Azure Management client library. Individual AI services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) that you create under your Azure subscription. After you create a resource, you can use the keys and endpoint generated to authenticate your applications.
 
 [Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
@@ -187,7 +187,6 @@ The following method deletes the specified resource from the given resource grou
 ## See also
 
 * [Azure Management SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)
+* [What are Azure Cognitive Services?](Welcome.md)
 * [Authenticate requests to Azure Cognitive Services](authentication.md)
-* [What is Azure Cognitive Services?](Welcome.md)
-* [Natural language support](language-support.md)
-* [Docker container support](cognitive-services-container-support.md)
+* [Create a new resource using the Azure portal](.\cognitive-services-apis-create-account.md)
