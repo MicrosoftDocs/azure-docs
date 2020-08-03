@@ -34,7 +34,8 @@ Install via NPM.
 npm i --save @microsoft/applicationinsights-web
 ```
 
-> *Note:* **Typings are included with this package**, so you do **not** need to install a separate typings package.
+> [!Note]
+> **Typings are included with this package**, so you do **not** need to install a separate typings package.
     
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
