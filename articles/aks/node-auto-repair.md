@@ -11,7 +11,8 @@ ms.date: 06/02/2020
 AKS continuously checks the health state of worker nodes and performs automatic repair of the nodes if they become unhealthy. This document informs operators about how automatic node repair functionality behaves. In addition to AKS repairs, the Azure VM platform [performs maintenance on Virtual Machines][vm-updates] that experience issues as well. AKS and Azure VMs work together to minimize service disruptions for clusters.
 
 ## Limitations
-* Windows node pools are not supported
+
+* Windows node pools are not supported today.
 
 ## How AKS checks for unhealthy nodes
 
@@ -31,7 +32,7 @@ kubectl get nodes
 > [!Note]
 > AKS initiates repair operations with the user account **aks-remediator**.
 
-If a node is determined to be unhealthy based on the rules above, AKS reboots the node after 10 consecutive unhealthy minutes. If nodes remain unhealthy after the initial repair operation, additional remediations are investigated by AKS engineers.
+If a node is determined to be unhealthy based on the rules above and remains unhealthy for 10 consecutive minutes, AKS reboots the node. If nodes remain unhealthy after the initial repair operation, additional remediations are investigated by AKS engineers.
   
 If multiple nodes are unhealthy during a health check, each node is repaired individually before another repair begins.
 

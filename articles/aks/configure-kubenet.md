@@ -46,10 +46,10 @@ With *Azure CNI*, each pod receives an IP address in the IP subnet, and can dire
 
 ### Limitations & considerations for kubenet
 
-* An additional hop is required in the kubenet design, adding minor latency to pod communication
-* Route tables and user defined routes are required for using kubenet, adding complexity to operations
-* Direct pod addressing is not supported for kubenet due to kubenet design
-* Multiple kubenet clusters cannot share a subnet like Azure CNI clusters can
+* An additional hop is required in the design of kubenet, which adds minor latency to pod communication.
+* Route tables and user-defined routes are required for using kubenet, which adds complexity to operations.
+* Direct pod addressing isn't supported for kubenet due to kubenet design.
+* Unlike Azure CNI clusters, multiple kubenet clusters can't share a subnet.
 * Features **not supported on kubenet** include:
    * [Azure network policies](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), but Calico network policies are supported on kubenet
    * [Windows node pools](windows-node-limitations.md)
