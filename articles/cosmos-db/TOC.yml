@@ -78,7 +78,7 @@
     - name: Python samples
       href: sql-api-python-samples.md
     - name: PowerShell
-      href: powershell-samples-sql.md
+      href: powershell-samples.md
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure Resource Manager
@@ -458,12 +458,6 @@
       - name: Parameterized query
         displayName: parameterized query, parameterized, parameter, parameters
         href: sql-query-parameterized-queries.md
-      - name: SQL query execution
-        displayName: query performance, query execution
-        href: sql-query-execution.md
-      - name: Pagination
-        displayName: page, paging, continuation, token, pagination
-        href: sql-query-pagination.md
       - name: LINQ to SQL
         displayName: linq, .NET
         href: sql-query-linq-to-sql.md
@@ -674,7 +668,7 @@
           href: manage-cassandra-with-resource-manager.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-cassandra.md
+          href: powershell-samples.md
         - name: Manage using Azure CLI
           href: cli-samples.md
     - name: MongoDB API
@@ -768,7 +762,7 @@
           href: manage-mongodb-with-resource-manager.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-mongodb.md
+          href: powershell-samples.md
         - name: Manage using Azure CLI
           href: cli-samples.md
         - name: Troubleshoot common issues
@@ -828,7 +822,7 @@
           href: manage-gremlin-with-resource-manager.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-gremlin.md
+          href: powershell-samples.md
         - name: Manage using Azure CLI
           href: cli-samples.md
       - name: Reference
@@ -899,7 +893,7 @@
           href: manage-table-with-resource-manager.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples-table.md
+          href: powershell-samples.md
         - name: Manage using Azure CLI
           href: cli-samples.md
       - name: Reference

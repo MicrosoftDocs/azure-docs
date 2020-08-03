@@ -8,7 +8,8 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 04/22/2020
-ms.author: sudbalas
+ms.author: sudbalas 
+ms.custom: devx-track-azurecli
 ---
 # Configure Azure Key Vault firewalls and virtual networks
 
