@@ -39,10 +39,10 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 Use the IoT hub connection string to configure the **Azure IoT explorer** tool:
 
-* Launch the **Azure IoT explorer** tool.
-* On the **Settings** page, paste the IoT hub connection string into the **App configurations** settings.
-* Select **Save and Connect**.
-* The device you added previously is in the device list on the main page.
+1. Launch the **Azure IoT explorer** tool.
+1. On the **Settings** page, paste the IoT hub connection string into the **App configurations** settings.
+1. Select **Save and Connect**.
+1. The device you added previously is in the device list on the main page.
 
 ## Clone sample repo
 
