@@ -1,7 +1,7 @@
 ---
-title:  "Quickstart - Buld and deploy apps to Azure Spring Cloud"
+title: "Quickstart - Build and deploy apps to Azure Spring Cloud"
 description: Describes app deployment to Azure Spring Cloud.
-author:  MikeDodaro
+author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
@@ -16,4 +16,4 @@ This document illustrates deployment of microservice applications to Azure Sprin
 * Intellij
 
 
-# Next steps
+## Next steps

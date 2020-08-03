@@ -15,7 +15,7 @@
   name: Build Microservices
   items:
     - name: Introduction to Piggymetrics
-    - href: spring-cloud-quickstart-piggymetrics-intro.md
+      href: spring-cloud-quickstart-piggymetrics-intro.md
     - name: Provision Azure Spring Cloud service instance
       href: spring-cloud-quickstart-provision-service-instance.md
     - name: Set up Azure Spring Cloud configuration server
