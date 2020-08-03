@@ -30,6 +30,9 @@ The Azure Maps visual connects to cloud service hosted in Azure to retrieve loca
 
 -   Details about the area the map is focused on are sent to Azure to retrieve images needed to render the map canvas (also known as map tiles). 
 -   Data in the Location, Latitude, and Longitude buckets may be sent to Azure to retrieve map coordinates (a process called geocoding). 
+-   Telemetry data may be collected on the health of the visual (i.e. crash reports), if the telemetry option in Power BI is enabled.
+
+Other than the scenarios described above, no other data overlaid on the map is sent to the Azure Maps servers. All rendering of data happens locally within the client.
 
 You, or your administrator, may need to update your firewall to allow access to the Azure Maps platform which uses the following URL.
 

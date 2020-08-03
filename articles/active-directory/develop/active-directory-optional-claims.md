@@ -1,7 +1,7 @@
 ---
 title: Provide optional claims to Azure AD apps
 titleSuffix: Microsoft identity platform
-description: How to add custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory.
+description: How to add custom or additional claims to the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Microsoft identity platform.
 author: rwike77
 manager: CelesteDG
 
@@ -15,14 +15,14 @@ ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ---
 
-# How to: Provide optional claims to your Azure AD app
+# How to: Provide optional claims to your app
 
 Application developers can use optional claims in their Azure AD applications to specify which claims they want in tokens sent to their application.
 
 You can use optional claims to:
 
 - Select additional claims to include in tokens for your application.
-- Change the behavior of certain claims that Azure AD returns in tokens.
+- Change the behavior of certain claims that Microsoft identity platform returns in tokens.
 - Add and access custom claims for your application.
 
 For the lists of standard claims, see the [access token](access-tokens.md) and [id_token](id-tokens.md) claims documentation.
