@@ -14,7 +14,7 @@ ms.author: amjads
 Extensions are small applications that provide post-deployment configuration and automation on Azure VMs. The Azure platform hosts many extensions covering VM configuration, monitoring, security, and utility applications. Publishers take an application, wrap it into an extension, and simplify the installation. All you need to do is provide mandatory parameters. 
 
 ## How can I find What extensions are available?
-You can view available extensions by selecting a VM, the selecting **Extentions** in the left menu. To pull a full list of extensions, see [Discovering VM Extensions for Linux](features-linux.md) and [Discovering VM Extensions for Windows](features-windows.md).
+You can view available extensions by selecting a VM, the selecting **Extensions** in the left menu. To pull a full list of extensions, see [Discovering VM Extensions for Linux](features-linux.md) and [Discovering VM Extensions for Windows](features-windows.md).
 
 ## How can I install an extension?
 Azure VM extensions can be managed using the Azure CLI, PowerShell, Resource Manager templates, and the Azure portal. To try an extension, go to the Azure portal, select the Custom Script Extension, then pass in a command or script to run the extension.
