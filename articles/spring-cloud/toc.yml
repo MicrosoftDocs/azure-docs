@@ -10,14 +10,18 @@
 - name: Quickstarts
   expanded: true 
   items:
-    - name: Launch a Spring Cloud app - portal
+    - name: Launch a Spring Cloud app
       href: spring-cloud-quickstart-launch-app-portal.md
-    - name: Launch a Spring Cloud app - Azure CLI
-      href: spring-cloud-quickstart-launch-app-cli.md 
-    - name: Launch a Spring Cloud app - source
-      href: spring-cloud-launch-from-source.md
-    - name: Launch a Spring Cloud app - Maven
-      href: spring-cloud-quickstart-launch-app-maven.md
+  name: Build Microservices
+  items:
+    - name: Introduction to Piggymetrics
+    - href: spring-cloud-quickstart-piggymetrics-intro.md
+    - name: Provision Azure Spring Cloud service instance
+      href: spring-cloud-quickstart-provision-service-instance.md
+    - name: Set up Azure Spring Cloud configuration server
+      href: spring-cloud-quickstart-setup-config-server.md
+    - name: Build and deploy apps
+      href: spring-cloud-quickstart-deploy-apps.md
 - name: Tutorials
   items:
     - name: Manually scale an app
