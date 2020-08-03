@@ -4,14 +4,13 @@ description: This page describes some common DTU resource limits for single data
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: references_regions, seo-lt-2019, sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
 ms.date: 03/20/2019
-ms.custom: references_regions
 ---
 # Resource limits for single databases using the DTU purchasing model - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
