@@ -3,7 +3,8 @@ title: Azure CLI - subscribe to resource group & filter by resource
 description: This article provides a sample Azure CLI script that shows how to subscribe to Event Grid events for a resource and filter for a resource. 
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 07/08/2020
+ms.date: 07/08/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Subscribe to events for a resource group and filter for a resource with Azure CLI

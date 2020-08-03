@@ -113,7 +113,7 @@ The storage account owner must explicitly add the roles [Storage Account Contrib
 
 You can do this ahead of time, or by clicking a link on the page where you add a Blob storage target. Keep in mind that it can take up to five minutes for the role settings to propagate through the Azure environment, so you should wait a few minutes after adding the roles before creating a storage target.
 
-Steps to add the RBAC roles:
+Steps to add the Azure roles:
 
 1. Open the **Access control (IAM)** page for the storage account. (The link in the **Add storage target** page automatically opens this page for the selected account.)
 
