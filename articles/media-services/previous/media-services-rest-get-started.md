@@ -30,7 +30,7 @@ The following image shows some of the most commonly used objects when developing
 
 Click the image to view it full size.  
 
-<a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
+<a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png" alt="This diagram shows some of the most commonly used objects when developing VoD applications against the Media Services OData model."></a> 
 
 ## Prerequisites
 The following prerequisites are required to start developing with Media Services with REST APIs.
