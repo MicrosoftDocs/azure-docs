@@ -5,7 +5,8 @@ ms.subservice: ""
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/16/2018
+ms.date: 05/16/2018 
+ms.custom: devx-track-azurecli
 
 ---
 
