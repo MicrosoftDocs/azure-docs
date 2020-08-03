@@ -73,8 +73,6 @@ For more information about Onfido, see [Onfido API documentation](https://docume
 - Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 - Set-up CORS, add **Allowed Origin** as https://{your_tenant_name}.b2clogin.com
 
-
-
 >[!NOTE]
 >You'll need the URL of the deployed service to configure Azure AD with the required settings.
 
@@ -122,9 +120,9 @@ Application settings can be configured in the [App service in Azure](https://doc
 
 #### Replace the configuration values
 
-In the provided custom policies, find the following placeholders and replace with the corresponding values from your instance
+In the provided custom policies, find the following placeholders and replace with the corresponding values from your instance.
 
-|Placeholder | Replace with value | Example           |
+| Placeholder | Replace with value | Example           |
 |:---------------|:----------------|:-------------------|
 | {your_tenant_name}                                     | Your tenant short name                                                           | “yourtenant” from yourtenant.onmicrosoft.com |
 | {your_tenantID}                       | TenantID of your Azure AD B2C tenant             | 01234567-89ab-cdef-0123-456789abcdef           |
