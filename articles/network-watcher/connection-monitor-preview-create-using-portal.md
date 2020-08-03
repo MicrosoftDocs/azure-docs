@@ -83,7 +83,7 @@ From the Azure portal, to create a test group in a connection monitor, you speci
 
 * **Disable Test Group** – You can select this field to disable monitoring for all sources and destinations that the test group specifies. This selection is cleared by default.
 * **Name** – Name your test group.
-* **Sources** – You can specify both Azure VMs and on-premises machines as sources if agents are installed on them. To install an agent for your source, see [Install monitoring agents](#install-monitoring-agents).
+* **Sources** – You can specify both Azure VMs and on-premises machines as sources if agents are installed on them. To install an agent for your source, see [Install monitoring agents](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#install-monitoring-agents).
    * To choose Azure agents, select the **Azure Agents** tab. Here you see only VMs that are bound to the region that you specified when you created the connection monitor. By default, VMs are grouped into the subscription that they belong to. These groups are collapsed. 
    
        You can drill down from the Subscription level to other levels in the hierarchy:
@@ -152,5 +152,5 @@ Connection monitors have the following scale limits:
 
 ## Next steps
 
-* Learn [how to analyze monitoring data and set alerts](https://docs.microsoft.com/en-us/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)
-* Learn [how to diagnose issues in your network](https://docs.microsoft.com/en-us/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)
+* Learn [how to analyze monitoring data and set alerts](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)
+* Learn [how to diagnose issues in your network](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)
