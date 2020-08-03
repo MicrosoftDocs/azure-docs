@@ -1,5 +1,5 @@
 ---
-title: Automatically backup key values from Azure App Configuration store
+title: Automatically back up key values from Azure App Configuration stores
 description: Learn how to set up an automatic backup of key values between App Configuration stores
 services: azure-app-configuration
 author: avanigupta
@@ -11,20 +11,22 @@ ms.date: 04/27/2020
 ms.author: avgupta
 
 
-#Customer intent: I want to backup all key-values to a secondary App Configuration store and keep them up to date with any changes in the primary store.
+#Customer intent: I want to back up all key values to a secondary App Configuration store and keep them up to date with any changes in the primary store.
 ---
 
-# Backup App Configuration stores automatically
+# Back up App Configuration stores automatically
 
-In this article, you will learn how to set up an automatic backup of key values from a primary App Configuration store to a secondary store. It leverages the integration of Azure Event Grid with App Configuration. Once set up, App Configuration will publish events to Event Grid for any changes made to key-values in a configuration store. Event Grid supports a variety of Azure services from which users can subscribe to the events emitted whenever key-values are created, updated, or deleted.
+In this article, you'll learn how to set up an automatic backup of key values from a primary Azure App Configuration store to a secondary store. The automatic backup uses the integration of Azure Event Grid with App Configuration. 
+
+After you set it up, App Configuration will publish events to Azure Event Grid for any changes made to key values in a configuration store. Event Grid supports a variety of Azure services from which users can subscribe to the events emitted whenever key values are created, updated, or deleted.
 
 ## Overview
 
-In this tutorial, you will use an Azure Storage Queue to receive events from Event Grid and use a timer-trigger of Azure Functions to process events in the Storage Queue in batches. When triggered, based on the events, the function will fetch the latest values of the keys that have changed from the primary App Configuration store and update the secondary store accordingly. This setup helps to combine multiple changes occurring in a short period in one backup operation and avoid excessive requests made to your App Configuration stores.
+In this article, you'll use an Azure Storage Queue to receive events from Event Grid and use a timer-trigger of Azure Functions to process events in the Storage Queue in batches. When triggered, based on the events, the function will fetch the latest values of the keys that have changed from the primary App Configuration store and update the secondary store accordingly. This setup helps to combine multiple changes occurring in a short period in one backup operation and avoid excessive requests made to your App Configuration stores.
 
-![App Configuration store backup architecture](./media/config-store-backup-architecture.png)
+![Diagram that shows the architecture of the App Configuration store backup.](./media/config-store-backup-architecture.png)
 
-## Resource Provisioning
+## Resource provisioning
 
 The motivation behind backing up App Configuration stores is to use multiple configuration stores across different Azure regions to increase the geo-resiliency of your application. To achieve this, your primary and secondary stores should be in different Azure regions. All other resources created in this tutorial can be provisioned in any region of your choice. This is because if primary region is down, there will be nothing new to backup until primary region is accessible again.
 
@@ -32,10 +34,10 @@ In this tutorial, you will be creating secondary store in `centralus` region and
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/). You can optionally use the Azure Cloud Shell.
+- Azure subscription. [Create one for free](https://azure.microsoft.com/free/). You can optionally use Azure Cloud Shell.
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the Azure development workload.
 - Download and install the [.NET Core SDK](https://dotnet.microsoft.com/download).
-- Latest version of Azure CLI (2.3.1 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are using Azure CLI, you must first sign in using `az login`. You can optionally use the Azure Cloud Shell.
+- Latest version of Azure CLI (2.3.1 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you're using Azure CLI, you must first sign in by using `az login`. You can optionally use Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -43,7 +45,7 @@ In this tutorial, you will be creating secondary store in `centralus` region and
 
 The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group) command.
+Create a resource group by using the [az group create](/cli/azure/group) command.
 
 The following example creates a resource group named `<resource_group_name>` in the `westus` location.  Replace `<resource_group_name>` with a unique name for your resource group.
 
@@ -112,20 +114,20 @@ az eventgrid event-subscription create \
 
 ### Setup with ready-to-use Azure Functions
 
-In this tutorial, you will be working with C# Azure Functions with the following properties:
+In this article, you'll work with C# Azure Functions with the following properties:
 - Runtime stack .NET Core 3.1
 - Azure Functions runtime version 3.x
 - Function triggered by timer every 10 minutes
 
-To make it easier for you to start backing up your data, we have tested and published [Azure Functions](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) that you can use without making any changes to the code. Download the project files and [publish it to your own Azure Function App from Visual Studio.](/azure/azure-functions/functions-develop-vs#publish-to-azure)
+To make it easier for you to start backing up your data, we have tested and published [Azure Functions](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) that you can use without making any changes to the code. Download the project files and [publish it to your own Azure Function App from Visual Studio](/azure/azure-functions/functions-develop-vs#publish-to-azure).
 
 > [!IMPORTANT]
-> Do not make any changes to the environment variables in the code you have downloaded. You will be creating the required app settings in the next section.
+> Don't make any changes to the environment variables in the code you have downloaded. You will be creating the required app settings in the next section.
 >
 
 ### Build your own Azure Functions
 
-If the sample code provided above does not meet your requirements, you can also create your own Azure Functions. Your function must be able to perform the following tasks in order to complete the backup:
+If the sample code provided earlier doesn't meet your requirements, you can also create your own Azure Functions. Your function must be able to perform the following tasks in order to complete the backup:
 - Periodically read contents of your storage queue to see if it contains any notifications from Event Grid. Refer to the [Storage Queue SDK](/azure/storage/queues/storage-quickstart-queues-dotnet) for implementation details.
 - If your storage queue contains [event notifications from Event Grid](/azure/azure-app-configuration/concept-app-configuration-event?branch=pr-en-us-112982#event-schema), extract all the unique <key, label> from event messages. Key and label combination is the unique identifier for key-value changes in primary store.
 - Read all settings from primary store. Update only those settings in secondary store that have a corresponding event in the storage queue. Delete all settings from secondary store that were present in storage queue but not in primary store. You can leverage the [App Configuration SDK](https://github.com/Azure/AppConfiguration#sdks) to access your configuration stores programmatically.
