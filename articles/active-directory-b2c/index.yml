@@ -22,14 +22,14 @@ landingContent:
 # Start card title with a verb
 
   # Card
-  - title: Consumer Identity and Access Management (CIAM)
+  - title: Customer identity and access management (CIAM)
     linkLists:
       - linkListType: overview
         links:
           - text: Azure AD B2C overview
             url: overview.md
           - text: Compare solutions for External Identities
-            url: compare-with-b2c.md
+            url: https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c
           - text: Get started
             url: tutorial-create-tenant.md
           - text: Technical and feature overview
@@ -38,7 +38,7 @@ landingContent:
             url: https://azure.microsoft.com/pricing/details/active-directory-b2c/
 
   # Card
-  - title: Basics for developers
+  - title: Basics
     linkLists:
       - linkListType: learn
         links:
@@ -50,11 +50,9 @@ landingContent:
             url: https://docs.microsoft.com/azure/active-directory/develop/v2-app-types
           - text: Authentication library
             url: https://docs.microsoft.com/azure/active-directory/develop/msal-overview
-          - text: HTML, CSS, and Javascript
+          - text: HTML, CSS, and JavaScript
             url: https://docs.microsoft.com/learn/modules/build-simple-website/
-      - linkListType: video
-        links:
-          - text: Authentication fundamentals
+          - text: 'Video: Authentication fundamentals'
             url: https://www.youtube.com/watch?v=fbSVgC8nGz4
 
   # Card
@@ -64,7 +62,7 @@ landingContent:
         links:
           - text: Enable self-service sign-in and profile management
             url: user-flow-overview.md
-          - text: Add social and work identities - OIDC/OAuth2/SAML
+          - text: 'Add social and work identities: OIDC/OAuth2/SAML'
             url: tutorial-add-identity-providers.md
           - text: Single sign-on (SSO)
             url: session-overview.md
@@ -78,21 +76,23 @@ landingContent:
   # Card
   - title: Add sign-in to your app
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: get-started
         links:
-          - text: Web app quickstart
+          - text: 'Quickstart: Web app'
             url: quickstart-web-app-dotnet.md
-          - text: Native mobile app
-            url: code-samples.md#mobile-and-desktop-apps
-          - text: Single-page app
-            url: code-samples.md#single-page-apps
-          - text: Web app
-            url: code-samples.md#web-apps-and-apis
           - text: Enable enterprise and social login
             url: tutorial-add-identity-providers.md
+      - linkListType: sample
+        links:
+          - text: Native mobile app samples
+            url: code-samples.md#mobile-and-desktop-apps
+          - text: Single-page app samples
+            url: code-samples.md#single-page-apps
+          - text: Web app sampes
+            url: code-samples.md#web-apps-and-apis
 
   # Card
-  - title: Authorization - Call and secure your APIs
+  - title: 'Authorization: Call and secure your APIs'
     linkLists: 
       - linkListType: how-to-guide
         links:
@@ -101,9 +101,9 @@ landingContent:
           - text: Secure API Management API
             url: secure-api-management.md?tabs=app-reg-ga
           - text: Role-based access (future)
-            url: index.md
+            url: overview.md
           - text: Groups (future)
-            url: index.md
+            url: overview.md
 
   # Card
   - title: Security privacy and compliance
@@ -111,29 +111,29 @@ landingContent:
       - linkListType: concept
         links:
           - text: Identity Protection (future)
-            url: index.md
+            url: overview.md
           - text: Threat management
             url: threat-management.md
           - text: Data residency
             url: data-residency.md
           - text: Regulations
-            url: index.md
+            url: overview.md
           - text: Terms of use
             url: manage-user-access.md
           - text: SIEM Azure Sentinel integration/Azure security center and security center (future)
-            url: index.md
+            url: overview.md
 
   # Card
   - title: Operations
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: DevOps
+          - text: Azure DevOps
             url: deploy-custom-policies-devops.md
           - text: Monitoring
             url: azure-monitor.md
           - text: Role-based access for admin
-            url: index.md
+            url: overview.md
           - text: User management
             url: manage-user-accounts-graph-api.md
           - text: Troubleshooting
@@ -147,7 +147,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Stack Overflow
-            url: index.md
+            url: overview.md
           - text: GitHub
             url: https://github.com/azure-ad-b2c/samples
           - text: YouTube
@@ -157,7 +157,7 @@ landingContent:
           - text: Service updates
             url: https://azure.microsoft.com/updates/?product=active-directory-b2c
           - text: Frequently asked questions
-            url: index.md
+            url: overview.md
           - text: Microsoft support
             url: support-options.md
           - text: Customer stories
