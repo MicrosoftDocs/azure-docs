@@ -387,7 +387,7 @@ Users with this role can set or reset non-password credentials for all users, in
 
 ### [Privileged Role Administrator](#privileged-role-administrator-permissions)
 
-Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. In addition, this role allows management of all aspects of Privileged Identity Management and administrative units.
+Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. They can create and manage groups that can be assigned to Azure AD roles. In addition, this role allows management of all aspects of Privileged Identity Management and administrative units.
 
 > [!IMPORTANT]
 > This role grants the ability to manage assignments for all Azure AD roles including the Global Administrator role. This role does not include any other privileged abilities in Azure AD like creating or updating users. However, users assigned to this role can grant themselves or others additional privilege by assigning additional roles.
@@ -743,6 +743,9 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 | microsoft.directory/directoryRoleTemplates/allProperties/allTasks | Create and delete directoryRoleTemplates, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/domains/allProperties/allTasks | Create and delete domains, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/groups/allProperties/allTasks | Create and delete groups, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/allProperties/update | Update groups with isAssignableToRole property set to true in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/create | Create groups with isAssignableToRole property set to true in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/delete | Delete groups with isAssignableToRole property set to true in Azure Active Directory. |
 | microsoft.directory/groupSettings/allProperties/allTasks | Create and delete groupSettings, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/groupSettingTemplates/allProperties/allTasks | Create and delete groupSettingTemplates, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/loginTenantBranding/allProperties/allTasks | Create and delete loginTenantBranding, and read and update all properties in Azure Active Directory. |
@@ -1577,7 +1580,10 @@ Can manage role assignments in Azure AD,and all aspects of Privileged Identity M
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.aad.privilegedIdentityManagement. |
+| microsoft.directory/groupsAssignableToRoles/allProperties/update | Update groups with isAssignableToRole property set to true in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/create | Create groups with isAssignableToRole property set to true in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/delete | Delete groups with isAssignableToRole property set to true in Azure Active Directory. |
+| microsoft.directory/privilegedIdentityManagement/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.aad.privilegedIdentityManagement. |
 | microsoft.directory/servicePrincipals/appRoleAssignedTo/allTasks | Read and configure servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
 | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | Read and configure servicePrincipals.oAuth2PermissionGrants property in Azure Active Directory. |
 | microsoft.directory/administrativeUnits/allProperties/allTasks | Create and manage administrative units (including members) |

@@ -7,7 +7,7 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/02/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Tutorial: Design an Azure Database for MySQL using Azure CLI

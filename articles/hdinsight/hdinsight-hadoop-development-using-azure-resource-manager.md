@@ -5,7 +5,7 @@ ms.reviewer: jasonh
 author: hrasheed-msft
 
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2018
 ms.author: hrasheed
