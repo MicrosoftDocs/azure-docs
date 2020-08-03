@@ -1,15 +1,15 @@
 ---
 title: Connect hybrid machine with Azure Arc enabled servers
 description: Learn how to collect and analyze data for an Azure virtual machine in Azure Monitor.
-ms.service:  azure-monitor
-ms. subservice: logs
+ms.service:  azure-arc
+ms. subservice: azure-arc-servers
 ms.topic: quickstart
 author: mgoedtel
 ms.author: magoedte
 ms.date: 08/03/2020
 ---
 
-## Quickstart: Connect hybrid machine with Azure Arc enabled servers
+# Quickstart: Connect hybrid machine with Azure Arc enabled servers
 
 [Azure Arc for servers](../overview.md) (preview) enables you to manage and govern your Windows and Linux machines hosted across on-premises, edge and multicloud environments. In this quickstart, you'll enable the machine for management by Arc for servers (preview).
 
