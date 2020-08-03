@@ -209,7 +209,7 @@ Microsoft does not decrypt the backup data at any point.
 
 ### What is the minimum length of the encryption key used to encrypt backup data?
 
-The encryption key should be at least 16 characters when you are using Azure backup agent. For Azure VMs, there is no limit to length of keys used by Azure KeyVault.
+The encryption key used by the Microsoft Azure Recovery Services (MARS) Agent is derived from a passphrase that should be at least 16 characters long. For Azure VMs, there is no limit to the length of keys used by Azure KeyVault.
 
 ### What happens if I misplace the encryption key? Can I recover the data? Can Microsoft recover the data?
 

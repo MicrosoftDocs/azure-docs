@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurecli
 ---
 
 # Configure customer-managed keys with Azure Key Vault by using Azure CLI
