@@ -5,7 +5,8 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/30/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Data encryption for Azure Database for MySQL by using the Azure CLI

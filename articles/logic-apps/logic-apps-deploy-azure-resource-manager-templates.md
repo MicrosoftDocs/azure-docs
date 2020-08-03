@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 08/01/2019 
+ms.custom: devx-track-azurecli
 ---
 
 # Deploy Azure Resource Manager templates for Azure Logic Apps

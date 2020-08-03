@@ -20,6 +20,10 @@ The latest MARS agent used when backing up Windows Server machines, System Cente
 
 Vault credentials expire after 10 days. If the credentials file expires, download the file again from the Azure portal.
 
+### What characters are allowed for the passphrase?
+
+The passphrase should use characters from the ASCII character set, with ASCII values less than or equal to 127.
+
 ### From what drives can I back up files and folders?
 
 You can't back up the following types of drives and volumes:
