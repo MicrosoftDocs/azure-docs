@@ -23,7 +23,7 @@ This article also requires that you are running the Azure CLI version 2.0.65 or 
 
 When you interact with an AKS cluster using the `kubectl` tool, a configuration file is used that defines cluster connection information. This configuration file is typically stored in *~/.kube/config*. Multiple clusters can be defined in this *kubeconfig* file. You switch between clusters using the [kubectl config use-context][kubectl-config-use-context] command.
 
-The [az aks get-credentials][az-aks-get-credentials] command lets you get the access credentials for an AKS cluster and merges them into the *kubeconfig* file. You can use Azure role-based access controls (RBAC) to control access to these credentials. These Azure RBAC roles let you define who can retrieve the *kubeconfig* file, and what permissions they then have within the cluster.
+The [az aks get-credentials][az-aks-get-credentials] command lets you get the access credentials for an AKS cluster and merges them into the *kubeconfig* file. You can use Azure role-based access controls (RBAC) to control access to these credentials. These Azure roles let you define who can retrieve the *kubeconfig* file, and what permissions they then have within the cluster.
 
 The two built-in roles are:
 
