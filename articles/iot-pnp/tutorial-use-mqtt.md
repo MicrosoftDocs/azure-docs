@@ -98,7 +98,7 @@ Run the application (Ctrl+F5), after couple of seconds you see output that looks
 
 :::image type="content" source="media/tutorial-use-mqtt/mqtt-sample-output.png" alt-text="Output from MQTT sample application":::
 
-In Azure IoT explorer, you can see that the device isn't not an IoT Plug and Play device:
+In Azure IoT explorer, you can see that the device isn't an IoT Plug and Play device:
 
 :::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Non-IoT Plug and Play device in Azure IoT explorer":::
 
@@ -127,7 +127,7 @@ You can now navigate the IoT Plug and Play component:
 
 :::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="View components in Azure IoT explorer":::
 
-You can now modify your device code to implement the telemetry, properties, and commands defined in your model. In this example, no code change is necessary because the model doesn't include any components.
+You can now modify your device code to implement the telemetry, properties, and commands defined in your model. To see an example implementation of the thermostat device using the Mosquitto library, see [Using MQTT PnP with Azure IoTHub without the IoT SDK on Windows](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/src/Windows/PnPMQTTWin32) on GitHub.
 
 > [!NOTE]
 > By default a shared access signature is only valid for 60 minutes.
@@ -137,7 +137,7 @@ You can now modify your device code to implement the telemetry, properties, and 
 
 ### MQTT topics
 
-The following definitions are for the MQTT topics the device uses to send information to the IoT hub:
+The following definitions are for the MQTT topics the device uses to send information to the IoT hub. To learn more, see [Communicate with your IoT hub using the MQTT protocol](../iot-hub/iot-hub-mqtt-support.md):
 
 * The `DEVICE_CAPABILITIES_MESSAGE` defines the topic the device uses to report the interfaces it implements.
 * The `DEVICETWIN_PATCH_MESSAGE` defines the topic the device uses to report property updates to the IoT hub.
