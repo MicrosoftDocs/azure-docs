@@ -123,7 +123,7 @@ Application settings can be configured in the [App service in Azure](https://doc
 
 In the provided custom policies, find the following placeholders and replace with the corresponding values from your instance
 |                      Placeholder                       |                                   Replace with value                                 |                   Example                    |
-| ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |
+|:------------------------------------------------------ |:-------------------------------------------------------------------------------- |:-------------------------------------------- |
 | {your_tenant_name}                                     | Your tenant short name                                                           | “yourtenant” from yourtenant.onmicrosoft.com |
 | {your_tenantID}                       | TenantID of your Azure AD B2C tenant             | 01234567-89ab-cdef-0123-456789abcdef           |
 | {your_tenant_IdentityExperienceFramework_appid}        | App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant      | 01234567-89ab-cdef-0123-456789abcdef         |
