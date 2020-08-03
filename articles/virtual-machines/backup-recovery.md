@@ -1,23 +1,25 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: cynthn
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 03/09/2018
- ms.author: cynthn
- ms.custom: include file
+title: Overview backup options for Linux VMs 
+description: Overview backup options for Linux Azure virtual machines.
+author: cynthn
+ms.service: virtual-machines
+ms.topic: conceptual
+ms.date: 8/03/2020
+ms.author: cynthn
 ---
 
+
+# Backup and restore options for Linux virtual machines in Azure
+
+You can protect your data by taking backups at regular intervals. There are several backup options available for VMs, depending on your use-case.
 
 ## Azure Backup
 
 For backing up Azure VMs running production workloads, use Azure Backup. Azure Backup supports application-consistent backups for both Windows and Linux VMs. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or just specific files. 
 
-For a simple, hands-on introduction to Azure Backup for Azure VMs, see the "Back up Azure virtual machines" tutorial for [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) or [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
+For a simple, hands-on introduction to Azure Backup for Azure VMs, see the "Back up Azure virtual machines" tutorial for [Linux](./linux/tutorial-backup-vms.md) or [Windows](./windows/tutorial-backup-vms.md).
 
-For more information on how Azure Backup works, see [Plan your VM backup infrastructure in Azure](../articles/backup/backup-azure-vms-introduction.md)
+For more information on how Azure Backup works, see [Plan your VM backup infrastructure in Azure](../backup/backup-azure-vms-introduction.md)
 
 
 ## Azure Site Recovery
@@ -34,10 +36,10 @@ In development and test environments, snapshots provide a quick and simple optio
 
 For more information on creating snapshots, see:
 
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Create copy of VHD stored as a Managed Disk using Snapshots in Windows](./windows/snapshot-copy-managed-disk.md)
+* [Create copy of VHD stored as a Managed Disk using Snapshots in Linux](./linux/snapshot-copy-managed-disk.md)
 
 
 
 ## Next steps
-You can try out Azure Backup by following the "Back up Windows virtual machines tutorial" for [Linux](../articles/virtual-machines/linux/tutorial-backup-vms.md) or [Windows](../articles/virtual-machines/windows/tutorial-backup-vms.md).
+You can try out Azure Backup by following the "Back up Windows virtual machines tutorial" for [Linux](./linux/tutorial-backup-vms.md) or [Windows](./windows/tutorial-backup-vms.md).
