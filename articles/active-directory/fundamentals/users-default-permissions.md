@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 02/16/2019
 ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: "it-pro, seodec18"
@@ -20,10 +20,9 @@ ms.collection: M365-identity-device-management
 In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user’s access consists of the type of user, their [role assignments](active-directory-users-assign-role-azure-portal.md), and their ownership of individual objects. This article describes those default permissions and contains a comparison of the member and guest user defaults. The default user permissions can be changed only in user settings in Azure AD.
 
 ## Member and guest users
-
 The set of default permissions received depends on whether the user is a native member of the tenant (member user) or if the user is brought over from another directory as a B2B collaboration guest (guest user). See [What is Azure AD B2B collaboration?](../b2b/what-is-b2b.md) for more information about adding guest users.
 * Member users can register applications, manage their own profile photo and mobile phone number, change their own password, and invite B2B guests. In addition, users can read all directory information (with a few exceptions). 
-* Guest users have restricted directory permissions. They can manage their own profile, change their own password and retrieve some information about other users, groups and apps, but they can't read all directory information. For example, guest users can't enumerate users, groups, or other directory objects. Guests can be added to administrator roles, which grant them full read and write permissions contained in the role. Guests can also invite other guests.
+* Guest users have restricted directory permissions. For example, guest users cannot browse information from the tenant beyond their own profile information. However, a guest user can retrieve information about another user by providing the User Principal Name or objectId. A guest user can read properties of groups they belong to, including group membership, regardless of the **Guest users permissions are limited** setting. A guest cannot view information about any other tenant objects.
 
 Default permissions for guests are restrictive by default. Guests can be added to administrator roles, which grant them full read and write permissions contained in the role. There is one additional restriction available, the ability for guests to invite other guests. Setting **Guests can invite** to **No** prevents guests from inviting other guests. See [Delegate invitations for B2B collaboration](../b2b/delegate-invitations.md) to learn how. To grant guest users the same permissions as member users by default, set **Guest users permissions are limited** to **No**. This setting grants all member user permissions to guest users by default, as well as to allow guests to be added to administrative roles.
 
