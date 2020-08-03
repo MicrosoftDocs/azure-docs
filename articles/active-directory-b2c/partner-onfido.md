@@ -122,10 +122,10 @@ Application settings can be configured in the [App service in Azure](https://doc
 
 In the provided custom policies, find the following placeholders and replace with the corresponding values from your instance.
 
-| Placeholder | Replace with value | Example           |
+| Placeholder | Replace with value | Example  |
 |:---------------|:----------------|:-------------------|
-| {your_tenant_name}                                     | Your tenant short name                                                           | “yourtenant” from yourtenant.onmicrosoft.com |
-| {your_tenantID}                       | TenantID of your Azure AD B2C tenant             | 01234567-89ab-cdef-0123-456789abcdef           |
+| {your_tenant_name}  | Your tenant short name |  “yourtenant” from yourtenant.onmicrosoft.com |
+| {your_tenantID} | TenantID of your Azure AD B2C tenant | 01234567-89ab-cdef-0123-456789abcdef           |
 | {your_tenant_IdentityExperienceFramework_appid}        | App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant      | 01234567-89ab-cdef-0123-456789abcdef         |
 | {your_tenant_ ProxyIdentityExperienceFramework _appid} | App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant | 01234567-89ab-cdef-0123-456789abcdef         |
 | {your_tenant_extensions_appid}                         | App ID of your tenant's storage application                                      | 01234567-89ab-cdef-0123-456789abcdef         |
@@ -133,6 +133,7 @@ In the provided custom policies, find the following placeholders and replace wit
 | {your_app_insights_instrumentation_key} | Instrumentation key of your app insights instance*| 01234567-89ab-cdef-0123-456789abcdef|
 |{your_ui_file_base_url}| URL of the location where your UI **ocean_blue**, **dist**, and **assets** folders are located | https://yourstorage.blob.core.windows.net/UI/|
 | {your_app_service_URL}                                 | URL of the app service you've set up                                             | <https://yourapp.azurewebsites.net>          |
+
 *App insights can be in a different tenant. This step is optional. Remove the corresponding TechnicalProfiles and OrchestrationSteps if not needed.
 
 ### Part 4 - Configure the Azure AD B2C policy
