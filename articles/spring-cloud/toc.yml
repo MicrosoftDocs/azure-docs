@@ -12,7 +12,7 @@
   items:
     - name: Launch a Spring Cloud app
       href: spring-cloud-quickstart-launch-app-portal.md
-  name: Build Microservices
+- name: Build Microservices
   items:
     - name: Introduction to Piggymetrics
       href: spring-cloud-quickstart-piggymetrics-intro.md

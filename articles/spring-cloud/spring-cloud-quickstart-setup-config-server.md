@@ -1,6 +1,6 @@
 ---
-title: "Quickstart - Provision Azure Spring Cloud service instance"
-description: Describes creation of Azure Spring Cloud service instance for app deployment.
+title: "Quickstart - Set up Azure Spring Cloud config server"
+description: Describes set up of Azure Spring Cloud config server for app deployment.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
