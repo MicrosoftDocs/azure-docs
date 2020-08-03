@@ -18,9 +18,9 @@ ms.custom: seodec18, tracking-python
 # Create datasets with Azure Open Datasets
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to create an Azure Machine Learning dataset from [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) to access data for your local or remote experiments. To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
+In this article, you learn how to create an Azure Machine Learning dataset from [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) to access data for your local or remote experiments. To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](../machine-learning/concept-data.md#data-workflow) article.
 
-By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. Also datasets are lazily-evaluated, which aids in workflow performance speeds. [Learn more about Azure Machine Learning datasets](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets). 
+By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. Also datasets are lazily-evaluated, which aids in workflow performance speeds. [Learn more about Azure Machine Learning datasets](../machine-learning/how-to-create-register-datasets.md). 
 
 Open Datasets are in the cloud on Microsoft Azure and are included in both the [Azure Machine Learning Python SDK](#create-datasets-with-the-sdk) and the [Azure Machine Learning studio](#create-datasets-with-the-studio).
 
@@ -34,7 +34,7 @@ To create and work with datasets, you need:
 
 * An Azure subscription. If you don't have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-* An [Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An [Azure Machine Learning workspace](../how-to-manage-workspace.md).
 
 * The [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), which includes the azureml-datasets package.
 
@@ -79,11 +79,11 @@ Choose a name under which to register the dataset, and optionally filter the dat
 The dataset is now available in your workspace under **Datasets**. You can use it in the same way as other datasets you've created.
 
 ## Example notebooks
-For examples and demonstrations of Open datasets functionality please see these [notebooks](https://github.com/Azure/OpenDatasetsNotebooks/tree/master/tutorials).
+For examples and demonstrations of Open datasets functionality, please see these [notebooks](https://github.com/Azure/OpenDatasetsNotebooks/tree/master/tutorials).
 
 ## Next steps
 
-* [Create an Azure machine learning dataset](how-to-create-register-datasets.md).
+* [Create an Azure machine learning dataset](../machine-learning/how-to-create-register-datasets.md).
 
-* [Train a model](how-to-train-ml-models.md).
+* [Train a model](../machine-learning/how-to-train-ml-models.md).
 
