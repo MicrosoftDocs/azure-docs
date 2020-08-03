@@ -6,7 +6,7 @@
     href: ./kubernetes/overview.md
   - name: About Azure Arc enabled servers
     href: ./servers/overview.md
-- Quickstarts
+- name: Quickstarts
   - name: Enable Arc for servers agent
     href: ./servers/learn/quick-enable-hybrid-vm.md
 - name: Samples
