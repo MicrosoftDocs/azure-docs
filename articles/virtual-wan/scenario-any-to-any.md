@@ -20,9 +20,8 @@ When working with Virtual WAN virtual hub routing, there are quite a few availab
 
 In order to figure out how many route tables will be needed in a Virtual WAN scenario, you can build a connectivity matrix, where each cell represents whether a source (row) can communicate to a destination (column). The connectivity matrix in this scenario is trivial, but we have included it in order to be consistent with other scenarios.
 
-| From |   To |  | |
+| From |   To |  *VNets* | *Branches* |
 | -------------- | -------- | ---------- | ---|
- | |  |*VNets* |*Branches*|
 | VNets     | &#8594;|      X     |     X    |
 | Branches   | &#8594;|    X     |     X    |
 
