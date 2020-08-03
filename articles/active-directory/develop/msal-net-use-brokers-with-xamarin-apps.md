@@ -177,25 +177,29 @@ The app registration portal provides a new experience to help you compute the br
 
 To compute the redirect URI:
 
-1. In the app registration portal, choose **Authentication** > **Try out the new experience**.
+1. In the app registration portal, choose your iOS app. On the left, choose **Authentication**.
 
-   ![Try out the new app registration experience](media/msal-net-use-brokers-with-xamarin-apps/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+   ![Authentication](media/msal-net-use-brokers-with-xamarin-apps/portal-01-app-reg)
 
 1. Select **Add a platform**.
 
-   ![Add a platform](media/msal-net-use-brokers-with-xamarin-apps/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
+   ![Add a platform](media/msal-net-use-brokers-with-xamarin-apps/portal-02-app-reg-authN)
 
-1. When the list of platforms is supported, select **iOS**.
+1. Select **iOS** from the platform list.
 
-   ![Configure iOS](media/msal-net-use-brokers-with-xamarin-apps/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
+   ![Configure iOS](media/msal-net-use-brokers-with-xamarin-apps/portal-03-app-reg-plat-config)
 
 1. Enter your bundle ID as requested, and then select **Configure**.
 
-   ![Enter the bundle ID](media/msal-net-use-brokers-with-xamarin-apps/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
+   ![Enter the bundle ID](media/msal-net-use-brokers-with-xamarin-apps/portal-04-app-reg-bundleid)
 
-When you're done with the steps, the redirect URI is computed for you.
+1. When you're done with the steps, the redirect URI is computed for you. You can also see the MSAL Configuration for your app.
 
-![Copy redirect URI](media/msal-net-use-brokers-with-xamarin-apps/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+    ![Copy redirect URI](media/msal-net-use-brokers-with-xamarin-apps/portal-05-app-reg-config-finish)
+
+1. After you complete this configuration, each time to return this this page, you can see the redirect URIs.
+
+    ![Redirect URIs on Authentication page](media/msal-net-use-brokers-with-xamarin-apps/portal-06-app-reg-redirect-uri)
 
 ## Brokered authentication for Android
 
