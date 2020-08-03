@@ -58,7 +58,7 @@ Azure also offers Availability Zones support in the following regions:
 - South Central US
 - Canada Central
 
-To learn more about Availability Zones support in these five regions, contact your Microsoft sales, customer representative or open a technical support request. 
+To learn more about Availability Zones support in these five regions, contact your Microsoft sales or customer representative, or open a technical support request.
 
 ## Next steps
 
