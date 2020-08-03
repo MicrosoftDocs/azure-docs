@@ -63,7 +63,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 [Azure Cost Management + Billing](../../cost-management-billing/index.yml):
 
-- From the managing tenant, CSP partners can view, manage, and analyze pre-tax consumption costs (not inclusive of purchases) for customers who are under the Azure plan. The cost will be based on retail rates and the Azure role-based access control (RBAC) access that the partner has for the customer's subscription.
+- From the managing tenant, CSP partners can view, manage, and analyze pre-tax consumption costs (not inclusive of purchases) for customers who are under the Azure plan. The cost will be based on retail rates and the Azure role-based access control (Azure RBAC) access that the partner has for the customer's subscription.
 
 [Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
