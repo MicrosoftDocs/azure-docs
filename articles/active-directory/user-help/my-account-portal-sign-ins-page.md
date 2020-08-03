@@ -58,6 +58,12 @@ You can search your recent sign-in activity by any of the available information.
 
     ![Recent Activity page, showing highlighted search bar, search button, and results](media/my-account-portal-sign-ins-page/sign-in-search.png)
 
+### Confirm unusual activity
+
+Sign-ins that are flagged as unusual activity can be confirmed in the tile for that activity in the my sign-ns page.
+
+![Unusual sign-in tile for confirms that you did or did not attempt the sign-in](media/my-account-portal-sign-ins-page/this-wasnt-me.png)
+
 ## Next steps
 
 After viewing your recent sign-in activity, you can:
