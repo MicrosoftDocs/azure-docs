@@ -18,7 +18,7 @@ ms.author: mbaldwin
 # What's New for Azure Key Vault
 
 > [!WARNING]
-> **July 2020**: There are two updates to key vault that have the potential to break implementations of the service: [key vault soft-delete on by default](#soft-delete-on-by-default) and [Azure TLS certificate changes](#azure-tls-certificate-changes). See below for details.
+> **July 2020**: There are two updates to key vault that have the potential to impact implementations of the service: [key vault soft-delete on by default](#soft-delete-on-by-default) and [Azure TLS certificate changes](#azure-tls-certificate-changes). See below for details.
 
 Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
@@ -34,7 +34,7 @@ Microsoft is updating Azure services to use TLS certificates from a different se
 
 - Azure Active Directory (Azure AD) services began this transition on July 7, 2020.
 - All newly created Azure TLS/SSL endpoints contain updated certificates chaining up to the new Root CAs. 
-- Existing Azure endpoints will transition in a phased manner beginning August 13, 2020.  
+- Existing Azure endpoints will transition in a phased manner beginning August 13, 2020 and completing by October 26, 2020.
 
 > [!IMPORTANT]
 > Customers may need to update their application(s) after this change to prevent connectivity failures when attempting to connect to Azure services. 
