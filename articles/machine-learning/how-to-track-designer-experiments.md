@@ -53,12 +53,21 @@ The following example shows you how to log the mean squared error of two trained
     
         return dataframe1,
     ```
+    
+This code uses the Azure Machine Learning Python SDK to log values. It uses Run.get_context() to get the context of the current run. Then logs values in that context using the run.parent.log() method. It uses `parent` to log values to the parent pipeline run rather than the context of the module run. You can log any values using this same pattern.
+
+For more information on how to use the Python SDK to log values, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
 
 ## View logs
 
-After the pipeline run completes, you can see the *Mean_Absolute_Error* in the Experiment page.
+After the pipeline run completes, you can see the *Mean_Absolute_Error* in the Experiments page.
 
-    ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
+1. Navigate to the **Experiments** section.
+1. Select your experiment.
+1. Select the run in your experiment you want to view.
+1. Select **Metrics**.
+
+    ![View run metrics in the studio](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
 
 ## Next steps
 
