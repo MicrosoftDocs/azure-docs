@@ -34,7 +34,7 @@ To create and work with datasets, you need:
 
 * An Azure subscription. If you don't have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-* An [Azure Machine Learning workspace](../how-to-manage-workspace.md).
+* An [Azure Machine Learning workspace](../machine-learning/how-to-manage-workspace.md).
 
 * The [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), which includes the azureml-datasets package.
 

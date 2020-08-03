@@ -23,7 +23,7 @@ ms.date: 07/31/2020
 
 In this article, you learn how to create Azure Machine Learning datasets to access data for your local or remote experiments. To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
-By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. Also datasets are lazily-evaluated, which aids in workflow performance speeds. You can create datasets from datastores, public URLs and [Azure Open Datasets](../open-datasets/how-to-create-dataset-from-open-dataset.md)
+By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. Also datasets are lazily evaluated, which aids in workflow performance speeds. You can create datasets from datastores, public URLs and [Azure Open Datasets](../open-datasets/how-to-create-dataset-from-open-dataset.md)
 
 With Azure Machine Learning datasets, you can:
 
@@ -239,27 +239,6 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  name = 'titanic_ds',
                                  description = 'new titanic training data',
                                  create_new_version = True)
-```
-
-## Access datasets in your script
-
-Registered datasets are accessible both locally and remotely on compute clusters like the Azure Machine Learning compute. To access your registered dataset across experiments, use the following code to access your workspace and registered dataset by name. By default, the [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) method on the `Dataset` class returns the latest version of the dataset that's registered with the workspace.
-
-```Python
-%%writefile $script_folder/train.py
-
-from azureml.core import Dataset, Run
-
-run = Run.get_context()
-workspace = run.experiment.workspace
-
-dataset_name = 'titanic_ds'
-
-# Get a dataset by name
-titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
-
-# Load a TabularDataset into pandas DataFrame
-df = titanic_ds.to_pandas_dataframe()
 ```
 
 ## Next steps
