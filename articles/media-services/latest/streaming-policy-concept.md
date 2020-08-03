@@ -37,7 +37,7 @@ The following "Decision tree" helps you choose a predefined Streaming Policy for
 
 Click the image to view it full size.  
 
-<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
+<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png" alt="This diagram shows a decision tree that helps you choose a predefined Streaming Policy for your scenario."></a> 
 
 If encrypting your content, you need to create a [Content Key Policy](content-key-policy-concept.md), the **Content Key Policy** is not needed for clear streaming or downloading. 
 
