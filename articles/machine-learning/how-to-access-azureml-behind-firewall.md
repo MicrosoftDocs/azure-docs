@@ -13,9 +13,12 @@ ms.date: 07/17/2020
 ms.custom: how-to, tracking-python
 ---
 
-# Use workspace behind Azure Firewall for Azure Machine Learning
+# Use workspace behind a Firewall for Azure Machine Learning
 
 In this article, learn how to configure Azure Firewall for use with an Azure Machine Learning workspace.
+
+> [!IMPORTANT]
+> While the information in this document is based on using Azure Firewall, you should be able to use it with other firewall products. If you have questions about how to allow communication through your firewall, please consult the documentation for the firewall you are using.
 
 Azure Firewall can be used to control access to your Azure Machine Learning workspace and the public internet. If not configured correctly, the firewall can cause problems using your workspace. There are a variety of host names that are used both by the Azure Machine Learning workspace, which are described in this article.
 
