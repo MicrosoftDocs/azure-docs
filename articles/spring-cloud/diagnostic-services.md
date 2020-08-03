@@ -6,8 +6,9 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
+
 # Analyze logs and metrics with diagnostics settings
 
 Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs and metrics with any of the following services:

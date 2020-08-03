@@ -49,7 +49,7 @@
         href: QuickStarts/node-thumb.md
       - name: Python
         href: QuickStarts/python-thumb.md
-    - name: Extract text (Computer Vision - Read API)
+    - name: Extract text (Read API)
       items:
       - name: C#
         href: QuickStarts/CSharp-hand-text.md
@@ -59,7 +59,7 @@
         href: QuickStarts/javascript-hand-text.md
       - name: Python
         href: QuickStarts/python-hand-text.md
-    - name: Extract printed text (OCR)
+    - name: Extract text (OCR API)
       items:
       - name: C#
         href: QuickStarts/CSharp-print-text.md
@@ -105,16 +105,14 @@
     href: concept-detecting-color-schemes.md
   - name: Smart-cropped thumbnails
     href: concept-generating-thumbnails.md
-  - name: Text recognition
+  - name: Optical Character Recognition (OCR)
     href: concept-recognizing-text.md
   - name: Adult content detection
     href: concept-detecting-adult-content.md
-- name: How-to guides
+- name: Containers
   items:
-  - name: Call the Computer Vision API
-    href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
-  - name: Use containers
-    items:
+  - name: Read API container
+    items: 
     - name: Install and run containers
       href: computer-vision-how-to-install-containers.md
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises
@@ -127,6 +125,10 @@
     - name: Use container instances
       href: deploy-computer-vision-on-container-instances.md
       displayName: container instances, container, containers, images
+- name: How-to guides
+  items:
+  - name: Call the Computer Vision API
+    href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
   - name: Analyze videos in real time
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Reference
@@ -135,6 +137,8 @@
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: Azure PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Computer Vision API v3.1-preview.1
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005
   - name: Computer Vision API v3.0
     href: https://aka.ms/computer-vision-v3-ref
   - name: Computer Vision API v2.1

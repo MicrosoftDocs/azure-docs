@@ -38,4 +38,4 @@ echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 ```
 
 <!-- LINKS - external -->
-[install-wsl]: https://docs.microsoft.com/windows/wsl/install-win10
+[install-wsl]: /windows/wsl/install-win10

@@ -6,7 +6,8 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart 
-ms.date: 06/09/2020
+ms.date: 06/09/2020 
+ms.custom: devx-track-azurecli
 #Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
 ---
 # Quickstart: Set up Azure NetApp Files and create an NFS volume 
@@ -406,4 +407,6 @@ When you are done and if you want to, you can delete the resource group. The act
 ## Next steps  
 
 > [!div class="nextstepaction"]
-> [Manage volumes by using Azure NetApp Files](azure-netapp-files-manage-volumes.md)  
+> [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)   
+> [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)   
+> [Create an NFS volume](azure-netapp-files-create-volumes.md)   

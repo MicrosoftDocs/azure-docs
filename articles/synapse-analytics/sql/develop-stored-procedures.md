@@ -1,18 +1,18 @@
 ---
-title: Using stored procedures
+title: Use stored procedures
 description: Tips for implementing stored procedures in Synapse SQL pool (data warehouse) for developing solutions.
 services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Using stored procedures in SQL pool
+# Use stored procedures in SQL pool
 
 Tips for implementing stored procedures in Synapse SQL pool (data warehouse) for developing solutions.
 
@@ -22,7 +22,7 @@ SQL pool supports many of the T-SQL features that are used in SQL Server. More i
 
 However, to maintain the scale and performance of SQL pool there are also some features and functionality that have behavioral differences and others that are not supported.
 
-## Introducing stored procedures
+## Stored procedures in SQL pool
 
 Stored procedures are a great way for encapsulating your SQL code; storing it close to your data in the data warehouse. Stored procedures help developers modularize their solutions by encapsulating the code into manageable units; facilitating greater reusability of code. Each stored procedure can also accept parameters to make them even more flexible.
 

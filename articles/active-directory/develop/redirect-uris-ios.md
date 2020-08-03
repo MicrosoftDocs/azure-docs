@@ -37,12 +37,12 @@ The redirect URIs need to be different for each iOS app. This allows the Microso
 
 Given the following application registration in the Azure portal:
 
-    Client ID: ABCDE-12345 (this is a single client ID)
-    RedirectUris: msauth.com.contoso.app1://auth, msauth.com.contoso.app2://auth, msauth.com.contoso.app3://auth
+* Client ID: `ABCDE-12345` (this is a single client ID)
+* RedirectUris: `msauth.com.contoso.app1://auth`, `msauth.com.contoso.app2://auth`, `msauth.com.contoso.app3://auth`
 
-App1 uses redirect `msauth.com.contoso.app1://auth`
-App2 uses `msauth.com.contoso.app2://auth`
-App3 uses `msauth.com.contoso.app1://auth`
+App1 uses redirect `msauth.com.contoso.app1://auth`.\
+App2 uses `msauth.com.contoso.app2://auth`.\
+App3 uses `msauth.com.contoso.app1://auth`.
 
 ### Migrating from ADAL to MSAL
 
@@ -69,7 +69,6 @@ When migrating code that used the Azure AD Authentication Library (ADAL) to MSAL
         </dict>
     </array>
     ```
-    
 
 MSAL will verify if your redirect URI registers correctly, and return an error if it's not.
     

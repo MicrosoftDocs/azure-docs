@@ -1,6 +1,6 @@
 ---
 title: Deploy management tool with an Azure Resource Manager template - Azure
-description: How to install a user interface tool with an Azure Resource Manager template to manage Windows Virtual Desktop resources.
+description: How to install a user interface tool with an Azure Resource Manager template to manage Windows Virtual Desktop (classic) resources.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,10 +10,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Deploy a management tool with an Azure Resource Manager template
+# Deploy a Windows Virtual Desktop (classic) management tool with an Azure Resource Manager template
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 The instructions in this article will tell you how to deploy the UI by using an Azure Resource Manager template.
 
@@ -35,7 +35,7 @@ Before deploying the management tool, you'll need an Azure Active Directory (Azu
 
 - Have Azure Multi-Factor Authentication (MFA) disabled
 - Have permission to create resources in your Azure subscription
-- Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 After you deploy and configure the management tool, we recommend you ask a user to launch the management UI to make sure everything works. The user who launches the management UI must have a role assignment that lets them view or edit the Windows Virtual Desktop tenant.
 

@@ -86,11 +86,11 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 > [!NOTE]
 > For more examples, see the [Azure identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) documentation..
 
-## Create a file system
+## Create a container
 
-A file system acts as a container for your files. You can create one by calling the [DataLakeServiceClient.CreateFileSystem](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient.createfilesystemasync) method.
+A container acts as a file system for your files. You can create one by calling the [DataLakeServiceClient.CreateFileSystem](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient.createfilesystemasync) method.
 
-This example creates a file system named `my-file-system`. 
+This example creates a container named `my-file-system`. 
 
 ```cs
 public async Task<DataLakeFileSystemClient> CreateFileSystem
@@ -104,7 +104,7 @@ public async Task<DataLakeFileSystemClient> CreateFileSystem
 
 Create a directory reference by calling the [DataLakeFileSystemClient.CreateDirectoryAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.createdirectoryasync) method.
 
-This example adds a directory named `my-directory` to a file system, and then adds a sub-directory named `my-subdirectory`. 
+This example adds a directory named `my-directory` to a container, and then adds a sub-directory named `my-subdirectory`. 
 
 ```cs
 public async Task<DataLakeDirectoryClient> CreateDirectory
@@ -184,7 +184,11 @@ public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
     PathAccessControl directoryAccessControl =
         await directoryClient.GetAccessControlAsync();
 
-    Console.WriteLine(directoryAccessControl.AccessControlList);
+    foreach (var item in directoryAccessControl.AccessControlList)
+    {
+        Console.WriteLine(item.ToString());
+    }
+
 
     IList<PathAccessControlItem> accessControlList
         = PathAccessControlExtensions.ParseAccessControlList
@@ -195,6 +199,8 @@ public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
 }
 
 ```
+
+You can also get and set the ACL of the root directory of a container. To get the root directory, pass an empty string (`""`) into the [DataLakeFileSystemClient.GetDirectoryClient](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.getdirectoryclient) method.
 
 ## Upload a file to a directory
 
@@ -269,7 +275,10 @@ public async Task ManageFileACLs(DataLakeFileSystemClient fileSystemClient)
     PathAccessControl FileAccessControl =
         await fileClient.GetAccessControlAsync();
 
-    Console.WriteLine(FileAccessControl.AccessControlList);
+    foreach (var item in FileAccessControl.AccessControlList)
+    {
+        Console.WriteLine(item.ToString());
+    }
 
     IList<PathAccessControlItem> accessControlList
         = PathAccessControlExtensions.ParseAccessControlList

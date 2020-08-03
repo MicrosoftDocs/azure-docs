@@ -4,7 +4,7 @@ description: This quickstart provides a Java code sample you can use to connect 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
+ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, devx-track-java
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 5/26/2020

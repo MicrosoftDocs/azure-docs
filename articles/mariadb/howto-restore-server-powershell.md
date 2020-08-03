@@ -5,8 +5,9 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurepowershell
-ms.topic: conceptual
-ms.date: 05/26/2020
+ms.topic: how-to
+ms.date: 05/26/2020 
+ms.custom: devx-track-azurepowershell
 ---
 # How to back up and restore an Azure Database for MariaDB server using PowerShell
 

@@ -59,7 +59,7 @@ landingContent:
             url: search-create-service-portal.md
           - text: Create an index
             url: search-get-started-portal.md
-          - text: Create an app
+          - text: Create demo app
             url: search-create-app-portal.md
           - text: Extract text from images and app files
             url: cognitive-search-quickstart-blob.md

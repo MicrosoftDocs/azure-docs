@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/24/2020
+ms.date: 07/10/2020
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
@@ -156,12 +156,14 @@ The server needs to be restarted after a change of this parameter. Internally, t
 A read replica is created as a new Azure Database for PostgreSQL server. An existing server can't be made into a replica. You can't create a replica of another read replica.
 
 ### Replica configuration
-A replica is created by using the same compute and storage settings as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and backup retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
+A replica is created by using the same compute and storage settings as the master. After a replica is created, several settings can be changed including storage and backup retention period.
+
+vCores and pricing tier can also be changed on the replica under the following conditions:
+* PostgreSQL requires the value of the `max_connections` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. In Azure Database for PostgreSQL, the `max_connections` parameter value is based on the SKU (vCores and pricing tier). For more information, see [Limits in Azure Database for PostgreSQL](concepts-limits.md). 
+* Scaling to or from the Basic pricing tier is not supported
 
 > [!IMPORTANT]
 > Before a master setting is updated to a new value, update the replica configuration to an equal or greater value. This action ensures the replica can keep up with any changes made to the master.
-
-PostgreSQL requires the value of the `max_connections` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. In Azure Database for PostgreSQL, the `max_connections` parameter value is based on the SKU. For more information, see [Limits in Azure Database for PostgreSQL](concepts-limits.md). 
 
 If you try to update the server values described above, but don't adhere to the limits, you receive an error.
 

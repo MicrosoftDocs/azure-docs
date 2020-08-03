@@ -23,7 +23,6 @@ ms.date: 06/24/2020
 
 Azure Cognitive Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the service administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already provisioned. Service administration is lightweight by design, limited to the following tasks:
 
-* Obtain information about your service and contents in the **Overview** home page.
 * Check storage using the mid-page **Usage** link.
 * Check query volumes and latency using the mid-page **Monitoring** link, and whether requests were throttled.
 * Manage access using the **Keys** page to the left.
@@ -54,7 +53,7 @@ Regarding access to the endpoint, anyone with access to the service URL and an a
 
 Rights to the service provisioning apparatus is granted through role assignments. [Role-based access (RBAC)](../role-based-access-control/overview.md) is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. 
 
-In the context of Azure Cognitive Search, [RBAC role assignments](search-security-rbac.md) will determine who can perform tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
+In the context of Azure Cognitive Search, [Azure role assignments](search-security-rbac.md) will determine who can perform tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
 
 * Create or delete a service
 * Scale the service
@@ -119,7 +118,7 @@ Although query throughput goes up as you add replicas, it does not precisely dou
 
 It's more common to add replicas, but when storage is constrained, you can add partitions to get more capacity. The tier at which you provisioned the service determines whether partitions can be added. The Basic tier is locked at one partition. Standard tiers and above support additional partitions.
 
-Partitions are added in multiples of 12 (specifically, 1, 2, 3, 4, 6, or 12). This is an artifact of sharding. An index is created in 12 shards, which can all be stored on 1 partition or equally divided into 2, 3, 4, 6, or 12 partitions (one shard per partition).
+Partitions are added in divisors of 12 (specifically, 1, 2, 3, 4, 6, or 12). This is an artifact of sharding. An index is created in 12 shards, which can all be stored on 1 partition or equally divided into 2, 3, 4, 6, or 12 partitions (one shard per partition).
 
 ### Remove replicas
 

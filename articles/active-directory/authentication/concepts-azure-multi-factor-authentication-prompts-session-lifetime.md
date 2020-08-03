@@ -118,10 +118,10 @@ If you have enabled configurable token lifetimes, this capability will be remove
 
 The following table summarizes the recommendations based on licenses:
 
-|                              | Azure AD Free and Office 365 apps | Azure AD Premium |
+|              | Azure AD Free and Office 365 apps | Azure AD Premium |
 |------------------------------|-----------------------------------|------------------|
-| SSO                          | [Azure AD join](../devices/concept-azure-ad-join.md) or [Hybrid Azure AD join](../devices/concept-azure-ad-join-hybrid.md), or [Seamless SSO](../hybrid/how-to-connect-sso.md) for unmanaged devices. | Azure AD join<br />Hybrid Azure AD join |
-| Reauthentication settings    | Remain signed-in                  | Use Conditional Access policies for sign-in frequency and persistent browser session |
+| **SSO**                      | [Azure AD join](../devices/concept-azure-ad-join.md) or [Hybrid Azure AD join](../devices/concept-azure-ad-join-hybrid.md), or [Seamless SSO](../hybrid/how-to-connect-sso.md) for unmanaged devices. | Azure AD join<br />Hybrid Azure AD join |
+| **Reauthentication settings** | Remain signed-in                  | Use Conditional Access policies for sign-in frequency and persistent browser session |
 
 ## Next steps
 

@@ -9,7 +9,8 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurecli
 ---
 
 # Object replication for block blobs (preview)
@@ -59,6 +60,8 @@ Object replication is supported for general-purpose v2 storage accounts only. Ob
 - France Central
 - Canada East
 - Canada Central
+- US East 2
+- US Central
 
 Both the source and destination accounts must reside in one of these regions in order to use object replication. The accounts can be in two different regions.
 

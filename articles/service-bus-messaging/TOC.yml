@@ -110,6 +110,9 @@
           href: authenticate-application.md
     - name: Built-in security controls
       href: service-bus-messaging-security-controls.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Network security
       href: network-security.md
 - name: How-to guides
@@ -182,6 +185,14 @@
       href: service-bus-nodejs-how-to-use-queues.md
     - name: Publish and subscribe for messages (legacy azure-sb)
       href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+  - name: Migrate
+    items:
+    - name: Migrate from ActiveMQ to Azure Service Bus
+      href: migrate-jms-activemq-to-servicebus.md
+  - name: Integrate
+    items:
+    - name: Integrate with RabbitMQ
+      href: service-bus-integrate-with-rabbitmq.md
   - name: Manage
     items:
     - name: Automatically update messaging units 
@@ -209,11 +220,11 @@
         href: service-bus-resource-manager-namespace-topic-with-rule.md
   - name: Secure
     items:
-    - name: Configure firewalls
+    - name: Allow access from specific IP addresses
       href: service-bus-ip-filtering.md
-    - name: Configure virtual network service endpoints
+    - name: Allow access from specific virtual networks
       href: service-bus-service-endpoints.md
-    - name: Configure private endpoints
+    - name: Allow access via private endpoints
       href: private-link-service.md
     - name: Configure customer-managed keys
       href: configure-customer-managed-key.md

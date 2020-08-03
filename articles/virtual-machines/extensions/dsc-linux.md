@@ -19,7 +19,7 @@ ms.author: robreed
 Desired State Configuration (DSC) is a management platform that you can use to manage your IT and development infrastructure with configuration as code.
 
 > [!NOTE]
-> The DSC extension for Linux and the [Azure Monitor virtual machine extension for Linux](/azure/virtual-machines/extensions/oms-linux) currently present a conflict
+> The DSC extension for Linux and the [Azure Monitor virtual machine extension for Linux](./oms-linux.md) currently present a conflict
 > and aren't supported in a side-by-side configuration. Don't use the two solutions together on the same VM.
 
 The DSCForLinux extension is published and supported by Microsoft. The extension installs the OMI and DSC agent on Azure virtual machines. The DSC extension can also do the following actions:
@@ -37,7 +37,7 @@ The DSCForLinux extension is published and supported by Microsoft. The extension
 
 ### Operating system
 
-The DSC Linux extension supports all the [Linux distributions endorsed on Azure](/azure/virtual-machines/linux/endorsed-distros) except:
+The DSC Linux extension supports all the [Linux distributions endorsed on Azure](../linux/endorsed-distros.md) except:
 
 | Distribution | Version |
 |---|---|

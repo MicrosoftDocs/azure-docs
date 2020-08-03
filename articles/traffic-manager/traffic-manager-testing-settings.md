@@ -30,7 +30,9 @@ The following examples help you test your Traffic Manager profile.
 2. Type `ipconfig /flushdns` to flush the DNS resolver cache.
 3. Type `nslookup <your Traffic Manager domain name>`. For example, the following command checks the domain name with the prefix *myapp.contoso*
 
-        nslookup myapp.contoso.trafficmanager.net
+    ```powershell
+    nslookup myapp.contoso.trafficmanager.net
+    ```
 
     A typical result shows the following information:
 

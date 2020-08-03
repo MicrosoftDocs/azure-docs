@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2020
+ms.date: 07/01/2020
 ms.author: memildin
 
 ---
@@ -25,6 +25,123 @@ Azure Security is in active development and receives improvements on an ongoing 
 
 This page is updated regularly, so revisit it often. If you're looking for items older than six months, you'll find them in the [Archive for What's new in Azure Security Center](release-notes-archive.md).
 
+## July 2020
+
+Updates in July include:
+- [Vulnerability assessment for virtual machines is now available for non-marketplace images](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
+- [Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [Eight new recommendations to enable threat protection features](#eight-new-recommendations-to-enable-threat-protection-features)
+- [Container security improvements - faster registry scanning and refreshed documentation](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
+- [Adaptive application controls updated with a new recommendation and support for wildcards in path rules](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
+- [Six policies for SQL advanced data security deprecated](#six-policies-for-sql-advanced-data-security-deprecated)
+
+
+
+
+### Vulnerability assessment for virtual machines is now available for non-marketplace images
+
+When deploying a vulnerability assessment solution, Security Center previously performed a validation check before deploying. The check was to confirm a marketplace SKU of the destination virtual machine. 
+
+From this update, the check has been removed and you can now deploy vulnerability assessment tools to 'custom' Windows and Linux machines. Custom images are ones that you've modified from the marketplace defaults.
+
+Although you can now deploy the integrated vulnerability assessment extension (powered by Qualys) on many more machines, support is only available if you're using an OS listed in [Deploying the Qualys built-in vulnerability scanner](built-in-vulnerability-assessment.md#deploying-the-qualys-built-in-vulnerability-scanner).
+
+Learn more about the [integrated vulnerability scanner for virtual machines (standard tier only)](built-in-vulnerability-assessment.md).
+
+Learn more about using your own privately licensed vulnerability assessment solution from Qualys or Rapid7 in [Deploying a partner vulnerability scanning solution](partner-vulnerability-assessment.md).
+
+
+### Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)
+
+Threat protection for Azure Storage detects potentially harmful activity on your Azure Storage accounts. Security Center displays alerts when it detects attempts to access or exploit your storage accounts. 
+
+Your data can be protected whether it's stored as blob containers, file shares, or data lakes. 
+
+Learn more about [threat protection for Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
+
+
+
+
+### Eight new recommendations to enable threat protection features
+
+Eight new recommendations have been added to provide a simple way to enable Azure Security Center's threat protection features for the following resource types: virtual machines, App Service plans, Azure SQL Database servers, SQL servers on machines, Azure Storage accounts, Azure Kubernetes Service clusters, Azure Container Registry registries, and Azure Key Vault vaults.
+
+The new recommendations are:
+
+- **Advanced data security should be enabled on Azure SQL Database servers**
+- **Advanced data security should be enabled on SQL servers on machines**
+- **Advanced threat protection should be enabled on Azure App Service plans**
+- **Advanced threat protection should be enabled on Azure Container Registry registries**
+- **Advanced threat protection should be enabled on Azure Key Vault vaults**
+- **Advanced threat protection should be enabled on Azure Kubernetes Service clusters**
+- **Advanced threat protection should be enabled on Azure Storage accounts**
+- **Advanced threat protection should be enabled on virtual machines**
+
+These new recommendations belong to the **Enable Advanced Threat Protection** security control.
+
+The recommendations also include the quick fix capability. 
+
+> [!IMPORTANT]
+> Remediating any of these recommendations will result in charges for protecting the relevant resources. These charges will begin immediately if you have related resources in the current subscription. Or in the future, if you add them at a later date.
+> 
+> For example, if you don't have any Azure Kubernetes Service clusters in your subscription and you enable the threat protection, no charges will be incurred. If, in the future, you add a cluster on the same subscription, it will automatically be protected and charges will begin at that time.
+
+Learn more about each of these in the [security recommendations reference page](recommendations-reference.md).
+
+Learn more about [threat protection in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection).
+
+
+
+
+### Container security improvements - faster registry scanning and refreshed documentation
+
+As part of the continuous investments in the container security domain, we are happy to share a significant performance improvement in Security Center's dynamic scans of container images stored in Azure Container Registry. Scans now typically complete in approximately two minutes. In some cases, they might take up to 15 minutes.
+
+To improve the clarity and guidance regarding Azure Security Center's container security capabilities, we've also refreshed the container security documentation pages. 
+
+Learn more about Security Center's container security in the following articles:
+
+- [Overview of Security Center's container security features](https://docs.microsoft.com/azure/security-center/container-security)
+- [Details of the integration with Azure Container Registry](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
+- [Details of the integration with Azure Kubernetes Service](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)
+- [How-to scan your registries and harden your Docker hosts](https://docs.microsoft.com/azure/security-center/monitor-container-security)
+- [Security alerts from the threat protection features for Azure Kubernetes Service clusters](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
+- [Security alerts from the threat protection features for Azure Kubernetes Service hosts](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
+- [Security recommendations for containers](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
+
+
+
+### Adaptive application controls updated with a new recommendation and support for wildcards in path rules
+
+The adaptive application controls feature has received two significant updates:
+
+- A new recommendation identifies potentially legitimate behavior that hasn't previously been allowed. The new recommendation, **Allowlist rules in your adaptive application control policy should be updated**, prompts you to add new rules to the existing policy to reduce the number of false positives in adaptive application controls violation alerts.
+
+- Path rules now support wildcards. From this update, you can configure allowed path rules using wildcards. There are two supported scenarios:
+
+    - Using a wildcard at the end of a path to allow all executables within this folder and sub-folders
+    - Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (e.g. personal user folders with an known executable, automatically generated folder names, etc). 
+
+[Learn more about adaptive application controls](security-center-adaptive-application.md).
+
+
+
+### Six policies for SQL advanced data security deprecated
+
+Six policies related to advanced data security for SQL machines are being deprecated:
+
+- Advanced threat protection types should be set to 'All' in SQL managed instance advanced data security settings
+- Advanced threat protection types should be set to 'All' in SQL server advanced data security settings
+- Advanced data security settings for SQL managed instance should contain an email address to receive security alerts
+- Advanced data security settings for SQL server should contain an email address to receive security alerts
+- Email notifications to admins and subscription owners should be enabled in SQL managed instance advanced data security settings
+- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings
+
+Learn more about [built-in policies](security-center-policy-definitions.md).
+
+
+
+
 
 ## June 2020
 
@@ -34,6 +151,8 @@ Updates in June include:
 - [Two new recommendations to deploy the Log Analytics agent to Azure Arc machines (preview)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)
 - [New policies to create continuous export and workflow automation configurations at scale](#new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale)
 - [New recommendation for using NSGs to protect non-internet-facing virtual machines](#new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines)
+- [New policies for enabling threat protection and advanced data security](#new-policies-for-enabling-threat-protection-and-advanced-data-security)
+
 
 
 ### Secure score API (preview)
@@ -93,7 +212,7 @@ The policies can be found in Azure policy:
 |Goal  |Policy  |Policy ID  |
 |---------|---------|---------|
 |Continuous export to event hub|[Deploy export to Event Hub for Azure Security Center alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
-|Continuous export to to Log Analytics workspace|[Deploy export to Log Analytics workspace for Azure Security Center alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
+|Continuous export to Log Analytics workspace|[Deploy export to Log Analytics workspace for Azure Security Center alerts and recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
 |Workflow automation for security alerts|[Deploy Workflow Automation for Azure Security Center alerts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
 |Workflow automation for security recommendations|[Deploy Workflow Automation for Azure Security Center recommendations](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
 ||||
@@ -112,6 +231,32 @@ The "implement security best practices" security control now includes the follow
 An existing recommendation, **Internet-facing virtual machines should be protected with network security groups**, didn't distinguish between internet-facing and non-internet facing VMs. For both, a high-severity recommendation was generated if a VM wasn't assigned to a network security group. This new recommendation separates the non-internet-facing machines to reduce the false positives and avoid unnecessary high-severity alerts.
 
 Learn more in the [Network recommendations](recommendations-reference.md#recs-network) table.
+
+
+
+
+### New policies for enabling threat protection and advanced data security
+
+The new policies below were added to the ASC Default initiative and are designed to assist with enabling threat protection or advanced data security for the relevant resource types.
+
+The policies can be found in Azure policy:
+
+
+| Policy                                                                                                                                                                                                                                                                | Policy ID                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
+| [Advanced data security should be enabled on Azure SQL Database servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
+| [Advanced data security should be enabled on SQL servers on machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
+| [Advanced threat protection should be enabled on Azure Storage accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
+| [Advanced threat protection should be enabled on Azure Key Vault vaults](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)           | 0e6763cc-5078-4e64-889d-ff4d9a839047 |
+| [Advanced threat protection should be enabled on Azure App Service plans](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
+| [Advanced threat protection should be enabled on Azure Container Registry registries](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4)   | c25d9a16-bc35-4e15-a7e5-9db606bf9ed4 |
+| [Advanced threat protection should be enabled on Azure Kubernetes Service clusters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a)   | 523b5cd1-3e23-492f-a539-13118b6d1e3a |
+| [Advanced threat protection should be enabled on Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
+|                                                                                                                                                                                                                                                                       |                                      |
+
+Learn more about [Threat protection in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection).
+
+
 
 
 
@@ -165,14 +310,14 @@ This update brings the following changes to this feature:
 
 - The recommendation that advises you to enable JIT on a VM has been renamed. Formerly, "Just-in-time network access control should be applied on virtual machines" it's now: "Management ports of virtual machines should be protected with just-in-time network access control".
 
-- The recommendation has been set to be triggered only if there are open management ports.
+- The recommendation is triggered only if there are open management ports.
 
 Learn more about [the JIT access feature](security-center-just-in-time.md).
 
 
 ### Custom recommendations have been moved to a separate security control
 
-One of the security controls introduced with the enhanced secure score was "Implement security best practices". Any custom recommendations created for your subscriptions were automatically placed in that control. 
+One security control introduced with the enhanced secure score was "Implement security best practices". Any custom recommendations created for your subscriptions were automatically placed in that control. 
 
 To make it easier to find your custom recommendations, we've moved them into a dedicated security control, "Custom recommendations". This control has no impact on your secure score.
 
@@ -185,16 +330,17 @@ Security controls are logical groups of related security recommendations. They r
 
 To immediately see how well your organization is securing each individual attack surface, review the scores for each security control.
 
-By default, your recommendations are shown in the security controls. From this update you can also display them as a list. To view them as simple list sorted by the health status of the affected resources, use the new toggle 'Group by controls'. The toggle is above the list in the portal.
+By default, your recommendations are shown in the security controls. From this update, you can also display them as a list. To view them as simple list sorted by the health status of the affected resources, use the new toggle 'Group by controls'. The toggle is above the list in the portal.
 
 The security controls - and this toggle - are part of the new secure score experience. Remember to send us your feedback from within the portal.
 
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
+![“Group by controls” toggle for recommendations](./media/secure-score-security-controls/recommendations-group-by-toggle.gif)
 
 ### Expanded security control "Implement security best practices" 
 
-One of the security controls introduced with the enhanced secure score is "Implement security best practices". When a recommendation is in this control, it doesn't impact the secure score. 
+One security control introduced with the enhanced secure score is "Implement security best practices". When a recommendation is in this control, it doesn't impact the secure score. 
 
 With this update, three recommendations have moved out of the controls in which they were originally placed, and into this best practices control. We've taken this step because we've determined that the risk of these three recommendations is lower than was initially thought.
 
@@ -376,13 +522,3 @@ As attackers increasing employ stealthier methods to avoid detection, Azure Secu
 
 To counter this threat, Azure Security Center released fileless attack detection for Windows in October 2018, and has now extended fileless attack detection on Linux as well. 
 
-
-## January 2020
-
-### Enhanced secure score (preview)
-
-An enhanced version of the secure score feature of Azure Security Center is now available in preview. In this version, multiple recommendations are grouped into Security Controls that better reflect your vulnerable attack surfaces (for example, restrict access to management ports).
-
-Familiarize yourself with the secure score changes during the preview phase and determine other remediations that will help you to further secure your environment.
-
-Learn more about [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).

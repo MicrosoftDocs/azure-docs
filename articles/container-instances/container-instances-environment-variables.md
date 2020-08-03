@@ -160,7 +160,7 @@ Set a secure environment variable by specifying the `secureValue` property inste
 Create a `secure-env.yaml` file with the following snippet.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: securetest
 properties:

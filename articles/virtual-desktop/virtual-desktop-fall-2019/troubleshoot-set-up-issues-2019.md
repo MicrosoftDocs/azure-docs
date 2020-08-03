@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop tenant host pool creation - Azure
-description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop tenant environment.
+title: Windows Virtual Desktop (classic) tenant host pool creation - Azure
+description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop (classic) tenant environment.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,10 +10,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Tenant and host pool creation
+# Tenant and host pool creation in Windows Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../troubleshoot-set-up-issues.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-set-up-issues.md).
 
 This article covers issues during the initial setup of the Windows Virtual Desktop tenant and the related session host pool infrastructure.
 
@@ -400,6 +400,12 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 - Tenant Admin Password: The password secret you generated for the service principal
 - IsServicePrincipal: **true**
 - AadTenantId: The Azure AD Tenant ID of the service principal you created
+
+### Error: vmSubnet not available when configuring virtual networks
+
+**Cause:** In the WVD Marketplace template, the UI only displays subnets that have at least as many IP addresses available as the total number of VMs specified in the template. The actual number of available IP addresses in the subnet only needs to be equal to the number of new VMs being deployed but this cannot be calculated by the current UI.
+
+**Fix:** You can specify a subnet with at least as many IP addresses available as the number of VMs being added by not using the Marketplace UI, this can be done by specifying the subnet name in the "**existingSubnetName**" parameter when you [redeploy an existing deployment](expand-existing-host-pool-2019.md#redeploy-from-azure) or [deploy using the underlying ARM template from GitHub](create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool).
 
 ## Next steps
 
