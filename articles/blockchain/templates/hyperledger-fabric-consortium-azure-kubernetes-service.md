@@ -326,14 +326,6 @@ CC_PATH=<chaincodePath>
 CHANNEL_NAME=<channelName>  
 ```
 
-The below chaincode operations can be carried out:  
-
-- [Install chaincode](#install-chaincode)  
-- [Instantiate chaincode](#instantiate-chaincode)  
-- [Invoke chaincode](#invoke-chaincode)
-- [Query chaincode](#query-chaincode)
-
-
 ### Install chaincode  
 
 Execute below command to install chaincode on the peer organization.  
@@ -354,8 +346,9 @@ Follow the steps:
 From peer client application, execute below command to instantiate chaincode on the channel.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
 ```
+
 Pass instantiation function name and space separated list of arguments in `<instantiateFunc>` and `<instantiateFuncArgs>` respectively. For example, in chaincode_example02.go chaincode, to instantiate the chaincode set `<instantiateFunc>` to `init`and `<instantiateFuncArgs>` to “a” “2000” “b” “1000”.
 
 > [!NOTE]
