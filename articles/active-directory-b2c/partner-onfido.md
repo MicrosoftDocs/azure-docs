@@ -56,7 +56,7 @@ The following architecture diagram shows the implementation.
 
 ## Onboard with Onfido
 
-1. To create an Onfido account, contact [Onfido](client-support@onfido.com).
+1. To create an Onfido account, contact [Onfido](https://onfido.com/).
 
 2. Once an account is created, create an [API key](https://documentation.onfido.com/). Live keys are billable, however, you can use the [sandbox keys for testing](https://documentation.onfido.com/?javascript#sandbox-and-live-differences) the solution. The sandbox keys produce the same result structure as live keys, however, the results are always predetermined. Documents aren't processed or saved.
 
