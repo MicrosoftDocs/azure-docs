@@ -31,7 +31,10 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
    ![Manage Connections](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Manage Connections")
 
-   ![Connect](./media/sql-data-warehouse-source-control-integration/3-connect.png "Connect")
+3. Connect to your project by selecting **Manage Connections**, then **Connect to a project**.
+ ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Connect")
+![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Connect")
+
 
 3. Clone your Azure Repo repository from your project to your local machine.
 
