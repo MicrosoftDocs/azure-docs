@@ -30,7 +30,7 @@ The following example shows you how to log the mean squared error of two trained
 
     ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-track-experiments/designer-logging-pipeline.png)
 
-1. Paste the following code into the __Execute Python Script__ code editor to log the mean absolute error for your trained model:
+1. Paste the following code into the __Execute Python Script__ code editor to log the mean absolute error for your trained model. You can use a similar pattern to log any other value in the designer:
 
     ```python
     # dataframe1 contains the values from Evaluate Model
@@ -54,7 +54,7 @@ The following example shows you how to log the mean squared error of two trained
         return dataframe1,
     ```
     
-This code uses the Azure Machine Learning Python SDK to log values. It uses Run.get_context() to get the context of the current run. Then logs values in that context using the run.parent.log() method. It uses `parent` to log values to the parent pipeline run rather than the context of the module run. You can log any values using this same pattern.
+This code uses the Azure Machine Learning Python SDK to log values. It uses Run.get_context() to get the context of the current run. It then logs values to that context with the run.parent.log() method. It uses `parent` to log values to the parent pipeline run rather than the module run.
 
 For more information on how to use the Python SDK to log values, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
 
