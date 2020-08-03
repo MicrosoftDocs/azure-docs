@@ -15,7 +15,7 @@ ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Key Vault is and if it offers anything that could be used in my organization.
 
 ---
-# What is Azure Key Vault?
+# About Azure Key Vault
 
 Azure Key Vault helps solve the following problems:
 
@@ -70,11 +70,14 @@ In addition, Azure Key Vaults allow you to segregate application secrets. Applic
 
 As a secure store in Azure, Key Vault has been used to simplify scenarios like:
 -  [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md)
--  The [always encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) functionality in SQL server and Azure SQL Database
+-  The [always encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) and [Transparent Data Encryption]( https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-ver15) functionality in SQL server and Azure SQL Database
 - [Azure App Service]( https://docs.microsoft.com/azure/app-service/configure-ssl-certificate). 
 
 Key Vault itself can integrate with storage accounts, event hubs, and log analytics.
 
 ## Next steps
 
+- Learn more about [keys, secrets, and certificates](about-keys-secrets-certificates.md)
 - [Quickstart: Create an Azure Key Vault using the CLI](../secrets/quick-create-cli.md)
+- [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
+- [Key Vault Developer's Guide](../general/developers-guide.md)

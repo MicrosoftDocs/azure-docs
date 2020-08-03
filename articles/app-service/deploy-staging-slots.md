@@ -4,7 +4,7 @@ description: Learn how to deploy apps to a non-production slot and autoswap into
 
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/30/2020
 ms.custom: fasttrack-edit
 
 ---
@@ -54,11 +54,11 @@ The app must be running in the **Standard**, **Premium**, or **Isolated** tier i
    
     ![Deployment slot title](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    The staging slot has a management page just like any other App Service app. You can change the slot's configuration. The name of the slot is shown at the top of the page to remind you that you're viewing the deployment slot.
+    The staging slot has a management page just like any other App Service app. You can change the slot's configuration. To remind you that you're viewing the deployment slot, the app name is shown as **\<app-name>/\<slot-name>**, and the app type is **App Service (Slot)**. You can also see the slot as a separate app in your resource group, with the same designations.
 
 6. Select the app URL on the slot's resource page. The deployment slot has its own host name and is also a live app. To limit public access to the deployment slot, see [Azure App Service IP restrictions](app-service-ip-restrictions.md).
 
-The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](app-service-deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository. 
+The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](app-service-deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository.
 
 <a name="AboutConfiguration"></a>
 
@@ -195,12 +195,14 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
 Some apps might require custom warm-up actions before the swap. The `applicationInitialization` configuration element in web.config lets you specify custom initialization actions. The [swap operation](#AboutConfiguration) waits for this custom warm-up to finish before swapping with the target slot. Here's a sample web.config fragment.
 
-    <system.webServer>
-        <applicationInitialization>
-            <add initializationPage="/" hostName="[app hostname]" />
-            <add initializationPage="/Home/About" hostName="[app hostname]" />
-        </applicationInitialization>
-    </system.webServer>
+```xml
+<system.webServer>
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[app hostname]" />
+        <add initializationPage="/Home/About" hostName="[app hostname]" />
+    </applicationInitialization>
+</system.webServer>
+```
 
 For more information on customizing the `applicationInitialization` element, see [Most common deployment slot swap failures and how to fix them](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
@@ -250,7 +252,7 @@ In addition to automatic traffic routing, App Service can route requests to a sp
 
 To let users opt out of your beta app, for example, you can put this link on your webpage:
 
-```HTML
+```html
 <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 ```
 
@@ -268,7 +270,7 @@ By default, new slots are given a routing rule of `0%`, shown in grey. When you 
 
 ## Delete a slot
 
-Search for and select your app. Select **Deployment slots** > *\<slot to delete>* > **Overview**. Select **Delete** on the command bar.  
+Search for and select your app. Select **Deployment slots** > *\<slot to delete>* > **Overview**. The app type is shown as **App Service (Slot)** to remind you that you're viewing a deployment slot. Select **Delete** on the command bar.  
 
 ![Delete a deployment slot](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -282,7 +284,7 @@ Search for and select your app. Select **Deployment slots** > *\<slot to delete>
 
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing deployment slots in Azure App Service.
 
-For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](/powershell/azure/overview).  
+For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](/powershell/azure/).  
 
 ---
 ### Create a web app

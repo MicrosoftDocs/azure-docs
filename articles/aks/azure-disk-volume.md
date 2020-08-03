@@ -36,7 +36,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Now create a disk using the [az disk create][az-disk-create] command. Specify the node resource group name obtained in the previous command, and then a name for the disk resource, such as *myAKSDisk*. The following example creates a *20*GiB disk, and outputs the ID of the disk once created. If you need to create a disk for use with Windows Server containers (currently in preview in AKS), add the `--os-type windows` parameter to correctly format the disk.
+Now create a disk using the [az disk create][az-disk-create] command. Specify the node resource group name obtained in the previous command, and then a name for the disk resource, such as *myAKSDisk*. The following example creates a *20*GiB disk, and outputs the ID of the disk once created. If you need to create a disk for use with Windows Server containers, add the `--os-type windows` parameter to correctly format the disk.
 
 ```azurecli-interactive
 az disk create \
@@ -57,7 +57,7 @@ The disk resource ID is displayed once the command has successfully completed, a
 
 ## Mount disk as volume
 
-To mount the Azure disk into your pod, configure the volume in the container spec. Create a new file named `azure-disk-pod.yaml` with the following contents. Update `diskName` with the name of the disk created in the previous step, and `diskURI` with the disk ID shown in output of the disk create command. If desired, update the `mountPath`, which is the path where the Azure disk is mounted in the pod. For Windows Server containers (currently in preview in AKS), specify a *mountPath* using the Windows path convention, such as *'D:'*.
+To mount the Azure disk into your pod, configure the volume in the container spec. Create a new file named `azure-disk-pod.yaml` with the following contents. Update `diskName` with the name of the disk created in the previous step, and `diskURI` with the disk ID shown in output of the disk create command. If desired, update the `mountPath`, which is the path where the Azure disk is mounted in the pod. For Windows Server containers, specify a *mountPath* using the Windows path convention, such as *'D:'*.
 
 ```yaml
 apiVersion: v1

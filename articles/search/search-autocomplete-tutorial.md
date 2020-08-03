@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
+ms.custom: devx-track-javascript
 ---
 
 # Add autocomplete and suggestions to client apps
@@ -30,7 +31,7 @@ The remainder of this article is focused on queries and client code. It uses Jav
 Elements of a request include one of the search-as-you-type APIs, a partial query, and a suggester. The following script illustrates components of a request, using the Autocomplete REST API as an example.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 {
   "search": "minecraf",
   "suggesterName": "sg"
@@ -60,12 +61,13 @@ Responses for autocomplete and suggestions are what you might expect for the pat
 
 Responses are shaped by the parameters on the request. For Autocomplete, set [**autocompleteMode**](https://docs.microsoft.com/rest/api/searchservice/autocomplete#autocomplete-modes) to determine whether text completion occurs on one or two terms. For Suggestions, the field you choose determines the contents of the response.
 
-To further refine the response, include more parameters on the request. The following parameters apply to both Autocomplete and Suggestions.
+For suggestions, you should further refine the response to avoid duplicates or what appears to be unrelated results. To control results, include more parameters on the request. The following parameters apply to both autocomplete and suggestions, but are perhaps more necessary for suggestions, especially when a suggester includes multiple fields.
 
 | Parameter | Usage |
 |-----------|-------|
-| **$select** | If you have multiple **sourceFields**, use **$select** to choose which field contributes values (`$select=GameTitle`). |
-| **$filter** | Apply match criteria on the result set (`$filter=ActionAdventure`). |
+| **$select** | If you have multiple **sourceFields** in a suggester, use **$select** to choose which field contributes values (`$select=GameTitle`). |
+| **searchFields** | Constrain the query to specific fields. |
+| **$filter** | Apply match criteria on the result set (`$filter=Category eq 'ActionAdventure'`). |
 | **$top** | Limit the results to a specific number (`$top=5`).|
 
 ## Add user interaction code
@@ -145,6 +147,8 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
     // Call suggest API and return results
     SuggestParameters sp = new SuggestParameters()
     {
+        Select = HotelName,
+        SearchFields = HotelName,
         UseFuzzyMatching = fuzzy,
         Top = 5
     };

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
@@ -20,7 +20,7 @@ ms.reviewer: hirsin, jlu, annaba
 You can specify the lifetime of a token issued by Azure Active Directory (Azure AD). You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization.
 
 > [!IMPORTANT]
-> After hearing from customers during the preview, we've implemented [authentication session management capabilities](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency. After May 1, 2020 you will not be able to use Configurable Token Lifetime policy to configure session and refresh tokens. You can still configure access token lifetimes after the deprecation.
+> After hearing from customers during the preview, we've implemented [authentication session management capabilities](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency. After May 30, 2020 no new tenant will be able to use Configurable Token Lifetime policy to configure session and refresh tokens. The deprecation will happen within several months after that, which means that we will stop honoring existing session and refresh tokens polices. You can still configure access token lifetimes after the deprecation.
 
 In Azure AD, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they are assigned.
 
@@ -71,7 +71,7 @@ When a user authenticates with Azure AD, a single sign-on session (SSO) is estab
 Azure AD uses two kinds of SSO session tokens: persistent and nonpersistent. Persistent session tokens are stored as persistent cookies by the browser. Nonpersistent session tokens are stored as session cookies. (Session cookies are destroyed when the browser is closed.)
 Usually, a nonpersistent session token is stored. But, when the user selects the **Keep me signed in** check box during authentication, a persistent session token is stored.
 
-Nonpersistent session tokens have a lifetime of 24 hours. Persistent tokens have a lifetime of 180 days. Anytime an SSO session token is used within its validity period, the validity period is extended another 24 hours or 180 days, depending on the token type. If an SSO session token is not used within its validity period, it is considered expired and is no longer accepted.
+Nonpersistent session tokens have a lifetime of 24 hours. Persistent tokens have a lifetime of 90 days. Anytime an SSO session token is used within its validity period, the validity period is extended another 24 hours or 90 days, depending on the token type. If an SSO session token is not used within its validity period, it is considered expired and is no longer accepted.
 
 You can use a policy to set the time after the first session token was issued beyond which the session token is no longer accepted. (To do this, use the Session Token Max Age property.) You can adjust the lifetime of a session token to control when and how often a user is required to reenter credentials, instead of being silently authenticated, when using a web application.
 
@@ -542,3 +542,9 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectId (ID)** of the application. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** of the policy. | `-PolicyId <ObjectId of Policy>` |
+
+## License requirements
+
+Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Customers with [Microsoft 365 Business licenses](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.

@@ -8,8 +8,8 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: how-to
+ms.date: 05/18/2020
 ms.author: pafarley
 
 #As a C# developer of content management software, I want to analyze video content for offensive or inappropriate material so that I can categorize and handle it accordingly.

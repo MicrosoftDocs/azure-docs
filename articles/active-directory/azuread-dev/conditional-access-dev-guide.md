@@ -16,7 +16,7 @@ ms.workload: identity
 ROBOTS: NOINDEX
 ---
 
-# Developer guidance for Azure Active Directory Conditional Access
+# Developer guidance for the Azure Active Directory Conditional Access feature
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -26,7 +26,7 @@ The Conditional Access feature in Azure Active Directory (Azure AD) offers one o
 * Allowing only Intune enrolled devices to access specific services
 * Restricting user locations and IP ranges
 
-For more information on the full capabilities of Conditional Access, see [Conditional Access in Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+For more information on the full capabilities of Conditional Access, see [What is Conditional Access](../conditional-access/overview.md).
 
 For developers building apps for Azure AD, this article shows how you can use Conditional Access and you'll also learn about the impact of accessing resources that you don't have control over that may have Conditional Access policies applied. The article also explores the implications of Conditional Access in the on-behalf-of flow, web apps, accessing Microsoft Graph, and calling APIs.
 
@@ -45,7 +45,7 @@ Specifically, the following scenarios require code to handle Conditional Access 
 * Single-page apps using ADAL.js
 * Web Apps calling a resource
 
-Conditional Access policies can be applied to the app, but also can be applied to a web API your app accesses. To learn more about how to configure a Conditional Access policy, see [Quickstart: Require MFA for specific apps with Azure Active Directory Conditional Access](../conditional-access/app-based-mfa.md).
+Conditional Access policies can be applied to the app, but also can be applied to a web API your app accesses. To learn more about how to configure a Conditional Access policy, see [Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md).
 
 Depending on the scenario, an enterprise customer can apply and remove Conditional Access policies at any time. In order for your app to continue functioning when a new policy is applied, you need to implement the "challenge" handling. The following examples illustrate challenge handling.
 

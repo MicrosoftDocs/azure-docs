@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: ajburnle
 ms.reviewer: elkuzmen
@@ -33,7 +33,7 @@ Create your new directory by following the steps in [Create a new tenant for you
 >[!IMPORTANT]
 >The person who creates the tenant is automatically the Global administrator for that tenant. The Global administrator can add additional administrators to the tenant.
 
-For more information about subscription roles, see [Azure RBAC roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
+For more information about subscription roles, see [Azure roles](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
 
 >[!TIP]
 > If you plan to federate your on-premises Windows Server AD with Azure AD, then you need to select **I plan to configure this domain for single sign-on with my local Active Directory** when you run the Azure AD Connect tool to synchronize your directories.

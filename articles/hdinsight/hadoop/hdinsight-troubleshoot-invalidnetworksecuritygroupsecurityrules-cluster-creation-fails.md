@@ -23,7 +23,7 @@ Likely an issue with the inbound [network security group](../../virtual-network/
 
 ## Resolution
 
-Go to the Azure portal and identify the NSG that is associated with the subnet where the cluster is being deployed. In the **Inbound security rules** section, make sure the rules allow inbound access to port 443 for the IP addresses mentioned [here](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip).
+Go to the Azure portal and identify the NSG that is associated with the subnet where the cluster is being deployed. In the **Inbound security rules** section, make sure the rules allow inbound access to port 443 for the IP addresses mentioned [here](../control-network-traffic.md).
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: Run PowerShell commands with Azure AD credentials to access blob or queue data
 titleSuffix: Azure Storage
-description: PowerShell supports signing in with Azure AD credentials to run commands on Azure Storage blob and queues data. An access token is provided for the session and used to authorize calling operations. Permissions depend on the RBAC role assigned to the Azure AD security principal.
+description: PowerShell supports signing in with Azure AD credentials to run commands on Azure Storage blob and queues data. An access token is provided for the session and used to authorize calling operations. Permissions depend on the Azure role assigned to the Azure AD security principal.
 services: storage
 author: tamram
 
@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/30/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
 ---
 
@@ -17,7 +17,7 @@ ms.subservice: common
 
 Azure Storage provides extensions for PowerShell that enable you to sign in and run scripting commands with Azure Active Directory (Azure AD) credentials. When you sign in to PowerShell with Azure AD credentials, an OAuth 2.0 access token is returned. That token is automatically used by PowerShell to authorize subsequent data operations against Blob or Queue storage. For supported operations, you no longer need to pass an account key or SAS token with the command.
 
-You can assign permissions to blob and queue data to an Azure AD security principal via role-based access control (RBAC). For more information about RBAC roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC](storage-auth-aad-rbac.md).
+You can assign permissions to blob and queue data to an Azure AD security principal via role-based access control (RBAC). For more information about Azure roles in Azure Storage, see [Manage access rights to Azure Storage data with RBAC](storage-auth-aad-rbac.md).
 
 ## Supported operations
 
@@ -64,10 +64,10 @@ The following example shows how to create a container in a new storage account f
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Before you create the container, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning RBAC roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac.md).
+1. Before you create the container, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to yourself. Even though you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > RBAC role assignments may take a few minutes to propagate.
+    > Azure role assignments may take a few minutes to propagate.
 
 1. Create a container by calling [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Because this call uses the context created in the previous steps, the container is created using your Azure AD credentials.
 
@@ -78,5 +78,5 @@ The following example shows how to create a container in a new storage account f
 
 ## Next steps
 
-- [Use PowerShell to assign an RBAC role for access to blob and queue data](storage-auth-aad-rbac-powershell.md)
+- [Use PowerShell to assign an Azure role for access to blob and queue data](storage-auth-aad-rbac-powershell.md)
 - [Authorize access to blob and queue data with managed identities for Azure resources](storage-auth-aad-msi.md)

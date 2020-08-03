@@ -3,7 +3,7 @@ title: Monitor Java applications running in any environment - Azure Monitor Appl
 description: Application performance monitoring for Java applications running on any environment with Java standalone agent without instrumenting the app. Distributed tracing and application map.
 ms.topic: conceptual
 ms.date: 04/16/2020
-
+ms.custom: devx-track-java
 ---
 
 # Configuring JVM args Java standalone agent for Azure Monitor Application Insights
@@ -12,19 +12,29 @@ ms.date: 04/16/2020
 
 ## Azure environments
 
-Configure [App Services](https://docs.microsoft.com/azure/app-service/configure-language-java#set-java-runtime-options).
+Configure [App Services](../../app-service/configure-language-java.md#set-java-runtime-options).
 
 ## Spring Boot
 
-Add the JVM arg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` somewhere before `-jar <myapp.jar>`, for example:
+Add the JVM arg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` somewhere before `-jar`, for example:
 
 ```
 java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
 ```
 
-> [!NOTE]
-> Args placed after `-jar <myapp.jar>` are passed to the app as program args.
+## Spring Boot via Docker entry point
 
+If you are using the *exec* form, add the parameter `"-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
+
+```
+ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar", "-jar", "<myapp.jar>"]
+```
+
+If you are using the *shell* form, add the JVM arg `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar` somewhere before `-jar`, for example:
+
+```
+ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.jar -jar <myapp.jar>
+```
 
 ## Tomcat 8 (Linux)
 

@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso

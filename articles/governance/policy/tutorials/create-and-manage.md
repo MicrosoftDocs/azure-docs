@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Build policies to enforce compliance"
 description: In this tutorial, you use policies to enforce standards, control costs, maintain security, and impose enterprise wide design principles.
-ms.date: 03/24/2020
+ms.date: 06/15/2020
 ms.topic: tutorial
 ---
 # Tutorial: Create and manage policies to enforce compliance
@@ -102,9 +102,9 @@ resources missing the tag.
 ## Implement a new custom policy
 
 Now that you've assigned a built-in policy definition, you can do more with Azure Policy. Next,
-create a new custom policy to save costs by validating that VMs created in your environment can't be
-in the G series. This way, every time a user in your organization tries to create VM in the G
-series, the request is denied.
+create a new custom policy to save costs by validating that virtual machines created in your
+environment can't be in the G series. This way, every time a user in your organization tries to
+create a virtual machine in the G series, the request is denied.
 
 1. Select **Definitions** under **Authoring** in the left side of the Azure Policy page.
 
@@ -123,10 +123,10 @@ series, the request is denied.
      > management group that contains the subscriptions you assign the policy to. The same is true
      > for an initiative definition.
 
-   - The name of the policy definition - _*_Require VM SKUs smaller than the G series_
+   - The name of the policy definition - _Require VM SKUs not in the G series_
    - The description of what the policy definition is intended to do – _This policy definition
-     enforces that all VMs created in this scope have SKUs smaller than the G series to reduce
-     cost._
+     enforces that all virtual machines created in this scope have SKUs other than the G series to
+     reduce cost._
    - Choose from existing options (such as _Compute_), or create a new category for this policy
      definition.
    - Copy the following JSON code and then update it for your needs with:
@@ -161,7 +161,7 @@ series, the request is denied.
    on [policy definition structure fields](../concepts/definition-structure.md#fields). An example
    of an alias might be `"Microsoft.Compute/VirtualMachines/Size"`.
 
-   To view more Azure policy samples, see [Azure Policy samples](../samples/index.md).
+   To view more Azure Policy samples, see [Azure Policy samples](../samples/index.md).
 
 1. Select **Save**.
 

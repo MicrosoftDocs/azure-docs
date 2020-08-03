@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
 ---
@@ -114,7 +114,7 @@ If an application installation failed, you can see the error messages and debug 
 
 * Apache Ambari Web UI: If the install script was the cause of the failure, use Ambari Web UI to check full logs about the install scripts.
 
-    For more information, see [Troubleshooting](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
+    For more information, see [Troubleshoot script actions](./troubleshoot-script-action.md).
 
 ## Remove HDInsight applications
 

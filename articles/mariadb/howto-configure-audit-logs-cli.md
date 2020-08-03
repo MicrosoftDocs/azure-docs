@@ -4,16 +4,14 @@ description: This article describes how to configure and access the audit logs i
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 4/13/2020
+ms.topic: how-to
+ms.date: 6/24/2020 
+ms.custom: devx-track-azurecli
 ---
 
-# Configure and access audit logs in the Azure CLI
+# Configure and access Azure Database for Maria DB audit logs in the Azure CLI
 
 You can configure the [Azure Database for MariaDB audit logs](concepts-audit-logs.md) from the Azure CLI.
-
-> [!IMPORTANT]
-> Audit log functionality is currently in preview.
 
 ## Prerequisites
 
@@ -28,6 +26,9 @@ To step through this how-to guide, you need:
 
 ## Configure audit logging
 
+>[!IMPORTANT]
+> It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted.
+
 Enable and configure audit logging using the following steps: 
 
 1. Turn on audit logs by setting the **audit_logs_enabled** parameter to "ON". 
@@ -35,7 +36,7 @@ Enable and configure audit logging using the following steps:
     az mariadb server configuration set --name audit_log_enabled --resource-group myresourcegroup --server mydemoserver --value ON
     ```
 
-1. Select the [event types](concepts-audit-logs.md#configure-audit-logging) to be logged by updating the **audit_log_egitvents** parameter.
+1. Select the [event types](concepts-audit-logs.md#configure-audit-logging) to be logged by updating the **audit_log_events** parameter.
     ```azurecli-interactive
     az mariadb server configuration set --name audit_log_events --resource-group myresourcegroup --server mydemoserver --value "ADMIN,CONNECTION"
     ```

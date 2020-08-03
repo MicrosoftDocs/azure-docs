@@ -7,16 +7,18 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
-ms.topic: article
-ms.date: 08/05/2019
+ms.topic: article 
+ms.date: 05/08/2020
 ms.author: juliako
 ---
-
+ 
 # Create a Video Indexer account connected to Azure
 
 When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With the paid option, you create a Video Indexer account that's connected to your Azure subscription and an Azure Media Services account. You pay for minutes indexed as well as the media account related charges.
 
 This article shows how to create a Video Indexer account that's linked to an Azure subscription and an Azure Media Services account. The topic provides steps for connecting to Azure using the automatic (default) flow. It also shows how to connect to Azure manually (advanced).
+
+If you are moving from a *trial* to *paid* Video Indexer account, you can choose to copy all of the videos and model customization to the new account, as discussed in the [Import your content from the trial account](#import-your-content-from-the-trial-account) section.
 
 ## Prerequisites
 
@@ -146,6 +148,15 @@ In the dialog, provide the following information:
 |Media service resource name|The name of the Azure Media Services account that you created in the previous section.|
 |Application ID|The Azure AD application ID (with permissions for the specified Media Services account) that you created in the previous section.|
 |Application key|The Azure AD application key that you created in the previous section. |
+
+## Import your content from the *trial* account
+
+When [creating a new account](#connect-to-azure), you have an option to import your content from the *trial* account into the new account. If you check the *import* option in the **Create a new account on an Azure subscription** dialog, all media and content model customizations will be copied from the *trial* account into the new account.
+
+The ability to import the content is valid for both automated and manual approaches described above.
+
+> [!NOTE]
+> The content can only be imported once from each account.
 
 ## Considerations
 

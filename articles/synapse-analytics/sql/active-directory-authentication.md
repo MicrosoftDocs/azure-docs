@@ -13,10 +13,10 @@ ms.reviewer: jrasnick
 
 Azure Active Directory authentication is a mechanism of connecting to [Azure Synapse Analytics](../overview-faq.md) by using identities in Azure Active Directory (Azure AD).
 
-With Azure AD authentication, you can centrally manage the identities of users having access to Azure Synapse to simplify permission management. Benefits include the following:
+With Azure AD authentication, you can centrally manage user identities that have access to Azure Synapse to simplify permission management. Benefits include the following:
 
 - It provides an alternative to regular username and password authentication.
-- Helps stop the proliferation of user identities across database servers.
+- Helps stop the proliferation of user identities across servers.
 - Allows password rotation in a single place.
 - Customers can manage permissions using external (Azure AD) groups.
 - It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
@@ -43,26 +43,34 @@ Defining access rights on the files and data that is respected in different data
 
 The following high-level diagram summarizes the solution architecture of using Azure AD authentication with Synapse SQL. To support Azure AD native user password, only the Cloud portion and Azure AD/Synapse Synapse SQL is considered. To support Federated authentication (or user/password for Windows credentials), the communication with ADFS block is required. The arrows indicate communication pathways.
 
-![aad auth diagram][1]
+![aad auth diagram](./media/aad-authentication/1-active-directory-authentication-diagram.png)
 
-The following diagram indicates the federation, trust, and hosting relationships that allow a client to connect to a database by submitting a token. The token is authenticated by an Azure AD, and is trusted by the database. Customer 1 can represent an Azure Active Directory with native users or an Azure AD with federated users. Customer 2 represents a possible solution including imported users; in this example coming from a federated Azure Active Directory with ADFS being synchronized with Azure Active Directory. It's important to understand that access to a database using Azure AD authentication requires that the hosting subscription is associated to the Azure AD. The same subscription must be used to create the SQL Server hosting the Azure SQL Database or SQL pool.
+The following diagram indicates the federation, trust, and hosting relationships that allow a client to connect to a database by submitting a token. The token is authenticated by an Azure AD, and is trusted by the database. 
 
-![subscription relationship][2]
+Customer 1 can represent an Azure Active Directory with native users or an Azure AD with federated users. Customer 2 represents a possible solution including imported users; in this example coming from a federated Azure Active Directory with ADFS being synchronized with Azure Active Directory. 
+
+It's important to understand that access to a database using Azure AD authentication requires that the hosting subscription is associated to the Azure AD. The same subscription must be used to create the SQL Server hosting the Azure SQL Database or SQL pool.
+
+![subscription relationship](./media/aad-authentication/2-subscription-relationship.png)
 
 ## Administrator structure
 
-When using Azure AD authentication, there are two Administrator accounts for the Synapse SQL; the original SQL Server administrator and the Azure AD administrator. Only the administrator based on an Azure AD account can create the first Azure AD contained database user in a user database. The Azure AD administrator login can be an Azure AD user or an Azure AD group. 
+When using Azure AD authentication, there are two Administrator accounts for the Synapse SQL; the original SQL Server administrator and the Azure AD administrator. Only the administrator based on an Azure AD account can create the first Azure AD contained database user in a user database. 
 
-When the administrator is a group account, it can be used by any group member, enabling multiple Azure AD administrators for the Synapse SQL instance. Using group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in Synapse Analytics workspace. Only one Azure AD administrator (a user or group) can be configured at any time.
+The Azure AD administrator login can be an Azure AD user or an Azure AD group. When the administrator is a group account, it can be used by any group member, enabling multiple Azure AD administrators for the Synapse SQL instance. 
 
-![admin structure][3]
+Using group account as an administrator enhances manageability by allowing you to centrally add and remove group members in Azure AD without changing the users or permissions in Synapse Analytics workspace. Only one Azure AD administrator (a user or group) can be configured at any time.
+
+![admin structure](./media/aad-authentication/3-admin-structure.png)
 
 ## Permissions
 
 To create new users, you must have the `ALTER ANY USER` permission in the database. The `ALTER ANY USER` permission can be granted to any database user. The `ALTER ANY USER` permission is also held by the server administrator accounts, and database users with the `CONTROL ON DATABASE` or `ALTER ON DATABASE` permission for that database, and by members of the `db_owner` database role.
 
-To create a contained database user in Synapse SQL, you must connect to the database or instance using an Azure AD identity. To create the first contained database user, you must connect to the database by using an Azure AD administrator (who is the owner of the database). Any Azure AD authentication is only possible if the Azure AD admin was created for Synapse SQL. If the Azure Active Directory admin was removed from the server, existing Azure Active Directory users created previously inside Synapse SQL can no longer connect to the database using their Azure Active Directory credentials.
+To create a contained database user in Synapse SQL, you must connect to the database or instance using an Azure AD identity. To create the first contained database user, you must connect to the database by using an Azure AD administrator (who is the owner of the database). 
 
+Any Azure AD authentication is only possible if the Azure AD admin was created for Synapse SQL. If the Azure Active Directory admin was removed from the server, existing Azure Active Directory users created previously inside Synapse SQL can no longer connect to the database using their Azure Active Directory credentials.
+ 
 ## Azure AD features and limitations
 
 - The following members of Azure AD can be provisioned in Synapse SQL:
@@ -86,7 +94,7 @@ To create a contained database user in Synapse SQL, you must connect to the data
   - `SUSER_ID(<admin name>)`
   - `SUSER_SID(<admin name>)`
 
-## Connecting using Azure AD identities
+## Connect using Azure AD identities
 
 Azure Active Directory authentication supports the following methods of connecting to a database using Azure AD identities:
 
@@ -115,21 +123,8 @@ The following authentication methods are supported for Azure AD server principal
 
 ## Next steps
 
-For an overview of access and control in Synapse SQL, see [Synapse SQL access control](../sql/access-control.md). To learn more about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx). Additional information about database roles, can be found in the [Database roles](https://msdn.microsoft.com/library/ms189121.aspx) article.
+- For an overview of access and control in Synapse SQL, see [Synapse SQL access control](../sql/access-control.md).
+- For more information about database principals, see [Principals](/sql/relational-databases/security/authentication-access/principals-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+- For more information about database roles, see [Database roles](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+
  
-
-<!--Image references-->
-
-[1]: ./media/aad-authentication/1-active-directory-authentication-diagram.png
-[2]: ./media/aad-authentication/2-subscription-relationship.png
-[3]: ./media/aad-authentication/3-admin-structure.png
-[4]: ./media/aad-authentication/4-select-subscription.png
-[5]: ./media/aad-authentication/5-active-directory-settings-portal.png
-[6]: ./media/aad-authentication/6-edit-directory-select.png
-[7]: ./media/aad-authentication/7-edit-directory-confirm.png
-[8]: ./media/aad-authentication/8-choose-active-directory.png
-[9]: ./media/aad-authentication/9-active-directory-settings.png
-[10]: ./media/aad-authentication/10-choose-admin.png
-[11]: ./media/aad-authentication/11-connect-using-integrated-authentication.png
-[12]: ./media/aad-authentication/12-connect-using-password-authentication.png
-[13]: ./media/aad-authentication/13-connect-to-db.png

@@ -1,18 +1,10 @@
 ---
 title: Understanding Azure virtual machine usage 
 description: Understand virtual machine usage details
-services: virtual-machines
-documentationcenter: ''
 author: mmccrory
-manager: gwallace
-editor: ''
 tags: azure-virtual-machine
-
-ms.assetid: ''
 ms.service: virtual-machines
-ms.devlang: ''
-ms.topic: article
-ms.tgt_pltfrm: vm
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
@@ -138,7 +130,13 @@ Tags only flow to you the Usage CSV for Resource Manager VMs only. Classic resou
 In the Classic model, billing for resources is aggregated at the Cloud Service level. If you have more than one VM in a Cloud Service that uses the same billing meter, your usage is aggregated together. VMs deployed via Resource Manager are billed at the VM level, so this aggregation will not apply.
 ### Why is pricing not available for DS/FS/GS/LS sizes on the pricing page?
 Premium storage capable VMs are billed at the same rate as non-premium storage capable VMs. Only your storage costs differ. Visit the [storage pricing page](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) for more information.
+### How to know the operating system version running on the VM?
+
+There are 3 possible places in the APIs which may return the operating system running on the VM:
+
+1) Running VMs that include the guest agent (all Linux VMs and most Windows VMs) will show the OS Name and OS Version in the VM Instances view. This is accurate at all times, but due to the fact that the information comes from the guest agent it will not be available for all VMs. API documentation [here](/rest/api/compute/virtualmachines/instanceview#virtualmachineagentinstanceview).
+2) VMs deployed from a platform image will contain the image details which may indicate the OS version in the publisher selected names for Offer or SKU. However, these are publisher selected so there is no guarantee the OS will be discoverable in the naming. API documentation [here](/rest/api/compute/images/get#operatingsystemtypes).
+3) Each OS Disk will have a specified value of Windows or Linux. This value is inherited from the image when the OS Disk was created from an image. When an OS disk is uploaded to the platform directly, then the OS value is set when the OS disk is created. This value is always present, but the Azure platform does not ensure it is correct. API documentation [here](/rest/api/compute/virtualmachineimages/get#operatingsystemtypes).
 
 ## Next steps
 To learn more about your usage details, see [Understand your bill for Microsoft Azure.](../../cost-management-billing/understand/review-individual-bill.md)
-

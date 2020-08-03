@@ -1,14 +1,9 @@
 ---
 title: Overview of Linux VMs in Azure 
 description: Overview of Linux virtual machines in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines-linux
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines-linux
-
 ms.topic: overview
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
@@ -30,7 +25,7 @@ Azure virtual machines can be used in various ways. Some examples are:
 The number of VMs that your application uses can scale up and out to whatever is required to meet your needs.
 
 ## What do I need to think about before creating a VM?
-There are always a multitude of [design considerations](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm) when you build out an application infrastructure in Azure. These aspects of a VM are important to think about before you start:
+There are always a multitude of [design considerations](/azure/architecture/reference-architectures/n-tier/windows-vm) when you build out an application infrastructure in Azure. These aspects of a VM are important to think about before you start:
 
 * The names of your application resources
 * The location where the resources are stored
@@ -48,9 +43,9 @@ This table shows some of the ways you can get a list of available locations.
 | Method | Description |
 | --- | --- |
 | Azure portal |Select a location from the list when you create a VM. |
-| Azure PowerShell |Use the [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) command. |
-| REST API |Use the [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions) operation. |
-| Azure CLI |Use the [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest) operation. |
+| Azure PowerShell |Use the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command. |
+| REST API |Use the [List locations](/rest/api/resources/subscriptions) operation. |
+| Azure CLI |Use the [az account list-locations](/cli/azure/account?view=azure-cli-latest) operation. |
 
 ## Availability
 Azure announced an industry leading single instance virtual machine Service Level Agreement of 99.9% provided you deploy the VM with premium storage for all disks.  In order for your deployment to qualify for the standard 99.95% VM Service Level Agreement, you still need to deploy two or more VMs running your workload inside of an availability set. An availability set ensures that your VMs are distributed across multiple fault domains in the Azure data centers as well as deployed onto hosts with different maintenance windows. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
@@ -77,16 +72,16 @@ If your preferred Linux distro of choice is not currently present in the gallery
 Microsoft works closely with partners to ensure the images available are updated and optimized for an Azure runtime.  For more information on Azure partners, see the following links:
 
 * Linux on Azure - [Endorsed Distributions](endorsed-distros.md)
-* SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES?tab=Overview)
-* Red Hat - [Azure Marketplace - Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
-* Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
-* Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
+* SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/marketplace/apps?search=suse%20sles&page=1)
+* Red Hat - [Azure Marketplace - Red Hat Enterprise Linux 8.1](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux81-ARM)
+* Canonical - [Azure Marketplace - Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer)
+* Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian)
 * FreeBSD - [Azure Marketplace - FreeBSD 10.4](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
-* CoreOS - [Azure Marketplace - CoreOS (Stable)](https://azure.microsoft.com/marketplace/partners/coreos/coreosstable/)
-* RancherOS - [Azure Marketplace - RancherOS](https://azure.microsoft.com/marketplace/partners/rancher/rancheros/)
+* CoreOS - [Azure Marketplace - Container Linux by CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS)
+* RancherOS - [Azure Marketplace - RancherOS](https://azuremarketplace.microsoft.com/marketplace/apps/rancher.rancheros)
 * Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
-* Mesosphere - [Azure Marketplace - Mesosphere DC/OS on Azure](https://azure.microsoft.com/marketplace/partners/mesosphere/dcosdcos/)
-* Docker - [Azure Marketplace - Azure Container Service with Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
+* Mesosphere - [Azure Marketplace - Mesosphere DC/OS on Azure](https://azure.microsoft.com/services/kubernetes-service/mesosphere/)
+* Docker - [Azure Marketplace - Docker images](https://azuremarketplace.microsoft.com/marketplace/apps?search=docker&page=1&filters=virtual-machine-images)
 * Jenkins - [Azure Marketplace - CloudBees Jenkins Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudbees.cloudbees-core-contact)
 
 
@@ -95,7 +90,7 @@ Microsoft works closely with partners to ensure the images available are updated
 To achieve a proper DevOps culture, all infrastructure must be code.  When all the infrastructure lives in code it can easily be recreated.  Azure works with all the major automation tooling like Ansible, Chef, SaltStack, and Puppet.  Azure also has its own tooling for automation:
 
 * [Azure Templates](create-ssh-secured-vm-from-template.md)
-* [Azure VMAccess](using-vmaccess-extension.md)
+* [Azure VMAccess](../extensions/vmaccess.md)
 
 Azure supports for [cloud-init](https://cloud-init.io/) across most Linux Distros that support it.  We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images will make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets.
 
@@ -108,7 +103,7 @@ Azure supports for [cloud-init](https://cloud-init.io/) across most Linux Distro
 
 ## Networking
 * [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md)
-* [IP addresses in Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [IP addresses in Azure](../../virtual-network/public-ip-addresses.md)
 * [Opening ports to a Linux VM in Azure](nsg-quickstart.md)
 * [Create a Fully Qualified Domain Name in the Azure portal](portal-create-fqdn.md)
 
@@ -120,4 +115,3 @@ Create your first VM!
 - [Portal](quick-create-portal.md)
 - [Azure CLI](quick-create-cli.md)
 - [PowerShell](quick-create-powershell.md)
-

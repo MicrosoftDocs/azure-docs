@@ -20,19 +20,19 @@ You can still send custom telemetry from your application. The 3.0 agent will tr
 
 **1. Download the agent**
 
-Download [applicationinsights-agent-3.0.0-PREVIEW.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.3/applicationinsights-agent-3.0.0-PREVIEW.3.jar)
+Download [applicationinsights-agent-3.0.0-PREVIEW.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
 **2. Point the JVM to the agent**
 
-Add `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.3.jar` to your application's JVM args
+Add `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar` to your application's JVM args
 
 Typical JVM args include `-Xmx512m` and `-XX:+UseG1GC`. So if you know where to add these, then you already know where to add this.
 
-For additional help with configuring your application's JVM args, please see [3.0 Preview: Tips for updating your JVM args](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Tips-for-updating-your-JVM-args).
+For additional help with configuring your application's JVM args, please see [3.0 Preview: Tips for updating your JVM args](./java-standalone-arguments.md).
 
 **3. Point the agent to your Application Insights resource**
 
-If you do not already have an Application Insights resource, you can create a new one by following the steps in the [resource creation guide](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+If you do not already have an Application Insights resource, you can create a new one by following the steps in the [resource creation guide](./create-new-resource.md).
 
 Point the agent to your Application Insights resource, either by setting an environment variable:
 
@@ -40,7 +40,7 @@ Point the agent to your Application Insights resource, either by setting an envi
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Or by creating a configuration file named `ApplicationInsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.0-PREVIEW.3.jar`, with the following content:
+Or by creating a configuration file named `ApplicationInsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.0-PREVIEW.5.jar`, with the following content:
 
 ```json
 {
@@ -76,7 +76,7 @@ In the `ApplicationInsights.json` file, you can additionally configure:
 * HTTP Proxy
 * Self diagnostics
 
-See details at [3.0 Public Preview: Configuration Options](https://github.com/microsoft/ApplicationInsights-Java/wiki/3.0-Preview:-Configuration-Options).
+See details at [3.0 Public Preview: Configuration Options](./java-standalone-config.md).
 
 ## Autocollected requests, dependencies, logs, and metrics
 
@@ -113,7 +113,7 @@ See details at [3.0 Public Preview: Configuration Options](https://github.com/mi
 
 ### Metrics
 
-* Micrometer
+* Micrometer (including Spring Boot Actuator metrics)
 * JMX Metrics
 
 ## Sending custom telemetry from your application

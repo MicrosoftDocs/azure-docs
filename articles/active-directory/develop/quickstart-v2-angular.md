@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
@@ -18,9 +18,6 @@ ms.author: janutter
 ---
 
 # Quickstart: Sign in users and get an access token in an Angular single-page application
-
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature might change before general availability (GA).
 
 In this quickstart, you use a code sample to learn how an Angular single-page application (SPA) can sign in users who have personal Microsoft accounts, work accounts, or school accounts. An Angular SPA can also get an access token to call the Microsoft Graph API or any web API.
 
@@ -108,7 +105,7 @@ In this quickstart, you use a code sample to learn how an Angular single-page ap
 > > [!TIP]
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 
-For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md). 
+For more information about available configurable options, see [Initialize client applications](msal-js-initializing-client-applications.md).
 
 You can find the source code for the MSAL.js library in the [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
 
@@ -135,7 +132,7 @@ After the browser loads the application, select **Login**. The first time you st
 
 ## How the sample works
 
-![Diagram that shows how the sample app in this quickstart works](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![Diagram that shows how the sample app in this quickstart works](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 
 ## Next steps

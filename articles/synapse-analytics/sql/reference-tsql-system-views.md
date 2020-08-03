@@ -1,5 +1,5 @@
 ---
-title: System views
+title: System views supported in Synapse SQL - workspaces preview
 description: Links to the documentation for system views supported in Synapse SQL.
 author: filippopovic
 ms.service: synapse-analytics 
@@ -244,6 +244,6 @@ The following DMVs are applicable to SQL pool, but must be executed by connectin
 
 ## Next steps
 
-For more reference information, see [T-SQL statements in Synapse SQL](/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements), and [T-SQL language elements in Synapse SQL](/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements).
+For more reference information, see [T-SQL statements in Synapse SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements), and [T-SQL language elements in Synapse SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements).
 
  

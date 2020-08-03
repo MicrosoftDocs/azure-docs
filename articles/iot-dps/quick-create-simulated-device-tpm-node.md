@@ -6,8 +6,8 @@ ms.author: wesmc
 ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
-services: iot-dps 
-ms.custom: mvc
+services: iot-dps
+ms.custom:  [mvc, amqp, mqtt, devx-track-javascript]
 ---
 
 # Quickstart: Create and provision a simulated TPM device using Node.js device SDK for IoT Hub Device Provisioning Service
@@ -255,7 +255,7 @@ If you plan to continue working on and exploring the device client sample, do no
 
 ## Next steps
 
-In this quickstart, you’ve created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn how to enroll your TPM device programmatically, continue to the quickstart for programmatic enrollment of a TPM device. 
+In this quickstart, you've created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn how to enroll your TPM device programmatically, continue to the quickstart for programmatic enrollment of a TPM device. 
 
 > [!div class="nextstepaction"]
 > [Azure quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-node.md)

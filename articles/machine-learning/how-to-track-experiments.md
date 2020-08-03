@@ -3,16 +3,14 @@ title: Log ML experiments & metrics
 titleSuffix: Azure Machine Learning
 description: Monitor your Azure ML experiments and monitor run metrics to enhance the model creation process. Add logging to your training script and view the logged results of a run.  Use run.log, Run.start_logging, or ScriptRunConfig.
 services: machine-learning
-author: sdgilley
-ms.author: sgilley
-ms.reviewer: sgilley
+author: likebupt
+ms.author: keli19
+ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.workload: data-services
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.date: 03/12/2020
-
-ms.custom: seodec18
+ms.custom: how-to
 ---
 
 # Monitor Azure ML experiment runs and metrics
@@ -36,7 +34,7 @@ The following metrics can be added to a run while training an experiment. To vie
 |Lists|Function:<br>`run.log_list(name, value, description='')`<br><br>Example:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Log a list of values to the run with the given name.|
 |Row|Function:<br>`run.log_row(name, description=None, **kwargs)`<br>Example:<br>run.log_row("Y over X", x=1, y=0.4) | Using *log_row* creates a metric with multiple columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be called once to log an arbitrary tuple, or multiple times in a loop to generate a complete table.|
 |Table|Function:<br>`run.log_table(name, value, description='')`<br><br>Example:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Log a dictionary object to the run with the given name. |
-|Images|Function:<br>`run.log_image(name, path=None, plot=None)`<br><br>Example:<br>`run.log_image("ROC", plot=plt)` | Log an image to the run record. Use log_image to log an image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
+|Images|Function:<br>`run.log_image(name, path=None, plot=None)`<br><br>Example:<br>`run.log_image("ROC", plot=plt)` | Log an image to the run record. Use log_image to log a .PNG image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
 |Tag a run|Function:<br>`run.tag(key, value=None)`<br><br>Example:<br>run.tag("selected", "yes") | Tag the run with a string key and optional string value.|
 |Upload file or directory|Function:<br>`run.upload_file(name, path_or_stream)`<br> <br> Example:<br>run.upload_file("best_model.pkl", "./model.pkl") | Upload a file to the run record. Runs automatically capture file in the specified output directory, which defaults to "./outputs" for most run types.  Use upload_file only when additional files need to be uploaded or an output directory is not specified. We suggest adding `outputs` to the name so that it gets uploaded to the outputs directory. You can list all of the files that are associated with this run record by called `run.get_file_names()`|
 
@@ -48,6 +46,7 @@ The following metrics can be added to a run while training an experiment. To vie
 If you want to track or monitor your experiment, you must add code to start logging when you submit the run. The following are ways to trigger the run submission:
 * __Run.start_logging__ - Add logging functions to your training script and start an interactive logging session in the specified experiment. **start_logging** creates an interactive run for use in scenarios such as notebooks. Any metrics that are logged during the session are added to the run record in the experiment.
 * __ScriptRunConfig__ - Add logging functions to your training script and load the entire script folder with the run.  **ScriptRunConfig** is a class for setting up configurations for script runs. With this option, you can add monitoring code to be notified of completion or to get a visual widget to monitor.
+* __Designer logging__ - Add logging functions to a drag-&-drop designer pipeline by using the __Execute Python Script__ module. Add Python code to log designer experiments. 
 
 ## Set up the workspace
 Before adding logging and submitting an experiment, you must set up the workspace.
@@ -100,8 +99,41 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
    [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)]
    [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
 
+## Option 3: Log designer experiments
 
+Use the __Execute Python Script__ module to add logging logic to your designer experiments. You can log any value using this workflow, but it's especially useful to log metrics from the __Evaluate Model__ module to track model performance across different runs.
 
+1. Connect an __Execute Python Script__ module to the output of your __Evaluate Model__ module. __Evaluate Model__ can output evaluation results of 2 models. The following example shows how to log the metrics of 2 output ports in parent run level. 
+
+    ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-track-experiments/designer-logging-pipeline.png)
+
+1. Paste the following code into the __Execute Python Script__ code editor to log the mean absolute error for your trained model:
+
+    ```python
+    # dataframe1 contains the values from Evaluate Model
+    def azureml_main(dataframe1=None, dataframe2=None):
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+    
+        from azureml.core import Run
+    
+        run = Run.get_context()
+    
+        # Log the mean absolute error to the parent run to see the metric in the run details page.
+        # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
+        # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
+
+        # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
+        run.parent.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
+
+        # Log right output port result of Evaluate Model.
+        run.parent.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
+    
+        return dataframe1,
+    ```
+
+1. After the pipeline run is completed, you can see the *Mean_Absolute_Error* in the Experiment page.
+
+    ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
 
 ## Manage a run
 
@@ -178,9 +210,11 @@ You can view the metrics of a trained model using ```run.get_metrics()```. You c
 
 When an experiment has finished running, you can browse to the recorded experiment run record. You can access the history from the [Azure Machine Learning studio](https://ml.azure.com).
 
-Navigate to the Experiments tab and select your experiment. You are brought to the experiment run dashboard, where you can see tracked metrics and charts that are logged for each run. In this case, we logged MSE and the alpha values.
+Navigate to the Experiments tab and select your experiment. You are brought to the experiment run dashboard, where you can see tracked metrics and charts that are logged for each run. 
 
-  ![Run details in the Azure Machine Learning studio](./media/how-to-track-experiments/experiment-dashboard.png)
+You can edit the run list table to display either the last, minimum or maximum logged value for your runs. You can select or deselect multiple runs in the run list and the selected runs will populate the charts with your data. You can also add new charts or edit charts to compare the logged metrics (minimum, maximum, last or all values) across multiple runs. To explore your data more effectively, you can also maximize your charts.
+
+:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Run details in the Azure Machine Learning studio":::
 
 You can drill down to a specific run to view its outputs or logs, or download the snapshot of the experiment you submitted so you can share the experiment folder with others.
 

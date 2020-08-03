@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 07/28/2020
 ms.author: apimpm
 ---
 
@@ -25,6 +25,9 @@ This article describes the differences between self-hosted and managed versions 
 ![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+> [!NOTE]
+> <a name="migrate-from-legacy"></a> The new developer portal is incompatible with the legacy developer portal and automated migration isn't possible. You need to manually recreate the content (pages, text, media files) and customize the look of the new portal. Refer to [the developer portal tutorial](api-management-howto-developer-portal-customize.md) for guidance.
 
 ## <a name="managed-vs-self-hosted"></a> Managed and self-hosted versions
 
@@ -64,7 +67,7 @@ The portal is based on an adapted fork of the [Paperbits framework](https://pape
 
 In this section, we answer common questions about the developer portal, which are of general nature. For questions specific to the self-hosted version, refer to [the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a id="preview-to-ga"/> How can I migrate from the preview version of the portal?
+### <a id="preview-to-ga"></a> How can I migrate from the preview version of the portal?
 
 By using the preview version of the developer portal, you provisioned the preview content in your API Management service. The default content has been significantly modified in the generally available version for better user experience. It also includes new widgets.
 
@@ -78,19 +81,13 @@ If you don't want to reset the content of the portal, you may consider using new
 
 If your portal was provisioned after the general availability announcement, it should already feature the new default content. No action is required from your side.
 
-### How can I migrate from the old developer portal to the developer portal?
-
-Portals are incompatible and you need to migrate the content manually.
-
-### Does the portal have all the features of the old portal?
+### Does the portal have all the features of the legacy portal?
 
 The developer portal no longer supports *Applications* and *Issues*.
 
-Authentication with OAuth in the interactive developer console is not yet supported. You can track the progress through [the GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/208).
+### Has the legacy portal been deprecated?
 
-### Has the old portal been deprecated?
-
-The old developer and publisher portals are now *legacy* features - they will be receiving security updates only. New features will be implemented in the new developer portal only.
+The legacy developer and publisher portals are now *legacy* features - they will be receiving security updates only. New features will be implemented in the new developer portal only.
 
 Deprecation of the legacy portals will be announced separately. If you have questions, concerns, or comments, raise them [in a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/121).
 
@@ -104,7 +101,19 @@ You can programmatically access and manage the developer portal's content throug
 
 The API is documented in [the GitHub repository's wiki section][2]. It can be used for automating migrations of portal content between environments - for example, from a test environment to the production environment. You can learn more about this process [in this documentation article](https://aka.ms/apimdocs/migrateportal) on GitHub.
 
+### How do I move from the managed to the self-hosted version?
+
+Refer to the detailed article in [the Wiki section of the developer portal repository on GitHub][2].
+
+### Can I have multiple developer portals in one API Management service?
+
+You can have one managed portal and multiple self-hosted portals. The content of all portals is stored in the same API Management service, so they will be identical. If you want to differentiate portals' appearance and functionality, you can self-host them with your own custom widgets that dynamically customize pages on runtime, for example based on the URL.
+
 ### Does the portal support Azure Resource Manager templates and/or is it compatible with API Management DevOps Resource Kit?
+
+No.
+
+### Is the portal's content saved with the backup/restore functionality in API Management?
 
 No.
 
@@ -165,7 +174,7 @@ The legacy portals required the permission `Microsoft.ApiManagement/service/gets
 
 You can use the following PowerShell script to create a role with the required permission. Remember to change the `<subscription-id>` parameter. 
 
-```PowerShell
+```powershell
 #New Portals Admin Role 
 Import-Module Az 
 Connect-AzAccount 
@@ -183,7 +192,7 @@ New-AzRoleDefinition -Role $customRole
  
 Once the role is created, it can be granted to any user from the **Access Control (IAM)** section in the Azure portal. Assigning this role to a user will assign the permission at the service scope. The user will be able to generate SAS tokens on behalf of *any* user in the service. At the minimum, this role needs to be assigned to the administrator of the service. The following PowerShell command demonstrates how to assign the role to a user `user1` at the lowest scope to avoid granting unnecessary permissions to the user: 
 
-```PowerShell
+```powershell
 New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
 ```
 

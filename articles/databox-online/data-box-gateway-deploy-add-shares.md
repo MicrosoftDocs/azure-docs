@@ -111,7 +111,7 @@ On your Windows Server client connected to your Data Box Gateway, connect to an 
 
 ### Connect to an NFS share
 
-On your Linux client connected to your Data Box Edge device, do the following procedure:
+On your Linux client connected to your Azure Stack Edge device, do the following procedure:
 
 1. Make sure that the client has NFSv4 client installed. To install NFS client, use the following command:
 

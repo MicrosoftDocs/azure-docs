@@ -74,7 +74,7 @@ Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 
 The following screenshot shows the **Restart-ServiceFabricNode** testability command in action.
 
-![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
+![Screenshot of running the Restart-ServiceFabricNode command in PowerShell.](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
 The output of the first **Get-ServiceFabricNode** (a cmdlet from the Service Fabric PowerShell module) shows that the local cluster has five nodes: Node.1 to Node.5. After the testability action (cmdlet) **Restart-ServiceFabricNode** is executed on the node, named Node.4, we see that the node's uptime has been reset.
 

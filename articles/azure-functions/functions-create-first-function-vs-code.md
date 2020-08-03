@@ -3,21 +3,39 @@ title: Create your first function in Azure using Visual Studio Code
 description: Create and publish to Azure a simple HTTP triggered function by using Azure Functions extension in Visual Studio Code. 
 ms.topic: quickstart
 ms.date: 01/10/2020
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, seo, tracking-python
 zone_pivot_groups: programming-languages-set-functions
 ---
 
-# Quickstart: Create an Azure Functions project using Visual Studio Code
+# Quickstart: Create a function in Azure using Visual Studio Code
 
-In this article, you use Visual Studio Code to create a function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
-
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-There's also a [CLI-based version](functions-create-first-azure-function-azure-cli.md) of this article.
+::: zone pivot="programming-language-csharp"  
+In this article, you use Visual Studio Code to create a C# class library-based function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
 ::: zone-end  
+::: zone pivot="programming-language-javascript"
+In this article, you use Visual Studio Code to create a JavaScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end
+::: zone pivot="programming-language-typescript"
+In this article, you use Visual Studio Code to create a TypeScript function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end   
+::: zone pivot="programming-language-powershell"
+In this article, you use Visual Studio Code to create a PowerShell function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end  
+::: zone pivot="programming-language-python" 
+In this article, you use Visual Studio Code to create a Python function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end  
+::: zone pivot="programming-language-java" 
+In this article, you use Visual Studio Code to create a Java function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions. 
+::: zone-end
 
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account. 
+
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
+There's also a [CLI-based version](functions-create-first-azure-function-azure-cli.md) of this article.
+::: zone-end
 ::: zone pivot="programming-language-java"  
 > [!NOTE]
-> If VS Code is not your prefered development tool, check out our similar tutorials for Java devlopers using [Maven](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java), [Gradle](/azure/azure-functions/functions-create-first-java-gradle) and [IntelliJ IDEA](/azure/java/intellij/azure-toolkit-for-intellij-quickstart-functions).
+> If Visual Studio Code isn't your prefered development tool, check out our similar tutorials for Java developers using [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [Gradle](./functions-create-first-java-gradle.md) and [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions).
 ::: zone-end  
 
 ## Configure your environment
@@ -149,7 +167,9 @@ After you've verified that the function runs correctly on your local computer, i
 
 1. Paste this URL for the HTTP request into your browser's address bar, add the `name` query string as `?name=Functions` to the end of this URL, and then execute the request. The URL that calls your HTTP-triggered function should be in the following format:
 
-        http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions 
+    ```http
+    http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions
+    ```
         
     The following example shows the response in the browser to the remote GET request returned by the function: 
 

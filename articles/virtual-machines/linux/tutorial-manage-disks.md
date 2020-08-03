@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2018
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.subservice: disks
 
 #Customer intent: As an IT administrator, I want to learn about Azure Managed Disks so that I can create and manage storage for Linux VMs in Azure.
@@ -31,7 +31,6 @@ Azure virtual machines (VMs) use disks to store the operating system, applicatio
 > * Standard and Premium disks
 > * Disk performance
 > * Attaching and preparing data disks
-> * Resizing disks
 > * Disk snapshots
 
 
@@ -178,7 +177,7 @@ exit
 
 ## Take a disk snapshot
 
-When you take a disk snapshot, Azure creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful to quickly save the state of a VM before you make configuration changes. In the event of an issue or error, VM can be restored using a snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. To take application consistent backups, consider stopping the VM before you take disk snapshots. Alternatively, use the [Azure Backup service](/azure/backup/), which enables you to perform automated backups while the VM is running.
+When you take a disk snapshot, Azure creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful to quickly save the state of a VM before you make configuration changes. In the event of an issue or error, VM can be restored using a snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. To take application consistent backups, consider stopping the VM before you take disk snapshots. Alternatively, use the [Azure Backup service](../../backup/index.yml), which enables you to perform automated backups while the VM is running.
 
 ### Create snapshot
 
@@ -264,7 +263,6 @@ In this tutorial, you learned about VM disks topics such as:
 > * Standard and Premium disks
 > * Disk performance
 > * Attaching and preparing data disks
-> * Resizing disks
 > * Disk snapshots
 
 Advance to the next tutorial to learn about automating VM configuration.

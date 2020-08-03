@@ -34,7 +34,7 @@ Tutorial requirements include the following:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Cognitive Search service](search-create-service-portal.md)
-* [Microsoft.Azure.Search .NET library](https://aka.ms/search-sdk)
+* [Microsoft.Azure.Search .NET library](https://docs.microsoft.com/dotnet/api/overview/azure/search)
 * [How to use Azure Cognitive Search from a .NET Application](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## Overview

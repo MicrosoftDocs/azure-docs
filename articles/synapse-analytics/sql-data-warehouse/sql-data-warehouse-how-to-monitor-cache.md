@@ -5,7 +5,7 @@ services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin

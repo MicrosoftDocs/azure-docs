@@ -2,7 +2,7 @@
 title: Template functions - logical
 description: Describes the functions to use in an Azure Resource Manager template to determine logical values.
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 04/27/2020
 ---
 # Logical functions for ARM templates
 
@@ -38,7 +38,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -87,7 +87,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -148,7 +148,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -181,7 +181,7 @@ The following [example template](https://github.com/krnese/AzureDeploy/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -247,7 +247,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -279,7 +279,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -289,6 +289,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
             "value": "[not(equals(1, 2))]"
         }
     }
+}
 ```
 
 The output from the preceding example is:
@@ -321,7 +322,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -351,8 +352,5 @@ The output from the preceding example is:
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
-* To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
+* For a description of the sections in an Azure Resource Manager template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
 

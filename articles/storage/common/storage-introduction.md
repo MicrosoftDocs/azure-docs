@@ -73,7 +73,7 @@ File shares can be used for many common scenarios:
 
 - Configuration files can be stored on a file share and accessed from multiple VMs. Tools and utilities used by multiple developers in a group can be stored on a file share, ensuring that everybody can find them, and that they use the same version.
 
-- Diagnostic logs, metrics, and crash dumps are just three examples of data that can be written to a file share and processed or analyzed later.
+- Resource logs, metrics, and crash dumps are just three examples of data that can be written to a file share and processed or analyzed later.
 
 For more information about Azure Files, see [Introduction to Azure Files](../files/storage-files-introduction.md).
 

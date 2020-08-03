@@ -5,8 +5,8 @@ services: azure-portal
 keywords: settings, timeout, language, regional
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/19/2019
-ms.topic: conceptual
+ms.date: 07/30/2020
+ms.topic: how-to
 
 ms.service: azure-portal
 manager:  mtillman
@@ -16,6 +16,7 @@ manager:  mtillman
 You can change the default settings of the Azure portal to meet your own preferences. Each of the settings listed below can be changed:
 
 * [Inactive session time-out](#change-the-idle-duration-for-inactive-sign-out)
+* [Default subscription](#choose-your-default-subscription)
 * [Default view](#choose-your-default-view)
 * [Portal menu mode](#choose-a-portal-menu-mode)
 * [Color and high contrast theme](#choose-a-theme)
@@ -50,9 +51,21 @@ If your admin has enabled an inactivity timeout policy, select the **Override th
 > If you’re an admin, and you want to enforce an inactive timeout setting for all users of the Azure portal, see [Set directory-level inactivity timeout for users of the Azure portal](admin-timeout.md)
 >
 
+### Choose your default subscription
+
+You can change the subscription that opens by default when you sign-in to the Azure portal. This is helpful if you have a primary subscription you work with but use others occasionally. 
+
+:::image type="content" source="media/set-preferences/filter-subscription-default-view.png" alt-text="Filter resource list by subscription.":::
+
+1. Select the directory and subscription filter icon in the top navigation.
+1. Select the subscriptions you want as the default subscriptions when you launch the portal. 
+
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Select the subscriptions you want as the default subscriptions when you launch the portal."::: 
+
+
 ### Choose your default view 
 
-You can change the page that opens by default when your sign-in to the Azure portal.
+You can change the page that opens by default when you sign-in to the Azure portal.
 
    ![Screenshot showing Azure portal settings with default view highlighted](./media/set-preferences/default-view.png)
 
@@ -74,7 +87,7 @@ The theme that you choose affects the background and font colors that appear in 
 
    ![Screenshot showing Azure portal settings with themes highlighted](./media/set-preferences/theme.png)
 
-You can choose one of the high-contrast themes instead. The high contrast settings make the Azure portal easier to read for vision-impaired users and override all other theme selections. For more information, see [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md).
+You can choose one of the high-contrast themes instead. The high contrast settings make the Azure portal easier to read for people who have a visual impairment and override all other theme selections. For more information, see [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md).
 
 ### Enable or disable pop-up notifications
 

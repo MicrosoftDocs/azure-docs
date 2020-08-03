@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/26/2020
+ms.date: 05/15/2020
 
 ---
 
@@ -26,7 +26,7 @@ In September 2018, Microsoft combined Azure Monitor, Log Analytics, and Applicat
 Features of Azure Monitor that are automatically enabled such as collection of metrics and activity logs are provided at no cost. There is a cost associated with other features such as log queries and alerting. See the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing information.
 
 ### How do I enable Azure Monitor?
-Azure Monitor is enabled the moment that you create a new Azure subscription, and [Activity log](platform/activity-logs-overview.md) and platform [metrics](platform/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](platform/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](insights/solutions.md) and [insights](insights/insights-overview.md) to provide additional analysis on collected data for particular services. 
+Azure Monitor is enabled the moment that you create a new Azure subscription, and [Activity log](./platform/platform-logs-overview.md) and platform [metrics](platform/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](platform/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](insights/solutions.md) and [insights](insights/insights-overview.md) to provide additional analysis on collected data for particular services. 
 
 ### How do I access Azure Monitor?
 Access all Azure Monitor features and data from the **Monitor** menu in the Azure portal. The **Monitoring** section of the menu for different Azure services provides access to the same tools with data filtered to a particular resource. Azure Monitor data is also accessible for a variety of scenarios using CLI, PowerShell, and a REST API.
@@ -92,6 +92,11 @@ Many resource providers are automatically registered, but you may need to manual
 
 ### Why am I am getting no access error message when opening Log Analytics from a VM? 
 To view VM Logs, you need to be granted with read permission to the workspaces that stores the VM logs. In these cases, your administrator must grant you with to permissions in Azure.
+
+## Metrics
+
+### Why are metrics from the guest OS of my Azure virtual machine not showing up in Metrics explorer?
+[Platform metrics](insights/monitor-azure-resource.md#monitoring-data) are collected automatically for Azure resources. You must perform some configuration though to collect metrics from the guest OS of a virtual machine. For a Windows VM, install the diagnostic extension and configure the Azure Monitor sink as described in [Install and configure Windows Azure diagnostics extension (WAD)](platform/diagnostics-extension-windows-install.md). For Linux, install the Telegraf agent as described in [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](platform/collect-custom-metrics-linux-telegraf.md).
 
 ## Alerts
 
@@ -192,11 +197,15 @@ View Designer is only available for users assigned with Contributor permissions 
 * [Azure diagnostics](platform/diagnostics-extension-to-application-insights.md)
 * [Java web app](app/java-troubleshoot.md)
 
-*I get no data from my server*
+*I get no data from my server:*
 
 * [Set firewall exceptions](app/ip-addresses.md)
 * [Set up an ASP.NET server](app/monitor-performance-live-website-now.md)
 * [Set up a Java server](app/java-agent.md)
+
+*How many Application Insights should I deploy?:*
+
+* [How to design your Application Insights deployment: One versus many Application Insights resources?](app/separate-resources.md)
 
 ### Can I use Application Insights with ...?
 
@@ -251,6 +260,10 @@ See the [release notes](app/release-notes.md) for the SDK appropriate to your ty
 ### <a name="update"></a>How can I change which Azure resource my project sends data to?
 In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You can send the data to an existing or new resource in Azure. The update wizard changes the instrumentation key in ApplicationInsights.config, which determines where the server SDK sends your data. Unless you deselect "Update all," it will also change the key where it appears in your web pages.
 
+### Can I use `providers('Microsoft.Insights', 'components').apiVersions[0]` in my Azure Resource Manager deployments?
+
+We do not recommend using this method of populating the API version. The newest version can represent preview releases which may contain breaking changes. Even with newer non-preview releases, the API versions are not always backwards compatible with existing templates, or in some cases the API version may not be available to all subscriptions.
+
 ### What is Status Monitor?
 
 A desktop app that you can use in your IIS web server to help configure Application Insights in web apps. It doesn't collect telemetry: you can stop it when you are not configuring an app. 
@@ -298,10 +311,10 @@ We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](http
 
 * Browser telemetry: We collect the sender's IP address.
 * Server telemetry: The Application Insights module collects the client IP address. It is not collected if `X-Forwarded-For` is set.
-* To learn more about how IP address and geolocation data is collected in Application Insights refer to this [article](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
+* To learn more about how IP address and geolocation data is collected in Application Insights refer to this [article](./app/ip-collection.md).
 
 
-You can configure the `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it is moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/blog/2016/07/05/client-ip-address/).
+You can configure the `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it is moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/posts/2016-07-05-client-ip-address/).
 
 You can [use Power BI](app/export-power-bi.md ) to display your request telemetry on a map.
 
@@ -311,7 +324,7 @@ Take a look at [Data Retention and Privacy][data].
 
 ### What happens to Application Insight's telemetry when a server or device loses connection with Azure?
 
-All of our SDKs, including the web SDK, includes "reliable transport" or "robust transport". When the server or device loses connection with Azure, telemetry is [stored locally on the file system](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage) (Server SDKs) or in HTML5 Session Storage (Web SDK). The SDK will periodically retry to send this telemetry until our ingestion service considers it "stale" (48-hours for logs, 30 minutes for metrics). Stale telemetry will be dropped. In some cases, such as when local storage is full, retry will not occur.
+All of our SDKs, including the web SDK, includes "reliable transport" or "robust transport". When the server or device loses connection with Azure, telemetry is [stored locally on the file system](./app/data-retention-privacy.md#does-the-sdk-create-temporary-local-storage) (Server SDKs) or in HTML5 Session Storage (Web SDK). The SDK will periodically retry to send this telemetry until our ingestion service considers it "stale" (48-hours for logs, 30 minutes for metrics). Stale telemetry will be dropped. In some cases, such as when local storage is full, retry will not occur.
 
 
 ### Could personal data be sent in the telemetry?
@@ -350,7 +363,7 @@ Use a single resource for all the components or roles in a single business syste
 ### What are the User and Session counts?
 
 * The JavaScript SDK sets a user cookie on the web client, to identify returning users, and a session cookie to group activities.
-* If there is no client-side script, you can [set cookies at the server](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
+* If there is no client-side script, you can [set cookies at the server](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
 * If one real user uses your site in different browsers, or using in-private/incognito browsing, or different machines, then they will be counted more than once.
 * To identify a logged-in user across machines and browsers, add a call to [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
 
@@ -393,7 +406,7 @@ You can't set up a Metric Explorer report or set up continuous export.
 
 #### Querying the telemetry
 
-Use the [REST API](https://dev.applicationinsights.io/) to run [Analytics](app/analytics.md) queries.
+Use the [REST API](https://dev.applicationinsights.io/) to run [Analytics](./log-query/log-query-overview.md) queries.
 
 ### How can I set an alert on an event?
 
@@ -408,7 +421,7 @@ This doesn't depend on where your Application Insights resource is hosted. It ju
 
 ### Can I send telemetry to the Application Insights portal?
 
-We recommend you use our SDKs and use the [SDK API](app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app/platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
+We recommend you use our SDKs and use the [SDK API](app/api-custom-events-metrics.md). There are variants of the SDK for various [platforms](app/platforms.md). These SDKs handle buffering, compression, throttling, retries, and so on. However, the [ingestion schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) and [endpoint protocol](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) are public.
 
 ### Can I monitor an intranet web server?
 
@@ -460,7 +473,7 @@ Your gateway should route traffic to our endpoint's base address. In your config
 #### Proxy passthrough
 
 Proxy passthrough can be achieved by configuring either a machine level or application level proxy.
-For more information see dotnet's article on [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+For more information see dotnet's article on [DefaultProxy](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
  Example Web.config:
  ```xml
@@ -496,6 +509,10 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 ## Azure Monitor for containers
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+
+### Health feature is in private preview
+
+We are planning to make a series of changes to add functionality and address your feedback. The Health feature is going to transition to a private preview at the end of June 2020, and for additional information review the following [Azure updates announcement](https://azure.microsoft.com/updates/ci-health-limited-preview/).
 
 ### What does *Other Processes* represent under the Node view?
 
@@ -634,7 +651,7 @@ See the [Network firewall requirements](insights/container-insights-onboard.md#n
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for VMs. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ### Can I onboard to an existing workspace?
-If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to Azure Monitor for VMs, provided it is in one of the supported regions listed [here](insights/vminsights-enable-overview.md#prerequisites).
+If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to Azure Monitor for VMs, provided it is in one of the [supported regions](insights/vminsights-configure-workspace.md#supported-regions).
 
 
 ### Can I onboard to a new workspace? 
@@ -714,7 +731,7 @@ Under this condition, you will be prompted with the **Try Now** option when you 
 ## Next steps
 If your question isn't answered here, you can refer to the following forums to additional questions and answers.
 
-- [Log Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)
-- [Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+- [Log Analytics](/answers/topics/azure-monitor.html)
+- [Application Insights](/answers/topics/azure-monitor.html)
 
 For general feedback on Azure Monitor please visit the [feedback forum](https://feedback.azure.com/forums/34192--general-feedback).

@@ -1,15 +1,8 @@
 ---
 title: What is Personalizer?
-titleSuffix: Azure Cognitive Services
 description: Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
 ms.topic: overview
-ms.date: 01/21/2020
-ms.author: diberry
+ms.date: 04/20/2020
 #Customer intent:
 ---
 
@@ -73,17 +66,24 @@ Since Personalizer uses collective information in near real-time to return the s
 ## How to design and implement Personalizer for your client application
 
 1. [Design](concepts-features.md) and plan for content, **_actions_**, and **_context_**. Determine the reward algorithm for the **_reward_** score.
-1. Each [Personalizer Resource](how-to-settings.md) you create is considered 1 Learning Loop. The loop will receive the both the Rank and Reward calls for that content or user experience.
-1. Add Personalizer to your website or content system:
+1. Each [Personalizer Resource](how-to-settings.md) you create is considered one Learning Loop. The loop will receive the both the Rank and Reward calls for that content or user experience.
+
+    |Resource type| Purpose|
+    |--|--|
+    |[Apprentice mode](concept-apprentice-mode.md) `E0`|Train the Personalizer model without impacting your existing application, then deploy to Online learning behavior to a production environment|
+    |Standard, `S0`|Online learning behavior in a production environment|
+    |Free, `F0`| Try Online learning behavior in a non-production environment|
+
+1. Add Personalizer to your application, website, or system:
     1. Add a **Rank** call to Personalizer in your application, website, or system to determine best, single _content_ item before the content is shown to the user.
     1. Display best, single _content_ item, which is the returned _reward action ID_, to user.
-    1. Apply _algorithm_ to collected information about how the user behaved, to determine the **reward** score, such as:
+    1. Apply _business logic_ to collected information about how the user behaved, to determine the **reward** score, such as:
 
-        |Behavior|Calculated reward score|
-        |--|--|
-        |User selected best, single _content_ item (reward action ID)|**1**|
-        |User selected other content|**0**|
-        |User paused, scrolling around indecisively, before selecting best, single _content_ item (reward action ID)|**0.5**|
+    |Behavior|Calculated reward score|
+    |--|--|
+    |User selected best, single _content_ item (reward action ID)|**1**|
+    |User selected other content|**0**|
+    |User paused, scrolling around indecisively, before selecting best, single _content_ item (reward action ID)|**0.5**|
 
     1. Add a **Reward** call sending a reward score between 0 and 1
         * Immediately after showing your content

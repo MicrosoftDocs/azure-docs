@@ -6,20 +6,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 07/20/2020
 
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
 ---
-# Password management frequently asked questions
+# Self-service password reset frequently asked questions
 
-The following are some frequently asked questions (FAQ) for all things related to password reset.
+The following are some frequently asked questions (FAQ) for all things related to self-service password reset.
 
-If you have a general question about Azure Active Directory (Azure AD) and self-service password reset (SSPR) that's not answered here, you can ask the community for assistance on the [Azure AD forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Members of the community include engineers, product managers, MVPs, and fellow IT professionals.
+If you have a general question about Azure Active Directory (Azure AD) and self-service password reset (SSPR) that's not answered here, you can ask the community for assistance on the [Microsoft Q&A question page for Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Members of the community include engineers, product managers, MVPs, and fellow IT professionals.
 
 This FAQ is split into the following sections:
 
@@ -35,7 +35,7 @@ This FAQ is split into the following sections:
 
   > **A:** Yes. As long as password reset is enabled and they are licensed, users can go to the password reset registration portal (https://aka.ms/ssprsetup) to register their authentication information. Users can also register through the Access Panel (https://myapps.microsoft.com). To register through the Access Panel, they need to select their profile picture, select **Profile**, and then select the **Register for password reset** option.
   >
-  >
+  > If you enable [combined registration](concept-registration-mfa-sspr-combined.md), users can register for both SSPR and Azure Multi-Factor Authentication at the same time.
 * **Q:  If I enable password reset for a group and then decide to enable it for everyone are my users required re-register?**
 
   > **A:** No. Users who have populated authentication data are not required to re-register.

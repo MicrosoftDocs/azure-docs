@@ -3,7 +3,7 @@ title: Task hubs in Durable Functions - Azure
 description: Learn what a task hub is in the Durable Functions extension for Azure Functions. Learn how to configure task hubs.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
 ---
 
@@ -105,12 +105,12 @@ The following code demonstrates how to write a function that uses the [orchestra
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
     [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
-    [OrchestrationClient(TaskHub = "%MyTaskHub%")] IDurableOrchestrationClient starter,
+    [DurableClient(TaskHub = "%MyTaskHub%")] IDurableOrchestrationClient starter,
     string functionName,
     ILogger log)
 {
     // Function input comes from the request content.
-    dynamic eventData = await req.Content.ReadAsAsync<object>();
+    object eventData = await req.Content.ReadAsAsync<object>();
     string instanceId = await starter.StartNewAsync(functionName, eventData);
 
     log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
@@ -123,6 +123,19 @@ public static async Task<HttpResponseMessage> Run(
 > The previous C# example is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
+
+The task hub property in the `function.json` file is set via App Setting:
+
+```json
+{
+    "name": "input",
+    "taskHub": "%MyTaskHub%",
+    "type": "orchestrationClient",
+    "direction": "in"
+}
+```
+
+# [Python](#tab/python)
 
 The task hub property in the `function.json` file is set via App Setting:
 

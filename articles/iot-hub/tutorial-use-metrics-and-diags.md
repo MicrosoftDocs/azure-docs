@@ -7,7 +7,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
-ms.custom: mvc
+ms.custom: [mvc, mqtt, devx-track-azurecli]
 #Customer intent: As a developer, I want to know how to set up and check metrics and diagnostic logs, to help me troubleshoot when there is a problem with an Azure IoT hub. 
 ---
 
@@ -99,7 +99,7 @@ echo "Storage account name = " $storageAccountName
 # Create the storage account.
 az storage account create --name $storageAccountName \
     --resource-group $resourceGroup \
-	--location $location \
+    --location $location \
     --sku Standard_LRS
 
 # Create the IoT device identity to be used for testing.

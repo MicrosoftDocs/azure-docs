@@ -15,7 +15,7 @@ ms.date: 04/25/2019
 
 # Linked services in Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > * [Version 1](v1/data-factory-create-datasets.md)
 > * [Current version](concepts-linked-services.md)
 
@@ -23,11 +23,11 @@ ms.date: 04/25/2019
 
 This article describes what linked services are, how they're defined in JSON format, and how they're used in Azure Data Factory pipelines.
 
-If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview.
+If you're new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview.
 
 ## Overview
 
-A data factory can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you might use a copy activity to copy data from an on-premises SQL Server to Azure Blob storage. Then, you might use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process data from Blob storage to produce output data. Finally, you might use a second copy activity to copy the output data to Azure SQL Data Warehouse, on top of which business intelligence (BI) reporting solutions are built. For more information about pipelines and activities, see [Pipelines and activities](concepts-pipelines-activities.md) in Azure Data Factory.
+A data factory can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you might use a copy activity to copy data from SQL Server to Azure Blob storage. Then, you might use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process data from Blob storage to produce output data. Finally, you might use a second copy activity to copy the output data to Azure SQL Data Warehouse, on top of which business intelligence (BI) reporting solutions are built. For more information about pipelines and activities, see [Pipelines and activities](concepts-pipelines-activities.md) in Azure Data Factory.
 
 Now, a **dataset** is a named view of data that simply points or references the data you want to use in your **activities** as inputs and outputs.
 
@@ -90,7 +90,10 @@ The following linked service is an Azure Storage linked service. Notice that the
 
 ## Create linked services
 
-You can create linked services by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template, and Azure portal
+Linked services can be created in the Azure Data Factory UX via the [management hub](author-management-hub.md) and any activities, datasets, or data flows that reference them.
+
+You can create linked services by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template, and Azure portal.
+
 
 ## Data store linked services
 

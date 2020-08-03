@@ -3,7 +3,7 @@ title: Angular single-page app tutorial - Azure
 titleSuffix: Microsoft identity platform
 description: Learn how Angular SPA applications can call an API that requires access tokens from the Microsoft identity platform endpoint.
 services: active-directory
-author: hahamil
+author: hamiltonha
 manager: CelesteDG
 
 ms.service: active-directory
@@ -12,13 +12,10 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, devx-track-javascript
 ---
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application
-
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature might change before general availability (GA).
 
 This tutorial demonstrates how an Angular single-page application (SPA) can:
 - Sign in personal accounts, work accounts, or school accounts.
@@ -30,18 +27,14 @@ This tutorial demonstrates how an Angular single-page application (SPA) can:
 
 ## How the sample app works
 
-![Diagram that shows how the sample app generated in this tutorial works](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
+![Diagram that shows how the sample app generated in this tutorial works](./media/tutorial-v2-angular/diagram-auth-flow-spa-angular.svg)
 
-<!--start-collapse-->
 ### More information
 
 The sample application created in this tutorial enables an Angular SPA to query the Microsoft Graph API or a web API that accepts tokens from the Microsoft identity platform endpoint. The MSAL for Angular library is a wrapper of the core MSAL.js library. It enables Angular (6+) applications to authenticate enterprise users by using Microsoft Azure Active Directory, Microsoft account users, and social identity users (such as Facebook, Google, and LinkedIn). The library also enables the applications to get access to Microsoft cloud services or Microsoft Graph.
 
 In this scenario, after a user signs in, an access token is requested and added to HTTP requests through the authorization header. Token acquisition and renewal are handled by MSAL.
 
-<!--end-collapse-->
-
-<!--start-collapse-->
 ### Libraries
 
 This tutorial uses the following library:
@@ -50,14 +43,7 @@ This tutorial uses the following library:
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library for JavaScript Angular Wrapper|
 
-> [!NOTE]
-> *Msal.js* targets the Microsoft identity platform endpoint, which enables personal accounts, work accounts, and school accounts to sign in and acquire tokens. The Microsoft identity platform endpoint has [some limitations](../azuread-dev/azure-ad-endpoint-comparison.md#limitations).
-> To understand the differences between the v1.0 and v2.0 endpoints, see the [endpoint comparison guide](../azuread-dev/azure-ad-endpoint-comparison.md).
-
 You can find the source code for the MSAL.js library in the [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
-
-<!--end-collapse-->
-
 
 ## Prerequisites
 
@@ -70,10 +56,11 @@ To run this tutorial, you need:
 
 Generate a new Angular application by using the following npm commands:
 
-```Bash
+```bash
 npm install -g @angular/cli@8                    # Install the Angular CLI
-npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
 ng new my-application --routing=true --style=css # Generate a new Angular app
+cd my-application                                # Change to the app directory
+npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
 npm install msal @azure/msal-angular             # Install MSAL and MSAL Angular in your application
 ng generate component page-name                  # To add a new page (such as a home or profile page)
 ```
@@ -148,7 +135,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and enable im
 3. Add the following import statements to the top of `src/app/app.component.ts`:
 
     ```javascript
-    import { MsalService } from '@azure/msal-angular';
+    import { MsalService, BroadcastService } from '@azure/msal-angular';
     import { Component, OnInit } from '@angular/core';
     ```
 ## Sign in a user
@@ -158,6 +145,8 @@ Add the following code to `AppComponent` to sign in a user:
 ```javascript
 export class AppComponent implements OnInit {
     constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
+
+    ngOnInit() { }
 
     login() {
         const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -335,10 +324,7 @@ The first time that you start to sign in to your application, you're prompted to
 
 ![The "Permissions requested" window](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
-
-
-<!--start-collapse-->
-### Add scopes and delegated permissions
+## Add scopes and delegated permissions
 
 The Microsoft Graph API requires the *user.read* scope to read a user's profile. By default, this scope is automatically added in every application that's registered on the registration portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the *Calendars.Read* scope in order to list the user's calendars.
 
@@ -349,13 +335,10 @@ To access the user's calendars in the context of an application, add the *Calend
 
 If a back-end API doesn't require a scope (not recommended), you can use *clientId* as the scope in the calls to acquire tokens.
 
-<!--end-collapse-->
-
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
 
-Next, learn how to sign in a user and acquire tokens in the Angular tutorial:
+If you're new to identity and access management, we have several articles to help you learn modern authentication concepts, starting with [authentication vs. authorization](authentication-vs-authorization.md).
 
-> [!div class="nextstepaction"]
-> [Angular tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
+If you'd like to dive deeper into single-page application development on the Microsoft identity platform, the multi-part [Scenario: Single-page application](scenario-spa-overview.md) series of articles can help you get started.

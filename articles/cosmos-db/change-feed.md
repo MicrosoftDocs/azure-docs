@@ -28,7 +28,7 @@ This feature is currently supported by the following Azure Cosmos DB APIs and cl
 
 ## Change feed and different operations
 
-Today, you see all inserts and updates in the change feed. You can't filter the change feed for for a specific type of operation. One possible alternative, is to add a "soft marker" on the item for updates and filter based on that when processing items in the change feed.
+Today, you see all inserts and updates in the change feed. You can't filter the change feed for a specific type of operation. One possible alternative, is to add a "soft marker" on the item for updates and filter based on that when processing items in the change feed.
 
 Currently change feed doesn't log deletes. Similar to the previous example, you can add a soft marker on the items that are being deleted. For example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that it can be automatically deleted. You can read the change feed for historic items (the most recent change corresponding to the item, it doesn't include the intermediate changes), for example, items that were added five years ago. You can read the change feed as far back as the origin of your container but if an item is deleted, it will be removed from the change feed.
 
@@ -62,7 +62,7 @@ You can work with change feed using the following options:
 
 Change feed is available for each logical partition key within the container, and it can be distributed across one or more consumers for parallel processing as shown in the image below.
 
-![Distributed processing of Azure Cosmos DB change feed](./media/change-feed/changefeedvisual.png)
+:::image type="content" source="./media/change-feed/changefeedvisual.png" alt-text="Distributed processing of Azure Cosmos DB change feed" border="false":::
 
 ## Features of change feed
 

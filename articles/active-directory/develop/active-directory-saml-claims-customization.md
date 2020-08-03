@@ -3,14 +3,14 @@ title: Customize Azure AD app SAML token claims
 titleSuffix: Microsoft identity platform
 description: Learn how to customize the claims issued in the SAML token for enterprise applications in Azure AD.
 services: active-directory
-author: rwike77
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/22/2019
-ms.author: ryanwi
+ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ---
@@ -159,14 +159,14 @@ To add a claim condition:
 
 1. In **Manage claim**, expand the Claim conditions.
 2. Select the user type.
-3. Select the group(s) to which the user should belong. You can select up to 10 unique groups across all claims for a given application. 
+3. Select the group(s) to which the user should belong. You can select up to 50 unique groups across all claims for a given application. 
 4. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
 
 The order in which you add the conditions are important. Azure AD evaluates the conditions from top to bottom to decide which value to emit in the claim. 
 
-For example, Brita Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Brita tries to sign in to Fabrikam, Azure AD will evaluate the conditions as follow.
+For example, Britta Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, Azure AD will evaluate the conditions as follow.
 
-First, Azure AD verifies if Brita's user type is `All guests`. Since, this is true then Azure AD assigns the source for the claim to `user.extensionattribute1`. Second, Azure AD verifies if Brita's user type is `AAD guests`, since this is also true then Azure AD assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.email` for Brita.
+First, Azure AD verifies if Britta's user type is `All guests`. Since, this is true then Azure AD assigns the source for the claim to `user.extensionattribute1`. Second, Azure AD verifies if Britta's user type is `AAD guests`, since this is also true then Azure AD assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.mail` for Britta.
 
 ![Claims conditional configuration](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 

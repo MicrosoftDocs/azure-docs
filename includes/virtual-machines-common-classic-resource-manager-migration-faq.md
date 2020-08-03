@@ -10,6 +10,13 @@ ms.author: tagore
 ms.custom: include file
 
 ---
+## What is Azure Service Manager and what does it mean by classic?
+
+The word "classic" in IaaS VM (classic) refers to VMs managed by Azure Service Manager (ASM). Azure Service Manager (ASM) is the old control plane of azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
+
+## What is Azure Resource Manager?
+
+[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) is the latest control plane of azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
 
 ## What is the time required for migration?
 
@@ -25,7 +32,7 @@ Customer who had active or stopped but allocated IaaS VMs (Classic) in their sub
 
 ## Why am I getting an error stating "NewClassicVMCreationNotAllowedForSubscription"?
 
-As part of the retirement process, IaaS VM (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using [Azure Virtual Machines using ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). If you cannot use Azure VMs using ARM, please contact support for subscription whitelisting.
+As part of the retirement process, IaaS VM (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using [Azure Virtual Machines using ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). If you cannot use Azure VMs using ARM, please contact support to add your subscription to the allow list.
 
 ## Does this migration plan affect any of my existing services or applications that run on Azure virtual machines? 
 
@@ -90,7 +97,7 @@ We recommend that you abort your migration and then log a support request to inc
 
 ## How do I report an issue? 
 
-Post your issues and questions about migration to our [VM forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
+Post your issues and questions about migration to our [Microsoft Q&A question page for VM](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
 
 ## What if I don't like the names of the resources that the platform chose during migration? 
 

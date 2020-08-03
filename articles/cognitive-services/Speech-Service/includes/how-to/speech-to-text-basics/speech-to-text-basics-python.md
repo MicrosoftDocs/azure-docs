@@ -101,7 +101,7 @@ Here's an example of synchronous single-shot recognition using [`recognize_once(
 result = speech_recognizer.recognize_once()
 ```
 
-Here's an example of synchronous single-shot recognition using [`recognize_once_async()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once-async------azure-cognitiveservices-speech-resultfuture):
+Here's an example of asynchronous single-shot recognition using [`recognize_once_async()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once-async------azure-cognitiveservices-speech-resultfuture):
 
 ```Python
 result = speech_recognizer.recognize_once_async()

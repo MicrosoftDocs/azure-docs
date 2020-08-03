@@ -1,10 +1,12 @@
-- name: Azure Security Center for IoT Documentation
+- name: Azure Security Center for IoT documentation
   href: index.yml
 - name: Overview
   href: overview.md
   items:
   - name: Solution architecture
     href: architecture.md
+  - name: Security solution for Azure RTOS
+    href: iot-security-azure-rtos.md
   - name: Security agents
     href: security-agent-architecture.md
   - name: Edge security module

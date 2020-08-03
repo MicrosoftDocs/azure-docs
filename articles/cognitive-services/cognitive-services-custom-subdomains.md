@@ -61,11 +61,11 @@ Each custom subdomain name is unique, so in order to reuse a custom subdomain na
 Yes. This is a list of regional endpoints that you can use with Azure Cognitive Services resources.
 
 > [!NOTE]
-> The Translator Text API and Bing Search APIs use global endpoints.
+> The Translator service and Bing Search APIs use global endpoints.
 
 | Endpoint type | Region | Endpoint |
 |---------------|--------|----------|
-| Public | Global (Translator Text & Bing) | `https://api.cognitive.microsoft.com` |
+| Public | Global (Translator & Bing) | `https://api.cognitive.microsoft.com` |
 | | Australia East | `https://australiaeast.api.cognitive.microsoft.com` |
 | | Brazil South | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Canada Central | `https://canadacentral.api.cognitive.microsoft.com` |

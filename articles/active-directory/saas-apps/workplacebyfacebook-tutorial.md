@@ -206,7 +206,7 @@ In this section, a user called B.Simon is created in Workplace by Facebook. Work
 There is no action for you in this section. If a user doesn't exist in Workplace by Facebook, a new one is created when you attempt to access Workplace by Facebook.
 
 >[!Note]
->If you need to create a user manually, Contact [Workplace by Facebook Client support team](https://workplace.fb.com/faq/)
+>If you need to create a user manually, Contact [Workplace by Facebook Client support team](https://www.workplace.com/help/work/)
 
 ## Test SSO 
 

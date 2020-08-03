@@ -140,7 +140,7 @@ https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
 
 You may also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, RBAC controls, and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
-How to view available Azure Policy Aliases:
+How to view available Azure Policy aliases:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -160,7 +160,7 @@ https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
 **Guidance**: Use Tags for network security group (NSGs) and other resources related to network security and traffic flow that are associated with your Azure HDInsight cluster. For individual NSG rules, use the "Description" field to specify business need and/or duration (etc.) for any rules that allow traffic to/from a network.
 
-Use any of the built-in Azure policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources.
+Use any of the built-in Azure Policy definitions related to tagging, such as "Require tag and its value" to ensure that all resources are created with Tags and to notify you of existing untagged resources.
 
 You may use Azure PowerShell or Azure command-line interface (CLI) to look-up or perform actions on resources based on their Tags.
 
@@ -773,7 +773,7 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
-How to create queries with Azure Graph:
+How to create queries with Azure Resource Graph:
 
 https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -831,7 +831,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 ### 6.5: Monitor for unapproved Azure resources
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
 - Not allowed resource types
 
@@ -880,7 +880,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 ### 6.9: Use only approved Azure services
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
 
 - Not allowed resource types
 
@@ -939,7 +939,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.HDInsight" namespace to create custom policies to audit or enforce the network configuration of your HDInsight cluster.
 
-How to view available Azure Policy Aliases:
+How to view available Azure Policy aliases:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -962,7 +962,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings for your Azure HDInsight clusters and related resources.
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings for your Azure HDInsight clusters and related resources.
 
 How to configure and manage Azure Policy:
 
@@ -987,7 +987,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 ### 7.5: Securely store configuration of Azure resources
 
-**Guidance**: If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
+**Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
 How to store code in Azure DevOps:
 
@@ -1033,7 +1033,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.HDInsight" namespace to create custom policies to audit or enforce the  configuration of your HDInsight cluster.
 
-How to view available Azure Policy Aliases:
+How to view available Azure Policy aliases:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -1151,7 +1151,7 @@ How to configure storage redundancy for Azure Storage Accounts:
 
 https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
-How to configure redundancy for Azure SQL Databases:
+How to configure redundancy for Azure SQL Database:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication
 

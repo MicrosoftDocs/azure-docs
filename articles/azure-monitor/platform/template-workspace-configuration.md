@@ -149,7 +149,7 @@ For capacity reservation, you define a selected capacity reservation for ingesti
    >* "name": "CapacityReservation",
    >* "capacityReservationLevel": 100
 
-2. Edit the template to meet your requirements. Consider creating a [Resource Manager parameters file](../../azure-resource-manager/templates/parameter-files.md) instead of passing parameters as inline values. Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) reference to learn what properties and values are supported. 
+2. Edit the template to meet your requirements. Consider creating a [Resource Manager parameters file](../../azure-resource-manager/templates/parameter-files.md) instead of passing parameters as inline values. Review [Microsoft.OperationalInsights/workspaces template](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) reference to learn what properties and values are supported. 
 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
 
@@ -176,14 +176,15 @@ The following template sample illustrates how to:
 
 1. Add solutions to the workspace
 2. Create saved searches. To ensure that deployments don't override saved searches accidentally, an eTag property should be added in the "savedSearches" resource to override and maintain the idempotency of saved searches.
-3. Create a computer group
-4. Enable collection of IIS logs from computers with the Windows agent installed
-5. Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
-6. Collect syslog events from Linux computers
-7. Collect Error and Warning events from the Application Event Log from Windows computers
-8. Collect Memory Available Mbytes performance counter from Windows computers
-9. Collect IIS logs and Windows Event logs written by Azure diagnostics to a storage account
-10. Collect custom logs from Windows computer
+3. Create saved function. The eTag should be added to override function and maintain idempotency.
+4. Create a computer group
+5. Enable collection of IIS logs from computers with the Windows agent installed
+6. Collect Logical Disk perf counters from Linux computers (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
+7. Collect syslog events from Linux computers
+8. Collect Error and Warning events from the Application Event Log from Windows computers
+9. Collect Memory Available Mbytes performance counter from Windows computers
+10. Collect IIS logs and Windows Event logs written by Azure diagnostics to a storage account
+11. Collect custom logs from Windows computer
 
 ```json
 {
@@ -224,35 +225,35 @@ The following template sample illustrates how to:
       "type": "bool",
       "defaultValue": "[bool('false')]",
       "metadata": {
-        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
+        "description": "If set to true, changing retention to 30 days will immediately delete older data. Use this with extreme caution. This only applies when retention is being set to 30 days."
       }
     },
     "location": {
       "type": "string",
       "allowedValues": [
-        "australiacentral", 
-        "australiaeast", 
-        "australiasoutheast", 
+        "australiacentral",
+        "australiaeast",
+        "australiasoutheast",
         "brazilsouth",
-        "canadacentral", 
-        "centralindia", 
-        "centralus", 
-        "eastasia", 
-        "eastus", 
-        "eastus2", 
-        "francecentral", 
-        "japaneast", 
-        "koreacentral", 
-        "northcentralus", 
-        "northeurope", 
-        "southafricanorth", 
-        "southcentralus", 
-        "southeastasia", 
-        "uksouth", 
-        "ukwest", 
-        "westcentralus", 
-        "westeurope", 
-        "westus", 
+        "canadacentral",
+        "centralindia",
+        "centralus",
+        "eastasia",
+        "eastus",
+        "eastus2",
+        "francecentral",
+        "japaneast",
+        "koreacentral",
+        "northcentralus",
+        "northeurope",
+        "southafricanorth",
+        "southcentralus",
+        "southeastasia",
+        "uksouth",
+        "ukwest",
+        "westcentralus",
+        "westeurope",
+        "westus",
         "westus2"
       ],
       "metadata": {
@@ -260,38 +261,38 @@ The following template sample illustrates how to:
       }
     },
     "applicationDiagnosticsStorageAccountName": {
-        "type": "string",
-        "metadata": {
-          "description": "Name of the storage account with Azure diagnostics output"
-        }
+      "type": "string",
+      "metadata": {
+        "description": "Name of the storage account with Azure diagnostics output"
+      }
     },
     "applicationDiagnosticsStorageAccountResourceGroup": {
-        "type": "string",
-        "metadata": {
-          "description": "The resource group name containing the storage account with Azure diagnostics output"
-        }
+      "type": "string",
+      "metadata": {
+        "description": "The resource group name containing the storage account with Azure diagnostics output"
+      }
     },
     "customLogName": {
-    "type": "string",
-    "metadata": {
-      "description": "The custom log name"
+      "type": "string",
+      "metadata": {
+        "description": "The custom log name"
       }
-     }
+    }
+  },
+  "variables": {
+    "Updates": {
+      "Name": "[Concat('Updates', '(', parameters('workspaceName'), ')')]",
+      "GalleryName": "Updates"
     },
-    "variables": {
-      "Updates": {
-        "Name": "[Concat('Updates', '(', parameters('workspaceName'), ')')]",
-        "GalleryName": "Updates"
-      },
-      "AntiMalware": {
-        "Name": "[concat('AntiMalware', '(', parameters('workspaceName'), ')')]",
-        "GalleryName": "AntiMalware"
-      },
-      "SQLAssessment": {
-        "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
-        "GalleryName": "SQLAssessment"
-      },
-      "diagnosticsStorageAccount": "[resourceId(parameters('applicationDiagnosticsStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName'))]"
+    "AntiMalware": {
+      "Name": "[concat('AntiMalware', '(', parameters('workspaceName'), ')')]",
+      "GalleryName": "AntiMalware"
+    },
+    "SQLAssessment": {
+      "Name": "[Concat('SQLAssessment', '(', parameters('workspaceName'), ')')]",
+      "GalleryName": "SQLAssessment"
+    },
+    "diagnosticsStorageAccount": "[resourceId(parameters('applicationDiagnosticsStorageAccountResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName'))]"
   },
   "resources": [
     {
@@ -317,11 +318,31 @@ The following template sample illustrates how to:
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
           ],
           "properties": {
-            "category": "VMSS",
             "eTag": "*",
+            "category": "VMSS",
             "displayName": "VMSS Instance Count",
             "query": "Event | where Source == \"ServiceFabricNodeBootstrapAgent\" | summarize AggregatedValue = count() by Computer",
             "version": 1
+          }
+        },
+        {
+          "apiVersion": "2017-04-26-preview",
+          "name": "Cross workspace function",
+          "type": "savedSearches",
+            "dependsOn": [
+             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+            ],
+            "properties": {
+              "etag": "*",
+              "displayName": "failedLogOnEvents",
+              "category": "Security",
+              "FunctionAlias": "failedlogonsecurityevents",
+              "query": "
+                union withsource=SourceWorkspace
+                workspace('workspace1').SecurityEvent,
+                workspace('workspace2').SecurityEvent,
+                workspace('workspace3').SecurityEvent,
+                | where EventID == 4625"
           }
         },
         {
@@ -515,8 +536,8 @@ The following template sample illustrates how to:
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
           ],
           "properties": {
-            "containers": [ 
-              "wad-iis-logfiles" 
+            "containers": [
+              "wad-iis-logfiles"
             ],
             "tables": [
               "WADWindowsEventLogsTable"
@@ -612,7 +633,7 @@ The following template sample illustrates how to:
       "type": "int",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').retentionInDays]"
     },
-    "immediatePurgeDataOn30Days": {  
+    "immediatePurgeDataOn30Days": {
       "type": "bool",
       "value": "[reference(resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaceName')), '2015-11-01-preview').features.immediatePurgeDataOn30Days]"
     },

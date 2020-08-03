@@ -3,17 +3,17 @@ title: What are access reviews? - Azure Active Directory | Microsoft Docs
 description: Using Azure Active Directory access reviews, you can control group membership and application access to meet governance, risk management, and compliance initiatives in your organization.
 services: active-directory
 documentationcenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.subservice: compliance
-ms.date: 01/10/2020
-ms.author: ajburnle
+ms.date: 07/22/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -73,6 +73,12 @@ To create an access reviews, follow these steps:
 
    ![Access reviews start page](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
 
+### Creating access review on a group that can be assigned to Azure AD role
+If you are on the newest version of Access Reviews (your reviewers are directed to **My Access** by default) , then only Global Administrator can create access review on role-assignable groups. However, if you are on older version of Access Reviews (your reviewers are directed to the **Access Panel** by default), then both Global Administrator and User Administrator can create access review on role-assignable groups.  
+
+The new experience will be rolled out to all customers on August 1st, 2020 but if you’d like to upgrade sooner, please make a request here - [Azure AD Access Reviews - Updated reviewer experience in My Access Signup](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
+
+[Learn more about assigning groups to Azure AD roles](https://go.microsoft.com/fwlink/?linkid=2103037).
 
 ## Learn about access reviews
 

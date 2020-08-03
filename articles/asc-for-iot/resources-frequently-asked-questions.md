@@ -62,7 +62,7 @@ Azure Security Center for IoT agent provides device level threat coverage for de
 
 ## Where can I get the Azure Security Center for IoT security agent?
 
-The Azure Security Center for IoT security agent is open source and available on GitHub in 32 bit and 64-bit Windows and Linux versions: https://github.com/Azure/Azure-Security-IoT.
+The Azure Security Center for IoT security agent is open source and available on GitHub in 32 bit and 64-bit Windows and Linux versions: https://github.com/Azure/Azure-IoT-Security.
 
 ## Where does the Azure Security Center for IoT agent get installed?
 

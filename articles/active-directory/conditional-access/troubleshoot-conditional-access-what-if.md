@@ -34,7 +34,7 @@ The following additional information is optional but will help to narrow the sco
 
 * Cloud apps or actions
 * IP address 
-* Country
+* Country/Region
 * Device platform
 * Client apps (preview)
 * Device state (preview) 

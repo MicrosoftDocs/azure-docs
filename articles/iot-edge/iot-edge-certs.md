@@ -8,6 +8,7 @@ ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom:  mqtt
 ---
 
 # Understand how Azure IoT Edge uses certificates
@@ -20,6 +21,9 @@ This article explains how IoT Edge certificates can work in production, developm
 
 Usually, manufacturers aren't the end users of an IoT Edge device. Sometimes the only relationship between the two is when the end user, or operator, purchases a generic device made by the manufacturer. Other times, the manufacturer works under contract to build a custom device for the operator. The IoT Edge certificate design attempts to take both scenarios into account.
 
+> [!NOTE]
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2050. This limitation applies to the device CA certificate, any certificates in the trust bundle, and the device ID certificates used for X.509 provisioning methods.
+
 The following figure illustrates IoT Edge's usage of certificates. There may be zero, one, or many intermediate signing certificates between the root CA certificate and the device CA certificate, depending on the number of entities involved. Here we show one case.
 
 ![Diagram of typical certificate relationships](./media/iot-edge-certs/edgeCerts-general.png)
@@ -30,7 +34,7 @@ The certificate authority, or 'CA' for short, is an entity that issues digital c
 
 ### Root CA certificate
 
-A root CA certificate is the root of trust of the entire process. In production scenarios, this CA certificate is usually purchased from a trusted commercial certificate authority like Baltimore, Verisign, or DigiCert. Should you have complete control over the devices connecting to your IoT Edge devices, it's possible to use a corporate level certificate authority. In either event, the entire certificate chain from the IoT Edge hub up rolls up to it, so the leaf IoT devices must trust the root certificate. You can store the root CA certificate either in the trusted root certificate authority store, or provide the certificate details in your application code.
+A root CA certificate is the root of trust of the entire process. In production scenarios, this CA certificate is usually purchased from a trusted commercial certificate authority like Baltimore, Verisign, or DigiCert. Should you have complete control over the devices connecting to your IoT Edge devices, it's possible to use a corporate level certificate authority. In either event, the entire certificate chain from the IoT Edge hub up rolls to it, so the leaf IoT devices must trust the root certificate. You can store the root CA certificate either in the trusted root certificate authority store, or provide the certificate details in your application code.
 
 ### Intermediate certificates
 

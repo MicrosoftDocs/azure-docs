@@ -6,6 +6,7 @@ author: suhuruli
 ms.topic: conceptual
 ms.date: 11/17/2017
 ms.author: suhuruli
+ms.custom: devx-track-javascript
 ---
 # Set up your development environment on Mac OS X
 > [!div class="op_single_selector"]
@@ -97,7 +98,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
     >
 
-5. The cluster will take a moment to start. When it is running, you can view logs using the following command or jump to the dashboard to view the clusters health [http://localhost:19080](http://localhost:19080):
+5. The cluster will take a moment to start. When it is running, you can view logs using the following command or jump to the dashboard to view the clusters health `http://localhost:19080`:
 
     ```bash 
     docker logs sftestcluster

@@ -72,6 +72,9 @@
   items:
   - name: Service Bus samples
     href: service-bus-samples.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Premium messaging
@@ -107,6 +110,9 @@
           href: authenticate-application.md
     - name: Built-in security controls
       href: service-bus-messaging-security-controls.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Network security
       href: network-security.md
 - name: How-to guides
@@ -179,18 +185,30 @@
       href: service-bus-nodejs-how-to-use-queues.md
     - name: Publish and subscribe for messages (legacy azure-sb)
       href: service-bus-nodejs-how-to-use-topics-subscriptions.md
+  - name: Migrate
+    items:
+    - name: Migrate from ActiveMQ to Azure Service Bus
+      href: migrate-jms-activemq-to-servicebus.md
+  - name: Integrate
+    items:
+    - name: Integrate with RabbitMQ
+      href: service-bus-integrate-with-rabbitmq.md
   - name: Manage
     items:
+    - name: Automatically update messaging units 
+      href: automate-update-messaging-units.md
     - name: Use Azure PowerShell to provision entities
       href: service-bus-manage-with-ps.md
     - name: Monitor Service Bus with Azure Monitor
       href: service-bus-metrics-azure-monitor.md
     - name: Service Bus management libraries
       href: service-bus-management-libraries.md
-    - name: Diagnostic logs
+    - name: Resource logs
       href: service-bus-diagnostic-logs.md
     - name: Suspend and reactivate messaging entities
       href: entity-suspend.md
+    - name: Use Service Bus Explorer to perform data operations on Service Bus
+      href: explorer.md
     - name: Use ARM templates
       href: service-bus-resource-manager-overview.md
       items:
@@ -202,11 +220,11 @@
         href: service-bus-resource-manager-namespace-topic-with-rule.md
   - name: Secure
     items:
-    - name: Configure firewalls
+    - name: Allow access from specific IP addresses
       href: service-bus-ip-filtering.md
-    - name: Configure virtual network service endpoints
+    - name: Allow access from specific virtual networks
       href: service-bus-service-endpoints.md
-    - name: Configure private endpoints (preview)
+    - name: Allow access via private endpoints
       href: private-link-service.md
     - name: Configure customer-managed keys
       href: configure-customer-managed-key.md
@@ -260,8 +278,8 @@
     href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
   - name: Blog
     href: https://blogs.msdn.microsoft.com/servicebus/
-  - name: MSDN forums
-    href: https://social.msdn.microsoft.com/forums/home?forum=servbus
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-service-bus.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/service-bus/
   - name: Pricing calculator

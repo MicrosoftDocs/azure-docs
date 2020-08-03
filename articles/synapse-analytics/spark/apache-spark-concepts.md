@@ -1,11 +1,11 @@
 ---
-title: Apache Spark in Azure Synapse Analytics - Core Concepts
+title: Apache Spark core concepts
 description: This article provides an introduction to Apache Spark in Azure Synapse Analytics and the different concepts.
 services: synapse-analytics 
 author: euangMS 
 ms.service:  synapse-analytics 
 ms.topic: overview
-ms.subservice: 
+ms.subservice: spark
 ms.date: 04/15/2020 
 ms.author: euang 
 ms.reviewer: euang
@@ -25,7 +25,7 @@ As there is no dollar or resource cost associated with creating Spark pools, any
 
 A best practice is to create smaller Spark pools that may be used for development and debugging and then larger ones for running production workloads.
 
-You can read how to create a Spark pool and see all their properties here [Get started with Spark pools in Synapse Analytics](apache-spark-notebook-create-spark-use-sql.md#create-an-apache-spark-pool)
+You can read how to create a Spark pool and see all their properties here [Get started with Spark pools in Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md)
 
 ## Spark instances
 

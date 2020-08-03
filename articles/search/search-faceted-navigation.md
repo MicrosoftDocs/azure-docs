@@ -280,10 +280,12 @@ In faceted drill-down, you typically want to only include documents that have th
 
 Facet results are documents found in the search results that match a facet term. In the following example, in search results for *cloud computing*, 254 items also have *internal specification* as a content type. Items are not necessarily mutually exclusive. If an item meets the criteria of both filters, it is counted in each one. This duplication is possible when faceting on `Collection(Edm.String)` fields, which are often used to implement document tagging.
 
-        Search term: "cloud computing"
-        Content type
-           Internal specification (254)
-           Video (10) 
+```output
+Search term: "cloud computing"
+Content type
+   Internal specification (254)
+   Video (10)
+```
 
 In general, if you find that facet results are consistently too large, we recommend that you add more filters to give users more options for narrowing the search.
 
@@ -313,7 +315,7 @@ When you add a filter to a faceted query, you might want to retain the facet sta
 
 **Make sure you get accurate facet counts**
 
-Under certain circumstances, you might find that facet counts do not match the result sets (see [Faceted navigation in Azure Cognitive Search (forum post)](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
+Under certain circumstances, you might find that facet counts do not match the result sets (see [Faceted navigation in Azure Cognitive Search (Microsoft Q&A question page)](https://docs.microsoft.com/answers/topics/azure-cognitive-search.html)).
 
 Facet counts can be inaccurate due to the sharding architecture. Every search index has multiple shards, and each shard reports the top N facets by document count, which is then combined into a single result. If some shards have many matching values, while others have fewer, you may find that some facet values are missing or under-counted in the results.
 
@@ -341,7 +343,7 @@ For numeric data, you can use a values list.  Consider the facet range for a `li
 
 To specify a facet range like the one in the preceding screenshot, use a values list:
 
-    facet=listPrice,values:10|25|100|500|1000|2500
+> `facet=listPrice,values:10|25|100|500|1000|2500`
 
 Each range is built using 0 as a starting point, a value from the list as an endpoint, and then trimmed of the previous range to create discrete intervals. Azure Cognitive Search does these things as part of faceted navigation. You do not have to write code for structuring each interval.
 

@@ -5,7 +5,7 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
@@ -22,7 +22,7 @@ ms.reviewer: jrasnick, carlrab
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-In this tutorial, we will go through steps how to connect Power BI desktop to SQL on-demand (preview).
+In this tutorial, we will go through the steps for connecting Power BI desktop to SQL on-demand (preview).
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ Parameters:
 | SQL on-demand service endpoint address    | Will be used as server name                                   |
 | SQL on-demand service endpoint region     | Will be used to determine what storage will we use in samples |
 | Username and password for endpoint access | Will be used to access endpoint                               |
-| Database you will use to create views     | This database will be used as starting point in samples       |
+| Database you'll use to create views     | This database will be used as starting point in samples       |
 
 ## First-time setup
 
@@ -53,12 +53,12 @@ There are two steps prior to using samples:
 
 ### Create database
 
-Since you will use demo environment, you should create your own database for demo purposes. Database is needed to create views in it. You will use this database in some of sample queries in this documentation.
+For this getting started article, you should create your own database to utilize as a demo. A database is needed for views creation. You'll use this database in some of the sample queries within this documentation.
 
 > [!NOTE]
-> Note that databases are used only for view metadata, not for actual data.
+> Databases are used only for viewing metadata, not for actual data.
 >
-> Write down database name you use, you will need it later on.
+> Write down the database name you're using, you'll need it later on.
 
 ```sql
 DROP DATABASE IF EXISTS demo;
@@ -66,10 +66,10 @@ DROP DATABASE IF EXISTS demo;
 
 ### Create credentials
 
-We need to create credential before you can run queries. This credential will be used by SQL on-demand service to access files in storage.
+We need to create credentials before you can run queries. This credential will be used by SQL on-demand service to access files in storage.
 
 > [!NOTE]
-> Note that you need to create credential for access to the storage account. Although SQL on-demand can access storages from different regions, having storage and Azure Synapse workspace in same region will provide better performance experience.
+> You need to create credentials for storage account access. Although SQL on-demand can access storage from different regions, having storage and Azure Synapse workspace in the same region will provide a better performance experience.
 
 **Code snippet on how to create credentials for Census data containers**, run:
 
@@ -86,19 +86,20 @@ SECRET = '';
 GO
 ```
 
-## Creating Power BI desktop report
+## Create a Power BI desktop report
 
-Open Power BI desktop application and select "Get data" option.
+Open the Power BI desktop application and select the **Get data** option.
+
 ![Open Power BI desktop application and select get data.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
 ### Step 1 - Select data source
 
-Select "Azure" in the menu and then "Azure SQL Database".
+Select **Azure** in the menu and then **Azure SQL Database**.
 ![Select data source.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
 ### Step 2 - Select database
 
-Write URL for the database and name of the database where view is residing.
+Write the URL for the database and the name of the database where the view resides.
 ![Select database on the endpoint.](./media/get-started-power-bi-professional/step-2-db.png)
 
 ## Next steps

@@ -45,7 +45,7 @@
       href: pim-resource-roles-activate-your-roles.md
   - name: Manage Azure AD roles
     items:
-    - name: Feature update
+    - name: Feature overview
       href: azure-ad-roles-features.md
     - name: PowerShell for Azure AD roles
       href: powershell-for-azure-ad-roles.md
@@ -87,6 +87,22 @@
       href: azure-pim-resource-rbac.md
     - name: Use custom roles
       href: pim-resource-roles-custom-role-policy.md
+  - name: Manage Privileged access groups (Preview)
+    items:
+    - name: Privileged access overview
+      href: groups-features.md
+    - name: Discover groups
+      href: groups-discover-groups.md
+    - name: Assign member or owner
+      href: groups-assign-member-owner.md
+    - name: Approve requests
+      href: groups-approval-workflow.md
+    - name: Extend or renew assignments
+      href: groups-renew-extend.md
+    - name: Configure role settings
+      href: groups-role-settings.md
+    - name: View audit history
+      href: groups-audit.md
   - name: Troubleshoot PIM
     href: pim-troubleshoot.md
   - name: Access reviews
@@ -107,3 +123,13 @@
         href: pim-resource-roles-perform-access-review.md
       - name: Complete an access review
         href: pim-resource-roles-complete-access-review.md
+- name: Reference
+  items:
+  - name: Graph API  
+    href: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview
+  - name: Azure AD CLI    
+    href: https://docs.microsoft.com/cli/azure/ad
+  - name:  Azure AD PowerShell for Graph
+    href: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0
+  - name: Azure AD service limits
+    href: ../users-groups-roles/directory-service-limits-restrictions.md

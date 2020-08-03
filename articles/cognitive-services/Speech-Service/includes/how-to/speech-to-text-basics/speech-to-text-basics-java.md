@@ -3,6 +3,7 @@ author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
+ms.custom: devx-track-java
 ms.author: trbye
 ---
 
@@ -78,7 +79,7 @@ SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
 The [Recognizer class](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable) for the Speech SDK for Java exposes a few methods that you can use for speech recognition.
 
 * Single-shot recognition (async) - Performs recognition in a non-blocking (asynchronous) mode. This will recognize a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
-* Continuous recognition (async) - Asynchronously initiates continuous recognition operation. If you want to provide an audio file instead of using a microphone, you'll still need to provide an. To stop asynchronous continuous recognition, call [stopContinuousRecognitionAsync](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync).
+* Continuous recognition (async) - Asynchronously initiates continuous recognition operation. If you want to provide an audio file instead of using a microphone, you'll still need to provide an `audioConfig`. To stop asynchronous continuous recognition, call [stopContinuousRecognitionAsync](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync).
 
 > [!NOTE]
 > Learn more about how to [choose a speech recognition mode](../../../how-to-choose-recognition-mode.md).
@@ -180,7 +181,7 @@ recognizer.sessionStopped.addEventListener((s, e) -> {
 });
 ```
 
-With everything set up, we can call [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync).
+With everything set up, we can call [`startContinuousRecognitionAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.startcontinuousrecognitionasync).
 
 ```java
 // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.

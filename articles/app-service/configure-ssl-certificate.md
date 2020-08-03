@@ -59,7 +59,7 @@ The free App Service Managed Certificate is a turn-key solution for securing you
 - Does not support wildcard certificates.
 - Does not support naked domains.
 - Is not exportable.
-- Does not support DNS A-records.
+- Does not support A records. For example, automatic renewal doesn't work with A records.
 
 > [!NOTE]
 > The free certificate is issued by DigiCert. For some top-level domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.

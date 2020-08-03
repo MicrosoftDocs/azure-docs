@@ -4,9 +4,10 @@ description: Learn how to restrict web traffic with a Web Application Firewall o
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 05/21/2020
 ms.author: victorh
-ms.topic: overview
+ms.topic: overview 
+ms.custom: devx-track-azurecli
 ---
 
 # Enable Web Application Firewall using the Azure CLI
@@ -147,7 +148,7 @@ az storage account create \
   --resource-group myResourceGroupAG \
   --location eastus \
   --sku Standard_LRS \
-  --encryption blob
+  --encryption-services blob
 ```
 
 ### Configure diagnostics

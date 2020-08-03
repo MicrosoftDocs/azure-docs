@@ -2,7 +2,7 @@
 title: What's new in Azure Migrate 
 description: Learn about what's new and recent updates in the Azure Migrate service.
 ms.topic: overview
-ms.date: 04/16/2020
+ms.date: 04/19/2020
 ms.custom: mvc
 ---
 
@@ -10,6 +10,42 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (June 2020)
+
+- Assessments for migrating on-premises VMware VMs to [Azure VMware Solution (AVS)](https://go.microsoft.com/fwlink/?linkid=2132637) is now supported. [Learn more](how-to-create-azure-vmware-solution-assessment.md)
+- Support for multiple credentials on appliance for physical server discovery.
+- Support to allow Azure login from appliance for tenant where tenant restriction has been configured.
+- New Azure Migrate appliance versions as listed below.
+
+### Azure public cloud
+
+**Scenario** | **Download** | **SHA256**
+--- | --- | ---
+Hyper-V (8.93 GB) | [Latest version](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+VMware (10.9 GB) | [Latest version](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
+Physical (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
+
+
+### Azure Government
+
+**Scenario** | **Download** | **SHA256**
+--- | --- | ---
+Hyper-V (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+VMware (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+Physical (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
+
+
+
+## Update (April 2020)
+
+Azure Migrate supports deployments in Azure Government. 
+
+- You can discover and assess VMware VMs, Hyper-V VMs, and physical servers.
+- You can migrate VMware VMs, Hyper-V VMs, and physical servers to Azure.
+- For VMware migration, you can use agentless or agent-based migration. [Learn more](server-migrate-overview.md).
+- [Review](migrate-support-matrix.md#supported-geographies-azure-government) supported geographies and regions for Azure Government.
+- [Agent-based dependency analysis](concepts-dependency-visualization.md#agent-based-analysis) isn't supported in Azure Government.
+- Features in preview are supported in Azure Government, specifically [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), and [application discovery](how-to-discover-applications.md).
 
 
 ## Update (March 2020)

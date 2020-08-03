@@ -5,14 +5,15 @@ author: viv-liu
 ms.author: viviali
 ms.date: 03/27/2020
 ms.topic: how-to
-ms.service: iot-central
+ms.service: iot-central 
+ms.custom: devx-track-azurecli
 services: iot-central
 manager: corywink
 ---
 
 # Monitor device connectivity using Azure CLI
 
-*This topic applies to builders and administrators.*
+*This topic applies to device developers and solution builders.*
 
 Use the Azure CLI IoT extension to see messages your devices are sending to IoT Central and observe changes in the device twin. You can use this tool to debug and observe device connectivity and diagnose issues of device messages not reaching the cloud or devices not responding to twin changes.
 
@@ -76,4 +77,4 @@ az iot central device-twin show --app-id <app-id> --device-id <device-id>
 
 ## Next steps
 
-Now that you've learned how to use the IoT Central Explorer, the suggested next step is to explore [managing devices IoT Central](howto-manage-devices.md).
+If you're a device developer, a suggested next step is to read about [Device connectivity in Azure IoT Central](./concepts-get-connected.md).

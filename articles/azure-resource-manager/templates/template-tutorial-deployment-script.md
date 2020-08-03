@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/07/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -36,7 +36,7 @@ This tutorial covers the following tasks:
 
 To complete this article, you need:
 
-* **[Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension**. See [Use Visual Studio Code to create ARM templates](./use-vs-code-to-create-template.md).
+* **[Visual Studio Code](https://code.visualstudio.com/) with the Resource Manager Tools extension**. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
 * **A user-assigned managed identity with the contributor's role at the subscription level**. This identity is used to execute deployment scripts. To create one, see [User-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). You need the identity ID when you deploy the template. The format of the identity is:
 
@@ -280,35 +280,43 @@ The deployment script adds a certificate to the key vault. Configure the key vau
 
 ## Deploy the template
 
-Refer to the [Deploy the template](./quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template) section in the Visual Studio Code quickstart for opening the Cloud shell and upload the template file to the shell. And then run the following PowerShell script:
+1. Sign in to the [Azure Cloud Shell](https://shell.azure.com)
 
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
-$identityId = Read-Host -Prompt "Enter the user-assigned managed identity ID"
+1. Choose your preferred environment by selecting either **PowerShell** or **Bash** (for CLI) on the upper left corner.  Restarting the shell is required when you switch.
 
-$adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
-$resourceGroupName = "${projectName}rg"
-$keyVaultName = "${projectName}kv"
+    ![Azure portal Cloud Shell upload file](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+1. Select **Upload/download files**, and then select **Upload**. See the previous screenshot.  Select the file you saved in the previous section. After uploading the file, you can use the **ls** command and the **cat** command to verify the file is uploaded successfully.
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -identityId $identityId -keyVaultName $keyVaultName -objectId $adUserId
+1. Run the following PowerShell script to deploy the template.
 
-Write-Host "Press [ENTER] to continue ..."
-```
+    ```azurepowershell-interactive
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
+    $identityId = Read-Host -Prompt "Enter the user-assigned managed identity ID"
 
-The deployment script service needs to create additional deployment script resources for script execution. The preparation and the cleanup process can take up to one minute to complete in addition to the actual script execution time.
+    $adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
+    $resourceGroupName = "${projectName}rg"
+    $keyVaultName = "${projectName}kv"
 
-The deployment is failed because of the invalid command, **Write-Output1** is used in the script. You shall get an error saying:
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-```error
-The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
-program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
-```
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -identityId $identityId -keyVaultName $keyVaultName -objectId $adUserId
 
-The deployment script execution result is stored in the deployment script resources for the troubleshooting purpose.
+    Write-Host "Press [ENTER] to continue ..."
+    ```
+
+    The deployment script service needs to create additional deployment script resources for script execution. The preparation and the cleanup process can take up to one minute to complete in addition to the actual script execution time.
+
+    The deployment is failed because of the invalid command, **Write-Output1** is used in the script. You shall get an error saying:
+
+    ```error
+    The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
+    program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
+    ```
+
+    The deployment script execution result is stored in the deployment script resources for the troubleshooting purpose.
 
 ## Debug the failed script
 

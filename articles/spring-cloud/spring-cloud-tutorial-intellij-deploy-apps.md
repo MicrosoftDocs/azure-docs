@@ -1,23 +1,24 @@
 ---
-title:  Tutorial - Use IntelliJ to deploy Azure Spring Cloud applications
+title:  "Tutorial: Use IntelliJ to deploy Azure Spring Cloud applications"
 description: Use IntelliJ to deploy applications to Azure Spring Cloud.
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
+ms.custom: devx-track-java
 ---
+
 # Use IntelliJ to deploy Azure Spring Cloud applications
 The IntelliJ plug-in for Azure Spring Cloud supports application deployment from the IntelliJ IDEA.  
 
 ## Prerequisites
 * [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable)
 * [Maven 3.5.0+](https://maven.apache.org/download.cgi)
-* [IntelliJ IDEA Community Edition, version [2020.1]](https://www.jetbrains.com/idea/download/#section=windows)
-* Or: IntelliJ IDEA Ultimate Edition, version [2020.1]
+* [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## Install the plug-in
-You can Azure Toolkit for IntelliJ IDEA 3.35.0 from the IntelliJ **Plugins** UI.
+You can add the Azure Toolkit for IntelliJ IDEA 3.35.0 from the IntelliJ **Plugins** UI.
 
 1. Start IntelliJ.  If you have opened a project previously, close the project to show the welcome dialog. Select **Configure** from link lower right, and then click **Plugins** to open the plug-in configuration dialog, and select **Install Plugins from disk**.
 
@@ -46,15 +47,15 @@ The following procedures deploy a Hello World application using the IntelliJ IDE
     ![Import Project](media/spring-cloud-intellij-howto/import-project-1.png)
 
 ## Deploy to Azure Spring Cloud
-In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app#installation-and-sign-in).
+In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
-1. Right click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
+1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
 
     ![Deploy to Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1.png)
 
 1. Accept the name for app in the **Name** field. **Name** refers to the configuration, not app name. Users don't usually need to change it.
 1. Accept the identifier from the project for the **Artifact**.
-1. Select **App:**, then click **Create app...**.
+1. Select **App:** then click **Create app...**.
 
     ![Deploy to Azure 2](media/spring-cloud-intellij-howto/deploy-to-azure-2.png)
 
@@ -79,7 +80,7 @@ In order to deploy to Azure you must sign-in with your Azure account, and choose
 ## Show streaming logs
 To get the logs:
 1. Select **Azure Explorer**, then **Spring Cloud**.
-1. Right click the running app.
+1. Right-click the running app.
 1. Select **Streaming Logs** from the drop-down list.
 
     ![Select streaming logs](media/spring-cloud-intellij-howto/streaming-logs.png)
@@ -92,6 +93,6 @@ To get the logs:
 
     ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
-## See also
-* [Create a Hello World web app for Azure App Service using IntelliJ](https://docs.microsoft.com/azure/java/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)
-* [Prepare a Java Spring application for deployment in Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment) 
+## Next steps
+* [Prepare Spring application for Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-prepare-app-deployment)
+* [Learn more about Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/)

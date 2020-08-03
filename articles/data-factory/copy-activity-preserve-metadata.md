@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: jingwang
 
 ---
@@ -28,6 +28,8 @@ Copy activity supports preserving the following attributes during data copy:
 
 - **All the customer specified metadata** 
 - And the following **five data store built-in system properties**: `contentType`, `contentLanguage` (except for Amazon S3), `contentEncoding`, `contentDisposition`, `cacheControl`.
+
+**Handle differences in metadata:** Amazon S3 and Azure Storage allow different sets of characters in the keys of customer specified metadata. When you choose to preserve metadata using copy acivity, ADF automatically replaces the invalid characters with '_'.
 
 When you copy files as-is from Amazon S3/Azure Data Lake Storage Gen2/Azure Blob to Azure Data Lake Storage Gen2/Azure Blob with binary format, you can find the **Preserve** option on the **Copy Activity** > **Settings** tab for activity authoring or the **Settings** page in Copy Data Tool.
 

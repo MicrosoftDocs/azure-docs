@@ -1,17 +1,8 @@
 ---
 title: Create an Event Hubs dedicated cluster using the Azure portal
 description: In this quickstart, you learn how to create an Azure Event Hubs cluster using Azure portal.
-services: event-hubs
-documentationcenter: ''
-author: femila
-manager: 
-
-ms.service: event-hubs
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 12/20/2019
-ms.author: femila
-
+ms.date: 06/23/2020
 ---
 
 # Quickstart: Create a dedicated Event Hubs cluster using Azure portal 

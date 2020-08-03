@@ -142,7 +142,7 @@ The VLAN/subnet will be created.  You can now use this VLAN ID to create a distr
 
 ## Connect your environment to an Azure virtual network
 
-CloudSimple provides you with an ExpressRoute circuit for your Private Cloud. You can connect your virtual network on Azure to the ExpressRoute circuit. For full details on setting up the connection, follow the steps in [Azure Virtual Network Connection using ExpressRoute](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/).
+CloudSimple provides you with an ExpressRoute circuit for your Private Cloud. You can connect your virtual network on Azure to the ExpressRoute circuit. For full details on setting up the connection, follow the steps in [Azure Virtual Network Connection using ExpressRoute](./cloudsimple-azure-network-connection.md).
 
 ## Sign in to vCenter
 
@@ -153,8 +153,8 @@ You can now sign in to vCenter to set up virtual machines and policies.
     ![Launch vSphere Client](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. Select your preferred vSphere client to access vCenter and sign in with your username and password.  The defaults are:
-    * User name: **CloudOwner\@cloudsimple.local**
-    * Password: **CloudSimple123!**  
+    * User name: `CloudOwner@cloudsimple.local`
+    * Password: `CloudSimple123!`
 
 The vCenter screens in the next procedures are from the vSphere (HTML5) client.
 

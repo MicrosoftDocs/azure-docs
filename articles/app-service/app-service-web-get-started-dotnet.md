@@ -3,7 +3,7 @@ title: "Quickstart: Create a C# ASP.NET Core app"
 description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET Core web app template from Visual Studio.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 03/17/2020
+ms.date: 04/22/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
 ---
 
@@ -102,9 +102,9 @@ Follow these steps to update and redeploy your web app:
 
 1. In **Solution Explorer**, under your project, open **Pages** > **Index.cshtml**.
 
-1. Replace the two `<div>` tags with the following code:
+1. Replace the entire `<div>` tag with the following code:
 
-   ```HTML
+   ```html
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
        <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
@@ -145,3 +145,11 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core with SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET Core app](configure-language-dotnetcore.md)
+
+Want to optimize and save on your cloud spending?
+
+> [!div class="nextstepaction"]
+> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

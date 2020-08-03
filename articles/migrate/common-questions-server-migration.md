@@ -1,8 +1,8 @@
 ---
-title: Azure Migrate Server Migration FAQ
+title: Common questions about Azure Migrate Server Migration
 description: Get answers to common questions about using Azure Migrate Server Migration to migrate machines.
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 05/04/2020
 ---
 
 # Azure Migrate Server Migration: Common questions
@@ -60,7 +60,10 @@ No. Azure Availability Zones aren't supported for Azure Migrate migration.
 
 ## What transport protocol does Azure Migrate use during replication?
 
-Azure Migrate uses the Network Block Device (NBD) protocol with SSL encryption.
+Azure Migrate uses the Network Block Device (NBD) protocol with TLS encryption.
+
+## How is the data transmitted from on-prem environment to Azure? Is it encrypted before transmission? 
+The Azure Migrate appliance in the agentless replication case  compresses data and encrypts before uploading. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it is persisted it to the cloud (encryption-at-rest).  
 
 ## What is the minimum vCenter Server version required for migration?
 
@@ -72,7 +75,7 @@ No. Azure Migrate supports migration only to managed disks (Standard HDD, Premiu
 
 ## How many VMs can I replicate at one time by using agentless migration?
 
-Currently, you can migrate 100 VMs per instance of vCenter Server simultaneously. Migrate in batches of 10 VMs.
+Currently, you can migrate 300 VMs per instance of vCenter Server simultaneously. Migrate in batches of 10 VMs.
 
 ## How do I throttle replication in using Azure Migrate appliance for agentless VMware replication?  
 
@@ -81,6 +84,10 @@ You can throttle using NetQosPolicy. For example:
 The AppNamePrefix to use in the NetQosPolicy is "GatewayWindowsService.exe". You could create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy such as this one:
  
 New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
+
+## Can I migrate VMs that are already being replicated to Azure? 
+
+If VMs are already being replicated to Azure by some other means, you can't migrate those machines as VMs with Azure Migrate Server Migration. As a workaround, you can treat the VMs as physical servers, and migrate them in accordance with [supported physical server migration](migrate-support-matrix-physical-migration.md).
 
 ## When do I migrate machines as physical servers?
 
@@ -94,7 +101,7 @@ Migrating machines by treating them as physical servers is useful in a number of
 
 ## I deployed two (or more) appliances to discover VMs in my vCenter Server. However, when I try to migrate the VMs, I only see VMs corresponding to one of the appliance.
 
-While this may be a good use case, we currently do not support it. Deploying two (or more) appliances to discover same set of VMs causes a service issue in which VM ownership keeps toggling between the two appliances. This is the reason you see VMs appearing and disappearing. In such cases, to resolve the issue, you must delete one appliance and do a hard refresh.
+If there are multiple appliances set up, it is required there is no overlap among the VMs on the vCenter accounts provided. A discovery with such an overlap is an unsupported scenario.
 
 ## Do I need VMware vCenter to migrate VMware VMs?
 To [migrate VMware VMs](server-migrate-overview.md) using VMware agent-based or agentless migration, ESXi hosts on which VMs are located must be managed by vCenter Server. If you don't have vCenter Server, you can migrate VMware VMs by migrating them as physical servers. [Learn more](migrate-support-matrix-physical-migration.md).

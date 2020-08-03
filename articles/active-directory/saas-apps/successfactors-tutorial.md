@@ -82,41 +82,35 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern:
 
-    | |
-    |--|
-    | `https://<companyname>.successfactors.com/<companyname>`|
-    | `https://<companyname>.sapsf.com/<companyname>`|
-    | `https://<companyname>.successfactors.eu/<companyname>`|
-    | `https://<companyname>.sapsf.eu`|
+    - `https://<companyname>.successfactors.com/<companyname>`
+    - `https://<companyname>.sapsf.com/<companyname>`
+    - `https://<companyname>.successfactors.eu/<companyname>`
+    - `https://<companyname>.sapsf.eu`
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
 
-    | |
-    |--|
-    | `https://www.successfactors.com/<companyname>`|
-    | `https://www.successfactors.com`|
-    | `https://<companyname>.successfactors.eu`|
-    | `https://www.successfactors.eu/<companyname>`|
-    | `https://<companyname>.sapsf.com`|
-    | `https://hcm4preview.sapsf.com/<companyname>`|
-    | `https://<companyname>.sapsf.eu`|
-    | `https://www.successfactors.cn`|
-    | `https://www.successfactors.cn/<companyname>`|
+    - `https://www.successfactors.com/<companyname>`
+    - `https://www.successfactors.com`
+    - `https://<companyname>.successfactors.eu`
+    - `https://www.successfactors.eu/<companyname>`
+    - `https://<companyname>.sapsf.com`
+    - `https://hcm4preview.sapsf.com/<companyname>`
+    - `https://<companyname>.sapsf.eu`
+    - `https://www.successfactors.cn`
+    - `https://www.successfactors.cn/<companyname>`
 
 	c. In the **Reply URL** textbox, type a URL using the following pattern:
 
-    | |
-    |--|
-    | `https://<companyname>.successfactors.com/<companyname>`|
-    | `https://<companyname>.successfactors.com`|
-    | `https://<companyname>.sapsf.com/<companyname>`|
-    | `https://<companyname>.sapsf.com`|
-    | `https://<companyname>.successfactors.eu/<companyname>`|
-    | `https://<companyname>.successfactors.eu`|
-    | `https://<companyname>.sapsf.eu`|
-    | `https://<companyname>.sapsf.eu/<companyname>`|
-    | `https://<companyname>.sapsf.cn`|
-    | `https://<companyname>.sapsf.cn/<companyname>`|
+    - `https://<companyname>.successfactors.com/<companyname>`
+    - `https://<companyname>.successfactors.com`
+    - `https://<companyname>.sapsf.com/<companyname>`
+    - `https://<companyname>.sapsf.com`
+    - `https://<companyname>.successfactors.eu/<companyname>`
+    - `https://<companyname>.successfactors.eu`
+    - `https://<companyname>.sapsf.eu`
+    - `https://<companyname>.sapsf.eu/<companyname>`
+    - `https://<companyname>.sapsf.cn`
+    - `https://<companyname>.sapsf.cn/<companyname>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [SuccessFactors Client support team](https://www.successfactors.com/content/ssf-site/en/support.html) to get these values.

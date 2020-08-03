@@ -5,12 +5,13 @@ description: Learn how to define a machine learning pipeline using a YAML file. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 
 ms.reviewer: larryfr
-ms.author: sanpil
-author: sanpil
-ms.date: 11/11/2019
+ms.author: nilsp
+author: NilsPohlmann
+ms.date: 07/31/2020
+ms.custom: tracking-python
 ---
 
 # Define machine learning pipelines in YAML
@@ -22,6 +23,7 @@ The following table lists what is and is not currently supported when defining a
 | Step type | Supported? |
 | ----- | :-----: |
 | PythonScriptStep | Yes |
+| ParallelRunStep | Yes |
 | AdlaStep | Yes |
 | AzureBatchStep | Yes |
 | DatabricksStep | Yes |
@@ -107,6 +109,7 @@ Steps define a computational environment, along with the files to run on the env
 | `DatabricsStep` | Adds a Databricks notebook, Python script, or JAR. Corresponds to the [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py) class. |
 | `DataTransferStep` | Transfers data between storage options. Corresponds to the [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) class. |
 | `PythonScriptStep` | Runs a Python script. Corresponds to the [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) class. |
+| `ParallelRunStep` | Runs a Python script to process large amounts of data asynchronously and in parallel. Corresponds to the [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) class. |
 
 ### ADLA step
 
@@ -358,11 +361,63 @@ pipeline:
                     bind_mode: mount
 ```
 
+### Parallel run step
+
+| YAML key | Description |
+| ----- | ----- |
+| `inputs` | Inputs can be [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py), or [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
+| `outputs` | Outputs can be either [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) or [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
+| `script_name` | The name of the Python script (relative to `source_directory`). |
+| `source_directory` | Directory that contains the script, Conda environment, etc. |
+| `parallel_run_config` | The path to a `parallel_run_config.yml` file. This file is a YAML representation of the [ParallelRunConfig](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?view=azure-ml-py) class. |
+| `allow_reuse` | Determines whether the step should reuse previous results when run again with the same settings. |
+
+The following example contains a Parallel run step:
+
+```yaml
+pipeline:
+    description: SamplePipelineFromYaml
+    default_compute: cpu-cluster
+    data_references:
+        MyMinistInput:
+            dataset_name: mnist_sample_data
+    parameters:
+        PipelineParamTimeout:
+            type: int
+            default: 600
+    steps:        
+        Step1:
+            parallel_run_config: "yaml/parallel_run_config.yml"
+            type: "ParallelRunStep"
+            name: "parallel-run-step-1"
+            allow_reuse: True
+            arguments:
+            - "--progress_update_timeout"
+            - parameter:timeout_parameter
+            - "--side_input"
+            - side_input:SideInputData
+            parameters:
+                timeout_parameter:
+                    source: PipelineParamTimeout
+            inputs:
+                InputData:
+                    source: MyMinistInput
+            side_inputs:
+                SideInputData:
+                    source: Output4
+                    bind_mode: mount
+            outputs:
+                OutputDataStep2:
+                    destination: Output5
+                    datastore: workspaceblobstore
+                    bind_mode: mount
+```
+
 ### Pipeline with multiple steps 
 
 | YAML key | Description |
 | ----- | ----- |
-| `steps` | Sequence of one or more PipelineStep definitions. Note that the `destination` of one step's `outputs` become the keys to the `inputs` of the .| 
+| `steps` | Sequence of one or more PipelineStep definitions. Note that the `destination` keys of one step's `outputs` become the `source` keys to the `inputs` of the next step.| 
 
 ```yaml
 pipeline:

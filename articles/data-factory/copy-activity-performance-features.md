@@ -1,6 +1,6 @@
 ---
 title: Copy activity performance optimization features
-description: Learn about the key features that helps you optimize the copy activity performance in Azure Data Factory。
+description: Learn about the key features that help you optimize the copy activity performance in Azure Data Factory。
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/09/2020
+ms.date: 06/15/2020
 ---
 
 # Copy activity performance optimization features
@@ -24,7 +24,7 @@ This article outlines the copy activity performance optimization features that y
 
 A Data Integration Unit is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Azure Data Factory. Data Integration Unit only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime), but not [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-The allowed DIUs to empower a copy activity run is **between 2 and 256**. If not specified or you choose "Auto" on the UI, Data Factory dynamically apply the optimal DIU setting based on your source-sink pair and data pattern. The following table lists the supported DIU ranges and default behavior in different copy scenarios:
+The allowed DIUs to empower a copy activity run is **between 2 and 256**. If not specified or you choose "Auto" on the UI, Data Factory dynamically applies the optimal DIU setting based on your source-sink pair and data pattern. The following table lists the supported DIU ranges and default behavior in different copy scenarios:
 
 | Copy scenario | Supported DIU range | Default DIUs determined by service |
 |:--- |:--- |---- |
@@ -64,7 +64,7 @@ You will be charged **# of used DIUs \* copy duration \* unit price/DIU-hour**. 
 If you would like to achieve higher throughput, you can either scale up or scale out the Self-hosted IR:
 
 - If the CPU and available memory on the Self-hosted IR node are not fully utilized, but the execution of concurrent jobs is reaching the limit, you should scale up by increasing the number of concurrent jobs that can run on a node.  See [here](create-self-hosted-integration-runtime.md#scale-up) for instructions.
-- If, on the other hand, the CPU is high on the Self-hosted IR node or available memory is low, you can add a new node to help scale out the load across the multiple nodes.  See [here](create-self-hosted-integration-runtime.md#high-availability-and-scalability) for instructions.
+- If on the other hand, the CPU is high on the Self-hosted IR node or available memory is low, you can add a new node to help scale out the load across the multiple nodes.  See [here](create-self-hosted-integration-runtime.md#high-availability-and-scalability) for instructions.
 
 Note in the following scenarios, single copy activity execution can leverage multiple Self-hosted IR nodes:
 
@@ -77,7 +77,7 @@ You can set parallel copy (`parallelCopies` property) on copy activity to indica
 
 The parallel copy is orthogonal to [Data Integration Units](#data-integration-units) or [Self-hosted IR nodes](#self-hosted-integration-runtime-scalability). It is counted across all the DIUs or Self-hosted IR nodes.
 
-For each copy activity run, by default Azure Data Factory dynamically apply the optimal parallel copy setting based on your source-sink pair and data pattern. 
+For each copy activity run, by default Azure Data Factory dynamically applies the optimal parallel copy setting based on your source-sink pair and data pattern. 
 
 > [!TIP]
 > The default behavior of parallel copy usually gives you the best throughput, which is auto-determined by ADF based on your source-sink pair, data pattern and number of DIUs or the Self-hosted IR's CPU/memory/node count. Refer to [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md) on when to tune parallel copy.
@@ -121,9 +121,9 @@ When you specify a value for the `parallelCopies` property, take the load increa
 
 When you copy data from a source data store to a sink data store, you might choose to use Blob storage as an interim staging store. Staging is especially useful in the following cases:
 
-- **You want to ingest data from various data stores into SQL Data Warehouse via PolyBase.** SQL Data Warehouse uses PolyBase as a high-throughput mechanism to load a large amount of data into SQL Data Warehouse. The source data must be in Blob storage or Azure Data Lake Store, and it must meet additional criteria. When you load data from a data store other than Blob storage or Azure Data Lake Store, you can activate data copying via interim staging Blob storage. In that case, Azure Data Factory performs the required data transformations to ensure that it meets the requirements of PolyBase. Then it uses PolyBase to load data into SQL Data Warehouse efficiently. For more information, see [Use PolyBase to load data into Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+- **You want to ingest data from various data stores into Azure Synapse Analytics (formerly SQL Data Warehouse) via PolyBase.** Azure Synapse Analytics uses PolyBase as a high-throughput mechanism to load a large amount of data into Azure Synapse Analytics. The source data must be in Blob storage or Azure Data Lake Store, and it must meet additional criteria. When you load data from a data store other than Blob storage or Azure Data Lake Store, you can activate data copying via interim staging Blob storage. In that case, Azure Data Factory performs the required data transformations to ensure that it meets the requirements of PolyBase. Then it uses PolyBase to load data into Azure Synapse Analytics efficiently. For more information, see [Use PolyBase to load data into Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
 - **Sometimes it takes a while to perform a hybrid data movement (that is, to copy from an on-premises data store to a cloud data store) over a slow network connection.** To improve performance, you can use staged copy to compress the data on-premises so that it takes less time to move data to the staging data store in the cloud. Then you can decompress the data in the staging store before you load into the destination data store.
-- **You don't want to open ports other than port 80 and port 443 in your firewall because of corporate IT policies.** For example, when you copy data from an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink, you need to activate outbound TCP communication on port 1433 for both the Windows firewall and your corporate firewall. In this scenario, staged copy can take advantage of the self-hosted integration runtime to first copy data to a Blob storage staging instance over HTTP or HTTPS on port 443. Then it can load the data into SQL Database or SQL Data Warehouse from Blob storage staging. In this flow, you don't need to enable port 1433.
+- **You don't want to open ports other than port 80 and port 443 in your firewall because of corporate IT policies.** For example, when you copy data from an on-premises data store to an Azure SQL Database sink or an Azure Synapse Analytics sink, you need to activate outbound TCP communication on port 1433 for both the Windows firewall and your corporate firewall. In this scenario, staged copy can take advantage of the self-hosted integration runtime to first copy data to a Blob storage staging instance over HTTP or HTTPS on port 443. Then it can load the data into SQL Database or Azure Synapse Analytics from Blob storage staging. In this flow, you don't need to enable port 1433.
 
 ### How staged copy works
 
@@ -133,7 +133,7 @@ When you activate the staging feature, first the data is copied from the source 
 
 When you activate data movement by using a staging store, you can specify whether you want the data to be compressed before you move data from the source data store to an interim or staging data store and then decompressed before you move data from an interim or staging data store to the sink data store.
 
-Currently, you can't copy data between two data stores that are connected via different Self-hosted IRs, neither with nor without staged copy. For such scenario, you can configure two explicitly chained copy activity to copy from source to staging then from staging to sink.
+Currently, you can't copy data between two data stores that are connected via different Self-hosted IRs, neither with nor without staged copy. For such scenario, you can configure two explicitly chained copy activities to copy from source to staging then from staging to sink.
 
 ### Configuration
 
@@ -142,7 +142,7 @@ Configure the **enableStaging** setting in the copy activity to specify whether 
 | Property | Description | Default value | Required |
 | --- | --- | --- | --- |
 | enableStaging |Specify whether you want to copy data via an interim staging store. |False |No |
-| linkedServiceName |Specify the name of an [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) linked service, which refers to the instance of Storage that you use as an interim staging store. <br/><br/> You can't use Storage with a shared access signature to load data into SQL Data Warehouse via PolyBase. You can use it in all other scenarios. |N/A |Yes, when **enableStaging** is set to TRUE |
+| linkedServiceName |Specify the name of an [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) linked service, which refers to the instance of Storage that you use as an interim staging store. <br/><br/> You can't use Storage with a shared access signature to load data into Azure Synapse Analytics via PolyBase. You can use it in all other scenarios. |N/A |Yes, when **enableStaging** is set to TRUE |
 | path |Specify the Blob storage path that you want to contain the staged data. If you don't provide a path, the service creates a container to store temporary data. <br/><br/> Specify a path only if you use Storage with a shared access signature, or you require temporary data to be in a specific location. |N/A |No |
 | enableCompression |Specifies whether data should be compressed before it's copied to the destination. This setting reduces the volume of data being transferred. |False |No |
 

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Use R to create a machine learning model"
+title: "Tutorial: Use R to create a machine learning model (preview)"
 titleSuffix: Azure Machine Learning
 description: In this tutorial you'll use the Azure Machine Learning R SDK to create a logistic regression model that predicts the likelihood of a fatality in a car accident.
 services: machine-learning
@@ -12,10 +12,15 @@ ms.author: davidsmi
 ms.date: 02/07/2020
 ---
 
-# Tutorial: Use R to create a machine learning model
+# Tutorial: Use R to create a machine learning model (preview)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this tutorial you'll use the Azure Machine Learning R SDK to create a logistic regression model that predicts the likelihood of a fatality in a car accident. You'll see how the Azure Machine Learning cloud resources work with R to provide a scalable environment for training and deploying a model.  
+> [!IMPORTANT]
+> The Azure Machine Learning R SDK is currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+In this tutorial you'll use the Azure Machine Learning R SDK (preview) to create a logistic regression model that predicts the likelihood of a fatality in a car accident. You'll see how the Azure Machine Learning cloud resources work with R to provide a scalable environment for training and deploying a model.  
 
 In this tutorial, you perform the following tasks:
 > [!div class="checklist"]
@@ -68,7 +73,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **vignettes**  folder there.
 
-## <a name="open">Open RStudio
+## <a name="open"></a>Open RStudio
 
 Use RStudio on a compute instance or Notebook VM to run this tutorial.  
 
@@ -334,7 +339,7 @@ inference_config <- inference_config(
 ```
 
 ### Deploy to ACI
-In this tutorial, you will deploy your service to ACI. This code provisions a single container to respond to inbound requests, which is suitable for testing and light loads. See [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html) for additional configurable options. (For production-scale deployments, you can also [deploy to Azure Kubernetes Service](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks/deploy-to-aks.html).)
+In this tutorial, you will deploy your service to ACI. This code provisions a single container to respond to inbound requests, which is suitable for testing and light loads. See [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html) for additional configurable options. (For production-scale deployments, you can also [deploy to Azure Kubernetes Service](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks.html).)
 
 ``` R
 aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)

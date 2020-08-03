@@ -4,18 +4,14 @@ description: This provides a comparison of features and guidance on developing a
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: yujhongmicrosoft
 
-
-ms.assetid: cba97199-851d-43ae-a75a-c601f3f81601
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 9/28/2018
-ms.author: femila
-
+ms.custom: references_regions
 ---
 
 # Cognitive Services on Azure Government – Computer Vision, Face, Translator Text APIs
@@ -624,6 +620,10 @@ For more information, please see [public documentation](../cognitive-services/Fa
 ### Variations
 * The URI for accessing the Text Translation API in Azure Government is: 
   - `https://api.cognitive.microsofttranslator.us`
+* [Virtual Network support](../cognitive-services/cognitive-services-virtual-networks.md) for Translator service is limited to only `US Gov Virginia` region. 
+  The URI for accessing the API is:
+  - `https://<your-custom-domain>.cognitiveservices.azure.us/translator/text/v3.0`
+  - You can find your custom domain endpoint in the overview blade on the Azure portal once the resource is created. 
 * There are 2 regions `USGovVirginia` and `USGovArizona`
 ### Text Translation Method
 The below example uses [Text Translation - Translate method](../cognitive-services/translator/reference/v3-0-translate.md) to translate a string of text from a language into another specified language. There are multiple [language codes](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation) that can be used with the Text Translation API. 
@@ -634,10 +634,11 @@ The sample is written in C#.
 
 1. Create a new Console solution in Visual Studio.
 2. Replace Program.cs with the corresponding code below.
-3. Replace the `subscriptionKey` value with the key value that you retrieved above.
-4. Replace the `region` value with the region value where you created your translator resource.
-5. Replace the `text` value with text that you want to translate.
-6. Run the program.
+3. Replace the `endpoint` value with the URI as explained in the `Variations` section. 
+4. Replace the `subscriptionKey` value with the key value that you retrieved above.
+5. Replace the `region` value with the region value where you created your translator resource.
+6. Replace the `text` value with text that you want to translate.
+7. Run the program.
 
 You can also test out different languages and texts by replacing the "text", "from", and "to" variables in Program.cs. 
 
@@ -659,7 +660,7 @@ namespace TextTranslator
 {
     class Program
     {
-        static string host = "https://api.cognitive.microsofttranslator.us";
+        static string host = "PASTE ENDPOINT HERE";
         static string path = "/translate?api-version=3.0";
         // Translate to German.
         static string params_ = "&to=de";

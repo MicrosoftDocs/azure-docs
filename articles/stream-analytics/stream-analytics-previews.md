@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 3/9/2020
+ms.date: 05/08/2020
 ---
 
 # Azure Stream Analytics preview features
@@ -16,6 +16,15 @@ This article summarizes all the features currently in preview for Azure Stream A
 ## Public previews
 
 The following features are in public preview. You can take advantage of these features today, but don't use them in your production environment.
+
+### Authenticate to SQL Database output with managed identities
+
+Azure Stream Analytics supports [Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for Azure SQL Database output sinks. Managed identities eliminate the limitations of user-based authentication methods, like the need to reauthenticate due to password changes or user token expirations that occur every 90 days. When you remove the need to manually authenticate, your Stream Analytics deployments can be fully automated.
+
+### Output to Azure Synapse Analytics
+
+Azure Stream Analytics jobs can output to a SQL pool table in [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) and can process throughput rates up to 200MB/sec. This supports the most demanding real-time analytics and hot-path data processing needs for workloads such as reporting and dashboarding.  
+
 
 ### Online scaling
 

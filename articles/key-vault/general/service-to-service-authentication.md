@@ -3,11 +3,10 @@ title: Service-to-service authentication to Azure Key Vault using .NET
 description: Use the Microsoft.Azure.Services.AppAuthentication library to authenticate to Azure Key Vault using .NET.
 keywords: azure key-vault authentication local credentials
 author: msmbaldwin
-manager: rkarlin
 services: key-vault
 
 ms.author: mbaldwin
-ms.date: 08/28/2019
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
@@ -15,6 +14,11 @@ ms.subservice: general
 ---
 
 # Service-to-service authentication to Azure Key Vault using .NET
+
+> [!NOTE]
+> **Microsoft.Azure.Services.AppAuthentication** is deprecated. 
+> It is replaced wit new Azure Identity library **DefaultAzureCredentials** available for .NET, Java, TypeScript and Python and should be used for all new development. 
+> More information can be found here: [Authentication and the Azure SDK](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html).
 
 To authenticate to Azure Key Vault, you need an Azure Active Directory (Azure AD) credential, either a shared secret or a certificate.
 
@@ -85,7 +89,7 @@ To use Azure CLI:
 
 1. Sign in to the Azure portal: *az login* to sign in to Azure.
 
-1. Verify access by entering *az account get-access-token --resource https://vault.azure.net*. If you receive an error, check that the right version of Azure CLI is correctly installed.
+1. Verify access by entering *az account get-access-token --resource https:\//vault.azure.net*. If you receive an error, check that the right version of Azure CLI is correctly installed.
 
    If Azure CLI isn't installed to the default directory, you may receive an error reporting that `AzureServiceTokenProvider` can't find the path for Azure CLI. Use the **AzureCLIPath** environment variable to define the Azure CLI installation folder. `AzureServiceTokenProvider` adds the directory specified in the **AzureCLIPath** environment variable to the **Path** environment variable when necessary.
 
@@ -127,9 +131,9 @@ This approach applies only to local development. When your solution is deployed 
 
 ## Running the application using managed identity or user-assigned identity
 
-When you run your code on an Azure App Service or an Azure VM with a managed identity enabled, the library automatically uses the managed identity. No code changes are required, but the managed identity must have *get* permissions for the key vault. You can give the managed identity *get* permissions through the key vault's *Access Policies*.
+When you run your code on an Azure App Service or an Azure VM with a managed identity enabled, the library automatically uses the managed identity. No code changes are required, but the managed identity must have *GET* permissions for the key vault. You can give the managed identity *GET* permissions through the key vault's *Access Policies*.
 
-Alternatively, you may authenticate with a user-assigned identity. For more information on user-assigned identities, see [About Managed Identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). To authenticate with a user-assigned identity, you need to specify the Client ID of the user-assigned identity in the connection string. The connection string is specified in [Connection String Support](#connection-string-support).
+Alternatively, you may authenticate with a user-assigned identity. For more information on user-assigned identities, see [About Managed Identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To authenticate with a user-assigned identity, you need to specify the Client ID of the user-assigned identity in the connection string. The connection string is specified in [Connection String Support](#connection-string-support).
 
 ## Running the application using a Service Principal
 
@@ -221,19 +225,22 @@ To use a client certificate for service principal authentication:
 
 ## Connection String Support
 
-By default, `AzureServiceTokenProvider` uses multiple methods to retrieve a token.
+By default, `AzureServiceTokenProvider` tries the following authentication methods, in order, to retrieve a token:
 
-To control the process, use a connection string passed to the `AzureServiceTokenProvider` constructor or specified in the *AzureServicesAuthConnectionString* environment variable.
+- [A managed identity for Azure resources](../..//active-directory/managed-identities-azure-resources/overview.md)
+- Visual Studio authentication
+- [Azure CLI authentication](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+- [Integrated Windows authentication](/aspnet/web-api/overview/security/integrated-windows-authentication)
 
-The following options are supported:
+To control the process, use a connection string passed to the `AzureServiceTokenProvider` constructor or specified in the *AzureServicesAuthConnectionString* environment variable.  The following options are supported:
 
 | Connection string option | Scenario | Comments|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | Local development | `AzureServiceTokenProvider` uses AzureCli to get token. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Local development | `AzureServiceTokenProvider` uses Visual Studio to get token. |
-| `RunAs=CurrentUser` | Local development | `AzureServiceTokenProvider` uses Azure AD Integrated Authentication to get token. |
+| `RunAs=CurrentUser` | Local development | Not supported in .NET Core. `AzureServiceTokenProvider` uses Azure AD Integrated Authentication to get token. |
 | `RunAs=App` | [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/index.yml) | `AzureServiceTokenProvider` uses a managed identity to get token. |
-| `RunAs=App;AppId={ClientId of user-assigned identity}` | [User-assigned identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) | `AzureServiceTokenProvider` uses a user-assigned identity to get token. |
+| `RunAs=App;AppId={ClientId of user-assigned identity}` | [User-assigned identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) | `AzureServiceTokenProvider` uses a user-assigned identity to get token. |
 | `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | Custom services authentication | `KeyVaultCertificateSecretIdentifier` is the certificate's secret identifier. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`| Service principal | `AzureServiceTokenProvider` uses certificate to get token from Azure AD. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Service principal | `AzureServiceTokenProvider` uses certificate to get token from Azure AD|
@@ -269,7 +276,7 @@ Using Azure CLI, set the default subscription to one that has the account you wa
 
 #### Unauthorized access, access denied, forbidden, or similar error
 
-The principal used doesn't have access to the resource it's trying to access. Grant either your user account or the App Service's MSI "Contributor" access to a resource. Which one depends on whether you're running the sample on your local computer or deployed in Azure to your App Service. Some resources, like key vaults, also have their own [access policies](https://docs.microsoft.com/azure/key-vault/secure-your-key-vault#data-plane-and-access-policies) that you use grant access to principals, such as users, apps, and groups.
+The principal used doesn't have access to the resource it's trying to access. Grant either your user account or the App Service's MSI "Contributor" access to a resource. Which one depends on whether you're running the sample on your local computer or deployed in Azure to your App Service. Some resources, like key vaults, also have their own [access policies](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) that you use grant access to principals, such as users, apps, and groups.
 
 ### Common issues when deployed to Azure App Service
 

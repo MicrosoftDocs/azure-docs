@@ -2,6 +2,7 @@
 title: Quickstart - Build and push Java container images to Azure Container Registry using Maven and Jib
 description: Build a containerized Java app and push it to Azure Container Registry using the Maven Jib plugin.
 author: KarlErickson
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
@@ -89,6 +90,9 @@ Next, you'll create an Azure resource group and your ACR using the following ste
 
 Finally, you'll update your project configuration and use the command prompt to build and deploy your image.
 
+> [!NOTE]
+> To log in the Azure container registry that you just created, you will need to have the Docker daemon running. To install Docker on your machine, [here is the official Docker documentation](https://docs.docker.com/install/).
+
 1. Log in to your Azure Container Registry from the Azure CLI using the following command. Be sure to replace the placeholder with your own registry name.
 
    ```azurecli
@@ -100,13 +104,13 @@ Finally, you'll update your project configuration and use the command prompt to 
 
 1. Navigate to the completed project directory for your Spring Boot application (for example, "*C:\SpringBoot\gs-spring-boot-docker\complete*" or "*/users/robert/SpringBoot/gs-spring-boot-docker/complete*"), and open the *pom.xml* file with a text editor.
 
-1. Update the `<properties>` collection in the *pom.xml* file with the following XML. Replace the placeholder with your registry name, and update the `<jib-maven-plugin.version>` value with the latest version of the [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
+1. Update the `<properties>` collection in the *pom.xml* file with the following XML. Replace the placeholder with your registry name, and add a `<jib-maven-plugin.version>` property with value `2.2.0`, or a newer version of the [jib-maven-plugin](https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin).
 
    ```xml
    <properties>
       <docker.image.prefix><your registry name>.azurecr.io</docker.image.prefix>
-      <jib-maven-plugin.version>1.8.0</jib-maven-plugin.version>
       <java.version>1.8</java.version>
+      <jib-maven-plugin.version>2.2.0</jib-maven-plugin.version>
    </properties>
    ```
 
@@ -131,7 +135,7 @@ Finally, you'll update your project configuration and use the command prompt to 
 1. Navigate to the completed project directory for your Spring Boot application and run the following command to build the image and push the image to the registry:
 
    ```bash
-   mvn compile jib:build
+   az acr login && mvn compile jib:build
    ```
 
 > [!NOTE]
@@ -143,7 +147,7 @@ Finally, you'll update your project configuration and use the command prompt to 
 Congratulations! Now you have your containerized Java App build on Azure supported JDK pushed to your ACR. You can now test the image by deploying it to Azure App Service, or pulling it to local with command (replacing the placeholder):
 
 ```bash
-docker pull <your registry name>.azurecr.io/gs-spring-boot-docker:v1
+docker pull <your registry name>.azurecr.io/gs-spring-boot-docker
 ```
 
 ## Next steps
@@ -158,7 +162,7 @@ For other versions of the official Microsoft-supported Java base images, see:
 To learn more about Spring and Azure, continue to the Spring on Azure documentation center.
 
 > [!div class="nextstepaction"]
-> [Spring on Azure](/azure/java/spring-framework)
+> [Spring on Azure](/azure/developer/java/spring-framework)
 
 ### Additional Resources
 
@@ -168,5 +172,5 @@ For more information, see the following resources:
 * [Working with Azure DevOps and Java](/azure/devops/java)
 * [Spring Boot on Docker Getting Started](https://spring.io/guides/gs/spring-boot-docker)
 * [Spring Initializr](https://start.spring.io)
-* [Deploy a Spring Boot Application to the Azure App Service](/azure/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin)
-* [Using a custom Docker image for Azure Web App on Linux](/azure/app-service-web/app-service-linux-using-custom-docker-image)
+* [Deploy a Spring Boot Application to the Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin)
+* [Using a custom Docker image for Azure Web App on Linux](../app-service/containers/tutorial-custom-docker-image.md)

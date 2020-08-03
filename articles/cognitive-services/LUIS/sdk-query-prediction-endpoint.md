@@ -1,15 +1,9 @@
 ---
 title: "Quickstart: SDK query prediction endpoint - LUIS"
-titleSuffix: Azure Cognitive Services
 description: This quickstart will show you how to use the SDK to send a user utterance to the Azure Cognitive Services LUIS application and receive a prediction.
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-services: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/17/2020
-ms.author: diberry
+ms.date: 07/28/2020
+ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-diberry-3core
 ---
 

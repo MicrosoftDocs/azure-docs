@@ -1,23 +1,22 @@
 ---
-title: Upgrade from Basic Public to Standard Public - Azure Load Balancer
+title: Upgrade from Basic Internal to Standard Public - Azure Load Balancer
 description: This article shows you how to upgrade Azure Basic Internal Load Balancer to Standard Public Load Balancer
 services: load-balancer
 author: irenehua
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
 ---
 
 # Upgrade Azure Internal Load Balancer - Outbound Connection Required
-[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus). Since Standard Internal Load Balancer does not provide outbound connection, we provide a solution to create a Standard Public Load Balancer instead.
+[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/skus#skus). Since Standard Internal Load Balancer does not provide outbound connection, we provide a solution to create a Standard Public Load Balancer instead.
 
 There are four stages in a upgrade:
 
 1. Migrate the configuration to Standard Public Load Balancer
 2. Add VMs to backend pools of Standard Public Load Balancer
-3. Create an outbound rule on the Load Balancer for outbound connection
-4. Set up NSG rules for Subnet/VMs that should be refrained from/to the Internet
+3. Set up NSG rules for Subnet/VMs that should be refrained from/to the Internet
 
 This article covers configuration migration. Adding VMs to backend pools may vary depending on your specific environment. However, some high-level, general recommendations [are provided](#add-vms-to-backend-pools-of-standard-load-balancer).
 
@@ -27,6 +26,7 @@ An Azure PowerShell script is available that does the following:
 
 * Creates a Standard SKU Public Load Balancer in the resource group and location that you specify.
 * Seamlessly copies the configurations of the Basic SKU Internal Load Balancer to the newly create Standard Public Load Balancer.
+* Creates an outbound rule which enables egress connectivity.
 
 ### Caveats\Limitations
 
@@ -37,7 +37,7 @@ An Azure PowerShell script is available that does the following:
 
 ## Download the script
 
-Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
+Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureLBUpgrade/2.0).
 ## Use the script
 
 There are two options for you depending on your local PowerShell environment setup and preferences:
