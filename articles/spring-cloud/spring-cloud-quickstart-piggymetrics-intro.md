@@ -11,7 +11,9 @@ ms.custom: devx-track-java
 
 # Quickstart - Introduction to Piggymetrics sample app
 
-Piggymetrics is a sample application that is used in examples that illustrate deployment to Azure Spring Cloud.  This proof-of-concept application is simple way to deal with personal finances.  It demonstrates Microservice Architecture Pattern using Spring Boot, Spring Cloud and Docker. It includes a nice user interface.  To follow the Azure Spring Cloud deployment examples, you only need the location of the source code, which is provided as needed.
+Piggymetrics is a sample application that is used in examples to illustrate deployment to Azure Spring Cloud.  This proof-of-concept application is simple way to deal with personal finances.  It demonstrates the Microservice Architecture Pattern using Spring Boot, Spring Cloud and Docker. It includes a user interface.  The following sections describe Piggymetrics services.
+
+To follow the Azure Spring Cloud deployment examples, you only need the location of the source code, which is provided as needed.
 
 ## Functional services
 PiggyMetrics was decomposed into three core microservices. All of them are independently deployable applications, organized around certain business domains.
