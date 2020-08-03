@@ -80,15 +80,13 @@ landingContent:
         links:
           - text: 'Quickstart: Web app'
             url: quickstart-web-app-dotnet.md
-          - text: Enable enterprise and social login
+          - text: 'Tutorial: Enable enterprise and social login'
             url: tutorial-add-identity-providers.md
-      - linkListType: sample
-        links:
-          - text: Native mobile app samples
+          - text: Native mobile app
             url: code-samples.md#mobile-and-desktop-apps
-          - text: Single-page app samples
+          - text: Single-page app
             url: code-samples.md#single-page-apps
-          - text: Web app sampes
+          - text: Web app
             url: code-samples.md#web-apps-and-apis
 
   # Card
