@@ -9,13 +9,18 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
-
 zone_pivot_groups: aml-control-methods
-
 ---
 
-
 # Profile your model to determine resource utilization
+
+This article shows how to profile a machine learning to model to determine how much CPU and memory you will need to allocate for the model when deploying it as a web service.
+
+## Prerequisites
+
+This article assumes you have trained and registered a model with Azure Machine Learning. See the [sample tutorial here](how-to-train-scikit-learn.md) for an example of training and registering a scikit-learn model with Azure Machine Learning.
+
+## Run the profiler
 
 Once you have registered your model and prepared the other components necessary for its deployment, you can determine the CPU and memory the deployed service will need. Profiling tests the service that runs your model and returns information such as the CPU usage, memory usage, and response latency. It also provides a recommendation for the CPU and memory based on resource usage.
 
@@ -110,3 +115,16 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 > ```
 
 ::: zone-end
+
+## Next steps
+
+* [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
+* [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
+* [Create client applications to consume web services](how-to-consume-web-service.md)
+* [Update web service](how-to-deploy-update-web-service.md)
+* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
+* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
+* [Collect data for models in production](how-to-enable-data-collection.md)
+* [Create event alerts and triggers for model deployments](how-to-use-event-grid.md)
+

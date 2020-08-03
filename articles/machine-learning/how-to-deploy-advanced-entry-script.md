@@ -13,7 +13,11 @@ ms.author: gopalv
 
 This article shows how to write entry scripts for specialized use cases.
 
-## Define model web service schema
+## Prerequisites
+
+This article assumes you already have a trained machine learning model that you intend to deploy with Azure Machine Learning. To learn more about model deployment, see [this tutorial](how-to-deploy-and-where.md).
+
+## Automatically generate a Swagger schema
 
 To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects. The type and sample are used to automatically create the schema. Azure Machine Learning then creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service during deployment.
 
@@ -80,7 +84,7 @@ def run(data):
 ```
 
 
-## Binary data
+## Binary (i.e. image) data
 
 If your model accepts binary data, like an image, you must modify the `score.py` file used for your deployment to accept raw HTTP requests. To accept raw data, use the `AMLRequest` class in your entry script and add the `@rawhttp` decorator to the `run()` function.
 
@@ -253,3 +257,15 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 When you register a model, you provide a model name that's used for managing the model in the registry. You use this name with the [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) method to retrieve the path of the model file or files on the local file system. If you register a folder or a collection of files, this API returns the path of the directory that contains those files.
 
 When you register a model, you give it a name. The name corresponds to where the model is placed, either locally or during service deployment.
+
+## Next steps
+
+* [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md)
+* [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
+* [Create client applications to consume web services](how-to-consume-web-service.md)
+* [Update web service](how-to-deploy-update-web-service.md)
+* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
+* [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
+* [Collect data for models in production](how-to-enable-data-collection.md)
+* [Create event alerts and triggers for model deployments](how-to-use-event-grid.md)

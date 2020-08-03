@@ -82,15 +82,9 @@ For information on using a custom Docker image with an inference configuration, 
 
 ## Choose a compute target
 
-The compute target you use to host your model will affect the cost and availability of your deployed endpoint. Use the table below to choose an appropriate compute target.
-
 [!INCLUDE [aml-compute-target-deploy](aml-compute-target-deploy.md)]
 
-> [!NOTE]
-> * Azure Container Instances (ACI) are suitable only for small models less than 1 GB in size. 
-> * We recommend using single-node Azure Kubernetes Service (AKS) clusters for dev-test of larger models.
-
-## Define your deployment configuration
+## Define a deployment configuration
 
 The options available for a deployment configuration differ depending on the compute target you choose.
 
@@ -117,34 +111,10 @@ If you would prefer not to register your model, you can pass the "sourceDirector
 ```azurecli-interactive
 az ml model deploy --ic inferenceconfig.json --dc deploymentconfig.json
 ```
+## Delete resources
 
-## Continuously deploy models
+To delete a deployed webservice, use `az ml service <name of webservice>`.
 
-You can continuously deploy models by using the Machine Learning extension for [Azure DevOps](https://azure.microsoft.com/services/devops/). You can use the Machine Learning extension for Azure DevOps to trigger a deployment pipeline when a new machine learning model is registered in an Azure Machine Learning workspace.
+To delete a registered model from your workspace, use `az ml model delete <model id>`
 
-1. Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), which makes continuous integration and delivery of your application to any platform or cloud possible. (Note that Azure Pipelines isn't the same as [Machine Learning pipelines](../articles/machine-learning/concept-ml-pipelines.md#compare).)
-
-1. [Create an Azure DevOps project.](https://docs.microsoft.com/azure/devops/organizations/projects/create-project?view=azure-devops)
-
-1. Install the [Machine Learning extension for Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList).
-
-1. Use service connections to set up a service principal connection to your Azure Machine Learning workspace so you can access your artifacts. Go to project settings, select **Service connections**, and then select **Azure Resource Manager**:
-
-    [![Select Azure Resource Manager](../articles/machine-learning/media/how-to-deploy-and-where/view-service-connection.png)](../articles/machine-learning/media/how-to-deploy-and-where/view-service-connection-expanded.png)
-
-1. In the **Scope level** list, select **AzureMLWorkspace**, and then enter the rest of the values:
-
-    ![Select AzureMLWorkspace](../articles/machine-learning/media/how-to-deploy-and-where/resource-manager-connection.png)
-
-1. To continuously deploy your machine learning model by using Azure Pipelines, under pipelines, select **release**. Add a new artifact, and then select the **AzureML Model** artifact and the service connection that you created earlier. Select the model and version to trigger a deployment:
-
-    [![Select AzureML Model](../articles/machine-learning/media/how-to-deploy-and-where/enable-modeltrigger-artifact.png)](../articles/machine-learning/media/how-to-deploy-and-where/enable-modeltrigger-artifact-expanded.png)
-
-1. Enable the model trigger on your model artifact. When you turn on the trigger, every time the specified version (that is, the newest version) of that model is registered in your workspace, an Azure DevOps release pipeline is triggered.
-
-    [![Enable the model trigger](../articles/machine-learning/media/how-to-deploy-and-where/set-modeltrigger.png)](../articles/machine-learning/media/how-to-deploy-and-where/set-modeltrigger-expanded.png)
-
-For more sample projects and examples, see these sample repos in GitHub:
-
-* [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
-* [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
+Read more about [deleting a webservice](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) and [deleting a model](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete)

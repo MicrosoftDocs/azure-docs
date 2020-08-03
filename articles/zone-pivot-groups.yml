@@ -511,6 +511,6 @@ groups:
   prompt: Choose an Azure Machine control plane interface
   pivots:
   - id: py-sdk
-    title: Python Software Development Kit (SDK)
+    title: Python SDK
   - id: cli
-    title: Command Line Interface (CLI)
+    title: Azure CLI

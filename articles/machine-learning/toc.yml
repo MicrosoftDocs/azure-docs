@@ -394,22 +394,25 @@
           href: how-to-deploy-fpga-web-service.md
       - name: Troubleshoot & debug
         href: how-to-troubleshoot-deployment.md
-      - name: Consume webservice
+      - name: Consume web service
         displayName: create client consume request response synchronous
         href: how-to-consume-web-service.md
-      - name: Update webservice
+      - name: Update web service
         displayName: update hot reload model mounting
         href: how-to-deploy-update-web-service.md
       - name: Advanced entry script authoring
         displayName: swagger inference schema binary cors
         href: how-to-deploy-advanced-entry-script.md
-      - name: Monitor models
+      - name: Monitor web services
         items:
         - name: Collect & evaluate model data
           displayName: track production
           href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
           href: how-to-enable-app-insights.md
+      - name: Continuously deploy models
+        displayName: ci cd azure devops models
+        href: how-to-deploy-continuously-deploy.md
       - name: Deploy encrypted inferencing service
         displayName: homomorhic,encryption,deployment
         href: how-to-homomorphic-encryption-seal.md
@@ -419,7 +422,7 @@
       - name: (Preview) No code deployment
         displayName: no code
         href: how-to-deploy-no-code-deployment.md
-      - name: Package model
+      - name: Package models
         displayName: docker file download
         href: how-to-deploy-package-models.md
     - name: Build & use ML pipelines

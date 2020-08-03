@@ -12,7 +12,7 @@ ms.author: gopalv
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../articles/machine-learning/how-to-manage-workspace.md).
 - A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
-- The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+- The [Azure Machine Learning software development kit (SDK) for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 
 
 ## Connect to your workspace
@@ -162,7 +162,7 @@ For more information on inference configuration, see the [InferenceConfig](https
 
 
 
-## Define your deployment configuration
+## Define a deployment configuration
 
 Before deploying your model, you must define the deployment configuration. *The deployment configuration is specific to the compute target that will host the web service.* For example, when you deploy a model locally, you must specify the port where the service accepts requests. The deployment configuration isn't part of your entry script. It's used to define the characteristics of the compute target that will host the model and entry script.
 
@@ -199,7 +199,7 @@ print(service.state)
 For more information, see the documentation for [LocalWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py), [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-), and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
 
-## Clean up resources
+## Delete resources
 
 To delete a deployed web service, use `service.delete()`.
 To delete a registered model, use `model.delete()`.

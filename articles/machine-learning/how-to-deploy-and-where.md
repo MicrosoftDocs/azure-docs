@@ -5,14 +5,13 @@ description: 'Learn how and where to deploy your Azure Machine Learning models, 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: jordane
-author: jpe316
+ms.author: gopalv
+author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, tracking-python
 zone_pivot_groups: aml-control-methods
-
 ---
 
 # Deploy models with Azure Machine Learning
