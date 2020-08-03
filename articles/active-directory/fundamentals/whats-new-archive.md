@@ -3873,7 +3873,7 @@ With the public preview refresh of Azure AD Privileged Identity Management (PIM)
 
 * Use Just Enough Administration.
 * Require approval to activate resource roles.
-* Schedule a future activation of a role that requires approval for both Azure AD and Azure RBAC roles.
+* Schedule a future activation of a role that requires approval for both Azure AD and Azure roles.
 
 For more information, see [Privileged Identity Management for Azure resources (preview)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac).
 

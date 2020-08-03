@@ -15,7 +15,7 @@ ms.author: cherylmc
 You can view all routes of your Virtual WAN hub in the Azure portal. This article walks you through the steps to view effective routes. For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> On the Azure portal, some of these features may still be rolling out and not available until week of August 3rd. 
+> On the Azure portal, some of these features may still be rolling out and not available until week of August 17th. 
 >
 
 ## <a name="routing"></a>Select connections or route tables

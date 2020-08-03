@@ -14,7 +14,7 @@ HCX Advanced, the default installation, supports up to three vCenters. If more t
 
 Thoroughly review [Before you begin](#before-you-begin), [Software version requirements](#software-version-requirements), and [Prerequisites](#prerequisites) first. 
 
-Then, we walk through all necessary procedures to:
+Then, we'll walk through all necessary procedures to:
 
 > [!div class="checklist"]
 > * Deploy the on-premises HCX OVA
@@ -26,10 +26,10 @@ After completing the setup, you can follow the recommended next steps provided a
 
 ## Before you begin
 	
-* Review the basic AVS Software Defined Datacenter (SDDC) [tutorial series](tutorial-network-checklist.md)
-* Review and reference the [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/index.html) including the HCX user guide
-* Review VMware docs [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
-* Optionally review [VMware HCX Deployment Considerations](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html)
+* Review the basic AVS Software Defined Datacenter (SDDC) [tutorial series](tutorial-network-checklist.md).
+* Review and reference the [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/index.html) including the HCX user guide.
+* Review VMware docs [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
+* Optionally review [VMware HCX Deployment Considerations](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Optionally review related VMware materials on HCX, such as the VMware vSphere [blog series](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) on HCX. 
 * Order an AVS HCX Enterprise activation through AVS support channels.
 
@@ -40,14 +40,14 @@ Infrastructure components must be running the required minimum version.
                                                          
 | Component Type    | Source Environment Requirements    | Destination Environment Requirements   |
 | --- | --- | --- |
-| vCenter Server   | 5.1<br/><br/>If using 5.5 U1 or earlier, use the standalone HCX User Interface for HCX operations.  | 6.0 U2 and above   |
+| vCenter Server   | 5.1<br/><br/>If using 5.5 U1 or earlier, use the standalone HCX user interface for HCX operations.  | 6.0 U2 and above   |
 | ESXi   | 5.0    | ESXi 6.0 and above   |
-| NSX    | For HCX Network Extension of Logical Switches at the Source: NSXv 6.2+ or NSX-T 2.4+   | NSXv 6.2+ or NSX-T 2.4+<br/><br/>For HCX Proximity Routing: NSXv 6.4+ (Proximity Routing not supported with NSX-T) |
+| NSX    | For HCX Network Extension of logical switches at the source: NSXv 6.2+ or NSX-T 2.4+   | NSXv 6.2+ or NSX-T 2.4+<br/><br/>For HCX Proximity Routing: NSXv 6.4+ (Proximity Routing is not supported with NSX-T) |
 | vCloud Director   | Not required - no interoperability with vCloud Director at the source site | When integrating the destination environment with vCloud Director, the minimum is 9.1.0.2.  |
 
 ## Prerequisites
 
-* Global reach should be configured between on-premises and AVS SDDC ER circuits.
+* ExpressRoute Global Reach should be configured between on-premises and AVS SDDC ExpressRoute circuits.
 
 * All required ports should be open between on-premises and AVS SDDC (see [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)).
 
