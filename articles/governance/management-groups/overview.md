@@ -59,7 +59,7 @@ fold up to it. This root management group allows for global policies and Azure r
 applied at the directory level. The [Azure AD Global Administrator needs to elevate
 themselves](../../role-based-access-control/elevate-access-global-admin.md) to the User Access
 Administrator role of this root group initially. After elevating access, the administrator can
-assign any RBAC role to other directory users or groups to manage the hierarchy. As administrator,
+assign any Azure role to other directory users or groups to manage the hierarchy. As administrator,
 you can assign your own account as owner of the root management group.
 
 ### Important facts about the Root management group
@@ -81,7 +81,7 @@ you can assign your own account as owner of the root management group.
     the hierarchy.  
   - No one is given default access to the root management group. Azure AD Global Administrators are
     the only users that can elevate themselves to gain access. Once they have access to the root
-    management group, the global administrators can assign any RBAC role to other users to manage  
+    management group, the global administrators can assign any Azure role to other users to manage  
     it.
 - In SDK, the root management group, or 'Tenant Root', operates as a management group.
 
@@ -133,16 +133,15 @@ If you have questions on this backfill process, contact: `managementgroups@micro
   
 ## Management group access
 
-Azure management groups support [Azure Role-Based Access Control
-(RBAC)](../../role-based-access-control/overview.md) for all resource accesses and role definitions.
-These permissions are inherited to child resources that exist in the hierarchy. Any RBAC role can be
+Azure management groups support [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) for all resource accesses and role definitions.
+These permissions are inherited to child resources that exist in the hierarchy. Any Azure role can be
 assigned to a management group that will inherit down the hierarchy to the resources. For example,
-the RBAC role VM contributor can be assigned to a management group. This role has no action on the
+the Azure role VM contributor can be assigned to a management group. This role has no action on the
 management group, but will inherit to all VMs under that management group.
 
 The following chart shows the list of roles and the supported actions on management groups.
 
-| RBAC Role Name             | Create | Rename | Move\*\* | Delete | Assign Access | Assign Policy | Read  |
+| Azure Role Name             | Create | Rename | Move\*\* | Delete | Assign Access | Assign Policy | Read  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Owner                       | X      | X      | X        | X      | X             | X             | X     |
 |Contributor                 | X      | X      | X        | X      |               |               | X     |

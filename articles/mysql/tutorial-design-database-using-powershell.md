@@ -7,7 +7,7 @@ ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 04/29/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Tutorial: Design an Azure Database for MySQL using PowerShell
