@@ -26,11 +26,11 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
 3. Select **Azure Spring Cloud** from the results.
 
- ![ASC icon](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
+    ![ASC icon](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
 4. On the Azure Spring Cloud page, click **+ Add**.
 
- ![ASC icon](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+    ![ASC icon](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Fill out the form on the Azure Spring Cloud **Create** page.  Consider the following guidelines:
     - **Subscription**: Select the subscription you want to be billed for this resource.  Ensure that this subscription has been added to our allow-list for Azure Spring Cloud.
@@ -66,7 +66,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
 ## Azure Cloud Shell
 The Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
 
-## Install the Azure CLI extension
+### Install the Azure CLI extension
 
 Sign in to your Azure subscription.  Install the Azure Spring Cloud extension for the Azure CLI using the following command
 
@@ -74,7 +74,7 @@ Sign in to your Azure subscription.  Install the Azure Spring Cloud extension fo
 az extension add --name spring-cloud
 ```
 
-## Provision a service instance on the Azure CLI
+### Provision a service instance on the Azure CLI
 
 1. Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
 
