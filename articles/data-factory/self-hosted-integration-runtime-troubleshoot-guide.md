@@ -51,7 +51,7 @@ When trying to enable TLS/SSL certificate (advanced) from **Self-hosted IR Confi
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
-In this case scenario, the user is using wildcard certificate (*.microsoft.com’) because their organization has multiple sites.
+In above case, the user is using certificate with "microsoft.com" as last item.
 
 #### Cause
 
@@ -60,7 +60,7 @@ This is a known issue in WCF: WCF TLS/SSL validation only checks last DNSName in
 #### Resolution
 
 Wildcard certificate is supported in Azure Data Factory v2 Self-hosted IR. This issue normally happens because the SSL certificate is not correct. The last DNSName in SAN should be valid. Follow steps below to verify it. 
-1.	Open Management Console, double check both *Subject* and *Subject Alternative Name* from the Certificate Details. In this case, for example, the last item in *Subject Alternative Name*, which is "DNS Name= microsoft.com.com", is not legitimate.
+1.	Open Management Console, double check both *Subject* and *Subject Alternative Name* from the Certificate Details. In above case, for example, the last item in *Subject Alternative Name*, which is "DNS Name= microsoft.com.com", is not legitimate.
 2.	Contact the certificate issue company to remove the wrong DNS Name.
 
 ### Concurrent jobs limit issue
@@ -215,7 +215,7 @@ After creating Self-hosted IRs for both source and destination data stores, you 
 
 The Self-hosted IR is designed as a central node of a copy activity, not a client agent that needs to be installed for each data store.
  
-In this case, the linked service for each data store should be created with the same IR, and the IR should be able to access both data stores through network. No matter the IR is installed with source data store, destination data store, or on a third machine, if two linked services are created with different IRs, but used in the same copy activity, the destination IR will be used, and the drivers for both data stores need to be installed on the destination IR machine.
+In above case, the linked service for each data store should be created with the same IR, and the IR should be able to access both data stores through network. No matter the IR is installed with source data store, destination data store, or on a third machine, if two linked services are created with different IRs, but used in the same copy activity, the destination IR will be used, and the drivers for both data stores need to be installed on the destination IR machine.
 
 #### Resolution
 
