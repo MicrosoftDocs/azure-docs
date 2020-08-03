@@ -22,7 +22,7 @@ Azure AD provides you with a central place to manage device identities.
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Azure Active Directory** > **Devices**.
 
-![All devices view in the Azure portal](./media/device-management-azure-portal/all-devices-azure-portal.png)
+[![All devices view in the Azure portal](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
 The **All devices** page enables you to:
 
@@ -106,9 +106,9 @@ You can use a device ID to verify the device ID details on the device or using P
   
 ### View or copy BitLocker keys
 
-You can view and copy the BitLocker keys to help users to recover their encrypted drive. These keys are only available for Windows devices that are encrypted and have their keys stored in Azure AD. You can copy these keys when accessing details of the device.
+You can view and copy the BitLocker keys to allow users to recover encrypted drives. These keys are only available for Windows devices that are encrypted and have their keys stored in Azure AD. You can find these keys when accessing details of a device by selecting **Show Recovery Key**.
 
-![View BitLocker keys](./media/device-management-azure-portal/36.png)
+![View BitLocker keys](./media/device-management-azure-portal/device-details-show-bitlocker-key.png)
 
 To view or copy the BitLocker keys, you need to be either the owner of the device, or a user that has at least one of the following roles assigned:
 
