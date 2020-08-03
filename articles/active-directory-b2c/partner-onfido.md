@@ -122,7 +122,6 @@ Application settings can be configured in the [App service in Azure](https://doc
 #### Replace the configuration values
 
 In the provided custom policies, find the following placeholders and replace with the corresponding values from your instance
-
 |                      Placeholder                       |                                   Replace with value                                 |                   Example                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |
 | {your_tenant_name}                                     | Your tenant short name                                                           | “yourtenant” from yourtenant.onmicrosoft.com |
