@@ -8,7 +8,7 @@
     href: ./servers/overview.md
 - Quickstarts
   - name: Enable Arc for servers agent
-    href: learn/quick-enable-hybrid-vm.md
+    href: ./servers/learn/quick-enable-hybrid-vm.md
 - name: Samples
   items:
   - name: Azure Policy built-ins 
