@@ -17,23 +17,23 @@ Azure Cognitive Search automatically encrypts indexed content at rest with [serv
 
 ## CMK encryption
 
-CMK encryption is dependent on [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage. 
+CMK encryption is dependent on [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage if you [enable logging](../key-vault/general/logging.md).  
 
-Encryption with customer-managed keys is applied to individual indexes or synonym maps when those objects are created, and is not specified on the search service level itself. Only new objects can be encrypted. You cannot encrypt content that already exists. 
+Encryption with customer-managed keys is applied to individual indexes or synonym maps when those objects are created, and is not specified on the search service level itself. Only new objects can be encrypted. You cannot encrypt content that already exists.
+
+For services created after August 1, 2020 and in specific regions, the scope of CMK encryption includes temporary data structures, achieving full double encryption. Double encryption is currently available in these regions: 
+
++ West US 2
++ East US
++ South Central US
++ US Gov Virginia
++ US Gov Arizona
+
+If you are using a different region, or service created prior to August 1, then your CMK encryption is limited to just the primary objects themselves and not the internal data structures created by the service.
+
+You can use the portal, REST API, or an SDK to create the service, but to apply a customer-managed key on an index or synonym map, you must use the REST API or an SDK. The portal does not expose synonym maps or encryption properties.
 
 Keys don't all need to be in the same Key Vault. A single search service can host multiple encrypted indexes or synonym maps each encrypted with their own customer-managed encryption keys stored in different Key Vaults.  You can also have indexes and synonym maps in the same service that are not encrypted using customer-managed keys. 
-
-## Double encryption
-
-In Azure Cognitive Search, double encryption is an extension of the previous CMK implementation, and not a new standalone feature.
-
-For services created after August 1, 2020 and in specific regions, the scope of CMK encryption includes temporary data structures that are created by the search service during indexing and query operations. There is no additional flag or setting to configure. Double encryption, which is understood to be two-fold encryption and comprehensive in scope, occurs automatically on new services when you configure CMK and encrypt specific objects.
-
-Follow these steps to ensure your content is doubly encrypted:
-
-1. Create a new, billable Azure Cognitive Search service (a service must be created after August 1 to have this capability) in one of these regions: West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona. You can use the portal, REST API, or an SDK.
-
-1. Create or find an existing Azure Key Vault service, then create and apply a customer-managed key using the instructions in this article. You can encrypt individual indexes or synonym maps. Use the REST API or an SDK to set the **encryptionKey** property. The portal does not expose synonym maps or encryption properties.
 
 ## Prerequisites
 
@@ -161,6 +161,10 @@ Access permissions could be revoked at any given time. Once revoked, any search 
 ## 5 - Encrypt content
 
 Creating an index or synonym map encrypted with customer-managed key is not supported in the Azure portal. Instead, use Azure Cognitive Search REST API or an SDK to create such an index or synonym map.
+
+Once content is encrypted, you will notice latency for both indexing and queries. For performance reasons, the search service will cache the key for several hours. If you disable or delete the key, queries will continue to work on a temporary basis until the cache expires. If the search service cannot decrypt content, you will get this message: "Access forbidden. The query key used might have been revoked - please retry." 
+
+You can monitor key access through key vault logging. We recommend that you enable logging as part of key vault set up.
 
 Both index and synonym map support a top-level **encryptionKey** property used to specify the key. 
 
