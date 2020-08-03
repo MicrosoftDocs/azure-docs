@@ -4,7 +4,7 @@ description: The Security Center security baseline provides procedural guidance 
 author: msmbaldwin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/03/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
