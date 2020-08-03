@@ -167,6 +167,7 @@ The secondary region restore user experience will be similar to the primary regi
 >
 >- After the restore is triggered and in the data transfer phase, the restore job cannot be cancelled.
 >- The Cross Region Restore feature restores CMK (customer-managed keys) enabled Azure VMs, which are not backed-up in a CMK enabled Recovery Services vault, as non-CMK enabled VMs in the secondary region.
+>- The RBAC (role-based access controls) roles needed to restore in the secondary region are the same as those in the primary region.
 
 ### Monitoring secondary region restore jobs
 
