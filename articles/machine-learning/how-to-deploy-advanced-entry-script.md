@@ -84,7 +84,7 @@ def run(data):
 ```
 
 
-## Binary (i.e. image) data
+## <a id="binary-data"></a> Binary (i.e. image) data
 
 If your model accepts binary data, like an image, you must modify the `score.py` file used for your deployment to accept raw HTTP requests. To accept raw data, use the `AMLRequest` class in your entry script and add the `@rawhttp` decorator to the `run()` function.
 
