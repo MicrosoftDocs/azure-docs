@@ -7,7 +7,7 @@ ms.date: 07/31/2020
 
 # Troubleshoot network access to registry
 
-This article helps you troubleshoot common problems accessing an Azure container registry due to network or firewall configurations. 
+This article helps you troubleshoot problems you might encounter when accessing an Azure container registry that has virtual network or firewall configurations. 
 
 ## Symptoms
 

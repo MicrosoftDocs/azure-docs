@@ -7,7 +7,7 @@ ms.date: 07/31/2020
 
 # Troubleshoot registry login
 
-This article helps you troubleshoot common problems when logging into an Azure container registry. 
+This article helps you troubleshoot problems you might encounter when logging into an Azure container registry. 
 
 ## Symptoms
 
