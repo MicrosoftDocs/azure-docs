@@ -18,7 +18,7 @@ ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
 
-Azure NetApp Files supports NFS and SMBv3 volumes. A volume's capacity consumption counts against its pool's provisioned capacity. This article shows you how to create an SMBv3 volume. If you want to create an NFS volume, see [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md). 
+Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv3, or dual protocol (NFSv3 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. This article shows you how to create an SMBv3 volume.
 
 ## Before you begin 
 You must have already set up a capacity pool.   
@@ -192,7 +192,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 2. Click **+ Add volume** to create a volume.  
     The Create a Volume window appears.
 
-3. In the Create a Volume window, click **Create** and provide information for the following fields:   
+3. In the Create a Volume window, click **Create** and provide information for the following fields under the Basics tab:   
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 
@@ -225,7 +225,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
     * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, and select a snapshot policy in the pull-down menu. 
 
-        For information about creating a snapshot policy, see [Manage snapshots](azure-netapp-files-manage-snapshots.md).
+        For information about creating a snapshot policy, see [Manage snapshot policies](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
         ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
