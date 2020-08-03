@@ -194,7 +194,7 @@ When a new policy is applied, schedule and retention of the new policy is follow
 
 ### How long is data retained when stopping backups, but selecting the option to retain backup data?
 
-When backups are stopped and the data is retained, existing policy rules for data purning will cease and data will be retained indefinitely until initiated by the adminsitrator for deletion.
+When backups are stopped and the data is retained, existing policy rules for data pruning will cease and data will be retained indefinitely until initiated by the administrator for deletion.
 
 ## Encryption
 
