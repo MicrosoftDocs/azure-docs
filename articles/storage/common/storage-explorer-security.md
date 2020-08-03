@@ -33,7 +33,7 @@ The easiest and most secure way to access your Azure Storage resources is to sig
 - Revoke access to specific users and groups at any time.
 - Enforce access conditions, such as requiring multi-factor authentication.
 
-Use Azure AD authentication whenever possible.
+We recommend using Azure AD authentication whenever possible.
 
 This section describes the two Azure AD-based technologies that can be used to secure your storage resources.
 
