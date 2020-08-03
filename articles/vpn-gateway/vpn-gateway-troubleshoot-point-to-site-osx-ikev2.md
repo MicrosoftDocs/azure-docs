@@ -1,6 +1,6 @@
 ---
 title: 'Azure VPN Gateway: Troubleshoot Point-to-Site connections: Mac OS X clients'
-description: Steps to troubleshoot P2S Mac OS X VPN client connections
+description: Troubleshoot Point-to-Site connectivity from Mac OS X. Check these settings: server address, remote ID, local ID, authentication settings, and OS version.
 services: vpn-gateway
 author: kumudD
 
