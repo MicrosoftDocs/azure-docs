@@ -1,6 +1,6 @@
 ---
 title: Cryptography - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: Learn about cryptography mitigation for threats exposed in the Threat Modeling Tool. See a list of potential threats and mitigation instructions.
+description: Learn about cryptography mitigation for threats exposed in the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 documentationcenter: na
 author: jegeib
