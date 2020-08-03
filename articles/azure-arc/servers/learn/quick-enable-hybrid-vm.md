@@ -19,7 +19,7 @@ ms.date: 08/03/2020
 
 * Deploying the Arc for servers (preview) Hybrid Connected Machine agent requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, you are member of the Local Administrators group.
 
-* Before you get started, be sure to review the [prerequisites](agent-overview.md#prerequisites) and verify the following:
+* Before you get started, be sure to review the [prerequisites](../agent-overview.md#prerequisites) and verify the following:
 
     * Your target machine is running a supported [operating system](../agent-overview.md#supported-operating-systems).
 
@@ -27,7 +27,7 @@ ms.date: 08/03/2020
 
     * If the machine connects through a firewall or proxy server to communicate over the Internet, make sure the URLs [listed](../agent-overview.md#networking-configuration) are not blocked.
 
-    * Azure Arc for servers (preview) only the regions specified [here](overview.md#supported-regions).
+    * Azure Arc for servers (preview) only the regions specified [here](../overview.md#supported-regions).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -102,4 +102,4 @@ After you install the agent, configure it to communicate with the Azure Arc serv
 
 After you install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has been successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
 
-![A successful server connection](./media/onboard-portal/arc-for-servers-successful-onboard.png)
+![A successful server connection](../media/onboard-portal/arc-for-servers-successful-onboard.png)
