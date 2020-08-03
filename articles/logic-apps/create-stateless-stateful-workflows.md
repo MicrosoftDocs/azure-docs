@@ -85,4 +85,51 @@ ms.date: 09/22/2020
 
 1. For deployment to Azure, check that you can browse your app in the Azure portal by using the [preview URL](https://portal.azure.com/?websitesextension_workflowspreview=true).
 
+## Deploy to Docker container
+
+1. Build your project by running this command:
+
+   `dotnet build -c release`
+
+1. Publish your build by running this command:
+
+   `dotnet publish`
+
+1. Build a Docker container with a workflow by running this command:
+
+   `docker build --tag local/workflowcontainer .`
+
+   For example, here's a sample Docker file for a .NET workflow, but replace the <*storage-connection-string*> value with your connection string to Azure Storage:
+
+   ```text
+   FROM mcr.microsoft.com/azure-functions/dotnet:3.0.13614-appservice
+   ENV AzureWebJobsStorage <storage-connection-string>
+   ENV AzureWebJobsScriptRoot=/home/site/wwwroot \ AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+   COPY ./bin/Release/netcoreapp3.1/publish/ /home/site/wwwroot
+   ```
+
+1. Start the container by locally running this command:
+
+   `docker run -p 8080:80 local/workflowcontainer`
+
+1. To get the callback URL for the Request triggers, send this request:
+
+   `POST /runtime/webhooks/flow/api/management/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2019-10-01-edge-preview&code={master-key}`
+
+   The <*master-key*> value is defined in the storage account that you set for `AzureWebJobsStorage` in the file, "azure-webjobs-secrets/{deployment-name}/host.json", where you can find the value in this section:
+
+   ```json
+   {
+     <...>
+     "masterKey": {
+        "name": "master",
+        "value": "{master-key}",
+        "encrypted": false
+     },
+     <...>
+   }
+   ```
+
+   For more information about the master key value, see [Using Docker Compose](https://github.com/Azure/azure-functions-docker/issues/84).
+
 1. 
