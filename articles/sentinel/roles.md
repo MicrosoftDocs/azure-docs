@@ -24,7 +24,7 @@ ms.author: yelevin
 Azure Sentinel uses [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md)
 to provide [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
-Use RBAC to create and assign roles within your security operations team to grant appropriate access to Azure Sentinel. The different roles give you fine-grained control over what users of Azure Sentinel can see and do. RBAC roles can be assigned in the Azure Sentinel workspace directly (see note below), or in a subscription or resource group that the workspace belongs to, which Azure Sentinel will inherit.
+Use RBAC to create and assign roles within your security operations team to grant appropriate access to Azure Sentinel. The different roles give you fine-grained control over what users of Azure Sentinel can see and do. Azure roles can be assigned in the Azure Sentinel workspace directly (see note below), or in a subscription or resource group that the workspace belongs to, which Azure Sentinel will inherit.
 
 ## Roles for working in Azure Sentinel
 
@@ -62,7 +62,7 @@ For a side-by-side comparison, see the [table below](#roles-and-allowed-actions)
 
 ### Other roles you might see assigned
 
-In assigning Azure Sentinel-specific RBAC roles, you may come across other Azure and Log Analytics RBAC roles that may have been assigned to users for other purposes. You should be aware that these roles grant a wider set of permissions that includes access to your Azure Sentinel workspace and other resources:
+In assigning Azure Sentinel-specific Azure roles, you may come across other Azure and Log Analytics Azure roles that may have been assigned to users for other purposes. You should be aware that these roles grant a wider set of permissions that includes access to your Azure Sentinel workspace and other resources:
 
 - **Azure roles:** [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), and [Reader](../role-based-access-control/built-in-roles.md#reader). Azure roles grant access across all your Azure resources, including Log Analytics workspaces and Azure Sentinel resources.
 

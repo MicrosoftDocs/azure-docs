@@ -140,7 +140,7 @@ The `provisioningState` of `Succeeded` is shown, once the extension is installed
 
 ## Configure role assignments for the VM
 
-Now that you have created the VM, you need to configure Azure RBAC policy to determine who can log in to the VM. Two RBAC roles are used to authorize VM login:
+Now that you have created the VM, you need to configure Azure RBAC policy to determine who can log in to the VM. Two Azure roles are used to authorize VM login:
 
 - **Virtual Machine Administrator Login**: Users with this role assigned can log in to an Azure virtual machine with administrator privileges.
 - **Virtual Machine User Login**: Users with this role assigned can log in to an Azure virtual machine with regular user privileges.
@@ -205,7 +205,7 @@ require multi-factor authentication as a grant access control.
 ## Log in using Azure AD credentials to a Windows VM
 
 > [!IMPORTANT]
-> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are either Azure AD registered (minimum required build is 20H1) or Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. Additionally, to RDP using Azure AD credentials, the user must belong to one of the two RBAC roles, Virtual Machine Administrator Login or Virtual Machine User Login. If using an Azure AD registered Windows 10 PC, you must enter credentials in the AzureAD\UPN format (e.g. AzureAD\john@contoso.com). At this time, Azure Bastion can't be used to log in by using Azure Active Directory authentication with the AADLoginForWindows extension; only direct RDP is supported.
+> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are either Azure AD registered (minimum required build is 20H1) or Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. Additionally, to RDP using Azure AD credentials, the user must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login. If using an Azure AD registered Windows 10 PC, you must enter credentials in the AzureAD\UPN format (e.g. AzureAD\john@contoso.com). At this time, Azure Bastion can't be used to log in by using Azure Active Directory authentication with the AADLoginForWindows extension; only direct RDP is supported.
 
 To log in to your Windows Server 2019 virtual machine using Azure AD: 
 
@@ -313,13 +313,13 @@ At Public Preview, the AADLoginForWindows extension is only intended to be insta
 
 ### Troubleshoot sign-in issues
 
-Some common errors when you try to RDP with Azure AD credentials include no RBAC roles assigned, unauthorized client, or 2FA sign-in method required. Use the following information to correct these issues.
+Some common errors when you try to RDP with Azure AD credentials include no Azure roles assigned, unauthorized client, or 2FA sign-in method required. Use the following information to correct these issues.
 
 The Device and SSO State can be viewed by running `dsregcmd /status`. The goal is for Device State to show as `AzureAdJoined : YES` and `SSO State` to show `AzureAdPrt : YES`.
 
 Also, RDP Sign-in using Azure AD accounts is captured in Event viewer under the AAD\Operational event logs.
 
-#### RBAC role not assigned
+#### Azure role not assigned
 
 If you see the following error message when you initiate a remote desktop connection to your VM: 
 
