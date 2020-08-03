@@ -5,7 +5,8 @@ author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 03/30/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Data encryption for Azure Database for PostgreSQL Single server by using the Azure CLI

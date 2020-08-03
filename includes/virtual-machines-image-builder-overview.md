@@ -1,7 +1,7 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 05/15/2020
+ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
@@ -93,6 +93,9 @@ During the image creation process, files are downloaded and stored in the `IT_<D
 Image Builder creates a VM using a D1v2 VM size, and the storage, and networking needed for the VM. These resources will last for the duration of the build process, and will be deleted once Image Builder has finished creating the image. 
  
 Azure Image Builder will distribute the image to your chosen regions, which might incur network egress charges.
+
+## Hyper V Generation
+Image Builder currently on supports Hyper V Generation 1 images and VMs.
  
 ## Next steps 
  

@@ -4,7 +4,7 @@ description: Add a database in Azure SQL Database to an autofailover group using
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: 
 ms.topic: conceptual
 author: MashaMSFT
