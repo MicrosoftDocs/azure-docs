@@ -16,9 +16,9 @@ ms.custom: how-to
 # Enable logging in Azure ML training runs
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-The Azure Machine Learning Python SDK lets you log real-time information using both the default Python logging package and SDK-specific functionality. You can log locally and to send logs to your workspace in the portal.
+The Azure Machine Learning Python SDK lets you log real-time information using both the default Python logging package and SDK-specific functionality. You can log locally and send logs to your workspace in the portal.
 
-Logs can help you diagnose errors and warnings, or track performance metrics like parameters and model performance. In this article, you learn how to enabling logging in the following scenarios:
+Logs can help you diagnose errors and warnings, or track performance metrics like parameters and model performance. In this article, you learn how to enable logging in the following scenarios:
 
 > [!div class="checklist"]
 > * Interactive training sessions
@@ -26,7 +26,6 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 > * Python native `logging` settings
 > * Logging from additional sources
 
-[Create an Azure Machine Learning workspace](how-to-manage-workspace.md). Use the [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) for more information the SDK.
 
 > [!TIP]
 > This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
@@ -61,7 +60,7 @@ This example performs a parameter sweep over alpha values and captures the resul
    [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)]
    [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
 
-The `show_output` turns on verbose logging, which lets you see details from the training process as well as information about any remote resources or compute targets. Use the following code to turn on verbose logging when you submit the experiment.
+    The `show_output` parameter turns on verbose logging, which lets you see details from the training process as well as information about any remote resources or compute targets. Use the following code to turn on verbose logging when you submit the experiment.
 
 ```python
 run = exp.submit(src, show_output=True)
@@ -88,7 +87,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 Azure Machine Learning can also log information from other sources during training, such as automated machine learning runs, or Docker containers that run the jobs. These logs aren't documented, but if you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
-For information on logging custom metrics in Azure Machine Learning designer (preview), see [How to log metrics in the designer (preview)](how-to-track-designer-experiments.md)
+For information on logging metrics in Azure Machine Learning designer (preview), see [How to log metrics in the designer (preview)](how-to-track-designer-experiments.md)
 
 ## Example notebooks
 The following notebooks demonstrate concepts in this article:
@@ -102,6 +101,6 @@ The following notebooks demonstrate concepts in this article:
 
 See these articles to learn more on how to use Azure Machine Learning:
 
-* Learn how to [log custom metrics in Azure Machine Learning designer (preview)](how-to-track-designer-experiments).
+* Learn how to [log metrics in Azure Machine Learning designer (preview)](how-to-track-designer-experiments).
 
 * See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).

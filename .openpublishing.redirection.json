@@ -17570,7 +17570,7 @@
     {
       "source_path": "articles/machine-learning/how-to-enable-logging.md",
       "redirect_url": "/azure/machine-learning/how-to-track-experiments",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitor-alerts-unified-log-template.md",

@@ -17,7 +17,7 @@ ms.custom: how-to
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to monitor and view logs for Azure Machine Learning runs. Before you can view logs, you have to enable them first. For more information, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
+In this article, you learn how to monitor Azure Machine Learning runs and view their logs. Before you can view logs, you have to enable them first. For more information, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
 
 Logs can help you diagnose errors and warnings, or track performance metrics like parameters and model accuracy. In this article, you learn how to view logs using the following methods:
 
@@ -30,11 +30,11 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 
 For general information on how to manage your experiments, see [Start, monitor, and cancel training runs](how-to-manage-runs.md).
 
-## Monitor runs from the studio
+## Monitor runs in the studio
 
-To see the runs for a specific compute target from your browser, use the following steps:
+To monitor runs for a specific compute target from your browser, use the following steps:
 
-1. From the [Azure Machine Learning studio](https://ml.azure.com/), select your workspace, and then select __Compute__ from the left side of the page.
+1. In the [Azure Machine Learning studio](https://ml.azure.com/), select your workspace, and then select __Compute__ from the left side of the page.
 
 1. Select __Training Clusters__ to display a list of compute targets used for training. Then select the cluster.
 
@@ -125,7 +125,7 @@ Use the following methods in the logging APIs to influence the studio visualizes
 
 Try these next steps to learn how to use Azure Machine Learning:
 
-* Learn how to [track experiments and custom logs in the Azure Machine Learning designer (preview)](how-to-track-designer-experiments.md).
+* Learn how to [track experiments and enable logs in the Azure Machine Learning designer (preview)](how-to-track-designer-experiments.md).
 
 * See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
