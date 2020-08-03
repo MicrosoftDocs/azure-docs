@@ -212,7 +212,6 @@ Remarks:
 
 ![Image showing the fields in the Prompt structure. These constant values control interactivity with the user by defining the type of prompt displayed by the WithPrompt() method.](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
 
-
 The class defines the following constants:
 
 - ``SelectAccount`` forces the STS to present the account selection dialog box that contains accounts for which the user has a session. This option is useful when application developers want to let users choose among different identities. This option drives MSAL to send ``prompt=select_account`` to the identity provider. This option is the default. It does a good job of providing the best possible experience based on the available information, such as account and presence of a session for the user. Don't change it unless you have good reason to do it.

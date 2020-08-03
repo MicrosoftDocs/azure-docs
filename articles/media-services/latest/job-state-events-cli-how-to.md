@@ -11,7 +11,8 @@ ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.date: 11/09/2018
-ms.author: juliako
+ms.author: juliako 
+ms.custom: devx-track-azurecli
 ---
 
 # Create and monitor Media Services events with Event Grid using the Azure CLI

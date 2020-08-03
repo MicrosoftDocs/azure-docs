@@ -57,6 +57,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
    **Circuit - Provider status: Not provisioned**
 
+<<<<<<< HEAD
    [![Screenshot showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status which is set to "Not provisioned".](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
 
 
@@ -64,6 +65,13 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
    [![Screenshot showing the Overview page for the ExpressRoute Demo Circuit with a red box highlighting the Provider status which is set to "Provisioned".](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
 
+=======
+    [![This screen shows the Provider status, which is Not provisioned.](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-m-lightbox.png#lightbox)
+
+   **Circuit - Provider status: Provisioned**
+
+   [![This screen shows the Provider status, which is Provisioned.](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m.png)](./media/expressroute-howto-routing-portal-resource-manager/provisioned-m-lightbox.png#lightbox)
+>>>>>>> 9c5ad110eba93c2f6184c494ac2049cdbe083abf
 2. Configure Microsoft peering for the circuit. Make sure that you have the following information before you proceed.
 
    * A /30 subnet for the primary link. This must be a valid public IPv4 prefix owned by you and registered in an RIR / IRR. From this subnet you will assign the first useable IP address to your router as Microsoft uses the second useable IP for its router.

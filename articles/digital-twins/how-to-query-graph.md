@@ -17,11 +17,15 @@ ms.service: digital-twins
 
 # Query the Azure Digital Twins twin graph
 
-This article offers examples and more detail for using the [Azure Digital Twins Query Store language](concepts-query-language.md) to query the [twin graph](concepts-twins-graph.md) for information. You run queries on the graph using the Azure Digital Twins [**Query APIs**](how-to-use-apis-sdks.md).
+This article offers examples and more detail for using the [Azure Digital Twins query language](concepts-query-language.md) to query the [twin graph](concepts-twins-graph.md) for information. You run queries on the graph using the Azure Digital Twins [**Query APIs**](how-to-use-apis-sdks.md).
+
+[!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
+
+The rest of this article provides examples of how to use these operations.
 
 ## Query syntax
 
-Here are some sample queries that illustrate the query language structure and perform possible query operations.
+This section contains sample queries that illustrate the query language structure and perform possible query operations.
 
 Get [digital twins](concepts-twins-graph.md) by properties (including ID and metadata):
 ```sql
@@ -32,24 +36,63 @@ AND T.$dtId in ['123', '456']
 AND T.Temperature = 70
 ```
 
-Get digital twins by [model](concepts-models.md)
-```sql
-SELECT  * 
-FROM DigitalTwins T  
-WHERE IS_OF_MODEL(T , 'dtmi:com:contoso:Space;3')
-AND T.roomSize > 50
-```
-
 > [!TIP]
 > The ID of a digital twin is queried using the metadata field `$dtId`.
 
+You can also get twins by their *tag* properties, as described in [Add tags to digital twins](how-to-use-tags.md):
+```sql
+select * from digitaltwins where is_defined(tags.red) 
+```
+
+### Select top items
+
+You can select the several "top" items in a query using the `Select TOP` clause.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE property = 42
+```
+
+### Query by model
+
+The `IS_OF_MODEL` operator can be used to filter based on the twin's [model](concepts-models.md). It supports inheritance and has several overload options.
+
+The simplest use of `IS_OF_MODEL` takes only a `twinTypeName` parameter: `IS_OF_MODEL(twinTypeName)`.
+Here is a query example that passes a value in this parameter:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+```
+
+To specify a twin collection to search when there is more than one (like when a `JOIN` is used), add the `twinCollection` parameter: `IS_OF_MODEL(twinCollection, twinTypeName)`.
+Here is a query example that adds a value for this parameter:
+
+```sql
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+```
+
+To do an exact match, add the `exact` parameter: `IS_OF_MODEL(twinTypeName, exact)`.
+Here is a query example that adds a value for this parameter:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+```
+
+You can also pass all three arguments together: `IS_OF_MODEL(twinCollection, twinTypeName, exact)`.
+Here is a query example specifying a value for all three parameters:
+
+```sql
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+```
+
 ### Query based on relationships
 
-When querying based on digital twins' relationships, Azure Digital Twins Query Store language has a special syntax.
+When querying based on digital twins' relationships, Azure Digital Twins query language has a special syntax.
 
 Relationships are pulled into the query scope in the `FROM` clause. An important distinction from "classical" SQL-type languages is that each expression in this `FROM` clause is not a table; rather, the `FROM` clause expresses a cross-entity relationship traversal, and is written with an Azure Digital Twins version of `JOIN`. 
 
-Recall that with the Azure Digital Twins [model](concepts-models.md) capabilities, relationships do not exist independently of twins. This means the Azure Digital Twins Query Store language's `JOIN` is a little different from the general SQL `JOIN`, as relationships here can't be queried independently and must be tied to a twin.
+Recall that with the Azure Digital Twins [model](concepts-models.md) capabilities, relationships do not exist independently of twins. This means the Azure Digital Twins query language's `JOIN` is a little different from the general SQL `JOIN`, as relationships here can't be queried independently and must be tied to a twin.
 To incorporate this difference, the keyword `RELATED` is used in the `JOIN` clause to reference a twin's set of relationships. 
 
 The following section gives several examples of what this looks like.
@@ -76,7 +119,7 @@ WHERE T.$dtId = 'ABC'
 #### Query the properties of a relationship
 
 Similarly to the way digital twins have properties described via DTDL, relationships can also have properties. 
-The Azure Digital Twins Query Store language allows filtering and projection of relationships, by assigning an alias to the relationship within the `JOIN` clause. 
+The Azure Digital Twins query language allows filtering and projection of relationships, by assigning an alias to the relationship within the `JOIN` clause. 
 
 As an example, consider a *servicedBy* relationship that has a *reportedCondition* property. In the below query, this relationship is given an alias of 'R' in order to reference its property.
 
