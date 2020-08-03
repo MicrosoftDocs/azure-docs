@@ -29,7 +29,7 @@ ms.date: 08/03/2020
 
     * Azure Arc for servers (preview) only the regions specified [here](../overview.md#supported-regions).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 ## Register Azure resource providers
 
