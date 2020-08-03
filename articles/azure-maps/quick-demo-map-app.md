@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Interactive map search with Azure Maps"
-description: Learn how to create a demo web application for interactive map search by using Microsoft Azure Maps web SDK.
+description: Learn how to create an interactive, searchable map. See how to create an Azure Maps account, get a primary key, and use the web SDK to set up a map application.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 7/10/2020

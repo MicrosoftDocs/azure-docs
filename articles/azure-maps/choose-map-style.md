@@ -1,6 +1,6 @@
 ---
 title: Change the style of the Azure Maps Web Map Control
-description: In this article, you'll learn about style features of the Azure Maps Web Map Control
+description: "Learn how to change a map's style and options. See how to add a style picker control to a map so that users can switch between different styles."
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/27/2020
