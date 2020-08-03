@@ -74,7 +74,7 @@ Assign the managed identity to the **Storage Blob Data Owner** role on the stora
 1. Select the **+ Add role assignment** button to add a new role.
 1. In the **Add role assignment** window, select the **Storage Blob Data Owner** role. Then, select the subscription that has the managed identity and storage account. Next, search to locate the user-assigned managed identity that you created previously. Finally, select the managed identity, and it will be listed under **Selected members**.
 
-    ![Screenshot showing how to assign an RBAC role](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
+    ![Screenshot showing how to assign an Azure role](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
 
 1. Select **Save**. The user-assigned identity that you selected is now listed under the selected role.
 1. After this initial setup is complete, you can create a cluster through the portal. The cluster must be in the same Azure region as the storage account. In the **Storage** tab of the cluster creation menu, select the following options:
