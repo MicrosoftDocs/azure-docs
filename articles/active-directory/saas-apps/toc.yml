@@ -1362,6 +1362,8 @@
         href: robin-tutorial.md
       - name: RStudio Connect
         href: rstudio-connect-tutorial.md
+      - name: RStudio Server Pro
+        href: rstudio-server-pro-tutorial.md
       - name: RolePoint
         href: rolepoint-tutorial.md
       - name: Rollbar
@@ -1536,6 +1538,8 @@
         href: snowflake-tutorial.md
       - name: Softeon WMS
         href: softeon-tutorial.md
+      - name: SolarWinds Orion
+        href: solarwinds-orion-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-tutorial.md
       - name: Sonarqube
