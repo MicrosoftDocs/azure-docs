@@ -15,28 +15,6 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Studio
-      expanded: true
-      items: 
-        - name: Designer (drag-n-drop)
-          items: 
-            - name: 1. Train a regression model
-              displayName: studio
-              href: tutorial-designer-automobile-price-train-score.md
-            - name: 2. Deploy that model
-              displayName: studio
-              href: tutorial-designer-automobile-price-deploy.md
-        - name: Automated ML (UI)
-          items: 
-            - name: Create automated ML experiments
-              displayName: automl, automated, auto ml, portal, ui
-              href: tutorial-first-experiment-automated-ml.md
-            - name: Forecast demand (Bike share data)
-              displayName: automl, automated, auto ml, portal, ui
-              href: tutorial-automated-ml-forecast.md
-        - name: Label image data
-          displayName: tag, tagging, images
-          href: tutorial-labeling.md
     - name: Python SDK
       expanded: true
       items: 
@@ -64,11 +42,33 @@
         - name: Prep your code for production
           displayName: mlops, mlopspython, production
           href: tutorial-convert-ml-experiment-to-production.md
+    - name: Studio
+      expanded: true
+      items: 
+        - name: Automated ML (UI)
+          items: 
+            - name: Create automated ML experiments
+              displayName: automl, automated, auto ml, portal, ui
+              href: tutorial-first-experiment-automated-ml.md
+            - name: Forecast demand (Bike share data)
+              displayName: automl, automated, auto ml, portal, ui
+              href: tutorial-automated-ml-forecast.md
+        - name: Designer (drag-n-drop)
+          items: 
+            - name: 1. Train a regression model
+              displayName: studio
+              href: tutorial-designer-automobile-price-train-score.md
+            - name: 2. Deploy that model
+              displayName: studio
+              href: tutorial-designer-automobile-price-deploy.md
+        - name: Label image data
+          displayName: tag, tagging, images
+          href: tutorial-labeling.md
     - name: R SDK
       items: 
         - name: Create first ML experiment (R)
           href: tutorial-1st-r-experiment.md
-    - name: Machine Learning CLI
+    - name: CLI
       items: 
         - name: Train & deploy with CLI
           href: tutorial-train-deploy-model-cli.md

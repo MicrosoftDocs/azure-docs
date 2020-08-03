@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 07/31/2020
+ms.date: 01/08/2019
 ---
 
 # Archived release notes
@@ -15,47 +15,6 @@ ms.date: 07/31/2020
 ## Summary
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure.
-
-## Release date: 07/13/2020
-
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
-
-### New features
-#### Support for Customer Lockbox for Microsoft Azure
-Azure HDInsight now supports Azure Customer Lockbox. It provides an interface for customers to review and approve, or reject customer data access requests. It is used when Microsoft engineer needs to access customer data during a support request. For more information, see [Customer Lockbox for Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview).
-
-#### Service endpoint policies for storage
-Customers can now use Service Endpoint Policies (SEP) on the HDInsight cluster subnet. Learn more about [Azure service endpoint policy](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
-
-### Deprecation
-#### Deprecation of Spark 2.1 and 2.2 in HDInsight 3.6 Spark cluster
-Starting from July 1 2020, customers cannot create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6. Existing clusters will run as is without the support from Microsoft. Consider to move to Spark 2.3 on HDInsight 3.6 by June 30 2020 to avoid potential system/support interruption.
- 
-#### Deprecation of Spark 2.3 in HDInsight 4.0 Spark cluster
-Starting from July 1 2020, customers cannot create new Spark clusters with Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider moving to Spark 2.4 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
- 
-#### Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
-Starting from July 1 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
-
-### Behavior changes
-No behavior changes you need to pay attention to.
-
-### Upcoming changes
-The following changes will happen in upcoming releases. 
-
-#### Ability to select different Zookeeper SKU for Spark, Hadoop, and ML Services
-HDInsight today doesn't support changing Zookeeper SKU for Spark, Hadoop, and ML Services cluster types. It uses A2_v2/A2 SKU for Zookeeper nodes and customers aren't charged for them. In the upcoming release, customers will be able to change Zookeeper SKU for Spark, Hadoop, and ML Services as needed. Zookeeper nodes with SKU other than A2_v2/A2 will be charged. The default SKU will still be A2_V2/A2 and free of charge.
-
-### Bug fixes
-HDInsight continues to make cluster reliability and performance improvements. 
-#### Fixed Hive Warehouse Connector issue
-There was an issue for Hive Warehouse connector usability in previous release. The issue has been fixed. 
-
-#### Fixed Zeppelin notebook truncates leading zeros issue
-Zeppelin was incorrectly truncating leading zeros in the table output for String format. We've fixed this issue in this release.
-
-### Component version change
-No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
 
 ## Release date: 06/11/2020
 
@@ -183,10 +142,10 @@ This release applies both for HDInsight 3.6 and 4.0.
 ### New features
 
 #### Service tags
-Service tags simplify security for Azure virtual machines and Azure virtual networks by enabling you to easily restrict network access to the Azure services. You can use service tags in your network security group (NSG) rules to allow or deny traffic to a specific Azure service globally or per Azure region. Azure provides the maintenance of IP addresses underlying each tag. HDInsight service tags for network security groups (NSGs) are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. HDInsight customers can enable service tag through Azure portal, PowerShell, and REST API. For more information, see [Network security group (NSG) service tags for Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
+Service tags simplify security for Azure virtual machines and Azure virtual networks by enabling you to easily restrict network access to the Azure services. You can use service tags in your network security group (NSG) rules to allow or deny traffic to a specific Azure service globally or per Azure region. Azure provides the maintenance of IP addresses underlying each tag. HDInsight service tags for network security groups (NSGs) are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. HDInsight customers can enable service tag through Azure Portal, PowerShell, and REST API. For more information, see [Network security group (NSG) service tags for Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
 
 #### Custom Ambari DB
-HDInsight now allows you to use your own SQL DB for Apache Ambari. You can configure this custom Ambari DB from the Azure portal or through Resource Manager template.  This feature allows you to choose the right SQL DB for your processing and capacity needs. You can also upgrade easily to match business growth requirements. For more information, see [Set up HDInsight clusters with a custom Ambari DB](hdinsight-custom-ambari-db.md).
+HDInsight now allows you to use your own SQL DB for Apache Ambari. You can configure this custom Ambari DB from the Azure portal or through resource manager template.  This feature allows you to choose the right SQL DB for your processing and capacity needs. You can also upgrade easily to match business growth requirements. For more information, see [Set up HDInsight clusters with a custom Ambari DB](hdinsight-custom-ambari-db.md).
 
 ![Custom Ambari DB](./media/hdinsight-release-notes/custom-ambari-db.png)
 
@@ -1198,7 +1157,7 @@ This release provides Zeppelin 0.7.3 with no additionalApache patches.
 
 This release provides ZooKeeper 3.4.6 and the following Apache patches:
 
--   [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): ClientPortBindTest is failing on macOS X.
+-   [ZOOKEEPER-1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256): ClientPortBindTest is failing on Mac OS X.
 
 -   [ZOOKEEPER-1901](https://issues.apache.org/jira/browse/ZOOKEEPER-1901): \[JDK8\] Sort children for comparison in AsyncOps tests.
 
@@ -1278,7 +1237,7 @@ This section covers all Common Vulnerabilities and Exposures (CVE) that are addr
 | **Vendor:** Hortonworks |
 | **Versions Affected:** All HDP 2.3/2.4/2.5 versions including Apache Ranger versions 0.5.x/0.6.0/0.6.1/0.6.2  |
 | **Users affected:** All users of the ranger policy admin tool. |
-| **Impact:** Apache Ranger is vulnerable to a Stored Cross-Site Scripting when entering custom policy conditions. Admin users can store some arbitrary JavaScript code execute when normal users sign in and access policies. |
+| **Impact:** Apache Ranger is vulnerable to a Stored Cross-Site Scripting when entering custom policy conditions. Admin users can store some arbitrary javascript code execute when normal users sign in and access policies. |
 | **Fix detail:** Added logic to sanitize the user input.  |
 | **Recommended Action:** Users should upgrade to HDP 2.5.4+ (with Apache Ranger 0.6.3+) or HDP 2.6+ (with Apache Ranger 0.7.0+)  |
 
@@ -1800,7 +1759,7 @@ Fixed issues represent selected issues that were previously logged via Hortonwor
         curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'
       ```
         
-  - **Option \#2: Apply JavaScript changes**
+  - **Option \#2: Apply Javascript changes**
         
       Steps to update JS file:
         
