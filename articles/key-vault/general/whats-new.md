@@ -83,14 +83,14 @@ Here are some ways to detect if your application is impacted:
 
 - If you have an environment where firewall rules are set to allow outbound calls to only specific Certificate Revocation List (CRL) download and/or Online Certificate Status Protocol (OCSP) verification locations. You will need to allow the following CRL and OCSP URLs:
 
-    - http://crl3.digicert.com
-    - http://crl4.digicert.com
-    - http://ocsp.digicert.com
-    - http://www.d-trust.net
-    - http://root-c3-ca2-2009.ocsp.d-trust.net
+    - http://crl3&#46;digicert&#46;com
+    - http://crl4&#46;digicert&#46;com
+    - http://ocsp&#46;digicert&#46;com
+    - http://www&#46;d-trust&#46;net
+    - http://root-c3-ca2-2009&#46;ocsp&#46;d-trust&#46;net
     - http://crl&#46;microsoft&#46;com
     - http://oneocsp&#46;microsoft&#46;com
-    - http://ocsp.msocsp.com
+    - http://ocsp&#46;msocsp&#46;com
 
 ## June 2020
 
