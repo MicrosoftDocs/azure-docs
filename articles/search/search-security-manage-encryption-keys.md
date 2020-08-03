@@ -265,16 +265,16 @@ To create an AAD application in the portal:
 > When changing an AAD application or its authentication key, any Azure Cognitive Search index or synonym map that uses that application must first be updated to use the new application ID\key **before** deleting the previous application or its authorization key, and before revoking your Key Vault access to it.
 > Failing to do so will render the index or synonym map unusable, as it won't be able to decrypt the content once key access is lost.
 
-## Working with encrypted content
+## Work with encrypted content
 
-With CMK encryption, you will notice latency for both indexing and query requests due to the extra encryption and decryption steps. Azure Cognitive Search does not log encryption activity, but you can monitor key access through key vault logging. We recommend that you [enable logging](../key-vault/general/logging.md) as part of key vault set up.
+With CMK encryption, you will notice latency for both indexing and queries due to the extra encrypt/decrypt work. Azure Cognitive Search does not log encryption activity, but you can monitor key access through key vault logging. We recommend that you [enable logging](../key-vault/general/logging.md) as part of key vault set up.
 
-Key rotation is expected to occur over time. Whenever you rotate keys, it's important that you follow this sequence:
+Key rotation is expected to occur over time. Whenever you rotate keys, it's important to follow this sequence:
 
-+ [Determine the key used by an index or synonym map](search-security-get-encryption-keys.md).
-+ [Create a new key in key vault](../key-vault/keys/quick-create-portal.md), but leave the original key available.
-+ [Update the **encryptionKey** properties](https://docs.microsoft.com/rest/api/searchservice/update-index) on an index or synonym map to use the new key. Only objects that were originally created with an **encryptionKey** can be updated to use a different encryption key.
-+ Disable or delete the previous key.
+1. [Determine the key used by an index or synonym map](search-security-get-encryption-keys.md).
+1. [Create a new key in key vault](../key-vault/keys/quick-create-portal.md), but leave the original key available.
+1. [Update the encryptionKey properties](https://docs.microsoft.com/rest/api/searchservice/update-index) on an index or synonym map to use the new values. Only objects that were originally created with this property can be updated to use a different value.
+1. Disable or delete the previous key in the key vault. Monitor key access to verify the new key is being used.
 
 For performance reasons, the search service caches the key for up to several hours. If you disable or delete the key without providing a new one, queries will continue to work on a temporary basis until the cache expires. However, once the search service cannot decrypt content, you will get this message: "Access forbidden. The query key used might have been revoked - please retry." 
 

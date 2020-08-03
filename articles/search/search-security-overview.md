@@ -45,39 +45,21 @@ Service-managed encryption is a Microsoft-internal operation, based on [Azure St
 
 ### Customer-managed keys
 
-Customer-managed keys require an additional billable service, Azure Key Vault, which must be in the same region as Azure Cognitive Search, although it can be under a different subscription. Enabling CMK encryption will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30%-60% in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it. For more information, see [Customer-managed encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
+Customer-managed keys require an additional billable service, Azure Key Vault, which can be in a different region, but under the same subscription, as Azure Cognitive Search. Enabling CMK encryption will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30%-60% in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it. For more information, see [Configure customer-managed encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
 
-### Double encryption 
+<a name="double-encryption"></a>
+
+#### Double encryption 
 
 In Azure Cognitive Search, double encryption is an extension of CMK. It is understood to be two-fold encryption (once by CMK, and again by service-managed keys), and comprehensive in scope, extending to any content that is written to disk, including temporary data structures generated during normal operations. The difference between CMK before August 1 2020 and after, and what makes CMK a double encryption feature in Azure Cognitive Search, is the additional encryption of temporary data structures created and handled by a search service.
 
-Double encryption is currently available on new services that are created in these regions:
+Double encryption is currently available on new services that are created in these regions after August 1:
 
 + West US 2
 + East US
 + South Central US
 + US Gov Virginia
 + US Gov Arizona
-
-<!-- ### Data encryption-at-rest
-
-Azure Cognitive Search stores index definitions and content, data source definitions, indexer definitions, skillset definitions, and synonym maps.
-
-Across the storage layer, data is encrypted on disk using keys managed by Microsoft. You cannot turn encryption on or off, or view encryption settings in the portal or programmatically. Encryption is fully internalized, with no measurable impact on indexing time-to-completion or index size. It occurs automatically on all indexing, including on incremental updates to an index that is not fully encrypted (created before January 2018).
-
-Internally, encryption is based on [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).
-
-> [!NOTE]
-> Encryption at rest was announced in January 24, 2018 and applies to all service tiers, including the free tier, in all regions. For full encryption, indexes created prior to that date must be dropped and rebuilt in order for encryption to occur. Otherwise, only new data added after January 24 is encrypted. -->
-<!-- 
-### Customer-managed key (CMK) encryption
-
-Customers who want additional storage protection can encrypt data and objects before they are stored and encrypted on disk. This approach is based on a user-owned key, managed and stored through Azure Key Vault, independently of Microsoft. Encrypting content before it is encrypted on disk is referred to as "double encryption". Currently, you can selectively double encrypt indexes and synonym maps. For more information, see [Customer-managed encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
-
-> [!NOTE]
-> CMK encryption is generally available for search services created after January 2019. It is not supported on Free (shared) services. 
->
->Enabling this feature will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30%-60% in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it. -->
 
 <a name="service-access-and-authentication"></a>
 
