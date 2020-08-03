@@ -60,7 +60,7 @@ You can search your recent sign-in activity by any of the available information.
 
 ### Confirm unusual activity
 
-Sign-ins that are flagged as unusual activity can be confirmed in the tile for that activity in the my sign-ns page.
+Sign-ins that are flagged as unusual activity can be confirmed in the tile for that activity in the **My sign-ins" page.
 
 ![Unusual sign-in tile for confirms that you did or did not attempt the sign-in](media/my-account-portal-sign-ins-page/this-wasnt-me.png)
 
