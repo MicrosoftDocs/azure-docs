@@ -1,18 +1,3 @@
----
-title: Tutorial to configure Azure Active Directory B2C with Onfido
-titleSuffix: Azure AD B2C
-description: Learn how to integrate Azure AD B2C authentication with Onfido for document ID and facial biometrics verification.
-services: active-directory-b2c
-author: gargi-sinha
-manager: martinco
-
-ms.service: active-directory
-ms.workload: identity
-ms.topic: how-to
-ms.date: 08/03/2020
-ms.author: gasinh
-ms.subservice: B2C
----
 # Tutorial for configuring Onfido with Azure Active Directory B2C
 
 In this sample tutorial, we provide guidance on how to integrate Azure AD B2C with [Onfido](https://onfido.com/). Onfido is a document ID and facial biometrics verification app. It allows companies to meet *Know Your Customer* and identity requirements in real time. Onfido uses sophisticated AI-based identity verification, which first verifies a photo ID, then matches it against their facial biometrics. This solution ties a digital identity to their real-world person and provides a safe onboarding experience while reducing fraud.
@@ -56,7 +41,7 @@ The following architecture diagram shows the implementation.
 
 ## Onboard with Onfido
 
-1. To create an Onfido account, contact [Onfido](https://onfido.com/).
+1. To create an Onfido account, contact [Onfido](https://onfido.com/signup/).
 
 2. Once an account is created, create an [API key](https://documentation.onfido.com/). Live keys are billable, however, you can use the [sandbox keys for testing](https://documentation.onfido.com/?javascript#sandbox-and-live-differences) the solution. The sandbox keys produce the same result structure as live keys, however, the results are always predetermined. Documents aren't processed or saved.
 
@@ -95,7 +80,7 @@ Application settings can be configured in the [App service in Azure](https://doc
 
 3. Allow CORS access to storage container you created by following these instructions:
 
-   a. Go to **Settings** >**Allowed Origin**, enter `https://{your_tenant_name}.b2clogin.com`. Replace your-tenant-name with the name of your Azure AD B2C tenant. For     example, https://fabrikam.b2clogin.com. Use all lowercase letters when entering your tenant name.
+   a. Go to **Settings** >**Allowed Origin**, enter `https://{your_tenant_name}.b2clogin.com`. Replace your-tenant-name with the name of your Azure AD B2C tenant. For example, https://fabrikam.b2clogin.com. Use all lowercase letters when entering your tenant name.
 
    b. For **Allowed Methods**, select `GET` and `PUT`.
 
@@ -122,8 +107,9 @@ Application settings can be configured in the [App service in Azure](https://doc
 #### Replace the configuration values
 
 In the provided custom policies, find the following placeholders and replace with the corresponding values from your instance
-|                      Placeholder                       |                                   Replace with value                                 |                   Example                    |
-|:------------------------------------------------------ |:-------------------------------------------------------------------------------- |:-------------------------------------------- |
+
+|Placeholder | Replace with value | Example           |
+|:---------------|:----------------|:-------------------|
 | {your_tenant_name}                                     | Your tenant short name                                                           | “yourtenant” from yourtenant.onmicrosoft.com |
 | {your_tenantID}                       | TenantID of your Azure AD B2C tenant             | 01234567-89ab-cdef-0123-456789abcdef           |
 | {your_tenant_IdentityExperienceFramework_appid}        | App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant      | 01234567-89ab-cdef-0123-456789abcdef         |
