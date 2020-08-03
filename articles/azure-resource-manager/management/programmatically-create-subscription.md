@@ -5,7 +5,8 @@ author: anuragdalmia
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.reviewer: andalmia
-ms.author: banders
+ms.author: banders 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Programmatically create Azure subscriptions (preview)

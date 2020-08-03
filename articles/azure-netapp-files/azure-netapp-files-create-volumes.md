@@ -1,6 +1,6 @@
 ---
 title: Create an NFS volume for Azure NetApp Files | Microsoft Docs
-description: Describes how to create an NFS volume for Azure NetApp Files.
+description: This article shows you how to create an NFS volume in Azure NetApp Files. Learn about considerations, like which version to use, and best practices.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche

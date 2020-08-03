@@ -112,6 +112,8 @@
       href: cognitive-search-incremental-indexing-conceptual.md
   - name: Security
     items:
+    - name: Security overview
+      href: search-security-overview.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -329,8 +331,6 @@
       href: search-api-migration.md
   - name: Security
     items:
-    - name: Overview
-      href: search-security-overview.md
     - name: Data encryption
       items:
       - name: Customer-managed keys
