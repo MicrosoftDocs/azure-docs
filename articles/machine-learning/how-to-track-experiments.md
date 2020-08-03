@@ -101,6 +101,6 @@ The following notebooks demonstrate concepts in this article:
 
 See these articles to learn more on how to use Azure Machine Learning:
 
-* Learn how to [log metrics in Azure Machine Learning designer (preview)](how-to-track-designer-experiments).
+* Learn how to [log metrics in Azure Machine Learning designer (preview)](how-to-track-designer-experiments.md).
 
 * See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).

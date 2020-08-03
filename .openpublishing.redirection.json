@@ -16495,7 +16495,7 @@
     {
       "source_path": "articles/machine-learning/service/how-to-enable-logging.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-logging",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/how-to-enable-virtual-network.md",
