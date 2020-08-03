@@ -2,7 +2,7 @@
 title: Azure virtual machine extensions and features 
 description: Learn more about Azure VM extensions
 services: virtual-machines
-author: mimckitt
+author: amjads1
 ms.service: virtual-machines
 ms.topic: article
 ms.workload: infrastructure-services
