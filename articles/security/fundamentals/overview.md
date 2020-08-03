@@ -1,6 +1,6 @@
 ---
 title: Introduction to Azure security | Microsoft Docs
-description: Learn about Azure Security, its services, and how it works.
+description: Introduce yourself to Azure Security, its various services, and how it works by reading this overview.
 services: security
 documentationcenter: na
 author: UnifyCloud

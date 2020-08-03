@@ -44,6 +44,17 @@ Azure supports a maximum of 400 routes in a UDR, so you can't have an AKS cluste
 
 With *Azure CNI*, each pod receives an IP address in the IP subnet, and can directly communicate with other pods and services. Your clusters can be as large as the IP address range you specify. However, the IP address range must be planned in advance, and all of the IP addresses are consumed by the AKS nodes based on the maximum number of pods that they can support. Advanced network features and scenarios such as [Virtual Nodes][virtual-nodes] or Network Policies (either Azure or Calico) are supported with *Azure CNI*.
 
+### Limitations & considerations for kubenet
+
+* An additional hop is required in the design of kubenet, which adds minor latency to pod communication.
+* Route tables and user-defined routes are required for using kubenet, which adds complexity to operations.
+* Direct pod addressing isn't supported for kubenet due to kubenet design.
+* Unlike Azure CNI clusters, multiple kubenet clusters can't share a subnet.
+* Features **not supported on kubenet** include:
+   * [Azure network policies](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), but Calico network policies are supported on kubenet
+   * [Windows node pools](windows-node-limitations.md)
+   * [Virtual nodes add-on](virtual-nodes-portal.md#known-limitations)
+
 ### IP address availability and exhaustion
 
 With *Azure CNI*, a common issue is the assigned IP address range is too small to then add additional nodes when you scale or upgrade a cluster. The network team may also not be able to issue a large enough IP address range to support your expected application demands.
