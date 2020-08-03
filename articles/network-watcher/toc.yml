@@ -7,6 +7,8 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Configure NSG Flowlogs using ARM Template
+    href: quickstart-configure-nsg-flowlogs-using-arm-template.md
   - name: Diagnose VM traffic filter problem - Portal
     href: diagnose-vm-network-traffic-filtering-problem.md
   - name: Diagnose VM traffic filter problem - PowerShell
