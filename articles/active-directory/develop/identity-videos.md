@@ -264,16 +264,16 @@ ___
 :::row-end:::
 :::row:::
     :::column:::
-        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank">What is the relationship between an authorization request and tokens? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-    :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
-    :::column-end:::
-    :::column:::
         <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank">What is the difference between ID tokens, access tokens, refresh tokens, and session tokens? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=41vmzPdbfXM" target="_blank"> <img src="./media/identity-videos/aad-auth-fund-08.jpg" alt="Video thumbnail"> </a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank">What is the relationship between an authorization request and tokens? <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    :::column-end:::
+    :::column:::
+        <a href="https://www.youtube.com/watch?v=jEEwN7XAtUo" target="_blank"> <img src="./media/identity-videos/one-dev-question-hs.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 :::row:::
