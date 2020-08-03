@@ -93,11 +93,7 @@ If you change the case (to upper or lower) of your VM or VM resource group, the 
 
 ### Can I back up or restore selective disks attached to a VM?
 
-Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution.
-
-Today, Azure Backup supports backing up all the disks (operating system and data) in a VM together using the Virtual Machine backup solution. With exclude-disk functionality, you get an option to back up one or a few from the many data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains data of the disks included in the backup operation, which further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to restore both from the snapshot and the vault.
-
-To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
+Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution. For more information, see [Selective disk backup and restore for Azure VMs](selective-disk-backup-restore.md).
 
 ## Restore
 
