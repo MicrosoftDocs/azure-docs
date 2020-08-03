@@ -28,9 +28,9 @@ Keys don't all need to be in the same Key Vault. A single search service can hos
 
 The following services are used in this example. 
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. 
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
 
-+ [Create an Azure Key Vault resource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) or find an existing vault under your subscription.
++ [Create an Azure Key Vault resource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) or find an existing vault in the same subscription as Azure Cognitive Search. This feature has a same-subscription requirement.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is used for configuration tasks.
 
