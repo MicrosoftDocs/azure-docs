@@ -326,7 +326,7 @@ Before you can use your logic app's managed identity for authentication, set up 
 
 1. Under **Add role assignment**, select a **Role** that gives your identity the necessary access to the target resource.
 
-   For this topic's example, your identity needs a [role that can access the blob in an Azure Storage container](../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+   For this topic's example, your identity needs a [role that can access the blob in an Azure Storage container](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
    ![Select "Storage Blob Data Contributor" role](./media/create-managed-service-identity/select-role-for-identity.png)
 

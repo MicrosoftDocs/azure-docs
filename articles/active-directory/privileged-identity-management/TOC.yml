@@ -91,7 +91,7 @@
     items:
     - name: Privileged access overview
       href: groups-features.md
-    - name: Discover groups
+    - name: Bring groups under management
       href: groups-discover-groups.md
     - name: Assign member or owner
       href: groups-assign-member-owner.md
