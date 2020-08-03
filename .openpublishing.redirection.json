@@ -9000,7 +9000,7 @@
     },
     {
       "source_path": "articles/automation/oms-solution-updatemgmt-sccmintegration.md",
-      "redirect_url": "/azure/automation/updatemgmt-mecmintegration",
+      "redirect_url": "/azure/automation/update-management/update-mgmt-mecmintegration",
       "redirect_document_id": false
     },
     {
@@ -9096,11 +9096,6 @@
     {
       "source_path": "articles/automation/automation-sec-configure-azure-runas-account.md",
       "redirect_url": "/azure/automation/manage-runas-account",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/automation/automation-unlink-from-log-analytics.md",
-      "redirect_url": "/azure/automation/automation-onboard-solutions-from-browse",
       "redirect_document_id": false
     },
     {

@@ -34,7 +34,7 @@ With Azure AD, access is a two-step process. When a security principal (a user, 
 
 The authentication step requires any application request to contain an OAuth 2.0 access token at runtime. If an application is running within an Azure entity such as an [Azure Functions](../azure-functions/functions-overview.md) app, it can use a **managed identity** to access the resources. Read more about managed identities in the next section.
 
-The authorization step requires that an RBAC role be assigned to the security principal. The roles that are assigned to a security principal determine the permissions that the principal will have. Azure Digital Twins provides RBAC roles that encompass sets of permissions for Azure Digital Twins resources. These roles are described later in this article.
+The authorization step requires that an Azure role be assigned to the security principal. The roles that are assigned to a security principal determine the permissions that the principal will have. Azure Digital Twins provides Azure roles that encompass sets of permissions for Azure Digital Twins resources. These roles are described later in this article.
 
 To learn more about roles and role assignments supported in Azure, see [*Understand the different roles*](../role-based-access-control/rbac-and-directory-admin-roles.md) in the Azure RBAC documentation.
 
@@ -42,9 +42,9 @@ To learn more about roles and role assignments supported in Azure, see [*Underst
 
 [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) is a cross-Azure feature that enables you to create a secure identity associated with the deployment where your application code runs. You can then associate that identity with access-control roles, to grant custom permissions for accessing specific Azure resources that your application needs.
 
-With managed identities, the Azure platform manages this runtime identity. You do not need to store and protect access keys in your application code or configuration, either for the identity itself, or for the resources you need to access. An Azure Digital Twins client app running inside an Azure App Service application does not need to handle SAS rules and keys, or any other access tokens. The client app only needs the endpoint address of the Azure Digital Twins namespace. When the app connects, Azure Digital Twins binds the managed entity's context to the client. Once it is associated with a managed identity, your Azure Digital Twins client can do all authorized operations. Authorization will then be granted by associating a managed entity with an Azure Digital Twins RBAC role (described below).
+With managed identities, the Azure platform manages this runtime identity. You do not need to store and protect access keys in your application code or configuration, either for the identity itself, or for the resources you need to access. An Azure Digital Twins client app running inside an Azure App Service application does not need to handle SAS rules and keys, or any other access tokens. The client app only needs the endpoint address of the Azure Digital Twins namespace. When the app connects, Azure Digital Twins binds the managed entity's context to the client. Once it is associated with a managed identity, your Azure Digital Twins client can do all authorized operations. Authorization will then be granted by associating a managed entity with an Azure Digital Twins Azure role (described below).
 
-### Authorization: RBAC roles for Azure Digital Twins
+### Authorization: Azure roles for Azure Digital Twins
 
 Azure provides the below Azure built-in roles for authorizing access to an Azure Digital Twins resource:
 * *Azure Digital Twins Owner (Preview)* – Use this role to give full access over Azure Digital Twins resources.
@@ -63,7 +63,7 @@ For more detailed steps on how to do this, try it out in the Azure Digital Twins
 
 ## Permission scopes
 
-Before you assign an RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's best to grant only the narrowest possible scope.
+Before you assign an Azure role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's best to grant only the narrowest possible scope.
 
 The following list describes the levels at which you can scope access to Azure Digital Twins resources.
 * Models: The actions for this resource dictate control over [models](concepts-models.md) uploaded in Azure Digital Twins.
