@@ -1,7 +1,7 @@
 ---
 title: HIPAA HITRUST blueprint sample controls
 description: Control mapping of the HIPAA HITRUST blueprint samples. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 07/17/2020
+ms.date: 08/03/2020
 ms.topic: sample
 ---
 # Control mapping of the HIPAA HITRUST blueprint sample
