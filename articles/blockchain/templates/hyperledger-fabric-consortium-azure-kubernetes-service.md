@@ -301,12 +301,12 @@ From the peer organization client, issue the command to set anchor peer(s) for t
   - Set `<anchorPeersList>` as “peer1” if you want to set only peer1 node as anchor peer.
   - Set `<anchorPeersList>` as “peer1” “peer3” if you want to set both peer1 and peer3 node as anchor peer.
 
-### Chaincode management commands
+## Chaincode management commands
 
 >[!NOTE]
 > Before starting with any chaincode operation, ensure that the initial setup of the client application is done.  
 
-**Set the below chaincode specific environment variables**
+### Set the below chaincode specific environment variables
 
 ```bash
 # peer organization name where chaincode operation is to be performed
@@ -353,7 +353,6 @@ Pass instantiation function name and space separated list of arguments in `<inst
 
 > [!NOTE]
 > Execute the command for once from any one peer organization in the channel. Once the transaction is successfully submitted to the orderer, the orderer distributes this transaction to all the peer organizations in the channel. Hence, the chaincode is instantiated on all the peer nodes on all the peer organizations in the channel.  
-
 
 ### Invoke chaincode  
 
