@@ -88,8 +88,8 @@ Here are some ways to detect if your application is impacted:
     - http://ocsp.digicert.com
     - http://www.d-trust.net
     - http://root-c3-ca2-2009.ocsp.d-trust.net
-    - http://crl.microsoft.com
-    - http://oneocsp.microsoft.com
+    - http://crl&#46;microsoft&#46;com
+    - http://oneocsp&#46;microsoft&#46;com
     - http://ocsp.msocsp.com
 
 ## June 2020
