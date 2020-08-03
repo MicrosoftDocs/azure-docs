@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 07/30/2020
+ms.date: 08/03/2020
 ---
 
 # Azure SQL Edge usage and diagnostics data configuration
