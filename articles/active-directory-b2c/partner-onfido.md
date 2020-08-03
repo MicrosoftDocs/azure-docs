@@ -1,3 +1,19 @@
+---
+title: Tutorial to configure Azure Active Directory B2C with Onfido
+titleSuffix: Azure AD B2C
+description: Learn how to integrate Azure AD B2C authentication with Onfido for document ID and facial biometrics verification 
+services: active-directory-b2c
+author: gargi-sinha
+manager: martinco
+
+ms.service: active-directory
+ms.workload: identity
+ms.topic: how-to
+ms.date: 08/03/2020
+ms.author: gasinh
+ms.subservice: B2C
+---
+
 # Tutorial for configuring Onfido with Azure Active Directory B2C
 
 In this sample tutorial, we provide guidance on how to integrate Azure AD B2C with [Onfido](https://onfido.com/). Onfido is a document ID and facial biometrics verification app. It allows companies to meet *Know Your Customer* and identity requirements in real time. Onfido uses sophisticated AI-based identity verification, which first verifies a photo ID, then matches it against their facial biometrics. This solution ties a digital identity to their real-world person and provides a safe onboarding experience while reducing fraud.
