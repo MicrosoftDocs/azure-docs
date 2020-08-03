@@ -85,5 +85,5 @@ For examples and demonstrations of Open datasets functionality, please see these
 
 * [Create an Azure machine learning dataset](../machine-learning/how-to-create-register-datasets.md).
 
-* [Train a model](../machine-learning/how-to-train-ml-models.md).
+* [Train a model with datasets](../machine-learning/how-to-train-with-datasets.md).
 
