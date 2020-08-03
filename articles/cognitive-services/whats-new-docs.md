@@ -19,12 +19,6 @@ Welcome to what's new in the Cognitive Services docs from July 1, 2020 through J
 
 - [Tutorial: Create a form-processing app with AI Builder](/azure/cognitive-services/form-recognizer/tutorial-ai-builder)
 
-## LUIS
-
-### Updated articles
-
-- [Tutorial: Add common pattern template utterance formats to improve predictions](/azure/cognitive-services/luis/luis-tutorial-pattern)
-
 ## Personalizer
 
 ### New articles
@@ -56,10 +50,8 @@ Welcome to what's new in the Cognitive Services docs from July 1, 2020 through J
 
 The following people contributed to the Cognitive Services docs during this period. Thank you! Learn how to contribute by following the links under "Get involved" in the [what's new landing page](index.yml).
 
-- [openpublishbuild](https://github.com/openpublishbuild) - Open Publishing Build Robots (3)
 - [milestonedev](https://github.com/milestonedev) - Justin Miles (2)
 - [felixvanleeuwen](https://github.com/felixvanleeuwen) (1)
-- [hraz-msft](https://github.com/hraz-msft) (1)
 - [LoicB](https://github.com/LoicB) - Loic Beylot (1)
 - [nkgami](https://github.com/nkgami) - Hiroki Nakagami (1)
 - [RussellJQA](https://github.com/RussellJQA) - Russell Johnson (1)
