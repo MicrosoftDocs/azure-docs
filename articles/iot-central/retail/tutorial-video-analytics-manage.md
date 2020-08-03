@@ -42,7 +42,7 @@ Use the values in the following table as the parameter values for the **Add Came
 
 Select **Run** to add the camera device:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/add_camera.png" alt-text="Add Camera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/add-camera.png" alt-text="Add Camera":::
 
 > [!NOTE]
 > The **LVA Edge Object Detector** device template already exists in the application.
@@ -55,7 +55,7 @@ If you have two cameras connected to your IoT Edge gateway device, repeat the pr
 
 Select the **Downstream Devices** tab for the **LVA Gateway 001** device to see the camera devices you just added:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect_downstream.png" alt-text="Inspect":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Inspect":::
 
 The camera devices also appear in the list on the **Devices** page in the application.
 
@@ -92,7 +92,7 @@ Select **Save**.
 
 After a few seconds you see the **Accepted** confirmation message for each setting:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object_detect.png" alt-text="Object Detect":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Object Detect":::
 
 ## Start LVA processing
 
@@ -100,15 +100,19 @@ Navigate to the **camera-003** device and select the **Commands** tab.
 
 Run the **Start LVA Processing** command.
 
-When the command completes, view the command history to make sure there are no errors.
+When the command completes, view the command history to make sure there are no errors:
+
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Start LVA processing command":::
 
 ## Monitor the cameras
 
-Navigate to the **camera-003** device and select the **Dashboard** tab.
+Navigate to the **camera-003** device and select the **Dashboard** tab:
+
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Camera dashboard":::
 
 The **Detection Count** tile shows the average detection count for each of the selected detection classes objects during a one-second detection interval.
 
-The **Inference** pie chart shows the percentage of detections for each class type.
+The **Detection Classes** pie chart shows the percentage of detections for each class type.
 
 The **Inference Event Video** is a list of links to the assets in Azure Media Services that contain the detections. The link uses the host player described in the following section.
 
@@ -128,6 +132,8 @@ You can use the [AMP video player](https://github.com/Azure/live-video-analytics
 
 The IoT Central application stores the video in Azure Media Services from where you can stream it. You need a video player to play the video stored in Azure Media Services.
 
+Make sure that **Docker** is running on your local machine.
+
 Open a command prompt and use the following command to run the video player in a Docker container on your local machine. Replace the placeholders in the command with the values you made a note of previously in the *scratchpad.txt* file. You made a note of the `amsAadClientId`, `amsAadSecret`, `amsAadTenantId`, `amsSubscriptionId`, and `amsAccountName` when you created the service principal for your Media Services account:
 
 ```bash
@@ -143,7 +149,9 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 |amsResourceGroup| ResourceGroup |
 |amsAccountName| AccountName|
 
-Navigate to the **Monitor** dashboard in your application. Then click one of the captured object detection hyperlinks on the **Inference Event Video** tile. The video appears on a page displayed by the local video player.
+Navigate to the **Monitor** dashboard in your application. Then click one of the captured object detection hyperlinks on the **Inference Event Video** tile. The video appears on a page displayed by the local video player:
+
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Video snippet":::
 
 ## Change the simulated devices in Application Dashboard
 
@@ -156,7 +164,7 @@ The application dashboards are originally populated with telemetry and propertie
 1. Select the `AI Inference Interface/Inference Count` telemetry field.
 1. Select **Update**.
 
-   :::image type="content" source="media/tutorial-video-analytics-manage/update_real_cameras.png" alt-text="Ream Cameras":::
+   
 
 1. Repeat the steps for the following tiles:
     1. **Detection** pie chart uses the `AI Inference Interface/Inference/entity/tag/value` telemetry type.
@@ -166,7 +174,9 @@ The application dashboards are originally populated with telemetry and propertie
     1. **Inference Event Video** uses `AI Inference Interface/Inference Event Video` shown as a link.
 1. Select **Save**.
 
-The **Real Camera Monitor** dashboard now shows values from your real camera device.
+The **Real Camera Monitor** dashboard now shows values from your real camera device:
+
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Real Cameras application dashboard":::
 
 ## Pause processing
 

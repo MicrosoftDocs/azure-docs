@@ -36,7 +36,7 @@ To complete this tutorial series, you need:
 
 In these tutorials, you update and use several configuration files. Initial versions of these files are available in the [LVA-gateway](https://github.com/Azure/live-video-analytics) GitHub repository. The repository also includes a scratchpad text file for you to download and use to record configuration values from the services you deploy.
 
-Create a folder called *lva-configuration* on your local machine to store these files. Then right-click on each of the following links and choose **Save as** to save the file into the *lva-configuration* folder:
+Create a folder called *lva-configuration* on your local machine to save copies of these files. Then right-click on each of the following links and choose **Save as** to save the file into the *lva-configuration* folder:
 
 - [Scratchpad.txt](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/Scratchpad.txt)
 - [deployment.amd64.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.amd64.json)
@@ -253,7 +253,7 @@ To add a view to the device template:
     * A 1x1 last known value tile showing the **System Heartbeat** telemetry.
     * A 1x1 last known value tile showing the **Connected Cameras** telemetry.
 
-    :::image type="content" source="media/tutorial-video-analytics-create-app/gateway_dash.png" alt-text="Dashboard":::
+    :::image type="content" source="media/tutorial-video-analytics-create-app/gateway-dashboard.png" alt-text="Dashboard":::
 
 1. Select **Save**.
 
