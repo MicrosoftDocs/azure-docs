@@ -1723,22 +1723,6 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
   + **azureml-opendatasets**
     + Improve NoaaIsdWeather enrich performance in non-SPARK version significantly.
 
-### Azure Machine Learning Data Prep SDK v1.1.8
-
-+ **New features**
- + Dataflow objects can now be iterated over, producing a sequence of records. See documentation for `Dataflow.to_record_iterator`.
-  + Dataflow objects can now be iterated over, producing a sequence of records. See documentation for `Dataflow.to_record_iterator`.
-
-+ **Bug fixes and improvements**
- + Increased the robustness of DataPrep SDK.
- + Improved handling of pandas DataFrames with non-string Column Indexes.
- + Improved the performance of `to_pandas_dataframe` in Datasets.
- + Fixed a bug where Spark execution of Datasets failed when run in a multi-node environment.
-  + Increased the robustness of DataPrep SDK.
-  + Improved handling of pandas DataFrames with non-string Column Indexes.
-  + Improved the performance of `to_pandas_dataframe` in Datasets.
-  + Fixed a bug where Spark execution of Datasets failed when run in a multi-node environment.
-
 ## 2019-04-26
 
 ### Azure Machine Learning SDK for Python v1.0.33 released.
@@ -1797,31 +1781,6 @@ Azure Machine Learning SDK for Python v1.0.30 released.
 
 The [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint?view=azure-ml-py) was introduced to add a new version of a published pipeline while maintaining same endpoint.
 
-## 2019-04-17
-
-### Azure Machine Learning Data Prep SDK v1.1.2
-
-Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages. See [updated installation instructions](https://github.com/Microsoft/AMLDataPrepDocs).
-
-+ **New features**
-  + You can now use the Pivot transform.
-    + How-to guide: [Pivot notebook](https://aka.ms/aml-data-prep-pivot-nb)
-  + You can now use regular expressions in native functions.
-    + Examples:
-      + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
-      + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
-  + You can now use `to_upper` and `to_lower` functions in expression language.
-  + You can now see the number of unique values of each column in a data profile.
-  + For some of the commonly used reader steps, you can now pass in the `infer_column_types` argument. If it is set to `True`, Data Prep will attempt to detect and automatically convert column types.
-    + `inference_arguments` is now deprecated.
-  + You can now call `Dataflow.shape`.
-
-+ **Bug fixes and improvements**
-  + `keep_columns` now accepts an additional optional argument `validate_column_exists`, which checks if the result of `keep_columns` will contain any columns.
-  + All reader steps (which read from a file) now accept an additional optional argument `verify_exists`.
-  + Improved performance of reading from pandas dataframe and getting data profiles.
-  + Fixed a bug where slicing a single step from a Dataflow failed with a single index.
-
 ## 2019-04-15
 
 ### Azure portal
@@ -1842,48 +1801,12 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
   `get_supported_versions()` on the desired framework class (for example, `TensorFlow.get_supported_versions()`).
   For a list of the versions supported by the latest SDK release, see the [DNN Estimator documentation](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
-### Azure Machine Learning Data Prep SDK v1.1.1
-
-+ **New features**
-  + You can read multiple Datastore/DataPath/DataReference sources using read_* transforms.
-  + You can perform the following operations on columns to create a new column: division, floor, modulo, power, length.
-  + Data Prep is now part of the Azure ML diagnostics suite and will log diagnostic information by default.
-    + To turn this off, set this environment variable to true: DISABLE_DPREP_LOGGER
-
-+ **Bug fixes and improvements**
-  + Improved code documentation for commonly used classes and functions.
-  + Fixed a bug in auto_read_file that failed to read Excel files.
-  + Added option to overwrite the folder in read_pandas_dataframe.
-  + Improved performance of dotnetcore2 dependency installation, and added support for Fedora 27/28 and Ubuntu 1804.
-  + Improved the performance of reading from Azure Blobs.
-  + Column type detection now supports columns of type Long.
-  + Fixed a bug where some date values were being displayed as timestamps instead of Python datetime objects.
-  + Fixed a bug where some type counts were being displayed as doubles instead of integers.
-
-
 ## 2019-03-25
 
 ### Azure Machine Learning SDK for Python v1.0.21
 
 + **New features**
   + The *azureml.core.Run.create_children* method allows low-latency creation of multiple child runs with a single call.
-
-### Azure Machine Learning Data Prep SDK v1.1.0
-
-+ **Breaking changes**
-  + The concept of the Data Prep Package has been deprecated and is no longer supported. Instead of persisting multiple Dataflows in one Package, you can persist Dataflows individually.
-    + How-to guide: [Opening and Saving Dataflows notebook](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
-
-+ **New features**
-  + Data Prep can now recognize columns that match a particular Semantic Type, and split accordingly. The STypes currently supported include: email address, geographic coordinates (latitude & longitude), IPv4 and IPv6 addresses, US phone number, and US zip code.
-    + How-to guide: [Semantic Types notebook](https://aka.ms/aml-data-prep-semantic-types-nb)
-  + Data Prep now supports the following operations to generate a resultant column from two numeric columns: subtract, multiply, divide, and modulo.
-  + You can call `verify_has_data()` on a Dataflow to check whether the Dataflow would produce records if executed.
-
-+ **Bug fixes and improvements**
-  + You can now specify the number of bins to use in a histogram for numeric column profiles.
-  + The `read_pandas_dataframe` transform now requires the DataFrame to have string- or byte- typed column names.
-  + Fixed a bug in the `fill_nulls` transform, where values were not correctly filled in if the column was missing.
 
 ## 2019-03-11
 
@@ -1928,18 +1851,6 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
   + New drag and drop table editor experience for reports. Users can drag a column from the well to the table area where a preview of the table will be displayed. The columns can be rearranged.
   + New Logs file viewer
   + Links to experiment runs, compute, models, images, and deployments from the activities tab
-
-### Azure Machine Learning Data Prep SDK v1.0.15
-
-+ **New features**
-  + Data Prep now supports writing file streams from a dataflow. Also provides the ability to manipulate the file stream names to create new file names.
-    + How-to guide: [Working With File Streams notebook](https://aka.ms/aml-data-prep-file-stream-nb)
-
-+ **Bug fixes and improvements**
-  + Improved performance of t-Digest on large data sets.
-  + Data Prep now supports reading data from a DataPath.
-  + One hot encoding now works on boolean and numeric columns.
-  + Other miscellaneous bug fixes.
 
 ## Next steps
 
