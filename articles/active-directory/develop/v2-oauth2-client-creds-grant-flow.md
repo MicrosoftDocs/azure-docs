@@ -49,7 +49,7 @@ A common use case is to use an ACL to run tests for a web application or for a w
 This type of authorization is common for daemons and service accounts that need to access data owned by consumer users who have personal Microsoft accounts. For data owned by organizations, we recommend that you get the necessary authorization through application permissions.
 
 > [!NOTE]
-> In order to enable this ACL-based authorization pattern, Azure AD does not require that applications be authorized to get tokens for another application - so app-only tokens can be issued without a `rules` claim. Applications that expose APIs must implement permission checks in order to accept tokens.
+> In order to enable this ACL-based authorization pattern, Azure AD does not require that applications be authorized to get tokens for another application - so app-only tokens can be issued without a `roles` claim. Applications that expose APIs must implement permission checks in order to accept tokens.
 
 ### Application permissions
 
