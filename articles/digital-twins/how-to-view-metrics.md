@@ -103,4 +103,4 @@ Or, now that you’ve seen an overview of Azure Digital Twins metrics, follow th
 * [*How-to: Manage custom models*](how-to-manage-model.md)
 * [*How-to: Manage digital twins*](how-to-manage-twin.md)
 * [*How-to: Manage the twin graph with relationships*](how-to-manage-graph.md)
-* [*How-to: Manage endpoints and routes*](how-to-manage-routes.md)
+* [*How-to: Manage endpoints and routes*](how-to-manage-routes-apis-cli.md)

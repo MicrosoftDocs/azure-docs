@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/digital-twins/how-to-manage-routes.md",
+      "redirect_url": "/azure/digital-twins/how-to-manage-routes-apis-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/digital-twins/how-to-set-up-instance.md",
       "redirect_url": "/azure/digital-twins/how-to-set-up-instance-scripted",
       "redirect_document_id": false
