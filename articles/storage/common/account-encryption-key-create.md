@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurecli
 ---
 
 # Create an account that supports customer-managed keys for tables and queues

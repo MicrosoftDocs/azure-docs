@@ -115,7 +115,7 @@ See more how to use Azure RBAC to secure the access to the kubeconfig file that 
 
 ### Azure RBAC for Kubernetes Authorization (Preview)
 
-With the Azure RBAC integration, AKS will use a Kubernetes Authorization webhook server to enable you to manage permissions and assignments of Azure AD-integrated K8s cluster resources using Azure RBAC role definition and role assignments.
+With the Azure RBAC integration, AKS will use a Kubernetes Authorization webhook server to enable you to manage permissions and assignments of Azure AD-integrated K8s cluster resources using Azure role definition and role assignments.
 
 ![Azure RBAC for Kubernetes authorization flow](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 
