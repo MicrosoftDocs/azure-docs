@@ -11,15 +11,15 @@ ms.date: 08/03/2020
 
 # Quickstart: Connect hybrid machine with Azure Arc enabled servers
 
-[Azure Arc for servers](../overview.md) (preview) enables you to manage and govern your Windows and Linux machines hosted across on-premises, edge and multicloud environments. In this quickstart, you'll enable the machine for management by Arc for servers (preview).
+[Azure Arc for servers](../overview.md) (preview) enables you to manage and govern your Windows and Linux machines hosted across on-premises, edge and multicloud environments. In this quickstart, you'll deploy and configure the Connected Machine agent on your Windows or Linux machine hosted outside of Azure for management by Arc for servers (preview).
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Deploying the Arc for servers (preview) Hybrid Connected Machine agent requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, you are member of the Local Administrators group.
+* Deploying the Arc for servers (preview) Hybrid Connected Machine agent requires that you have administrator permissions on the machine to install and configure the agent. On Linux, by using the root account, and on Windows, with an account that is a member of the Local Administrators group.
 
-* Before you get started, be sure to review the [prerequisites](../agent-overview.md#prerequisites) and verify the following:
+* Before you get started, be sure to review the agent [prerequisites](../agent-overview.md#prerequisites) and verify the following:
 
     * Your target machine is running a supported [operating system](../agent-overview.md#supported-operating-systems).
 
@@ -27,7 +27,7 @@ ms.date: 08/03/2020
 
     * If the machine connects through a firewall or proxy server to communicate over the Internet, make sure the URLs [listed](../agent-overview.md#networking-configuration) are not blocked.
 
-    * Azure Arc for servers (preview) only the regions specified [here](../overview.md#supported-regions).
+    * Azure Arc for servers (preview) supports only the regions specified [here](../overview.md#supported-regions).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
@@ -50,7 +50,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 The script to automate the download and installation, and to establish the connection with Azure Arc, is available from the Azure portal. To complete the process, do the following:
 
-1. From your browser, go to the [Azure portal](https://aka.ms/hybridmachineportal).
+1. Launch the Azure Arc service in the Azure portal by clicking **All services**, then searching for and selecting **Machines - Azure Arc**.
 
 1. On the **Machines - Azure Arc** page, select either **Add**, at the upper left, or the **Create machine - Azure Arc** option at the bottom of the middle pane.
 
