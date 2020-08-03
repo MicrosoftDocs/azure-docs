@@ -23,7 +23,7 @@ ms.reviewer: cynthn
 There are various ways to enable InfiniBand on the capable VM sizes.
 
 ## VM Images with InfiniBand drivers
-See [VM Images](configure.md#vm-images) for a list of supported VM Images on the Marketplace which come pre-loaded with InfiniBand drivers (for SR-IOV or non-SR-IOV VMs) or can be configured with the appropriate drivers.
+See [VM Images](configure.md#vm-images) for a list of supported VM Images on the Marketplace, which come pre-loaded with InfiniBand drivers (for SR-IOV or non-SR-IOV VMs) or can be configured with the appropriate drivers.
 For SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), [CentOS-HPC version 7.6 or a later](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557) version VM images in the Marketplace are the easiest way to get started.
 The Ubuntu VM images can be configured with the right drivers for both SR-IOV and non-SR-IOV enabled VMs using the [instructions here](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351).
 
@@ -35,7 +35,7 @@ On Windows, the [InfiniBandDriverWindows VM extension](../../extensions/hpc-comp
 To add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azure/) cmdlets. For more information, see [Virtual machine extensions and features](../../extensions/overview.md). You can also work with extensions for VMs deployed in the [classic deployment model](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
 ## Manual installation
-[Mellanox OpenFabrics drivers (OFED)](https://www.mellanox.com/products/InfiniBand-VPI-Software) can be mnually installed on the [SR-IOV enabled](../../sizes-hpc.md#rdma-capable-instances) [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs.
+[Mellanox OpenFabrics drivers (OFED)](https://www.mellanox.com/products/InfiniBand-VPI-Software) can be manually installed on the [SR-IOV enabled](../../sizes-hpc.md#rdma-capable-instances) [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs.
 
 ### Linux
 The [OFED drivers for Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) can be installed with the example below. Though the example here is for RHEL/CentOS, but the steps are general and can be used for any compatible Linux operating system such as Ubuntu (16.04, 18.04 19.04, 20.04) and SLES (12 SP4 and 15). The inbox drivers work as well, but the Mellanox OFED drivers provide more features.
