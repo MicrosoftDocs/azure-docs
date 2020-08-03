@@ -7,7 +7,8 @@ author: kumudD
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/07/2018
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurecli
 
 ---
 # Configure route filters for Microsoft peering: Azure CLI

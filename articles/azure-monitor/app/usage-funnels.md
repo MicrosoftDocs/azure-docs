@@ -33,7 +33,7 @@ The following screenshot shows an example of the kind of data the Funnels tool g
 ### Funnels features
 The preceding screenshot includes five highlighted areas. These are features of Funnels. The following list explains more about each corresponding area in the screenshot:
 1. If your app is sampled, you will see a sampling banner. Selecting the banner opens a context pane, explaining how to turn sampling off. 
-2. You can export your funnel to [Power BI](../../azure-monitor/app/export-power-bi.md ).
+2. You can export your funnel to [Power BI](./export-power-bi.md).
 3. Select a step to see more details on the right. 
 4. The historical conversion graph shows the conversion rates over the last 90 days. 
 5. Understand your users better by accessing the users tool. You can use filters in each step. 
@@ -42,7 +42,7 @@ The preceding screenshot includes five highlighted areas. These are features of 
   * [Usage overview](usage-overview.md)
   * [Users, Sessions, and Events](usage-segmentation.md)
   * [Retention](usage-retention.md)
-  * [Workbooks](../../azure-monitor/platform/workbooks-overview.md)
+  * [Workbooks](../platform/workbooks-overview.md)
   * [Add user context](usage-send-user-context.md)
-  * [Export to Power BI](../../azure-monitor/app/export-power-bi.md )
+  * [Export to Power BI](./export-power-bi.md)
 

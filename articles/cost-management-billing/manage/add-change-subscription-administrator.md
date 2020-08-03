@@ -28,7 +28,7 @@ For more information, see [Azure Resource Manager vs. classic deployment](../../
 
 ## Assign a subscription administrator
 
-To make a user an administrator of an Azure subscription, an existing administrator assigns them the [Owner](../../role-based-access-control/built-in-roles.md#owner) role (an RBAC role) at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the right to delegate access to others. These steps are the same as any other role assignment.
+To make a user an administrator of an Azure subscription, an existing administrator assigns them the [Owner](../../role-based-access-control/built-in-roles.md#owner) role (an Azure role) at the subscription scope. The Owner role gives the user full access to all resources in the subscription, including the right to delegate access to others. These steps are the same as any other role assignment.
 
 If you're not sure who the account administrator is for a subscription, use the following steps to find out.
 
@@ -64,7 +64,7 @@ If you're not sure who the account administrator is for a subscription, use the 
 
 ## Next steps
 
-* [What is role-based access control (RBAC)?](../../role-based-access-control/overview.md)
+* [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 * [Understand the different roles in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Administrator role permissions in Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)

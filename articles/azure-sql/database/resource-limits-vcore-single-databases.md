@@ -519,7 +519,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max concurrent logins|800|1,000|1,200|1,400|1,600|1,800|
 |Max concurrent sessions|30000|30000|30000|30000|30000|30000|
 |Number of replicas|4|4|4|4|4|4|
-|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
+|Multi-AZ|No|No|No|No|No|No|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
@@ -548,7 +548,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max concurrent logins|2,000|2,400|3,200|6,400|12,800|
 |Max concurrent sessions|30000|30000|30000|30000|30000|
 |Number of replicas|4|4|4|4|4|
-|Multi-AZ|Yes|Yes|Yes|Yes|Yes|
+|Multi-AZ|No|No|No|No|No|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 

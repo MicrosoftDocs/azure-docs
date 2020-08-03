@@ -2,8 +2,8 @@
 title: "Quickstart: Language Understanding (LUIS) authoring client library"
 description: Get started with the LUIS client library with this quickstart. Follow these steps to install the package and try out the example code for basic tasks.
 ms.topic: quickstart
-ms.date: 05/28/2020
-ms.custom: tracking-python
+ms.date: 07/28/2020
+ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-diberry-3core
 ---
 # Quickstart: Language Understanding (LUIS) authoring client library
