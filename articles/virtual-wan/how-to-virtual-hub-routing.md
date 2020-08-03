@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 07/07/2020
 ms.author: cherylmc
 
 ---
@@ -16,6 +16,10 @@ ms.author: cherylmc
 A virtual hub can contain multiple gateways such as a Site-to-site VPN gateway, ExpressRoute gateway, Point-to-site gateway, and Azure Firewall. The routing capabilities in the virtual hub are provided by a router that manages all routing, including transit routing, between the gateways using Border Gateway Protocol (BGP). This router also provides transit connectivity between virtual networks that connect to a virtual hub and can support up to an aggregate throughput of 50 Gbps. These routing capabilities apply to Standard Virtual WAN customers.
 
 For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
+
+> [!NOTE]
+> Some of these capabilities may still be rolling out. This is expected to complete by August 17th.
+>
 
 ## <a name="create-table"></a>Create a route table
 
@@ -75,7 +79,8 @@ In the Azure portal, locate the route table of your virtual hub. Click **"…"**
 1. Select the virtual network from the dropdown.
 1. Set up the routing configuration to associate to a route table. For **Associate Route Table**, select the route table from the dropdown.
 1. Set up the routing configuration to propagate to one or many route tables. For **Propagate to Route Table**, select from the dropdown.
-1. For **Static routes**, configure static routes for Network Virtual Appliance (if applicable).
+1. For **Static routes**, configure static routes for Network Virtual Appliance (if applicable). Virtual WAN supports a single next hop IP for static route in a virtual network connection. For example, if you have a separate virtual appliance for ingress and egress traffic flows, it would be best to have the virtual appliances in separate VNETs and attach the VNETs to the virtual hub.
+
 
 :::image type="content" source="./media/how-to-virtual-hub-routing/routing-configuration.png" alt-text="Set up routing configuration" lightbox="./media/how-to-virtual-hub-routing/routing-configuration-expand.png":::
 

@@ -44,7 +44,7 @@ At the end of these steps, you'll have relevant Azure resources deployed in your
 * Azure IoT Hub
 * Azure Storage account
 * Azure Media Services account
-* Linux VM in Azure, with the [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installed
+* Linux VM in Azure, with the [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installed
 
 ## Concepts
 
@@ -157,7 +157,7 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
 1. In Visual Studio Code, go to src/cloud-to-device-console-app/operations.json.
 1. Under the **GraphTopologySet** node, edit the following:
 
-    `"topologyUrl" : "https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset/topology.json" `
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
 1. Next, under the **GraphInstanceSet** and **GraphTopologyDelete** nodes, ensure that the value of **topologyName** matches the value of the **name** property in the previous graph topology:
 
     `"topologyName" : "CVRToAMSAsset"`  
@@ -226,7 +226,7 @@ When you use the Live Video Analytics on IoT Edge module to record the live vide
 
 ## Interpret the results 
 
-When you run the media graph, the Live Video Analytics on IoT Edge module sends certain diagnostic and operational events to the IoT Edge hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a body section and an applicationProperties section. To understand what these sections represent, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the media graph, the Live Video Analytics on IoT Edge module sends certain diagnostic and operational events to the IoT Edge hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a body section and an applicationProperties section. To understand what these sections represent, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the application properties and the content of the body are defined by the Live Video Analytics module.
 
@@ -370,4 +370,4 @@ If you intend to try the other tutorials, hold on to the resources you created. 
 ## Next steps
 
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the [ONVIF conformant products page](https://www.onvif.org/conformant-products/) by looking for devices that conform with profiles G, S, or T.
-* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) quickstart to register the device with Azure IoT Hub.
+* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md) quickstart to register the device with Azure IoT Hub.

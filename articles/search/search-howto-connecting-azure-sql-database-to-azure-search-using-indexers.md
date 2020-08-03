@@ -9,7 +9,7 @@ ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/12/2020
 ---
 
 # Connect to and index Azure SQL content using an Azure Cognitive Search indexer
@@ -76,7 +76,7 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
 
 3. Create the indexer by giving it a name and referencing the data source and target index:
 
-    ```
+   ```
     POST https://myservice.search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
@@ -86,12 +86,14 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
         "dataSourceName" : "myazuresqldatasource",
         "targetIndexName" : "target index name"
     }
-    ```
+   ```
 
 An indexer created in this way doesn’t have a schedule. It automatically runs once when it’s created. You can run it again at any time using a **run indexer** request:
 
+```
     POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2020-06-30
     api-key: admin-key
+```
 
 You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution fails. For more information, see [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
@@ -99,11 +101,14 @@ You may need to allow Azure services to connect to your database. See [Connectin
 
 To monitor the indexer status and execution history (number of items indexed, failures, etc.), use an **indexer status** request:
 
+```
     GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
     api-key: admin-key
+```
 
 The response should look similar to the following:
 
+```
     {
         "\@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
         "status":"running",
@@ -134,6 +139,7 @@ The response should look similar to the following:
             ... earlier history items
         ]
     }
+```
 
 Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order (so that the latest execution comes first in the response).
 Additional information about the response can be found in [Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
@@ -141,6 +147,7 @@ Additional information about the response can be found in [Get Indexer Status](h
 ## Run indexers on a schedule
 You can also arrange the indexer to run periodically on a schedule. To do this, add the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update the indexer:
 
+```
     PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: admin-key
@@ -150,6 +157,7 @@ You can also arrange the indexer to run periodically on a schedule. To do this, 
         "targetIndexName" : "target index name",
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
+```
 
 The **interval** parameter is required. The interval refers to the time between the start of two consecutive indexer executions. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.
 
@@ -177,6 +185,7 @@ If your SQL database supports [change tracking](https://docs.microsoft.com/sql/r
 
 To use this policy, create or update your data source like this:
 
+```
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
@@ -186,6 +195,7 @@ To use this policy, create or update your data source like this:
            "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy"
       }
     }
+```
 
 When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows. However, for the deletes to be detected "automagically", the document key in your search index must be the same as the primary key in the SQL table. 
 
@@ -212,6 +222,7 @@ This change detection policy relies on a "high water mark" column capturing the 
 
 To use a high water mark policy, create or update your data source like this:
 
+```
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
@@ -222,6 +233,7 @@ To use a high water mark policy, create or update your data source like this:
            "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
       }
     }
+```
 
 > [!WARNING]
 > If the source table does not have an index on the high water mark column, queries used by the SQL indexer may time out. In particular, the `ORDER BY [High Water Mark Column]` clause requires an index to run efficiently when the table contains many rows.
@@ -239,11 +251,13 @@ If you're using a [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/r
 
 To enable this feature, create or update the indexer with the following configuration:
 
+```
     {
       ... other indexer definition properties
      "parameters" : {
             "configuration" : { "convertHighWaterMarkToRowVersion" : true } }
     }
+```
 
 <a name="queryTimeout"></a>
 
@@ -251,11 +265,13 @@ To enable this feature, create or update the indexer with the following configur
 
 If you encounter timeout errors, you can use the `queryTimeout` indexer configuration setting to set the query timeout to a value higher than the default 5-minute timeout. For example, to set the timeout to 10 minutes, create or update the indexer with the following configuration:
 
+```
     {
       ... other indexer definition properties
      "parameters" : {
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
+```
 
 <a name="disableOrderByHighWaterMarkColumn"></a>
 
@@ -263,11 +279,13 @@ If you encounter timeout errors, you can use the `queryTimeout` indexer configur
 
 You can also disable the `ORDER BY [High Water Mark Column]` clause. However, this is not recommended because if the indexer execution is interrupted by an error, the indexer has to re-process all rows if it runs later - even if the indexer has already processed almost all the rows by the time it was interrupted. To disable the `ORDER BY` clause, use the `disableOrderByHighWaterMarkColumn` setting in the indexer definition:  
 
+```
     {
      ... other indexer definition properties
      "parameters" : {
             "configuration" : { "disableOrderByHighWaterMarkColumn" : true } }
     }
+```
 
 ### Soft Delete Column Deletion Detection policy
 When rows are deleted from the source table, you probably want to delete those rows from the search index as well. If you use the SQL integrated change tracking policy, this is taken care of for you. However, the high water mark change tracking policy doesn’t help you with deleted rows. What to do?
@@ -276,6 +294,7 @@ If the rows are physically removed from the table, Azure Cognitive Search has no
 
 When using the soft-delete technique, you can specify the soft delete policy as follows when creating or updating the data source:
 
+```
     {
         …,
         "dataDeletionDetectionPolicy" : {
@@ -284,6 +303,7 @@ When using the soft-delete technique, you can specify the soft delete policy as 
            "softDeleteMarkerValue" : "[the value that indicates that a row is deleted]"
         }
     }
+```
 
 The **softDeleteMarkerValue** must be a string – use the string representation of your actual value. For example, if you have an integer column where deleted rows are marked with the value 1, use `"1"`. If you have a BIT column where deleted rows are marked with the Boolean true value, use the string literal `True` or `true`, the case doesn't matter.
 
@@ -314,11 +334,13 @@ SQL indexer exposes several configuration settings:
 
 These settings are used in the `parameters.configuration` object in the indexer definition. For example, to set the query timeout to 10 minutes, create or update the indexer with the following configuration:
 
+```
     {
       ... other indexer definition properties
      "parameters" : {
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
+```
 
 ## FAQ
 
@@ -348,13 +370,13 @@ It depends. For full indexing of a table or view, you can use a secondary replic
 
 For incremental indexing, Azure Cognitive Search supports two change detection policies: SQL integrated change tracking and High Water Mark.
 
-On read-only replicas, SQL database does not support integrated change tracking. Therefore, you must use High Water Mark policy. 
+On read-only replicas, SQL Database does not support integrated change tracking. Therefore, you must use High Water Mark policy. 
 
 Our standard recommendation is to use the rowversion data type for the high water mark column. However, using rowversion relies on the `MIN_ACTIVE_ROWVERSION` function, which is not supported on read-only replicas. Therefore, you must point the indexer to a primary replica if you are using rowversion.
 
 If you attempt to use rowversion on a read-only replica, you will see the following error: 
 
-    "Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
+"Using a rowversion column for change tracking is not supported on secondary (read-only) availability replicas. Please update the datasource and specify a connection to the primary availability replica.Current database 'Updateability' property is 'READ_ONLY'".
 
 **Q: Can I use an alternative, non-rowversion column for high water mark change tracking?**
 

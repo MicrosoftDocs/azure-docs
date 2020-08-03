@@ -19,7 +19,7 @@ Virtual WAN comes in two flavors: Basic and Standard. In Basic Virtual WAN, hubs
 
 ### How are Availability Zones and resiliency handled in Virtual WAN?
 
-Virtual WAN is a collection of hubs and services made available inside the hub. The user can have as many virtual wan per their needs. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services is deployed in an Availability Zones region, if the region supports Availability Zones. If a region becomes an Availability Zone after the initial deployment in the hub, the user can recreate the gateways, which will trigger an Availability Zone deployment. All gateways are provisioned in a hub as active-active, implying there is resiliency built in within a hub. Users can connect to multiple hubs if they want resiliency across regions. 
+Virtual WAN is a collection of hubs and services made available inside the hub. The user can have as many Virtual WAN per their need. In a Virtual WAN hub, there are multiple services like VPN, ExpressRoute etc. Each of these services (except the Azure Firewall) is deployed in an Availability Zones region, that is if the region supports Availability Zones. If a region becomes an Availability Zone after the initial deployment in the hub, the user can recreate the gateways, which will trigger an Availability Zone deployment. All gateways are provisioned in a hub as active-active, implying there is resiliency built in within a hub. Users can connect to multiple hubs if they want resiliency across regions. 
 While the concept of Virtual WAN is global, the actual Virtual WAN resource is Resource Manager-based and deployed regionally. If the virtual WAN region itself were to have an issue, all hubs in that virtual WAN will continue to function as is, but the user will not be able to create new hubs until the virtual WAN region is available.
 
 ### What client does the Azure Virtual WAN User VPN (Point-to-site) support?
@@ -229,9 +229,17 @@ If a Virtual Hub learns the same route from multiple remote hubs,  the order in 
 
 Transit between ER-to-ER is always via Global reach. Virtual hub gateways are deployed in DC or Azure regions. When two ExpressRoute circuits connect via Global reach, there is no need for the traffic to come all the way from the edge routers to the virtual hub DC.
 
-### Is there a concept of weight in Azure Virtual WAN circuits or VPN connections
+### Is there a concept of weight in Azure Virtual WAN ExpressRoute circuits or VPN connections
 
 When multiple ExpressRoute circuits are connected to a virtual hub, routing weight on the connection provides a mechanism for the ExpressRoute in the virtual hub to prefer one circuit over the other. There is no mechanism to set a weight on a VPN connection. Azure always prefers an ExpressRoute connection over a VPN connection within a single hub.
+
+### Does Virtual WAN prefer ExpressRoute over VPN for traffic egressing Azure
+
+Yes 
+
+### When a Virtual WAN hub has an ExpressRoute circuit and a VPN Site connected to it, what would cause a VPN connection route to be prefered over ExpressRoute?
+
+When an ExpressRoute circuit is connected to Virtual Hub, the Microsoft edge routers are the first node for communication between on-premises and Azure. These edge routers communicate with the Virtual WAN ExpressRoute gateways that in turn learn routes from the Virtual Hub router that controls all routes between any gateways in Virtual WAN. The Microsoft edge routers process Virtual Hub ExpressRoute routes with higher preference over routes learnt from on-premises. Due to any reason if VPN connection becomes the primary medium for Virtual hub to learn routes from (e.g failover scenarios between ExpressRoute and VPN) , unless the VPN Site has a longer AS Path length, Virtual Hub will continue to share VPN learnt routes with ExpressRoute Gateway, causing the Microsoft Edge Routers to prefer VPN routes over on-premise routes. 
 
 ### When two hubs (hub 1 and 2) are connected and there is an ExpressRoute circuit connected as a bow-tie to both the hubs, what is the path for a VNet connected to hub 1 to reach a VNet connected in hub 2?
 
@@ -240,6 +248,10 @@ Current behavior is to prefer the ExpressRoute circuit path over hub-to-hub for 
 ### Is there support for IPv6 in Virtual WAN?
 
 IPv6 is not supported in Virtual WAN hub and its gateways. If you have a VNet that has IPv6 support and you would like to connect the VNet to Virtual WAN, this scenario not currently supported.
+
+### What is the recommended API version to be used by scripts automating various Virtual WAN functionality ?
+
+A minimum version of 05-01-2020 (May 1 2020) is required. 
 
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 

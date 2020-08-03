@@ -101,7 +101,7 @@ Use this tree to determine options for organization-owned devices.
 
 iOS and Android devices may only be Azure AD registered. The following table presents high-level considerations for Windows client devices. Use it as an overview, then explore the different integration methods in detail.
 
-| | Azure AD registered| Azure AD join| Hybrid Azure AD join |
+| Consideration | Azure AD registered| Azure AD join| Hybrid Azure AD join |
 | - | - | - | - |
 | **Client operating systems**| | |  |
 | Windows 10 devices| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |

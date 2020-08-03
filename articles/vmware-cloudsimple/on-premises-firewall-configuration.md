@@ -30,7 +30,7 @@ To access your Private Cloud vCenter and NSX-T manager, ports defined in the tab
 
 ## Ports required for using on-premises active directory as an identity source
 
-To configure on-premises active directory as an identity source on Private Cloud vCenter, ports defined in the table must be opened.  See [Use Azure AD as an identity provider for vCenter on CloudSimple Private Cloud](https://docs.microsoft.com/azure/vmware-cloudsimple/azure-ad/) for configuration steps.
+To configure on-premises active directory as an identity source on Private Cloud vCenter, ports defined in the table must be opened.  See [Use Azure AD as an identity provider for vCenter on CloudSimple Private Cloud](./azure-ad.md) for configuration steps.
 
 | Port         | Source                           | Destination                                         | Purpose                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -55,6 +55,6 @@ Access workload virtual machines running on Private Cloud requires ports to be o
 
 ## Next steps
 
-* [Create and manage VLANs and Subnets](https://docs.microsoft.com/azure/vmware-cloudsimple/create-vlan-subnet/)
-* [Connect to on-premises network using Azure ExpressRoute](https://docs.microsoft.com/azure/vmware-cloudsimple/on-premises-connection/)
-* [Setup Site-to-Site VPN from on-premises](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway/)
+* [Create and manage VLANs and Subnets](./create-vlan-subnet.md)
+* [Connect to on-premises network using Azure ExpressRoute](./on-premises-connection.md)
+* [Setup Site-to-Site VPN from on-premises](./vpn-gateway.md)

@@ -21,7 +21,7 @@ This article will walk you through the significant decision points for each of t
 
 ## Initial number and properties of cluster node types
 
-A *node type* defines the size, number, and properties for a set of nodes (virtual machines) in the cluster. Every node type that is defined in a Service Fabric cluster maps to a [virtual machine scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+A *node type* defines the size, number, and properties for a set of nodes (virtual machines) in the cluster. Every node type that is defined in a Service Fabric cluster maps to a [virtual machine scale set](../virtual-machine-scale-sets/overview.md).
 
 Because each node type is a distinct scale set, it can be scaled up or down independently, have different sets of ports open, and have different capacity metrics. For more information about the relationship between node types and virtual machine scale sets, see [Service Fabric cluster node types](service-fabric-cluster-nodetypes.md).
 
@@ -29,7 +29,7 @@ Each cluster requires one **primary node type**, which runs critical system serv
 
 **Non-primary node types** can be used to define application roles (such as *front-end* and *back-end* services) and to physically isolate services within a cluster. Service Fabric clusters can have zero or more non-primary node types.
 
-The primary node type is configured using the `isPrimary` attribute under the node type definition in the Azure Resource Manager deployment template. See the [NodeTypeDescription object](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) for the full list of node type properties. For example usage, open any *AzureDeploy.json* file in [Service Fabric cluster samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) and *Find on Page* search for the `nodetTypes` object.
+The primary node type is configured using the `isPrimary` attribute under the node type definition in the Azure Resource Manager deployment template. See the [NodeTypeDescription object](/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) for the full list of node type properties. For example usage, open any *AzureDeploy.json* file in [Service Fabric cluster samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/) and *Find on Page* search for the `nodetTypes` object.
 
 ### Node type planning considerations
 
@@ -74,7 +74,7 @@ The table below lists Service Fabric durability tiers, their requirements, and a
 > With Bronze durability, automatic OS image upgrade isn't available. While [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) (intended only for non-Azure hosted clusters) is *not recommended* for Silver or greater durability levels, it is your only option to automate Windows updates with respect to Service Fabric upgrade domains.
 
 > [!IMPORTANT]
-> Regardless of durability level, running a [Deallocation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) operation on a virtual machine scale set will destroy the cluster.
+> Regardless of durability level, running a [Deallocation](/rest/api/compute/virtualmachinescalesets/deallocate) operation on a virtual machine scale set will destroy the cluster.
 
 ### Bronze
 

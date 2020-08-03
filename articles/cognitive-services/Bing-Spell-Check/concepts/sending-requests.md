@@ -42,15 +42,18 @@ To resolve this issue, you can make the Bing Spell Check API request through a C
 
 It's easy to install a CORS proxy to allow the [tutorial app](../tutorials/spellcheck.md) to access the optional client headers. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then enter the following command at a command prompt.
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Next, change the Bing Spell Check API endpoint in the HTML file to:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/spellcheck/
+Next, change the Bing Spell Check API endpoint in the HTML file to:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/spellcheck/`
 
 Finally, start the CORS proxy with the following command:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Leave the command window open while you use the tutorial app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, you can now see the `X-MSEdge-ClientID` header (among others) and verify that it's the same for each request.
 
@@ -58,14 +61,14 @@ Leave the command window open while you use the tutorial app; closing the window
 
 The following shows a request that includes all the suggested query parameters and headers. If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination. 
   
-> ```  
-> GET https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?text=when+its+your+turn+turn,+john,+come+runing&mkt=en-us HTTP/1.1
-> Ocp-Apim-Subscription-Key: 123456789ABCDE  
-> X-MSEdge-ClientIP: 999.999.999.999  
-> X-Search-Location: lat:47.60357;long:-122.3295;re:100  
-> X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
-> Host: api.cognitive.microsoft.com  
-> ```  
+```http
+GET https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?text=when+its+your+turn+turn,+john,+come+runing&mkt=en-us HTTP/1.1
+Ocp-Apim-Subscription-Key: 123456789ABCDE  
+X-MSEdge-ClientIP: 999.999.999.999  
+X-Search-Location: lat:47.60357;long:-122.3295;re:100  
+X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
+Host: api.cognitive.microsoft.com  
+```
 
 The following shows the response to the previous request. The example also shows the Bing-specific response headers.
 

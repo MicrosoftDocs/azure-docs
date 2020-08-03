@@ -8,14 +8,14 @@ ms.custom: tracking-python
 
 # Quickstart: Create and share a notebook in Azure Notebooks Preview
 
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
 In this quickstart, you create and run a Jupyter notebook on Azure Notebooks, then share that notebook with others. Jupyter lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations on one sharable canvas, the notebook. Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation.
 
 ## Prerequisites
 None.
 
 ## Create a new project and notebook
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Go to the [Azure Notebooks site (https://notebooks.azure.com)](https://notebooks.azure.com) and sign in. For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
@@ -38,7 +38,7 @@ None.
 
 1. After a few moments, Azure Notebooks navigates you to the new project. Add a notebook to the project by selecting the **+ New** drop-down (which may appear as only **+**), then selecting **Notebook**:
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    :::image type="content" source="media/quickstarts/empty-project-new-notebook-button.png" alt-text="A new, empty project and add notebook command." lightbox="media/quickstarts/empty-project-new-notebook-button.png":::
 
 1. In the **Create New Notebook** popup that appears, enter a filename for your notebook, such as *HelloWorldInPython.ipynb* (*.ipynb* means IronPython (Jupyter) Notebook), and select **Python 3.6** for the language (also referred to as the *kernel*):
 

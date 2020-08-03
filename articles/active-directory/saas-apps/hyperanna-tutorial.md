@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Reply URL** text box, type a URL using any one of the following pattern:
 
-    ```https
+    ```http
     https://microsoft.hyperanna.com/userservice/auth/saml
     https://anna.hyperanna.com/userservice/auth/saml
     ```
@@ -91,9 +91,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Sign-on URL** text box, type a URL using any one of the following pattern:
 
-    ```https
-    `https://microsoft.hyperanna.com/
-    `https://anna.hyperanna.com/
+    ```http
+    https://microsoft.hyperanna.com/
+    https://anna.hyperanna.com/
     ```
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.

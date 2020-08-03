@@ -185,18 +185,14 @@ The automatic checkpointing that happens at the `yield` call on `context.df.Task
 # [Python](#tab/python)
 
 ```python
-import azure.functions as func
 import azure.durable_functions as df
 
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
-    parallel_tasks = []
-
     # Get a list of N work items to process in parallel.
     work_batch = yield context.call_activity("F1", None)
 
-    for i in range(0, len(work_batch)):
-        parallel_tasks.append(context.call_activity("F2", work_batch[i]))
+    parallel_tasks = [ context.call_activity("F2", b) for b in work_batch ]
     
     outputs = yield context.task_all(parallel_tasks)
 
@@ -228,21 +224,21 @@ Durable Functions provides **built-in support** for this pattern, simplifying or
 The following example shows REST commands that start an orchestrator and query its status. For clarity, some protocol details are omitted from the example.
 
 ```
-> curl -X POST https://myfunc.azurewebsites.net/orchestrators/DoWork -H "Content-Length: 0" -i
+> curl -X POST https://myfunc.azurewebsites.net/api/orchestrators/DoWork -H "Content-Length: 0" -i
 HTTP/1.1 202 Accepted
 Content-Type: application/json
-Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec
+Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec
 
 {"id":"b79baf67f717453ca9e86c5da21e03ec", ...}
 
-> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec -i
+> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec -i
 HTTP/1.1 202 Accepted
 Content-Type: application/json
-Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec
+Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec
 
 {"runtimeStatus":"Running","lastUpdatedTime":"2019-03-16T21:20:47Z", ...}
 
-> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec -i
+> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec -i
 HTTP/1.1 200 OK
 Content-Length: 175
 Content-Type: application/json
@@ -329,7 +325,6 @@ module.exports = df.orchestrator(function*(context) {
 # [Python](#tab/python)
 
 ```python
-import azure.functions as func
 import azure.durable_functions as df
 import json
 from datetime import timedelta 
@@ -430,7 +425,6 @@ To create the durable timer, call `context.df.createTimer`. The notification is 
 # [Python](#tab/python)
 
 ```python
-import azure.functions as func
 import azure.durable_functions as df
 import json
 from datetime import timedelta 

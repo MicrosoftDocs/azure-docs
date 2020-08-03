@@ -54,7 +54,7 @@ To configure an end-to-end virtual WAN, you create the following resources:
 
 * **Hub virtual network connection:** The Hub virtual network connection resource is used to connect the hub seamlessly to your virtual network.
 
-* **(Preview) Hub-to-Hub connection** - Hubs are all connected to each other in a virtual WAN. This implies that a branch, user, or VNet connected to a local hub can communicate with another branch or VNet using the full mesh architecture of the connected hubs. You can also connect VNets within a hub transiting through the virtual hub, as well as VNets across hub, using the hub-to-hub connected framework.
+* **Hub-to-Hub connection:** Hubs are all connected to each other in a virtual WAN. This implies that a branch, user, or VNet connected to a local hub can communicate with another branch or VNet using the full mesh architecture of the connected hubs. You can also connect VNets within a hub transiting through the virtual hub, as well as VNets across hub, using the hub-to-hub connected framework.
 
 * **Hub route table:**  You can create a virtual hub route and apply the route to the virtual hub route table. You can apply multiple routes to the virtual hub route table.
 
@@ -106,7 +106,7 @@ Virtual WAN provides advanced routing enhancements. Ability to set up custom rou
 
 ### <a name="global"></a>Global VNet peering
 
-Global VNet Peering provides a mechanism to connect two VNets in different regions. In Virtual WAN, virtual network connections connect VNets to virtual hubs. The user does not need to set up global VNet peering explicitly. VNets connected to virtual hub is same region incur VNet peering charges. VNets connected to virtual hub in a different region incur Global VNet peering charges.
+Global VNet Peering provides a mechanism to connect two VNets in different regions. In Virtual WAN, virtual network connections connect VNets to virtual hubs. The user does not need to set up global VNet peering explicitly. VNets connected to virtual hub in same region incur VNet peering charges. VNets connected to virtual hub in a different region incur Global VNet peering charges.
 
 ### <a name="encryption"></a>ExpressRoute traffic encryption
 
@@ -118,13 +118,13 @@ For location information, see the [Virtual WAN partners and locations](virtual-w
 
 ## <a name="route"></a>Route tables in Basic and Standard virtual WANs
 
-Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have a pre-existing route table, consider the following:
+Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have pre-existing routes in Hub Routing and would like to use the new capabilities, consider the following:
 
-* **Standard Virtual WAN Customers with pre-existing route tables**:
-To use the new route table capabilities, delete any pre-existing route tables and recreate new ones.
+* **Standard Virtual WAN Customers with pre-existing routes in virtual hub**:
+To use  new route table capabilities, please wait until week of August 17th for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal).
 
-* **Basic Virtual WAN Customers with pre-existing route tables**:
-To use the new route table capabilities, delete any pre-existing route tables, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
+* **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
+To use the new route table capabilities, please wait until week of August 17th for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a>FAQ
 

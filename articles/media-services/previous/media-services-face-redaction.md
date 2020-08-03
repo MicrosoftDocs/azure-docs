@@ -125,9 +125,11 @@ This is the output from an IDList with one ID selected.
 
 Example foo_IDList.txt
  
-     1
-     2
-     3
+```output
+1
+2
+3
+```
 
 ## Blur types
 

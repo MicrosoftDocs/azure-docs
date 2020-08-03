@@ -273,4 +273,9 @@ If you are using a free service, remember that you are limited to three indexes,
 Use a portal wizard to generate a ready-to-use web app that runs in a browser. You can try this wizard out on the small index you just created, or use one of the built-in sample data sets for a richer search experience.
 
 > [!div class="nextstepaction"]
-> [Create a search app in the portal](search-create-app-portal.md)
+> [Create a demo app in the portal](search-create-app-portal.md)
+
+Want to optimize and save on your cloud spending?
+
+> [!div class="nextstepaction"]
+> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

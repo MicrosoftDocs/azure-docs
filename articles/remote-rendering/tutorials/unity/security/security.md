@@ -1,8 +1,8 @@
 ---
 title: Securing Azure Remote Rendering and model storage
 description: Hardening a Remote Rendering application for securing content
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ---
@@ -138,7 +138,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
     }
     ```
 
-    This code adds three additional string variables to your **RemoteRenderingCoordinator** component.\
+    This code adds three additional string variables to your **RemoteRenderingCoordinator** component.
     ![Linked Model](./media/storage-account-linked-model.png)
 
 1. Add your values to the **RemoteRenderingCoordinator** component. Having followed the [Quickstart for model conversion](../../../quickstarts/convert-model.md), your values should be:
@@ -151,7 +151,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
     > If you [run the **Conversion.ps1**](../../../quickstarts/convert-model.md#run-the-conversion) script, without the "-UseContainerSas" argument, the script will output all of the above values for your instead of the SAS token. ![Linked Model](./media/converted-output.png)
 1. For the time being, remove or disable the GameObject **TestModel**, to make room for your custom model to load.
 1. Play the scene and connect to a remote session.
-1. Right click on your **RemoteRenderingCoordinator** and select **Load Linked Custom Model**.\
+1. Right click on your **RemoteRenderingCoordinator** and select **Load Linked Custom Model**.
     ![Load linked model](./media/load-linked-model.png)
 
 These steps have increased the security of the application by removing the SAS token from the local application.
@@ -171,15 +171,15 @@ The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGe
 1. Follow the [How To: Configure authentication - Authentication for deployed applications](../../../how-tos/authentication.md#authentication-for-deployed-applications), specifically you'll follow the instructions listed in the Azure Spatial Anchors documentation [Azure AD user authentication](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication). Which involves registering a new Azure Active Directory application and configuring access to your ARR instance.
 1. After configuring the new AAD application, check your AAD application looks like the following images:
 
-    **AAD Application -> Authentication**\
+    **AAD Application -> Authentication**
     ![App authentication](./media/app-authentication-public.png)
 
-    **AAD Application -> API Permissions**\
+    **AAD Application -> API Permissions**
     ![App APIs](./media/request-api-permissions-step-five.png)
 
 1. After configuring your Remote Rendering account, check your configuration looks like the following image:
 
-    **AAR -> AccessControl (IAM)**\
+    **AAR -> AccessControl (IAM)**
     ![ARR Role](./media/azure-remote-rendering-role-assignment-complete.png)
 
     >[!NOTE]
@@ -351,9 +351,9 @@ In the Unity Editor, when AAD Auth is active, you will need to authenticate ever
 
 1. Press Play in the Unity Editor and consent to running a session.
     Since the **AADAuthentication** component has a view controller, its automatically hooked up to display a prompt after the session authorization modal panel.
-1. Follow the instructions found in the panel to the right of the **AppMenu**.\
-    You should see something similar to this:\
-    ![AAD auth component](./media/device-flow-instructions.png)\
+1. Follow the instructions found in the panel to the right of the **AppMenu**.
+    You should see something similar to this:
+    ![AAD auth component](./media/device-flow-instructions.png)
     After entering the provided coded on your secondary device (or browser on the same device) and logging in using your credentials, an Access Token will be returned to the requesting application, in this case, the Unity Editor.
 1. After this point, everything in the application should proceed normally. Check the Unity Console for any errors if you're not progressing through the stages as expected.
 

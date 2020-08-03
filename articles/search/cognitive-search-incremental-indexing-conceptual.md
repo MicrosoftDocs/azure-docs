@@ -106,7 +106,7 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 The purpose of the cache is to avoid unnecessary processing, but suppose you make a change to a skill that the indexer doesn't detect (for example, changing something in external code, such as a custom skill).
 
-In this case, you can use the [Reset Skills](https://docs.microsoft.com/rest/api/searchservice/reset-skills) to force reprocessing of a particular skill, including any downstream skills that have a dependency on that skill's output. This API accepts a POST request with a list of skills that should be invalidated and marked for reprocessing. After Reset Skills, run the indexer to invoke the pipeline.
+In this case, you can use the [Reset Skills](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) to force reprocessing of a particular skill, including any downstream skills that have a dependency on that skill's output. This API accepts a POST request with a list of skills that should be invalidated and marked for reprocessing. After Reset Skills, run the indexer to invoke the pipeline.
 
 ## Change detection
 
@@ -149,13 +149,13 @@ Incremental processing evaluates your skillset definition and determines which s
 
 REST API version `2020-06-30-Preview` provides incremental enrichment through additional properties on indexers. Skillsets and data sources can use the generally available version. In addition to the reference documentation, see  [Configure caching for incremental enrichment](search-howto-incremental-index.md) for details on how to call the APIs.
 
-+ [Create Indexer (api-version=2020-06-30-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
++ [Create Indexer (api-version=2020-06-30-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 
 
-+ [Update Indexer (api-version=2020-06-30-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
++ [Update Indexer (api-version=2020-06-30-Preview)](https://docs.microsoft.com/rest/api/searchservice/update-indexer) 
 
 + [Update Skillset (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset) (New URI parameter on the request)
 
-+ [Reset Skills (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/reset-skills)
++ [Reset Skills (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills)
 
 + Database indexers (Azure SQL, Cosmos DB). Some indexers retrieve data through queries. For queries that retrieve data, [Update Data Source](https://docs.microsoft.com/rest/api/searchservice/update-data-source) supports a new parameter on a request **ignoreResetRequirement**, which should be set to `true` when your update action should not invalidate the cache. 
 

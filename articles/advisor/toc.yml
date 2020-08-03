@@ -11,6 +11,7 @@
     - name: Azure portal
       href: advisor-alerts-portal.md
     - name: ARM template
+      displayName: Resource Manager
       href: advisor-alerts-arm.md
 - name: Tutorials
   items:
@@ -43,15 +44,15 @@
   - name: Security Center
     href: https://azure.microsoft.com/services/security-center/
   - name: SQL Database Advisor
-    href: https://azure.microsoft.com/documentation/articles/sql-database-advisor/
+    href: ../azure-sql/database/database-advisor-implement-performance-recommendations.md
   - name: App Service
-    href: https://docs.microsoft.com/azure/app-service/app-service-best-practices
+    href: ../app-service/app-service-best-practices.md
   - name: REST API
-    href: https://docs.microsoft.com/rest/api/advisor/
+    href: /rest/api/advisor/
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest
+    href: /cli/azure/advisor?view=azure-cli-latest
   - name: PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0
+    href: /powershell/module/az.advisor/?view=azps-1.2.0
 - name: Resources
   items:
   - name: Azure Roadmap

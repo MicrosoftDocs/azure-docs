@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 09/05/2019
+ms.date: 07/09/2020
 ms.author: iainfou
 
 ---
@@ -60,7 +60,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 With the *AAD DC Administrators* group created, add a user to the group using the [Add-AzureADGroupMember][Add-AzureADGroupMember] cmdlet. You first get the *AAD DC Administrators* group object ID using the [Get-AzureADGroup][Get-AzureADGroup] cmdlet, then the desired user's object ID using the [Get-AzureADUser][Get-AzureADUser] cmdlet.
 
-In the following example, the user object ID for the account with a UPN of `admin@aaddscontoso.onmicrosoft.com`. Replace this user account with the UPN of the user you wish to add to the *AAD DC Administrators* group:
+In the following example, the user object ID for the account with a UPN of `admin@contoso.onmicrosoft.com`. Replace this user account with the UPN of the user you wish to add to the *AAD DC Administrators* group:
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -70,7 +70,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@aaddscontoso.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -150,9 +150,9 @@ When the Azure portal shows that the managed domain has finished provisioning, t
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
     * To configure DNS, select your managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
-* If you created a managed domain in a region that supports Availability Zones, create a network security group to restrict traffic in the virtual network for the managed domain. An Azure standard load balancer is created that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly.
-    * To create the network security group and required rules, select your managed domain in the portal. On the **Overview** window, you are prompted to automatically create and configure the network security group.
-* [Enable password synchronization to Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
+* Create a network security group to restrict traffic in the virtual network for the  managed domain. An Azure standard load balancer is created that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly.
+    * To create the network security group and required rules, first install the `New-AzureAddsNetworkSecurityGroup` script using the `Install-Script -Name New-AaddsNetworkSecurityGroup` command, then run `New-AaddsNetworkSecurityGroup`. The required rules for the managed domain are created for you.
+* [Enable password synchronization to Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
 
 ## Complete PowerShell script
 
@@ -163,7 +163,7 @@ The following complete PowerShell script combines all of the tasks shown in this
 
 ```powershell
 # Change the following values to match your deployment.
-$AaddsAdminUserUpn = "admin@aaddscontoso.onmicrosoft.com"
+$AaddsAdminUserUpn = "admin@contoso.onmicrosoft.com"
 $ResourceGroupName = "myResourceGroup"
 $VnetName = "myVnet"
 $AzureLocation = "westus"
@@ -237,9 +237,9 @@ When the Azure portal shows that the managed domain has finished provisioning, t
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
     * To configure DNS, select your managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
-* If you created a managed domain in a region that supports Availability Zones, create a network security group to restrict traffic in the virtual network for the managed domain. An Azure standard load balancer is created that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly.
-    * To create the network security group and required rules, select your managed domain in the portal. On the **Overview** window, you are prompted to automatically create and configure the network security group.
-* [Enable password synchronization to Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
+* Create a network security group to restrict traffic in the virtual network for the managed domain. An Azure standard load balancer is created that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly.
+    * To create the network security group and required rules, first install the `New-AzureAddsNetworkSecurityGroup` script using the `Install-Script -Name New-AaddsNetworkSecurityGroup` command, then run `New-AaddsNetworkSecurityGroup`. The required rules for the managed domain are created for you.
+* [Enable password synchronization to Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
 
 ## Next steps
 

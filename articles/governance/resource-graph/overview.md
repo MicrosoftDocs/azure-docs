@@ -28,8 +28,8 @@ In this documentation, you'll go over each feature in detail.
 
 ## How does Resource Graph complement Azure Resource Manager
 
-Azure Resource Manager currently supports queries over basic resource fields, specifically -
-Resource name, ID, Type, Resource Group, Subscription, and Location. Resource Manager also provides
+Resource Manager currently supports queries over basic resource fields, specifically - Resource
+name, ID, Type, Resource Group, Subscription, and Location. Resource Manager also provides
 facilities for calling individual resource providers for detailed properties one resource at a time.
 
 With Azure Resource Graph, you can access these properties the resource providers return without

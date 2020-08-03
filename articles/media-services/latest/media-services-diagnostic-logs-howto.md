@@ -12,7 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
-ms.author: juliako
+ms.author: juliako 
+ms.custom: devx-track-azurecli
 ---
 
 # Monitor Media Services diagnostic logs
@@ -23,7 +24,7 @@ This article shows you how to route data to the storage account and then view th
 
 ## Prerequisites
 
-- [Create a Media Services account](create-account-cli-how-to.md).
+- [Create a Media Services account](./create-account-howto.md).
 - Review  [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
 
 ## Route data to the storage account using the portal

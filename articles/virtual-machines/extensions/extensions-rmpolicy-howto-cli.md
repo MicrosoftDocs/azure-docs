@@ -1,5 +1,5 @@
 ---
-title: Use Azure Policy to restrict VM extension installation 
+title: Use Azure Policy to restrict VM extension installation (Linux)
 description: Use Azure Policy to restrict VM extension deployments.
 services: virtual-machines-linux 
 documentationcenter: ''
@@ -84,7 +84,6 @@ Copy and paste the following .json into the file.
 		"type": "Array",
 		"metadata": {
 			"description": "The list of extensions that will be denied. Example: CustomScriptForLinux, VMAccessForLinux etc.",
-			"strongType": "type",
 			"displayName": "Denied extension"
 		}
 	}

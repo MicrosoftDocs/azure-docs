@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 07/06/2020
 ms.author: iainfou
 
 ---
@@ -25,7 +25,7 @@ You can archive events into Azure storage and stream events into security inform
 
 ## Security audit destinations
 
-You can use Azure Storage, Azure Event Hubs, or Azure Log Analytics workspaces as a target resource for Azure AD DS security audits. These destinations can be combined. For example, you could use Azure Storage for archiving security audit events, but an Azure Log Analytics workspace to analyze and report on the information in the short-term.
+You can use Azure Storage, Azure Event Hubs, or Azure Log Analytics workspaces as a target resource for Azure AD DS security audits. These destinations can be combined. For example, you could use Azure Storage for archiving security audit events, but an Azure Log Analytics workspace to analyze and report on the information in the short term.
 
 The following table outlines scenarios for each destination resource type.
 
@@ -155,11 +155,11 @@ AADDomainServicesAccountManagement
 
 ### Sample query 2
 
-View all the account lockout events (*4740*) between February 3, 2020 at 9 a.m. and February 10, 2020 midnight, sorted ascending by the date and time:
+View all the account lockout events (*4740*) between June 3, 2020 at 9 a.m. and June 10, 2020 midnight, sorted ascending by the date and time:
 
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2020-02-03 09:00) and TimeGenerated <= datetime(2020-02-10)
+| where TimeGenerated >= datetime(2020-06-03 09:00) and TimeGenerated <= datetime(2020-06-10)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```

@@ -9,9 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 07/06/2020
 ms.author: aahi
-ms.custom: seo-javascript-september2019
+ms.custom: seo-javascript-september2019, devx-track-javascript
 ---
 # Quickstart: Use Node.js to call the Text Analytics Cognitive Service  
 <a name="HOLTop"></a>

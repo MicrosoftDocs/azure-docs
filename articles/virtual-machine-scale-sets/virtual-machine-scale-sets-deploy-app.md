@@ -109,4 +109,4 @@ If you use a custom VM image with the application pre-installed, you could integ
 
 
 ## Next steps
-As you build and deploy applications to your scale sets, you can review the [Scale Set Design Overview](virtual-machine-scale-sets-design-overview.md). For more information on how to manage your scale set, see [Use PowerShell to manage your scale set](virtual-machine-scale-sets-windows-manage.md).
+As you build and deploy applications to your scale sets, you can review the [Scale Set Design Overview](virtual-machine-scale-sets-design-overview.md). For more information on how to manage your scale set, see [Use PowerShell to manage your scale set](./virtual-machine-scale-sets-manage-powershell.md).

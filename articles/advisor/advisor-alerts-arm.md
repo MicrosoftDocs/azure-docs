@@ -1,41 +1,47 @@
 ---
 title: Create Azure Advisor alerts for new recommendations using Resource Manager template
 description: Create Azure Advisor alerts for new recommendation
-ms.topic: article
-ms.date: 09/09/2019
+ms.topic: quickstart
+ms.custom: subject-armqs
+ms.date: 06/29/2020
 ---
 
-# Create Azure Advisor alerts on new recommendations use Resource Manager template
+# Quickstart: Create Azure Advisor alerts on new recommendations using an ARM template
 
-This article shows you how to set up an alert for new recommendations from Azure Advisor using an Azure Resource Manager template.
+This article shows you how to set up an alert for new recommendations from Azure Advisor using an Azure Resource Manager template (ARM template).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Whenever Azure Advisor detects a new recommendation for one of your resources, an event is stored in [Azure Activity log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview). You can set up alerts for these events from Azure Advisor using a recommendation-specific alerts creation experience. You can select a subscription and optionally a resource group to specify the resources that you want to receive alerts on. 
+Whenever Azure Advisor detects a new recommendation for one of your resources, an event is stored in [Azure Activity log](../azure-monitor/platform/platform-logs-overview.md). You can set up alerts for these events from Azure Advisor using a recommendation-specific alerts creation experience. You can select a subscription and optionally a resource group to specify the resources that you want to receive alerts on.
 
 You can also determine the types of recommendations by using these properties:
 
-* Category
-* Impact level
-* Recommendation type
+- Category
+- Impact level
+- Recommendation type
 
 You can also configure the action that will take place when an alert is triggered by:  
 
-* Selecting an existing action group
-* Creating a new action group
+- Selecting an existing action group
+- Creating a new action group
 
 To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
 
-> [!NOTE] 
-> Advisor alerts are currently only available for High Availability, Performance, and Cost recommendations. Security recommendations are not supported. 
+> [!NOTE]
+> Advisor alerts are currently only available for High Availability, Performance, and Cost recommendations. Security recommendations are not supported.
 
+## Prerequisites
+
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- To run the commands from your local computer, install Azure CLI or the Azure PowerShell modules. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## Review the template
+
 The following template creates an action group with an email target and enables all service health notifications for the target subscription. Save this template as *CreateAdvisorAlert.json*.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "actionGroups_name": {
@@ -59,7 +65,7 @@ The following template creates an action group with an email target and enables 
       "comments": "Action Group",
       "type": "microsoft.insights/actionGroups",
       "name": "[parameters('actionGroups_name')]",
-      "apiVersion": "2017-04-01",
+      "apiVersion": "2019-06-01",
       "location": "Global",
       "tags": {},
       "scale": null,
@@ -128,17 +134,23 @@ The following template creates an action group with an email target and enables 
 }
 ```
 
+The template defines two resources:
+
+- [Microsoft.Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
+- [Microsoft.Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
+
 ## Deploy the template
+
 Deploy the template using any standard method for [deploying an ARM template](../azure-resource-manager/templates/deploy-portal.md) such as the following examples using CLI and PowerShell. Replace the sample values for **Resource Group**, and **emailAddress** with appropriate values for your environment. The workspace name must be unique among all Azure subscriptions.
 
-# [CLI](#tab/CLI1)
+# [CLI](#tab/CLI)
 
 ```azurecli
 az login
 az deployment group create --name CreateAdvisorAlert --resource-group my-resource-group --template-file CreateAdvisorAlert.json --parameters emailAddress='user@contoso.com'
 ```
 
-# [PowerShell](#tab/PowerShell1)
+# [PowerShell](#tab/PowerShell)
 
 ```powershell
 Connect-AzAccount
@@ -148,16 +160,17 @@ New-AzResourceGroupDeployment -Name CreateAdvisorAlert -ResourceGroupName my-res
 
 ---
 
-## Verify the deployment
+## Validate the deployment
+
 Verify that the workspace has been created using one of the following commands. Replace the sample values for **Resource Group** with the value you used above.
 
-# [CLI](#tab/CLI2)
+# [CLI](#tab/CLI)
 
 ```azurecli
 az monitor activity-log alert show --resource-group my-resource-group --name AdvisorAlertsTest
 ```
 
-# [PowerShell](#tab/PowerShell2)
+# [PowerShell](#tab/PowerShell)
 
 ```powershell
 Get-AzActivityLogAlert -ResourceGroupName my-resource-group -Name AdvisorAlertsTest
@@ -165,19 +178,17 @@ Get-AzActivityLogAlert -ResourceGroupName my-resource-group -Name AdvisorAlertsT
 
 ---
 
-
 ## Clean up resources
+
 If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the alert rule and the related resources. To delete the resource group by using Azure CLI or Azure PowerShell
 
-
- 
-# [CLI](#tab/CLI3)
+# [CLI](#tab/CLI)
 
 ```azurecli
 az group delete --name my-resource-group
 ```
 
-# [PowerShell](#tab/PowerShell3)
+# [PowerShell](#tab/PowerShell)
 
 ```powershell
 Remove-AzResourceGroup -Name my-resource-group
@@ -186,5 +197,6 @@ Remove-AzResourceGroup -Name my-resource-group
 ---
 
 ## Next steps
+
 - Get an [overview of activity log alerts](../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.
 - Learn more about [action groups](../azure-monitor/platform/action-groups.md).

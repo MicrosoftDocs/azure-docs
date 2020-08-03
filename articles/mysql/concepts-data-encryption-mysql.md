@@ -17,7 +17,7 @@ Data encryption with customer-managed keys for Azure Database for MySQL, is set 
 Key Vault is a cloud-based, external key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by FIPS 140-2 Level 2 validated hardware security modules (HSMs). It doesn't allow direct access to a stored key, but does provide services of encryption and decryption to authorized entities. Key Vault can generate the key, import it, or [have it transferred from an on-premises HSM device](../key-vault/key-Vault-hsm-protected-keys.md).
 
 > [!NOTE]
-> This feature is available in all Azure regions where Azure Database for MySQL supports "General Purpose" and "Memory Optimized" pricing tiers.
+> This feature is available in all Azure regions where Azure Database for MySQL supports "General Purpose" and "Memory Optimized" pricing tiers. For other limitations, refer to the [limitation](concepts-data-encryption-mysql.md#limitations) section.
 
 ## Benefits
 
@@ -47,7 +47,7 @@ For a MySQL server to use customer-managed keys stored in Key Vault for encrypti
 * **wrapKey**: To be able to encrypt the DEK.
 * **unwrapKey**: To be able to decrypt the DEK.
 
-The key vault administrator can also [enable logging of Key Vault audit events](../azure-monitor/insights/azure-key-vault.md), so they can be audited later.
+The key vault administrator can also [enable logging of Key Vault audit events](../azure-monitor/insights/key-vault-insights-overview.md), so they can be audited later.
 
 When the server is configured to use the customer-managed key stored in the key vault, the server sends the DEK to the key vault for encryptions. Key Vault returns the encrypted DEK, which is stored in the user database. Similarly, when needed, the server sends the protected DEK to the key vault for decryption. Auditors can use Azure Monitor to review Key Vault audit event logs, if logging is enabled.
 
@@ -134,15 +134,6 @@ For Azure Database for MySQL, the support for encryption of data at rest using c
     > - To validate if your provisioned server supports up to 16TB, you can go to the pricing tier blade in the portal and see the max storage size supported by your provisioned server. If you can move the slider up to 4TB, your server may not support encryption with customer managed keys. However, the data is encrypted using service managed keys at all times. Please reach out to AskAzureDBforMySQL@service.microsoft.com if you have any questions.
 
 * Encryption is only supported with RSA 2048 cryptographic key.
-
-## Infrastructure Double encryption
-Azure Database for MySQL uses storage [encryption of data at-rest](concepts-security.md#at-rest) for data using Microsoft's managed keys. Data, including backups, are encrypted on disk and this encryption is always on and can't be disabled. The encryption uses FIPS 140-2 validated cryptographic module and an AES 256-bit cipher for the Azure storage encryption. 
-
-Infrastructure double encryption adds a second layer of encryption using a FIPS 140-2 validated cryptographic module and a different encryption algorithm which gives additional layer of protection for your data at rest. The key used in Infrastructure Double encryption is also managed by service. This is not *On* by default since it will have performance impact due to the additional layer of encryption. 
-
-   > [!NOTE]
-   > - This functionality is still not available globally. 
-   > - Support for this functionality is limited to **General Purpose** and **Memory Optimized** pricing tiers.
 
 ## Next steps
 

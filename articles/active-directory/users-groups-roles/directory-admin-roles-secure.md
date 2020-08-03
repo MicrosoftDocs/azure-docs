@@ -86,8 +86,8 @@ After turning on Azure AD Privileged Identity Management, view the users who are
 
 * Global administrator
 * Privileged role administrator
-* Exchange Online administrator
-* SharePoint Online administrator
+* Exchange administrator
+* SharePoint administrator
 
 If you don't have Azure AD Privileged Identity Management in your organization, you can use the [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Start with the global admin role because a global admin has the same permissions across all cloud services for which your organization has subscribed. These permissions are granted no matter where they were assigned: in the Microsoft 365 admin center, the Azure portal, or by the Azure AD module for Microsoft PowerShell.
 
@@ -110,7 +110,7 @@ Evaluate the accounts that are assigned or eligible for the global admin role. I
 
 #### Turn on multi-factor authentication and register all other highly privileged single-user non-federated admin accounts
 
-Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global administrator, Privileged Role administrator, Exchange Online administrator, and SharePoint Online administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your admin accounts](../authentication/howto-mfa-userstates.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global administrator, Privileged Role administrator, Exchange administrator, and SharePoint administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your admin accounts](../authentication/howto-mfa-userstates.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## Stage 2: Mitigate frequently used attacks
 

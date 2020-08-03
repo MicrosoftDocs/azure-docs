@@ -4,8 +4,9 @@ description: Learn how to configure private link for Azure Database for MariaDB 
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 01/09/2020
+ms.topic: how-to
+ms.date: 01/09/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Create and manage Private Link for Azure Database for MariaDB using CLI

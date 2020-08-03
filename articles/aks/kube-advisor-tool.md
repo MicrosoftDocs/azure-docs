@@ -24,7 +24,7 @@ The kube-advisor tool can report on resource request and limits missing in PodSp
 
 ## Running kube-advisor
 
-To run the tool on a cluster that is configured for [role-based access control (RBAC)](azure-ad-integration.md), using the following commands. The first command creates a Kubernetes service account. The second command runs the tool in a pod using that service account and configures the pod for deletion after it exits. 
+To run the tool on a cluster that is configured for [role-based access control (RBAC)](./azure-ad-integration-cli.md), using the following commands. The first command creates a Kubernetes service account. The second command runs the tool in a pod using that service account and configures the pod for deletion after it exits. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml

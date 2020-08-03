@@ -7,14 +7,15 @@ ms.author: mhopkins
 ms.date: 06/13/2017
 ms.service: storage
 ms.subservice: blobs
-ms.topic: sample
+ms.topic: sample 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI samples for Azure Blob storage
 
 The following table includes links to Bash scripts built using the Azure CLI that create and manage Azure Storage.
 
-| | |
+| Script | Description |
 |---|---|
 |**Storage accounts**||
 | [Create a storage account and retrieve/rotate the access keys](../scripts/storage-common-rotate-account-keys-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure Storage account and retrieves and rotates its access keys. |

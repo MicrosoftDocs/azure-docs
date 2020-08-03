@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 06/08/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Tutorial: Design an Azure Database for PostgreSQL - Single Server using PowerShell

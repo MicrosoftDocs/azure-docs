@@ -4,8 +4,9 @@ description: Learn how to configure private link for Azure Database for PostgreS
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 01/09/2020
+ms.topic: how-to
+ms.date: 01/09/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Create and manage Private Link for Azure Database for PostgreSQL - Single server using CLI
@@ -149,7 +150,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 ## Access the PostgreSQL server privately from the VM
 
-1. In the Remote Desktop of *myVM*, open PowerShell.
+1. In the Remote Desktop of *myVM*, open PowerShell.
 
 2. Enter  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 

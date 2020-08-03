@@ -31,10 +31,10 @@ Requires a Microsoft Visual Studio subscription | The machine is running a Windo
 VM not found for the required storage performance | The storage performance (input/output operations per second [IOPS] and throughput) required for the machine exceeds Azure VM support. Reduce storage requirements for the machine before migration.
 VM not found for the required network performance | The network performance (in/out) required for the machine exceeds Azure VM support. Reduce the networking requirements for the machine.
 VM not found in the specified location | Use a different target location before migration.
-One or more unsuitable disks | One or more disks attached to the VM don't meet Azure requirements.A<br/><br/> Azure Migrate: Server Assessment currently doesn't support Ultra SSD disks, and assesses the disks based on the disk limits for premium managed disks (32 TB).<br/><br/> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br/><br/> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by Azure [managed virtual machine disks](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits).
+One or more unsuitable disks | One or more disks attached to the VM don't meet Azure requirements.A<br/><br/> Azure Migrate: Server Assessment currently doesn't support Ultra SSD disks, and assesses the disks based on the disk limits for premium managed disks (32 TB).<br/><br/> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br/><br/> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](../virtual-machines/windows/premium-storage-performance.md#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by Azure [managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits).
 One or more unsuitable network adapters. | Remove unused network adapters from the machine before migration.
 Disk count exceeds limit | Remove unused disks from the machine before migration.
-Disk size exceeds limit | Azure Migrate: Server Assessment currently doesn't support Ultra SSD disks, and assesses the disks based on premium disk limits (32 TB).<br/><br/> However, Azure supports disks with up to 64-TB size (supported by Ultra SSD disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) to get higher storage limits.
+Disk size exceeds limit | Azure Migrate: Server Assessment currently doesn't support Ultra SSD disks, and assesses the disks based on premium disk limits (32 TB).<br/><br/> However, Azure supports disks with up to 64-TB size (supported by Ultra SSD disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](../virtual-machines/windows/premium-storage-performance.md#disk-striping) to get higher storage limits.
 Disk unavailable in the specified location | Make sure the disk is in your target location before you migrate.
 Disk unavailable for the specified redundancy | The disk should use the redundancy storage type defined in the assessment settings (LRS by default).
 Could not determine disk suitability because of an internal error | Try creating a new assessment for the group.
@@ -47,7 +47,7 @@ Conditionally ready Internet Protocol | Only applicable to Azure VMware Solution
 
 ## Suggested migration tool in import-based AVS assessment marked as unknown
 
-For machines imported via a CSV file, the default migration tool in and AVS assessment is unknown. Though, for VMware machines, its is recommended to use the VMWare Hybrid Cloud Extension (HCX) solution. [Learn More](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+For machines imported via a CSV file, the default migration tool in and AVS assessment is unknown. Though, for VMware machines, its is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 ## Linux VMs are "conditionally ready" in an Azure VM assessment
 
@@ -59,8 +59,11 @@ In the case of VMware and Hyper-V VMs, Server Assessment marks Linux VMs as "Con
 - You can determine whether the Linux OS running on the on-premises VM is endorsed in Azure by reviewing [Azure Linux support](https://aka.ms/migrate/selfhost/azureendorseddistros).
 -  After you've verified the endorsed distribution, you can ignore this warning.
 
-This gap can be addressed by enabling [application discovery](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) on the VMware VMs. Server Assessment uses the operating system detected from the VM using the guest credentials provided. This operating system data identifies the right OS information in the case of both Windows and Linux VMs.
+This gap can be addressed by enabling [application discovery](./how-to-discover-applications.md) on the VMware VMs. Server Assessment uses the operating system detected from the VM using the guest credentials provided. This operating system data identifies the right OS information in the case of both Windows and Linux VMs.
 
+## Operating system version not available
+
+For physical servers, the operating system minor version information should be available. If not available, contact Microsoft Support. For VMware machines, Server Assessment uses the operating system information specified for the VM in vCenter Server. However, vCenter Server doesn't provide the minor version for operating systems. To discover the minor version, you need to set up [application discovery](./how-to-discover-applications.md). For Hyper-V VMs, operating system minor version discovery is not supported. 
 
 ## Azure SKUs bigger than on-premises in an Azure VM assessment
 
@@ -96,7 +99,7 @@ Server Assessment reports "PercentageOfCoresUtilizedMissing" or "PercentageOfMem
 - This can occur if the VMs are turned off during the assessment duration. The appliance can't collect performance data for a VM when it's turned off.
 - If only the memory counters are missing and you're trying to assess Hyper-V VMs, check whether you have dynamic memory enabled on these VMs. There's a known issue for Hyper-V VMs only, in which an Azure Migrate appliance can't collect memory utilization data for VMs that don't have dynamic memory enabled.
 - If any of the performance counters are missing, Azure Migrate Server Assessment falls back to the allocated cores and memory, and it recommends a corresponding VM size.
-- If all of the performance counters are missing, ensure the port access requirements for assessment are met. Learn more about the port access requirements for [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) and [physical](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) server assessment.
+- If all of the performance counters are missing, ensure the port access requirements for assessment are met. Learn more about the port access requirements for [VMware](./migrate-support-matrix-vmware.md#port-access-requirements), [Hyper-V](./migrate-support-matrix-hyper-v.md#port-access) and [physical](./migrate-support-matrix-physical.md#port-access) server assessment.
 
 ## Is the operating system license included in an Azure VM assessment?
 
@@ -108,6 +111,27 @@ Server Assessment continuously collects performance data of on-premises machines
 
 ## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime and Discount (%)?
 When you select 'Reserved instances', the 'Discount (%)' and 'VM uptime' properties are not applicable. As your assessment was created with an invalid combination of these properties, the edit and recalculate buttons are disabled. Please create a new assessment. [Learn more](https://go.microsoft.com/fwlink/?linkid=2131554).
+
+## I do not see performance data for some network adapters on my physical servers
+
+This can happen if the physical server has Hyper-V virtualization enabled. On these servers, due to a product gap, Azure Migrate currently discovers both the physical and virtual network adapters. The network throughput is captured only on the virtual network adapters discovered.
+
+## Recommended Azure VM SKU for my physical server is oversized
+
+This can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Migrate currently discovers both the physical and virtual network adapters. Hence, the no. of network adapters discovered is higher than actual. As Server Assessment picks an Azure VM that can support the required number of network adapters, this can potentially result in an oversized VM. [Learn more](./concepts-assessment-calculation.md#calculating-sizing) about the impact of no. of network adapters on sizing. This is a product gap that will be addressed going forward.
+
+## Readiness category "Not ready" for my physical server
+
+Readiness category may be incorrectly marked as "Not Ready" in the case of a physical server that has Hyper-V virtualization enabled. On these servers, due to a product gap, Azure Migrate currently discovers both the physical and virtual adapters. Hence, the no. of network adapters discovered is higher than actual. In both as-on-premises and performance-based assessments, Server Assessment picks an Azure VM that can support the required number of network adapters. If the number of network adapters is discovered to be being higher than 32, the maximum no. of NICs supported on Azure VMs, the machine will be marked “Not ready”.  [Learn more](./concepts-assessment-calculation.md#calculating-sizing) about the impact of no. of NICs on sizing.
+
+
+## Number of discovered NICs higher than actual for physical servers
+
+This can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Migrate currently discovers both the physical and virtual adapters. Hence, the no. of NICs discovered is higher than actual.
+
+
+## Low confidence rating on physical server assessments
+The rating is assigned based on the availability of data points that are needed to compute the assessment. In case of physical servers that have Hyper-V virtualization enabled, there is a known product gap due to which low confidence rating may be incorrectly assigned to physical server assessments. On these servers, Azure Migrate currently discovers both the physical and virtual adapters. The network throughput is captured on the virtual network adapters discovered, but not on the physical network adapters. Due to the absence of data points on the physical network adapters, the confidence rating may be impacted resulting in a low rating. This is a product gap that will be addressed going forward.
 
 ## Dependency visualization in Azure Government
 
@@ -128,18 +152,18 @@ For Linux VMs, make sure that the installation commands for MMA and the dependen
 
 ## Supported operating systems
 
-- **MMS agent**: Review the supported [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems), and [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) operating systems.
+- **MMS agent**: Review the supported [Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems), and [Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) operating systems.
 - **Dependency agent**: the supported [Windows and Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) operating systems.
 
 ## Visualize dependencies for > hour
 
 With agentless dependency analysis, you can visualize dependencies or export them in a map for a duration of up to 30 days.
 
-With agent-based dependency analysis, Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour. For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for a one-hour period only. However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
+With agent-based dependency analysis, Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour. For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for a one-hour period only. However, you can use Azure Monitor logs to [query the dependency data](./how-to-create-group-machine-dependencies.md) over a longer duration.
 
 ## Visualized dependencies for > 10 machines
 
-In Azure Migrate Server Assessment, with agent-based dependency analysis, you can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) with up to 10 VMs. For larger groups, we recommend that you split the VMs into smaller groups to visualize dependencies.
+In Azure Migrate Server Assessment, with agent-based dependency analysis, you can [visualize dependencies for groups](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) with up to 10 VMs. For larger groups, we recommend that you split the VMs into smaller groups to visualize dependencies.
 
 
 ## Machines show "Install agent"
@@ -154,6 +178,9 @@ After migrating machines with dependency visualization enabled to Azure, machine
 
 ## Dependencies export CSV shows "Unknown process"
 In agentless dependency analysis, the process names are captured on a best-effort basis. In certain scenarios, although the source and destination server names and the destination port are captured, it is not feasible to determine the process names at both ends of the dependency. In such cases, the process is marked as "Unknown process".
+
+## My Log Analytics workspace is not listed when trying to configure the workspace in Server Assessment
+Azure Migrate currently supports creation of OMS workspace in East US, Southeast Asia and West Europe regions. If the workspace is created outside of Azure Migrate in any other region, it currently cannot be associated with an Azure Migrate project.
 
 
 ## Capture network traffic

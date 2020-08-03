@@ -8,7 +8,8 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 06/27/2020
 # As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio
 ---
@@ -52,7 +53,7 @@ You can create text files as well.  Select **Text** as the file type and add the
 You can also upload folders and files, including notebooks, with the tools at the top of the Notebooks page.  Notebooks and most text file types display in the preview section.  No preview is available for most other file types.
 
 > [!IMPORTANT]
-> Content in notebooks and scripts can potentially read data from your sessions and access data without your organization in Azure.  Only load files from trusted sources.
+> Content in notebooks and scripts can potentially read data from your sessions and access data without your organization in Azure.  Only load files from trusted sources. For more information, see [Secure code best practices](concept-secure-code-best-practice.md#azure-ml-studio-notebooks).
 
 ### Clone samples
 
@@ -180,11 +181,20 @@ These actions will reset the notebook state and will reset all variables in the 
 The Notebook will automatically find all Jupyter kernels installed on the connected compute instance.  To add a kernel to the compute instance:
 
 1. Select [**Open terminal**](#terminal) in the Notebook toolbar.
-1. Use the terminal window to create a new environment.
+1. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
+    ```shell
+    conda create --name newenv
+    ```
 1. Activate the environment.  For example, after creating `newenv`:
 
     ```shell
-    source activate newenv
+    conda activate newenv
+    ```
+1. Install pip and ipykernel package to the new environment and create a kernel for that conda env
+
+    ```shell
+    conda install pip
+    conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
 

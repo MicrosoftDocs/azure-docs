@@ -1,6 +1,6 @@
 ---
 title: Managing Applications with Azure Active Directory | Microsoft Docs
-description: An overview of using Azure Active Directory (AD) as an Identity and Authorization Management (IAM) system for your cloud and on-premises applications.
+description: An overview of using Azure Active Directory (AD) as an Identity and Access Management (IAM) system for your cloud and on-premises applications.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # What is application management?
 
-Azure AD is an Identity and Authorization Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored. 
+Azure AD is an Identity and Access Management (IAM) system. It provides a single place to store information about digital identities. You can configure your software applications to use Azure AD as the place where user information is stored. 
 
 Azure AD must be configured to integrate with an application. In other words, it needs to know what applications are using it as an identity system. The process of keeping Azure AD aware of these applications, and how it should handle them, is known as application management.
 
@@ -25,12 +25,12 @@ You manage applications on the **Enterprise applications** blade located in the 
 
 ![The Enterprise applications option under the Manage section of the Azure AD portal.](media/what-is-application-management/enterprise-applications-in-nav.png)
 
-## What is an Identity and Authorization Management (IAM) system?
+## What is an Identity and Access Management (IAM) system?
 An application is a piece of software that is used for some purpose. Most applications require users to sign in so that the application can provide a tailored experience for that particular user. In other words, the application needs to know the identity of the user using the application. Because it knows what functionality to offer, or remove, for the user.
 
 If each application kept track of users separately then the result would be a silo of different usernames and logins for every application. One application wouldn't know anything about the users in other applications.
 
-A centralized identity system solves this problem by providing a single place to store user information that can then be used by all applications. These systems have come to be known as Identity and Authorization Management (IAM) systems. Azure Active AD is the IAM system for the Microsoft cloud.
+A centralized identity system solves this problem by providing a single place to store user information that can then be used by all applications. These systems have come to be known as Identity and Access Management (IAM) systems. Azure Active AD is the IAM system for the Microsoft cloud.
 
 >[!TIP]
 >An IAM system provides a single place to keep track of user identities. Azure AD is the IAM system for the Microsoft cloud.
@@ -59,7 +59,7 @@ There are four main types of applications that you can add to your **Enterprise 
 
 - **Custom-developed applications** – When building your own line-of-business applications, you can integrate them with Azure AD to support single sign-on. By registering your application with Azure AD, you have control over the authentication policy for the application. For more information, see [guidance for developers](developer-guidance-for-integrating-applications.md).
 
-- **Non-Gallery applications** – Bring your own applications! Support single sign-on for other apps by adding them to Azure AD. There are multiple ways to integrate an application, some of these are listed below. For more information, see [Configure single sign-on for non-gallery apps](configure-single-sign-on-non-gallery-applications.md).
+- **Non-Gallery applications** – Bring your own applications! Support single sign-on for other apps by adding them to Azure AD. There are multiple ways to integrate an application, some of these are listed below. For more information, see [Configure SAML single sign-on](configure-saml-single-sign-on.md).
 
 >[!TIP]
 >You can integrate Azure AD with an application even if it is not already pre-configured and in the app gallery. You can **integrate Azure AD with any** of the following
@@ -89,8 +89,6 @@ For Human Resources focused applications, or other applications with a large set
 
 ## Next steps
 
-- [View applications already configured in your Azure AD tenant](view-applications-portal.md)
-- [Quickstart: Add a gallery application to your Azure AD tenant](add-application-portal.md)
-- [Add a gallery app to your Azure AD organization](add-gallery-app.md)
+- [Quickstart Series on App Management in Azure AD](view-applications-portal.md)
 - [Get started with application integration](plan-an-application-integration.md)
 - [Learn how to automate provisioning](../app-provisioning/user-provisioning.md)

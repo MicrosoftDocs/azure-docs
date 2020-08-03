@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: 33c45447-3181-4b75-aa8e-c517e76cd50d
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/15/2020
+ms.date: 06/30/2020
 ms.author: memildin
 ---
 
@@ -101,36 +101,18 @@ For more information on App Service plans, see [App Service plans](https://azure
 
 
 
-## Threat protection for Azure containers <a name="azure-containers"></a>
+## Threat protection for containers <a name="azure-containers"></a>
 
-> [!NOTE]
-> This service is not currently available in Azure government and sovereign cloud regions.
+### Availability
 
-Security Center provides real-time threat protection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
+- Release state: **General availability**
+- Required roles: **Security admin** can dismiss alerts. **Security reader** can view findings.
+- Clouds:<br>
+    ✔ Commercial clouds<br>
+    ✘ US Gov<br>
+    ✘ China Gov, Other Gov
 
-Security Center provides threat protection at different levels: 
-
-* **Host level** - Security Center's agent (available on the Standard tier, see [pricing](security-center-pricing.md) for details) monitors Linux for suspicious activities. The agent triggers alerts for suspicious activities originating from the node or a container running on it. Examples of such activities include web shell detection and connection with known suspicious IP addresses.
-
-    For a deeper insight into the security of your containerized environment, the agent monitors container-specific analytics. It will trigger alerts for events such as privileged container creation, suspicious access to API servers, and Secure Shell (SSH) servers running inside a Docker container.
-
-    >[!IMPORTANT]
-    > If you choose not to install the agents on your hosts, you will only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
-
-    For a list of the host level alerts, see the [Reference table of alerts](alerts-reference.md#alerts-containerhost).
-
-
-* At the **AKS cluster level**, the threat protection is based on analyzing Kubernetes' audit logs. To enable this **agentless** monitoring, add the Kubernetes option to your subscription from the **Pricing & settings** page (see [pricing](security-center-pricing.md)). To generate alerts at this level, Security Center monitors your AKS-managed services using the logs retrieved by AKS. Examples of events at this level include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts.
-
-    >[!NOTE]
-    > Security Center generates security alerts for Azure Kubernetes Service actions and deployments occurring after the Kubernetes option is enabled on the subscription settings. 
-
-    For a list of the AKS cluster level alerts, see the [Reference table of alerts](alerts-reference.md#alerts-akscluster).
-
-Also, our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered.
-
-> [!TIP]
-> You can simulate container alerts by following the instructions in [this blog post](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
+[!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
 
 
@@ -145,7 +127,7 @@ Advanced Threat Protection for Azure SQL Database detects anomalous activities i
 
 You'll see alerts when there are suspicious database activities, potential vulnerabilities, or SQL injection attacks, and anomalous database access and query patterns.
 
-Advanced Threat Protection for Azure SQL Database and SQL is part of the [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) unified package for advanced SQL security capabilities, covering Azure SQL Databases, Azure SQL Database managed instances, Azure SQL Data Warehouse databases, and SQL servers on Azure Virtual Machines.
+Advanced Threat Protection for Azure SQL Database and SQL is part of the [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) unified package for advanced SQL security capabilities, covering Azure SQL Database, Azure SQL Managed Instances, Azure SQL Data Warehouse databases, and SQL servers on Azure Virtual Machines.
 
 For more information, see:
 
@@ -162,6 +144,7 @@ For more information, see:
 - Release state:
     - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)
     - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (preview)
+    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (preview)
 - Clouds:<br>
     ✔ Commercial clouds<br>
     ✔ US Gov<br>
@@ -169,9 +152,11 @@ For more information, see:
 
 ### What's protected?
 
-Threat protection for Azure Storage detects potentially harmful activity on your Azure Storage accounts. Your data can be protected whether it's stored as [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) blobs or [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) file shares.
+Threat protection for Azure Storage detects potentially harmful activity on your Azure Storage accounts. Your data can be protected whether it's stored as blob containers, file shares, or data lakes.
 
-This layer of protection allows you to address threats *without* requiring you to be a security expert, and helps you manage your security monitoring systems. 
+This layer of protection allows you to address threats *without* requiring you to be a security expert, and helps you manage your security monitoring systems.
+
+Your storage accounts are protected 
 
 ### What kind of alerts does Threat protection for Azure Storage provide?
 
@@ -253,14 +238,17 @@ For a list of the Azure Resource Manager (Preview) alerts, see the [Reference ta
 >[!NOTE]
 > Several of the preceding analytics are powered by Microsoft Cloud App Security. To benefit from these analytics, you must activate a Cloud App Security license. If you have a Cloud App Security license, then these alerts are enabled by default. To disable the alerts:
 >
-> 1. In the **Security Center** blade, select **Security policy**. For the subscription you want to change, select **Edit settings**.
-> 2. Select **Threat detection**.
-> 3. Under **Enable integrations**, clear **Allow Microsoft Cloud App Security to access my data**, and select **Save**.
+> 1. From Security Center's menu, select **Pricing & settings**.
+> 1. Select the subscription you want to change.
+> 1. Select **Threat detection**.
+> 1. Clear **Allow Microsoft Cloud App Security to access my data**, and select **Save**.
 
 >[!NOTE]
 >Security Center stores security-related customer data in the same geo as its resource. If Microsoft hasn't yet deployed Security Center in the resource's geo, then it stores the data in the United States. When Cloud App Security is enabled, this information is stored in accordance with the geo location rules of Cloud App Security. For more information, see [Data storage for non-regional services](https://azuredatacentermap.azurewebsites.net/).
 
+1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Security Center and that you have read/write permissions on the workspace.
 
+1. Set the standard pricing tier, and select **Save**.
 
 
 

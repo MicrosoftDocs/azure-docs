@@ -165,7 +165,7 @@ You can also enable WMI traffic through the firewall from the command prompt wit
 
 Other WMI troubleshooting articles could be found at the following articles.
 
-* [Basic WMI testing](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
+* [Basic WMI testing](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf)
 * [WMI troubleshooting](/windows/win32/wmisdk/wmi-troubleshooting)
 * [Troubleshooting problems with WMI scripts and WMI services](/previous-versions/tn-archive/ff406382(v=msdn.10))
 

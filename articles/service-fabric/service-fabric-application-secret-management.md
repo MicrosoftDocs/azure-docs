@@ -94,7 +94,7 @@ To override values in Settings.xml, declare an override parameter for the servic
 
 Now the value can be specified as an *application parameter* when creating an instance of the application. Creating an application instance can be scripted using PowerShell, or written in C#, for easy integration in a build process.
 
-Using PowerShell, the parameter is supplied to the `New-ServiceFabricApplication` command as a [hash table](https://technet.microsoft.com/library/ee692803.aspx):
+Using PowerShell, the parameter is supplied to the `New-ServiceFabricApplication` command as a [hash table](/previous-versions/windows/it-pro/windows-powershell-1.0/ee692803(v=technet.10)):
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}
