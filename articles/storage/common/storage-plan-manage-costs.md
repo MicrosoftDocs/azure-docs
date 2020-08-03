@@ -1,19 +1,19 @@
 ---
-title: Plan and manage costs for Azure Storage
+title: Plan and manage costs for Azure Blob storage
 description: Learn how to plan for and manage costs for Azure Storage by using cost analysis in Azure portal.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
 ---
 
-# Plan and manage costs for Azure Storage
+# Plan and manage costs for Azure Blob storage
 
-This article helps you plan and manage costs for Azure Storage. First, estimate costs by using the Azure pricing calculator. After you create your storage account, optimize the account so that you pay only for what you need. Use cost management features to set budgets and monitor costs. You can also review forecasted costs, and monitor spending trends to identify areas where you might want to act.
+This article helps you plan and manage costs for Azure Blob storage. First, estimate costs by using the Azure pricing calculator. After you create your storage account, optimize the account so that you pay only for what you need. Use cost management features to set budgets and monitor costs. You can also review forecasted costs, and monitor spending trends to identify areas where you might want to act.
 
 Keep in mind that costs for Azure Storage are only a portion of the monthly costs in your Azure bill. Although this article explains how to estimate and manage costs for Azure Storage, you're billed for all Azure services and resources used for your Azure subscription, including the third-party services. After you're familiar with managing costs for Azure Storage, you can apply similar methods to manage costs for all the Azure services used in your subscription.
 
@@ -49,19 +49,9 @@ This section covers each option in more detail.
 
 #### Reserve storage capacity
 
-You can reserve storage capacity for Blob storage or for Azure managed disks.
-
-**Reserve capacity for Blob storage**
-
 You can save money on storage costs for blob data with Azure Storage reserved capacity. Azure Storage reserved capacity offers you a discount on capacity for block blobs and for Azure Data Lake Storage Gen2 data in standard storage accounts when you commit to a reservation for either one year or three years. A reservation provides a fixed amount of storage capacity for the term of the reservation. Azure Storage reserved capacity can significantly reduce your capacity costs for block blobs and Azure Data Lake Storage Gen2 data. 
 
 To learn more, see [Optimize costs for Blob storage with reserved capacity](https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity).
-
-**Reserve capacity for Azure managed disks**
-
-You can save on your Azure Disk Storage usage by using reserved capacity. Azure Disk Storage reservations combined with Azure Reserved Virtual Machine Instances let you lower your total virtual machine (VM) costs. 
-
-To learn more, see [Reduce costs with Azure Disks Reservation](https://docs.microsoft.com/azure/virtual-machines/windows/disks-reserved-capacity).
 
 #### Organize data into access tiers
 
