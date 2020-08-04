@@ -32,8 +32,6 @@ We recommend that you check the following before you start troubleshooting Micro
 
 ## Invalid vault credentials provided
 
-[Where can I download the vault credentials file?]
-
 **Error message**: Invalid vault credentials provided. The file is either corrupted or does not have the latest credentials associated with recovery service. (ID: 34513)
 
 | Cause | Recommended actions |
@@ -231,7 +229,7 @@ For MARS agent operations to succeed the cache folder needs to adhere to the bel
 
 ### Increase shadow copy storage
 
-Backup operations could fail if there isn't the sufficient shadow copy storage space required to protect the data source. To resolve this issue, increase the shadow copy storage space on the protected volume using vssadmin as shown below:
+Backup operations could fail if there isn't sufficient shadow copy storage space that's required to protect the data source. To resolve this issue, increase the shadow copy storage space on the protected volume using **vssadmin** as shown below:
 
 - Check the current shadow storage space from the elevated command prompt:<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
