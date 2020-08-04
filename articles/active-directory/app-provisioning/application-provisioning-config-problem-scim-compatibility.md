@@ -32,14 +32,14 @@ In the table below, any item marked as fixed means that the proper behavior can 
 > [!NOTE]
 > For the changes made in 2018, you can revert back to the customappsso behavior. For the changes made since 2018, you can use the URLs to revert back to the older behavior. We have worked to ensure backwards compatibility for the changes we have made by allowing you to revert back to the old jobID or by using a flag. However, as previously mentioned, we do not recommend implementing old behavior. We recommend using the new behavior for any new implementations and updating existing implementations.
 
-| **SCIM 2.0 compliance issue** |  **Fixed?** | **Fix date**  |  
+| **SCIM 2.0 compliance issue** |  **Fixed?** | **Fix date**  |  **Backwards compatibility** |
 |---|---|---|
-| Azure AD requires "/scim" to be in the root of the application's SCIM endpoint URL  | Yes  |  December 18, 2018 | 
-| Extension attributes use dot "." notation before attribute names instead of colon ":" notation |  Yes  | December 18, 2018  | 
-| Patch requests for multi-value attributes contain invalid path filter syntax | Yes  |  December 18, 2018  | 
-| Group creation requests contain an invalid schema URI | Yes  |  December 18, 2018  |  
-| Update PATCH behavior to ensure compliance | No | TBD|
-| Active as boolean | No| TBD|
+| Azure AD requires "/scim" to be in the root of the application's SCIM endpoint URL  | Yes  |  December 18, 2018 | downgrade to customappSSO |
+| Extension attributes use dot "." notation before attribute names instead of colon ":" notation |  Yes  | December 18, 2018  | downgrade to customappSSO |
+| Patch requests for multi-value attributes contain invalid path filter syntax | Yes  |  December 18, 2018  | downgrade to customappSSO |
+| Group creation requests contain an invalid schema URI | Yes  |  December 18, 2018  |  downgrade to customappSSO |
+| Update PATCH behavior to ensure compliance | No | TBD| use preview flag |
+| Active as boolean | No| TBD| use preview flag |
 
 ## Flags to alter the SCIM behavior
 For deviations from the default behavior that our default SCIM client behavior, use the flags below in the tenant URL of your application. 
