@@ -419,7 +419,8 @@ Refer to [MS-SSTR-Ingest] for requirements on live stream ingest. The following 
 
 Each sparse fragment consists of a Movie Fragment Box ('moof') and Media Data Box ('mdat'), where the 'mdat' box is the binary message.
 
-In order to achieve frame-accurate insertion of ads, the encoder MUST split the fragment at the presentation time where the cue is required to be inserted.  A new fragment MUST be created that begins with a newly created IDR frame, or Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I. <!--- This allows the Azure Media Packager to properly generate an HLS manifest and a DASH multi-period manifest where the new Period begins at the frame-accurate splice conditioned presentation time. --->
+In order to achieve frame-accurate insertion of ads, the encoder MUST split the fragment at the presentation time where the cue is required to be inserted.  A new fragment MUST be created that begins with a newly created IDR frame, or Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I. 
+<!--- This allows the Azure Media Packager to properly generate an HLS manifest and a DASH multi-period manifest where the new Period begins at the frame-accurate splice conditioned presentation time. --->
 
 ### 2.2.1 Live Server Manifest Box
 
@@ -567,7 +568,8 @@ The StreamIndex **MUST** have a Subtype of "DATA", and the CustomAttributes **MU
 Azure Media Services supports the following HLS manifest tags for signaling ad avail information during a live or on-demand event. 
 
 <!--- EXT-X-DATERANGE as defined in Apple HLS [RFC8216] --->
-- EXT-X-CUE as defined in [Adobe-Primetime] <!--- - this mode is considered "legacy".  Customers should adopt the EXT-X-DATERANGE tag when possible.--->
+- EXT-X-CUE as defined in [Adobe-Primetime] 
+<!--- this mode is considered "legacy".  Customers should adopt the EXT-X-DATERANGE tag when possible. --->
 
 The data output to each tag will vary based on the ingest signal mode used. For example, RTMP ingest with Adobe Simple mode does not contain the full SCTE-35 base64-encoded payload.
 
