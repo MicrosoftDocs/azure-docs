@@ -1,5 +1,5 @@
 ---
-title: Known issues with SCIM 2.0 protocol compliance - Azure AD
+title: Known issues with System for Cross-Domain Identity Management (SCIM) 2.0 protocol compliance - Azure AD
 description: How to solve common protocol compatibility issues faced when adding a non-gallery application that supports SCIM 2.0 to Azure AD
 services: active-directory
 author: kenwith
@@ -22,7 +22,7 @@ Azure AD's support for the SCIM 2.0 protocol is described in [Using System for C
 This article describes current and past issues with the Azure AD user provisioning service's adherence to the SCIM 2.0 protocol, and how to work around these issues.
 
 ## Understanding the provisioning job
-The provisoining service uses the concept of a job to operate against an application. The jobID can be found in the progress bar. All new provisioning applications are created with a jobID starting with "scim". The scim job represents the current state of the service. Older jobs have the id "customappsso". This job represents the state of the service in 2018. 
+The provisioning service uses the concept of a job to operate against an application. The jobID can be found in the progress bar. All new provisioning applications are created with a jobID starting with "scim". The scim job represents the current state of the service. Older jobs have the ID "customappsso". This job represents the state of the service in 2018. 
 
 ## SCIM 2.0 compliance issues and status
 In the table below, any item marked as fixed means that the proper behavior can be found on the SCIM job. We have worked to ensure backwards compatibility for the changes we have made. For the changes made in 2018, you can revert back to the customappsso behavior. For the changes made since 2018, you can use the URLs to revert back to the older behavior. 
@@ -95,7 +95,7 @@ Following the steps below will delete your existing customappsso job and create 
  
    ![Get Schema](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Get Schema") 
 
-8. Copy the JSON output from the last step, and save it to a text file. This contains any custom attribute-mappings that you added to your old app, and should be approximately a few thousand lines of JSON.
+8. Copy the JSON output from the last step, and save it to a text file. The JSON contains any custom attribute-mappings that you added to your old app, and should be approximately a few thousand lines of JSON.
 9. Run the command below to delete the provisioning job:
  
    `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
@@ -105,7 +105,7 @@ Following the steps below will delete your existing customappsso job and create 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
  `{   templateId: "scim"   }`
    
-11. In the results of the last step, copy the full "ID" string that begins with "scim". Optionally, re-apply your old attribute-mappings by running the command below, replacing [new-job-id] with the new job ID you just copied, and entering the JSON output from step #7 as the request body.
+11. In the results of the last step, copy the full "ID" string that begins with "scim". Optionally, reapply your old attribute-mappings by running the command below, replacing [new-job-id] with the new job ID you copied, and entering the JSON output from step #7 as the request body.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
  `{   <your-schema-json-here>   }`
@@ -114,7 +114,7 @@ Following the steps below will delete your existing customappsso job and create 
 13. Verify your configuration, and then start the provisioning job. 
 
 ## Downgrading from the SCIM job to the customappsso job(not recommended)
- We allow you to downgrade / roll back to the old behavior but don't recommend it as the customappsso does not benefit from some of the updates we make, and may not be supported for ever. 
+ We allow you to downgrade back to the old behavior but don't recommend it as the customappsso does not benefit from some of the updates we make, and may not be supported for ever. 
 
 1. Sign into the Azure portal at https://portal.azure.com.
 2. in the **Azure Active Directory > Enterprise Applications > Create application** section of the Azure portal, create a new **Non-gallery** application.
