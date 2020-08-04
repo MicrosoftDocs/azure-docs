@@ -301,12 +301,12 @@ From the peer organization client, issue the command to set anchor peer(s) for t
   - Set `<anchorPeersList>` as “peer1” if you want to set only peer1 node as anchor peer.
   - Set `<anchorPeersList>` as “peer1” “peer3” if you want to set both peer1 and peer3 node as anchor peer.
 
-### Chaincode management commands
+## Chaincode management commands
 
 >[!NOTE]
 > Before starting with any chaincode operation, ensure that the initial setup of the client application is done.  
 
-**Set the below chaincode specific environment variables**
+### Set the below chaincode specific environment variables
 
 ```bash
 # peer organization name where chaincode operation is to be performed
@@ -325,14 +325,6 @@ CC_PATH=<chaincodePath>
 # Channel on which chaincode is to be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
 ```
-
-The below chaincode operations can be carried out:  
-
-- [Install chaincode](#install-chaincode)  
-- [Instantiate chaincode](#instantiate-chaincode)  
-- [Invoke chaincode](#invoke-chaincode)
-- [Query chaincode](#query-chaincode)
-
 
 ### Install chaincode  
 
@@ -354,13 +346,13 @@ Follow the steps:
 From peer client application, execute below command to instantiate chaincode on the channel.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
 ```
+
 Pass instantiation function name and space separated list of arguments in `<instantiateFunc>` and `<instantiateFuncArgs>` respectively. For example, in chaincode_example02.go chaincode, to instantiate the chaincode set `<instantiateFunc>` to `init`and `<instantiateFuncArgs>` to “a” “2000” “b” “1000”.
 
 > [!NOTE]
 > Execute the command for once from any one peer organization in the channel. Once the transaction is successfully submitted to the orderer, the orderer distributes this transaction to all the peer organizations in the channel. Hence, the chaincode is instantiated on all the peer nodes on all the peer organizations in the channel.  
-
 
 ### Invoke chaincode  
 

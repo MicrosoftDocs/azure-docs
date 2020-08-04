@@ -23,6 +23,7 @@ This feature is helpful in scenarios in which Azure Event Hubs should be only ac
 > The following Microsoft services are required to be on a virtual network
 > - Azure Web Apps
 > - Azure Functions
+> - Azure Monitor (diagnostic setting)
 
 
 ## IP firewall rules
