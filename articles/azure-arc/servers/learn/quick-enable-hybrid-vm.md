@@ -1,6 +1,6 @@
 ---
 title: Connect hybrid machine with Azure Arc enabled servers
-description: Learn how to collect and analyze data for an Azure virtual machine in Azure Monitor.
+description: Learn how to connect and register your hybrid machine with Azure Arc for servers.
 ms.service:  azure-arc
 ms. subservice: azure-arc-servers
 ms.topic: quickstart
@@ -48,7 +48,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 ## Generate installation script
 
-The script to automate the download and installation, and to establish the connection with Azure Arc, is available from the Azure portal. To complete the process, do the following:
+The script to automate the download, installation, and establish the connection with Azure Arc, is available from the Azure portal. To complete the process, do the following:
 
 1. Launch the Azure Arc service in the Azure portal by clicking **All services**, then searching for and selecting **Machines - Azure Arc**.
 
@@ -93,12 +93,6 @@ The script to automate the download and installation, and to establish the conne
     ```bash
     bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
     ```
-
-## Configure the agent communication
-
-After you install the agent, configure it to communicate with the Azure Arc service by running the following command. For Linux machines, you must have **root** access permissions to run the command.
-
-`azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"`
 
 ## Verify the connection with Azure Arc
 
