@@ -22,7 +22,7 @@ In this scenario, the workload within a certain VNet remains isolated and is not
 
 | From |   To |  *VNets* | *Branches* |
 | -------------- | -------- | ---------- | ---|
-| VNets     | &#8594;|      X     |     X    |
+| VNets     | &#8594;|           |     X    |
 | Branches   | &#8594;|    X     |     X    |
 
 Each of the cells in the previous table describes whether a Virtual WAN connection (the "From" side of the flow, the row headers) learns a destination prefix (the "To" side of the flow, the column headers in italics) for a specific traffic flow.
