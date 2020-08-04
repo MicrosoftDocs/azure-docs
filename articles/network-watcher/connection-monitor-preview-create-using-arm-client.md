@@ -1,7 +1,7 @@
 ---
-title: Create Connection Monitor Preview - ARM Client
+title: Create Connection Monitor Preview - ARMClient
 titleSuffix: Azure Network Watcher
-description: Learn how to create Connection Monitor (Preview) using the ARM Client.
+description: Learn how to create Connection Monitor (Preview) using the ARMClient.
 services: network-watcher
 documentationcenter: na
 author: vinigam
@@ -14,9 +14,9 @@ ms.date: 07/30/2020
 ms.author: vinigam
 #Customer intent: I need to create a connection montior preview to monitor communication between one VM and another.
 ---
-# Create a Connection Monitor (Preview) using the ARM Client
+# Create a Connection Monitor (Preview) using the ARMClient
 
-Learn how to create Connection Monitor (Preview) to monitor communication between your resources using the ARM Client. It supports hybrid and Azure cloud deployments.
+Learn how to create Connection Monitor (Preview) to monitor communication between your resources using the ARMClient. It supports hybrid and Azure cloud deployments.
 
 ## Before you begin 
 
@@ -285,7 +285,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * Endpoints
 	* name – Unique name for each endpoint
-	* resourceId – For Azure endpoints, resource ID refers to the ARM resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the ARM resource ID for the Log Analytics workspace linked to non-Azure agents.
+	* resourceId – For Azure endpoints, resource ID refers to the Azure Resource Manager(ARM) resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the ARM resource ID for the Log Analytics workspace linked to non-Azure agents.
 	* address – Applicable only when either resource ID is not specified or if resource Id is Log Analytics workspace. If used with Log Analytics resource ID, this refers to the FQDN of the agent that can be used for monitoring. If used without resource ID, this can be the URL or IP of any public endpoint.
 	* filter – For non-Azure endpoints, use filter to select agents from Log Analytics workspace that will be used for monitoring in Connection monitor resource. If filters are not set, all agents belonging to the Log Analytics workspace can be used for monitoring
 		* type – Set type as “Agent Address”
@@ -316,7 +316,7 @@ Connection monitors have the following scale limits:
 * Maximum connection monitors per subscription per region: 100
 * Maximum test groups per connection monitor: 20
 * Maximum sources and destinations per connection monitor: 100
-* Maximum test configurations per connection monitor: 20 via ARM Client
+* Maximum test configurations per connection monitor: 20 via ARMClient
 
 ## Next steps
 
