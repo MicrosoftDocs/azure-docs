@@ -4,7 +4,7 @@ description: The Azure Firewall security baseline provides procedural guidance a
 author: msmbaldwin
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
