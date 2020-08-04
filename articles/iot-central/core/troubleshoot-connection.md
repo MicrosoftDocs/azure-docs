@@ -15,14 +15,13 @@ ms.service: iot-central
 
 This document helps device developers find out why the data their devices are sending to IoT Central may not be showing up in the application.
 
-There are three main areas to investigate:
+There are two main areas to investigate:
 
 - Device connectivity issues
-    - Authentication issues such as the device has invalid credentials
-    - Network connectivity issues
-    - Device isn't approved, or blocked
+  - Authentication issues such as the device has invalid credentials
+  - Network connectivity issues
+  - Device isn't approved, or blocked
 - Device payload shape issues
-- Live site issue with IoT Central
 
 This troubleshooting guide focuses on device connectivity issues and device payload shape issues.
 
@@ -34,11 +33,11 @@ If you haven't already done so, install the `az cli` tool and `azure-iot` extens
 
 To learn how to install the `az cli`, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-To [install](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview?view=azure-cli-latest) the `azure-iot` extension, run the following command:
+To [install](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) the `azure-iot` extension, run the following command:
 
 ```cmd/bash
 az extension add --name azure-iot
-``` 
+```
 
 When you've installed the `azure-iot` extension, start your device to see if the messages it's sending are making their way to IoT Central.
 
@@ -47,7 +46,7 @@ Use the following commands to sign in the subscription where you have your IoT C
 ```cmd/bash
 az login
 az set account --subscription <your-subscription-id>
-``` 
+```
 
 To monitor the telemetry your device is sending, use the following command:
 
@@ -61,7 +60,7 @@ To monitor the property updates your device is exchanging with IoT Central, use 
 
 ```cmd/bash
 az iot central app monitor-properties -n <app-id> -d <device-name>
-``` 
+```
 
 You may be prompted to install the `uamqp` library the first time you run a `monitor` command.
 
@@ -112,21 +111,6 @@ If you are seeing issues related to your authentication flow:
 | 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | Reduce message frequency, split responsibilities among more devices. | 
 | 500 | An internal error occurred. | File a ticket with Customer Support to see if they can help you further. |
 
-If you are seeing issues related to your attestation flow:
-
-> [!NOTE]
-> Developers currently don't see the error codes shown below. The error codes below are received at the service level, not at the device level.
-
-<!-- We will need to wait until the work for plumbing the logs from DPS -> Central lands for this to be actionable. -->
-
-| Error code | Description | Possible Mitigation |
-| - | - | - |
-| 400.072.055.008 | Device authentication method doesn't match the device type. You're trying to connect an IoT Edge device of using non-IoT Edge authentication or a non-IoT Edge device of using IoT Edge authentication. Learn more: https://aka.ms/iotcentral-docs-dps-SAS | Use the correct attestation mechanism. |
-| 401.072.055.005 | Device is not approved to connect to IoT Central application. Learn more: https://aka.ms/iotcentral-docs-dps-SAS |  Approve the device in IoT Central and retry. |
-| 401.072.055.002 | Device is blocked from connecting to IoT Central application. Learn more: https://aka.ms/iotcentral-docs-dps-SAS | Unblock the device in IoT Central and retry. |
-| 404.040.010.000 | The IoT Central application has been deleted or is in the process of being deleted. | Check to make sure that the application exists. | 
-| 404.072.055.007 | IoT Central is importing the device model. | Wait a few minutes and retry. | 
-
 ## Payload shape issues
 
 When you've established that your device is sending data to IoT Central, the next step is to ensure that your device is sending data in a valid format.
@@ -137,14 +121,14 @@ There are two main categories of common issues that cause device data to not app
     - Mismatch in naming such as typos or case-matching issues.
     - Unmodeled properties where the schema isn't defined in the device template.
     - Schema mismatch such as a type defined in the template as `boolean`, but the data is a string.
-    - The same telemetry name is defined in multiple interfaces, but the device isn't IoT Plug a nd Play compliant.
+    - The same telemetry name is defined in multiple interfaces, but the device isn't IoT Plug and Play compliant.
 - Data shape is invalid JSON. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
 
 To detect which categories your issue is in, run the most appropriate command for your scenario:
 
 - To validate telemetry, use the preview command `az iot central app validate-messages -n <app-id> -d <device-name>`
 - To validate property updates, use the preview command `az iot central app validate-properties -n <app-id> -d <device-name>`
-- If you prefer to use a GUI, use the IoT Central **Raw data** view to see if something isn't being modeled.
+- If you prefer to use a GUI, use the IoT Central **Raw data** view to see if something isn't being modeled. The **Raw data** view doesn't detect if the device is sending malformed JSON.
 
 You may be prompted to install the `uamqp` library the first time you run a `validate` command.
 
@@ -162,8 +146,11 @@ If you chose to create a new template that models the data correctly, migrate de
 Need to double check that we have a few sentences on how to move a device between templates.
 -->
 
-## IoT Central issues
+## Next steps
 
-If you're seeing your data in the `monitor` flows, and the data shape is valid in the `validate` flows, then there is likely a live issue with IoT Central.
+If you are unable to troubleshoot and fix the issue using this guide, open a support ticket. Azure customers can create and manage support requests in the Azure portal:
 
-File a support ticket, and someone will get back to you as soon as possible.
+- [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+- [Azure portal for the United States government](https://portal.azure.us/)
+
+For more information, see [Azure IoT support and help options](../../iot-fundamentals/iot-support-help.md).
