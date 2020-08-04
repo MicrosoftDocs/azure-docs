@@ -7,7 +7,7 @@ ms.date: 08/12/2019
 ms.topic: quickstart
 ms.devlang: javascript
 
-# NOTE: this article is nearly identical to app-service/app-service-web-get-started-nodejs.md.
+# NOTE: this article is nearly identical to app-service/quickstart-nodejs.md.
 # The difference is that this article uses defaults to deploy to Linux, whereas the other
 # uses the advanced option to deploy to Windows.
 ---

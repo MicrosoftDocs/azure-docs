@@ -16,7 +16,7 @@
   - name: Create .NET Framework app
     href: quickstart-dotnet-framework.md
   - name: Create Node.js app
-    href: app-service-web-get-started-nodejs.md
+    href: quickstart-nodejs.md
   - name: Create PHP app
     href: app-service-web-get-started-php.md
   - name: Create Java app

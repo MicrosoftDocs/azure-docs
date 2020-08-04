@@ -67,7 +67,7 @@ Create your first web app.
 > [Ruby (on Linux)](quickstart-ruby.md)
 
 > [!div class="nextstepaction"]
-> [Node.js (on Windows or Linux)](app-service-web-get-started-nodejs.md)
+> [Node.js (on Windows or Linux)](quickstart-nodejs.md)
 
 > [!div class="nextstepaction"]
 > [Java (on Windows or Linux)](app-service-web-get-started-java.md)
