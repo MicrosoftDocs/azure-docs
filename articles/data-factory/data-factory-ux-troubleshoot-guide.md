@@ -29,35 +29,31 @@ It is possible your browser blocks third-party cookies  because you are using an
 
 #### Allow all cookies
 
-- Visit **chrome://settings/cookies** in your browser.
-- Select **Allow all cookies** option ![Chrome-Allow-All-Cookies](media/data-factory-ux-troubleshoot-guide/chrome-allow-all-cookies.png)
-- Refresh ADF UX and try again.
+1. Visit **chrome://settings/cookies** in your browser.
+1. Select **Allow all cookies** option ![Chrome-Allow-All-Cookies](media/data-factory-ux-troubleshoot-guide/chrome-allow-all-cookies.png)
+1. Refresh ADF UX and try again.
 
 #### Only allow ADF UX to use cookies
 If you do not want to allow all cookies, you can optionally just allow ADF UX:
-- Visit **chrome://settings/cookies**.
-- Click **add** under **Sites that can always use cookies** option
-- ![Add ADF UX to allowed sites](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-1.png)
-- Add **adf.azure.com** site, check **all cookies** option, and save.
-- ![Allow all cookies from ADF UX site](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-2.png)
-- Refresh ADF UX and try again.
+1. Visit **chrome://settings/cookies**.
+1. Click **add** under **Sites that can always use cookies** option ![Add ADF UX to allowed sites](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-1.png)
+1. Add **adf.azure.com** site, check **all cookies** option, and save. ![Allow all cookies from ADF UX site](media/data-factory-ux-troubleshoot-guide/chrome-only-adf-cookies-2.png)
+1. Refresh ADF UX and try again.
 
 
 ### Microsoft Edge
 
-- Visit **edge://settings/content/cookies** in your browser.
-- Ensure **Allow sites to save and read cookie data** is enabled and that **Block third-party cookies** option is disabled
-- ![Allow all cookies in Edge](media/data-factory-ux-troubleshoot-guide/edge-allow-all-cookies.png)
-- Refresh ADF UX and try again.
+1. Visit **edge://settings/content/cookies** in your browser.
+1. Ensure **Allow sites to save and read cookie data** is enabled and that **Block third-party cookies** option is disabled ![Allow all cookies in Edge](media/data-factory-ux-troubleshoot-guide/edge-allow-all-cookies.png)
+1. Refresh ADF UX and try again.
 
 #### Only allow ADF UX to use cookies
 
 If you do not want to allow all cookies, you can optionally just allow ADF UX:
 
-- Visit **edge://settings/content/cookies**.
-- Under **Allow** section, click **Add** and add **adf.azure.com** site.
-- ![Add ADF UX to allowed sites](media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png)
-- Refresh ADF UX and try again.
+1. Visit **edge://settings/content/cookies**.
+1. Under **Allow** section, click **Add** and add **adf.azure.com** site. ![Add ADF UX to allowed sites](media/data-factory-ux-troubleshoot-guide/edge-allow-adf-cookies.png)
+1. Refresh ADF UX and try again.
 
 ## Next steps
 
