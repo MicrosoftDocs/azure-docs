@@ -17,7 +17,7 @@ access to a recovery vault is supported in these regions:
 - Azure commercial: South Central US, West US 2, East US
 - Azure Government: US Gov Virginia, US Gov Arizona, US Gov Texas, US DoD East, US DoD Central
 
-This article describes how to perform the following steps:
+This article describes how to complete the following steps:
 
 - Create an Azure Backup Recovery Services vault to protect your machines.
 - Enable a managed identity for the vault. Grant the permissions required to access the
@@ -167,7 +167,7 @@ private endpoint connection, go to **Private endpoint connections** under **Sett
 vault page.
 
 You can go to the private endpoint resource to review the status of the connection before
-you proceed.
+you continue.
 
 :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="Screenshot that shows the Private endpoint connections page of the vault and the list of connections.":::
 
@@ -282,7 +282,7 @@ to private IPs.
    > If you're using a custom private DNS zone, be sure to make similar entries, as
    > described below.
 
-   In this step, you need to make entries for each fully qualified domain name in your private
+   In this step, you need to make entries for each FQDN in your private
    endpoint into your private DNS zone.
 
    1. Go to your private DNS zone and then go to the **Overview** section in the pane. Select **Record set** to start adding records.
