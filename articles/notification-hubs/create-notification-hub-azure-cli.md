@@ -21,7 +21,7 @@ ms.custom: devx-track-azurecli
 
 Azure Notification Hubs provide an easy-to-use and scaled-out push engine that allows you to send notifications to any platform (iOS, Android, Windows, Kindle, Baidu, etc.) from any backend (cloud or on-premises). For more information about the service, see [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
-In this quickstart, you create a notification hub using the Azure CLI. The first section gives you steps to create a Notification Hubs namespace. The second section gives you steps to create a notification hub in an existing namespace. You also learn how to create a custom access policy.  
+In this quickstart, you create a notification hub using the Azure CLI. The first section gives you steps to create a Notification Hubs namespace. The second section gives you steps to create a notification hub in an existing namespace. You also learn how to create a custom access policy.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -39,9 +39,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
 
     Follow the steps displayed in your terminal to complete the authentication process.
 
-2. Install the Azure CLI extension.
-
-   When working with extension references for the Azure CLI, you must first install the extension. Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI.  To learn more about extensions including updating and uninstalling, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+2. When working with extension references for the Azure CLI, you must first install the extension. Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI. To learn more about extensions including updating and uninstalling, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
    Install the [extension for Notification Hubs](/cli/azure/ext/notification-hub/notification-hub) by running the following command:
 
@@ -84,7 +82,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
    }
    ```
 
-   Notice the second line in the Azure CLI response, `"isAvailable": true`.  This line reads `false` if the desired name you specified for the namespace is not available. Once you have confirmed availability of the name, run the [az notification-hub namespace create](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-create) command to create your namespace.  
+   Notice the second line in the Azure CLI response, `"isAvailable": true`. This line reads `false` if the desired name you specified for the namespace is not available. Once you have confirmed availability of the name, run the [az notification-hub namespace create](/cli/azure/ext/notification-hub/notification-hub/namespace#ext-notification-hub-az-notification-hub-namespace-create) command to create your namespace.  
 
    ```azurecli
    az notification-hub namespace create --resource-group spnhubrg --name spnhubns  --location eastus --sku Free
