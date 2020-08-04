@@ -31,7 +31,7 @@ You may have additional requirements such as monitoring resources outside of Azu
 
 Some monitoring of Azure resources is available automatically with no configuration required, while you must perform configuration steps to collect additional monitoring data. The following table illustrates the configuration steps required to collect all available data from your Azure resources, including at which step data is sent to Azure Monitor Metrics and Azure Monitor Logs. The sections below describe each step in further detail.
 
-![Deploy Azure resource monitoring](media/deploy/deploy-azure-resources.png)
+[ ![Deploy Azure resource monitoring](media/deploy/deploy-azure-resources.png) ](media/deploy/deploy-azure-resources.png#lightbox)
 
 ### No configuration
 The following features of Azure Monitor are enabled with no configuration required when you create an Azure subscription. There is no cost associated with this monitoring.
@@ -83,7 +83,7 @@ Virtual machines generate similar data as other Azure resources, but you need an
 [Azure Monitor for VMs](insights/vminsights-overview.md) uses the Log Analytics agent and Dependency agent to collect data from the guest operating system of virtual machines, so you can deploy these agents as part of the implementation of this insight. This enables the Log Analytics agent for other services that use it such as Azure Security Center.
 
 
-![Deploy Azure VM](media/deploy/deploy-azure-vm.png)
+[ ![Deploy Azure VM](media/deploy/deploy-azure-vm.png) ](media/deploy/deploy-azure-vm.png#lightbox)
 
 
 ### Configure workspace for Azure Monitor for VMs
