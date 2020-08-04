@@ -6,7 +6,7 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart 
-ms.date: 08/03/2020
+ms.date: 08/04/2020
 ms.author: punagpal
 ---
 
@@ -38,7 +38,7 @@ Click on the **Add** button to open the **Create IoT Connector** page.
 
 [![Add IoT Connector](media/quickstart-iot-fhir-portal/portal-iot-connectors-add.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connectors-add.jpg#lightbox)
 
-Enter settings for the new IoT Connector. Click on **Create** button and await IoT Connector deployment.
+Enter settings for the new Azure IoT Connector for FHIR. Click on **Create** button and await Azure IoT Connector for FHIR deployment.
 
 > [!NOTE]
 > Must select **Create** as the value for the **Resolution type** drop down for this installation. 
@@ -47,10 +47,10 @@ Enter settings for the new IoT Connector. Click on **Create** button and await I
 
 |Setting|Value|Description |
 |---|---|---|
-|Connector name|A unique name|Enter a name to identify your IoT Connector. This name should be unique within an Azure API for FHIR resource. The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must start and end with a letter or a number, and must be between 3-24 characters in length.|
-|Resolution type|Lookup or Create|Select **Lookup** if you have an out-of-band process to create [Device](https://www.hl7.org/fhir/device.html) and [Patient](https://www.hl7.org/fhir/patient.html) FHIR resources in your Azure API for FHIR. IoT Connector will use reference to these resources when creating an [Observation](https://www.hl7.org/fhir/observation.html) FHIR resource to represent the device data. Select **Create** when you want IoT Connector to create bare-bones Device and Patient resources in your Azure API for FHIR using respective identifier values present in the device data.|
+|Connector name|A unique name|Enter a name to identify your Azure IoT Connector for FHIR This name should be unique within an Azure API for FHIR resource. The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must start and end with a letter or a number, and must be between 3-24 characters in length.|
+|Resolution type|Lookup or Create|Select **Lookup** if you have an out-of-band process to create [Device](https://www.hl7.org/fhir/device.html) and [Patient](https://www.hl7.org/fhir/patient.html) FHIR resources in your Azure API for FHIR. Azure IoT Connector for FHIR will use reference to these resources when creating an [Observation](https://www.hl7.org/fhir/observation.html) FHIR resource to represent the device data. Select **Create** when you want Azure IoT Connector for FHIR to create bare-bones Device and Patient resources in your Azure API for FHIR using respective identifier values present in the device data.|
 
-Once installation is complete, the newly created IoT Connector will show up on the **IoT Connectors** page.
+Once installation is complete, the newly created Azure IoT Connector for FHIR will show up on the **IoT Connectors** page.
 
 [![IoT Connector created](media/quickstart-iot-fhir-portal/portal-iot-connector-created.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-created.jpg#lightbox)
 
@@ -60,7 +60,7 @@ Azure IoT Connector for FHIR needs two mapping templates to transform device mes
 
 [![IoT Connector missing mappings](media/quickstart-iot-fhir-portal/portal-iot-connector-missing-mappings.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-missing-mappings.jpg#lightbox)
 
-To upload mapping templates, click on the newly deployed IoT Connector to go to the **IoT Connector** page.
+To upload mapping templates, click on the newly deployed Azure IoT Connector for FHIR to go to the **IoT Connector** page.
 
 [![IoT Connector click](media/quickstart-iot-fhir-portal/portal-iot-connector-click.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click.jpg#lightbox)
 
@@ -96,7 +96,6 @@ On the **Device mapping** page, add the following script to the JSON editor and 
 ```
 
 [![IoT Connector device mapping](media/quickstart-iot-fhir-portal/portal-iot-device-mapping.jpg)](media/quickstart-iot-fhir-portal/portal-iot-device-mapping.jpg#lightbox)
-
 
 #### FHIR mapping
 
@@ -137,7 +136,7 @@ On the **FHIR mapping** page, add the following script to the JSON editor and cl
 
 ## Generate a connection string
 
-IoMT device needs a connection string to connect and send messages to Azure IoT Connector for FHIR. On the **IoT Connector** page for the newly deployed IoT Connector, select **Manage client connections** button. 
+IoMT device needs a connection string to connect and send messages to Azure IoT Connector for FHIR. On the **IoT Connector** page for the newly deployed Azure IoT Connector for FHIR, select **Manage client connections** button. 
 
 [![IoT Connector click manage client connections](media/quickstart-iot-fhir-portal/portal-iot-connector-click-client-connections.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-click-client-connections.jpg#lightbox)
 
