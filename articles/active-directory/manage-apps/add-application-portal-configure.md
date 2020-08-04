@@ -96,6 +96,6 @@ If you're not going to continue with the quickstart series then consider deletin
 
 ## Next steps
 
-Advance to the next article to learn how to set up single sign-on for an an app.
+Advance to the next article to learn how to set up single sign-on for an app.
 > [!div class="nextstepaction"]
 > [Set up single sign-on](add-application-portal-setup-sso.md)
