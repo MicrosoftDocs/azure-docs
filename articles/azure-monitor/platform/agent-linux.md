@@ -9,7 +9,7 @@ ms.date: 08/03/2020
 
 ---
 
-# Install Log Analytics agent for Azure Monitor on Linux computers
+# Install Log Analytics agent on Linux computers
 
 In order to monitor and manage virtual machines or physical computers in your local datacenter or other cloud environment with Azure Monitor, you need to deploy the Log Analytics agent and configure it to report to a Log Analytics workspace. The agent also supports the Hybrid Runbook Worker role for Azure Automation.
 
@@ -18,7 +18,7 @@ The Log Analytics agent for Linux can be installed by using one of the following
 * [Manually download and install](#install-the-agent-manually) the agent. This is required when the Linux computer does not have access to the Internet and will be communicating with Azure Monitor or Azure Automation through the [Log Analytics gateway](gateway.md). 
 * [Install the agent for Linux using a wrapper-script](#install-the-agent-using-wrapper-script) hosted on GitHub. This is the recommended method to install and upgrade the agent when the computer has connectivity with the Internet, directly or through a proxy server.
 
-To understand the supported configuration, review [supported Linux operating systems](log-analytics-agent.md#supported-linux-operating-systems) and [network firewall configuration](log-analytics-agent.md#network-requirements).
+To understand the supported configuration, review [supported Linux operating systems](#supported-linux-operating-systems) and [network firewall configuration](log-analytics-agent.md#network-requirements).
 
 >[!NOTE]
 >The Log Analytics agent for Linux cannot be configured to report to more than one Log Analytics workspace. It can only be configured to report to both a System Center Operations Manager management group and Log Analytics workspace concurrently, or to either individually.
@@ -81,7 +81,7 @@ Other hardening and customization methods are not supported nor planned for OMS 
 
 ## Agent prerequisites
 
-The following table highlights the packages required for [supported Linux distros](log-analytics-agent.md#supported-operating-systems) that the agent will be installed on.
+The following table highlights the packages required for [supported Linux distros](#supported-operating-systems) that the agent will be installed on.
 
 |Required package |Description |Minimum version |
 |-----------------|------------|----------------|

@@ -9,7 +9,7 @@ ms.date: 08/03/2020
 
 ---
 
-# Install Log Analytics agent for Azure Monitor on Windows computers
+# Install Log Analytics agent on Windows computers
 
 In order to monitor and manage virtual machines or physical computers in your local datacenter or other cloud environment with Azure Monitor, you need to deploy the Log Analytics agent (also referred to as the Microsoft Monitoring Agent (MMA)) and configure it to report to one or more Log Analytics workspaces. The agent also supports the Hybrid Runbook Worker role for Azure Automation.  
 
