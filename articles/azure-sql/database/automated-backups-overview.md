@@ -112,9 +112,9 @@ Like PITR backups, LTR backups are protected with geo-redundant storage. For mor
 
 For more information about LTR, see [Long-term backup retention](long-term-retention-overview.md).
 
-## Storage costs
+## Backup storage costs
 
-The price for storage varies depending on whether you're using the DTU model or the vCore model.
+The price for backup storage varies depending on whether you're using the DTU model or the vCore model, and also on your region. The backup storage is charged per GB/month consumed, for pricing see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page and [Azure SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) page.
 
 ### DTU model
 
