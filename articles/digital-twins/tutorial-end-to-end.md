@@ -343,7 +343,7 @@ You can also verify that the endpoint creation succeeded by running the followin
 az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
-Look for the `provisioningState` field in the output, and check that the value is "Succeeded".
+Look for the `provisioningState` field in the output, and check that the value is "Succeeded". It may also say "Provisioning", meaning that the endpoint is still being created. In this case, wait a few seconds and run the command again to check that it has completed successfully.
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Result of the endpoint query, showing the endpoint with a provisioningState of Succeeded":::
 
