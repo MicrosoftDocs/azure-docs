@@ -41834,6 +41834,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems",
+      "redirect_url": "/azure/azure-monitor/platform/agent-linux#supported-operating-system",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems",
+      "redirect_url": "/azure/azure-monitor/platform/agent-windows#supported-operating-system",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/advisor/advisor-alerts.md",
       "redirect_url": "/azure/advisor/advisor-alerts-portal",
       "redirect_document_id": false
