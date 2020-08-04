@@ -15,28 +15,6 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Studio
-      expanded: true
-      items: 
-        - name: Designer (drag-n-drop)
-          items: 
-            - name: 1. Train a regression model
-              displayName: studio
-              href: tutorial-designer-automobile-price-train-score.md
-            - name: 2. Deploy that model
-              displayName: studio
-              href: tutorial-designer-automobile-price-deploy.md
-        - name: Automated ML (UI)
-          items: 
-            - name: Create automated ML experiments
-              displayName: automl, automated, auto ml, portal, ui
-              href: tutorial-first-experiment-automated-ml.md
-            - name: Forecast demand (Bike share data)
-              displayName: automl, automated, auto ml, portal, ui
-              href: tutorial-automated-ml-forecast.md
-        - name: Label image data
-          displayName: tag, tagging, images
-          href: tutorial-labeling.md
     - name: Python SDK
       expanded: true
       items: 
@@ -64,11 +42,33 @@
         - name: Prep your code for production
           displayName: mlops, mlopspython, production
           href: tutorial-convert-ml-experiment-to-production.md
+    - name: Studio
+      expanded: true
+      items: 
+        - name: Automated ML (UI)
+          items: 
+            - name: Create automated ML experiments
+              displayName: automl, automated, auto ml, portal, ui
+              href: tutorial-first-experiment-automated-ml.md
+            - name: Forecast demand (Bike share data)
+              displayName: automl, automated, auto ml, portal, ui
+              href: tutorial-automated-ml-forecast.md
+        - name: Designer (drag-n-drop)
+          items: 
+            - name: 1. Train a regression model
+              displayName: studio
+              href: tutorial-designer-automobile-price-train-score.md
+            - name: 2. Deploy that model
+              displayName: studio
+              href: tutorial-designer-automobile-price-deploy.md
+        - name: Label image data
+          displayName: tag, tagging, images
+          href: tutorial-labeling.md
     - name: R SDK
       items: 
         - name: Create first ML experiment (R)
           href: tutorial-1st-r-experiment.md
-    - name: Machine Learning CLI
+    - name: CLI
       items: 
         - name: Train & deploy with CLI
           href: tutorial-train-deploy-model-cli.md
@@ -226,9 +226,6 @@
         - name: Use private Python packages
           displayName: pip, Conda, anaconda
           href: how-to-use-private-python-packages.md
-        - name: Enable logging
-          displayName: troubleshoot, log, files, tracing
-          href: how-to-enable-logging.md
         - name: Set input & output directories
           displayName: large data, write, experiment files, size limit
           href: how-to-save-write-experiment-files.md
@@ -309,8 +306,12 @@
             - name: Start, monitor or cancel runs
               displayName: cancel, fail, status, child run
               href: how-to-manage-runs.md
-            - name: Log metrics for training runs
+            - name: Enable logs
+              displayName: troubleshoot, log, files, tracing
               href: how-to-track-experiments.md
+            - name: View logs
+              displayName: troubleshoot, log, files, tracing
+              href: how-to-monitor-view-training-logs.md
             - name: Track experiments with MLflow
               displayName: log, monitor, metrics, Databricks
               href: how-to-use-mlflow.md
@@ -363,7 +364,7 @@
       - name: Where and how to deploy
         displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
         href: how-to-deploy-and-where.md
-      - name: Deployment scenarios
+      - name: Deployment targets
         items:
         - name: Use existing models
           displayName: publish existing model
@@ -394,19 +395,37 @@
           href: how-to-deploy-fpga-web-service.md
       - name: Troubleshoot & debug
         href: how-to-troubleshoot-deployment.md
-      - name: Create clients
+      - name: Consume web service
         displayName: create client consume request response synchronous
         href: how-to-consume-web-service.md
-      - name: Monitor models
+      - name: Update web service
+        displayName: update hot reload model mounting
+        href: how-to-deploy-update-web-service.md
+      - name: Advanced entry script authoring
+        displayName: swagger inference schema binary cors
+        href: how-to-deploy-advanced-entry-script.md
+      - name: Monitor web services
         items:
         - name: Collect & evaluate model data
           displayName: track production
           href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
           href: how-to-enable-app-insights.md
+      - name: Continuously deploy models
+        displayName: ci cd azure devops models
+        href: how-to-deploy-continuously-deploy.md
       - name: Deploy encrypted inferencing service
         displayName: homomorhic,encryption,deployment
         href: how-to-homomorphic-encryption-seal.md
+      - name: Profile models
+        displayName: profile resource requirement
+        href: how-to-deploy-profile-model.md
+      - name: (Preview) No code deployment
+        displayName: no code
+        href: how-to-deploy-no-code-deployment.md
+      - name: Package models
+        displayName: docker file download
+        href: how-to-deploy-package-models.md
     - name: Build & use ML pipelines
       displayName: pipelines
       items: 
@@ -423,6 +442,9 @@
           href: how-to-debug-pipelines.md
         - name: Debug pipelines in Application Insights
           href: how-to-debug-pipelines-application-insights.md
+        - name: Designer log metrics
+          displayName: designer, logging
+          href: how-to-track-designer-experiments.md
         - name: Designer transform data
           displayName: pipeline
           href: how-to-designer-transform-data.md
