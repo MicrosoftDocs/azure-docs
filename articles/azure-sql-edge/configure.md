@@ -74,7 +74,7 @@ The following mssql.conf options aren't applicable to SQL Edge:
 |**Database mail profile** | Set the default database mail profile for SQL Server on Linux. |
 |**High availability** | Enable Availability Groups. |
 |**Microsoft Distributed Transaction Coordinator** | Configure and troubleshoot MSDTC on Linux. Additional distributed transaction-related configuration options aren't supported for SQL Edge. For more information on these additional configuration options, see [Configure MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
-|**MLServices EULAs** | Accept R and Python EULAs for Azure Machine Learning packages. Applies to SQL Server 2019 only.|
+|**ML Services EULAs** | Accept R and Python EULAs for Azure Machine Learning packages. Applies to SQL Server 2019 only.|
 |**outboundnetworkaccess** |Enable outbound network access for [Machine Learning Services](/sql/linux/sql-server-linux-setup-machine-learning/) R, Python, and Java extensions.|
 
 The following sample mssql.conf file works for SQL Edge. For more information on the format for an mssql.conf file, see [mssql.conf format](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
@@ -111,7 +111,7 @@ traceflag2 = 1204
 
 ## Run Azure SQL Edge as non-root user
 
-Starting with Azure SQL Edge CTP2.2, SQL Edge containers can run with a non-root user/group. When deployed through the Azure Market place, unless a different user/group is specified, SQL Edge containers starts up as the mssql (non-root) user. To specify a different non-root user during deployment, add the `*"User": "<name|uid>[:<group|gid>]"*` key-value pair under container create options. In the example below SQL Edge is configured to start as the user `*IoTAdmin*`.
+Starting with Azure SQL Edge CTP2.2, SQL Edge containers can run with a non-root user/group. When deployed through the Azure Marketplace, unless a different user/group is specified, SQL Edge containers starts up as the mssql (non-root) user. To specify a different non-root user during deployment, add the `*"User": "<name|uid>[:<group|gid>]"*` key-value pair under container create options. In the example below SQL Edge is configured to start as the user `*IoTAdmin*`.
 
 ```json
 {
@@ -139,7 +139,7 @@ Earlier CTP's of Azure SQL Edge were configured to run as the root users. The fo
 
 - Continue to use the root user - To continue using the root user, add the `*"User": "0:0"*` key-value pair under container create options.
 - Use the default mssql user - To use the default mssql user, follow the steps below
-  - Add a user named mssql on the docker host. In the example below, we add a user mssql with id 10001. This user is also added to the root group.
+  - Add a user named mssql on the docker host. In the example below, we add a user mssql with ID 10001. This user is also added to the root group.
     ```bash
     sudo useradd -M -s /bin/bash -u 10001 -g 0 mssql
     ```
