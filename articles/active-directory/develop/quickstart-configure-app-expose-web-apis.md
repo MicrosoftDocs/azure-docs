@@ -114,9 +114,13 @@ To expose a new scope through the application manifest:
 
 ## Verify the web API is exposed to other applications
 
-1. Go back to your Azure AD tenant, select **App registrations**, find and select the client application you want to configure.
+1. Return to your Azure AD tenant, select **App registrations**, and then find and select the client application you want to configure.
 1. Repeat the steps outlined in [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md).
-1. When you get to the step to [select an API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis), select your resource. You should see the new scope, available for client permission requests.
+1. When you get to the step to [select an API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis), select your resource (the web API app registration).
+    * If you created the web API app registration by using the Azure portal, your API resource is listed in the **My APIs** tab.
+    * If you allowed Visual Studio to create your web API app registration during project creation, your API resource is listed in the **APIs my organization uses** tab.
+
+Once you've selected the web API resource, you should see the new scope available for client permission requests.
 
 ## More on the application manifest
 
