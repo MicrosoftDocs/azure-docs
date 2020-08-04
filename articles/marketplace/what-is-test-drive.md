@@ -43,8 +43,8 @@ This deployment template contains all the Azure resources that comprise your sol
 
 - Azure applications
 - Dynamics 365 for Business Central
-- Dynamics 365 for Operations
 - Dynamics 365 for Customer Engagement & PowerApps
+- Dynamics 365 for Operations
 - SaaS
 - Virtual machines
 
