@@ -29,7 +29,7 @@ You may have additional requirements such as monitoring resources outside of Azu
 > [!NOTE]
 > See [Monitoring Azure resources with Azure Monitor](insights/monitor-azure-resource.md) for a complete guide on monitoring virtual machines with Azure Monitor.
 
-Some monitoring of Azure resources is available automatically with no configuration required, while you must perform configuration steps to collect additional monitoring data. The following table illustrates the configuration steps required to collect all available data from your Azure resources, including at which step different data sent to Azure Monitor Metrics and Azure Monitor Logs. The sections below describe each step in further detail.
+Some monitoring of Azure resources is available automatically with no configuration required, while you must perform configuration steps to collect additional monitoring data. The following table illustrates the configuration steps required to collect all available data from your Azure resources, including at which step data is sent to Azure Monitor Metrics and Azure Monitor Logs. The sections below describe each step in further detail.
 
 ![Deploy Azure resource monitoring](media/deploy/deploy-azure-resources.png)
 
@@ -87,12 +87,12 @@ Virtual machines generate similar data as other Azure resources, but you need an
 
 
 ### Configure workspace for Azure Monitor for VMs
-Azure Monitor for VMs requires a Log Analytics workspace which will typically be the same as the one created to collect data from other Azure resources. Before you onboard any virtual machines, you must add the solution required for Azure Monitor for VMs to the workspace.
+Azure Monitor for VMs requires a Log Analytics workspace which will typically be the same as the one created to collect data from other Azure resources. Before you enable any virtual machines, you must add the solution required for Azure Monitor for VMs to the workspace.
 
 See [Configure Log Analytics workspace for Azure Monitor for VMs](insights/vminsights-configure-workspace.md) for details on configuring your Log Analytics workspace for Azure Monitor for VMs.
 
 ### Enable Azure Monitor for VMs on each virtual machine
-Once a workspace has been enabled, you can onboard each virtual machine by installing the Log Analytics agent and Dependency agent. There are multiple methods for installing these agents including Azure Policy which allows you automatically configure each virtual machine as it's created. Performance data and process details collected by Azure Monitor for VMs is stored in Azure Monitor Logs.
+Once a workspace has been configured, you can enable each virtual machine by installing the Log Analytics agent and Dependency agent. There are multiple methods for installing these agents including Azure Policy which allows you automatically configure each virtual machine as it's created. Performance data and process details collected by Azure Monitor for VMs is stored in Azure Monitor Logs.
 
 See [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) for options to deploy the agents to your virtual machines and enable them for monitoring.
 
