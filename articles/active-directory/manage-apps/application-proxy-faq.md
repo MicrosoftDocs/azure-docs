@@ -40,6 +40,10 @@ No, this scenario isn't supported. The default settings are:
 - Microsoft AAD Application Proxy Connector - WAPCSvc - Network Service
 - Microsoft AAD Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
 
+### Can a guest user with global administrator or application administrator role register the connector for the (guest) tenant?
+
+No, this is not possible recently. The registration attempt will always be done to the home tenant of the user. 
+
 ### My back-end application is hosted on multiple web servers and requires user session persistence (stickiness). How can I achieve session persistence? 
 
 For recommendations, see [High availability and load balancing of your Application Proxy connectors and applications](application-proxy-high-availability-load-balancing.md).
