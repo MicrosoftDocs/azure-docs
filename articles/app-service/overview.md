@@ -70,7 +70,7 @@ Create your first web app.
 > [Node.js (on Windows or Linux)](quickstart-nodejs.md)
 
 > [!div class="nextstepaction"]
-> [Java (on Windows or Linux)](app-service-web-get-started-java.md)
+> [Java (on Windows or Linux)](quickstart-java.md)
 
 > [!div class="nextstepaction"]
 > [Python (on Linux)](quickstart-python.md)

@@ -20,7 +20,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 > [!NOTE]
 > The same thing can also be done using popular IDEs like IntelliJ and Eclipse. Check out our similar documents at [Azure Toolkit for IntelliJ Quickstart](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app) or [Azure Toolkit for Eclipse Quickstart](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
 >
-![Sample app running in Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
+![Sample app running in Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -153,7 +153,7 @@ You can modify the configurations for App Service directly in your pom file if n
 `<deployment>` | true | The deployment configuration, you could see the details [here](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=app-service-web-get-started-java&step=config)
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
 
 ## Deploy the app
 
@@ -170,12 +170,12 @@ mvn package azure-webapp:deploy
 
 Once deployment has completed, browse to the deployed application using the following URL in your web browser, for example `http://<webapp>.azurewebsites.net/`.
 
-![Sample app running in Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
+![Sample app running in Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
 **Congratulations!** You've deployed your first Java app to App Service.
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?app-service-web-get-started-java&step=deploy)
+> [I ran into an issue](https://www.research.net/r/javae2e?quickstart-java&step=deploy)
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

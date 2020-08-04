@@ -18,7 +18,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 Azure App Service lets Java developers to quickly build, deploy, and scale their Tomcat web applications on a fully managed Windows-based service. Deploy applications with Maven plugins from the command line or in editors like IntelliJ, Eclipse, or Visual Studio Code.
 
-This guide provides key concepts and instructions for Java developers using in App Service. If you've never used Azure App Service, you should read through the [Java quickstart](app-service-web-get-started-java.md) first. General questions about using App Service that aren't specific to the Java development are answered in the [App Service Windows FAQ](faq-configuration-and-management.md).
+This guide provides key concepts and instructions for Java developers using in App Service. If you've never used Azure App Service, you should read through the [Java quickstart](quickstart-java.md) first. General questions about using App Service that aren't specific to the Java development are answered in the [App Service Windows FAQ](faq-configuration-and-management.md).
 
 ## Deploying your app
 
@@ -353,7 +353,7 @@ This topic provides the Java Runtime statement of support for Azure App Service 
 
 Azure App Service on Linux lets Java developers quickly build, deploy, and scale their Tomcat, or Java Standard Edition (SE) packaged web applications on a fully managed Linux-based service. Deploy applications with Maven plugins from the command line or in editors like IntelliJ, Eclipse, or Visual Studio Code.
 
-This guide provides key concepts and instructions for Java developers who use a built-in Linux container in App Service. If you've never used Azure App Service, follow the [Java quickstart](app-service-web-get-started-java.md).
+This guide provides key concepts and instructions for Java developers who use a built-in Linux container in App Service. If you've never used Azure App Service, follow the [Java quickstart](quickstart-java.md).
 
 ## Deploying your app
 

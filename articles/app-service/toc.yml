@@ -20,7 +20,7 @@
   - name: Create PHP app
     href: quickstart-php.md
   - name: Create Java app
-    href: app-service-web-get-started-java.md
+    href: quickstart-java.md
   - name: Create static HTML site
     href: app-service-web-get-started-html.md
   - name: Run Windows container
