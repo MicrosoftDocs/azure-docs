@@ -22,6 +22,9 @@ For greater control, certain types of enterprise applications can be configured 
 
 To [assign a user or group to an enterprise app](#assign-users-or-groups-to-an-app-via-the-azure-portal), you'll need to sign in as a global administrator, application administrator, cloud application administrator, or the assigned owner of the enterprise app.
 
+> [!IMPORTANT]
+> When you assign a group to an application, only users in the group will have access. The assignment does not cascade to sub-groups of the group you are assigning.
+
 > [!NOTE]
 > Group-based assignment requires Azure Active Directory Premium P1 or P2 edition. Group-based assignment is supported for Security groups only. Nested group memberships and Office 365 groups are not currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
 
