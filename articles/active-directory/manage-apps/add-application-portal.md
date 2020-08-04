@@ -10,7 +10,6 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant
@@ -59,6 +58,6 @@ If you're not going to continue with the quickstart series then consider deletin
 
 ## Next steps
 
-Advance to the next article to learn how to configure the app.
+Advance to the next article to learn how to configure an app.
 > [!div class="nextstepaction"]
 > [Configure an app](add-application-portal-configure.md)
