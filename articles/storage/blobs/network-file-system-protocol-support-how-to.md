@@ -1,19 +1,19 @@
 ---
-title: Mount Azure Blob storage on Linux using the NFS 3.0 protocol (preview) | Microsoft Docs
-description: Learn how to mount a container in Blob storage from a Linux-based Azure Virtual Machine (VM) or a Linux system that runs on-premises by using the NFS 3.0 protocol.
+title: Mount Azure Blob storage by using the NFS 3.0 protocol (preview) | Microsoft Docs
+description: Learn how to mount a container in Blob storage from an Azure Virtual Machine (VM) or a client that runs on-premises by using the NFS 3.0 protocol.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
 ---
 
-# Mount Blob storage on Linux using the Network File System (NFS) 3.0 protocol (preview)
+# Mount Blob storage by using the Network File System (NFS) 3.0 protocol (preview)
 
-You can mount a container in Blob storage from a Linux-based Azure Virtual Machine (VM) or a Linux system that runs on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Blob storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
+You can mount a container in Blob storage from a Windows or Linux-based Azure Virtual Machine (VM) or a Windows or Linux system that runs on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Blob storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
 
 > [!NOTE]
 > NFS 3.0 protocol support in Azure Blob storage is in public preview and is available in the following regions: US East, US Central, and Canada Central.
@@ -108,9 +108,13 @@ Create a container in your storage account by using any of these tools or SDKs:
 |[AzCopy](../common/storage-use-azcopy-blobs.md#create-a-container)|[Java](data-lake-storage-directory-file-acl-java.md#create-a-container)|
 |[PowerShell](data-lake-storage-directory-file-acl-powershell.md#create-a-container)|[Python](data-lake-storage-directory-file-acl-python.md#create-a-container)|
 |[Azure CLI](data-lake-storage-directory-file-acl-cli.md#create-a-container)|[JavaScript](data-lake-storage-directory-file-acl-javascript.md)|
-||[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
+|[Azure portal](https://portal.azure.com)|[REST](https://docs.microsoft.com/rest/api/storageservices/create-container)|
 
 ## Step 7: Mount the container
+
+Create a directory on your Windows or Linux system, and then mount a container in the storage account.
+
+### [Linux](#tab/linux)
 
 1. On a Linux system, create a directory.
 
@@ -128,13 +132,31 @@ Create a container in your storage account by using any of these tools or SDKs:
 
    - Replace the `<container-name>` placeholder with the name of your container.
 
+
+### [Windows](#tab/windows)
+
+1. Open the **Windows Features** dialog box, and then turn on the **Client for NFS** feature. 
+
+   ![Client for Network File System feature](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
+
+2. Mount a container by using the [mount](https://docs.microsoft.com/windows-server/administration/windows-commands/mount) command.
+
+   ```
+   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
+   ```
+
+   - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
+
+   - Replace the `<container-name>` placeholder with the name of your container.
+
+---
+
 ## Resolve common issues
 
 |Issue / error | Resolution|
 |---|---|
 |`Access denied by server while mounting`|Ensure that your client is running within a supported subnet. See the [Supported network locations](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Ensure sure that the container that you're mounting was created after you verified that the feature was registered. See [Step 2: Verify that the feature is registered](#step-2-verify-that-the-feature-is-registered).Also, make sure to type the mount command and it's parameters directly into the terminal. If you copy and paste any part of this command into the terminal from another application, hidden characters in the pasted information might cause this error to appear.|
-|Files that were uploaded by using non-NFS 3.0 tools aren't visible in the directory. | Un-mount the container, and then mount the container again. |
 
 ## See also
 

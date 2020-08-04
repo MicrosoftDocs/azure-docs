@@ -190,8 +190,7 @@ Users in this role can read basic directory information. This role should be use
 Do not use. This role is automatically assigned to the Azure AD Connect service, and is not intended or supported for any other use.
 
 ### [Directory Writers](#directory-writers-permissions)
-
-This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/quickstart-register-app.md). It should not be assigned to any users.
+Users in this role can read and update basic information of users, groups, and service principals. Assign this role only to applications that don’t support the [Consent Framework](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). It should not be assigned to any users.
 
 ### [Dynamics 365 administrator / CRM Administrator](#crm-service-administrator-permissions)
 
@@ -265,6 +264,7 @@ Users with this role can change passwords, invalidate refresh tokens, manage ser
 * Guest Inviter
 * Helpdesk Administrator
 * Message Center Reader
+* Password Administrator
 * Reports Reader
 
 > [!IMPORTANT]
@@ -283,6 +283,12 @@ This role was previously called "Password Administrator" in the [Azure portal](h
 ### [Hybrid Identity Administrator](#hybrid-identity-administrator-permissions)
 
 Users in this role can enable, configure and manage services and settings related to enabling hybrid identity in Azure AD. This role grants the ability to configure Azure AD to one of the three supported authentication methods, Password hash synchronization (PHS), Pass-through authentication (PTA) or Federation (AD FS or 3rd party federation provider), and to deploy related on-premises infrastructure to enable them. On-prem infrastructure includes Provisioning and PTA agents. This role grants the ability to enable Seamless Single Sign-On (S-SSO) to enable seamless authentication on non-Windows 10 devices or non-Windows Server 2016 computers. In addition, this role grants the ability to see sign-in logs and access to health and analytics for monitoring and troubleshooting purposes. 
+
+### [Insights Administrator](#insights-administrator-permissions)
+Users in this role can access the full set of administrative capabilities in the [M365 Insights application](https://go.microsoft.com/fwlink/?linkid=2129521). This role has the ability to read directory information, monitor service health, file support tickets, and access the Insights admin settings aspects.
+
+### [Insights Business Leader](#insights-business-leader-permissions)
+Users in this role can access a set of dashboards and insights via the [M365 Insights application](https://go.microsoft.com/fwlink/?linkid=2129521). This includes full access to all dashboards and presented insights and data exploration functionality. Users in this role do not have access to product configuration settings, which is the responsibility of the Insights Admin role.
 
 ### [Intune Administrator](#intune-service-administrator-permissions)
 
@@ -309,22 +315,22 @@ Users in this role can monitor all notifications in the Message Center, includin
 
 Users in this role can monitor notifications and advisory health updates in [Office 365 Message center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) for their organization on configured services such as Exchange, Intune, and Microsoft Teams. Message Center Readers receive weekly email digests of posts, updates, and can share message center posts in Office 365. In Azure AD, users assigned to this role will only have read-only access on Azure AD services such as users and groups. This role has no access to view, create, or manage support tickets.
 
-### [Modern Commerce Administrator](#modern-commerce-administrator-permissions)
+### [Modern Commerce User](#modern-commerce-user-permissions)
 
 Do not use. This role is automatically assigned from Commerce, and is not intended or supported for any other use. See details below.
 
-The Modern Commerce Administrator role gives certain users permission to access Microsoft 365 admin center and see the left navigation entries for **Home**, **Billing**, and **Support**. The content available in these areas is controlled by [commerce-specific roles](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) assigned to users to manage products that they bought for themselves or your organization. This might include tasks like paying bills, or for access to billing accounts and billing profiles. 
+The Modern Commerce User role gives certain users permission to access Microsoft 365 admin center and see the left navigation entries for **Home**, **Billing**, and **Support**. The content available in these areas is controlled by [commerce-specific roles](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) assigned to users to manage products that they bought for themselves or your organization. This might include tasks like paying bills, or for access to billing accounts and billing profiles. 
 
-Users with the Modern Commerce Administrator role typically have administrative permissions in other Microsoft purchasing systems, but do not have Global administrator or Billing administrator roles used to access the admin center. 
+Users with the Modern Commerce User role typically have administrative permissions in other Microsoft purchasing systems, but do not have Global administrator or Billing administrator roles used to access the admin center. 
 
-**When is the Modern Commerce Administrator role assigned?**
+**When is the Modern Commerce User role assigned?**
 
-* **Self-service purchase in Microsoft 365 admin center** – Self-service purchase gives users a chance to try out new products by buying or signing up for them on their own. These products are managed in the admin center. Users who make a self-service purchase are assigned a role in the commerce system, and the Modern Commerce Administrator role so they can manage their purchases in admin center. Admins can block self-service purchases (for Power BI, Power Apps, Power automate) through [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). For more information, see [Self-service purchase FAQ](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
-* **Purchases from Microsoft commercial marketplace**  – Similar to self-service purchase, when a user buys a product or service from Microsoft AppSource or Azure Marketplace, the Modern Commerce Administrator role is assigned if they don’t have the Global admin or Billing admin role. In some cases, users might be blocked from making these purchases. For more information, see [Microsoft commercial marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).
-* **Proposals from Microsoft**  – A proposal is a formal offer from Microsoft for your organization to buy Microsoft products and services. When the person who is accepting the proposal doesn’t have a Global admin or Billing admin role in Azure AD, they are assigned both a commerce-specific role to complete the proposal and the Modern Commerce Administrator role to access admin center. When they access the admin center they can only use features that are authorized by their commerce-specific role.
-* **Commerce-specific roles** – Some users are assigned commerce-specific roles. If a user isn't a Global or Billing admin, they get the Modern Commerce Administrator role so they can access the admin center.  
+* **Self-service purchase in Microsoft 365 admin center** – Self-service purchase gives users a chance to try out new products by buying or signing up for them on their own. These products are managed in the admin center. Users who make a self-service purchase are assigned a role in the commerce system, and the Modern Commerce User role so they can manage their purchases in admin center. Admins can block self-service purchases (for Power BI, Power Apps, Power automate) through [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). For more information, see [Self-service purchase FAQ](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
+* **Purchases from Microsoft commercial marketplace**  – Similar to self-service purchase, when a user buys a product or service from Microsoft AppSource or Azure Marketplace, the Modern Commerce User role is assigned if they don’t have the Global admin or Billing admin role. In some cases, users might be blocked from making these purchases. For more information, see [Microsoft commercial marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).
+* **Proposals from Microsoft**  – A proposal is a formal offer from Microsoft for your organization to buy Microsoft products and services. When the person who is accepting the proposal doesn’t have a Global admin or Billing admin role in Azure AD, they are assigned both a commerce-specific role to complete the proposal and the Modern Commerce User role to access admin center. When they access the admin center they can only use features that are authorized by their commerce-specific role.
+* **Commerce-specific roles** – Some users are assigned commerce-specific roles. If a user isn't a Global or Billing admin, they get the Modern Commerce User role so they can access the admin center.  
 
-If the Modern Commerce Administrator role is unassigned from a user, they lose access to Microsoft 365 admin center. If they were managing any products, either for themselves or for your organization, they won’t be able to manage them. This might include assigning licenses, changing payment methods, paying bills, or other tasks for managing subscriptions.
+If the Modern Commerce User role is unassigned from a user, they lose access to Microsoft 365 admin center. If they were managing any products, either for themselves or for your organization, they won’t be able to manage them. This might include assigning licenses, changing payment methods, paying bills, or other tasks for managing subscriptions.
 
 ### [Network Administrator](#network-administrator-permissions)
 
@@ -380,7 +386,7 @@ Users with this role can set or reset non-password credentials for all users, in
 
 ### [Privileged Role Administrator](#privileged-role-administrator-permissions)
 
-Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. In addition, this role allows management of all aspects of Privileged Identity Management and administrative units.
+Users with this role can manage role assignments in Azure Active Directory, as well as within Azure AD Privileged Identity Management. They can create and manage groups that can be assigned to Azure AD roles. In addition, this role allows management of all aspects of Privileged Identity Management and administrative units.
 
 > [!IMPORTANT]
 > This role grants the ability to manage assignments for all Azure AD roles including the Global Administrator role. This role does not include any other privileged abilities in Azure AD like creating or updating users. However, users assigned to this role can grant themselves or others additional privilege by assigning additional roles.
@@ -495,7 +501,7 @@ Users with this role can create users, and manage all aspects of users with some
 | --- | --- |
 |General permissions|<p>Create users and groups</p><p>Create and manage user views</p><p>Manage Office support tickets<p>Update password expiration policies|
 | <p>On all users, including all admins</p>|<p>Manage licenses</p><p>Manage all user properties except User Principal Name</p>
-| Only on users who are non-admins or in any of the following limited admin roles:<ul><li>Directory Readers<li>Guest Inviter<li>Helpdesk Administrator<li>Message Center Reader<li>Reports Reader<li>User Administrator|<p>Delete and restore</p><p>Disable and enable</p><p>Invalidate refresh Tokens</p><p>Manage all user properties including User Principal Name</p><p>Reset password</p><p>Update (FIDO) device keys</p>|
+| Only on users who are non-admins or in any of the following limited admin roles:<ul><li>Directory Readers<li>Groups Administrator<li>Guest Inviter<li>Helpdesk Administrator<li>Message Center Reader<li>Password Administrator<li>Reports Reader<li>User Administrator|<p>Delete and restore</p><p>Disable and enable</p><p>Invalidate refresh Tokens</p><p>Manage all user properties including User Principal Name</p><p>Reset password</p><p>Update (FIDO) device keys</p>|
 
 > [!IMPORTANT]
 > Users with this role can change passwords for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the password of a user may mean the ability to assume that user's identity and permissions. For example:
@@ -736,6 +742,9 @@ Can manage all aspects of Azure AD and Microsoft services that use Azure AD iden
 | microsoft.directory/directoryRoleTemplates/allProperties/allTasks | Create and delete directoryRoleTemplates, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/domains/allProperties/allTasks | Create and delete domains, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/groups/allProperties/allTasks | Create and delete groups, and read and update all properties in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/allProperties/update | Update groups with isAssignableToRole property set to true in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/create | Create groups with isAssignableToRole property set to true in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/delete | Delete groups with isAssignableToRole property set to true in Azure Active Directory. |
 | microsoft.directory/groupSettings/allProperties/allTasks | Create and delete groupSettings, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/groupSettingTemplates/allProperties/allTasks | Create and delete groupSettingTemplates, and read and update all properties in Azure Active Directory. |
 | microsoft.directory/loginTenantBranding/allProperties/allTasks | Create and delete loginTenantBranding, and read and update all properties in Azure Active Directory. |
@@ -986,22 +995,36 @@ Can read & write basic directory information. For granting access to application
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.directory/groups/create | Create groups in Azure Active Directory. |
-| microsoft.directory/groups/createAsOwner | Create groups in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
 | microsoft.directory/groups/appRoleAssignments/update | Update groups.appRoleAssignments property in Azure Active Directory. |
-| microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory. |
+| microsoft.directory/groups/assignLicense | Manage licenses on groups in Azure Active Directory. |
+| microsoft.directory/groups/basic/update | Update basic properties on groups in Azure Active Directory.  |
+| microsoft.directory/groups/classification/update | Update classification property of the group in Azure Active Directory. |
+| microsoft.directory/groups/create | Create groups in Azure Active Directory. |
+| microsoft.directory/groups/groupType/update | Update the groupType property of a group in Azure Active Directory. |
 | microsoft.directory/groups/members/update | Update groups.members property in Azure Active Directory. |
 | microsoft.directory/groups/owners/update | Update groups.owners property in Azure Active Directory. |
+| microsoft.directory/groups/reprocessLicenseAssignment | Reprocess license assignments for a group in Azure Active Directory. |
+| microsoft.directory/groups/securityEnabled/update | Update the secutiryEnabled property of a group in Azure Active Directory. |
 | microsoft.directory/groups/settings/update | Update groups.settings property in Azure Active Directory. |
+| microsoft.directory/groups/visibility/update | Update visibility property of the group |
 | microsoft.directory/groupSettings/basic/update | Update basic properties on groupSettings in Azure Active Directory. |
-| microsoft.directory/groupSettings/create | Create groupSettings in Azure Active Directory. |
+| microsoft.directory/groupSettings/create | Create groupSettings in Azure Active Directory.. |
 | microsoft.directory/groupSettings/delete | Delete groupSettings in Azure Active Directory. |
+| microsoft.directory/oAuth2PermissionGrants/basic/update | Update basic properties of oAuth2PermissionGrants in Azure Active Directory. |
+| microsoft.directory/oAuth2PermissionGrants/create | Create oAuth2PermissionGrants in Azure Active Directory. |
+| microsoft.directory/servicePrincipals/synchronizationCredentials/manage | Manage application provisioning secrets and credentials. |
+| microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning synchronization jobs. |
+| microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema. |
 | microsoft.directory/users/appRoleAssignments/update | Update users.appRoleAssignments property in Azure Active Directory. |
 | microsoft.directory/users/assignLicense | Manage licenses on users in Azure Active Directory. |
 | microsoft.directory/users/basic/update | Update basic properties on users in Azure Active Directory. |
-| microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
+| microsoft.directory/users/disable | Disable a user account in Azure Active Directory. |
+| microsoft.directory/users/enable | Enable a user account in Azure Active Directory |
+| microsoft.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory, requiring users to re-authenticate on their next sign-in |
 | microsoft.directory/users/manager/update | Update users.manager property in Azure Active Directory. |
-| microsoft.directory/users/userPrincipalName/update | Update users.userPrincipalName property in Azure Active Directory. |
+| microsoft.directory/users/reprocessLicenseAssignment | Reprocess license assignments for a user in Azure Active Directory. |
+| microsoft.directory/users/userPrincipalName /update | Update the users.userPrincipalName property in Azure Active Directory. |
+
 
 ### Exchange Service Administrator permissions
 
@@ -1219,6 +1242,27 @@ Enable, deploy, configure, manage, monitor and troubleshoot cloud provisioning a
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
+### Insights Administrator permissions
+
+Has sdministrative access in the M365 Insights app. 
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.insights/allEntities/allTasks | Manage all aspects of Insights. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+
+### Insights Business Leader permissions
+
+Can view and share dashboards and insights via the M365 Insights app.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.insights/reports/read | View reports and dashboard in Insights app. |
+| microsoft.insights/programs/update | Deploy and manage programs in Insights app. |
 
 ### Intune Service Administrator permissions
 
@@ -1333,7 +1377,7 @@ Can read messages and updates for their organization in Office 365 Message Cente
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
 
-### Modern Commerce Administrator permissions
+### Modern Commerce User permissions
 Can manage commercial purchases for a company, department or team. 
 
 > [!NOTE]
@@ -1549,7 +1593,10 @@ Can manage role assignments in Azure AD,and all aspects of Privileged Identity M
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.aad.privilegedIdentityManagement. |
+| microsoft.directory/groupsAssignableToRoles/allProperties/update | Update groups with isAssignableToRole property set to true in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/create | Create groups with isAssignableToRole property set to true in Azure Active Directory. |
+| microsoft.directory/groupsAssignableToRoles/delete | Delete groups with isAssignableToRole property set to true in Azure Active Directory. |
+| microsoft.directory/privilegedIdentityManagement/allEntities/allTasks | Create and delete all resources, and read and update standard properties in microsoft.aad.privilegedIdentityManagement. |
 | microsoft.directory/servicePrincipals/appRoleAssignedTo/allTasks | Read and configure servicePrincipals.appRoleAssignedTo property in Azure Active Directory. |
 | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | Read and configure servicePrincipals.oAuth2PermissionGrants property in Azure Active Directory. |
 | microsoft.directory/administrativeUnits/allProperties/allTasks | Create and manage administrative units (including members) |
@@ -1614,24 +1661,26 @@ Can read security information and reports,and manage configuration in Azure AD a
 
 | **Actions** | **Description** |
 | --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
 | microsoft.directory/applications/policies/update | Update applications.policies property in Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
 | microsoft.directory/devices/bitLockerRecoveryKeys/read | Read devices.bitLockerRecoveryKeys property in Azure Active Directory. |
+| microsoft.directory/identityProtection/allProperties/read | Read all resources in microsoft.aad.identityProtection. |
+| microsoft.directory/identityProtection/allProperties/update | Update all resources in microsoft.aad.identityProtection. |
 | microsoft.directory/policies/basic/update | Update basic properties on policies in Azure Active Directory. |
 | microsoft.directory/policies/create | Create policies in Azure Active Directory. |
 | microsoft.directory/policies/delete | Delete policies in Azure Active Directory. |
 | microsoft.directory/policies/owners/update | Update policies.owners property in Azure Active Directory. |
 | microsoft.directory/policies/tenantDefault/update | Update policies.tenantDefault property in Azure Active Directory. |
+| microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in microsoft.aad.privilegedIdentityManagement. |
 | microsoft.directory/servicePrincipals/policies/update | Update servicePrincipals.policies property in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
-| microsoft.aad.identityProtection/allEntities/read | Read all resources in microsoft.aad.identityProtection. |
-| microsoft.aad.identityProtection/allEntities/update | Update all resources in microsoft.aad.identityProtection. |
-| microsoft.aad.privilegedIdentityManagement/allEntities/read | Read all resources in microsoft.aad.privilegedIdentityManagement. |
-| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
-| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 | microsoft.office365.protectionCenter/allEntities/read | Read all aspects of Office 365 Protection Center. |
 | microsoft.office365.protectionCenter/allEntities/update | Update all resources in microsoft.office365.protectionCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
 ### Security Operator permissions
 
@@ -1644,12 +1693,13 @@ Creates and manages security events.
 
 | **Actions** | **Description** |
 | --- | --- |
-| microsoft.aad.cloudAppSecurity/allEntities/allTasks | Read and configure Microsoft Cloud App Security. |
-| microsoft.aad.identityProtection/allEntities/read | Read all resources in microsoft.aad.identityProtection. |
-| microsoft.aad.privilegedIdentityManagement/allEntities/read | Read all resources in microsoft.aad.privilegedIdentityManagement. |
 | microsoft.azure.advancedThreatProtection/allEntities/read | Read and configure Azure AD Advanced Threat Protection. |
+| microsoft.directory/cloudAppSecurity/allProperties/allTasks | Read and configure Microsoft Cloud App Security. |
+| microsoft.directory/identityProtection/allProperties/read | Read all resources in microsoft.aad.identityProtection. |
+| microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in microsoft.aad.privilegedIdentityManagement. |
 | microsoft.intune/allEntities/allTasks | Manage all aspects of Intune. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Read and configure Security & Compliance Center. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Read and configure Windows Defender Advanced Threat Protection. |
 
 ### Security Reader permissions
@@ -1857,7 +1907,7 @@ Device Managers | Deprecated | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Device Users | Deprecated | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Directory Readers | Directory readers | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Directory Synchronization Accounts | Not shown because it shouldn't be used | d29b2b05-8046-44ba-8758-1e26182fcf32
-Directory Writers | Not shown because it shouldn't be used | 9360feb5-f418-4baa-8175-e2a00bac4301
+Directory Writers | Directory Writers | 9360feb5-f418-4baa-8175-e2a00bac4301
 Exchange Service Administrator | Exchange administrator | 29232cdf-9323-42fd-ade2-1d097af3e4de
 External Id User flow Administrator | External Id User flow Administrator | 6e591065-9bad-43ed-90f3-e9424366d2f0
 External Id User Flow Attribute Administrator | External Id User Flow Attribute Administrator | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
@@ -1867,13 +1917,15 @@ Groups Administrator | Groups administrator | fdd7a751-b60b-444a-984c-02652fe8fa
 Guest Inviter | Guest inviter | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Helpdesk Administrator | Helpdesk administrator | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Hybrid Identity Administrator | Hybrid identity administrator | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2
+Insights Administrator | Insights administrator | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c
+Insights Business Leader | Insights business leader | 31e939ad-9672-4796-9c2e-873181342d2d
 Intune Service Administrator | Intune administrator | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Kaizala Administrator | Kaizala administrator | 74ef975b-6605-40af-a5d2-b9539d836353
 License Administrator | License administrator | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
 Lync Service Administrator | Skype for Business administrator | 75941009-915a-4869-abe7-691bff18279e
 Message Center Privacy Reader | Message center privacy reader | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Message Center Reader | Message center reader | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
-Modern Commerce Administrator | Modern Commerce Administrator | d24aef57-1500-4070-84db-2666f29cf966
+Modern Commerce User | Modern Commerce User | d24aef57-1500-4070-84db-2666f29cf966
 Network Administrator | Network administrator | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Office Apps Administrator | Office apps administrator | 2b745bdf-0803-4d80-aa65-822c4493daac
 Partner Tier1 Support | Not shown because it shouldn't be used | 4ba39ca4-527c-499a-b93d-d9b492c50246

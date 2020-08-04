@@ -5,7 +5,7 @@ author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
 ---
@@ -38,6 +38,8 @@ The following Azure services and functionality will **NOT** be impacted by this 
 
 - For more information, refer to the [Frequently asked questions about classic to Azure Resource Manager migration](./windows/migration-classic-resource-manager-faq.md)
 
-- For technical questions, issues, and adding subscriptions to the allow list, [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+- For technical questions, issues, and adding subscriptions to the allow list, [contact support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
+
+- For assistance during migration, [contact migration support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"})
 
 - For other questions not part of FAQ and feedback, comment below.

@@ -125,4 +125,4 @@ To learn about other network security-related features, see [Network security](n
 
 <!-- Links -->
 
-[express-route]:  /azure/expressroute/expressroute-faqs#supported-services
+[express-route]:  ../expressroute/expressroute-faqs.md#supported-services

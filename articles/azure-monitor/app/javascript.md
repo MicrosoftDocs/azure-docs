@@ -2,10 +2,8 @@
 title: Azure Application Insights for JavaScript web apps
 description: Get page view and session counts, web client data, Single Page Applications (SPA), and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
 ms.topic: conceptual
-author: Dawgfan
-ms.author: mmcc
 ms.date: 09/20/2019
-
+ms.custom: devx-track-javascript
 ---
 
 # Application Insights for web pages
@@ -36,7 +34,8 @@ Install via NPM.
 npm i --save @microsoft/applicationinsights-web
 ```
 
-> *Note:* **Typings are included with this package**, so you do **not** need to install a separate typings package.
+> [!Note]
+> **Typings are included with this package**, so you do **not** need to install a separate typings package.
     
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -338,7 +337,9 @@ This does NOT mean that we will only support the lowest common set of features, 
 
 ## Open-source SDK
 
-The Application Insights JavaScript SDK is open-source to view the source code or to contribute to the project visit the [official GitHub repository](https://github.com/Microsoft/ApplicationInsights-JS).
+The Application Insights JavaScript SDK is open-source to view the source code or to contribute to the project visit the [official GitHub repository](https://github.com/Microsoft/ApplicationInsights-JS). 
+
+For the latest updates and bug fixes [consult the release notes](./release-notes.md).
 
 ## <a name="next"></a> Next steps
 * [Track usage](usage-overview.md)

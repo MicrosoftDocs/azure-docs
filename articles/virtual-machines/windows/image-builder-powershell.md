@@ -6,7 +6,8 @@ ms.author: cynthn
 ms.date: 06/17/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.subservice: imaging
+ms.subservice: imaging 
+ms.custom: devx-track-azurepowershell
 ---
 # Preview: Create a Windows VM with Azure Image Builder using PowerShell
 
