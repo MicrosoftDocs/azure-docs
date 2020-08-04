@@ -22,6 +22,8 @@
       href: spring-cloud-quickstart-setup-config-server.md
     - name: Build and deploy apps
       href: spring-cloud-quickstart-deploy-apps.md
+    - name: Set up logs metrics and tracing
+      href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: Tutorials
   items:
     - name: Manually scale an app

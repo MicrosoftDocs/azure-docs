@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Quickstart: Set up logs, metrics, and tracing for Azure Spring Cloud apps
 
-[Diagnostic services](spring-cloud/diagnostic-services.md)
+[Diagnostic services](diagnostic-services.md)
 [Distributed tracing](spring-cloud-tutorial-distributed-tracing.md)
 [Stream logs in real time](spring-cloud-howto-log-streaming.md)
 
@@ -20,7 +20,7 @@ ms.custom: devx-track-java
 ## Set up logs following CLI deployment
 
 ## Set up logs following IntelliJ deployment
-The following procedure assumes you have completed [deployment of an Azure Spring Cloud app using IntelliJ](spring-cloud-quickstart-deploy-apps#intellij-deployment).
+The following procedure assumes you have completed [deployment of an Azure Spring Cloud app using IntelliJ](spring-cloud-quickstart-deploy-apps.md#intellij-deployment).
 
 ## Show streaming logs
 To get the logs:
@@ -39,6 +39,6 @@ To get the logs:
     ![Streaming log output](media/spring-cloud-intellij-howto/streaming-log-output.png)
 
 ## Next steps
-* [Diagnostic services](spring-cloud/diagnostic-services.md)
+* [Diagnostic services](diagnostic-services.md)
 * [Distributed tracing](spring-cloud-tutorial-distributed-tracing.md)
 * [Stream logs in real time](spring-cloud-howto-log-streaming.md)
