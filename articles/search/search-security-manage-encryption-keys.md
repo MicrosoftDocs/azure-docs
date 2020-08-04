@@ -9,6 +9,7 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
+ms.custom: references_regions 
 ---
 
 # Configure customer-managed keys for data encryption in Azure Cognitive Search
@@ -18,6 +19,8 @@ Azure Cognitive Search automatically encrypts indexed content at rest with [serv
 CMK encryption is dependent on [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can also audit key usage if you [enable logging](../key-vault/general/logging.md).  
 
 Encryption with customer-managed keys is applied to individual indexes or synonym maps when those objects are created, and is not specified on the search service level itself. Only new objects can be encrypted. You cannot encrypt content that already exists.
+
+Keys don't all need to be in the same Key Vault. A single search service can host multiple encrypted indexes or synonym maps each encrypted with their own customer-managed encryption keys stored in different Key Vaults.  You can also have indexes and synonym maps in the same service that are not encrypted using customer-managed keys. 
 
 ## Double encryption
 
@@ -31,17 +34,13 @@ For services created after August 1, 2020 and in specific regions, the scope of 
 
 If you are using a different region, or service created prior to August 1, then your CMK encryption is limited to just the primary objects themselves and not the internal data structures created by the service.
 
-You can use the portal, REST API, or an SDK to create the service, but to apply a customer-managed key on an index or synonym map, you must use the REST API or an SDK. The portal does not expose synonym maps or encryption properties.
-
-Keys don't all need to be in the same Key Vault. A single search service can host multiple encrypted indexes or synonym maps each encrypted with their own customer-managed encryption keys stored in different Key Vaults.  You can also have indexes and synonym maps in the same service that are not encrypted using customer-managed keys. 
-
 ## Prerequisites
 
 The following services and services are used in this example. 
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. 
++ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
 
-+ [Create an Azure Key Vault resource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) or find an existing vault. Azure Key Vault can be in a different region, but it must be under the same subscription as Azure Cognitive Search.
++ [Create an Azure Key Vault resource](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) or find an existing vault in the same subscription as Azure Cognitive Search. This feature has a same-subscription requirement.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) or [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) is used for configuration tasks.
 
@@ -60,27 +59,27 @@ The key vault must have **soft-delete** and **purge protection** enabled. You ca
 
 1. Run the following command to connect to your key vault, replacing `<vault_name>` with a valid name:
 
-  ```powershell
-  $resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "<vault_name>").ResourceId
-  ```
+   ```powershell
+   $resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "<vault_name>").ResourceId
+   ```
 
 1. Azure Key Vault is created with soft-delete enabled. If it's disabled on your vault, run  the following command:
 
-  ```powershell
-  $resource.Properties | Add-Member -MemberType NoteProperty -Name "enableSoftDelete" -Value 'true'
-  ```
+   ```powershell
+   $resource.Properties | Add-Member -MemberType NoteProperty -Name "enableSoftDelete" -Value 'true'
+   ```
 
 1. Enable purge protection:
 
-  ```powershell
-  $resource.Properties | Add-Member -MemberType NoteProperty -Name "enablePurgeProtection" -Value 'true'
-  ```
+   ```powershell
+   $resource.Properties | Add-Member -MemberType NoteProperty -Name "enablePurgeProtection" -Value 'true'
+   ```
 
 1. Save your updates:
 
-  ```powershell
-  Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
-  ```
+   ```powershell
+   Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
+   ```
 
 ### Using Azure CLI
 
@@ -160,9 +159,7 @@ Access permissions could be revoked at any given time. Once revoked, any search 
 
 ## 5 - Encrypt content
 
-Creating an index or synonym map encrypted with customer-managed key is not supported in the Azure portal. 
-
-Instead, use the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/) or an SDK to create such an index or synonym map with an encryption key. When you use a valid API, both indexes and synonym maps support a top-level **encryptionKey** property used to specify the key. 
+To add a customer-managed key on an index or synonym map, you must use the [Search REST API](https://docs.microsoft.com/rest/api/searchservice/) or an SDK. The portal does not expose synonym maps or encryption properties. When you use a valid API, both indexes and synonym maps support a top-level **encryptionKey** property.. 
 
 Using the **key vault Uri**, **key name** and the **key version** of your Key vault key, create an **encryptionKey** definition as follows:
 
