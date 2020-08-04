@@ -66,7 +66,7 @@ Your project is now set up to run in a Windows container. A _Dockerfile_ is adde
 
 From the Solution Explorer, open **Dockerfile**.
 
-You need to use a [supported parent image](app-service-web-get-started-windows-container.md#use-a-different-parent-image). Change the parent image by replacing the `FROM` line with the following code:
+You need to use a [supported parent image](quickstart-custom-container.md#use-a-different-parent-image). Change the parent image by replacing the `FROM` line with the following code:
 
 ```dockerfile
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
