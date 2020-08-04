@@ -72,12 +72,16 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 The result of this command is outputted information about the role assignment that's been created.
 
-> [!TIP]
-> If you get a *400: BadRequest* error instead, run the following command to get the *ObjectID* for the user:
-> ```azurecli
-> az ad user show --id <Azure-AD-email-of-user-to-assign> --query objectId
-> ```
-> Then, repeat the role assignment command using the user's *Object ID* in place of their email.
+> [!NOTE]
+> If this command returns an error saying that the CLI **cannot find user or service principal in graph database**:
+>
+> Use the user's *Object ID* instead of their email. This may happen for users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account). 
+>
+> Use the [Azure portal page of Azure Active Directory users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select the user account and open its details. Copy the user's *ObjectID*:
+>
+> :::image type="content" source="media/includes/user-id.png" alt-text="View of user page in Azure portal highlighting the GUID in the 'Object ID' field" border="false":::
+>
+> Then, repeat the role assignment list command using the user's *Object ID* in place of the email.
 
 ### Verify success
 

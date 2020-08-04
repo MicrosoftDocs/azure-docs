@@ -19,8 +19,12 @@ You can check your permission level by running this command in Cloud Shell:
 az role assignment list --assignee <your-Azure-email>
 ```
 
-> [!TIP]
-> If this command returns an error saying that the CLI cannot find your user in the graph database, use the [Azure portal page of Azure Active Directory users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select your user account and open its details. Copy your user's *ObjectID*:
+> [!NOTE]
+> If this command returns an error saying that the CLI **cannot find user or service principal in graph database**:
+>
+> Use your user's *Object ID* instead of your email for the rest of this article. This may happen for users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account). 
+>
+> Use the [Azure portal page of Azure Active Directory users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select your user account and open its details. Copy your user's *ObjectID*:
 >
 > :::image type="content" source="../articles/digital-twins/media/includes/user-id.png" alt-text="View of user page in Azure portal highlighting the GUID in the 'Object ID' field" border="false":::
 >
