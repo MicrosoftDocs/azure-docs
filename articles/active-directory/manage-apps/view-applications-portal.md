@@ -64,6 +64,10 @@ To search for a particular application:
 3. Try entering the first few letters of an application name. This example shows all the applications that start with **Sales**.
     ![Example shows all apps that start with Sales](media/view-applications-portal/search-by-prefix.png)
 
+## Clean up resources
+
+You did not create any new resources in this quickstart, so there is nothing to clean up.
+
 ## Next steps
 
 Advance to the next article to learn how to create...
