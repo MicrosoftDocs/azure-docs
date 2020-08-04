@@ -118,7 +118,7 @@ Navigate to the *manifest.json* you just created and hit "Open."
 Next, run the following command to create an app registration (replacing placeholders as needed):
 
 ```azurecli
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
+az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
 ```
 
 Here is an excerpt of the output from this command, showing information about the registration you've created:
