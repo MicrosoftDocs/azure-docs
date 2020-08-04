@@ -21,10 +21,16 @@
     href: quickstart-php.md
   - name: Create Java app
     href: quickstart-java.md
+  - name: Create Python app
+    href: quickstart-python.md
+  - name: Create Ruby app
+    href: quickstart-ruby.md
   - name: Create static HTML site
     href: quickstart-html.md
-  - name: Run Windows container
+  - name: Run custom container
     href: quickstart-custom-container.md
+  - name: Create multi-container app
+    href: quickstart-multi-container.md
 - name: Tutorials
   items:
   - name: App with DB
