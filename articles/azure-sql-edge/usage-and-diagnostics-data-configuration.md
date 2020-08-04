@@ -16,9 +16,9 @@ By default, Azure SQL Edge collects information about how its customers are usin
 
 Specifically, Microsoft does not send any of the following types of information through this mechanism:
 
-- Any values from inside user tables
-- Any logon credentials or other authentication information
-- Personal data
+- Any values from inside user tables.
+- Any logon credentials or other authentication information.
+- Any personal or customer data.
 
 The following sample scenario includes feature usage information that helps improve the product.
 
