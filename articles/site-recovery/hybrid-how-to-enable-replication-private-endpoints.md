@@ -1,208 +1,202 @@
 ---
-title: Enable replication for on-premises machines with private endpoints in Azure Site Recovery 
-description: This article describes how to configure replication for on-premises machines with private endpoints by using Site Recovery.
+title: Enable replication for on-premises machines with private endpoints 
+description: This article describes how to configure replication for on-premises machines by using private endpoints in Site Recovery. 
 author: mayurigupta13
 ms.author: mayg
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
 ---
-# Replicate on-premises machines with private endpoints
+# Replicate on-premises machines by using private endpoints
 
 Azure Site Recovery allows you to use
-[Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints for replicating
-your on-premises machines to virtual network in Azure. Support for private endpoint
-access to a recovery vault is supported for the following regions:
+[Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints to replicate
+your on-premises machines to a virtual network in Azure. Support for private endpoint
+access to a recovery vault is supported in these regions:
 
 - Azure commercial: South Central US, West US 2, East US
 - Azure Government: US Gov Virginia, US Gov Arizona, US Gov Texas, US DoD East, US DoD Central
 
-This article provides instructions for you to perform the following steps:
+This article describes how to perform the following steps:
 
 - Create an Azure Backup Recovery Services vault to protect your machines.
-- Enable a managed identity for the vault and grant the required permissions to access customer
-  storage accounts to replicate traffic from on-premises to Azure target locations. Managed identity
-  access for storage is necessary when you're setting up Private Link access to the vault.
-- Make DNS changes required for private endpoints
-- Create and approve private endpoints for a vault inside a virtual network
+- Enable a managed identity for the vault. Grant the permissions required to access the
+  storage accounts to enable replication of traffic from on-premises to Azure target locations. Managed identity
+  access for storage is required for Private Link access to the vault.
+
+- Make DNS changes that are required for private endpoints.
+- Create and approve private endpoints for a vault inside a virtual network.
 - Create private endpoints for the storage accounts. You can continue to allow public or firewalled
-  access for storage as needed. Creation of a private endpoint for accessing storage isn't mandatory
+  access for storage as needed. Creating a private endpoint to access storage isn't required
   for Azure Site Recovery.
   
-Below is a reference architecture on how the replication workflow changes for hybrid disaster
-recover with private endpoints. Private endpoints can't be created in your on-premises network. In
-order to use private links, you need to create an Azure virtual network (called a "bypass network"
+The following diagram shows the replication workflow for hybrid disaster
+recovery with private endpoints. You can't create private endpoints in your on-premises network. To use private links, you need to create an Azure virtual network (called a *bypass network*
 in this article), establish private connectivity between on-premises and the bypass network, and
-then create private endpoints in the bypass network. The choice of private connectivity is at your
-discretion.
+then create private endpoints in the bypass network. You can choose any form of private connectivity.
 
-:::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/architecture.png" alt-text="Reference architecture for Site Recovery with private endpoints.":::
+:::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/architecture.png" alt-text="Diagram that shows the architecture for Azure Site Recovery and private endpoints.":::
 
 ## Prerequisites and caveats
 
-- Support for private links is enabled for Site Recovery infrastructure with **9.35** version and
-  above.
-- Private endpoints can be created only for new Recovery Services vaults that don't have any items
-  registered to the vault. As such, private endpoints **must be created before any items are added
-  to the vault**. Review the pricing structure for
-  [private endpoints](https://azure.microsoft.com/pricing/details/private-link/).
-- When a private endpoint is created for a vault, the vault is locked down and **isn't accessible
-  from networks other than those networks that have private endpoints**.
-- Azure Active Directory currently doesn't support private endpoints. As such, IPs and fully
-  qualified domain names required for Azure Active Directory to work in a region need to be allowed
-  outbound access from the secured Azure virtual network. You can also use network security group
-  tag "Azure Active Directory" and Azure Firewall tags for allowing access to Azure Active
-  Directory, as applicable.
-- **Five IP addresses are required** in the bypass network where you create your private
+- Private links are supported in Site Recovery 9.35 and later.
+- You can create private endpoints only for new Recovery Services vaults that don't have any items
+  registered to them. So you must create private endpoints before any items are added
+  to the vault. See
+  [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/) for pricing information.
+- When you create a private endpoint for a vault, the vault is locked down. It can be accessed
+  only from networks that have private endpoints.
+- Azure Active Directory doesn't currently support private endpoints. So you need to allow outbound access from the secured Azure virtual network to IPs and fully
+  qualified domain names that are required for Azure Active Directory to work in a region.
+ As applicable, you can also use network security group
+  tag "Azure Active Directory" and Azure Firewall tags to allow access to Azure Active
+  Directory.
+- Five IP addresses are required in the bypass network where you create your private
   endpoint. When you create a private endpoint for the vault, Site Recovery creates five private
   links for access to its microservices.
-- **One additional IP address is required** in the bypass network for private endpoint connectivity
-  to a cache storage account. The connectivity method, such as internet or
-  [ExpressRoute](../expressroute/index.yml), between on-premises and your storage account endpoint
-  is at your description. Establishing a private link is optional. Private endpoints for storage can
-  only be created on General Purpose v2 type. Review the pricing structure for
-  [data transfer on GPv2](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
+- One additional IP address is required in the bypass network for private endpoint connectivity
+  to a cache storage account. You can use any connectivity method between on-premises and your storage account endpoint. For example, you can use the internet or
+  Azure [ExpressRoute](../expressroute/index.yml). Establishing a private link is optional. You can create private endpoints for storage only on General Purpose v2 accounts. See
+  [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/) for information about pricing for data transfer on General Purpose v2 accounts.
 
- ## Creating and using private endpoints for Site Recovery
+ ## Create and use private endpoints for site recovery
 
- This section talks about the steps involved in creating and using private endpoints for Azure Site
- Recovery inside your virtual networks.
+ The following sections describe the steps you need to take to create and use private endpoints for site
+ recovery in your virtual networks.
 
 > [!NOTE]
-> It's highly recommended that you follow these steps in the same sequence as provided. Failure to
-> do so may lead to the vault being rendered unable to use private endpoints and requiring you to
-> restart the process with a new vault.
+> We recommend that you follow these steps in the order shown. If you don't, you might not be able to use private endpoints in the vault, and you might need to restart the process with a new vault.
 
-## Create a Recovery Services vault.
+### Create a Recovery Services vault
 
-A recovery services vault is an entity that contains the replication information of machines and is
-used to trigger Site Recovery operations. For steps to create a recovery services vault in the Azure
-region where you wish to failover if there is a disaster, see
+A Recovery Services vault contains the machines' replication information. It's
+used to trigger Site Recovery operations. For information about how to create a Recovery Services vault in the Azure
+region where you want to fail over if there's a disaster, see
 [Create a Recovery Services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault).
 
-## Enable the managed identity for the vault.
+### Enable the managed identity for the vault
 
-A [managed identity](../active-directory/managed-identities-azure-resources/overview.md) allow the
-vault to gain access to the customer's storage accounts. Site Recovery needs to access the target
-storage and cache/log storage accounts depending on the scenario requirement. Managed identity
-access is essential when you're using private links service for the vault.
+A [managed identity](../active-directory/managed-identities-azure-resources/overview.md) allows the
+vault to access your storage accounts. Site Recovery might need to access the target
+storage and cache/log storage accounts, depending on your requirements. Managed identity
+access is required when you're using the Private Link service for the vault.
 
-1. Go to your Recovery Services vault. Select **Identity** under _Settings_.
+1. Go to your Recovery Services vault. Select **Identity** under **Settings**:
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Shows the Azure portal and the Recovery Services page.":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Screenshot that shows the identity settings page.":::
 
-1. Change the **Status** to _On_ and select **Save**.
+1. Change the **Status** to **On** and select **Save**.
 
-1. An **Object ID** is generated indicating that the vault is now registered with Azure Active
+   An Object ID is generated. The vault is now registered with Azure Active
    Directory.
 
-## Create private endpoints for the Recovery Services vault
+### Create private endpoints for the Recovery Services vault
 
-You'll need one private endpoint for the vault in the bypass network for the protection of machines
-in the on-premises source network. Create the private endpoint using the Private Link Center in the
-portal or through [Azure PowerShell](../private-link/create-private-endpoint-powershell.md).
+To protect the machines
+in the on-premises source network, you'll need one private endpoint for the vault in the bypass network. Create the private endpoint by using Private Link Center in the
+Azure portal or by using [Azure PowerShell](../private-link/create-private-endpoint-powershell.md).
 
-1. In the Azure portal search bar, search for and select "Private Link". This action takes you to
-   the Private Link Center.
+1. In the Azure portal search box, search for "private link". Select **Private Link** to go to
+ Private Link Center:
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="Shows searching the Azure portal for the Private Link Center.":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="Screenshot that shows searching the Azure portal for Private Link Center.":::
 
-1. On the left navigation bar, select **Private Endpoints**. Once on the Private Endpoints page,
-   select **\+Add** to start creating a private endpoint for your vault.
+1. In the left pane, select **Private endpoints**. On the **Private endpoints** page,
+   select **Add** to start creating a private endpoint for your vault:
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="Shows creating a private endpoint in the Private Link Center.":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="Screenshot that shows how to  create a private endpoint in Private Link Center.":::
 
-1. Once in the "Create Private Endpoint" experience, you're required to specify details for creating
+1. On the **Create a private endpoint** page, specify the details to create
    your private endpoint connection.
 
-   1. **Basics**: Fill in the basic details for your private endpoints. The region should be the
-      same as the bypass network.
+   1. **Basics**. Provide the basic details for your private endpoints. Use the region that you used for the bypass network:
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="Shows the Basic tab, project details, subscription, and other related fields for creating a private endpoint in the Azure portal.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="Screenshot that shows the Basic tab for creating a private endpoint.":::
 
-   1. **Resource**: This tab requires you to mention the platform-as-a-service resource for which
-      you want to create your connection. Select _Microsoft.RecoveryServices/vaults_ from the
-      **Resource type** for your selected subscription. Then, choose the name of your Recovery
-      Services vault for **Resource** and set _Azure Site Recovery_ as the **Target sub-resource**.
+   1. **Resource**. On this tab, you need to specify the platform-as-a-service resource for which
+      you want to create your connection. Under **Resource type** for your selected subscription, select **Microsoft.RecoveryServices/vaults**. Choose the name of your Recovery
+      Services vault under **Resource**. Select **Azure Site Recovery** as the **Target sub-resource**.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="Shows the Resource tab, resource type, resource, and target sub-resource fields for linking to a private endpoint in the Azure portal.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="Screenshot that shows the Resource tab for linking to a private endpoint.":::
 
-   1. **Configuration**: In configuration, specify the bypass network and subnet where you want the
-      private endpoint to be created. Enable integration with private DNS zone by selecting **Yes**.
-      Choose an already created DNS zone or create a new one. Selecting **Yes** automatically links
-      the zone to the bypass network and adds the DNS records that are required for DNS resolution
+   1. **Configuration**. On this tab, specify the bypass network and subnet where you want the
+      private endpoint to be created. 
+
+      Enable integration with a private DNS zone by selecting **Yes**.
+      Choose an existing DNS zone or create a new one. Selecting **Yes** automatically links
+      the zone to the bypass network. This action also adds the DNS records that are required for DNS resolution
       of new IPs and fully qualified domain names created for the private endpoint.
 
       Ensure that you choose to create a new DNS zone for every new private endpoint connecting to
       the same vault. If you choose an existing private DNS zone, the previous CNAME records are
-      overwritten. Refer to
+      overwritten. See
       [Private endpoint guidance](../private-link/private-endpoint-overview.md#private-endpoint-properties)
       before you continue.
 
       If your environment has a hub and spoke model, you need only one private endpoint and only one
-      private DNS zone for the entire setup since all your virtual networks already have peering
+      private DNS zone for the entire setup. This is because all your virtual networks already have peering
       enabled between them. For more information, see
       [Private endpoint DNS integration](../private-link/private-endpoint-dns.md#virtual-network-workloads-without-custom-dns-server).
 
       To manually create the private DNS zone, follow the steps in
       [Create private DNS zones and add DNS records manually](#create-private-dns-zones-and-add-dns-records-manually).
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="Shows the Configuration tab with networking and DNS integration fields for configuration of a private endpoint in the Azure portal.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="Screenshot that shows the Configuration tab for configuration of a private endpoint.":::
 
-   1. **Tags**: Optionally, you can add tags for your private endpoint.
+   1. **Tags**. Optionally, you can add tags for your private endpoint.
 
-   1. **Review \+ create**: When the validation completes, select **Create** to create the private
+   1. **Review \+ create**. When validation completes, select **Create** to create the private
       endpoint.
 
-Once the private endpoint is created, five fully qualified domain names are added to the private
-endpoint. These links enable the machines in the on-premises network to get access via the bypass
-network to all the required Site Recovery microservices in the context of the vault. The same
-private endpoint may be used for the protection of any Azure machine in the bypass network and all
+When the private endpoint is created, five fully qualified domain names are added to the private
+endpoint. These links enable the machines in the on-premises network to access, via the bypass
+network, all the required Site Recovery microservices in the context of the vault. You can use the same
+private endpoint for the protection of any Azure machine in the bypass network and all
 peered networks.
 
-The five domain names are formatted with the following pattern:
+The five domain names are formatted in this pattern:
 
 `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
-## Approve private endpoints for Site Recovery
+### Approve private endpoints for site recovery
 
-If the user creating the private endpoint is also the owner of the Recovery Services vault, the
-private endpoint created above is auto approved within a few minutes. Otherwise, the owner of the
-vault must approve the private endpoint before you to use it. To approve or reject a requested
-private endpoint connection, go to **Private endpoint connections** under "Settings" on the recovery
+If you create the private endpoint and you're also the owner of the Recovery Services vault, the
+private endpoint you created previously is automatically approved within a few minutes. Otherwise, the owner of the
+vault must approve the private endpoint before you can use it. To approve or reject a requested
+private endpoint connection, go to **Private endpoint connections** under **Settings** on the recovery
 vault page.
 
 You can go to the private endpoint resource to review the status of the connection before
-proceeding.
+you proceed.
 
-:::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="Shows the private endpoint connections page of the vault and the list of connections in the Azure portal.":::
+:::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="Screenshot that shows the Private endpoint connections page of the vault and the list of connections.":::
 
-## <a name="create-private-endpoints-for-the-cache-storage-account"></a>(Optional) Create private endpoints for the cache storage account
+### <a name="create-private-endpoints-for-the-cache-storage-account"></a>(Optional) Create private endpoints for the cache storage account
 
-A private endpoint to Azure Storage may be used. Creating private endpoints for storage access is
-_optional_ for Azure Site Recovery replication. When creating a private endpoint for storage, you
+You can use a private endpoint to Azure Storage. Creating private endpoints for storage access is
+optional for Azure Site Recovery replication. If you create a private endpoint for storage, you
 need a private endpoint for the cache/log storage account in your bypass virtual network.
 
 > [!NOTE]
-> Private endpoint for storage can only be created on a **General Purpose v2** storage accounts. For
+> Private endpoints for storage can be created only on General Purpose v2 storage accounts. For
 > pricing information, see
-> [Standard page blob prices](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
+> [Azure Page Blobs pricing](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 Follow the
-[guidance for creation of private storage](../private-link/create-private-endpoint-storage-portal.md#create-your-private-endpoint)
-to create a storage account with private endpoint. Ensure to select **Yes** to integration with
-private DNS zone. Select an already created DNS zone or create a new one.
+[guidance for creating private storage](../private-link/create-private-endpoint-storage-portal.md#create-your-private-endpoint)
+to create a storage account with a private endpoint. Be sure to select **Yes** under **Integrate with
+private DNS zone**. Select an existing DNS zone or create a new one.
 
-## Grant required permissions to the vault
+### Grant required permissions to the vault
 
-Depending on your setup, you may need one or more storage accounts in the target Azure region. Next,
+Depending on your setup, you might need one or more storage accounts in the target Azure region. Next,
 grant the managed identity permissions for all the cache/log storage accounts required by Site
 Recovery. In this case, you must create the required storage accounts in advance.
 
-Before enabling replication of virtual machines, the managed identity of the vault must have the
-following role permissions depending on the type of storage account:
+Before you enable replication of virtual machines, the managed identity of the vault must have the
+following role permissions, depending on the type of storage account.
 
-- Resource Manager based storage accounts (Standard Type):
+- Resource Manager-based storage accounts (Standard Type):
   - [Contributor](../role-based-access-control/built-in-roles.md#contributor)
   - [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
 - Resource Manager based storage accounts (Premium Type):
@@ -229,7 +223,7 @@ In addition to these permissions, MS trusted services need to be allowed access 
 "Firewalls and virtual networks" and select "Allow trusted Microsoft services to access this storage
 account" checkbox in **Exceptions**.
 
-## Protect your virtual machines
+### Protect your virtual machines
 
 Once all the above configurations are completed, continue with the setup of your on-premises
 infrastructure.
@@ -241,7 +235,7 @@ Once the setup is complete, enable the replication for your source machines. Ens
 of infrastructure is done only after the private endpoints for the vault are already created in the
 bypass network.
 
-## Create private DNS zones and add DNS records manually
+### Create private DNS zones and add DNS records manually
 
 If you didn't select the option to integrate with private DNS zone at the time of creating private
 endpoint for the vault, follow the steps in this section.
