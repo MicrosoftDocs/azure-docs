@@ -31,11 +31,11 @@ You'll need an **Azure account** (you can set one up for free [here](https://azu
 
 Once your instance is set up, log into the [Azure portal](https://portal.azure.com) and search for the name of your instance in the portal search bar.
  
-:::image type="content" source="media/how-to-manage-routes-portal/search-field-portal.png" alt-text="Search bar in the Azure portal":::
+:::image type="content" source="media/how-to-manage-routes-portal/search-field-portal.png" alt-text="Screenshot of Azure portal search bar.":::
 
 Select your instance from the results and you'll land on the following page showing the details of your instance:
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Azure Digital Twins instance details":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Screenshot of ADT instance details.":::
 
 ## Create an endpoint for Azure Digital Twins
 
@@ -60,11 +60,11 @@ On the *Create an Endpoint* page that opens up, you can create an endpoint of ty
 
 Then, create your endpoint by hitting _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Create endpoint of type Event Grid":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot of creating an endpoint of type Event Grid.":::
 
 You can verify that the endpoint is successfully created by checking the notification icon in the top Azure portal bar: 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Notification to verify ":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Screenshot of notification to verify the creation of endpoint.":::
 
 You can also view the endpoint that was created back on the *Endpoints* page for your Azure Digital Twins instance.
 
@@ -84,7 +84,7 @@ On the *Create an Endpoint* page that opens up, you can create an endpoint of ty
 
 Then, create your endpoint by hitting _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Create endpoint of type Event Hubs":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Screenshot of creating an endpoint of type Event Hubs.":::
 
 You can verify that the endpoint is successfully created by checking the notification icon in the top Azure portal bar. 
 
@@ -104,7 +104,7 @@ On the *Create an Endpoint* page that opens up, you can create an endpoint of ty
 
 Then, create your endpoint by hitting _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Create endpoint of type Service Bus":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-servicebus-type.png" alt-text="Screenshot of creating an endpoint of type Service Bus.":::
 
 You can verify that the endpoint is successfully created by checking the notification icon in the top Azure portal bar. 
 
@@ -139,7 +139,7 @@ From the instance menu, select _Event routes_. Then from the *Event routes* page
 
 On the *Create an event route* page that opens up, choose at minimum a name for your route in the _Name_ field, and select the _Endpoint_ you would like to use to create route from the dropdown.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Create event route for your instance":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot of creating event route for your instance.":::
 
 ### Filter events
 
@@ -161,11 +161,11 @@ When finished, hit the _Save_ button to create your event route with the filters
 
 To use the basic filters, expand the _Event types_ option and select the checkboxes corresponding to the events you'd like to filter on. 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Create an event route with a basic filter. Selecting the checkboxes of the events":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Screenshot of creating an event route with a basic filter. Selecting the checkboxes of the events.":::
 
 This will auto-populate the filter text box with the text of the filter you've selected:
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Create an event route with a basic filter. Showing the auto-populated filter text after selecting the events":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Screenshot of creating an event route with a basic filter. Showing the auto-populated filter text after selecting the events.":::
 
 #### Use the advanced filters
 
@@ -173,7 +173,7 @@ Alternatively, you can use the advanced filter option to write your own custom f
 
 To create an event route with advanced filter options, toggle the switch for the _Advanced editor_ to enable it. You can then write your own event filters in the *Filter* box:
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Create an event route with an advanced filter":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Screenshot of creating an event route with an advanced filter.":::
 
 Here are the supported route filters. Use the detail in the *Filter text schema* column as what you can enter into the filter box.
 

@@ -25,18 +25,16 @@ Endpoints and routes are managed with the [**EventRoutes APIs**](how-to-use-apis
 
 They can also be managed through the [Azure portal](https://portal.azure.com). For a version of this article that uses the portal instead, see [*Manage endpoints and routes (portal)*](how-to-manage-routes-portal.md).
 
-## Prerequisites: 
+## Prerequisites
 
-You'll need an **Azure account** (you can set one up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)), and an **Azure Digital Twins instance** created in your Azure subscription. If you don't have an instance already, you can create one using the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md).
+* You'll need an **Azure account** (you can set one up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)), and an **Azure Digital Twins instance** created in your Azure subscription. If you don't have an instance already, you can create one using the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md).
+* You'll need an instance created for Azure Digital Twins. Have the following values handy to proceed further in this article. 
 
-### Prerequisites: 
-You'll need an instance created for Azure Digital Twins. Have the following values handy to proceed further in this article. 
+    * Resource name
+    * Resource group
+    * Azure subscription
 
-* Resource name
-* resource group
-* Azure subscription
-
- If you want to create an instance, refer to [*how-to: set-up-instance-using-portal*][how-to-set-up-instance-using-portal.md] and continue further in this article. 
+ If you want to create an instance, refer to [*how-to: set-up-instance-using-portal*](how-to-set-up-instance-using-portal.md) and continue further in this article. 
     
 ## Create an endpoint for Azure Digital Twins
 
