@@ -47,7 +47,7 @@ Use these values in the following command to create the instance:
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
-### Verify success
+### Verify success and collect important values
 
 If the instance was created successfully, the result in Cloud Shell looks something like this, outputting information about the resource you've created:
 

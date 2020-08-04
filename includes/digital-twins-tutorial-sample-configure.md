@@ -27,6 +27,8 @@ Select the *serviceConfig.json* file to open it in the editing window. Change th
 }
 ```
 
+
+
 Save and close the file. 
 
 Next, configure the *serviceConfig.json* file to be copied to the output directory when you build the *SampleClientApp*. To do this, right-select the *serviceConfig.json* file, and choose *Properties.* In the *Properties* inspector, change the value of the *Copy to Output Directory* property to *Copy if newer*.
