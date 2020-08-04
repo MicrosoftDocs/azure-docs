@@ -15,7 +15,7 @@ ms.custom: subject-cost-optimization
 
 This article helps you plan and manage costs for Azure Blob storage. First, estimate costs by using the Azure pricing calculator. After you create your storage account, optimize the account so that you pay only for what you need. Use cost management features to set budgets and monitor costs. You can also review forecasted costs, and monitor spending trends to identify areas where you might want to act.
 
-Keep in mind that costs for Azure Storage are only a portion of the monthly costs in your Azure bill. Although this article explains how to estimate and manage costs for Azure Storage, you're billed for all Azure services and resources used for your Azure subscription, including the third-party services. After you're familiar with managing costs for Azure Storage, you can apply similar methods to manage costs for all the Azure services used in your subscription.
+Keep in mind that costs for Blob storage are only a portion of the monthly costs in your Azure bill. Although this article explains how to estimate and manage costs for Blob storage, you're billed for all Azure services and resources used for your Azure subscription, including the third-party services. After you're familiar with managing costs for Blob storage, you can apply similar methods to manage costs for all the Azure services used in your subscription.
 
 ## Estimate costs
 
