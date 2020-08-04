@@ -310,7 +310,7 @@ If the error shows as above *UnauthorizedAccessException*, follow below instruct
                 ```
                 dmgcmd.exe -SwitchServiceAccount "<user>" "<password>"
                 ```
-            - If you want to change to LocalSystem account, please make sure to use a correct format for this account. Below is an example of the correct format:
+            - If you want to change to LocalSystem account, make sure to use a correct format for this account. Below is an example of the correct format:
 
                 ```
                 dmgcmd.exe -SwitchServiceAccount "NT Authority\System" ""
@@ -336,7 +336,7 @@ If the error shows as: *Service 'Integration Runtime Service' (DIAHostService) f
 
 #### More Information
 
-If neither of above two patterns in resolution apply in your case, please try to collect below Windows Event logs: 
+If neither of above two patterns in resolution apply in your case, try to collect below Windows Event logs: 
 - Applications and Services Logs -> Integration Runtime
 - Windows Logs -> Application
 
