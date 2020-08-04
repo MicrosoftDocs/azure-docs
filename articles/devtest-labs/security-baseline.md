@@ -27,7 +27,7 @@ See the following article to learn about configuring time synchronization for Az
 **Responsibility:** Microsoft
 
 ### 2.2: Configure central security log management
-**Guidance:** Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were done on your Azure DevTest Labs instances at the management plance-level. Using Azure activity log data, you can determine "what, who, and when" for any write operations (PUT, POST, DELETE) done at the management plane-level for your DevTest Labs instances.
+**Guidance:** Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were done on your Azure DevTest Labs instances at the management plane-level. Using Azure activity log data, you can determine "what, who, and when" for any write operations (PUT, POST, DELETE) done at the management plane-level for your DevTest Labs instances.
 
 For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/platform/diagnostic-settings.md).
 
@@ -36,7 +36,7 @@ For more information, see [Create diagnostic settings to send platform logs and 
 **Responsibility:** Customer
 
 ### 2.3: Enable audit logging for Azure resources
-**Guidance:** Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were done on your Azure DevTest Labs instances at the management plance-level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) done at the management plane-level for your DevTest Labs instances.
+**Guidance:** Enable Azure Activity Log diagnostic settings and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. Activity logs provide insight into the operations that were done on your Azure DevTest Labs instances at the management plane-level. Using Azure Activity Log data, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) done at the management plane-level for your DevTest Labs instances.
 
 For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/platform/diagnostic-settings.md).
 
@@ -256,7 +256,7 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 ## Data Protection
 *For more information, see [Security Control: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
-### 4.1: Maintain an inventory of sensitive Information
+### 4.1: Maintain an inventory of sensitive information
 **Guidance:** Use tags to assist in tracking Azure resources that store or process sensitive information.
 
 - [How to create and use tags](../azure-resource-manager/resource-group-using-tags.md)
@@ -337,9 +337,9 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 - [Formula documents](devtest-lab-manage-formulas.md) that are used to create virtual machines from formulas
 - OS and data disks for lab virtual machines 
 
-Artifact results and formula documents are sent to an Azure Storage account that's created as part of every lab deployment. Data in Azure Storage is encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Azure Storage encryption can't be disabled. You can rely on Microsoft-managed keys for the encryption of your storage account, or you can manage encryption with your own keys. For more information, see [Encryption for lab storage account](encrypt-storage.md) 
+Artifact results and formula documents are sent to an Azure Storage account that's created as part of every lab deployment. Data in Azure Storage is encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Azure Storage encryption can't be disabled. You can rely on Microsoft-managed keys for the encryption of your storage account, or you can manage encryption with your own keys. For more information, see [Encryption for lab storage account](encrypt-storage.md).
 
-By default, all lab OS and data disks are encrypted with a platform managed key. All managed disks, snapshots, images, and data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys. As a lab owner, you can configure lab OS disks to be encrypted with a customer managed key. Encryption using a customer managed key for lab data disks is currently not configurable through the lab itself and is coming soon, however a subscription admin can configure this setting for lab disks within a subscription for now. For more information, see [Encrypt lab DevTest Labs OS disks using customer managed keys](encrypt-disks-customer-managed-keys.md).
+By default, all lab OS and data disks are encrypted with a platform managed key. All managed disks, snapshots, images, and data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys. As a lab owner, you can configure lab OS disks to be encrypted with a customer managed key. Encryption using a customer managed key for lab data disks is currently not configurable through the lab itself. However a subscription admin can configure this setting for lab disks within a subscription for now. For more information, see [Encrypt lab DevTest Labs OS disks using customer managed keys](encrypt-disks-customer-managed-keys.md).
 
 **Azure Security Center monitoring:** Not applicable
 
