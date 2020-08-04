@@ -203,7 +203,7 @@ The following example shows how to use the fairness package to upload model fair
 
     To learn more about the visualization dashboard and what it contains, please check out Fairlearn's [user guide](https://fairlearn.github.io/user_guide/assessment.html#fairlearn-dashboard).
 
-s## Upload fairness insights for multiple models
+## Upload fairness insights for multiple models
 
 If you are interested in comparing multiple models and seeing how their fairness assessments differ, you can pass more than one model to the visualization dashboard and navigate their performance-fairness trade-offs.
 
