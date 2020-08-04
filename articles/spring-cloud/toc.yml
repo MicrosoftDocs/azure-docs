@@ -18,7 +18,7 @@
       href: spring-cloud-quickstart-piggymetrics-intro.md
     - name: Provision Azure Spring Cloud service instance
       href: spring-cloud-quickstart-provision-service-instance.md
-    - name: Set up Azure Spring Cloud configuration server
+    - name: Set up configuration server
       href: spring-cloud-quickstart-setup-config-server.md
     - name: Build and deploy apps
       href: spring-cloud-quickstart-deploy-apps.md

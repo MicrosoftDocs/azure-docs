@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Set up configuration server"
+title: "Quickstart - Set up Azure Spring Cloud configuration server"
 description: Describes set up of Azure Spring Cloud config server for app deployment.
 author: MikeDodaro
 ms.author: brendm
@@ -9,7 +9,7 @@ ms.date: 08/03/2020
 ms.custom: devx-track-java
 ---
 
-# Quickstart: Set up configuration server
+# Quickstart: Set up Azure Spring Cloud configuration server
 
 Spring Cloud Config server is horizontally scalable centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion.  You must set up the config server to deploy microservice apps to Azure Spring Cloud.
 
