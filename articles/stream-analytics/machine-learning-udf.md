@@ -19,7 +19,7 @@ Complete the following steps before you add a machine learning model as a functi
 
 1. Use Azure Machine Learning to [deploy your model as a web service](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
-2. Your scoring script should have [sample inputs and outputs](../machine-learning/how-to-deploy-and-where.md#example-entry-script) which is used by Azure Machine Learning to generate a schema specification. Stream Analytics uses the schema to understand the function signature of your web service. You can use this [sample swagger definition](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) as a reference to ensure you have set it up correctly.
+2. Your scoring script should have [sample inputs and outputs](../machine-learning/how-to-deploy-and-where.md) which is used by Azure Machine Learning to generate a schema specification. Stream Analytics uses the schema to understand the function signature of your web service. You can use this [sample swagger definition](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) as a reference to ensure you have set it up correctly.
 
 3. Make sure your web service accepts and returns JSON serialized data.
 
@@ -141,7 +141,7 @@ The following JSON is an example request from the previous query:
 
 ## Optimize the performance for Azure Machine Learning UDFs
 
-When you deploy your model to Azure Kubernetes Service, you can [profile your model to determine resource utilization](../machine-learning/how-to-deploy-and-where.md#profilemodel). You can also [enable App Insights for your deployments](../machine-learning/how-to-enable-app-insights.md) to understand request rates, response times, and failure rates.
+When you deploy your model to Azure Kubernetes Service, you can [profile your model to determine resource utilization](../machine-learning/how-to-deploy-profile-model.md). You can also [enable App Insights for your deployments](../machine-learning/how-to-enable-app-insights.md) to understand request rates, response times, and failure rates.
 
 If you have a scenario with high event throughput, you may need to change the following parameters in Stream Analytics to achieve optimal performance with low end-to-end latencies:
 
