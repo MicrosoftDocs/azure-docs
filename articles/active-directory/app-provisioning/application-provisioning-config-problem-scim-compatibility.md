@@ -74,9 +74,6 @@ For deviations from the default behavior that our default SCIM client behavior, 
      }]
    }
    ```
-   
-* Active as boolean
-  *  
 
 ## Upgrading from the older customappsso job to the SCIM job
 Following the steps below will delete your existing customappsso job and create a new scim job. 
