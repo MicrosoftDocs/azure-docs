@@ -685,22 +685,10 @@ __Limitations__
 
 __Configuration__ 
 
-To use Azure Machine Learning experimentation capabilities with Azure Key Vault behind a virtual network, use the following steps:
+To use Azure Machine Learning experimentation capabilities with Azure Key Vault behind a virtual network, use the [Configure Azure Key Vault firewalls and virtual networks](https://docs.microsoft.com/en-us/azure/key-vault/general/network-security) article.
 
-1. Go to the key vault that's associated with the workspace.
-
-   [![The key vault that's associated with the Azure Machine Learning workspace](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
-
-1. On the __Key Vault__ page, in the left pane, select __Firewalls and virtual networks__.
-
-   ![The "Firewalls and virtual networks" section in the Key Vault pane](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
-
-1. On the __Firewalls and virtual networks__ page, do the following actions:
-    - Under __Allow access from__, select __Selected networks__.
-    - Under __Virtual networks__, select __Add existing virtual networks__ to add the virtual network where your experimentation compute resides.
-    - Under __Allow trusted Microsoft services to bypass this firewall__, select __Yes__.
-
-   [![The "Firewalls and virtual networks" section in the Key Vault pane](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
+> [!IMPORTANT]
+> When following the steps in the article, use the same virtual network as used by your experimentation compute resources. You must also __qllow trusted Microsoft services to bypass this firewall__.
 
 ## Azure Databricks
 
