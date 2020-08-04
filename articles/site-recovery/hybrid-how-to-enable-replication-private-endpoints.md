@@ -167,7 +167,7 @@ private endpoint connection, go to **Private endpoint connections** under **Sett
 vault page.
 
 You can go to the private endpoint resource to review the status of the connection before
-you continue.
+you continue:
 
 :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="Screenshot that shows the Private endpoint connections page of the vault and the list of connections.":::
 
@@ -210,12 +210,12 @@ These steps describe how to add a role assignment to your storage account:
 
 1. Go to the storage account. Select **Access control (IAM)** in the left pane.
 
-1. In the **Add a role assignment** section, select **Add**.
+1. In the **Add a role assignment** section, select **Add**:
 
    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Screenshot that shows the Access control (IAM) page for a storage account.":::
 
-1. On the **Add a role assignment** page, select the role from the list above in the **Role**
-   list. Enter the name of the vault and then select **Save**.
+1. On the **Add a role assignment** page, in the **Role**
+   list, select the role from the list at the start of this section. Enter the name of the vault and then select **Save**.
 
    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Screenshot that shows the Add role assignment page.":::
 
@@ -226,7 +226,7 @@ account** in **Exceptions**.
 ### Protect your virtual machines
 
 After you finish the preceding tasks, continue with the setup of your on-premises
-infrastructure. Continue by completing one the following tasks: 
+infrastructure. Continue by completing one of the following tasks: 
 
 - [Deploy a configuration server for VMware and physical machines](./vmware-azure-deploy-configuration-server.md)
 - [Set up the Hyper-V environment for replication](./hyper-v-azure-tutorial.md#set-up-the-source-environment)
@@ -280,12 +280,12 @@ to private IPs.
 
    > [!NOTE]
    > If you're using a custom private DNS zone, be sure to make similar entries, as
-   > described below.
+   > described in the following step.
 
    In this step, you need to make entries for each FQDN in your private
    endpoint into your private DNS zone.
 
-   1. Go to your private DNS zone and then go to the **Overview** section in the pane. Select **Record set** to start adding records.
+   1. Go to your private DNS zone and then go to the **Overview** section in the left pane. Select **Record set** to start adding records.
 
    1. On the **Add record set** page, add an entry for each fully qualified domain name and
       private IP as an **A** type record. You can get a list of the fully qualified domain names and IPs on the **Private Endpoint** page in **Overview**. As you can see in the following screenshot, the
