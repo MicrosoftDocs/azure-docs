@@ -17,7 +17,7 @@ ms.date: 07/11/2020
 > [!IMPORTANT] 
 > Azure Data Lake Storage Gen2 support is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > You can request access to the previews by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
-> The [REST API version 2020-06-30-Preview](search-api-preview.md) and Azure portal provide this feature. There is currently SDK support.
+> The [REST API version 2020-06-30-Preview](search-api-preview.md) and Azure portal provide this feature. There is currently no SDK support.
 
 
 When setting up an Azure storage account, you have the option to enable [hierarchical namespace](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace). This allows the collection of content in an account to be organized into a hierarchy of directories and nested subdirectories. By enabling hierarchical namespace, you enable [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
