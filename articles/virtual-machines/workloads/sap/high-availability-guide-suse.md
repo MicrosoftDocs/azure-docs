@@ -553,8 +553,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile and change the Linux system settings. Read [SAP Note 1410736][1410736] for more information.
 
-   The ASCS/SCS profile parameter enque/encni/set_so_keepalive was already added in the last step.
-
    <pre><code># Change the Linux system configuration
    sudo sysctl net.ipv4.tcp_keepalive_time=120
    </code></pre>
