@@ -104,7 +104,7 @@ __Limitations__
 * If your data is stored in a virtual network, you must use a workspace [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
 
     > [!IMPORTANT]
-    > While most of studio works with data stored in a virtual network, integrated notebooks __do not__. Integrated notebooks do not support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](#access-data-in-a-compute-instance-notebook) section.
+    > While most of studio works with data stored in a virtual network, integrated notebooks __do not__. Integrated notebooks do not support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Compute clusters & instances](#compute-instance) section.
 
     If you fail to grant studio access, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.`, and disable the following operations:
 
@@ -238,7 +238,7 @@ __Requirements__
 
 * The virtual network must be in the same subscription and region as the Azure Machine Learning workspace.
 * The subnet that's specified for the compute instance or cluster must have enough unassigned IP addresses to accommodate the number of VMs that are targeted. If the subnet doesn't have enough unassigned IP addresses, a compute cluster will be partially allocated.
-* Check to see whether your security policies or locks on the virtual network's subscription or resource group restrict permissions to manage the virtual network. If you plan to secure the virtual network by restricting traffic, leave some ports open for the compute service. For more information, see the [Required ports](#mlcports) section.
+* If you plan to secure the virtual network by restricting traffic, some ports must be left open for the compute service.
 * If you're going to put multiple compute instances or clusters in one virtual network, you might need to request a quota increase for one or more of your resources.
 * If the Azure Storage Account(s) for the workspace are also secured in a virtual network, they must be in the same virtual network as the Azure Machine Learning compute instance or cluster. 
 * For compute instance Jupyter functionality to work, ensure that web socket communication is not disabled.
@@ -685,7 +685,7 @@ __Limitations__
 
 __Configuration__ 
 
-To use Azure Machine Learning experimentation capabilities with Azure Key Vault behind a virtual network, use the [Configure Azure Key Vault firewalls and virtual networks](https://docs.microsoft.com/en-us/azure/key-vault/general/network-security) article.
+To use Azure Machine Learning experimentation capabilities with Azure Key Vault behind a virtual network, use the [Configure Azure Key Vault firewalls and virtual networks](/azure/key-vault/general/network-security) article.
 
 > [!IMPORTANT]
 > When following the steps in the article, use the same virtual network as used by your experimentation compute resources. You must also __qllow trusted Microsoft services to bypass this firewall__.
@@ -726,13 +726,13 @@ __Configuration__
 1. An NSG is automatically created for Linux-based Azure Virtual Machines. This NSG allows access to port 22 from any source. If you want to restrict access to the SSH port, you must allow access from Azure Machine Learning. To preserve access for Azure ML, you must allow access from a __source service__ with a __source service tag__ of __AzureMachineLearning__. For example, the following Azure CLI commands modify the SSH rule to only allow access from Azure Machine Learning.
 
     ```azurecli
-    # Get default SSH rule
-    nsgrule=$(az network nsg rule list --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup --query [0].name -o tsv)
-    # Update network security group rule to limit SSH to source service.
-    az network nsg rule update --resource-group myResourceGroup --nsg-name myNetworkSecurityGroupBackEnd \
-    --name $nsgrule --protocol tcp --direction inbound --priority 100 \
-    --source-address-prefix AzureMachineLearning --source-port-range '*' --destination-address-prefix '*' \
-    --destination-port-range 22 --access allow
+# Get default SSH rule
+nsgrule=$(az network nsg rule list --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup --query [0].name -o tsv)
+# Update network security group rule to limit SSH to source service.
+az network nsg rule update --resource-group myResourceGroup --nsg-name myNetworkSecurityGroupBackEnd \
+--name $nsgrule --protocol tcp --direction inbound --priority 100 \
+--source-address-prefix AzureMachineLearning --source-port-range '*' --destination-address-prefix '*' \
+--destination-port-range 22 --access allow
     ```
 
     For more information, see the [Create network security groups](/azure/virtual-machines/linux/tutorial-virtual-network#create-network-security-groups) section of the Azure Virtual Networks for Linux virtual machines article.
