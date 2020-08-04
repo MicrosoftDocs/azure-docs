@@ -359,6 +359,9 @@ az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name
 
 The output from this command is some information about the route you've created.
 
+>[!NOTE]
+>Endpoints (from the previous step) must be finished provisioning before you can set up an event route that uses them. If the route creation fails because the endpoints aren't ready, wait a few minutes and then try again.
+
 #### Connect the function to Event Grid
 
 Next, subscribe the *ProcessDTRoutedData* Azure function to the event grid topic you created earlier, so that telemetry data can flow from the *thermostat67* twin through the event grid topic to the function, which goes back into Azure Digital Twins and updates the *room21* twin accordingly.
