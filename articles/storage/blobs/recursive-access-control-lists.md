@@ -14,20 +14,49 @@ ms.reviewer: prishet
 
 You can apply the ACL of a parent directory to all child directories and files that exist beneath the parent directory.  This means that if you want to apply the same ACL entries to a hierarchy of directories and files, you can do that without having to modify the ACL of each one individually. Instead, you can apply them recursively.
 
-To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
-
 > [!NOTE]
-> The ability to set access lists recursively is a in public preview, and is available in the blah and blah regions. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup). 
+> The ability to set access lists recursively is a in public preview.  
 
 ## Prerequisites
 
 > [!div class="checklist"]
 > * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 > * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
+> * Enrollment in the preview. See this form (Need form link).
+> * The correct permissions to execute the recursive ACL process. The correct permission includes either of the following: 
+>   - A provisioned Azure Active Directory (AD) [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, storage account, resource group or subscription.  
+>   - Owning user of the target container or directory to which you plan to apply the recursive ACL process. This includes all child items in the target container or directory. 
+> * An understanding of how ACLs are applied to directories and files. See [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+
+Also, make sure to review the README files for the SDK that plan to use to recursively set ACLs. 
+
+## Best practices
+
+Before you begin, review these best practices.
+
+#### Handling runtime errors
+
+A runtime error can occur for many reasons (For example: an outage or a client connectivity issue). If you encounter a runtime error, restart the recursive ACL process. ACLs can be re-applied to items with no negative impact. 
+
+#### Handling permission errors (403)
+
+If you encounter an access control exception while running a recursive ACL process, your AD [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) might not have sufficient permission to apply an ACL to one or more of the child items in the directory hierarchy. When a permission error occurs, the process stops and a continuation token is provided. Fix the permission issue, and then use the continuation token to process the remaining dataset. The directories and files that have already been successfully processed will not have to be processed again. 
+
+#### Credentials 
+
+We recommend that you provision an AAD security principal that is assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role scoped to the target storage account or container. 
+
+#### Performance 
+
+To reduce latency, we recommend that you run the recursive ACL process in an Azure Virtual Machine (VM) that is located in the same region as your storage account. 
+
+#### ACL limits
+
+The maximum number of ACLs that you can apply to a directory or file is 32 access ACLs and 32 default ACLs. For more information, see [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 ## Set up your project
 
-First, install the necessary libraries.
+Install the necessary libraries. (Need info on where folks get these libraries)
 
 > [!NOTE] 
 > For optimal performance, we recommend that you run processes that set ACLs recursively in an Azure VM that is located in the same region as your storage account.
