@@ -53,8 +53,12 @@ To add an application to your Azure AD tenant:
 
 You've finished adding an application. The next quickstart shows you how to change the logo and edit other properties for your application.
 
+## Clean up resources
+
+If you're not going to continue with the quickstart series then consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
+
 ## Next steps
 
-- [Configure an app](add-application-portal-configure.md)
-- [Set up single sign-on](add-application-portal-setup-sso.md)
-- [Delete an app](delete-application-portal.md)
+Advance to the next article to learn how to configure the app.
+> [!div class="nextstepaction"]
+> [Configure an app](add-application-portal-configure.md)
