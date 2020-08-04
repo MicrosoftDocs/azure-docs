@@ -277,16 +277,16 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
 * connectionMonitorName - Name of the Connection monitor resource
 
-* SUB - Subscription ID of the subscription where you want to create connection montior
+* SUB - Subscription ID of the subscription where you want to create connection monitor
 
-* NW  - Network Watcher resource id in which CM will be created 
+* NW  - Network Watcher resource ID in which CM will be created 
 
-* location - Region in which connection montior will be created
+* location - Region in which connection monitor will be created
 
 * Endpoints
 	* name – Unique name for each endpoint
 	* resourceId – For Azure endpoints, resource ID refers to the Azure Resource Manager(ARM) resource ID for virtual machines.For non-Azure endpoints, resource ID refers to the ARM resource ID for the Log Analytics workspace linked to non-Azure agents.
-	* address – Applicable only when either resource ID is not specified or if resource Id is Log Analytics workspace. If used with Log Analytics resource ID, this refers to the FQDN of the agent that can be used for monitoring. If used without resource ID, this can be the URL or IP of any public endpoint.
+	* address – Applicable only when either resource ID is not specified or if resource ID is Log Analytics workspace. If used with Log Analytics resource ID, this refers to the FQDN of the agent that can be used for monitoring. If used without resource ID, this can be the URL or IP of any public endpoint.
 	* filter – For non-Azure endpoints, use filter to select agents from Log Analytics workspace that will be used for monitoring in Connection monitor resource. If filters are not set, all agents belonging to the Log Analytics workspace can be used for monitoring
 		* type – Set type as “Agent Address”
 		* address – Set address as the FQDN of your on-premises agent
