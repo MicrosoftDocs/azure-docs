@@ -12,18 +12,19 @@
   items:
     - name: Launch a Spring Cloud app
       href: spring-cloud-quickstart-launch-app-portal.md
-- name: Build Microservices
-  items:
-    - name: Introduction to Piggymetrics
-      href: spring-cloud-quickstart-piggymetrics-intro.md
-    - name: Provision Azure Spring Cloud service instance
-      href: spring-cloud-quickstart-provision-service-instance.md
-    - name: Set up configuration server
-      href: spring-cloud-quickstart-setup-config-server.md
-    - name: Build and deploy apps
-      href: spring-cloud-quickstart-deploy-apps.md
-    - name: Set up logs metrics and tracing
-      href: spring-cloud-quickstart-logs-metrics-tracing.md
+    - name: Build Microservices
+      expanded: true 
+      items:
+      - name: Introduction to Piggymetrics
+        href: spring-cloud-quickstart-piggymetrics-intro.md
+      - name: Provision Azure Spring Cloud service instance
+        href: spring-cloud-quickstart-provision-service-instance.md
+      - name: Set up configuration server
+        href: spring-cloud-quickstart-setup-config-server.md
+      - name: Build and deploy apps
+        href: spring-cloud-quickstart-deploy-apps.md
+      - name: Set up logs metrics and tracing
+        href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: Tutorials
   items:
     - name: Manually scale an app
