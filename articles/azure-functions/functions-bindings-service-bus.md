@@ -7,6 +7,7 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
+ms.custom: fasttrack-edit
 ---
 
 # Azure Service Bus bindings for Azure Functions
@@ -19,6 +20,9 @@ Azure Functions integrates with [Azure Service Bus](https://azure.microsoft.com/
 | Send Azure Service Bus messages |[Output binding](./functions-bindings-service-bus-output.md) |
 
 ## Add to your Functions app
+
+> [!NOTE]
+> The Service Bus binding does not currently support using a managed identity for authentication. Please use a [Service Bus shared access signature](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-authentication-and-authorization#shared-access-signature).
 
 ### Functions 2.x and higher
 
