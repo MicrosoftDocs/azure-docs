@@ -55,7 +55,7 @@
     items:
     - name: Using Azure Portal
       href: connection-monitor-preview-create-using-portal.md
-    - name: Using ARM Client
+    - name: Using ARMClient
       href: connection-monitor-preview-create-using-arm-client.md 
   - name: Diagnose VM network problems
     items:
