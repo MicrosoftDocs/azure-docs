@@ -45,7 +45,7 @@ Storage Explorer supports RBAC access to Storage Accounts, Blobs, and Queues. If
 
 #### Access control lists (ACLs)
 
-[Access control lists (ACLs)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) let you control file and folder level access in ADLS Gen2 blob containers. Storage Explorer makes it easy to manage ACLs.
+[Access control lists (ACLs)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) let you control file and folder level access in ADLS Gen2 blob containers. You can manage your ACLs using Storage Explorer.
 
 ### Shared Access Signatures (SAS)
 
