@@ -68,7 +68,7 @@ The below entities are accessible through the Java message service (JMS) 2.0 API
   * Shared non-durable subscriptions
   * Unshared non-durable subscriptions
 
-Learn more about the [JMS 2.0 entities](service-bus-jms-20-entities.md) and about how to [utilize them](service-bus-java-how-to-use-jms-20.md).
+Learn more about the [JMS 2.0 entities](java-message-service-20-entities.md) and about how to [utilize them](how-to-use-java-message-service-20.md).
 
 ## Next steps
 
