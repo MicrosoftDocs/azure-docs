@@ -8979,6 +8979,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/recover-module-not-found.md",
+      "redirect_url": "/azure/azure-functions/recover-python-functions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-functions/scripts/functions-cli-configure-ssl-certificate.md",
       "redirect_url": "/azure/app-service/scripts/cli-configure-ssl-certificate?toc=%2fcli%2fazure%2ftoc.json",
       "redirect_document_id": false
@@ -39301,6 +39306,11 @@
     {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-php-get-intent.md",
       "redirect_url": "/azure/cognitive-services/LUIS/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-kws-guidelines.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/custom-keyword-overview",
       "redirect_document_id": false
     },
     {
