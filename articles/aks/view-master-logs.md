@@ -45,7 +45,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: nginx:1.19
     resources:
       requests:
         cpu: 100m
