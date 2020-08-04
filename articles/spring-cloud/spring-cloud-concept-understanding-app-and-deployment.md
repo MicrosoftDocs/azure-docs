@@ -22,11 +22,11 @@ The following features/properties are defined on App level.
 
 | Enum | Definition |
 |:--|:----------------|
-| Public Endpoint | The URL to access the app |
-| Custom Domain | CNAME record that secures the custom domain |
-| Service Binding | Binding configuration properties set in the function.json file and the ServiceBusTrigger attribute |
-| Managed Identity | Managed identity by Azure Active Directory allows your app to easily access other Azure AD-protected resources such as Azure Key Vault |
-| Persistent Storage | App Service setting that enables data to persist beyond app restart |
+| Public</br>Endpoint | The URL to access the app |
+| Custom</br>Domain | CNAME record that secures the custom domain |
+| Service</br>Binding | Binding configuration properties set in the function.json file and the ServiceBusTrigger attribute |
+| Managed</br>Identity | Managed identity by Azure Active Directory allows your app to easily access other Azure AD-protected resources such as Azure Key Vault |
+| Persistent</br>Storage | App Service setting that enables data to persist beyond app restart |
 
 ## Deployment
 
@@ -36,11 +36,11 @@ The following features/properties are defined on Deployment level, and will be e
 |:--|:----------------|
 | CPU | Number of vcores per App instance |
 | Memory | App Service setting that allocates memory to scale up or scale out deployments |
-| Instance Count | The number of app instances, set manually or automatically in App Service |
+| Instance</br>Count | The number of app instances, set manually or automatically in App Service |
 | Auto-Scale | Scale instance count automatically based on predefined rules and schedules |
-| JVM Options | App Service setting: JAVA_OPTS |
-| Environment Variables | Settings that apply to the entire Azure App Service environment |
-| Runtime Version | Java 8/Java 11|
+| JVM</br>Options | App Service setting: JAVA_OPTS |
+| Environment</br>Variables | Settings that apply to the entire Azure App Service environment |
+| Runtime</br>Version | Java 8/Java 11|
 
 ## Restrictions
 
