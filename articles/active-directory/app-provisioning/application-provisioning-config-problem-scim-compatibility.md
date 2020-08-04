@@ -22,10 +22,15 @@ Azure AD's support for the SCIM 2.0 protocol is described in [Using System for C
 This article describes current and past issues with the Azure AD user provisioning service's adherence to the SCIM 2.0 protocol, and how to work around these issues.
 
 ## Understanding the provisioning job
-The provisioning service uses the concept of a job to operate against an application. The jobID can be found in the progress bar. All new provisioning applications are created with a jobID starting with "scim". The scim job represents the current state of the service. Older jobs have the ID "customappsso". This job represents the state of the service in 2018. 
+The provisioning service uses the concept of a job to operate against an application. The jobID can be found in the [progress bar](application-provisioning-when-will-provisioning-finish-specific-user#view-the-provisioning-progress-bar). All new provisioning applications are created with a jobID starting with "scim". The scim job represents the current state of the service. Older jobs have the ID "customappsso". This job represents the state of the service in 2018. 
+
+If you are using an application in the gallery, the job generally contains the name of the app (e.g. zoom snowFlake, dataBricks, etc.). You can skip this documentation when using a gallery application. This primarily applies for non-gallery applications with jobID SCIM or customAppSSO.
 
 ## SCIM 2.0 compliance issues and status
-In the table below, any item marked as fixed means that the proper behavior can be found on the SCIM job. We have worked to ensure backwards compatibility for the changes we have made. For the changes made in 2018, you can revert back to the customappsso behavior. For the changes made since 2018, you can use the URLs to revert back to the older behavior. 
+In the table below, any item marked as fixed means that the proper behavior can be found on the SCIM job. We have worked to ensure backwards compatibility for the changes we have made. However, we do not recommend implementing old behavior. We recommend using the new behavior for any new implementations and updating existing implementations.
+
+> [!NOTE]
+> For the changes made in 2018, you can revert back to the customappsso behavior. For the changes made since 2018, you can use the URLs to revert back to the older behavior. We have worked to ensure backwards compatibility for the changes we have made by allowing you to revert back to the old jobID or by using a flag. However, as previously mentioned, we do not recommend implementing old behavior. We recommend using the new behavior for any new implementations and updating existing implementations.
 
 | **SCIM 2.0 compliance issue** |  **Fixed?** | **Fix date**  |  
 |---|---|---|
