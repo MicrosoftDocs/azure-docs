@@ -29,3 +29,32 @@ This tutorial shows you how to configure and collect data from your Linux or Win
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
+## Enable Azure Monitor for VMs
+
+1. Launch the Azure Arc service in the Azure portal by clicking **All services**, then searching for and selecting **Machines - Azure Arc**.
+
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Search for Arc for servers in All Services" border="false":::
+
+1. On the **Machines - Azure Arc** page, select the connected machine you created in the [quickstart](quick-enable-hybrid-vm.md) article.
+
+1. From the left-pane under the **Monitoring** section, select **Insights** and then **Enable**.
+
+    :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Select Insights option from left-hand menu" border="false":::
+
+1. On the Azure Monitor **Insights Onboarding** page, you are prompted to create a workspace. For this tutorial, we don't recommend you select an existing Log Analytics workspace if you have one already. Select the default which is a workspace with a unique name in the same region as your registered connected machine. This workspace is created and configured for you.
+
+1. You receive status messages while the configuration is performed. This process takes a few minutes as extensions are installed on your connected machine. 
+
+    :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Enable Azure Monitor for VMs progress status message" border="false":::
+
+    When it's complete, you get a message that the machine has been successfully onboarded and the insight has been successfully deployed.
+
+## View data collected
+
+Select **Insights** and on the **Performance** tab it shows a select group of performance counters collected from the guest operating system of your VM. Scroll down to view more counters, and move the mouse over a graph to view average and percentiles taken starting from the time when the insight was enabled.
+
+Select **Map** to open the maps feature, which shows the processes running on the virtual machine and their dependencies. Select **Properties** to open the property pane if it isn't already open.
+
+Expand the processes for your virtual machine. Select one of the processes to view its details and to highlight its dependencies.
+
+Select your virtual machine again and then select **Log Events**.
