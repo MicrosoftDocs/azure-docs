@@ -22,6 +22,8 @@
       displayName: deploy azure resource manager template
   - name: Connect & query
     items:
+    - name: Azure PowerShell
+      href: connect-powershell.md
     - name: MySQL Workbench
       href: connect-workbench.md
 - name: Tutorials
