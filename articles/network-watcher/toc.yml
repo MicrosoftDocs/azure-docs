@@ -53,7 +53,7 @@
     href: network-watcher-create.md
   - name: Create Connection Monitor (Preview)
     items:
-    - name: Using Azure Portal
+    - name: Using Azure portal
       href: connection-monitor-preview-create-using-portal.md
     - name: Using ARMClient
       href: connection-monitor-preview-create-using-arm-client.md 
