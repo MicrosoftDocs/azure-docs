@@ -1,5 +1,5 @@
 ---
-title:  "Quickstart - Provision Azure Spring Cloud service instance"
+title:  "Quickstart - Provision Azure Spring Cloud service"
 description: Describes creation of Azure Spring Cloud service instance for app deployment.
 author:  MikeDodaro
 ms.author: brendm
@@ -9,7 +9,7 @@ ms.date: 08/03/2020
 ms.custom: devx-track-java
 ---
 
-# Quickstart: Provision Azure Spring Cloud service instance
+# Quickstart: Provision Azure Spring Cloud service
 
 You can instantiate Azure Spring Cloud using the Azure portal or the Azure CLI.  Both methods are explained in the following procedures.
 

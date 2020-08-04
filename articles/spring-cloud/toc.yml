@@ -17,7 +17,7 @@
       items:
       - name: Introduction to Piggymetrics
         href: spring-cloud-quickstart-piggymetrics-intro.md
-      - name: Provision Azure Spring Cloud service instance
+      - name: Provision Azure Spring Cloud service
         href: spring-cloud-quickstart-provision-service-instance.md
       - name: Set up configuration server
         href: spring-cloud-quickstart-setup-config-server.md
