@@ -184,6 +184,7 @@ multi-factor authentication for all Azure Active Directory based access
 
 - [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
 
+
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
@@ -197,6 +198,7 @@ tasks
 - [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
 - [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -212,6 +214,7 @@ Use Azure AD Risk Detections to view alerts and reports on risky user behavior.
 - [How to deploy Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
 - [Understand Azure AD risk detections](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -443,7 +446,19 @@ At least once a day, Azure Database for PostgreSQL Hyperscale (Citus) takes sn
 
 ### 6.4: Define and maintain inventory of approved Azure resources
 
-**Guidance**: Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:- Not allowed resource types- Allowed resource typesIn addition, use the Azure Resource Graph to query/discover resources within the subscription(s).How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manageHow to create queries with Azure Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+**Guidance**: 
+Use Azure policy to put restrictions on the type of resources that can be created in customer subscription(s) using the following built-in policy definitions:
+
+- Not allowed resource types
+
+- Allowed resource types
+
+In addition, use the Azure Resource Graph to query/discover resources within the subscription(s).
+
+- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+
+- [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -515,7 +530,15 @@ Also, Azure Resource Manager has the ability to export the template in JavaScrip
 
 ### 7.3: Maintain secure Azure resource configurations
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.  In addition, you may use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. Understand Azure Policy effects: https://docs.microsoft.com/azure/governance/policy/concepts/effects Create and manage policies to enforce compliance:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage Azure Resource Manager templates overview:  https://docs.microsoft.com/azure/azure-resource-manager/templates/overview
+**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.  In addition, you may use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. 
+
+- [Understand Azure Policy effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+
+- [Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+
+- [Azure Resource Manager templates overview](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+
+
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -535,7 +558,14 @@ Also, Azure Resource Manager has the ability to export the template in JavaScrip
 
 ### 7.7: Deploy configuration management tools for Azure resources
 
-**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.  In addition, you may use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. Understand Azure Policy effects: https://docs.microsoft.com/azure/governance/policy/concepts/effects Create and manage policies to enforce compliance:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage Azure Resource Manager templates overview:  https://docs.microsoft.com/azure/azure-resource-manager/templates/overview
+**Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.  In addition, you may use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. 
+
+- [Understand Azure Policy effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+
+- [Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+
+- [Azure Resource Manager templates overview](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+
 
 
 **Azure Security Center monitoring**: Not applicable
