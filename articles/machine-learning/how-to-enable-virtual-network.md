@@ -738,8 +738,6 @@ __Configuration__
     For more information, see the [Create network security groups](/azure/virtual-machines/linux/tutorial-virtual-network#create-network-security-groups) section of the Azure Virtual Networks for Linux virtual machines article.
     
     Keep the default outbound rules for the network security group. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
-    
-    If you don't want to use the default outbound rules and you do want to limit the outbound access of your virtual network, see the [Limit outbound connectivity from the virtual network](#limiting-outbound-from-vnet) section.
 
 1. Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For more information, see [Set up compute targets for model training](how-to-set-up-training-targets.md).
 
