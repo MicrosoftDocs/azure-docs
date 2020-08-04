@@ -34,7 +34,7 @@ They can also be managed through the [Azure portal](https://portal.azure.com). F
     * Resource group
     * Azure subscription
 
- If you want to create an instance, refer to [*how-to: set-up-instance-using-portal*](how-to-set-up-instance-using-portal.md) and continue further in this article. 
+ If you want to create an instance, refer to [*how-to: set-up-instance-using-portal*](how-to-set-up-instance-portal.md) and continue further in this article. 
     
 ## Create an endpoint for Azure Digital Twins
 
