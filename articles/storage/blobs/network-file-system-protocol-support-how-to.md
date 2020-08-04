@@ -114,22 +114,6 @@ Create a container in your storage account by using any of these tools or SDKs:
 
 Create a directory on your Windows or Linux system, and then mount a container in the storage account.
 
-### [Windows](#tab/windows)
-
-1. Open the **Turn Windows features on or off** dialog box, and then turn on the **Client for NFS** feature. 
-
-   ![Client for Network File System feature](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
-
-2. Mount a container by using the [mount](https://docs.microsoft.com/windows-server/administration/windows-commands/mount) command.
-
-   ```
-   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
-   ```
-
-   - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
-
-   - Replace the `<container-name>` placeholder with the name of your container.
-
 ### [Linux](#tab/linux)
 
 1. On a Linux system, create a directory.
@@ -142,6 +126,23 @@ Create a directory on your Windows or Linux system, and then mount a container i
 
    ```
    mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /mnt/test
+   ```
+
+   - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
+
+   - Replace the `<container-name>` placeholder with the name of your container.
+
+
+### [Windows](#tab/windows)
+
+1. Open the **Windows Features** dialog box, and then turn on the **Client for NFS** feature. 
+
+   ![Client for Network File System feature](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
+
+2. Mount a container by using the [mount](https://docs.microsoft.com/windows-server/administration/windows-commands/mount) command.
+
+   ```
+   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
    ```
 
    - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
