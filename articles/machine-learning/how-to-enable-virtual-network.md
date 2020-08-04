@@ -36,7 +36,7 @@ Azure Machine Learning relies on other Azure services for data storage and compu
 
 ## Secure your workspace
 
-Your Azure Machine Learning workspace can have either a __public endpoint__ or a __private endpoint__. A public endpoint is a set of IP addresses that are accessible on the public internet, while a private endpoint private endpoint is a set of private IP addresses within a virtual network. 
+Your Azure Machine Learning workspace can have either a __public endpoint__ or a __private endpoint__. A public endpoint is a set of IP addresses that are accessible on the public internet, while a private endpoint is a set of private IP addresses within a virtual network. 
 
 To limit access to your workspace to only occur over the private IP addresses, use a private endpoint.
 
@@ -106,7 +106,7 @@ __Limitations__
     > [!IMPORTANT]
     > While most of studio works with data stored in a virtual network, integrated notebooks __do not__. Integrated notebooks do not support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](#access-data-in-a-compute-instance-notebook) section.
 
-    If you fail to grant studio access, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` and disable the following operations:
+    If you fail to grant studio access, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.`, and disable the following operations:
 
     * Preview data in the studio.
     * Visualize data in the designer.
@@ -251,7 +251,7 @@ __Limitations__
     * One public IP address
     * One load balancer
     
-    In the case of clusters these resources are deleted (and recreated) every time the cluster scales down to 0 nodes, however for an instance the resources are held onto till the instance is completely deleted (stopping does not remove the resources). 
+    In the case of clusters these resources are deleted (and recreated) every time the cluster scales down to 0 nodes, however for an instance the resources are held onto until the instance is deleted (stopping does not remove the resources). 
     These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 __Configuration__
@@ -576,8 +576,8 @@ For information on using Azure Machine Learning with Azure Firewall, see [Use Az
 __Requirements__
 
 * Your Azure Machine Learning workspace must be Enterprise edition. For information on upgrading, see [Upgrade to Enterprise edition](how-to-manage-workspace.md#upgrade).
-* Your Azure Machine Learning workspace region should be [privated link enabled region](https://docs.microsoft.com/azure/private-link/private-link-overview#availability). 
-* Your Azure Container Registry must be Premium version . For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
+* Your Azure Machine Learning workspace region should be [private link enabled region](https://docs.microsoft.com/azure/private-link/private-link-overview#availability). 
+* Your Azure Container Registry must be Premium version. For more information on upgrading, see [Changing SKUs](/azure/container-registry/container-registry-skus#changing-skus).
 * Your Azure Container Registry must be in the same virtual network and subnet as the storage account and compute targets used for training or inference.
 * Your Azure Machine Learning workspace must contain an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute).
 
@@ -723,7 +723,7 @@ __Configuration__
 
     * [Extend HDInsight using an Azure virtual network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
 
-1. An NSG is automatically created for Linux-based Azure Virtual Machines. This NSG allows access to port 22 from any source. If you want to restrict access to the SSH port, you must not restrict access from Azure Mahchine Learning. To preserve access for Azure ML, you must allow access from a __source service__ with a __source service tag__ of __AzureMachineLearning__. For example, the following Azure CLI commands modify the SSH rule to only allow access from Azure Machine Learning.
+1. An NSG is automatically created for Linux-based Azure Virtual Machines. This NSG allows access to port 22 from any source. If you want to restrict access to the SSH port, you must allow access from Azure Machine Learning. To preserve access for Azure ML, you must allow access from a __source service__ with a __source service tag__ of __AzureMachineLearning__. For example, the following Azure CLI commands modify the SSH rule to only allow access from Azure Machine Learning.
 
     ```azurecli
     # Get default SSH rule
@@ -732,7 +732,7 @@ __Configuration__
     az network nsg rule update --resource-group myResourceGroup --nsg-name myNetworkSecurityGroupBackEnd \
     --name $nsgrule --protocol tcp --direction inbound --priority 100 \
     --source-address-prefix AzureMachineLearning --source-port-range '*' --destination-address-prefix '*' \
-  --destination-port-range 22 --access allow
+    --destination-port-range 22 --access allow
     ```
 
     For more information, see the [Create network security groups](/azure/virtual-machines/linux/tutorial-virtual-network#create-network-security-groups) section of the Azure Virtual Networks for Linux virtual machines article.
