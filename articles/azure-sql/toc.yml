@@ -1042,7 +1042,7 @@
             href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
           - name: Create FCI with
             items: 
-            - name: Azure shared disks (SQL2019+)
+            - name: Azure shared disks
               href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
             - name: Storage Spaces Direct (Win2016+)
               href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
