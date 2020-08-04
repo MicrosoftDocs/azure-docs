@@ -157,9 +157,7 @@ This blueprint helps you restrict the location for the deployment of all resourc
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerability assessment should be enabled on your SQL servers
 - Vulnerability assessment should be enabled on your SQL managed instances
-- Vulnerability Assessment should be enabled on 
-
-Machines
+- Vulnerability Assessment should be enabled on Machines
 - Vulnerabilities in security configuration on your virtual machine scale sets should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 - Vulnerabilities in security configuration on your machines should be remediated
