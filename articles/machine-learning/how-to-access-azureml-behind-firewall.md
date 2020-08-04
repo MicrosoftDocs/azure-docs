@@ -29,7 +29,7 @@ On your firewall, create a network rule allowing traffic to and from the address
 > [!TIP]
 > When adding the network rule, set the __Protocol__ to any, and the ports to `*`.
 >
-> For more information on configuring Azure Firewall, see [Deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-a-network-rule).
+> For more information on configuring Azure Firewall, see [Deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
 ## Microsoft hosts
 
@@ -52,7 +52,7 @@ The hosts in this section are owned by Microsoft, and provide services required 
 | **azurecr.io** | Azure Container Registry |
 | **mcr.microsoft.com** | Microsoft Container Registry for base docker images |
 | **your-acr-server-name.azurecr.io** | Only needed if your Azure Container Registry is behind the virtual network. In this configuration, a private link is created from the Microsoft environment to the ACR instance in your subscription. Use the ACR server name for your Azure Machine Learning workspace. |
-
+| **\*.notebooks.azure.net** | Needed by Jupyter Notebooks in Azure ML. |
 ## Python hosts
 
 The hosts in this section are used to install Python packages. They are required during development, training, and deployment. 
