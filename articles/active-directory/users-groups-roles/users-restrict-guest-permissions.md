@@ -22,8 +22,7 @@ ms.collection: M365-identity-device-management
 Azure Active Directory (Azure AD) now allows you to restrict external guest user access to only user and groups profile and membership information within their organization in Azure AD. There's a new guest user access setting in your Azure AD organization's external collaboration settings for even more restricted access.
 When guest access is restricted, guests can view only their own user profile. Access to other users is no longer allowed even if the guest is searching by User Principal Name or objectId. Restricted access also restricts guest users from seeing the membership of groups they're in. This setting does not restrict access to groups in other Microsoft services like Microsoft Teams. See Microsoft Teams Guest access to learn more.
 
-How to enable this feature
-To use the functionality provided by this feature, you simply configure the external guest access settings to ‘Restricted’ using one of the methods described below. There is no additional configuration needed for your tenant.
+![Table explaining the guest user access values](./media/users-restrict-guest-permissions/restricted-access-values.png)
 
 ## Permissions and licenses
 
@@ -37,6 +36,9 @@ With the feature, we’ve made changes to the existing UI for Guest users permis
 1. On the **Azure Active Directory** overview page for your organization, select **User settings**.
 1. Under **External users**, select **Manage external collaboration settings**.
 1. On the **External collaboration settings** page, select **Guest user access is restricted to properties and memberships of their own directory objects** option.
+
+    ![Azure AD external collaboration settings page](./media/users-restrict-guest-permissions/external-collaboration-settings.png)
+
 1. Select **Save**. The changes can take up to 15 minutes to take effect for guest users.
 
 ## Supported permission values
