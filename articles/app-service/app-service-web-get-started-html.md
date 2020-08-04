@@ -14,7 +14,7 @@ ms.custom: mvc, cli-validate, seodec18
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a basic HTML+CSS site to Azure App Service. You'll complete this quickstart in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
 
-![Home page of sample app](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+![Home page of sample app](media/quickstart-html/hello-world-in-browser-az.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -80,7 +80,7 @@ In a browser, go to the app URL: `http://<app_name>.azurewebsites.net`.
 
 The page is running as an Azure App Service web app.
 
-![Sample app home page](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
+![Sample app home page](media/quickstart-html/hello-world-in-browser-az.png)
 
 **Congratulations!** You've deployed your first HTML app to App Service.
 
@@ -88,7 +88,7 @@ The page is running as an Azure App Service web app.
 
 In the Cloud Shell, type `nano index.html` to open the nano text editor. In the `<h1>` heading tag, change "Azure App Service - Sample Static HTML Site" to "Azure App Service", as shown below.
 
-![Nano index.html](media/app-service-web-get-started-html/nano-index-html.png)
+![Nano index.html](media/quickstart-html/nano-index-html.png)
 
 Save your changes and exit nano. Use the command `^O` to save and `^X` to exit.
 
@@ -100,21 +100,21 @@ az webapp up --location westeurope --name <app_name> --html
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
-![Updated sample app home page](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
+![Updated sample app home page](media/quickstart-html/hello-azure-in-browser-az.png)
 
 ## Manage your new Azure app
 
 To manage the web app you created, in the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
 
-![Select App Services in the Azure portal](./media/app-service-web-get-started-html/portal0.png)
+![Select App Services in the Azure portal](./media/quickstart-html/portal0.png)
 
 On the **App Services** page, select the name of your Azure app.
 
-![Portal navigation to Azure app](./media/app-service-web-get-started-html/portal1.png)
+![Portal navigation to Azure app](./media/quickstart-html/portal1.png)
 
 You see your web app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete.
 
-![App Service blade in Azure portal](./media/app-service-web-get-started-html/portal2.png)
+![App Service blade in Azure portal](./media/quickstart-html/portal2.png)
 
 The left menu provides different pages for configuring your app.
 

@@ -22,7 +22,7 @@
   - name: Create Java app
     href: quickstart-java.md
   - name: Create static HTML site
-    href: app-service-web-get-started-html.md
+    href: quickstart-html.md
   - name: Run Windows container
     href: app-service-web-get-started-windows-container.md
 - name: Tutorials

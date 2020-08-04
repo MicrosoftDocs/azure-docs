@@ -7,7 +7,7 @@
 - name: Quickstart
   items:
   - name: Web Apps
-    href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html
+    href: https://docs.microsoft.com/azure/app-service/quickstart-html
   - name: Virtual machines
     items:
     - name: Linux

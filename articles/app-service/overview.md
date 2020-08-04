@@ -76,7 +76,7 @@ Create your first web app.
 > [Python (on Linux)](quickstart-python.md)
 
 > [!div class="nextstepaction"]
-> [HTML (on Windows or Linux)](app-service-web-get-started-html.md)
+> [HTML (on Windows or Linux)](quickstart-html.md)
 
 > [!div class="nextstepaction"]
 > [Custom container (Windows or Linux)](tutorial-custom-container.md)

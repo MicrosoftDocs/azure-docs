@@ -26,7 +26,7 @@ Learn how to deploy your first application to the cloud using App Service for We
 - [PHP](/azure/app-service/app-service-web-get-started-php)
 - [Java](/azure/app-service/quickstart-java)
 - [Python](/azure/app-service/quickstart-python)
-- [HTML](/azure/app-service/app-service-web-get-started-html)
+- [HTML](/azure/app-service/quickstart-html)
 
 ## Step-by-Step Tutorials
 
