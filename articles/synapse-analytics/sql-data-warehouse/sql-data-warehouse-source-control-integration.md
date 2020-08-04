@@ -27,16 +27,19 @@ This tutorial outlines how to integrate your SQL Server Data tools (SSDT) databa
 
    ![Create Project](./media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "Create Project")
 
-2. Open Visual Studio and connect to your Azure DevOps organization and project from step 1 by selecting **Manage Connection**.
+2. Open Visual Studio and connect to your Azure DevOps organization and project from step one by selecting **Manage Connection**.
 
    ![Manage Connections](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Manage Connections")
 
 3. Connect to your project by selecting **Manage Connections**, then **Connect to a project**.
  ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Connect")
+
+
+4. Find the project you created in step one, select **Connect**.
 ![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "Connect")
 
 
-3. Clone your Azure Repo repository from your project to your local machine.
+3. Clone your Azure DevOps repository from your project to your local machine.
 
    ![Clone repo](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "Clone repo")
 
