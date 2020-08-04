@@ -27,7 +27,7 @@ You can apply the ACL of a parent directory to all child directories and files t
 
 - The correct permissions to execute the recursive ACL process. The correct permission includes either of the following: 
 
-  - A provisioned Azure Active Directory (AD) [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, storage account.   
+  - A provisioned Azure Active Directory (AD) [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container or storage account. You can also assign the role in the scope of the parent resource group or subscription.   
 
   - Owning user of the target container or directory to which you plan to apply the recursive ACL process. This includes all child items in the target container or directory. 
 
@@ -41,7 +41,7 @@ Review these best practice guidelines before you begin.
 
 #### Handling runtime errors
 
-A runtime error can occur for many reasons (For example: an outage or a client connectivity issue). If you encounter a runtime error, restart the recursive ACL process. An ACL can be re-applied to an item without causing a negative impact. 
+A runtime error can occur for many reasons (For example: an outage or a client connectivity issue). If you encounter a runtime error, restart the recursive ACL process. ACLs can be re-applied to items without causing a negative impact. 
 
 #### Handling permission errors (403)
 
