@@ -184,7 +184,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        services.AddFeatureManagement();
+        services.AddSingleton(Configuration).AddFeatureManagement();
     }
 
     ---
