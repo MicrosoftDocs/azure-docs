@@ -1,46 +1,49 @@
 ---
 title: Store JSON settings in App Configuration
 titleSuffix: Azure App Configuration
-description: Learn how to store JSON configuration settings in App Configuration
+description: Learn how to store JSON settings in App Configuration
 services: azure-app-configuration
 author: avanigupta
 ms.assetid: 
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 08/03/2020
 ms.author: avgupta
 
 
-#Customer intent: I want to store JSON configuration settings in App Configuration store without losing the data type of each setting.
+#Customer intent: I want to store JSON settings in App Configuration store without losing the data type of each setting.
 ---
 
-# Leverage content type to store JSON settings in App Configuration
+# Leverage content-type to store JSON settings in App Configuration
 
-Your configuration data is stored in App Configuration as key-value pairs, where the values assigned to keys are unicode strings. However, configuration settings are not confined to having a string value. If you need to preserve the data type of your value, you can do so by leveraging the content type associated with each setting.
+Data is stored in App Configuration as key-values, where values are treated as the string type by default. However, you can specify a custom type by leveraging the content-type property associated with each key-value, so that you can preserve the original type of your data or have your application behave differently based on content-type.
 
-App Configuration supports storing key-values in JSON format by assigning a JSON content type and JSON value to your configuration setting.
-In this tutorial, you will learn how to add JSON settings to your App Configuration store by:
-- Creating settings manually.
-- Importing settings from a JSON file.
 
-## Valid JSON content type
+## Overview
 
-Media types, as defined [here](https://www.iana.org/assignments/media-types/media-types.xhtml), can be assigned to the content type associated with each setting.
+In App Configuration, you can use the JSON media type as the content-type of your key-values to avail benefits like:
+- **Simpler data management**: Managing key-values, like arrays, will become a lot easier in the Azure portal.
+- **Enhanced data export**: Primitive types, arrays, and JSON objects will be preserved during data export.
+- **Native support with App Configuration provider**: Key-values with JSON content-type will work fine when consumed by App Configuration provider libraries in your applications.
+
+### Valid JSON content-type
+
+Media types, as defined [here](https://www.iana.org/assignments/media-types/media-types.xhtml), can be assigned to the content-type associated with each key-value.
 A media type consists of a type and a subtype, which is further structured into a tree. A media type can optionally define a suffix and parameters:
 
 `type "/" [tree "."] subtype ["+" suffix] *[";" parameter]`
 
-If the type is `"application"` and the subtype (or suffix) is `"json"`, the media type will be considered a valid JSON content type.
-Some examples of valid JSON content types are:
+If the type is `"application"` and the subtype (or suffix) is `"json"`, the media type will be considered a valid JSON content-type.
+Some examples of valid JSON content-types are:
 
 - application/json
 - application/activity+json
 - application/vnd.foobar+json;charset=utf-8
 
-## Valid JSON values
+### Valid JSON values
 
-If the value of a configuration setting can be validated using any JSON validator (like [JSONLint](https://jsonlint.com/)), it is a valid JSON value.
+When a key-value has JSON content-type, its value must be in valid JSON format for clients to process it correctly. Otherwise, clients may fail or fall back and treat it as string format.
 Some examples of valid JSON values are:
 
 - "John Doe"
@@ -51,174 +54,142 @@ Some examples of valid JSON values are:
 - [1, 2, 3, 4]
 - {"ObjectSetting":{"Targeting":{"Default":true,"Level":"Information"}}}
 
+> [!NOTE]
+> For the rest of this article, any key-value in App Configuration that has a valid JSON content-type and a valid JSON value will be referred to as **JSON key-value**. 
+
+In this tutorial, you'll learn how to:
+> [!div class="checklist"]
+> * Create JSON key-values in App Configuration.
+> * Import JSON key-values from a JSON file.
+> * Export JSON key-values to a JSON file.
+> * Consume JSON key-values in your applications.
+
+
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/). You can optionally use the Azure Cloud Shell.
-- Latest version of Azure CLI (3.0.0 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are using Azure CLI, you must first sign in using `az login`. You can optionally use the Azure Cloud Shell.
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/).
+- Latest version of Azure CLI (2.10.0 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are using Azure CLI, you must first sign in using `az login`. You can optionally use the Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Create a resource group
-
-The resource group is a logical collection into which Azure resources are deployed and managed.
-
-Create a resource group with the [az group create](/cli/azure/group) command.
-
-Replace `<resource_group_name>` with a unique name for your resource group.
-
-```azurecli-interactive
-resourceGroupName="<resource_group_name>"
-az group create --name $resourceGroupName --location westus
-```
 
 ## Create an App Configuration store
 
-Replace `<appconfig_name>` with a unique name for your configuration store. The store name must be unique because it's used as a DNS name.
+[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+
+## Create JSON key-values in App Configuration
+
+JSON key-values can be created using Azure portal, Azure CLI or by importing from a JSON file. In this section, you will find instructions on creating the same JSON key-values using all three methods.
+
+The sample JSON key-values should look like this in App Configuration:
+
+![Config store containing JSON key-values](./media/create-json-settings.png)
+
+### Create JSON key-values using Azure portal
+
+Browse to your App Configuration store, and select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
+
+| Key | Value | Content Type |
+|---|---|---|
+| Settings:BackgroundColor | "Green" | application/json |
+| Settings:FontSize | 24 | application/json |
+| Settings:UseDefaultRouting | false | application/json |
+| Settings:BlockedUsers | null | application/json |
+| Settings:ReleaseDate | "2020-08-04T12:34:56.789Z" | application/json |
+| Settings:RolloutPercentage | [25,50,75,100] | application/json |
+| Settings:Logging | {"Test":{"Level":"Debug"},"Prod":{"Level":"Warning"}} | application/json |
+
+Leave **Label** empty and select **Apply**.
+
+### Create JSON key-values using Azure CLI
+
+The following commands will create JSON key-values in your App Configuration store. Replace `<appconfig_name>` with the name of your App Configuration store.
 
 ```azurecli-interactive
 appConfigName=<appconfig_name>
-az appconfig create \
-  --name $appConfigName \
-  --location westus \
-  --resource-group $resourceGroupName\
-  --sku Standard
-```
-
-## Preset default App Configuration store
-
-To connect to your store, you can specify the Azure App Configuration instance by providing either the store name (`--name <appconfig_name>`) or by using a connection string (`--connection-string <your-connection-string>`). In this tutorial, you will preset a default connection string because it's faster to connect to App Configuration using a connection string.
-
-```azurecli-interactive
-connectionString=$(az appconfig credential list -n $appConfigName --query [0].connectionString --output tsv)
-az configure --defaults appconfig_connection_string=$connectionString
-```
-
-## Create JSON settings in App Configuration
-
-The following commands will create some JSON settings in your App Configuration store.
-
-```azurecli-interactive
-az appconfig kv set --content-type application/dummysubtype+json --key StringValue --value "\"The quick brown fox.\"" -y
-az appconfig kv set --content-type application/dummysubtype+json --key BooleanValue  --value true -y
-az appconfig kv set --content-type application/dummysubtype+json --key NumberValue  --value 35.4 -y
-az appconfig kv set --content-type application/dummysubtype+json --key NullValue  --value null -y
-az appconfig kv set --content-type application/dummysubtype+json --key DateTimeValue  --value \"2020-07-07T12:34:56.789Z\" -y
-az appconfig kv set --content-type application/dummysubtype+json --key NumberListValue  --value [1,2,3.4] -y
-az appconfig kv set --content-type application/dummysubtype+json --key HybridListValue  --value [\"text\",false,null] -y
-az appconfig kv set --content-type application/dummysubtype+json --key ObjectValue  --value {\"Name\":\"Value\"} -y
+az appconfig kv set -n $appConfigName --content-type application/json --key Settings:BackgroundColor --value \"Green\"
+az appconfig kv set -n $appConfigName --content-type application/json --key Settings:FontSize --value 24
+az appconfig kv set -n $appConfigName --content-type application/json --key Settings:UseDefaultRouting --value false
+az appconfig kv set -n $appConfigName --content-type application/json --key Settings:BlockedUsers --value null
+az appconfig kv set -n $appConfigName --content-type application/json --key Settings:ReleaseDate --value \"2020-08-04T12:34:56.789Z\"
+az appconfig kv set -n $appConfigName --content-type application/json --key Settings:RolloutPercentage --value [25,50,75,100]
+az appconfig kv set -n $appConfigName --content-type application/json --key Settings:Logging --value {\"Test\":{\"Level\":\"Debug\"},\"Prod\":{\"Level\":\"Warning\"}}
 ```
 
 > [!IMPORTANT]
-> If you are using Azure CLI or Azure Cloud Shell to manually create JSON settings, the value provided must be an escaped JSON string.
+> If you are using Azure CLI or Azure Cloud Shell to create JSON key-values, the value provided must be an escaped JSON string.
 
-Your settings will look like this in App Configuration:
+### Import JSON key-values from a file
 
-![Config store containing JSON settings](./media/create-json-settings.png)
-
-
-## Import JSON settings from a file
-
-Create a JSON file called `Import.json` with the following settings and import the settings into App Configuration.
+Create a JSON file called `Import.json` with the following content and import as key-values into App Configuration:
 
 ```json
 {
   "Settings": {
-    "AppName": "Azure App Configuration Demo",
-    "UseDefaultRouting": false,
-    "RolloutPercentage": [
-      25,
-      50,
-      75,
-      100
-    ],
-    "Logging": {
-      "Test": {
-        "Level": "Debug"
-      },
-      "Prod": {
-        "Level": "Warning"
-      }
-    },
-    "Version": 1.1
+    "BackgroundColor": "Green",
+    "BlockedUsers": null,
+    "FontSize": 24,
+    "Logging": {"Test":{"Level":"Debug"},"Prod":{"Level":"Warning"}},
+    "ReleaseDate": "2020-08-04T12:34:56.789Z",
+    "RolloutPercentage": [25,50,75,100],
+    "UseDefaultRouting": false
   }
 }
 ```
 
 ```azurecli-interactive
-az appconfig kv import -s file --format json --path "~/Import.json" --content-type "application/json" --separator : -y
+az appconfig kv import -s file --format json --path "~/Import.json" --content-type "application/json" --separator : --depth 2
 ```
 
-Your settings will look like this in App Configuration:
+> [!Note]
+> The --depth argument is used for flattening hierarchical data from a file into key-value pairs. In this tutorial, depth is specified for demonstrating that you can also store JSON objects as values in App Configuration. If depth is not specified, JSON objects will be flattened to the deepest level by default.
 
-![Config store containing JSON settings](./media/import-json-settings.png)
 
+## Export JSON key-values to a file
 
-## Export JSON settings to a file
+One of the major benefits of using JSON key-values is the ability to preserve the original data type of your values while exporting. If a key-value in App Configuration doesn't have JSON content-type, its value will be treated as string. 
 
-Now your App Configuration store contains JSON settings that you manually created and settings that you imported from file. To verify that all values have preserved their original data type, export the settings to a JSON file.
+Consider these key-values without JSON content-type:
+| Key | Value | Content Type |
+|---|---|---|
+| Settings:FontSize | 24 | |
+| Settings:UseDefaultRouting | false | |
 
-```azurecli-interactive
-az appconfig kv export -d file --format json --path "~/Export.json" --separator : -y
-```
-
-Your JSON file should look like this:
-
+When you export these key-values to a JSON file, the values will be exported as strings:
 ```json
 {
-  "BooleanValue": true,
-  "DateTimeValue": "2020-07-07T12:34:56.789Z",
-  "HybridListValue": [
-    "text",
-    false,
-    null
-  ],
-  "NullValue": null,
-  "NumberListValue": [
-    1,
-    2,
-    3.4
-  ],
-  "NumberValue": 35.4,
-  "ObjectValue": {
-    "Name": "Value"
-  },
   "Settings": {
-    "AppName": "Azure App Configuration Demo",
-    "Logging": {
-      "Prod": {
-        "Level": "Warning"
-      },
-      "Test": {
-        "Level": "Debug"
-      }
-    },
-    "RolloutPercentage": [
-      25,
-      50,
-      75,
-      100
-    ],
-    "UseDefaultRouting": false,
-    "Version": 1.1
-  },
-  "StringValue": "The quick brown fox."
+    "FontSize": "24",
+    "UseDefaultRouting": "false"
+  }
 }
 ```
 
+However, when you export JSON key-values to a file, all values will preserve their original data type. To verify this, export key-values from your App Configuration to a JSON file. You'll see that the exported file has the same contents as the `Import.json` file you previously imported.
+
+```azurecli-interactive
+az appconfig kv export -d file --format json --path "~/Export.json" --separator :
+```
+
 > [!NOTE]
-> If your App Configuration store has JSON and non-JSON settings, the non-JSON settings will also be exported as strings. If you want to export only the JSON settings, assign a unique label or prefix to your JSON settings and use label or prefix filtering during export.
+> If your App Configuration store has some key-values without JSON content-type, they will also be exported to the same file in string format. If you want to export only the JSON key-values, assign a unique label or prefix to your JSON key-values and use label or prefix filtering during export.
+
+
+## Consuming JSON key-values in applications
+
+The easiest way to consume JSON key-values in your application is through App Configuration provider libraries. With the provider libraries, you don't need to implement special handling of JSON key-values in your application. They're always deserialized for your application in the same way that other JSON configuration provider libraries do. 
+
+If you are using the SDK or REST API to read key-values from App Configuration, based on the content-type, your application is responsible for deserializing the value of a JSON key-value using any standard JSON deserializer.
 
 
 ## Clean up resources
 
-If you don't want to continue working with this App Configuration, use the following command to delete the resource group created in this article.
-
-```azurecli-interactive
-az group delete --name $resourceGroupName
-```
+[!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## Next steps
 
-Now that you know how to add JSON settings in your App Configuration store, create an application for consuming these settings:
+Now that you know how to work with JSON key-values in your App Configuration store, create an application for consuming these key-values:
 
-- [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md)
+* [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md)
+* [.NET Core quickstart](./quickstart-dotnet-core-app.md)

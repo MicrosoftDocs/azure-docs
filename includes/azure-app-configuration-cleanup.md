@@ -11,12 +11,10 @@ ms.author: lcozzens
 ms.custom: include file
 ---
 
-If you plan to continue to the next tutorial, keep the resources you created in this quickstart for that you can reuse them.
-
-If you're finished with the quickstart sample application, delete the Azure resources you created in this quickstart to avoid charges.
+If you do not want to continue using the resources created in this article, delete the resource group you created here to avoid charges.
 
 > [!IMPORTANT]
-> Deleting a resource group is irreversible. The resource group and all the resources in it are permanently deleted. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside a resource group that contains resources you want to keep, delete each resource individually from its respective pane instead of deleting the resource group.
+> Deleting a resource group is irreversible. The resource group and all the resources in it are permanently deleted. Make sure that you don't accidentally delete the wrong resource group or resources. If you created the resources for this article inside a resource group that contains other resources you want to keep, delete each resource individually from its respective pane instead of deleting the resource group.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and select **Resource groups**.
 1. In the **Filter by name** box, enter the name of your resource group. 
