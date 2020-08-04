@@ -70,6 +70,6 @@ You did not create any new resources in this quickstart, so there is nothing to 
 
 ## Next steps
 
-Advance to the next article to learn how to create...
+Advance to the next article to learn how to use Azure AD as the identity provider for an app.
 > [!div class="nextstepaction"]
 > [Add an app](add-application-portal.md)
