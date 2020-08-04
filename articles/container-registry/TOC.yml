@@ -148,6 +148,12 @@
     - name: Troubleshoot
       expanded: false
       items:
+        - name: Troubleshoot login
+          href: container-registry-troubleshoot-login.md
+        - name: Troubleshoot access to registry
+          href: container-registry-troubleshoot-access.md
+        - name: Troubleshoot registry performance
+          href: container-registry-troubleshoot-performance.md
         - name: Detect common issues
           href: container-registry-check-health.md
         - name: FAQ
