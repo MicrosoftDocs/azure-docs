@@ -287,7 +287,8 @@ Go to the Integration Runtime event log to check the error.
 
 ![IR event log](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
 
-If the error shows as above *UnthorizedAccessException*, do below two things:
+If the error shows as above *UnthorizedAccessException*, follow below instructions:
+
 
 1. Check *DIAHostService* logon service account in the Windows service panel.
 
@@ -323,9 +324,9 @@ If the error shows as above *UnthorizedAccessException*, do below two things:
             - You can use local/domain user for the IR service logon account.            
         1. Register the Integration Runtime.
 
-If the error shows as: *Service 'Integration Runtime Service' (DIAHostService) failed to start.* Verify that you have sufficient privileges to start system services.
+If the error shows as: *Service 'Integration Runtime Service' (DIAHostService) failed to start. Verify that you have sufficient privileges to start system services*, follow below instructions:
 
-1. Check DIAHostService logon service account in the Windows service panel.
+1. Check *DIAHostService* logon service account in the Windows service panel.
    
     ![Logon service account](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
