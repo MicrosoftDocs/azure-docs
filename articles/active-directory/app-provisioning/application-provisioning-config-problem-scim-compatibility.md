@@ -44,6 +44,8 @@ In the table below, any item marked as fixed means that the proper behavior can 
 ## Flags to alter the SCIM behavior
 For deviations from the default behavior that our default SCIM client behavior, use the flags below in the tenant URL of your application. 
 
+:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM flags to later behavior.":::
+
 * Update PATCH behavior to ensure compliance
   * **SCIM RFC references:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2
