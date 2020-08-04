@@ -53,7 +53,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## View data collected
 
-After the deployment and configuration is completed, select **Overview** to navigate away from the **Insights** page. Select **Insights**, and then select the **Performance** tab. On the Performance tab it shows a select group of performance counters collected from the guest operating system of your VM. Scroll down to view more counters, and move the mouse over a graph to view average and percentiles taken starting from the time when the Log Analytics VM extension was installed on the machine.
+After the deployment and configuration is completed, select **Insights**, and then select the **Performance** tab. On the Performance tab it shows a select group of performance counters collected from the guest operating system of your VM. Scroll down to view more counters, and move the mouse over a graph to view average and percentiles taken starting from the time when the Log Analytics VM extension was installed on the machine.
 
 :::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Azure Monitor for VMs Performance charts for selected machine" border="false":::
 
