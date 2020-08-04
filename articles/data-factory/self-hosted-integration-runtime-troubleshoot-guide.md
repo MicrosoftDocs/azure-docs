@@ -5,7 +5,7 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/03/2020
+ms.date: 08/04/2020
 ms.author: abnarain
 ---
 
@@ -288,6 +288,7 @@ Go to the Integration Runtime event log to check the error.
 ![IR event log](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
 
 If the error shows as above *UnthorizedAccessException*, do below two things:
+
 1. Check *DIAHostService* logon service account in the Windows service panel.
 
     ![Logon service account](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
@@ -306,7 +307,7 @@ If the error shows as above *UnthorizedAccessException*, do below two things:
             - Start a command line using elevated privilege. Replace *\<user>* and *\<password>* with your own username and password and then run below command:
                        
                 ```
-                dm gcmd.exe -SwitchServiceAccount "<user>" "<password>"
+                dmgcmd.exe -SwitchServiceAccount "<user>" "<password>"
                 ```
             - If you want to change to LocalSystem account, please make sure to use a correct format for this account. Below is an example of the correct format:
 
@@ -321,7 +322,17 @@ If the error shows as above *UnthorizedAccessException*, do below two things:
             - For alternative, since Local System has higher privilege than administrator, you can also directly change it in "Services".
             - You can use local/domain user for the IR service logon account.            
         1. Register the Integration Runtime.
- 
+
+If the error shows as: *Service 'Integration Runtime Service' (DIAHostService) failed to start.* Verify that you have sufficient privileges to start system services.
+
+1. Check DIAHostService logon service account in the Windows service panel.
+   
+    ![Logon service account](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
+
+2. Check whether the logon service account has the **Log on as a service** permission to start Windows Service:
+
+    ![Logon as service](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
+
 #### More Information
 
 If neither of above two patterns in resolution apply in your case, please try to collect below Windows Event logs: 
