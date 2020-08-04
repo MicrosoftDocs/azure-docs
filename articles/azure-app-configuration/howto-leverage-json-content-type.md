@@ -27,7 +27,7 @@ In App Configuration, you can use the JSON media type as the content-type of you
 - **Enhanced data export**: Primitive types, arrays, and JSON objects will be preserved during data export.
 - **Native support with App Configuration provider**: Key-values with JSON content-type will work fine when consumed by App Configuration provider libraries in your applications.
 
-### Valid JSON content-type
+#### Valid JSON content-type
 
 Media types, as defined [here](https://www.iana.org/assignments/media-types/media-types.xhtml), can be assigned to the content-type associated with each key-value.
 A media type consists of a type and a subtype, which is further structured into a tree. A media type can optionally define a suffix and parameters:
@@ -41,7 +41,7 @@ Some examples of valid JSON content-types are:
 - application/activity+json
 - application/vnd.foobar+json;charset=utf-8
 
-### Valid JSON values
+#### Valid JSON values
 
 When a key-value has JSON content-type, its value must be in valid JSON format for clients to process it correctly. Otherwise, clients may fail or fall back and treat it as string format.
 Some examples of valid JSON values are:
@@ -151,6 +151,7 @@ az appconfig kv import -s file --format json --path "~/Import.json" --content-ty
 One of the major benefits of using JSON key-values is the ability to preserve the original data type of your values while exporting. If a key-value in App Configuration doesn't have JSON content-type, its value will be treated as string. 
 
 Consider these key-values without JSON content-type:
+
 | Key | Value | Content Type |
 |---|---|---|
 | Settings:FontSize | 24 | |
