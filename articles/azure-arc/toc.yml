@@ -13,7 +13,7 @@
 - name: Tutorials
   items:
     - name: Monitor machine
-      href: tutorial-enable-vm-insights.md
+      href: ./servers/learn/tutorial-enable-vm-insights.md
 - name: Samples
   items:
   - name: Azure Policy built-ins 
