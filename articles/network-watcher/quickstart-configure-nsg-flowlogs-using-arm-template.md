@@ -23,7 +23,7 @@ ms.custom: subject-armqs
 
 # Quickstart: Configure NSG Flow Logs from an Azure Resource Manager Template
 
-In this quickstart, you enable [NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) programmatically using an [Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md) template (ARM template) and Azure PowerShell. 
+In this quickstart, you enable [NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) programmatically using an [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) template (ARM template) and Azure PowerShell. 
 
 We start by providing an overview of the properties of the NSG Flow Log object, followed by a few sample template. Then we the deploy template using a local PowerShell instance.
 
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## NSG Flow Logs object
 
 The NSG Flow Logs object with all parameters is shown below.
-For a complete overview of the properties, you may read the [NSG Flow Logs template reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.network/networkwatchers/flowlogs).
+For a complete overview of the properties, you may read the [NSG Flow Logs template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkwatchers/flowlogs).
 
 ```json
 {
@@ -134,8 +134,8 @@ There are a couple of ways to check if your deployment has Succeeded. Your Power
 ## Deleting your resource
 Azure enables resource deletion through the "Complete" deployment mode. To delete a Flow Logs resource, specify a deployment in Complete mode without including the resource you wish to delete. Read more about the [Complete deployment mode](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode)
 
-Alternatively, you can disable a NSG flow log from azure portal as per below steps:
-1. Login to Azure Portal
+Alternatively, you can disable a NSG flow log from Azure portal as per below steps:
+1. Login to Azure portal
 2. In the top, left corner of portal, select **All services**. In the **Filter** box, type *Network Watcher*. When **Network Watcher** appears in the search results, select it.
 3. Under **LOGS**, select **NSG flow logs**
 4. From the list of NSGs, select the NSG for which you want to disable flow logs
