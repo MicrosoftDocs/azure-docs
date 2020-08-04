@@ -138,7 +138,7 @@ The following example shows how to use the fairness package to upload model fair
         return registered_model.id
 
     # Call the register_model function 
-    lr_reg_id = register_model("fairness_linear_regression", unmitigated_predictor)
+    lr_reg_id = register_model("fairness_linear_regression", lr_predictor)
     ```
 
 3. Precompute fairness metrics.
