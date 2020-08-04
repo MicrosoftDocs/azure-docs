@@ -5,8 +5,8 @@ titleSuffix: Azure Digital Twins
 description: See how to view Azure Digital Twins metrics in Azure Monitor.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 7/24/2020
-ms.topic: how-to
+ms.date: 8/4/2020
+ms.topic: troubleshooting
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# View and understand Azure Digital Twins metrics
+# Troubleshooting Azure Digital Twins: Metrics
 
-These metrics give you information about the state of Azure Digital Twins resources in your Azure subscription. Azure Digital Twins metrics help you assess the overall health of Azure Digital Twins service and the resources connected to it. These user-facing statistics help you see what is going on with your Azure Digital Twins and help perform root-cause analysis on issues without needing to contact Azure support.
+The metrics described in this article give you information about the state of Azure Digital Twins resources in your Azure subscription. Azure Digital Twins metrics help you assess the overall health of Azure Digital Twins service and the resources connected to it. These user-facing statistics help you see what is going on with your Azure Digital Twins and help perform root-cause analysis on issues without needing to contact Azure support.
 
 Metrics are enabled by default. You can view Azure Digital Twins metrics from the [Azure portal](https://portal.azure.com).
 
@@ -96,11 +96,3 @@ Operation (for Routing) | Event Grid </br>Event Hub </br>Service Bus |
 ## Next steps
 
 To learn more about managing recorded metrics for Azure Digital Twins, see [*Troubleshooting: Set up diagnostics*](troubleshoot-diagnostics.md).
-
-Or, now that you’ve seen an overview of Azure Digital Twins metrics, follow these links to learn more about managing Azure Digital Twins:
-
-* [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md)
-* [*How-to: Manage custom models*](how-to-manage-model.md)
-* [*How-to: Manage digital twins*](how-to-manage-twin.md)
-* [*How-to: Manage the twin graph with relationships*](how-to-manage-graph.md)
-* [*How-to: Manage endpoints and routes*](how-to-manage-routes.md)

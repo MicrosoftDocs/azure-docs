@@ -10,7 +10,7 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ---
 
-# Troubleshooting Azure Digital Twins with diagnostics logging
+# Troubleshooting Azure Digital Twins: Diagnostics logging
 
 Azure Digital Twins collects [metrics](how-to-view-metrics.md) for your service instance that give information about the state of your resources. You can use these metrics to assess the overall health of Azure Digital Twins service and the resources connected to it. These user-facing statistics help you see what is going on with your Azure Digital Twins and help perform root-cause analysis on issues without needing to contact Azure support.
 
@@ -48,4 +48,4 @@ New settings take effect in about 10 minutes. After that, logs appear in the con
 ## Next steps
 
 * For more information about configuring diagnostics, see [*Collect and consume log data from your Azure resources*](../azure-monitor/platform/platform-logs-overview.md).
-* For information about the Azure Digital Twins metrics, see [*How-to: View metrics with Azure Monitor*](how-to-view-metrics.md).
+* For information about the Azure Digital Twins metrics, see [*Troubleshooting: View metrics with Azure Monitor*](troubleshoot-metrics.md).
