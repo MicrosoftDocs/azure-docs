@@ -8979,6 +8979,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/recover-module-not-found.md",
+      "redirect_url": "/azure/azure-functions/recover-python-functions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-functions/scripts/functions-cli-configure-ssl-certificate.md",
       "redirect_url": "/azure/app-service/scripts/cli-configure-ssl-certificate?toc=%2fcli%2fazure%2ftoc.json",
       "redirect_document_id": false
