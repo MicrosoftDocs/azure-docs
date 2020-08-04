@@ -72,6 +72,13 @@ To expose a new scope through the UI:
 
 1. Set the **State** and select **Add scope** when you're done.
 
+1. (Optional) To suppress prompting for consent by users of your app to the scopes you've defined, you can "pre-authorize" the client application to access your web API. You should pre-authorize *only* those client applications that you trust since your users won't have the opportunity to decline consent.
+    1. Under **Authorized client applications**, select **Add a client application**
+    1. Enter the **Application (client) ID** of the client application you want to pre-authorize. For example, that of a web application you've previously registered.
+    1. Under **Authorized scopes**, select the scopes for which you want to suppress consent prompting, then select **Add application**.
+
+    The client app is now a pre-authorized client app (PCA), and users won't be prompted for consent when signing in to it.
+
 1. Follow the steps to [verify that the web API is exposed to other applications](#verify-the-web-api-is-exposed-to-other-applications).
 
 ## Expose a new scope or role through the application manifest
@@ -81,7 +88,7 @@ To expose a new scope through the UI:
 To expose a new scope through the application manifest:
 
 1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to **Edit** the manifest within the portal. Optionally, you can select **Download** and edit the manifest locally, and then use **Upload** to reapply it to your application.
-    
+
     The following example shows how to expose a new scope called `Employees.Read.All` in the resource/API by adding the following JSON element to the `oauth2Permissions` collection.
 
       ```json
@@ -109,12 +116,11 @@ To expose a new scope through the application manifest:
 
 1. Go back to your Azure AD tenant, select **App registrations**, find and select the client application you want to configure.
 1. Repeat the steps outlined in [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md).
-1. When you get to the step to [select an API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
-), select your resource. You should see the new scope, available for client permission requests.
+1. When you get to the step to [select an API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis), select your resource. You should see the new scope, available for client permission requests.
 
 ## More on the application manifest
 
-The application manifest serves as a mechanism for updating the application entity, which defines all attributes of an Azure AD application's identity configuration. For more information on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). The article contains complete reference information on the Application entity members used to specify permissions for your API, including:  
+The application manifest serves as a mechanism for updating the application entity, which defines all attributes of an Azure AD application's identity configuration. For more information on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). The article contains complete reference information on the Application entity members used to specify permissions for your API, including:
 
 * The appRoles member, which is a collection of [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entities, used to define [application permissions](developer-glossary.md#permissions) for a web API.
 * The oauth2Permissions member, which is a collection of [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entities, used to define [delegated permissions](developer-glossary.md#permissions) for a web API.
