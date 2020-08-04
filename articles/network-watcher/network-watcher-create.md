@@ -96,6 +96,10 @@ $requestBody = @"
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
 
+## Create a Network Watcher using Azure Quickstart Template
+
+To create an instance of Network Watcher refer this [Quickstart Template](https://azure.microsoft.com/resources/templates/101-networkwatcher-create/)
+
 ## Delete a Network Watcher in the portal
 
 Navigate to **All Services** > **Networking** > **Network Watcher**.
