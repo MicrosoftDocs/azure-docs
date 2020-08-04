@@ -1,6 +1,6 @@
 ---
 title: Custom caching in Azure API Management
-description: Learn how to cache items by key in Azure API Management
+description: Learn how to cache items by key in Azure API Management. You can modify the key by using request headers.
 services: api-management
 documentationcenter: ''
 author: vladvino
