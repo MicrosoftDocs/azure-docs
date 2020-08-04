@@ -11,7 +11,7 @@ ms.reviewer: ravastra
 
 In this quickstart, you deploy a new blockchain member and consortium in Azure Blockchain Service using Azure PowerShell.
 
-## Requirements
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
 before you begin.
@@ -63,15 +63,6 @@ $resourceGroupName = 'myResourceGroup'
 
 # Azure region
 $location = 'eastus'
-
-# Blockchain member name
-$Name = 'myblockchainmember'
-
-# Consortium name
-$Consortium = 'myconsortium'
-
-# SKU
-$Sku = 'S0'
 ```
 
 ## Create a resource group
@@ -105,14 +96,14 @@ $passwd = Read-Host -Prompt 'Enter the members default transaction node password
 $csPasswd = Read-Host -Prompt 'Enter  the consortium account password' -AsSecureString
 
 $memberParams = @{
-  Name = $Name
+  Name = 'myblockchainmember'
   ResourceGroupName = $resourceGroupName
-  Consortium = $Consortium
+  Consortium = 'myconsortium'
   ConsortiumManagementAccountPassword = $csPasswd
   Location = $location
   Password = $passwd
   Protocol = 'Quorum'
-  Sku = $Sku
+  Sku = 'S0'
 }
 New-AzBlockchainMember @memberParams
 ```
