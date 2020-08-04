@@ -15,7 +15,7 @@ ms.date: 06/02/2020
 
 ASP.NET apps must be deployed to Azure App Service as compiled binaries. The Visual Studio publishing tool builds the solution and then deploys the compiled binaries directly, whereas the App Service deployment engine deploys the code repository first and then compiles the binaries.
 
-This guide provides key concepts and instructions for ASP.NET developers. If you've never used Azure App Service, follow the [ASP.NET quickstart](app-service-web-get-started-dotnet-framework.md) and [ASP.NET with SQL Database tutorial](app-service-web-tutorial-dotnet-sqldatabase.md) first.
+This guide provides key concepts and instructions for ASP.NET developers. If you've never used Azure App Service, follow the [ASP.NET quickstart](quickstart-dotnet-framework.md) and [ASP.NET with SQL Database tutorial](app-service-web-tutorial-dotnet-sqldatabase.md) first.
 
 ## Show supported .NET Framework runtime versions
 

@@ -55,10 +55,10 @@ App Service on Linux supports a number of language specific built-in images. Jus
 Create your first web app.
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core (on Windows or Linux)](app-service-web-get-started-dotnet.md)
+> [ASP.NET Core (on Windows or Linux)](quickstart-dotnetcore.md)
 
 > [!div class="nextstepaction"]
-> [ASP.NET (on Windows)](app-service-web-get-started-dotnet-framework.md)
+> [ASP.NET (on Windows)](quickstart-dotnet-framework.md)
 
 > [!div class="nextstepaction"]
 > [PHP (on Windows or Linux)](app-service-web-get-started-php.md)

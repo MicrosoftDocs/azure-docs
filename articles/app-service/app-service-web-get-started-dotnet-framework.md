@@ -34,17 +34,17 @@ Create an ASP.NET web app by following these steps:
 
 3. In **Configure your new project**, name the application _myFirstAzureWebApp_, and then select **Create**.
 
-   ![Configure your web app project](./media/app-service-web-get-started-dotnet-framework/configure-web-app-project-framework.png)
+   ![Configure your web app project](./media/quickstart-dotnet-framework/configure-web-app-project-framework.png)
 
 4. You can deploy any type of ASP.NET web app to Azure. For this quickstart, choose the **MVC** template.
 
 5. Make sure authentication is set to **No Authentication**. Select **Create**.
 
-   ![Create ASP.NET Web Application](./media/app-service-web-get-started-dotnet-framework/select-mvc-template-vs2019.png)
+   ![Create ASP.NET Web Application](./media/quickstart-dotnet-framework/select-mvc-template-vs2019.png)
 
 6. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
 
-   ![Run app locally](./media/app-service-web-get-started-dotnet-framework/local-web-app.png)
+   ![Run app locally](./media/quickstart-dotnet-framework/local-web-app.png)
 
 ## Publish your web app <a name="launch-the-publish-wizard"></a>
 
@@ -52,7 +52,7 @@ Create an ASP.NET web app by following these steps:
 
 1. Choose **App Service** and select **Create profile**.
 
-   ![Publish from project overview page](./media/app-service-web-get-started-dotnet-framework/publish-app-framework-vs2019.png)
+   ![Publish from project overview page](./media/quickstart-dotnet-framework/publish-app-framework-vs2019.png)
 
 1. In **App Service Create new**, your options depend on whether you're signed in to Azure already and whether you have a Visual Studio account linked to an Azure account. Select either **Add an account** or **Sign in** to sign in to your Azure subscription. If you're already signed in, select the account you want.
 
@@ -61,7 +61,7 @@ Create an ASP.NET web app by following these steps:
    >
    >
 
-   ![Sign in to Azure](./media/app-service-web-get-started-dotnet-framework/sign-in-azure-framework-vs2019.png)
+   ![Sign in to Azure](./media/quickstart-dotnet-framework/sign-in-azure-framework-vs2019.png)
 
    [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
@@ -81,19 +81,19 @@ Create an ASP.NET web app by following these steps:
    | Location | West Europe | The datacenter where the web app is hosted. |
    | Size | Free | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determines hosting features. |
 
-   ![Create App Service plan](./media/app-service-web-get-started-dotnet-framework/app-service-plan-framework-vs2019.png)
+   ![Create App Service plan](./media/quickstart-dotnet-framework/app-service-plan-framework-vs2019.png)
 
 1. In **Name**, enter a unique app name that includes only the valid characters are `a-z`, `A-Z`, `0-9`, and `-`. You can accept the automatically generated unique name. The URL of the web app is `http://<app-name>.azurewebsites.net`, where `<app-name>` is your app name.
 
 2. Select **Create** to start creating the Azure resources.
 
-   ![Configure app name](./media/app-service-web-get-started-dotnet-framework/web-app-name-framework-vs2019.png)
+   ![Configure app name](./media/quickstart-dotnet-framework/web-app-name-framework-vs2019.png)
 
     Once the wizard completes, the Azure resources are created for you and you are ready to publish.
 
 3. In the **Publish** page, click **Publish**. Visual Studio builds, packages, and publishes the app to Azure, and then launches the app in the default browser.
 
-    ![Published ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
+    ![Published ASP.NET web app in Azure](./media/quickstart-dotnet-framework/published-azure-web-app.png)
 
 The app name specified in the **App Service Create new** page is used as the URL prefix in the format `http://<app-name>.azurewebsites.net`.
 
@@ -116,21 +116,21 @@ The app name specified in the **App Service Create new** page is used as the URL
 
     When publishing completes, Visual Studio launches a browser to the URL of the web app.
 
-    ![Updated ASP.NET web app in Azure](./media/app-service-web-get-started-dotnet-framework/updated-azure-web-app.png)
+    ![Updated ASP.NET web app in Azure](./media/quickstart-dotnet-framework/updated-azure-web-app.png)
 
 ## Manage the Azure app
 
 1. To manage the web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
 
-   ![Select App services](./media/app-service-web-get-started-dotnet-framework/app-services.png)
+   ![Select App services](./media/quickstart-dotnet-framework/app-services.png)
 
 2. On the **App Services** page, select the name of your web app.
 
-   ![Portal navigation to Azure app](./media/app-service-web-get-started-dotnet-framework/access-portal-framework-vs2019.png)
+   ![Portal navigation to Azure app](./media/quickstart-dotnet-framework/access-portal-framework-vs2019.png)
 
    You see your web app's Overview page. Here, you can do basic management like browse, stop, start, restart, and delete.
 
-   ![App Service overview in Azure portal](./media/app-service-web-get-started-dotnet-framework/web-app-general-framework-vs2019.png)
+   ![App Service overview in Azure portal](./media/quickstart-dotnet-framework/web-app-general-framework-vs2019.png)
 
    The left menu provides different pages for configuring your app.
 

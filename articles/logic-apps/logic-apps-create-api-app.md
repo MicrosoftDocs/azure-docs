@@ -52,7 +52,7 @@ easy API hosting.
 > APIs -- just deploy your code to an API app. For example, learn how to 
 > build API apps created with these languages: 
 > 
-> * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md). 
+> * [ASP.NET](../app-service/quickstart-dotnetcore.md). 
 > * [Java](../app-service/app-service-web-get-started-java.md)
 > * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)

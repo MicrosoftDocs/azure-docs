@@ -38,15 +38,15 @@ Create an ASP.NET Core web app in Visual Studio by following these steps:
 
 1. In **Configure your new project**, name your web application project *myFirstAzureWebApp*, and select **Create**.
 
-   ![Configure your web app project](./media/app-service-web-get-started-dotnet/configure-web-app-project.png)
+   ![Configure your web app project](./media/quickstart-dotnetcore/configure-web-app-project.png)
 
 1. You can deploy any type of ASP.NET Core web app to Azure, but for this quickstart, choose the **Web Application** template. Make sure **Authentication** is set to **No Authentication**, and that no other option is selected. Then, select **Create**.
 
-   ![Create a new ASP.NET Core web app](./media/app-service-web-get-started-dotnet/create-aspnet-core-web-app.png) 
+   ![Create a new ASP.NET Core web app](./media/quickstart-dotnetcore/create-aspnet-core-web-app.png) 
    
 1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run your web app locally.
 
-   ![Web app running locally](./media/app-service-web-get-started-dotnet/web-app-running-locally.png)
+   ![Web app running locally](./media/quickstart-dotnetcore/web-app-running-locally.png)
 
 ## Publish your web app
 
@@ -63,7 +63,7 @@ Follow these steps to create your App Service and publish your web app:
 
 1. In the **Pick a publish target** dialog box, choose **App Service**, select **Create New**, and then select **Create Profile**.
 
-   ![Pick a publish target](./media/app-service-web-get-started-dotnet/pick-publish-target-vs2019.png)
+   ![Pick a publish target](./media/quickstart-dotnetcore/pick-publish-target-vs2019.png)
 
 1. In the **App Service: Create new** dialog, provide a globally unique **Name** for your app by either accepting the default name, or entering a new name. Valid characters are: `a-z`, `A-Z`, `0-9`, and `-`. This **Name** is used as the URL prefix for your web app in the format `http://<app_name>.azurewebsites.net`.
 
@@ -81,21 +81,21 @@ Follow these steps to create your App Service and publish your web app:
    | **Location**      | *West Europe* | The datacenter where the web app is hosted. |
    | **Size**          | *Free* | [Pricing tier](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determines hosting features. |
    
-   ![Create new Hosting Plan](./media/app-service-web-get-started-dotnet/create-new-hosting-plan-vs2019.png)
+   ![Create new Hosting Plan](./media/quickstart-dotnetcore/create-new-hosting-plan-vs2019.png)
 
 1. Leave **Application Insights** set to *None*.
 
 1. In the **App Service: Create new** dialog box, select **Create** to start creating the Azure resources.
 
-   ![Create new app service](./media/app-service-web-get-started-dotnet/create-new-app-service-vs2019.png)
+   ![Create new app service](./media/quickstart-dotnetcore/create-new-app-service-vs2019.png)
 
 1. Once the wizard completes, select **Publish**.
 
-   ![Publish web app to Azure](./media/app-service-web-get-started-dotnet/publish-web-app-vs2019.png)
+   ![Publish web app to Azure](./media/quickstart-dotnetcore/publish-web-app-vs2019.png)
 
    Visual Studio publishes your ASP.NET Core web app to Azure, and launches the app in your default browser. 
 
-   ![Published ASP.NET web app running in Azure](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
+   ![Published ASP.NET web app running in Azure](./media/quickstart-dotnetcore/web-app-running-live.png)
 
 **Congratulations!** Your ASP.NET Core web app is running live in Azure App Service.
 
@@ -118,25 +118,25 @@ Follow these steps to update and redeploy your web app:
 
 1. In the **Publish** summary page, select **Publish**.
 
-   ![Publish update to web app](./media/app-service-web-get-started-dotnet/publish-update-to-web-app-vs2019.png)
+   ![Publish update to web app](./media/quickstart-dotnetcore/publish-update-to-web-app-vs2019.png)
 
 When publishing completes, Visual Studio launches a browser to the URL of the web app.
 
-![Updated ASP.NET web app running in Azure](./media/app-service-web-get-started-dotnet/updated-web-app-running-live.png)
+![Updated ASP.NET web app running in Azure](./media/quickstart-dotnetcore/updated-web-app-running-live.png)
 
 ## Manage the Azure app
 
 To manage your web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
 
-![Select App Services](./media/app-service-web-get-started-dotnet/app-services.png)
+![Select App Services](./media/quickstart-dotnetcore/app-services.png)
 
 On the **App Services** page, select the name of your web app.
 
-![Portal navigation to Azure app](./media/app-service-web-get-started-dotnet/select-app-service.png)
+![Portal navigation to Azure app](./media/quickstart-dotnetcore/select-app-service.png)
 
 The **Overview** page for your web app, contains options for basic management like browse, stop, start, restart, and delete. The left menu provides further pages for configuring your app.
 
-![App Service in Azure portal](./media/app-service-web-get-started-dotnet/web-app-overview-page.png)
+![App Service in Azure portal](./media/quickstart-dotnetcore/web-app-overview-page.png)
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

@@ -239,7 +239,7 @@ In this section, you build a simple ASP.NET application that displays data retri
     ![Specify authentication][18]
 
 1. Back in **Create a new ASP.NET Web Application**, select **Create** to create the MVC app.
-1. Configure Azure resources for a new web app. Follow the steps in [Publish your web app](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard). Then, return to this tutorial and continue to the next step.
+1. Configure Azure resources for a new web app. Follow the steps in [Publish your web app](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard). Then, return to this tutorial and continue to the next step.
 1. In **Solution Explorer**, right-click **Models** and then select **Add** > **Class**.
 1. Name the class *Product.cs*, then select **Add**.
 

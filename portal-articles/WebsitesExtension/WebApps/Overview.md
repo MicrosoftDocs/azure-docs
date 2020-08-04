@@ -21,7 +21,7 @@ Azure App Service enables you to build and host web applications in the programm
 
 Learn how to deploy your first application to the cloud using App Service for Web Apps:
 
-- [.NET](/azure/app-service/app-service-web-get-started-dotnet)
+- [.NET](/azure/app-service/quickstart-dotnetcore)
 - [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
 - [PHP](/azure/app-service/app-service-web-get-started-php)
 - [Java](/azure/app-service/app-service-web-get-started-java)

@@ -12,9 +12,9 @@
   expanded: true
   items:
   - name: Create .NET Core app
-    href: app-service-web-get-started-dotnet.md
+    href: quickstart-dotnetcore.md
   - name: Create .NET Framework app
-    href: app-service-web-get-started-dotnet-framework.md
+    href: quickstart-dotnet-framework.md
   - name: Create Node.js app
     href: app-service-web-get-started-nodejs.md
   - name: Create PHP app
