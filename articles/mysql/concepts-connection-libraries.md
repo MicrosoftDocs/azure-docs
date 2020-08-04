@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 8/3/2020
 ---
 
 # Connection libraries for Azure Database for MySQL
