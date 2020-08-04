@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Configure NSG Flowlogs using ARM Template
+  - name: Configure NSG Flow logs using ARM Template
     href: quickstart-configure-nsg-flowlogs-using-arm-template.md
   - name: Diagnose VM traffic filter problem - Portal
     href: diagnose-vm-network-traffic-filtering-problem.md
@@ -55,7 +55,7 @@
     href: network-watcher-create.md
   - name: Create Connection Monitor (Preview)
     items:
-    - name: Using Azure Portal
+    - name: Using Azure portal
       href: connection-monitor-preview-create-using-portal.md
     - name: Using ARM Client
       href: connection-monitor-preview-create-using-arm-client.md 
