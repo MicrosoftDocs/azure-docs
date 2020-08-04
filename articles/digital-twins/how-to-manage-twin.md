@@ -38,10 +38,10 @@ To create a digital twin, you need to provide:
 
 Optionally, you can provide initial values for all properties of the digital twin. 
 
-> [!TIP]
-> Only properties that have been set at least once are returned when you retrieve a twin with GetDigitalTwin.  
-
 The model and initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data.
+
+> [!TIP]
+> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API does not experience this delay, so use the API call (described [later in this article](#get-data-for-a-digital-twin)) over querying to see your newly-created twins if you need an instant response. 
 
 ### Initialize properties
 
@@ -91,6 +91,9 @@ object result = await client.GetDigitalTwin(id);
 ```
 
 This call returns twin data as a JSON string. 
+
+> [!TIP]
+> Only properties that have been set at least once are returned when you retrieve a twin with `GetDigitalTwin`.
 
 To retrieve multiple twins using a single API call, see the query API examples in [*How-to: Query the twin graph*](how-to-query-graph.md).
 
@@ -175,7 +178,12 @@ You can read more about the serialization helper classes in [*How-to: Use the Az
 
 To update properties a digital twin, you write the information you want to replace in [JSON Patch](http://jsonpatch.com/) format. In this way, you can replace multiple properties at once. You then pass the JSON Patch document into an `Update` method:
 
-`await client.UpdateDigitalTwin(id, patch);`.
+```csharp
+await client.UpdateDigitalTwin(id, patch);
+```
+
+> [!TIP]
+> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API does not experience this delay, so use the API call (described [earlier in this article](#get-data-for-a-digital-twin)) over querying to see your newly-updated twins if you need an instant response. 
 
 Here is an example of JSON Patch code. This document replaces the *mass* and *radius* property values of the digital twin it is applied to.
 
