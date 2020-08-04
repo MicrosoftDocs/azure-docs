@@ -41,9 +41,9 @@
     - name: Create users 
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Bulk create users
-    - href: users-bulk-add.md
+      href: users-bulk-add.md
     - name: Restrict guest user permissions
-    - href: users-restrict-guest-permissions.md
+      href: users-restrict-guest-permissions.md
     - name: Manage user profiles
       href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: My Staff delegation
