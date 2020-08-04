@@ -21,7 +21,7 @@ This tutorial shows you how to configure and collect data from your Linux or Win
 
 * VM extension functionality is available only in the list of [supported regions](../overview.md#supported-regions).
 
-* See [Supported operating systems](../../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported by Azure Monitor for VMs.
+* See [Supported operating systems](../../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) to ensure that the VMs operating system you're enabling is supported by Azure Monitor for VMs.
 
 * Review firewall requirements for the Log Analytics agent provided in the [Log Analytics agent overview](../../../azure-monitor/platform/log-analytics-agent.md#network-requirements). The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports.
 
@@ -41,9 +41,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
     :::image type="content" source="./media/tutorial-enable-vm-insights/insights-option.png" alt-text="Select Insights option from left-hand menu" border="false":::
 
-1. On the Azure Monitor **Insights Onboarding** page, you are prompted to create a workspace. For this tutorial, we don't recommend you select an existing Log Analytics workspace if you have one already. Select the default which is a workspace with a unique name in the same region as your registered connected machine. This workspace is created and configured for you.
+1. On the Azure Monitor **Insights Onboarding** page, you are prompted to create a workspace. For this tutorial, we don't recommend you select an existing Log Analytics workspace if you have one already. Select the default, which is a workspace with a unique name in the same region as your registered connected machine. This workspace is created and configured for you.
 
-1. You receive status messages while the configuration is performed. This process takes a few minutes as extensions are installed on your connected machine. 
+    :::image type="content" source="./media/tutorial-enable-vm-insights/enable-vm-insights.png" alt-text="Enable Azure Monitor for VMs page" border="false":::
+
+1. You receive status messages while the configuration is performed. This process takes a few minutes as extensions are installed on your connected machine.
 
     :::image type="content" source="./media/tutorial-enable-vm-insights/onboard-vminsights-vm-portal-status.png" alt-text="Enable Azure Monitor for VMs progress status message" border="false":::
 
