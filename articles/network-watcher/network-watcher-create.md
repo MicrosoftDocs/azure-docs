@@ -52,7 +52,7 @@ When you enable Network Watcher using the portal, the name of the Network Watche
 
 The Network Watcher instance is automatically created in a resource group named *NetworkWatcherRG*. The resource group is created if it does not already exist.
 
-If you wish to customize the name of a Network Watcher instance and the resource group it's placed into, you can use Powershell, the Azure CLI, the REST API, or ARMClient methods described in the sections that follow. In each option, the resource group must exist before you create a Network Watcher in it.  
+If you wish to customize the name of a Network Watcher instance and the resource group it's placed into, you can use PowerShell, the Azure CLI, the REST API, or ARMClient methods described in the sections that follow. In each option, the resource group must exist before you create a Network Watcher in it.  
 
 ## Create a Network Watcher with PowerShell
 
