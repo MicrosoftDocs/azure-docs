@@ -114,7 +114,7 @@ Related links:
 
 ## Further troubleshooting
 
-If your permissions to registry resources allow, check the health of the registry environment or review registry logs.
+If your permissions to registry resources allow, check the health of the registry environment or review registry resouorce logs. For example, review [registry authentication failures](container-registry-diagnostics-audit-logs.md#registry-authentication-failures) in the ContainerRegistryLoginEvents table in the registry resource log.
 
 Related links:
 

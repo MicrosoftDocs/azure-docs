@@ -45,10 +45,14 @@ For a geo-replicated registry, configure access to the data endpoint for each re
 
 Behind an HTTPS proxy, ensure that both your Docker client and Docker daemon are configured for proxy behavior.
 
+Registry resource logs in the ContainerRegistryLoginEvents table may help diagnose an attempted connection that is blocked.
+
 Related links:
 
 * [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md)
 * [HTTP/HTTPS proxy configuration](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
+* [Geo-replicationin Azure Container Registry](container-registry-geo-replication.md)
+* [Azure Container Registry logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
 
 ### Configure public access to registry
 
@@ -90,7 +94,7 @@ If your registry is configured with a private endpoint, you can't currently inte
 
 ## Further troubleshooting
 
-If your permissions to registry resources allow, check the health of the registry environment or review registry logs.
+If your permissions to registry resources allow, check the health of the registry environment or review registry logs. For example, review [registry authentication failures](container-registry-diagnostics-audit-logs.md#registry-authentication-failures) in the ContainerRegistryLoginEvents table in the registry resource log.
 
 Related links:
 
