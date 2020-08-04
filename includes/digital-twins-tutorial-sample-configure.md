@@ -13,7 +13,7 @@ Next, set up a sample client application that will interact with your Azure Digi
 
 Navigate to the downloaded file on your machine and unzip it.
 
-Once inside the unzipped folder, navigate into _AdtSampleApp/_. Open _**AdtE2ESample.sln**_ in Visual Studio 2019. 
+Once inside the unzipped folder, navigate into _AdtSampleApp_. Open _**AdtE2ESample.sln**_ in Visual Studio 2019. 
 
 In Visual Studio, use the *Solution Explorer* pane to create a copy of the _SampleClientApp > **serviceConfig.json.TEMPLATE**_ file (you can use the right-select menus to copy and paste). Rename the copy *serviceConfig.json*. This will serve as a pre-set JSON file with the necessary configuration variables to run the project.
 
