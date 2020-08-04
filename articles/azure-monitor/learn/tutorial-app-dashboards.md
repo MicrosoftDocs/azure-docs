@@ -21,13 +21,14 @@ You can create multiple dashboards in the Azure portal that each include tiles v
 > * Add a custom metric chart Application Insights to the dashboard
 > * Add the results of a Logs (Analytics) query to the dashboard
 
-
-
 ## Prerequisites
 
 To complete this tutorial:
 
 - Deploy a .NET application to Azure and [enable the Application Insights SDK](../app/asp-net.md).
+
+> [!NOTE]
+> Required permissions for working with dashboards are discussed in the article on [understanding access control for dashboards](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboard-share-access#understanding-access-control-for-dashboards)
 
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
