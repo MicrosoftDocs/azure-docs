@@ -21,7 +21,7 @@ A VHD can’t be downloaded from Azure if it's attached to a running VM. You nee
 3.	Select the VM from the list.
 4.	On the page for the VM, select **Stop**.
 
-    :::image type="content" source="./media/download-vhd/export-stop.png" alt-text="Shows the menu button to stop the VM.":::
+    :::image type="content" source="./media/download-vhd/export-stop.PNG" alt-text="Shows the menu button to stop the VM.":::
 
 ## Generate SAS URL
 
@@ -39,7 +39,7 @@ To download the VHD file, you need to generate a [shared access signature (SAS)]
 
     ![Download VHD](./media/download-vhd/export-download.png)
     
-    :::image type="content" source="./media/download-vhd/export-download.png" alt-text="Shows the button to download the VHD.":::
+    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="Shows the button to download the VHD.":::
 
 2.	You may need to select **Save** in the browser to start the download. The default name for the VHD file is *abcd*.
 
