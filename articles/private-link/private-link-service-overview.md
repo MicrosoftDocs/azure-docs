@@ -15,7 +15,7 @@ Azure Private Link service is the reference to your own service that is powered 
 
 ## Workflow
 
-![Private Link service workflow](media/private-link-service-overview/private-link-service-workflow.png)
+:::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Private link service workflow" border="true":::
 
 ### Create your Private Link Service
 
@@ -24,6 +24,8 @@ Azure Private Link service is the reference to your own service that is powered 
 
     > [!NOTE]
     > Azure Private Link Service is only supported on Standard Load Balancer. 
+
+![Private Link service workflow](media/private-link-service-overview/private-link-service-workflow.png)
     
 ### Share your service
 
