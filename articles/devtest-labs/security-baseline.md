@@ -589,7 +589,7 @@ You may also use recommendations from Azure Security Center as a secure configur
 - [How to monitor Azure Security Center recommendations](../security-center/security-center-recommendations.md)
 - [Security recommendations - a reference guide](../security-center/recommendations-reference.md)
 - [Azure Automation State Configuration overview](../automation/automation-dsc-overview.md)
-- [Upload a VHD and use it to create new Windows VMs in Azure](..virtual-machines/windows/upload-generalized-managed.md)
+- [Upload a VHD and use it to create new Windows VMs in Azure](../virtual-machines/windows/upload-generalized-managed.md)
 - [Create a Linux VM from a custom disk with the Azure CLI](../virtual-machines/linux/upload-vhd.md)
 - [Create and distribute custom images to multiple DevTest Labs](image-factory-save-distribute-custom-images.md)
 
