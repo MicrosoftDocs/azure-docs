@@ -254,7 +254,7 @@ See example [3.3.3.1 DASH manifest with single period and Adobe simple mode ](#3
 
 #### Example HLS manifest output when using Adobe RTMP simple mode
 
-See example [3.2.2 HLS manifest using Adobe simple mode and EXT-X-CUE tag](#322-apple-hls-with-adobe-primetime-ext-x-cue-legacy)
+See example [3.2.2 HLS manifest using Adobe simple mode and EXT-X-CUE tag](#322-apple-hls-with-adobe-primetime-ext-x-cue)
 
 ## 2.1.4 RTMP ad cue signaling with "onAdCue" - SCTE-35 Mode
 
@@ -279,7 +279,7 @@ In this scenario, the following payload MUST be sent from the on-premises encode
 See [Section 3.3.3.2 example DASH manifest with SCTE-35](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
 
 #### Example HLS manifest .m3u8 with SCTE-35 mode signal
-See [Section 3.2.1.1 example HLS manifest with SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
+See [Section 3.2.1.1 example HLS manifest with SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-cue-signaling-of-scte-35)
 
 
 
@@ -962,6 +962,8 @@ The HLS player application layer will use the TYPE to identify the format of the
 The following example shows HLS manifest decoration using the Adobe Primetime EXT-X-CUE tag.  The "CUE" parameter contains only the TYPE and Duration properties which means that this was an RTMP source using Adobe "simple" mode signaling.  
 <!---If this was a SCTE-35 mode signal, the tag would include the base64 encoded binary SCTE-35 payload as seen in the [3.2.1.1 example](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35).
 --->
+
+
 ~~~
 #EXTM3U
 #EXT-X-VERSION:4
