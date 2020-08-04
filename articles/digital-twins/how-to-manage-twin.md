@@ -41,7 +41,7 @@ Optionally, you can provide initial values for all properties of the digital twi
 The model and initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data.
 
 > [!TIP]
-> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API does not experience this delay, so use the API call (described [later in this article](#get-data-for-a-digital-twin)) over querying to see your newly-created twins if you need an instant response. 
+> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [later in this article](#get-data-for-a-digital-twin)) does not experience this delay, so use the API call instead of querying to see your newly-created twins if you need an instant response. 
 
 ### Initialize properties
 
@@ -183,7 +183,7 @@ await client.UpdateDigitalTwin(id, patch);
 ```
 
 > [!TIP]
-> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API does not experience this delay, so use the API call (described [earlier in this article](#get-data-for-a-digital-twin)) over querying to see your newly-updated twins if you need an instant response. 
+> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [earlier in this article](#get-data-for-a-digital-twin)) does not experience this delay, so use the API call instead of querying to see your newly-updated twins if you need an instant response. 
 
 Here is an example of JSON Patch code. This document replaces the *mass* and *radius* property values of the digital twin it is applied to.
 
