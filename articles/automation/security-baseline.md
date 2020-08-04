@@ -32,7 +32,7 @@ To get further isolation for your runbooks you can use Hybrid Runbook Workers ru
 
 Alternatively, if you have a specific requirement, Azure Firewall may also be used to meet it.
 
-* [Virtual networks and virtual machines in Azure](../virtual-machines/windows/network-overview.md)
+* [Virtual networks and virtual machines in Azure](../virtual-machines/network-overview.md)
 
 * [How to create a Virtual Network](../virtual-network/quick-create-portal.md)
 
@@ -846,7 +846,7 @@ Adaptive application control is an intelligent, automated, end-to-end solution f
 
 **Guidance**: High risk applications deployed in your Azure environment may be isolated using separate network and resource containers using constructs like virtual networks, subnet, subscriptions, management groups, they can be sufficiently secured with either an Azure Firewall, Web Application Firewall (WAF) or network security group (NSG).
 
-* [Virtual networks and virtual machines in Azure](../virtual-machines/windows/network-overview.md)
+* [Virtual networks and virtual machines in Azure](../virtual-machines/network-overview.md)
 
 * [Azure Firewall Overview](../firewall/overview.md)
 
