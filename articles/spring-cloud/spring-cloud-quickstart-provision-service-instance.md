@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Quickstart: Provision Azure Spring Cloud service instance
 
-You can instantiate Azure Spring Cloud using the Azure portal or the Azure CLI.  Both methods are illustrated in the following procedures.
+You can instantiate Azure Spring Cloud using the Azure portal or the Azure CLI.  Both methods are explained in the following procedures.
 
 ## Prerequisites
 

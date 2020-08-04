@@ -14,7 +14,8 @@ This document illustrates deployment of microservice applications to Azure Sprin
 * Azure CLI
 * Maven
 * Intellij
-Before deployment by any of these methods, complete the procedures in previous examples to provision an instance of Azure Spring Cloud and set up the config server.
+
+Before deployment using Azure CLI or Maven, complete the previous examples to [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).
 
 ## Azure CLI deployment
 To use the CLI method of deployment, Install the Azure Spring Cloud extension for the Azure CLI using the following command.
@@ -96,7 +97,7 @@ You can also navigate the Azure portal to find the URL.
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
 ## Maven deployment
-To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.apache.org/download.cgi).
+To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.apache.org/download.cgi).  Before deployment, complete the procedures in previous examples to provision an instance of Azure Spring Cloud and set up the config server.
 
 ### Clone and build the sample application repository
 
