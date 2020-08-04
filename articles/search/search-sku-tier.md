@@ -57,9 +57,18 @@ You can find out more about the various tiers on the [pricing page](https://azur
 A solution built on Azure Cognitive Search can incur costs in the following ways:
 
 + Cost of the service itself, running 24x7, at minimum configuration (one partition and replica)
+
 + Adding capacity (replicas or partitions)
-+ Bandwidth charges (outbound data transfer) 
-+ Add-on services such as AI enrichment (attaching Cognitive Services in skillsets that define AI processing, or using Azure storage for knowledge store) or deploying a search service in a private virtual network
+
++ Bandwidth charges (outbound data transfer)
+
++ Add-on services required for specific capabilities or features:
+
+  + AI enrichment (requires [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/))
+  + knowledge store (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + incremental enrichment (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), applies to AI enrichment)
+  + customer-managed keys and double encryption (requires [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
+  + private endpoints for a no-internet access model (requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
 
 ### Service costs
 
