@@ -7790,11 +7790,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/app-service/containers/quickstart-docker-go.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-docker",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/app-service/containers/tutorial-ruby-mysql-app.md",
       "redirect_url": "/azure/app-service/tutorial-ruby-postgres-app",
       "redirect_document_id": false
@@ -7807,6 +7802,11 @@
     {
       "source_path": "articles/app-service/containers/tutorial-multi-container-app.md",
       "redirect_url": "/azure/app-service/tutorial-multi-container-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-get-started-windows-containers",
+      "redirect_url": "/azure/app-service/quickstart-custom-container",
       "redirect_document_id": false
     },
     {
@@ -9429,16 +9429,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/app-service/containers/quickstart-ruby.md",
-      "redirect_url": "/azure/app-service/quickstart-ruby",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/app-service-web/app-service-linux-using-dotnetcore.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-dotnetcore",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md",
       "redirect_url": "/azure/app-service/tutorial-python-postgresql-app",
       "redirect_document_id": false
@@ -9951,21 +9941,6 @@
     {
       "source_path": "articles/app-service-web/app-service-web-get-started-php.md",
       "redirect_url": "/azure/app-service/app-service-web-get-started-php",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/app-service-web/app-service-web-get-started-python.md",
-      "redirect_url": "/azure/app-service/quickstart-python",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/app-service/app-service-web-get-started-python.md",
-      "redirect_url": "/azure/app-service/quickstart-python",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/app-service/containers/quickstart-python.md",
-      "redirect_url": "/azure/app-service/quickstart-python",
       "redirect_document_id": false
     },
     {
@@ -27994,8 +27969,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/app-service-web/app-service-linux-using-nodejs-pm2.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-nodejs",
+      "source_path": "articles/app-service-web/app-service-web-get-started-python.md",
+      "redirect_url": "/azure/app-service/quickstart-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-python.md",
+      "redirect_url": "/azure/app-service/quickstart-python",
       "redirect_document_id": false
     },
     {
@@ -28014,10 +27994,110 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/app-service-web/app-service-linux-get-started-node.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-nodejs",
+      "source_path": "articles/app-service-web/app-service-linux-using-dotnetcore.md",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-dotnet",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/app-service/containers/quickstart-dotnetcore.md",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-dotnet-framework.md",
+      "redirect_url": "/azure/app-service/quickstart-dotnet-framework",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-nodejs.md",
+      "redirect_url": "/azure/app-service/quickstart-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/quickstart-nodejs.md",
+      "redirect_url": "/azure/app-service/quickstart-nodejs",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/app-service-web/app-service-linux-using-nodejs-pm2.md",
+      "redirect_url": "/azure/app-service/quickstart-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-web/app-service-linux-get-started-node.md",
+      "redirect_url": "/azure/app-service/quickstart-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-php.md",
+      "redirect_url": "/azure/app-service/quickstart-php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/quickstart-php.md",
+      "redirect_url": "/azure/app-service/quickstart-php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-java.md",
+      "redirect_url": "/azure/app-service/quickstart-java",
+      "redirect_document_id": false
+    },       
+    {
+      "source_path": "articles/app-service/containers/quickstart-java.md",
+      "redirect_url": "/azure/app-service/quickstart-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-html.md",
+      "redirect_url": "/azure/app-service/quickstart-html",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/app-service/containers/quickstart-custom-docker-image.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/quickstart-go.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container",
+      "redirect_document_id": false
+    },        
+    {
+      "source_path": "articles/app-service/containers/quickstart-docker-go.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/quickstart-docker.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container",
+      "redirect_document_id": false
+    },        
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-windows-container.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/quickstart-multi-container.md",
+      "redirect_url": "/azure/app-service/quickstart-multi-container",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/app-service/containers/quickstart-ruby.md",
+      "redirect_url": "/azure/app-service/quickstart-ruby",
+      "redirect_document_id": false
+    },   
+    {
+      "source_path": "articles/app-service/containers/quickstart-python.md",
+      "redirect_url": "/azure/app-service/quickstart-python",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-create-group.md",
       "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
@@ -31946,16 +32026,6 @@
     {
       "source_path": "articles/store-new-relic-cloud-services-dotnet-application-performance-management.md",
       "redirect_url": "/azure/application-insights/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/app-service/containers/quickstart-custom-docker-image.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-docker-go",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/app-service/containers/quickstart-go.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-docker-go",
       "redirect_document_id": false
     },
     {
