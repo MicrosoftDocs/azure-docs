@@ -50,7 +50,7 @@ To link an endpoint to Azure Digital Twins, the event grid topic, event hub, or 
 
 ### Create an Event Grid endpoint
 
-**Prerequisite**: Create an Event Grid topic by following the steps in [the *Create a custom topic* section](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic.md) of the Event Grid *Custom events* quickstart.
+**Prerequisite**: Create an Event Grid topic by following the steps in [the *Create a custom topic* section](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) of the Event Grid *Custom events* quickstart.
  
 Go to the details page for your Azure Digital Twins instance in the [Azure portal](https://portal.azure.com) (you can find it by entering its name into the portal search bar).
 
