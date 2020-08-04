@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
@@ -116,18 +116,14 @@ Create a directory on your Windows or Linux system, and then mount a container i
 
 ### [Windows](#tab/windows)
 
-1. Add the **
+1. Open the **Turn Windows features on or off** dialog box, and then turn on the **Client for NFS** feature. 
 
-1. On a Windows system, create a directory.
+   ![Client for Network File System feature](media/network-file-system-protocol-how-to/client-for-network-files-system-feature.png)
 
-   ```
-   mkdir -p C:\mnt\test
-   ```
-
-2. Mount a container by using the following command.
+2. Mount a container by using the [mount](https://docs.microsoft.com/windows-server/administration/windows-commands/mount) command.
 
    ```
-   mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /mnt/test
+   mount -o nolock <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name> *
    ```
 
    - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
@@ -153,9 +149,6 @@ Create a directory on your Windows or Linux system, and then mount a container i
    - Replace the `<container-name>` placeholder with the name of your container.
 
 ---
-
-
-
 
 ## Resolve common issues
 
