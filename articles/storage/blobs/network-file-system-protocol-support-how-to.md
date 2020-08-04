@@ -1,19 +1,19 @@
 ---
-title: Mount Azure Blob storage on Linux using the NFS 3.0 protocol (preview) | Microsoft Docs
-description: Learn how to mount a container in Blob storage from a Linux-based Azure Virtual Machine (VM) or a Linux system that runs on-premises by using the NFS 3.0 protocol.
+title: Mount Azure Blob storage by using the NFS 3.0 protocol (preview) | Microsoft Docs
+description: Learn how to mount a container in Blob storage from an Azure Virtual Machine (VM) or a client that runs on-premises by using the NFS 3.0 protocol.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/03/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
 ---
 
-# Mount Blob storage on Linux using the Network File System (NFS) 3.0 protocol (preview)
+# Mount Blob storage by using the Network File System (NFS) 3.0 protocol (preview)
 
-You can mount a container in Blob storage from a Linux-based Azure Virtual Machine (VM) or a Linux system that runs on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Blob storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
+You can mount a container in Blob storage from a Windows or Linux-based Azure Virtual Machine (VM) or a Windows or Linux system that runs on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Blob storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
 
 > [!NOTE]
 > NFS 3.0 protocol support in Azure Blob storage is in public preview and is available in the following regions: US East, US Central, and Canada Central.
@@ -112,6 +112,30 @@ Create a container in your storage account by using any of these tools or SDKs:
 
 ## Step 7: Mount the container
 
+Create a directory on your Windows or Linux system, and then mount a container in the storage account.
+
+### [Windows](#tab/windows)
+
+1. Add the **
+
+1. On a Windows system, create a directory.
+
+   ```
+   mkdir -p C:\mnt\test
+   ```
+
+2. Mount a container by using the following command.
+
+   ```
+   mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /mnt/test
+   ```
+
+   - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
+
+   - Replace the `<container-name>` placeholder with the name of your container.
+
+### [Linux](#tab/linux)
+
 1. On a Linux system, create a directory.
 
    ```
@@ -127,6 +151,11 @@ Create a container in your storage account by using any of these tools or SDKs:
    - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
 
    - Replace the `<container-name>` placeholder with the name of your container.
+
+---
+
+
+
 
 ## Resolve common issues
 
