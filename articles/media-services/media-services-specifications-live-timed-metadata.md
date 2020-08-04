@@ -275,8 +275,10 @@ In this scenario, the following payload MUST be sent from the on-premises encode
 
 ---
 
+<!---
 #### Example MPEG DASH .mpd manifest with SCTE-35 mode
 See [Section 3.3.3.2 example DASH manifest with SCTE-35](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
+--->
 
 #### Example HLS manifest .m3u8 with SCTE-35 mode signal
 See [Section 3.2.1.1 example HLS manifest with SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-cue-signaling-of-scte-35)
@@ -417,7 +419,7 @@ Refer to [MS-SSTR-Ingest] for requirements on live stream ingest. The following 
 
 Each sparse fragment consists of a Movie Fragment Box ('moof') and Media Data Box ('mdat'), where the 'mdat' box is the binary message.
 
-In order to achieve frame-accurate insertion of ads, the encoder MUST split the fragment at the presentation time where the cue is required to be inserted.  A new fragment MUST be created that begins with a newly created IDR frame, or Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I. This allows the Azure Media Packager to properly generate an HLS manifest and a DASH multi-period manifest where the new Period begins at the frame-accurate splice conditioned presentation time.
+In order to achieve frame-accurate insertion of ads, the encoder MUST split the fragment at the presentation time where the cue is required to be inserted.  A new fragment MUST be created that begins with a newly created IDR frame, or Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I. <!--- This allows the Azure Media Packager to properly generate an HLS manifest and a DASH multi-period manifest where the new Period begins at the frame-accurate splice conditioned presentation time. --->
 
 ### 2.2.1 Live Server Manifest Box
 
@@ -1051,7 +1053,7 @@ of the sliding presentation window.
 3.  A combination of both 1 and 2
 
 Events signaled in the MPD EventStream are useful for VOD streaming because clients have
-access to all the events, immediately when the MPD is downloaded. It is also useful for SSAI signaling, where the downstream SSAI vendor needs to parse the signals from a multi-period MPD manifest, and insert ad content dynamically.  The in-band ('emsg')solution is useful for live streaming where clients do not need to download the MPD again, or there is no SSAI manifest manipulation happening between the client and the origin. 
+access to all the events, immediately when the MPD is downloaded. It is also useful for SSAI signaling, where the downstream SSAI vendor needs to parse the signals from the MPD manifest, and insert ad content dynamically.  The in-band ('emsg')solution is useful for live streaming where clients do not need to download the MPD again, or there is no SSAI manifest manipulation happening between the client and the origin. 
 
 Azure Media Services default behavior for DASH is to signal both in the MPD EventStream and in-band using the Event Message Box ('emsg').
 
@@ -1198,7 +1200,7 @@ Each simple signal is provided in an Event element with the @presentationTime, @
 
 ~~~
 
-
+<!---
 #### 3.3.3.2 Example MPEG DASH manifest (MPD) with multi-period, EventStream, using Adobe SCTE35 mode signaling
 
 The following example shows the output from the Media Services dynamic packager for a source RTMP stream using the Adobe SCTE35 mode signaling.
@@ -1327,6 +1329,7 @@ In this case, the output manifest is a multi-period DASH .mpd with an EventStrea
 
 ~~~
 
+--->
 
 ### 3.3.4 MPEG DASH In-band Event Message Box Signaling
 
