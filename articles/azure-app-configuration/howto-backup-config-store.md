@@ -1,6 +1,6 @@
 ---
-title: Automatically back up key values from Azure App Configuration stores
-description: Learn how to set up an automatic backup of key values between App Configuration stores.
+title: Automatically back up key-values from Azure App Configuration stores
+description: Learn how to set up an automatic backup of key-values between App Configuration stores.
 services: azure-app-configuration
 author: avanigupta
 ms.assetid: 
@@ -11,14 +11,14 @@ ms.date: 04/27/2020
 ms.author: avgupta
 
 
-#Customer intent: I want to back up all key values to a secondary App Configuration store and keep them up to date with any changes in the primary store.
+#Customer intent: I want to back up all key-values to a secondary App Configuration store and keep them up to date with any changes in the primary store.
 ---
 
 # Back up App Configuration stores automatically
 
-In this article, you'll learn how to set up an automatic backup of key values from a primary Azure App Configuration store to a secondary store. The automatic backup uses the integration of Azure Event Grid with App Configuration. 
+In this article, you'll learn how to set up an automatic backup of key-values from a primary Azure App Configuration store to a secondary store. The automatic backup uses the integration of Azure Event Grid with App Configuration. 
 
-After you set up the automatic backup, App Configuration will publish events to Azure Event Grid for any changes made to key values in a configuration store. Event Grid supports a variety of Azure services from which users can subscribe to the events emitted whenever key values are created, updated, or deleted.
+After you set up the automatic backup, App Configuration will publish events to Azure Event Grid for any changes made to key-values in a configuration store. Event Grid supports a variety of Azure services from which users can subscribe to the events emitted whenever key-values are created, updated, or deleted.
 
 ## Overview
 
@@ -204,13 +204,13 @@ az role assignment create \
 
 ## Trigger an App Configuration event
 
-To test that everything works, you can create, update, or delete a key value from the primary store. You should automatically see this change in the secondary store a few seconds after the timer triggers Azure Functions.
+To test that everything works, you can create, update, or delete a key-value from the primary store. You should automatically see this change in the secondary store a few seconds after the timer triggers Azure Functions.
 
 ```azurecli-interactive
 az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 ```
 
-You've triggered the event. In a few moments, Event Grid will send the event notification to your queue. *After the next scheduled run of your functions*, view configuration settings in your secondary store to see if it contains the updated key value from the primary store.
+You've triggered the event. In a few moments, Event Grid will send the event notification to your queue. *After the next scheduled run of your functions*, view configuration settings in your secondary store to see if it contains the updated key-value from the primary store.
 
 > [!NOTE]
 > You can [trigger your functions manually](/azure/azure-functions/functions-manually-run-non-http) during the testing and troubleshooting without waiting for the scheduled timer-trigger.
@@ -254,6 +254,6 @@ az group delete --name $resourceGroupName
 
 ## Next steps
 
-Now that you know how to set up automatic backup of your key values, learn more about how you can increase the geo-resiliency of your application:
+Now that you know how to set up automatic backup of your key-values, learn more about how you can increase the geo-resiliency of your application:
 
 - [Resiliency and disaster recovery](concept-disaster-recovery.md)
