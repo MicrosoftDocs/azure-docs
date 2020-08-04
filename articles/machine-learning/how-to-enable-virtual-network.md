@@ -72,7 +72,7 @@ To learn more about private endpoints in Azure, see the [Azure Private Link](/az
 
 You can create a new workspace with a private endpoint by using the Azure Machine Learning SDK, CLI, an Azure Resource Manager template, or the Azure portal.
 
-__Configuration pre-requisites__
+__Requirements__
 
 * The virtual network that you use with the private endpoint must have network policies disabled. For more information, see [Disable network policies for a private endpoint](/azure/private-link/disable-private-endpoint-network-policy).
 
