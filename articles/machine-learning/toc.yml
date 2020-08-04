@@ -226,9 +226,6 @@
         - name: Use private Python packages
           displayName: pip, Conda, anaconda
           href: how-to-use-private-python-packages.md
-        - name: Enable logging
-          displayName: troubleshoot, log, files, tracing
-          href: how-to-enable-logging.md
         - name: Set input & output directories
           displayName: large data, write, experiment files, size limit
           href: how-to-save-write-experiment-files.md
@@ -309,8 +306,12 @@
             - name: Start, monitor or cancel runs
               displayName: cancel, fail, status, child run
               href: how-to-manage-runs.md
-            - name: Log metrics for training runs
+            - name: Enable logs
+              displayName: troubleshoot, log, files, tracing
               href: how-to-track-experiments.md
+            - name: View logs
+              displayName: troubleshoot, log, files, tracing
+              href: how-to-monitor-view-training-logs.md
             - name: Track experiments with MLflow
               displayName: log, monitor, metrics, Databricks
               href: how-to-use-mlflow.md
@@ -441,6 +442,9 @@
           href: how-to-debug-pipelines.md
         - name: Debug pipelines in Application Insights
           href: how-to-debug-pipelines-application-insights.md
+        - name: Designer log metrics
+          displayName: designer, logging
+          href: how-to-track-designer-experiments.md
         - name: Designer transform data
           displayName: pipeline
           href: how-to-designer-transform-data.md
