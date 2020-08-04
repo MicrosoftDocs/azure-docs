@@ -117,7 +117,7 @@ If the extension is installed successfully, you'll see the following output:
 
 #### Use Azure Cloud Shell
 
-You can use [Azure Cloud Shell](https://shell.azure.com/), an Azure hosted interactive shell environment, through your browser to run CLI commands. Azure Cloud Shell supports Bash or Windows PowerShell with Azure services. The Azure CLI is pre-installed and configured to use with your account. Click the Cloud Shell button on the menu in the upper-right section of the Azure portal:
+You can use [Azure Cloud Shell](https://shell.azure.com/), an Azure hosted interactive shell environment, through your browser to run CLI commands. Azure Cloud Shell supports Bash or Windows PowerShell with Azure services. The Azure CLI is pre-installed and configured to use with your account. Select the Cloud Shell button on the menu in the upper-right section of the Azure portal:
 
 ![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
@@ -209,61 +209,87 @@ For detailed information on how to sign in to Azure using Windows PowerShell, se
 Do the following steps in the Azure portal to order a device.
 
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
-2. Click **+ Create a resource** and search for *Azure Data Box*. Click **Azure Data Box**.
+2. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   [![Search Azure Data Box 1](media/data-box-deploy-ordered/search-azure-data-box1.png)](media/data-box-deploy-ordered/search-azure-data-box1.png#lightbox)
+   ![Select Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
-3. Click **Create**.
+3. Select **Create**.
+
+   ![Select Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
 4. Check if Data Box service is available in your region. Enter or select the following information and select **Apply**.
 
     |Setting  |Value  |
     |---------|---------|
-    |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Transfer type     | Select **Import to Azure**.        |
+    |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
+    |Resource Group | Select an existing resource group. A resource group is a logical container for the resources that can be managed or deployed together. |
     |Source country/region    |    Select the country/region where your data currently resides.         |
-    |Destination Azure region     |     Select the Azure region where you want to transfer data.        |
+    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, go to [region availability](data-box-overview.md#region-availability).            |
+
+    [![Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
 
 5. Select **Data Box**. The maximum usable capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
 
-      [![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
+    ![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
-6. In **Order**, specify the **Order details**. Enter or select the following information and select **Next**.
+6. In **Order**, go to the **Basics** tab. Enter or select the following information and select **Next: Data destination>**.
 
     |Setting  |Value  |
     |---------|---------|
-    |Name     |  Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.      |
-    |Resource group     |    Use an existing or create a new one. <br> A resource group is a logical container for the resources that can be managed or deployed together.         |
-    |Destination Azure region     | Select a region for your storage account. <br> For more information, go to [region availability](data-box-overview.md#region-availability).        |
-    |Storage destination     | Choose from storage account or managed disks or both. <br> Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. <br> You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**. <br>Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../storage/common/storage-network-security.md#exceptions).|
+    |Subscription      | The subscription is automatically populated based on your earlier selection.|
+    |Resource group    | The resource group you selected previously. |
+    |Import order name | Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.    |
 
-    If using storage account as the storage destination, you see the following screenshot:
+    ![Select Data Box option 1](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
-    ![Data Box order for storage account](media/data-box-deploy-ordered/order-storage-account.png)
+    By default, the device unlock password is encrypted using a Microsoft-managed key. After you complete the order you can add a customer managed key. A customer managed key allows you to use you own key from an Azure Key vault key to protect you device unlock password. For more information, see [Use customer-managed keys in Azure Key Vault for Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
-    If using Data Box to create managed disks from the on-premises virtual hard disks (VHDs), you will also need to provide the following information:
+7. In **Data destination** tab, select **Data destination**.
+
+    If using **storage account(s)** as the storage destination, you see the following screenshot:
+
+    ![Azure Data Box data destination](media/data-box-deploy-ordered/select-data-box-import-07.png)
+
+    Based on the specified Azure region, select one or more storage accounts from the filtered list of an existing storage account. Data Box can be linked with up to 10 storage accounts. You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**.
+
+    Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../storage/common/storage-network-security.md#exceptions).
+
+    If using Data Box to create **Managed disk(s)** from the on-premises virtual hard disks (VHDs), you will also need to provide the following information:
 
     |Setting  |Value  |
     |---------|---------|
     |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created previously when creating a Data Box order for managed disk by Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.|
 
-    ![Data Box order for managed disk](media/data-box-deploy-ordered/order-managed-disks.png)
+    ![Data Box order for managed disk](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
-7. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Click **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
+    Select **Next: Contact details** to continue.
+
+8. In **Contact details**, select **+ Add Shipping Address**.
+
+    ![Data Box order for managed disk](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+
+9. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
+
+   ![Data Box order for managed disk](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
    If you selected self-managed shipping, you will receive an email notification after the order is placed successfully. For more information about self-managed shipping, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
 
-8. Click **Next** once the shipping details have been validated successfully.
+10. Select **Add Shipping Address** once the shipping details have been validated successfully. You will return to the **Contact details** tab.
 
-9. In the **Notification details**, specify email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
+11. After you return to **Contact details** add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
-10. Review the information **Summary** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
+    ![Data Box order for managed disk](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
-11. Click **Order**. The order takes a few minutes to be created.
+12. Review the information in **Review + Order** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
+
+13. Select **Order**. The order takes a few minutes to be created.
+
+    ![Data Box order for managed disk](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # [Azure CLI](#tab/azure-cli)
 

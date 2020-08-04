@@ -1,5 +1,5 @@
 ---
-title: How to use Azure ML environments 
+title: Use software environments 
 titleSuffix: Azure Machine Learning
 description: Create and manage environments for model training and deployment. Manage Python packages and other settings for the environment.
 services: machine-learning
@@ -8,15 +8,15 @@ ms.author: roastala
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.date: 07/08/2020
-ms.custom: tracking-python
+ms.date: 07/23/2020
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
 
 ---
 
-# How to use environments in Azure Machine Learning
+# Create & use software environments in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, learn how to create and manage Azure Machine Learning [environments](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py). Use the environments to track and reproduce your projects' software dependencies as they evolve.
@@ -30,7 +30,7 @@ The examples in this article show how to:
 * Use an environment for training.
 * Use an environment for web service deployment.
 
-For a high-level overview of how environments work in Azure Machine Learning, see [What are ML environments?](concept-environments.md).
+For a high-level overview of how environments work in Azure Machine Learning, see [What are ML environments?](concept-environments.md) For information about configuring development environments, see [here](how-to-configure-environment.md).
 
 ## Prerequisites
 
@@ -260,7 +260,8 @@ myenv.docker.enabled = True
 
 By default, the newly built Docker image appears in the container registry that's associated with the workspace.  The repository name has the form *azureml/azureml_\<uuid\>*. The unique identifier (*uuid*) part of the name corresponds to a hash that's computed from the environment configuration. This correspondence allows the service to determine whether an image for the given environment already exists for reuse.
 
-Additionally, the service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers). It installs the specified Python packages. The base image has CPU versions and GPU versions. Azure Machine Learning automatically detects which version to use. It is also possible to use a [custom Docker base image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image).
+### Use a custom Docker image or Dockerfile 
+The service automatically uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers). It installs the specified Python packages. The base image has CPU versions and GPU versions. Azure Machine Learning automatically detects which version to use. It is also possible to use a [custom Docker base image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image).
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
@@ -272,12 +273,12 @@ myenv.docker.base_image_registry="your_registry_location"
 > Azure Machine Learning only supports Docker images that provide the following software:
 > * Ubuntu 16.04 or greater.
 > * Conda 4.5.# or greater.
-> * Python 3.5.# or 3.6.#.
+> * Python 3.5.#, 3.6.# or 3.7.#.
 
 You can also specify a custom Dockerfile. It's simplest to start from one of Azure Machine Learning base images using Docker ```FROM``` command, and then add your own custom steps. Use this approach if you need to install non-Python packages as dependencies. Remember to set the base image to None.
 
 ```python
-# Specify docker steps as a string. Alternatively, load the string from a file.
+# Specify docker steps as a string. 
 dockerfile = r"""
 FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
 RUN echo "Hello from custom container!"
@@ -286,6 +287,10 @@ RUN echo "Hello from custom container!"
 # Set base image to None, because the image is defined by dockerfile.
 myenv.docker.base_image = None
 myenv.docker.base_dockerfile = dockerfile
+
+# Alternatively, load the string from a file.
+myenv.docker.base_image = None
+myenv.docker.base_dockerfile = "./Dockerfile"
 ```
 
 ### Specify your own Python interpreter
@@ -370,6 +375,12 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 # Submit the run 
 run = experiment.submit(sk_est)
 ```
+### Retrieve Dockerfile from a run
+
+Use the following code to obtain the Dockerfile for a Docker-enabled run.
+```python
+print(run.get_environment().get_image_details().dockerfile)
+```
 
 ## Use environments for web service deployment
 
@@ -401,7 +412,9 @@ service = Model.deploy(
     deployment_config = deployment_config)
 ```
 
-## Example notebooks
+## Notebooks
+
+This [article](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#add-new-kernels) provides information about how to install a Conda environment as a kernel in a notebook.
 
 This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expands upon concepts and methods demonstrated in this article.
 

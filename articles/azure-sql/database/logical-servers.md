@@ -28,7 +28,7 @@ A server in SQL Database and Azure Synapse:
 - Is the parent resource for databases, elastic pools, and data warehouses
 - Provides a namespace for databases, elastic pools, and data warehouse database
 - Is a logical container with strong lifetime semantics - delete a server and it deletes its databases, elastic pools, and SQK pools
-- Participates in [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview) - databases, elastic pools, and data warehouse database within a server inherit access rights from the server
+- Participates in [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) - databases, elastic pools, and data warehouse database within a server inherit access rights from the server
 - Is a high-order element of the identity of databases, elastic pools, and data warehouse database for Azure resource management purposes (see the URL scheme for databases and pools)
 - Collocates resources in a region
 - Provides a connection endpoint for database access (`<serverName>`.database.windows.net)

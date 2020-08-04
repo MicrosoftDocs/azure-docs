@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Get started analyze data with Spark' 
+title: 'Tutorial: Get started analyze with Spark' 
 description: In this tutorial, you'll learn the basic steps to set up and use Azure Synapse Analytics.
 services: synapse-analytics
 author: saveenr
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 07/20/2020 
 ---
 
-# Analyze data with Apache Spark for Azure Synapse
+# Analyze with Apache Spark
 
 In this tutorial, you'll learn the basic steps to load and analyze data with Apache Spark for Azure Synapse.
 

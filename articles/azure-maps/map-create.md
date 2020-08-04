@@ -1,14 +1,14 @@
 ---
 title: Create a map with Azure Maps | Microsoft Azure Maps
 description: In this article, you'll learn how to render a map on a web page using the Microsoft Azure Maps Web SDK.
-author: Philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: 
-ms.custom: codepen
+ms.custom: codepen, devx-track-javascript
 ---
 
 # Create a map
@@ -124,6 +124,47 @@ In the following code, the first code block creates a map and sets the enter and
 
 <iframe height='500' scrolling='no' title='Animate Map View' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WayvbO/'>Animate Map View</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+## Request transforms
+
+Sometimes it is useful to be able to modify HTTP requests made by the map control. For example:
+
+- Add additional headers to tile requests. This is often done for password protected services.
+- Modify URLs to run requests through a proxy service.
+
+The [service options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.serviceoptions) of the map has a `transformRequest` that can be used to modify all requests made by the map before they are made. The `transformRequest` option is a function that takes in two parameters; a string URL, and a resource type string that indicates what the request is used for. This function must return a [RequestParameters](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.requestparameters) result.
+
+```JavaScript
+transformRequest: (url: string, resourceType: string) => RequestParameters
+```
+
+The following example shows how to use this to modify all requests to the size `https://example.com` by adding a username and password as headers to the request.
+
+```JavaScript
+var map = new atlas.Map('myMap', {
+    transformRequest: function (url, resourceType) {
+        //Check to see if the request is to the specified endpoint.
+        if (url.indexOf('https://examples.com') > -1) {
+            //Add custom headers to the request.
+            return {
+                url: url,
+                header: {
+                    username: 'myUsername',
+                    password: 'myPassword'
+                }
+            };
+        }
+
+        //Return the URL unchanged by default.
+        return { url: url };
+    },
+
+    authOptions: {
+        authType: 'subscriptionKey',
+        subscriptionKey: '<Your Azure Maps Key>'
+    }
+});
+```
 
 ## Try out the code
 

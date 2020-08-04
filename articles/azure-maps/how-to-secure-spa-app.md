@@ -2,13 +2,14 @@
 title: How to secure a single page application with non-interactive sign-in
 titleSuffix: Azure Maps
 description: How to configure a single page application with non-interactive Azure AD Role based access control and Azure Maps Web SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
+ms.custom: devx-track-javascript
 ---
 
 # How to secure a single page application with non-interactive sign-in
@@ -96,7 +97,7 @@ Create a secured web service application which is responsible for authentication
 
 ## Grant role based access
 
-You grant *role-based access control* (RBAC) by assigning the system-assigned identity to one or more Azure role definitions. To view RBAC role definitions that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*.
+You grant *role-based access control* (RBAC) by assigning the system-assigned identity to one or more Azure role definitions. To view Azure role definitions that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*.
 
 1. Go to your **Azure Maps Account**. Select **Access control (IAM)** > **Role assignment**.
 

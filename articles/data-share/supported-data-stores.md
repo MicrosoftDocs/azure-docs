@@ -2,10 +2,10 @@
 title: Supported data stores in Azure Data Share
 description: Learn about the data stores that are supported for use Azure Data Share.
 ms.service: data-share
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 07/30/2020
 ---
 # Supported data stores in Azure Data Share
 

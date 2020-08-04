@@ -55,7 +55,7 @@ In addition to using the SAP HANA backup in Azure that provides database level b
 
 The [Backint certified Azure SAP HANA backup solution](#backup-architecture) can be used for database backup and recovery.
 
-[Azure VM backup](backup-azure-vms-introduction.md) can be used to back up the OS and other non-database disks. The VM backup is taken once every day and it backups up all the disks (except **Write Accelerator (WA) disks** and **UltraDisks**). Since the database is being backed up using the Azure SAP HANA backup solution, you can take a file-consistent backup of only the OS and non-database disks using the exclude disk capability, which is currently in preview.
+[Azure VM backup](backup-azure-vms-introduction.md) can be used to back up the OS and other non-database disks. The VM backup is taken once every day and it backups up all the disks (except **Write Accelerator (WA) disks** and **ultra disks**). Since the database is being backed up using the Azure SAP HANA backup solution, you can take a file-consistent backup of only the OS and non-database disks using the [Selective disk backup and restore for Azure VMs](selective-disk-backup-restore.md) feature.
 
 >[!NOTE]
 > Using pre-post scripts with the Azure VM backup will allow app-consistent backups of the data volumes of the database. However, if the log area resides on WA disks, taking a snapshot of these disks may not guarantee a log area consistency. HANA has an explicit way of generating log backups for this exact reason. Enable the same in your SAP HANA, and they can be backed up using Azure SAP HANA backup.

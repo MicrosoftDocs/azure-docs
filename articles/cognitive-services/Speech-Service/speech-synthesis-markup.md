@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
+ms.custom: devx-track-javascript
 ---
 
 # Improve synthesis with Speech Synthesis Markup Language (SSML)
@@ -211,7 +212,8 @@ Use this table to determine which speaking styles are supported for each neural 
 
 | Voice                   | Style                     | Description                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-AriaNeural`      | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
+| `en-US-AriaNeural`      | `style="newscast-formal"` | A formal, confident and authoritative tone for news delivery|
+|                         | `style="newscast-casual"` | A versatile and casual tone for general news delivery       |
 |                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
 |                         | `style="chat"`            | Expresses a casual and relaxed tone                         |
 |                         | `style="cheerful"`        | Expresses a positive and happy tone                         |

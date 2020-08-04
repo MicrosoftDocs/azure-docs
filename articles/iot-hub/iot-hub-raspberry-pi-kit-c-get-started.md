@@ -8,6 +8,7 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: wesmc
+ms.custom: ['Role: Cloud Development']
 ---
 
 # Connect Raspberry Pi to Azure IoT Hub (C)

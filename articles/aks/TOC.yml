@@ -52,8 +52,12 @@
   - name: Access and identity
     href: concepts-identity.md
   - name: Security
-    href: concepts-security.md
     items:
+    - name: Security for applications and clusters
+      href: concepts-security.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
   - name: Networking
     href: concepts-network.md
   - name: Storage
@@ -297,7 +301,7 @@
   - name: Develop and run applications
     items:
     - name: Use Local Process with Kubernetes with Visual Studio Code (preview)
-      href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+      href: https://code.visualstudio.com/docs/containers/local-process-kubernetes
     - name: Install existing applications with Helm
       href: kubernetes-helm.md
     - name: Use OpenFaaS
