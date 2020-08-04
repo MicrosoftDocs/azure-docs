@@ -90,9 +90,12 @@ To use a custom logo:
    > [!NOTE]
    > The thumbnail displayed on this **Properties** pane doesn't update right away. You can close and reopen the **Properties** pane to see the updated icon.
 
+## Clean up resources
+
+If you're not going to continue with the quickstart series then consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
+
 ## Next steps
 
-Now that you've configured the properties of an application, you can continue on to set up single sign-on.
-
-- [Set up single sign-on](add-application-portal-setup-sso.md)
-- [Delete an app](delete-application-portal.md)
+Advance to the next article to learn how to set up single sign-on for an app.
+> [!div class="nextstepaction"]
+> [Set up single sign-on](add-application-portal-setup-sso.md)
