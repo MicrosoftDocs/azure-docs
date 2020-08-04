@@ -53,7 +53,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## View data collected
 
-Select **Insights** and on the **Performance** tab it shows a select group of performance counters collected from the guest operating system of your VM. Scroll down to view more counters, and move the mouse over a graph to view average and percentiles taken starting from the time when the insight was enabled.
+After the deployment and configuration is completed, select **Overview** to navigate from the **Insights** page. Select **Insights**, and then select the **Performance** tab. On the Performance tab it shows a select group of performance counters collected from the guest operating system of your VM. Scroll down to view more counters, and move the mouse over a graph to view average and percentiles taken starting from the time when the Log Analytics VM extension was installed on the machine.
 
 Select **Map** to open the maps feature, which shows the processes running on the virtual machine and their dependencies. Select **Properties** to open the property pane if it isn't already open.
 
