@@ -6,7 +6,8 @@ author: malopMSFT
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurecli
 
 ---
 # Quickstart: Create a private endpoint using Azure CLI
