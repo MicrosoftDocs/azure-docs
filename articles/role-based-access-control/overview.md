@@ -135,7 +135,6 @@ The following are the high-level steps that Azure RBAC uses to determine if you 
 
 ## Next steps
 
-- [Quickstart: View the access a user has to Azure resources](check-access.md)
 - [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
 - [Understand the different roles](rbac-and-directory-admin-roles.md)
 - [Cloud Adoption Framework: Resource access management in Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)
