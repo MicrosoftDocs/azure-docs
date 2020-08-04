@@ -24,7 +24,7 @@ After you set up the automatic backup, App Configuration will publish events to 
 
 In this article, you'll use Azure Queue storage to receive events from Event Grid and use a timer-trigger of Azure Functions to process events in the queue in batches. 
 
-When a function is triggered, based on the events, it will fetch the latest values of the keys that have changed from the primary App Configuration store and update the secondary store accordingly. This setup helps combine multiple changes that occur in a short period in one backup operation. It also helps avoid excessive requests made to your App Configuration stores.
+When a function is triggered, based on the events, it will fetch the latest values of the keys that have changed from the primary App Configuration store and update the secondary store accordingly. This setup helps combine multiple changes that occur in a short period in one backup operation, which avoids excessive requests made to your App Configuration stores.
 
 ![Diagram that shows the architecture of the App Configuration store backup.](./media/config-store-backup-architecture.png)
 
