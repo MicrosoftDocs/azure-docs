@@ -16,7 +16,7 @@ Azure App Configuration maintains a record of changes made to key-values. This r
 
 ## Key-value retrieval
 
-You can use Azure Portal or CLI to retrieve past key-values. In Azure CLI, use `az appconfig revision list`, adding appropriate parameters to retrieve the required values.  Specify the Azure App Configuration instance by providing either the store name (`--name {app-config-store-name}`) or by using a connection string (`--connection-string {your-connection-string}`). Restrict the output by specifying a specific point in time (`--datetime`) and by specifying the maximum number of items to return (`--top`).
+You can use Azure portal or CLI to retrieve past key-values. In Azure CLI, use `az appconfig revision list`, adding appropriate parameters to retrieve the required values.  Specify the Azure App Configuration instance by providing either the store name (`--name {app-config-store-name}`) or by using a connection string (`--connection-string {your-connection-string}`). Restrict the output by specifying a specific point in time (`--datetime`) and by specifying the maximum number of items to return (`--top`).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -44,10 +44,10 @@ Retrieve all recorded changes for the key `color` at a specific point-in-time.
 az appconfig revision list --connection-string {your-app-config-connection-string} --key color --datetime "2019-05-01T11:24:12Z" 
 ```
 
-Retrieve the last 10 recorded changes to your key-values and return only the values for `key`, `label`, and `last-modified` time stamp.
+Retrieve the last 10 recorded changes to your key-values and return only the values for `key`, `label`, and `last_modified` time stamp.
 
 ```azurecli-interactive
-az appconfig revision list --name {your-app-config-store-name} --top 10 --fields key,label,last-modified
+az appconfig revision list --name {your-app-config-store-name} --top 10 --fields key label last_modified
 ```
 
 ## Next steps

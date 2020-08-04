@@ -16,13 +16,11 @@ Azure App Configuration stores configuration data as key-values. Key-values are 
 
 Keys serve as identifiers for key-values and are used to store and retrieve corresponding values. It's a common practice to organize keys into a hierarchical namespace by using a character delimiter, such as `/` or `:`. Use a convention best suited to your application. App Configuration treats keys as a whole. It doesn't parse keys to figure out how their names are structured or enforce any rule on them.
 
-Here is an example of key names structured into a hierarchy:
-
-* Based on component services
+Here is an example of key names structured into a hierarchy based on component services:
 
 ```aspx
-        AppName:Service1:ApiEndpoint
-        AppName:Service2:ApiEndpoint
+    AppName:Service1:ApiEndpoint
+    AppName:Service2:ApiEndpoint
 ```
 
 The use of configuration data within application frameworks might dictate specific naming schemes for key-values. For example, Java's Spring Cloud framework defines `Environment` resources that supply settings to a Spring application.  These are parameterized by variables that include *application name* and *profile*. Keys for Spring Cloud-related configuration data typically start with these two elements separated by a delimiter.
@@ -47,7 +45,7 @@ Key-values in App Configuration can optionally have a label attribute. Labels ar
 
 Label provides a convenient way to create variants of a key. A common use of labels is to specify multiple environments for the same key:
 
-```aspx
+```
     Key = AppName:DbEndpoint & Label = Test
     Key = AppName:DbEndpoint & Label = Staging
     Key = AppName:DbEndpoint & Label = Production
@@ -88,13 +86,11 @@ You also can include the following label patterns:
 
 Values assigned to keys are also unicode strings. You can use all unicode characters for values.
 
-> [!IMPORTANT]
-> All key-values stored in an App Configuration store are encrypted in transit and values are encrypted at rest. The keys and other attributes are not encrypted at rest. App Configuration isn't a replacement solution for Azure Key Vault. See [FAQ](./faq.md) for more details.
-
 ### Use Content-Type
-Each key-value in App Configuration has a content-type attribute. You can optionally use this attribute to store information about the type of value in a key-value that helps your application to process it properly. You can use any format for the content-type. App Configuration uses [Media Types]( https://www.iana.org/assignments/media-types/media-types.xhtml) (as known as MIME types) for built-in data types such as feature flags, Key Vault references, and JSON key-values.
+Each key-value in App Configuration has a content-type attribute. You can optionally use this attribute to store information about the type of value in a key-value that helps your application to process it properly. You can use any format for the content-type. App Configuration uses [Media Types]( https://www.iana.org/assignments/media-types/media-types.xhtml) (also known as MIME types) for built-in data types such as feature flags, Key Vault references, and JSON key-values.
 
 ## Next steps
 
-* [Point-in-time snapshot](./concept-point-time-snapshot.md)  
-* [Feature management](./concept-feature-management.md)  
+* [Point-in-time snapshot](./concept-point-time-snapshot.md)
+* [Feature management](./concept-feature-management.md)
+* [Event handling](./concept-app-configuration-event.md)
