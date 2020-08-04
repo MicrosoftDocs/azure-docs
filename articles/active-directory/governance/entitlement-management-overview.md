@@ -145,7 +145,7 @@ Azure AD Premium P2 licenses are **not** required for the following tasks:
 
 - No licenses are required for users with the Global Administrator role who set up the initial catalogs, access packages, and policies, and delegate administrative tasks to other users.
 - No licenses are required for users who have been delegated administrative tasks, such as catalog creator, catalog owner, and access package manager.
-- No licenses are required for guests who **can** request access packages, but do **not** request an access package.
+- No licenses are required for guests who have **a privilege to request access packages** but they **do not choose** to request them.
 
 For each paid Azure AD Premium P2 license that you purchase for your member users (employees), you can use Azure AD B2B to invite up to 5 guest users. These guest users can also use Azure AD Premium P2 features. For more information, see [Azure AD B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
 
