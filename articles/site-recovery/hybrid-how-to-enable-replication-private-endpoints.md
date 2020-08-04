@@ -148,7 +148,7 @@ Azure portal or by using [Azure PowerShell](../private-link/create-private-endpo
    1. **Review \+ create**. When validation completes, select **Create** to create the private
       endpoint.
 
-When the private endpoint is created, five fully qualified domain names are added to the private
+When the private endpoint is created, five fully qualified domain names (FQDNs) are added to the private
 endpoint. These links enable the machines in the on-premises network to access, via the bypass
 network, all the required Site Recovery microservices in the context of the vault. You can use the same
 private endpoint for the protection of any Azure machine in the bypass network and all
@@ -196,52 +196,52 @@ Recovery. In this case, you must create the required storage accounts in advance
 Before you enable replication of virtual machines, the managed identity of the vault must have the
 following role permissions, depending on the type of storage account.
 
-- Resource Manager-based storage accounts (Standard Type):
+- Resource Manager-based storage accounts (Standard type):
   - [Contributor](../role-based-access-control/built-in-roles.md#contributor)
   - [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
-- Resource Manager based storage accounts (Premium Type):
+- Resource Manager-based storage accounts (Premium type):
   - [Contributor](../role-based-access-control/built-in-roles.md#contributor)
   - [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
 - Classic storage accounts:
   - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
   - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
 
-The following steps describe how to add a role-assignment to your storage accounts, one at a time:
+These steps describe how to add a role assignment to your storage account:
 
-1. Go to the storage account and navigate to **Access control (IAM)** on the left side of the page.
+1. Go to the storage account. Select **Access control (IAM)** in the left pane.
 
-1. Once on **Access control (IAM)**, in the "Add a role assignment" box select **Add**.
+1. In the **Add a role assignment** section, select **Add**.
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Shows the Access control (IAM) page on a storage account and the 'Add a role assignment' button in the Azure portal.":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Screenshot that shows the Access control (IAM) page for a storage account.":::
 
-1. In the "Add a role assignment" side page, choose the role from the list above in the **Role**
-   drop-down. Enter the **name** of the vault and select **Save**.
+1. On the **Add a role assignment** page, select the role from the list above in the **Role**
+   list. Enter the name of the vault and then select **Save**.
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Shows the Access control (IAM) page on a storage account and the options to select a Role and which principal to grant that role to in the Azure portal.":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Screenshot that shows the Add role assignment page.":::
 
-In addition to these permissions, MS trusted services need to be allowed access as well. Go to
-"Firewalls and virtual networks" and select "Allow trusted Microsoft services to access this storage
-account" checkbox in **Exceptions**.
+After you add these permissions, you need to allow access to Microsoft trusted services. Go to
+**Firewalls and virtual networks** and select **Allow trusted Microsoft services to access this storage
+account** in **Exceptions**.
 
 ### Protect your virtual machines
 
-Once all the above configurations are completed, continue with the setup of your on-premises
-infrastructure.
+After you finish the preceding tasks, continue with the setup of your on-premises
+infrastructure. Continue by completing one the following tasks: 
 
-- [Deploy Configuration Server for VMware and physical machines](./vmware-azure-deploy-configuration-server.md)
-- OR [Setup Hyper-V environment for replication](./hyper-v-azure-tutorial.md#set-up-the-source-environment)
+- [Deploy a configuration server for VMware and physical machines](./vmware-azure-deploy-configuration-server.md)
+- [Set up the Hyper-V environment for replication](./hyper-v-azure-tutorial.md#set-up-the-source-environment)
 
-Once the setup is complete, enable the replication for your source machines. Ensure that the setup
-of infrastructure is done only after the private endpoints for the vault are already created in the
+After the setup is complete, enable replication for your source machines. Don't set up
+the infrastructure until after the private endpoints for the vault are created in the
 bypass network.
 
 ### Create private DNS zones and add DNS records manually
 
-If you didn't select the option to integrate with private DNS zone at the time of creating private
+If you didn't select the option to integrate with a private DNS zone when you created the private
 endpoint for the vault, follow the steps in this section.
 
 Create one private DNS zone to allow the Site Recovery provider (for Hyper-V machines) or the
-Process Server (for VMware/physical machines) to resolve private link fully qualified domain names
+Process Server (for VMware/physical machines) to resolve private FQDNs
 to private IPs.
 
 1. Create a private DNS zone
