@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: prishet
 ---
@@ -31,6 +31,24 @@ First, install the necessary libraries.
 
 > [!NOTE] 
 > For optimal performance, we recommend that you run processes that set ACLs recursively in an Azure VM that is located in the same region as your storage account.
+
+### [PowerShell](#tab/azure-powershell)
+
+1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.    
+
+   ```powershell
+   echo $PSVersionTable.PSVersion.ToString() 
+   ```
+    
+   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+    
+2. Install **Az.Storage** module.
+
+   ```powershell
+   Install-Module Az.Storage -Repository PSGallery -Force  
+   ```
+
+   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
 
 ### [.NET](#tab/dotnet)
 
@@ -67,29 +85,51 @@ from azure.core._match_conditions import MatchConditions
 from azure.storage.filedatalake._models import ContentSettings
 ```
 
-### [PowerShell](#tab/azure-powershell)
-
-1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.    
-
-   ```powershell
-   echo $PSVersionTable.PSVersion.ToString() 
-   ```
-    
-   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
-    
-2. Install **Az.Storage** module.
-
-   ```powershell
-   Install-Module Az.Storage -Repository PSGallery -Force  
-   ```
-
-   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
-
 ---
 
 ## Connect to your account
 
 You can connect by using Azure Active Directory (AD) or by using an account key. 
+
+### [PowerShell](#tab/azure-powershell)
+
+Open a Windows PowerShell command window, and then sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+
+```powershell
+Connect-AzAccount
+```
+
+If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want create and manage directories in. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+```powershell
+Select-AzSubscription -SubscriptionId <subscription-id>
+```
+
+Next, choose how you want your commands to obtain authorization to the storage account. 
+
+### Option 1: Obtain authorization by using Azure Active Directory (AD)
+
+With this approach, the system ensures that your user account has the appropriate role-based access control (RBAC) assignments and ACL permissions. 
+
+```powershell
+$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
+```
+
+The following table shows each of the supported roles and their ACL setting capability.
+
+|Role|ACL setting capability|
+|--|--|
+|[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|All directories and files in the account.|
+|[Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Only directories and files owned by the security principal.|
+
+### Option 2: Obtain authorization by using the storage account key
+
+With this approach, the system doesn't check RBAC or ACL permissions.
+
+```powershell
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+$ctx = $storageAccount.Context
+```
 
 ### [.NET](#tab/dotnet)
 
@@ -206,53 +246,31 @@ except Exception as e:
 
 - Replace the `storage_account_key` placeholder value with your storage account access key.
 
-
-
-### [PowerShell](#tab/azure-powershell)
-
-Open a Windows PowerShell command window, and then sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
-
-```powershell
-Connect-AzAccount
-```
-
-If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want create and manage directories in. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-```powershell
-Select-AzSubscription -SubscriptionId <subscription-id>
-```
-
-Next, choose how you want your commands to obtain authorization to the storage account. 
-
-### Option 1: Obtain authorization by using Azure Active Directory (AD)
-
-With this approach, the system ensures that your user account has the appropriate role-based access control (RBAC) assignments and ACL permissions. 
-
-```powershell
-$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
-```
-
-The following table shows each of the supported roles and their ACL setting capability.
-
-|Role|ACL setting capability|
-|--|--|
-|[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|All directories and files in the account.|
-|[Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Only directories and files owned by the security principal.|
-
-### Option 2: Obtain authorization by using the storage account key
-
-With this approach, the system doesn't check RBAC or ACL permissions.
-
-```powershell
-$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
-$ctx = $storageAccount.Context
-```
-
 ---
 
 ## Set ACL recursively
 
 You can set the ACL of a directory recursively. You add up to 32 entries (security principals) to the ACL of a directory or file. 
+
+### [PowerShell](#tab/azure-powershell)
+
+Use the `Set-AzDataLakeGen2ItemAclObject` cmdlet to create an ACL for the owning user, owning group, or other users. Then, use the `Set-AzDataLakeGen2AclRecursive` cmdlet to commit the ACL recursively.
+
+This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object id "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
+
+```powershell
+$filesystemName = "my-container"
+$dirname = "my-parent-directory/"
+$userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx 
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission r-x -InputObject $acl 
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "---" -InputObject $acl
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission r-x -InputObject $acl 
+
+Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+
+```
 
 ### [.NET](#tab/dotnet)
 
@@ -316,30 +334,28 @@ def set_permission_recursively():
      print(e)
 ```
 
+---
+
+## Update ACL recursively
+
+You can update an existing ACL recursively.
+
 ### [PowerShell](#tab/azure-powershell)
 
-Use the `Set-AzDataLakeGen2ItemAclObject` cmdlet to create an ACL for the owning user, owning group, or other users. Then, use the `Set-AzDataLakeGen2AclRecursive` cmdlet to commit the ACL recursively.
+Update an ACL recursively by using the  **Update-AzDataLakeGen2AclRecursiv** cmdlet. 
 
-This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object id "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
+This example adds write permission to an ACL entry, and then updates the ACL with that entry.
 
 ```powershell
 $filesystemName = "my-container"
 $dirname = "my-parent-directory/"
 $userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
 
-$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx 
-$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission r-x -InputObject $acl 
-$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "---" -InputObject $acl
-$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission r-x -InputObject $acl 
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx
 
-Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
 
 ```
----
-
-## Update ACL recursively
-
-You can update an existing ACL recursively.
 
 ### [.NET](#tab/dotnet)
 
@@ -396,28 +412,27 @@ def update_permission_recursively():
      print(e)
 ```
 
+---
+
+## Remove ACL entries recursively
+
+You can remove one or more ACL entries recursively.
+
 ### [PowerShell](#tab/azure-powershell)
 
-Update an ACL recursively by using the  **Update-AzDataLakeGen2AclRecursiv** cmdlet. 
+Remove ACL entries by calling the **Remove-AzDataLakeGen2AclRecursive** cmdlet. 
 
-This example adds write permission to an ACL entry, and then updates the ACL with that entry.
+This example removes an ACL entry from the ACL of the directory named `my-parent-directory`. 
 
 ```powershell
 $filesystemName = "my-container"
 $dirname = "my-parent-directory/"
 $userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
 
-$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID
 
-Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
-
+Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Acl $acl
 ```
-
----
-
-## Remove ACL entries recursively
-
-You can remove one or more ACL entries recursively.
 
 ### [.NET](#tab/dotnet)
 
@@ -467,22 +482,6 @@ def remove_permission_recursively():
      print(e)
 ```
 
-### [PowerShell](#tab/azure-powershell)
-
-Remove ACL entries by calling the **Remove-AzDataLakeGen2AclRecursive** cmdlet. 
-
-This example removes an ACL entry from the ACL of the directory named `my-parent-directory`. 
-
-```powershell
-$filesystemName = "my-container"
-$dirname = "my-parent-directory/"
-$userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
-
-$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID
-
-Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Acl $acl
-```
-
 ---
 
 ## Recover from failures
@@ -492,6 +491,24 @@ You application might encounter a run-time error, or a permission error. Permiss
 If your application encounters an error, you can address fix the error, and then restart the process. Your application can resume where it left off by using a continuation token. 
 
 You don't have to use this token if you prefer to restart from the very beginning. You can re-apply ACL entries without any negative impact.
+
+### [PowerShell](#tab/azure-powershell)
+
+Return results to the variable. Pipe failed entries to a formatted table.
+
+```powershell
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+$result
+$result.FailedEntries | ft 
+```
+
+Based on the output of the table, you can fix any permission errors, and then resume execution by using the continuation token.
+
+```powershell
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinuationToken $result.ContinuationToken
+$result
+
+```
 
 ## [.NET](#tab/dotnet)
 
@@ -551,27 +568,31 @@ def resume_set_acl_recursive(continuation_token):
      return continuation_token
 ```
 
-### [PowerShell](#tab/azure-powershell)
-
-Return results to the variable. Pipe failed entries to a formatted table.
-
-```powershell
-$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
-$result
-$result.FailedEntries | ft 
-```
-
-Based on the output of the table, you can fix any permission errors, and then resume execution by using the continuation token.
-
-```powershell
-$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinuationToken $result.ContinuationToken
-$result
-
-```
-
 ---
 
 If you want the process to complete uninterrupted by permission errors, you can specify that. 
+
+### [PowerShell](#tab/azure-powershell)
+
+This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the results (including the number of failures) to the console. 
+
+```powershell
+$ContinueOnFailure = $true
+
+$TotalDirectoriesSuccess = 0
+$TotalFilesSuccess = 0
+$totalFailure = 0
+$FailedEntries = New-Object System.Collections.Generic.List[System.Object]
+
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+
+echo "[Result Summary]"
+echo "TotalDirectoriesSuccessfulCount: `t$($result.TotalFilesSuccessfulCount)"
+echo "TotalFilesSuccessfulCount: `t`t`t$($result.TotalDirectoriesSuccessfulCount)"
+echo "TotalFailureCount: `t`t`t`t`t$($result.TotalFailureCount)"
+echo "FailedEntries:"$($result.FailedEntries | ft)
+
+```
 
 ### [.NET](#tab/dotnet)
 
@@ -626,28 +647,6 @@ def continue_on_failure():
         
     except Exception as e:
      print(e)
-```
-
-### [PowerShell](#tab/azure-powershell)
-
-This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the results (including the number of failures) to the console. 
-
-```powershell
-$ContinueOnFailure = $true
-
-$TotalDirectoriesSuccess = 0
-$TotalFilesSuccess = 0
-$totalFailure = 0
-$FailedEntries = New-Object System.Collections.Generic.List[System.Object]
-
-$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
-
-echo "[Result Summary]"
-echo "TotalDirectoriesSuccessfulCount: `t$($result.TotalFilesSuccessfulCount)"
-echo "TotalFilesSuccessfulCount: `t`t`t$($result.TotalDirectoriesSuccessfulCount)"
-echo "TotalFailureCount: `t`t`t`t`t$($result.TotalFailureCount)"
-echo "FailedEntries:"$($result.FailedEntries | ft)
-
 ```
 
 ---

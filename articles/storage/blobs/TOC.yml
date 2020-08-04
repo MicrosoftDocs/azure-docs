@@ -731,7 +731,7 @@
         href: data-lake-storage-explorer.md
       - name: Hadoop File System CLI
         href: data-lake-storage-use-hdfs-data-lake-storage.md
-      - name: Setting ACLs recursively
+      - name: Set ACLs recursively
         href: recursive-access-control-lists.md
     - name: Query
       items:
