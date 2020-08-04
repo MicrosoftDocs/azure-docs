@@ -14,7 +14,7 @@ ms.date: 07/30/2020
 ms.author: vinigam
 #Customer intent: I need to create a connection montior preview to monitor communication between one VM and another.
 ---
-# Create a Connection Monitor (Preview) using the Azure Portal
+# Create a Connection Monitor (Preview) using the Azure portal
 
 Learn how to create Connection Monitor (Preview) to monitor communication between your resources using the Azure portal. It supports hybrid and Azure cloud deployments.
 
