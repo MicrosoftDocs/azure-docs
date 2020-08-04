@@ -27,6 +27,8 @@ ms.date: 09/22/2020
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+* Visual Studio Code Extension for Azure Logic Apps
+
 * Azure Functions Core Tools, which you can install from these locations:<p>
 
   > [!NOTE]
@@ -37,25 +39,25 @@ ms.date: 09/22/2020
   * [Win x64 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x64.msi)
   * [Win x86 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x86.msi)
 
-* Visual Studio Code Extension for Azure Logic Apps
-
 * [C# extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which enables F5 functionality to run your workflow
 
-1. If you don't have the standalone Azure Storage Emulator, download and install the latest version. Before you can start, if you never used the emulator before, you need to initialize the emulator. You also need to have a local SQL DB, such as SQL Express, installed for the storage emulator to use. For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
+* If you don't have the standalone Azure Storage Emulator, download and install the latest version. Before you can start, if you never used the emulator before, you need to initialize the emulator. You also need to have a local SQL DB, such as SQL Express, installed for the storage emulator to use. For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
    Or, use [Azurite](https://github.com/Azure/Azurite/blob/master/README.md) instead?
 
 
 ## Set up environment
 
-1. Install the preview Azure Logic Apps Extension for Azure Functions runtime.
+1. To install the preview Azure Logic Apps Extension for Azure Functions, follow these steps:
 
    > [!NOTE]
    > This version replaces any currently installed Azure Functions extension but preserves the capability to author Azure Functions.
 
-   1. On the **Extensions** toolbar, select the ellipses (**...**) button.
+   1. Download the preview Azure Logic Apps Extension for Azure Functions runtime to your local computer from this location:
 
-   1. Select **Install from VSIX**.
+   1. On the Visual Studio Code left toolbar, select **Extensions**. From the **Extensions** menu, select the ellipses (**...**) button > **Install from VSIX**.
+
+      ![Screenshot that shows Visual Studio extension menu with selected ellipsis button and Install from VSIX menu command](./media/create-stateless-stateful-workflows/install-from-vsix.png)
 
 1. Disable automatic updates for extensions in Visual Studio Code so that the preview extension isn't overwritten by the public extension when you restart Visual Studio Code.
 
