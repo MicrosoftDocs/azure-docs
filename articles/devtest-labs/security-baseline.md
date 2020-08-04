@@ -655,7 +655,7 @@ Also, Azure Marketplace Virtual Machine Images published by Microsoft are manage
 
 **Responsibility:** Customer
 
-## 7.8: Deploy system configuration management tools for operating systems
+### 7.8: Deploy system configuration management tools for operating systems
 **Guidance:** Azure Automation State Configuration is a configuration management service for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified. You can also write a custom artifact that can installed on every lab machine to ensure they are follow organizational policies. 
 
 - [Onboarding machines for management by Azure Automation State Configuration](../automation/automation-dsc-onboarding.md)
