@@ -244,67 +244,63 @@ Create one private DNS zone to allow the Site Recovery provider (for Hyper-V mac
 Process Server (for VMware/physical machines) to resolve private FQDNs
 to private IPs.
 
-1. Create a private DNS zone
+1. Create a private DNS zone.
 
-   1. Search for "Private DNS zone" in the **All services** search bar and select "Private DNS
-      zones" from the drop-down.
+   1. Search for "private DNS zone" in the **All services** search box and then select **Private DNS
+      zone** in the results:
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Shows searching for 'private dns zone' on new resources page in the Azure portal.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Screenshot that shows searching for private dns zone on the new resources page in the Azure portal.":::
 
-   1. Once on the "Private DNS zones" page, select the **\+Add** button to start creating a new
+   1. On the **Private DNS zones** page, select the **Add** button to start creating a new
       zone.
 
-   1. On the "Create private DNS zone" page, fill in the required details. Enter the name of the
-      private DNS zone as `privatelink.siterecovery.windowsazure.com`. You can choose any resource
-      group and any subscription to create it.
+   1. On the **Create private DNS zone** page, enter the required details. Enter **privatelink.siterecovery.windowsazure.com** for the name of the
+      private DNS zone. You can choose any resource
+      group and any subscription.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Shows the Basics tab of the Create Private DNS zone page and related project details in the Azure portal.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Screenshot that shows the Basics tab of the Create Private DNS zone page.":::
 
    1. Continue to the **Review \+ create** tab to review and create the DNS zone.
 
-1. Link private DNS zone to your virtual network
+1. Link the private DNS zone to your virtual network.
 
-   The private DNS zone created above must now be linked to the bypass.
+   You now need to link the private DNS zone that you created to the bypass.
 
-   1. Go to the private DNS zone that you created in the previous step and navigate to **Virtual
-      network links** on the left side of the page. Once there, select the **\+Add** button.
+   1. Go to the private DNS zone that you created in the previous step and then go to **Virtual
+      network links** in the left pane. Select **Add**.
 
-   1. Fill in the required details. The **Subscription** and **Virtual network** fields must be
-      filled with the corresponding details of the bypass network. The other fields must be left as
-      is.
+   1. Enter the required details. In the **Subscription** and **Virtual network** lists, select details that correspond to the bypass network. Leave the default values in the other fields.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="Shows the page to add a virtual network link with the link name, subscription, and related virtual network in the Azure portal.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="Screenshot that shows the Add virtual network link page.":::
 
-1. Add DNS records
+1. Add DNS records.
 
-   Once you've created the required private DNS zone and the private endpoint, you need to add DNS
+   Now that you've created the required private DNS zone and the private endpoint, you need to add DNS
    records to your DNS zone.
 
    > [!NOTE]
-   > In case you are using a custom private DNS zone, make sure that similar entries are made as
-   > discussed below.
+   > If you're using a custom private DNS zone, be sure to make similar entries, as
+   > described below.
 
-   This step requires you to make entries for each fully qualified domain name in your private
+   In this step, you need to make entries for each fully qualified domain name in your private
    endpoint into your private DNS zone.
 
-   1. Go to your private DNS zone and navigate to the **Overview** section on the left side of the
-      page. Once there, select **\+Record set** to start adding records.
+   1. Go to your private DNS zone and then go to the **Overview** section in the pane. Select **Record set** to start adding records.
 
-   1. In the "Add record set" page that opens, add an entry for each fully qualified domain name and
-      private IP as an _A_ type record. The list of fully qualified domain names and IPs can be
-      obtained from the "Private Endpoint" page in **Overview**. As shown in the example below, the
+   1. On the **Add record set** page, add an entry for each fully qualified domain name and
+      private IP as an **A** type record. You can get a list of the fully qualified domain names and IPs on the **Private Endpoint** page in **Overview**. As you can see in the following screenshot, the
       first fully qualified domain name from the private endpoint is added to the record set in the
       private DNS zone.
 
-      These fully qualified domain names match the pattern:
+      These fully qualified domain names match this pattern:
       `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Shows the page to add a DNS A type record for the fully qualified domain name to the private endpoint in the Azure portal.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Screenshot that shows the Add record set page.":::
 
 ## Next steps
 
 Now that you've enabled private endpoints for your virtual machine replication, see these other
-pages for additional and related information:
+articles for additional and related information:
 
 - [Deploy an on-premises configuration server](./vmware-azure-deploy-configuration-server.md)
 - [Set up disaster recovery of on-premises Hyper-V VMs to Azure](./hyper-v-azure-tutorial.md)
