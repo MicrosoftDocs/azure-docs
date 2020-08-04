@@ -20,11 +20,11 @@ CMK encryption is dependent on [Azure Key Vault](https://docs.microsoft.com/azur
 
 Encryption with customer-managed keys is applied to individual indexes or synonym maps when those objects are created, and is not specified on the search service level itself. Only new objects can be encrypted. You cannot encrypt content that already exists.
 
-Keys don't all need to be in the same Key Vault. A single search service can host multiple encrypted indexes or synonym maps each encrypted with their own customer-managed encryption keys stored in different Key Vaults.  You can also have indexes and synonym maps in the same service that are not encrypted using customer-managed keys. 
+Keys don't all need to be in the same key vault. A single search service can host multiple encrypted indexes or synonym maps, each encrypted with their own customer-managed encryption keys, stored in different key vaults. You can also have indexes and synonym maps in the same service that are not encrypted using customer-managed keys. 
 
 ## Double encryption
 
-For services created after August 1, 2020 and in specific regions, the scope of CMK encryption includes temporary disks, achieving full [double encryption](search-security-overview.md#double-encryption), currently available in these regions: 
+For services created after August 1, 2020 and in specific regions, the scope of CMK encryption includes temporary disks, achieving [full double encryption](search-security-overview.md#double-encryption), currently available in these regions: 
 
 + West US 2
 + East US
@@ -32,7 +32,7 @@ For services created after August 1, 2020 and in specific regions, the scope of 
 + US Gov Virginia
 + US Gov Arizona
 
-If you are using a different region, or service created prior to August 1, then your CMK encryption is limited to just the primary objects themselves and not the internal data structures created by the service.
+If you are using a different region, or a service created prior to August 1, then your CMK encryption is limited to just the data disk, excluding the temporary disks used by the service.
 
 ## Prerequisites
 
