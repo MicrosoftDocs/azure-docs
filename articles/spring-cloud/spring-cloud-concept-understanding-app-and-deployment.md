@@ -21,7 +21,7 @@ Azure Spring Cloud standard tier allows one App to have one production deploymen
 The following features/properties are defined on App level.
 
 | Enum | Definition |
-|:--:|:----------------:|
+|:--|:----------------|
 | Public Endpoint | The URL to access the app |
 | Custom Domain | CNAME record that secures the custom domain |
 | Service Binding | Binding configuration properties set in the function.json file and the ServiceBusTrigger attribute |
@@ -33,7 +33,7 @@ The following features/properties are defined on App level.
 The following features/properties are defined on Deployment level, and will be exchanged when swapping production/staging deployment.
 
 | Enum | Definition |
-|:--:|:----------------:|
+|:--|:----------------|
 | CPU | Number of vcores per App instance |
 | Memory | App Service setting that allocates memory to scale up or scale out deployments |
 | Instance Count | The number of app instances, set manually or automatically in App Service |
