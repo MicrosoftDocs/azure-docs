@@ -10,7 +10,7 @@ ms.custom: mvc, cli-validatem seodec18
 # Create a PHP app in App Service on Linux
 
 > [!NOTE]
-> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Create a PHP app in Azure](../app-service-web-get-started-php.md).
+> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Create a PHP app in Azure](../quickstart-php.md).
 >
 
 [App Service on Linux](../overview.md#app-service-on-linux) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Linux using the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).

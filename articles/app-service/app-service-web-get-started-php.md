@@ -19,7 +19,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 You create the web app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell, and you use Git to deploy sample PHP code to the web app.
 
-![Sample app running in Azure](media/app-service-web-get-started-php/hello-world-in-browser.png)
+![Sample app running in Azure](media/quickstart-php/hello-world-in-browser.png)
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
@@ -53,7 +53,7 @@ Open a web browser, and navigate to the sample app at `http://localhost:8080`.
 
 You see the **Hello World!** message from the sample app displayed in the page.
 
-![Sample app running locally](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
+![Sample app running locally](media/quickstart-php/localhost-hello-world-in-browser.png)
 
 In your terminal window, press **Ctrl+C** to exit the web server.
 
@@ -119,7 +119,7 @@ http://<app-name>.azurewebsites.net
 
 Here is what your new web app should look like:
 
-![Empty web app page](media/app-service-web-get-started-php/app-service-web-service-created.png)
+![Empty web app page](media/quickstart-php/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -158,7 +158,7 @@ http://<app-name>.azurewebsites.net
 
 The PHP sample code is running in an Azure App Service web app.
 
-![Sample app running in Azure](media/app-service-web-get-started-php/hello-world-in-browser.png)
+![Sample app running in Azure](media/quickstart-php/hello-world-in-browser.png)
 
 **Congratulations!** You've deployed your first PHP app to App Service.
 
@@ -179,21 +179,21 @@ git push azure master
 
 Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
-![Updated sample app running in Azure](media/app-service-web-get-started-php/hello-azure-in-browser.png)
+![Updated sample app running in Azure](media/quickstart-php/hello-azure-in-browser.png)
 
 ## Manage your new Azure app
 
 1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created. Search for and select **App Services**.
 
-    ![Search for App Services, Azure portal, create PHP web app](media/app-service-web-get-started-php/navigate-to-app-services-in-the-azure-portal.png)
+    ![Search for App Services, Azure portal, create PHP web app](media/quickstart-php/navigate-to-app-services-in-the-azure-portal.png)
 
 2. Select the name of your Azure app.
 
-    ![Portal navigation to Azure app](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
+    ![Portal navigation to Azure app](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
 
     Your web app's **Overview** page will be displayed. Here, you can perform basic management tasks like **Browse**, **Stop**, **Restart**, and **Delete**.
 
-    ![App Service page in Azure portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+    ![App Service page in Azure portal](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 
     The web app menu provides different options for configuring your app. 
 

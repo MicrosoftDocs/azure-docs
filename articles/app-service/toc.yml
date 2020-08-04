@@ -18,7 +18,7 @@
   - name: Create Node.js app
     href: quickstart-nodejs.md
   - name: Create PHP app
-    href: app-service-web-get-started-php.md
+    href: quickstart-php.md
   - name: Create Java app
     href: app-service-web-get-started-java.md
   - name: Create static HTML site

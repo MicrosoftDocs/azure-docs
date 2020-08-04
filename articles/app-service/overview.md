@@ -61,7 +61,7 @@ Create your first web app.
 > [ASP.NET (on Windows)](quickstart-dotnet-framework.md)
 
 > [!div class="nextstepaction"]
-> [PHP (on Windows or Linux)](app-service-web-get-started-php.md)
+> [PHP (on Windows or Linux)](quickstart-php.md)
 
 > [!div class="nextstepaction"]
 > [Ruby (on Linux)](quickstart-ruby.md)

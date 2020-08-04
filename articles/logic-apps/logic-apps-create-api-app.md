@@ -55,7 +55,7 @@ easy API hosting.
 > * [ASP.NET](../app-service/quickstart-dotnetcore.md). 
 > * [Java](../app-service/app-service-web-get-started-java.md)
 > * [Node.js](../app-service/quickstart-nodejs.md)
-> * [PHP](../app-service/app-service-web-get-started-php.md)
+> * [PHP](../app-service/quickstart-php.md)
 > * [Python](../app-service/quickstart-python.md)
 > * [Ruby](../app-service/quickstart-ruby.md)
 >
