@@ -211,7 +211,7 @@ For more information on environments, see [Create and manage environments for tr
 The deployment configuration defines the Azure Kubernetes Service hosting environment used to run the web service.
 
 > [!TIP]
-> If you aren't sure about the memory, CPU, or GPU needs of your deployment, you can use profiling to learn these. For more information, see [How and where to deploy a model](how-to-deploy-and-where.md#prepare-to-deploy).
+> If you aren't sure about the memory, CPU, or GPU needs of your deployment, you can use profiling to learn these. For more information, see [How and where to deploy a model](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core.model import Model

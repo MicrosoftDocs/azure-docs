@@ -69,7 +69,7 @@ public class TodoListController : Controller
     [HttpGet]
     public IEnumerable<TodoItem> Get()
     {
-         HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi)
+         HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);
         // Do the work and return the result.
         // ...
     }
