@@ -12,8 +12,6 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.collection: M365-identity-device-management
-
 ---
 
 # Quickstart: View the list of applications that are using your Azure Active Directory (Azure AD) tenant for identity management
