@@ -71,7 +71,7 @@ To connect with Azure Service Bus using JMS clients, you need the **connection s
 
 Once the `Session` or `JMSContext` has been instantiated, your application can use the familiar JMS APIs to perform both management and data operations.
 
-Refer to the list of [supported JMS features](service-bus-java-how-to-use-jms-20.md#what-jms-features-are-supported) to see which APIs are supported as part of this preview.
+Refer to the list of [supported JMS features](how-to-use-java-message-service-20.md#what-jms-features-are-supported) to see which APIs are supported as part of this preview.
 
 Below are some sample code snippets to get started with JMS -
 

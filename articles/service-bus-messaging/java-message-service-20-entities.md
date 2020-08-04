@@ -152,7 +152,7 @@ Message selectors can be set up on each of the JMS subscriptions and exist as a 
 For more information and examples of using Service Bus messaging, see the following advanced topics:
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Use Java Message Service 2.0 API with Azure Service Bus Premium (Preview)](service-bus-java-how-to-use-jms-20.md)
+* [Use Java Message Service 2.0 API with Azure Service Bus Premium (Preview)](how-to-use-java-message-service-20.md)
 
 
 
