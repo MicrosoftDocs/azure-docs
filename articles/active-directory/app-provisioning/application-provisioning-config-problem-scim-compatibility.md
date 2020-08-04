@@ -41,7 +41,7 @@ In the table below, any item marked as fixed means that the proper behavior can 
 | Update PATCH behavior to ensure compliance | No | TBD| use preview flag |
 
 ## Flags to alter the SCIM behavior
-For deviations from the default behavior that our default SCIM client behavior, use the flags below in the tenant URL of your application. 
+Use the flags below in the tenant URL of your application in order to change the default SCIM client behavior.
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM flags to later behavior.":::
 
