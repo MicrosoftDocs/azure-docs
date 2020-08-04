@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/27/2020
+ms.date: 08/04/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -126,7 +126,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. **Add/Save** the SAML Configuration in Atlassian
 
-1. If you wish to configure the application in **IDP** initiated mode, edit the **Basic SAML Configuration** section of the **Set up Single Sign-On with SAML** page in Azure copy and open the **SAML single sign-on page** on the Atlassian Admin Portal
+1. If you wish to configure the application in **IDP** initiated mode, edit the **Basic SAML Configuration** section of the **Set up Single Sign-On with SAML** page in Azure and open the **SAML single sign-on page** on the Atlassian Admin Portal
 
    a. Copy **SP Entity ID** value from Atlassian, paste it in the **Identifier (Entity ID)** box in Azure and set it as default
    
