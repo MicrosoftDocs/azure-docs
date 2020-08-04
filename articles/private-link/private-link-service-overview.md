@@ -15,9 +15,14 @@ Azure Private Link service is the reference to your own service that is powered 
 
 :::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Private link service workflow" border="true":::
 
+*Figure: Azure Private Link Service.*
+
 ## Workflow
 
 ![Private Link service workflow](media/private-link-service-overview/private-link-service-workflow.png)
+
+
+*Figure: Azure Private Link service workflow.*
 
 ### Create your Private Link Service
 
