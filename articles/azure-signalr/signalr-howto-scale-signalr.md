@@ -5,7 +5,8 @@ author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.author: zhshang
+ms.author: zhshang 
+ms.custom: devx-track-azurecli
 ---
 # How to scale an Azure SignalR Service instance?
 This article shows you how to scale your instance of Azure SignalR Service. There are two scenarios for scaling, scale up and scale out.

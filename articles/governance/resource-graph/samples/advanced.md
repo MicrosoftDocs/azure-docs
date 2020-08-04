@@ -342,8 +342,9 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.sql/servers/database
 
 ## <a name="join-vmpip"></a>List virtual machines with their network interface and public IP
 
-This query uses two **leftouter** `join` commands to bring together virtual machines, their related
-network interfaces, and any public IP address related to those network interfaces.
+This query uses two **leftouter** `join` commands to bring together virtual machines created with
+the Resource Manager deployment model, their related network interfaces, and any public IP address
+related to those network interfaces.
 
 ```kusto
 Resources
