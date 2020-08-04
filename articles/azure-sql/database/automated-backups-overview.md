@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 07/20/2020
+ms.date: 08/04/2020
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance
 
@@ -112,7 +112,7 @@ Like PITR backups, LTR backups are protected with geo-redundant storage. For mor
 
 For more information about LTR, see [Long-term backup retention](long-term-retention-overview.md).
 
-## Backup storage costs
+## Storage costs
 
 The price for backup storage varies depending on whether you're using the DTU model or the vCore model, and also on your region. The backup storage is charged per GB/month consumed, for pricing see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page and [Azure SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) page.
 
