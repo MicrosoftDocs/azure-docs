@@ -39309,6 +39309,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-kws-guidelines.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/custom-keyword-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-ruby-get-intent.md",
       "redirect_url": "/azure/cognitive-services/LUIS/",
       "redirect_document_id": false
