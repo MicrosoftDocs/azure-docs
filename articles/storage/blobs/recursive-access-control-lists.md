@@ -15,36 +15,41 @@ ms.reviewer: prishet
 You can apply the ACL of a parent directory to all child directories and files that exist beneath the parent directory.  This means that if you want to apply the same ACL entries to a hierarchy of directories and files, you can do that without having to modify the ACL of each one individually. Instead, you can apply them recursively.
 
 > [!NOTE]
-> The ability to set access lists recursively is a in public preview.  
+> The ability to set access lists recursively is in public preview and is available in all regions.  
 
 ## Prerequisites
 
-> [!div class="checklist"]
-> * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
-> * Enrollment in the preview. See this form (Need form link).
-> * The correct permissions to execute the recursive ACL process. The correct permission includes either of the following: 
->   - A provisioned Azure Active Directory (AD) [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, storage account, resource group or subscription.  
->   - Owning user of the target container or directory to which you plan to apply the recursive ACL process. This includes all child items in the target container or directory. 
-> * An understanding of how ACLs are applied to directories and files. See [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Also, make sure to review the README files for the SDK that plan to use to recursively set ACLs. 
+- A storage account that has hierarchical namespace (HNS) enabled. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
 
-## Best practices
+- Enrollment in the preview. See this form (Need form link).
 
-Before you begin, review these best practices.
+- The correct permissions to execute the recursive ACL process. The correct permission includes either of the following: 
+
+  - A provisioned Azure Active Directory (AD) [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the either the target container, storage account.   
+
+  - Owning user of the target container or directory to which you plan to apply the recursive ACL process. This includes all child items in the target container or directory. 
+
+- An understanding of how ACLs are applied to directories and files. See [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+
+- Review the README files for the SDK that plan to use to recursively set ACLs. 
+
+## Best practice guidelines
+
+Review these best practice guidelines before you begin. 
 
 #### Handling runtime errors
 
-A runtime error can occur for many reasons (For example: an outage or a client connectivity issue). If you encounter a runtime error, restart the recursive ACL process. ACLs can be re-applied to items with no negative impact. 
+A runtime error can occur for many reasons (For example: an outage or a client connectivity issue). If you encounter a runtime error, restart the recursive ACL process. An ACL can be re-applied to an item without causing a negative impact. 
 
 #### Handling permission errors (403)
 
-If you encounter an access control exception while running a recursive ACL process, your AD [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) might not have sufficient permission to apply an ACL to one or more of the child items in the directory hierarchy. When a permission error occurs, the process stops and a continuation token is provided. Fix the permission issue, and then use the continuation token to process the remaining dataset. The directories and files that have already been successfully processed will not have to be processed again. 
+If you encounter an access control exception while running a recursive ACL process, your AD [security principal](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal) might not have sufficient permission to apply an ACL to one or more of the child items in the directory hierarchy. When a permission error occurs, the process stops and a continuation token is provided. Fix the permission issue, and then use the continuation token to process the remaining dataset. The directories and files that have already been successfully processed won't have to be processed again. 
 
 #### Credentials 
 
-We recommend that you provision an AAD security principal that is assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role scoped to the target storage account or container. 
+We recommend that you provision an AAD security principal that has been assigned the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role in the scope of the target storage account or container. 
 
 #### Performance 
 
@@ -277,7 +282,7 @@ except Exception as e:
 
 ---
 
-## Set ACL recursively
+## Set an ACL recursively
 
 You can set the ACL of a directory recursively. You add up to 32 entries (security principals) to the ACL of a directory or file. 
 
@@ -365,7 +370,7 @@ def set_permission_recursively():
 
 ---
 
-## Update ACL recursively
+## Update an ACL recursively
 
 You can update an existing ACL recursively.
 
@@ -682,4 +687,4 @@ def continue_on_failure():
 
 ## See also
 
-* Put a see also here.
+[Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
