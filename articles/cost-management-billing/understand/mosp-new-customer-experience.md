@@ -52,47 +52,47 @@ Your new experience includes the following cost management and billing capabilit
 
 #### Invoice management
 
-- **More predictable monthly billing period** - In your new account, the billing period begins from the first day of the month and ends at the last day of the month, regardless of when you sign up to use Azure. An invoice will be generated at the beginning of each month, and will contain all charges from the previous month.
+**More predictable monthly billing period** - In your new account, the billing period begins from the first day of the month and ends at the last day of the month, regardless of when you sign up to use Azure. An invoice will be generated at the beginning of each month, and will contain all charges from the previous month.
 
-- **Get a single monthly invoice for multiple subscriptions** - You have the flexibility of either getting one monthly invoice for each of your subscriptions or a single invoice for multiple subscriptions.
+**Get a single monthly invoice for multiple subscriptions** - You have the flexibility of either getting one monthly invoice for each of your subscriptions or a single invoice for multiple subscriptions.
 
-- **Receive a single monthly invoice for Azure subscriptions, support plans, and Azure Marketplace products** - You'll get one monthly invoice for all charges including usage charges for Azure subscriptions, and support plans and Azure Marketplace purchases.
+**Receive a single monthly invoice for Azure subscriptions, support plans, and Azure Marketplace products** - You'll get one monthly invoice for all charges including usage charges for Azure subscriptions, and support plans and Azure Marketplace purchases.
 
-- **Group costs on the invoice based on your needs** - You can group costs on your invoice based on your needs - by departments, projects, or teams.
+**Group costs on the invoice based on your needs** - You can group costs on your invoice based on your needs - by departments, projects, or teams.
 
-- **Set an optional purchase order number on the invoice** - To associate your invoice with your internal financial systems, set a purchase order number. Managed and update it at any point of time in the Azure portal.
+**Set an optional purchase order number on the invoice** - To associate your invoice with your internal financial systems, set a purchase order number. Managed and update it at any point of time in the Azure portal.
 
 #### Payment management
 
-- **Pay invoices immediately using a credit card** - There's no need to wait for the autopayment to be charged to your credit card. You can use any credit card to pay a due or a past due invoice in the Azure portal.
+**Pay invoices immediately using a credit card** - There's no need to wait for the autopayment to be charged to your credit card. You can use any credit card to pay a due or a past due invoice in the Azure portal.
 
-- **Keep track of all payments applied to the account** - View all payments applied to your account, including the payment method used, amount paid, and date of payment in the Azure portal.
+**Keep track of all payments applied to the account** - View all payments applied to your account, including the payment method used, amount paid, and date of payment in the Azure portal.
 
 #### Cost management
 
-- **Schedule monthly exports of usage data to a storage account** - Automatically publish your cost and usage data to a storage account on a daily, weekly, or monthly basis.
+**Schedule monthly exports of usage data to a storage account** - Automatically publish your cost and usage data to a storage account on a daily, weekly, or monthly basis.
 
 #### Account and subscription management
 
-- **Assign multiple administrators to perform billing operations** - Assign billing permissions to multiple users to manage billing for your account. Get flexibility by providing read, write, or both permissions to others.
+**Assign multiple administrators to perform billing operations** - Assign billing permissions to multiple users to manage billing for your account. Get flexibility by providing read, write, or both permissions to others.
 
-- **Create additional subscriptions directly in the Azure portal** - Create all your subscriptions with a single click in the Azure portal.
+**Create additional subscriptions directly in the Azure portal** - Create all your subscriptions with a single click in the Azure portal.
 
 #### API support
 
-- **Perform billing and cost management operations through APIs, SDK, PSH, and CLI** - Use Azure Cost Management + Billing APIs to pull billing and cost data into your preferred data analysis tools.
+**Perform billing and cost management operations through APIs, SDK, PSH, and CLI** - Use Azure Cost Management + Billing APIs to pull billing and cost data into your preferred data analysis tools.
 
-- **Perform all subscription operations through APIs, SDK, PSH, and CLI** - Use Azure subscription APIs to automate the management of your Azure subscriptions, including creating, renaming, and canceling a subscription.
+**Perform all subscription operations through APIs, SDK, PSH, and CLI** - Use Azure subscription APIs to automate the management of your Azure subscriptions, including creating, renaming, and canceling a subscription.
 
 ## Get prepared for your new experience
 
 We recommend the following to get prepared for your new experience:
 
-- **Monthly billing period and different invoice date**
+**Monthly billing period and different invoice date**
 
 In the new experience, your invoice will be generated around the ninth day of each month and it contains all charges from previous month. This date might differ from the date when your invoice is generated in the old account. If you share your invoices with others, notify them of the change in the date.
 
-- **New billing and cost management APIs**
+**New billing and cost management APIs**
 
 If you are using Cost Management or Billing APIs to query and update your billing or cost data, then you must use new APIs. 
 <!-- Todo - Add link to the API doc -->
