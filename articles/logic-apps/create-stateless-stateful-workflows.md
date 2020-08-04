@@ -11,6 +11,7 @@ ms.date: 09/22/2020
 # Create stateless and stateful workflows in Azure Logic Apps
 
 
+## What is stateless?
 
 * *Stateful*
 
