@@ -28,7 +28,7 @@ Let's look at some examples why.
 
 In the following example image for the selected recommendation, Azure recommends a purchase quantity of 6.
 
-:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" alt-text="Example showing a reservation purchase recommendation" lightbox="../media/reserved-instance-purchase-recommendations/recommended-quantity.png" :::
+:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" alt-text="Example showing a reservation purchase recommendation" lightbox="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" :::
 
 More information about the recommendation is shown when you select the **See details** link. The following image shows details about the recommendation. The quantity recommended is calculated for the highest possible usage, based on your historical usage. Your recommendation might not be for 100% utilization if you have inconsistent usage. In the example, note that utilization fluctuated over time. The cost of the reservation, possible savings, and utilization percentage is shown.
 
