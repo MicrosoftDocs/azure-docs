@@ -38,7 +38,7 @@ Azure Machine Learning relies on other Azure services for data storage and compu
 
 Your Azure Machine Learning workspace can have either a __public endpoint__ or a __private endpoint__. A public endpoint is a set of IP addresses that are accessible on the public internet, while a private endpoint private endpoint is a set of private IP addresses within a virtual network. 
 
-To limit access to your workspace to only occur over the private IP addresses, use a private endpoint. To learn more about private endpoints, see the [Azure Private Link](/azure/private-link/private-link-overview) article.
+To limit access to your workspace to only occur over the private IP addresses, use a private endpoint.
 
 Since communication to the workspace is only allowed from the virtual network, any development environments that use the workspace must be members of the virtual network. For example, a virtual machine in the virtual network.
 
@@ -65,6 +65,8 @@ Since communication to the workspace is only allowed from the virtual network, a
 > Azure Machine Learning compute instances preview is not supported in a workspace where private endpoint is enabled.
 >
 > Azure Machine Learning does not support using an Azure Kubernetes Service that has private endpoint enabled. Instead, you can use Azure Kubernetes Service in a virtual network. For more information, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
+
+To learn more about private endpoints in Azure, see the [Azure Private Link](/azure/private-link/private-link-overview) article.
 
 ### Create a workspace that uses a private endpoint
 
@@ -228,8 +230,6 @@ By default, Azure Machine Learning performs data validity and credential checks 
     json_ds = Dataset.Tabular.from_json_lines_files(path=datastore_paths, 
                                                    validate=False) 
     ```
-
-
 
 
 ## <a name="compute-instance"></a>Compute clusters & instances 
