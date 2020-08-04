@@ -1,5 +1,5 @@
 ---
-title: "Quickstart - Set up Azure Spring Cloud configuration server"
+title: "Quickstart - Set-up Azure Spring Cloud configuration server"
 description: Describes set up of Azure Spring Cloud config server for app deployment.
 author: MikeDodaro
 ms.author: brendm
@@ -9,11 +9,11 @@ ms.date: 08/03/2020
 ms.custom: devx-track-java
 ---
 
-# Quickstart: Set up Azure Spring Cloud configuration server
+# Quickstart: Set-up Azure Spring Cloud configuration server
 
 Spring Cloud Config server is horizontally scalable centralized configuration service for distributed systems. It uses a pluggable repository layer that currently supports local storage, Git, and Subversion.  You must set up the config server to deploy microservice apps to Azure Spring Cloud.
 
-## Config server set up using Azure portal
+## Config server set-up using Azure portal
 The following procedure sets up the config server using the Azure portal to deploy the [Piggymetrics sample](spring-cloud-quickstart-piggymetrics-intro.md).
 
 1. Go to the service **Overview** page and select **Config Server**.
@@ -27,7 +27,7 @@ The following procedure sets up the config server using the Azure portal to depl
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=config-server)
 
-## Config server set up using CLI
+## Config server set-up using CLI
 The following procedure sets up the config server to deploy the [Piggymetrics sample](spring-cloud-quickstart-piggymetrics-intro.md)
 
 Install the Azure Spring Cloud extension for the Azure CLI using the following command
