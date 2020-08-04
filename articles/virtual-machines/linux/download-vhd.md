@@ -37,8 +37,6 @@ To download the VHD file, you need to generate a [shared access signature (SAS)]
 
 1.	Under the URL that was generated, select **Download the VHD file**.
 
-    ![Download VHD](./media/download-vhd/export-download.png)
-    
     :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="Shows the button to download the VHD.":::
 
 2.	You may need to select **Save** in the browser to start the download. The default name for the VHD file is *abcd*.
