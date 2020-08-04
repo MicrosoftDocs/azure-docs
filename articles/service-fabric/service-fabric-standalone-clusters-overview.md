@@ -44,7 +44,7 @@ For more information, read [Client-to-node security](service-fabric-cluster-secu
 ### Role-Based Access Control (RBAC)
 Service Fabric also supports access control to limit access to certain cluster operations for different groups of users. This helps make the cluster more secure. Two access control types are supported for clients that connect to a cluster: Administrator role and User role.  
 
-For more information, read [Role-Based Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+For more information, read [Azure role-based access control (Azure RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
 ## Scaling
 

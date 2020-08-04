@@ -183,5 +183,5 @@ Keep in mind, you might need to configure additional permissions on resources th
 
 ## Next steps
 * Learn how to [use Azure PowerShell to create a service principal](howto-authenticate-service-principal-powershell.md).
-* To learn about specifying security policies, see [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).  
+* To learn about specifying security policies, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).  
 * For a list of available actions that can be granted or denied to users, see [Azure Resource Manager Resource Provider operations](../../role-based-access-control/resource-provider-operations.md).

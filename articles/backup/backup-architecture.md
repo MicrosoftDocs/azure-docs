@@ -37,7 +37,7 @@ Recovery Services vaults have the following features:
 - Vaults make it easy to organize your backup data, while minimizing management overhead.
 - In each Azure subscription, you can create up to 500 vaults.
 - You can monitor backed-up items in a vault, including Azure VMs and on-premises machines.
-- You can manage vault access with Azure [role-based access control (RBAC)](../role-based-access-control/role-assignments-portal.md).
+- You can manage vault access with Azure [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
 - You specify how data in the vault is replicated for redundancy:
   - **Locally redundant storage (LRS)**: To protect against failure in a datacenter, you can use LRS. LRS replicates data to a storage scale unit. [Learn more](../storage/common/storage-redundancy.md).
   - **Geo-redundant storage (GRS)**: To protect against region-wide outages, you can use GRS. GRS replicates your data to a secondary region. [Learn more](../storage/common/storage-redundancy.md).
