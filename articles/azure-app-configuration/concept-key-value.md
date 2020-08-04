@@ -89,10 +89,10 @@ You also can include the following label patterns:
 Values assigned to keys are also unicode strings. You can use all unicode characters for values.
 
 > [!IMPORTANT]
-> All key-values stored in an App Configuration store are encrypted in transit and values are encrypted at rest. The keys and labels are not encrypted at rest. App Configuration isn't a replacement solution for Azure Key Vault. See [FAQ](./faq.md) for more details.
+> All key-values stored in an App Configuration store are encrypted in transit and values are encrypted at rest. The keys and other attributes are not encrypted at rest. App Configuration isn't a replacement solution for Azure Key Vault. See [FAQ](./faq.md) for more details.
 
 ### Use Content-Type
-Each key-value in App Configuration has a content-type attribute. You can optionally use this attribute to store information about the type of value in a key-value that helps your application to process it properly. You can use any format for the content-type as the service does not enforce any. App Configuration uses [Media Types]( https://www.iana.org/assignments/media-types/media-types.xhtml) (as known as MIME types) for built-in data types such as feature flags, Key Vault references, and JSON key-values.
+Each key-value in App Configuration has a content-type attribute. You can optionally use this attribute to store information about the type of value in a key-value that helps your application to process it properly. You can use any format for the content-type. App Configuration uses [Media Types]( https://www.iana.org/assignments/media-types/media-types.xhtml) (as known as MIME types) for built-in data types such as feature flags, Key Vault references, and JSON key-values.
 
 ## Next steps
 
