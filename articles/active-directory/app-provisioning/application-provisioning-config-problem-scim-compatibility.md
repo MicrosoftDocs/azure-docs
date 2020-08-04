@@ -39,7 +39,6 @@ In the table below, any item marked as fixed means that the proper behavior can 
 | Patch requests for multi-value attributes contain invalid path filter syntax | Yes  |  December 18, 2018  | downgrade to customappSSO |
 | Group creation requests contain an invalid schema URI | Yes  |  December 18, 2018  |  downgrade to customappSSO |
 | Update PATCH behavior to ensure compliance | No | TBD| use preview flag |
-| Active as boolean | No| TBD| use preview flag |
 
 ## Flags to alter the SCIM behavior
 For deviations from the default behavior that our default SCIM client behavior, use the flags below in the tenant URL of your application. 
