@@ -59,7 +59,7 @@ To set up single sign-on for an application:
 
 When your done with this quickstart series, consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
 
-## Next step
+## Next steps
 
 Advance to the next article to learn how to delete an app.
 > [!div class="nextstepaction"]
