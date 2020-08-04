@@ -287,7 +287,7 @@ Go to the Integration Runtime event log to check the error.
 
 ![IR event log](media/self-hosted-integration-runtime-troubleshoot-guide/ir-event-log.png)
 
-If the error shows as above *UnthorizedAccessException*, follow below instructions:
+If the error shows as above *UnauthorizedAccessException*, follow below instructions:
 
 
 1. Check *DIAHostService* logon service account in the Windows service panel.
