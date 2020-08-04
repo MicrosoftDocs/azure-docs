@@ -40,29 +40,6 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
     ![ASC portal start](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
-6. Click the **Diagnostic Setting** tab to open the following dialog.
-
-7. You can set **Enable logs** to *yes* or *no* according to your requirements.
-
-    ![Enable logs](media/spring-cloud-quickstart-launch-app-portal/diagnostic-setting.png)
-
-8. Click the **Tracing** tab.
-
-9. You can set **Enable tracing** to *yes* or *no* according to your requirements.  If you set **Enable tracing** to yes,  also select an existing application insight, or create a new one. Without the **Application Insights** specification there will be a validation error.
-
-
-    ![Tracing](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
-
-10. Click **Review and create**.
-
-11. Verify your specifications, and click **Create**.
-
-It takes about 5 minutes for the service to deploy.  Once it is deployed, the **Overview** page for the service instance will appear.
-
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=provision)
-
-
 ## Azure Cloud Shell
 The Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
 
