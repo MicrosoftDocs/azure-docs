@@ -726,13 +726,13 @@ __Configuration__
 1. An NSG is automatically created for Linux-based Azure Virtual Machines. This NSG allows access to port 22 from any source. If you want to restrict access to the SSH port, you must allow access from Azure Machine Learning. To preserve access for Azure ML, you must allow access from a __source service__ with a __source service tag__ of __AzureMachineLearning__. For example, the following Azure CLI commands modify the SSH rule to only allow access from Azure Machine Learning.
 
     ```azurecli
-# Get default SSH rule
-nsgrule=$(az network nsg rule list --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup --query [0].name -o tsv)
-# Update network security group rule to limit SSH to source service.
-az network nsg rule update --resource-group myResourceGroup --nsg-name myNetworkSecurityGroupBackEnd \
---name $nsgrule --protocol tcp --direction inbound --priority 100 \
---source-address-prefix AzureMachineLearning --source-port-range '*' --destination-address-prefix '*' \
---destination-port-range 22 --access allow
+    # Get default SSH rule
+    nsgrule=$(az network nsg rule list --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup --query [0].name -o tsv)
+    # Update network security group rule to limit SSH to source service.
+    az network nsg rule update --resource-group myResourceGroup --nsg-name myNetworkSecurityGroupBackEnd \
+    --name $nsgrule --protocol tcp --direction inbound --priority 100 \
+    --source-address-prefix AzureMachineLearning --source-port-range '*' --destination-address-prefix '*' \
+    --destination-port-range 22 --access allow
     ```
 
     For more information, see the [Create network security groups](/azure/virtual-machines/linux/tutorial-virtual-network#create-network-security-groups) section of the Azure Virtual Networks for Linux virtual machines article.
