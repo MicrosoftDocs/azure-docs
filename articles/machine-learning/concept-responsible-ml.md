@@ -92,5 +92,5 @@ See the following sample to learn how to use the Azure Machine Learning SDK to i
 
 ## Additional resources
 
-- Use homomorphic encryption to [deploy an encrypted inferencing web service](how-to-homomorphic-encryption-seal.md).
+- For more information, see the [responsible innovation toolkit](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/) to learn about best practices.
 - Learn more about the [ABOUT ML](https://www.partnershiponai.org/about-ml/) set of guidelines for machine learning system documentation.
