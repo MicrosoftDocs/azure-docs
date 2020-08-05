@@ -14,7 +14,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 ## July 2020
 
 ### General
-- [Deploy Azure Monitor](platform/deploy-scale.md) - Restructure of Azure Monitor for VMs onboarding content.
+- [Deploy Azure Monitor](deploy-scale.md) - Restructure of Azure Monitor for VMs onboarding content.
 - [Use Azure Private Link to securely connect networks to Azure Monitor](platform/private-link-security.md) - Added section on limits.
 
 ### Alerts
