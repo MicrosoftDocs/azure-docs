@@ -4,7 +4,7 @@ description: The Azure IoT Hub security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: iot-hub
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -14,7 +14,7 @@ ms.custom: security-benchmark
 
 # Azure security baseline for Azure IoT Hub
 
-The Azure Security Baseline for Azure IoT Hub contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+The Azure Security Baseline for Azure IoT Hub contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
@@ -36,10 +36,10 @@ Recommend to restrict connectivity to your Azure resources (including Azure IoT 
 
 Keep open hardware ports in your devices to a bare minimum to avoid unwanted access. Additionally, build mechanisms to prevent or detect physical tampering of the device.
 
-- [IoT virtual networks support](https://docs.microsoft.com/azure/iot-hub/virtual-network-support)
+- [IoT virtual networks support](virtual-network-support.md)
 - [loT networking best practice](https://docs.microsoft.com/azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc#networking)
-- [Azure Private Link overview](https://docs.microsoft.com/azure/private-link/private-link-overview)
-- [Azure network security group](https://docs.microsoft.com/azure/virtual-network/security-overview)
+- [Azure Private Link overview](../private-link/private-link-overview.md)
+- [Azure network security group](../virtual-network/security-overview.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -52,11 +52,11 @@ Keep open hardware ports in your devices to a bare minimum to avoid unwanted acc
 
 **Guidance**: Use Azure Security Center and follow the network protection recommendations to help secure your Azure network resources. Enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
  
-- [How to enable network security group flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [How to enable and use Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [How to enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
  
-- [Understand network security provided by Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Understand network security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -80,9 +80,9 @@ Keep open hardware ports in your devices to a bare minimum to avoid unwanted acc
 
 **Guidance**: Enable DDoS Protection Standard on the virtual networks associated with your Azure IoT Hub to guard against distributed denial-of-service (DDoS) attacks.
 
-- [Manage Azure DDoS Protection Standard using the Azure Portal](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+- [Manage Azure DDoS Protection Standard using the Azure Portal](../virtual-network/manage-ddos-protection.md)
 
-- [Threat protection in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection)
+- [Threat protection in Azure Security Center](../security-center/threat-protection.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -110,9 +110,9 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
-- [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [How to configure alerts with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
+- [How to configure alerts with Azure Firewall](../firewall/threat-intel.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -136,8 +136,8 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: For resources that need access to your Azure IoT Hub, use Virtual Network service tags to define network access controls on network security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (for example, AzureIoTHub) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-- [How to use service tags for Azure IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-understand-ip-address)
-- [For more information about using service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [How to use service tags for Azure IoT](iot-hub-understand-ip-address.md)
+- [For more information about using service tags](../virtual-network/service-tags-overview.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -150,7 +150,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: Define and implement standard security configurations for network resources associated with your Azure IoT Hub namespaces with Azure Policy. &lt;--- Use Azure Policy aliases in the "Microsoft.???IoT???" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Machine Learning namespaces. Don't find aliases that are related to IoT namespaces, need owners to clarify, note, only found IoTCentral as IoTApps type and IoTSpaces as Graph type ---&gt;
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -163,7 +163,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: Use tags for network resources associated with your Azure IoT Hub deployment in order to logically organize them into a taxonomy.
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -176,9 +176,9 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to Azure IoT Hub. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
 
-- [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -206,8 +206,8 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: Ingest logs via Azure Monitor to aggregate security data generated by Azure IoT Hub. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use storage accounts for long-term/archival storage. Alternatively, you can enable and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM).
 
-- [Set up Azure IoT logs](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health)
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Set up Azure IoT logs](iot-hub-monitor-resource-health.md)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -220,11 +220,11 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: Enable Azure IoT diagnostic settings on Azure resources for access to audit, security, and diagnostic logs. Activity logs, which are automatically available, include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements.
 
-- [Set up Azure IoT Hub logs](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health)
+- [Set up Azure IoT Hub logs](iot-hub-monitor-resource-health.md)
 
-- [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
-- [Understand logging and different log types in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
+- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -248,7 +248,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: In Azure Monitor, set the log retention period for Log Analytics workspaces associated with your Azure IoT Hub instances according to your organization's compliance regulations.
 
-- [How to set log retention parameters](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -263,12 +263,12 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 Alternatively, you can enable and on-board data to Azure Sentinel or a third party SIEM. 
 
-- [Monitor Azure IoT health](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health)
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Monitor Azure IoT health](iot-hub-monitor-resource-health.md)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
   
-- [Getting started with Log Analytics queries](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+- [Getting started with Log Analytics queries](../azure-monitor/log-query/get-started-portal.md)
    
-- [ How to perform custom queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [ How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -281,10 +281,10 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 
 **Guidance**: Use Azure Security Center with a Log Analytics workspace for monitoring and alerting on anomalous activity found in security logs and events. Alternatively, you can enable and on-board data to Azure Sentinel.
 
-- [Monitor Azure IoT Hub health](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health)
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
-- [How to manage alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
-- [How to alert on log analytics log data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Monitor Azure IoT Hub health](iot-hub-monitor-resource-health.md)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
+- [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -332,11 +332,11 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32458.).
 
-**Guidance**: &lt;--- Online searches don't come out dedicated topics on IoT hub and AAD integration and admin account management. There is Microsoft IoT solution accelerartor available, https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-remote-monitoring-rbac, enable AAD based RBAC in which Admin role is created by default, more details are available in the link, not sure we can use it as reference the baseline, actually this solution accelerator is mentioned in official IoT doc at https://docs.microsoft.com/azure/iot-fundamentals/iot-security-ground-up#secure-processing-and-storage-in-the-cloud ---&gt; 
+**Guidance**: &lt;--- Online searches don't come out dedicated topics on IoT hub and AAD integration and admin account management. There is Microsoft IoT solution accelerartor available, ../iot-accelerators/iot-accelerators-remote-monitoring-rbac.md, enable AAD based RBAC in which Admin role is created by default, more details are available in the link, not sure we can use it as reference the baseline, actually this solution accelerator is mentioned in official IoT doc at ../iot-fundamentals/iot-security-ground-up.md#secure-processing-and-storage-in-the-cloud ---&gt; 
 
 &lt;--- we need to confirm with IoT owners on Azure IoT Hub access control is based on AAD or not, likely yes, generic guidelines appply here ---&gt;
 
-- [&lt;--- Additionally Azure IoT Hub has device identy management, need to confirm with owners on if admin accounts are involved, how query works? Azure IoT Hub identity registry](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry) ---&gt;
+- [&lt;--- Additionally Azure IoT Hub has device identy management, need to confirm with owners on if admin accounts are involved, how query works? Azure IoT Hub identity registry](iot-hub-devguide-identity-registry.md) ---&gt;
 
 **Azure Security Center monitoring**: Yes
 
@@ -364,7 +364,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 
 You can also enable just-in-time access to administrative accounts by using Azure AD Privileged Identity Management and Azure Resource Manager.
 
-- [Learn more about Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
 
 **Azure Security Center monitoring**: Yes
 
@@ -388,8 +388,8 @@ You can also enable just-in-time access to administrative accounts by using Azur
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center recommendations.
 
-- [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
-- [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
 
 &lt;--- again, AAD question before we can use this guideline ---&gt;
 
@@ -406,9 +406,9 @@ You can also enable just-in-time access to administrative accounts by using Azur
 
 ​
 
-- [Understand secure, Azure-managed workstations](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-managed-workstation​)
+- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md​)
 
-- [How to enable Azure AD MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted​)
+- [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md​)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -421,8 +421,8 @@ You can also enable just-in-time access to administrative accounts by using Azur
 
 **Guidance**: Use Azure Active Directory security reports and monitoring to detect when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
-- [How to identify Azure AD users flagged for risky activity](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
-- [How to monitor users' identity and access activity in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -438,9 +438,9 @@ You can also enable just-in-time access to administrative accounts by using Azur
 Use Azure AD named locations to allow access only from specific logical groupings of IP address ranges or countries/regions.
 &lt;--- again, AAD question before we can use this guideline ---&gt;
  
-- [IoT Hub Identity Registry](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry)
+- [IoT Hub Identity Registry](iot-hub-devguide-identity-registry.md)
 
-- [How to configure Azure AD named locations](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [How to configure Azure AD named locations](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -456,8 +456,8 @@ Use Azure AD named locations to allow access only from specific logical grouping
 
 IoT Hub uses security tokens and Shared Access Signature (SAS) tokens to authenticate devices and services to avoid sending keys on network. 
 
-- [IoT Hub security tokens](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-deployment#iot-hub-security-tokens)
-- [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [IoT Hub security tokens](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
+- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -473,9 +473,9 @@ IoT Hub uses security tokens and Shared Access Signature (SAS) tokens to authent
 
 Use Azure AD Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
-- [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
-- [How to use Azure AD identity and access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
-- [Deploy Azure AD Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
+- [Deploy Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
 **Azure Security Center monitoring**: Yes
 
@@ -492,9 +492,9 @@ You have access to Azure AD sign-in activity, audit, and risk event log sources,
  
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired alerts within Log Analytics workspace.
 
-- [IoT Hub identity registry](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry)
+- [IoT Hub identity registry](iot-hub-devguide-identity-registry.md)
 
-- [How to integrate Azure activity logs with Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -507,11 +507,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure AD Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
   
-- [ How to view Azure AD risky sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [ How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
   
-- [ How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [ How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
   
-- [ How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [ How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -539,7 +539,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
  
-- [ How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [ How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -552,9 +552,9 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure RBAC.
   
-- [ How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
-- [ How to create management groups](https://docs.microsoft.com/azure/governance/management-groups/create)
-- [ How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [ How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [ How to create management groups](../governance/management-groups/create.md)
+- [ How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -569,7 +569,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 For the underlying platform managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -584,8 +584,8 @@ For the underlying platform managed by Microsoft, Microsoft treats all customer 
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-- [TLS support in IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-tls-support)
-- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [TLS support in IoT Hub](iot-hub-tls-support.md)
+- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -600,7 +600,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 For the underlying Azure platform managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -615,7 +615,7 @@ For the underlying Azure platform managed by Microsoft, Microsoft treats all cus
 
 Use Azure RBAC to control access to data and resources, otherwise use service specific access control methods.
 
-- [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -630,7 +630,7 @@ Use Azure RBAC to control access to data and resources, otherwise use service sp
 
 Microsoft manages the underlying infrastructure for Azure IoT Hub and has implemented strict controls to prevent the loss or exposure of customer data.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -645,9 +645,9 @@ Microsoft manages the underlying infrastructure for Azure IoT Hub and has implem
 
 Azure IoT Hub provides encryption of data at rest and in-transit as its written in our datacenters and decrypts it for you as you access it. By default, IoT Hub uses Microsoft-managed keys to encrypt the data at rest.
 
-- [Encryption of data at rest with customer-managed keys for IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-customer-managed-keys)
+- [Encryption of data at rest with customer-managed keys for IoT Hub](iot-hub-customer-managed-keys.md)
 
-- [Understand encryption at rest in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -660,7 +660,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure IoT Hub and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -751,7 +751,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 
 **Guidance**: Apply tags to Azure resources (not all resources support tags, but most do) to logically organize them into a taxonomy.
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -764,11 +764,11 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 
 **Guidance**: Use tagging, management groups, and separate subscriptions where appropriate, to organize and track assets. Reconcile inventory on a regular basis and ensure unauthorized resources are deleted from the subscription in a timely manner.
   
-- [ How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [ How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
   
-- [ How to create management groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [ How to create management groups](../governance/management-groups/create.md)
   
-- [ How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [ How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -783,7 +783,7 @@ Azure IoT Hub provides encryption of data at rest and in-transit as its written 
 
 Each IoT Hub has an identity registry that can be used to create per-device resources in the service. Individual or groups of device identities can be added to an allow list, or a block list, enabling complete control over device access.
 
-- [IoT Hub identity registry](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry)
+- [IoT Hub identity registry](iot-hub-devguide-identity-registry.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -803,10 +803,10 @@ Use Azure Policy to put restrictions on the type of resources that can be create
 
 In addition, use the Azure Resource Graph to query/discover resources within the subscriptions.
 
-- [IoT Hub identity registry](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry)
+- [IoT Hub identity registry](iot-hub-devguide-identity-registry.md)
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
-- [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -857,8 +857,8 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 In addition, use the Azure Resource Graph to query/discover resources within the subscriptions.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
-- [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -882,7 +882,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 **Guidance**: Use Azure AD Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
   
-- [ How to configure Conditional Access to block access to Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [ How to configure Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -929,11 +929,11 @@ You can also use the recommendations from Azure Security Center as a secure conf
 
 - [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Tutorial: Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
 
-- [Single and multi-resource export to a template in Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+- [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Security recommendations - a reference guide](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Security recommendations - a reference guide](../security-center/recommendations-reference.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -957,9 +957,9 @@ You can also use the recommendations from Azure Security Center as a secure conf
 
 **Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources. In addition, you can use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization.  
  
-- [Understand Azure Policy effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
-- [Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
-- [Azure Resource Manager templates overview](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Understand Azure Policy effects](../governance/policy/concepts/effects.md)
+- [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
+- [Azure Resource Manager templates overview](../azure-resource-manager/templates/overview.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1010,8 +1010,8 @@ You can also use the recommendations from Azure Security Center as a secure conf
 
 Use Azure Policy aliases in the "Microsoft.???" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
-- [How to use aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [How to use aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1035,7 +1035,7 @@ Use Azure Policy aliases in the "Microsoft.???" namespace to create custom polic
 
 **Guidance**: Use Azure Security Center to perform baseline scans for your Azure Resources. Additionally, use Azure Policy to alert and audit Azure resource configurations. 
  
-- [ How to remediate recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+- [ How to remediate recommendations in Azure Security Center](../security-center/security-center-remediate-recommendations.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1061,10 +1061,10 @@ Use Azure Policy aliases in the "Microsoft.???" namespace to create custom polic
 
 Use managed identities in conjunction with Azure Key Vault to simplify secret management for your cloud applications.
 
-- [IoT Hub security tokens](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-deployment#iot-hub-security-tokens)
-- [How to use managed identities for Azure resources](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
-- [How to create a key vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
-- [How to provide Key Vault authentication with a managed identity](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [IoT Hub security tokens](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
+- [How to use managed identities for Azure resources](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
+- [How to create a key vault](/azure/key-vault/quick-create-portal)
+- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1079,8 +1079,8 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 
 Use managed identities to provide Azure services with an automatically-managed identity in Azure AD. Managed identities allow you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
-- [IoT Hub security tokens](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-deployment#iot-hub-security-tokens)
-- [How to configure managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+- [IoT Hub security tokens](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
+- [How to configure managed identities for Azure resources](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1151,7 +1151,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Azure IoT Hub service provides methods and framework to make your IoT Hub services highly available and recoverable from disasters based on specific business objectives. 
 
-- [IoT Hub high availability and disaster recovery](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr)
+- [IoT Hub high availability and disaster recovery](iot-hub-ha-dr.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1164,7 +1164,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Azure IoT Hub recommends the secondary IoT hub must contain all device identities that can connect to the solution. The solution should keep geo-replicated backups of device identities, and upload them to the secondary IoT hub before switching the active endpoint for the devices. The device identity export functionality of IoT Hub is useful in this context.
 
-- [IoT Hub high availability and disaster recovery](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr#achieve-cross-region-ha)
+- [IoT Hub high availability and disaster recovery](iot-hub-ha-dr.md#achieve-cross-region-ha)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1179,7 +1179,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 Periodically perform data restoration of content in backup. Ensure that you can restore backed-up customer-managed keys.
 
-- [IoT Hub high availability and disaster recovery](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr#achieve-cross-region-ha)
+- [IoT Hub high availability and disaster recovery](iot-hub-ha-dr.md#achieve-cross-region-ha)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1193,7 +1193,7 @@ Periodically perform data restoration of content in backup. Ensure that you can 
 **Guidance**: Enable soft delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. If Azure Storage is used to store backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted.
  
  
-- [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Understand Azure RBAC](../role-based-access-control/overview.md)
 - [Soft delete for Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Not Applicable
@@ -1230,9 +1230,9 @@ Periodically perform data restoration of content in backup. Ensure that you can 
   
  Additionally, mark subscriptions using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data. It's your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
   
-- [ Security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+- [ Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
   
-- [ Use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [ Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1258,7 +1258,7 @@ Periodically perform data restoration of content in backup. Ensure that you can 
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
   
-- [ How to set the Azure Security Center security contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [ How to set the Azure Security Center security contact](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1271,9 +1271,9 @@ Periodically perform data restoration of content in backup. Ensure that you can 
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the continuous export feature to help identify risks to Azure resources. Continuous export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You can use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
   
-- [ How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [ How to configure continuous export](../security-center/continuous-export.md)
  
-- [ How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [ How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1286,7 +1286,7 @@ Periodically perform data restoration of content in backup. Ensure that you can 
 
 **Guidance**: Use workflow automation feature Azure Security Center to automatically trigger responses to security alerts and recommendations to protect your Azure resources.
   
-- [ How to configure workflow automation in Security Center](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [ How to configure workflow automation in Security Center](../security-center/workflow-automation.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
