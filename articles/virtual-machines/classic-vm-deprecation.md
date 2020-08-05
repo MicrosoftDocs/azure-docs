@@ -20,9 +20,9 @@ Classic VMs will be following the [Modern Lifecycle Policy](https://support.micr
 
 ## How does this affect me? 
 
-1) Starting February 28, 2020, customers who did not utilize IaaS VMs through Azure Service Manager (ASM) in the month of February 2020 will no longer be able to create classic VMs. 
-2) On March 1, 2023, customers will no longer be able to start IaaS VMs using Azure Service Manager and any that are still running or allocated will be stopped and deallocated. 
-2) On March 1, 2023, subscriptions who have not migrated to Azure Resource Manager will be informed regarding timelines for deleting any remaining Classic VMs.  
+- Starting February 28, 2020, customers who did not utilize IaaS VMs through Azure Service Manager (ASM) in the month of February 2020 will no longer be able to create classic VMs. 
+- On March 1, 2023, customers will no longer be able to start IaaS VMs using Azure Service Manager and any that are still running or allocated will be stopped and deallocated. 
+- On March 1, 2023, subscriptions that are not migrated to Azure Resource Manager will be informed regarding timelines for deleting any remaining Classic VMs.  
 
 The following Azure services and functionality will **NOT** be impacted by this retirement: 
 - Cloud Services 
