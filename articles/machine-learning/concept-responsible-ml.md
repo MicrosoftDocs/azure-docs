@@ -63,7 +63,7 @@ Implementing differentially private systems is difficult. [WhiteNoise](https://g
 > [!NOTE]
 > Please note that we are renaming the toolkit and will be introducing the new name in the coming weeks. 
 
-## Work with encrypted data using homomorphic encryption
+## Work on encrypted data with homomorphic encryption
 
 In traditional cloud storage and computation solutions, the cloud needs to have unencrypted access to customer data to compute on it. This access exposes the data to cloud operators. Data privacy relies on access control policies implemented by the cloud and trusted by the customer.
 

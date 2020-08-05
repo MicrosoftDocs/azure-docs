@@ -19,7 +19,7 @@ Learn about fairness in machine learning and how the [Fairlearn](https://fairlea
 The following summary of the [user guide](https://fairlearn.github.io/user_guide/index.html) for the Fairlearn open-source package, describes how to use it to assess the fairness of the AI systems that you are building.  The Fairlearn open-source package can also offer options to help mitigate, or help to reduce, any fairness issues you observe.  See the [how-to](how-to-machine-learning-fairness-aml.md) and [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) to enable fairness assessment of AI systems during training on Azure Machine Learning.
 
 
-## What is fairness in machine learning systems?
+## What is fairness in machine learning models?
 
 >[!NOTE]
 > Fairness is a socio-technical challenge. Many aspects of fairness, such as justice and due process, are not captured in quantitative fairness metrics. Also, many quantitative fairness metrics can't all be satisfied simultaneously. The goal with the Fairlearn open-source package is to enable humans to assess different impact and mitigation strategies. Ultimately, it is up to the human users building artificial intelligence and machine learning models to make trade-offs that are appropriate to their scenario.
