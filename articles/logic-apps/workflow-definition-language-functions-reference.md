@@ -2787,12 +2787,9 @@ And returns these results:
 
 ### lastIndexOf
 
-Return the starting position or index value
-for the last occurrence of a substring.
-This function is not case-sensitive,
-and indexes start with the number 0.
+Return the starting position or index value for the last occurrence of a substring. This function is not case-sensitive, and indexes start with the number 0.
 
-```
+```json
 lastIndexOf('<text>', '<searchText>')
 ```
 
@@ -2800,24 +2797,36 @@ lastIndexOf('<text>', '<searchText>')
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Yes | String | The string that has the substring to find |
 | <*searchText*> | Yes | String | The substring to find |
-|||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*ending-index-value*> | Integer | The starting position or index value for the last occurrence of the specified substring. <p>If the string is not found, return the number -1. |
-||||
+| <*ending-index-value*> | Integer | The starting position or index value for the last occurrence of the specified substring. |
 
-*Example*
+If the string or substring value is empty, the following behavior occurs:
 
-This example finds the starting index value for
-the last occurrence of the "world" substring in
-the "hello world" string:
+* If the string value is empty, `-1` is returned:
 
+* If the string and substring values are both empty, `0` is returned.
+
+* If only the substring value is empty, the greater of the following two values is returned:
+
+  * `0`
+
+  * The length of the string, minus 1.
+
+#### lastIndexOf examples
+
+This example finds the starting index value for the last occurrence of the substring `world` substring in the string `hello world hello world`. The returned result is `18`:
+
+```json
+lastIndexOf('hello world hello world', 'world')
 ```
-lastIndexOf('hello world', 'world')
-```
 
-And returns this result: `6`
+This example is missing the substring parameter, and returns a value of `22` because the value of the input string (`23`) minus 1 is greater than 0.
+
+```json
+lastIndexOf('hello world hello world', '')
+```
 
 <a name="length"></a>
 
