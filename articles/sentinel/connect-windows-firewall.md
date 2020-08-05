@@ -1,5 +1,5 @@
 ---
-title: Connect Windows firewall data to Azure Sentinel| Microsoft Docs
+title: Connect Windows Defender Firewall data to Azure Sentinel | Microsoft Docs
 description: Enable the Windows firewall connector in Azure Sentinel to easily stream firewall events from Windows machines that have Log Analytics agents installed.
 services: sentinel
 documentationcenter: na
@@ -14,25 +14,26 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/12/2020
+ms.date: 08/05/2020
 ms.author: yelevin
 
 ---
-# Connect Windows Defender Firewall
+# Connect Windows Defender Firewall with Advanced Security to Azure Sentinel
 
-The Windows Defender Firewall connector allows Azure Sentinel to easily ingest Windows Defender Firewall logs from any Windows machines in your workspace. This connection enables you to view and analyze Windows Firewall events in your workbooks, to use them in creating custom alerts, and to incorporate them in your security investigations, giving you more insight into your organization’s network and improving your security operations capabilities. 
+The [Windows Defender Firewall with Advanced Security](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) connector allows Azure Sentinel to easily ingest Windows Defender Firewall with Advanced Security logs from any Windows machines in your workspace. This connection enables you to view and analyze Windows Firewall events in your workbooks, to use them in creating custom alerts, and to incorporate them in your security investigations, giving you more insight into your organization’s network and improving your security operations capabilities. 
 
 The solution collects Windows firewall events from the Windows machines on which a Log Analytics agent is installed. 
 
 > [!NOTE]
 > - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
+>
 > - If Azure Sentinel and Azure Security Center are collected to the same workspace, there is no need to enable the Windows Firewall solution through this connector. If you enabled it anyway, it will not cause duplicated data. 
 
 ## Prerequisites
 
 - You must have read and write permissions on the workspace to which the machines you wish to monitor are connected.
 
-- You must have write permissions be assigned the **Log Analytics Contributor** role in addition to any Azure Sentinel roles.
+- You must have write permissions or be assigned the **Log Analytics Contributor** role in addition to any Azure Sentinel roles.
 
 ## Enable the connector 
 
@@ -54,7 +55,10 @@ The solution collects Windows firewall events from the Windows machines on which
 
 ## Validate connectivity
 
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
+It may take up to 20 minutes until your logs start to appear in Log Analytics. 
+
+> [!NOTE]
+> 
 
 
 
