@@ -62,7 +62,7 @@ If you use Network Security Groups (NSG), use the *AzureBackup* service tag to a
 
 1. Click **Add**  to save the newly created outbound security rule.
 
-You can similarly create NSG outbound security rules for Azure Storage and Azure AD. For more information on service tags, see [this article](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+You can similarly create NSG outbound security rules for Azure Storage and Azure AD. For more information on service tags, see [this article](../virtual-network/service-tags-overview.md).
 
 #### Azure Firewall tags
 

@@ -130,7 +130,7 @@ To achieve real business continuity, adding database redundancy between datacent
   
 ## Permissions
 
-Permissions for a failover group are managed via [role-based access control (RBAC)](../../role-based-access-control/overview.md). The [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role has all the necessary permissions to manage failover groups.
+Permissions for a failover group are managed via [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). The [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role has all the necessary permissions to manage failover groups.
 
 ### Create failover group
 

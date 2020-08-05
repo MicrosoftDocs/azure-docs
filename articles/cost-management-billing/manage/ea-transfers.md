@@ -94,7 +94,7 @@ The Azure EA portal can transfer subscriptions from one account owner to another
 
 ## Subscription transfer effects
 
-When an Azure subscription is transferred to an account in the same Azure Active Directory tenant, then all users, groups, and service principals that had [role-based access control (RBAC)](../../role-based-access-control/overview.md) to manage resources keep their access.
+When an Azure subscription is transferred to an account in the same Azure Active Directory tenant, then all users, groups, and service principals that had [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) to manage resources keep their access.
 
 To view users with RBAC access to the subscription:
 
