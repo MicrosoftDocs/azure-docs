@@ -123,7 +123,7 @@ The following operating systems are at the end of support and it is strongly rec
 
 If existing commitments prevent upgrading the operating system, consider migrating the Windows servers to Azure VMs and leverage Azure VM backups to continue staying protected. Visit the [migration page here](https://azure.microsoft.com/migration/windows-server/) for more information about migrating your Windows server.
 
-For on-premises or hosted environments, where you cannot upgrade the operating system or migrate to Azure, activate Extended Security Updates for the machines to continue staying protected and supported. Notice that only specific editions are eligible for Extended Security Updates. Visit the [FAQ page](https://www.microsoft.com/cloud-platform/extended-security-updates) to learn more.
+For on-premises or hosted environments, where you cannot upgrade the operating system or migrate to Azure, activate Extended Security Updates for the machines to continue staying protected and supported. Notice that only specific editions are eligible for Extended Security Updates. Visit the [FAQ page](https://www.microsoft.com/windows-server/extended-security-updates) to learn more.
 
 | **Operating   system**                                       | **Files/folders** | **System   state** | **Software/Module   requirements**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |

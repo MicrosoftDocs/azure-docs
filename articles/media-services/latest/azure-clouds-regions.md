@@ -50,7 +50,7 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 
 ### Region code name
 
-When you need to supply the **location** parameter, you need to provide the region code name as the **location** value. To get the code name of the region that your account is in and that your call should be routed to, you can run the following line in [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+When you need to supply the **location** parameter, you need to provide the region code name as the **location** value. To get the code name of the region that your account is in and that your call should be routed to, you can run the following line in [Azure CLI](/cli/azure/?view=azure-cli-latest)
 
 ```azurecli-interactive
 az account list-locations

@@ -92,8 +92,7 @@ az aks create \
 ```
 
 > [!NOTE]
-> If you get a password validation error, try creating your resource group in another region.
-> Then try creating the cluster with the new resource group.
+> If you get a password validation error, verify the *windows-admin-password* parameter meets the [Windows Server password requirements][windows-server-password]. If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases.
 

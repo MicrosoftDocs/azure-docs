@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 07/17/2020
+ms.date: 07/31/2020
 ms.topic: conceptual
 ---
 
@@ -28,9 +28,7 @@ Azure Lighthouse allows greater flexibility to manage resources for multiple cus
 
 You can perform management tasks on delegated resources either directly in the portal or by using APIs and management tools (such as Azure CLI and Azure PowerShell). All existing APIs can be used when working with delegated resources, as long as the functionality is supported for cross-tenant management and the user has the appropriate permissions.
 
-The Azure PowerShell [Get-AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) shows the `tenantID` for each subscription, allowing you to identify whether a returned subscription belongs to your service provider tenant or to a managed customer tenant.
-
-Similarly, Azure CLI commands such as [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) show the **homeTenantId** and **managedByTenants** attributes.
+Azure CLI commands such as [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) show the **homeTenantId** and **managedByTenants** attributes for each subscription, allowing you to identify whether a returned subscription belongs to your service provider tenant or to a managed customer tenant.
 
 > [!TIP]
 > If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
@@ -48,7 +46,7 @@ Most tasks and services can be performed on delegated resources across managed t
   - Manage connected machines using Azure constructs, such as Azure Policy and tagging
   - Ensure the same set of policies are applied across customers' hybrid environments
   - Use Azure Security Center to monitor compliance across customers' hybrid environments
-- Manage hybrid Kubernetes clusters at scale - [Azure Arc for Kubernetes (preview)](../../azure-arc/kubernetes/overview.md):
+- Manage hybrid Kubernetes clusters at scale - [Azure Arc enabled Kubernetes (preview)](../../azure-arc/kubernetes/overview.md):
   - [Connect a Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/connect-cluster.md) to delegated subscriptions and/or resource groups in Azure
   - [Use GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) for connected clusters
   - Enforce policies across connected clusters
@@ -65,7 +63,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 [Azure Cost Management + Billing](../../cost-management-billing/index.yml):
 
-- From the managing tenant, CSP partners can view, manage, and analyze pre-tax consumption costs (not inclusive of purchases) for customers who are under the Azure plan. The cost will be based on retail rates and the Azure role-based access control (RBAC) access that the partner has for the customer's subscription.
+- From the managing tenant, CSP partners can view, manage, and analyze pre-tax consumption costs (not inclusive of purchases) for customers who are under the Azure plan. The cost will be based on retail rates and the Azure role-based access control (Azure RBAC) access that the partner has for the customer's subscription.
 
 [Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
@@ -77,6 +75,7 @@ Most tasks and services can be performed on delegated resources across managed t
 - View activity log details for delegated subscriptions
 - Log analytics: Query data from remote customer workspaces in multiple tenants
 - Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the service provider tenant through webhooks
+- For SAP workloads, [monitor SAP Solutions metrics with an aggregated view across customer tenants](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Azure Networking](../../networking/networking-overview.md):
 

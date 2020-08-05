@@ -23,7 +23,7 @@ This article explains how to prepare your environment to back up workloads using
 >
 >
 
-MABS deployed in an Azure VM can back up VMs in Azure but they should be in same domain to enable backup operation. The process to back an Azure VM remains same as backing up VMs on premises, however deploying MABS in Azure has some limitations. For more information on limitation, see [DPM as an Azure virtual machine](/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+MABS deployed in an Azure VM can back up VMs in Azure but they should be in same domain to enable backup operation. The process to back an Azure VM remains same as backing up VMs on premises, however deploying MABS in Azure has some limitations. For more information on limitation, see [DPM as an Azure virtual machine](/system-center/dpm/install-dpm#setup-prerequisites)
 
 > [!NOTE]
 > Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/management/deployment-models.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
@@ -185,7 +185,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
     * Database: DatabaseName should be ReportServer$\<SQLInstanceName>
     * Web Portal URL: ‘Virtual Directory’ should be Reports_\<SQLInstanceName>
 
-    [Learn more](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) about SSRS configuration.
+    [Learn more](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode) about SSRS configuration.
 
     > [!NOTE]
     > Licensing for SQL Server used as the database for MABS is governed by [Microsoft Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST). According to OST, SQL Server bundled with MABS can be used only as the database for MABS.
@@ -231,7 +231,7 @@ The first backup copy is kept on storage attached to the Azure Backup Server mac
 
 ### Install and update the Data Protection Manager protection agent
 
-MABS uses the System Center Data Protection Manager protection agent. [Here are the steps](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-1807) to install the Protection Agent on your Protection Servers.
+MABS uses the System Center Data Protection Manager protection agent. [Here are the steps](/system-center/dpm/deploy-dpm-protection-agent) to install the Protection Agent on your Protection Servers.
 
 The following sections describe how to update protection agents for client computers.
 
@@ -358,7 +358,7 @@ You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
 
 ## Next steps
 
-You can get detailed information here about [preparing your environment for DPM](/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019). It also contains information about supported configurations on which Azure Backup Server can be deployed and used. You can use a series of [PowerShell cmdlet](/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016)  for performing various operations.
+You can get detailed information here about [preparing your environment for DPM](/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019). It also contains information about supported configurations on which Azure Backup Server can be deployed and used. You can use a series of [PowerShell cmdlets](/powershell/module/dataprotectionmanager/) for performing various operations.
 
 You can use these articles to gain a deeper understanding of workload protection using Microsoft Azure Backup server.
 

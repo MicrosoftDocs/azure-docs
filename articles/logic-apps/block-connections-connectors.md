@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 07/23/2020
 ---
 
 # Block connections created by connectors in Azure Logic Apps
@@ -30,8 +30,8 @@ If you already have a logic app with the connection that you want to block, foll
 
 1. Find the reference page for the connector that you want to block.
 
-   For example, if you want to block the Instagram connector, go to this page: 
-   
+   For example, if you want to block the Instagram connector, which is deprecated, go to this page:
+
    `https://docs.microsoft.com/connectors/instagram/`
 
 1. From the page's URL, copy and save the connector reference ID at the end without the forward slash (`/`), for example, `instagram`.
@@ -359,7 +359,7 @@ To try your policy, start creating a connection by using the now restricted conn
 The message includes this information:
 
 | Description | Content |
-|---|---|
+|-------------|---------|
 | Reason for the failure | `"Resource 'instagram' was disallowed by policy."` |
 | Assignment name | `"Block Instagram connections"` |
 | Assignment ID | `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/resourceGroups/MyLogicApp-RG/providers/Microsoft.Authorization/policyAssignments/4231890fc3bd4352acb0b673"` |

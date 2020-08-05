@@ -133,7 +133,7 @@ Create a file named `settings.json` with the following content:
 
 ```json
 {
-    "reset_ssh":"True"
+    "reset_ssh":True
 }
 ```
 

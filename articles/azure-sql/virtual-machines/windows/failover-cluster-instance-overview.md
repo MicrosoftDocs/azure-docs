@@ -44,10 +44,10 @@ SQL Server on Azure VMs offers various options as a shared storage solution for 
 
 ||[Azure shared disks](../../../virtual-machines/windows/disks-shared.md)|[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
-|**Minimum OS version**| Windows Server 2016|Windows Server 2012|Windows Server 2016|
-|**Minimum SQL Server version**|SQL Server 2019|SQL Server 2012|SQL Server 2016|
+|**Minimum OS version**| All |Windows Server 2012|Windows Server 2016|
+|**Minimum SQL Server version**|All|SQL Server 2012|SQL Server 2016|
 |**Supported VM availability** |Availability sets with proximity placement groups |Availability sets and availability zones|Availability sets |
-|**Supports FileStream**|No|No|Yes |
+|**Supports FileStream**|Yes|No|Yes |
 |**Azure blob cache**|No|No|Yes|
 
 The rest of this section lists the benefits and limitations of each storage option available for SQL Server on Azure VMs. 
@@ -56,18 +56,18 @@ The rest of this section lists the benefits and limitations of each storage opti
 
 [Azure shared disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure managed disks](../../../virtual-machines/windows/managed-disks-overview.md). Windows Server Failover Clustering supports using Azure shared disks with a failover cluster instance. 
 
-**Supported OS**: Windows Server 2019   
-**Supported SQL version**: SQL Server 2019   
+**Supported OS**: All   
+**Supported SQL version**: All     
 
 **Benefits**: 
 - Useful for applications looking to migrate to Azure while keeping their high-availability and disaster recovery (HADR) architecture as is. 
 - Can migrate clustered applications to Azure as is because of SCSI Persistent Reservations (SCSI PR) support. 
 - Supports shared Azure Premium SSD for all versions of SQL Server and shared Azure Ultra Disk Storage for SQL Server 2019. 
 - Can use a single shared disk or stripe multiple shared disks to create a shared storage pool. 
+- Supports Filestream.
 
 
 **Limitations**: 
-- Available only for SQL Server 2019 and Windows Server 2019 while in preview. 
 - Virtual machines must be placed in the same availability set and proximity placement group.
 - Availability zones are not supported.
 - Premium SSD disk caching is not supported.
@@ -94,7 +94,7 @@ To get started, see [SQL Server failover cluster instance with Azure shared disk
 - High network bandwidth is required to achieve high performance because of ongoing disk replication. 
 - Requires a larger VM size and double pay for storage, because storage is attached to each VM. 
 
-To get started, see [SQL Server failover cluster instance with Storage Spaces Direct](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
+To get started, see [SQL Server failover cluster instance with Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md). 
 
 ### Premium file share
 

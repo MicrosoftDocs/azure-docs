@@ -203,7 +203,7 @@ To stop protection and delete the backup data:
            [<CommonParameters>]
     ```
 
-  [Learn more](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0) on how to disable protection for an Azure Backup-protected item.
+  [Learn more](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) on how to disable protection for an Azure Backup-protected item.
 
 - Stop protection and delete data for all backup-protected items in cloud (for example: IaaS VM, Azure file share, and so on):
 
@@ -219,7 +219,7 @@ To stop protection and delete the backup data:
        [<CommonParameters>]
     ```
 
-    [Learn more](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) about disables protection for a Backup-protected item.
+    [Learn more](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) about disables protection for a Backup-protected item.
 
 - For on-premises Files and Folders protected using Azure Backup Agent (MARS) backing up to Azure, use the following PowerShell command to delete the backed-up data from each MARS PowerShell module:
 
@@ -259,7 +259,7 @@ After deleting the backed-up data, un-register any on-premises containers and ma
               [<CommonParameters>]
     ```
 
-    [Learn more](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) about un-registering a Windows Server or other container from the vault.
+    [Learn more](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) about un-registering a Windows Server or other container from the vault.
 
 - For on-premises machines protected using MABS (Microsoft Azure Backup Server) or DPM to Azure (System Center Data Protection Manage:
 
@@ -274,7 +274,7 @@ After deleting the backed-up data, un-register any on-premises containers and ma
           [<CommonParameters>]
     ```
 
-    [Learn more](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0) about un-registering a Backup management container from the vault.
+    [Learn more](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) about un-registering a Backup management container from the vault.
 
 After permanently deleting backed up data and un-registering all containers, proceed to delete the vault.
 

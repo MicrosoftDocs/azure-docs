@@ -1,6 +1,6 @@
 ---
-title: Create a tenant in Windows Virtual Desktop - Azure
-description: Describes how to set up Windows Virtual Desktop tenants in Azure Active Directory.
+title: Create a tenant in Windows Virtual Desktop (classic) - Azure
+description: Describes how to set up Windows Virtual Desktop (classic) tenants in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,10 +10,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Tutorial: Create a tenant in Windows Virtual Desktop
+# Tutorial: Create a tenant in Windows Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 Creating a tenant in Windows Virtual Desktop is the first step toward building your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool consists of multiple session hosts, running as virtual machines in Azure and registered to the Windows Virtual Desktop service. Each host pool also consists of one or more app groups that are used to publish remote desktop and remote application resources to users. With a tenant, you can build host pools, create app groups, assign users, and make connections through the service.
 

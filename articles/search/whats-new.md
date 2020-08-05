@@ -7,7 +7,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/01/2020
+ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
 
@@ -15,13 +16,19 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 
 ## Feature announcements in 2020
 
+### August 2020
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|---------|------------------|-------------|---------------|
+| [double encryption](search-security-overview.md#encryption) | Security | Enable double encryption at the storage layer by configuring customer-managed key (CMK) encryption on new search services. Create a new service, [configure and apply customer-managed keys](search-security-manage-encryption-keys.md) to indexes or synonym maps, and benefit from double encryption over that content. | Generally available on all search services created after August 1, 2020 in these regions: West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona. Use the portal, management REST APIs, or SDKs to create the service. |
+
 ### July 2020
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
-| [**.NET client library**](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK | A new client library released by the Azure SDK team, designed for consistency with other .NET client libraries. Version 11. | Generally available. </br> Install the [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) from NuGet. |
-| [**Python client library**](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python)  | Azure SDK | A new client library released by the Azure SDK team, designed for consistency with other Python client libraries. Version 11. | Generally available. </br> Install the [azure-search-documents package](https://pypi.org/project/azure-search-documents/) from PyPI. |
-| [**JavaScript client library**](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-search-documents/11.0.0/index.html)  | Azure SDK | A new client library released by the Azure SDK team, designed for consistency with other JavaScript client libraries. Version 11. | Generally available. </br> Install the [@azure/search-documents package](https://www.npmjs.com/package/@azure/search-documents) from npm. |
+| [Azure.Search.Documents client library](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK for .NET | .NET client library released by the Azure SDK team, designed for consistency with other .NET client libraries. <br/><br/>Version 11 targets the Search REST api-version=2020-06-30, but does not yet support knowledge store, geo-filters, or [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). | Generally available. </br> Install the [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) from NuGet. |
+| [azure.search.documents client library](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python)  | Azure SDK for Python| Python client library released by the Azure SDK team, designed for consistency with other Python client libraries. <br/><br/>Version 11 targets the Search REST api-version=2020-06-30. | Generally available. </br> Install the [azure-search-documents package](https://pypi.org/project/azure-search-documents/) from PyPI. |
+| [@azure/search-documents client library](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest)  | Azure SDK for JavaScript | JavaScript client library released by the Azure SDK team, designed for consistency with other JavaScript client libraries. <br/><br/>Version 11 targets the Search REST api-version=2020-06-30. | Generally available. </br> Install the [@azure/search-documents package](https://www.npmjs.com/package/@azure/search-documents) from npm. |
 
 ### June 2020
 

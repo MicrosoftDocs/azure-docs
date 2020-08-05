@@ -101,6 +101,8 @@ Provide the following values when prompted:
 Type `Y` or press Enter to confirm.
 
 Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
+
+To run on Java 11 in Azure, you must modify the values in the pom.xml file. To learn more, see [Java versions](functions-reference-java.md#java-versions).
 ::: zone-end
 The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
 
@@ -151,7 +153,15 @@ Use **Ctrl**-**C** to stop the host.
 
 ## Build the container image and test locally
 
-(Optional) Examine the *Dockerfile" in the root of the project folder. The Dockerfile describes the required environment to run the function app on Linux.  The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
+(Optional) Examine the *Dockerfile* in the root of the project folder. The Dockerfile describes the required environment to run the function app on Linux.  The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
+
+::: zone pivot="programming-language-java"  
+If you are running on Java 11 (preview), change the `JAVA_VERSION` build argument in the generated Dockerfile to the following: 
+
+```docker
+ARG JAVA_VERSION=11
+```
+::: zone-end
     
 In the root project folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, and provide a name, `azurefunctionsimage`, and tag, `v1.0.0`. Replace `<DOCKER_ID>` with your Docker Hub account ID. This command builds the Docker image for the container.
 
@@ -377,7 +387,7 @@ SSH enables secure communication between a container and a client. With SSH enab
 
     ::: zone pivot="programming-language-csharp"
     ```Dockerfile
-    FROM microsoft/dotnet:2.2-sdk-appservice AS installer-env
+    FROM mcr.microsoft.com/azure-functions/dotnet:3.0-appservice
     ```
     ::: zone-end
 

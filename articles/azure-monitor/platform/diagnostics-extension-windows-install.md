@@ -7,7 +7,8 @@ author: bwren
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.author: bwren
+ms.author: bwren 
+ms.custom: devx-track-azurecli
 ---
 # Install and configure Windows Azure diagnostics extension (WAD)
 [Azure diagnostics extension](diagnostics-extension-overview.md) is an agent in Azure Monitor that collects monitoring data from the guest operating system and workloads of Azure virtual machines and other compute resources. This article provides details on installing and configuring the Windows diagnostics extension and a description of how the data is stored in and Azure Storage account.
@@ -128,7 +129,7 @@ The public settings are defined in the [Public element](diagnostics-extension-sc
 
 
 ## PowerShell deployment
-PowerShell can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [Set-AzVMDiagnosticsExtension](/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) as in the following example. 
+PowerShell can be used to deploy the Azure Diagnostics extension to an existing virtual machine using [Set-AzVMDiagnosticsExtension](/powershell/module/servicemanagement/azure.service/set-azurevmdiagnosticsextension) as in the following example. 
 
 ```powershell
 Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `

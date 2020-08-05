@@ -5,12 +5,12 @@ description: Create and run a machine learning pipeline with the Azure Machine L
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 12/05/2019
-ms.custom: seodec18, tracking-python
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 
 ---
 
@@ -125,6 +125,8 @@ Below are examples of creating and attaching compute targets for:
 * Azure Machine Learning Compute
 * Azure Databricks 
 * Azure Data Lake Analytics
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### Azure Machine Learning compute
 
@@ -465,7 +467,7 @@ You can create a Pipeline Endpoint with multiple published pipelines behind it. 
 ```python
 from azureml.pipeline.core import PipelineEndpoint
 
-published_pipeline = PublishedPipeline.get(workspace="ws", name="My_Published_Pipeline")
+published_pipeline = PipelineEndpoint.get(workspace=ws, name="My_Published_Pipeline")
 pipeline_endpoint = PipelineEndpoint.publish(workspace=ws, name="PipelineEndpointTest",
                                             pipeline=published_pipeline, description="Test description Notebook")
 ```

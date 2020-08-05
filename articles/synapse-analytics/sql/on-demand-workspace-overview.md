@@ -25,7 +25,7 @@ SQL on-demand is serverless, hence there is no infrastructure to setup or cluste
 
 If you use Apache Spark for Azure Synapse in your data pipeline, for data preparation, cleansing or enrichment, you can [query external Spark tables](develop-storage-files-spark-tables.md) you've created in the process, directly from SQL on-demand. Use [Private Link](../security/how-to-connect-to-workspace-with-private-links.md) to bring your SQL on-demand endpoint into your [managed workspace VNet](../security/synapse-workspace-managed-vnet.md).  
 
-## Who is SQL on-demand for
+## SQL on-demand benefits
 
 If you need to explore data in the data lake, gain insights from it or optimize your existing data transformation pipeline, you can benefit from using SQL on-demand. It is suitable for the following scenarios:
 
@@ -40,7 +40,7 @@ Different professional roles can benefit from SQL on-demand:
 - Data Analysts can [explore data and Spark external tables](develop-storage-files-spark-tables.md) created by Data Scientists or Data Engineers using familiar T-SQL language or their favorite tools, which can connect to SQL on-demand.
 - BI Professionals can quickly [create Power BI reports on top of data in the lake](tutorial-connect-power-bi-desktop.md) and Spark tables.
 
-## What do I need to do to start using it?
+## How to start using SQL on-demand
 
 SQL on-demand endpoint is provided within every Azure Synapse workspace. You can create a workspace and start querying data instantly using tools you are familiar with.
 
@@ -48,7 +48,7 @@ SQL on-demand endpoint is provided within every Azure Synapse workspace. You can
 
 SQL on-demand enables existing SQL ad-hoc querying and business intelligence tools to tap into the data lake. As it provides familiar T-SQL syntax, any tool capable to establish TDS connection SQL offerings can [connect to and query Synapse SQL](connect-overview.md) on-demand. You can connect with Azure Data Studio and run ad-hoc queries or connect with Power BI to gain insights in a matter of minutes.
 
-## Is full T-SQL supported?
+## T-SQL support
 
 SQL on-demand offers T-SQL querying surface area, which is slightly enhanced/extended in some aspects to accommodate for experiences around querying semi-structured and unstructured data. Furthermore, some aspects of the T-SQL language are not supported due to the design of SQL on-demand, as an example, DML functionality is currently not supported.
 

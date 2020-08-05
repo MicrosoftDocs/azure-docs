@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
 
 # Azure Spring Cloud FAQ
@@ -156,6 +156,21 @@ As you're migrating existing Spring Cloud microservices to Azure Spring Cloud, i
 * We recommend that you use official, stable Pivotal Spring libraries. Unofficial, beta, or forked versions of Pivotal Spring libraries have no service-level agreement (SLA) support.
 
 After the migration, monitor your CPU/RAM metrics and network traffic to ensure that the application instances are scaled appropriately.
+
+## Trouble Shooting
+
+### What are the impacts of service registry rarely unavailable?
+
+In some rarely happened scenario, you may see some errors like 
+```
+RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available
+```
+from your logs of applications. This issue introduced by spring framework with very low rate due to network unstable or other network issues. 
+
+There should be no impacts to user experience, eureka client has both heartbeat and retry policy to take care of this. You could consider it as one transient error and skip it safely.
+
+We will enhance this part and avoid this error from users’ applications in short future.
+
 
 ## Next steps
 

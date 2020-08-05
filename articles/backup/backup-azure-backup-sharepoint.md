@@ -26,7 +26,7 @@ Additional prerequisites and limitations can be found on the [Back up SharePoint
 
 ## Configure backup
 
-To back up SharePoint farm you configure protection for SharePoint by using ConfigureSharePoint.exe and then create a protection group in DPM. For instructions, see [Configure Backup](//system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) in the DPM documentation.
+To back up SharePoint farm you configure protection for SharePoint by using ConfigureSharePoint.exe and then create a protection group in DPM. For instructions, see [Configure Backup](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) in the DPM documentation.
 
 ## Monitoring
 

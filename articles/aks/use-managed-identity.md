@@ -24,6 +24,7 @@ You must have the following resource installed:
 * AKS clusters with managed identities can be enabled only during creation of the cluster.
 * Existing AKS clusters can't be migrated to managed identities.
 * During cluster **upgrade** operations, the managed identity is temporarily unavailable.
+* Tenants move / migrate of managed identity enabled clusters isn't supported.
 
 ## Summary of managed identities
 
@@ -206,5 +207,5 @@ A successful cluster creation using your own managed identities contains this us
 
 <!-- LINKS - external -->
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[az-identity-create]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-create
-[az-identity-list]: https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-list
+[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az-identity-create
+[az-identity-list]: /cli/azure/identity?view=azure-cli-latest#az-identity-list

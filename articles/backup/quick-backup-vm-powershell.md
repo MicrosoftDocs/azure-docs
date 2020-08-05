@@ -9,7 +9,7 @@ ms.custom: mvc
 
 # Back up a virtual machine in Azure with PowerShell
 
-The [Azure PowerShell AZ](/powershell/azure/new-azureps-module-az?view=azps-1.4.0) module is used to create and manage Azure resources from the command line or in scripts.
+The [Azure PowerShell AZ](/powershell/azure/new-azureps-module-az) module is used to create and manage Azure resources from the command line or in scripts.
 
 [Azure Backup](backup-overview.md) backs up on-premises machines and apps, and Azure VMs. This article shows you how to back up an Azure VM with the AZ module. Alternatively, you can back up a VM using the [Azure CLI](quick-backup-vm-cli.md), or in the [Azure portal](quick-backup-vm-portal.md).
 
