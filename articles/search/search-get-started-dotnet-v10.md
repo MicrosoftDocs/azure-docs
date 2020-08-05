@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 
 ---
-# Quickstart: Create a search index using Microsoft.Azure.Search v10 client library
+# Quickstart: Create a search index using the Microsoft.Azure.Search v10 client library
 
 This article is the C# quickstart for the legacy Microsoft.Azure.Search (version 10) client library, now superseded by the Azure.Search.Documents (version 11) client library. If you have existing search solutions that uses the Microsoft.Azure.Search libraries, you can use this quickstart to learn about those APIs. 
 

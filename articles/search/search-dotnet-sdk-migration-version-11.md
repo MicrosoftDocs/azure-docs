@@ -16,17 +16,22 @@ ms.date: 08/05/2020
 
 If you're using version 10.0 or older of the [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search), this article will help you upgrade to version 11.
 
-Version 11 is a fully redesigned client library, released by the Azure SDK development team (the Azure Cognitive Search development team produced the previous versions). The library has been redesigned for greater consistency with other Azure client libraries, taking a dependency on [Azure.Core](https://docs.microsoft.com/dotnet/api/azure.core) and [System.Text.Json](https://docs.microsoft.com/dotnet/api/system.text.json), and implementing familiar approaches for common tasks.
+Version 11 is a fully redesigned client library, released by the Azure SDK development team (previous versions were produced by the Azure Cognitive Search development team). The library has been redesigned for greater consistency with other Azure client libraries, taking a dependency on [Azure.Core](https://docs.microsoft.com/dotnet/api/azure.core) and [System.Text.Json](https://docs.microsoft.com/dotnet/api/system.text.json), and implementing familiar approaches for common tasks.
 
 Some key differences you'll notice in the new version include:
 
-+ One [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) and one [client library](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) as opposed to multiple
-+ Three clients instead of two: [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient), [SearchIndexClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient), [SearchIndexerClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient)
++ One package and library as opposed to multiple
++ Three clients instead of two: `SearchClient`, `SearchIndexClient`, `SearchIndexerClient`
 + Naming differences across a range of APIs and small structural differences that simplify some tasks
 
 ## Package and library consolidation
 
 Version 11 consolidates multiple packages and libraries into one. Post-migration, you will have fewer libraries to manage.
+
++ [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/)
+
++ [API reference for the client library](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
+
 
 ## Client differences
 
@@ -36,7 +41,7 @@ Where applicable, the following table maps the client libraries between the two 
 |---------------------|------------------------------|------------------------------|
 | Client used for queries and to populate an index. | [SearchIndexClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient) | [SearchIndexClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient) |
 | Client used for indexes, analyzers, synonym maps | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient) |
-| Client used for indexers, data sources, skillsets | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (new)](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient)|
+| Client used for indexers, data sources, skillsets | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**new**)](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient)|
 
 ## Naming differences
 
@@ -79,7 +84,7 @@ The following version 10 are not yet available in version 11. If you use these f
 
 1. Install the [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) by right-clicking on your project references and selecting "Manage NuGet Packages..." in Visual Studio.
 
-1. Replace using directives for Microsoft.Azure.Search to the following:
+1. Replace using directives for Microsoft.Azure.Search with the following:
 
    ```csharp
    using Azure;
