@@ -26,10 +26,10 @@ When generating SAS URIs for your VHDs, follow these requirements:
 
 There are two common tools used to create an SAS address (URL):
 
-* **Microsoft Storage Explorer** – Graphical tool available in the Azure portal.
+* **Microsoft Azure Storage Explorer** – Graphical tool available in the Azure portal.
 * **Microsoft Azure CLI** – Recommended for non-Windows operating systems and automated or continuous integration environments.
 
-### Use Microsoft Storage Explorer
+### Use Microsoft Azure Storage Explorer
 
 1. Go to your Storage Account in the Azure portal.
 2. In the Explorer pane on the left, open the **Storage Explorer** (preview) tool.

@@ -10,7 +10,7 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 08/03/2020
+ms.date: 08/05/2020
 ---
 
 # Copy data to and from Azure SQL Managed Instance by using Azure Data Factory
@@ -593,7 +593,7 @@ When data is copied to and from SQL Managed Instance, the following mappings are
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| xml |String |
 
 >[!NOTE]
 > For data types that map to the Decimal interim type, currently Copy activity supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string in a SQL query.
