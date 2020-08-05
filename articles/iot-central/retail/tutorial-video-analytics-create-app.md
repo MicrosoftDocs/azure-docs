@@ -184,6 +184,21 @@ To prepare the deployment manifest:
 
 1. Save the changes.
 
+Optionally, you can replace the Yolov3 module with the hardware-optimized [OpenVINO&trade; Model Server – Edge AI Extension Module](https://github.com/openvinotoolkit/model_server/tree/ams/extras/ams_wrapper) from Intel. Replace the configuration settings for the `lvaYolov3` module with the following configuration:
+
+```json
+"OpenVINOModelServerEdgeAIExtensionModule": {
+    "settings": {
+        "image": "marketplace.azurecr.io/intel_corporation/open_vino",
+        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"4000/tcp\":[{\"HostPort\":\"4000\"}]}},\"Cmd\":[\"/ams_wrapper/start_ams.py\",\"--ams_port=4000\",\"--ovms_port=9000\"]}"
+    },
+    "type": "docker",
+    "version": "1.0",
+    "status": "running",
+    "restartPolicy": "always"
+}
+```
+
 ## Create the Azure IoT Edge gateway device
 
 The video analytics - object and motion detection application includes an **LVA Edge Object Detector** device template and an **LVA Edge Motion Detection** device template. In this section, you create a gateway device template using the deployment manifest, and add the gateway device to your IoT Central application.
