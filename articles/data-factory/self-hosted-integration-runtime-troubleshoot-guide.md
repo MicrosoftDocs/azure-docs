@@ -5,7 +5,7 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/04/2020
+ms.date: 08/05/2020
 ms.author: abnarain
 ---
 
@@ -139,10 +139,7 @@ When we handle cases related to SSL/TLS handshake, we might encounter some issue
  
         The certificate chain can be built up successfully if the certificate from AIA is "Verified", and the certificate from CDP or OCSP is "Verified".
 
-        If you see failure like below when retrieving AIA, CDP, work with network team to get the client machine ready to connect to target URL. It will be enough if either the http path or the ldap path is able to be verified.
-
-        ![Retrieving failure](media/self-hosted-integration-runtime-troubleshoot-guide/retrieving-failure.png)
-
+        If you see failure when retrieving AIA, CDP, work with network team to get the client machine ready to connect to target URL. It will be enough if either the http path or the ldap path is able to be verified.
 
 ### Self-hosted IR could not load file or assembly
 
@@ -158,7 +155,7 @@ For example:
 
 If you take process monitor, you can see following result:
 
-![Process monitor](media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png)
+[![Process monitor](media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png)](media/self-hosted-integration-runtime-troubleshoot-guide/process-monitor.png#lightbox)
 
 > [!TIP] 
 > You can set filter as shown in below screenshot.
@@ -304,13 +301,13 @@ If the error shows as above *UnauthorizedAccessException*, follow below instruct
         1. Clean uninstall the current Self-hosted IR.
         1. Install the Self-hosted IR bits.
         1. Follow below instructions to change the service account: 
-            - Go to selfhosted IR's installation folder, switch to the folder: *Microsoft Integration Runtime\4.0\Shared*.
-            - Start a command line using elevated privilege. Replace *\<user>* and *\<password>* with your own username and password and then run below command:
+            1. Go to selfhosted IR's installation folder, switch to the folder: *Microsoft Integration Runtime\4.0\Shared*.
+            1. Start a command line using elevated privilege. Replace *\<user>* and *\<password>* with your own username and password and then run below command:
                        
                 ```
                 dmgcmd.exe -SwitchServiceAccount "<user>" "<password>"
                 ```
-            - If you want to change to LocalSystem account, make sure to use a correct format for this account. Below is an example of the correct format:
+            1. If you want to change to LocalSystem account, make sure to use a correct format for this account. Below is an example of the correct format:
 
                 ```
                 dmgcmd.exe -SwitchServiceAccount "NT Authority\System" ""
@@ -320,8 +317,8 @@ If the error shows as above *UnauthorizedAccessException*, follow below instruct
                 ```
                 dmgcmd.exe -SwitchServiceAccount "LocalSystem" ""
                 ```              
-            - For alternative, since Local System has higher privilege than administrator, you can also directly change it in "Services".
-            - You can use local/domain user for the IR service logon account.            
+            1. For alternative, since Local System has higher privilege than administrator, you can also directly change it in "Services".
+            1. You can use local/domain user for the IR service logon account.            
         1. Register the Integration Runtime.
 
 If the error shows as: *Service 'Integration Runtime Service' (DIAHostService) failed to start. Verify that you have sufficient privileges to start system services*, follow below instructions:
@@ -350,19 +347,19 @@ The **Register** button could not be found on the Configuration Manager UI when 
 
 #### Cause
 
-Since the release of the *Integration Runtime 3.0*, the **Register** button on an existing Integration Runtime Node has been removed to enable a cleaner and securer environment. If a node has been registered to some Integration Runtime (whether online or not), to re-register it to another Integration Runtime, you must uninstall the previous node, and then install and register the node.
+Since the release of the *Integration Runtime 3.0*, the **Register** button on an existing Integration Runtime Node has been removed to enable a cleaner and more secure environment. If a node has been registered to some Integration Runtime (whether online or not), to re-register it to another Integration Runtime, you must uninstall the previous node, and then install and register the node.
 
 #### Resolution
 
-- Go to the control panel to uninstall the existing Integration Runtime.
+1. Go to the control panel to uninstall the existing Integration Runtime.
 
     > [!IMPORTANT] 
     > In the process below, select Yes. Do not keep data during the uninstall process.
 
     ![Delete data](media/self-hosted-integration-runtime-troubleshoot-guide/delete-data.png)
 
-- If you don't have the Integration runtime installer MSI, go to [download center](https://www.microsoft.com/en-sg/download/details.aspx?id=39717) to download the latest Integration Runtime.
-- Install the MSI and register the Integration Runtime.
+1. If you don't have the Integration runtime installer MSI, go to [download center](https://www.microsoft.com/en-sg/download/details.aspx?id=39717) to download the latest Integration Runtime.
+1. Install the MSI and register the Integration Runtime.
 
 
 ### Unable to register the Self-hosted IR due to localhost    
