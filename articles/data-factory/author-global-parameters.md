@@ -7,14 +7,14 @@ ms.workload: data-services
 ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
-ms.date: 08/05/20
+ms.date: 08/05/2020
 ---
 
 # Global parameters in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Global parameters are constants across a data factory that can be consumed by a pipeline in any expression. They are useful when you have multiple pipelines with identical parameter names and values. When promoting a data factory using the continuous integration and deployment process (CI/CD), you can override these parameters in each environment. 
+Global parameters are constants across a data factory that can be consumed by a pipeline in any expression. They're useful when you have multiple pipelines with identical parameter names and values. When promoting a data factory using the continuous integration and deployment process (CI/CD), you can override these parameters in each environment. 
 
 ## Creating global parameters
 
@@ -26,7 +26,7 @@ In the side-nav, enter a name, select a data type, and specify the value of your
 
 ![Create global parameters](media/author-global-parameters/create-global-parameter-2.png)
 
-After a global parameter is created, you can edit it by clicking the parameter's name, To alter multiple parameters at once, select **Edit all**.
+After a global parameter is created, you can edit it by clicking the parameter's name. To alter multiple parameters at once, select **Edit all**.
 
 ![Create global parameters](media/author-global-parameters/create-global-parameter-3.png)
 
@@ -42,9 +42,9 @@ Global parameters have unique CI/CD process relative to other entities in Azure 
 
 ![Publishing global parameters](media/author-global-parameters/global-parameters-adf-publish.png)
 
-If you are deploying to a new environment such as TEST or PROD, it is recommend to create a copy of this global parameters file and overwrite the appropriate environment-specific values. When you re-publish the original global parameters file will get overwritten, but the copy for the other environment will be untouched.
+If you're deploying to a new environment such as TEST or PROD, its recommended to create a copy of this global parameters file and overwrite the appropriate environment-specific values. When you republish the original global parameters file will get overwritten, but the copy for the other environment will be untouched.
 
-For example, if you have a factory named 'ADF-DEV' and a global parameter of type string named 'environment' with a value 'dev', when you publish a file named *ADF-DEV_GlobalParameters.json* will get generated. If deploying to a test factory named 'ADF_TEST', create a copy of the JSON file (for example named ADF-TEST_GlobalParameters.json) and replace the parameter values with the region specific values. The parameter 'environment' may have a value 'test' now. 
+For example, if you have a factory named 'ADF-DEV' and a global parameter of type string named 'environment' with a value 'dev', when you publish a file named *ADF-DEV_GlobalParameters.json* will get generated. If deploying to a test factory named 'ADF_TEST', create a copy of the JSON file (for example named ADF-TEST_GlobalParameters.json) and replace the parameter values with the environment-specific values. The parameter 'environment' may have a value 'test' now. 
 
 ![Deploying global parameters](media/author-global-parameters/powershell-task.png)
 
@@ -87,5 +87,5 @@ Set-AzDataFactoryV2 -InputObject $dataFactory -Force
 
 ## Next steps
 
-* Learn about Azure Data Factory's [continuous integration and deployment process](continuous-interation-deployment.md)
+* Learn about Azure Data Factory's [continuous integration and deployment process](continuous-integration-deployment.md)
 * Learn how to use the [control flow expression language](control-flow-expression-language-functions.md)
