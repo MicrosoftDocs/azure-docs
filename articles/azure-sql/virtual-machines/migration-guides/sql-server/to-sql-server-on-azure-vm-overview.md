@@ -40,7 +40,7 @@ The appropriate approach for your business typically depends on the following fa
 - Supportability life cycle of your existing products
 
 The following table describes differences in the two migration strategies: 
-
+<br />
 
 | **Migration strategy** | **Description** | **When to use** | **Can operating system change?** | **Can SQL Server version change?** |
 | --- | --- | --- | --- | --- |
@@ -50,8 +50,8 @@ The following table describes differences in the two migration strategies:
 
 ## Lift and shift  
 
-The following table details the available method for the **lift and shift** migration strategy to migrate your SQL Server database (DB) to SQL Server on Azure VMs: 
-
+The following table details the available method for the **lift and shift** migration strategy to migrate your SQL Server database to SQL Server on Azure VMs: 
+<br />
 |**Method** | **Minimum source version** | **Minimum target version** | **Source backup size constraint** |  **Notes** |
 | --- | --- | --- | --- | --- | --- |
  [Azure Migrate](../../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Azure VM storage limit](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |  Existing SQL Server to be moved as-is to instance of SQL Server on an Azure VM. Can scale migration workloads of up to 35,000 VMs. <br /><br /> Source server(s) remain online and servicing requests during synchronization of server data, minimizing downtime. <br /><br /> **Automation & scripting**: [Azure Site Recovery Scripts](../../../../migrate/how-to-migrate-at-scale.md) and [Example of scaled migration and planning for Azure](/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
@@ -59,8 +59,8 @@ The following table details the available method for the **lift and shift** migr
 
 ## Migrate  
 
-The following table details available methods for and **migrate and upgrade** migration strategies to migrate your SQL Server database (DB) to SQL Server on Azure VMs: 
-
+The following table details available methods for and **migrate and upgrade** migration strategies to migrate your SQL Server database to SQL Server on Azure VMs: 
+<br />
 
 |**Method** | **Minimum source version** | **Minimum target version** | **Source backup size constraint** | **Notes** |
 | --- | --- | --- | --- | --- | --- |
@@ -119,13 +119,13 @@ To start migrating your SQL Server on SQL Server on Azure VMs, see the [Database
 
 
 - To learn more about the framework and adoption cycle for Cloud migrations, see
-   -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale).
-   -  [Best practices for costing and sizing](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) workloads migrate to Azure
+   -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
+   -  [Best practices for costing and sizing workloads migrate to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
 - For information about licensing, see
-   - [Bring your own license with the Azure Hybrid Benefit]
-   - [Get free extended support for SQL Server 2008 and SQL Server 2008 R2]
+   - [Bring your own license with the Azure Hybrid Benefit](windows/licensing-model-azure-hybrid-benefit-ahb-change.md)
+   - [Get free extended support for SQL Server 2008 and SQL Server 2008 R2](windows/sql-server-2008-extend-end-of-support.md)
 
 
-- (Preview) to assess the Application access layer see [Data Access Migration Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit).
+- To assess the Application access layer, see [Data Access Migration Toolkit (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
 - For details on how to perform Data Access Layer A/B testing see [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).
