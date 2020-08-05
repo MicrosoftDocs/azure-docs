@@ -9,7 +9,7 @@ ms.date: 07/30/2020
 ms.author: cralvord
 ---
 
-# Azure Storage Explorer Security Guide
+# Azure Storage Explorer security guide
 
 Microsoft Azure Storage Explorer enables you to easily work with Azure Storage data safely and securely on Windows, macOS, and Linux. By following these guidelines, you can ensure your data stays protected.
 
@@ -37,7 +37,7 @@ We recommend using Azure AD authentication whenever possible.
 
 This section describes the two Azure AD-based technologies that can be used to secure your storage resources.
 
-#### Role-based Access Control (RBAC)
+#### Role-based access control (RBAC)
 
 [Role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) give you fine-grained access control over your Azure resources. RBAC roles and permissions can be managed from the Azure portal.
 
@@ -47,7 +47,7 @@ Storage Explorer supports RBAC access to Storage Accounts, Blobs, and Queues. If
 
 [Access control lists (ACLs)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) let you control file and folder level access in ADLS Gen2 blob containers. You can manage your ACLs using Storage Explorer.
 
-### Shared Access Signatures (SAS)
+### Shared access signatures (SAS)
 
 If you can't use Azure AD authentication, we recommend using shared access signatures. With shared access signatures, you can:
 
@@ -70,7 +70,7 @@ When using SAS in Storage Explorer, we recommend the following guidelines:
 > [!IMPORTANT]
 > When sharing SAS tokens and URIs for troubleshooting purposes, such as in service requests or bug reports, always redact at least the signature portion of the SAS.
 
-### Storage Account Keys
+### Storage account keys
 
 Storage account keys grant unrestricted access to the services and resources within a storage account. For this reason, we recommend limiting the use of keys to access resources in Storage Explorer. Use RBAC features or SAS to provide access instead.
 
@@ -86,7 +86,7 @@ If you must use keys to access your storage resources, we recommend the followin
 > [!NOTE]
 > If you believe a storage account key has been shared or distributed by mistake, you can generate new keys for your storage account from the Azure portal.
 
-### Public Access to Blob Containers
+### Public access to blob containers
 
 Storage Explorer allows you to modify the access level of your Azure Blob Storage containers. Non-private blob containers allow anyone anonymous read access to data in those containers.
 
@@ -94,3 +94,7 @@ When enabling public access for a blob container, we recommend the following gui
 
 - **Don't enable public access to a blob container that may contain any potentially sensitive data.** Make sure your blob container is free of all private data.
 - **Don't upload any potentially sensitive data to a blob container with Blob or Container access.** 
+
+## Next steps
+
+- [Security recommendations](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
