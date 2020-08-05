@@ -11,6 +11,64 @@ ms.date: 07/08/2020
 
 This article provides lists Azure Monitor articles that are either new or have been significantly updated. It will be refreshed the first week of each month to include article updates from the previous month.
 
+## July 2020
+
+### General
+- [Deploy Azure Monitor](platform/deploy-scale.md) - Restructure of Azure Monitor for VMs onboarding content.
+- [Use Azure Private Link to securely connect networks to Azure Monitor](platform/private-link-security.md) - Added section on limits.
+
+### Alerts
+- [Action rules for Azure Monitor alerts](platform/alerts-action-rules.md) - Added CLI processes.
+- [Create and manage action groups in the Azure portal](platform/action-groups.md) - Updated to reflect changes in UI.
+- [Saved queries in Azure Monitor Log Analytics](log-query/saved-queries.md) - New article.
+- [Troubleshoot log alerts in Azure Monitor](platform/alerts-troubleshoot-log.md) - Added section on alert rule quota.
+- [Troubleshooting Azure metric alerts](platform/alerts-troubleshoot-metric.md) - Added section on alert rule on a custom metric that isn't emitted yet.
+- [Understand how metric alerts work in Azure Monitor.](platform/alerts-metric-overview.md) - Added recommendation for selecting aggregation granularity.
+
+### Application Insights
+- [Release Notes for Azure web app extension - Application Insights](app/web-app-extension-release-notes.md) - New article.
+- [Resource Manager template samples for Application Insights Resources](samples/resource-manager-app-resource.md) - New article.
+- [Troubleshoot problems with Azure Application Insights Profiler](app/profiler-troubleshooting.md) - Added note on bug running profiler for ASP.NET Core apps on Azure App Service. 
+
+### Containers
+- [Log alerts from Azure Monitor for containers](insights/container-insights-log-alerts.md) - New article.
+- [Metric alerts from Azure Monitor for containers](insights/container-insights-metric-alerts.md) - New article.
+
+### Logs
+- [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Added error message and section CMK configuration for queries.
+- [Azure Monitor HTTP Data Collector API](platform/data-collector-api.md) - Added Python 3 sample.
+- [Optimize log queries in Azure Monitor](log-query/query-optimization.md) - Added section on avoiding multiple data scans when using subqueries.
+- [Tutorial: Get started with Log Analytics queries](log-query/get-started-portal.md) - Added video.
+
+### Platform logs
+- [Create diagnostic settings to send platform logs and metrics to different destinations](platform/diagnostic-settings.md) - Added video.
+- [Resource Manager template samples for Azure Monitor](samples/resource-manager-samples.md) - Added ARM sample using Logs destination type. 
+
+### Solutions
+- [Monitoring solutions in Azure Monitor](insights/solutions.md) - Added CLI processes.
+- [Office 365 management solution in Azure](insights/solution-office-365.md) - Changed retirement date.
+
+### Virtual machines
+
+New and updated articles from restructure of Azure Monitor for VMs content
+
+- [What is Azure Monitor for VMs?](insights/vminsights-overview.md)
+- [Configure Log Analytics workspace for Azure Monitor for VMs](insights/vminsights-configure-workspace.md)
+- [Connect Linux computers to Azure Monitor](platform/agent-linux.md)
+- [Enable Azure Monitor for a hybrid environment](insights/vminsights-enable-hybrid.md)
+- [Enable Azure Monitor for single virtual machine or virtual machine scale set in the Azure portal](insights/vminsights-enable-portal.md)
+- [Enable Azure Monitor for VMs by using Azure Policy](insights/vminsights-enable-at-scale-policy.md)
+- [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md)
+- [Enable Azure Monitor for VMs using PowerShell](insights/vminsights-enable-powershell.md)
+- [Enable Azure Monitor for VMs using Resource Manager templates](insights/vminsights-enable-resource-manager.md)
+- [Enable Azure Monitor for VMs with PowerShell or templates](insights/vminsights-enable-at-scale-powershell.md)
+
+
+### Visualizations
+- [Upgrading your Log Analytics Dashboard visualizations](log-query/dashboard-upgrade.md) - Updated refresh rate.
+- [Visualizing data from Azure Monitor](visualizations.md) - Added video.
+
+
 ## June 2020
 
 ### General
@@ -60,7 +118,8 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Send Azure Activity log to Log Analytics workspace using Azure portal](learn/quick-collect-activity-log-portal.md) - New article.
 - [Send Azure Activity log to Log Analytics workspace using Azure Resource Manager template](learn/quick-collect-activity-log-arm.md) - New article.
 
-#### New and updated articles from restructure and consolidation of platform log content
+New and updated articles from restructure and consolidation of platform log content
+
 - [Archive Azure resource logs to storage account](./platform/resource-logs.md#send-to-azure-storage)
 - [Azure Activity Log event schema](platform/activity-log-schema.md)
 - [Azure Activity log](platform/activity-log.md)
