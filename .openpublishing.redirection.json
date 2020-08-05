@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/windows/infrastructure-example.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/infrastructure-example",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/infrastructure-example.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/infrastructure-example",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/digital-twins/how-to-manage-routes.md",
       "redirect_url": "/azure/digital-twins/how-to-manage-routes-apis-cli",
       "redirect_document_id": false
