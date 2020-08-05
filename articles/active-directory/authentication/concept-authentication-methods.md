@@ -73,7 +73,7 @@ The Authenticator app can help prevent unauthorized access to accounts and stop 
 ![Screenshot of example web browser prompt for Authenticator app notification to complete sign-in process](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 > [!NOTE]
-> If your organization has staff working in or traveling to China, the *Notification through mobile app* method on Android devices doesn't work in that country/region. Alternate authentication methods should be made available for those users.
+> If your organization has staff working in or traveling to China, the *Notification through mobile app* method on Android devices doesn't work in that country/region as Google play services(including push notifications) are blocked in the region. However iOS notification do work. For Android devices ,alternate authentication methods should be made available for those users.
 
 ### Verification code from mobile app
 
