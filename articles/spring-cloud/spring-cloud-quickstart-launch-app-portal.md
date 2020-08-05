@@ -40,7 +40,15 @@ To complete this quickstart:
 5. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 
 ## Generate a Spring Cloud helloworld project
+Add the following dependency to the application POM file.
 
+```xml
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+```
 
 
 ## Provision a service instance on the Azure portal
