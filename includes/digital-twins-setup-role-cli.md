@@ -26,7 +26,7 @@ az role assignment list --assignee <your-Azure-email>
 >
 > Use the [Azure portal page of Azure Active Directory users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select your user account and open its details. Copy your user's *ObjectID*:
 >
-> :::image type="content" source="../articles/digital-twins/media/includes/user-id.png" alt-text="View of user page in Azure portal highlighting the GUID in the 'Object ID' field" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="../articles/digital-twins/media/includes/user-id.png" alt-text="View of user page in Azure portal highlighting the GUID in the 'Object ID' field" lightbox="../articles/digital-twins/media/includes/user-id.png":::
 >
 > Then, repeat the role assignment list command using your user's *Object ID* in place of your email.
 
