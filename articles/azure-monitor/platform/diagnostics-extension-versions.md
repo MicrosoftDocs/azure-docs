@@ -43,7 +43,7 @@ Different versions of Azure diagnostics use different configuration schemas. Sch
 ### Diagnostics extension 1.11
 Added support for the Azure Monitor sink. This sink is only applicable to performance counters. Enables sending performance counters collected on your VM, VMSS, or cloud service to Azure Monitor as custom metrics. The Azure Monitor sink supports:
 * Retrieving all performance counters sent to Azure Monitor via the [Azure Monitor metrics APIs.](/rest/api/monitor/metrics/list)
-* Alerting on all performance counters sent to Azure Monitor via the new [unified alerts experience](../../azure-monitor/platform/alerts-overview.md) in Azure Monitor
+* Alerting on all performance counters sent to Azure Monitor via the new [unified alerts experience](./alerts-overview.md) in Azure Monitor
 * Treating wildcard operator in performance counters as the "Instance" dimension on your metric. For example if you collected the "LogicalDisk(\*)/DiskWrites/sec" counter you would be able to filter and split on the "Instance" dimension to plot or alert on the Disk Writes/sec for each Logical Disk (C:, D:, etc.)
 
 Define Azure Monitor as a new sink in your diagnostics extension configuration
@@ -151,7 +151,7 @@ Added Storage Type to PublicConfig. StorageType can be *Table*, *Blob*, *TableAn
 Added the ability to route to EventHub.
 
 ### Diagnostics extension 1.5
-Added the sinks element and the ability to send diagnostics data to [Application Insights](../../azure-monitor/app/cloudservices.md) making it easier to diagnose issues across your application as well as the system and infrastructure level.
+Added the sinks element and the ability to send diagnostics data to [Application Insights](../app/cloudservices.md) making it easier to diagnose issues across your application as well as the system and infrastructure level.
 
 ### Azure SDK 2.6 and diagnostics extension 1.3
 For Cloud Service projects in Visual Studio, the following changes were made. (These changes also apply to later versions of Azure SDK.)
@@ -186,3 +186,4 @@ If you're upgrading your project from Azure SDK 2.4 to Azure SDK 2.5 or later, y
 * **Diagnostics for cloud service applications can only be configured at the role level, not at the instance level.**
 * **Every time you deploy your app, the diagnostics configuration is updated** – This can cause parity issues if you change your diagnostics configuration from Server Explorer and then redeploy your app.
 * **In Azure SDK 2.5 and later, crash dumps are configured in the diagnostics configuration file, not in code** – If you have crash dumps configured in code, you'll have to manually transfer the configuration from code to the configuration file, because the crash dumps aren't transferred during the migration to Azure SDK 2.6.
+

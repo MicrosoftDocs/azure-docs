@@ -4,8 +4,8 @@ description: Learn the steps and considerations for creating a new Azure applica
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: qianw211
-ms.author: dsindona 
+author: AarathiN
+ms.author: aarathin
 ms.date: 07/14/2020
 ---
 
@@ -242,14 +242,15 @@ Provide logos and images to use with your offer. All images must be in PNG forma
 
 #### Store logos
 
-Provide PNG files of your offer's logo in the following three pixel sizes:
+Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) and a **Medium** (90 x 90 pixels) size logo. You can optionally replace these with different images.
+
+All three logos sizes are required for use in different places in the listing:
 
 - **Small** (48 x 48)
 - **Medium** (90 x 90)
-- **Large** (216 x 216)
-- **Wide** (255 x 115)
+- **Large** (between 216 x 216 and 350 x 350)
 
-All three logos are required and are used in different places in the listing.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### Screenshots
 

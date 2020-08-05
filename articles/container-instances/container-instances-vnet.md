@@ -4,6 +4,7 @@ description: Learn how to deploy a container group to a new or existing Azure vi
 ms.topic: article
 ms.date: 07/02/2020
 ms.author: danlep
+ms.custom: devx-track-javascript
 ---
 
 # Deploy container instances into an Azure virtual network

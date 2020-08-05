@@ -76,7 +76,7 @@ In the Azure portal, create a Synapse workspace:
   - Assign **WS1\_SparkAdmins** to Synapse Spark admins
   - Assign **WS1\_SQLAdmins** to Synapse SQL admins
 
-## STEP 4: Configuring Data Lake Storage Gen2 for use by Synapse workspace
+## STEP 4: Configure Data Lake Storage Gen2 for use by Synapse workspace
 
 The Synapse workspace needs access to STG1 and CNT1 so it can run pipelines and perform system tasks.
 
@@ -94,7 +94,7 @@ The Synapse workspace needs access to STG1 and CNT1 so it can run pipelines and 
 - Under **Settings**, click **SQL Active Directory admin**
 - Click **Set admin** and choose WS1\_SQLAdmins
 
-## STEP 6: Maintaining access control
+## STEP 6: Maintain access control
 
 The configuration is finished.
 

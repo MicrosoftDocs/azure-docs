@@ -3,7 +3,7 @@ title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 07/09/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -136,12 +136,13 @@ For more information on deploying this feature, see [Configure managed identitie
 
 ## Properties: source
 
-The `source` section contains information about the source image that will be used by Image Builder.
+Image Builder currently only supports HyperV generation 1 images and VMs, the `source` section contains information about the source image that will be used by Image Builder.
 
 The API requires a 'SourceType' that defines the source for the image build, currently there are three types:
 - PlatformImage - indicated the source image is a Marketplace image.
 - ManagedImage - use this when starting from a regular managed image.
 - SharedImageVersion - this is used when you are using an image version in a Shared Image Gallery as the source.
+
 
 > [!NOTE]
 > When using existing Windows custom images, you can run the Sysprep command up to 8 times on a single Windows image, for more information, see the [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
@@ -185,7 +186,10 @@ You can also specify plan information, for example:
 ```
 ### ManagedImage source
 
-Sets the source image as an existing managed image of a generalized VHD or VM. The source managed image must be of a supported OS, and be in the same region as your Azure Image Builder template. 
+Sets the source image as an existing managed image of a generalized VHD or VM.
+
+> [!NOTE]
+> The source managed image must be of a supported OS and the image must same region as your Azure Image Builder template. 
 
 ```json
         "source": { 
@@ -198,7 +202,11 @@ The `imageId` should be the ResourceId of the managed image. Use `az image list`
 
 
 ### SharedImageVersion source
-Sets the source image an existing image version in a Shared Image Gallery. The image version must be of a supported OS, and the image must be replicated to the same region as your Azure Image Builder template. 
+Sets the source image an existing image version in a Shared Image Gallery.
+
+> [!NOTE]
+> The source managed image must be of a supported OS and the image must same region as your Azure Image Builder template, if not, please replicate the image version to the Image Builder Template region.
+
 
 ```json
         "source": { 

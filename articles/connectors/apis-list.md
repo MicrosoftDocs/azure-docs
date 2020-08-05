@@ -12,7 +12,7 @@ ms.date: 06/11/2020
 
 Connectors provide quick access from Azure Logic Apps to events, data, and actions across other apps, services, systems, protocols, and platforms. By using connectors in your logic apps, you expand the capabilities for your cloud and on-premises apps to perform tasks with the data that you create and already have.
 
-While Logic Apps offers [hundreds of connectors](https://docs.microsoft.com/connectors), this article describes the *popular and more commonly used* connectors that are successfully used by thousands of apps and millions of executions for processing data and information. To find the full list of connectors and each connector's reference information, such as triggers, actions, and limits, review the connector reference pages under [Connectors overview](https://docs.microsoft.com/connectors). Also, learn more about [triggers and actions](#triggers-actions), [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md), and [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/).
+While Logic Apps offers [hundreds of connectors](/connectors), this article describes the *popular and more commonly used* connectors that are successfully used by thousands of apps and millions of executions for processing data and information. To find the full list of connectors and each connector's reference information, such as triggers, actions, and limits, review the connector reference pages under [Connectors overview](/connectors). Also, learn more about [triggers and actions](#triggers-actions), [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md), and [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 > [!TIP]
 > To integrate with a service or API that doesn't have connector, you can either directly 
@@ -42,7 +42,7 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
   For example, if you're using Microsoft BizTalk Server, your logic apps can connect to and communicate with your BizTalk Server by using the [BizTalk Server on-premises connector](#on-premises-connectors). You can then extend or perform BizTalk-like operations in your logic apps by using the [integration account connectors](#integration-account-connectors).
 
-  Connectors are classified as either Standard or Enterprise. [Enterprise connectors](#enterprise-connectors) provide access to enterprise systems such as SAP, IBM MQ, and IBM 3270 for an additional cost. To determine whether a connector is Standard or Enterprise, see the technical details in each connector's reference page under [Connectors overview](https://docs.microsoft.com/connectors).
+  Connectors are classified as either Standard or Enterprise. [Enterprise connectors](#enterprise-connectors) provide access to enterprise systems such as SAP, IBM MQ, and IBM 3270 for an additional cost. To determine whether a connector is Standard or Enterprise, see the technical details in each connector's reference page under [Connectors overview](/connectors).
 
   You can also identify connectors by using these categories, although some connectors can cross multiple categories. For example, SAP is an Enterprise connector and an on-premises connector:
 
@@ -152,11 +152,48 @@ Logic Apps provides these popular Standard connectors for automating tasks, proc
 
 Here are some commonly used Standard connectors that Logic Apps provides for accessing data and resources in on-premises systems. Before you can create a connection to an on-premises system, you must first [download, install, and set up an on-premises data gateway][gateway-doc]. This gateway provides a secure communication channel without having to set up the necessary network infrastructure.
 
-|___|___|___|___|___|
-|---|---|---|---|---|
-| [![API icon][biztalk-server-icon]<br>**BizTalk** <br>**Server**][biztalk-server-doc] | [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc] | [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![API icon][ibm-informix-icon]<br>**IBM** <br>**Informix**][ibm-informix-doc] | [![API icon][mysql-icon]<br>**MySQL**][mysql-doc] |
-| [![API icon][oracle-db-icon]<br>**Oracle DB**][oracle-db-doc] | [![API icon][postgre-sql-icon]<br>**PostgreSQL**][postgre-sql-doc] | [![API icon][sharepoint-server-icon]<br>**SharePoint <br>Server**][sharepoint-server-doc] | [![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc] | [![API icon][teradata-icon]<br>**Teradata**][teradata-doc] |
-||||||
+:::row:::
+    :::column:::
+        [![API icon][biztalk-server-icon]<br>**BizTalk** <br>**Server**][biztalk-server-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][ibm-informix-icon]<br>**IBM** <br>**Informix**][ibm-informix-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][mysql-icon]<br>**MySQL**][mysql-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][oracle-db-icon]<br>**Oracle DB**][oracle-db-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][postgre-sql-icon]<br>**PostgreSQL**][postgre-sql-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][sharepoint-server-icon]<br>**SharePoint <br>Server**][sharepoint-server-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][teradata-icon]<br>**Teradata**][teradata-doc]
+    :::column-end:::
+    :::column:::
+        
+    :::column-end:::
+    :::column:::
+        
+    :::column-end:::
+:::row-end:::
 
 <a name="integration-account-connectors"></a>
 
@@ -164,12 +201,48 @@ Here are some commonly used Standard connectors that Logic Apps provides for acc
 
 Logic Apps provides Standard connectors for building business-to-business (B2B) solutions with your logic apps when you create and pay for an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), which is available through the Enterprise Integration Pack (EIP) in Azure. With this account, you can create and store B2B artifacts such as trading partners, agreements, maps, schemas, certificates, and so on. To use these artifacts, associate your logic apps with your integration account. If you currently use BizTalk Server, these connectors might seem familiar already.
 
-|___|___|___|___|
-|---|---|---|---|
-| [![API icon][as2-icon]<br>**AS2 <br>decoding**][as2-doc] | [![API icon][as2-icon]<br>**AS2 <br>encoding**][as2-doc] | [![API icon][edifact-icon]<br>**EDIFACT <br>decoding**][edifact-decode-doc] | [![API icon][edifact-icon]<br>**EDIFACT <br>encoding**][edifact-encode-doc] |
-| [![API icon][flat-file-decode-icon]<br>**Flat file <br>decoding**][flat-file-decode-doc] | [![API icon][flat-file-encode-icon]<br>**Flat file <br>encoding**][flat-file-encode-doc] | [![API icon][integration-account-icon]<br>**Integration <br>account**][integration-account-doc] | [![API icon][liquid-icon]<br>**Liquid** <br>**transforms**][json-liquid-transform-doc] |
-| [![API icon][x12-icon]<br>**X12 <br>decoding**][x12-decode-doc] | [![API icon][x12-icon]<br>**X12 <br>encoding**][x12-encode-doc] | [![API icon][xml-transform-icon]<br>**XML** <br>**transforms**][xml-transform-doc] | [![API icon][xml-validate-icon]<br>**XML <br>validation**][xml-validate-doc] |
-|||||
+:::row:::
+    :::column:::
+        [![API icon][as2-icon]<br>**AS2 <br>decoding**][as2-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][as2-icon]<br>**AS2 <br>encoding**][as2-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][edifact-icon]<br>**EDIFACT <br>decoding**][edifact-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][edifact-icon]<br>**EDIFACT <br>encoding**][edifact-encode-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][flat-file-decode-icon]<br>**Flat file <br>decoding**][flat-file-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][flat-file-encode-icon]<br>**Flat file <br>encoding**][flat-file-encode-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][integration-account-icon]<br>**Integration <br>account**][integration-account-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][liquid-icon]<br>**Liquid** <br>**transforms**][json-liquid-transform-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][x12-icon]<br>**X12 <br>decoding**][x12-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][x12-icon]<br>**X12 <br>encoding**][x12-encode-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][xml-transform-icon]<br>**XML** <br>**transforms**][xml-transform-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][xml-validate-icon]<br>**XML <br>validation**][xml-validate-doc]
+    :::column-end:::
+:::row-end:::
 
 <a name="enterprise-connectors"></a>
 
@@ -177,10 +250,20 @@ Logic Apps provides Standard connectors for building business-to-business (B2B) 
 
 Logic Apps provides these Enterprise connectors for accessing enterprise systems, such as SAP and IBM MQ:
 
-|___|___|___|
-|---|---|---|
-| [![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc] | [![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc] | [![API icon][sap-icon]<br>**SAP**][sap-connector-doc] |
-|||
+:::row:::
+    :::column:::
+        [![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][sap-icon]<br>**SAP**][sap-connector-doc]
+    :::column-end:::
+    :::column:::
+        
+    :::column-end:::
+:::row-end:::
 
 <a name="ise-connectors"></a>
 
@@ -188,14 +271,90 @@ Logic Apps provides these Enterprise connectors for accessing enterprise systems
 
 For logic apps that you create and run in a dedicated [integration service environment (ISE)](#integration-service-environment), the Logic App Designer identifies built-in triggers and actions that run in your ISE by using the **CORE** label. Managed connectors that run in an ISE display the **ISE** label, while connectors that run in the global, multi-tenant Logic Apps service don't display either label. This list shows the connectors that currently have ISE versions:
 
-|___|___|___|___|___|
-|---|---|---|---|---|
-| [![API icon][as2-icon]<br>**AS2**][as2-doc] | [![API icon][azure-automation-icon]<br>**Azure <br>Automation**][azure-automation-doc] | [![API icon][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | [![API icon][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc] | [![API icon][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc] |
-| [![API icon][azure-event-grid-icon]<br>**Azure Event <br>Grid**][azure-event-grid-doc] | [![API icon][azure-file-storage-icon]<br>**Azure File<br>Storage**][azure-file-storage-doc] | [![API icon][azure-key-vault-icon]<br>**Azure Key <br>Vault**][azure-key-vault-doc] | [![API icon][azure-monitor-logs-icon]<br>**Azure Monitor <br>Logs**][azure-monitor-logs-doc] | [![API icon][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc] |
-| [![API icon][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc] | [![API icon][azure-table-storage-icon]<br>**Azure Table <br>Storage**][azure-table-storage-doc] | [![API icon][azure-queues-icon]<br>**Azure <br>Queues**][azure-queues-doc] | [![API icon][edifact-icon]<br>**EDIFACT**][edifact-doc] | [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc] |
-| [![API icon][ftp-icon]<br>**FTP**][ftp-doc] | [![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc] | [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc] | [![API icon][sap-icon]<br>**SAP**][sap-connector-doc] |
-| [![API icon][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | [![API icon][smtp-icon]<br>**SMTP**][smtp-doc] | [![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc] | [![API icon][x12-icon]<br>**X12**][x12-doc] |
-||||||
+:::row:::
+    :::column:::
+        [![API icon][as2-icon]<br>**AS2**][as2-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-automation-icon]<br>**Azure <br>Automation**][azure-automation-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-event-grid-icon]<br>**Azure Event <br>Grid**][azure-event-grid-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-file-storage-icon]<br>**Azure File<br>Storage**][azure-file-storage-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-key-vault-icon]<br>**Azure Key <br>Vault**][azure-key-vault-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][azure-monitor-logs-icon]<br>**Azure Monitor <br>Logs**][azure-monitor-logs-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-table-storage-icon]<br>**Azure Table <br>Storage**][azure-table-storage-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][azure-queues-icon]<br>**Azure <br>Queues**][azure-queues-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][edifact-icon]<br>**EDIFACT**][edifact-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][ftp-icon]<br>**FTP**][ftp-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][sap-icon]<br>**SAP**][sap-connector-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][smtp-icon]<br>**SMTP**][smtp-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][x12-icon]<br>**X12**][x12-doc]
+    :::column-end:::
+:::row-end:::
 
 For more information, see these topics:
 
@@ -234,7 +393,7 @@ tokens, such as changing your password.
 
 ## Custom APIs and connectors
 
-To call APIs that run custom code or aren't available as connectors, you can extend the Logic Apps platform by [creating custom API Apps](../logic-apps/logic-apps-create-api-app.md). You can also [create custom connectors](../logic-apps/custom-connector-overview.md) for *any* REST or SOAP-based APIs, which make those APIs available to any logic app in your Azure subscription. To make custom API Apps or connectors public for anyone to use in Azure, you can [submit connectors for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
+To call APIs that run custom code or aren't available as connectors, you can extend the Logic Apps platform by [creating custom API Apps](../logic-apps/logic-apps-create-api-app.md). You can also [create custom connectors](../logic-apps/custom-connector-overview.md) for *any* REST or SOAP-based APIs, which make those APIs available to any logic app in your Azure subscription. To make custom API Apps or connectors public for anyone to use in Azure, you can [submit connectors for Microsoft certification](/connectors/custom-connectors/submit-certification).
 
 > [!NOTE]
 > Logic apps that you deploy and run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 
@@ -255,9 +414,9 @@ If your organization doesn't permit connecting to specific resources by using th
 
 ## Next steps
 
-* View the [full connector list](https://docs.microsoft.com/connectors)
+* View the [full connector list](/connectors)
 * [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Create custom connectors for logic apps](https://docs.microsoft.com/connectors/custom-connectors/)
+* [Create custom connectors for logic apps](/connectors/custom-connectors/)
 * [Create custom APIs for logic apps](../logic-apps/logic-apps-create-api-app.md)
 
 <!-- Built-ins icons -->
@@ -377,7 +536,7 @@ If your organization doesn't permit connecting to specific resources by using th
 
 <!--Built-in doc links-->
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Create an Azure API Management service instance for managing and publishing your APIs"
-[azure-app-services-doc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrate logic apps with App Service API Apps"
+[azure-app-services-doc]: ../logic-apps/logic-apps-custom-api-host-deploy-call.md "Integrate logic apps with App Service API Apps"
 [azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic apps with Azure Functions"
 [batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Process messages in groups, or as batches"
 [condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Evaluate a condition and run different actions based on whether the condition is true or false"
@@ -403,19 +562,19 @@ If your organization doesn't permit connecting to specific resources by using th
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Perform operations with variables, such as initialize, set, increment, decrement, and append to string or array variable"
 
 <!--Managed connector doc links-->
-[azure-automation-doc]: https://docs.microsoft.com/connectors/azureautomation/ "Create and manage automation jobs for your cloud and on-premises infrastructure"
+[azure-automation-doc]: /connectors/azureautomation/ "Create and manage automation jobs for your cloud and on-premises infrastructure"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure blob storage connector"
-[azure-cosmos-db-doc]: https://docs.microsoft.com/connectors/documentdb/ "Connect to Azure Cosmos DB so that you can access documents and stored procedures"
+[azure-cosmos-db-doc]: /connectors/documentdb/ "Connect to Azure Cosmos DB so that you can access documents and stored procedures"
 [azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change"
 [azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connect to Azure Event Hubs so that you can receive and send events between logic apps and Event Hubs"
-[azure-file-storage-doc]: https://docs.microsoft.com/connectors/azurefile/ "Connect to your Azure Storage account so that you can create, update, get, and delete files"
-[azure-key-vault-doc]: https://docs.microsoft.com/connectors/keyvault/ "Connect to your Azure Key Vault so that you can manage your secrets and keys"
-[azure-monitor-logs-doc]: https://docs.microsoft.com/connectors/azuremonitorlogs/ "Run queries against Azure Monitor Logs across Log Analytics workspaces and Application Insights components"
-[azure-queues-doc]: https://docs.microsoft.com/connectors/azurequeues/ "Connect to your Azure Storage account so that you can create and manage queues and messages"
+[azure-file-storage-doc]: /connectors/azurefile/ "Connect to your Azure Storage account so that you can create, update, get, and delete files"
+[azure-key-vault-doc]: /connectors/keyvault/ "Connect to your Azure Key Vault so that you can manage your secrets and keys"
+[azure-monitor-logs-doc]: /connectors/azuremonitorlogs/ "Run queries against Azure Monitor Logs across Log Analytics workspaces and Application Insights components"
+[azure-queues-doc]: /connectors/azurequeues/ "Connect to your Azure Storage account so that you can create and manage queues and messages"
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions"
-[azure-sql-data-warehouse-doc]: https://docs.microsoft.com/connectors/sqldw/ "Connect to Azure SQL Data Warehouse so that you can view your data"
-[azure-table-storage-doc]: https://docs.microsoft.com/connectors/azuretables/ "Connect to your Azure Storage account so that you can create, update, and query tables and more"
-[biztalk-server-doc]: https://docs.microsoft.com/connectors/biztalk/ "Connect to your BizTalk Server so that you can run BizTalk-based applications side-by-side with Azure Logic Apps"
+[azure-sql-data-warehouse-doc]: /connectors/sqldw/ "Connect to Azure SQL Data Warehouse so that you can view your data"
+[azure-table-storage-doc]: /connectors/azuretables/ "Connect to your Azure Storage account so that you can create, update, and query tables and more"
+[biztalk-server-doc]: /connectors/biztalk/ "Connect to your BizTalk Server so that you can run BizTalk-based applications side-by-side with Azure Logic Apps"
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Connect to an on-premises file system"
 [ftp-doc]: ./connectors-create-api-ftp.md "Connect to an FTP / FTPS server for FTP tasks, like uploading, getting, deleting files, and more"
 [github-doc]: ./connectors-create-api-github.md "Connect to GitHub and track issues"
@@ -428,24 +587,24 @@ If your organization doesn't permit connecting to specific resources by using th
 [ibm-mq-doc]: ./connectors-create-api-mq.md "Connect to IBM MQ on-premises or in Azure to send and receive messages"
 [instagram-doc]: ./connectors-create-api-instagram.md "Connect to Instagram. Trigger or act on events"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Connect to Mandrill for communication"
-[mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "Connect to your on-premises MySQL database so that you can read and write data"
+[mysql-doc]: /connectors/mysql/ "Connect to your on-premises MySQL database so that you can read and write data"
 [office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Connect to your Office 365 account so that you can send and receive emails, manage your calendar and contacts, and more"
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Connect to your personal Microsoft OneDrive so that you can upload, delete, list files, and more"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Connect to your business Microsoft OneDrive so that you can upload, delete, list your files, and more"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connect to an Oracle database so that you can add, insert, delete rows, and more"
 [outlook.com-doc]: ./connectors-create-api-outlook.md "Connect to your Outlook mailbox so that you can manage your email, calendars, contacts, and more"
-[postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "Connect to your PostgreSQL database so that you can read data from tables"
+[postgre-sql-doc]: /connectors/postgresql/ "Connect to your PostgreSQL database so that you can read data from tables"
 [salesforce-doc]: ./connectors-create-api-salesforce.md "Connect to your Salesforce account. Manage accounts, leads, opportunities, and more"
 [sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "Connect to an on-premises SAP system"
 [sendgrid-doc]: ./connectors-create-api-sendgrid.md "Connect to SendGrid. Send email and manage recipient lists"
 [sftp-ssh-doc]: ./connectors-sftp-ssh.md "Connect to your SFTP account by using SSH. Upload, get, delete files, and more"
-[sharepoint-server-doc]: ./connectors-create-api-sharepointserver.md "Connect to SharePoint on-premises server. Manage documents, list items, and more"
-[sharepoint-online-doc]: ./connectors-create-api-sharepointonline.md "Connect to SharePoint Online. Manage documents, list items, and more"
+[sharepoint-server-doc]: ./connectors-create-api-sharepoint.md "Connect to SharePoint on-premises server. Manage documents, list items, and more"
+[sharepoint-online-doc]: ./connectors-create-api-sharepoint.md "Connect to SharePoint Online. Manage documents, list items, and more"
 [slack-doc]: ./connectors-create-api-slack.md "Connect to Slack and post messages to Slack channels"
 [smtp-doc]: ./connectors-create-api-smtp.md "Connect to an SMTP server and send email with attachments"
 [sparkpost-doc]: ./connectors-create-api-sparkpost.md "Connects to SparkPost for communication"
 [sql-server-doc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in a SQL database table"
-[teradata-doc]: https://docs.microsoft.com/connectors/teradata/ "Connect to your Teradata database to read data from tables"
+[teradata-doc]: /connectors/teradata/ "Connect to your Teradata database to read data from tables"
 [twilio-doc]: ./connectors-create-api-twilio.md "Connect to Twilio. Send and get messages, get available numbers, manage incoming phone numbers, and more"
 [youtube-doc]: ./connectors-create-api-youtube.md "Connect to YouTube. Manage your videos and channels"
 

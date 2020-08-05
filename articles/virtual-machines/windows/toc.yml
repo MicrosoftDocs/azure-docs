@@ -356,7 +356,7 @@
   - name: Monitoring
     href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Backup and recovery
-    href: backup-recovery.md
+    href: ../backup-recovery.md
   - name: Cloud adoption framework
     href: /azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Architecture center
@@ -403,6 +403,13 @@
       href: ps-template.md
     - name: Connect to a VM
       href: connect-logon.md
+    - name: Connect to Linux VMs
+      displayName: ssh keygen ssk-key putty
+      items:
+      - name: In the portal
+        href: ../ssh-keys-portal.md
+      - name: On Windows
+        href: ../linux/ssh-from-windows.md
     - name: Use Azure Hybrid Benefit license
       href: hybrid-use-benefit-licensing.md
     - name: Use Multitenant Hosting Rights for Windows 10
@@ -848,7 +855,7 @@
     - name: Upload a vhd to a disk - PowerShell
       href: disks-upload-vhd-to-managed-disk-powershell.md
     - name: Securely import/export a disk - Portal
-      href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Resize a disk
       href: expand-os-disk.md
     - name: Use Storage Explorer to manage disks

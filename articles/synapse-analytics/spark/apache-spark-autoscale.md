@@ -62,9 +62,9 @@ The initial number of nodes will be the minimum. This value defines the initial 
 
 It can take 1 to 5 minutes for a scaling operation to complete.
 
-### Preparation for scaling down
+### Prepare for scaling down
 
-During instance scaling down process, Autoscale will put the nodes in decommissioning state so that no new executors can launch on that node.
+During the instance scaling down process, Autoscale will put the nodes in decommissioning state so that no new executors can launch on that node.
 
 The running jobs will continue to run and finish. The pending jobs will wait to be scheduled as normal with fewer available nodes.
 

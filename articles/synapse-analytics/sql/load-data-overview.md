@@ -12,7 +12,7 @@ ms.author: kevin
 ms.reviewer: igorstan
 ---
 
-# Designing a PolyBase data loading strategy for Azure Synapse SQL pool
+# Design a PolyBase data loading strategy for Azure Synapse SQL pool
 
 Traditional SMP data warehouses use an Extract, Transform, and Load (ETL) process for loading data. Azure SQL pool is a massively parallel processing (MPP) architecture that takes advantage of the scalability and flexibility of compute and storage resources. Using an Extract, Load, and Transform (ELT) process can take advantage of MPP and eliminate resources needed to transform the data prior to loading.
 
@@ -20,7 +20,7 @@ While SQL pool supports many loading methods including non-Polybase options such
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
-## What is ELT?
+## Extract, Load, and Transform (ELT)
 
 Extract, Load, and Transform (ELT) is a process by which data is extracted from a source system, loaded into a data warehouse, and then transformed.
 

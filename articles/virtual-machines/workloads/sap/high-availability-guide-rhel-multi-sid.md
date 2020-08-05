@@ -14,7 +14,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/24/2020
+ms.date: 08/04/2020
 ms.author: radeltch
 
 ---
@@ -366,9 +366,11 @@ This documentation assumes that:
       #Restart_Program_01 = local $(_EN) pf=$(_PF)
       Start_Program_01 = local $(_EN) pf=$(_PF)
 
-      # Add the keep alive parameter
+      # Add the keep alive parameter, if using ENSA1
       enque/encni/set_so_keepalive = true
       ```
+
+     For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).    
 
    * ERS profile
 
