@@ -20,7 +20,7 @@ ms.custom: seodec18, tracking-python
 
 In this article, you learn how to create an Azure Machine Learning dataset from [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) to access data for your local or remote experiments. To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](../machine-learning/concept-data.md#data-workflow) article.
 
-By creating an Azure Machine Learning dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk unintentionally changing your original data sources. Also datasets are lazily-evaluated, which aids in workflow performance speeds. [Learn more about Azure Machine Learning datasets](../machine-learning/how-to-create-register-datasets.md). 
+By creating an Azure Machine Learning dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk unintentionally changing your original data sources. Also datasets are lazily evaluated, which aids in workflow performance speeds. [Learn more about Azure Machine Learning datasets](../machine-learning/how-to-create-register-datasets.md). 
 
 Open Datasets are in the cloud on Microsoft Azure and are included in both the [Azure Machine Learning Python SDK](#create-datasets-with-the-sdk) and the [Azure Machine Learning studio](#create-datasets-with-the-studio).
 
@@ -28,7 +28,7 @@ Open Datasets are in the cloud on Microsoft Azure and are included in both the [
 
 Azure Open Datasets are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. 
 
-For more information see [What are open datasets?](overview-what-are-open-datasets.md)
+For more information, see [What are open datasets?](overview-what-are-open-datasets.md)
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ Choose a name under which to register the dataset, and optionally filter the dat
 The dataset is now available in your workspace under **Datasets**. You can use it in the same way as other datasets you've created.
 
 ## Example notebooks
-For examples and demonstrations of Open datasets functionality, please see these [notebooks](https://github.com/Azure/OpenDatasetsNotebooks/tree/master/tutorials).
+For examples and demonstrations of Open Datasets functionality,  see these [notebooks](https://github.com/Azure/OpenDatasetsNotebooks/tree/master/tutorials).
 
 ## Next steps
 
