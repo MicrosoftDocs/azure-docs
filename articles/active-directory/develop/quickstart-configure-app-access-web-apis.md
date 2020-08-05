@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Configure an app to access a web API | Azure"
 titleSuffix: Microsoft identity platform
-description: In this quickstart, you configure an app registered with the Microsoft identity platform to include redirect URIs, credentials, or permissions to access web APIs.
+description: In this quickstart, you configure an app registration representing a web API in the Microsoft identity platform to enable scoped resource access (permissions) to client applications.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,12 +14,12 @@ ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-#Customer intent: As an application developer, I need to know how to configure my application to add redirect URI(s), credentials, or permissions so I can access web APIs.
+# Customer intent: As an application developer, I want to know how to configure my web API's app registration with permissions client applications can use to obtain scoped access to the API.
 ---
 
 # Quickstart: Configure a client application to access a web API
 
-In this quickstart, you add redirect URIs, credentials, or permissions to access web APIs for your application. A web or confidential client application needs to establish secure credentials to participate in an authorization grant flow that requires authentication. The default authentication method supported by the Azure portal is client ID + secret key. The app obtains an access token during this process.
+In this quickstart, you create scopes, or permissions, in a web API's app registration in the Microsoft identity platform to provide scoped resource access to client applications.
 
 Before a client can access a web API exposed by a resource application, such as Microsoft Graph API, the consent framework ensures the client obtains the permission grant required for the permissions requested. By default, all applications can request permissions from the Microsoft Graph API.
 
@@ -35,123 +35,14 @@ Before a client can access a web API exposed by a resource application, such as 
 1. Search for and select **Azure Active Directory**. Under **Manage**, select **App registrations**.
 1. Find and select the application you want to configure. After you select the app, you see the application's **Overview** or main registration page.
 
-Use the following procedures to configure your application to access web APIs.
-
-## Add redirect URIs to your application
-
-You can add custom redirect URIs and suggested redirect URIs to your application. To add a custom redirect URI for web and public client applications:
-
-1. From the app **Overview** page, select **Authentication**.
-1. Locate **Redirect URIs**. You may need to select **Switch to the old experience**.
-1. Select the type of application you're building: **Web** or **Public client/native (mobile & desktop)**.
-1. Enter the Redirect URI for your application.
-
-   * For web applications, provide the base URL of your application. For example, `http://localhost:31544` might be the URL for a web application running on your local machine. Users would use this URL to sign into a web client application.
-   * For public applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, for example: `https://MyFirstApp`.
-1. Select **Save**.
-
-To choose from suggested redirect URIs for public clients, follow these steps:
-
-1. From the app **Overview** page, select **Authentication**.
-1. Locate **Suggested Redirect URIs for public clients (mobile, desktop)**. You may need to select **Switch to the old experience**.
-1. Select one or more redirect URIs for your application. You can also enter a custom redirect URI. If you're not sure what to use, see the library documentation.
-1. Select **Save**.
-
-Certain restrictions apply to redirect URIs. For more information, see [Redirect URI/reply URL restrictions and limitations](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
-
-> [!NOTE]
-> Try out the new **Authentication** settings experience where you can configure settings for your application based on the platform or device that you want to target.
->
-> To see this view, select **Try out the new experience** from the **Authentication** page.
->
-> ![Click "Try out the new experience" to see Platform configuration view](./media/quickstart-update-azure-ad-app-preview/authentication-try-new-experience-cropped.png)
->
-> This takes you to the [new **Platform configurations** page](#configure-platform-settings-for-your-application).
-
-### Configure advanced settings for your application
-
-Depending on the application you're registering, there are some additional settings that you may need to configure, such as:
-
-* **Logout URL**.
-* For single-page apps, you can enable **Implicit grant** and select the tokens that you'd like the authorization endpoint to issue.
-* For desktop apps that acquire tokens by using Integrated Windows Authentication, device code flow, or username/password in the **Default client type** section, set the **Treat application as public client** setting to **Yes**.
-* For legacy apps that were using the Live SDK to integrate with the Microsoft account service, configure **Live SDK support**. New apps don't need this setting.
-* **Default client type**.
-* **Supported account types**.
-
-### Modify supported account types
-
-The **Supported account types** specify who can use the application or access the API.
-
-If you configured the supported account types when you registered the application, you can only change this setting using the application manifest editor if:
-
-* You change account types from **AzureADMyOrg** or **AzureADMultipleOrgs** to **AzureADandPersonalMicrosoftAccount**, or the other way around, or
-* You change account types from **AzureADMyOrg** to **AzureADMultipleOrgs**, or the other way around.
-
-To change the supported account types for an existing app registration, update the `signInAudience` key. For more information, see [Configure the application manifest](reference-app-manifest.md#configure-the-app-manifest).
-
-## Configure platform settings for your application
-
-![Configure settings for your app based on the platform or device](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations.png)
-
-To configure application settings based on the platform or device, you're targeting:
-
-1. In the **Platform configurations** page, select **Add a platform** and choose from the available options.
-
-   ![Shows the Configure platforms page](./media/quickstart-update-azure-ad-app-preview/authentication-platform-configurations-configure-platforms.png)
-
-1. Enter the settings info based on the platform you selected.
-
-   | Platform                | Configuration settings            |
-   |-------------------------|-----------------------------------|
-   | **Web**              | Enter the **Redirect URI** for your application. |
-   | **iOS / macOS**              | Enter the app **Bundle ID**, which you can find in XCode in Info.plist, or Build Settings. Adding the bundle ID automatically creates a redirect URI for the application. |
-   | **Android**          | Provide the app **Package name**, which you can find in the AndroidManifest.xml file.<br/>Generate and enter the **Signature hash**. Adding the signature hash automatically creates a redirect URI for the application.  |
-   | **Mobile and desktop applications**  | Optional. Select one of the recommended **Suggested redirect URIs** if you're building apps for desktop and devices.<br/>Optional. Enter a **Custom redirect URI**, which is used as the location where Azure AD will redirect users in response to authentication requests. For example, for .NET Core applications where you want interaction, use `http://localhost`. |
-
-   > [!NOTE]
-   > On Active Directory Federation Services (AD FS) and Azure AD B2C, you must also specify a port number.  For example: `http://localhost:1234`.
-
-   > [!IMPORTANT]
-   > For mobile applications that aren't using the latest Microsoft Authentication Library (MSAL) or not using a broker, you must configure the redirect URIs for these applications in **Desktop + devices**.
-
-Depending on the platform you chose, there may be additional settings that you can configure. For **Web** apps, you can:
-
-* Add more redirect URIs
-* Configure **Implicit grant** to select the tokens you'd like to be issued by the authorization endpoint:
-
-  * For single-page apps, select both **Access tokens** and **ID tokens**
-  * For web apps, select **ID tokens**
-
-## Add credentials to your web application
-
-To add a credential to your web application, either add a certificate or create a client secret. To add a certificate:
-
-1. From the app **Overview** page, select the **Certificates & secrets** section.
-1. Select **Upload certificate**.
-1. Select the file you'd like to upload. It must be one of the following file types: .cer, .pem, .crt.
-1. Select **Add**.
-
-To add a client secret:
-
-1. From the app **Overview** page, select the **Certificates & secrets** section.
-1. Select **New client secret**.
-1. Add a description for your client secret.
-1. Select a duration.
-1. Select **Add**.
-
-> [!NOTE]
-> After you save the configuration changes, the right-most column will contain the client secret value. **Be sure to copy the value** for use in your client application code as it's not accessible once you leave this page.
+In the following section, you configure your application to enable access to the web API whose scopes you exposed as part of the prerequisites.
 
 ## Add permissions to access web APIs
 
 The [Graph API sign-in and read user profile permission](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions) is selected by default. You can select from [two types of permissions](developer-glossary.md#permissions) for each web API:
 
 * **Application permissions**. Your client application needs to access the web API directly as itself, without user context. This type of permission requires administrator consent. This permission isn't available for desktop and mobile client applications.
-* **Delegated permissions**. Your client application needs to access the web API as the signed-in user, but with access limited by the selected permission. This type of permission can be granted by a user unless the permission requires administrator consent.
-
-  > [!NOTE]
-  > Adding a delegated permission to an application does not automatically grant consent to the users within the tenant. Users must still manually consent for the added delegated permissions at runtime, unless the administrator grants consent on behalf of all users.
+* **Delegated permissions**. Your client application needs to access the web API as the signed-in user, but with access restricted to the selected permissions. This type of permission can be consented to (granted) by a user unless the permission requires administrator consent. Adding a delegated permission to an application does *not* automatically grant consent for the users in a tenant. Users must still manually consent to the delegated permission at runtime unless an administrator grants consent on behalf of all users.
 
 To add permissions to access resource APIs from your client:
 
@@ -182,18 +73,11 @@ You may add a set of an API's permissions or individual permissions that appear 
 
 ### Admin consent button
 
-If your application is registered in a tenant, you see a **Grant admin consent for Tenant** button. It's disabled if you aren't an admin, or if no permissions have been configured for the application.
-This button allows an admin to grant admin consent to the permissions configured for the application. Clicking the admin consent button launches a new window with a consent prompt showing all the configured permissions.
+The **Grant admin consent for {your tenant}** button allows an admin to grant admin consent to the permissions configured for the application. Clicking the admin consent button launches a new window with a consent prompt showing all the configured permissions. Theres a delay between permissions being configured for the application and appearing on the consent prompt. If at first you don't see all the configured permissions in the consent prompt, close the prompt and select the button again to re-initiate consent.
 
-> [!NOTE]
-> There is a delay between permissions being configured for the application and them appearing on the consent prompt. If you do not see all the configured permissions in the consent prompt, close it and launch it again.
+The consent prompt provides options to **Accept** or **Cancel**. Select **Accept** to grant admin consent. If you select **Cancel**, admin consent isn't granted and an error message states that consent has been declined. There's a delay between granting admin consent by selecting **Accept** the status of admin consent being reflected in the portal.
 
-If you have permissions that have been granted but not configured, the admin consent button prompts you to handle these permissions. You may add them to configured permissions or you may remove them.
-
-The consent prompt provides the option to **Accept** or **Cancel**. Select **Accept** to grant admin consent. If you select **Cancel**, admin consent isn't granted. An error message states that consent has been declined.
-
-> [!NOTE]
-> There is a delay between granting admin consent by selecting **Accept** on the consent prompt and the status of admin consent being reflected in the portal.
+The **Grant admin consent** button is *disabled* if you aren't an admin or if no permissions have been configured for the application. If you have permissions that have been granted but not configured, the admin consent button prompts you to handle these permissions. You may add them to configured permissions or you may remove them.
 
 ## Next steps
 
