@@ -15,7 +15,11 @@ Use Azure File Sync to centralize your organization's file shares in Azure Files
 
 This article describes how to monitor your Azure File Sync deployment by using Azure Monitor, Storage Sync Service and Windows Server.
 
-The following monitoring options are currently available.
+The following scenarios are covered in this guide: 
+- View Azure File Sync metrics in Azure Monitor.
+- Create alerts in Azure Monitor to proactively notify you of critical conditions.
+- Monitor health of your Azure File Sync deployment using the Azure portal.
+- How to use the event logs and performance counters on your Windows Servers to monitor the health of your Azure File Sync deployment. 
 
 ## Azure Monitor
 
@@ -43,7 +47,19 @@ The following metrics for Azure File Sync are available in Azure Monitor:
 
 ### Alerts
 
-To configure alerts in Azure Monitor, select the Storage Sync Service and then select the [Azure File Sync metric](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#metrics) to use for the alert.  
+Alerts proactively notify you when important conditions are found in your monitoring data. To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+**How to create alerts for Azure File Sync**
+
+- Go to your **Storage Sync Service** in the **Azure portal**. 
+- Click **Alerts** in the Monitoring section and then click **+ New alert rule**.
+- Click **Select condition** and provide the following information for the alert: 
+	- **Metric**
+	- **Dimension name**
+	- **Alert logic**
+- Click **Select action group** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+- Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
+- Click **Create alert rule** to create the alert.  
 
 The following table lists some example scenarios to monitor and the proper metric to use for the alert:
 
