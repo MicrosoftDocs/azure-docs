@@ -124,6 +124,10 @@ You can view the run history of your scheduled export by selecting an individual
 
 :::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Example showing export run history":::
 
+Select an export to view its run history.
+
+:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Example showing export run history":::
+
 ## Access exported data from other systems
 
 One of the purposes of exporting your Cost Management data is to access the data from external systems. You might use a dashboard system or other financial system. Such systems vary widely so showing an example wouldn't be practical.  However, you can get started with accessing your data from you applications at [Introduction to Azure Storage](../../storage/common/storage-introduction.md).
