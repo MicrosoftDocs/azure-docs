@@ -35,7 +35,9 @@ SELECT * FROM
 User can access storage using the following access rules:
 
 - Azure AD user - OPENROWSET will use Azure AD identity of caller to access Azure Storage or access storage with anonymous access.
-- SQL user – OPENROWSET will access storage with anonymous access.
+- SQL user – OPENROWSET will access storage with anonymous access or can be impersonated using SAS token or Managed identity of workspace.
+
+#### [Impersonation](#tab/impersonation)
 
 SQL principals can also use OPENROWSET to directly query files protected with SAS tokens or Managed Identity of the workspace. If a SQL user executes this function, a power user with `ALTER ANY CREDENTIAL` permission must create a server-scoped credential that matches URL in the function (using storage name and container) and granted REFERENCES permission for this credential to the caller of OPENROWSET function:
 
@@ -49,6 +51,13 @@ GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<co
 ```
 
 If there is no server-level CREDENTIAL that matches URL or SQL user don't have references permission for this credential, the error will be returned. SQL principals cannot impersonate using some Azure AD identity.
+
+#### [Direct access](#tab/direct-access)
+
+No additional setup is needed to enable Azure AD users to access the files using their identities.
+Any user can access Azure storage that allow anonimous access (additional setup is not needed).
+
+---
 
 > [!NOTE]
 > This version of OPENROWSET is designed for quick-and-easy data exploration using default authentication. To leverage impersonation or Managed Identity, use OPENROWSET with DATASOURCE described in the next section.
@@ -68,9 +77,14 @@ User that executes this query must be able to access the files. The users must b
 
 #### [Impersonation](#tab/impersonation)
 
-Power user with CONTROL DATABASE permission would need to create DATABASE SCOPED CREDENTIAL that will be used to access storage and EXTERNAL DATA SOURCE that specifies URL of data source and credential that should be used:
+DATABASE SCOPED CREDENTIAL specifies how to access files on the referenced data source (currently SAS and Managed Identity). Power user with CONTROL DATABASE permission would need to create DATABASE SCOPED CREDENTIAL that will be used to access storage and EXTERNAL DATA SOURCE that specifies URL of data source and credential that should be used:
 
 ```sql
+EXECUTE AS somepoweruser;
+
+-- Create MASTER KEY if it doesn't exists in database
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'some very strong password';
+
 CREATE DATABASE SCOPED CREDENTIAL AccessAzureInvoices
  WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
  SECRET = '******srt=sco&amp;sp=rwac&amp;se=2017-02-01T00:55:34Z&amp;st=201********' ;
@@ -79,8 +93,6 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
  WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>/' ,
  CREDENTIAL = AccessAzureInvoices) ;
 ```
-
-DATABASE SCOPED CREDENTIAL specifies how to access files on the referenced data source (currently SAS and Managed Identity).
 
 Caller must have one of the following permissions to execute OPENROWSET function:
 
@@ -119,9 +131,14 @@ User that reads data from this table must be able to access the files. The users
 
 ### [Impersonation](#tab/impersonation)
 
-User with CONTROL DATABASE permission would need to create DATABASE SCOPED CREDENTIAL that will be used to access storage and EXTERNAL DATA SOURCE that specifies URL of data source and credential that should be used:
+DATABASE SCOPED CREDENTIAL specifies how to access files on the referenced data source. User with CONTROL DATABASE permission would need to create DATABASE SCOPED CREDENTIAL that will be used to access storage and EXTERNAL DATA SOURCE that specifies URL of data source and credential that should be used:
 
 ```sql
+EXECUTE AS somepoweruser;
+
+-- Create MASTER KEY if it doesn't exists in database
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'some very strong password';
+
 CREATE DATABASE SCOPED CREDENTIAL cred
  WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
  SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=201********' ;
@@ -131,8 +148,6 @@ CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
  CREDENTIAL = cred
  ) ;
 ```
-
-DATABASE SCOPED CREDENTIAL specifies how to access files on the referenced data source.
 
 ### [Direct access](#tab/direct-access)
 
