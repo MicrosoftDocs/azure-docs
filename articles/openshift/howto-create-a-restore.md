@@ -53,5 +53,16 @@ oc get restore -n velero <name of restore created previously> -o yaml
 ```
 When the phase says `Completed`, your Azure Red Hat 4 application should be restored.
 
+## Next steps
+
+In this article, an Azure Red Hat OpenShift 4 cluster application was restored. You learned how to:
+
+> [!div class="checklist"]
+> * Create a OpenShift v4 cluster application restore using Velero
+
+
+Advance to the next article to learn about Azure Red Hat OpenShift 4 supported resources.
+
+* [Azure Red Hat OpenShift v4 supported resources](supported-resources.md)
 
 
