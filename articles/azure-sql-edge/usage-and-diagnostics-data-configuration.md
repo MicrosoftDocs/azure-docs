@@ -82,7 +82,7 @@ The Local Audit component of Azure SQL Edge Usage and Diagnostic Data collection
 
 To enable Local Audit usage and diagnostics data on Azure SQL Edge
 
-1. Create a target directory for new Local Audit log storage. This target directory needs to be created in the same mount volume that is mapped to /var/opt/mssql/ path on SQL Edge.
+1. Create a target directory for new Local Audit log storage. This target directory can either be on the host or within the container. In the example below, target directory is created in the same mount volume that is mapped to /var/opt/mssql/ path on SQL Edge.
 
    ```bash
    sudo mkdir <host mount path>/audit
@@ -90,14 +90,14 @@ To enable Local Audit usage and diagnostics data on Azure SQL Edge
 
 2. Configure audit of usage and diagnostics data using either environment variables or mssql.conf file.
 
-   - Using environment variables - Add the following environment variable to your SQL Edge deployment.
+   - Using environment variables - Add the following environment variable to your SQL Edge deployment and specify the target directory for the audit files.
    
-     `*MSSQL_TELEMETRY_DIR = /var/opt/mssql/audit*`
+     `*MSSQL_TELEMETRY_DIR = <host mount path>/audit*`
    
-   - Using mssql.conf file - Add the following lines in the mssql.conf file.
+   - Using mssql.conf file - Add the following lines in the mssql.conf file and and specify the target directory for the audit files.
        ```ini
        [telemetry]
-       userrequestedlocalauditdirectory  = /var/opt/mssql/audit
+       userrequestedlocalauditdirectory  = <host mount path>/audit
        ```  
 
 ## Next steps
