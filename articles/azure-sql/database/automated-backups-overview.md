@@ -49,8 +49,8 @@ You can use these backups to:
 - **Point-in-time restore of existing database** - [Restore an existing database to a point in time in the past](recovery-using-backups.md#point-in-time-restore) within the retention period by using Azure portal, Azure PowerShell, Azure CLI, or REST API. For SQL Database, this operation creates a new database on the same server as the original database, but uses a different name to avoid overwriting the original database. After restore completes, you can delete the original database. Alternatively, you can [rename](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) both the original database, and then rename the restored database to the original database name. Similarly, for SQL Managed Instance, this operation creates a copy of the database on the same or different managed instance in the same subscription and same region.
 - **Point-in-time restore of deleted database** - [Restore a deleted database to the time of deletion](recovery-using-backups.md#deleted-database-restore) or to any point in time within the retention period. The deleted database can be restored only on the same server or managed instance where the original database was created. When deleting a database, the service takes a final transaction log backup before deletion, to prevent any data loss.
 - **Geo-restore** - [Restore a database to another geographic region](recovery-using-backups.md#geo-restore). Geo-restore allows you to recover from a geographic disaster when you cannot access your database or backups in the primary region. It creates a new database on any existing server or managed instance, in any Azure region.
-> [!IMPORTANT]
-> Geo-restore is available only for managed instances with configured geo-redundant (RA-GRS) backup storage.
+   > [!IMPORTANT]
+   > Geo-restore is available only for managed instances with configured geo-redundant (RA-GRS) backup storage.
 - **Restore from long-term backup** - [Restore a database from a specific long-term backup](long-term-retention-overview.md) of a single database or pooled database, if the database has been configured with a long-term retention policy (LTR). LTR allows you to restore an old version of the database by using [the Azure portal](long-term-backup-retention-configure.md#using-the-azure-portal) or [Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) to satisfy a compliance request or to run an old version of the application. For more information, see [Long-term retention](long-term-retention-overview.md).
 
 To perform a restore, see [Restore database from backups](recovery-using-backups.md).
@@ -129,7 +129,7 @@ For more information about LTR, see [Long-term backup retention](long-term-reten
 
 ## Storage costs
 
-The price for baclup storage varies and depends on your purchasing model (DTU or vCore), chosen backup storage redundancy option, and also on your region. The backup storage is charged per GB/month consumed, for pricing see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page and [Azure SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) page.
+The price for backup storage varies and depends on your purchasing model (DTU or vCore), chosen backup storage redundancy option, and also on your region. The backup storage is charged per GB/month consumed, for pricing see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page and [Azure SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) page.
 
 ### DTU model
 
@@ -364,7 +364,7 @@ A backup storage redundancy of a managed instance can be set during instance cre
 
 ### Configure backup storage redundancy by using the Azure portal
 
-In the Azure Portal, the option to change backup storage redundancy is located on the **Compute + storage** blade accessible from the **Configure Managed Instance** option on the **Basics** tab when you are creating your SQL Managed Instance.
+In the Azure portal, the option to change backup storage redundancy is located on the **Compute + storage** blade accessible from the **Configure Managed Instance** option on the **Basics** tab when you are creating your SQL Managed Instance.
 ![Open Compute+Storage configuration-blade](./media/automated-backups-overview/open-configuration-blade-mi.png)
 
 Find the option to select backup storage redundancy on the **Compute + storage** blade.
