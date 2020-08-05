@@ -4,7 +4,7 @@ description: The Event Grid security baseline provides procedural guidance and r
 author: msmbaldwin
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -14,7 +14,7 @@ ms.custom: security-benchmark
 
 # Azure security baseline for Event Grid
 
-The Azure Security Baseline for Event Grid contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+The Azure Security Baseline for Event Grid contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
@@ -30,17 +30,17 @@ The Azure Security Baseline for Event Grid contains recommendations that will he
 
 **Guidance**: You can use private endpoints to allow ingress of events directly from your virtual network to your Event Grid topics and domains securely over a private link without going through the public internet. When you create a private endpoint for your Event Grid topic or domain, it provides secure connectivity between clients on your VNet and your Event Grid resource. The private endpoint is assigned an IP address from the IP address range of your virtual network. The connection between the private endpoint and the Event Grid service uses a secure private link.
 
-Azure Event Grid supports IP-based access controls for publishing to topics and domains. With IP-based controls, you can limit the publishers to a topic or domain to only a set of approved set of machines and cloud services. This feature complements the authentication mechanisms supported by Event Grid. &lt;--- Note to service owner, IP based access control GA or Preview? https://docs.microsoft.com/azure/event-grid/configure-firewall ---&gt;
+Azure Event Grid supports IP-based access controls for publishing to topics and domains. With IP-based controls, you can limit the publishers to a topic or domain to only a set of approved set of machines and cloud services. This feature complements the authentication mechanisms supported by Event Grid. &lt;--- Note to service owner, IP based access control GA or Preview? configure-firewall.md ---&gt;
 
-- [More details on Event Grid Private Endpoints](https://docs.microsoft.com/azure/event-grid/network-security#private-endpoints)
+- [More details on Event Grid Private Endpoints](network-security.md#private-endpoints)
 
-- [More details on Event Grid IP Firewall](https://docs.microsoft.com/azure/event-grid/network-security#ip-firewall)
+- [More details on Event Grid IP Firewall](network-security.md#ip-firewall)
 
-- [Azure Event Grid Network Security](https://docs.microsoft.com/azure/event-grid/network-security) 
+- [Azure Event Grid Network Security](network-security.md) 
 
-- [Azure Private Link Overview](https://docs.microsoft.com/azure/private-link/private-link-overview)
+- [Azure Private Link Overview](../private-link/private-link-overview.md)
 
-- [Azure Network Security Group](https://docs.microsoft.com/azure/virtual-network/security-overview)
+- [Azure Network Security Group](../virtual-network/security-overview.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -55,11 +55,11 @@ Azure Event Grid supports IP-based access controls for publishing to topics and 
  
 Note network policies are disabled by default when private endpoints are created for Event Grid so above workflow may not work.
  
-- [How to enable network security group flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [How to enable and use Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [How to enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
  
-- [Understand network security provided by Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Understand network security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -85,9 +85,9 @@ Note network policies are disabled by default when private endpoints are created
 
 Note, Azure Security Center Integrated Threat Intelligence can detect logons from malicious IP and generate alerts but it is not designed to deny logon access.
 
-- [How to configure DDoS protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+- [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
 
-- [For more information about the Azure Security Center Integrated Threat Intelligence](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+- [For more information about the Azure Security Center Integrated Threat Intelligence](/azure/security-center/security-center-alerts-service-layer)
 
 **Azure Security Center monitoring**: Yes
 
@@ -104,11 +104,11 @@ Note network policies are disabled by default when private endpoints are created
 
 If required for investigating anomalous activity, enable Network Watcher packet capture.
 
-- [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [How to Enable and use Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [How to Enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-- [How to enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [How to enable Network Watcher](../network-watcher/network-watcher-create.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -125,9 +125,9 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
-- [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [How to configure alerts with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
+- [How to configure alerts with Azure Firewall](../firewall/threat-intel.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -151,9 +151,9 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: For resources that need access to your Azure Event Grid, use Virtual Network service tags to define network access controls on network security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., AzureEventGrid) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-- [How to use service tag for Azure Event Grid](https://docs.microsoft.com/azure/event-grid/network-security#service-tags)
+- [How to use service tag for Azure Event Grid](network-security.md#service-tags)
 
-- [For more information about using service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [For more information about using service tags](../virtual-network/service-tags-overview.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -166,7 +166,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: Define and implement standard security configurations for network resources associated with your Azure Event Grid namespaces with Azure Policy. Use Azure Policy aliases in the "Microsoft.EventGrid" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Machine Learning namespaces. 
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -179,7 +179,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: Use tags for network resources associated with your Azure Event Grid deployment in order to logically organize them into a taxonomy.
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -192,9 +192,9 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to Azure Event Grid. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
 
-- [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -211,9 +211,9 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: Ingest logs via Azure Monitor to aggregate security data generated by Azure Event Grid. Within the Azure Monitor, use Log Analytics workspace(s) to query and perform analytics, and use storage accounts for long-term/archival storage. Alternatively, you may enable, and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM).
 
-- [How to enable diagnostic logs for Azure Event Grid](https://docs.microsoft.com/azure/event-grid/diagnostic-logs)
+- [How to enable diagnostic logs for Azure Event Grid](diagnostic-logs.md)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Yes?
 
@@ -226,7 +226,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: Diagnostic settings allow Event Grid users to capture and view publish and delivery failure Logs in either a Storage account, an event hub, or a Log Analytics Workspace.
 
-- [Enable Diagnostic logs for Azure event grid topics or domains](https://docs.microsoft.com/azure/event-grid/enable-diagnostic-logs-topic)
+- [Enable Diagnostic logs for Azure event grid topics or domains](enable-diagnostic-logs-topic.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -250,7 +250,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 **Guidance**: In Azure Monitor, set the log retention period for Log Analytics workspaces associated with your Azure Event Grid instances according to your organization's compliance regulations.
 
-- [How to set log retention parameters](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -265,13 +265,13 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 Alternatively, you can enable and on-board data to Azure Sentinel or a third party SIEM. 
 
-- [How to perform queries for Azure Event Grid in Log Analytics Workspaces](https://docs.microsoft.com/azure/event-grid/diagnostic-logs)
+- [How to perform queries for Azure Event Grid in Log Analytics Workspaces](diagnostic-logs.md)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Getting started with Log Analytics queries](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+- [Getting started with Log Analytics queries](../azure-monitor/log-query/get-started-portal.md)
 
-- [How to perform custom queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -286,12 +286,12 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 
 Additionally, you can oboard your Log Analytics workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues.
 
-- [How to enable diagnostic logs for Azure Event Grid topics or domains](https://docs.microsoft.com/azure/event-grid/enable-diagnostic-logs-topic)
-- [Deatils of Event Grid diagnostic log schema](https://docs.microsoft.com/azure/event-grid/diagnostic-logs)
+- [How to enable diagnostic logs for Azure Event Grid topics or domains](enable-diagnostic-logs-topic.md)
+- [Deatils of Event Grid diagnostic log schema](diagnostic-logs.md)
 
-- [Create, view, and manage log alerts using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
+- [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/platform/alerts-log.md)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard")
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md")
 
 **Azure Security Center monitoring**: Yes
 
@@ -343,7 +343,7 @@ Additionally, you can oboard your Log Analytics workspace to Azure Sentinel as i
 
 Azure role-based access control (RBAC) allows you to manage access to Azure resources through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
 
-- [Authorizing access to Event Grid resources](https://docs.microsoft.com/azure/event-grid/security-authorization)
+- [Authorizing access to Event Grid resources](security-authorization.md)
 
 - [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -375,11 +375,11 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 Event Grid can enable a managed service identity for Azure event grid topics or domains and use it to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts. Shared Access Signature (SAS) token is used for publishing events to Azure Event Grid. Create standard operating procedure around event access, forwarding, and publishing with those accounts.
 
-- [Authenticate event delivery to event handlers (Azure Event Grid)](https://docs.microsoft.com/azure/event-grid/security-authentication)
+- [Authenticate event delivery to event handlers (Azure Event Grid)](security-authentication.md)
 
-- [Authenticate publishing clients (Azure Event Grid)](https://docs.microsoft.com/azure/event-grid/security-authenticate-publishing-clients)
+- [Authenticate publishing clients (Azure Event Grid)](security-authenticate-publishing-clients.md)
 
-- [Learn more about Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
 
 **Azure Security Center monitoring**: Yes
 
@@ -403,9 +403,9 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management recommendations.
 
-- [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -418,9 +418,9 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 
 **Guidance**: Use Privileged Access Workstations (PAW) with Multi-Factor Authentication configured to log into and configure Azure resources.
 
-- [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -433,9 +433,9 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 
 **Guidance**: Use Azure Active Directory security reports and monitoring to detect when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
-- [How to identify Azure AD users flagged for risky activity](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
-- [How to monitor users' identity and access activity in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -450,7 +450,7 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
  
  
  
-- [How to configure Azure AD named locations](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [How to configure Azure AD named locations](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -465,11 +465,11 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 
 Event Grid can enable a managed service identity for Azure event grid topics or domains and use it to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts. Shared Access Signature (SAS) token is used for publishing events to Azure Event Grid. 
 
-- [Authenticate event delivery to event handlers (Azure Event Grid)](https://docs.microsoft.com/azure/event-grid/security-authentication)
+- [Authenticate event delivery to event handlers (Azure Event Grid)](security-authentication.md)
 
-- [Authenticate publishing clients (Azure Event Grid)](https://docs.microsoft.com/azure/event-grid/security-authenticate-publishing-clients)
+- [Authenticate publishing clients (Azure Event Grid)](security-authenticate-publishing-clients.md)
 
-- [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -484,11 +484,11 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
  
 Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
-- [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring)
+- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring)
 
-- [How to use Azure AD identity and access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
-- [Deploy Azure AD Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Deploy Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
 **Azure Security Center monitoring**: Yes
 
@@ -503,7 +503,7 @@ Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generat
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired alerts within Log Analytics workspace.
 
-- [How to integrate Azure activity logs with Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -518,11 +518,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
  
  
  
-- [How to view Azure AD risky sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-- [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -552,7 +552,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
  
  
  
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -565,11 +565,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure Active Directory RBAC.
 
-- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create management groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [How to create management groups](../governance/management-groups/create.md)
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -606,7 +606,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -619,7 +619,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Azure Event Grid supports using Azure Active Directory (AD) to authorize requests to Event Grid resources. With Azure AD, you can use role-based access control (RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.
 
-- [Authorizing access to Event Grid resources](https://docs.microsoft.com/azure/event-grid/security-authorization)
+- [Authorizing access to Event Grid resources](security-authorization.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -632,7 +632,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Machine Learning and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -697,7 +697,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -712,11 +712,11 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
  
  
  
-- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create management groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [How to create management groups](../governance/management-groups/create.md)
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -745,8 +745,8 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 In addition, use the Azure Resource Graph to query/discover resources within the subscription(s).
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
-- [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -797,9 +797,9 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 In addition, use the Azure Resource Graph to query/discover resources within the subscription(s).
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -825,7 +825,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
  
  
  
-- [ How to configure Conditional Access to block access to Azure Resources Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [ How to configure Conditional Access to block access to Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -868,7 +868,7 @@ Azure Resource Manager has the ability to export the template in Java Script Obj
 
 - [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -892,11 +892,11 @@ Azure Resource Manager has the ability to export the template in Java Script Obj
 
 **Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources. In addition, you can use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. 
 
-- [Understand Azure Policy effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Understand Azure Policy effects](../governance/policy/concepts/effects.md)
 
-- [Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Resource Manager templates overview](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Azure Resource Manager templates overview](../azure-resource-manager/templates/overview.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -946,9 +946,9 @@ Azure Resource Manager has the ability to export the template in Java Script Obj
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.EventGrid" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to use aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [How to use aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -972,7 +972,7 @@ Azure Resource Manager has the ability to export the template in Java Script Obj
 
 **Guidance**: Use Azure Security Center to perform baseline scans for your Azure Resources. Additionally, use Azure Policy to alert and audit Azure resource configurations.
 
-- [How to remediate recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+- [How to remediate recommendations in Azure Security Center](../security-center/security-center-remediate-recommendations.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -998,13 +998,13 @@ Azure Resource Manager has the ability to export the template in Java Script Obj
 
 Use managed identities in conjunction with Azure Key Vault to simplify secret management for your cloud applications.
 
-- [Authenticate publishing clients (Azure Event Grid)](https://docs.microsoft.com/azure/event-grid/security-authenticate-publishing-clients)
+- [Authenticate publishing clients (Azure Event Grid)](security-authenticate-publishing-clients.md)
 
-- [How to use managed identities for Azure resources](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
+- [How to use managed identities for Azure resources](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [How to create a Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+- [How to create a Key Vault](/azure/key-vault/quick-create-portal)
 
-- [How t+G70o provide Key Vault authentication with a managed identity](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [How t+G70o provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1017,7 +1017,7 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 
 **Guidance**: Event Grid can enable a managed service identity for Azure event grid topics or domains. Use it to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.
 
-- [Event delivery with a managed identity](https://docs.microsoft.com/azure/event-grid/managed-service-identity)
+- [Event delivery with a managed identity](managed-service-identity.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1064,7 +1064,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Event Grid has an automatic geo disaster recovery (GeoDR) of meta-data not only for new, but all existing domains, topics, and event subscriptions. If an entire Azure region goes down, Event Grid will already have all of your event-related infrastructure metadata synced to a paired region.
 
-- [Server-side geo disaster recovery in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/geo-disaster-recovery)
+- [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1077,7 +1077,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Event Grid has an automatic geo disaster recovery (GeoDR) of meta-data not only for new, but all existing domains, topics, and event subscriptions. If an entire Azure region goes down, Event Grid will already have all of your event-related infrastructure metadata synced to a paired region.
 
-- [Server-side geo disaster recovery in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/geo-disaster-recovery)
+- [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1090,7 +1090,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Event Grid has an automatic geo disaster recovery (GeoDR) of meta-data not only for new, but all existing domains, topics, and event subscriptions. If an entire Azure region goes down, Event Grid will already have all of your event-related infrastructure metadata synced to a paired region.
 
-- [Server-side geo disaster recovery in Azure Event Grid](https://docs.microsoft.com/azure/event-grid/geo-disaster-recovery)
+- [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1104,7 +1104,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 **Guidance**: Enable soft delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. If Azure Storage is used to store backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted.
  
  
-- [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Understand Azure RBAC](../role-based-access-control/overview.md)
 
 - [Soft delete for Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
@@ -1144,9 +1144,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
  
  Additionally, mark subscriptions using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data. It's your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-- [Security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+- [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1176,7 +1176,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
  
  
  
-- [ How to set the Azure Security Center security contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [ How to set the Azure Security Center security contact](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1189,9 +1189,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the continuous export feature to help identify risks to Azure resources. Continuous export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You can use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
-- [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [How to configure continuous export](../security-center/continuous-export.md)
 
-- [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1204,7 +1204,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Use workflow automation feature Azure Security Center to automatically trigger responses to security alerts and recommendations to protect your Azure resources.
 
-- [How to configure workflow automation in Security Center](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [How to configure workflow automation in Security Center](../security-center/workflow-automation.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
