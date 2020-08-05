@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 05/19/2020
+ms.date: 08/05/2020
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
@@ -17,9 +17,9 @@ ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ---
 
-# Compare solutions for External Identities in Azure Active Directory
+# What are External Identities in Azure Active Directory?
 
-With  External Identities in Azure AD, you can allow people outside your organization to access your apps and resources, while letting them sign in using whatever identity they prefer. Your partners, distributors, suppliers, vendors, and other guest users can "bring their own identities." Whether they're part of Azure AD or another IT-managed system, or have an unmanaged social identity like Google or Facebook, they can use their own credentials to sign in. The identity provider manages the external user’s identity, and you manage access to your apps with Azure AD to keep your resources protected. 
+With External Identities in Azure AD, you can allow people outside your organization to access your apps and resources, while letting them sign in using whatever identity they prefer. Your partners, distributors, suppliers, vendors, and other guest users can "bring their own identities." Whether they're part of Azure AD or another IT-managed system, or have an unmanaged social identity like Google or Facebook, they can use their own credentials to sign in. The identity provider manages the external user’s identity, and you manage access to your apps with Azure AD to keep your resources protected. 
 
 ## External Identities scenarios
 
@@ -30,6 +30,8 @@ Azure AD External Identities focuses less on a user's relationship to your organ
 - **Develop apps intended for other Azure AD tenants (single-tenant or multi-tenant)**. When developing applications for Azure AD, you can target users from a single organization (single tenant), or users from any organization that already has an Azure AD tenant (called multi-tenant applications). These multi-tenant applications are registered once by yourself in your own Azure AD, but can then be used by any Azure AD user from any organization without any additional work on your part.
 
 - **Develop white-labeled apps for consumers and customers (Azure AD B2C)**. If you're a business or developer creating customer-facing apps, you can scale to consumers, customers, or citizens by using an Azure AD B2C. Developers can use Azure AD as the full-featured identity system for their application, while letting customers sign in with an identity they already have established (like Facebook or Gmail). With Azure AD B2C, you can completely customize and control how customers sign up, sign in, and manage their profiles when using your applications. For more information, see the [Azure AD B2C documentation](https://docs.microsoft.com/azure/active-directory-b2c/).
+
+## Compare External Identities solutions
 
 The table below gives a detailed comparison of the various scenarios you can enable with Azure AD External Identities.
 
@@ -47,7 +49,7 @@ The table below gives a detailed comparison of the various scenarios you can ena
 
 Secure and manage customers and partners beyond your organizational boundaries with Azure AD External Identities.
 
-### Next steps
+## Next steps
 
 - [What is Azure AD B2B collaboration?](what-is-b2b.md)
 - [About Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview)
