@@ -17,7 +17,7 @@ ms.reviewer: kexia
 
 # Common problems with two-factor verification and your work or school account
 
-Your Azure Active Directory (Azure AD) organization can turn on two-factor verification (2FV). There are some common 2FV problems that seem to happen more frequently than any of us would like. We've put together this article to address the most common problems and some possible fixes.
+Your Azure Active Directory (Azure AD) organization can turn on two-factor verification (2FV). There are some common 2FV problems that seem to happen more frequently than any of us would like. We've put together this article to describe fixes for the most common problems.
 
 When 2FV is on, your account sign-in requires a combination of the following data:
 
@@ -28,8 +28,8 @@ When 2FV is on, your account sign-in requires a combination of the following dat
 2FV is more secure than just a password, because 2FV requires something you _know_ plus something you _have_. No hacker has your physical phone.
 
 <center>
-![Conceptual authentication methods image](../authentication/media/concept-mfa-howitworks/methods.png)
-</center>
+
+![Conceptual authentication methods image](../authentication/media/concept-mfa-howitworks/methods.png)</center>
 
 >[!Important]
 >If you're an administrator, you can find more information about how to set up and manage your Azure AD environment in the [Azure AD documentation](https://docs.microsoft.com/azure/active-directory).
