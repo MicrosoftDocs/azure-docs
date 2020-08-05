@@ -1,6 +1,6 @@
 ---
 title: Restrict guest user access permissions - Azure Active Directory | Microsoft Docs
-description: Restrict guest user access permissions using the Azure portal, Powershell, or Microsoft Graph in Azure Active Directory
+description: Restrict guest user access permissions using the Azure portal, PowerShell, or Microsoft Graph in Azure Active Directory
 services: active-directory 
 author: curtand
 ms.author: curtand
@@ -19,18 +19,18 @@ ms.collection: M365-identity-device-management
 
 "Directory objects" should be "Azure AD resources"
 
-Azure Active Directory (Azure AD) now allows you to restrict external guest user access to only user and groups profile and membership information within their organization in Azure AD. There's a new guest user access setting in your Azure AD organization's external collaboration settings for even more restricted access.
-When guest access is restricted, guests can view only their own user profile. Access to other users is no longer allowed even if the guest is searching by User Principal Name or objectId. Restricted access also restricts guest users from seeing the membership of groups they're in. This setting does not restrict access to groups in other Microsoft services like Microsoft Teams. See Microsoft Teams Guest access to learn more.
+Azure Active Directory (Azure AD) now allows you to restrict external guest users to view only user and group information within their organization in Azure AD. There's a new guest user access setting in your Azure AD organization's external collaboration settings for even more restricted access.
+When guest access is restricted, guests can view only their own user profile. Access to other users is no longer allowed even if the guest is searching by User Principal Name or objectId. Restricted access also restricts guest users from seeing the membership of groups they're in. This setting does not restrict access to groups in other Microsoft services like Microsoft Teams. For more information about Microsoft Teams Guest access, see [What the guest experience is like](https://docs.microsoft.com/microsoftteams/guest-experience#can-guests-access-microsoft-graph) in Microsoft Teams documentation.
 
 ![Table explaining the guest user access values](./media/users-restrict-guest-permissions/restricted-access-values.png)
 
 ## Permissions and licenses
 
-You must be in the Global Administrator role to configure the external collaboration settings. There are no additional licensing requirement to restrict guest access.
+You must be in the Global Administrator role to configure the external collaboration settings. There are no additional licensing requirements to restrict guest access.
 
 ## Update in the Azure portal
 
-With the feature, we’ve made changes to the existing UI for Guest users permissions are limited settings. To see the new UI, you’ll need to follow these steps to access the new UI and configure the restricted permissions in the Admin portal.
+We’ve made changes to the existing Azure portal controls for guest user permissions.
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Global administrator permissions.
 1. On the **Azure Active Directory** overview page for your organization, select **User settings**.
@@ -132,21 +132,13 @@ PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84
 
 ## Frequently Asked Questions
 
-Where do these permissions apply?
-These directory level permissions are enforced across Azure AD services and portals including MS Graph, PowerShell v2, Azure Admin portal, and My Apps portal. M365 services leveraging Office 365 groups for collaboration scenarios are also affected, namely, Outlook, Microsoft Teams and Sharepoint.
-Do I need a special URL for this to work in the My Apps portal?
-No. If you configure the setting via the Azure admin portal, MS Graph or PowerShell, the My Apps portal will honor it automatically.
-Which parts of the My Apps portal will this feature affect?
-The groups functionality in the My Apps portal will honor these new permissions. This includes all paths to view the groups list and group memberships in My Apps. No changes were made to the group tile availability. The group tile availability is still controlled by the existing group setting in the Azure admin portal.
-Why do I still see the old settings in the Azure admin portal?
-Please check that you are using the https://aka.ms/AADRestrictedGuests URL. As mentioned above, you can configure the permissions from three places. However, if you can only see the new UI when using the specific URL. If you configure via Graph or PowerShell, it will be honored by the portal, however, the new settings can only be viewed using the specific URL.
-Do these permissions override Sharepoint or Microsoft Teams guest settings?
-No. Those existing settings still control the experience and access in those applications. For example, if you see issues in Sharepoint, please double check your external sharing settings.
-Will my existing guest permissions be changed in my tenant?
-No changes were made to your current settings. We maintain backward compatibility with your existing settings. You decide when you want make changes.
-Will these permissions be set by default?
-No. The existing default permissions remain unchanged. You can optionally set the permissions to be more restrictive.
-Why don’t I see information about this in documentation?
-This feature is in private preview, so we have not publicly documented it yet. We will update the documentation once we go to public preview.
-Are there any license requirements for this feature?
-No, there are no new licensing requirements with this feature.
+Question | Answer
+-------- | ------
+Where do these permissions apply? | These directory level permissions are enforced across Azure AD services and portals including the Microsoft Graph, PowerShell v2, the Azure portal, and My Apps portal. Microsoft 365 services leveraging Office 365 groups for collaboration scenarios are also affected, specifically Outlook, Microsoft Teams, and SharePoint.
+Do I need a special URL for this feature to work in the My Apps portal? | No. If you configure the setting via the Azure admin portal, MS Graph or PowerShell, the My Apps portal will honor it automatically.
+Which parts of the My Apps portal will this feature affect? | The groups functionality in the My Apps portal will honor these new permissions. This includes all paths to view the groups list and group memberships in My Apps. No changes were made to the group tile availability. The group tile availability is still controlled by the existing group setting in the Azure admin portal.
+Why do I still see the old settings in the Azure admin portal? | Verify that you are using the https://aka.ms/AADRestrictedGuests URL. As mentioned above, you can configure the permissions from three places. However, if you can only see the new UI when using the specific URL. If you configure via Graph or PowerShell, it will be honored by the portal, however, the new settings can only be viewed using the specific URL.
+Do these permissions override SharePoint or Microsoft Teams guest settings? | No. Those existing settings still control the experience and access in those applications. For example, if you see issues in SharePoint, double check your external sharing settings.
+Will my existing guest permissions be changed in my tenant? | No changes were made to your current settings. We maintain backward compatibility with your existing settings. You decide when you want make changes.
+Will these permissions be set by default? | No. The existing default permissions remain unchanged. You can optionally set the permissions to be more restrictive.
+Are there any license requirements for this feature? | No, there are no new licensing requirements with this feature.
