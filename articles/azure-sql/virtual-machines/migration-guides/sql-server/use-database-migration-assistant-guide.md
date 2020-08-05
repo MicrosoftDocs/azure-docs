@@ -80,9 +80,9 @@ See [assessment](/sql/dma/dma-migrateonpremsql) to learn more.
 
 Typically, an application layer accesses user databases to persist and modify data.  DMA can assess the data access layer of an application in two ways: 
 
-- Using captured [extended events](/sql/relational-databases/extended-events/extended-events) or [SQL Server Profiler traces ](/sql/tools/sql-server-profiler/create-a-trace-sql-server-profiler) of your user databases. You can also use the [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-capture-trace) to create a trace log which can also be used for A/B testing.
+- Using captured [extended events](/sql/relational-databases/extended-events/extended-events) or [SQL Server Profiler traces ](/sql/tools/sql-server-profiler/create-a-trace-sql-server-profiler) of your user databases. You can also use the [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-capture-trace) to create a trace log that can also be used for A/B testing.
 
-- Using the [Data Access Migration Toolkit (preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) (DAMT), which provides discovery and assessment of SQL queries within the code and is used to migrate application source code from one database platform to another. This tool supports a variety of popular file types including C# and Java, XML and Plaint Text. For a guide on how to perform a DAMT assessment see the [Use DMAT](https://techcommunity.microsoft.com/t5/microsoft-data-migration/using-data-migration-assistant-to-assess-an-application-s-data/ba-p/990430) blog.
+- Using the [Data Access Migration Toolkit (preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) (DAMT), which provides discovery and assessment of SQL queries within the code and is used to migrate application source code from one database platform to another. This tool supports a variety of popular file types including C# and Java, XML, and Plaint Text. For a guide on how to perform a DAMT assessment see the [Use DMAT](https://techcommunity.microsoft.com/t5/microsoft-data-migration/using-data-migration-assistant-to-assess-an-application-s-data/ba-p/990430) blog.
 
 Use DMA to [import](/sql/dma/dma-assesssqlonprem#add-databases-and-extended-events-trace-to-assess) captured trace files or DAMT files during the assessment of user databases. 
 
@@ -105,17 +105,11 @@ It is recommended that all DMA fixes are scripted and applied to the target SQL 
 > Not all SQL Server versions support all compatibility modes. Check that your [target SQL Server version](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15) supports your chosen database compatibility. For example, SQL Server 2019 does not support databases with level 90 compatibility (which is SQL Server 2005). These databases would require, at least, an upgrade to compatibility level 100.
 >
 
-### Convert
-
-!!!! Can we remove this section entirely since we're skipping it? or is this something relevant to the UI of DMA that the customer should know to skip? !!!!
-
-Typically for heterogenous migrations, after assessing the source database instance(s), you need to convert the schema to work in the target environment. Since migrating from SQL Server to an instance of SQL Server on an Azure VM is a homogeneous migration, the convert phase is unnecessary and you can skip it.
-
 ## Migrate
 
 After you have completed the pre-migration steps, you are ready to migrate the user databases and components. 
 
-There are several methods for migrating user SQL database(s) to an instance of SQL Server on an Azure VM, which are outlined in the [SQL VM migration overview](to-sql-server-on-azure-vm-overview.md). When migrating SQL Server databases to an instance of SQL Server on Azure VMs, you can perform an offline or an online migration. With an offline migration, application downtime begins when the migration starts. For an online migration, downtime is limited to the time required to cut over to the new environment when the migration completes.
+There are several methods for migrating user SQL database(s) to an instance of SQL Server on an Azure VM, which is outlined in the [SQL VM migration overview](to-sql-server-on-azure-vm-overview.md). When migrating SQL Server databases to an instance of SQL Server on Azure VMs, you can perform an offline or an online migration. With an offline migration, application downtime begins when the migration starts. For an online migration, downtime is limited to the time required to cut over to the new environment when the migration completes.
 
 It is recommended that you first review and test an offline migration to determine whether the downtime is acceptable; if not, plan for using an online migration method.
 
@@ -133,7 +127,7 @@ The following is a list of key points to consider when reviewing migration metho
 
 ### Migrate schema and data
 
-Due to the ease of setup, the recommended approach is to perform the migration with the Data Migration Assistant by using a connection to Azure provided through a private link (either VPN or ExpressRoute). DMA provides the capability to migrate Windows and SQL Server logins, and migrations can be automated with the Command line interface.
+Due to the ease of setup, the recommended approach is to perform the migration with the Data Migration Assistant by using a connection to Azure provided through a private link (either VPN or ExpressRoute). DMA provides the capability to migrate Windows and SQL Server logins, and migrations can be automated with the Command-line interface.
 
 See [steps associated with using DMA to perform a database migration](/sql/dma/dma-migrateonpremsql) to learn more. 
 
@@ -167,18 +161,6 @@ The following table provides a list components and recommended migration methods
 | Operating System | Files, file shares | Make a note of any additional files or file shares that are used by your SQL Servers and replicate on the Azure VM target. |
 
 
-
-### Data sync and cutover
-
-!!!! Can we remove this section entirely since we're skipping it? or is this something relevant to the UI of DMA that the customer should know to skip? !!!!
-
-
-Data Migration Assistant (DMA) is an offline migration, so has limited support for minimal-downtime migrations. Therefore Data Sync and cut-over are not applicable here.
-
-> [!NOTE]
-> For minimal downtime migrations, please refer to the log shipping and distributed availability group migration options outlined in [SQL VM migration overview](to-sql-server-on-azure-vm-overview.md).
->
-
 ## Post-migration
 
 After you have successfully completed the migration stage, go through a series of post-migration tasks to ensure that everything is functioning as smoothly and efficiently as possible.
@@ -195,8 +177,8 @@ The test approach for database migration consists of performing the following ac
 
 1. **Develop validation tests.**  Use SQL queries to test database migrations. Create validation queries to run against both the source and target databases. Your validation queries should cover the scope you have defined.
 2. **Set up test environment.**  The test environment should contain a copy of the source database and the target database. Be sure to isolate the test environment.
-3. **Run validation tests.**  Run the validation tests against the source and the target, and then analyse the results.
-4. **Run performance tests.**  Run performance test against the source and target, and then analyse and compare the results.
+3. **Run validation tests.**  Run the validation tests against the source and the target, and then analyze the results.
+4. **Run performance tests.**  Run performance test against the source and target, and then analyze and compare the results.
 
 > [!TIP]
 > Use the [Database Experimentation Assistant (DEA)](https://docs.microsoft.com/en-us/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15) to assist with evaluating the target SQL Server performance.
@@ -206,12 +188,12 @@ The test approach for database migration consists of performing the following ac
 
 The post migration phase is crucial for reconciling any issues with data accuracy and completeness, as well as addressing potential performance issues with the workload.
 
-For additional details about these issues and specific steps to mitigate them, see the following resources:
+For more information about these issues and specific steps to mitigate them, see the following resources:
 
 - [Post-migration Validation and Optimization Guide.](/sql/relational-databases/post-migration-validation-and-optimization-guide)
 - [Tuning performance in Azure SQL Virtual Machines](windows/performance-guidelines-best-practices.md).
-- [Azure cost optimization centre](https://azure.microsoft.com/overview/cost-optimization/).
+- [Azure cost optimization center](https://azure.microsoft.com/overview/cost-optimization/).
 
 ## Next steps
 
-To check the availability of services applicable to SQL Server see the [Azure Global infrastructure centre](https://azure.microsoft.com/global-infrastructure/services/?regions=all&amp;products=synapse-analytics,virtual-machines,sql-database)
+To check the availability of services applicable to SQL Server see the [Azure Global infrastructure center](https://azure.microsoft.com/global-infrastructure/services/?regions=all&amp;products=synapse-analytics,virtual-machines,sql-database)

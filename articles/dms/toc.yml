@@ -32,21 +32,6 @@
     - name: Custom roles 
       href: resource-custom-roles-sql-db-managed-instance.md
 
-- name: Migration guides
-  items: 
-    - name: SQL Server to
-      items: 
-        - name: SQL Server on Azure VM
-          items: 
-            - name: Overview
-              href: migration-guides/sql-server/to-sql-server-on-azure-vm-overview.md
-            - name: DMS 
-              href: migration-guides/sql-server/to-sql-server-on-azure-vm-guide.md
-            - name: DMA
-              href: migration-guides/sql-server/to-sql-server-on-azure-vm-guide.md
-            - name: Log shipping
-              href: migration-guides/sql-server/to-sql-server-on-azure-vm-guide.md
-
 - name: Tutorials
   expanded: true
   items:
