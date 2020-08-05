@@ -33,7 +33,7 @@
       href: pim-security-wizard.md
     - name: Discover Azure resources
       href: pim-resource-roles-discover-resources.md
-    - name: Grant access to others to manage PIM
+    - name: Delegate access to PIM
       href: pim-how-to-give-access-to-pim.md
     - name: Elevate access to manage all subscriptions
       href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
