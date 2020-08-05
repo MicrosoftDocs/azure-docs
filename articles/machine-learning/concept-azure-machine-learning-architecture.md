@@ -20,7 +20,7 @@ Learn about the terms and concepts used by Azure Machine Learning.
 > [!NOTE]
 > Although this article defines terms and concepts used by Azure Machine Learning, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
-## Workspace
+## <a name="workspaces"></a> Workspace
 
 A [machine learning workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
 
@@ -37,7 +37,7 @@ You can share a workspace with others.
 
 ## <a name="compute-instance"></a> Computes
 
-<a name="compute-targets">
+<a name="compute-targets"></a>
 A [compute target](concept-compute-target.md) is the machine where you run your training script or host your service deployment. This location may be your local machine or any of the compute resources below.
 
 |Term  |Description  |
