@@ -53,7 +53,7 @@ Any destinations for the diagnostic setting must be created with the required pe
 [Create a new workspace](../learn/quick-create-workspace.md) if you don't already have one. The workspace does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 ### Event hub
-[Create an event hub](../../event-hubs/event-hubs-create.md) if you don't already have one. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions and both subscriptions are in the same AAD tenant.
+[Create an event hub](../../event-hubs/event-hubs-create.md) if you don't already have one. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions and both subscriptions are in the same tenant.
 
 The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. You can create or modify shared access policies in the Azure portal under the Configure tab for your Event Hubs namespace. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule. 
 
