@@ -107,7 +107,7 @@ For example run configurations, see [Select and use a compute target to train yo
 
 At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and tuning hyperparameters. Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
 
-A model is produced by a [run](#run) of an [experiment](#experiments) in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. You can register a model in the workspace.
+A model is produced by a [run](#runs) of an [experiment](#experiments) in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. You can register a model in the workspace.
 
 Azure Machine Learning is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
