@@ -193,11 +193,11 @@ If you are still having trouble, open a support case for further troubleshooting
 
 ### Connection setup time
 
-Because Load Balancer Outbound Rules statically assign pools of SNAT ports to specific Virtual Machines, creating new outbound flows will be faster than when Virtual Network NAT is used. Therefore, when switching from Load Balancer Outbound Rules you may see increased latency when creating a new outbound connection. As explained above, you should use long-lived flows (for example reused TCP connections) to maximize the performance of your application.
+Because Load Balancer Outbound Rules statically assign pools of SNAT ports to specific virtual machines, creating new outbound flows is faster than using Virtual Network NAT. Therefore, when you switch from Load Balancer Outbound Rules, you might see increased latency when creating a new outbound connection. As explained earlier, to maximize the performance of your application, you should use long-lived flows (for example, reused TCP connections).
 
 _**Solution:**_
 
-For customers that are primarily interested in minimal connnection setup latency, Load Balancer Outbound Rules should be used.
+If you're primarily interested in minimal connnection setup latency, use Load Balancer Outbound Rules.
 
 ## Next steps
 
