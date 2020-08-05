@@ -189,7 +189,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Computer Vision API v3.1 preview.1
+          - text: Computer Vision API v3.1 preview
             url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005
           - text: Computer Vision API v3.0
             url: https://aka.ms/computer-vision-v3-ref

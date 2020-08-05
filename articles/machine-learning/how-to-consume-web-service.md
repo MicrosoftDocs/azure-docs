@@ -91,6 +91,9 @@ Azure Machine Learning provides two ways to control access to your web services.
 
 When sending a request to a service that is secured with a key or token, use the __Authorization__ header to pass the key or token. The key or token must be formatted as `Bearer <key-or-token>`, where `<key-or-token>` is your key or token value.
 
+The primary difference between keys and tokens is that **keys are static and can be regenerated manually**, and **tokens need to be refreshed upon expiration**. Key-based auth is supported for Azure Container Instance and Azure Kubernetes Service deployed web-services, and token-based auth is **only** available for Azure Kubernetes Service deployments. See the [how-to](how-to-setup-authentication.md#web-service-authentication) on authentication for more information and specific code samples.
+
+
 #### Authentication with keys
 
 When you enable authentication for a deployment, you automatically create authentication keys.
@@ -179,7 +182,7 @@ The web service can accept multiple sets of data in one request. It returns a JS
 
 ### Binary data
 
-For information on how to enable support for binary data in your service, see [Binary data](how-to-deploy-and-where.md#binary).
+For information on how to enable support for binary data in your service, see [Binary data](how-to-deploy-advanced-entry-script.md#binary-data).
 
 > [!TIP]
 > Enabling support for binary data happens in the score.py file used by the deployed model. From the client, use the HTTP functionality of your programming language. For example, the following snippet sends the contents of a JPG file to a web service:
@@ -194,7 +197,7 @@ For information on how to enable support for binary data in your service, see [B
 
 ### Cross-origin resource sharing (CORS)
 
-For information on enabling CORS support in your service, see [Cross-origin resource sharing](how-to-deploy-and-where.md#cors).
+For information on enabling CORS support in your service, see [Cross-origin resource sharing](how-to-deploy-advanced-entry-script.md#cors).
 
 ## Call the service (C#)
 
@@ -516,6 +519,153 @@ The results returned are similar to the following JSON document:
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
+
+
+## Web service schema (OpenAPI specification)
+
+If you used automatic schema generation with your deployment, you can get the address of the OpenAPI specification for the service by using the [swagger_uri property](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri). (For example, `print(service.swagger_uri)`.) Use a GET request or open the URI in a browser to retrieve the specification.
+
+The following JSON document is an example of a schema (OpenAPI specification) generated for a deployment:
+
+```json
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "myservice",
+        "description": "API specification for Azure Machine Learning myservice",
+        "version": "1.0"
+    },
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "For example: Bearer abc123"
+        }
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "operationId": "ServiceHealthCheck",
+                "description": "Simple health check endpoint to ensure the service is up at any given point.",
+                "responses": {
+                    "200": {
+                        "description": "If service is up and running, this response will be returned with the content 'Healthy'",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "application/json": "Healthy"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/score": {
+            "post": {
+                "operationId": "RunMLService",
+                "description": "Run web service's model and get the prediction output",
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "serviceInputPayload",
+                        "in": "body",
+                        "description": "The input payload for executing the real-time machine learning service.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The service processed the input correctly and provided a result prediction, if applicable.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceOutput"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ServiceInput": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                }
+            },
+            "example": {
+                "data": [
+                    [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ]
+                ]
+            }
+        },
+        "ServiceOutput": {
+            "type": "array",
+            "items": {
+                "type": "number",
+                "format": "double"
+            },
+            "example": [
+                3726.995
+            ]
+        },
+        "ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "status_code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
+```
+
+For more information, see [OpenAPI specification](https://swagger.io/specification/).
+
+For a utility that can create client libraries from the specification, see [swagger-codegen](https://github.com/swagger-api/swagger-codegen).
+
+
+> [!TIP]
+> You can retrieve the schema JSON document after you deploy the service. Use the [swagger_uri property](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) from the deployed web service (for example, `service.swagger_uri`) to get the URI to the local web service's Swagger file.
 
 ## Consume the service from Power BI
 

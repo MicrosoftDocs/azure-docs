@@ -263,7 +263,7 @@
         - name: On-premises functions
           href: functions-runtime-install.md
         - name: Deploy using the Jenkins plugin
-          href: /azure/jenkins/jenkins-azure-functions-deploy
+          href: /azure/developer/jenkins/deploy-to-azure-functions
           maintainContext: true
     - name: Configure
       items:
@@ -345,8 +345,8 @@
       items:
         - name: Troubleshoot storage
           href: functions-recover-storage-account.md
-        - name: Troubleshoot Python dependencies
-          href: recover-module-not-found.md
+        - name: Troubleshoot Python functions
+          href: recover-python-functions.md
 - name: Reference
   items:
     - name: API references

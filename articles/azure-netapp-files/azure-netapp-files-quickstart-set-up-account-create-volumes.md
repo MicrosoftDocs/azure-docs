@@ -407,4 +407,6 @@ When you are done and if you want to, you can delete the resource group. The act
 ## Next steps  
 
 > [!div class="nextstepaction"]
-> [Manage volumes by using Azure NetApp Files](azure-netapp-files-manage-volumes.md)  
+> [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)   
+> [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)   
+> [Create an NFS volume](azure-netapp-files-create-volumes.md)   
