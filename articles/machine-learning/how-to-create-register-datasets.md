@@ -23,7 +23,7 @@ ms.date: 07/31/2020
 
 In this article, you learn how to create Azure Machine Learning datasets to access data for your local or remote experiments. To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
-By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. Also datasets are lazily evaluated, which aids in workflow performance speeds. You can create datasets from datastores, public URLs and [Azure Open Datasets](../open-datasets/how-to-create-dataset-from-open-dataset.md)
+By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. Also datasets are lazily evaluated, which aids in workflow performance speeds. You can create datasets from datastores, public URLs and [Azure Open Datasets](../open-datasets/how-to-create-dataset-from-open-dataset.md).
 
 With Azure Machine Learning datasets, you can:
 
@@ -220,6 +220,12 @@ To create a dataset in the studio:
 1. Select **Next** to populate the **Settings and preview** and **Schema** forms; they are intelligently populated based on file type and you can further configure your dataset prior to creation on these forms. 
 1. Select **Next** to review the **Confirm details** form. Check your selections and create an optional data profile for your dataset. Learn more about [data profiling](how-to-use-automated-ml-for-ml-models.md#profile). 
 1. Select **Create** to complete your dataset creation.
+
+## Create datasets with Azure Open Datasets
+
+[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. Open Datasets are in the cloud on Microsoft Azure and are included in both the SDK and the studio.
+
+Learn how to create [Azure Machine Learning Datasets from Azure Open Datasets](../open-datasets/how-to-create-dataset-from-open-dataset). 
 
 ## Train with datasets
 
