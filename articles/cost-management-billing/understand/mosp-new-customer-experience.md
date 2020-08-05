@@ -60,7 +60,7 @@ Your new experience includes the following cost management and billing capabilit
 
 **Group costs on the invoice based on your needs** - You can group costs on your invoice based on your needs - by departments, projects, or teams.
 
-**Set an optional purchase order number on the invoice** - To associate your invoice with your internal financial systems, set a purchase order number. Managed and update it at any point of time in the Azure portal.
+**Set an optional purchase order number on the invoice** - To associate your invoice with your internal financial systems, set a purchase order number. Manage and update it at any point of time in the Azure portal.
 
 #### Payment management
 
@@ -80,9 +80,9 @@ Your new experience includes the following cost management and billing capabilit
 
 #### API support
 
-**Perform billing and cost management operations through APIs, SDK, PSH, and CLI** - Use Azure Cost Management + Billing APIs to pull billing and cost data into your preferred data analysis tools.
+**Perform billing and cost management operations through APIs, SDK, and PowerShell** - Use cost management, billing, and consumption APIs to pull billing and cost data into your preferred data analysis tools.
 
-**Perform all subscription operations through APIs, SDK, PSH, and CLI** - Use Azure subscription APIs to automate the management of your Azure subscriptions, including creating, renaming, and canceling a subscription.
+**Perform all subscription operations through APIs, SDK, and PowerShell** - Use Azure subscription APIs to automate the management of your Azure subscriptions, including creating, renaming, and canceling a subscription.
 
 ## Get prepared for your new experience
 
