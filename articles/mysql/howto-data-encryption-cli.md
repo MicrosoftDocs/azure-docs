@@ -90,6 +90,25 @@ After Azure Database for MySQL is encrypted with a customer's managed key stored
 
 ### Once the server is restored, revalidate data encryption the restored server
 
+*	Assign identity for the replica server
+```azurecli-interactive
+az mysql server update --name  <server name>  -g <resoure_group> --assign-identity
+```
+
+*	Get the existing key that has to be used for the restored/replica server
+
+```azurecli-interactive
+az mysql server key list --name  '<server_name>'  -g '<resource_group_name>'
+```
+
+*	Set the policy for the new identity for the restored/replica server
+  
+```azurecli-interactive
+az keyvault set-policy --name <keyvault> -g <resoure_group> --key-permissions get unwrapKey wrapKey --object-id <principl id of the server returned by the step 1>
+```
+
+* Re-validate the restored/replica server with the encryption key
+
 ```azurecli-interactive
 az mysql server key create –name  <server name> -g <resource_group> --kid <key url>
 ```
