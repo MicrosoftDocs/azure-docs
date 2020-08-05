@@ -1,8 +1,8 @@
 ---
 title: Azure Synapse Link for Azure Cosmos DB, benefits, and when to use it
 description: Learn about Azure Synapse Link for Azure Cosmos DB. Synapse Link lets you run near real-time analytics (HTAP) using Azure Synapse Analytics over operational data in Azure Cosmos DB.
-author: srchi
-ms.author: srchi
+author: rosouz
+ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
