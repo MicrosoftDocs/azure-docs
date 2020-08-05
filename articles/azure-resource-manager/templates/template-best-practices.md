@@ -220,7 +220,7 @@ The following information can be helpful when you work with [resources](template
    
      For more information about connecting to virtual machines, see:
    
-   * [Run VMs for an N-tier architecture in Azure](../../guidance/guidance-compute-n-tier-vm.md)
+   * [Run VMs for an N-tier architecture in Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
    * [Set up WinRM access for VMs in Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Allow external access to your VM by using the Azure portal](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Allow external access to your VM by using PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
