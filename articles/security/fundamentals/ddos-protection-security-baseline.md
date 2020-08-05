@@ -111,6 +111,7 @@ Additionally, Azure Active Directory (AD) has built-in roles that must be explic
 - [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 
+
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
