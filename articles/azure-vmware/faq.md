@@ -20,7 +20,7 @@ As enterprises pursue IT modernization strategies to improve business agility, r
 
 **Where is AVS available today?**
 
-During the preview, it's available in US East in North America and in Amsterdam in Western Europe.
+The service is continuously being added to new regions, so view the [latest service availability information](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) for more details. 
 
 **Can workloads running in an Azure VMware Solution (AVS) instance consume or integrate with Azure services?**
 
@@ -86,7 +86,7 @@ Each ESXi host has two vSAN diskgroups with a capacity tier of 15.2 TB and a 3.2
 
 **How much network bandwidth is available in each ESXi host?**
 
-ESXi hosts support connectivity bandwidth up to 25 Gbps.
+Each ESXi host is AVS is configured with four 25Gbps NICs, with two NICs provisioned for ESXi system traffic and two NICs provisioned for workload traffic. 
 
 **Is data stored on the vSAN datastores encrypted at rest?**
 
