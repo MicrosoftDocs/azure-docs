@@ -14,7 +14,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 ## June 2020
 
 ### General
-- [Deploy Azure Monitor](platform/deploy-scale.md) - New article.
+- [Deploy Azure Monitor](deploy-scale.md) - New article.
 - [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Updated billingtype property. Added PowerShell commands.
 
 ### Agents
@@ -29,7 +29,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Azure Application Insights for JavaScript web apps](app/javascript.md) - Update to JavaScript SDK section. Updated snippet to report load failures.
 - [Configure BYOS (Bring Your Own Storage) for Profiler & Snapshot Debugger](app/profiler-bring-your-own-storage.md) - New article.
 - [Incoming Request Tracking in Azure Application Insights with OpenCensus Python](app/opencensus-python-request.md) - Updated logging and configuration for OpenCensus.
-- [Monitor a live ASP.NET web app with Azure Application Insights](app/monitor-performance-live-website-now.md) - Updated decprecation date for Status Monitor v1.
+- [Monitor a live ASP.NET web app with Azure Application Insights](app/monitor-performance-live-website-now.md) - Updated deprecation date for Status Monitor v1.
 - [Monitor Node.js services with Azure Application Insights](app/nodejs.md) - Multiple updates including migrating from pervious versions and SDK Configuration
 - [Monitor Python applications with Azure Monitor (preview)](app/opencensus-python.md) - Added section on configuring Azure Monitor exporters.
 - [Monitor your apps without code changes - auto-instrumentation for Azure Monitor Application Insights](app/codeless-overview.md) - New article.
@@ -48,7 +48,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Delete and recover Azure Log Analytics workspace](platform/delete-workspace.md) - Added PowerShell command. Updated troubleshooting.
 - [Manage Log Analytics workspaces in Azure Monitor](platform/manage-access.md) - Added example for unallowed tables in RBAC section.
 - [Manage usage and costs for Azure Monitor Logs](platform/manage-cost-storage.md) - Additional detail on calculation of data size. Updated configuring data volume alerts. Details about security data collected by Azure Sentinel. Clarification on data cap.
-- [Use Azure Monitor Logs with Azure Logic Apps and Power Automate](platform/logicapp-flow-connector.md) - Added conector limits.
+- [Use Azure Monitor Logs with Azure Logic Apps and Power Automate](platform/logicapp-flow-connector.md) - Added connector limits.
 
 ### Metrics
 - [Azure Monitor supported metrics by resource type](platform/metrics-supported.md) - Updated SQL Server metrics.

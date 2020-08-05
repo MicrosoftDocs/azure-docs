@@ -44,10 +44,12 @@ To maximize savings with reservations, try to purchase reservations as close to 
 
 ## Recommendations in Azure Advisor
 
-Reservation purchase recommendations for virtual machines are available in Azure Advisor. Keep in mind the following points:
+Reservation purchase recommendations are available in Azure Advisor. Keep in mind the following points:
 
 - Advisor has only single-subscription scope recommendations.
-- Recommendations that are calculated with a 30-day look-back period are available in Advisor.
+- Recommendations are calculated by considering past 30-day usage trend.
+- Recommendations quantity and savings are for 3-Year reservation where available. If 3 Year reservation is not sold for the service, the recommendation is calculated using 1 year reservation price.
+- Recommendation recommendations factor any special discounts that your might have on your on-demand usage rates.
 - If you purchase a shared-scope reservation, Advisor reservation purchase recommendations can take up to 30 days to disappear.
 
 ## Other expected API behavior

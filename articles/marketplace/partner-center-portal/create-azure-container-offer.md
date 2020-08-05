@@ -191,14 +191,15 @@ Provide logos and images to use with your offer. All images must be in PNG forma
 
 #### Store logos
 
- Provide PNG files of your offer's logo in each of the following four pixel sizes:
+Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) and a **Medium** (90 x 90 pixels) size logo. You can optionally replace these with different images.
+
+All three logo sizes are required for use in different places in the listing:
 
 - **Small** (48 x 48)
-- **Medium** (90 X 90)
-- **Large** (216 x 216)
-- **Wide** (255 X 115)
+- **Medium** (90 x 90)
+- **Large** (between 216 x 216 and 350 x 350)
 
-All four logos are required and are used in different places in the marketplace listing.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### Screenshots (optional)
 
