@@ -79,8 +79,8 @@ In the Cloud Shell, run the following commands to create two web apps. Replace _
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
 az appservice plan create --name myAuthAppServicePlan --resource-group myAuthResourceGroup --sku FREE --is-linux
-az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <front-end-app-name> --runtime "DOTNETCORE|LTS" --deployment-local-git --query deploymentLocalGitUrl
-az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <back-end-app-name> --runtime "DOTNETCORE|LTS" --deployment-local-git --query deploymentLocalGitUrl
+az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <front-end-app-name> --runtime "DOTNETCORE|3.1" --deployment-local-git --query deploymentLocalGitUrl
+az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <back-end-app-name> --runtime "DOTNETCORE|3.1" --deployment-local-git --query deploymentLocalGitUrl
 # Currently the following commands are required to set the .NET Core version properly
 az webapp config set --resource-group myAuthResourceGroup --name <front-end-app-name> --linux-fx-version "DOTNETCORE|3.1"
 az webapp config set --resource-group myAuthResourceGroup --name <back-end-app-name> --linux-fx-version "DOTNETCORE|3.1"
