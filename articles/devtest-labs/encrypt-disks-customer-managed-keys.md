@@ -8,7 +8,7 @@ ms.date: 07/28/2020
 # Encrypt operating system (OS) disks using customer-managed keys in Azure DevTest Labs
 Server-side encryption (SSE) protects your data and helps you meet your organizational security and compliance commitments. SSE automatically encrypts your data stored on managed disks in Azure (OS and data disks) at rest by default when persisting it to the cloud. Learn more about [Disk Encryption](../virtual-machines/windows/disk-encryption.md) on Azure. 
 
-Within DevTest Labs, all OS disks and data disks created as part of a lab are encrypted using platform-managed keys. However, as a lab owner you can choose to encrypt lab virtual machine OS disks using your own keys. If you choose to manage encryption with your own keys, you can specify a **customer-managed key** to use for encrypting data in lab OS disks. To learn more on Server-side encryption (SSE) with customer-managed keys, and other managed disk encryption types, see [Customer-managed keys](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Also, see [restrictions with using customer-managed keys](/virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#restrictions).
+Within DevTest Labs, all OS disks and data disks created as part of a lab are encrypted using platform-managed keys. However, as a lab owner you can choose to encrypt lab virtual machine OS disks using your own keys. If you choose to manage encryption with your own keys, you can specify a **customer-managed key** to use for encrypting data in lab OS disks. To learn more on Server-side encryption (SSE) with customer-managed keys, and other managed disk encryption types, see [Customer-managed keys](../virtual-machines/windows/disk-encryption.md#customer-managed-keys). Also, see [restrictions with using customer-managed keys](../virtual-machines/windows/disks-enable-customer-managed-keys-portal.md#restrictions).
 
 
 > [!NOTE]
@@ -29,7 +29,7 @@ The following section shows how a lab owner can set up encryption using a custom
     > [!IMPORTANT]
     > You need to do these steps for labs created on or after 8/1/2020. No action required for labs that were created prior to that date.
 
-    1. Ensure you are a member of [User Access Admin role](/role-based-access-control/built-in-roles.md#user-access-administrator) at the Azure subscription level so that you can manage user access to Azure resources. 
+    1. Ensure you are a member of [User Access Admin role](../role-based-access-control/built-in-roles.md#user-access-administrator) at the Azure subscription level so that you can manage user access to Azure resources. 
     1. On the **Disk Encryption Set** page, select **Access control (IAM)** on the left menu. 
     1. Select **+ Add** on the toolbar and select **Add a role assignment**.  
 

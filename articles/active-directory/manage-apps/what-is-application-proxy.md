@@ -6,7 +6,7 @@ author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: overview
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
