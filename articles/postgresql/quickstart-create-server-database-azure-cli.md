@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 # Quickstart: Create an Azure Database for PostgreSQL - Single Server using the Azure CLI
 

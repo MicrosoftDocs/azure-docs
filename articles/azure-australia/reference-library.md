@@ -6,7 +6,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # Additional documentation and resources by focus area
@@ -95,7 +95,7 @@ This resource library contains additional links and references that are relevant
 * [Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
 * [Azure Governance](https://docs.microsoft.com/azure/governance/)
 * [Azure Management Groups](https://docs.microsoft.com/azure/governance/management-groups/)
-* [Azure Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 ## Next steps
 

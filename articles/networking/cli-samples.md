@@ -14,7 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 04/25/2017
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurecli
 
 ---
 # Azure CLI Samples for networking

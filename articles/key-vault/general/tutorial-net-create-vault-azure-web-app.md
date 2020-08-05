@@ -52,11 +52,7 @@ az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 
 Make a note of the returned `vaultUri`, which will be in the format "https://&lt;your-keyvault-name&gt;.vault.azure.net/". It will be used in the [Update the code](#update-the-code) step.
 
-You can now place a secret in your key vault with the [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command. Set the name of your secret to "MySecret" and the value to "Success!".
-
-```azurecli-interactive
-az keyvault secret set --vault-name "<your-keyvault-name>" --name "MySecret" --value "Success!"
-```
+[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
 
 ## Create a .NET web app
 

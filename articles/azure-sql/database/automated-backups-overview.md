@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 07/20/2020
+ms.date: 08/04/2020
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance
 
@@ -114,7 +114,7 @@ For more information about LTR, see [Long-term backup retention](long-term-reten
 
 ## Storage costs
 
-The price for storage varies depending on whether you're using the DTU model or the vCore model.
+The price for backup storage varies depending on whether you're using the DTU model or the vCore model, and also on your region. The backup storage is charged per GB/month consumed, for pricing see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page and [Azure SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) page.
 
 ### DTU model
 
@@ -155,6 +155,9 @@ To understand backup storage costs, go to **Cost Management + Billing** in the A
 Add a filter for **Service name**, and then select **sql database** in the drop-down list. Use the **meter subcategory** filter to choose the billing counter for your service. For a single database or an elastic database pool, select **single/elastic pool pitr backup storage**. For a managed instance, select **mi pitr backup storage**. The **Storage** and **compute** subcategories might interest you as well, but they're not associated with backup storage costs.
 
 ![Backup storage cost analysis](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
+
+  >[!NOTE]
+  > Meters are only visible for counters that are currently in use. If a counter is not available, it is likely that the category is not currently being used. For example, managed instance counters will not be present for customers who do not have a managed instance deployed. Likewise, storage counters will not be visible for resources that are not consuming storage. 
 
 ## Encrypted backups
 

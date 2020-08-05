@@ -71,7 +71,7 @@ The following diagram shows the **Transform** object and the objects it referenc
 
 Select the image to view it full size.  
 
-<a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a>
+[![Diagram showing the Transform object and the objects it references, including the class derivation relationships between the objects.](./media/api-diagrams/transform-small.png)](./media/api-diagrams/transform-large.png#lightbox)
 
 ## Jobs
 
@@ -99,7 +99,7 @@ The following diagram shows the **Job** object and the objects it references inc
 
 Click the image to view it full size.  
 
-<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a>
+[![Diagram showing the Job object and the objects it references, including the class derivation relationships between the objects.](./media/api-diagrams/job-small.png)](./media/api-diagrams/job-large.png#lightbox)
 
 ## Configure Media Reserved Units
 

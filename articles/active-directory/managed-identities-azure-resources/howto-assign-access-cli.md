@@ -15,7 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: markvi
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurecli
 ---
 
 # Assign a managed identity access to a resource using Azure CLI

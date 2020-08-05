@@ -4,7 +4,7 @@ description: Create a Python web app with a PostgreSQL database and deploy it to
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/22/2020
-ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, tracking-python]
+ms.custom: [mvc, seodec18, seo-python-october2019, cli-validate, tracking-python, devx-track-azurecli]
 ---
 # Tutorial: Deploy a Django web app with PostgreSQL in Azure App Service
 
@@ -19,6 +19,9 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 > * Update your code and redeploy
 > * View diagnostic logs
 > * Manage the web app in the Azure portal
+
+You can also use the [Azure portal version of this tutorial](/azure/developer/python/tutorial-python-postgresql-app-portal).
+
 
 ## Set up your initial environment
 

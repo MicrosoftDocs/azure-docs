@@ -52,6 +52,12 @@ When you're viewing a role's members, select **Description** to see the complete
 
 ![list of permissions for an admin role](./media/directory-manage-roles-portal/role-description.png)
 
+## Download role assignments
+
+To download all assignments for a specific role, on the **Roles and administrators** page, select a role, and then select **Download role assignments**. A CSV file that lists assignments at all scopes for that role is downloaded.
+
+![download all assignments for a role](./media/directory-manage-roles-portal/download-role-assignments.png)
+
 ## Assign a role
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with Global Administrator or Privileged Role Administrator permissions and select **Azure Active Directory**.

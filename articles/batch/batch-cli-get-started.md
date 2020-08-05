@@ -3,7 +3,7 @@ title: Get started with Azure CLI for Batch
 description: Get a quick introduction to the Batch commands in Azure CLI for managing Azure Batch service resources
 ms.topic: how-to
 ms.date: 07/24/2018
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, devx-track-azurecli
 
 ---
 # Manage Batch resources with Azure CLI
@@ -74,7 +74,7 @@ You have two options for authenticating against your Batch account:
     
     When you log in to Azure interactively, as described in the previous section, your credentials are cached, so the Azure CLI can log you in to your Batch account using those same credentials. If you log in to Azure using a service principal, those credentials are also used to log in to your Batch account.
 
-    An advantage of Azure AD is that it offers role-based access control (RBAC). With RBAC, a user's access depends on their assigned role, rather than whether or not they possess the account keys. Instead of managing account keys, you can manage RBAC roles, and let Azure AD handle access and authentication.  
+    An advantage of Azure AD is that it offers role-based access control (RBAC). With RBAC, a user's access depends on their assigned role, rather than whether or not they possess the account keys. Instead of managing account keys, you can manage Azure roles, and let Azure AD handle access and authentication.  
 
      To log in to your Batch account using Azure AD, call the [az batch account login](/cli/azure/batch/account#az-batch-account-login) command: 
 

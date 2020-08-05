@@ -35,7 +35,7 @@ When applications or functions rapidly open a new connection, they can quickly e
 
 ## Avoiding the problem
 
-If your destination is an Azure service that supports service endpoints, you can avoid SNAT port exhaustion issues by using [VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) and service endpoints. When you use VNet Integration and place service endpoints on the integration subnet, your app outbound traffic to those services will not have outbound SNAT port restrictions.
+If your destination is an Azure service that supports service endpoints, you can avoid SNAT port exhaustion issues by using [regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) and service endpoints or private endpoints. When you use regional VNet Integration and place service endpoints on the integration subnet, your app outbound traffic to those services will not have outbound SNAT port restrictions. Likewise, if you use regional VNet Integration and private endpoints, you will not have any outbound SNAT port issues to that destination. 
 
 Avoiding the SNAT port problem means avoiding the creation of new connections repetitively to the same host and port.
 
