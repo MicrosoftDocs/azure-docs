@@ -96,6 +96,20 @@ The next step is setting up an [Azure Functions app](../azure-functions/function
 
 In this section, you will publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (Azure AD) identity. Completing these steps will allow the rest of the tutorial to use the functions inside the function app. 
 
+Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, the function app is located in the _**SampleFunctionsApp**_ project file. You can view it in the *Solution Explorer* pane.
+
+### Update dependencies
+
+Before publishing the app, it's a good idea to make sure your dependencies are up to date, making sure you have the latest version of all the included packages.
+
+In the *Solution Explorer* pane, expand *SampleFunctionsApp > Dependencies*. Right-select *Packages* and choose *Manage NuGet Packages...*.
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Manage NuGet Packages for the SampleFunctionsApp project":::
+
+This will open the NuGet Package Manager. Select the *Updates* tab and if there are any packages to be updated, check the box to *Select all packages*. Then hit *Update*.
+
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Visual Studio: Selecting to update all packages in the NuGet Package Manager":::
+
 ### Publish the app
 
 Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, from the *Solution Explorer* pane, right-select the _**SampleFunctionsApp**_ project file and hit **Publish**.
