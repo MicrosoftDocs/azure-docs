@@ -159,7 +159,7 @@ After the migration, monitor your CPU/RAM metrics and network traffic to ensure 
 
 ## Trouble Shooting
 
-### What are the impacts of service registry rarely unavailable ?
+### What are the impacts of service registry rarely unavailable?
 
 In some rarely happened scenario, you may see some errors like 
 ```
