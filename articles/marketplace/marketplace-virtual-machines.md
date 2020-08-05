@@ -24,7 +24,7 @@ To arrange for users to test your offer, access limited-term software licenses w
 
 You can deploy one or more virtual machines through infrastructure as a service (IaaS) or software as a service (SaaS) apps. A benefit of the *test drive* publishing option is the automated setup of a virtual machine or entire solution led by a partner-hosted guided tour. A test drive lets your customers evaluate VMs at no additional cost to them. A customer doesn't need to be an existing Azure customer to engage with the trial experience. 
 
-For more information about test drives, see [What is a test drive?](what-is-test-drive.md). 
+For more information about test drives, see [What is a test drive?](what-is-test-drive.md)
 
 |Requirements  |Details |
 |---------|---------|
