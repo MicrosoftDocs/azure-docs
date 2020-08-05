@@ -2,7 +2,7 @@
 title: Frequently asked questions about Azure Synapse Link for Azure Cosmos DB 
 description: Get answers to frequently asked questions about Synapse Link for Azure Cosmos DB in areas such as billing, analytical store, security, time to live on analytical store. 
 author: Rodrigossz
-ms.author: Rodrigossz
+ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020

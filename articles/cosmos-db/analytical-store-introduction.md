@@ -5,7 +5,7 @@ author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: Rodrigossz
+ms.author: rosouz
 ---
 
 # What is Azure Cosmos DB Analytical Store (Preview)?

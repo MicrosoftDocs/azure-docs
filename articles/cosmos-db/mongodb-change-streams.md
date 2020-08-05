@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 06/04/2020
-ms.author: Rodrigossz
+ms.author: rosouz
 ms.custom: devx-track-javascript
 ---
 

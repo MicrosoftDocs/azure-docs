@@ -5,7 +5,7 @@ author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.author: Rodrigossz
+ms.author: rosouz
 ---
 
 # Configure and use Azure Synapse Link for Azure Cosmos DB (preview)
