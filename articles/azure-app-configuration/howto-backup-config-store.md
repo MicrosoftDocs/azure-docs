@@ -127,16 +127,16 @@ To make it easier for you to start backing up your data, we've tested and publis
 > Don't make any changes to the environment variables in the code you've downloaded. You'll create the required app settings in the next section.
 >
 
-### Build your own functions
+### Build your own function
 
-If the sample code provided earlier doesn't meet your requirements, you can also create your own functions. Your functions must be able to perform the following tasks in order to complete the backup:
+If the sample code provided earlier doesn't meet your requirements, you can also create your own function. Your function must be able to perform the following tasks in order to complete the backup:
 - Periodically read contents of your queue to see if it contains any notifications from Event Grid. Refer to the [Storage Queue SDK](/azure/storage/queues/storage-quickstart-queues-dotnet) for implementation details.
 - If your queue contains [event notifications from Event Grid](/azure/azure-app-configuration/concept-app-configuration-event?branch=pr-en-us-112982#event-schema), extract all the unique `<key, label>` information from event messages. The combination of key and label is the unique identifier for key-value changes in the primary store.
 - Read all settings from the primary store. Update only those settings in the secondary store that have a corresponding event in the queue. Delete all settings from the secondary store that were present in the queue but not in the primary store. You can use the [App Configuration SDK](https://github.com/Azure/AppConfiguration#sdks) to access your configuration stores programmatically.
 - Delete messages from the queue if there were no exceptions during processing.
 - Implement error handling according to your needs. Refer to the preceding code sample to see some common exceptions that you might want to handle.
 
-To learn more about creating functions, see: [Create a function in Azure that is triggered by a timer](/azure/azure-functions/functions-create-scheduled-function) and [Develop Azure Functions using Visual Studio](/azure/azure-functions/functions-develop-vs).
+To learn more about creating a function, see: [Create a function in Azure that is triggered by a timer](/azure/azure-functions/functions-create-scheduled-function) and [Develop Azure Functions using Visual Studio](/azure/azure-functions/functions-develop-vs).
 
 
 > [!IMPORTANT]
@@ -146,7 +146,7 @@ To learn more about creating functions, see: [Create a function in Azure that is
 
 ## Create function app settings
 
-If you're using the functions we've provided, you need the following app settings in your function app:
+If you're using a function that we've provided, you need the following app settings in your function app:
 - `PrimaryStoreEndpoint`: Endpoint for the primary App Configuration store. An example is `https://{primary_appconfig_name}.azconfig.io`.
 - `SecondaryStoreEndpoint`: Endpoint for the secondary App Configuration store. An example is `https://{secondary_appconfig_name}.azconfig.io`.
 - `StorageQueueUri`: Queue URI. An example is `https://{unique_storage_name}.queue.core.windows.net/{queue_name}`.
@@ -210,10 +210,10 @@ To test that everything works, you can create, update, or delete a key-value fro
 az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 ```
 
-You've triggered the event. In a few moments, Event Grid will send the event notification to your queue. *After the next scheduled run of your functions*, view configuration settings in your secondary store to see if it contains the updated key-value from the primary store.
+You've triggered the event. In a few moments, Event Grid will send the event notification to your queue. *After the next scheduled run of your function*, view configuration settings in your secondary store to see if it contains the updated key-value from the primary store.
 
 > [!NOTE]
-> You can [trigger your functions manually](/azure/azure-functions/functions-manually-run-non-http) during the testing and troubleshooting without waiting for the scheduled timer-trigger.
+> You can [trigger your function manually](/azure/azure-functions/functions-manually-run-non-http) during the testing and troubleshooting without waiting for the scheduled timer-trigger.
 
 After you make sure that the backup function ran successfully, you can see that the key is now present in your secondary store.
 
