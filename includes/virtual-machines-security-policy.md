@@ -57,7 +57,7 @@ The managed identities for Azure resources feature in Azure Active Directory (Az
 
 ## Role-based access control
 
-Using [role-based access control (RBAC)](../articles/role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the [Azure portal](../articles/role-based-access-control/role-assignments-portal.md), using the [Azure CLI](https://docs.microsoft.com/cli/azure/role), or[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
+Using [Azure role-based access control (Azure RBAC)](../articles/role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the [Azure portal](../articles/role-based-access-control/role-assignments-portal.md), using the [Azure CLI](https://docs.microsoft.com/cli/azure/role), or[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 
 ## Next steps

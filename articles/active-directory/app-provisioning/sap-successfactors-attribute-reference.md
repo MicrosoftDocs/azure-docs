@@ -2,14 +2,14 @@
 title: SAP SuccessFactors attribute reference
 description: Learn which attributes from SuccessFactors are supported by SuccessFactors-HR driven provisioning 
 services: active-directory
-author: kenwith
+author: cmmdesai
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 12/06/2019
-ms.author: kenwith
+ms.date: 08/05/2020
+ms.author: chmutali
 ms.reviewer: celested
 ---
 
@@ -17,16 +17,17 @@ ms.reviewer: celested
 
 In this article, you'll find information on:
 
-- [Supported SuccessFactors entities and attributes](#supported-successfactors-entities-and-attributes)
+- [SuccessFactors entities and attributes](#supported-successfactors-entities-and-attributes)
 - [Default attribute mapping](#default-attribute-mapping)
 
 ## Supported SuccessFactors entities and attributes
 
-The table below captures the list of SuccessFactors attributes supported by the following two provisioning apps:
+The table below captures the list of SuccessFactors attributes included by default in the following two provisioning apps:
 
 - [SuccessFactors to Active Directory User Provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 - [SuccessFactors to Azure AD User Provisioning](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
 
+Please refer to the [SAP SuccessFactors integration reference](./sap-successfactors-integration-reference.md#retrieving-additional-attributes) to extend the schema for additional attributes. 
 
 | \# | SuccessFactors Entity                  | SuccessFactors Attribute     | Operation Type |
 |----|----------------------------------------|------------------------------|----------------|

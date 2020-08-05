@@ -30,6 +30,8 @@ This tutorial describes the steps you need to perform in both Workplace by Faceb
 > * Keep user attributes synchronized between Azure AD and Workplace by Facebook
 > * [Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/workplacebyfacebook-tutorial) to Workplace by Facebook (recommended)
 
+>[!VIDEO https://www.youtube.com/embed/oF7I0jjCfrY]
+
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
