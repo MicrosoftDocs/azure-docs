@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Query the Azure Digital Twins twin graph
 
-This article offers examples and more detail for using the [Azure Digital Twins Query Store language](concepts-query-language.md) to query the [twin graph](concepts-twins-graph.md) for information. You run queries on the graph using the Azure Digital Twins [**Query APIs**](how-to-use-apis-sdks.md).
+This article offers examples and more detail for using the [Azure Digital Twins query language](concepts-query-language.md) to query the [twin graph](concepts-twins-graph.md) for information. You run queries on the graph using the Azure Digital Twins [**Query APIs**](how-to-use-apis-sdks.md).
 
 [!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 
@@ -88,11 +88,11 @@ SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', ex
 
 ### Query based on relationships
 
-When querying based on digital twins' relationships, Azure Digital Twins Query Store language has a special syntax.
+When querying based on digital twins' relationships, Azure Digital Twins query language has a special syntax.
 
 Relationships are pulled into the query scope in the `FROM` clause. An important distinction from "classical" SQL-type languages is that each expression in this `FROM` clause is not a table; rather, the `FROM` clause expresses a cross-entity relationship traversal, and is written with an Azure Digital Twins version of `JOIN`. 
 
-Recall that with the Azure Digital Twins [model](concepts-models.md) capabilities, relationships do not exist independently of twins. This means the Azure Digital Twins Query Store language's `JOIN` is a little different from the general SQL `JOIN`, as relationships here can't be queried independently and must be tied to a twin.
+Recall that with the Azure Digital Twins [model](concepts-models.md) capabilities, relationships do not exist independently of twins. This means the Azure Digital Twins query language's `JOIN` is a little different from the general SQL `JOIN`, as relationships here can't be queried independently and must be tied to a twin.
 To incorporate this difference, the keyword `RELATED` is used in the `JOIN` clause to reference a twin's set of relationships. 
 
 The following section gives several examples of what this looks like.
@@ -119,7 +119,7 @@ WHERE T.$dtId = 'ABC'
 #### Query the properties of a relationship
 
 Similarly to the way digital twins have properties described via DTDL, relationships can also have properties. 
-The Azure Digital Twins Query Store language allows filtering and projection of relationships, by assigning an alias to the relationship within the `JOIN` clause. 
+The Azure Digital Twins query language allows filtering and projection of relationships, by assigning an alias to the relationship within the `JOIN` clause. 
 
 As an example, consider a *servicedBy* relationship that has a *reportedCondition* property. In the below query, this relationship is given an alias of 'R' in order to reference its property.
 
@@ -174,7 +174,7 @@ There may be a delay of up to 10 seconds before changes in your instance are ref
 There are additional limitations on using `JOIN` during preview.
 * No subqueries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
-* During public preview, graph traversal depth is restricted: only one `JOIN` is allowed per query.
+* During preview, graph traversal depth is restricted to five `JOIN` levels per query.
 * The source for `JOIN` operations is restricted: query must declare the twins where the query begins.
 
 ## Query best practices

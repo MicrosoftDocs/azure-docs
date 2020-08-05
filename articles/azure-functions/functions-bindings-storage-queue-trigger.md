@@ -159,7 +159,7 @@ A Storage queue trigger is defined in *function.json* where *type* is set to `qu
 }
 ```
 
-The code *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage`, which allows you to read the queue message in your function.
+The code *_\_init_\_.py* declares a parameter as `func.QueueMessage`, which allows you to read the queue message in your function.
 
 ```python
 import logging
