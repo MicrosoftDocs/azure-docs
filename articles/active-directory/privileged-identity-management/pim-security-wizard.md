@@ -28,8 +28,8 @@ Before your organization starts using Privileged Identity Management, all role a
 The second step of the wizard gives you an opportunity to change administrator's role assignments.  
 
 > [!WARNING]
-> It is important that you have at least one Global administrator, and more than one Privileged Role Administrator with a work or school account (not a Microsoft account). If there is only one Privileged Role Administrator, the organization can't manage Privileged Identity Management if that account is deleted.
-> Also, keep role assignments permanent if a user has a Microsoft account (in other words, an account they use to sign in to Microsoft services like Skype and Outlook.com). If you plan to require multi-factor authentication for activation for that role, that user will be locked out.
+> It is important that you have at least one Global administrator, and more than one Privileged Role Administrator with a work or school account (not a Microsoft account). If there is only one Privileged Role Administrator, the organization couldn't manage Privileged Identity Management if that account were deleted.
+> Also, keep role assignments permanent if a user has a Microsoft account (in other words, an account they use to sign in to Microsoft services like Skype, or Outlook.com). If you plan to require multi-factor authentication to be activated in that role, the user will be locked out.
 
 ## Run the wizard
 
@@ -37,15 +37,15 @@ The second step of the wizard gives you an opportunity to change administrator's
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Select **Azure AD roles** and then select **Wizard**.
+1. Select **Azure AD roles** and then select **Discovery and insights (Preview)**.
 
-    ![Azure AD roles - Wizard page showing the 3 steps to run the wizard](./media/pim-security-wizard/wizard-start.png)
+    ![Azure AD roles - Wizard page showing the 3 steps to run the wizard](./media/pim-security-wizard/new-preview-link.png)
 
-1. Select **1 Discover privileged roles**.
+1. Select **Reduce global administrators**.
 
-1. Review the list of privileged roles to see which users are permanent or eligible.
+1. Review the list of Global Administrator role assignments.
 
-    ![Discover privileged roles - Role pane showing permanent and eligible members](./media/pim-security-wizard/discover-privileged-roles-users.png)
+    ![Discover privileged roles - Role pane showing permanent and eligible members](./media/pim-security-wizard/new-preview-page.png)
 
 1. Select **Next** to select the users or groups you want to make eligible.
 
