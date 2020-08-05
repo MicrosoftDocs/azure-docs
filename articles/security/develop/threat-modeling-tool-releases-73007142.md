@@ -19,7 +19,7 @@ Version 7.3.00714.2 of the Microsoft Threat Modeling Tool (TMT) was released on 
 - Supported Operating Systems
   - [Microsoft Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) or later
 - .NET Version Required
-  - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) or later
+  - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) or later
 - Additional Requirements
   - An Internet connection is required to receive updates to the tool as well as templates.
 
