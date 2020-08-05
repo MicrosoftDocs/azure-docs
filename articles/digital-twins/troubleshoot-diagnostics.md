@@ -24,7 +24,7 @@ Here is how to enable diagnostic settings for your Azure Digital Twins instance:
 
 2. Select **Diagnostic settings** from the menu, then **Add diagnostic setting**.
 
-    :::image type="content" source="media/troubleshoot-metrics/diagnostic-settings.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
+    :::image type="content" source="media/troubleshoot-metrics/troubleshoot-diagnostics.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
 
 3. On the page that follows, fill in the following values:
      * **Diagnostic setting name**: Give the diagnostic settings a name.

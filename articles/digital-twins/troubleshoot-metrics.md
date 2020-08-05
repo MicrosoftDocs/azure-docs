@@ -33,9 +33,14 @@ Metrics are enabled by default. You can view Azure Digital Twins metrics from th
 
     This page displays the metrics for your Azure Digital Twins instance. You can also create custom views of your metrics by selecting the ones you want to see from the list.
     
-3. You can choose to send your metrics data to an Event Hubs endpoint or an Azure Storage account by clicking **Diagnostics settings** from the menu, then **Add diagnostic setting**.
+3. You can choose to send your metrics data to an Event Hubs endpoint or an Azure Storage account by selecting **Diagnostics settings** from the menu, then **Add diagnostic setting**.
 
-    :::image type="content" source="media/troubleshoot-metrics/diagnostic-settings.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
+    :::image type="content" source="media/troubleshoot-metrics/troubleshoot-diagnostics.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
+
+    For more information about this process, see [*Troubleshooting: Set up diagnostics*](troubleshoot-diagnostics.md).
+
+4. You can choose to set up alerts for your metrics data by selecting **Alerts** from the menu, then **+ New alert rule**.
+    :::image type="content" source="media/troubleshoot-alerts/alertss.png" alt-text="Screenshot showing the Alerts page and button to add":::
 
     For more information about this process, see [*Troubleshooting: Set up diagnostics*](troubleshoot-diagnostics.md).
 

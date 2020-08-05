@@ -24,7 +24,7 @@ Here is how to enable alerts for your Azure Digital Twins instance:
 
 2. Select **Alerts** from the menu, then **+ New alert rule**.
 
-    :::image type="content" source="media/troubleshoot-metrics/alerts.png" alt-text="Screenshot showing the Alerts page and button to add":::
+    :::image type="content" source="media/troubleshoot-alerts/alerts.png" alt-text="Screenshot showing the Alerts page and button to add":::
 
 3. On the *Create alert rule* page that follows, follow the prompts to define conditions, actions to be triggered, and alert details. For descriptions of these fields and more alert details, see [*Overview of alerts in Microsoft Azure*](../azure-monitor/platform/alerts-overview.md).
 
