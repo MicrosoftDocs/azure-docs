@@ -86,7 +86,10 @@ Disable the offline data transfer mode only when the state is **Completed** or w
 
 ## Azure File Sync and pre-seeded files in the cloud
 
-If you have seeded files in an Azure file share by other means than DataBox - e.g. via AzCopy, RoboCopy from a cloud backup or any other method - then you should still follow the [Offline Data Transfer process](#process-for-offline-data-transfer) described in this article. You only need to disregard the process steps dealing with DataBox, since your Azure file share is already pre-seeded.
+If you have seeded files in an Azure file share by other means than DataBox - e.g. via AzCopy, RoboCopy from a cloud backup or any other method - then you should still follow the [Offline Data Transfer process](#process-for-offline-data-transfer) described in this article. You only need to disregard DataBox as the method your files move to the cloud. However, it is paramount to ensure you are still following the process of seeding the files into a *staging share* and not the final, Azure File Sync connected share.
+
+> [!WARNING]
+> **Follow the process of seeding files into a staging share and not the final**, Azure File Sync connected share. If you don't, file conflicts can occur (both file versions will be stored) as well as files deleted on the live server can come back, if they still exist in your older, seeded set of files. Additionally, folder changes will merge in with one another, making it very hard to separate the namespace after such a mistake.
 
 ## Next steps
 - [Plan for an Azure File Sync deployment](storage-sync-files-planning.md)
