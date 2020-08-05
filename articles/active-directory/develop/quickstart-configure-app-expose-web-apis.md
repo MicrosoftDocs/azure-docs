@@ -1,6 +1,7 @@
 ---
-title: Configure an app to expose web APIs - Microsoft identity platform | Azure
-description: Learn how to configure an application to expose a new permission/scope and role to make the application available to client applications.
+title: "Quickstart: Configure an app to expose a web API | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, you learn how to configure an application to expose a new permission/scope and role to make the application available to client applications.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,26 +10,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/14/2019
+ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an application developer, I need to know how to configure my application to expose new permissions (or scopes) and roles, to make my application available to client applications.
 ---
 
-# Quickstart: Configure an application to expose web APIs
+# Quickstart: Configure an application to expose a web API
 
 You can develop a web API and make it available to client applications by exposing [permissions/scopes](developer-glossary.md#scopes) and [roles](developer-glossary.md#roles). A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs.
 
-In this quickstart, you'll learn how to configure an application to expose a new scope to make it available to client applications.
+In this quickstart, you learn how to configure an application to expose a new scope to make it available to client applications.
 
 ## Prerequisites
 
-To get started, make sure you complete these prerequisites:
-
-* Learn about the supported [permissions and consent](v2-permissions-and-consent.md), which is important to understand when building applications that need to be used by other users or applications.
-* Have a tenant that has applications registered to it.
-  * If you don't have apps registered, [learn how to register applications with the Microsoft identity platform](quickstart-register-app.md).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Completion of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
 
 ## Sign in to the Azure portal and select the app
 
@@ -142,7 +140,7 @@ For example, if your web API's application ID URI is `https://contoso.com/api` a
 Now that you've exposed your web API by configuring its scopes, configure your client app's registration with permission to access those scopes.
 
 > [!div class="nextstepaction"]
-> [Configure an app registration for web API access **>**](quickstart-configure-app-access-web-apis.md)
+> [Configure an app registration for web API access](quickstart-configure-app-access-web-apis.md)
 
 <!-- REF LINKS -->
 [ms-graph-application]: /graph/api/resources/application
