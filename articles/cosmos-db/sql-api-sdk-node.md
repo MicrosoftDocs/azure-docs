@@ -54,7 +54,7 @@ ms.custom: devx-track-javascript
 * Fixes bug when user supplies partial retry options
 
 ### <a name="3.0.3"></a>3.0.3
-* Prevent Webpack from resolving modules called with require
+* Prevent webpack from resolving modules called with require
 
 ### <a name="3.0.2"></a>3.0.2
 * Fixes a long outstanding bug where RUs were always being reported as 0 for aggregate queries
@@ -180,7 +180,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 ```
 
 #### Improved browser experience
-While it was possible to use the v2 SDK in the browser it was not an ideal experience. You needed to polyfill several node.js built-in libraries and use a bundler like Webpack or Parcel. The v3 SDK makes the out of the box experience much better for browser users.
+While it was possible to use the v2 SDK in the browser it was not an ideal experience. You needed to polyfill several node.js built-in libraries and use a bundler like webpack or Parcel. The v3 SDK makes the out of the box experience much better for browser users.
 
 * Replace request internals with fetch (#245)
 * Remove usage of Buffer (#330)
