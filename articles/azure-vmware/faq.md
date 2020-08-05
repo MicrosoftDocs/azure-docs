@@ -82,11 +82,11 @@ The servers have 576 GB of RAM.
 
 **What is the storage capacity of each host?**
 
-Each ESXi host has two vSAN diskgroups with a capacity tier of 15.2 TB and a 3.2-TB NVMe cache tier (1.6 TB in each diskgroup).
+Each ESXi host has two vSAN diskgroups with a capacity tier of 15.2 TB and a 3.2 TB NVMe cache tier (1.6 TB in each diskgroup).
 
 **How much network bandwidth is available in each ESXi host?**
 
-Each ESXi host is AVS is configured with four 25-Gbps NICs, with two NICs provisioned for ESXi system traffic and two NICs provisioned for workload traffic. 
+Each ESXi host is AVS is configured with four 25 Gbps NICs, with two NICs provisioned for ESXi system traffic and two NICs provisioned for workload traffic. 
 
 **Is data stored on the vSAN datastores encrypted at rest?**
 
