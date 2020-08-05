@@ -75,7 +75,7 @@
       href: ./policy-samples.md
 - name: Concepts
   items:
-    - name: Key-value store
+    - name: Keys and values
       href: concept-key-value.md
     - name: Point-in-time snapshot
       href: concept-point-time-snapshot.md

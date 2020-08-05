@@ -76,7 +76,7 @@ Each GPU in NVv2 instances comes with a GRID license. This license gives you the
 
 ## Older generations of virtual machine sizes
 
-This section provides information on older generations of virtual machine sizes. These sizes are still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes for Linux virtual machines in Azure](linux/sizes.md) to choose the VM sizes that will best fit your need.  
+This section provides information on older generations of virtual machine sizes. These sizes are still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes for Linux virtual machines in Azure](./sizes.md) to choose the VM sizes that will best fit your need.  
 
 For more information on resizing a Linux VM, see [Resize a Linux VM](linux/change-vm-size.md).  
 

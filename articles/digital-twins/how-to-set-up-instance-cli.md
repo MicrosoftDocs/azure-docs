@@ -47,7 +47,7 @@ Use these values in the following command to create the instance:
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
-### Verify success
+### Verify success and collect important values
 
 If the instance was created successfully, the result in Cloud Shell looks something like this, outputting information about the resource you've created:
 
@@ -72,12 +72,16 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 The result of this command is outputted information about the role assignment that's been created.
 
-> [!TIP]
-> If you get a *400: BadRequest* error instead, run the following command to get the *ObjectID* for the user:
-> ```azurecli
-> az ad user show --id <Azure-AD-email-of-user-to-assign> --query objectId
-> ```
-> Then, repeat the role assignment command using the user's *Object ID* in place of their email.
+> [!NOTE]
+> If this command returns an error saying that the CLI **cannot find user or service principal in graph database**:
+>
+> Use the user's *Object ID* instead of their email. This may happen for users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account). 
+>
+> Use the [Azure portal page of Azure Active Directory users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select the user account and open its details. Copy the user's *ObjectID*:
+>
+> :::image type="content" source="media/includes/user-id.png" alt-text="View of user page in Azure portal highlighting the GUID in the 'Object ID' field" lightbox="media/includes/user-id.png":::
+>
+> Then, repeat the role assignment list command using the user's *Object ID* in place of the email.
 
 ### Verify success
 
@@ -118,7 +122,7 @@ Navigate to the *manifest.json* you just created and hit "Open."
 Next, run the following command to create an app registration (replacing placeholders as needed):
 
 ```azurecli
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
+az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
 ```
 
 Here is an excerpt of the output from this command, showing information about the registration you've created:

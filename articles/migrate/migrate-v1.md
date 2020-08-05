@@ -97,7 +97,7 @@ Readiness takes into account a number of VM properties, to identify whether  the
 --- | --- | ---
 **Boot type** | BIOS supported. UEFI not supported. | Conditionally ready if boot type is UEFI.
 **Cores** | Machines core <= the maximum number of cores (128) supported for an Azure VM.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores.<br/>If a comfort factor is specified in the assessment settings, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores, without applying the comfort factor. | Ready if less than or equal to limits.
-**Memory** | The machine memory size <= the maximum memory (3892 GB on Azure M series Standard_M128m&nbsp;<sup>2</sup>) for an Azure VM. [Learn more](../virtual-machines/windows/sizes.md).<br/><br/> If performance history is available, Azure Migrate considers the utilized memory.<br/><br/>If a comfort factor is specified, the utilized memory is multiplied by the comfort factor.<br/><br/> If there's no history the allocated  memory is used, without applying the comfort factor.<br/><br/> | Ready if within limits.
+**Memory** | The machine memory size <= the maximum memory (3892 GB on Azure M series Standard_M128m&nbsp;<sup>2</sup>) for an Azure VM. [Learn more](../virtual-machines/sizes.md).<br/><br/> If performance history is available, Azure Migrate considers the utilized memory.<br/><br/>If a comfort factor is specified, the utilized memory is multiplied by the comfort factor.<br/><br/> If there's no history the allocated  memory is used, without applying the comfort factor.<br/><br/> | Ready if within limits.
 **Storage disk** | Allocated size of a disk must be 4 TB (4096 GB) or less.<br/><br/> The number of disks attached to the machine must be 65 or less, including the OS disk. | Ready if within limits.
 **Networking** | A machine must have 32 or less NICs attached to it. | Ready if within limits.
 
@@ -259,7 +259,7 @@ For machines monitored by System Center Operations Manager 2012 R2 or later, the
     ```sh InstallDependencyAgent-Linux64.bin```
 
 - Learn more about the [Dependency agent support](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) for the Windows and Linux operating systems.
-- [Learn more](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) about how you can use scripts to install the Dependency agent.
+- [Learn more](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) about how you can use scripts to install the Dependency agent.
 
 >[!NOTE]
 > The Azure Monitor for VMs article referenced to provide an overview of the system prerequisites and methods to deploy the Dependency agent are also applicable to the Service Map solution.

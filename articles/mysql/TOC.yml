@@ -34,8 +34,6 @@
       href: connect-python.md
     - name: Node.js
       href: connect-nodejs.md
-    - name: Azure PowerShell
-      href: connect-powershell.md
     - name: Ruby
       href: connect-ruby.md
     - name: C++
@@ -193,7 +191,11 @@
     - name: Create users
       href: howto-create-users.md
     - name: Connection strings
-      href: howto-connection-string.md
+      items:
+      - name: Connect applications
+        href: howto-connection-string.md
+      - name: Azure PowerShell
+        href: howto-connection-string-powershell.md
     - name: Configure SSL
       href: howto-configure-ssl.md
     - name: Configure TLS

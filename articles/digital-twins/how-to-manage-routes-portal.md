@@ -111,7 +111,7 @@ On the *Create an Endpoint* page that opens up, you can create an endpoint of ty
 
 Then, create your endpoint by hitting _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-servicebus-type.png" alt-text="Screenshot of creating an endpoint of type Service Bus.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Screenshot of creating an endpoint of type Service Bus.":::
 
 You can verify that the endpoint is successfully created by checking the notification icon in the top Azure portal bar. 
 
