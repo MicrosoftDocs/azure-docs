@@ -4,7 +4,7 @@ description:  Learn how to configure and change the default indexing policy for 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/04/2020
 ms.author: tisande
 ---
 
@@ -15,7 +15,7 @@ In Azure Cosmos DB, every container has an indexing policy that dictates how the
 In some situations, you may want to override this automatic behavior to better suit your requirements. You can customize a container's indexing policy by setting its *indexing mode*, and include or exclude *property paths*.
 
 > [!NOTE]
-> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's SQL (Core) API.
+> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's SQL (Core) API. Learn about indexing in [Azure Cosmos DB's API for MongoDB](mongodb-indexing.md)
 
 ## Indexing mode
 
@@ -31,7 +31,7 @@ By default, indexing policy is set to `automatic`. It's achieved by setting the 
 
 ## <a id="include-exclude-paths"></a> Including and excluding property paths
 
-A custom indexing policy can specify property paths that are explicitly included or excluded from indexing. By optimizing the number of paths that are indexed, you can lower the amount of storage used by your container and improve the latency of write operations. These paths are defined following [the method described in the indexing overview section](index-overview.md#from-trees-to-property-paths) with the following additions:
+A custom indexing policy can specify property paths that are explicitly included or excluded from indexing. By optimizing the number of paths that are indexed, you can substantially reduce the latency and RU charge of write operations. These paths are defined following [the method described in the indexing overview section](index-overview.md#from-trees-to-property-paths) with the following additions:
 
 - a path leading to a scalar value (string or number) ends with `/?`
 - elements from an array are addressed together through the `/[]` notation (instead of `/0`, `/1` etc.)
@@ -124,7 +124,7 @@ When you define a spatial path in the indexing policy, you should define which i
 
 * LineString
 
-Azure Cosmos DB, by default, will not create any spatial indexes. If you would like to use spatial SQL built-in functions, you should create a spatial index on the required properties. See [this section](geospatial.md) for indexing policy examples for adding spatial indexes.
+Azure Cosmos DB, by default, will not create any spatial indexes. If you would like to use spatial SQL built-in functions, you should create a spatial index on the required properties. See [this section](sql-query-geospatial-index.md) for indexing policy examples for adding spatial indexes.
 
 ## Composite indexes
 
@@ -254,16 +254,23 @@ The following considerations are used when creating composite indexes to optimiz
 
 ## Modifying the indexing policy
 
-A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in place (so no additional storage space is consumed during the operation). The old policy's index is efficiently transformed to the new policy without affecting the write availability or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size.
+A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in-place (so no additional storage space is consumed during the operation). The old policy's index is efficiently transformed to the new policy without affecting the write availability, read availability, or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size.
 
 > [!NOTE]
-> While adding a range or spatial index, queries may not return all the matching results, and will do so without returning any errors. This means that query results may not be consistent until the index transformation is completed. It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
+> It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
 
-If the new indexing policy's mode is set to Consistent, no other indexing policy change can be applied while the index transformation is in progress. A running index transformation can be canceled by setting the indexing policy's mode to None (which will immediately drop the index).
+There is no impact to write availability during any index transformations. The index transformation uses your provisioned RUs but at a lower priority than your CRUD operations or queries.
+
+There is no impact to read availability when adding a new index. Queries will only utilize new indexes once the index transformation is complete. During the index transformation, the query engine will continue to use existing indexes, so you'll observe similar read performance during the indexing transformation to what you had observed before initiating the indexing change. When adding new indexes, there is also no risk of incomplete or inconsistent query results.
+
+When removing indexes and immediately running queries that filter on the dropped indexes, there is not a guarantee of consistent or complete query results. If you remove multiple indexes and do so in one single indexing policy change, the query engine guarantees consistent and complete results throughout the index transformation. However, if you remove indexes through multiple indexing policy changes, the query engine does not guarantee consistent or complete results until all index transformations complete. Most developers do not drop indexes and then immediately try to run queries that utilize these indexes so, in practice, this situation is unlikely.
+
+> [!NOTE]
+> Where possible, you should always try to group multiple indexing changes into one single indexing policy modification
 
 ## Indexing policies and TTL
 
-The [Time-to-Live (TTL) feature](time-to-live.md) requires indexing to be active on the container it is turned on. This means that:
+Using the [Time-to-Live (TTL) feature](time-to-live.md) requires indexing. This means that:
 
 - it is not possible to activate TTL on a container where the indexing mode is set to None,
 - it is not possible to set the indexing mode to None on a container where TTL is activated.
