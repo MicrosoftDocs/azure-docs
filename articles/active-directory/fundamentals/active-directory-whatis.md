@@ -2,7 +2,7 @@
 title: What is Azure Active Directory? - Azure Active Directory | Microsoft Docs
 description: Overview and conceptual information about Azure Active Directory, including terminology, what licenses are available, and a list of associated features with links for more information.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
