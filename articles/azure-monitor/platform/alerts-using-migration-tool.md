@@ -31,7 +31,7 @@ The migration process converts classic alert rules to new, equivalent alert rule
 
 - Both the notification payload format and the APIs to create and manage new alert rules are different from those of the classic alert rules because they support more features. [Learn how to prepare for the migration](alerts-prepare-migration.md).
 
-- Some classic alert rules cannot be migrated by using the tool. [Learn which rules cannot be migrated and what to do with them](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
+- Some classic alert rules cannot be migrated by using the tool. [Learn which rules cannot be migrated and what to do with them](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts).
 
     > [!NOTE]
     > The migration process won't impact the evaluation of your classic alert rules. They'll continue to run and send alerts until they're migrated and the new alert rules take effect.
