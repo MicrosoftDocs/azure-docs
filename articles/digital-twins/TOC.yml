@@ -70,8 +70,6 @@
       href: how-to-create-azure-function.md
     - name: Query the twin graph
       href: how-to-query-graph.md
-    - name: View metrics in Azure Monitor
-      href: how-to-view-metrics.md
   - name: Connect input
     items:
     - name: Ingest telemetry from IoT Hub
@@ -79,13 +77,19 @@
   - name: Connect output
     items:
     - name: Manage endpoints and routes
-      href: how-to-manage-routes.md
+      items: 
+      - name: APIs and CLI version
+        href: how-to-manage-routes-apis-cli.md
+      - name: Portal version
+        href: how-to-manage-routes-portal.md
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
     - name: Integrate with Azure Time Series Insights
       href: how-to-integrate-time-series-insights.md
   - name: Troubleshoot
     items:
+    - name: View metrics in Azure Monitor
+      href: troubleshoot-metrics.md
     - name: Enable diagnostics logs
       href: troubleshoot-diagnostics.md
     - name: Known issues
