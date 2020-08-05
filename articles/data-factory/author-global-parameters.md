@@ -7,7 +7,7 @@ ms.workload: data-services
 ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
-ms.date: 07/15/20
+ms.date: 08/05/20
 ---
 
 # Global parameters in Azure Data Factory
@@ -38,5 +38,54 @@ Global parameters can be used in any [pipeline expression](control-flow-expressi
 
 ## <a name="cicd"></a> Global parameters in CI/CD
 
+Global parameters have unique CI/CD process relative to other entities in Azure Data Factory. When you publish a factory or export an ARM template with global parameters, a folder called *globalParameters* is created with a file called *your-factory-name_GlobalParameters.json*. This file is a JSON object that contains each global parameter type and value in the published factory.
+
+![Publishing global parameters](media/author-global-parameters/global-parameters-adf-publish.png)
+
+If you are deploying to a new environment such as TEST or PROD, it is recommend to create a copy of this global parameters file and overwrite the appropriate environment-specific values. When you re-publish the original global parameters file will get overwritten, but the copy for the other environment will be untouched.
+
+For example, if you have a factory named 'ADF-DEV' and a global parameter of type string named 'environment' with a value 'dev', when you publish a file named *ADF-DEV_GlobalParameters.json* will get generated. If deploying to a test factory named 'ADF_TEST', create a copy of the JSON file (for example named ADF-TEST_GlobalParameters.json) and replace the parameter values with the region specific values. The parameter 'environment' may have a value 'test' now. 
+
+![Deploying global parameters](media/author-global-parameters/powershell-task.png)
+
+Use the below PowerShell script to promote global parameters to additional environments. Add an Azure PowerShell DevOps task before your ARM Template deployment. In the DevOps task, you must specify the location of the new parameters file, the target resource group, and the target data factory.
+
+> [!NOTE]
+> To deploy global parameters using PowerShell, you must use at least version 4.4.0 of the Az module.
+
+```powershell
+param
+(
+    [parameter(Mandatory = $true)] [String] $globalParametersFilePath,
+    [parameter(Mandatory = $true)] [String] $resourceGroupName,
+    [parameter(Mandatory = $true)] [String] $dataFactoryName
+)
+
+Import-Module Az.DataFactory
+
+$newGlobalParameters = New-Object 'system.collections.generic.dictionary[string,Microsoft.Azure.Management.DataFactory.Models.GlobalParameterSpecification]'
+
+Write-Host "Getting global parameters JSON from: " $globalParametersFilePath
+$globalParametersJson = Get-Content $globalParametersFilePath
+
+Write-Host "Parsing JSON..."
+$globalParametersObject = [Newtonsoft.Json.Linq.JObject]::Parse($globalParametersJson)
+
+foreach ($gp in $globalParametersObject.GetEnumerator()) {
+    Write-Host "Adding global parameter:" $gp.Key
+    $globalParameterValue = $gp.Value.ToObject([Microsoft.Azure.Management.DataFactory.Models.GlobalParameterSpecification])
+    $newGlobalParameters.Add($gp.Key, $globalParameterValue)
+}
+
+$dataFactory = Get-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Name $dataFactoryName
+$dataFactory.GlobalParameters = $newGlobalParameters
+
+Write-Host "Updating" $newGlobalParameters.Count "global parameters."
+
+Set-AzDataFactoryV2 -InputObject $dataFactory -Force
+```
 
 ## Next steps
+
+* Learn about Azure Data Factory's [continuous integration and deployment process](continuous-interation-deployment.md)
+* Learn how to use the [control flow expression language](control-flow-expression-language-functions.md)

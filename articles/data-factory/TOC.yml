@@ -209,14 +209,14 @@
     items:
     - name: Visually author data factories
       href: author-visually.md
+    - name: Iterative development and debugging
+      href: iterative-development-debugging.md
     - name: Management hub
       href: author-management-hub.md
     - name: Source control
       href: source-control.md
     - name: Continuous integration and delivery
       href: continuous-integration-deployment.md
-    - name: Iterative development and debugging
-      href: iterative-development-debugging.md
   - name: Connectors
     items:
     - name: Connector overview
@@ -562,6 +562,8 @@
     items:
     - name: Parameterizing linked services
       href: parameterize-linked-services.md
+    - name: Global parameters
+      href: author-global-parameters.md
     - name: Expression Language
       href: control-flow-expression-language-functions.md
     - name: System variables
