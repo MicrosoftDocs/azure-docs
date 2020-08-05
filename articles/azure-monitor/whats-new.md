@@ -78,7 +78,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [View Azure Activity log events in Azure Monitor](./platform/activity-log.md#view-the-activity-log)
 
 ### Virtual machines
-- [Enable Azure Monitor for VMs in the Azure portal](insights/vminsights-enable-single-vm.md) - Updated to include Azure Arc.
+- [Enable Azure Monitor for VMs in the Azure portal](./insights/vminsights-enable-portal.md) - Updated to include Azure Arc.
 - [Enable Azure Monitor for VMs overview](insights/vminsights-enable-overview.md) - Updated to include Azure Arc.
 - [What is Azure Monitor for VMs?](insights/vminsights-overview.md) - Updated to include Azure Arc.
 
@@ -287,7 +287,7 @@ General updates for general availability of Azure Monitor for VMs
 
 - [What is Azure Monitor for VMs?](insights/vminsights-overview.md)
 - [Azure Monitor for VMs (GA) frequently asked questions](insights/vminsights-ga-release-faq.md) 
-- [Enable Azure Monitor for VMs by using Azure Policy](insights/vminsights-enable-at-scale-policy.md) 
+- [Enable Azure Monitor for VMs by using Azure Policy](./insights/vminsights-enable-policy.md) 
 - [How to chart performance with Azure Monitor for VMs](insights/vminsights-performance.md)
 - [How to Query Logs from Azure Monitor for VMs](insights/vminsights-log-search.md)
 - [View app dependencies with Azure Monitor for VMs](insights/vminsights-maps.md) 
