@@ -50,33 +50,22 @@ To create or view a data export or to schedule an export, open the desired scope
 > - Besides subscriptions, you can create exports on resource groups, management groups, departments, and enrollments. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 >- When you're signed in as a partner at the billing account scope or on a customer's tenant, you can export data to an Azure Storage account that's linked to your partner storage account. However, you must have an active subscription in your CSP tenant.
 
-Select **Add**and type a name for the export. 
-
-For the **Metric**, make a selection:
-
-- **Actual cost (Usage and Purchases)** for standard usage and purchases
-- **Amortized cost (Usage and Purchases)** for amortized costs like Azure reservations
-
-For **Export type**, make a selection:
-
-- **Daily export of month-to-date costs** – Provides a new export file daily for your month-to-date costs. The latest data is aggregated from previous daily exports.
-- **Weekly export of cost for the last 7 days** – Creates a weekly export of your costs for the past seven days from the selected start date of your export.  
-- **Monthly export of last month's costs** – Provides you with an export of your last month's costs compared to the current month that you create the export. Moving forward, the schedule runs an export on the fifth day of every new month with your previous months costs.  
-- **One-time export** – Allows you to choose a date range for historical data to export to Azure blob storage. You can export a maximum of 90 days of historical costs from the day you choose. This export runs immediately and is available in your storage account within two hours.
-
-Depending on your export type, either choose a start date, or choose a **From** and **To** date.
-
-Specify the subscription for your Azure storage account, then select a resource group or create a new one. 
-
-Select the storage account name or create a new one. 
-
-Select the location (Azure region).
-
-Specify the storage container and the directory path that you'd like the export file to go to. 
-
-:::image type="content" source="./media/tutorial-export-acm-data/basics_exports.png" alt-text="New export example" lightbox="./media/tutorial-export-acm-data/basics_exports.png":::
-
-Review your export details and select **Create**.
+1. Select **Add** and type a name for the export. 
+1. For the **Metric**, make a selection:
+    - **Actual cost (Usage and Purchases)** - Select to export standard usage and purchases
+    - **Amortized cost (Usage and Purchases)** - Select to export amortized costs for purchases like Azure reservations
+1. For **Export type**, make a selection:
+    - **Daily export of month-to-date costs** – Provides a new export file daily for your month-to-date costs. The latest data is aggregated from previous daily exports.
+    - **Weekly export of cost for the last 7 days** – Creates a weekly export of your costs for the past seven days from the selected start date of your export.  
+    - **Monthly export of last month's costs** – Provides you with an export of your last month's costs compared to the current month that you create the export. Moving forward, the schedule runs an export on the fifth day of every new month with your previous months costs.  
+    - **One-time export** – Allows you to choose a date range for historical data to export to Azure blob storage. You can export a maximum of 90 days of historical costs from the day you choose. This export runs immediately and is available in your storage account within two hours.  
+        Depending on your export type, either choose a start date, or choose a **From** and **To** date.
+1. Specify the subscription for your Azure storage account, then select a resource group or create a new one. 
+1. Select the storage account name or create a new one. 
+1. Select the location (Azure region).
+1. Specify the storage container and the directory path that you'd like the export file to go to. 
+    :::image type="content" source="./media/tutorial-export-acm-data/basics_exports.png" alt-text="New export example" lightbox="./media/tutorial-export-acm-data/basics_exports.png":::
+1. Review your export details and select **Create**.
 
 Your new export appears in the list of exports. By default, new exports are enabled. If you want to disable or delete a scheduled export, select any item in the list and then select either **Disable** or **Delete**.
 
@@ -131,7 +120,9 @@ You can also download the exported CSV file in the Azure portal. The following s
 
 ## View export run history  
 
-You can view the run history of your scheduled export by selecting an individual export in the exports list page. The exports list page also provides you with quick access to view the run time of your previous exports and the next time and export will run.
+You can view the run history of your scheduled export by selecting an individual export in the exports list page. The exports list page also provides you with quick access to view the run time of your previous exports and the next time and export will run. Here's an example showing the run history.
+
+:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Example showing export run history":::
 
 ## Access exported data from other systems
 
