@@ -1,6 +1,6 @@
 ---
-title: 'Release notes: Azure Synapse Analytics (workspaces)'
-description: Release notes for Azure Synapse Analytics (workspaces) 
+title: 'Release notes: Azure Synapse Analytics (workspaces preview)'
+description: Release notes for Azure Synapse Analytics (workspaces preview) 
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -11,15 +11,13 @@ ms.author: jrasnick
 ms.reviewer: jrasnick
 ---
 
-# Azure Synapse Analytics (preview) release notes
+# Azure Synapse Analytics (workspaces preview) release notes
 
 This article describes limitations and issues with Azure Synapse Analytics (workspaces). For related information, see [What is Azure Synapse Analytics (workspaces)](overview-what-is.md)
 
 [!INCLUDE [preview](includes/note-preview.md)]
 
-## Azure Synapse (workspaces) 
-
-### Azure Synapse CLI
+## Azure CLI
 
 - Issue and customer impact: Workspaces created by SDK can't launch Synapse Studio
 
@@ -31,8 +29,6 @@ This article describes limitations and issues with Azure Synapse Analytics (work
 
 ## Next steps
 
-* [Create a workspace](quickstart-create-workspace.md)
-* [Use Synapse Studio](quickstart-synapse-studio.md)
-* [Create a SQL pool](quickstart-create-sql-pool-portal.md)
-* [Use SQL on-demand](quickstart-sql-on-demand.md)
-* [Create an Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)
+* [What is Azure Synapse](overview-what-is.md)
+* [Get Started](get-started.md)
+* [FAQ](overview-faq.md)
