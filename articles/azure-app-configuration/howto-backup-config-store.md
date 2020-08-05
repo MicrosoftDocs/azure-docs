@@ -121,7 +121,7 @@ In this article, you'll work with C# functions that have the following propertie
 - Azure Functions runtime version 3.x
 - Function triggered by timer every 10 minutes
 
-To make it easier for you to start backing up your data, we've tested and published [functions](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) that you can use without making any changes to the code. Download the project files and [publish them to your own Azure function app from Visual Studio](/azure/azure-functions/functions-develop-vs#publish-to-azure).
+To make it easier for you to start backing up your data, we've [tested and published a function](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup) that you can use without making any changes to the code. Download the project files and [publish them to your own Azure function app from Visual Studio](/azure/azure-functions/functions-develop-vs#publish-to-azure).
 
 > [!IMPORTANT]
 > Don't make any changes to the environment variables in the code you've downloaded. You'll create the required app settings in the next section.
