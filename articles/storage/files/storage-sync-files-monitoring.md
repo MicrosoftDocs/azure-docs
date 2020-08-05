@@ -4,7 +4,7 @@ description: How to monitor Azure File Sync.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/28/2019
+ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -69,8 +69,6 @@ The following table lists some example scenarios to monitor and the proper metri
 | Files are failing to sync to a server or cloud endpoint | Files not syncing |
 | Registered server is failing to communicate with the Storage Sync Service | Server online status |
 | Cloud tiering recall size has exceeded 500GiB in a day  | Cloud tiering recall size |
-
-To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ## Storage Sync Service
 
