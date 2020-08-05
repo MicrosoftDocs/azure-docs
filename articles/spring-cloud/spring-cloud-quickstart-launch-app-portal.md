@@ -1,6 +1,6 @@
 ---
-title: "Quickstart - Deploy your first Azure Spring Cloud application"
-description: In this quickstart, we deploy a Spring Cloud helloworld application to the Azure Spring Cloud.
+title: "Quickstart - Launch an existing Azure Spring Cloud application using the Azure portal"
+description: In this quickstart, deploy a Spring Cloud application to the Azure Spring Cloud using the Azure portal.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
@@ -9,19 +9,20 @@ ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Quickstart: Deploy your first Azure Spring Cloud application
+# Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal
 
-This quickstart shows you how to deploy an Spring Cloud helloworld application to Azure. Azure Spring Cloud enables you to easily run Spring Cloud based microservice applications on Azure. 
+This quickstart shows you how to deploy an existing Spring Cloud application to Azure. Azure Spring Cloud enables you to easily run Spring Cloud based microservice applications on Azure. 
 
 You can find the sample application code used in this tutorial in our [GitHub samples repository](https://github.com/Azure-Samples/PiggyMetrics). When you're finished, the provided sample application will be accessible online and ready to be managed via the Azure portal.
 
 Following this quickstart, you will learn how to:
 
 > [!div class="checklist"]
-> * Generate a basic Spring Cloud project
 > * Provision a service instance
-> * Build and deploy the app with public endpoint
-> * Streaming logs in real time
+> * Set a configuration server for an instance
+> * Build a microservices application locally
+> * Deploy each microservice
+> * Assign public endpoint for your application
 
 ## Prerequisites
 
@@ -38,18 +39,6 @@ To complete this quickstart:
 3. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
 4. [Install the Azure CLI version 2.0.67 or higher](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-
-## Generate a Spring Cloud helloworld project
-Add the following dependency to the application POM file.
-
-```xml
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-```
-
 
 ## Provision a service instance on the Azure portal
 
