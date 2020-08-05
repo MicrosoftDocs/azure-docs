@@ -1,6 +1,6 @@
 ---
 title: How to mount Azure Blob storage as a file system on Linux | Microsoft Docs
-description: Mount an Azure Blob storage container with FUSE on Linux
+description: Learn how to mount an Azure Blob storage container with blobfuse, a virtual file system driver on Linux.
 author: rishabpoh
 ms.service: storage
 ms.subservice: blobs
