@@ -41,7 +41,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 **Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup.
 
 > [!NOTE]
-> Update rollup 48 has a known issue with enabling replication for Linux machines encrypted using ADE. [Learn more](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the--root-disk-error-code-151137).
+> Update rollup 48 has a known issue with enabling replication for Linux machines encrypted using ADE. [Learn more](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137).
 
 ### Update rollup 47
 
