@@ -104,7 +104,7 @@ Before publishing the app, it's a good idea to make sure your dependencies are u
 
 In the *Solution Explorer* pane, expand *SampleFunctionsApp > Dependencies*. Right-select *Packages* and choose *Manage NuGet Packages...*.
 
-:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Manage NuGet Packages for the SampleFunctionsApp project":::
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Manage NuGet Packages for the SampleFunctionsApp project" border="false":::
 
 This will open the NuGet Package Manager. Select the *Updates* tab and if there are any packages to be updated, check the box to *Select all packages*. Then hit *Update*.
 
