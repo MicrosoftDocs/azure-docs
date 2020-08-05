@@ -2,7 +2,7 @@
 title: Sign up your organization - Azure Active Directory | Microsoft Docs
 description: Instructions about how to sign up your organization to use Azure and Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory

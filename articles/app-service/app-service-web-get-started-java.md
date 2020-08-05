@@ -45,13 +45,19 @@ cd helloworld
 
 ## Configure the Maven plugin
 
-The deploy process to Azure App Service can pickup your Azure credentials from the Azure CLI automatically. If you don't have Azure CLI installed, Maven plugin will sign you in with Oauth or device login. Check details on [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) if you need.
+The deploy process to Azure App Service can pick up your Azure credentials from the Azure CLI automatically. Maven plugin will sign you in with Oauth or device login if Azure CLI is not installed locally. Check details on [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) if you need.
 
-You can run the following maven command in the Command Prompt to configure the deployment, choose  **'2'** for the **windows** OS in the first step, then accept the default configurations by pressing **ENTER** until you get the **Confirm (Y/N)** prompt, then press **'y'** and the configuration is done. 
-
+You can run the maven command below to configure the deployment
 ```bash
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
+
+You will be asked to select 
+* **OS(Default: `linux`)**
+* **Java Version(Default: `1.8`)**
+* **Web Container(Default: `tomcat 8.5`)** 
+
+Be careful to input **`2`** to choose the **windows** OS at the first step. The other configurations can be left default by pressing **ENTER**. Finally press **`Y`** on **Confirm (Y/N)** prompt to complete configuration.
 
 A sample process looks like:
 
@@ -131,7 +137,7 @@ Confirm (Y/N)? :
 > [!NOTE]
 > In this article we are only working with Java apps packaged in WAR files. The plugin also supports JAR web applications, visit [Deploy a Java SE JAR file to App Service on Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to try it out.
 
-Open to `pom.xml` to see the updated configuration.
+Open `pom.xml` to see the updated configuration.
 
 ```bash
 code pom.xml
@@ -149,8 +155,11 @@ You can modify the configurations for App Service directly in your pom file if n
 `<runtime>` | true | The runtime environment configuration, you could see the detail [here](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 `<deployment>` | true | The deployment configuration, you could see the details [here](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 
+Be careful about the values of `<appName>` and `<resourceGroup>`(`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the demo), they will be used later.
+
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=app-service-web-get-started-java&step=config)
+
 
 ## Deploy the app
 
@@ -165,13 +174,14 @@ Then you can deploy your Java app to Azure using the following command:
 mvn package azure-webapp:deploy
 ```
 
-Once deployment has completed, browse to the deployed application using the following URL in your web browser, for example `http://<webapp>.azurewebsites.net/`.
+Once deployment has completed, your application will be ready at `http://<appName>.azurewebsites.net/`(`http://helloworld-1590394316693.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
 
 ![Sample app running in Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 **Congratulations!** You've deployed your first Java app to App Service on Windows.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
 
 ## Next steps
 > [!div class="nextstepaction"]

@@ -171,10 +171,14 @@
     - name: Monitor Azure virtual machines
       href: insights/monitor-vm-azure.md
       displayname: VM
+  - name: Deploy
+    items:
+    - name: Deploy
+      href: deploy.md
+    - name: Deploy at scale
+      href: deploy-scale.md
   - name: Manage and configure
     items:
-    - name: Deploy at scale
-      href: platform/deploy-scale.md
     - name: Roles permissions and security
       href: platform/roles-permissions-security.md
     - name: IP addresses
