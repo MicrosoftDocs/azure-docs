@@ -184,7 +184,7 @@ To prepare the deployment manifest:
 
 1. Save the changes.
 
-Optionally, you can replace the Yolov3 module with the hardware-optimized [OpenVINO&trade; Model Server – Edge AI Extension Module](https://github.com/openvinotoolkit/model_server/tree/ams/extras/ams_wrapper) from Intel. Replace the configuration settings for the `lvaYolov3` module with the following configuration:
+Optionally, you can replace the Yolov3 module with the hardware-optimized [OpenVINO&trade; Model Server – Edge AI Extension Module](https://github.com/openvinotoolkit/model_server/tree/ams/extras/ams_wrapper) from Intel. You can download a sample deployment manifest [deployment.openvino.amd64.json](https://raw.githubusercontent.com/Azure/live-video-analytics/master/ref-apps/lva-edge-iot-central-gateway/setup/deployment.openvino.amd64.json). This manifest replaces the configuration settings for the `lvaYolov3` module with the following configuration:
 
 ```json
 "OpenVINOModelServerEdgeAIExtensionModule": {

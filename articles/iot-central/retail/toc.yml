@@ -56,7 +56,7 @@
       href: store-analytics-architecture.md 
     - name: Micro-fulfillment center app template architecture
       href: architecture-micro-fulfillment-center.md
-    - name: object and motion detection video analytics architecture
+    - name: Video analytics app template architecture
       href: architecture-video-analytics.md
     - name: Connectivity
       href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
