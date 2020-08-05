@@ -5,7 +5,7 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: rohogue
+ms.author: v-erkel
 ---
 
 # Use Azure HPC Cache with Azure NetApp Files

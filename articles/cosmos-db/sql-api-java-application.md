@@ -8,8 +8,9 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
-
+ms.custom: devx-track-java
 ---
+
 # Tutorial: Build a Java web application using Azure Cosmos DB and the SQL API
 
 > [!div class="op_single_selector"]
@@ -85,7 +86,7 @@ To create the JSP application:
 
 1. If you set a target runtime in step 2, you can click **Project** and then **Run** to run your JSP application locally:
 
-  ![Hello World – Java Application Tutorial](./media/sql-api-java-application/image12.png)
+   :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Hello World – Java Application Tutorial":::
 
 ## <a id="InstallSDK"></a>Install the SQL Java SDK
 

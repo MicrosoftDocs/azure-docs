@@ -4,7 +4,7 @@ description: This article describes how to configure MariaDB server parameters i
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/11/2020
 ---
 

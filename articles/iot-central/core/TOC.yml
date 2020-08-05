@@ -10,6 +10,10 @@
     href: overview-iot-central-developer.md
   - name: Recent updates
     items:
+    - name: June 2020 new and updated features
+      href: https://azure.microsoft.com/en-us/updates/azure-iot-central-feature-updates-june-2020/
+    - name: June 2020 UI and documentation updates
+      href: https://azure.microsoft.com/en-us/updates/azure-iot-central-ui-documenation-updates-june-2020/
     - name: May 2020 jobs and metrics updates
       href: https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/
     - name: May 2020 dashboard updates
@@ -39,8 +43,6 @@
         href: tutorial-connect-device-nodejs.md
       - name: Connect a  device (Python)
         href: tutorial-connect-device-python.md
-      - name: Connect a Plug and Play (preview) device
-        href: tutorial-connect-pnp-device.md
       - name: Create a gateway device template
         href: tutorial-define-gateway-device-type.md
       - name: Connect an IoT Edge device
@@ -63,6 +65,8 @@
       href: concepts-app-templates.md
     - name: What are device templates?
       href: concepts-device-templates.md
+    - name: Message payloads
+      href: concepts-telemetry-properties-commands.md
     - name: Device connectivity
       href: concepts-get-connected.md
     - name: Connect IoT Edge devices
@@ -73,8 +77,6 @@
       items:
         - name: Set up a device template
           href: howto-set-up-template.md
-        - name: Prepare and connect an MXChip IoT DevKit
-          href: howto-connect-devkit.md
         - name: Prepare and connect an Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Prepare and connect a RuuviTag device
@@ -133,6 +135,8 @@
               href: howto-use-app-templates.md
             - name: Monitor application health
               href: howto-monitor-application-health.md
+            - name: About your application
+              href: howto-get-app-info.md
         - name: Manage from other places
           items:
             - name: Manage from the Azure portal

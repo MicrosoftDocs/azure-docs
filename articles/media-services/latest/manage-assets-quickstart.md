@@ -30,7 +30,7 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
 
         Currently, when using the Azure portal, you can do the following: generate a TTML and WebVTT closed caption files. Files in these formats can be used to make audio and video files accessible to people with hearing disability. You can also extract keywords from your content.
 
-        For a rich experience that enables you to extract insights from your video and audio files, use Media Services v3 presets (as described in [Tutorial: Analyze videos with Media Services v3](analyze-videos-tutorial-with-api.md)). <br/>If you want more detailed insights, use [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) directly.    
+        For a rich experience that enables you to extract insights from your video and audio files, use Media Services v3 presets (as described in [Tutorial: Analyze videos with Media Services v3](analyze-videos-tutorial-with-api.md)). <br/>If you want more detailed insights, use [Video Indexer](../video-indexer/index.yml) directly.    
 * Once your content is processed, you can deliver media content to client players. To make videos in the output asset available to clients for playback, you have to create a **streaming locator**. When creating the **streaming locator**, you need to specify a **streaming policy**. **Streaming policies** enable you to define streaming protocols and encryption options (if any) for your **streaming locators**.
     
     Review:
@@ -53,7 +53,7 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
 1. Locate and click on your Media Services account.
 1. Select **Assets (new)**.
 1. Press **Upload** in the top of the window. 
-1. Drag and drop or browse to a file tha you want to upload.
+1. Drag and drop or browse to a file that you want to upload.
 
 If you navigate to your assets window, you will see that a new asset was added to the list:
 

@@ -160,6 +160,10 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * Snowflake generated SCIM tokens expire in 6 months. Be aware that these need to be refreshed before they expire to allow the provisioning syncs to continue working. 
 
+## Change Log
+
+* 07/21/2020 - Enabled soft-delete for all users (via the active attribute).
+
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md).

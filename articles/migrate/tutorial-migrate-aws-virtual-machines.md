@@ -1,5 +1,5 @@
 ---
-title: Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
+title: Discover, assess, and migrate Amazon Web Services (AWS) EC2 VMs to Azure
 description: This article describes how to migrate AWS VMs to Azure with Azure Migrate.
 ms.topic: tutorial
 ms.date: 06/16/2020
@@ -34,8 +34,8 @@ Before you migrate to Azure, we recommend that you perform a VM discovery and mi
 
 Set up an assessment as follows:
 
-1. An assessment can be performed by treating your AWS VMs as physical machines for the purpose of conducting an assessment using the Azure Migrate: Server Assessment tool. Follow the [tutorial](https://docs.microsoft.com/azure/migrate/tutorial-prepare-physical) to set up Azure and prepare your AWS VMs for an assessment.
-2. Then, follow this [tutorial](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical) to set up an Azure Migrate project and appliance to discover and assess your AWS VMs.
+1. An assessment can be performed by treating your AWS VMs as physical machines for the purpose of conducting an assessment using the Azure Migrate: Server Assessment tool. Follow the [tutorial](./tutorial-prepare-physical.md) to set up Azure and prepare your AWS VMs for an assessment.
+2. Then, follow this [tutorial](./tutorial-assess-physical.md) to set up an Azure Migrate project and appliance to discover and assess your AWS VMs.
 
 Although we recommend that you try out an assessment, performing an assessment isn’t a mandatory step to be able to migrate VMs.
 
@@ -43,9 +43,9 @@ Although we recommend that you try out an assessment, performing an assessment i
 
 ## 1. Prerequisites for migration
 
-- Ensure that the AWS VMs you want to migrate are running a supported OS version. AWS VMs are treated like physical machines for the purpose of the migration. Review the [supported operating systems](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines) for the physical server migration workflow. We recommend you perform a test migration (test failover) to validate if the VM works as expected before proceeding with the actual migration.
-- Make sure your AWS VMs comply with the [supported configurations](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical-migration#physical-server-requirements) for migration to Azure.
-- Verify that the AWS VMs that you replicate to Azure comply with [Azure VM requirements.](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical-migration#azure-vm-requirements)
+- Ensure that the AWS VMs you want to migrate are running a supported OS version. AWS VMs are treated like physical machines for the purpose of the migration. Review the [supported operating systems](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for the physical server migration workflow. We recommend you perform a test migration (test failover) to validate if the VM works as expected before proceeding with the actual migration.
+- Make sure your AWS VMs comply with the [supported configurations](./migrate-support-matrix-physical-migration.md#physical-server-requirements) for migration to Azure.
+- Verify that the AWS VMs that you replicate to Azure comply with [Azure VM requirements.](./migrate-support-matrix-physical-migration.md#azure-vm-requirements)
 - There are some changes needed on the VMs before you migrate them to Azure.
     - For some operating systems, Azure Migrate makes these changes automatically.
     - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
@@ -72,9 +72,9 @@ Prepare Azure for migration with Azure Migrate: Server Migration tool.
 
 Assign the Virtual Machine Contributor role to the Azure account. This provides permissions to:
 
-    - Create a VM in the selected resource group.
-    - Create a VM in the selected virtual network.
-    - Write to an Azure managed disk. 
+- Create a VM in the selected resource group.
+- Create a VM in the selected virtual network.
+- Write to an Azure managed disk. 
 
 ### Create an Azure network
 
@@ -93,7 +93,7 @@ Azure Migrate: Server Migration uses a replication appliance to replicate machin
 
 Prepare for appliance deployment as follows:
 
-- Set up a separate EC2 VM to host the replication appliance. This instance must be running Windows Server 2012 R2 or Windows Server 2016. [Review](https://docs.microsoft.com/azure/migrate/migrate-replication-appliance#appliance-requirements) the hardware, software, and networking requirements for the appliance.
+- Set up a separate EC2 VM to host the replication appliance. This instance must be running Windows Server 2012 R2 or Windows Server 2016. [Review](./migrate-replication-appliance.md#appliance-requirements) the hardware, software, and networking requirements for the appliance.
 - The appliance shouldn't be installed on a source VM that you want to replicate. It should be deployed on a different VM.
 - The source AWS VMs to be migrated should have a network line of sight to the replication appliance. Configure necessary security group rules to enable this. It is recommended that the replication appliance is deployed in the same VPC as the source VMs to be migrated. If the replication appliance needs to be in a different VPC, the VPCs need to be connected through VPC peering.
 - The source AWS VMs communicate with the replication appliance on ports HTTPS 443 (control channel orchestration) and TCP 9443 (data transport) inbound for replication management and replication data transfer. The replication appliance in turn orchestrates and sends replication data to Azure over port HTTPS 443 outbound. To configure these rules, edit the security group inbound/outbound rules with the appropriate ports and source IP information.
@@ -167,7 +167,7 @@ The first step of migration is to set up the replication appliance. To set up th
     9.10 In **Summary**, select **Install**.   
     9.11 **Installation Progress** shows you information about the installation process. When it's finished, select **Finish**. A window displays a message about a reboot. Select **OK**.   
     9.12 Next, a window displays a message about the configuration server connection passphrase. Copy the passphrase to your clipboard and save the passphrase in a temporary text file on the source VMs. You’ll need this passphrase later, during the mobility service installation process.
-10. After the installation completes, the Appliance configuration wizard will be launched automatically (You can also launch the wizard manually by using the cspsconfigtool shortcut that is created on the desktop of the appliance). Use the Manage Accounts tab of the wizard to add account details to use for push installation of the Mobility service. In this tutorial, we'll be manually installing the Mobility Service on source VMs to be replicated, so create a dummy account in this step and proceed.
+10. After the installation completes, the Appliance configuration wizard will be launched automatically (You can also launch the wizard manually by using the cspsconfigtool shortcut that is created on the desktop of the appliance). Use the Manage Accounts tab of the wizard to add account details to use for push installation of the Mobility service. In this tutorial, we'll be manually installing the Mobility Service on source VMs to be replicated, so create a dummy account in this step and proceed. You can provide the following details for creating the dummy account - "guest" as the friendly name, "username" as the username, and "password" as the password for the account. You will be using this dummy account in the Enable Replication stage. 
 11. After the appliance has restarted after setup, in **Discover machines**, select the new appliance in **Select Configuration Server**, and click **Finalize registration**. Finalize registration performs a couple of final tasks to prepare the replication appliance.
 
     ![Finalize registration](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
@@ -178,7 +178,7 @@ A Mobility service agent must be installed on the source AWS VMs to be migrated.
 
 1. Sign in to the replication appliance.
 2. Navigate to **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository**.
-3. Find the installer for the source AWS VMs operating system and version. Review [supported operating systems](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines).
+3. Find the installer for the source AWS VMs operating system and version. Review [supported operating systems](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines).
 4. Copy the installer file to the source AWS VM you want to migrate.
 5. Make sure that you have the saved passphrase text file that was created when you installed the replication appliance.
     - If you forgot to save the passphrase, you can view the passphrase on the replication appliance with this step. From the command line, run **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** to view the current passphrase.
@@ -235,25 +235,24 @@ A Mobility service agent must be installed on the source AWS VMs to be migrated.
 
 2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up.
-4. In **Process Server**, select the name of the replication appliance.
-6. In **Guest credentials**, you specify a dummy account that will be used for installing the Mobility service manually (push install is not supported). Then click **Next: Virtual machines**.
-
+4. In **Process Server**, select the name of the replication appliance. 
+5. In **Guest credentials**, please select the dummy account created previously during the [replication installer setup](#download-the-replication-appliance-installer) to install the Mobility service manually (push install is not supported). Then click **Next: Virtual machines**.   
+ 
     ![Replicate VMs](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
-
-7. In **Virtual Machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
-8. Check each VM you want to migrate. Then click **Next: Target settings**.
+6. In **Virtual Machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
+7. Check each VM you want to migrate. Then click **Next: Target settings**.
 
     ![Select VMs](./media/tutorial-migrate-physical-virtual-machines/select-vms.png)
 
-9. In **Target settings**, select the subscription, and target region to which you'll migrate, and specify the resource group in which the Azure VMs will reside after migration.
-10. In **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
-11. In **Azure Hybrid Benefit**:
+8. In **Target settings**, select the subscription, and target region to which you'll migrate, and specify the resource group in which the Azure VMs will reside after migration.
+9. In **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
+10. In **Azure Hybrid Benefit**:
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
     ![Target settings](./media/tutorial-migrate-physical-virtual-machines/target-settings.png)
 
-12. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
+11. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
 
     - **VM size**: By default, Azure Migrate Server Migration picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
@@ -261,13 +260,13 @@ A Mobility service agent must be installed on the source AWS VMs to be migrated.
 
     ![Compute settings](./media/tutorial-migrate-physical-virtual-machines/compute-settings.png)
 
-13. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
+12. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, won't be present on the Azure VM after migration. 
 
     ![Disk settings](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
-14. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
+13. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 
 > [!NOTE]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
@@ -330,7 +329,7 @@ After you've verified that the test migration works as expected, you can migrate
     - Stops replication for the AWS VM.
     - Removes the AWS VM from the **Replicating servers** count in Azure Migrate: Server Migration.
     - Cleans up replication state information for the VM.
-2. Install the [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) agent on the migrated machines. Azure VM Windows agent is pre-installed during the migration process.
+2. Install the [Linux](../virtual-machines/extensions/agent-linux.md) agent on the migrated machines. Azure VM Windows agent is pre-installed during the migration process.
 3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 4. Perform final application and migration acceptance testing on the migrated application now running in Azure.
 5. Cut over traffic to the migrated Azure VM instance.
@@ -342,16 +341,16 @@ After you've verified that the test migration works as expected, you can migrate
     - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](../backup/quick-backup-vm-portal.md).
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
-    - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
-    - Restrict network traffic to management endpoints with [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview).
-    - Deploy [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) to help secure disks, and keep data safe from theft and unauthorized access.
+    - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../security-center/security-center-just-in-time.md).
+    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/security-overview.md).
+    - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
-    - Consider deploying [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) to monitor resource usage and spending.
+    - Consider deploying [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) to monitor resource usage and spending.
 
 ## Next steps
 
-Investigate the [cloud migration journey](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
+Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
 
 ## Troubleshooting / Tips
 

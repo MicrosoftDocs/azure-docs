@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 03/13/2020
+ms.date: 06/29/2020
 ms.author: pafarley
 
 ---
@@ -29,7 +29,7 @@ The Content Moderator Review tool is a web-based tool that allows human reviewer
 
 ## Create a review team
 
-Next, create a review team. In a working scenario, this will be the group of people who will manually review the service's moderation decisions. To create a team, you'll need to select a **Region**, and provide a **Team Name** and a **Team ID**. If you wish to invite colleagues to the team, you can do so by entering their email addresses here.
+Next, create a review team. In a working scenario, this will be the group of people who manually review the service's moderation decisions. To create a team, you'll need to select a **Region**, and provide a **Team Name** and a **Team ID**. If you wish to invite colleagues to the team, you can do so by entering their email addresses here.
 
 > [!NOTE]
 > **Team Name** is a friendly name for your review team. This is the name displayed in the Azure portal. The **Team ID** is what's used to identify your review team programatically.

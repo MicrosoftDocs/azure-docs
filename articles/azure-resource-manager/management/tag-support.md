@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 07/28/2020
 ---
 
 # Tag support for Azure resources
@@ -30,7 +30,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.AzureStackHCI](#microsoftazurestackhci)
-> - [Microsoft.AzureStackResourceMonitor](#microsoftazurestackresourcemonitor)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
@@ -50,6 +49,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft.ConnectedCache](#microsoftconnectedcache)
 > - [Microsoft.Consumption](#microsoftconsumption)
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
@@ -279,6 +279,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | attestationProviders | Yes | Yes |
+> | defaultProviders | No | No |
 
 ## Microsoft.Authorization
 
@@ -316,6 +317,10 @@ Jump to a resource provider namespace:
 > | automationAccounts / runbooks | Yes | Yes |
 > | automationAccounts / softwareUpdateConfigurations | No | No |
 > | automationAccounts / webhooks | No | No |
+
+>[!NOTE]
+>Azure Automation only supports creating a maximum of 15 tag name/value pairs for each Automation resource.
+> 
 
 ## Microsoft.AVS
 
@@ -365,6 +370,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | cloudManifestFiles | No | No |
+> | edgeSubscriptions | Yes | Yes |
 > | registrations | Yes | Yes |
 > | registrations / customerSubscriptions | No | No |
 > | registrations / products | No | No |
@@ -375,13 +381,6 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | clusters | Yes | Yes |
-
-## Microsoft.AzureStackResourceMonitor
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | storageAccountMonitor | Yes | Yes |
 
 ## Microsoft.Batch
 
@@ -443,8 +442,15 @@ Jump to a resource provider namespace:
 > | billingAccounts / customers / transactions | No | No |
 > | billingAccounts / customers / transfers | No | No |
 > | billingAccounts / departments | No | No |
+> | billingAccounts / departments / billingPermissions | No | No |
+> | billingAccounts / departments / billingRoleAssignments | No | No |
+> | billingAccounts / departments / billingRoleDefinitions | No | No |
 > | billingAccounts / enrollmentAccounts | No | No |
+> | billingAccounts / enrollmentAccounts / billingPermissions | No | No |
+> | billingAccounts / enrollmentAccounts / billingRoleAssignments | No | No |
+> | billingAccounts / enrollmentAccounts / billingRoleDefinitions | No | No |
 > | billingAccounts / invoices | No | No |
+> | billingAccounts / invoices / transactions | No | No |
 > | billingAccounts / invoiceSections | No | No |
 > | billingAccounts / invoiceSections / billingSubscriptionMoveOperations | No | No |
 > | billingAccounts / invoiceSections / billingSubscriptions | No | No |
@@ -718,7 +724,6 @@ Jump to a resource provider namespace:
 > | sharedVMImages / versions | No | No |
 > | snapshots | Yes | Yes |
 > | sshPublicKeys | Yes | Yes |
-> | swiftlets | Yes | Yes |
 > | virtualMachines | Yes | Yes |
 > | virtualMachines / extensions | Yes | Yes |
 > | virtualMachines / metricDefinitions | No | No |
@@ -732,6 +737,13 @@ Jump to a resource provider namespace:
 
 > [!NOTE]
 > You can't add a tag to a virtual machine that has been marked as generalized. You mark a virtual machine as generalized with [Set-AzVm -Generalized](/powershell/module/Az.Compute/Set-AzVM) or [az vm generalize](/cli/azure/vm#az-vm-generalize).
+
+## Microsoft.ConnectedCache
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | CacheNodes | Yes | Yes |
 
 ## Microsoft.Consumption
 
@@ -900,9 +912,7 @@ Jump to a resource provider namespace:
 > | datacatalogs / datasources | No | No |
 > | datacatalogs / datasources / scans | No | No |
 > | datacatalogs / datasources / scans / datasets | No | No |
-> | datacatalogs / datasources / scans / filters | No | No |
 > | datacatalogs / datasources / scans / triggers | No | No |
-> | datacatalogs / scanrulesets | No | No |
 
 ## Microsoft.DataFactory
 
@@ -950,6 +960,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | BackupVaults | Yes | Yes |
+> | ResourceOperationGateKeepers | Yes | Yes |
 
 ## Microsoft.DataShare
 
@@ -1414,7 +1425,7 @@ Jump to a resource provider namespace:
 > | hostingEnvironments | Yes | Yes |
 > | integrationAccounts | Yes | Yes |
 > | integrationServiceEnvironments | Yes | Yes |
-> | integrationServiceEnvironments / managedApis | Yes | Yes |
+> | integrationServiceEnvironments / managedApis | No | No |
 > | isolatedEnvironments | Yes | Yes |
 > | workflows | Yes | Yes |
 
@@ -1786,6 +1797,9 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
+> | privateLinkServicesForPowerBI | Yes | Yes |
+> | tenants | Yes | Yes |
+> | tenants / workspaces | No | No |
 > | workspaceCollections | Yes | Yes |
 
 ## Microsoft.PowerBIDedicated
@@ -1808,6 +1822,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | providerRegistrations | No | No |
+> | providerRegistrations / defaultRollouts | No | No |
 > | providerRegistrations / resourceTypeRegistrations | No | No |
 > | rollouts | Yes | Yes |
 
@@ -1933,6 +1948,8 @@ Jump to a resource provider namespace:
 > | iotSecuritySolutions / analyticsModels | No | No |
 > | iotSecuritySolutions / analyticsModels / aggregatedAlerts | No | No |
 > | iotSecuritySolutions / analyticsModels / aggregatedRecommendations | No | No |
+> | iotSecuritySolutions / iotAlerts | No | No |
+> | iotSecuritySolutions / iotAlertTypes | No | No |
 > | jitNetworkAccessPolicies | No | No |
 > | policies | No | No |
 > | pricings | No | No |
@@ -2104,7 +2121,7 @@ Jump to a resource provider namespace:
 <a id="sqlnote"></a>
 
 > [!NOTE]
-> The Master database doesn't support tags, but other databases, including Azure SQL Data Warehouse databases, support tags. Azure SQL Data Warehouse databases must be in Active (not Paused) state.
+> The Master database doesn't support tags, but other databases, including Azure Synapse Analytics databases, support tags. Azure Synapse Analytics databases must be in Active (not Paused) state.
 
 ## Microsoft.SqlVirtualMachine
 

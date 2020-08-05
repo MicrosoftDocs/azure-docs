@@ -18,8 +18,6 @@ ms.custom: mqtt
 
 In this tutorial, you create these .NET console apps:
 
-* **CreateDeviceIdentity**. This app creates a device identity and associated security key to connect your simulated device app.
-
 * **AddTagsAndQuery**. This back-end app adds tags and queries device twins.
 
 * **ReportConnectivity**. This device app simulates a device that connects to your IoT hub with the device identity created earlier, and reports its connectivity condition.

@@ -13,6 +13,7 @@
   - name: Create a profile and endpoint
     href: cdn-create-new-endpoint.md
   - name: Create profile and endpoint - ARM Template
+    displayName: Resource Manager
     href: create-profile-endpoint-template.md
 - name: Tutorials
   items:

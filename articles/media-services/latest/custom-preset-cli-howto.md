@@ -9,7 +9,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.custom: 
+ms.custom: devx-track-azurecli
 ms.date: 05/14/2019
 ms.author: juliako
 
@@ -28,7 +28,7 @@ When creating custom presets, the following considerations apply:
 
 ## Prerequisites
 
-[Create a Media Services account](create-account-cli-how-to.md).
+[Create a Media Services account](./create-account-howto.md).
 
 Make sure to remember the resource group name and the Media Services account name.
 

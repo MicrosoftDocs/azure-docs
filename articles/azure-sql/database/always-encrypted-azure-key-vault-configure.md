@@ -39,7 +39,7 @@ Follow the steps in this article and learn how to set up Always Encrypted for yo
 - [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 or later.
 - [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) or later (on the client computer).
 - [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-- [Azure PowerShell](/powershell/azure/overview) or [Azure CLI](/cli/azure/install-azure-cli)
+- [Azure PowerShell](/powershell/azure/) or [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Enable client application access
 
@@ -97,6 +97,8 @@ az keyvault create --name $vaultName --resource-group $resourceGroupName --locat
 az keyvault set-policy --name $vaultName --key-permissions create, get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --upn $userPrincipalName
 az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --spn $applicationId
 ```
+
+---
 
 ## Connect with SSMS
 
@@ -584,8 +586,9 @@ Then add the *Column Encryption Setting=enabled* parameter during your connectio
    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
    ```
 
-     You can now see the plaintext data in the encrypted columns.
-     ![New console application](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
+   You can now see the plaintext data in the encrypted columns.
+   
+   ![New console application](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
 
 ## Next steps
 

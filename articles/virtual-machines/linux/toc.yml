@@ -170,7 +170,7 @@
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Regions
-    href: regions.md
+    href: ../regions.md
   - name: Extensions
     items:
     - name: About Azure Extensions
@@ -182,7 +182,7 @@
   - name: Availability and performance
     items:
     - name: Availability
-      href: availability.md
+      href: ../availability.md
     - name: Co-location
       href: co-location.md
     - name: Network performance
@@ -290,7 +290,7 @@
       - name: Prepay for Dedicated Hosts
         href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: What are Azure reservations?
-        href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/linux/toc.json
       - name: VM instance size flexibility
         href: reserved-vm-instance-size-flexibility.md
     - name: Spot VMs
@@ -298,10 +298,12 @@
       displayName: pre-empt, preempt
     - name: Azure VMs with no temp disk
       href: ../azure-vms-no-temp-disk.md
+    - name: Azure VM sizes naming conventions
+      href: ../vm-naming-conventions.md
     - name: Previous generations
       href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Isolated sizes
-      href: isolation.md
+      href: ../isolation.md
     - name: Azure compute units (ACU)
       href: ../acu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: vCPU quotas
@@ -311,7 +313,7 @@
       - name: Prepay for VMs
         href: prepay-reserved-vm-instances.md
       - name: What are Azure reservations?
-        href: ../../billing/billing-save-compute-costs-reservations.md
+        href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
       - name: VM instance size flexibility
         href: reserved-vm-instance-size-flexibility.md
     - name: Benchmark scores
@@ -343,19 +345,24 @@
     - name: Shared disks
       href: disks-shared.md
     - name: Ephemeral OS disks
-      href: ephemeral-os-disks.md
+      href: ../ephemeral-os-disks.md
   - name: Networking
-    href: network-overview.md
+    href: ../network-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Scale sets
     href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Infrastructure automation
-    href: infrastructure-automation.md
+    href: ../infrastructure-automation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Security
     items:
     - name: Security and policy
       href: security-policy.md
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ../security-controls-policy.md
+    - name: Security baseline for Azure Security Benchmark
+      href: security-baseline.md
     - name: Built-in security controls
       href: virtual-machines-linux-security-controls.md
     - name: Bastion
@@ -365,11 +372,11 @@
   - name: Monitoring
     href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Backup and recovery
-    href: backup-recovery.md
+    href: ../backup-recovery.md
   - name: Cloud adoption framework
-    href: https://docs.microsoft.com/azure/cloud-adoption-framework/get-started/
+    href: /azure/cloud-adoption-framework/get-started/
   - name: Architecture center
-    href: https://docs.microsoft.com/azure/architecture/
+    href: /azure/architecture/
   - name: Infrastructure guidelines
     href: infrastructure-example.md
 - name: How-to guides
@@ -427,22 +434,24 @@
       items:
       - name: Generic steps
         href: create-upload-generic.md
-      - name: Ubuntu
-        href: create-upload-ubuntu.md
       - name: CentOS
         href: create-upload-centos.md
-      - name: Red Hat
-        href: redhat-create-upload-vhd.md
       - name: Debian
         href: debian-create-upload-vhd.md
-      - name: SUSE
-        href: suse-create-upload-vhd.md
+      - name: Flatcar Container Linux
+        href: flatcar-create-upload-vhd.md
+      - name: FreeBSD
+        href: freebsd-intro-on-azure.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
       - name: OpenBSD
         href: create-upload-openbsd.md
-      - name: FreeBSD
-        href: freebsd-intro-on-azure.md
+      - name: Red Hat
+        href: redhat-create-upload-vhd.md
+      - name: SUSE
+        href: suse-create-upload-vhd.md
+      - name: Ubuntu
+        href: create-upload-ubuntu.md
     - name: Use cloud-init
       items:
       - name: Cloud-init overview
@@ -477,6 +486,8 @@
           items:
           - name: From a VM
             href: ../image-version-vm-cli.md
+          - name: From a VHD or snapshot
+            href: ../image-version-snapshot-cli.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-cli.md 
           - name: Copy from another gallery
@@ -499,6 +510,8 @@
           items:
           - name: From a VM
             href: ../image-version-vm-powershell.md
+          - name: From a VHD or snapshot
+            href: ../image-version-snapshot-powershell.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-powershell.md 
           - name: Copy from another gallery
@@ -511,6 +524,8 @@
             href: ../vm-specialized-image-version-powershell.md
         - name: Update image resources
           href: ../update-image-resources-powershell.md
+        - name: App registration for sharing
+          href: ../windows/share-images-across-tenants.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Portal
         items:
         - name: Create a gallery, image and VM
@@ -545,6 +560,8 @@
         href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
     - name: Find and use images
       href: cli-ps-findimage.md
+    - name: Purchase plan information
+      href: ../marketplace-images.md
     - name: Capture VM to managed image
       href: capture-image.md
     - name: Build image with Packer
@@ -617,6 +634,8 @@
         href: mac-create-ssh-keys.md
       - name: On Windows
         href: ssh-from-windows.md
+      - name: In the portal
+        href: ../ssh-keys-portal.md
       - name: Detailed steps
         href: create-ssh-keys-detailed.md
   - name: Protect VMs
@@ -624,7 +643,7 @@
     - name: Disaster recovery
       href: ../virtual-machines-disaster-recovery-guidance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Back up VMs
-      href: ../../backup/backup-introduction-to-azure-backup.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../../backup/backup-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
       items:
       - name: Back up a single VM
         href: ../../backup/quick-backup-vm-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -686,7 +705,7 @@
       - name: Overview
         href: ../extensions/agent-linux.md
       - name: Agent update
-        href: update-agent.md
+        href: ../extensions/update-linux-agent.md
     - name: Mitigating speculative execution
       href: mitigate-se.md
     - name: Monitor metadata
@@ -718,7 +737,6 @@
     - name: Scheduled events
       href: scheduled-events.md
   - name: Monitor VMs
-    href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     items:
     - name: Agents
       items:
@@ -755,7 +773,7 @@
             href: ../../azure-monitor/platform/agent-data-sources.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           - name: Custom JSON data
             href: ../../azure-monitor/platform/data-sources-json.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-          - name: CollectD performance data
+          - name: collectd performance data
             href: ../../azure-monitor/platform/data-sources-collectd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           - name: Syslog
             href: ../../azure-monitor/platform/data-sources-syslog.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -812,7 +830,7 @@
   - name: Availability and scale
     items:
     - name: Autoscale
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
     - name: High availability
       href: manage-availability.md
     - name: Change availability set
@@ -857,7 +875,7 @@
   - name: Run containers
     items:
     - name: Create Docker host
-      href: dockerextension.md
+      href: https://github.com/Azure/azure-docker-extension/blob/master/README.md
     - name: Use Docker Machine
       href: docker-machine.md
     - name: Use Docker Compose
@@ -865,9 +883,9 @@
   - name: Run applications
     items:
     - name: Cloud Foundry
-      href: https://docs.microsoft.com/azure/cloudfoundry/
+      href: ../../cloudfoundry/index.yml
     - name: Cassandra
-      href: https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: /azure/architecture/reference-architectures/n-tier/n-tier-cassandra?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: OpenShift
       items:
       - name: OpenShift overview
@@ -905,7 +923,7 @@
       - name: MS SQL on Linux
         href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: High Performance Computing (HPC)
-      href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
+      href: /azure/architecture/topics/high-performance-computing/
     - name: IBM Db2 pureScale
       items:
       - name: Architecture
@@ -929,6 +947,10 @@
       href: disks-shared-enable.md
     - name: Upload a vhd to a disk - CLI
       href: disks-upload-vhd-to-managed-disk-cli.md
+    - name: Securely import/export a disk - CLI
+      href: disks-export-import-private-links-cli.md
+    - name: Securely import/export a disk - Portal
+      href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Resize a disk
       href: expand-disks.md
     - name: Use Storage Explorer to manage disks
@@ -943,6 +965,20 @@
       href: disks-incremental-snapshots-portal.md
     - name: Back up unmanaged disks
       href: incremental-snapshots.md
+    - name: Encryption
+      items:
+      - name: Enable encryption at host - CLI
+        href: disks-enable-host-based-encryption-cli.md
+      - name: Enable encryption at host - Portal
+        href: disks-enable-host-based-encryption-portal.md
+      - name: Enable customer-managed keys - CLI
+        href: disks-enable-customer-managed-keys-cli.md
+      - name: Enable customer-managed keys - Portal
+        href: disks-enable-customer-managed-keys-portal.md
+      - name: Enable double encryption at rest - CLI
+        href: disks-enable-double-encryption-at-rest-cli.md
+      - name: Enable double encryption at rest - Portal
+        href: disks-enable-double-encryption-at-rest-portal.md
     - name: Migration and conversion
       items:
       - name: Migrate to Premium storage with Azure Site Recovery
@@ -978,7 +1014,7 @@
   - name: Manage networking
     items:
     - name: Create virtual network
-      href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../../virtual-network/quick-create-cli.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
     - name: Open ports to a VM
       href: nsg-quickstart.md
     - name: Assign public IP address
@@ -999,18 +1035,18 @@
   - name: Configure managed identities
     items:
     - name: Portal
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: CLI
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: PowerShell
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Azure Resource Manager Template
       displayName: ARM
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: REST
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Azure SDKs
-      href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Use VM extensions
     items:
     - name: Restrict extension installation
@@ -1080,13 +1116,13 @@
       - name: Upload on-prem VM
         href: upload-vhd.md
       - name: Use Azure Site Recovery
-        href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        href: ../../site-recovery/migrate-overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/vm
   - name: PowerShell
-    href: /powershell/azureps-cmdlets-docs
+    href: /powershell/azure/
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.compute
   - name: Java
@@ -1103,10 +1139,10 @@
 - name: Resources
   items:
   - name: Q&A
-    href: https://docs.microsoft.com/answers/topics/azure-virtual-machines.html
+    href: /answers/topics/azure-virtual-machines.html
   - name: Author ARM templates
     displayName: Azure Resource Manager, ARM
-    href: /azure/azure-resource-manager/
+    href: ../../azure-resource-manager/index.yml
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap

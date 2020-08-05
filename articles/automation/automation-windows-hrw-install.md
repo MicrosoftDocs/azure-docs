@@ -22,19 +22,19 @@ The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspa
 
 If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/platform/design-logs-deployment.md) before you create the workspace.
 
-If you have a workspace, but it is not linked to your Automation account, enabling an Automation feature adds functionality for Azure Automation, including support for the Hybrid Runbook Worker. When you enable one of the Azure Automation features in your Log Analytics workspace, specifically [Update Management](automation-update-management.md) or [Change Tracking and Inventory](change-tracking.md), the worker components are automatically pushed to the agent machine.
+If you have a workspace, but it is not linked to your Automation account, enabling an Automation feature adds functionality for Azure Automation, including support for the Hybrid Runbook Worker. When you enable one of the Azure Automation features in your Log Analytics workspace, specifically [Update Management](update-management/update-mgmt-overview.md) or [Change Tracking and Inventory](change-tracking.md), the worker components are automatically pushed to the agent machine.
 
    To add the Update Management feature to your workspace, run the following PowerShell cmdlet:
 
-    ```powershell-interactive
-    Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "Updates" -Enabled $true
-    ```
+```powershell-interactive
+   Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "Updates" -Enabled $true
+```
 
    To add the Change Tracking and Inventory feature to your workspace, run the following PowerShell cmdlet:
 
-    ```powershell-interactive
-    Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "ChangeTracking" -Enabled $true
-    ```
+```powershell-interactive
+   Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <logAnalyticsWorkspaceName> -IntelligencePackName "ChangeTracking" -Enabled $true
+```
 
 ### Log Analytics agent
 
@@ -71,7 +71,7 @@ To get more networking requirements for the Hybrid Runbook Worker, see [Configur
 You can add the worker machine to a Hybrid Runbook Worker group in your Automation account. Note that you must support Automation runbooks as long as you're using the same account for both the Azure Automation feature and the Hybrid Runbook Worker group membership. This functionality has been added to version 7.2.12024.0 of the Hybrid Runbook Worker.
 
 >[!NOTE]
->Enabling Azure Automation [Update Management](automation-update-management.md) automatically configures any Windows machine that's connected to your Log Analytics workspace as a Hybrid Runbook Worker to support managing its operating system updates. However, this worker is not registered with any Hybrid Runbook Worker groups already defined in your Automation account.
+>Enabling Azure Automation [Update Management](update-management/update-mgmt-overview.md) automatically configures any Windows machine that's connected to your Log Analytics workspace as a Hybrid Runbook Worker to support managing its operating system updates. However, this worker is not registered with any Hybrid Runbook Worker groups already defined in your Automation account.
 
 ## Enabling machines for management with Azure Automation State Configuration
 
@@ -163,11 +163,11 @@ Heartbeat
 
 In the search results, you should see heartbeat records for the machine, indicating that it is connected and reporting to the service. By default, every agent forwards a heartbeat record to its assigned workspace. Use the following steps to complete the agent installation and setup.
 
-1. Enable the feature to add the agent machine. For Update Management and Azure VMs, see [Enable Azure VMs](automation-onboard-solutions-from-automation-account.md#enable-azure-vms), and for non-Azure VMs see [Enable machines in the workspace](automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace). For Change Tracking and Azure VMs, see [Enable Azure VMs](automation-enable-changes-from-auto-acct.md#enable-azure-vms), and for non-Azure VMs see [Enable machines in the workspace](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace).
+1. Enable the feature to add the agent machine. For Update Management and Azure VMs, see [Enable Update Management from an Automation account](update-management/update-mgmt-enable-automation-account.md), [Enable Update Management by browsing the Azure portal](update-management/update-mgmt-enable-portal.md), [Enable Update Management from a runbook](update-management/update-mgmt-enable-runbook.md), or [Enable Update Management from an Azure VM](update-management/update-mgmt-enable-vm.md). For Change Tracking and Azure VMs, see [Enable Azure VMs](automation-enable-changes-from-auto-acct.md#enable-azure-vms), and for non-Azure VMs see [Enable machines in the workspace](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace).
 
 2. To confirm the version of the Hybrid Runbook Worker, browse to `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` and note the **version** subfolder.
 
-### Step 3 - Install the runbook environment and connect to Azure Automation
+### Step 2 - Install the runbook environment and connect to Azure Automation
 
 When you configure an agent to report to a Log Analytics workspace, the Azure Automation feature pushes down the `HybridRegistration` PowerShell module, which contains the `Add-HybridRunbookWorker` cmdlet. Use this cmdlet to install the runbook environment on the machine and register it with Azure Automation.
 
@@ -196,13 +196,13 @@ You can get the information required for the parameters `Url` and `Key` from the
 
 * If required, set the `Verbose` parameter to receive details about the installation.
 
-### Step 4 -  Install PowerShell modules
+### Step 3 -  Install PowerShell modules
 
 Runbooks can use any of the activities and cmdlets defined in the modules installed in your Azure Automation environment. As these modules are not automatically deployed to on-premises machines, you must install them manually. The exception is the Azure module. This module is installed by default and provides access to cmdlets for all Azure services and activities for Azure Automation.
 
-Because the primary purpose of the Hybrid Runbook Worker is to manage local resources, you most likely need to install the modules that support these resources, particularly the `PowerShellGet` module. For information on installing Windows PowerShell modules, see [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell).
+Because the primary purpose of the Hybrid Runbook Worker is to manage local resources, you most likely need to install the modules that support these resources, particularly the `PowerShellGet` module. For information on installing Windows PowerShell modules, see [Windows PowerShell](/powershell/scripting/developer/windows-powershell).
 
-Modules that are installed must be in a location referenced by the `PSModulePath` environment variable so that the hybrid worker can automatically import them. For more information, see [Install Modules in PSModulePath](https://docs.microsoft.com/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
+Modules that are installed must be in a location referenced by the `PSModulePath` environment variable so that the hybrid worker can automatically import them. For more information, see [Install Modules in PSModulePath](/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
 
 ## <a name="remove-windows-hybrid-runbook-worker"></a>Remove the Hybrid Runbook Worker from an on-premises Windows machine
 

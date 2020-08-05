@@ -4,11 +4,9 @@ description: Configure API protocols exposed by Event Grid on IoT Edge.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
-ms.reviewer: 
-ms.date: 10/03/2019
+ms.reviewer: spelluru
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
 ---
 
 # Configure Event Grid API protocols
