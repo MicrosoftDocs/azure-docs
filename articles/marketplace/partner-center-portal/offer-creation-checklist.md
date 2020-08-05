@@ -74,9 +74,9 @@ The properties page is where you define the categories and industries used to gr
 The listing page is where you provide the text and images that customers see when viewing your offer's listing in the marketplace. 
 
 | **Field name**    | **Notes**   |
-| :---------------- | :-----------| 
+| :---------------- | :-----------|
 | Name  | Required, max 50 chars. |
-| Summary  | Required, max 100 chars. | 
+| Summary  | Required, max 100 chars. |
 | Description  | Required, max 3000 chars. |
 | Getting Started Instructions  | Required, max 3000 chars. |
 | Getting Started Instructions  | Required, max 3000 chars. |
@@ -86,7 +86,7 @@ The listing page is where you provide the text and images that customers see whe
 | Useful links Title + URL  | Optional. |
 | Supporting Documents Title + File  | Required, min 1 and max 3. Must be PDF file format. |
 | Screenshots  | Required, min 1 screenshot and max 5; four or more recommended. Must be 1280 X 720 in PNG format. |
-| Store logos (Small, Medium, Large, Wide)  | Small (48 X 48) and Large (216 X 216) required; other sizes optional but recommended: Medium (90 x 90), Wide (255 x 115). Must be in .PNG format. |
+| Store logos (Small, Medium, Large)  | The Large logo (216 x 216) is required. Partner Center will use this to create a Small (48 x 48 pixels) and a Medium (90 x 90 pixels) size logo. You can optionally replace these with different images. Logos must be in PNG format. |
 | Videos name + URL + thumbnail  | Optional, recommended, max 4 videos. Thumbnail must be 1280 x 720 in PNG format. Video must be hosted in YouTube or Vimeo. |
 | Contacts (CSP Program,  Engineering, Support)  | Engineering and Support contact required (Name, email, and phone number); CSP Program contact optional but recommended. |
 | Support URL  | Required. |
@@ -95,11 +95,11 @@ The listing page is where you provide the text and images that customers see whe
 
 The preview page is where you specify the audience to have access to your offer preview, to verify that the offer meets all your requirements before it goes live. 
 
-| **Field name**    | **Notes**   | 
-| :---------------- | :-----------| 
+| **Field name**    | **Notes**   |
+| :---------------- | :-----------|
 | AAD/MSA email + description | Required, min 1  and max 10 if entered manually, or up to 20 if uploading a CSV file. |
 
-## Technical configuration page 
+## Technical configuration page
 
 The technical configuration page is where you specify the technical details used by Microsoft to connect to your offer. This page is not visible to you if you decided not to sell through Microsoft.
 
