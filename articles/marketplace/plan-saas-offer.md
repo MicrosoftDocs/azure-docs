@@ -49,12 +49,12 @@ The _Get it now (Free)_, _Free trial_, and _Sell through Microsoft_ call-to-acti
 - Your SaaS application must be a multitenant solution.
 - You can enable both Microsoft Accounts (MSA) and [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for authenticating users.
 - You must create a landing page. After a user purchases your offer, they’re directed to the landing page to facilitate any additional provisioning or setup that’s required. For guidance on creating the landing page, see these articles:
-  - Build the landing page for your transactable SaaS offer in the commercial marketplace
-  - Build the landing page for your free or trial SaaS offer in the commercial marketplace
+  - [Build the landing page for your transactable SaaS offer in the commercial marketplace](azure-ad-transactable-saas-landing-page.md)
+  - [Build the landing page for your free or trial SaaS offer in the commercial marketplace](azure-ad-free-or-trial-landing-page.md)
 
 These technical requirements apply to the Sell through Microsoft call-to-action only:
 
-- Azure AD with single sign-on (SSO) identity management and authentication is required. For detailed guidance, see Azure Active Directory and transactable SaaS offers in the commercial marketplace.
+- Azure AD with single sign-on (SSO) identity management and authentication is required. For detailed guidance, see [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md).
 - You must use with the [SaaS Fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md) to integrate with the Azure Marketplace. You need to expose a service that can interact with the SaaS subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. Diagrams and detailed explanations describing the usage of the collected fields are available in documentation for the [APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md).
 
 ## Additional requirements for selling through Microsoft
@@ -94,18 +94,6 @@ You need to gather the following information that you’ll need for the Technica
 
   > [!NOTE]
   > If the publisher has two or more different accounts in Partner Center, two or more different Azure AD app IDs should be used, each for one of the accounts. Each partner account in Partner Center should use unique Azure AD app ID for all the SaaS offers that are published via this account.
-
-### Requirements for selling through Microsoft
-
-If you want to sell your SaaS offer through Microsoft, you must meet these additional requirements.
-
-|Requirement | Details |
-| ------------ | ------------- |
-| Billing and metering | Your offer is priced based on the pricing model you select before publishing: _flat rate_ or _per-user_. If you choose the flat rate model, you can optionally include additional dimensions used to charge customers for usage not included in the flat rate. We call this [metering](./partner-center-portal/saas-metered-billing.md). |
-| Cancellation | Your offer is cancelable by the customer at any time. |
-| Transaction landing page | You host an Azure co-branded transaction landing page where users can create and manage their SaaS service account. |
-| Subscription API  | You expose a service that can interact with the SaaS subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. |
-|||
 
 ### Test drives
 You can choose to enable a test drive for your SaaS app. Test drives give customers access to a preconfigured environment for a fixed number of hours. You can enable test drives for any publishing option, however this feature has additional requirements. To learn more about test drives, see [What is a test drive?](what-is-test-drive.md). For information about configuring different kinds of test drives, see [Test drive technical configuration](test-drive-technical-configuration.md).
@@ -215,7 +203,8 @@ You can send invites to Microsoft Account (MSA) or Azure Active Directory (AAD) 
 
 Offers sold through Microsoft (transactable offers) require at least one plan. A plan defines the solution scope and limits, and the associated pricing. You can create multiple plans for your offer to give your customers different technical and pricing options.
 
-If you choose to process transactions independently instead of creating a transactable offer, this tab is not visible. If so, skip this section and go to [Additional sales opportunities](#additional-sales-opportunities).
+> [!NOTE]
+> If you choose to process transactions independently instead of creating a transactable offer, this tab is not visible. If so, skip this section and go to [Additional sales opportunities](#additional-sales-opportunities).
 
 ***Figure 4: Example offer listing in the commercial marketplace showing three plans***
 

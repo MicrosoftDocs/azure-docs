@@ -19,7 +19,7 @@ As a commercial marketplace publisher, you can create a software as a service (S
 If you haven’t already done so, read [Plan a SaaS offer](plan-saas-offer.md). It will help you understand the technical requirements for your SaaS app, and the information and assets you’ll need when you create your offer.
 
 > [!IMPORTANT]
-> Unless you plan to publish a simple listing (**Contact me** call-to-action) in the commercial marketplace, your SaaS application must meet technical requirements around authentication. For detailed information, see [Plan a SaaS offer](plan-saas-offer.md) and Authenticating commercial marketplace SaaS transactions using Azure Active Directory.
+> Unless you plan to publish a simple listing (**Contact me** call-to-action) in the commercial marketplace, your SaaS application must meet technical requirements around authentication. For detailed information, see [Plan a SaaS offer](plan-saas-offer.md) and [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md).
 
 ## Create a new SaaS offer
 
@@ -95,6 +95,8 @@ On the **Properties** tab, you'll define the following:
 - Your app version. Customers will see this on the details page of the offer listing.
 - The legal contracts that support your offer.
 
+Be sure to provide complete and accurate details about your offer on this page, so that it's displayed appropriately and offered to the right set of customers.
+
 ### Select a category for your offer
 
 - Under **Category**, select at least one and up to two categories for grouping your offer into the appropriate marketplace search areas.
@@ -163,7 +165,7 @@ There are two kinds of amendments available: *universal* and *custom*.
 1. In the **Custom amendment terms** box, enter your amendment terms.
 1. In the **Tenant ID** box, enter a tenant ID.
    > [!TIP]
-   > A tenant ID identifies your customer in Azure. You can ask your customer for this ID and they can find it by going to [**https://portal.azure.com**](https://portal.azure.com) > ****Azure Active Directory** > **Properties**. The directory ID value is the tenant ID (for example, `50c464d3-4930-494c-963c-1e951d15360e`). You can also look up the organization's tenant ID of your customer by using their domain name URL at [What is my Microsoft Azure and Office 365 tenant ID?](https://www.whatismytenantid.com/).
+   > A tenant ID identifies your customer in Azure. You can ask your customer for this ID and they can find it by going to [**https://portal.azure.com**](https://portal.azure.com) > **Azure Active Directory** > **Properties**. The directory ID value is the tenant ID (for example, `50c464d3-4930-494c-963c-1e951d15360e`). You can also look up the organization's tenant ID of your customer by using their domain name URL at [What is my Microsoft Azure and Office 365 tenant ID?](https://www.whatismytenantid.com/).
 1. In the **Description** box, optionally enter a friendly description for the tenant ID. This description helps you identify the customer you're targeting with the amendment.
 1. To add another tenant ID, select the **Add a customer's tenant ID** link and repeat steps 3 and 4.
    > [!NOTE]
