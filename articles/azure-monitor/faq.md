@@ -687,7 +687,7 @@ If you have initiated onboarding and see messages indicating the VM needs to be 
 ### I don't see some or any data in the performance charts for my VM
 Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you will need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](insights/vminsights-ga-release-faq.md) for additional information.
 
-If you don't see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](./insights/vminsights-enable-powershell.md#enable-with-powershell).
+If you don't see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](./insights/vminsights-enable-powershell.md).
 
 
 ### How is Azure Monitor for VMs Map feature different from Service Map?
