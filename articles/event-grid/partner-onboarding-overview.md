@@ -86,7 +86,7 @@ The following resource model is for partner topics.
 ### Partner topic types
 * Resource: `partnerTopicTypes`
 * Used by: Customers
-* Description: Partner topic types are tenantwide resource types that enable customers to discover the list of approved partner topic types. The URL looks like https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
+* Description: Partner topic types are tenant-wide resource types that enable customers to discover the list of approved partner topic types. The URL looks like https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
 * Scope: Global
 
 ## Publish events to Event Grid
