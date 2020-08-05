@@ -50,9 +50,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create an account
-            url: create-account-cli-how-to.md          
+            url: ./create-account-howto.md
           - text: Access API
-            url: access-api-cli-how-to.md    
+            url: ./access-api-howto.md
       - linkListType: download
         links:
           - text: .NET SDK samples
