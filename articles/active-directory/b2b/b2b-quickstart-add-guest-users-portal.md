@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: quickstart
-ms.date: 01/23/2020
+ms.date: 08/05/2020
 
 ms.author: mimart
 author: msmimart
@@ -19,9 +19,9 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Add guest users to your directory in the Azure portal
 
-You can invite anyone to collaborate with your organization by adding them to your directory as a guest user. Then you can either send an invitation email that contains a redemption link or send a direct link to an app you want to share. Guest users can sign in with their own work, school, or social identities.
+You can invite anyone to collaborate with your organization by adding them to your directory as a guest user. Then you can either send an invitation email that contains a redemption link or send a direct link to an app you want to share. Guest users can sign in with their own work, school, or social identities. Along with this quickstart, you can learn more about adding guest users [in the Azure portal](add-users-administrator.md), via [PowerShell](b2b-quickstart-invite-powershell.md), or [in bulk](tutorial-bulk-invite.md).
 
-In this quickstart, you'll add a new guest user to Azure AD, send an invitation, and see what the guest user's invitation redemption process looks like.
+In this quickstart, you'll add a new guest user to your Azure AD directory via the Azure portal, send an invitation, and see what the guest user's invitation redemption process looks like.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
