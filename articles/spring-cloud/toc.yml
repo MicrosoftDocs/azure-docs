@@ -10,8 +10,8 @@
 - name: Quickstarts
   expanded: true 
   items:
-    - name: Launch a Spring Cloud app
-      href: spring-cloud-quickstart-launch-app-portal.md
+    - name: Launch your first app
+      href: spring-cloud-quickstart-java.md
     - name: Build Microservices
       expanded: true 
       items:
