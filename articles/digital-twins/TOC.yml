@@ -92,6 +92,8 @@
       href: troubleshoot-metrics.md
     - name: Enable diagnostics logs
       href: troubleshoot-diagnostics.md
+    - name: Understand log schemas
+      href: troubleshoot-log-schemas.md
     - name: Known issues
       href: troubleshoot-known-issues.md
     - name: Problem resolution
