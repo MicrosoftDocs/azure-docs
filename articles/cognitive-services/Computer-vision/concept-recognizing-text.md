@@ -28,7 +28,7 @@ The Read API provides OCR capabilities via two operations - Read and Get Read Re
 
 ### Input requirements
 
-The Read operation has an optional request parameter. This is the BCP-47 language code of the text in the document. Read supports auto language identification and multilingual documents, so only provide a language code if you would like to force the documented to be processed as that specific language.
+The [Read operation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) has an optional request parameter. This is the BCP-47 language code of the text in the document. Read supports auto language identification and multilingual documents, so only provide a language code if you would like to force the documented to be processed as that specific language.
 
 The input images and documents have the following requirements:
 * Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
@@ -39,7 +39,7 @@ The input images and documents have the following requirements:
 ![How OCR converts images and documents into structured output with extracted text](./Images/how-ocr-works.svg)
 
 ### The Read operation
-The [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and executes asynchronously. The call returns with a response header field called 'Operation-Location'. The 'Operation-Location' value is a URL that contains the Operation Id to be used in the next step.
+The [Read operation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and executes asynchronously. The call returns with a response header field called 'Operation-Location'. The 'Operation-Location' value is a URL that contains the Operation Id to be used in the next step.
 
 |Response header| Result URL |
 |:-----|:----:|
