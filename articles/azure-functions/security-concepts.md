@@ -68,6 +68,45 @@ The following table compares the uses for various kinds of access keys:
 
 To learn more about access keys, see the [HTTP trigger binding article](functions-bindings-http-webhook-trigger.md#obtaining-keys).
 
+
+#### Secret repositories
+
+By default, keys are stored in a blob container in the storage account provided by the `AzureWebJobsStorage` setting. You can override this behavior to instead store keys in one of:
+
+- A separate storage account
+- The file system
+- Azure Key Vault
+- Kubernetes Secrets
+
+For the Azure Storage and file system options, the keys are encrypted before being stored, using a secret unique to your function app.
+
+##### Store keys in a different storage account
+
+A different storage account may be used by setting the `AzureWebJobsSecretStorageSas` setting to a SAS URL.
+
+##### Store keys on the file system
+
+To persist keys on the file system, set the `AzureWebJobsSecretStorageType` setting to "files".
+
+##### Store keys in Azure Key Vault
+
+Key Vault may be used as a secret repository in a function app resource, another host that supports Azure Managed Identities, and during local development.
+
+To persist keys in Azure Key Vault, set the `AzureWebJobsSecretStorageType` setting to "keyvault". You will also need to specify the vault to be used by setting `AzureWebJobsSecretStorageKeyVaultName` to the name of the vault.
+
+The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. When running locally, the developer identity is used instead. The access policy should grant the identity the following secret permissions:
+
+ - Get
+ - Set
+ - List
+ - Delete
+
+##### Store keys in Kubernetes Secrets
+
+Kubernetes Secrets may be used as a secret repository only when running the Functions runtime within Kubernetes.
+
+To persist keys in Azure Key Vault, set the `AzureWebJobsSecretStorageType` setting to "kubernetes". Unless you provide the name of a Secret resource in `AzureWebJobsKubernetesSecretName`, the repository will be considered read-only, and the values will have to be generated in advance of the deployment. The Azure Functions Core Tools does this automatically when deploying to Kubernetes.
+
 ### Authentication/authorization
 
 While function keys can provide some mitigation for unwanted access, the only way to truly secure your function endpoints is by implementing positive authentication of clients accessing your functions. You can then make authorization decisions based on identity.  
