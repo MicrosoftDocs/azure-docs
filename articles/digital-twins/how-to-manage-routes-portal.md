@@ -38,13 +38,7 @@ You can find these details in the [Azure portal](https://portal.azure.com) after
 
 Select your instance from the results to see the details page for your instance:
 
-:::row:::
-    :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Screenshot of ADT instance details.":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Screenshot of ADT instance details." border="false":::
 
 ## Create an endpoint for Azure Digital Twins
 
@@ -175,11 +169,23 @@ You can either select from some basic common filter options, or use the advanced
 
 To use the basic filters, expand the _Event types_ option and select the checkboxes corresponding to the events you'd like to filter on. 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Screenshot of creating an event route with a basic filter. Selecting the checkboxes of the events." border="false":::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Screenshot of creating an event route with a basic filter. Selecting the checkboxes of the events.":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
 This will auto-populate the filter text box with the text of the filter you've selected:
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Screenshot of creating an event route with a basic filter. Showing the auto-populated filter text after selecting the events." border="false":::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Screenshot of creating an event route with a basic filter. Showing the auto-populated filter text after selecting the events.":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
 #### Use the advanced filters
 
@@ -187,7 +193,13 @@ Alternatively, you can use the advanced filter option to write your own custom f
 
 To create an event route with advanced filter options, toggle the switch for the _Advanced editor_ to enable it. You can then write your own event filters in the *Filter* box:
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Screenshot of creating an event route with an advanced filter." border="false":::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Screenshot of creating an event route with an advanced filter.":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
 Here are the supported route filters. The detail in the *Filter text schema* column is the text that can be entered into the filter box.
 
