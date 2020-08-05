@@ -45,13 +45,19 @@ cd helloworld
 
 ## Configure the Maven plugin
 
-The deploy process to Azure App Service can pickup your Azure credentials from the Azure CLI automatically. If you don't have Azure CLI installed, Maven plugin will sign you in with Oauth or device login. Check details on [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) if you need.
+The deploy process to Azure App Service can pick up your Azure credentials from the Azure CLI automatically. Maven plugin will sign you in with Oauth or device login if Azure CLI is not installed locally. Check details on [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) if you need.
 
-You can run the following maven command in the Command Prompt to configure the deployment, choose  **'2'** for the **windows** OS in the first step, then accept the default configurations by pressing **ENTER** until you get the **Confirm (Y/N)** prompt, then press **'y'** and the configuration is done. 
-
+You can run the maven command below to configure the deployment
 ```bash
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
+
+You will be asked to select 
+1. **OS(Default: `linux`)**
+2. **Java Version(Default: `1.8`)**
+3. **Web Container(Default: `tomcat 8.5`)** 
+
+Be careful to input **`2`** to choose the **windows** OS at the first step. The other configurations can be left default by pressing **ENTER**. Finally press **`Y`** on **Confirm (Y/N)** prompt to complete configuration.
 
 A sample process looks like:
 
@@ -174,15 +180,12 @@ Once deployment has completed, your application will be ready at `http://<appNam
 
 **Congratulations!** You've deployed your first Java app to App Service on Windows.
 
-## Clean up
-
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-e.g. delete the resource group named `helloworld-1590394316693-rg`
+e.g. delete the resource group named `helloworld-1590394316693-rg` in the demo.
 ```bash
 az group delete --name helloworld-1590394316693-rg
 ```
-in the demo.
 
 
 ## Next steps
