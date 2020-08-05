@@ -113,7 +113,7 @@ The [Read 3.0 API](https://westcentralus.dev.cognitive.microsoft.com/docs/servic
 
 [Read 3.1 API public preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) adds support for Simplified Chinese. If your scenario requires supporting more languages, see the OCR API section in this document. 
 
-Refer to the list of all [OCR supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
+Refer to the list of all [OCR supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr).
 
 #### Handwritten text languages
 Right now, the Read operation supports extracting handwritten text exclusively in English.
