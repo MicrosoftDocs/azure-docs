@@ -51,9 +51,9 @@ Metrics having to do with API requests:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| ApiRequests | API Requests (Preview) | Count | Total | The number of API Requests made for Digital Twins read, write, delete, and query operations. |  Authentication </br>Operation </br>Protocol </br>Status Code </br>Status Code Class </br>Status Text |
-| ApiRequestsLatency | API Requests Latency (Preview) | Milliseconds | Average | The response time for API requests. This refers to the time from when the request is received by Azure Digital Twins until the service sends a success/fail result for Digital Twins read, write, delete, and query operations. | Authentication </br>Operation </br>Protocol |
-| ApiRequestsFailureRate | API Requests Failure Rate (Preview) | Percent | Average | The percentage of API requests that the service receives for your instance that give an internal error (500) response code for Digital Twins read, write, delete, and query operations. | Authentication </br>Operation </br>Protocol </br>Status Code </br>Status Code Class </br>Status Text
+| ApiRequests | API Requests (Preview) | Count | Total | The number of API Requests made for Digital Twins read, write, delete, and query operations. |  Authentication, <br>Operation, <br>Protocol, <br>Status Code, <br>Status Code Class, <br>Status Text |
+| ApiRequestsLatency | API Requests Latency (Preview) | Milliseconds | Average | The response time for API requests. This refers to the time from when the request is received by Azure Digital Twins until the service sends a success/fail result for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol |
+| ApiRequestsFailureRate | API Requests Failure Rate (Preview) | Percent | Average | The percentage of API requests that the service receives for your instance that give an internal error (500) response code for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol, <br>Status Code, <br>Status Code Class, <br>Status Text
 
 #### Routing metrics
 
@@ -61,9 +61,19 @@ Metrics having to do with routing:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| Routing | Routing (Preview) | Count | Total | The number of messages routed to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation </br>Result |
-| RoutingLatency | Routing Latency (Preview) | Milliseconds | Average | Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to the endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation </br>Result |
-| RoutingFailureRate | Routing Failure Rate (Preview) | Percent | Average | The percentage of events that result in an error as they are routed from Azure Digital Twins to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation </br>Result |
+| Routing | Routing (Preview) | Count | Total | The number of messages routed to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation, <br>Result |
+| RoutingLatency | Routing Latency (Preview) | Milliseconds | Average | Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to the endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation, <br>Result |
+| RoutingFailureRate | Routing Failure Rate (Preview) | Percent | Average | The percentage of events that result in an error as they are routed from Azure Digital Twins to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation, <br>Result |
+
+#### Ingress metrics
+
+Metrics having to do with data ingress:
+
+| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
+| --- | --- | --- | --- | --- | --- |
+| IngressEvents | Ingress Events (Preview) | Count | Total | The number of incoming telemetry events into Azure Digital Twins. | Result |
+| IngressEventsLatency | Ingress Events Latency (Preview) | Milliseconds | Average | The time from when an event arrives to when it is ready to be egressed by Azure Digital Twins, at which point the service sends a success/fail result. | Result |
+| IngressEventsFailureRate | Ingress Events Failure Rate (Preview) | Percent | Average | The percentage of incoming telemetry events for which the service returns an internal error (500) response code. | Result |
 
 #### Billing metrics
 
@@ -85,10 +95,10 @@ Dimensions help identify more details about the metrics. Some of the routing met
 | Dimension | Values |
 | --- | --- |
 | Authentication | OAuth |
-| Operation (for API Requests) | Microsoft.DigitalTwins/digitaltwins/delete</br>Microsoft.DigitalTwins/digitaltwins/write</br>Microsoft.DigitalTwins/digitaltwins/read </br>Microsoft.DigitalTwins/eventroutes/read </br>Microsoft.DigitalTwins/eventroutes/write </br>Microsoft.DigitalTwins/eventroutes/delete </br>Microsoft.DigitalTwins/models/read </br>Microsoft.DigitalTwins/models/write </br>Microsoft.DigitalTwins/models/delete </br>Microsoft.DigitalTwins/query/action |
-Operation (for Routing) | Event Grid </br>Event Hub </br>Service Bus |
+| Operation (for API Requests) | Microsoft.DigitalTwins/digitaltwins/delete, <br>Microsoft.DigitalTwins/digitaltwins/write, <br>Microsoft.DigitalTwins/digitaltwins/read, <br>Microsoft.DigitalTwins/eventroutes/read, <br>Microsoft.DigitalTwins/eventroutes/write, <br>Microsoft.DigitalTwins/eventroutes/delete, <br>Microsoft.DigitalTwins/models/read, <br>Microsoft.DigitalTwins/models/write, <br>Microsoft.DigitalTwins/models/delete, <br>Microsoft.DigitalTwins/query/action |
+| Operation (for Routing) | Event Grid, <br>Event Hub, <br>Service Bus |
 | Protocol | HTTPS |
-| Result | Success </br>Failure |
+| Result | Success, <br>Failure |
 | Status Code | 200, 404, 500, and so on. |
 | Status Code Class | 2xx, 4xx, 5xx, and so on. |
 | Status Text | Internal Server Error, Not Found, and so on. |
@@ -103,4 +113,4 @@ Or, now that you’ve seen an overview of Azure Digital Twins metrics, follow th
 * [*How-to: Manage custom models*](how-to-manage-model.md)
 * [*How-to: Manage digital twins*](how-to-manage-twin.md)
 * [*How-to: Manage the twin graph with relationships*](how-to-manage-graph.md)
-* [*How-to: Manage endpoints and routes*](how-to-manage-routes.md)
+* [*How-to: Manage endpoints and routes*](how-to-manage-routes-apis-cli.md)

@@ -20,7 +20,6 @@ This page outlines the naming conventions used for Azure VMs. VMs use these nami
 
 |Value | Explanation|
 |---|---|
-| Standard, Basic, or Experimental | "Standard" is the default value assigned for all GA VM sizes | 
 | Family | Indicates the VM Family Series| 
 | *Sub-family | Used for specialized VM differentiations only|
 | # of vCPUs| Denotes the number of vCPUs of the VM |

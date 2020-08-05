@@ -2,7 +2,7 @@
 title: Assign Azure AD roles to users - Azure Active Directory | Microsoft Docs
 description: Instructions about how to assign administrator and non-administrator roles to users with Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
