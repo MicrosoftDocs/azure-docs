@@ -575,7 +575,7 @@ Assuming your protected settings are in the file ProtectedSettings.json and your
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
-The command assumes you are using the Azure Resource Management (ARM) mode of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. For more information, see the [cross-platform CLI documentation](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+The command assumes you are using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. For more information, see the [cross-platform CLI documentation](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 ### PowerShell
 
