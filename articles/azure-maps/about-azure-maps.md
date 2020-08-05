@@ -42,13 +42,13 @@ The following video explains Azure Maps in depth:
 
 The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery. You can use this interactive map for both your web or mobile applications. The map control makes use of WebGL, so you can render large data sets with high performance. You can develop with the SDK by using JavaScript or TypeScript.
 
-![Example map of population change created by using Azure Maps Web SDK](media/about-azure-maps/intro_web_map_control.png)
+:::image type="content" source="./media/about-azure-maps/intro_web_map_control.png" alt-text="Example map of population change created by using Azure Maps Web SDK":::
 
 ### Android SDK
 
 Use the Azure Maps Android SDK to create mobile mapping applications.
 
-![Map examples on a mobile device](media/about-azure-maps/android_sdk.png)
+:::image type="content" source="./media/about-azure-maps/android_sdk.png" border="false" alt-text="Map examples on a mobile device":::
 
 ## Services in Azure Maps
 
@@ -74,7 +74,7 @@ To learn more about the service, see the [Mobility service documentation](https:
 
 The [Render service V2](https://docs.microsoft.com/est/api/maps/renderv2) that is now in Preview introduces a new version of the [Get Map Tile V2 API](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). The Get Map Tile V2 API now allows customers to request Azure Maps road tiles, weather tiles, or the map tiles created using Azure Maps Creator. It's recommended that you use the new Get Map Tile V2 API.  
 
-![Example of a map from the Render service V2](media/about-azure-maps/intro_map.png)
+:::image type="content" source="./media/about-azure-maps/intro_map.png" border="false" alt-text="Example of a map from the Render service V2":::
 
 For more details, read the [Render service V2 documentation](https://docs.microsoft.com/rest/api/maps/renderv2).
 
@@ -84,7 +84,7 @@ To learn more about the Render service V1 that is in GA (General Availability), 
 
 The route services can be used to calculate the estimated arrival times (ETAs) for each requested route. Route APIs consider factors, such as real-time traffic information and historic traffic data, like the typical road speeds on the requested day of the week and time of day. The APIs return the shortest or fastest routes available to multiple destinations at a time in sequence or in optimized order, based on time or distance. The service allows developers to calculate directions across several travel modes, such as car, truck, bicycle, or walking, and electric vehicle. The service also considers inputs, such as departure time, weight restrictions, or hazardous material transport.
 
-![Example of a map from the Route service](media/about-azure-maps/intro_route.png)
+:::image type="content" source="./media/about-azure-maps/intro_route.png" border="false" alt-text="Example of a map from the Route service":::
 
 The Route service offers advanced set features, such as:
 
@@ -98,7 +98,7 @@ For details on the routing capabilities, read the [Route service documentation](
 
 The Search service helps developers search for addresses, places, business listings by name or category, and other geographic information. Also, services can [reverse geocode](https://en.wikipedia.org/wiki/Reverse_geocoding) addresses and cross streets based on latitudes and longitudes.
 
-![Example of a search on a map](media/about-azure-maps/intro_search.png)
+:::image type="content" source="./media/about-azure-maps/intro_search.png" border="false" alt-text="Example of a search on a map":::
 
 The Search service also provides advanced features such as:
 
@@ -200,7 +200,7 @@ Also, Azure Maps offers a convenient [JavaScript map control](https://docs.micro
 
 The Azure Maps visual for Power BI provides a rich set of data visualizations for spatial data on top of a map. It's estimated that over 80% of business data has a location context. The Azure Maps visual offers a no-code solution for gaining insights into how this location context relates to and influences your business data.
 
-![Power BI desktop with the Azure Maps visual displaying business data](media/power-bi-visual/azure-maps-visual-hero.png)
+:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Power BI desktop with the Azure Maps visual displaying business data":::
 
 For more information, see the Getting started with the [Azure Maps Power BI visual](power-bi-visual-getting-started.md) documentation.
 
