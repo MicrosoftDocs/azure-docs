@@ -277,12 +277,16 @@ This field is required.
 #### Files and Images
 
 - **Documents** (required) – Add related marketing documents for your offer, in PDF format, of at least one and up to three documents per offer.
-- **Images** (optional) – There are multiple places where your offer's logo images may appear throughout the marketplace(s), requiring the following pixel sizes in PNG format:
+- **Images** (required) – There are multiple places where your offer's logo images may appear throughout the marketplace(s). Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) and a **Medium** (90 x 90 pixels) size logo. You can optionally replace these with different images. Adding a **Wide** logo is optional.
 
-  - **Small** (48 x 48, required)
-  - **Medium** (90 x 90, required)
-  - **Large** (216 x 216, required)
-  - **Wide** (255 x 115)
+    Three logo sizes are required for use in different places in the listing; one is optional:
+
+    - **Small** (48 x 48)
+    - **Medium** (90 x 90)
+    - **Large** (between 216 x 216 and 350 x 350)
+    - **Wide** (255 x 115), *optional*
+
+    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 - **Screenshots** (required) – Add a maximum of five screenshots demonstrating your offer, sized at 1280 x 720 pixels. All images must be in .PNG format.
 - **Videos** (optional) – Add links to videos demonstrating your offer. You can use links to YouTube and/or Vimeo videos, which are shown along with your offer to customers. You will also need to enter a thumbnail image of the video, sized to 1280 x 720 pixels in PNG format. You can display a maximum of four videos per offer.
