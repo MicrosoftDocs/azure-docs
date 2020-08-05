@@ -29,15 +29,15 @@ The following table indicates when and how you register bindings.
 
 <sup>*</sup> Portal uses extension bundles.
 
-## <a name="extension-bundles"></a>Extension bundles for local development
+## <a name="extension-bundles"></a>Extension bundles
 
-Extension bundles is a deployment technology that lets you add a compatible set of Functions binding extensions to your function app. A predefined set of extensions are added when you build your app. Extension packages defined in a bundle are compatible with each other, which helps you avoid conflicts between packages. You enable extension bundles in the app's host.json file.  
+Extension bundles is a deployment technology that lets you add a compatible set of Functions binding extensions to your function app. A predefined set of extensions are added when you build your app. Extension packages defined in a bundle are compatible with each other, which helps you avoid conflicts between packages. Extension bundles allows you to avoid having to publish .NET project code with a non-.NET functions project. You enable extension bundles in the app's host.json file.  
 
 You can use extension bundles with version 2.x and later versions of the Functions runtime. When developing locally, make sure you are using the latest version of [Azure Functions Core Tools](functions-run-local.md#v2).
 
-Use extension bundles for local development using Azure Functions Core Tools, Visual Studio Code, and when you build remotely.
+Use extension bundles for local development using Azure Functions Core Tools, Visual Studio Code, and when you build remotely. The 
 
-If you don't use extension bundles, you must install the .NET Core 2.x SDK on your local computer before you [manually install any binding extensions](#manually-add-extensions). Extension bundles removes this requirement for local development. 
+If you don't use extension bundles, you must install the .NET Core 2.x SDK on your local computer before you [manually install any binding extensions](#manually-add-extensions). An exstensions.csproj file, which defines the required extensions, is added to your project. Extension bundles removes these requirements for local development. 
 
 To use extension bundles, update the *host.json* file to include the following entry for `extensionBundle`:
  
