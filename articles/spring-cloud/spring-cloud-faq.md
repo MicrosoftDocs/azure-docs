@@ -157,6 +157,21 @@ As you're migrating existing Spring Cloud microservices to Azure Spring Cloud, i
 
 After the migration, monitor your CPU/RAM metrics and network traffic to ensure that the application instances are scaled appropriately.
 
+## Trouble Shooting
+
+### Service registry unavailable rarely from the logs of users' applications
+
+In some rarely happened scenario, users may see some errors like 
+```
+RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available
+```
+from their logs of applications. This issue introduced by spring framework with very low rate due to network unstable or other network issues. 
+
+From customers' view there should be no impacts to user experience, eureka client has both heartbeat and retry policy to take care of this. Customers could consider it as one transient error and skip it safely.
+
+We will enhance this part and avoid this error from users’ applications in short future.
+
+
 ## Next steps
 
 If you have further questions, see the [Azure Spring Cloud troubleshooting guide](spring-cloud-troubleshoot.md).
