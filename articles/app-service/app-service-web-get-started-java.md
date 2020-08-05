@@ -182,11 +182,6 @@ Once deployment has completed, your application will be ready at `http://<appNam
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-e.g. delete the resource group named `helloworld-1590394316693-rg` in the demo.
-```azurecli
-az group delete --name helloworld-1590394316693-rg
-```
-
 
 ## Next steps
 > [!div class="nextstepaction"]
