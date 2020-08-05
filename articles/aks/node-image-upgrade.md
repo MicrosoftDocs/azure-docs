@@ -42,7 +42,7 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
+When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService

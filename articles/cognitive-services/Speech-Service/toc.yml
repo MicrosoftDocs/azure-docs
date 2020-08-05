@@ -494,10 +494,8 @@
       items:
         - name: Custom keyword overview
           href: custom-keyword-overview.md
-        - name: Custom keyword naming guidelines
-          href: speech-devices-sdk-kws-guidelines.md
-        - name: Custom keyword recognition
-          href: speech-devices-sdk-create-kws.md
+        - name: Custom keyword basics
+          href: custom-keyword-basics.md
 - name: Speaker Recognition
   items:
     - name: Overview
