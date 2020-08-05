@@ -26,11 +26,11 @@ Some customers have reported receiving the following error message when download
 The threat model file '$PATH\TMT7.application' could not be deserialized. File is not an actual threat model or the threat model may be corrupted.
 ```
 
-This error occurs because some browsers do not natively support ClickOnce installation. In those cases the ClickOnce .application file is downloaded to the user's hard drive.
+This error occurs because some browsers do not natively support ClickOnce installation. In those cases the ClickOnce application file is downloaded to the user's hard drive.
 
 #### Workaround
 
-This error will continue to appear if the Threat Modeling Tool is launched by double clicking on the TMT7.application file. However, after bypassing the error the tool will function normally. Rather then launching the Threat Modeling Tool by double clicking the TMT7.application file, users should utilize shortcuts created in the Windows Menu during the installation to start the Threat Modeling Tool.
+This error will continue to appear if the Threat Modeling Tool is launched by double-clicking on the TMT7.application file. However, after bypassing the error the tool will function normally. Rather than launching the Threat Modeling Tool by double-clicking the TMT7.application file, users should utilize shortcuts created in the Windows Menu during the installation to start the Threat Modeling Tool.
 
 ## System requirements
 
