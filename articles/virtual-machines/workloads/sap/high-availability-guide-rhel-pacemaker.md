@@ -126,7 +126,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    Replace the IP address and the hostname in the following commands.  
 
    >[!IMPORTANT]
-   > If using host names in the cluster configuration, it is vital to have reliable host name resolution. The cluster communication will fail, if the names are not available and that can lead to cluster fail-over delays.
+   > If using host names in the cluster configuration, it is vital to have reliable host name resolution. The cluster communication will fail, if the names are not available and that can lead to cluster failover delays.
    > The benefit of using /etc/hosts is that your cluster becomes independent of DNS, which could be a single point of failures too.  
 
    <pre><code>sudo vi /etc/hosts
