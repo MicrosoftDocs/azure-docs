@@ -871,8 +871,8 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |cpu_percent|Yes|CPU percent|Percent|Average|CPU percent|No Dimensions|
 |io_consumption_percent|Yes|IO percent|Percent|Average|IO percent|No Dimensions|
 |memory_percent|Yes|Memory percent|Percent|Average|Memory percent|No Dimensions|
-|network_bytes_egress|Yes|Network Out|Bytes|Total|Network Out across active connections|No Dimensions|
-|network_bytes_ingress|Yes|Network In|Bytes|Total|Network In across active connections|No Dimensions|
+|network_bytes_egress|Yes|Network Out|Bytes|Total|Network Out across active connections. NOTE: Currently not supported |No Dimensions|
+|network_bytes_ingress|Yes|Network In|Bytes|Total|Network In across active connections. NOTE: Currently not supported |No Dimensions|
 |pg_replica_log_delay_in_bytes|Yes|Max Lag Across Replicas|Bytes|Maximum|Lag in bytes of the most lagging replica|No Dimensions|
 |pg_replica_log_delay_in_seconds|Yes|Replica Lag|Seconds|Maximum|Replica lag in seconds|No Dimensions|
 |serverlog_storage_limit|Yes|Server Log storage limit|Bytes|Maximum|Server Log storage limit|No Dimensions|
@@ -891,8 +891,8 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |cpu_percent|Yes|CPU percent|Percent|Average|CPU percent|No Dimensions|
 |iops|Yes|IOPS|Count|Average|IO Operations per second|No Dimensions|
 |memory_percent|Yes|Memory percent|Percent|Average|Memory percent|No Dimensions|
-|network_bytes_egress|Yes|Network Out|Bytes|Total|Network Out across active connections|No Dimensions|
-|network_bytes_ingress|Yes|Network In|Bytes|Total|Network In across active connections|No Dimensions|
+|network_bytes_egress|Yes|Network Out|Bytes|Total|Network Out across active connections. NOTE: Currently not supported |No Dimensions|
+|network_bytes_ingress|Yes|Network In|Bytes|Total|Network In across active connections. NOTE: Currently not supported|No Dimensions|
 |storage_percent|Yes|Storage percent|Percent|Average|Storage percent|No Dimensions|
 |storage_used|Yes|Storage used|Bytes|Average|Storage used|No Dimensions|
 
@@ -908,8 +908,8 @@ For important additional information, see [Monitoring Agents Overview](agents-ov
 |iops|Yes|IOPS|Count|Average|IO Operations per second|No Dimensions|
 |maximum_used_transactionIDs|Yes|Maximum Used Transaction IDs|Count|Average|Maximum Used Transaction IDs|No Dimensions|
 |memory_percent|Yes|Memory percent|Percent|Average|Memory percent|No Dimensions|
-|network_bytes_egress|Yes|Network Out|Bytes|Total|Network Out across active connections|No Dimensions|
-|network_bytes_ingress|Yes|Network In|Bytes|Total|Network In across active connections|No Dimensions|
+|network_bytes_egress|Yes|Network Out|Bytes|Total|Network Out across active connections. NOTE: Currently not supported |No Dimensions|
+|network_bytes_ingress|Yes|Network In|Bytes|Total|Network In across active connections. NOTE: Currently not supported |No Dimensions|
 |storage_percent|Yes|Storage percent|Percent|Average|Storage percent|No Dimensions|
 |storage_used|Yes|Storage used|Bytes|Average|Storage used|No Dimensions|
 
