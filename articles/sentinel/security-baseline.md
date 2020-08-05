@@ -4,7 +4,7 @@ description: The Azure Sentinel security baseline provides procedural guidance a
 author: msmbaldwin
 ms.service: azure-sentinel
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -14,7 +14,7 @@ ms.custom: security-benchmark
 
 # Azure security baseline for Azure Sentinel
 
-This security baseline applies guidance from the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview) to Azure Sentinel. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Sentinel. **Controls** not applicable to Azure Sentinel have been excluded. To see how Azure Sentinel completely maps to the Azure Security Benchmark, see the [full Azure Sentinel security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+This security baseline applies guidance from the [Azure Security Benchmark](../security/benchmarks/overview.md) to Azure Sentinel. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Sentinel. **Controls** not applicable to Azure Sentinel have been excluded. To see how Azure Sentinel completely maps to the Azure Security Benchmark, see the [full Azure Sentinel security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
@@ -30,11 +30,11 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to your Azure Sentinel workspace. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
-- [How to enable auditing in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/resources)
+- [How to enable auditing in Azure Sentinel](resources.md)
 
-- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
 
-- [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -51,7 +51,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Guidance**: Audit logs of Azure Sentinel are maintained in Azure Activity Logs. You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform research and analytics on it.
 
-- [How to enable auditing in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/resources)
+- [How to enable auditing in Azure Sentinel](resources.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -64,7 +64,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Guidance**: Audit logs for Azure Sentinel are maintained in Azure Activity Logs. You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform research and analytics on it.
 
-- [How to enable auditing in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/resources)
+- [How to enable auditing in Azure Sentinel](resources.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -77,7 +77,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure Sentinel workspaces according to your organization's compliance regulations.
 
-- [How to set log retention parameters](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -90,7 +90,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Guidance**: Audit logs of Azure Sentinel are maintained in Azure Activity Logs. You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform searches and analytics on it. Analyze and monitor logs from your Azure Sentinel Activity Log instances for anomalous behavior. Use the "Logs" section in your Azure Sentinel workspace to perform queries or create alerts based on your Sentinel logs.
 
-- [How to enable auditing in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/resources)
+- [How to enable auditing in Azure Sentinel](resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -103,7 +103,7 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 **Guidance**: Audit logs of Azure Sentinel are maintained in Azure Activity Logs. You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform searches and analytics on it. Analyze and monitor logs from your Azure Sentinel Activity Log instances for anomalous behavior. Use the "Logs" section in your Azure Sentinel workspace to perform queries or create alerts based on your Sentinel logs.
 
-- [How to enable auditing in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/resources)
+- [How to enable auditing in Azure Sentinel](resources.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -122,11 +122,11 @@ This security baseline applies guidance from the [Azure Security Benchmark](http
 
 You can use the Identity and Access control (IAM) pane in the Azure portal for your subscription to configure role-based access control (RBAC). The roles are applied to users, groups, service principals, and managed identities in Active Directory.  Azure Sentinel also uses RBAC to provide built-in administrative roles, such as Azure Sentinel contributor, that can be assigned to users, groups, and services in Azure. 
 
-- [Understand custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+- [Understand custom roles](../role-based-access-control/custom-roles.md)
 
-- [Understand RBAC in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/roles)
+- [Understand RBAC in Azure Sentinel](roles.md)
 
-- [How to configure RBAC for workbooks](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+- [How to configure RBAC for workbooks](quickstart-get-visibility.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -156,9 +156,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 - Deprecated accounts with owner permissions should be removed from your subscription
 - External accounts with owner permissions should be removed from your subscription
 
-- [How to use Azure Security Center to monitor identity and access (Preview)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [How to use Azure Security Center to monitor identity and access (Preview)](../security-center/security-center-identity-access.md)
 
-- [How to use Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to use Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -171,9 +171,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Guidance**: Control plane access for your Azure Sentinel workspace (e.g. Azure Portal) is available via REST API and supports SSO. To authenticate, set the Authorization header for your requests to a JSON Web Token that you obtain from Azure Active Directory.
 
-- [Understand Azure Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics/)
+- [Understand Azure Log Analytics REST API](/rest/api/loganalytics/)
 
-- [Understand SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -186,9 +186,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management recommendations.
 
-- [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -201,9 +201,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 **Guidance**: Use a Privileged Access Workstation (PAW) with Azure Multi-Factor Authentication (MFA) enabled to log into and configure your Azure Sentinel-related resources. 
 
-- [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Planning a cloud-based Azure Multi-Factor Authentication deployment](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Planning a cloud-based Azure Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -218,9 +218,9 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 
 In addition, use Azure AD risk detections to view alerts and reports on risky user behavior.
 
-- [How to deploy Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [How to deploy Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Understand Azure AD risk detections](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Understand Azure AD risk detections](/azure/active-directory/reports-monitoring/concept-risk-events)
 
 **Azure Security Center monitoring**: Yes
 
@@ -233,7 +233,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.
 
-- [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [How to configure Named Locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -246,7 +246,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for your Azure Sentinel instances. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
-- [How to create and configure an AAD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [How to create and configure an AAD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -259,9 +259,9 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Azure Active Directory (AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access. 
 
-- [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
 
-- [How to use Azure Identity Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -278,9 +278,9 @@ You have access to Azure AD sign-in activity, audit and risk event log sources, 
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired log alerts within Log Analytics.
 
-- [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-- [How to on-board Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to on-board Azure Sentinel](quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -293,11 +293,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: For account login behavior deviation on the control plane (e.g. Azure portal), use Azure AD Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
-- [How to view Azure AD risky sign-in](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-in](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-- [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -310,7 +310,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Currently not available; Customer Lockbox is not yet supported for Azure Sentinel or Log Analytics workspace.
 
-- [List of Customer Lockbox-supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [List of Customer Lockbox-supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -327,7 +327,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -340,9 +340,9 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Implement separate subscriptions and/or management groups for development, test, and production Sentinel workspaces.
 
-- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -355,7 +355,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: If you are using an Azure or on-premises Virtual Machine as a Syslog forwarder, you will need to configure the Syslog daemon (rsyslog or syslog-ng) to communicate in TLS.
 
-- [Connect your external solution using Common Event Format](https://docs.microsoft.com/azure/sentinel/connect-common-event-format)
+- [Connect your external solution using Common Event Format](connect-common-event-format.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -370,7 +370,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -397,13 +397,13 @@ Log Analytics roles include Log Analytics contributor and Log Analytics reader. 
 
 Additionally, each workbook is an Azure resource like any other, and you can assign it roles (RBAC) to define and limit who can access. 
 
-- [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
 
-- [Understand custom roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+- [Understand custom roles](../role-based-access-control/custom-roles.md)
 
-- [Understand roles in Sentinel and Log Analytics](https://docs.microsoft.com/azure/sentinel/roles)
+- [Understand roles in Sentinel and Log Analytics](roles.md)
 
-- [How to configure RBAC for workbooks](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+- [How to configure RBAC for workbooks](quickstart-get-visibility.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -416,7 +416,7 @@ Additionally, each workbook is an Azure resource like any other, and you can ass
 
 **Guidance**: Configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created and owned by you. The Azure Sentinel solution uses several storage resources for log collection and features, including Log Analytics and others. As part of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related storage resources as well. Data saved in storage resources other than Log Analytics will also be encrypted.
 
-- [Understand customer-managed keys in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/customer-managed-keys)
+- [Understand customer-managed keys in Azure Sentinel](customer-managed-keys.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -429,7 +429,7 @@ Additionally, each workbook is an Azure resource like any other, and you can ass
 
 **Guidance**: Audit logs of Azure Sentinel are maintained in Azure Activity Logs. You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform research and analytics on it. In the "Logs" section in your Azure Sentinel workspace, you may create alerts for when changes take place to production Azure Sentinel workspaces as well as other critical or related resources.
 
-- [How to enable auditing in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/resources)
+- [How to enable auditing in Azure Sentinel](resources.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -448,11 +448,11 @@ Additionally, each workbook is an Azure resource like any other, and you can ass
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended that you create and use Azure Resource Manager resources going forward.
 
-- [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 - [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-- [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Understand Azure RBAC](../role-based-access-control/overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -465,7 +465,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -483,11 +483,11 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 - Not allowed resource types
 - Allowed resource types
 
-- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create.md)
 
-- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -502,9 +502,9 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 
 Use Azure Resource Graph to query/discover resources within their subscription(s).  Ensure that all Azure resources present in the environment are approved.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -520,9 +520,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 - Not allowed resource types
 - Allowed resource types
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -535,7 +535,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
-- [How to configure Conditional Access to block access to Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [How to configure Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -554,7 +554,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 - [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -567,9 +567,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Understand Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Understand Azure Policy Effects](../governance/policy/concepts/effects.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -597,7 +597,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.OperationalInsights" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -610,7 +610,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.OperationalInsights" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -623,7 +623,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Configure a customer-managed key (CMK) for Azure Sentinel. CMK enables all data saved or sent to Azure Sentinel to be encrypted in all relevant storage resources with an Azure Key Vault key created or owned by you. The Azure Sentinel solution uses a several storage resources for log collection and features, these include Log Analytics and other storage resources. As part of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related storage resources as well. Data saved in storage resources other than Log Analytics will also be encrypted.
 
-- [Understand customer-managed keys in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/customer-managed-keys)
+- [Understand customer-managed keys in Azure Sentinel](customer-managed-keys.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -681,7 +681,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: If you are using Key Vault to store your customer-managed keys, ensure regular automated backups of your keys.
 
-- [How to backup Key Vault Keys](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
+- [How to backup Key Vault Keys](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -713,7 +713,7 @@ If access is restored after revocation, Azure Sentinel will restore access to th
 
 - [How to enable Soft-Delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
-- [Understand customer-managed keys in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/customer-managed-keys)
+- [Understand customer-managed keys in Azure Sentinel](customer-managed-keys.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -730,7 +730,7 @@ If access is restored after revocation, Azure Sentinel will restore access to th
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
-- [How to configure Workflow Automations within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [How to configure Workflow Automations within Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
 - [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -775,7 +775,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party.  Review incidents after the fact to ensure that issues are resolved.
 
-- [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -788,9 +788,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts Sentinel.
 
-- [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [How to configure continuous export](../security-center/continuous-export.md)
 
-- [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [How to stream alerts into Azure Sentinel](connect-azure-security-center.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -803,7 +803,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
-- [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
 **Azure Security Center monitoring**: Not applicable
 
