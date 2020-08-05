@@ -1,6 +1,6 @@
 ---
 title: Geocoding coverage in Microsoft Azure Maps Search service
-description: See which geocoding level Azure Maps supports in which region. Levels include address points, house numbers, street level, city level, and points of interest.
+description: See which geocoding levels Azure Maps supports in which regions. Levels include address points, house numbers, street level, city level, and points of interest.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/28/2019
