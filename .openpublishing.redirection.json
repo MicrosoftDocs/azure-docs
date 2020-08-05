@@ -416,11 +416,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/security/fundamentals/ddos-protection-security-baseline.md",
-      "redirect_url": "/azure/security/fundamentals/ddos-best-practices",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/digital-twins/about-digital-twins.md",
       "redirect_url": "/azure/digital-twins/overview",
       "redirect_document_id": false
