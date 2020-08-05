@@ -2,7 +2,7 @@
 title: SQL Server to SQL Server on Azure VMs (Migration guide)
 description: Follow this guide to migrate your SQL Server databases to SQL Server on Azure Virtual Machines (VMs). 
 services: database-migration
-author: mark jones
+author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.service: dms
