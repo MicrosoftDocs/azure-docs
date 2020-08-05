@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/20/2020
+ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -116,8 +116,8 @@ Following the steps below will delete your existing customappsso job and create 
 12. Return to the first web browser window, and select the **Provisioning** tab for your application.
 13. Verify your configuration, and then start the provisioning job. 
 
-## Downgrading from the SCIM job to the customappsso job(not recommended)
- We allow you to downgrade back to the old behavior but don't recommend it as the customappsso does not benefit from some of the updates we make, and may not be supported for ever. 
+## Downgrading from the SCIM job to the customappsso job (not recommended)
+ We allow you to downgrade back to the old behavior but don't recommend it as the customappsso does not benefit from some of the updates we make, and may not be supported forever. 
 
 1. Sign into the Azure portal at https://portal.azure.com.
 2. in the **Azure Active Directory > Enterprise Applications > Create application** section of the Azure portal, create a new **Non-gallery** application.
