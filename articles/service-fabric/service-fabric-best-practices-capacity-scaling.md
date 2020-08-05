@@ -15,7 +15,7 @@ Before you create any Azure Service Fabric cluster or scale compute resources th
 In addition to considering node type and cluster characteristics, you should expect scaling operations to take longer than an hour to complete for a production environment. This consideration is true regardless of the number of VMs you're adding.
 
 ## Autoscaling
-You should perform scaling operations via Azure Resource Manager templates, because it's the best practice to treat [resource configurations as code]( ./service-fabric-best-practices-infrastructure-as-code.md). 
+You should perform scaling operations via Azure Resource Manager templates, because it's the best practice to treat [resource configurations as code](./service-fabric-best-practices-infrastructure-as-code.md). 
 
 Using automatic scaling through virtual machine scale sets will make your versioned Resource Manager template inaccurately define your instance counts for virtual machine scale sets. Inaccurate definition increases the risk that future deployments will cause unintended scaling operations. In general, you should use autoscaling if:
 
