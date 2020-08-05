@@ -53,9 +53,9 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
 
 You will be asked to select 
-1. **OS(Default: `linux`)**
-2. **Java Version(Default: `1.8`)**
-3. **Web Container(Default: `tomcat 8.5`)** 
+* **OS(Default: `linux`)**
+* **Java Version(Default: `1.8`)**
+* **Web Container(Default: `tomcat 8.5`)** 
 
 Be careful to input **`2`** to choose the **windows** OS at the first step. The other configurations can be left default by pressing **ENTER**. Finally press **`Y`** on **Confirm (Y/N)** prompt to complete configuration.
 
