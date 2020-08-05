@@ -18,14 +18,16 @@ When working with Virtual WAN virtual hub routing, there are quite a few availab
 
 ## <a name="design"></a>Design
 
-In order to figure out how many route tables will be needed, you can build a connectivity matrix, where each cell represents whether a source (row) can communicate to a destination (column). The connectivity matrix in this scenario is trivial, but be consistent with other scenarios, we can still look at it:
+In order to figure out how many route tables will be needed, you can build a connectivity matrix, where each cell represents whether a source (row) can communicate to a destination (column). The connectivity matrix in this scenario is trivial, but be consistent with other scenarios, we can still look at it.
+
+**Connectivity matrix**
 
 | From           | To:      | *VNets*      | *Branches*    | *Internet*   |
 |---             |---       |---           |---            |---           |
 | **VNets**      |   &#8594;|     X        |     AzFW      |     AzFW     |
 | **Branches**   |   &#8594;|    AzFW      |       X       |       X      |
 
-In the previous table, an "X" represents direct connectivity between two connections without the traffic traversing the Azure Firewall in Virtual WAN, and "AzFW" indicates that the flow will go through the Azure Firewall. Currently, Virtual WAN does not support sending traffic from branches to the Internet through Azure Firewall, so it is not covered in this scenario. Since there are two distinct connectivity patterns in the matrix, we will need two route tables that will be configured as follows:
+In the previous table, an "X" represents direct connectivity between two connections without the traffic traversing the Azure Firewall in Virtual WAN, and "AzFW" indicates that the flow will go through the Azure Firewall. Since there are two distinct connectivity patterns in the matrix, we will need two route tables that will be configured as follows:
 
 * Virtual networks:
   * Associated route table: **RT_VNet**
@@ -34,14 +36,8 @@ In the previous table, an "X" represents direct connectivity between two connect
   * Associated route table: **Default**
   * Propagating to route tables: **Default**
 
-In this example, VNets only learn other VNets, and branches only learn other branches, so they are two islands that we can interconnect through the Azure Firewall with static routes:
 
-| Description           | Route table | Static route                  |
-| --------------------- | ----------- | ----------------------------- |
-| Branches and Internet | RT_VNet     | 0.0.0.0/0 -> Azure Firewall   |
-| VNets                 | Default     | 10.1.0.0/16 -> Azure Firewall |
-
-The result is that the Firewall will sit between VNets and branches, and between VNets and the public Internet. For information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
+For information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
 ## <a name="workflow"></a>Workflow
 
