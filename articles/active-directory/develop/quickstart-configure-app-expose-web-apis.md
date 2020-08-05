@@ -91,6 +91,8 @@ To expose a new scope through the application manifest:
 
     The following example shows how to expose a new scope called `Employees.Read.All` in the resource/API by adding the following JSON element to the `oauth2Permissions` collection.
 
+    Generate the `id` value programmatically or by using a GUID generation tool like [guidgen](https://www.microsoft.com/download/details.aspx?id=55984).
+
       ```json
       {
         "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
@@ -104,13 +106,17 @@ To expose a new scope through the application manifest:
       }
       ```
 
-   > [!NOTE]
-   > The `id` value must be generated programmatically or by using a GUID generation tool such as [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). The `id` represents a unique identifier for the scope as exposed by the web API. Once a client is appropriately configured with permissions to access your web API, it is issued an OAuth 2.0 access token by Azure AD. When the client calls the web API, it presents the access token that has the scope (scp) claim set to the permissions requested in its application registration.
-   >
-   > You can expose additional scopes later as necessary. Consider that your web API might expose multiple scopes associated with a variety of different functions. Your resource can control access to the web API at runtime by evaluating the scope (`scp`) claim(s) in the received OAuth 2.0 access token.
-
 1. When finished, click **Save**. Now your web API is configured for use by other applications in your directory.
 1. Follow the steps to [verify that the web API is exposed to other applications](#verify-the-web-api-is-exposed-to-other-applications).
+
+### More on the application manifest
+
+The application manifest serves as a mechanism for updating the application entity, which defines all attributes of an Azure AD application's identity configuration. For more information on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). The article contains complete reference information on the Application entity members used to specify permissions for your API, including:
+
+* The appRoles member, which is a collection of [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entities, used to define [application permissions](developer-glossary.md#permissions) for a web API.
+* The oauth2Permissions member, which is a collection of [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entities, used to define [delegated permissions](developer-glossary.md#permissions) for a web API.
+
+For more information on application manifest concepts in general, see [Understanding the Azure Active Directory application manifest](reference-app-manifest.md).
 
 ## Verify the web API is exposed to other applications
 
@@ -122,14 +128,17 @@ To expose a new scope through the application manifest:
 
 Once you've selected the web API resource, you should see the new scope available for client permission requests.
 
-## More on the application manifest
+## Using the exposed scopes
 
-The application manifest serves as a mechanism for updating the application entity, which defines all attributes of an Azure AD application's identity configuration. For more information on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). The article contains complete reference information on the Application entity members used to specify permissions for your API, including:
+Once a client is appropriately configured with permissions to access your web API, it can be issued an OAuth 2.0 access token by Azure AD. When the client calls the web API, it presents the access token that has the scope (`scp`) claim set to the permissions requested in its application registration.
 
-* The appRoles member, which is a collection of [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entities, used to define [application permissions](developer-glossary.md#permissions) for a web API.
-* The oauth2Permissions member, which is a collection of [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entities, used to define [delegated permissions](developer-glossary.md#permissions) for a web API.
+You can expose additional scopes later as necessary. Consider that your web API might expose multiple scopes associated with a variety of different functions. Your resource can control access to the web API at runtime by evaluating the scope (`scp`) claim(s) in the received OAuth 2.0 access token.
 
-For more information on application manifest concepts in general, see [Understanding the Azure Active Directory application manifest](reference-app-manifest.md).
+In your applications, the full scope value is a concatenation of your web API's **Application ID URI** (the resource) and the **scope name**.
+
+For example, if your web API's application ID URI is `https://contoso.com/api` and your scope name is `Employees.Read.All`, the scope is:
+
+`https://contoso.com/api/Employees.Read.All`
 
 ## Next steps
 
