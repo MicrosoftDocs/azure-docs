@@ -1,5 +1,5 @@
 ---
-title: Assess and mitigate fairness issues in machine learning models (preview)
+title: Mitigate fairness in machine learning models (preview)
 titleSuffix: Azure Machine Learning
 description: Learn about fairness in machine learning models and how the Fairlearn Python package can help you build fairer models. 
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 07/09/2020
+ms.date: 08/05/2020
 #Customer intent: As a data scientist, I want to learn about assessing and mitigating fairness in machine learning models.
 ---
 
-# Build fairer machine learning models (preview)
+# Mitigate fairness in machine learning models (preview)
 
-Learn about fairness in machine learning and how the [Fairlearn](https://fairlearn.github.io/) open-source Python package can help you build models that are more fair. If you are not making an effort to understand fairness issues and to assess fairness when building machine learning models, you may build models that produce unfair results. 
+Learn about fairness in machine learning and how the [Fairlearn](https://fairlearn.github.io/) open-source Python package can help you mitigate fairness issues in machine learning models. If you are not making an effort to understand fairness issues and to assess fairness when building machine learning models, you may build models that produce unfair results.
 
 The following summary of the [user guide](https://fairlearn.github.io/user_guide/index.html) for the Fairlearn open-source package, describes how to use it to assess the fairness of the AI systems that you are building.  The Fairlearn open-source package can also offer options to help mitigate, or help to reduce, any fairness issues you observe.  See the [how-to](how-to-machine-learning-fairness-aml.md) and [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) to enable fairness assessment of AI systems during training on Azure Machine Learning.
 
@@ -34,7 +34,6 @@ Two common types of AI-caused harms are:
 
 To reduce unfair behavior in AI systems, you have to assess and mitigate these harms.
 
-
 ## Fairness assessment and mitigation with Fairlearn
 
 Fairlearn is an open-source Python package that allows machine learning systems developers to assess their systems' fairness and mitigate the observed fairness issues.
@@ -46,7 +45,8 @@ The Fairlearn open-source package has two components:
 
 Together, these components enable data scientists and business leaders to navigate any trade-offs between fairness and performance, and to select the mitigation strategy that best fits their needs.
 
-## Fairness assessment
+## Assess fairness in machine learning models
+
 In the Fairlearn open-source package, fairness is conceptualized though an approach known as **group fairness**, which asks: Which groups of individuals are at risk for experiencing harms? The relevant groups, also known as subpopulations, are defined through **sensitive features** or sensitive attributes. Sensitive features are passed to an estimator in the Fairlearn open-source package as a vector or a matrix called  `sensitive_features`. The term suggests that the system designer should be sensitive to these features when assessing group fairness. 
 
 Something to be mindful of is whether these features contain privacy implications due to private data. But the word "sensitive" doesn't imply that these features shouldn't be used to make predictions.
@@ -68,7 +68,7 @@ During assessment phase, fairness is quantified through disparity metrics. **Dis
 
 - Disparity in selection rate: This metric contains the difference in selection rate among different subgroups. An example of this is disparity in loan approval rate. Selection rate means the fraction of datapoints in each class classified as 1 (in binary classification) or distribution of prediction values (in regression).
 
-## Unfairness mitigation
+## Mitigate unfairness in machine learning models
 
 ### Parity constraints
 
