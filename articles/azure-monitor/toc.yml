@@ -173,7 +173,7 @@
       displayname: VM
   - name: Deploy
     items:
-    - name: Deploy
+    - name: Deploy Azure Monitor
       href: deploy.md
     - name: Deploy at scale
       href: deploy-scale.md

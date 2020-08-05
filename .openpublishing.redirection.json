@@ -23479,6 +23479,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/application-saml-sso-configure-api.md",
+      "redirect_url": "/graph/application-saml-sso-configure-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-reporting-activity-sign-ins-mfa.md",
       "redirect_url": "/azure/active-directory/authentication/howto-mfa-reporting",
       "redirect_document_id": false
