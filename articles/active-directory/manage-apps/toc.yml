@@ -108,8 +108,6 @@
         href: configure-password-single-sign-on-non-gallery-applications.md
       - name: Configure linked sign-on
         href: configure-linked-sign-on.md
-      - name: Automate SAML-based single sign-on using MS Graph APIs
-        href: application-saml-sso-configure-api.md
     - name: Assign users and manage access to apps
       items:
       - name: Configure user consent

@@ -46,7 +46,7 @@ Try to access the DNS server from the virtual machine. If the DNS server isn't a
 ### Issue 2: Site Recovery configuration failed (151196)
 
 > [!NOTE]
-> If the VMs are behind a **Standard** internal load balancer, by default, it wouldn't have access to the Office 365 IPs such as `login.microsoftonline.com`. Either change it to **Basic** internal load balancer type or create outbound access as mentioned in the article [Configure load balancing and outbound rules in Standard Load Balancer using Azure CLI](../load-balancer/configure-load-balancer-outbound-cli.md).
+> If the VMs are behind a **Standard** internal load balancer, by default, it wouldn't have access to the Office 365 IPs such as `login.microsoftonline.com`. Either change it to **Basic** internal load balancer type or create outbound access as mentioned in the article [Configure load balancing and outbound rules in Standard Load Balancer using Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
 
 #### Possible cause
 

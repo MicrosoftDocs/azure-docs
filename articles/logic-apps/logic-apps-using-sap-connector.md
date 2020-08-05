@@ -910,7 +910,7 @@ The following example is a data record with grouped segments. This includes a gr
 
 ```
 
-The recommended method is to create an IDoc identifier for use with tRFC. You can set this transaction identifier, `tid`, using the [Send IDoc operation](https://docs.microsoft.com/connectors/sap/#send-idoc) in the SAP connector API.
+The recommended method is to create an IDoc identifier for use with tRFC. You can set this transaction identifier, `tid`, using the [Send IDoc operation](/connectors/sap/#send-idoc) in the SAP connector API.
 
 The following example is an alternative method to set the transaction identifier, or `tid`. In this example, the last data record segment node and the IDoc data node are closed. Then, the GUID, `guid`, is used as the tRFC identifier to detect duplicates. 
 
