@@ -77,6 +77,8 @@ Some available options are:
   
 - File and folder data in your virtual network-enabled Data Lake Storage Gen1 account isn't accessible from the portal. This restriction includes access from a VM that’s within the virtual network and activities such as using Data Explorer. Account management activities continue to work. File and folder data in your virtual network-enabled Data Lake Storage account is accessible via all non-portal resources. These resources include SDK access, PowerShell scripts, and other Azure services when they don't originate from the portal. 
 
+- Data Lake Storage Gen1 virtual network integration does not support pairing virtual network in one region to Data Lake Storage Gen1 account in another region. The virtual network and Data Lake Storage Gen1 account should be in the same region.
+
 ## Configuration
 
 ### Step 1: Configure your virtual network to use an Azure AD service endpoint
