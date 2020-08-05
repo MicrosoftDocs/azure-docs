@@ -12,10 +12,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/23/2020
+ms.date: 08/05/2020
 ms.author: chmutali
 ---
-# Tutorial: Configure attribute write-back from Azure AD to SAP SuccessFactors (Preview)
+# Tutorial: Configure attribute write-back from Azure AD to SAP SuccessFactors
 The objective of this tutorial is to show the steps to write-back attributes from Azure AD to SAP SuccessFactors Employee Central. 
 
 ## Overview
