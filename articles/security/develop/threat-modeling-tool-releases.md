@@ -35,6 +35,8 @@ The Microsoft Threat Modeling Tool is currently released as a free [click-to-dow
 
 ## Release Notes
 
+- [Microsoft Threat Modeling Tool GA Release Version 7.3.00729.1](threat-modeling-tool-releases-73007291.md) - July 29 2020
+- [Microsoft Threat Modeling Tool GA Release Version 7.3.00714.2](threat-modeling-tool-releases-73007142.md) - July 14 2020
 - [Microsoft Threat Modeling Tool GA Release Version 7.3.00316.1](threat-modeling-tool-releases-73003161.md) - March 22 2020
 - [Microsoft Threat Modeling Tool GA Release Version 7.3.00206.1](threat-modeling-tool-releases-73002061.md) - February 11 2020
 - [Microsoft Threat Modeling Tool GA Release Version 7.1.61015.1](threat-modeling-tool-releases-71610151.md) - October 16 2019

@@ -84,6 +84,10 @@ Disable the offline data transfer mode only when the state is **Completed** or w
 > [!IMPORTANT]
 > After you disable the offline data transfer mode, you can't enable it again, even if the staging share from the bulk migration is still available.
 
+## Azure File Sync and pre-seeded files in the cloud
+
+If you have seeded files in an Azure file share by other means than DataBox - e.g. via AzCopy, RoboCopy from a cloud backup or any other method - then you should still follow the [Offline Data Transfer process](#process-for-offline-data-transfer) described in this article. You only need to disregard the process steps dealing with DataBox, since your Azure file share is already pre-seeded.
+
 ## Next steps
 - [Plan for an Azure File Sync deployment](storage-sync-files-planning.md)
 - [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)

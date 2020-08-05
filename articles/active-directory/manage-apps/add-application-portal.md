@@ -52,6 +52,9 @@ To add an application to your Azure AD tenant:
 
 You've finished adding an application. The next quickstart shows you how to change the logo and edit other properties for your application.
 
+> [!TIP]
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
 ## Clean up resources
 
 If you're not going to continue with the quickstart series then consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).

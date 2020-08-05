@@ -186,7 +186,7 @@ Each log alert rule created in Azure Monitor as part of its configuration must s
 
 ## Alert rule quota was reached
 
-The number of log search alert rules per subscription and resource are subject to the quota limits described [here](https://docs.microsoft.com/azure/azure-monitor/service-limits).
+The number of log search alert rules per subscription and resource are subject to the quota limits described [here](../service-limits.md).
 
 ### Recommended Steps
     
@@ -197,7 +197,7 @@ If you have reached the quota limit, the following steps may help resolve the is
 
     - Subscription Id(s) for which the quota limit need to be increased
     - Reason for quota increase
-    - Resource type for the quota increase: **Log Analytics**, **Application Insights** ect.
+    - Resource type for the quota increase: **Log Analytics**, **Application Insights**, etc.
     - Requested quota limit
 
 
@@ -222,4 +222,3 @@ If you have reached the quota limit, the following steps may help resolve the is
 - Learn about [log alerts in Azure](./alerts-unified-log.md).
 - Learn more about [Application Insights](../log-query/log-query-overview.md).
 - Learn more about [log queries](../log-query/log-query-overview.md).
-
