@@ -4,7 +4,7 @@ description: The Machine Learning Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: machine-learning
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -14,7 +14,7 @@ ms.custom: security-benchmark
 
 # Azure security baseline for Machine Learning Service
 
-The Azure Security Baseline for the Machine Learning Service contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+The Azure Security Baseline for the Machine Learning Service contains recommendations that will help you improve the security posture of your deployment. The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance. For more information, see [Azure Security Baselines overview](../security/benchmarks/security-baselines-overview.md).
 
 >[!WARNING]
 >This preview version of the article is for review only. **DO NOT MERGE INTO MASTER!**
@@ -34,11 +34,11 @@ Azure Private Link enables you to connect to your workspace using a private endp
 
 Azure Firewall can be used to control access to your Azure Machine Learning workspace and the public internet.
 
-- [How to securely run experiments and inference in an isolated virtual network](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network)
+- [How to securely run experiments and inference in an isolated virtual network](how-to-enable-virtual-network.md)
 
-- [How to configure Azure Private Link for an Azure Machine Learning workspace](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)
+- [How to configure Azure Private Link for an Azure Machine Learning workspace](how-to-configure-private-link.md)
 
-- [Use workspace behind Azure Firewall for Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-access-azureml-behind-firewall)
+- [Use workspace behind Azure Firewall for Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -53,11 +53,11 @@ Azure Firewall can be used to control access to your Azure Machine Learning work
 
 Enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
-- [How to enable network security group flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [How to enable and use Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [How to enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-- [Understand network security provided by Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Understand network security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -84,9 +84,9 @@ associated with your Machine Learning instance to guard against distributed
 denial-of-service (DDoS) attacks. Use Azure Security Center Integrated threat detection
 to detect communications with known malicious or unused Internet IP addresses.Deploy Azure Firewall at each of the organization's network
 boundaries with threat intelligence-based filtering enabled and configured to
-- ["Alert and deny" for malicious network traffic.How to configure DDoS protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protectionUse) workspace behind Azure Firewall for Azure Machine
-- [Learning](https://docs.microsoft.com/azure/machine-learning/how-to-access-azureml-behind-firewallFor) more information about the Azure Security Center threat
-- [detection](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+- ["Alert and deny" for malicious network traffic.How to configure DDoS protection](/azure/virtual-network/manage-ddos-protectionUse) workspace behind Azure Firewall for Azure Machine
+- [Learning](how-to-access-azureml-behind-firewall.mdFor) more information about the Azure Security Center threat
+- [detection](/azure/security-center/security-center-alerts-service-layer)
 
 **Azure Security Center monitoring**: Yes
 
@@ -99,7 +99,7 @@ boundaries with threat intelligence-based filtering enabled and configured to
 
 **Guidance**: For any VMs with the proper extension installed in your Azure Machine Learning services you can enable Network Watcher packet capture to investigate anomalous activities. 
 
-- [How to create a Network Watcher instance](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [How to create a Network Watcher instance](../network-watcher/network-watcher-create.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -114,9 +114,9 @@ boundaries with threat intelligence-based filtering enabled and configured to
 
 Select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  When payload inspection is not a requirement, Azure Firewall threat intelligence can be used. Azure Firewall threat intelligence-based filtering is used to alert on and/or block traffic to and from known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.
 
-- [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [How to configure alerts with Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
+- [How to configure alerts with Azure Firewall](../firewall/threat-intel.md)
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
@@ -144,9 +144,9 @@ Select an offer from the Azure Marketplace that supports IDS/IPS functionality w
 
 Azure Machine Learning service documents a list of service tags for its compute targets within a virtual network that helps to minimize complexity, you can use it as guidelines in your network management.
 
-- [For more information about using service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [For more information about using service tags](../virtual-network/service-tags-overview.md)
 
-- [For Azure Machine Learning virtual network](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network)
+- [For Azure Machine Learning virtual network](how-to-enable-virtual-network.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -159,7 +159,7 @@ Azure Machine Learning service documents a list of service tags for its compute 
 
 **Guidance**: Define and implement standard security configurations for network resources associated with your Azure Machine Learning namespaces with Azure Policy. Use Azure Policy aliases in the "Microsoft.MachineLearning" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Machine Learning namespaces. 
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -174,7 +174,7 @@ Azure Machine Learning service documents a list of service tags for its compute 
 
 For an resources in your Azure Machine Learning virtual network that support the Description field, use it to document the rules that allow traffic to/from a network.
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -187,9 +187,9 @@ For an resources in your Azure Machine Learning virtual network that support the
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to Azure Machine Learning. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
 
-- [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -220,9 +220,9 @@ logs via Azure Monitor to aggregate security data generated by Azure Machine
 Learning. In Azure Monitor, use Log Analytics workspaces to query and perform
 analytics, and use Azure Storage accounts for long term and archival storage. Alternatively, you may enable, and on-board data to Azure Sentinel or a third-party Security Incident and Event Management (SIEM).
 
-- [How to configure diagnostic logs for Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/monitor-azure-machine-learning#configuration)
+- [How to configure diagnostic logs for Azure Machine Learning](monitor-azure-machine-learning.md#configuration)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -237,13 +237,13 @@ analytics, and use Azure Storage accounts for long term and archival storage. Al
 
 You can also correlate Machine Learning service operation logs for security and compliance purposes.
 
-- [How to collect platform logs and metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
-- [Understand logging and different log types in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
+- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
 
-- [Enable logging in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-enable-logging)
+- [Enable logging in Azure Machine Learning](/azure/machine-learning/how-to-enable-logging)
 
-- [Monitoring Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/monitor-azure-machine-learning)
+- [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -258,9 +258,9 @@ You can also correlate Machine Learning service operation logs for security and 
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For any compute resources that are owned by your organization, use Azure Security Center to monitor the operating system. 
 
-- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
 
-- [Understand Azure Security Center data collection](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
+- [Understand Azure Security Center data collection](../security-center/security-center-enable-data-collection.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -273,7 +273,7 @@ Azure Machine Learning has varying support across different compute resources an
 
 **Guidance**: In Azure Monitor, set the log retention period for Log Analytics workspaces associated with your Azure Machine Learning instances according to your organization's compliance regulations.
 
-- [How to set log retention parameters](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -288,15 +288,15 @@ Azure Machine Learning has varying support across different compute resources an
 
 Alternatively, you can enable and on-board data to Azure Sentinel or a third party SIEM. 
 
-- [How to perform queries for Azure Machine Learning in Log Analytics Workspaces](https://docs.microsoft.com/azure/machine-learning/monitor-azure-machine-learning#analyzing-log-data)
+- [How to perform queries for Azure Machine Learning in Log Analytics Workspaces](monitor-azure-machine-learning.md#analyzing-log-data)
 
-- [Enable logging in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-enable-logging)
+- [Enable logging in Azure Machine Learning](/azure/machine-learning/how-to-enable-logging)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Getting started with Log Analytics queries](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+- [Getting started with Log Analytics queries](../azure-monitor/log-query/get-started-portal.md)
 
-- [How to perform custom queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -311,11 +311,11 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 
 Alternatively, you may enable and on-board data to Azure Sentinel.
 
-- [For more information on Azure Machine Learning alerts](https://docs.microsoft.com/azure/machine-learning/monitor-azure-machine-learning#alerts)
+- [For more information on Azure Machine Learning alerts](monitor-azure-machine-learning.md#alerts)
 
-- [How to alert on Log Analytics workspace log data](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [How to alert on Log Analytics workspace log data](../azure-monitor/learn/tutorial-response.md)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -334,7 +334,7 @@ Azure Machine Learning has varying support across different compute resources an
 
 - [How to configure the Microsoft Antimalware extension for cloud services](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
 
-- [Understand Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+- [Understand Microsoft Antimalware](../security/fundamentals/antimalware.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -378,7 +378,7 @@ Azure Machine Learning provides built-in RBAC for common management scenarios in
 
 You can also use the Azure AD PowerShell module to perform adhoc queries to discover accounts that are members of administrative groups.
 
-- [Understand role-based access control in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-assign-roles)
+- [Understand role-based access control in Azure Machine Learning](how-to-assign-roles.md)
 
 - [How to get a directory role in Azure Active Directory with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -408,9 +408,9 @@ You can also use the Azure AD PowerShell module to perform adhoc queries to disc
 
 You can also enable a just-in-time access to administrative accounts byusing Azure AD Privileged Identity Management and Azure Resource Manager. 
 
-- [To learn more Machine Learning default roles](https://docs.microsoft.com/azure/machine-learning/how-to-assign-roles#default-roles)
+- [To learn more Machine Learning default roles](how-to-assign-roles.md#default-roles)
 
-- [Learn more about Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
 
 **Azure Security Center monitoring**: Yes
 
@@ -434,9 +434,9 @@ You can also enable a just-in-time access to administrative accounts byusing Azu
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center identity and access recommendations.
 
-- [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -451,9 +451,9 @@ You can also enable a just-in-time access to administrative accounts byusing Azu
 a secure, Azure-managed workstation (also known as a Privileged Access Workstation,
 or PAW) for administrative tasks that require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-managed-workstation​)
+- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md​)
 
-- [How to enable Azure AD MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -466,9 +466,9 @@ or PAW) for administrative tasks that require elevated privileges.
 
 **Guidance**: Use Azure Active Directory security reports and monitoring to detect when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
-- [How to identify Azure AD users flagged for risky activity](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
-- [How to monitor users' identity and access activity in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -483,7 +483,7 @@ or PAW) for administrative tasks that require elevated privileges.
  
  
  
-- [How to configure Azure AD named locations](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [How to configure Azure AD named locations](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -498,9 +498,9 @@ or PAW) for administrative tasks that require elevated privileges.
  
 Role access can be scoped to multiple levels in Azure. For Machine Learning, roles can be managed at workspace level, for example, you have owner access to a workspace may not have owner access to the resource group that contains the workspace. This provides more granular access controls to separate roles within the same resource group. 
 
-- [Manage access to an Azure Machine Learning workspace](https://docs.microsoft.com/azure/machine-learning/how-to-assign-roles) 
+- [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md) 
  
-- [How to create and configure an Azure AD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -515,11 +515,11 @@ Role access can be scoped to multiple levels in Azure. For Machine Learning, rol
  
 Use Azure Active Directory (Azure AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
-- [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring)
+- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring)
 
-- [How to use Azure AD identity and access reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
-- [Deploy Azure AD Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Deploy Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
 
 **Azure Security Center monitoring**: Yes
 
@@ -535,7 +535,7 @@ Use Azure Active Directory (Azure AD) Privileged Identity Management (PIM) for g
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired alerts within Log Analytics workspace.
  
  
-- [How to integrate Azure activity logs with Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -548,11 +548,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure AD Identity Protection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
  
-- [How to view Azure AD risky sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
  
-- [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
  
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -580,7 +580,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
  
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -593,11 +593,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure RBAC.
  
-- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create management groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [How to create management groups](../governance/management-groups/create.md)
  
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -621,7 +621,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Web services deployed through Azure Machine Learning only support TLS version 1.2 that enforces data encryption in transit.
 
-- [Use TLS to secure a web service through Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service)
+- [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -636,7 +636,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -649,7 +649,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Azure Machine Learning supports using Azure Active Directory (Azure AD) to authorize requests to Machine Learning resources. With Azure AD, you can use Azure role-based access control (RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.
 
-- [Manage access to an Azure Machine Learning workspace](https://docs.microsoft.com/azure/machine-learning/how-to-assign-roles)
+- [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -664,7 +664,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 Microsoft manages the underlying infrastructure for Machine Learning and has implemented strict controls to prevent the loss or exposure of customer data.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -677,11 +677,11 @@ Microsoft manages the underlying infrastructure for Machine Learning and has imp
 
 **Guidance**: Azure Machine Learning stores snapshots, output, and logs in the Azure Blob storage account that's tied to the Azure Machine Learning workspace and your subscription. All the data stored in Azure Blob storage is encrypted at rest with Microsoft-managed keys. You can also encrypt data stored in Azure Blob storage with your own keys in Machine Learning service. 
 
-- [Azure Machine Learning data encryption at rest](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#encryption-at-rest)
+- [Azure Machine Learning data encryption at rest](concept-enterprise-security.md#encryption-at-rest)
 
-- [Understand encryption at rest in Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
+- [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md)
 
-- [How to configure customer managed encryption keys](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal)
+- [How to configure customer managed encryption keys](../storage/common/storage-encryption-keys-portal.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -694,7 +694,7 @@ Microsoft manages the underlying infrastructure for Machine Learning and has imp
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Machine Learning and other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -713,7 +713,7 @@ Microsoft manages the underlying infrastructure for Machine Learning and has imp
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, follow the recommendations from Azure Security Center for performing vulnerability assessments on your Azure virtual machines, container images, and SQL servers.
 
-- [How to implement Azure Security Center vulnerability assessment recommendations](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/security-center-vulnerability-assessment-recommendations.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -728,9 +728,9 @@ Azure Machine Learning has varying support across different compute resources an
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For any compute resources that are owned by your organization, use Azure Automation Update Management to ensure that the most recent security updates are installed on your Windows and Linux VMs. For Windows VMs, ensure Windows Update has been enabled and set to update automatically.
 
-- [How to configure Update Management for virtual machines in Azure](https://docs.microsoft.com/azure/automation/automation-update-management)
+- [How to configure Update Management for virtual machines in Azure](/azure/automation/automation-update-management)
 
-- [Understand Azure security policies monitored by Security Center](https://docs.microsoft.com/azure/security-center/security-center-policy-definitions)
+- [Understand Azure security policies monitored by Security Center](../security-center/security-center-policy-definitions.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -754,7 +754,7 @@ Azure Machine Learning has varying support across different compute resources an
 
 **Guidance**: Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, follow recommendations from Azure Security Center for performing vulnerability assessments on your Azure virtual machines, container images, and SQL servers. Export scan results at consistent intervals and compare the results with previous scans to verify that vulnerabilities have been remediated. When using vulnerability management recommendations suggested by Azure Security Center, you can pivot into the selected solution's portal to view historical scan data.
 
-- [How to implement Azure Security Center vulnerability assessment recommendations](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/security-center-vulnerability-assessment-recommendations.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -784,11 +784,11 @@ Azure Machine Learning has varying support across different compute resources an
 
 Although classic Azure resources can be discovered via Azure Resource Graph Explorer, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
-- [How to create queries with Azure Resource Graph Explorer](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
 - [How to view your Azure subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-- [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Understand Azure RBAC](../role-based-access-control/overview.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -801,7 +801,7 @@ Although classic Azure resources can be discovered via Azure Resource Graph Expl
 
 **Guidance**: Apply tags to Azure resources, adding metadata to logically organize according into a taxonomy.
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -816,15 +816,15 @@ Although classic Azure resources can be discovered via Azure Resource Graph Expl
  
  
  
-- [ How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [ How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
  
  
  
-- [ How to create management groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [ How to create management groups](../governance/management-groups/create.md)
  
  
  
-- [ How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [ How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -853,9 +853,9 @@ Although classic Azure resources can be discovered via Azure Resource Graph Expl
 
 In addition, use the Azure Resource Graph to query/discover resources within the subscriptions.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -868,7 +868,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 **Guidance**: Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, use Azure Automation Change Tracking and Inventory to automate the collection of inventory information from your Windows and Linux VMs. Software name, version, publisher, and refresh time are available from the Azure Portal. To get the software installation date and other information, enable guest-level diagnostics and direct the Windows Event Logs to Log Analytics workspace.
 
-- [How to enable Azure Automation inventory collection for a VM](https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software)
+- [How to enable Azure Automation inventory collection for a VM](../automation/automation-tutorial-installed-software.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -885,13 +885,13 @@ You can implement your own process for removing unauthorized software. You can a
 
 Remove Azure resources when they are no longer needed.
 
-- [How to use File Integrity Monitoring](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring#using-file-integrity-monitoring)
+- [How to use File Integrity Monitoring](../security-center/security-center-file-integrity-monitoring.md#using-file-integrity-monitoring)
 
-- [Understand Azure Automation Change Tracking and Inventory](https://docs.microsoft.com/azure/automation/change-tracking)
+- [Understand Azure Automation Change Tracking and Inventory](../automation/change-tracking.md)
 
-- [How to enable Azure virtual machine inventory](https://docs.microsoft.com/azure/automation/automation-tutorial-installed-software)
+- [How to enable Azure virtual machine inventory](../automation/automation-tutorial-installed-software.md)
 
-- [Azure resource group and resource deletion](https://docs.microsoft.com/azure/azure-resource-manager/management/delete-resource-group)
+- [Azure resource group and resource deletion](../azure-resource-manager/management/delete-resource-group.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -904,7 +904,7 @@ Remove Azure resources when they are no longer needed.
 
 **Guidance**: Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, use Azure Security Center adaptive application controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
-- [How to use Azure Security Center adaptive application controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+- [How to use Azure Security Center adaptive application controls](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -922,9 +922,9 @@ Remove Azure resources when they are no longer needed.
 
 In addition, use the Azure Resource Graph to query for and discover resources in the subscriptions.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 
 **Azure Security Center monitoring**: Not Applicable
@@ -940,7 +940,7 @@ In addition, use the Azure Resource Graph to query for and discover resources in
 
 Implement a third-party solution if adaptive application controls don't not meet the requirement.
 
-- [How to use Azure Security Center adaptive application controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+- [How to use Azure Security Center adaptive application controls](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -953,7 +953,7 @@ Implement a third-party solution if adaptive application controls don't not meet
 
 **Guidance**: Use Azure AD Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
  
-- [How to configure Conditional Access to block access to Azure Resources Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [How to configure Conditional Access to block access to Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 
 **Azure Security Center monitoring**: Not Applicable
@@ -969,7 +969,7 @@ Implement a third-party solution if adaptive application controls don't not meet
 
 - [How to control PowerShell script execution in Windows environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
-- [How to use Azure Security Center adaptive application controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+- [How to use Azure Security Center adaptive application controls](../security-center/security-center-adaptive-application.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1005,11 +1005,11 @@ Azure Machine Learning fully supports Git repositories for tracking work; you ca
 
 - [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Tutorial: Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
 
-- [Single and multi-resource export to a template in Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal)
+- [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Security recommendations - a reference guide](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Security recommendations - a reference guide](../security-center/recommendations-reference.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1024,15 +1024,15 @@ Azure Machine Learning fully supports Git repositories for tracking work; you ca
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, use Azure Security Center recommendations to maintain security configurations on all compute resources.  Additionally, you can use custom operating system images or Azure Automation State configuration to establish the security configuration of the operating system required by your organization.
 
-- [How to monitor Azure Security Center recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+- [How to monitor Azure Security Center recommendations](../security-center/security-center-recommendations.md)
 
-- [Security recommendations - a reference guide](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Security recommendations - a reference guide](../security-center/recommendations-reference.md)
 
-- [Azure Automation State Configuration Overview](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
+- [Azure Automation State Configuration Overview](../automation/automation-dsc-overview.md)
 
-- [Upload a VHD and use it to create new Windows VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed)
+- [Upload a VHD and use it to create new Windows VMs in Azure](../virtual-machines/windows/upload-generalized-managed.md)
 
-- [Create a Linux VM from a custom disk with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd)
+- [Create a Linux VM from a custom disk with the Azure CLI](../virtual-machines/linux/upload-vhd.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1047,11 +1047,11 @@ Azure Machine Learning has varying support across different compute resources an
  
  
  
-- [Understand Azure Policy effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Understand Azure Policy effects](../governance/policy/concepts/effects.md)
  
-- [Create and manage policies to enforce compliance](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
  
-- [ Azure Resource Manager templates overview](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [ Azure Resource Manager templates overview](../azure-resource-manager/templates/overview.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1068,17 +1068,17 @@ Azure Machine Learning has varying support across different compute resources an
 
 Note that Azure Marketplace virtual machine Images published by Microsoft are managed and maintained by Microsoft. 
 
-- [How to implement Azure Security Center vulnerability assessment recommendations](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/security-center-vulnerability-assessment-recommendations.md)
 
-- [How to create an Azure Virtual Machine from an ARM template](https://docs.microsoft.com/azure/virtual-machines/windows/ps-template)
+- [How to create an Azure Virtual Machine from an ARM template](../virtual-machines/windows/ps-template.md)
 
-- [Azure Automation State Configuration Overview](https://docs.microsoft.com/azure/automation/automation-dsc-overview)
+- [Azure Automation State Configuration Overview](../automation/automation-dsc-overview.md)
 
-- [Create a Windows virtual machine in the Azure portal ](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+- [Create a Windows virtual machine in the Azure portal ](../virtual-machines/windows/quick-create-portal.md)
 
-- [Information on how to download the VM template](https://docs.microsoft.com/azure/virtual-machines/windows/download-template)
+- [Information on how to download the VM template](../virtual-machines/windows/download-template.md)
 
-- [Sample script to upload a VHD to Azure and create a new VM](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
+- [Sample script to upload a VHD to Azure and create a new VM](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1109,13 +1109,13 @@ Azure Machine Learning fully supports Git repositories for tracking work; you ca
 
 **Guidance**: Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, use Azure role-based access control (RBAC) to ensure that only authorized users can access your custom images. Use an Azure Shared Image Gallery you can share your images to different users, service principals, or Azure AD groups within your organization. Store container images in Azure Container Registry and use RBAC to ensure that only authorized users have access.
 
-- [Understand RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+- [Understand RBAC in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-- [Understand RBAC for Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- [Understand RBAC for Container Registry](../container-registry/container-registry-roles.md)
 
-- [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+- [How to configure RBAC in Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [Shared Image Gallery overview](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
+- [Shared Image Gallery overview](../virtual-machines/windows/shared-image-galleries.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1128,9 +1128,9 @@ Azure Machine Learning fully supports Git repositories for tracking work; you ca
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.MachineLearning" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to use aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [How to use aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1145,7 +1145,7 @@ Azure Machine Learning fully supports Git repositories for tracking work; you ca
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, use Azure Automation State Configuration for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified. 
 
-- [How to enable Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding)
+- [How to enable Azure Automation State Configuration](../automation/automation-dsc-onboarding.md)
 
 
 
@@ -1162,7 +1162,7 @@ Azure Machine Learning has varying support across different compute resources an
  
  
  
-- [ How to remediate recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+- [ How to remediate recommendations in Azure Security Center](../security-center/security-center-remediate-recommendations.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1177,7 +1177,7 @@ Azure Machine Learning has varying support across different compute resources an
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, use Azure Security Center Compute &amp; Apps and follow the recommendations for VMs and servers, and containers.
 
-- [Understand Azure Security Center container recommendations](https://docs.microsoft.com/azure/security-center/security-center-container-recommendations)
+- [Understand Azure Security Center container recommendations](/azure/security-center/security-center-container-recommendations)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1194,15 +1194,15 @@ Azure Machine Learning supports data store encryption with customer-managed keys
 
 Use Azure Key Vault to pass secrets to remote runs securely instead of cleartext in your training scripts.
 
-- [Azure Machine Learning customer-managed keys](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#azure-blob-storage)
+- [Azure Machine Learning customer-managed keys](concept-enterprise-security.md#azure-blob-storage)
 
-- [Use authentication credential secrets in Azure Machine Learning training runs](https://docs.microsoft.com/azure/machine-learning/how-to-use-secrets-in-runs)
+- [Use authentication credential secrets in Azure Machine Learning training runs](how-to-use-secrets-in-runs.md)
 
-- [How to use managed identities for Azure resources](https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
+- [How to use managed identities for Azure resources](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [How to create a Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+- [How to create a Key Vault](/azure/key-vault/quick-create-portal)
 
-- [How to provide Key Vault authentication with a managed identity](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1215,9 +1215,9 @@ Use Azure Key Vault to pass secrets to remote runs securely instead of cleartext
 
 **Guidance**: Azure Machine Learning supports both built-in roles and the ability to create custom roles. Use managed identities to provide Azure services with an automatically-managed identity in Azure AD. Managed identities allow you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
  
-- [Manage access to an Azure Machine Learning workspace](https://docs.microsoft.com/azure/machine-learning/how-to-assign-roles)
+- [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md)
 
-- [How to configure managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+- [How to configure managed identities for Azure resources](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1254,9 +1254,9 @@ and defend your resources. For Linux, use third party antimalware solution. Also
 use Azure Security Center's threat detection for data services to detect malware
 uploaded to storage accounts.
 
-- [How to configure Microsoft Antimalware for Azure](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+- [How to configure Microsoft Antimalware for Azure](../security/fundamentals/antimalware.md)
 
-- [Threat protection in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection)
+- [Threat protection in Azure Security Center](../security-center/threat-protection.md)
 
 
 **Azure Security Center monitoring**: Not Applicable
@@ -1285,7 +1285,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For any compute resources that are owned by your organization, follow recommendations in Azure Security Center, Compute &amp; Apps to ensure all endpoints are up to date with the latest signatures. For Linux, use third party antimalware solution.
 
-- [How to deploy Microsoft Antimalware for Azure](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+- [How to deploy Microsoft Antimalware for Azure](../security/fundamentals/antimalware.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1302,7 +1302,7 @@ Azure Machine Learning has varying support across different compute resources an
 
 **Guidance**: Data recovery management in Machine Learning service is through data managements on connected data stores. Ensure to follow up data recovery guidelines for connected stores to back up data per customer organization policies.
 
-- [How to recover files from Azure Virtual Machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm)
+- [How to recover files from Azure Virtual Machine backup](../backup/backup-azure-restore-files-from-vm.md)
 
 &lt;--- Are there data stores managed by Machine Learning platform service that needs to be mentioned here? No searchable info is available about this topic. ---&gt;
 
@@ -1320,7 +1320,7 @@ backup in Machine Learning service is through data managements on connected
 data stores. Enable Azure Backup for VMs and configure the desired frequency
 and retention periods. Backup customer-managed keys in Azure Key Vault.
 
-- [How to recover files from Azure Virtual Machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm)
+- [How to recover files from Azure Virtual Machine backup](../backup/backup-azure-restore-files-from-vm.md)
 - [How to restore Key Vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 &lt;--- Are there data stores managed by Machine Learning platform service that needs to be mentioned here? No searchable info is available about this topic. ---&gt;
@@ -1339,7 +1339,7 @@ through data managements on connected data stores. Periodically perform data
 restoration of content in Azure Backup. Ensure that you can restore backed-up
 customer-managed keys.
 
-- [How to recover files from an Azure virtual machine backup](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm)
+- [How to recover files from an Azure virtual machine backup](../backup/backup-azure-restore-files-from-vm.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1355,7 +1355,7 @@ customer-managed keys.
 Enable soft delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. If Azure Storage is used to store backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted.
  
  
-- [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Understand Azure RBAC](../role-based-access-control/overview.md)
 
 - [How to enable soft delete and purge protection in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
@@ -1395,9 +1395,9 @@ Enable soft delete and purge protection in Key Vault to protect keys against acc
 
 Additionally, mark subscriptions using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data. It's your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-- [Security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+- [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1423,7 +1423,7 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved.
 
-- [How to set the Azure Security Center security contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [How to set the Azure Security Center security contact](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1436,9 +1436,9 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the continuous export feature to help identify risks to Azure resources. Continuous export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You can use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
-- [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [How to configure continuous export](../security-center/continuous-export.md)
 
-- [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1451,7 +1451,7 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 
 **Guidance**: Use workflow automation feature Azure Security Center to automatically trigger responses to security alerts and recommendations to protect your Azure resources.
 
-- [How to configure workflow automation in Security Center](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [How to configure workflow automation in Security Center](../security-center/workflow-automation.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
