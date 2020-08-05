@@ -18,7 +18,7 @@ Azure App Configuration maintains a record of changes made to key-values. This r
 
 You can use Azure portal or CLI to retrieve past key-values. In Azure CLI, use `az appconfig revision list`, adding appropriate parameters to retrieve the required values.  Specify the Azure App Configuration instance by providing either the store name (`--name <app-config-store-name>`) or by using a connection string (`--connection-string <your-connection-string>`). Restrict the output by specifying a specific point in time (`--datetime`) and by specifying the maximum number of items to return (`--top`).
 
-If you don't have Azure CLI installed locally, you can optionaly use Azure Cloud Shell.
+If you don't have Azure CLI installed locally, you can optionally use Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
