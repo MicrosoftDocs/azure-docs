@@ -50,7 +50,7 @@ To configure the integration of Raketa into Azure AD, you need to add Raketa fro
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service [1].
 
-    ![rkt_1](./media/raketa-tutorial/azure-active-dir.png)
+    ![rkt_1](./media/raketa-tutorial/azure-active-directory.png)
 
 1. Navigate to **Enterprise Applications** [2] and then select **All Applications** [3].
 
