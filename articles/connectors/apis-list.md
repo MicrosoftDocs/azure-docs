@@ -152,11 +152,48 @@ Logic Apps provides these popular Standard connectors for automating tasks, proc
 
 Here are some commonly used Standard connectors that Logic Apps provides for accessing data and resources in on-premises systems. Before you can create a connection to an on-premises system, you must first [download, install, and set up an on-premises data gateway][gateway-doc]. This gateway provides a secure communication channel without having to set up the necessary network infrastructure.
 
-|___|___|___|___|___|
-|---|---|---|---|---|
-| [![API icon][biztalk-server-icon]<br>**BizTalk** <br>**Server**][biztalk-server-doc] | [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc] | [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![API icon][ibm-informix-icon]<br>**IBM** <br>**Informix**][ibm-informix-doc] | [![API icon][mysql-icon]<br>**MySQL**][mysql-doc] |
-| [![API icon][oracle-db-icon]<br>**Oracle DB**][oracle-db-doc] | [![API icon][postgre-sql-icon]<br>**PostgreSQL**][postgre-sql-doc] | [![API icon][sharepoint-server-icon]<br>**SharePoint <br>Server**][sharepoint-server-doc] | [![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc] | [![API icon][teradata-icon]<br>**Teradata**][teradata-doc] |
-||||||
+:::row:::
+    :::column:::
+        [![API icon][biztalk-server-icon]<br>**BizTalk** <br>**Server**][biztalk-server-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][ibm-informix-icon]<br>**IBM** <br>**Informix**][ibm-informix-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][mysql-icon]<br>**MySQL**][mysql-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][oracle-db-icon]<br>**Oracle DB**][oracle-db-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][postgre-sql-icon]<br>**PostgreSQL**][postgre-sql-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][sharepoint-server-icon]<br>**SharePoint <br>Server**][sharepoint-server-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][teradata-icon]<br>**Teradata**][teradata-doc]
+    :::column-end:::
+    :::column:::
+        
+    :::column-end:::
+    :::column:::
+        
+    :::column-end:::
+:::row-end:::
 
 <a name="integration-account-connectors"></a>
 
@@ -164,12 +201,48 @@ Here are some commonly used Standard connectors that Logic Apps provides for acc
 
 Logic Apps provides Standard connectors for building business-to-business (B2B) solutions with your logic apps when you create and pay for an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), which is available through the Enterprise Integration Pack (EIP) in Azure. With this account, you can create and store B2B artifacts such as trading partners, agreements, maps, schemas, certificates, and so on. To use these artifacts, associate your logic apps with your integration account. If you currently use BizTalk Server, these connectors might seem familiar already.
 
-|___|___|___|___|
-|---|---|---|---|
-| [![API icon][as2-icon]<br>**AS2 <br>decoding**][as2-doc] | [![API icon][as2-icon]<br>**AS2 <br>encoding**][as2-doc] | [![API icon][edifact-icon]<br>**EDIFACT <br>decoding**][edifact-decode-doc] | [![API icon][edifact-icon]<br>**EDIFACT <br>encoding**][edifact-encode-doc] |
-| [![API icon][flat-file-decode-icon]<br>**Flat file <br>decoding**][flat-file-decode-doc] | [![API icon][flat-file-encode-icon]<br>**Flat file <br>encoding**][flat-file-encode-doc] | [![API icon][integration-account-icon]<br>**Integration <br>account**][integration-account-doc] | [![API icon][liquid-icon]<br>**Liquid** <br>**transforms**][json-liquid-transform-doc] |
-| [![API icon][x12-icon]<br>**X12 <br>decoding**][x12-decode-doc] | [![API icon][x12-icon]<br>**X12 <br>encoding**][x12-encode-doc] | [![API icon][xml-transform-icon]<br>**XML** <br>**transforms**][xml-transform-doc] | [![API icon][xml-validate-icon]<br>**XML <br>validation**][xml-validate-doc] |
-|||||
+:::row:::
+    :::column:::
+        [![API icon][as2-icon]<br>**AS2 <br>decoding**][as2-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][as2-icon]<br>**AS2 <br>encoding**][as2-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][edifact-icon]<br>**EDIFACT <br>decoding**][edifact-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][edifact-icon]<br>**EDIFACT <br>encoding**][edifact-encode-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][flat-file-decode-icon]<br>**Flat file <br>decoding**][flat-file-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][flat-file-encode-icon]<br>**Flat file <br>encoding**][flat-file-encode-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][integration-account-icon]<br>**Integration <br>account**][integration-account-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][liquid-icon]<br>**Liquid** <br>**transforms**][json-liquid-transform-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][x12-icon]<br>**X12 <br>decoding**][x12-decode-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][x12-icon]<br>**X12 <br>encoding**][x12-encode-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][xml-transform-icon]<br>**XML** <br>**transforms**][xml-transform-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][xml-validate-icon]<br>**XML <br>validation**][xml-validate-doc]
+    :::column-end:::
+:::row-end:::
 
 <a name="enterprise-connectors"></a>
 
@@ -177,10 +250,20 @@ Logic Apps provides Standard connectors for building business-to-business (B2B) 
 
 Logic Apps provides these Enterprise connectors for accessing enterprise systems, such as SAP and IBM MQ:
 
-|___|___|___|
-|---|---|---|
-| [![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc] | [![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc] | [![API icon][sap-icon]<br>**SAP**][sap-connector-doc] |
-|||
+:::row:::
+    :::column:::
+        [![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][sap-icon]<br>**SAP**][sap-connector-doc]
+    :::column-end:::
+    :::column:::
+        
+    :::column-end:::
+:::row-end:::
 
 <a name="ise-connectors"></a>
 
@@ -188,14 +271,90 @@ Logic Apps provides these Enterprise connectors for accessing enterprise systems
 
 For logic apps that you create and run in a dedicated [integration service environment (ISE)](#integration-service-environment), the Logic App Designer identifies built-in triggers and actions that run in your ISE by using the **CORE** label. Managed connectors that run in an ISE display the **ISE** label, while connectors that run in the global, multi-tenant Logic Apps service don't display either label. This list shows the connectors that currently have ISE versions:
 
-|___|___|___|___|___|
-|---|---|---|---|---|
-| [![API icon][as2-icon]<br>**AS2**][as2-doc] | [![API icon][azure-automation-icon]<br>**Azure <br>Automation**][azure-automation-doc] | [![API icon][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | [![API icon][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc] | [![API icon][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc] |
-| [![API icon][azure-event-grid-icon]<br>**Azure Event <br>Grid**][azure-event-grid-doc] | [![API icon][azure-file-storage-icon]<br>**Azure File<br>Storage**][azure-file-storage-doc] | [![API icon][azure-key-vault-icon]<br>**Azure Key <br>Vault**][azure-key-vault-doc] | [![API icon][azure-monitor-logs-icon]<br>**Azure Monitor <br>Logs**][azure-monitor-logs-doc] | [![API icon][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc] |
-| [![API icon][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc] | [![API icon][azure-table-storage-icon]<br>**Azure Table <br>Storage**][azure-table-storage-doc] | [![API icon][azure-queues-icon]<br>**Azure <br>Queues**][azure-queues-doc] | [![API icon][edifact-icon]<br>**EDIFACT**][edifact-doc] | [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc] |
-| [![API icon][ftp-icon]<br>**FTP**][ftp-doc] | [![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc] | [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc] | [![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc] | [![API icon][sap-icon]<br>**SAP**][sap-connector-doc] |
-| [![API icon][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc] | [![API icon][smtp-icon]<br>**SMTP**][smtp-doc] | [![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc] | [![API icon][x12-icon]<br>**X12**][x12-doc] |
-||||||
+:::row:::
+    :::column:::
+        [![API icon][as2-icon]<br>**AS2**][as2-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-automation-icon]<br>**Azure <br>Automation**][azure-automation-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-event-grid-icon]<br>**Azure Event <br>Grid**][azure-event-grid-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-file-storage-icon]<br>**Azure File<br>Storage**][azure-file-storage-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-key-vault-icon]<br>**Azure Key <br>Vault**][azure-key-vault-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][azure-monitor-logs-icon]<br>**Azure Monitor <br>Logs**][azure-monitor-logs-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-sql-data-warehouse-icon]<br>**Azure SQL Data <br>Warehouse**][azure-sql-data-warehouse-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][azure-table-storage-icon]<br>**Azure Table <br>Storage**][azure-table-storage-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][azure-queues-icon]<br>**Azure <br>Queues**][azure-queues-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][edifact-icon]<br>**EDIFACT**][edifact-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][file-system-icon]<br>**File <br>System**][file-system-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][ftp-icon]<br>**FTP**][ftp-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][ibm-db2-icon]<br>**IBM DB2**][ibm-db2-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][sap-icon]<br>**SAP**][sap-connector-doc]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![API icon][sftp-ssh-icon]<br>**SFTP-SSH**][sftp-ssh-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][smtp-icon]<br>**SMTP**][smtp-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][sql-server-icon]<br>**SQL <br>Server**][sql-server-doc]
+    :::column-end:::
+    :::column:::
+        [![API icon][x12-icon]<br>**X12**][x12-doc]
+    :::column-end:::
+:::row-end:::
 
 For more information, see these topics:
 
@@ -234,7 +393,7 @@ tokens, such as changing your password.
 
 ## Custom APIs and connectors
 
-To call APIs that run custom code or aren't available as connectors, you can extend the Logic Apps platform by [creating custom API Apps](../logic-apps/logic-apps-create-api-app.md). You can also [create custom connectors](../logic-apps/custom-connector-overview.md) for *any* REST or SOAP-based APIs, which make those APIs available to any logic app in your Azure subscription. To make custom API Apps or connectors public for anyone to use in Azure, you can [submit connectors for Microsoft certification](../logic-apps/custom-connector-submit-certification.md).
+To call APIs that run custom code or aren't available as connectors, you can extend the Logic Apps platform by [creating custom API Apps](../logic-apps/logic-apps-create-api-app.md). You can also [create custom connectors](../logic-apps/custom-connector-overview.md) for *any* REST or SOAP-based APIs, which make those APIs available to any logic app in your Azure subscription. To make custom API Apps or connectors public for anyone to use in Azure, you can [submit connectors for Microsoft certification](/connectors/custom-connectors/submit-certification).
 
 > [!NOTE]
 > Logic apps that you deploy and run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 
@@ -463,4 +622,3 @@ If your organization doesn't permit connecting to specific resources by using th
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Encode messages that use the X12 protocol"
 [xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transform XML messages"
 [xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validate XML messages"
-
