@@ -51,4 +51,4 @@ This article lists the keyboard shortcuts that work everywhere in the Azure port
 ## Next steps
 
 - [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md)
-- [Supported browsers and devices](../azure-preview-portal-supported-browsers-devices.md)
+- [Supported browsers and devices](azure-portal-supported-browsers-devices.md)

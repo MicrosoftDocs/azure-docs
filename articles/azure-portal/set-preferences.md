@@ -14,9 +14,92 @@ manager:  mtillman
 
 # Manage Azure portal preferences
 
-You can change the default settings of the Azure portal to meet your own preferences. Most settings are available from the **Settings** in the global page header.
+You can change the default settings of the Azure portal to meet your own preferences. Most settings are available from the **Settings** menu in the global page header.
 
 ![Screenshot showing global page header icons with settings highlighted](./media/set-preferences/header-settings.png)
+
+
+## Choose your default subscription
+
+You can change the subscription that opens by default when you sign-in to the Azure portal. This is helpful if you have a primary subscription you work with but use others occasionally. 
+
+:::image type="content" source="media/set-preferences/filter-subscription-default-view.png" alt-text="Filter resource list by subscription.":::
+
+1. Select the directory and subscription filter icon in the top navigation.
+
+1. Select the subscriptions you want as the default subscriptions when you launch the portal. 
+
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Select the subscriptions you want as the default subscriptions when you launch the portal."::: 
+
+
+## Choose your default view 
+
+You can change the page that opens by default when you sign-in to the Azure portal.
+
+   ![Screenshot showing Azure portal settings with default view highlighted](./media/set-preferences/default-view.png)
+
+The default view setting controls which Azure portal view is shown when you sign in. You can choose to open Azure Home by default, or the Dashboard view.
+
+* **Home** can’t be customized.  It displays shortcuts to popular Azure services and lists the resources you’ve used most recently. We also give you useful links to resources like Microsoft Learn and the Azure roadmap.
+* Dashboards can be customized to create a workspace designed just for you. For example, you can build a dashboard that is project, task, or role focused. If you select **Dashboard**, your default view will go to your most recently used dashboard.
+
+## Choose a portal menu mode
+
+The default mode for the portal menu controls how much space the portal menu takes up on the page.
+
+* When the portal menu is in _flyout_ mode, it’s hidden until you need it. Select the menu icon to open or close the menu.
+* If you choose _docked_ mode for the portal menu, it’s always visible. You can collapse the menu to provide more working space. 
+
+## Choose a theme or enable high contrast
+
+The theme that you choose affects the background and font colors that appear in the Azure portal. You can select from one of four preset color themes. Select each thumbnail to find the theme that best suits you.
+
+   ![Screenshot showing Azure portal settings with themes highlighted](./media/set-preferences/theme.png)
+
+You can choose one of the high-contrast themes instead. The high contrast settings make the Azure portal easier to read for people who have a visual impairment and override all other theme selections. For more information, see [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md).
+
+## Enable or disable pop-up notifications
+
+Notifications are system messages related to your current session. They provide information like your current credit balance, when resources you just created become available, or confirm your last action, for example. When pop-up notifications are turned on, the messages briefly display in the top corner of your screen. 
+
+To enable or disable pop-up notifications, select or de-select the **Enable pop-up notifications** checkbox.
+
+   ![Screenshot showing Azure portal settings with pop-up notifications highlighted](./media/set-preferences/popup-notifications.png)
+
+To read all notifications received during your current session, select **Notifications** from the global header.
+
+   ![Screenshot showing Azure portal global header with notifications highlighted](./media/set-preferences/read-notifications.png)
+
+If you want to read notifications from previous sessions, look for events in the Activity log. To learn more, read [View and retrieve Azure Activity log events](/azure/azure-monitor/platform/activity-log-view).
+
+## Enable high contrast or change the portal theme
+
+High contrast settings make the Azure portal easier to read. You can also choose a theme that changes the background colors of the portal. If you need more contrast or you want to change the color scheme in the Azure portal, go to the portal settings to make the change.
+
+### Enable high contrast
+
+1. In the header of the [Azure portal](https://portal.azure.com), select **Settings**.
+
+    ![Screenshot that shows the portal settings gear icon in the Azure portal](./media/set-preferences/azure-portal-settings-icon.png)
+1. Choose **White** or **Black**.
+
+    ![Screenshot that shows high contrast options in the Azure portal settings](./media/set-preferences/azure-portal-highcontrast-options.png)
+1. Select **Apply**.
+
+> [!NOTE]
+> If you select a high contrast theme, it will override all other theme selections.
+
+### Change the portal theme
+
+1. In the header of the [Azure portal](https://portal.azure.com), select **Settings**.
+
+    ![Screenshot that shows the portal settings gear icon in the Azure portal](./media/set-preferences/azure-portal-settings-icon.png)
+
+1. Choose a theme.
+
+    ![Screenshot that shows the theme options in the Azure portal settings](./media/set-preferences/azure-portal-theme-options.png)
+
+1. Select **Apply**.
 
 ## Change the inactivity timeout setting
 
@@ -67,88 +150,6 @@ The setting takes effect for new sessions. It won’t apply immediately to any u
 > [!NOTE]
 > If a Global Administrator has configured a directory-level timeout setting, users can override the policy and set their own inactive sign-out duration. However, the user must choose a time interval that is less than what is set at the directory level by the Global Administrator.
 >
-
-## Choose your default subscription
-
-You can change the subscription that opens by default when you sign-in to the Azure portal. This is helpful if you have a primary subscription you work with but use others occasionally. 
-
-:::image type="content" source="media/set-preferences/filter-subscription-default-view.png" alt-text="Filter resource list by subscription.":::
-
-1. Select the directory and subscription filter icon in the top navigation.
-
-1. Select the subscriptions you want as the default subscriptions when you launch the portal. 
-
-    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Select the subscriptions you want as the default subscriptions when you launch the portal."::: 
-
-
-## Choose your default view 
-
-You can change the page that opens by default when you sign-in to the Azure portal.
-
-   ![Screenshot showing Azure portal settings with default view highlighted](./media/set-preferences/default-view.png)
-
-The default view setting controls which Azure portal view is shown when you sign in. You can choose to open Azure Home by default, or the Dashboard view.
-
-* **Home** can’t be customized.  It displays shortcuts to popular Azure services and lists the resources you’ve used most recently. We also give you useful links to resources like Microsoft Learn and the Azure roadmap.
-* Dashboards can be customized to create a workspace designed just for you. For example, you can build a dashboard that is project, task, or role focused. If you select **Dashboard**, your default view will go to your most recently used dashboard.
-
-## Choose a portal menu mode
-
-The default mode for the portal menu controls how much space the portal menu takes up on the page.
-
-* When the portal menu is in _flyout_ mode, it’s hidden until you need it. Select the menu icon to open or close the menu.
-* If you choose _docked_ mode for the portal menu, it’s always visible. You can collapse the menu to provide more working space. 
-
-## Choose a theme
-
-The theme that you choose affects the background and font colors that appear in the Azure portal. You can select from one of four preset color themes. Select each thumbnail to find the theme that best suits you.
-
-   ![Screenshot showing Azure portal settings with themes highlighted](./media/set-preferences/theme.png)
-
-You can choose one of the high-contrast themes instead. The high contrast settings make the Azure portal easier to read for people who have a visual impairment and override all other theme selections. For more information, see [Turn on high contrast or change theme](azure-portal-change-theme-high-contrast.md).
-
-## Enable or disable pop-up notifications
-
-Notifications are system messages related to your current session. They provide information like your current credit balance, when resources you just created become available, or confirm your last action, for example. When pop-up notifications are turned on, the messages briefly display in the top corner of your screen. 
-
-To enable or disable pop-up notifications, select or de-select the **Enable pop-up notifications** checkbox.
-
-   ![Screenshot showing Azure portal settings with pop-up notifications highlighted](./media/set-preferences/popup-notifications.png)
-
-To read all notifications received during your current session, select **Notifications** from the global header.
-
-   ![Screenshot showing Azure portal global header with notifications highlighted](./media/set-preferences/read-notifications.png)
-
-If you want to read notifications from previous sessions, look for events in the Activity log. To learn more, read [View and retrieve Azure Activity log events](/azure/azure-monitor/platform/activity-log-view).
-
-## Enable high contrast or change the portal theme
-
-High contrast settings make the Azure portal easier to read. You can also choose a theme that changes the background colors of the portal. If you need more contrast or you want to change the color scheme in the Azure portal, go to the portal settings to make the change.
-
-### Enable high contrast
-
-1. In the header of the [Azure portal](https://portal.azure.com), select **Settings**.
-
-    ![Screenshot that shows the portal settings gear icon in the Azure portal](./media/set-preferences/azure-portal-settings-icon.png)
-1. Choose **White** or **Black**.
-
-    ![Screenshot that shows high contrast options in the Azure portal settings](./media/set-preferences/azure-portal-highcontrast-options.png)
-1. Select **Apply**.
-
-> [!NOTE]
-> If you select a high contrast theme, it will override all other theme selections.
-
-### Change the portal theme
-
-1. In the header of the [Azure portal](https://portal.azure.com), select **Settings**.
-
-    ![Screenshot that shows the portal settings gear icon in the Azure portal](./media/set-preferences/azure-portal-settings-icon.png)
-
-1. Choose a theme.
-
-    ![Screenshot that shows the theme options in the Azure portal settings](./media/set-preferences/azure-portal-theme-options.png)
-
-1. Select **Apply**.
 
 ## Restore default settings
 
@@ -207,7 +208,7 @@ Select **Apply** to update your language and regional format settings.
 ## Next steps
 
 - [Keyboard shortcuts in Azure portal](azure-portal-keyboard-shortcuts.md)
-- [Supported browsers and devices](../azure-preview-portal-supported-browsers-devices.md)
+- [Supported browsers and devices](azure-portal-supported-browsers-devices.md)
 - [Add, remove, and rearrange favorites](azure-portal-add-remove-sort-favorites.md)
 - [Create and share custom dashboards](azure-portal-dashboards.md)
 - [Azure portal how-to video series](azure-portal-video-series.md)
