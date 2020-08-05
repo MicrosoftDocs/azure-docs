@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/21/2020
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
@@ -26,7 +26,7 @@ If you're the first person to use Privileged Identity Management (PIM) in your A
 
 ## Wizard overview
 
-Before your organization starts using Privileged Identity Management, all role assignments are permanent: the users are always in these roles even if they do not presently need their privileges. The first step of the wizard shows you a list of high-privileged roles and how many users are currently in those roles. You can drill in to a particular role to learn more about users if one or more of them are unfamiliar.
+Before your organization starts using Privileged Identity Management, all role assignments are permanent: the users are always in these roles even if they don't presently need their privileges. The first step of the wizard shows you a list of high-privileged roles and how many users are currently in those roles. You can drill in to a particular role to learn more about users if one or more of them are unfamiliar.
 
 The second step of the wizard gives you an opportunity to change administrator's role assignments.  
 
