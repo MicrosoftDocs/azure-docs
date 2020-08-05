@@ -114,7 +114,7 @@ This table lists the methods that you can use to create a network security group
 
 ## Load balancers
 
-[Azure Load Balancer](../load-balancer/load-balancer-overview.md) delivers high availability and network performance to your applications. A load balancer can be configured to [balance incoming Internet traffic](../load-balancer/load-balancer-overview.md#publicloadbalancer) to VMs or [balance traffic between VMs in a VNet](../load-balancer/load-balancer-overview.md#internalloadbalancer). A load balancer can also balance traffic between on-premises computers and VMs in a cross-premises network, or forward external traffic to a specific VM.
+[Azure Load Balancer](../load-balancer/load-balancer-overview.md) delivers high availability and network performance to your applications. A load balancer can be configured to [balance incoming Internet traffic](../load-balancer/components.md#frontend-ip-configurations) to VMs or [balance traffic between VMs in a VNet](../load-balancer/components.md#frontend-ip-configurations). A load balancer can also balance traffic between on-premises computers and VMs in a cross-premises network, or forward external traffic to a specific VM.
 
 The load balancer maps incoming and outgoing traffic between the public IP address and port on the load balancer and the private IP address and port of the VM.
 
