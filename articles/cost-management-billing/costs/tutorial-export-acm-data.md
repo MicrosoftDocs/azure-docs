@@ -129,6 +129,10 @@ You can also download the exported CSV file in the Azure portal. The following s
 
 [![Example export download](./media/tutorial-export-acm-data/download-export.png)](./media/tutorial-export-acm-data/download-export.png#lightbox)
 
+## View export run history  
+
+You can view the run history of your scheduled export by selecting an individual export in the exports list page. The exports list page also provides you with quick access to view the run time of your previous exports and the next time and export will run.
+
 ## Access exported data from other systems
 
 One of the purposes of exporting your Cost Management data is to access the data from external systems. You might use a dashboard system or other financial system. Such systems vary widely so showing an example wouldn't be practical.  However, you can get started with accessing your data from you applications at [Introduction to Azure Storage](../../storage/common/storage-introduction.md).
