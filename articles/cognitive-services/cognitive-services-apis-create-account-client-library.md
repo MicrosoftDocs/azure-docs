@@ -9,6 +9,7 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 07/29/2020
 ms.author: pafarley
+zone_pivot_groups: programming-languages-set-ten
 ---
 
 # Quickstart: Create a Cognitive Services resource using the Azure Management client library
