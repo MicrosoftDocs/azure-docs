@@ -7,7 +7,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/14/2020
+ms.date: 08/05/2020
 ---
 
 # Overview of Azure Monitor agents
@@ -25,22 +25,37 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 
 ### Windows agents
 
-| | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | Dependency<br>agent |
-|:---|:---|:---|:---|
-| **Environments supported** | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | 
-| **Agent requirements**  | None | None | Requires Log Analytics agent |
-| **Data collected** | Event Logs<br>ETW events<br>Performance<br>File based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event Logs<br>Performance<IIS logs><br>File based logs<br>Insights and solutions<br>Other services | Process details and dependencies<br>Network connection metrics |
-| **Data sent to** | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs |
+| | Azure Monitor agent (preview) | Diagnostics<br>extension (WAD) | Log Analytics<br>agent | Dependency<br>agent |
+|:---|:---|:---|:---|:---|
+| **Environments supported** | Azure<br>Other cloud<br>On-premises | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | 
+| **Agent requirements**  | None | None | None | Requires Log Analytics agent |
+| **Data collected** | Event Logs<br>Performance | Event Logs<br>ETW events<br>Performance<br>File based logs<br>IIS logs<br>.NET app logs<br>Crash dumps<br>Agent diagnostics logs | Event Logs<br>Performance<IIS logs><br>File based logs<br>Insights and solutions<br>Other services | Process details and dependencies<br>Network connection metrics |
+| **Data sent to** | Azure Monitor Logs<br>Azure Monitor Metrics<br>Azure Storage<br>Event Hub | Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Monitor Logs | Azure Monitor Logs |
 
 
 ### Linux agents
 
-| | Diagnostics<br>extension (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Dependency<br>agent |
-|:---|:---|:---|:---|:---|
-| **Environments supported** | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
-| **Agent requirements**  | None | None | None | Requires Log Analytics agent |
-| **Data collected** | Syslog<br>Performance | Performance | Syslog<br>Performance| Process details and dependencies<br>Network connection metrics |
-| **Data sent to** | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs |
+| | Azure Monitor agent (preview) | Diagnostics<br>extension (LAD) | Telegraf<br>agent | Log Analytics<br>agent | Dependency<br>agent |
+|:---|:---|:---|:---|:---|:---|
+| **Environments supported** | Azure | Azure | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises | Azure<br>Other cloud<br>On-premises |
+| **Agent requirements**  | None | None | None | None | Requires Log Analytics agent |
+| **Data collected** | Syslog<br>Performance | Syslog<br>Performance | Performance | Syslog<br>Performance| Process details and dependencies<br>Network connection metrics |
+| **Data sent to** | Azure Monitor Logs<br>Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs |
+
+## Azure Monitor agent (preview)
+The [Azure Monitor agent]() is currently in preview and will replace the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux virtual machines. It can to send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](data-collection-rule-portal.md) which provide a more scalable method of configuring data collection and destinations for each agent.
+
+Use the Azure Monitor agent if you need to:
+
+- Collect guest logs and metrics from any virtual machine in Azure, in other clouds, or on-premises. (Azure only in preview.)
+- Send data to Azure Monitor Logs and Azure Monitor Metrics for analysis with Azure Monitor. 
+- Send data to Azure Storage for archiving.
+- Send data to third-party tools using [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
+- Manage the security of your virtual machines using [Azure Security Center](../../security-center/security-center-intro.md)  or [Azure Sentinel](../../sentinel/overview.md). (Not available in preview.)
+
+Limitations of the Azure Monitor agent include:
+
+- Currently in public preview. See [Current limitations](azure-monitor-agent-overview.md#current-limitations) for a list of limitations during public preview.
 
 ## Log Analytics agent
 
