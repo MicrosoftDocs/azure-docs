@@ -5,12 +5,12 @@ description: Learn how to work around, solve, and troubleshoot the common Docker
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
 author: clauren42
 ms.author:  clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: contperfq4, tracking-python
+ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4, tracking-python
 ---
 
 # Troubleshoot Docker deployment of models with Azure Kubernetes Service and Azure Container Instances 
@@ -148,7 +148,7 @@ For more information on customizing your Python environment, see [Create and man
 During local testing, you may need to update the `score.py` file to add logging or attempt to resolve any problems that you've discovered. To reload changes to the `score.py` file, use `reload()`. For example, the following code reloads the script for the service, and then sends data to it. The data is scored using the updated `score.py` file:
 
 > [!IMPORTANT]
-> The `reload` method is only available for local deployments. For information on updating a deployment to another compute target, see the update section of [Deploy models](how-to-deploy-and-where.md#update).
+> The `reload` method is only available for local deployments. For information on updating a deployment to another compute target, see [how to update your webservice](how-to-deploy-update-web-service.md).
 
 ```python
 service.reload()
@@ -179,7 +179,9 @@ print(service.get_logs())
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
 print(ws.webservices['mysvc'].get_logs())
 ```
-
+If you see the line `Booting worker with pid: <pid>` occurring multiple times in the logs, it means, there isn't enough memory to start the worker.
+You can address the error by increasing the value of `memory_gb` in `deployment_config`
+ 
 ## Container cannot be scheduled
 
 When deploying a service to an Azure Kubernetes Service compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If after 5 minutes, there are no nodes available in the cluster with the appropriate amount of resources available, the deployment will fail with the message `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. You can address this error by either adding more nodes, changing the SKU of your nodes or changing the resource requirements of your service. 

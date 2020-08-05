@@ -2,7 +2,7 @@
 title: Add an existing Azure subscription to your tenant - Azure AD
 description: Instructions about how to add an existing Azure subscription to your Azure Active Directory tenant.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
@@ -27,7 +27,7 @@ If your subscription expires, you lose access to all the other resources associa
 All of your users have a single *home* directory for authentication. Your users can also be guests in other directories. You can see both the home and guest directories for each user in Azure AD.
 
 > [!Important]
-> When you associate a subscription to a different directory, users that have roles assigned using [role-based access control (RBAC)](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
+> When you associate a subscription to a different directory, users that have roles assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
 >
 > Policy Assignments are also removed from a subscription when the subscription is associated with a different directory.
 >
@@ -91,6 +91,6 @@ After you associate a subscription to a different directory, you might need to d
 
 - To create a new Azure AD tenant, see [Quickstart: Create a new tenant in Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-- To learn more about how Microsoft Azure controls resource access, see [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+- To learn more about how Microsoft Azure controls resource access, see [Classic subscription administrator roles, Azure roles, and Azure AD administrator roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 - To learn more about how to assign roles in Azure AD, see [Assign administrator and non-administrator roles to users with Azure Active Directory](active-directory-users-assign-role-azure-portal.md).

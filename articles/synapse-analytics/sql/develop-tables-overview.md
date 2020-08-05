@@ -40,7 +40,7 @@ The following table lists the topics that are relevant to SQL pool vs. SQL on-de
 | [Statistics](#statistics)                                    | Yes                | Yes                     |
 | [Primary key and unique key](#primary-key-and-unique-key)    | Yes                | No                      |
 | [Commands for creating tables](#commands-for-creating-tables) | Yes                | No                      |
-| [Aligning source data with the data warehouse](#aligning-source-data-with-the-data-warehouse) | Yes                | No                      |
+| [Aligning source data with the data warehouse](#align-source-data-with-the-data-warehouse) | Yes                | No                      |
 | [Unsupported table features](#unsupported-table-features)    | Yes                | No                      |
 | [Table size queries](#table-size-queries)                    | Yes                | No                      |
 
@@ -209,7 +209,7 @@ You can create a table as a new empty table. You can also create and populate a 
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Populates a new table with the results of a select statement. The table columns and data types are based on the select statement results. To import data, this statement can select from an external table. |
 | [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Creates a new external table by exporting the results of a select statement to an external location.  The location is either Azure Blob storage or Azure Data Lake Storage. |
 
-## Aligning source data with the data warehouse
+## Align source data with the data warehouse
 
 Data warehouse tables are populated by loading data from another data source. To achieve a successful load, the number and data types of the columns in the source data must align with the table definition in the data warehouse.
 

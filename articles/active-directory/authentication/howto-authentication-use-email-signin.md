@@ -156,6 +156,8 @@ During preview, you can currently only enable the sign-in with email as an alter
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
     ```
 
+With the policy applied, it can take up to an hour to propagate and for users to be able to sign in using their alternate login ID.
+
 ## Test user sign-in with email
 
 To test that users can sign in with email, browse to [https://myprofile.microsoft.com][my-profile] and sign in with a user account based on their email address, such as `balas@fabrikam.com`, not their UPN, such as `balas@contoso.com`. The sign-in experience should look and feel the same as with a UPN-based sign-in event.

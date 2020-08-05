@@ -173,7 +173,7 @@
   - name: VM types and sizes
     items:
     - name: VM sizes
-      href: sizes.md
+      href: ../sizes.md
     - name: Generation 2 VMs
       href: generation-2.md
     - name: General purpose
@@ -356,7 +356,7 @@
   - name: Monitoring
     href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Backup and recovery
-    href: backup-recovery.md
+    href: ../backup-recovery.md
   - name: Cloud adoption framework
     href: /azure/cloud-adoption-framework/get-started/?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Architecture center
@@ -385,7 +385,7 @@
       - name: Error codes
         href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Use C#
-      href: csharp.md
+      href: ../../azure-resource-manager/templates/deploy-rest.md
     - name: Use specialized disk
       items:
       - name: Portal
@@ -393,7 +393,7 @@
       - name: PowerShell
         href: create-vm-specialized.md
     - name: Create VM with Chef
-      href: ../../chef/chef-automation.md
+      href: /azure/developer/chef/windows-vm-configure
     - name: Use Java
       href: java.md
     - name: Use Python
@@ -403,6 +403,13 @@
       href: ps-template.md
     - name: Connect to a VM
       href: connect-logon.md
+    - name: Connect to Linux VMs
+      displayName: ssh keygen ssk-key putty
+      items:
+      - name: In the portal
+        href: ../ssh-keys-portal.md
+      - name: On Windows
+        href: ../linux/ssh-from-windows.md
     - name: Use Azure Hybrid Benefit license
       href: hybrid-use-benefit-licensing.md
     - name: Use Multitenant Hosting Rights for Windows 10
@@ -700,7 +707,7 @@
           - name: Version history
             href: ../../azure-monitor/platform/diagnostics-extension-versions.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
           - name: JSON Lines resource logs format
-            href: ../../azure-monitor/platform/resource-logs-append-blobs.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
+            href: ../../azure-monitor/platform/resource-logs-blob-format.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
           - name: Troubleshooting
             href: ../../azure-monitor/platform/diagnostics-extension-troubleshooting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Log Analytics agent
@@ -758,13 +765,13 @@
         - name: Enable monitoring overview
           href: ../../azure-monitor/insights/vminsights-enable-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Enable for single Azure VM
-          href: ../../azure-monitor/insights/vminsights-enable-single-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../azure-monitor/insights/vminsights-enable-portal.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Enable using Azure Policy
-          href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Enable using Azure PowerShell
-          href: ../../azure-monitor/insights/vminsights-enable-at-scale-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../azure-monitor/insights/vminsights-enable-powershell.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Enable for Hybrid environment
-          href: ../../azure-monitor/insights/vminsights-enable-hybrid-cloud.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../azure-monitor/insights/vminsights-enable-hybrid.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
       - name: Map dependencies
         href: ../../azure-monitor/insights/vminsights-maps.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Monitor performance
@@ -802,7 +809,7 @@
     - name: Custom data
       href: ../custom-data.md
     - name: Chef
-      href: chef-automation.md
+      href: /azure/developer/chef/windows-vm-configure
     - name: Publish Web App from Visual Studio
       href: publish-web-app-from-visual-studio.md
   - name: Run applications
@@ -848,7 +855,7 @@
     - name: Upload a vhd to a disk - PowerShell
       href: disks-upload-vhd-to-managed-disk-powershell.md
     - name: Securely import/export a disk - Portal
-      href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Resize a disk
       href: expand-os-disk.md
     - name: Use Storage Explorer to manage disks

@@ -92,7 +92,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
         + Name should start with a letter (not a number or a dash character).
         + If dash character is used, then it needs to be followed by at least one letter after the dash. Example: Test-, test-0, test-01 are invalid, while test-a0, test-0a are valid instances.
 
-    1.  Select the Virtual Machine size from the available choices.
+    1.  Select the Virtual Machine size from the available choices. For the tutorials, the default VM is a good choice.
 
     1. Then select **Create**. It can take approximately 5 minutes to set up your VM.
 

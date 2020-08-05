@@ -13,10 +13,10 @@
     items:
     - name: Register an app
       href: quickstart-register-app.md
-    - name: Configure app to access web APIs
-      href: quickstart-configure-app-access-web-apis.md
-    - name: Configure app to expose web APIs
+    - name: Configure app to expose a web API
       href: quickstart-configure-app-expose-web-apis.md
+    - name: Configure app to access a web API
+      href: quickstart-configure-app-access-web-apis.md
     - name: Modify accounts supported by an app
       href: quickstart-modify-supported-accounts.md
     - name: Remove an app
@@ -512,6 +512,8 @@
       href: active-directory-claims-mapping.md
     - name: Configure optional claims
       href: active-directory-optional-claims.md
+    - name: Use directory schema extension attributes in claims
+      href: active-directory-schema-extensions.md
     - name: Configure token lifetimes
       href: active-directory-configurable-token-lifetimes.md
     - name: Handle SameSite cookie changes in Chrome browser

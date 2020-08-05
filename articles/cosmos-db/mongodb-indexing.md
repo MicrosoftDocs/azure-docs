@@ -5,10 +5,10 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 08/04/2020
 author: timsander1
 ms.author: tisande
-
+ms.custom: devx-track-javascript
 ---
 # Manage indexing in Azure Cosmos DB's API for MongoDB
 
@@ -313,7 +313,12 @@ The index progress details show the percentage of progress for the current index
 
 Regardless of the value specified for the **Background** index property, index updates are always done in the background. Because index updates consume Request Units (RUs) at a lower priority than other database operations, index changes won't result in any downtime for writes, updates, or deletes.
 
-When you add a new index, queries will immediately use the index. This means that queries might not return all matching results and will do so without returning any errors. When the index transformation completes, query results will be consistent. You can [track index progress](#track-index-progress).
+There is no impact to read availability when adding a new index. Queries will only utilize new indexes once the index transformation is complete. During the index transformation, the query engine will continue to use existing indexes, so you'll observe similar read performance during the indexing transformation to what you had observed before initiating the indexing change. When adding new indexes, there is also no risk of incomplete or inconsistent query results.
+
+When removing indexes and immediately running queries the have filters on the dropped indexes, results might be inconsistent and incomplete until the index transformation finishes. If you remove indexes, the query engine does not guarantee consistent or complete results when queries filter on these newly removed indexes. Most developers do not drop indexes and then immediately try to query them so, in practice, this situation is unlikely.
+
+> [!NOTE]
+> You can [track index progress](#track-index-progress).
 
 ## Migrate collections with indexes
 

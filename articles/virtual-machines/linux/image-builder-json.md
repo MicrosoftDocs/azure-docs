@@ -3,8 +3,8 @@ title: Create an Azure Image Builder template (preview)
 description: Learn how to create a template to use with Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 07/09/2020
-ms.topic: article
+ms.date: 08/03/2020
+ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
@@ -110,7 +110,7 @@ This optional section can be used to ensure that dependencies are completed befo
     "dependsOn": [],
 ```
 
-For more information, see [Define resource dependencies](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
+For more information, see [Define resource dependencies](../../azure-resource-manager/templates/define-resource-dependency.md#dependson).
 
 ## Identity
 
@@ -131,23 +131,24 @@ Image Builder support for a User-Assigned Identity:
 * Supports a single identity only
 * Does not support custom domain names
 
-To learn more, see [What is managed identities for Azure resources?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-For more information on deploying this feature, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+To learn more, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
+For more information on deploying this feature, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity).
 
 ## Properties: source
 
-The `source` section contains information about the source image that will be used by Image Builder.
+Image Builder currently only supports HyperV generation 1 images and VMs, the `source` section contains information about the source image that will be used by Image Builder.
 
 The API requires a 'SourceType' that defines the source for the image build, currently there are three types:
 - PlatformImage - indicated the source image is a Marketplace image.
 - ManagedImage - use this when starting from a regular managed image.
 - SharedImageVersion - this is used when you are using an image version in a Shared Image Gallery as the source.
 
+
 > [!NOTE]
-> When using existing Windows custom images, you can run the Sysprep command up to 8 times on a single Windows image, for more information, see the [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
+> When using existing Windows custom images, you can run the Sysprep command up to 8 times on a single Windows image, for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
 
 ### PlatformImage source 
-Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support) for the full list. 
+Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](../windows/image-builder-overview.md#os-support) for the full list. 
 
 ```json
         "source": {
@@ -185,7 +186,10 @@ You can also specify plan information, for example:
 ```
 ### ManagedImage source
 
-Sets the source image as an existing managed image of a generalized VHD or VM. The source managed image must be of a supported OS, and be in the same region as your Azure Image Builder template. 
+Sets the source image as an existing managed image of a generalized VHD or VM.
+
+> [!NOTE]
+> The source managed image must be of a supported OS and the image must same region as your Azure Image Builder template. 
 
 ```json
         "source": { 
@@ -198,7 +202,11 @@ The `imageId` should be the ResourceId of the managed image. Use `az image list`
 
 
 ### SharedImageVersion source
-Sets the source image an existing image version in a Shared Image Gallery. The image version must be of a supported OS, and the image must be replicated to the same region as your Azure Image Builder template. 
+Sets the source image an existing image version in a Shared Image Gallery.
+
+> [!NOTE]
+> The source managed image must be of a supported OS and the image must same region as your Azure Image Builder template, if not, please replicate the image version to the Image Builder Template region.
+
 
 ```json
         "source": { 
@@ -359,7 +367,7 @@ Customize properties:
 - **validExitCodes** – Optional, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
 - **runElevated** – Optional, boolean, support for running commands and scripts with elevated permissions.
 - **sha256Checksum** - Value of sha256 checksum of the file, you generate this locally, and then Image Builder will checksum and validate.
-    * To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
+    * To generate the sha256Checksum, using a PowerShell on Windows [Get-Hash](/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
 
 
 ### File customizer
@@ -553,7 +561,7 @@ A Shared Image Gallery is made up of:
 - Image definitions - a conceptual grouping for images. 
 - Image versions - this is an image type used for deploying a VM or scale set. Image versions can be replicated to other regions where VMs need to be deployed.
  
-Before you can distribute to the Image Gallery, you must create a gallery and an image definition, see [Shared images](shared-images.md). 
+Before you can distribute to the Image Gallery, you must create a gallery and an image definition, see [Shared images](../shared-images-cli.md). 
 
 ```json
 {

@@ -1,7 +1,7 @@
 ---
 title: Data redundancy 
 titleSuffix: Azure Storage
-description: Data in your Microsoft Azure Storage account is replicated for durability and high availability. Redundancy configurations include locally redundant storage (LRS), zone-redundant storage (ZRS), geo-redundant storage (GRS), read-access geo-redundant storage (RA-GRS), geo-zone-redundant storage (GZRS), and read-access geo-zone-redundant storage (RA-GZRS).
+description: Understand data redundancy in Azure Storage. Data in your Microsoft Azure Storage account is replicated for durability and high availability.
 services: storage
 author: tamram
 

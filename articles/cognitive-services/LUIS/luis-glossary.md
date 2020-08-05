@@ -89,11 +89,11 @@ An [intent](#intent) is an example of a classifier.
 
 ## Collaborator
 
-A collaborator is conceptually the same thing as a [contributor](#contributor). A collaborator is granted access when an owner adds the collaborator's email address to an app that isn't controlled with role-based access (RBAC). If you are still using collaborators, you should migrate your LUIS account, and use LUIS authoring resources to manage contributors with RBAC.
+A collaborator is conceptually the same thing as a [contributor](#contributor). A collaborator is granted access when an owner adds the collaborator's email address to an app that isn't controlled with Azure role-based access control (Azure RBAC). If you are still using collaborators, you should migrate your LUIS account, and use LUIS authoring resources to manage contributors with RBAC.
 
 ## Contributor
 
-A contributor is not the [owner](#owner) of the app, but has the same permissions to add, edit, and delete the intents, entities, utterances. A contributor provides role-based access (RBAC) to a LUIS app.
+A contributor is not the [owner](#owner) of the app, but has the same permissions to add, edit, and delete the intents, entities, utterances. A contributor provides Azure role-based access control (Azure RBAC) to a LUIS app.
 
 See also:
 * [How-to](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) add contributors

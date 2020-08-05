@@ -2,7 +2,7 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 07/27/2020
 ---
 
 # Create resources at the tenant level
@@ -11,15 +11,32 @@ As your organization matures, you may need to define and assign [policies](../..
 
 ## Supported resources
 
-You can deploy the following resource types at the tenant level:
+Not all resource types can be deployed to the tenant level. This section lists which resource types are supported.
 
-* [deployments](/azure/templates/microsoft.resources/deployments) - for nested templates that deploy to management groups or subscriptions.
-* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+For Azure Policies, use:
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+
+For role-based access control, use:
+
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+
+For nested templates that deploy to management groups, subscriptions, or resource groups, use:
+
+* [deployments](/azure/templates/microsoft.resources/deployments)
+
+For creating management groups, use:
+
+* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+
+For managing costs, use:
+
+* [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+* [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
+* [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
 
 ### Schema
 
@@ -88,6 +105,56 @@ For tenant level deployments, you must provide a location for the deployment. Th
 You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named **azuredeploy.json** creates a default deployment name of **azuredeploy**.
 
 For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
+
+## Deployment scopes
+
+When deploying to a tenant, you can target the tenant or management groups, subscriptions and resource groups in the tenant. The user deploying the template must have access to the specified scope.
+
+Resources defined within the resources section of the template are applied to the tenant.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        tenant-level-resources
+    ],
+    "outputs": {}
+}
+```
+
+To target a management group within the tenant, add a nested deployment and specify the `scope` property.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedMG",
+            "scope": "[variables('mgId')]",
+            "location": "eastus",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    nested-template
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
 
 ## Use template functions
 

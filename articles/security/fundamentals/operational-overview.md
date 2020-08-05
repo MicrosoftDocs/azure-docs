@@ -1,7 +1,7 @@
 ---
 
 title: Azure operational security overview| Microsoft Docs
-description: This article provides an overview of Azure operational security.
+description: Learn about Azure operational security in this overview. Operational security refers to asset protection services, controls, and features.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -85,7 +85,7 @@ With Azure Active Directory, all applications that you publish for your partners
 - Disk encryption validation.
 - Network-based attacks.
 
-Security Center uses [Role-Based Access Control (RBAC)](/azure/role-based-access-control/role-assignments-portal). RBAC provides [built-in roles](../../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
+Security Center uses [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal). RBAC provides [built-in roles](../../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
 Security Center assesses the configuration of your resources to identify security issues and vulnerabilities. In Security Center, you see information related to a resource only when you're assigned the role of owner, contributor, or reader for the subscription or resource group that a resource belongs to.
 

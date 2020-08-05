@@ -4931,13 +4931,13 @@ Here is the result: `[ Gala, Honeycrisp ]`
 
 *Example 5*
 
-In this example, suppose your `items` XML string contains only this attribute, `expired='true'`:
+In this example, suppose your `items` XML string contains only this attribute, `expired = 'true'`:
 
 `"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
 
-This example passes in the XPath expression, `'//name[@expired - 'true']'`, to find all the `name` elements that have the attribute, `expired='true'`:
+This example passes in the XPath expression, `'//name[@expired = 'true']'`, to find all the `name` elements that have the attribute, `expired = 'true'`:
 
-`xpath(xml(parameters('items')), '//name[@expired - 'true']')`
+`xpath(xml(parameters('items')), '//name[@expired = 'true']')`
 
 Here is the result: `[ Gala ]`
 

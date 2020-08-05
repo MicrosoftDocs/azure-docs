@@ -1,6 +1,6 @@
 ---
 title: Azure security features that help with identity management | Microsoft Docs
-description: " This article provides an overview of the core Azure security features that help with identity management. Microsoft identity and access management solutions help IT protect access to applications and resources across the corporate datacenter and into the cloud, enabling additional levels of validation, such as Multi-Factor Authentication and Conditional Access policies. "
+description: Learn about the core Azure security features that help with identity management. See information about topics like single sign-on and reverse proxy.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -60,7 +60,7 @@ Learn more:
 
 * [Overview of single sign-on](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [What is application access and single sign-on with Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Integrate Azure Active Directory single sign-on with SaaS apps](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md)
+* [Quickstart Series on App Management](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## Reverse proxy
 
