@@ -44,7 +44,6 @@ This table provides a quick comparison for the change in terminology:
 
 | Feature | Details |
 | ---| --- |
-| New Fsv2-series and M-series hardware generations| For information, see [Hardware generations](service-tiers-vcore.md#hardware-generations).|
 | Accelerated database recovery with single databases and elastic pools | For information, see [Accelerated Database Recovery](../accelerated-database-recovery.md).|
 | Data discovery & classification  |For information, see [Azure SQL Database and Azure Synapse Analytics data discovery & classification](data-discovery-and-classification-overview.md).|
 | Elastic database jobs | For information, see [Create, configure, and manage elastic jobs](elastic-jobs-overview.md). |
@@ -132,7 +131,7 @@ In certain circumstances, modifying, disabling, or enabling an existing job can 
 
 ### Permissions on resource group not applied to SQL Managed Instance
 
-When the SQL Managed Instance Contributor RBAC role is applied to a resource group (RG), it's not applied to SQL Managed Instance and has no effect.
+When the SQL Managed Instance Contributor Azure role is applied to a resource group (RG), it's not applied to SQL Managed Instance and has no effect.
 
 **Workaround**: Set up a SQL Managed Instance Contributor role for users at the subscription level.
 

@@ -298,6 +298,8 @@
       displayName: pre-empt, preempt
     - name: Azure VMs with no temp disk
       href: ../azure-vms-no-temp-disk.md
+    - name: Azure VM sizes naming conventions
+      href: ../vm-naming-conventions.md
     - name: Previous generations
       href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Isolated sizes
@@ -343,9 +345,9 @@
     - name: Shared disks
       href: disks-shared.md
     - name: Ephemeral OS disks
-      href: ephemeral-os-disks.md
+      href: ../ephemeral-os-disks.md
   - name: Networking
-    href: network-overview.md
+    href: ../network-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Scale sets
     href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Infrastructure automation
@@ -356,6 +358,9 @@
       href: security-policy.md
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ../security-controls-policy.md
     - name: Security baseline for Azure Security Benchmark
       href: security-baseline.md
     - name: Built-in security controls
@@ -367,7 +372,7 @@
   - name: Monitoring
     href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Backup and recovery
-    href: backup-recovery.md
+    href: ../backup-recovery.md
   - name: Cloud adoption framework
     href: /azure/cloud-adoption-framework/get-started/
   - name: Architecture center
@@ -629,6 +634,8 @@
         href: mac-create-ssh-keys.md
       - name: On Windows
         href: ssh-from-windows.md
+      - name: In the portal
+        href: ../ssh-keys-portal.md
       - name: Detailed steps
         href: create-ssh-keys-detailed.md
   - name: Protect VMs
@@ -962,12 +969,16 @@
       items:
       - name: Enable encryption at host - CLI
         href: disks-enable-host-based-encryption-cli.md
+      - name: Enable encryption at host - Portal
+        href: disks-enable-host-based-encryption-portal.md
       - name: Enable customer-managed keys - CLI
         href: disks-enable-customer-managed-keys-cli.md
       - name: Enable customer-managed keys - Portal
         href: disks-enable-customer-managed-keys-portal.md
-      - name: Enable double encryption at rest
+      - name: Enable double encryption at rest - CLI
         href: disks-enable-double-encryption-at-rest-cli.md
+      - name: Enable double encryption at rest - Portal
+        href: disks-enable-double-encryption-at-rest-portal.md
     - name: Migration and conversion
       items:
       - name: Migrate to Premium storage with Azure Site Recovery
@@ -1111,7 +1122,7 @@
   - name: Azure CLI
     href: /cli/azure/vm
   - name: PowerShell
-    href: /powershell/azureps-cmdlets-docs
+    href: /powershell/azure/
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.compute
   - name: Java

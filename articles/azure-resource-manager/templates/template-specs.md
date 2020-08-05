@@ -2,22 +2,28 @@
 title: Template specs overview
 description: Describes how to create template specs and share them with other users in your organization. 
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/31/2020
 ms.author: tomfitz
 author: tfitzmac
 ---
 # Azure Resource Manager template specs (Preview)
 
-A template spec is a new resource type for storing an Azure Resource Manager template (ARM template) in Azure for later deployment. This resource type enables you to share ARM templates with other users in your organization. Just like any other Azure resource, you can use role-based access control (RBAC) to share the template spec. Users only need read access to the template spec to deploy its template, so you can share the template without allowing others to modify it.
+A template spec is a new resource type for storing an Azure Resource Manager template (ARM template) in Azure for later deployment. This resource type enables you to share ARM templates with other users in your organization. Just like any other Azure resource, you can use role-based access control (RBAC) to share the template spec.
 
 **Microsoft.Resources/templateSpecs** is the new resource type for template specs. It consists of a main template and any number of linked templates. Azure securely stores template specs in resource groups. Template Specs support [versioning](#versioning).
 
 To deploy the template spec, you use standard Azure tools like PowerShell, Azure CLI, Azure portal, REST, and other supported SDKs and clients. You use the same commands and pass in the same parameters for the template.
 
-The benefit of using template specs is that teams in your organization don't have to recreate or copy templates for common scenarios. You create canonical templates and share them. The templates you include in a template spec should be verified by administrators in your organization to follow the organization's requirements and guidance.
-
 > [!NOTE]
 > Template Specs is currently in preview. To use it, you must [sign up for the wait list](https://aka.ms/templateSpecOnboarding).
+
+## Why use template specs?
+
+If you currently have your templates in a GitHub repo or storage account, you run into several challenges when trying to share and use the templates. For a user to deploy it, the template must either be local or the URL for the template must be publicly accessible. To get around this limitation, you might share copies of the template with users who need to deploy it, or open access to the repo or storage account. When users own local copies of a template, these copies can eventually diverge from the original template. When you make a repo or storage account publicly accessible, you may allow unintended users to access the template.
+
+The benefit of using template specs is that you can create canonical templates and share them with teams in your organization. The template specs are secure because they're available to Azure Resource Manager for deployment, but not accessible to users without RBAC permission. Users only need read access to the template spec to deploy its template, so you can share the template without allowing others to modify it.
+
+The templates you include in a template spec should be verified by administrators in your organization to follow the organization's requirements and guidance.
 
 ## Create template spec
 
@@ -113,8 +119,7 @@ The following example consists of a main template with two linked templates. The
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "relativePath": "artifacts/webapp.json",
-                    "contentVersion": "1.0.0.0"
+                    "relativePath": "artifacts/webapp.json"
                 }
             }
         },
@@ -125,8 +130,7 @@ The following example consists of a main template with two linked templates. The
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "relativePath": "artifacts/database.json",
-                    "contentVersion": "1.0.0.0"
+                    "relativePath": "artifacts/database.json"
                 }
             }
         }

@@ -3,13 +3,11 @@ title: What's new in QnA Maker service?
 titleSuffix: Azure Cognitive Services
 description: This article contains news about QnA Maker.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.author: diberry
 ---
 
 # What's new in QnA Maker
@@ -32,7 +30,7 @@ Learn what's new with QnA Maker.
 
 ### May 2020
 
-* [Role-based access control (RBAC)](concepts/role-based-access-control.md)
+* [Azure role-based access control (Azure RBAC)](concepts/role-based-access-control.md)
 * [Rich-text editing](how-to/edit-knowledge-base.md#rich-text-editing-for-answer) for answers
 
 ### March 2020

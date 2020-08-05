@@ -465,31 +465,6 @@ Yes. If your configuration matches following scenario, you won't see allowed tra
 - You have an NSG on the application gateway subnet
 - You've enabled NSG flow logs on that NSG
 
-### How do I use Application Gateway V2 with only private frontend IP address?
-
-Application Gateway V2 currently doesn't support only private IP mode. It supports the following combinations
-* Private IP and Public IP
-* Public IP only
-
-But if you'd like to use Application Gateway V2 with only private IP, you can follow the process below:
-1. Create an Application Gateway with both public and private frontend IP address
-2. Don't create any listeners for the public frontend IP address. Application Gateway will not listen to any traffic on the public IP address if no listeners are created for it.
-3. Create and attach a [Network Security Group](https://docs.microsoft.com/azure/virtual-network/security-overview) for the Application Gateway subnet with the following configuration in the order of priority:
-    
-    a. Allow traffic from Source as **GatewayManager** service tag and Destination as **Any** and Destination port as **65200-65535**. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by certificate authentication. External entities, including the Gateway user administrators, can't initiate changes on those endpoints without appropriate certificates in place
-    
-    b. Allow traffic from Source as **AzureLoadBalancer** service tag and destination port as **Any**
-    
-    c. Deny all inbound traffic from Source as **Internet** service tag and destination port as **Any**. Give this rule the *least priority* in the inbound rules
-    
-    d. Keep the default rules like allowing VirtualNetwork inbound so that the access on private IP address isn't blocked
-    
-    e. Outbound internet connectivity can't be blocked. Otherwise, you will face issues with logging, metrics, and so on.
-
-Sample NSG configuration for private IP only access:
-![Application Gateway V2 NSG Configuration for private IP access only](./media/application-gateway-faq/appgw-privip-nsg.png)
-
-
 ## Next steps
 
 To learn more about Application Gateway, see [What is Azure Application Gateway?](overview.md).

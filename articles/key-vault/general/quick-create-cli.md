@@ -39,7 +39,7 @@ A resource group is a logical container into which Azure resources are deployed 
 az group create --name "myResourceGroup" -l "EastUS"
 ```
 
-## Create a Key Vault
+## Create a key vault
 
 Create a Key Vault in the resource group from the previous step. You will need to provide some information:
 
@@ -55,10 +55,10 @@ Create a Key Vault in the resource group from the previous step. You will need t
 az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myResourceGroup" --location "EastUS"
 ```
 
-The output of this cmdlet shows properties of the newly created Key Vault. Take note of the two properties listed below:
+The output of this cmdlet shows properties of the newly created key vault. Take note of the two properties listed below:
 
 - **Vault Name**: The name you provided to the --name parameter above.
-- **Vault URI**: In the example, this is https://<your-unique-keyvault-name>.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+- **Vault URI**: In the example, this is https://&lt;your-unique-keyvault-name&gt;.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 At this point, your Azure account is the only one authorized to perform any operations on this new vault.
 
@@ -66,7 +66,7 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
 
-When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, and all related resources. You can delete the resources as follows:
+When no longer needed, you can use the Azure CLI [az group delete](/cli/azure/group) command to remove the resource group and all related resources:
 
 ```azurecli
 az group delete --name myResourceGroup

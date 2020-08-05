@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 07/21/2020
 tags: connectors
 ---
 
@@ -455,7 +455,7 @@ If you can't send IDoc packets from SAP to your logic app's trigger, see the Tra
 
 <a name="find-extended-error-logs"></a>
 
-#### Find extended error logs
+## Find extended error logs
 
 For full error messages, check your SAP adapter's extended logs. 
 
@@ -910,7 +910,7 @@ The following example is a data record with grouped segments. This includes a gr
 
 ```
 
-The recommended method is to create an IDoc identifier for use with tRFC. You can set this transaction identifier, `tid`, using the [Send IDoc operation](https://docs.microsoft.com/connectors/sap/#send-idoc) in the SAP connector API.
+The recommended method is to create an IDoc identifier for use with tRFC. You can set this transaction identifier, `tid`, using the [Send IDoc operation](/connectors/sap/#send-idoc) in the SAP connector API.
 
 The following example is an alternative method to set the transaction identifier, or `tid`. In this example, the last data record segment node and the IDoc data node are closed. Then, the GUID, `guid`, is used as the tRFC identifier to detect duplicates. 
 

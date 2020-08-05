@@ -12,8 +12,6 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.collection: M365-identity-device-management
-
 ---
 
 # Quickstart: View the list of applications that are using your Azure Active Directory (Azure AD) tenant for identity management
@@ -64,11 +62,17 @@ To search for a particular application:
 3. Try entering the first few letters of an application name. This example shows all the applications that start with **Sales**.
     ![Example shows all apps that start with Sales](media/view-applications-portal/search-by-prefix.png)
 
+
+> [!TIP]
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+
+## Clean up resources
+
+You did not create any new resources in this quickstart, so there is nothing to clean up.
+
 ## Next steps
 
-In this quickstart, you learned how to view the applications in your Azure AD tenant. You learned how to filter the list of applications by application type, status, and visibility. You also learned how to search for a particular application.
-
-- [Add an app](add-application-portal.md)
-- [Configure an app](add-application-portal-configure.md)
-- [Set up single sign-on](add-application-portal-setup-sso.md)
-- [Delete an app](delete-application-portal.md)
+Advance to the next article to learn how to use Azure AD as the identity provider for an app.
+> [!div class="nextstepaction"]
+> [Add an app](add-application-portal.md)

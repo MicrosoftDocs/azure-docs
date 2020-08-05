@@ -22,7 +22,7 @@ There are a few ways to use the Windows Virtual Desktop license:
 - You can apply a license to an existing session host virtual machine. To do this, first follow the instructions in [Create a host pool with PowerShell](./create-host-pools-powershell.md) to create a host pool and associated VMs, then return to this article to learn how to apply the license.
 
 ## Apply a Windows license to a session host VM
-Make sure you have [installed and configured the latest Azure PowerShell](/powershell/azure/overview). Run the following PowerShell cmdlet to apply the Windows license:
+Make sure you have [installed and configured the latest Azure PowerShell](/powershell/azure/). Run the following PowerShell cmdlet to apply the Windows license:
 
 ```powershell
 $vm = Get-AzVM -ResourceGroup <resourceGroupName> -Name <vmName>

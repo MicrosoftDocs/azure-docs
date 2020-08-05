@@ -9,9 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18, seo-java-august2019, seo-java-september2019
+ms.custom: seodec18, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
 # Quickstart: Analyze a remote image using the Computer Vision REST API and Java

@@ -247,7 +247,7 @@ A.  Following reporting is available to support chain of custody:
 A.  Carrier tracking logs are captured in the Data Box order history. This report is available to you after the device has returned to Azure datacenter and the data on device disks is cleaned up. For immediate need, you can also go directly to the carrier's website with the order tracking number and get the tracking information.
 
 ### Can I transport the Data Box to Azure datacenter? 
-A.  No. If you have chosen Microsoft managed shipping, you can't transport the date. Currently Azure datacenter does not accept delivery of the Data Box from customers or from carriers other than UPS.
+A.  No. If you have chosen Microsoft managed shipping, you can't transport the data. Currently Azure datacenter does not accept delivery of the Data Box from customers or from carriers other than UPS.
 
 If you chose self managed shipping, then you can pick up or drop off your Data Box from the Azure datacenter.
 

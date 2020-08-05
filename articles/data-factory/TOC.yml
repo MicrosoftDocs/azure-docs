@@ -167,8 +167,6 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
-  - name: Managed Virtual Network
-    href: managed-virtual-network-private-endpoint.md
   - name: Security
     items:
     - name: Security baseline
@@ -588,6 +586,8 @@
       href: data-factory-service-identity.md
     - name: Customer managed key encryption
       href: enable-customer-managed-key.md
+    - name: Managed Virtual Network
+      href: managed-virtual-network-private-endpoint.md
   - name: Monitor and manage
     items:
     - name: Monitor visually
@@ -726,12 +726,16 @@
       href: pricing-concepts.md  
   - name: Troubleshooting guides
     items:
+    - name: Data Factory UX
+      href: data-factory-ux-troubleshoot-guide.md
     - name: Activities
       href: data-factory-troubleshoot-guide.md
     - name: Connectors
       href: connector-troubleshoot-guide.md
     - name: Data Flows
       href: data-flow-troubleshoot-guide.md
+    - name: Copy Data tool
+      href: copy-data-tool-troubleshoot-guide.md
     - name: Self-hosted Integration Runtimes
       href: self-hosted-integration-runtime-troubleshoot-guide.md
     - name: Azure-SSIS Integration Runtime

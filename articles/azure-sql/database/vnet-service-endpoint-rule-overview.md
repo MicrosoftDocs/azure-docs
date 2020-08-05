@@ -53,7 +53,7 @@ There is a separation of security roles in the administration of Virtual Network
 
 The roles of Network Admin and Database Admin have more capabilities than are needed to manage virtual network rules. Only a subset of their capabilities is needed.
 
-You have the option of using [role-based access control (RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role, versus adding the user to the other two major administrator roles.
+You have the option of using [Azure role-based access control (Azure RBAC)][rbac-what-is-813s] in Azure to create a single custom role that has only the necessary subset of capabilities. The custom role could be used instead of involving either the Network Admin or the Database Admin. The surface area of your security exposure is lower if you add a user to a custom role, versus adding the user to the other two major administrator roles.
 
 > [!NOTE]
 > In some cases the database in Azure SQL Database and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
@@ -130,10 +130,10 @@ PolyBase is commonly used to load data into Azure Synapse Analytics from Azure S
    > - If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - For known issues with Azure Data Lake Storage Gen2, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
 
-1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to the server hosting your Azure Synapse Analytics which you've registered with Azure Active Directory (AAD) as in step #1.
+1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Contributor** Azure role to the server hosting your Azure Synapse Analytics which you've registered with Azure Active Directory (AAD) as in step #1.
 
    > [!NOTE]
-   > Only members with Owner privilege  on the storage account can perform this step. For various built-in roles for Azure resources, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Only members with Owner privilege  on the storage account can perform this step. For various Azure built-in roles, refer to this [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **Polybase connectivity to the Azure Storage account:**
 

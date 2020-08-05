@@ -4,8 +4,8 @@ description: How to create a new Managed Service offer for listing in Azure Mark
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: JnHs 
-ms.author: jenhayes
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.date: 07/07/2020
 ---
 
@@ -37,7 +37,7 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
 * This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
-* Th Offer alias can't be changed after you select **Create**.
+* The Offer alias can't be changed after you select **Create**.
 
 Select **Create** to generate the offer and continue.
 
@@ -128,23 +128,17 @@ In this section, you can provide logos and images that will be used when showing
 >[!NOTE]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
-#### Marketplace logos
+#### Store logos
 
-Provide your offer's logo in four pixel sizes:
+Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) and a **Medium** (90 x 90 pixels) size logo. You can optionally replace these with different images.
+
+All three logo sizes are required for use in different places in the listing:
 
 - **Small** (48 x 48)
 - **Medium** (90 x 90)
-- **Large** (216 x 216)
-- **Wide** (255 x 115)
+- **Large** (between 216 x 216 and 350 x 350)
 
-Follow these guidelines for your logos:
-
-- The Azure design has a simple color palette. Limit the number of primary and secondary colors on your logo.
-- The theme colors of the portal are white and black. Don't use these colors as the background color for your logo. Use a color that makes your logo prominent in the portal. We recommend simple primary colors.
-- If you use a transparent background, make sure that the logo and text aren't white, black, or blue.
-- The look and feel of your logo should be flat and avoid gradients. Don't use a gradient background on the logo.
-- Don't place text on the logo, not even your company or brand name.
-- Make sure the logo isn't stretched.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### Screenshots
 
@@ -189,6 +183,9 @@ Next, enter a **Description** that provides a more detailed explanation of the p
 Currently, there is only one pricing model that can be used for Managed Service offer: **Bring your own license (BYOL)**. This means that you will bill your customers directly for costs related to this offer, and Microsoft does not charge any fees to you.
 
 The **Plan visibility** section lets you indicate if this plan should be [private](../../marketplace/private-offers.md). If you leave the **This is a private plan** box unchecked, your plan will not be restricted to specific customers (or to a certain number of customers).
+
+> [!NOTE]
+> Private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
 
 To make this plan available only to specific customers, select **Yes**. When you do so, you'll need to identify the customers by providing their subscription IDs. These can be entered one by one (for up to 10 subscriptions) or by uploading a .csv file (for a maximum of 10,000 subscriptions across all plans). Be sure to include your own subscriptions here so you can test and validate the offer.
 

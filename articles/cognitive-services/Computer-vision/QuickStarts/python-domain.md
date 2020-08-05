@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, tracking-python
 ---
@@ -85,6 +85,7 @@ image = Image.open(BytesIO(requests.get(image_url).content))
 plt.imshow(image)
 plt.axis("off")
 _ = plt.title(landmark_name, size="x-large", y=-0.1)
+plt.show()
 ```
 
 ## Examine the response for the landmarks sample
@@ -162,6 +163,7 @@ image = Image.open(BytesIO(requests.get(image_url).content))
 plt.imshow(image)
 plt.axis("off")
 _ = plt.title(celebrity_name, size="x-large", y=-0.1)
+plt.show()
 ```
 
 ## Examine the response for the celebrities sample

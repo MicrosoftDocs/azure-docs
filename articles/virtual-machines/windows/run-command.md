@@ -6,7 +6,8 @@ ms.service: virtual-machines
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurecli
 manager: carmonm
 ---
 # Run PowerShell scripts in your Windows VM by using Run Command

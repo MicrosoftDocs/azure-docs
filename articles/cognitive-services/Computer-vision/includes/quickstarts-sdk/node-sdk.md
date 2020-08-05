@@ -9,6 +9,7 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/22/2020
 ms.author: pafarley
+ms.custom: devx-track-javascript
 ---
 
 <a name="HOLTop"></a>
@@ -134,7 +135,7 @@ The following code detects common objects in the image and prints them to the co
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objects)]
 
-Define the helper function `formatRectObjects`:
+Define the helper function `formatRectObjects` to return the top, left, bottom, and right coordinates, along with the width and height.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objectformat)]
 

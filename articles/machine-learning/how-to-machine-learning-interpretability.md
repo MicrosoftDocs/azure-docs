@@ -5,9 +5,10 @@ description: Learn how to explain why your model makes predictions using the Azu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.author: mesameki
-author: mesameki
+ms.topic: conceptual
+ms.custom: how-to
+ms.author: mithigpe
+author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ---
@@ -39,7 +40,7 @@ The interpretability classes are made available through multiple SDK packages: (
 
 * `azureml.contrib.interpret`, preview, and experimental functionalities that you can try.
 
-Use `pip install azureml-interpret` and `pip install azureml-contrib-interpret` for general use. AutoML requires `pip install azureml-contrib-interpret` to get the interpretability packages.
+Use `pip install azureml-interpret` and `pip install azureml-contrib-interpret` for general use.
 
 
 > [!IMPORTANT]

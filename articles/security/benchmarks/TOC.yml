@@ -81,7 +81,11 @@
   - name: Cosmos DB security baseline
     href: ../../cosmos-db/security-baseline.md  
   - name: Customer Lockbox security baseline
-    href: ../fundamentals/customer-lockbox-security-baseline.md  
+    href: ../fundamentals/customer-lockbox-security-baseline.md
+  - name: Data Lake Analytics security baseline
+    href: ../../data-lake-analytics/security-baseline.md  
+  - name: DDOS Protection security baseline
+    href: ../fundamentals/ddos-protection-security-baseline.md
   - name: Event Hubs security baseline
     href: ../../event-hubs/security-baseline.md
   - name: ExpressRoute security baseline
@@ -100,6 +104,8 @@
     href: ../../stream-analytics/security-baseline.md
   - name: Synapse Analytics security baseline
     href: ../../synapse-analytics/security-baseline.md
+  - name: Virtual Machine Scale Sets security baseline
+    href: ../../virtual-machine-scale-sets/security-baseline.md
   - name: Virtual Machines Linux security baseline
     href: ../../virtual-machines/linux/security-baseline.md
   - name: Virtual Machines Windows security baseline
