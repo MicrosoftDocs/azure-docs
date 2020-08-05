@@ -79,7 +79,7 @@ The result of this command is outputted information about the role assignment th
 >
 > Use the [Azure portal page of Azure Active Directory users](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to select the user account and open its details. Copy the user's *ObjectID*:
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="View of user page in Azure portal highlighting the GUID in the 'Object ID' field" border="false":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="View of user page in Azure portal highlighting the GUID in the 'Object ID' field" lightbox="media/includes/user-id.png":::
 >
 > Then, repeat the role assignment list command using the user's *Object ID* in place of the email.
 
