@@ -73,19 +73,23 @@ You must add at least one and a maximum of three marketing documents for your of
 
 ## Add your marketplace media
 
-**Add logos**
+Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
-There are multiple places in the commercial marketplace where your offer's logo images appear.
+If you have an issue uploading files, make sure your local network does not block the [https://upload.xboxlive.com](https://upload.xboxlive.com) service used by Partner Center.
 
-1. Under **Logos**, upload logos with the following pixel sizes in .PNG format:
+### Add logos
 
-- **Small**  (48 x 48)
-- **Medium**  (90 x 90)
-- **Large**  (216 x 216)
+1. Under **Logos**, upload a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a Small and a Medium size logo. You can optionally replace these with different images.
 
 2. You can optionally provide a wide image (255 x 115).
 
-**Add screenshots**
+All three required logo sizes are used in different places in the storefronts.
+
+   - The **Small** logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
+   - The **Medium** logo appears when you create a new resource in Microsoft Azure.
+   - The **Large** logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
+ 
+### Add screenshots
 
 You must add a minimum of one and a maximum of five screenshots that demonstrate your offer. All images must be 1280 x 720 pixels in size and in .PNG format.
 
@@ -94,7 +98,7 @@ You must add a minimum of one and a maximum of five screenshots that demonstrate
 3. In the dialog box that appears, enter a caption.
 4. Repeat steps 1 through 3 to add additional screenshots.
 
-**Add videos (optional)**
+### Add videos (optional)
 
 You can add links to YouTube or Vimeo videos that demonstrate your offer. These videos are shown to customers along with your offer. You must enter a thumbnail image of the video, sized to 1280 x 720 pixels in size and in .PNG format. You can add a maximum of four videos per offer.
 
