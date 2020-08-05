@@ -52,28 +52,8 @@ Metrics having to do with API requests:
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | ApiRequests | API Requests (Preview) | Count | Total | The number of API Requests made for Digital Twins read, write, delete, and query operations. |  Authentication, <br>Operation, <br>Protocol, <br>Status Code, <br>Status Code Class, <br>Status Text |
-| ApiRequestsLatency | API Requests Latency (Preview) | Milliseconds | Average | The response time for API requests. This refers to the time from when the request is received by Azure Digital Twins until the service sends a success/fail result for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol |
 | ApiRequestsFailureRate | API Requests Failure Rate (Preview) | Percent | Average | The percentage of API requests that the service receives for your instance that give an internal error (500) response code for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol, <br>Status Code, <br>Status Code Class, <br>Status Text
-
-#### Routing metrics
-
-Metrics having to do with routing:
-
-| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
-| --- | --- | --- | --- | --- | --- |
-| Routing | Routing (Preview) | Count | Total | The number of messages routed to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation, <br>Result |
-| RoutingLatency | Routing Latency (Preview) | Milliseconds | Average | Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to the endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation, <br>Result |
-| RoutingFailureRate | Routing Failure Rate (Preview) | Percent | Average | The percentage of events that result in an error as they are routed from Azure Digital Twins to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation, <br>Result |
-
-#### Ingress metrics
-
-Metrics having to do with data ingress:
-
-| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
-| --- | --- | --- | --- | --- | --- |
-| IngressEvents | Ingress Events (Preview) | Count | Total | The number of incoming telemetry events into Azure Digital Twins. | Result |
-| IngressEventsLatency | Ingress Events Latency (Preview) | Milliseconds | Average | The time from when an event arrives to when it is ready to be egressed by Azure Digital Twins, at which point the service sends a success/fail result. | Result |
-| IngressEventsFailureRate | Ingress Events Failure Rate (Preview) | Percent | Average | The percentage of incoming telemetry events for which the service returns an internal error (500) response code. | Result |
+| ApiRequestsLatency | API Requests Latency (Preview) | Milliseconds | Average | The response time for API requests. This refers to the time from when the request is received by Azure Digital Twins until the service sends a success/fail result for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol |
 
 #### Billing metrics
 
@@ -84,9 +64,29 @@ Metrics having to do with billing:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| BillingApiOperations | Billing API Operations (Preview) | Count | Total | Billing metric for the count of all API requests made against the Azure Digital Twins service. | `MeterId` |
-| BillingQueryUnits | Billing Query Units (Preview) | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There is also a helper API available for measuring Query Units: [QueryChargeHelper Class](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview) | `MeterId` |
-| BillingMessagesProcessed | Billing Messages Processed (Preview) | Count | Total | Billing metric for the number of messages sent out from Azure Digital Twins to external endpoints. | `MeterId` |
+| BillingApiOperations | Billing API Operations (Preview) | Count | Total | Billing metric for the count of all API requests made against the Azure Digital Twins service. | Meter Id |
+| BillingMessagesProcessed | Billing Messages Processed (Preview) | Count | Total | Billing metric for the number of messages sent out from Azure Digital Twins to external endpoints. | Meter Id |
+| BillingQueryUnits | Billing Query Units (Preview) | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There is also a helper API available for measuring Query Units: [QueryChargeHelper Class](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview) | Meter Id |
+
+#### Ingress metrics
+
+Metrics having to do with data ingress:
+
+| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
+| --- | --- | --- | --- | --- | --- |
+| IngressEvents | Ingress Events (Preview) | Count | Total | The number of incoming telemetry events into Azure Digital Twins. | Result |
+| IngressEventsFailureRate | Ingress Events Failure Rate (Preview) | Percent | Average | The percentage of incoming telemetry events for which the service returns an internal error (500) response code. | Result |
+| IngressEventsLatency | Ingress Events Latency (Preview) | Milliseconds | Average | The time from when an event arrives to when it is ready to be egressed by Azure Digital Twins, at which point the service sends a success/fail result. | Result |
+
+#### Routing metrics
+
+Metrics having to do with routing:
+
+| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
+| --- | --- | --- | --- | --- | --- |
+| MessagesRouted | Messages Routed (Preview) | Count | Total | The number of messages routed to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation, <br>Result |
+| RoutingFailureRate | Routing Failure Rate (Preview) | Percent | Average | The percentage of events that result in an error as they are routed from Azure Digital Twins to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation, <br>Result |
+| RoutingLatency | Routing Latency (Preview) | Milliseconds | Average | Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to the endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation, <br>Result |
 
 ## Dimensions
 
