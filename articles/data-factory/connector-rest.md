@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 08/05/2020
 ms.author: jingwang
 ---
 # Copy data from a REST endpoint by using Azure Data Factory
