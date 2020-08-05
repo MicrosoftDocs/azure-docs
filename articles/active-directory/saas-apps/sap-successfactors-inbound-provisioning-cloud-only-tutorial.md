@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 08/05/2020
 ms.author: chmutali
 ---
-# Tutorial: Configure SAP SuccessFactors to Azure AD user provisioning (Preview)
-The objective of this tutorial is to show the steps you need to perform to provision worker data from SuccessFactors Employee Central into Azure Active Directory, with optional write-back of email address to SuccessFactors. This integration is in public preview and supports retrieving more than [70+ user attributes](../app-provisioning/sap-successfactors-attribute-reference.md) from SuccessFactors Employee Central. 
+# Tutorial: Configure SAP SuccessFactors to Azure AD user provisioning
+The objective of this tutorial is to show the steps you need to perform to provision worker data from SuccessFactors Employee Central into Azure Active Directory, with optional write-back of email address to SuccessFactors. 
 
 >[!NOTE]
 >Use this tutorial if the users you want to provision from SuccessFactors are cloud-only users who don't need an on-premises AD account. If the users require only on-premises AD account or both AD and Azure AD account, then please refer to the tutorial on [configure SAP SuccessFactors to Active Directory](sap-successfactors-inbound-provisioning-tutorial.md#overview) user provisioning. 
@@ -74,6 +74,7 @@ Configuring Cloud HR driven user provisioning from SuccessFactors to Azure AD re
 * Scoping filters
 
 Please refer to the [cloud HR deployment plan](../app-provisioning/plan-cloud-hr-provision.md) for comprehensive guidelines around these topics. 
+Please refer to the [SAP SuccessFactors integration reference](../app-provisioning/sap-successfactors-integration-reference.md) to learn about the supported entities, processing details and how to customize the integration for different HR scenarios. 
 
 ## Configuring SuccessFactors for the integration
 
@@ -169,7 +170,7 @@ This section provides steps for user account provisioning from SuccessFactors to
 
    * **Tenant URL –** Enter the name of the SuccessFactors OData API services endpoint. Only enter the host name of server without http or https. This value should look like: **api-server-name.successfactors.com**.
 
-   * **Notification Email –** Enter your email address, and check the “send email if failure occurs” checkbox.
+   * **Notification Email –** Enter your email address, and check the "send email if failure occurs" checkbox.
     > [!NOTE]
     > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](/azure/active-directory/manage-apps/application-provisioning-quarantine-status) state.
 
@@ -185,7 +186,7 @@ In this section, you will configure how user data flows from SuccessFactors to A
 
 1. On the Provisioning tab under **Mappings**, click **Synchronize SuccessFactors Users to Azure Active Directory**.
 
-1. In the **Source Object Scope** field, you can select which sets of  users in SuccessFactors should be in scope for provisioning to Azure AD, by defining a set of attribute-based filters. The default scope is “all users in SuccessFactors”. Example filters:
+1. In the **Source Object Scope** field, you can select which sets of  users in SuccessFactors should be in scope for provisioning to Azure AD, by defining a set of attribute-based filters. The default scope is "all users in SuccessFactors". Example filters:
 
    * Example: Scope to users with personIdExternal between 1000000 and
         2000000 (excluding 2000000)
