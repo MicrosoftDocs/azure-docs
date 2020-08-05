@@ -1,5 +1,5 @@
 ---
-title: Upgrade to Azure Cognitive Search .NET SDK version 10
+title: Upgrade to .NET SDK version 11
 titleSuffix: Azure Cognitive Search
 description: Migrate code to the Azure Cognitive Search .NET SDK version 10 from older versions. Learn what is new and which code changes are required.
 
@@ -16,11 +16,11 @@ ms.date: 08/05/2020
 
 If you're using version 10.0 or older of the [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search), this article will help you upgrade to version 11.
 
-Version 11 is a fully redesigned client library, released by the Azure SDK development team (as opposed to the Azure Cognitive Search development team). The library has been redesigned for greater consistency with other Azure client libraries, taking a dependency on [Azure.Core](https://docs.microsoft.com/dotnet/api/azure.core) and [System.Text.Json](https://docs.microsoft.com/dotnet/api/system.text.json), and implementing familiar approaches for common tasks.
+Version 11 is a fully redesigned client library, released by the Azure SDK development team (the Azure Cognitive Search development team produced the previous versions). The library has been redesigned for greater consistency with other Azure client libraries, taking a dependency on [Azure.Core](https://docs.microsoft.com/dotnet/api/azure.core) and [System.Text.Json](https://docs.microsoft.com/dotnet/api/system.text.json), and implementing familiar approaches for common tasks.
 
-Some key updates in the new version include:
+Some key differences you'll notice in the new version include:
 
-+ One [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) and one [client library](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) as opposed to multiple.
++ One [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) and one [client library](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) as opposed to multiple
 + Three clients instead of two: [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient), [SearchIndexClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient), [SearchIndexerClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient)
 + Naming differences across a range of APIs and small structural differences that simplify some tasks
 

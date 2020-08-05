@@ -18,7 +18,8 @@ Use the new [Azure.Search.Documents (version 11) client library](https://docs.mi
 
 [Download the complete application](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart-v11) if you want to jump ahead to the code or follow the steps in this quickstart to create your own project.
 
-Looking for an earlier version quickstart? See [Create a search index using Microsoft.Azure.Search v10 client library](search-get-started-dotnet-v10.md) instead.
+> [!NOTE]
+> Looking for an earlier version quickstart? See [Create a search index using Microsoft.Azure.Search v10 client library](search-get-started-dotnet-v10.md) instead.
 
 ## Prerequisites
 
@@ -126,7 +127,7 @@ In this example, synchronous methods of the Azure.Search.Documents library are u
     }
     ```
 
-1. In **Program.cs**, specify the fields and attributes. [SearchIndex](https://docs.microsoft.com/en-us/dotnet/api/azure.search.documents.indexes.models.searchindex) and [CreateIndex](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) are used to create an index.
+1. In **Program.cs**, specify the fields and attributes. [SearchIndex](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindex) and [CreateIndex](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) are used to create an index.
 
    ```csharp
     // Define an index schema using SearchIndex
