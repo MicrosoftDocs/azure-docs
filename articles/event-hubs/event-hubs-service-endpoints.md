@@ -26,6 +26,7 @@ The result is a private and isolated relationship between the workloads bound to
 > The following Microsoft services are required to be on a virtual network
 > - Azure Web Apps
 > - Azure Functions
+> - Azure Monitor (diagnostic setting)
 
 
 > [!IMPORTANT]
