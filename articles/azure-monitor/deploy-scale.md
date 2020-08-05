@@ -1,8 +1,10 @@
 ---
-title: Deploy Azure Monitor
+title: Deploy Azure Monitor at scale using Azure Policy
 description: Deploy Azure Monitor features at scale using Azure Policy.
 ms.subservice: 
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 06/08/2020
 
 ---
@@ -14,20 +16,20 @@ For example, you need to create a diagnostic setting for all your existing Azure
 
 
 ## Azure Policy
-This section provides a brief introduction to [Azure Policy](../../governance/policy/overview.md) which allows you to assess and enforce organizational standards across your entire Azure subscription or management group with minimal effort. Refer to the [Azure Policy documentation](../../governance/policy/overview.md) for complete details.
+This section provides a brief introduction to [Azure Policy](../governance/policy/overview.md) which allows you to assess and enforce organizational standards across your entire Azure subscription or management group with minimal effort. Refer to the [Azure Policy documentation](../governance/policy/overview.md) for complete details.
 
 With Azure Policy you can specify configuration requirements for any resources that are created and either identify resources that are out of compliance, block the resources from being created, or add the required configuration. It works by intercepting calls to create a new resource or to modify an existing resource. It can respond with such effects as denying the request if it doesn't match match with the properties expected in a policy definition, flagging it for noncompliance, or deploy a related resource. You can remediate existing resources with a **deployIfNotExists** or **modify** policy definition.
 
-Azure Policy consists of the objects in the following table. See [Azure Policy objects](../../governance/policy/overview.md#azure-policy-objects) for a more detailed explanation of each.
+Azure Policy consists of the objects in the following table. See [Azure Policy objects](../governance/policy/overview.md#azure-policy-objects) for a more detailed explanation of each.
 
 | Item | Description |
 |:---|:---|
-| Policy definition | Describes resource compliance conditions and the effect to take if a condition is met. This may be all resources of a particular type or only resources that match certain properties. The effect may be to simply flag the resource for compliance or to deploy a related resource. Policy definitions are written using JSON as described in [Azure Policy definition structure](../../governance/policy/concepts/definition-structure.md). Effects are described in [Understand Azure Policy effects](../../governance/policy/concepts/effects.md).
-| Policy initiative | A group of policy definitions that should be applied together. For example, you might have one policy definition to send resource logs to a Log Analytics workspace and another to send resource logs to event hubs. Create an initiative that includes both policy definitions, and apply the initiative to resources instead of the individual policy definitions. Initiatives are written using JSON as described in [Azure Policy initiative structure](../../governance/policy/concepts/initiative-definition-structure.md). |
-| Assignment | A policy definition or initiative doesn't take effect until it's assigned to a scope. For example, assign a policy to a resource group to apply it to all resources created in that resource, or apply it to a subscription to apply it to all resources in that subscription.  For more details, see [Azure Policy assignment structure](../../governance/policy/concepts/assignment-structure.md). |
+| Policy definition | Describes resource compliance conditions and the effect to take if a condition is met. This may be all resources of a particular type or only resources that match certain properties. The effect may be to simply flag the resource for compliance or to deploy a related resource. Policy definitions are written using JSON as described in [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md). Effects are described in [Understand Azure Policy effects](../governance/policy/concepts/effects.md).
+| Policy initiative | A group of policy definitions that should be applied together. For example, you might have one policy definition to send resource logs to a Log Analytics workspace and another to send resource logs to event hubs. Create an initiative that includes both policy definitions, and apply the initiative to resources instead of the individual policy definitions. Initiatives are written using JSON as described in [Azure Policy initiative structure](../governance/policy/concepts/initiative-definition-structure.md). |
+| Assignment | A policy definition or initiative doesn't take effect until it's assigned to a scope. For example, assign a policy to a resource group to apply it to all resources created in that resource, or apply it to a subscription to apply it to all resources in that subscription.  For more details, see [Azure Policy assignment structure](../governance/policy/concepts/assignment-structure.md). |
 
 ## Built-in policy definitions for Azure Monitor
-Azure Policy includes several prebuilt definitions related to Azure Monitor. You can assign these policy definitions to your existing subscription or use them as a basis to create your own custom definitions. For a complete list of the built-in politics in the **Monitoring** category, see [Azure Policy built-in policy definitions for Azure Monitor](../samples/policy-samples.md).
+Azure Policy includes several prebuilt definitions related to Azure Monitor. You can assign these policy definitions to your existing subscription or use them as a basis to create your own custom definitions. For a complete list of the built-in politics in the **Monitoring** category, see [Azure Policy built-in policy definitions for Azure Monitor](samples/policy-samples.md).
 
 To view the built-in policy definitions related to monitoring, perform the following:
 
@@ -39,7 +41,7 @@ To view the built-in policy definitions related to monitoring, perform the follo
 
 
 ## Diagnostic settings
-[Diagnostic settings](./diagnostic-settings.md) collect resource logs and metrics from Azure resources to multiple locations, typically to a Log Analytics workspace which allows you to analyze the data with [log queries](../log-query/log-query-overview.md) and [log alerts](alerts-log.md). Use Policy to automatically create a diagnostic setting each time you create a resource.
+[Diagnostic settings](platform/diagnostic-settings.md) collect resource logs and metrics from Azure resources to multiple locations, typically to a Log Analytics workspace which allows you to analyze the data with [log queries](log-query/log-query-overview.md) and [log alerts](platform/alerts-log.md). Use Policy to automatically create a diagnostic setting each time you create a resource.
 
 Each Azure resource type has a unique set of categories that need to be listed in the diagnostic setting. Because of this, each resource type requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you need to create a custom definition.
 
@@ -93,7 +95,7 @@ Rather than create an assignment for each policy definition, a common strategy i
 - Create a single assignment for the initiative instead of multiple assignments for each resource type. Use the same initiative for multiple monitoring groups, subscriptions, or resource groups.
 - Modify the initiative when you need to add a new resource type or destination. For example, your initial requirements might be to send data only to a Log Analytics workspace, but later you want to add Event Hub. Modify the initiative rather than creating new assignments.
 
-See [Create and assign an initiative definition](../../governance/policy/tutorials/create-and-manage.md#create-and-assign-an-initiative-definition) for details on creating an initiative. Consider the following recommendations:
+See [Create and assign an initiative definition](../governance/policy/tutorials/create-and-manage.md#create-and-assign-an-initiative-definition) for details on creating an initiative. Consider the following recommendations:
 
 - Set the **Category** to **Monitoring** to group it with related built-in and custom policy definitions.
 - Instead of specifying the details for the Log Analytics workspace and the Event Hub for policy definition included in the initiative, use a common initiative parameter. This allows you to easily specify a common value for all policy definitions and change that value if necessary.
@@ -101,7 +103,7 @@ See [Create and assign an initiative definition](../../governance/policy/tutoria
 ![Initiative definition](media/deploy-scale/initiative-definition.png)
 
 ### Assignment 
-Assign the initiative to an Azure management group, subscription, or resource group depending on the scope of your resources to monitor. A [management group](../../governance/management-groups/overview.md) is particularly useful for scoping policy especially if your organization has multiple subscriptions.
+Assign the initiative to an Azure management group, subscription, or resource group depending on the scope of your resources to monitor. A [management group](../governance/management-groups/overview.md) is particularly useful for scoping policy especially if your organization has multiple subscriptions.
 
 ![Initiative assignment](media/deploy-scale/initiative-assignment.png)
 
@@ -110,13 +112,13 @@ By using initiative parameters, you can specify the workspace or any other detai
 ![Initiative parameters](media/deploy-scale/initiative-parameters.png)
 
 ### Remediation
-The initiative will apply to each virtual machine as it's created. A [remediation task](../../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to existing resources, so this allows you to create diagnostic settings for any resources that were already created. When you create the assignment using the Azure portal, you have the option of creating a remediation task at the same time. See [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md) for details on the remediation.
+The initiative will apply to each virtual machine as it's created. A [remediation task](../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to existing resources, so this allows you to create diagnostic settings for any resources that were already created. When you create the assignment using the Azure portal, you have the option of creating a remediation task at the same time. See [Remediate non-compliant resources with Azure Policy](../governance/policy/how-to/remediate-resources.md) for details on the remediation.
 
 ![Initiative remediation](media/deploy-scale/initiative-remediation.png)
 
 
-## Azure Monitor for VMs and virtual machine agents
-[Azure Monitor for VMs](../insights/vminsights-overview.md) is the primary tool in Azure Monitor for monitoring virtual machines and virtual machine scale sets. To enabling Azure Monitor for VMs you must install both the Log Analytics agent and the Dependency agent on each client. You may also install the Log Analytics agent on its own to support other monitoring scenarios. Rather than performing these tasks manually, use Azure Policy to ensure have each virtual machine configured as you create it.
+## Azure Monitor for VMs
+[Azure Monitor for VMs](insights/vminsights-overview.md) is the primary tool in Azure Monitor for monitoring virtual machines. Enabling Azure Monitor for VMs installs both the Log Analytics agent and the Dependency agent. Rather than performing these tasks manually, use Azure Policy to ensure have each virtual machine configured as you create it.
 
 > [!NOTE]
 > Azure Monitor for VMs includes a feature called **Azure Monitor for VMs Policy Coverage** that allows you to discover and remediate noncompliant VMs in your environment. You can use this feature rather than working directly with Azure Policy for Azure VMs and for hybrid virtual machines connected with Azure Arc. For Azure virtual machine scale sets, you must create the assignment using Azure Policy.
@@ -133,12 +135,12 @@ Azure Monitor for VMs includes the following built-in initiatives that install b
 ### Virtual machines
 Instead of creating assignments for these initiatives using the Azure Policy interface, Azure Monitor for VMs includes a feature that allows you to inspect the number of virtual machines in each scope to determine whether the initiative has been applied. You can then configure the workspace and create any required assignments using that interface.
 
-For details of this process, see [Enable Azure Monitor for VMs by using Azure Policy](../insights/vminsights-enable-at-scale-policy.md).
+For details of this process, see [Enable Azure Monitor for VMs by using Azure Policy](insights/vminsights-enable-at-scale-policy.md).
 
-![Azure Monitor for VMs policy](../platform/media/deploy-scale/vminsights-policy.png)
+![Azure Monitor for VMs policy](media/deploy-scale/vminsights-policy.png)
 
 ### Virtual machine scale sets
-To use Azure Policy to enable monitoring for virtual machine scale sets, assign the **Enable Azure Monitor for virtual machine scale sets** initiative to an Azure management group, subscription, or resource group depending on the scope of your resources to monitor. A [management group](../../governance/management-groups/overview.md) is particularly useful for scoping policy especially if your organization has multiple subscriptions.
+To use Azure Policy to enable monitoring for virtual machine scale sets, assign the **Enable Azure Monitor for virtual machine scale sets** initiative to an Azure management group, subscription, or resource group depending on the scope of your resources to monitor. A [management group](../governance/management-groups/overview.md) is particularly useful for scoping policy especially if your organization has multiple subscriptions.
 
 ![Initiative assignment](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
@@ -174,6 +176,5 @@ You may have scenarios where you want to install the Log Analytics agent but not
 
 ## Next steps
 
-- Read more about [Azure Policy](../../governance/policy/overview.md).
-- Read more about [diagnostic settings](diagnostic-settings.md).
-
+- Read more about [Azure Policy](../governance/policy/overview.md).
+- Read more about [diagnostic settings](platform/diagnostic-settings.md).

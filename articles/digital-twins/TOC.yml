@@ -77,7 +77,11 @@
   - name: Connect output
     items:
     - name: Manage endpoints and routes
-      href: how-to-manage-routes.md
+      items: 
+      - name: APIs and CLI version
+        href: how-to-manage-routes-apis-cli.md
+      - name: Portal version
+        href: how-to-manage-routes-portal.md
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
     - name: Integrate with Azure Time Series Insights
