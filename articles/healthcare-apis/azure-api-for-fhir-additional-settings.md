@@ -4,7 +4,7 @@ description: Overview of the additional settings you can set for Azure API for F
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/22/2019
