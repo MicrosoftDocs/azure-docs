@@ -17,6 +17,33 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-08-03
+
+### Azure Machine Learning SDK for Python v1.11.0
+
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + Fix model framework and model framework not passed in run object in cli model registration path
+    + Fix cli amlcompute identity show command to show tenant id and principal id 
+  + **azureml-train-automl-client**
+    + Added get_best_child () to AutoMLRun for fetching the best child run for an AutoML Run without downloading the associated model.
+    + Added ModelProxy object which allow predict or forecast to be run on a remote training environment without downloading the model locally.
+    + Unhandled exceptions in AutoML now point to a known issues HTTP page, where more information about the errors can be found.
+  + **azureml-core**
+    + Model names can be 255 characters long.
+    + Environment.get_image_details() return object type changed. `DockerImageDetails` class replaced `dict`, image details are available from the new class properties. Changes are backward compatible.
+    + Fix bug for Environment.from_pip_requirements() to preserve dependencies structure
+    + Fixed a bug where log_list would fail if an int and double were included in the same list.
+    + While enabling private link on an existing workspace, please note that if there are compute targets associated with the workspace, those targets will not work if they are not behind the same virtual network as the workspace private endpoint.
+    + Made `as_named_input` optional when using datasets in experiments and added `as_mount` and `as_download` to `FileDataset`. The input name will automatically generated if `as_mount` or `as_download` is called.
+  + **azureml-automl-core**
+    + Unhandled exceptions in AutoML now point to a known issues HTTP page, where more information about the errors can be found.
+    + Added get_best_child () to AutoMLRun for fetching the best child run for an AutoML Run without downloading the associated model.
+    + Added ModelProxy object which allow predict or forecast to be run on a remote training environment without downloading the model locally.
+  + **azureml-pipeline-steps**
+    + Added `enable_default_model_output` and `enable_default_metrics_output` flags to `AutoMLStep`. These flags can be used to enable/disable the default outputs.
+
+
 ## 2020-07-20
 
 ### Azure Machine Learning SDK for Python v1.10.0

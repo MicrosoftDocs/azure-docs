@@ -301,7 +301,7 @@
   - name: Develop and run applications
     items:
     - name: Use Local Process with Kubernetes with Visual Studio Code (preview)
-      href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+      href: https://code.visualstudio.com/docs/containers/local-process-kubernetes
     - name: Install existing applications with Helm
       href: kubernetes-helm.md
     - name: Use OpenFaaS

@@ -375,6 +375,12 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 # Submit the run 
 run = experiment.submit(sk_est)
 ```
+### Retrieve Dockerfile from a run
+
+Use the following code to obtain the Dockerfile for a Docker-enabled run.
+```python
+print(run.get_environment().get_image_details().dockerfile)
+```
 
 ## Use environments for web service deployment
 
