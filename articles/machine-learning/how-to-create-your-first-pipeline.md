@@ -10,7 +10,7 @@ ms.author: nilsp
 author: NilsPohlmann
 ms.date: 12/05/2019
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 
 ---
 

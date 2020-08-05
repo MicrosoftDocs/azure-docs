@@ -9,7 +9,7 @@ author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
 ms.topic: conceptual
-ms.custom: troubleshooting, tracking-python
+ms.custom: troubleshooting, devx-track-python
 ---
 
 # Debug and troubleshoot machine learning pipelines

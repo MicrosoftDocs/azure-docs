@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/05/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 ---
 
 # Enable logging in Azure Machine Learning

@@ -10,7 +10,7 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/03/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, tracking-python
+ms.custom: how-to, contperfq4, devx-track-python
 ---
 
 # What are field-programmable gate arrays (FPGA) and how to deploy
