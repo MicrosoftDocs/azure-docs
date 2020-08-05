@@ -66,6 +66,8 @@
       href: security-center-policy-definitions.md 
     - name: Use recommendations to enhance security
       href: security-center-using-recommendations.md
+    - name: Security baseline
+      href: security-baseline.md
   - name: Threat protection and security alerts
     items:
     - name: Overview of threat protection in security center
