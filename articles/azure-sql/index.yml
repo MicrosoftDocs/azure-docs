@@ -170,6 +170,8 @@ landingContent:
         links:
         - text: Educational SQL resources
           url: /sql/sql-server/educational-sql-resources
+        - text: Azure SQL fundamentals
+          url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
       - linkListType: deploy
         links:
         - text: Azure CLI samples
