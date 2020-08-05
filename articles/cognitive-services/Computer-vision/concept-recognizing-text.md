@@ -125,12 +125,10 @@ As with all the cognitive services, developers using the Read service should be 
 ### Integration options
 
 #### Use the Cloud API and SDK
-
-The Cloud is the preferred approach for [getting started with the OCR API](./QuickStarts/CSharp-hand-text.md) for most customers because of ease of integration and fast productivity out of the box. Let Azure and the Computer Vision API take care of scale, performance, data security and compliance needs while you focus on meeting your customers' needs.
+The [Read 3.x Cloud API](./QuickStarts/CSharp-hand-text.md) is the preferred option for most customers because of ease of integration and fast productivity out of the box. Let Azure and the Computer Vision API take care of scale, performance, data security and compliance needs while you focus on meeting your customers' needs.
 
 #### Use containers for on-premise deployment
-Read is also available as a Docker container (preview) to enable you to deploy the new OCR capabilities in your own environment. Containers are great for specific security and data governance requirements. See [how to install and run Read containers.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
-
+The [Read 2.0 Docker container (preview)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) enables you to deploy the new OCR capabilities in your own environment. Containers are great for specific security and data governance requirements.
 
 ### OCR examples
 
@@ -161,6 +159,9 @@ Right now, the Read operation supports extracting handwritten text exclusively i
 The Read API supports images and documents with multiple languages in them, commonly known as mixed language documents. It does so by classifying each text line in the document into the detected language before extracting the text contents.
 
 ![An image being rotated and its text being read and delineated](./Images/mixed-language-example.png)
+
+> [!NOTE]
+> The Recognize Text API is being deprecated in favor of the Read API. The Read API has similar capabilities and is updated to handle PDF, TIFF, and multi-page files.
 
 ## OCR API
 
