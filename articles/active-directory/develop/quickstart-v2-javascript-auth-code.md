@@ -199,4 +199,4 @@ npm install @azure/msal-browser
 For a more detailed step-by-step guide on building the application used in this quickstart, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial to sign in and call MS Graph >](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-auth-code)
+> [Tutorial to sign in and call MS Graph **>**](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-auth-code)

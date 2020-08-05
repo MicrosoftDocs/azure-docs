@@ -110,7 +110,7 @@ To configure application settings based on the platform or device, you're target
    | **Mobile and desktop applications**  | Optional. Select one of the recommended **Suggested redirect URIs** if you're building apps for desktop and devices.<br/>Optional. Enter a **Custom redirect URI**, which is used as the location where Azure AD will redirect users in response to authentication requests. For example, for .NET Core applications where you want interaction, use `http://localhost`. |
 
    > [!NOTE]
-   > On Active Directory Federation Services (AD FS) and Azure AD B2C, you must also specify a port number.  For example: `http://localhost:1234`. 
+   > On Active Directory Federation Services (AD FS) and Azure AD B2C, you must also specify a port number.  For example: `http://localhost:1234`.
 
    > [!IMPORTANT]
    > For mobile applications that aren't using the latest Microsoft Authentication Library (MSAL) or not using a broker, you must configure the redirect URIs for these applications in **Desktop + devices**.
@@ -197,16 +197,7 @@ The consent prompt provides the option to **Accept** or **Cancel**. Select **Acc
 
 ## Next steps
 
-Advance to the next article to learn how to expose web APIs.
+Advance to the next quickstart in the series to learn how to configure which account types can access your application. For example, you might want to limit access only to those users in your organization (single-tenant) or allow users in other Azure AD tenants (multi-tenant) and those with personal Microsoft accounts (MSA).
+
 > [!div class="nextstepaction"]
-> [Quickstart: Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis.md)
-
-* To learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
-
-* To learn more about the branding guidelines you should use when developing applications with Azure Active Directory, see [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md).
-
-* [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
-
-* [Quickstart: Modify the accounts supported by an application](quickstart-modify-supported-accounts.md)
-
-* [Quickstart: Remove an application registered with the Microsoft identity platform](quickstart-remove-app.md)
+> [Modify the accounts supported by an application **>**](quickstart-modify-supported-accounts.md)

@@ -83,9 +83,11 @@ To expose a new scope through the UI:
 
 ## Expose a new scope or role through the application manifest
 
+The application manifest serves as a mechanism for updating the application entity that defines the attributes of an Azure AD app registration.
+
 [![Expose a new scope using the oauth2Permissions collection in the manifest](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
 
-To expose a new scope through the application manifest:
+To expose a new scope by editing the the application manifest:
 
 1. From the app's **Overview** page, select the **Manifest** section. A web-based manifest editor opens, allowing you to **Edit** the manifest within the portal. Optionally, you can select **Download** and edit the manifest locally, and then use **Upload** to reapply it to your application.
 
@@ -109,14 +111,9 @@ To expose a new scope through the application manifest:
 1. When finished, click **Save**. Now your web API is configured for use by other applications in your directory.
 1. Follow the steps to [verify that the web API is exposed to other applications](#verify-the-web-api-is-exposed-to-other-applications).
 
-### More on the application manifest
+For more information on the application entity and its schema, see Microsoft Graph's [Application][ms-graph-application] resource type reference documentation.
 
-The application manifest serves as a mechanism for updating the application entity, which defines all attributes of an Azure AD application's identity configuration. For more information on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). The article contains complete reference information on the Application entity members used to specify permissions for your API, including:
-
-* The appRoles member, which is a collection of [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entities, used to define [application permissions](developer-glossary.md#permissions) for a web API.
-* The oauth2Permissions member, which is a collection of [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entities, used to define [delegated permissions](developer-glossary.md#permissions) for a web API.
-
-For more information on application manifest concepts in general, see [Understanding the Azure Active Directory application manifest](reference-app-manifest.md).
+For more information about the application manifest, including its schema reference, see [Understanding the Azure AD app manifest](reference-app-manifest.md).
 
 ## Verify the web API is exposed to other applications
 
@@ -136,19 +133,16 @@ You can expose additional scopes later as necessary. Consider that your web API 
 
 In your applications, the full scope value is a concatenation of your web API's **Application ID URI** (the resource) and the **scope name**.
 
-For example, if your web API's application ID URI is `https://contoso.com/api` and your scope name is `Employees.Read.All`, the scope is:
+For example, if your web API's application ID URI is `https://contoso.com/api` and your scope name is `Employees.Read.All`, the full scope is:
 
 `https://contoso.com/api/Employees.Read.All`
 
 ## Next steps
 
-Learn about these other related app management quickstarts for apps:
+Now that you've exposed your web API by configuring its scopes, configure your client app's registration with permission to access those scopes.
 
-* [Register an application with the Microsoft identity platform](quickstart-register-app.md)
-* [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md)
-* [Modify the accounts supported by an application](quickstart-modify-supported-accounts.md)
-* [Remove an application registered with the Microsoft identity platform](quickstart-remove-app.md)
+> [!div class="nextstepaction"]
+> [Configure an app registration for web API access **>**](quickstart-configure-app-access-web-apis.md)
 
-To learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
-
-To learn more about the branding guidelines you should use when developing applications with Azure Active Directory, see [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md).
+<!-- REF LINKS -->
+[ms-graph-application]: /graph/api/resources/application
