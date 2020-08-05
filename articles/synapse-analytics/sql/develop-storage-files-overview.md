@@ -64,6 +64,10 @@ SELECT * FROM
  FORMAT= 'parquet') as rows
 ```
 
+User that executes this query must be able to access the files. The users must be impersonated using [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [Managed Identity of workspace](develop-storage-files-storage-access-control.md?tabs=managed-identity) if they cannot directly access the files using their [Azure AD identity](develop-storage-files-storage-access-control.md?tabs=user-identity) or [anonymous access](develop-storage-files-storage-access-control.md?tabs=public-access).
+
+#### [Impersonation](#tab/impersonation)
+
 Power user with CONTROL DATABASE permission would need to create DATABASE SCOPED CREDENTIAL that will be used to access storage and EXTERNAL DATA SOURCE that specifies URL of data source and credential that should be used:
 
 ```sql
@@ -85,7 +89,7 @@ Caller must have one of the following permissions to execute OPENROWSET function
   - `ADMINISTER DATABASE BULK OPERATIONS` enables database scoped user to execute OPENROWSET function.
 - REFERENCES DATABASE SCOPED CREDENTIAL to the credential that is referenced in EXTERNAL DATA SOURCE
 
-#### Access anonymous data sources
+#### [Direct access](#tab/direct-access)
 
 User can create EXTERNAL DATA SOURCE without CREDENTIAL that will reference public access storage OR use Azure AD passthrough authentication:
 
@@ -93,7 +97,7 @@ User can create EXTERNAL DATA SOURCE without CREDENTIAL that will reference publ
 CREATE EXTERNAL DATA SOURCE MyAzureInvoices
  WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>') ;
 ```
-
+---
 ## EXTERNAL TABLE
 
 User with the permissions to read table can access external files using an EXTERNAL TABLE created on top of set of Azure Storage folders and files.
@@ -111,6 +115,10 @@ FILE_FORMAT = TextFileFormat
 ) ;
 ```
 
+User that reads data from this table must be able to access the files. The users must be impersonated using [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [Managed Identity of workspace](develop-storage-files-storage-access-control.md?tabs=managed-identity) if they cannot directly access the files using their [Azure AD identity](develop-storage-files-storage-access-control.md?tabs=user-identity) or [anonymous access](develop-storage-files-storage-access-control.md?tabs=public-access).
+
+### [Impersonation](#tab/impersonation)
+
 User with CONTROL DATABASE permission would need to create DATABASE SCOPED CREDENTIAL that will be used to access storage and EXTERNAL DATA SOURCE that specifies URL of data source and credential that should be used:
 
 ```sql
@@ -125,6 +133,16 @@ CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 ```
 
 DATABASE SCOPED CREDENTIAL specifies how to access files on the referenced data source.
+
+### [Direct access](#tab/direct-access)
+
+User can create EXTERNAL DATA SOURCE without CREDENTIAL that will reference public access storage OR use Azure AD passthrough authentication:
+
+```sql
+CREATE EXTERNAL DATA SOURCE MyAzureInvoices
+ WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>') ;
+```
+---
 
 ### Read external files with EXTERNAL TABLE
 
