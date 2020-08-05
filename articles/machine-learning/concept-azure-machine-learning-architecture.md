@@ -22,19 +22,17 @@ Learn about the terms and concepts used by Azure Machine Learning.
 
 ## Workspace
 
-All the artifacts you create when you use Azure Machine Learning are stored in a [machine learning workspace](concept-workspace.md). 
+A [machine learning workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
 
-Pricing and features available depend on whether [Basic or Enterprise edition](overview-what-is-azure-ml.md#sku) is selected for the workspace. You select the edition when you [create the workspace](concept-workspace.md#create-workspace).  You can also [upgrade](concept-workspace.md#upgrade) from Basic to Enterprise edition.
- 
 You can share a workspace with others.
 
 ## Studio
 
-[Azure Machine Learning studio](https://ml.azure.com) provides a web view of all the content in your workspace.  This portal also gives you access to the interactive tools that are part of Azure Machine Learning:
+[Azure Machine Learning studio](https://ml.azure.com) provides a web view of all the artifacts in your workspace.  This portal is also where you access to the interactive tools that are part of Azure Machine Learning:
 
 + [Azure Machine Learning designer (preview)](concept-designer.md) performs workflow steps without writing code. (An [Enterprise workspace](concept-workspace.md#upgrade)) is required to use designer.)
 + Web experience for [automated machine learning](concept-automated-ml.md)
-+ [Data labeling projects](how-to-create-labeling-projects.md) to create, manage, and monitor projects to label of your data.
++ [Data labeling projects](how-to-create-labeling-projects.md) to create, manage, and monitor projects to label of your data
 
 
 ## <a name="compute-instance"></a> Computes
@@ -59,7 +57,15 @@ For more information, see [Create and register Azure Machine Learning Datasets](
 A **datastore** is a storage abstraction over an Azure storage account. The datastore can use either an Azure blob container or an Azure file share as the back-end storage. Each workspace has a default datastore, and you can register additional datastores. Use the Python SDK API or the Azure Machine Learning CLI to store and retrieve files from the datastore.
 
 
-## Training jobs
+## Training a model
+
+At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and [tuning hyperparameters](how-to-tune-hyperparameters.md). Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
+
+A model is produced by a [run](#runs) of an [experiment](#experiments) in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. You can register a model in the workspace.
+
+Azure Machine Learning is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
+
+For an example of training a model using Scikit-learn and an [estimator](#estimators), see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 
 ### Experiments
@@ -103,28 +109,6 @@ A run configuration can be persisted into a file inside the directory that conta
 
 For example run configurations, see [Select and use a compute target to train your model](how-to-set-up-training-targets.md).
 
-### Models
-
-At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and tuning hyperparameters. Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
-
-A model is produced by a [run](#runs) of an [experiment](#experiments) in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. You can register a model in the workspace.
-
-Azure Machine Learning is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
-
-For an example of training a model using Scikit-learn and an [estimator](#estimators), see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
-
-The **model registry** keeps track of all the models in your Azure Machine Learning workspace.
-
-Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it's a new version. The version is incremented, and the new model is registered under the same name.
-
-When you register the model, you can provide additional metadata tags and then use the tags when you search for models.
-
-> [!TIP]
-> A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in your Azure Machine Learning workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
-
-You can't delete a registered model that is being used by an active deployment.
-
-For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ### Estimators
 
@@ -161,7 +145,20 @@ For more information, see [Git integration for Azure Machine Learning](concept-t
 
 ## Deploy models
 
-To deploy the model as a service, you need the following components:
+The **model registry** keeps track of all the models in your Azure Machine Learning workspace.
+
+Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it's a new version. The version is incremented, and the new model is registered under the same name.
+
+When you register the model, you can provide additional metadata tags and then use the tags when you search for models.
+
+> [!TIP]
+> A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in your Azure Machine Learning workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
+
+You can't delete a registered model that is being used by an active deployment.
+
+For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
+
+To deploy a registered model as a service, you need the following components:
 
 * **Inference environment**. This environment encapsulates the dependencies required to run your model for inference.
 * **Scoring code**. This script accepts requests, scores the requests by using the model, and returns the results.
@@ -191,21 +188,21 @@ If you've enabled monitoring, Azure collects telemetry data from the model insid
 
 Azure IoT Edge ensures that your module is running, and it monitors the device that's hosting it.
 
-## Monitor data drift
+## Monitor 
 
 Monitor for **data drift** between the training dataset and inference data of a deployed model. When necessary, loop back to step 1 to retrain the model with new training data.
 . 
 ## Automation
 
-Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli). Or use ML pipelines.
+### Azure Machine Learning CLI 
+
+The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) is an extension to the Azure CLI, a cross-platform command-line interface for the Azure platform. This extension provides commands to automate your machine learning activities.
 
 ### ML Pipelines
 
-You use machine learning pipelines to create and manage workflows that stitch together machine learning phases. For example, a pipeline might include data preparation, model training, model deployment, and inference/scoring phases. Each phase can encompass multiple steps, each of which can run unattended in various compute targets. 
+You use [machine learning pipelines](concept-ml-pipelines.md) to create and manage workflows that stitch together machine learning phases. For example, a pipeline might include data preparation, model training, model deployment, and inference/scoring phases. Each phase can encompass multiple steps, each of which can run unattended in various compute targets. 
 
 Pipeline steps are reusable, and can be run without rerunning the previous steps if the output of those steps hasn't changed. For example, you can retrain a model without rerunning costly data preparation steps if the data hasn't changed. Pipelines also allow data scientists to collaborate while working on separate areas of a machine learning workflow.
-
-For more information about machine learning pipelines with this service, see [Pipelines and Azure Machine Learning](concept-ml-pipelines.md).
 
 ## Interacting with machine learning
 
@@ -217,6 +214,7 @@ For more information about machine learning pipelines with this service, see [Pi
 +  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (preview).
 + Use [Azure Machine Learning designer (preview)](concept-designer.md) to perform the workflow steps without writing code. (An [Enterprise workspace](concept-workspace.md#upgrade)) is required to use designer.)
++ Use [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) for automation.
 + The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
 
 ## Next steps
