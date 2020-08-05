@@ -135,7 +135,7 @@ az storage account create --name <STORAGEACCOUNTNAME> \
 Next, sign in to the portal. Add the new user-assigned managed identity to the **Storage Blob Data Contributor** role on the storage account. This step is described in step 3 under [Using the Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
  > [!IMPORTANT]
- > Ensure that your storage account has the user-assigned identify with Storage Blob Data Contributor role permissions, otherwise cluster creation will fail.
+ > Ensure that your storage account has the user-assigned identity with **Storage Blob Data Contributor** role permissions, otherwise cluster creation will fail.
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \
