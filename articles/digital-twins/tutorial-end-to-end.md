@@ -154,6 +154,7 @@ On the *Publish* pane that opens back in the main Visual Studio window, check th
 > Select **Attempt to retrieve credentials from Azure** and **Save**.
 >
 > If you see a warning to *Upgrade Functions version on Azure* or that *Your version of the functions runtime does not match the version running in Azure*:
+>
 > Follow the prompts to upgrade to the latest Azure Functions runtime version. This issue might occur if you're using an older version of Visual Studio than the one recommended in the *Prerequisites* section at the start of this tutorial.
 
 ### Assign permissions to the function app
