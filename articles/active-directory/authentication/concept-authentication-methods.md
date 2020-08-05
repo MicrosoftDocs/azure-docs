@@ -169,6 +169,9 @@ With text message verification during SSPR or Azure Multi-Factor Authentication,
 
 With phone call verification during SSPR or Azure Multi-Factor Authentication, an automated voice call is made to the phone number registered by the user. To complete the sign-in process, the user is prompted to enter their pin number followed by # on their keypad.
 
+> [!IMPORTANT]
+> Starting in March of 2019 the phone call options will not be available to MFA and SSPR users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
+
 ### Office phone verification
 
 The office phone attribute is managed by the Azure AD administrator and can't be registered by a user themselves.
