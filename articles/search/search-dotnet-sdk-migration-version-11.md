@@ -89,7 +89,7 @@ The following version 10 are not yet available in version 11. If you use these f
    using Azure.Search.Documents.Models;
    ```
 
-1. If you are using indexers or indexer-related objects, update the client to [SearchIndexerClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient). This client is new in version 11 and has no anticedent.
+1. If you are using indexers or indexer-related objects, update the client to [SearchIndexerClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient). This client is new in version 11 and has no antecedent.
  
 1. Next, update the [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) references to [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient). 
 
@@ -105,7 +105,7 @@ The following breaking changes in version 11 may require code changes in additio
 
 + [BM25 ranking algorithm](index-ranking-similarity.md) replaces the previous ranking algorithm with newer technology. New services will use this algorithm automatically. For existing services, you must set parameters to use the new algorithm.
 
-+ [Ordered results](search-query-odata-orderby.md) for null values have changed in this version, with null values appearing first if the sort is asc and last if the sort is desc. If you wrote code to handle how null values are sorted, be aware of this change.
++ [Ordered results](search-query-odata-orderby.md) for null values have changed in this version, with null values appearing first if the sort is `asc` and last if the sort is `desc`. If you wrote code to handle how null values are sorted, be aware of this change.
 
 ## Next steps
 
