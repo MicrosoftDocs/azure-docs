@@ -40,7 +40,7 @@ Metrics are enabled by default. You can view Azure Digital Twins metrics from th
     For more information about this process, see [*Troubleshooting: Set up diagnostics*](troubleshoot-diagnostics.md).
 
 4. You can choose to set up alerts for your metrics data by selecting **Alerts** from the menu, then **+ New alert rule**.
-    :::image type="content" source="media/troubleshoot-alerts/alertss.png" alt-text="Screenshot showing the Alerts page and button to add":::
+    :::image type="content" source="media/troubleshoot-alerts/alerts.png" alt-text="Screenshot showing the Alerts page and button to add":::
 
     For more information about this process, see [*Troubleshooting: Set up diagnostics*](troubleshoot-diagnostics.md).
 
