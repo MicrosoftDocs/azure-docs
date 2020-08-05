@@ -636,7 +636,7 @@
       - name: Set up continuous integration with Azure Pipelines
         href: ./service-fabric-tutorial-deploy-app-with-cicd-vsts.md
       - name: Deploy your Linux applications using Jenkins
-        href: service-fabric-cicd-your-linux-applications-with-jenkins.md
+        href: /azure/developer/jenkins/deploy-to-service-fabric-cluster
   - name: Set up and configure reverse proxy
     items:
     - name: Set up and configure reverse proxy 
