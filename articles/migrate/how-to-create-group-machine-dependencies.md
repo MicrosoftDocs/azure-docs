@@ -99,7 +99,7 @@ To install the MMA on a Linux machine:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-- [Learn more](../azure-monitor/insights/vminsights-enable-hybrid.md#installation-script-examples) about how you can use scripts to install the Dependency agent.
+- [Learn more](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) about how you can use scripts to install the Dependency agent.
 - [Learn more](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) about the operating systems supported by the Dependency agent.
 
 

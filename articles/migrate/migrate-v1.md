@@ -259,7 +259,7 @@ For machines monitored by System Center Operations Manager 2012 R2 or later, the
     ```sh InstallDependencyAgent-Linux64.bin```
 
 - Learn more about the [Dependency agent support](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) for the Windows and Linux operating systems.
-- [Learn more](../azure-monitor/insights/vminsights-enable-hybrid.md#installation-script-examples) about how you can use scripts to install the Dependency agent.
+- [Learn more](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) about how you can use scripts to install the Dependency agent.
 
 >[!NOTE]
 > The Azure Monitor for VMs article referenced to provide an overview of the system prerequisites and methods to deploy the Dependency agent are also applicable to the Service Map solution.
