@@ -6,7 +6,7 @@ author: kevinvngo
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw
-ms.date: 05/06/2020
+ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ---
@@ -83,11 +83,16 @@ Managed Identity authentication is required when your storage account is attache
    > [!NOTE]
    > If you have a general-purpose v1 or blob storage account, you must **first upgrade to v2** using this [guide](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-3. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Owner, Contributor, or Reader** RBAC role to your SQL server.
+3. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Owner, Contributor, or Reader** Azure role to your SQL server.
 
    > [!NOTE]
-   > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to this [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+   > Only members with Owner privilege can perform this step. For various Azure built-in roles, refer to this [guide](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
    
+    > [!IMPORTANT]
+    > Specify the **Storage** **Blob Data** Owner, Contributor, or Reader Azure role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader. 
+
+    ![Granting RBAC permission to load](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+
 4. You can now run the COPY statement specifying "Managed Identity":
 
 	```sql
@@ -99,14 +104,15 @@ Managed Identity authentication is required when your storage account is attache
 	)
 	```
 
-> [!IMPORTANT]
->
-> - Specify the **Storage** **Blob Data** Owner, Contributor, or Reader RBAC role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader. 
-
 ## D. Azure Active Directory Authentication (AAD)
 #### Steps
 
-1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Owner, Contributor, or Reader** RBAC role to your AAD user. 
+1. Under your storage account, navigate to **Access Control (IAM)**, and select **Add role assignment**. Assign **Storage Blob Data Owner, Contributor, or Reader** Azure role to your AAD user. 
+
+    > [!IMPORTANT]
+    > Specify the **Storage** **Blob Data** Owner, Contributor, or Reader Azure role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader.
+
+    ![Granting RBAC permission to load](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 2. Configure Azure AD authentication by going through the following [documentation](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
 
@@ -120,9 +126,6 @@ Managed Identity authentication is required when your storage account is attache
 	)
 	```
 
-> [!IMPORTANT]
->
-> - Specify the **Storage** **Blob Data** Owner, Contributor, or Reader RBAC role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader. 
 
 ## E. Service Principal Authentication
 #### Steps

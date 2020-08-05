@@ -40,7 +40,7 @@ Let's look at a complete example using RunToCompletion semantics.
 > [!IMPORTANT]
 > The following example assumes familiarity with creating [Windows container applications using Service Fabric and Docker][containers-getting-started-link].
 >
-> This example references mcr.microsoft.com/windows/nanoserver:1809. Windows Server containers are not compatible across all versions of a host OS. To learn more, see [Windows Container Version Compatibility](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+> This example references mcr.microsoft.com/windows/nanoserver:1809. Windows Server containers are not compatible across all versions of a host OS. To learn more, see [Windows Container Version Compatibility](/virtualization/windowscontainers/deploy-containers/version-compatibility).
 
 The following ServiceManifest.xml describes a ServicePackage consisting of two CodePackages, which represent containers. *RunToCompletionCodePackage1* just logs a message to **stdout** and exits. *RunToCompletionCodePackage2* pings the loopback address for a while and then exits with an exit code of either **0**, **1** or **2**.
 
@@ -124,8 +124,7 @@ See the following articles for related information.
 [application-and-service-manifests-link]: service-fabric-application-and-service-manifests.md
 [setup-entry-point-link]: service-fabric-run-script-at-service-startup.md
 [deployed-service-package-working-with-link]: service-fabric-hosting-model.md#work-with-a-deployed-service-package
-[deployed-code-package-link]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedcodepackage
-[deployed-service-package-link]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicePackage
-[fabric-client-link]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient
-[deployed-service-package-fabricclient-link]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync
-
+[deployed-code-package-link]: /powershell/module/servicefabric/get-servicefabricdeployedcodepackage
+[deployed-service-package-link]: /powershell/module/servicefabric/get-servicefabricdeployedservicepackage
+[fabric-client-link]: /dotnet/api/system.fabric.fabricclient
+[deployed-service-package-fabricclient-link]: /dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync

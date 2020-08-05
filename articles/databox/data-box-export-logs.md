@@ -30,7 +30,7 @@ The following table shows a summary of the Data Box export order steps and the t
 
 ## Set up access control on the order
 
-You can control who can access your order when the order is first created. Set up Role-based Access Control (RBAC) roles at various scopes to control the access to the Data Box order. An RBAC role determines the type of access – read-write, read-only, read-write to a subset of operations.
+You can control who can access your order when the order is first created. Set up Azure roles at various scopes to control the access to the Data Box order. An Azure role determines the type of access – read-write, read-only, read-write to a subset of operations.
 
 The two roles that can be defined for the Azure Data Box service are:
 
@@ -190,55 +190,55 @@ The chain of custody audit logs contain information about powering on and access
 
 Here is a sample of the audit log from a Data Box:
 
-    ```
-    9/10/2018 8:23:01 PM : The operating system started at system time ‎2018‎-‎09‎-‎10T20:23:01.497758400Z.
-    9/10/2018 8:23:42 PM : An account was successfully logged on.
-    Subject:
-    	Security ID:		S-1-5-18
-    	Account Name:		WIN-DATABOXADMIN
-    	Account Domain:	Workgroup
-    	Logon ID:		0x3E7
-    Logon Information:
-    	Logon Type:		3
-    	Restricted Admin Mode:	-
-    	Virtual Account:		No
-    	Elevated Token:		No
-    Impersonation Level:		Impersonation
-    New Logon:
-    	Security ID:		S-1-5-7
-    	Account Name:		ANONYMOUS LOGON
-    	Account Domain:	NT AUTHORITY
-    	Logon ID:		0x775D5
-    	Linked Logon ID:	0x0
-    	Network Account Name:	-
-    	Network Account Domain:	-
-    	Logon GUID:		{00000000-0000-0000-0000-000000000000}
-    Process Information:
-    	Process ID:		0x4
-    	Process Name:		
-    Network Information:
-    	Workstation Name:	-
-    	Source Network Address:	-
-    	Source Port:		-
-    Detailed Authentication Information:
-    	Logon Process:		NfsSvr
-    	Authentication Package:MICROSOFT_AUTHENTICATION_PACKAGE_V1_0
-    	Transited Services:	-
-    	Package Name (NTLM only):	-
-    	Key Length:		0
-    This event is generated when a logon session is created. It is generated on the computer that was accessed. 
-    The subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe. 
-    The logon type field indicates the kind of logon that occurred. The most common types are 2 (interactive) and 3 (network).
-    The New Logon fields indicate the account for whom the new logon was created, i.e. the account that was logged on.
-    The network fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
-    The impersonation level field indicates the extent to which a process in the logon session can impersonate.
-    The authentication information fields provide detailed information about this specific logon request.
-    	- Logon GUID is a unique identifier that can be used to correlate this event with a KDC event.
-    	- Transited services indicate which intermediate services have participated in this logon request.
-    	- Package name indicates which sub-protocol was used among the NTLM protocols.
-    	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.
-    9/10/2018 8:25:58 PM : An account was successfully logged on.
-    ```
+```output
+9/10/2018 8:23:01 PM : The operating system started at system time ‎2018‎-‎09‎-‎10T20:23:01.497758400Z.
+9/10/2018 8:23:42 PM : An account was successfully logged on.
+Subject:
+	Security ID:		S-1-5-18
+	Account Name:		WIN-DATABOXADMIN
+	Account Domain:	Workgroup
+	Logon ID:		0x3E7
+Logon Information:
+	Logon Type:		3
+	Restricted Admin Mode:	-
+	Virtual Account:		No
+	Elevated Token:		No
+Impersonation Level:		Impersonation
+New Logon:
+	Security ID:		S-1-5-7
+	Account Name:		ANONYMOUS LOGON
+	Account Domain:	NT AUTHORITY
+	Logon ID:		0x775D5
+	Linked Logon ID:	0x0
+	Network Account Name:	-
+	Network Account Domain:	-
+	Logon GUID:		{00000000-0000-0000-0000-000000000000}
+Process Information:
+	Process ID:		0x4
+	Process Name:		
+Network Information:
+	Workstation Name:	-
+	Source Network Address:	-
+	Source Port:		-
+Detailed Authentication Information:
+	Logon Process:		NfsSvr
+	Authentication Package:MICROSOFT_AUTHENTICATION_PACKAGE_V1_0
+	Transited Services:	-
+	Package Name (NTLM only):	-
+	Key Length:		0
+This event is generated when a logon session is created. It is generated on the computer that was accessed. 
+The subject fields indicate the account on the local system which requested the logon. This is most commonly a service such as the Server service, or a local process such as Winlogon.exe or Services.exe. 
+The logon type field indicates the kind of logon that occurred. The most common types are 2 (interactive) and 3 (network).
+The New Logon fields indicate the account for whom the new logon was created, i.e. the account that was logged on.
+The network fields indicate where a remote logon request originated. Workstation name is not always available and may be left blank in some cases.
+The impersonation level field indicates the extent to which a process in the logon session can impersonate.
+The authentication information fields provide detailed information about this specific logon request.
+	- Logon GUID is a unique identifier that can be used to correlate this event with a KDC event.
+	- Transited services indicate which intermediate services have participated in this logon request.
+	- Package name indicates which sub-protocol was used among the NTLM protocols.
+	- Key length indicates the length of the generated session key. This will be 0 if no session key was requested.
+9/10/2018 8:25:58 PM : An account was successfully logged on.
+```
 
 ## Download order history
 
@@ -302,7 +302,3 @@ BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 ## Next steps
 
 - Learn how to [Troubleshoot issues on your Data Box and Data Box Heavy](data-box-troubleshoot.md).
-
-
-
-

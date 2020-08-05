@@ -17,6 +17,10 @@ ExpressRoute is designed for high availability to provide carrier grade private 
 
 However, taking Murphy's popular adage--*if anything can go wrong, it will*--into consideration, in this article let us focus on solutions that go beyond failures that can be addressed using a single ExpressRoute circuit. In other words, in this article let us look into network architecture considerations for building robust backend network connectivity for disaster recovery using geo-redundant ExpressRoute circuits.
 
+>[!NOTE]
+>The concepts described in this article equally applies when an ExpressRoute circuit is created under Virtual WAN or outside of it.
+>
+
 ## Need for redundant connectivity solution
 
 There are possibilities and instances where an entire regional service (be it that of Microsoft, network service providers, customer, or other cloud service providers) gets degraded. The root cause for such regional wide service impact include natural calamity. Therefore, for business continuity and mission critical applications it is important to plan for disaster recovery.   

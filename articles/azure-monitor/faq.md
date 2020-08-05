@@ -26,7 +26,7 @@ In September 2018, Microsoft combined Azure Monitor, Log Analytics, and Applicat
 Features of Azure Monitor that are automatically enabled such as collection of metrics and activity logs are provided at no cost. There is a cost associated with other features such as log queries and alerting. See the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing information.
 
 ### How do I enable Azure Monitor?
-Azure Monitor is enabled the moment that you create a new Azure subscription, and [Activity log](platform/activity-logs-overview.md) and platform [metrics](platform/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](platform/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](insights/solutions.md) and [insights](insights/insights-overview.md) to provide additional analysis on collected data for particular services. 
+Azure Monitor is enabled the moment that you create a new Azure subscription, and [Activity log](./platform/platform-logs-overview.md) and platform [metrics](platform/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](platform/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](insights/solutions.md) and [insights](insights/insights-overview.md) to provide additional analysis on collected data for particular services. 
 
 ### How do I access Azure Monitor?
 Access all Azure Monitor features and data from the **Monitor** menu in the Azure portal. The **Monitoring** section of the menu for different Azure services provides access to the same tools with data filtered to a particular resource. Azure Monitor data is also accessible for a variety of scenarios using CLI, PowerShell, and a REST API.
@@ -117,7 +117,7 @@ An action group is a collection of notifications and actions that can be trigger
 
 
 ### What is an action rule?
-An action rule allows you to modify the behavior of a set of alerts that match a certain criteria. This allows you to to perform such requirements as disable alert actions during a maintenance window. You can also apply an action group to a set of alerts rather than applying them directly to the alert rules. See [Action rules](platform/alerts-action-rules.md).
+An action rule allows you to modify the behavior of a set of alerts that match a certain criteria. This allows you to perform such requirements as disable alert actions during a maintenance window. You can also apply an action group to a set of alerts rather than applying them directly to the alert rules. See [Action rules](platform/alerts-action-rules.md).
 
 ## Agents
 
@@ -133,7 +133,7 @@ Azure Diagnostic extension is for Azure virtual machines and collects data to Az
 Traffic to Azure Monitor uses the Microsoft peering ExpressRoute circuit. See [ExpressRoute documentation](../expressroute/expressroute-faqs.md#supported-services) for a description of the different types of ExpressRoute traffic. 
 
 ### How can I confirm that the Log Analytics agent is able to communicate with Azure Monitor?
-From Control Panel on the agent computer, select **Security & Settings**, **Microsoft Monitoring Agent** . Under the **Azure Log Analytics (OMS)** tab, a green check mark icon confirms that the agent is able to communicate with Azure Monitor. A yellow warning icon means the agent is having issues. One common reason is the **Microsoft Monitoring Agent** service has stopped. Use service control manager to restart the service.
+From Control Panel on the agent computer, select **Security & Settings**, **Microsoft Monitoring Agent. Under the **Azure Log Analytics (OMS)** tab, a green check mark icon confirms that the agent is able to communicate with Azure Monitor. A yellow warning icon means the agent is having issues. One common reason is the **Microsoft Monitoring Agent** service has stopped. Use service control manager to restart the service.
 
 ### How do I stop the Log Analytics agent from communicating with Azure Monitor?
 For agents connected to Log Analytics directly, open the Control Panel and select **Security & Settings**, **Microsoft Monitoring Agent**. Under the **Azure Log Analytics (OMS)** tab, remove all workspaces listed. In System Center Operations Manager, remove the computer from the Log Analytics managed computers list. Operations Manager updates the configuration of the agent to no longer report to Log Analytics. 
@@ -203,7 +203,7 @@ View Designer is only available for users assigned with Contributor permissions 
 * [Set up an ASP.NET server](app/monitor-performance-live-website-now.md)
 * [Set up a Java server](app/java-agent.md)
 
-*How many Application Insights should I deploy?:*
+*How many Application Insights resources should I deploy:*
 
 * [How to design your Application Insights deployment: One versus many Application Insights resources?](app/separate-resources.md)
 
@@ -311,7 +311,7 @@ We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](http
 
 * Browser telemetry: We collect the sender's IP address.
 * Server telemetry: The Application Insights module collects the client IP address. It is not collected if `X-Forwarded-For` is set.
-* To learn more about how IP address and geolocation data is collected in Application Insights refer to this [article](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
+* To learn more about how IP address and geolocation data are collected in Application Insights refer to this [article](./app/ip-collection.md).
 
 
 You can configure the `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it is moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/posts/2016-07-05-client-ip-address/).
@@ -324,7 +324,7 @@ Take a look at [Data Retention and Privacy][data].
 
 ### What happens to Application Insight's telemetry when a server or device loses connection with Azure?
 
-All of our SDKs, including the web SDK, includes "reliable transport" or "robust transport". When the server or device loses connection with Azure, telemetry is [stored locally on the file system](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage) (Server SDKs) or in HTML5 Session Storage (Web SDK). The SDK will periodically retry to send this telemetry until our ingestion service considers it "stale" (48-hours for logs, 30 minutes for metrics). Stale telemetry will be dropped. In some cases, such as when local storage is full, retry will not occur.
+All of our SDKs, including the web SDK, includes "reliable transport" or "robust transport". When the server or device loses connection with Azure, telemetry is [stored locally on the file system](./app/data-retention-privacy.md#does-the-sdk-create-temporary-local-storage) (Server SDKs) or in HTML5 Session Storage (Web SDK). The SDK will periodically retry to send this telemetry until our ingestion service considers it "stale" (48-hours for logs, 30 minutes for metrics). Stale telemetry will be dropped. In some cases, such as when local storage is full, retry will not occur.
 
 
 ### Could personal data be sent in the telemetry?
@@ -406,7 +406,7 @@ You can't set up a Metric Explorer report or set up continuous export.
 
 #### Querying the telemetry
 
-Use the [REST API](https://dev.applicationinsights.io/) to run [Analytics](app/analytics.md) queries.
+Use the [REST API](https://dev.applicationinsights.io/) to run [Analytics](./log-query/log-query-overview.md) queries.
 
 ### How can I set an alert on an event?
 
@@ -473,7 +473,7 @@ Your gateway should route traffic to our endpoint's base address. In your config
 #### Proxy passthrough
 
 Proxy passthrough can be achieved by configuring either a machine level or application level proxy.
-For more information see dotnet's article on [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+For more information see dotnet's article on [DefaultProxy](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
  Example Web.config:
  ```xml
@@ -505,6 +505,15 @@ Most Application Insights data has a latency of under 5 minutes. Some data can t
 [start]: app/app-insights-overview.md
 [windows]: app/app-insights-windows-get-started.md
 
+### HTTP 502 and 503 responses are not always captured by Application Insights
+
+"502 bad gateway" and "503 service unavailable" errors are not always captured by Application Insights. If only client-side JavaScript is being used for monitoring this would be expected behavior since the error response is returned prior to the page containing the HTML header with the monitoring JavaScript snippet being rendered. 
+
+If the 502 or 503 response was sent from a server with server-side monitoring enabled the errors would be collected by the Application Insights SDK. 
+
+However, there are still cases where even when server-side monitoring is enabled on an application's web server that a 502 or 503 error will not be captured by Application Insights. Many modern web servers do not allow a client to communicate directly, but instead employ solutions like reverse proxies to pass information back and forth between the client and the front-end web servers. 
+
+In this scenario, a 502 or 503 response could be returned to a client due to an issue at the reverse proxy layer and this would not be captured out-of-box by Application Insights. To help detect issues at this layer you may need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502/503 responses. To learn more about common causes of 502 and 503 errors consult the Azure App Service [troubleshooting article for "502 bad gateway" and "503 service unavailable"](../app-service/troubleshoot-http-502-http-503.md).     
 
 ## Azure Monitor for containers
 
@@ -651,7 +660,7 @@ See the [Network firewall requirements](insights/container-insights-onboard.md#n
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for VMs. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ### Can I onboard to an existing workspace?
-If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to Azure Monitor for VMs, provided it is in one of the supported regions listed [here](insights/vminsights-enable-overview.md#prerequisites).
+If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to Azure Monitor for VMs, provided it is in one of the [supported regions](insights/vminsights-configure-workspace.md#supported-regions).
 
 
 ### Can I onboard to a new workspace? 
@@ -731,7 +740,7 @@ Under this condition, you will be prompted with the **Try Now** option when you 
 ## Next steps
 If your question isn't answered here, you can refer to the following forums to additional questions and answers.
 
-- [Log Analytics](https://docs.microsoft.com/answers/topics/azure-monitor.html)
-- [Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)
+- [Log Analytics](/answers/topics/azure-monitor.html)
+- [Application Insights](/answers/topics/azure-monitor.html)
 
 For general feedback on Azure Monitor please visit the [feedback forum](https://feedback.azure.com/forums/34192--general-feedback).

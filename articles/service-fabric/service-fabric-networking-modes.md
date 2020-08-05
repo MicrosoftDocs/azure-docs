@@ -16,7 +16,7 @@ If you have one container service with a static endpoint in your service manifes
 When a container service restarts or moves to another node in the cluster, the IP address changes. For this reason, we don't recommend using the dynamically assigned IP address to discover container services. Only the Service Fabric Naming Service or the DNS Service should be used for service discovery. 
 
 >[!WARNING]
->Azure allows a total of 65,356 IPs per virtual network. The sum of the number of nodes and the number of container service instances (that are using Open mode) can't exceed 65,356 IPs within a virtual network. For high-density scenarios, we recommend nat networking mode. In addition, other dependencies such as the load balancer will have other [limitations](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) to consider. Currently up to 50 IPs per node have been tested and proven stable. 
+>Azure allows a total of 65,356 IPs per virtual network. The sum of the number of nodes and the number of container service instances (that are using Open mode) can't exceed 65,356 IPs within a virtual network. For high-density scenarios, we recommend nat networking mode. In addition, other dependencies such as the load balancer will have other [limitations](../azure-resource-manager/management/azure-subscription-service-limits.md) to consider. Currently up to 50 IPs per node have been tested and proven stable. 
 >
 
 ## Set up Open networking mode
@@ -258,6 +258,6 @@ When a container service restarts or moves to another node in the cluster, the I
  
 ## Next steps
 * [Understand the Service Fabric application model](service-fabric-application-model.md)
-* [Learn more about the Service Fabric service manifest resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Learn more about the Service Fabric service manifest resources](./service-fabric-service-manifest-resources.md)
 * [Deploy a Windows container to Service Fabric on Windows Server 2016](service-fabric-get-started-containers.md)
 * [Deploy a Docker container to Service Fabric on Linux](service-fabric-get-started-containers-linux.md)

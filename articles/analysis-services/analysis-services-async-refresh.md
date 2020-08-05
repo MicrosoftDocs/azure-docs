@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
+ms.custom: references_regions 
 
 ---
 # Asynchronous refresh with the REST API

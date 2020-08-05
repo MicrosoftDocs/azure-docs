@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solution.
-ms.date: 06/22/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
 ---
 
@@ -55,6 +55,10 @@ Pool allocation failures can happen at any point during first allocation or subs
 It's possible for Batch pools to experience downtime events in Azure. Keep this in mind when planning and developing your scenario or workflow for Batch.
 
 In the case that a node fails, Batch automatically attempts to recover these compute nodes on your behalf. This may trigger rescheduling any running task on the node that is recovered. See [Designing for retries](#design-for-retries-and-re-execution) to learn more about interrupted tasks.
+
+### Third-party images
+
+Pools can be created using third-party images published to Azure Marketplace. With user subscription mode Batch accounts, you may see the error "Allocation failed due to marketplace purchase eligibility check" when creating a pool with certain third-party images. To resolve this error, accept the terms set by the publisher of the image. You can do so by using [Azure Powershell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms?view=azurermps-6.13.0) or [Azure CLI](https://docs.microsoft.com/cli/azure/vm/image/terms?view=azure-cli-latest).
 
 ### Azure region dependency
 
@@ -145,6 +149,10 @@ Directory junctions, sometimes called directory hard-links, are difficult to dea
 ### Collect the Batch agent logs
 
 If you notice a problem involving the behavior of a node or tasks running on a node, collect the Batch agent logs prior to deallocating the nodes in question. The Batch agent logs can be collected using the Upload Batch service logs API. These logs can be supplied as part of a support ticket to Microsoft and will help with issue troubleshooting and resolution.
+
+### Manage OS upgrades
+
+For user subscription mode Batch accounts, automated OS upgrades can interrupt task progress, especially if the tasks are long-running. [Building idempotent tasks](#build-durable-tasks) can help to reduce errors caused by these interruptions. We also recommend [scheduling OS image upgrades for times where tasks aren't expected to run](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
 ## Isolation security
 

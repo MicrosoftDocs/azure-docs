@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, devx-track-javascript
 ---
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application
@@ -27,7 +27,7 @@ This tutorial demonstrates how an Angular single-page application (SPA) can:
 
 ## How the sample app works
 
-![Diagram that shows how the sample app generated in this tutorial works](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
+![Diagram that shows how the sample app generated in this tutorial works](./media/tutorial-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 ### More information
 
@@ -56,10 +56,11 @@ To run this tutorial, you need:
 
 Generate a new Angular application by using the following npm commands:
 
-```Bash
+```bash
 npm install -g @angular/cli@8                    # Install the Angular CLI
-npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
 ng new my-application --routing=true --style=css # Generate a new Angular app
+cd my-application                                # Change to the app directory
+npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
 npm install msal @azure/msal-angular             # Install MSAL and MSAL Angular in your application
 ng generate component page-name                  # To add a new page (such as a home or profile page)
 ```
@@ -144,7 +145,7 @@ Add the following code to `AppComponent` to sign in a user:
 ```javascript
 export class AppComponent implements OnInit {
     constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
-    
+
     ngOnInit() { }
 
     login() {

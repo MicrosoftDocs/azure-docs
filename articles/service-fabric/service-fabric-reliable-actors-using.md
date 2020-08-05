@@ -210,7 +210,7 @@ This change is a two-step upgrade. Follow the steps in this sequence.
 
 * [Actor state management](service-fabric-reliable-actors-state-management.md)
 * [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
-* [Actors API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Actors API reference documentation](/previous-versions/azure/dn971626(v=azure.100))
 * [.NET sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

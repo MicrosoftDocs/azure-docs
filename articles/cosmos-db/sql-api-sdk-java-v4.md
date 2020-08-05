@@ -8,8 +8,9 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-
+ms.custom: devx-track-java
 ---
+
 # Azure Cosmos DB Java SDK v4 for Core (SQL) API: release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
@@ -56,6 +57,40 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 | **Azure Cosmos DB workshops and labs** |[Cosmos DB workshops home page](https://aka.ms/cosmosworkshop)
 
 ## Release history
+
+### 4.4.0-beta.1 (Unreleased)
+
+### 4.3.0 (2020-07-29)
+#### New Features
+* Updated reactor-core library version to `3.3.8.RELEASE`. 
+* Updated reactor-netty library version to `0.9.10.RELEASE`. 
+* Updated netty library version to `4.1.51.Final`. 
+* Added new overload APIs for `upsertItem` with `partitionKey`. 
+* Added open telemetry tracing support. 
+#### Key Bug Fixes
+* Fixed issue where SSLException gets thrown in case of cancellation of requests in GATEWAY mode.
+* Fixed resource throttle retry policy on stored procedures execution.
+* Fixed issue where SDK hangs in log level DEBUG mode. 
+* Fixed periodic spikes in latency in Direct mode. 
+* Fixed high client initialization time issue. 
+* Fixed http proxy bug when customizing client with direct mode and gateway mode. 
+* Fixed potential NPE in users passes null options. 
+* Added timeUnit to `requestLatency` in diagnostics string.
+* Removed duplicate uri string from diagnostics string. 
+* Fixed diagnostics string in proper JSON format for point operations.
+* Fixed issue with `.single()` operator causing the reactor chain to blow up in case of Not Found exception. 
+
+### 4.2.0 (2020-07-14)
+#### New Features
+* Added script logging enabled API to `CosmosStoredProcedureRequestOptions`.
+* Updated `DirectConnectionConfig` default `idleEndpointTimeout` to 1h and default `connectTimeout` to 5s.
+#### Key Bug Fixes
+* Fixed issue where `GatewayConnectionConfig` `idleConnectionTimeout` was overriding `DirectConnectionConfig` `idleConnectionTimeout`.
+* Fixed `responseContinuationTokenLimitInKb` get and set APIs in `CosmosQueryRequestOptions`.
+* Fixed issue in query and change feed when recreating the collection with same name.
+* Fixed issue with top query throwing ClassCastException.
+* Fixed issue with order by query throwing NullPointerException.
+* Fixed issue in handling of cancelled requests in direct mode causing reactor `onErrorDropped` being called. 
 
 ### 4.1.0 (2020-06-25)
 #### New Features
@@ -121,6 +156,7 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 * Query Optimizations by removing double serialization / deserialization. 
 * Response Headers optimizations by removing unnecessary copying back and forth. 
 * Optimized `ByteBuffer` serialization / deserialization by removing intermediate String instantiations.
+
 #### Key Bug Fixes
 * Fixed ConnectionPolicy `toString()` Null Pointer Exception.
 * Fixed issue with parsing of query results in case of Value order by queries. 

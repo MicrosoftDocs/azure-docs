@@ -184,7 +184,11 @@ public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
     PathAccessControl directoryAccessControl =
         await directoryClient.GetAccessControlAsync();
 
-    Console.WriteLine(directoryAccessControl.AccessControlList);
+    foreach (var item in directoryAccessControl.AccessControlList)
+    {
+        Console.WriteLine(item.ToString());
+    }
+
 
     IList<PathAccessControlItem> accessControlList
         = PathAccessControlExtensions.ParseAccessControlList
@@ -271,7 +275,10 @@ public async Task ManageFileACLs(DataLakeFileSystemClient fileSystemClient)
     PathAccessControl FileAccessControl =
         await fileClient.GetAccessControlAsync();
 
-    Console.WriteLine(FileAccessControl.AccessControlList);
+    foreach (var item in FileAccessControl.AccessControlList)
+    {
+        Console.WriteLine(item.ToString());
+    }
 
     IList<PathAccessControlItem> accessControlList
         = PathAccessControlExtensions.ParseAccessControlList

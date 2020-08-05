@@ -2,9 +2,8 @@
 title: Developer best practices - Pod security in Azure Kubernetes Services (AKS)
 description: Learn the developer best practices for how to secure pods in Azure Kubernetes Service (AKS)
 services: container-service
-author: zr-msft
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/28/2020
 ms.author: zarhoads
 ---
 
@@ -44,18 +43,19 @@ The following example pod YAML manifest sets security context settings to define
 ```yaml
 apiVersion: v1
 kind: Pod
-metadata:
+metadata:
   name: security-context-demo
-spec:
+spec:
+  securityContext:
+    fsGroup: 2000
   containers:
     - name: security-context-demo
       image: nginx:1.15.5
-    securityContext:
-      runAsUser: 1000
-      fsGroup: 2000
-      allowPrivilegeEscalation: false
-      capabilities:
-        add: ["NET_ADMIN", "SYS_TIME"]
+      securityContext:
+        runAsUser: 1000
+        allowPrivilegeEscalation: false
+        capabilities:
+          add: ["NET_ADMIN", "SYS_TIME"]
 ```
 
 Work with your cluster operator to determine what security context settings you need. Try to design your applications to minimize additional permissions and access the pod requires. There are additional security features to limit access using AppArmor and seccomp (secure computing) that can be implemented by cluster operators. For more information, see [Secure container access to resources][apparmor-seccomp].

@@ -7,13 +7,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 07/10/2020
+ms.date: 08/01/2020
+ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
 
 Learn what's new in the service. Bookmark this page to keep up to date with the service.
 
-## Feature announcements
+## Feature announcements in 2020
+
+### August 2020
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|---------|------------------|-------------|---------------|
+| [double encryption](search-security-overview.md#encryption) | Security | Enable double encryption at the storage layer by configuring customer-managed key (CMK) encryption on new search services. Create a new service, [configure and apply customer-managed keys](search-security-manage-encryption-keys.md) to indexes or synonym maps, and benefit from double encryption over that content. | Generally available on all search services created after August 1, 2020 in these regions: West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona. Use the portal, management REST APIs, or SDKs to create the service. |
+
+### July 2020
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|---------|------------------|-------------|---------------|
+| [Azure.Search.Documents client library](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK for .NET | .NET client library released by the Azure SDK team, designed for consistency with other .NET client libraries. <br/><br/>Version 11 targets the Search REST api-version=2020-06-30, but does not yet support knowledge store, geo-filters, or [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). | Generally available. </br> Install the [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) from NuGet. |
+| [azure.search.documents client library](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python)  | Azure SDK for Python| Python client library released by the Azure SDK team, designed for consistency with other Python client libraries. <br/><br/>Version 11 targets the Search REST api-version=2020-06-30. | Generally available. </br> Install the [azure-search-documents package](https://pypi.org/project/azure-search-documents/) from PyPI. |
+| [@azure/search-documents client library](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest)  | Azure SDK for JavaScript | JavaScript client library released by the Azure SDK team, designed for consistency with other JavaScript client libraries. <br/><br/>Version 11 targets the Search REST api-version=2020-06-30. | Generally available. </br> Install the [@azure/search-documents package](https://www.npmjs.com/package/@azure/search-documents) from npm. |
 
 ### June 2020
 
@@ -23,7 +38,6 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 | [**Search REST API 2020-06-30**](https://docs.microsoft.com/rest/api/searchservice/) | REST | A new stable version of the REST APIs. In addition to knowledge store, this version includes enhancements to search relevance and scoring. | Generally available. |
 | [**Okapi BM25 relevance algorithm**](https://en.wikipedia.org/wiki/Okapi_BM25) | Query | New relevance ranking algorithm automatically used for all new search services created after July 15. For services created earlier, you can opt in by setting the `similarity` property on index fields. | Generally available. </br> Use [Search REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) or later, or REST API 2019-05-06. |
 | **executionEnvironment** | Security (indexers) | Explicitly set this indexer configuration property to `private` to force all connections to external data sources over a private endpoint. Applicable only to search services that leverage Azure Private Link. | Generally available. </br> Use [Search REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) to set this general configuration parameter. |
-| [**Azure Machine Learning (AML) skill**](cognitive-search-aml-skill.md) | AI enrichment| A new skill type to integrate an inferencing endpoint from Azure Machine Learning. Get started with [this tutorial](cognitive-search-tutorial-aml-custom-skill.md). | Generally available. </br> Use [Search REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) or later. Also available in the portal, in skillset design, assuming Cognitive Search and Azure ML services are deployed in the same subscription. |
 
 ### May 2020 (Microsoft Build)
 

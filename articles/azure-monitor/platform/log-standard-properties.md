@@ -207,5 +207,6 @@ union withsource = tt *
 ## Next steps
 
 - Read more about how [Azure Monitor log data is stored](../log-query/log-query-overview.md).
-- Get a lesson on [writing log queries](../../azure-monitor/log-query/get-started-queries.md).
-- Get a lesson on [joining tables in log queries](../../azure-monitor/log-query/joins.md).
+- Get a lesson on [writing log queries](../log-query/get-started-queries.md).
+- Get a lesson on [joining tables in log queries](../log-query/joins.md).
+

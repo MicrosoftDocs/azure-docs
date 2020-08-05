@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-ms.date: 06/04/2020
+ms.date: 08/04/2020
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance
 
@@ -95,7 +95,7 @@ Backup storage consumption up to the maximum data size for a database is not cha
 
 ## Backup retention
 
-For all new, restored, and copied databases, Azure SQL Database and Azure SQL Managed Instance retain sufficient backups to allow PITR within the last 7 days by default. With the exception of Hyperscale databases, you can [change backup retention period](#change-the-pitr-backup-retention-period) per database in the 1-35 day range. As described in [Backup storage consumption](#backup-storage-consumption), backups stored to enable PITR may be older than the retention period.
+For all new, restored, and copied databases, Azure SQL Database and Azure SQL Managed Instance retain sufficient backups to allow PITR within the last 7 days by default. With the exception of Hyperscale databases, you can [change backup retention period](#change-the-pitr-backup-retention-period) per each active database in the 1-35 day range. As described in [Backup storage consumption](#backup-storage-consumption), backups stored to enable PITR may be older than the retention period. For Azure SQL Managed Instance only, it is possible to set the PITR backup retention rate once a database has been deleted in the 0-35 days range. 
 
 If you delete a database, the system keeps backups in the same way it would for an online database with its specific retention period. You cannot change backup retention period for a deleted database.
 
@@ -114,7 +114,7 @@ For more information about LTR, see [Long-term backup retention](long-term-reten
 
 ## Storage costs
 
-The price for storage varies depending on whether you're using the DTU model or the vCore model.
+The price for backup storage varies depending on whether you're using the DTU model or the vCore model, and also on your region. The backup storage is charged per GB/month consumed, for pricing see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page and [Azure SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) page.
 
 ### DTU model
 
@@ -156,6 +156,9 @@ Add a filter for **Service name**, and then select **sql database** in the drop-
 
 ![Backup storage cost analysis](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
+  >[!NOTE]
+  > Meters are only visible for counters that are currently in use. If a counter is not available, it is likely that the category is not currently being used. For example, managed instance counters will not be present for customers who do not have a managed instance deployed. Likewise, storage counters will not be visible for resources that are not consuming storage. 
+
 ## Encrypted backups
 
 If your database is encrypted with TDE, backups are automatically encrypted at rest, including LTR backups. All new databases in Azure SQL are configured with TDE enabled by default. For more information on TDE, see  [Transparent Data Encryption with SQL Database & SQL Managed Instance](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
@@ -186,7 +189,7 @@ You can change the default PITR backup retention period by using the Azure porta
 
 ### Change the PITR backup retention period by using the Azure portal
 
-To change the PITR backup retention period by using the Azure portal, go to the server or managed instance with the databases whose retention period you want to change. 
+To change the PITR backup retention period for active databases by using the Azure portal, go to the server or managed instance with the databases whose retention period you want to change. 
 
 #### [SQL Database](#tab/single-database)
 
@@ -208,9 +211,54 @@ Changes to PITR backup retention for SQL Managed Instance are done at an individ
 > [!IMPORTANT]
 > The PowerShell AzureRM module is still supported by SQL Database and SQL Managed Instance, but all future development is for the Az.Sql module. For more information, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module are substantially identical to those in the AzureRm modules.
 
+#### [SQL Database](#tab/single-database)
+
+To change the PITR backup retention for active Azure SQL Databases, use the following PowerShell example.
+
 ```powershell
+# SET new PITR backup retention period on an active individual database
+# Valid backup retention must be between 1 and 35 days
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
+
+#### [SQL Managed Instance](#tab/managed-instance)
+
+To change the PITR backup retention for an **individual active** SQL Managed Instance databases, use the following PowerShell example.
+
+```powershell
+# SET new PITR backup retention period on an active individual database
+# Valid backup retention must be between 1 and 35 days
+Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase -RetentionDays 1
+```
+
+To change the PITR backup retention for **all active** SQL Managed Instance databases, use the following PowerShell example.
+
+```powershell
+# SET new PITR backup retention period for ALL active databases
+# Valid backup retention must be between 1 and 35 days
+Get-AzSqlInstanceDatabase -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 1
+```
+
+To change the PITR backup retention for an **individual deleted** SQL Managed Instance database, use the following PowerShell example.
+ 
+```powershell
+# SET new PITR backup retention on an individual deleted database
+# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database.
+Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver -DatabaseName testDatabase | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
+```
+
+To change the PITR backup retention for **all deleted** SQL Managed Instance databases, use the following PowerShell example.
+
+```powershell
+# SET new PITR backup retention for ALL deleted databases
+# Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database
+Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
+```
+
+Zero (0) days retention would denote that backup is immediately deleted and no longer kept for a deleted database.
+Once PITR backup retention has been reduced for a deleted database, it no longer can be increased.
+
+---
 
 ### Change the PITR backup retention period by using the REST API
 
@@ -254,3 +302,4 @@ For more information, see [Backup Retention REST API](https://docs.microsoft.com
 - Get more information about how to [restore a database to a point in time by using PowerShell](scripts/restore-database-powershell.md).
 - For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using the Azure portal, see [Manage long-term backup retention by using the Azure portal](long-term-backup-retention-configure.md).
 - For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using PowerShell, see [Manage long-term backup retention by using PowerShell](long-term-backup-retention-configure.md).
+- To learn how to fine-tune backup storage retention and costs for Azure SQL Managed Instance, see [Fine tuning backup storage costs on Managed Instance](https://aka.ms/mi-backup-tuning).

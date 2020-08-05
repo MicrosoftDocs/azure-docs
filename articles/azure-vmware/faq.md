@@ -82,15 +82,15 @@ The servers have 576 GB of RAM.
 
 **What is the storage capacity of each host?**
 
-Each ESXi host has two VSAN diskgroups with a capacity tier of 15.2 TB and a 3.2 TB NVMe cache tier (1.6 TB in each diskgroup).
+Each ESXi host has two vSAN diskgroups with a capacity tier of 15.2 TB and a 3.2 TB NVMe cache tier (1.6 TB in each diskgroup).
 
 **How much network bandwidth is available in each ESXi host?**
 
 ESXi hosts support connectivity bandwidth up to 25 Gbps.
 
-**Is data stored on the VSAN datastores encrypted at rest?**
+**Is data stored on the vSAN datastores encrypted at rest?**
 
-Yes, all VSAN data is encrypted by default using keys stored in Azure Key Vault.
+Yes, all vSAN data is encrypted by default using keys stored in Azure Key Vault.
 
 ## Hosts, clusters, and private clouds
 
@@ -134,7 +134,7 @@ No, you aren't required to use NSX on-premises.
 
 **What is the upgrade and update schedule for VMware software in a private cloud?**
 
-The private cloud software bundle upgrades are done to keep the software within one version of the most recent release of the software bundle from VMware. The private cloud software versions may be different than the most recent versions of the individual software components (ESXi, NSX-T, vCenter, VSAN).
+The private cloud software bundle upgrades are done to keep the software within one version of the most recent release of the software bundle from VMware. The private cloud software versions may be different than the most recent versions of the individual software components (ESXi, NSX-T, vCenter, vSAN).
 
 **How often will the private cloud software stack be updated?**
 
@@ -213,7 +213,7 @@ You can request a quota increase by [submitting a support request](..\azure-port
 > ```azurecli-interactive
 > az provider register -n Microsoft.AVS --subscription <your subscription ID>
 > ```
-> For additional ways to register the resource provider, see [Azure resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+> For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 1. In your Azure portal, under **Help + Support**, create a **New support request** and provide the following information for the ticket:
    - **Issue type:** Technical
