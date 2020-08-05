@@ -63,7 +63,7 @@ This architecture runs the application, storage, and data tiers on Azure virtual
 
 -   A DB2 pureScale cluster. The type of compute resources you need on Azure depends on your setup. In general, you can use two approaches:
 
-    -   Use a multi-node, high-performance computing (HPC)-style network where small to medium-sized instances access shared storage. For this HPC type of configuration, Azure memory-optimized E-series or storage-optimized L-series [virtual machines](../windows/sizes.md) provide the needed compute power.
+    -   Use a multi-node, high-performance computing (HPC)-style network where small to medium-sized instances access shared storage. For this HPC type of configuration, Azure memory-optimized E-series or storage-optimized L-series [virtual machines](../sizes.md) provide the needed compute power.
 
     -   Use fewer large virtual machine instances for the data engines. For large instances, the largest memory-optimized [M-series](https://azure.microsoft.com/pricing/details/virtual-machines/series/) virtual machines are ideal for heavy in-memory workloads. You might need a dedicated instance, depending on the size of the logical partition (LPAR) that's used to run DB2.
 
