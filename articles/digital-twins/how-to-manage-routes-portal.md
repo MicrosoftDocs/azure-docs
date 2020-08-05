@@ -175,11 +175,11 @@ You can either select from some basic common filter options, or use the advanced
 
 To use the basic filters, expand the _Event types_ option and select the checkboxes corresponding to the events you'd like to filter on. 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Screenshot of creating an event route with a basic filter. Selecting the checkboxes of the events.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Screenshot of creating an event route with a basic filter. Selecting the checkboxes of the events." border="false":::
 
 This will auto-populate the filter text box with the text of the filter you've selected:
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Screenshot of creating an event route with a basic filter. Showing the auto-populated filter text after selecting the events.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Screenshot of creating an event route with a basic filter. Showing the auto-populated filter text after selecting the events." border="false":::
 
 #### Use the advanced filters
 
@@ -187,7 +187,7 @@ Alternatively, you can use the advanced filter option to write your own custom f
 
 To create an event route with advanced filter options, toggle the switch for the _Advanced editor_ to enable it. You can then write your own event filters in the *Filter* box:
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Screenshot of creating an event route with an advanced filter.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Screenshot of creating an event route with an advanced filter." border="false":::
 
 Here are the supported route filters. The detail in the *Filter text schema* column is the text that can be entered into the filter box.
 
