@@ -19,6 +19,10 @@ If you happened to accidentally delete your app in Azure App Service, you can re
 > Undelete functionality is not supported for the Consumption plan.
 >
 
+> [!NOTE]
+> App Services running on an App Service Environment do not support snapshots. So Undelete functionality / clone functionality is not supported for App Services running on an App Service Environment
+>
+
 ## Re-register App Service resource provider
 Some customers might come across an issue where retrieving the list of deleted apps fails. To resolve the issue, run the following command:
 
