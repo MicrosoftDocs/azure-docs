@@ -240,16 +240,17 @@ Provide logos and images to use with your offer. All images must be in PNG forma
 >[!NOTE]
 >If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.
 
-#### Azure Marketplace logos
+#### Store logos
 
-Provide PNG files of your offer's logo with the following four image dimensions:
+Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) and a **Medium** (90 x 90 pixels) size logo. You can optionally replace these with different images.
 
-- **Small** (48 &times; 48 pixels)
-- **Medium** (90 &times; 90 pixels)
-- **Large** (216 &times; 216 pixels)
-- **Wide** (255 &times; 115 pixels)
+All three logo sizes are required for use in different places in the listing:
 
-All four logos are required, and they're displayed in various Azure Marketplace listings.
+- **Small** (48 x 48)
+- **Medium** (90 x 90)
+- **Large** (between 216 x 216 and 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### Screenshots
 
