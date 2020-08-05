@@ -51,7 +51,7 @@ Regarding access to the endpoint, anyone with access to the service URL and an a
 * Read-only access to the service is query rights, typically granted to a client application by giving it the URL and a query api-key.
 * Read-write access provides the ability to add, delete, or modify server objects, including api-keys, indexes, indexers, data sources, and schedules.Read-write access is granted by giving the URL, an admin API key.
 
-Rights to the service provisioning apparatus is granted through role assignments. [Role-based access (RBAC)](../role-based-access-control/overview.md) is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. 
+Rights to the service provisioning apparatus is granted through role assignments. [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. 
 
 In the context of Azure Cognitive Search, [Azure role assignments](search-security-rbac.md) will determine who can perform tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
 
