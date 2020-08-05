@@ -1,6 +1,6 @@
 ---
 title: Security controls for Azure API Management
-description: Review a checklist of security controls for evaluating API Management, such as the network, identity, and data protection controls.
+description: Review a checklist of security controls for evaluating API Management. These include network, identity, and data protection controls.
 services: api-management
 author: vladvino
 ms.service: api-management
