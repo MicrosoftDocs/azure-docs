@@ -31,7 +31,7 @@ To configure an Always On availability group, you must have the following prereq
 - A resource group with a domain controller. 
 - One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the *same* availability set or *different* availability zones that have been [registered with the SQL VM resource provider](sql-vm-resource-provider-register.md).  
 - The latest version of [PowerShell](/powershell/scripting/install/installing-powershell) or the [Azure CLI](/cli/azure/install-azure-cli). 
-- Two available (not used by any entity) IP addresses. One is for the internal load balancer. The other is for the availability group listener within the same subnet as the availability group. If you're using an existing load balancer, you need only one available IP address for the availability group listener. 
+- Two available (not used by any entity) IP addresses. One is for the internal load balancer. The other is for the availability group listener within the same subnet as the availability group. If you're using an existing load balancer, you only need one available IP address for the availability group listener. 
 
 ## Permissions
 
@@ -39,6 +39,37 @@ You need the following account permissions to configure the Always On availabili
 
 - An existing domain user account that has **Create Computer Object** permission in the domain. For example, a domain admin account typically has sufficient permission (for example: account@domain.com). _This account should also be part of the local administrator group on each VM to create the cluster._
 - The domain user account that controls SQL Server. 
+
+## Create cluster
+
+Create the cluster using the Azure portal. You can either create a new cluster, or you add an existing cluster that was created using [the Azure Cli or PowerShell](availability-group-az-commandline-configure.md), or a [quickstart template](availablity-group-quickstart-template-configure.md). 
+
+Follow the steps below to either create a new cluster, or onboard an existing one. 
+
+### Create a new cluster
+
+If you already have a cluster, skip this section and move to [Add existing cluster](#add-existing-cluster) instead. 
+
+If you do not already have an existing cluster, create it using the Azure portal by following these steps:
+
+1. Sign into the [Azure portal](https://portal.azure.com). 
+1. Navigate to your [SQL virtual machines](manage-sql-vm-portal.md) resource. 
+1. Select **High Availability** under **Settings**. 
+1. Select **+ New Windows Server failover cluster** to open the **Configure Windows Failover cluster** page.  
+
+   :::image type="content" source="media/availability-group-az-portal-configure/create-new-cluster.png" alt-text="Create new cluster by selecting the + new cluster in the portal":::
+
+1. Name your cluster and provide a storage account to use as the Cloud Witness. Use an existing storage account or select **Create new** to create a new storage account. 
+1. Expand **Manage SQL service, cluster bootstrap and cluster operator accounts** to provide credentials for the cluster. 
+
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster.png" alt-text="Provide name, storage account, and credentials for the cluster":::
+
+1. Select the SQL Server VMs that you want to add to the cluster. Note whether or not a restart is required, and proceed with caution. Only VMs that are in the same location, domain, and on the same virtual network will be visible. 
+1. Select **Apply** to create the cluster. 
+
+### Add existing cluster
+
+
  
 ## Step 1: Create a storage account as a cloud witness
 The cluster needs a storage account to act as the cloud witness. You can use any existing storage account, or you can create a new storage account. If you want to use an existing storage account, skip ahead to the next section. 
