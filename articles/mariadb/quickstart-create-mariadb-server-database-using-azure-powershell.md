@@ -279,4 +279,4 @@ Remove-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Database for MariaDB: Generate a connection string with PowerShell](connect-powershell.md)
+> [Design an Azure Database for MariaDB using PowerShell](tutorial-design-database-using-powershell.md)
