@@ -197,7 +197,7 @@ If you have reached the quota limit, the following steps may help resolve the is
 
     - Subscription Id(s) for which the quota limit need to be increased
     - Reason for quota increase
-    - Resource type for the quota increase: **Log Analytics**, **Application Insights** ect.
+    - Resource type for the quota increase: **Log Analytics**, **Application Insights**, etc.
     - Requested quota limit
 
 
