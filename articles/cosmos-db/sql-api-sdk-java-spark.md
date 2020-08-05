@@ -30,7 +30,7 @@ ms.custom: devx-track-java
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
-Accelerate big data analytics by using the Azure Cosmos DB Apache Spark Connector for Core (SQL) . The Spark Connector allows you to run [Spark ](https://spark.apache.org/) jobs on data stored in Azure Cosmos DB. Batch and stream processing are supported.
+Accelerate big data analytics by using the Azure Cosmos DB Apache Spark Connector for Core (SQL). The Spark Connector allows you to run [Spark ](https://spark.apache.org/) jobs on data stored in Azure Cosmos DB. Batch and stream processing are supported.
 
 You can use the connector with [Azure Databricks](https://azure.microsoft.com/services/databricks) or [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), which provide managed Spark clusters on Azure. The following table shows supported Spark versions.
 
@@ -46,76 +46,78 @@ You can use the connector with [Azure Databricks](https://azure.microsoft.com/se
 > For Cosmos DB Cassandra API, use the [Cassandra Spark connector](https://github.com/datastax/spark-cassandra-connector).
 >
 
-| |  |
+## Helpful content
+
+| Content | Link |
 |---|---|
 | **SDK download** | [Download from Apache Spark](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG) |
 |**API documentation** | [Spark Connector reference]() |
 |**Contribute to SDK** | [Azure Cosmos DB Connector for Apache Spark on GitHub](https://github.com/Azure/azure-cosmosdb-spark) | 
-|**Get started** | [Accelerate big data analytics by using the Apache Spark to Azure Cosmos DB connector](https://docs.microsoft.com/azure/cosmos-db/spark-connector#bk_working_with_connector) · [Use Apache Spark Structured Streaming with Apache Kafka and Azure Cosmos DB](https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
+|**Get started** | [Accelerate big data analytics by using the Apache Spark to Azure Cosmos DB connector](https://docs.microsoft.com/azure/cosmos-db/spark-connector#bk_working_with_connector) <br> [Use Apache Spark Structured Streaming with Apache Kafka and Azure Cosmos DB](https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
 
 ## Release history
 
 ### 3.1.1
-#### New Features
-#### Key Bug Fixes
+#### New features
+#### Key bug fixes
 * Fixes a streaming checkpoint edge case where in the "id" contains "|" character with the "ChangeFeedMaxPagesPerBatch" config applied
 
 ### 3.1.0
-#### New Features
+#### New features
 * Adds support for bulk updates when using nested partition keys
 * Adds support for Decimal and Float data types during writes to Cosmos DB.
 * Adds support for Timestamp types when they are using Long (unix Epoch) as a value
-#### Key Bug Fixes
+#### Key bug fixes
 
 ### 3.0.8
-#### New Features
-#### Key Bug Fixes
+#### New features
+#### Key bug fixes
 * Fixes type cast exception when using "WriteThroughputBudget" config.
 
 ### 3.0.7
-#### New Features
+#### New features
 * Adds error information for bulk failures to exception and log.
-#### Key Bug Fixes
+#### Key bug fixes
 
 ### 3.0.6
-#### New Features
-#### Key Bug Fixes
+#### New features
+#### Key bug fixes
 * Fixes streaming checkpoint issues.
 
 ### 3.0.5
-#### New Features
-#### Key Bug Fixes
+#### New features
+#### Key bug fixes
 * Fixes log level of a message left unintentionally with level ERROR to reduce noise
 
 ### 3.0.4
-#### New Features
-#### Key Bug Fixes
+#### New features
+#### Key bug fixes
 * Fixes a bug in structured streaming during partition splits - possibly resulting in missing some change feed records or seeing Null exceptions for checkpoint writes
 
 ### 3.0.3
-#### New Features
-#### Key Bug Fixes
+#### New features
+#### Key bug fixes
 * Fixes a bug where a custom schema provided for readStream is ignored
 
 ### 3.0.2
-#### New Features
-#### Key Bug Fixes
+#### New features
+#### Key bug fixes
 * Fixes regression (unshaded JAR includes all shaded dependencies) which increased build time by 50%
 
 ### 3.0.1
-#### New Features
-#### Key Bug Fixes
+#### New features
+#### Key bug fixes
 * Fixes a dependency issue causing Direct Transport over TCP to fail with RequestTimeoutException
 
 ### 3.0.0
-#### New Features
+#### New features
 * Improves connection management and connection pooling to reduce number of metadata calls
-#### Key Bug Fixes
+#### Key bug fixes
 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## See also
+## Next steps
 
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
 
