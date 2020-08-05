@@ -54,7 +54,7 @@ Updates made to the service itself will follow Microsoft Azure’s standard chan
 
 **How is this different from Azure VMware Solution by CloudSimple?**
 
-With the new Azure VMware Solution, Microsoft and VMware have a direct cloud provider partnership. The new solution is entirely designed, built and supported by Microsoft, and endorsed by VMware. Architecturally, the solutions are consistent, with the VMware technology stack running on an Azure dedicated infrastructure.
+With the new Azure VMware Solution, Microsoft and VMware have a direct cloud provider partnership. The new solution is entirely designed, built, and supported by Microsoft, and endorsed by VMware. Architecturally, the solutions are consistent, with the VMware technology stack running on an Azure dedicated infrastructure.
 
 **If I'm an existing Azure VMware Solution customer, what does this preview mean for me?**
 
@@ -62,7 +62,7 @@ There is no change to the existing Azure VMware Solution by CloudSimple. We cont
 
 **Can I migrate from Azure VMware Solution by CloudSimple to this new solution?**
 
-Yes, Azure VMware Solution supports migration using familiar VMware tools such as HCX. For customers interested in migrating to the new solution, please work with your Microsoft account team to explore options and available support.
+Yes, Azure VMware Solution supports migration using familiar VMware tools such as HCX. For customers interested in migrating to the new solution, work with your Microsoft account team to explore options and available support.
 
 
 
@@ -82,11 +82,11 @@ The servers have 576 GB of RAM.
 
 **What is the storage capacity of each host?**
 
-Each ESXi host has two vSAN diskgroups with a capacity tier of 15.2 TB and a 3.2 TB NVMe cache tier (1.6 TB in each diskgroup).
+Each ESXi host has two vSAN diskgroups with a capacity tier of 15.2 TB and a 3.2-TB NVMe cache tier (1.6 TB in each diskgroup).
 
 **How much network bandwidth is available in each ESXi host?**
 
-Each ESXi host is AVS is configured with four 25Gbps NICs, with two NICs provisioned for ESXi system traffic and two NICs provisioned for workload traffic. 
+Each ESXi host is AVS is configured with four 25-Gbps NICs, with two NICs provisioned for ESXi system traffic and two NICs provisioned for workload traffic. 
 
 **Is data stored on the vSAN datastores encrypted at rest?**
 
@@ -194,11 +194,11 @@ Billing for AVS during preview is monthly on a pay-as-you-go basis. Additional o
 
 **How will pricing be structured during the preview of AVS?**
 
-For general questions on pricing see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. Preview pricing is available on request, please contact your account team or follow the link on the pricing page to contact sales.
+For general questions on pricing see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. Preview pricing is available on request, contact your account team or follow the link on the pricing page to contact sales.
 
 **Who supports AVS?**
 
-Support for AVS is delivered by Microsoft. Please note, per our preview guidelines, we will provide support during 9 to 5 pm PST business hours Monday thru Friday. You can raise a Support ticket from [this link](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Support for AVS is delivered by Microsoft. Note, per our preview guidelines, we will provide support during 9 to 5 pm PST business hours Monday - Friday. You can raise a Support ticket from [this link](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 **What accounts do I need to create an AVS private cloud?**
 
