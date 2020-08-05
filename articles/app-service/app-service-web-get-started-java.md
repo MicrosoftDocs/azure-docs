@@ -131,7 +131,7 @@ Confirm (Y/N)? :
 > [!NOTE]
 > In this article we are only working with Java apps packaged in WAR files. The plugin also supports JAR web applications, visit [Deploy a Java SE JAR file to App Service on Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to try it out.
 
-Open to `pom.xml` to see the updated configuration.
+Open `pom.xml` to see the updated configuration.
 
 ```bash
 code pom.xml
@@ -149,8 +149,11 @@ You can modify the configurations for App Service directly in your pom file if n
 `<runtime>` | true | The runtime environment configuration, you could see the detail [here](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 `<deployment>` | true | The deployment configuration, you could see the details [here](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0+
 
+Be careful about the values of `<appName>` and `<resourceGroup>`(`helloworld-1590394316693` and `helloworld-1590394316693-rg` accordingly in the demo), they will be used later.
+
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=app-service-web-get-started-java&step=config)
+
 
 ## Deploy the app
 
@@ -165,13 +168,22 @@ Then you can deploy your Java app to Azure using the following command:
 mvn package azure-webapp:deploy
 ```
 
-Once deployment has completed, browse to the deployed application using the following URL in your web browser, for example `http://<webapp>.azurewebsites.net/`.
+Once deployment has completed, your application will be ready at `http://<appName>.azurewebsites.net/`(`http://helloworld-1590394316693.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
 
 ![Sample app running in Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 **Congratulations!** You've deployed your first Java app to App Service on Windows.
 
+## Clean up
+
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
+e.g. delete the resource group named `helloworld-1590394316693-rg`
+```bash
+az group delete --name helloworld-1590394316693-rg
+```
+in the demo.
+
 
 ## Next steps
 > [!div class="nextstepaction"]
