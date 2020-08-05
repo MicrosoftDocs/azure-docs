@@ -19,7 +19,7 @@ ms.author: rogarana
 
 |Area  |Premium file  |Standard file |
 |---------|---------|---------|
-|Size                  |1 TiB         |1 TiB|
+|Size                  |4 TiB         |1 TiB|
 |Max IOPS per file     |5,000         |1,000|
 |Concurrent handles    |2,000         |2,000|
 |Egress  |300 MiB/sec|      See standard file throughput values|
