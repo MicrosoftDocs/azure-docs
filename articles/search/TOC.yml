@@ -314,9 +314,11 @@
     - name: Develop in .NET
       items:
       - name: Use Azure.Search.Documents (v11)
-        href: search-howto-dotnet-sdk-v11.md
-      - name: Use Microsoft.Azure.Search (v10)
         href: search-howto-dotnet-sdk.md
+      - name: Use Microsoft.Azure.Search (v10)
+        href: search-howto-dotnet-sdk-v10.md
+      - name: Get started (v10)
+        href: search-get-started-dotnet-v10.md
     - name: Upgrade the SDK
       items:
       - name: .NET SDK 11.0

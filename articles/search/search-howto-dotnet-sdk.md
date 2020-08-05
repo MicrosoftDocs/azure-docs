@@ -9,13 +9,13 @@ ms.author: brjohnst
 ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/05/2020
 ---
 # How to use Microsoft.Azure.Search (v10) in a .NET Application
 
-This article explains how to create and manage search objects using C# and the [Azure Cognitive Search (v10) .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). Version 10 is the most mature version of the Microsoft.Azure.Search package. It is being replaced by [Azure.Search.Documents version 11](search-howto-dotnet-sdk-v11.md) from the Azure SDK team.
+This article explains how to create and manage search objects using C# and the [Azure Cognitive Search (v10) .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). Version 10 is the last version of the Microsoft.Azure.Search package. Moving forward, new features will be rolled out in [Azure.Search.Documents](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme) from the Azure SDK team.
 
-If you have existing or inflight development projects, continue to use version 10. For new projects, or to use new features, you should transition existing search solutions to the new library.
+If you have existing or inflight development projects, continue to use version 10. For new projects, or to use new features, you should transition an existing search solution to the new library.
 
 ## What's in version 10
 
