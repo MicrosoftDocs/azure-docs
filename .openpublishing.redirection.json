@@ -416,11 +416,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/security/fundamentals/ddos-protection-security-baseline.md",
-      "redirect_url": "/azure/security/fundamentals/ddos-best-practices",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/digital-twins/about-digital-twins.md",
       "redirect_url": "/azure/digital-twins/overview",
       "redirect_document_id": false
@@ -23477,6 +23472,11 @@
       "source_path": "articles/active-directory/conditional-access/app-sign-in-risk.md",
       "redirect_url": "/azure/active-directory/conditional-access/howto-conditional-access-policy-risk",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-saml-sso-configure-api.md",
+      "redirect_url": "/graph/application-saml-sso-configure-api",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-reporting-activity-sign-ins-mfa.md",

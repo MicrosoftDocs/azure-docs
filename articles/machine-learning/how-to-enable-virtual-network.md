@@ -10,7 +10,7 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, tracking-python
+ms.custom: how-to, contperfq4, devx-track-python
 
 ---
 
