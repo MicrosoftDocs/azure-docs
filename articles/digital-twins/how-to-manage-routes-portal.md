@@ -131,13 +131,13 @@ To actually send data from Azure Digital Twins to an endpoint, you'll need to de
 ### Create an event route 
 
 An event route definition can contain these elements:
-* The route ID you want to use
+* The route name you want to use
 * The name of the endpoint you want to use
 * A filter that defines which events are sent to the endpoint
 
-If there is no route ID, no messages are routed outside of Azure Digital Twins.
-If there is a route ID and the filter is `true`, all messages are routed to the endpoint.
-If there is a route ID and a different filter is added, messages will be filtered based on the filter.
+If there is no route name, no messages are routed outside of Azure Digital Twins.
+If there is a route name and the filter is `true`, all messages are routed to the endpoint.
+If there is a route name and a different filter is added, messages will be filtered based on the filter.
 
 One route should allow multiple notifications and event types to be selected.
 
