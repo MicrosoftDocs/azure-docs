@@ -105,7 +105,7 @@ This section shows the content of the template and how to deploy it.
                             }
                         }
                     }
-                    // More key-values can be set to App Configuration store by adding more keyValues resources here.
+                    // Add multiple key-values to the new App Configuration store by defining additional keyValues resources here.
                 ]
             }
         ],
@@ -118,7 +118,7 @@ This section shows the content of the template and how to deploy it.
     }
    ```
 
-1. In your PowerShell window, run the following command to deploy the App Configuration store. Don't forget to replace `<path to appconfig.json>` with actual value.
+1. In your PowerShell window, run the following command to deploy the App Configuration store. Replace `<path to appconfig.json>` with actual value.
 
    ```azurepowershell
    New-AzResourceGroupDeployment `
@@ -126,26 +126,26 @@ This section shows the content of the template and how to deploy it.
        -TemplateFile "<path to appconfig.json>"
    ```
 
-Congratulations! You've deployed an App Configuration store with one key-value inside.
+You've deployed a new App Configuration store with a single key-value inside.
 
 ### Set key-values using the ARM template
 
 In the above template, there are two resource types.
 
 - `Microsoft.AppConfiguration/configurationStores` for creating the App Configuration store.
-- `Microsoft.AppConfiguration/configurationStores/keyValues` for setting key-values to the App Configuration store.
+- `Microsoft.AppConfiguration/configurationStores/keyValues` for creating key-values inside the App Configuration store.
 
-In an App Configuration store, each key-value is uniquely identified by its key and label combination. In ARM template, each key-value is represented by a single `Microsoft.AppConfiguration/configurationStores/keyValues` resource, whose name is a combination of key and label. The key and label are joined by delimiter `$`. Label is optional.
+In an ARM template, each key-value is represented by a single `Microsoft.AppConfiguration/configurationStores/keyValues` resource. The `keyValues` resource's name is a combination of key and label. The key and label are joined by the `$` delimiter. The label is optional.
 
-In the above template, the key-value resource name is `myKey$myLabel`, which means the key is `myKey` and the label is `myLabel`. To create a key-value without a label, the key-value resource name shall be like `myKey`.
+In the above template, the key-value resource name is `myKey$myLabel`. This means the key is `myKey` and the label is `myLabel`. To create a key-value without a label, use a key-value resource name of `myKey`.
 
-To use characters that are not allowed by ARM template resource name in keys or labels, percent-encoding, also known as URL encoding, is required. However, as `%` is not allowed in the ARM template resource name either, `~` is used as the replacement of `%` as the encoding character. Therefore, keys and labels should be encoded like this:
+Percent-encoding, also known as URL encoding, allows keys or labels to include characters that are not allowed in ARM template resource names. `%` is not an allowed character either, so `~` is used in its place. To correctly encode a name, follow these steps:
 
-- Apply URL encoding
-- Replace `~` with `~7E`
-- Replace `%` with `~`
+1. Apply URL encoding
+2. Replace `~` with `~7E`
+3. Replace `%` with `~`
 
-For example, to create a key-value pair with key as `AppName:DbEndpoint` and label as `Test`, the resource name should be `AppName~3ADbEndpoint$Test`.
+For example, to create a key-value pair with key name `AppName:DbEndpoint` and label name `Test`, the resource name should be `AppName~3ADbEndpoint$Test`.
 
 ### Reference key-values in the ARM template
 
