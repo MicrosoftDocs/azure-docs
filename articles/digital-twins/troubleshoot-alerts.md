@@ -44,7 +44,7 @@ After selecting a signal, you'll be asked to configure the logic of the alert. Y
  
 After settings up alerts, they'll show up back on the *Alerts* page for your instance.
  
-:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Screenshot showing the Alerts page and button to add. There are several alerts configured:::
+:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Screenshot showing the Alerts page and button to add. There are several alerts configured":::
 
 
 ## Next steps
