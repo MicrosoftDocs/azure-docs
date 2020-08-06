@@ -36,6 +36,9 @@ To get started, you need the following items:
 * Atlassian Cloud single sign-on (SSO) enabled subscription.
 * To enable Security Assertion Markup Language (SAML) single sign-on for Atlassian Cloud products, you need to set up Atlassian Access. Learn more about [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment. 
@@ -146,9 +149,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![image](./media/atlassian-cloud-tutorial/sign-on-URL.png)
    
-1. Your Atlassian Cloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration.
-
-   1. **Edit** the attribute mappings
+1. Your Atlassian Cloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. You can edit the attribute mapping by clicking on **Edit** icon. 
 
    ![image](./media/atlassian-cloud-tutorial/default-attributes.png)
    
