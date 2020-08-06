@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 08/06/2020
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -2797,10 +2797,12 @@ lastIndexOf('<text>', '<searchText>')
 | --------- | -------- | ---- | ----------- |
 | <*text*> | Yes | String | The string that has the substring to find |
 | <*searchText*> | Yes | String | The substring to find |
+|||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
 | <*ending-index-value*> | Integer | The starting position or index value for the last occurrence of the specified substring. |
+|||
 
 If the string or substring value is empty, the following behavior occurs:
 
@@ -2814,7 +2816,7 @@ If the string or substring value is empty, the following behavior occurs:
 
   * The length of the string, minus 1.
 
-#### lastIndexOf examples
+*Examples*
 
 This example finds the starting index value for the last occurrence of the substring `world` substring in the string `hello world hello world`. The returned result is `18`:
 
