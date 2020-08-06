@@ -9,7 +9,7 @@ ms.date: 07/15/2020
 
 In this article, we walk through procedures for setting up the VMWare Hybrid Cloud Extension (HCX) solution for your Azure VMWare Solution (AVS) private cloud. HCX enables migration of your VMware workloads to the cloud, and other connected sites through various built-in HCX supported migration types.
 
-HCX Advanced, the default installation, supports up to three site connections (on prem of cloud to cloud). If more than three are required, customers have the option to enable the HCX Enterprise add-on through Support which is currently in preview. HCX Enterprise carries additional charges for customers after general availability (GA) but provides [additional features](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced, the default installation, supports up to three site connections (on-premises or cloud to cloud). If more than three site connections are required, customers have the option to enable the HCX Enterprise add-on through Support, which is currently in preview. HCX Enterprise carries additional charges for customers after general availability (GA) but provides [additional features](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 
 Thoroughly review [Before you begin](#before-you-begin), [Software version requirements](#software-version-requirements), and [Prerequisites](#prerequisites) first. 
@@ -33,11 +33,12 @@ After completing the setup, you can follow the recommended next steps provided a
 * Optionally review related VMware materials on HCX, such as the VMware vSphere [blog series](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) on HCX. 
 * Request an AVS HCX Enterprise activation through AVS support channels.
 
-Sizing workloads against compute and storage resources is an essential planning step when preparing to use the AVS Private Cloud HCX solution. Address the sizing step as part of the initial private cloud environment planning. 
+Sizing workloads against compute and storage resources is an essential planning step when you're preparing to use the AVS Private Cloud HCX solution. Address the sizing step as part of the initial private cloud environment planning. 
 
-Sizing can also be done by completing an AVS Assessment in the Azure Migrate Portal (https://docs.microsoft.com/en-us/azure/migrate/how-to-create-azure-vmware-solution-assessment)
+You also can size workloads by completing an AVS Assessment in the Azure Migrate portal (https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment).
 
 ## Software version requirements
+
 Infrastructure components must be running the required minimum version. 
                                                          
 | Component Type    | Source Environment Requirements    | Destination Environment Requirements   |
