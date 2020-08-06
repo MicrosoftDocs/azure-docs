@@ -1,23 +1,23 @@
 ---
-title: Windows Server node pools limitations
+title: Windows Server node pools FAQ
 titleSuffix: Azure Kubernetes Service
-description: Learn about the known limitations when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS)
+description: See the frequently asked questions when you run Windows Server node pools and application workloads in Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 07/29/2020
 
-#Customer intent: As a cluster operator, I want to understand the current limitations when running Windows node pools and application workloads.
+#Customer intent: As a cluster operator, I want to see frequently asked questions when running Windows node pools and application workloads.
 ---
 
-# Current limitations for Windows Server node pools and application workloads in Azure Kubernetes Service (AKS)
+# Frequently asked questions for Windows Server node pools in AKS
 
-In Azure Kubernetes Service (AKS), you can create a node pool that runs Windows Server as the guest OS on the nodes. These nodes can run native Windows container applications, such as those built on the .NET Framework. As there are major differences in how the Linux and Windows OS provides container support, some common Kubernetes and pod-related features are not currently available for Windows node pools.
+In Azure Kubernetes Service (AKS), you can create a node pool that runs Windows Server as the guest OS on the nodes. These nodes can run native Windows container applications, such as those built on the .NET Framework. There are differences in how the Linux and Windows OS provides container support. Some common Linux Kubernetes and pod-related features are not currently available for Windows node pools.
 
-This article outlines some of the limitations and OS concepts for Windows Server nodes in AKS.
+This article outlines some of the frequently asked questions and OS concepts for Windows Server nodes in AKS.
 
 ## Which Windows operating systems are supported?
 
-AKS uses Windows Server 2019 as the host OS version and only supports process isolation. Container images built using other Windows Server versions are not supported. [Windows container version compatibility][windows-container-compat]
+AKS uses Windows Server 2019 as the host OS version and only supports process isolation. Container images built using other Windows Server versions are not supported. See [Windows container version compatibility][windows-container-compat] for more information.
 
 ## Is Kubernetes different on Windows and Linux?
 
@@ -33,11 +33,19 @@ Kubernetes is historically Linux-focused. Many examples used in the upstream [Ku
 
 ## What kind of disks are supported for Windows?
 
-Azure Disks and Azure Files are the supported volume types, accessed as NTFS volumes in the Windows Server container.
+Azure Disks and Azure Files are the supported volume types. These are accessed as NTFS volumes in the Windows Server container.
 
 ## Can I run Windows only clusters in AKS?
 
 The master nodes (the control plane) in an AKS cluster are hosted by AKS the service, you will not be exposed to the operating system of the nodes hosting the master components. All AKS cluster are created with a default first node pool, which is Linux based. This node pool contains system services, which are needed for the cluster to function. It's recommended to run at least two nodes in the first node pool to ensure reliability of your cluster and the ability to do cluster operations. The first Linux-based node pool can't be deleted unless the AKS cluster itself is deleted.
+
+## How do I patch my Windows nodes?
+
+To get the latest patches for Windows nodes, you can either [upgrade the nodepool][nodepool-upgrade] or [upgrade the node image][upgrade-node-image]. Windows Updates are not enabled on nodes in AKS. AKS releases new node pool images as soon as patches are available, and it's the user's responsibility to upgrade node pools to stay current on patches and hotfixes. This is also true for the Kubernetes version being used. [AKS release notes][aks-release-notes] indicate when new versions are available. For more information on upgrading the entire Windows Server node pool, see [Upgrade a node pool in AKS][nodepool-upgrade]. If you're only interested in updating the node image, see [AKS node image upgrades][upgrade-node-image].
+
+> [!NOTE]
+> The updated Windows Server image will only be used if a cluster upgrade (control plane upgrade) has been performed prior to upgrading the node pool.
+>
 
 ## What network plug-ins are supported?
 
@@ -50,14 +58,6 @@ At this time, [client source IP preservation][client-source-ip] is not supported
 ## Can I change the max. # of pods per node?
 
 Yes. For the implications and options that are available, see [Maximum number of pods][maximum-number-of-pods].
-
-## How do patch my Windows nodes?
-
-Windows Server nodes in AKS must be *upgraded* to get the latest patch fixes and updates. Windows Updates are not enabled on nodes in AKS. AKS releases new node pool images as soon as patches are available, it is the customers responsibility to upgrade node pools to stay current on patches and hotfix. This is also true for the Kubernetes version being used. AKS release notes will indicate when new versions are available. For more information on upgrading a Windows Server node pool, see [Upgrade a node pool in AKS][nodepool-upgrade].
-
-> [!NOTE]
-> The updated Windows Server image will only be used if a cluster upgrade (control plane upgrade) has been performed prior to upgrading the node pool
->
 
 ## Why am I seeing an error when I try to create a new Windows agent pool?
 
@@ -74,7 +74,7 @@ To fix this:
 
 ## How do I rotate the service principal for my Windows node pool?
 
-Windows node pools do not support service principal rotation. In order to update the service principal, create a new Windows node pool and migrate your pods from the older pool to the new one. Once this is complete, delete the older node pool.
+Windows node pools do not support service principal rotation. To update the service principal, create a new Windows node pool and migrate your pods from the older pool to the new one. Once this is complete, delete the older node pool.
 
 ## How many node pools can I create?
 
@@ -126,6 +126,7 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [upstream-limitations]: https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/#supported-functionality-and-limitations
 [intro-windows]: https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/
 [aks-roadmap]: https://github.com/Azure/AKS/projects/1
+[aks-release-notes]: https://github.com/Azure/AKS/releases
 
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
@@ -144,3 +145,4 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [client-source-ip]: concepts-network.md#ingress-controllers
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [windows-rdp]: rdp.md
+[upgrade-node-image]: node-image-upgrade.md

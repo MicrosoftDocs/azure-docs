@@ -55108,6 +55108,11 @@
       "source_path": "articles/load-balancer/configure-load-balancer-outbound-powershell.md",
       "redirect_url": "/azure/load-balancer/quickstart-create-standard-load-balancer-powershell?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/windows-node-limitations.md",
+      "redirect_url": "/azure/aks/windows-faq",
+      "redirect_document_id": false
     }
   ]
 }
