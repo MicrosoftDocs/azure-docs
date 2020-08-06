@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Files problems in Windows | Microsoft Docs
-description: Troubleshooting Azure Files problems in Windows
+description: Troubleshooting Azure Files problems in Windows. See common issues related to Azure Files when you connect from Windows clients, and see possible resolutions.
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
