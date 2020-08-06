@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018
-ms.topic: article
+ms.topic: how-to
 
 ---
 # Run scripts in your Linux VM

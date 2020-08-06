@@ -4,8 +4,8 @@ description: How to create a new Managed Service offer for listing in Azure Mark
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: JnHs 
-ms.author: jenhayes
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.date: 07/07/2020
 ---
 
@@ -37,7 +37,7 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
 * This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
-* Th Offer alias can't be changed after you select **Create**.
+* The Offer alias can't be changed after you select **Create**.
 
 Select **Create** to generate the offer and continue.
 
@@ -189,6 +189,9 @@ Next, enter a **Description** that provides a more detailed explanation of the p
 Currently, there is only one pricing model that can be used for Managed Service offer: **Bring your own license (BYOL)**. This means that you will bill your customers directly for costs related to this offer, and Microsoft does not charge any fees to you.
 
 The **Plan visibility** section lets you indicate if this plan should be [private](../../marketplace/private-offers.md). If you leave the **This is a private plan** box unchecked, your plan will not be restricted to specific customers (or to a certain number of customers).
+
+> [!NOTE]
+> Private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
 
 To make this plan available only to specific customers, select **Yes**. When you do so, you'll need to identify the customers by providing their subscription IDs. These can be entered one by one (for up to 10 subscriptions) or by uploading a .csv file (for a maximum of 10,000 subscriptions across all plans). Be sure to include your own subscriptions here so you can test and validate the offer.
 

@@ -10,14 +10,16 @@
     href: load-balancer-faqs.md
 - name: Quickstart
   items:
-  - name: Create Load Balancer - Portal
+  - name: Create public load balancer - Portal
     href: quickstart-load-balancer-standard-public-portal.md
-  - name: Create Load Balancer - Azure CLI
+  - name: Create public load balancer - Azure CLI
     href: quickstart-load-balancer-standard-public-cli.md
-  - name: Create Load Balancer - Azure PowerShell
+  - name: Create public load balancer - Azure PowerShell
     href: quickstart-create-standard-load-balancer-powershell.md
-  - name: Create Load Balancer - ARM template
+  - name: Create public load balancer - ARM template
     href: quickstart-load-balancer-standard-public-template.md
+  - name: Create internal load balancer - Portal
+    href: quickstart-load-balancer-standard-internal-portal.md
   expanded: true
 - name: Tutorials
   items:
@@ -95,14 +97,6 @@
       href: upgrade-basicInternal-standard.md
     - name: Upgrade an Internal Load Balancer - Outbound Connection Required
       href: upgrade-InternalBasic-To-PublicStandard.md
-  - name: Configure outbound rules
-    items:
-    - name: Portal
-      href: configure-load-balancer-outbound-portal.md
-    - name: Azure CLI
-      href: configure-load-balancer-outbound-cli.md
-    - name: Azure PowerShell
-      href: configure-load-balancer-outbound-powershell.md
   - name: Create public Load Balancer with IPv6
     items:
     - name: Azure CLI

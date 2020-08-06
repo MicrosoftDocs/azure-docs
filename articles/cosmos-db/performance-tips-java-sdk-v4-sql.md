@@ -7,7 +7,7 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: anfeldma
-
+ms.custom: devx-track-java
 ---
 
 # Performance tips for Azure Cosmos DB Java SDK v4

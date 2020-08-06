@@ -1,7 +1,7 @@
 ---
 title: Cloud Solution Provider program considerations
 description: For CSP partners, Azure delegated resource management helps improve security and control by enabling granular permissions.
-ms.date: 07/06/2020
+ms.date: 07/29/2020
 ms.topic: conceptual
 ---
 
@@ -27,6 +27,9 @@ Using Azure Lighthouse, you can assign different groups to different customers o
 Onboarding a subscription that you created through the CSP program follows the steps described in [Onboard a subscription to Azure Lighthouse](../how-to/onboard-customer.md). Any user who has the Admin Agent role in your tenant can perform this onboarding.
 
 ![Tenant management using AOBO and Azure delegated resource management](../media/csp-2.jpg)
+
+> [!TIP]
+> [Managed Service offers](managed-services-offers.md) with private plans are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program. You can onboard these subscriptions to Azure Lighthouse by [using Azure Resource Manager templates](../how-to/onboard-customer.md).
 
 > [!NOTE]
 > The [**My customers** page in the Azure portal](../how-to/view-manage-customers.md) now includes a **Cloud Solution Provider (Preview)** section, which displays billing info and resources for CSP customers who have [signed the Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) and are [under the Azure plan](/partner-center/azure-plan-get-started). For more info, see [Get started with your Microsoft Partner Agreement billing account](../../cost-management-billing/understand/mpa-overview.md).

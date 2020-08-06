@@ -2,6 +2,7 @@
 title: "Team development using Java and Visual Studio Code"
 services: azure-dev-spaces
 author: stepro
+ms.custom: devx-track-java
 ms.author: stephpr
 ms.date: 08/01/2018
 ms.topic: tutorial

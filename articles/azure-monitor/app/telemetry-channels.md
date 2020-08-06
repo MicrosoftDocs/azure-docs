@@ -9,7 +9,7 @@ ms.reviewer: mbullwin
 
 # Telemetry channels in Application Insights
 
-Telemetry channels are an integral part of the [Azure Application Insights SDKs](../../azure-monitor/app/app-insights-overview.md). They manage buffering and transmission of telemetry to the Application Insights service. The .NET and .NET Core versions of the SDKs have two built-in telemetry channels: `InMemoryChannel` and `ServerTelemetryChannel`. This article describes each channel in detail, including how to customize channel behavior.
+Telemetry channels are an integral part of the [Azure Application Insights SDKs](./app-insights-overview.md). They manage buffering and transmission of telemetry to the Application Insights service. The .NET and .NET Core versions of the SDKs have two built-in telemetry channels: `InMemoryChannel` and `ServerTelemetryChannel`. This article describes each channel in detail, including how to customize channel behavior.
 
 ## What are telemetry channels?
 
@@ -35,7 +35,7 @@ The Application Insights .NET and .NET Core SDKs ship with two built-in channels
 
 You configure a telemetry channel by setting it to the active telemetry configuration. For ASP.NET applications, configuration involves setting the telemetry channel instance to `TelemetryConfiguration.Active`, or by modifying `ApplicationInsights.config`. For ASP.NET Core applications, configuration involves adding the channel to the Dependency Injection Container.
 
-The following sections show examples of configuring the `StorageFolder` setting for the channel in various application types. `StorageFolder` is just one of the configurable settings. For the full list of configuration settings, see [the settings section](telemetry-channels.md#configurable-settings-in-channels) later in this article.
+The following sections show examples of configuring the `StorageFolder` setting for the channel in various application types. `StorageFolder` is just one of the configurable settings. For the full list of configuration settings, see [the settings section](#configurable-settings-in-channels) later in this article.
 
 ### Configuration by using ApplicationInsights.config for ASP.NET applications
 
@@ -162,5 +162,6 @@ Like every SDK for Application Insights, channels are open source. Read and cont
 
 ## Next steps
 
-* [Sampling](../../azure-monitor/app/sampling.md)
-* [SDK Troubleshooting](../../azure-monitor/app/asp-net-troubleshoot-no-data.md)
+* [Sampling](./sampling.md)
+* [SDK Troubleshooting](./asp-net-troubleshoot-no-data.md)
+

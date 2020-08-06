@@ -7,9 +7,9 @@ ms.author: laobri
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 01/31/2020
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 ---
 
 # Create, run, and delete Azure ML resources using REST
@@ -199,8 +199,8 @@ Notice that to list experiments the path begins with `history/v1.0` while to lis
 
 |Area|Path|
 |-|-|
-|Artifacts|artifact/v2.0/|
-|Data stores|datastore/v1.0/|
+|Artifacts|/rest/api/azureml|
+|Data stores|/azure/machine-learning/how-to-access-data|
 |Hyperparameter tuning|hyperdrive/v1.0/|
 |Models|modelmanagement/v1.0/|
 |Run history|execution/v1.0/ and history/v1.0/|

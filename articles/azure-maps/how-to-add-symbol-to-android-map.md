@@ -1,8 +1,8 @@
 ---
 title: Add a symbol layer to Android maps | Microsoft Azure Maps
 description: In this article, you will learn how to render point data on a map by adding a symbol layer to it using the Microsoft Azure Maps Android SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
