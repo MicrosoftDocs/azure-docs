@@ -22,7 +22,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 
-- A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
+- A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
 
 ## Create a Form Recognizer resource
 
