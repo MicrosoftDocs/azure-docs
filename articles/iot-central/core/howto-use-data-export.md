@@ -1,5 +1,5 @@
 ---
-title: Data export | Microsoft Docs
+title: Export data from IoT Central | Microsoft Docs
 description: How to use the new data export to export your IoT data to Azure and custom cloud destinations.
 services: iot-central
 author: viv-liu
@@ -10,10 +10,10 @@ ms.service: iot-central
 manager: corywink
 ---
 
-# Export IoT data to cloud destinations using the new data export (preview)
+# Export IoT data to cloud destinations using data export (preview)
 
 > [!Note]
-> Looking for the original data export v1? You can find data export docs [here](./howto-export-data.md). To learn about the differences between the new data export and the old data export, see the [comparison table](#Comparison-of-data-export-V1-and-new-data-export).
+> Looking for the legacy data export? You can find data export docs [here](./howto-export-data.md). To learn about the differences between the new data export and legacy data export, see the [comparison table](#Comparison-of-legacy-data-export-and-new-data-export).
 
 This article describes how to use the new data export preview features in Azure IoT Central. You can use this feature to continuously export your filtered and enriched IoT data to your cloud services. You can use data export to push changes in near-real time to other parts of your cloud solution for warm-path insights, analytics, and storage. 
 
@@ -247,15 +247,15 @@ The following example shows an exported property change message received in Azur
 }
 ```
 
-## Comparison of data export V1 and new data export
-This is a table that highlights the differences between the original data export and the new data export. You can learn about the original data export [here](howto-export-data.md).
+## Comparison of legacy data export and new data export
+This is a table that highlights the differences between the legacy data export and the new data export. You can learn about the legacy data export [here](howto-export-data.md).
 
-|  | Original data export | New data export |
+|  | Legacy data export | New data export |
 | :------------- | :---------- | :----------- |
 | Available data types | Telemetry, Devices, Device templates | Telemetry, Property changes |
 | Filtering | None | Depends on the data type exported. For telemetry, filtering by telemetry, message properties, property values |
 | Enrichments | None | Enrich with a custom string or a property value on the device |
-| Destinations | Azure Event Hubs, Azure Service Bus queues and topics, Azure Blob Storage | Same as for old data export and webhooks| 
+| Destinations | Azure Event Hubs, Azure Service Bus queues and topics, Azure Blob Storage | Same as for legacy data export and webhooks| 
 | Notable limits | 5 exports per app, 1 destination per export | 10 exports per app, multiple destinations per export | 
 
 ## Next steps
