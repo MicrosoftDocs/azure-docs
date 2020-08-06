@@ -51,7 +51,7 @@ Open each aggregated recommendation to display the detailed recommendation descr
 
     ![Remediate security recommendations with ASC for IoT](./media/quickstart/remediate-security-recommendations.png)
 
-1.  Explore the recommendation details for a specific device by pressing the desired device in the drill down page.
+1.  Explore the recommendation details for a specific device by pressing the desired device in the drill-down page.
 
     ![Investigate security recommendations with ASC for IoT](./media/quickstart/explore-security-recommendation-detail.png)
 
