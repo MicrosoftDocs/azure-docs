@@ -21,7 +21,7 @@ Automatic language detection is used to determine the most likely match for audi
 In this article, you'll learn how to use `AutoDetectSourceLanguageConfig` to construct a `SpeechRecognizer` object and retrieve the detected language.
 
 > [!IMPORTANT]
-> This feature is only available for the Speech SDK with C#, C++, Java, Python, and Objective-C.
+> This feature is only available for the Speech SDK with C#, C++, Java, Python, JavaScript and Objective-C.
 
 ## Automatic language detection with the Speech SDK
 
@@ -249,6 +249,10 @@ var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLangua
 
 ::: zone pivot="programming-language-python"
 * See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_synthesis_sample.py#L434) on GitHub for automatic language detection
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L494) on GitHub for automatic language detection
 ::: zone-end
 
 * [Speech SDK reference documentation](speech-sdk.md)
