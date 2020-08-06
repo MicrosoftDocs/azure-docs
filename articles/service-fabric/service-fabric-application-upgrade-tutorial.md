@@ -19,20 +19,41 @@ Azure Service Fabric simplifies the process of upgrading cloud applications by e
 > [!NOTE]
 > [Application parameter](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s are not preserved across an application upgrade. In order to preserve current application parameters, the user should get the parameters first and pass them into the upgrade API call like below:
 ```csharp
-> [!NOTE]
-> [Application parameter](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s are not preserved across an application upgrade. In order to preserve current application parameters, the user should get the parameters first and pass them into the upgrade API call like below:
-```powershell
-$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
-$appParamCollection = $myApplication.ApplicationParameters
+    public static async Task Main(string[] args)
+    {
+        using (var fc = new FabricClient())
+        {
+            var applicationList = await fc.QueryManager.GetApplicationListAsync(new Uri("fabric:/myApplication"));
+            var application = applicationList.FirstOrDefault();
+            if (application != default)
+            {
+                var appParamList = application.ApplicationParameters;
 
-$applicationParameterMap = @{}
-foreach ($pair in $appParamCollection)
-{
-    $applicationParameterMap.Add($pair.Name, $pair.Value);
-}
+                var appParamCollection = new NameValueCollection();
+                foreach (var appParam in appParamList)
+                {
+                    appParamCollection[appParam.Name] = appParam.Value;
+                }
 
-Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
-```
+                var upgradeDescription = new ApplicationUpgradeDescription()
+                {
+                    ApplicationName = application.ApplicationName,
+                    TargetApplicationTypeVersion = "2.0.0",
+                    ApplicationParameters = { appParamCollection },
+                    UpgradePolicyDescription = new MonitoredRollingApplicationUpgradePolicyDescription()
+                    {
+                        UpgradeMode = RollingUpgradeMode.Monitored,
+                        MonitoringPolicy = new RollingUpgradeMonitoringPolicy()
+                        {
+                            FailureAction = UpgradeFailureAction.Rollback
+                        }
+                    }
+                };
+
+                await fc.ApplicationManager.UpgradeApplicationAsync(upgradeDescription);
+            }
+        }
+    }
 ```
 
 ## Step 1: Build and publish the Visual Objects sample

@@ -22,19 +22,18 @@ With Service Fabric monitored rolling upgrades, the application administrator ca
 
 > [!NOTE]
 > [Application parameter](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s are not preserved across an application upgrade. In order to preserve current application parameters, the user should get the parameters first and pass them into the upgrade API call like below:
->
-> $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
->
-> $appParamCollection = $myApplication.ApplicationParameters
->
-> $applicationParameterMap = @{}
->
-> foreach ($pair in $appParamCollection)
-> {
->    $applicationParameterMap.Add($pair.Name, $pair.Value);
-> }
->
-> Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```powershell
+$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
+$appParamCollection = $myApplication.ApplicationParameters
+
+$applicationParameterMap = @{}
+foreach ($pair in $appParamCollection)
+{
+    $applicationParameterMap.Add($pair.Name, $pair.Value);
+}
+
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```
 
 ## Step 1: Build and deploy the Visual Objects sample
 Build and publish the application by right-clicking on the application project, **VisualObjectsApplication,** and selecting the **Publish** command.  For more information, see [Service Fabric application upgrade tutorial](service-fabric-application-upgrade-tutorial.md).  Alternatively, you can use PowerShell to deploy your application.
