@@ -75,7 +75,7 @@ For information about viewing your client ID, see [View authentication details](
 
 ## Authorization with role-based access control
 
-Azure Maps supports access to all principal types for Azure [role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview) including: individual Azure AD users, groups, applications, Azure resources, and Azure Managed identities. Principal types are granted a set of permissions, also known as a role definition. A role definition provides permissions to REST API actions. Applying access to one or more Azure Maps accounts is known as a scope. When applying a principal, role definition, and scope then a role assignment is created. 
+Azure Maps supports access to all principal types for [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) including: individual Azure AD users, groups, applications, Azure resources, and Azure Managed identities. Principal types are granted a set of permissions, also known as a role definition. A role definition provides permissions to REST API actions. Applying access to one or more Azure Maps accounts is known as a scope. When applying a principal, role definition, and scope then a role assignment is created. 
 
 The next sections discuss concepts and components of Azure Maps integration with Azure AD role based access control. As part of the process to set up your Azure Maps account, an Azure AD directory is associated to the Azure subscription which the Azure Maps account resides. 
 
