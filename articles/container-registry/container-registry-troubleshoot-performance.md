@@ -2,7 +2,7 @@
 title: Troubleshoot registry performance
 description: Symptoms, causes, and resolution of common problems with the performance of a registry
 ms.topic: article
-ms.date: 07/31/2020
+ms.date: 08/06/2020
 ---
 
 # Troubleshoot registry performance
@@ -16,13 +16,15 @@ May include one or more of the following:
 * Pull or push images with the Docker CLI takes longer than expected
 * Deployment of images to a service such as Azure Kubernetes Service takes longer than expected
 * You're not able to complete a large number of concurrent pull or push operations in the expected time
-* Push operations in a geo-replicated registry fail with error `Error writing blob` or `Error writing manifest`
+* Pull or push operations in a geo-replicated registry take longer than expected, or push fails with error `Error writing blob` or `Error writing manifest`
 
 ## Causes
 
 * Your network connection speed may slow registry operations - [solution](#check-expected-network-speed)
-* You're reaching a limit in your registry service tier  - [solution](#review-service-limits)
+* Image layer compression or extraction may be slow on the client - [solution](#check-client-hardware)  
+* You're reaching a configured limit in your registry service tier or environment - [solution](#review-configured-limits)
 * Your geo-replicated registry has replicas in nearby regions - [solution](#configure-geo-replicated-registry)
+* You're pulling from a geographically distant registry replica - [solution](#configure-dns-for-geo-replicated-registry)
 
 If you don't resolve your problem here, see [Advanced troubleshooting](#advanced-troubleshooting) and [Next steps](#next-steps) for other options.
 
@@ -38,35 +40,54 @@ For image deployment to other services, check the regions where the registry and
 
 Related links:
 
-* [Azure Container Registry service tiers](container-registry-skus.md)
+* [Azure Container Registry service tiers](container-registry-skus.md)    
 * [Container registry FAQ](container-registry-faq.md)
 * [Performance and scalability targets for Azure Blob Storage](../storage/blobs/scalability-targets.md)
 
-### Review service limits
+### Check client hardware
 
-If you're concurrently pushing or pulling multiple or many multi-layered images to your registry, review the supported ReadOps and WriteOps limits for the registry service tier. If your registry is in the Basic or Standard tier, consider upgrading to increase the limits.
+The disk type and CPU on the docker client can affect the speed of extracting or compressing image layers on the client as part of pull or push operations. For example, layer extraction on a hard disk drive will take longer than on a solid-state disk. Compare pull operations for comparable images from your Azure container registry and a public registry such as Docker Hub.
+
+### Review configured limits
+
+If you're concurrently pushing or pulling multiple or many multi-layered images to your registry, review the supported ReadOps and WriteOps limits for the registry service tier. If your registry is in the Basic or Standard tier, consider upgrading to increase the limits. Check also with your networking provider about network throttling that may occur with many concurrent operations. 
+
+Review your Docker daemon configuration for the maximum concurrent uploads or downloads for each push or pull operation on the client. Configure higher limits if needed.
 
 Because each image layer requires a separate registry read or write operation, check the number of layers in your images. Consider strategies to reduce the number of image layers.
 
 * [Azure Container Registry service tiers](container-registry-skus.md)
+* [dockerd](https://docs.docker.com/engine/reference/commandline/dockerd/)
 
 ### Configure geo-replicated registry
 
-A Docker client that pushes an image to a geo-replicated registry might not push all image layers and its manifest to a single replicated region. This may occur because Azure Traffic Manager routes registry requests to the network-closest replicated registry. If the registry has two nearby replication regions, image layers and the manifest could be distributed to the two sites, and the push operation fails when the manifest is validated.
+A Docker client that pushes an image to a geo-replicated registry might not push all image layers and its manifest to a single replicated region. This situation may occur because Azure Traffic Manager routes registry requests to the network-closest replicated registry. If the registry has two nearby replication regions, image layers and the manifest could be distributed to the two sites, and the push operation fails when the manifest is validated.
 
 To optimize DNS resolution to the closest replica when pushing images, configure a geo-replicated registry in the same Azure regions as the source of the push operations, or the closest region when working outside of Azure.
 
 To troubleshoot operations with a geo-replicated registry, you can also temporarily disable Traffic Manager routing to one or more replications.
 
+### Configure DNS for geo-replicated registry
+
+If pull operations from a geo-replicated registry appear slow, the DNS configuration on the client might resolve to a geographically distant DNS server. In this case, Traffic Manager might be routing requests to a replica that is network-close to the DNS server but distant from the client. Run a tool such as `nslookup` or `dig` (on Linux) to determine the replica that Traffic Manager routes registry requests to. For example:
+
+```console
+nslookup myregistry.azurecr.io
+```
+
+A potential solution is to configure a closer DNS server.
 
 Related links:
 
 * [Troubleshoot push operations with geo-replicated registries](container-registry-geo-replication.md#troubleshoot-push-operations-with-geo-replicated-registries)
 * [Temporarily disable routing to replication](container-registry-geo-replication.md#temporarily-disable-routing-to-replication)
+* [Traffic Manager FAQs](../traffic-manager/traffic-manager-faqs.md)
 
-## Advanced troubleshooting
+### Advanced troubleshooting
 
 If your permissions to registry resources allow, [check the health of the registry environment](container-registry-check-health.md). If errors are reported, review the [error reference](container-registry-health-error-reference.md) for potential solutions.
+
+If [collection of resource logs](container-registry-diagnostics-audit-logs.md) is enabled in the registry, review the ContainterRegistryLoginEvents log. This log stores authentication events and status, including the incoming identity and IP address. Query the log for [registry authentication failures](container-registry-diagnostics-audit-logs.md#registry-authentication-failures). 
 
 Related links:
 
@@ -78,7 +99,7 @@ Related links:
 
 * Other registry troubleshooting topics include:
   * [Troubleshoot registry login](container-registry-troubleshoot-login.md)
-  * [Troubleshoot network access to registry](container-registry-troubleshoot-access.md)
+  * [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
 * [Community support](https://azure.microsoft.com/support/community/) options
 * [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
 * [Open a support ticket](https://azure.microsoft.com/support/create-ticket/)

@@ -1,11 +1,11 @@
 ---
-title: Troubleshoot network access to registry
+title: Troubleshoot network issues with registry
 description: Symptoms, causes, and resolution of common problems when accessing an Azure container registry in a virtual network or behind a firewall
 ms.topic: article
-ms.date: 07/31/2020
+ms.date: 08/06/2020
 ---
 
-# Troubleshoot network access to registry
+# Troubleshoot network issues with registry
 
 This article helps you troubleshoot problems you might encounter when accessing an Azure container registry in a virtual network or behind a firewall. 
 
@@ -30,7 +30,7 @@ May include one or more of the following:
 * A client firewall or proxy prevents access - [solution](#configure-client-firewall-access)
 * Public network access rules on the registry prevent access - [solution](#configure-public-access-to-registry)
 * Virtual network configuration prevents access - [solution](#configure-vnet-access)
-* You attempt to integrate Azure Security Center with a registry that has a private endpoint - [solution](#configure-image-scanning-solution)
+* You attempt to integrate Azure Security Center with a registry that has a private endpoint or service endpoint - [solution](#configure-image-scanning-solution)
 
 If you don't resolve your problem here, [Advanced troubleshooting](#advanced-troubleshooting) and [Next steps](#next-steps)for other options.
 
@@ -58,7 +58,7 @@ Related links:
 
 ### Configure public access to registry
 
-If accessing a registry over the internet, confirm the registry allows public network access from your client. By default an Azure container registry allows access to the public registry endpoints from all networks. A registry can limit access to selected networks, or selected IP addresses. 
+If accessing a registry over the internet, confirm the registry allows public network access from your client. By default, an Azure container registry allows access to the public registry endpoints from all networks. A registry can limit access to selected networks, or selected IP addresses. 
 
 If the registry is configured for a virtual network with a service endpoint, disabling public network access also disables access over the service endpoint. If your registry is configured for a virtual network with Private Link, IP network rules don't apply to the registry's private endpoints. 
 
@@ -71,16 +71,17 @@ Related links:
 
 ### Configure VNet access
 
-If the registry is set up in a virtual network, review NSG rules and service tags used to limit traffic from other resources in the network to the registry. 
+Confirm that the virtual network is configured with either a private endpoint for Private Link or a service endpoint (preview). Currently an Azure Bastion endpoint isn't supported.
 
-If a service endpoint to the registry is configured in a virtual network, confirm that a network rule is added to the registry that allows access from that network subnet. The service endpoint only supports access from virtual machines and AKS clusters in the network.
+Review NSG rules and service tags used to limit traffic from other resources in the network to the registry. 
+
+If a service endpoint to the registry is configured, confirm that a network rule is added to the registry that allows access from that network subnet. The service endpoint only supports access from virtual machines and AKS clusters in the network.
 
 If Azure Firewall or a similar solution is configured in the network, check that egress traffic from other resources such as an AKS cluster is enabled to reach the registry endpoints.
 
-Confirm that the virtual network is configured with either a private endpoint for Private Link or a service endpoint. Currently an Azure Bastion endpoint isn't supported.
-
 Related links:
 
+* [Connect privately to an Azure container registry using Azure Private Link](container-registry-private-link.md)
 * [Restrict access to a container registry using a service endpoint in an Azure virtual network](container-registry-vnet.md)
 * [Required outbound network rules and FQDNs for AKS clusters](../aks/limit-egress-traffic.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
 * [Kubernetes: Debugging DNS resolution](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
@@ -88,10 +89,15 @@ Related links:
 
 ### Configure image scanning solution
 
-If your registry is configured with a private endpoint, you can't currently integrate with Azure Security Center for image scanning. Optionally, configure other image scanning solutions available in Azure Marketplace including:
+If your registry is configured with a private endpoint or service endpoint, you can't currently integrate with Azure Security Center for image scanning. Optionally, configure other image scanning solutions available in Azure Marketplace including:
 
 * [Aqua Cloud Native Security Platform](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security)
 * [Twistlock Enterprise Edition](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock)
+
+Related links:
+
+* [Azure Container Registry image scanning by Security Center](../security-center/azure-container-registry-integration.md)
+* Provide [feedback](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
 
 
 ## Advanced troubleshooting

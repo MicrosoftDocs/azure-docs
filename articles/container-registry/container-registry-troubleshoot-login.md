@@ -18,10 +18,11 @@ May include one or more of the following:
 * Unable to login to registry and you receive Azure CLI error `Could not connect to the registry login server`
 * Unable to push or pull images and you receive Docker error `unauthorized: authentication required`
 * Unable to access registry from Azure Kubernetes Service, Azure DevOps, or another Azure service
+* Unable to access registry and you receive error `Error response from daemon: login attempt failed with status: 403 Forbidden` - See [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
 * Unable to access or view registry settings in Azure portal or manage registry using the Azure CLI
 
 > [!NOTE]
-> Some authentication or authorization errors can also occur if there are firewall or network configurations that prevent registry access. See [Troubleshoot network access to registry](container-registry-troubleshoot-access.md).
+> Some authentication or authorization errors can also occur if there are firewall or network configurations that prevent registry access. See [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md).
 
 ## Causes
 
@@ -46,17 +47,17 @@ Related links:
 
 ### Specify correct registry name
 
-* To login to the registry using `docker login`, specify the login server name of the registry. Ensure that you use only lowercase letters and the suffix `azurecr.io`:
+When using `docker login`, provide the full login server name of the registry, such as *myregistry.azurecr.io*. Ensure that you use only lowercase letters. Example:
 
-  ```console
-  docker login myregistry.azurecr.io
-  ```
+```console
+docker login myregistry.azurecr.io
+ ```
 
-* To login to the registry using [az acr login](/cli/azure/acr#az-acr-login) with an enabled Azure Active Directory identity, first [sign into the Azure CLI](/cli/azure/authenticate-azure-cli), and then specify the Azure resource name of the registry as follows:
+When using [az acr login](/cli/azure/acr#az-acr-login) with an Azure Active Directory identity, first [sign into the Azure CLI](/cli/azure/authenticate-azure-cli), and then specify the Azure resource name of the registry. The resource name is the name provided when the registry was created, such as *myregistry* (without a domain suffix). Example:
 
-  ```azurecli
-  az acr login --name myregistry
-  ```
+```azurecli
+az acr login --name myregistry
+```
 
 Related links:
 
@@ -64,13 +65,13 @@ Related links:
 
 ### Confirm credentials to access registry
 
-Check that the credentials you use for your scenario, or that were provided to you by a registry owner, are valid. Some possible issues:
+Check the validity of the credentials you use for your scenario, or were provided to you by a registry owner. Some possible issues:
 
 * If using an Active Directory service principal, ensure you use the correct credentials:
   * User name - service principal application ID (also called *client ID*)
   * Password - service principal password (also called *client secret*)
 * If using an Azure service such as Azure Kubernetes Service or Azure DevOps to access the registry, confirm the registry configuration for your service.
-* If you ran `az acr login` with the `--expose-token` option, to enable registry login without using the Docker daemon, ensure that you authenticate with the username `00000000-0000-0000-0000-000000000000`.
+* If you ran `az acr login` with the `--expose-token` option, which enables registry login without using the Docker daemon, ensure that you authenticate with the username `00000000-0000-0000-0000-000000000000`.
 
 Related links:
 
@@ -129,7 +130,7 @@ Related links:
 ## Next steps
 
 * Other registry troubleshooting topics include:
-  * [Troubleshoot network access to registry](container-registry-troubleshoot-access.md)
+  * [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
   * [Troubleshoot registry performance](container-registry-troubleshoot-performance.md)
 * [Community support](https://azure.microsoft.com/support/community/) options
 * [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
