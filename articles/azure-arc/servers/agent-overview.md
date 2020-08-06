@@ -1,6 +1,6 @@
 ---
 title:  Overview of the Connected Machine Windows agent
-description: This article provides a detailed overview of the Azure Arc for servers (preview) agent available which support monitoring virtual machines hosted in hybrid environments.
+description: This article provides a detailed overview of the Azure Arc for servers (preview) agent available, which supports monitoring virtual machines hosted in hybrid environments.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
@@ -16,7 +16,7 @@ The Azure Arc for servers (preview) Connected Machine agent enables you to manag
 
 ## Agent component details
 
-The Azure Connected Machine agent package contains several logical components which are bundled together.
+The Azure Connected Machine agent package contains several logical components, which are bundled together.
 
 * The Hybrid Instance Metadata service (HIMDS) manages the connection to Azure and the connected machine's Azure identity.
 
@@ -25,8 +25,8 @@ The Azure Connected Machine agent package contains several logical components wh
     Note the following behavior with Azure Policy [Guest Configuration](../../governance/policy/concepts/guest-configuration.md) for a disconnected machine:
 
     * A Guest Configuration policy assignment that targets disconnected machines is unaffected.
-    * Guest assignment is stored locally for 14 days. Within the 14 day period, if the Connected Machine agent reconnects to the service, policy assignments are reapplied.
-    * Assignments are deleted after 14 days, and are not reassigned to the machine after the 14 day period.
+    * Guest assignment is stored locally for 14 days. Within the 14-day period, if the Connected Machine agent reconnects to the service, policy assignments are reapplied.
+    * Assignments are deleted after 14 days, and are not reassigned to the machine after the 14-day period.
 
 * The Extension agent manages VM extensions, including install, uninstall, and upgrade. Extensions are downloaded from Azure and copied to the `%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and for Linux to `/opt/GC_Ext/downloads`. On Windows, the extension is installed to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension is installed to `/var/lib/waagent/<extension>`.
 
@@ -64,13 +64,13 @@ The following versions of the Windows and Linux operating system are officially 
 
 * To onboard machines, you are a member of the **Azure Connected Machine Onboarding** role.
 
-* To read, modify, re-onboard, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role. 
+* To read, modify, reonboard, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role. 
 
 ### Azure subscription and service limits
 
-Before configuring your machines with Azure Arc for servers (preview), you should review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
+Before configuring your machines with Azure Arc for servers (preview), review the Azure Resource Manager [subscription limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) and [resource group limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) to plan for the number of machines to be connected.
 
-### TLS 1.2 protocol
+### Transport Layer Security 1.2 protocol
 
 To ensure the security of data in transit to Azure, we strongly encourage you to configure machine to use Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**.
 
@@ -173,7 +173,7 @@ After installing the Connected Machine agent for Windows, the following addition
     |Service name |Display name |Process name |Description |
     |-------------|-------------|-------------|------------|
     |himds |Azure Hybrid Instance Metadata Service |himds.exe |This service implements the Azure Instance Metadata service (IMDS) to manage the connection to Azure and the connected machine's Azure identity.|
-    |DscService |Guest Configuration Service |dsc_service.exe |This is the Desired State Configuration (DSC v2) codebase used inside Azure to implement In-Guest Policy.|
+    |DscService |Guest Configuration Service |dsc_service.exe |The Desired State Configuration (DSC v2) codebase used inside Azure to implement In-Guest Policy.|
 
 * The following environmental variables are created during agent installation.
 
