@@ -26,7 +26,7 @@ Redis server does not natively support TLS, but Azure Cache for Redis does. If y
 
 Redis tools such as `redis-cli` do not work with the TLS port, but you can use a utility such as `stunnel` to securely connect the tools to the TLS port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/) blog post.
 
-For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#cache-commands) section.
+For instructions on downloading the Redis tools, see the [How can I run Redis commands?](cache-development-faq.md#how-can-i-run-redis-commands) section.
 
 ## What are some production best practices?
 * [StackExchange.Redis best practices](#stackexchangeredis-best-practices)
@@ -58,7 +58,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 
 * Avoid using certain Redis commands that take a long time to complete, unless you fully understand the impact of these commands. For example, do not run the [KEYS](https://redis.io/commands/keys) command in production. Depending on the number of keys, it could take a long time to return. Redis is a single-threaded server and it processes commands one at a time. If you have other commands issued after KEYS, they will not be processed until Redis processes the KEYS command. The [redis.io site](https://redis.io/commands/) has details around the time complexity for each operation that it supports. Click each command to see the complexity for each operation.
 * Key sizes - should I use small key/values or large key/values? It depends on the scenario. If your scenario requires larger keys, you can adjust the ConnectionTimeout, then retry values and adjust your retry logic. From a Redis server perspective, smaller values give better performance.
-* These considerations don't mean that you can't store larger values in Redis; you must be aware of the following considerations. Latencies will be higher. If you have one set of data that is larger and one that is smaller, you can use multiple ConnectionMultiplexer instances, each configured with a different set of timeout and retry values, as described in the previous [What do the StackExchange.Redis configuration options do](#cache-configuration) section.
+* These considerations don't mean that you can't store larger values in Redis; you must be aware of the following considerations. Latencies will be higher. If you have one set of data that is larger and one that is smaller, you can use multiple ConnectionMultiplexer instances, each configured with a different set of timeout and retry values, as described in the previous [What do the StackExchange.Redis configuration options do](cache-development-faq.md#what-do-the-stackexchangeredis-configuration-options-do) section.
 
 ## How can I benchmark and test the performance of my cache?
 * [Enable cache diagnostics](cache-how-to-monitor.md#enable-cache-diagnostics) so you can [monitor](cache-how-to-monitor.md) the health of your cache. You can view the metrics in the Azure portal and you can also [download and review](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) them using the tools of your choice.
@@ -66,7 +66,7 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 * Ensure that the load testing client and the Azure Cache for Redis are in the same region.
 * Use redis-cli.exe and monitor the cache using the INFO command.
 * If your load is causing high memory fragmentation, you should scale up to a larger cache size.
-* For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#cache-commands) section.
+* For instructions on downloading the Redis tools, see the [How can I run Redis commands?](cache-development-faq.md#how-can-i-run-redis-commands) section.
 
 The following commands provide an example of using redis-benchmark.exe. For accurate results, run these commands from a VM in the same region as your cache.
 

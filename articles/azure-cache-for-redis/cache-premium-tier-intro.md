@@ -19,7 +19,7 @@ The new Premium-tier is an Enterprise ready tier, which includes all the Standar
 
 **Throughput for the same sized Cache is higher in Premium as compared to Standard tier.** For example, the throughput of a 53 GB P4 (Premium) cache is 250K requests per second as compared to 150K for C6 (Standard).
 
-For more information about size, throughput, and bandwidth with premium caches, see [Azure Cache for Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+For more information about size, throughput, and bandwidth with premium caches, see [Choosing the right tier](cache-overview.md#choosing-the-right-tier).
 
 ## Redis data persistence
 The Premium tier allows you to persist the cache data in an Azure Storage account. A Basic or Standard cache stores all the data only in memory. In case of underlying infrastructure issues, there can be potential data loss. We recommend using the Redis data persistence feature in the Premium tier to increase resiliency against data loss. Azure Cache for Redis offers RDB and AOF (coming soon) options in [Redis persistence](https://redis.io/topics/persistence). 
@@ -29,7 +29,7 @@ For instructions on configuring persistence, see [How to configure persistence f
 ## Redis cluster
 If you want to create caches larger than 53 GB or want to shard data across multiple Redis nodes, you can use Redis clustering that is available in the Premium tier. Each node consists of a primary/replica cache pair managed by Azure for high availability. 
 
-**Redis clustering gives you maximum scale and throughput.** Throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, the available throughput is 250K *10 = 2.5 Million requests per second. See the [Azure Cache for Redis FAQ](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use) for more details about size, throughput, and bandwidth with premium caches.
+**Redis clustering gives you maximum scale and throughput.** Throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, the available throughput is 250K *10 = 2.5 Million requests per second. See the [Choosing the right tier](cache-overview.md#choosing-the-right-tier) for more details about size, throughput, and bandwidth with premium caches.
 
 To get started with clustering, see [How to configure clustering for a Premium Azure Cache for Redis](cache-how-to-premium-clustering.md).
 

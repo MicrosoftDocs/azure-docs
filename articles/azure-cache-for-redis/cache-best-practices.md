@@ -75,7 +75,7 @@ If you would like to test how your code works under error conditions, consider u
  * **Consider using Premium tier Redis instances**.  These cache sizes will have better network latency and throughput because they're running on better hardware for both CPU and Network.
  
      > [!NOTE]
-     > Our observed performance results are [published here](cache-faq.md#azure-cache-for-redis-performance) for your reference.   Also, be aware that SSL/TLS adds some overhead, so you may get different latencies and/or throughput if you're using transport encryption.
+     > Our observed performance results are [published here](cache-planning-faq.md#azure-cache-for-redis-performance) for your reference.   Also, be aware that SSL/TLS adds some overhead, so you may get different latencies and/or throughput if you're using transport encryption.
  
 ### Redis-Benchmark examples
 **Pre-test setup**:
