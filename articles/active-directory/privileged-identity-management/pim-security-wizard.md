@@ -57,7 +57,7 @@ Before your organization starts using Privileged Identity Management, all role a
 
 1. After you select any of these changes, you'll see an Azure notification.
 
-1. You can then select **Eliminate standing access** or **Review service principals** to perform similar operations on other highly privileged roles and service principal role assignments. For service principal role assignments, you can remove role assignments only.
+1. You can then select **Eliminate standing access** or **Review service principals** to repeat the above steps on other privileged roles and on service principal role assignments. For service principal role assignments, you can only remove role assignments.
 
     ![Additional Insights options to eliminate standing access and review service principals ](./media/pim-security-wizard/new-preview-page-service-principals.png)
 
