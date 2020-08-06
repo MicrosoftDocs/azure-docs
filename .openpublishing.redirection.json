@@ -7786,17 +7786,17 @@
     },
     {
       "source_path": "articles/app-service/containers/app-service-linux-java.md",
-      "redirect_url": "/azure/app-service/configure-language-java",
+      "redirect_url": "/azure/app-service/configure-language-java?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/containers/app-service-java-enterprise.md",
-      "redirect_url": "/azure/app-service/configure-language-java",
+      "redirect_url": "/azure/app-service/configure-language-java?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/containers/how-to-java-apm-monitoring.md",
-      "redirect_url": "/azure/app-service/configure-language-java",
+      "redirect_url": "/azure/app-service/configure-language-java?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -9395,12 +9395,12 @@
     },
     {
       "source_path": "articles/app-service/containers/app-service-linux-cli.md",
-      "redirect_url": "/azure/app-service/configure-custom-container",
+      "redirect_url": "/azure/app-service/configure-custom-container?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/containers/configure-custom-container.md",
-      "redirect_url": "/azure/app-service/configure-custom-container",
+      "redirect_url": "/azure/app-service/configure-custom-container?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -10045,7 +10045,7 @@
     },
     {
       "source_path": "articles/app-service/containers/tutorial-auth-aad.md",
-      "redirect_url": "/azure/app-service/tutorial-auth-aad",
+      "redirect_url": "/azure/app-service/tutorial-auth-aad?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -10065,7 +10065,7 @@
     },
     {
       "source_path": "articles/app-service/containers/tutorial-dotnetcore-sqldb-app.md",
-      "redirect_url": "/azure/app-service/tutorial-dotnetcore-sqldb-app",
+      "redirect_url": "/azure/app-service/tutorial-dotnetcore-sqldb-app?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -10090,7 +10090,7 @@
     },
     {
       "source_path": "articles/app-service/containers/tutorial-nodejs-mongodb-app.md",
-      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -10105,7 +10105,7 @@
     },
     {
       "source_path": "articles/app-service/containers/tutorial-php-mysql-app.md",
-      "redirect_url": "/azure/app-service/tutorial-php-mysql-app",
+      "redirect_url": "/azure/app-service/tutorial-php-mysql-app?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -10700,7 +10700,7 @@
     },
     {
       "source_path": "articles/app-service/containers/configure-language-php.md",
-      "redirect_url": "/azure/app-service/configure-language-php",
+      "redirect_url": "/azure/app-service/configure-language-php?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -10880,12 +10880,12 @@
     },
     {
       "source_path": "articles/app-service/containers/tutorial-custom-docker-image.md",
-      "redirect_url": "/azure/app-service/tutorial-custom-container",
+      "redirect_url": "/azure/app-service/tutorial-custom-container?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/containers/configure-language-java.md",
-      "redirect_url": "/azure/app-service/configure-language-java",
+      "redirect_url": "/azure/app-service/configure-language-java?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -13745,12 +13745,12 @@
     },
     {
       "source_path": "articles/app-service/containers/configure-language-dotnetcore.md",
-      "redirect_url": "/azure/app-service/configure-language-dotnetcore",
+      "redirect_url": "/azure/app-service/configure-language-dotnetcore?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/containers/configure-language-nodejs.md",
-      "redirect_url": "/azure/app-service/configure-language-nodejs",
+      "redirect_url": "/azure/app-service/configure-language-nodejs?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -27565,7 +27565,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-linux-how-to-create-web-app.md",
-      "redirect_url": "/azure/app-service/containers/app-service-linux-intro",
+      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
       "redirect_document_id": false
     },
     {
@@ -28015,7 +28015,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-linux-using-custom-docker-image.md",
-      "redirect_url": "/azure/app-service/containers/tutorial-custom-docker-image",
+      "redirect_url": "/azure/app-service/containers/tutorial-custom-container?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -28030,7 +28030,7 @@
     },    
     {
       "source_path": "articles/app-service/containers/quickstart-dotnetcore.md",
-      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -28045,17 +28045,17 @@
     },
     {
       "source_path": "articles/app-service/containers/quickstart-nodejs.md",
-      "redirect_url": "/azure/app-service/quickstart-nodejs",
+      "redirect_url": "/azure/app-service/quickstart-nodejs?pivots=platform-linux",
       "redirect_document_id": false
     },    
     {
       "source_path": "articles/app-service-web/app-service-linux-using-nodejs-pm2.md",
-      "redirect_url": "/azure/app-service/quickstart-nodejs",
+      "redirect_url": "/azure/app-service/quickstart-nodejs?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/app-service-linux-get-started-node.md",
-      "redirect_url": "/azure/app-service/quickstart-nodejs",
+      "redirect_url": "/azure/app-service/quickstart-nodejs?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -28065,7 +28065,7 @@
     },
     {
       "source_path": "articles/app-service/containers/quickstart-php.md",
-      "redirect_url": "/azure/app-service/quickstart-php",
+      "redirect_url": "/azure/app-service/quickstart-php?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -28075,7 +28075,7 @@
     },       
     {
       "source_path": "articles/app-service/containers/quickstart-java.md",
-      "redirect_url": "/azure/app-service/quickstart-java",
+      "redirect_url": "/azure/app-service/quickstart-java?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -28085,22 +28085,22 @@
     },    
     {
       "source_path": "articles/app-service/containers/quickstart-custom-docker-image.md",
-      "redirect_url": "/azure/app-service/quickstart-custom-container",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/containers/quickstart-go.md",
-      "redirect_url": "/azure/app-service/quickstart-custom-container",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
       "redirect_document_id": false
     },        
     {
       "source_path": "articles/app-service/containers/quickstart-docker-go.md",
-      "redirect_url": "/azure/app-service/quickstart-custom-container",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/containers/quickstart-docker.md",
-      "redirect_url": "/azure/app-service/quickstart-custom-container",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
       "redirect_document_id": false
     },        
     {
@@ -42365,7 +42365,7 @@
     },
     {
       "source_path": "articles/app-service/app-service-web-tutorial-java-mysql.md",
-      "redirect_url": "/azure/app-service/containers/tutorial-java-spring-cosmosdb",
+      "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
       "redirect_document_id": false
     },
     {
@@ -51083,7 +51083,7 @@
     },
     {
       "source_path": "articles/app-service/containers/tutorial-java-enterprise-postgresql-app.md",
-      "redirect_url": "/azure/app-service/configure-language-java",
+      "redirect_url": "/azure/app-service/configure-language-java?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
