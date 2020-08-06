@@ -1,7 +1,7 @@
 ---
-title: Store JSON settings in App Configuration
+title: Use JSON content-type for key-values
 titleSuffix: Azure App Configuration
-description: Learn how to store JSON settings in App Configuration
+description: Learn how to use JSON content-type for key-values
 services: azure-app-configuration
 author: avanigupta
 ms.assetid: 
@@ -12,10 +12,10 @@ ms.date: 08/03/2020
 ms.author: avgupta
 
 
-#Customer intent: I want to store JSON settings in App Configuration store without losing the data type of each setting.
+#Customer intent: I want to store JSON key-values in App Configuration store without losing the data type of each setting.
 ---
 
-# Leverage content-type to store JSON settings in App Configuration
+# Leverage content-type to store JSON key-values in App Configuration
 
 Data is stored in App Configuration as key-values, where values are treated as the string type by default. However, you can specify a custom type by leveraging the content-type property associated with each key-value, so that you can preserve the original type of your data or have your application behave differently based on content-type.
 
@@ -30,11 +30,7 @@ In App Configuration, you can use the JSON media type as the content-type of you
 #### Valid JSON content-type
 
 Media types, as defined [here](https://www.iana.org/assignments/media-types/media-types.xhtml), can be assigned to the content-type associated with each key-value.
-A media type consists of a type and a subtype, which is further structured into a tree. A media type can optionally define a suffix and parameters:
-
-`type "/" [tree "."] subtype ["+" suffix] *[";" parameter]`
-
-If the type is `"application"` and the subtype (or suffix) is `"json"`, the media type will be considered a valid JSON content-type.
+A media type consists of a type and a subtype. If the type is `"application"` and the subtype (or suffix) is `"json"`, the media type will be considered a valid JSON content-type.
 Some examples of valid JSON content-types are:
 
 - application/json
@@ -81,10 +77,6 @@ In this tutorial, you'll learn how to:
 ## Create JSON key-values in App Configuration
 
 JSON key-values can be created using Azure portal, Azure CLI or by importing from a JSON file. In this section, you will find instructions on creating the same JSON key-values using all three methods.
-
-The sample JSON key-values should look like this in App Configuration:
-
-![Config store containing JSON key-values](./media/create-json-settings.png)
 
 ### Create JSON key-values using Azure portal
 
@@ -143,7 +135,11 @@ az appconfig kv import -s file --format json --path "~/Import.json" --content-ty
 ```
 
 > [!Note]
-> The --depth argument is used for flattening hierarchical data from a file into key-value pairs. In this tutorial, depth is specified for demonstrating that you can also store JSON objects as values in App Configuration. If depth is not specified, JSON objects will be flattened to the deepest level by default.
+> The `--depth` argument is used for flattening hierarchical data from a file into key-value pairs. In this tutorial, depth is specified for demonstrating that you can also store JSON objects as values in App Configuration. If depth is not specified, JSON objects will be flattened to the deepest level by default.
+
+The JSON key-values you created should look like this in App Configuration:
+
+![Config store containing JSON key-values](./media/create-json-settings.png)
 
 
 ## Export JSON key-values to a file
@@ -181,6 +177,9 @@ az appconfig kv export -d file --format json --path "~/Export.json" --separator 
 
 The easiest way to consume JSON key-values in your application is through App Configuration provider libraries. With the provider libraries, you don't need to implement special handling of JSON key-values in your application. They're always deserialized for your application in the same way that other JSON configuration provider libraries do. 
 
+> [!Important]
+> Native support for JSON key-values is currently available only in .NET Configuration Provider version 4.0.0 (or later).
+
 If you are using the SDK or REST API to read key-values from App Configuration, based on the content-type, your application is responsible for deserializing the value of a JSON key-value using any standard JSON deserializer.
 
 
@@ -193,4 +192,7 @@ If you are using the SDK or REST API to read key-values from App Configuration, 
 Now that you know how to work with JSON key-values in your App Configuration store, create an application for consuming these key-values:
 
 * [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md)
+    * Prerequisite: [Microsoft.Azure.AppConfiguration.AspNetCore package](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore/4.0.0-preview)
+
 * [.NET Core quickstart](./quickstart-dotnet-core-app.md)
+    * Prerequisite: [Microsoft.Extensions.Configuration.AzureAppConfiguration package](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/4.0.0-preview)
