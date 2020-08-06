@@ -1,6 +1,6 @@
 ---
-title: Azure Boot Diagnostics
-description: Overview of Azure Boot Diagnostics and Managed Boot Diagnostics
+title: Azure boot diagnostics
+description: Overview of Azure boot diagnostics and managed boot diagnostics
 services: virtual-machines
 ms.service: virtual-machines
 author: mimckitt
