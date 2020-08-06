@@ -54,6 +54,13 @@ The article shows how to upload and index your videos with these options:
 
 See the [input container/file formats](../latest/media-encoder-standard-formats.md#input-containerfile-formats) article for a list of file formats that you can use with Video Indexer.
 
+## Video files storage
+
+- With a paid Video Indexer account, you create a Video Indexer account that's connected to your Azure subscription and an Azure Media Services account. For more information, see [Create a Video Indexer account connected to Azure](connect-to-azure.md).
+- Video files are stored in Azure storage by Azure Media Services. There is no time limitation.
+- You can always delete your video and audio files as well as any metadata and insights extracted from them by Video Indexer. Once you delete a file from Video Indexer, the file and its metadata and insights are permanently removed from Video Indexer. However, if you have implemented your own backup solution in Azure storage, the file remains in your Azure storage.
+- The persistency of a video is identical, regardless if the upload is done form the Video Indexer website or using the Upload API.
+   
 ## <a name="website"></a>Upload and index a video using the Video Indexer website
 
 > [!NOTE]
