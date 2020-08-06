@@ -60,23 +60,23 @@ SET ENV_DEVICE_ID = "Contoso-Test-Device"
 1. Log into the [Azure portal](http://portal.azure.com]. Select **Resource Groups** then select the resource group created for this quickstart.
 
 **SCREENSHOT** 
-   ![Select the resource group](./media/iot-hub-horizontal-arm-route-messages/01-select-resource-group.png)
+   ![Select the resource group](./media/horizontal-arm-route-messages/01-select-resource-group.png)
 
 1. You see the IoT Hub and storage account that were created when you deployed the ARM template.
 
 Wait until the template is fully deployed before continuing. Then select your resource group to see your resources.
 
 **SCREENSHOT**
-   ![View resources in a resource group](./media/iot-hub-horizontal-arm-route-messages/02-view-resources-in-group.png)
+   ![View resources in a resource group](./media/horizontal-arm-route-messages/02-view-resources-in-group.png)
 
 1. Select the hub. Then copy the name of the hub and paste it into <hub-name-goes-here> in the environment variable file.
 
 **SCREENSHOT**
-   ![Copy the hub name](./media/iot-hub-horizontal-arm-route-messages/03-copy-hub-name.png)
+   ![Copy the hub name](./media/horizontal-arm-route-messages/03-copy-hub-name.png)
 
 1. In the IoT Hub pane, look through the properties and select **IOT DEVICES**. 
 
-   ![Select IoT Devices](./media/iot-hub-horizontal-arm-route-messages/04-select-iot-devices.png)
+   ![Select IoT Devices](./media/horizontal-arm-route-messages/04-select-iot-devices.png)
 
 1. On the right side of the screen, select **+ NEW** to add a new device. 
 
