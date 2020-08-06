@@ -11,7 +11,7 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: tracking-python
+ms.custom: devx-track-python
 #Customer intent: As a Python developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
 
