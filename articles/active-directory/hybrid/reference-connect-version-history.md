@@ -8,7 +8,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/23/2020
+ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 
