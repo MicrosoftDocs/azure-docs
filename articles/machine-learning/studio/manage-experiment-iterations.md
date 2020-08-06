@@ -1,21 +1,22 @@
 ---
-title: Manage experiment iterations
-titleSuffix: ML Studio (classic) - Azure
-description: How to manage experiment iterations in Azure Machine Learning Studio (classic). You can review previous runs of your experiments at any time in order to challenge, revisit, and ultimately either confirm or refine previous assumptions.
+title: 'ML Studio (classic): View & rerun experiments - Azure'
+description: Manage experiment runs in Azure Machine Learning Studio (classic). You can review previous runs of your experiments at any time in order to challenge, revisit, and ultimately either confirm or refine previous assumptions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
 ---
-# Manage experiment iterations in Azure Machine Learning Studio (classic)
+# Manage experiment runs in Azure Machine Learning Studio (classic)
+
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
+
 Developing a predictive analysis model is an iterative process - as you modify the various functions and parameters of your experiment, your results converge until you are satisfied that you have a trained, effective model. Key to this process is tracking the various iterations of your experiment parameters and configurations.
-
-
 
 You can review previous runs of your experiments at any time in order to challenge, revisit, and ultimately either confirm or refine previous assumptions. When you run an experiment, Machine Learning Studio (classic) keeps a history of the run, including dataset, module, and port connections and parameters. This history also captures results, runtime information such as start and stop times, log messages, and execution status. You can look back at any of these runs at any time to review the chronology of your experiment and intermediate results. You can even use a previous run of your experiment to launch into a new phase of inquiry and discovery on your path to creating simple, complex, or even ensemble modeling solutions.
 
@@ -24,12 +25,12 @@ You can review previous runs of your experiments at any time in order to challen
 > 
 > 
 
-## Viewing the Prior Run
+## View the prior run
 When you have an experiment open that you have run at least once, you can view the preceding run of the experiment by clicking **Prior Run** in the properties pane.
 
 For example, suppose you create an experiment and run versions of it at 11:23, 11:42, and 11:55. If you open the last run of the experiment (11:55) and click **Prior Run**, the version you ran at 11:42 is opened.
 
-## Viewing the Run History
+## View the run history
 You can view all the previous runs of an experiment by clicking **View Run History** in an open experiment.
 
 For example, suppose you create an experiment with the [Linear Regression][linear-regression] module and you want to observe the effect of changing the value of **Learning rate** on your experiment results. You run the experiment multiple times with different values for this parameter, as follows:
@@ -54,7 +55,7 @@ Click any of these runs to view a snapshot of the experiment at the time you ran
 
 The list of experiments in the **EXPERIMENTS** tab in Machine Learning Studio (classic) always displays the latest version of an experiment. If you open a previous run of the experiment (using **Prior Run** or **VIEW RUN HISTORY**), you can return to the draft version by clicking **VIEW RUN HISTORY** and selecting the iteration that has a **STATE** of **Editable**.
 
-## Iterating on a Previous Run
+## Run a previous experiment
 When you click **Prior Run** or **VIEW RUN HISTORY** and open a previous run, you can view a finished experiment in read-only mode.
 
 If you want to begin an iteration of your experiment starting with the way you configured it for a previous run, you can do this by opening the run and clicking **SAVE AS**. This creates a new experiment, with a new title, an empty run history, and all the components and parameter values of the previous run. This new experiment is listed in the **EXPERIMENTS** tab in the Machine Learning Studio (classic) home page, and you can modify and run it, initiating a new run history for this iteration of your experiment. 

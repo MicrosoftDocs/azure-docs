@@ -6,6 +6,7 @@ author: rapatchi
 ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: rapatchi
+ms.custom: devx-track-java
 ---
 
 # Service Fabric plug-in for Eclipse Java application development
@@ -98,7 +99,7 @@ After you have built your Service Fabric application, follow these steps to depl
 
 3.  From the context menu, click **Deploy Application**.
 4.  You can follow the progress of the deploy operation in the Console window.
-5.  To verify that your application is running, open Service Fabric Explorer on your local cluster in a browser window [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expand the **Applications** node and make sure your application is running. 
+5.  To verify that your application is running, open Service Fabric Explorer on your local cluster in a browser window `http://localhost:19080/Explorer`. Expand the **Applications** node and make sure your application is running. 
 
 To learn how to debug your application in Eclipse using the local cluster, see [Debug a Java service in Eclipse](./service-fabric-debugging-your-application-java.md).
 

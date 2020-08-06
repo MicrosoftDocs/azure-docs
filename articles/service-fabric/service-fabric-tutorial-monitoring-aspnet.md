@@ -163,7 +163,7 @@ At this point, you are ready to deploy the application. Click **Start** at the t
 >[!NOTE]
 >You may get a build error if you do not have an up-to-date version of the .NET Core SDK installed.
 
-Once the application is done deploying, head over to [localhost:8080](localhost:8080), where you should be able to see the Voting Sample single page application. Vote for a few different items of your choice to create some sample data and telemetry - I went for desserts!
+Once the application is done deploying, head over to `localhost:8080`, where you should be able to see the Voting Sample single page application. Vote for a few different items of your choice to create some sample data and telemetry - I went for desserts!
 
 ![AI sample votes](./media/service-fabric-tutorial-monitoring-aspnet/vote-sample.png)
 
@@ -248,7 +248,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-Once you're done making these changes, **Start** the application so that it builds and deploys the latest version of it. Once the application is done deploying, head over to [localhost:8080](localhost:8080), and add and delete some voting options. Then, go back to your Application Insights resource to see the traces for the latest run (as before, traces can take 1-2 min to show up in Application Insights). For all the votes you added and deleted, you should now see a "Custom Event* along with all the response telemetry.
+Once you're done making these changes, **Start** the application so that it builds and deploys the latest version of it. Once the application is done deploying, head over to `localhost:8080`, and add and delete some voting options. Then, go back to your Application Insights resource to see the traces for the latest run (as before, traces can take 1-2 min to show up in Application Insights). For all the votes you added and deleted, you should now see a "Custom Event* along with all the response telemetry.
 
 ![custom events](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 
@@ -265,4 +265,4 @@ Now that you have completed setting up monitoring and diagnostics for your ASP.N
 
 * [Further explore monitoring and diagnostics in Service Fabric](service-fabric-diagnostics-overview.md)
 * [Service Fabric event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* To learn more about Application Insights, see [Application Insights Documentation](https://docs.microsoft.com/azure/application-insights/)
+* To learn more about Application Insights, see [Application Insights Documentation](/azure/application-insights/)

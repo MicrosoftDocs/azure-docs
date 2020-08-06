@@ -43,6 +43,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Can the account be reached from within the datacenter?</li><li>Is the Cognitive Services Resource Provider available?</li><li>Is the Cognitive Service available in the appropriate region?</li><li>Can read operations be performed on the storage account holding the resource metadata?</li><li>Has the API call quota been reached?</li><li>Has the API call read-limit been reached?</li></ul>|
 
+## Microsoft.compute/hostgroups/hosts
+|Executed Checks|
+|---|
+|<ul><li>Is the host up and  running</li><li>Is the host hardware degraded?</li><li>Is the host deallocated?</li><li>Has the host hardware service healed to different hardware?</li></ul>|
+
 ## Microsoft.compute/virtualmachines
 |Executed Checks|
 |---|
@@ -194,7 +199,7 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Is the database up and running?</li></ul>|
 
-## Microsoft.SQL/Server/databases
+## Microsoft.SQL/servers/databases
 |Executed Checks|
 |---|
 |<ul><li>Have there been logins to the database?</li></ul>|
@@ -222,4 +227,4 @@ Below is a complete list of all the checks executed through resource health by r
 ## Next Steps
 -  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
 -  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
-- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](./alerts-activity-log-service-notifications-portal.md). 

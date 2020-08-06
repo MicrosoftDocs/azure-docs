@@ -1,5 +1,5 @@
 ---
-title: Deploy a standalone Prometheus instance in an Azure Red Hat OpenShift cluster | Microsoft Docs
+title: Deploy Prometheus instance in Azure Red Hat OpenShift cluster
 description: Create a Prometheus instance in an Azure Red Hat OpenShift cluster to monitor your application's metrics.
 author: makdaam
 ms.author: b-lejaku

@@ -1,5 +1,5 @@
-- name: Data Lake Storage Gen1 Documentation
-  href: index.md
+- name: Data Lake Storage Gen1 documentation
+  href: index.yml
 - name: Switch to Data Lake Storage Gen2 documentation
   href: https://docs.microsoft.com/azure/storage/data-lake-storage/introduction
 - name: Overview
@@ -22,6 +22,11 @@
     href: data-lake-store-get-started-powershell.md
   - name: Using Azure CLI
     href: data-lake-store-get-started-cli-2.0.md
+- name: Samples
+  items:
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
 - name: How to
   items:
   - name: Load and move data
@@ -163,9 +168,9 @@
   - name: Node.js
     href: https://www.npmjs.com/package/azure-arm-datalake-store
   - name: Python (Account Mgmt.)
-    href: https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python
+    href: https://docs.microsoft.com/python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store?view=azure-python
   - name: Python (Filesystem Mgmt.)
-    href: https://azure-datalake-store.readthedocs.io/en/latest
+    href: /python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store
   - name: REST
     href: /rest/api/datalakestore
   - name: Resource Manager template
@@ -180,8 +185,8 @@
     href: https://blogs.msdn.microsoft.com/azuredatalake/
   - name: Give feedback on UserVoice
     href: https://feedback.azure.com/forums/327234-data-lake
-  - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-data-lake-storage.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-lake-store/
   - name: Pricing calculator

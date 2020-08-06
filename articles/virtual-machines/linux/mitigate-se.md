@@ -7,7 +7,7 @@ keywords: spectre,meltdown,specter
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cynthn
 

@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot authentication errors when you use RDP to connect to Azure VM | Microsoft Docs
-description: 
+description: Learn how to troubleshoot authentication errors that occur when you use Remote Desktop Protocol (RDP) to connect to an Azure virtual machine (VM).
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
@@ -273,8 +273,8 @@ Restart the VM so that the changes to the registry take effect.
 
 ## Next steps
 
-[SetEncryptionLevel method of the Win32_TSGeneralSetting class](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting-setencryptionlevel)
+[SetEncryptionLevel method of the Win32_TSGeneralSetting class](/windows/desktop/termserv/win32-tsgeneralsetting-setencryptionlevel)
 
-[Configure Server Authentication and Encryption Levels](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770833(v=ws.11))
+[Configure Server Authentication and Encryption Levels](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc770833(v=ws.11))
 
-[Win32_TSGeneralSetting class](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting)
+[Win32_TSGeneralSetting class](/windows/desktop/termserv/win32-tsgeneralsetting)

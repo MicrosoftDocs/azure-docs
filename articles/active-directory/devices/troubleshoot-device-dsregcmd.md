@@ -131,7 +131,7 @@ This section lists the status of various attributes for the user currently logge
 - **CanReset:** - Denotes if the Windows Hello key can be reset by the user. 
 - **Possible values:** - DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive, or Unknown if error. 
 - **WorkplaceJoined:** - Set to “YES” if Azure AD registered accounts have been added to the device in the current NTUSER context.
-- **WamDefaultSet:** - Set to “YES” if a WAM default WebAccount is created for the logged in user. This field could display an error if dsreg /status is run in admin context. 
+- **WamDefaultSet:** - Set to “YES” if a WAM default WebAccount is created for the logged in user. This field could display an error if dsreg /status is run from an elevated command prompt. 
 - **WamDefaultAuthority:** - Set to “organizations” for Azure AD.
 - **WamDefaultId:** - Always “https://login.microsoft.com” for Azure AD.
 - **WamDefaultGUID:** - The WAM provider’s (Azure AD/Microsoft account) GUID for the default WAM WebAccount. 
@@ -208,8 +208,16 @@ This section performs various tests to help diagnose join failures. This section
 - **AD Configuration Test:** - Test reads and verifies whether the SCP object is configured properly in the on-premises AD forest. Errors in this test would likely result in Join errors in the discover phase with the error code 0x801c001d.
 - **DRS Discovery Test:** - Test gets the DRS endpoints from discovery metadata endpoint and performs a user realm request. Errors in this test would likely result in Join errors in the discover phase.
 - **DRS Connectivity Test:** - Test performs basic connectivity test to the DRS endpoint.
-- **Token acquisition Test:** - Test tries to get an Azure AD authentication token if the user tenant is federated. Errors in this test would likely result in Join errors in the auth phase. If auth fails sync join will be attempted as fallback, unless fallback is explicitly disabled with a registry key.
-- **Fallback to Sync-Join:** - Set to “Enabled” if the registry key, to prevent the fallback to sync join with auth failures, is NOT present. This option is available from Windows 10 1803 and later.
+- **Token acquisition Test:** - Test tries to get an Azure AD authentication token if the user tenant is federated. Errors in this test would likely result in Join errors in the auth phase. If auth fails sync join will be attempted as fallback, unless fallback is explicitly disabled with the below registry key settings.
+```
+    Keyname: Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ
+    Value: FallbackToSyncJoin
+    Type:  REG_DWORD
+    Value: 0x0 -> Disabled
+    Value: 0x1 -> Enabled
+    Default (No Key): Enabled
+ ```
+- **Fallback to Sync-Join:** - Set to “Enabled” if the above registry key, to prevent the fallback to sync join with auth failures, is NOT present. This option is available from Windows 10 1803 and later.
 - **Previous Registration:** - Time the previous Join attempt occurred. Only failed Join attempts are logged.
 - **Error Phase:** - The stage of the join in which it was aborted. Possible values are pre-check, discover, auth, join.
 - **Client ErrorCode:** - Client error code returned (HRESULT).

@@ -8,7 +8,7 @@ author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
@@ -71,3 +71,4 @@ Available in all regions.
 
 - Learn about [Standard Load Balancer](load-balancer-standard-overview.md).
 - Learn about [outbound rules](load-balancer-outbound-rules-overview.md).
+- [Configure TCP RST on Idle Timeout](load-balancer-tcp-idle-timeout.md)

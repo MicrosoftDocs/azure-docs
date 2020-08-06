@@ -5,11 +5,11 @@ author: yegu-ms
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 05/30/2017
+ms.date: 07/23/2020
 ms.author: yegu
 
 ---
-# Migrate from Managed Cache Service to Azure Cache for Redis
+# Migrate from Managed Cache Service to Azure Cache for Redis (deprecated)
 Migrating your applications that use Azure Managed Cache Service to Azure Cache for Redis can be accomplished with minimal changes to your application, depending on the Managed Cache Service features used by your caching application. While the APIs are not exactly the same they are similar, and much of your existing code that uses Managed Cache Service to access a cache can be reused with minimal changes. This article shows how to make the necessary configuration and application changes to migrate your Managed Cache Service applications to use Azure Cache for Redis, and shows how some of the features of Azure Cache for Redis can be used to implement the functionality of a Managed Cache Service cache.
 
 >[!NOTE]
@@ -36,7 +36,7 @@ Azure Managed Cache Service and Azure Cache for Redis are similar but implement 
 | Managed Cache Service feature | Managed Cache Service support | Azure Cache for Redis support |
 | --- | --- | --- |
 | Named caches |A default cache is configured, and in the Standard and Premium cache offerings, up to nine additional named caches can be configured if desired. |Azure Cache for Redis has a configurable number of databases (default of 16) that can be used to implement a similar functionality to named caches. For more information, see [What are Redis databases?](cache-faq.md#what-are-redis-databases) and [Default Redis server configuration](cache-configure.md#default-redis-server-configuration). |
-| High Availability |Provides high availability for items in the cache in the Standard and Premium cache offerings. If items are lost due to a failure, backup copies of the items in the cache are still available. Writes to the secondary cache are made synchronously. |High availability is available in the Standard and Premium cache offerings, which have a two node Primary/Replica configuration (each shard in a Premium cache has a primary/replica pair). Writes to the replica are made asynchronously. For more information, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/). |
+| High Availability |Provides high availability for items in the cache in the Standard and Premium cache offerings. If items are lost due to a failure, backup copies of the items in the cache are still available. Writes to the replica cache are made synchronously. |High availability is available in the Standard and Premium cache offerings, which have a two node Primary/Replica configuration (each shard in a Premium cache has a primary/replica pair). Writes to the replica are made asynchronously. For more information, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/). |
 | Notifications |Allows clients to receive asynchronous notifications when a variety of cache operations occur on a named cache. |Client applications can use Redis pub/sub or [Keyspace notifications](cache-configure.md#keyspace-notifications-advanced-settings) to achieve a similar functionality to notifications. |
 | Local cache |Stores a copy of cached objects locally on the client for extra-fast access. |Client applications would need to implement this functionality using a dictionary or similar data structure. |
 | Eviction Policy |None or LRU. The default policy is LRU. |Azure Cache for Redis supports the following eviction policies: volatile-lru, allkeys-lru, volatile-random, allkeys-random, volatile-ttl, noeviction. The default policy is volatile-lru. For more information, see [Default Redis server configuration](cache-configure.md#default-redis-server-configuration). |

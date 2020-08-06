@@ -71,7 +71,7 @@ A PowerShell script provides an easy way to deploy the OPC Vault microservice an
    > In case of problems, see the "Troubleshooting deployment failures" section later in the article.
 
 8. Open your favorite browser, and open the application page: `https://myResourceGroup.azurewebsites.net`
-8. Give the web app and the OPC Vault microservice a few minutes to warm up after deployment. The web home page might hang on first use, for up to a minute, until you get the first responses.
+8. Give the web app and the OPC Vault microservice a few minutes to warm up after deployment. The web home page might stop responding on first use, for up to a minute, until you get the first responses.
 11. To take a look at the Swagger API, open: `https://myResourceGroup-service.azurewebsites.net`
 13. To start a local GDS server with dotnet, start `.\myResourceGroup-gds.cmd`. With Docker, start `.\myResourceGroup-dockergds.cmd`.
 
@@ -103,7 +103,7 @@ Use a short and simple resource group name. The name is also used to name resour
 
 ### Website name already in use
 
-It's possible that the name of the website is already in use. You need to use a different resource group name. The hostnames in use by the deployment script are: https://resourcegroupname.azurewebsites.net and https://resourgroupname-service.azurewebsites.net.
+It's possible that the name of the website is already in use. You need to use a different resource group name. The hostnames in use by the deployment script are: https:\//resourcegroupname.azurewebsites.net and https:\//resourgroupname-service.azurewebsites.net.
 Other names of services are built by the combination of short name hashes, and are unlikely to conflict with other services.
 
 ### Azure AD registration 

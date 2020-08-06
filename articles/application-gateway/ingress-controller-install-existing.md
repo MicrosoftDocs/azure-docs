@@ -4,7 +4,7 @@ description: This article provides information on how to deploy an Application G
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ---
@@ -87,13 +87,13 @@ important. The resource group required in the command below is *not* the one ref
 the resource group of the `aks-agentpool` virtual machines. Typically that resource group starts with `MC_` and contains
  the name of your AKS. For instance: `MC_resourceGroup_aksABCD_westus`
 
-    ```bash
+    ```azurecli
     az identity create -g <agent-pool-resource-group> -n <identity-name>
     ```
 
 1. For the role assignment commands below we need to obtain `principalId` for the newly created identity:
 
-    ```bash
+    ```azurecli
     az identity show -g <resourcegroup> -n <identity-name>
     ```
 
@@ -102,7 +102,7 @@ look something like this: `/subscriptions/A/resourceGroups/B/providers/Microsoft
 
     Get the list of Application Gateway IDs in your subscription with: `az network application-gateway list --query '[].id'`
 
-    ```bash
+    ```azurecli
     az role assignment create \
         --role Contributor \
         --assignee <principalId> \
@@ -112,7 +112,7 @@ look something like this: `/subscriptions/A/resourceGroups/B/providers/Microsoft
 1. Give the identity `Reader` access to the Application Gateway resource group. The resource group ID would look like:
 `/subscriptions/A/resourceGroups/B`. You can get all resource groups with: `az group list --query '[].id'`
 
-    ```bash
+    ```azurecli
     az role assignment create \
         --role Reader \
         --assignee <principalId> \
@@ -125,8 +125,8 @@ It is also possible to provide AGIC access to ARM via a Kubernetes secret.
 1. Create an Active Directory Service Principal and encode with base64. The base64 encoding is required for the JSON
 blob to be saved to Kubernetes.
 
-```bash
-az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0
+```azurecli
+az ad sp create-for-rbac --sdk-auth | base64 -w0
 ```
 
 2. Add the base64 encoded JSON blob to the `helm-config.yaml` file. More information on `helm-config.yaml` is in the
@@ -194,7 +194,7 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
-    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
+    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --sdk-auth | base64 -w0" >>
     
     ################################################################################
     # Specify if the cluster is RBAC enabled or not
@@ -231,7 +231,7 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
          --set appgw.subscriptionId=subscription-uuid \
          --set appgw.shared=false \
          --set armAuth.type=servicePrincipal \
-         --set armAuth.secretJSON=$(az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0) \
+         --set armAuth.secretJSON=$(az ad sp create-for-rbac --sdk-auth | base64 -w0) \
          --set rbac.enabled=true \
          --set verbosityLevel=3 \
          --set kubernetes.watchNamespace=default \

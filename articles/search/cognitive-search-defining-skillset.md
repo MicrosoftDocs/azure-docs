@@ -51,7 +51,7 @@ In the diagram, the *document cracking* step happens automatically. Essentially,
 A skillset is defined as an array of skills. Each skill defines the source of its inputs and the name of the outputs produced. Using the [Create Skillset REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset), you can define a skillset that corresponds to the previous diagram: 
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -243,7 +243,7 @@ Until now, this structure has been internal-only, memory-only, and used only in 
 
 ## Add a knowledge store
 
-[Knowledge store](knowledge-store-concept-intro.md) is a preview feature in Azure Cognitive Search for saving your enriched document. A knowledge store that you create, backed by an Azure storage account, is the repository where your enriched data lands. 
+[Knowledge store](knowledge-store-concept-intro.md) is a feature in Azure Cognitive Search for saving your enriched document. A knowledge store that you create, backed by an Azure storage account, is the repository where your enriched data lands. 
 
 A knowledge store definition is added to a skillset. For a  walkthrough of the entire process, see [Create a knowledge store in REST](knowledge-store-create-rest.md).
 

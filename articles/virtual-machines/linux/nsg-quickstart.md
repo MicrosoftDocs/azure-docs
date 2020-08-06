@@ -5,10 +5,11 @@ author: cynthn
 manager: gwallace
 ms.service: virtual-machines
 ms.subservice: networking
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurecli
 
 ---
 # Open ports and endpoints to a VM with the Azure CLI
@@ -24,7 +25,7 @@ In the following examples, replace example parameter names with your own values.
 ## Quickly open a port for a VM
 If you need to quickly open a port for a VM in a dev/test scenario, you can use the [az vm open-port](/cli/azure/vm) command. This command creates a Network Security Group, adds a rule, and applies it to a VM or subnet. The following example opens port *80* on the VM named *myVM* in the resource group named *myResourceGroup*.
 
-```azure-cli
+```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 80
 ```
 

@@ -109,7 +109,7 @@ The typeProperties section is different for each activity. Transformation activi
 **Copy activity** has two subsections in the typeProperties section: **source** and **sink**. See [DATA STORES](#data-stores) section in this article for JSON samples that show how to use a data store as a source and/or sink.
 
 ### Sample copy pipeline
-In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [Copy activity](data-factory-data-movement-activities.md) copies data from an Azure Blob storage to an Azure SQL database.
+In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [Copy activity](data-factory-data-movement-activities.md) copies data from an Azure Blob storage to Azure SQL Database.
 
 ```json
 {
@@ -332,7 +332,7 @@ The **policy** section in dataset definition defines the criteria or the conditi
 | Policy Name | Description | Applied To | Required | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Validates that the data in an **Azure blob** meets the minimum size requirements (in megabytes). |Azure Blob |No |NA |
-| minimumRows |Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
+| minimumRows |Validates that the data in **Azure SQL Database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure Table</li></ul> |No |NA |
 
 **Example:**
 
@@ -2441,15 +2441,15 @@ For more information, see [SAP HANA connector](data-factory-sap-hana-connector.m
 ## SQL Server
 
 ### Linked service
-You create a linked service of type **OnPremisesSqlServer** to link an on-premises SQL Server database to a data factory. The following table provides description for JSON elements specific to on-premises SQL Server linked service.
+You create a linked service of type **OnPremisesSqlServer** to link a SQL Server database to a data factory. The following table provides description for JSON elements specific to SQL Server linked service.
 
 The following table provides description for JSON elements specific to SQL Server linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property should be set to: **OnPremisesSqlServer**. |Yes |
-| connectionString |Specify connectionString information needed to connect to the on-premises SQL Server database using either SQL authentication or Windows authentication. |Yes |
-| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database. |Yes |
+| connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. |Yes |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the SQL Server database. |Yes |
 | username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
 | password |Specify password for the user account you specified for the username. |No |
 
@@ -2476,7 +2476,7 @@ You can encrypt credentials using the **New-AzDataFactoryEncryptValue** cmdlet a
 ```
 #### Example: JSON for using Windows Authentication
 
-If username and password are specified, gateway uses them to impersonate the specified user account to connect to the on-premises SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
+If username and password are specified, gateway uses them to impersonate the specified user account to connect to the SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
 
 ```json
 {
@@ -3553,7 +3553,7 @@ To define an FTP linked service, set the **type** of the linked service to **Ftp
 | gatewayName |Name of the Data Management Gateway to connect to an on-premises FTP server |No |&nbsp; |
 | port |Port on which the FTP server is listening |No |21 |
 | enableSsl |Specify whether to use FTP over SSL/TLS channel |No |true |
-| enableServerCertificateValidation |Specify whether to enable server SSL certificate validation when using FTP over SSL/TLS channel |No |true |
+| enableServerCertificateValidation |Specify whether to enable server TLS/SSL certificate validation when using FTP over SSL/TLS channel |No |true |
 
 #### Example: Using Anonymous authentication
 
@@ -4068,7 +4068,7 @@ To define a HTTP linked service, set the **type** of the linked service to **Htt
 | --- | --- | --- |
 | url | Base URL to the Web Server | Yes |
 | authenticationType | Specifies the authentication type. Allowed values are: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Refer to sections below this table on more properties and JSON samples for those authentication types respectively. | Yes |
-| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation if source is HTTPS Web Server | No, default is true |
+| enableServerCertificateValidation | Specify whether to enable server TLS/SSL certificate validation if source is HTTPS Web Server | No, default is true |
 | gatewayName | Name of the Data Management Gateway to connect to an on-premises HTTP source. | Yes if copying data from an on-premises HTTP source. |
 | encryptedCredential | Encrypted credential to access the HTTP endpoint. Auto-generated when you configure the authentication information in copy wizard or the ClickOnce popup dialog. | No. Apply only when copying data from an on-premises HTTP server. |
 
@@ -4839,7 +4839,7 @@ The following table provides descriptions for the properties used in the Azure J
 | linkedServiceName |Azure Storage linked service to be used by the on-demand cluster for storing and processing data. <p>Currently, you cannot create an on-demand HDInsight cluster that uses an Azure Data Lake Store as the storage. If you want to store the result data from HDInsight processing in an Azure Data Lake Store, use a Copy Activity to copy the data from the Azure Blob Storage to the Azure Data Lake Store.</p>  | Yes |
 | additionalLinkedServiceNames |Specifies additional storage accounts for the HDInsight linked service so that the Data Factory service can register them on your behalf. |No |
 | osType |Type of operating system. Allowed values are: Windows (default) and Linux |No |
-| hcatalogLinkedServiceName |The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using the Azure SQL database as the metastore. |No |
+| hcatalogLinkedServiceName |The name of Azure SQL linked service that point to the HCatalog database. The on-demand HDInsight cluster is created by using Azure SQL Database as the metastore. |No |
 
 ### JSON example
 The following JSON defines a Linux-based on-demand HDInsight linked service. The Data Factory service automatically creates a **Linux-based** HDInsight cluster when processing a data slice.
@@ -4997,15 +4997,15 @@ The following example provides JSON definition for an Azure Data Lake Analytics 
 You create a SQL Server linked service and use it with the [Stored Procedure Activity](data-factory-stored-proc-activity.md) to invoke a stored procedure from a Data Factory pipeline.
 
 ### Linked service
-You create a linked service of type **OnPremisesSqlServer** to link an on-premises SQL Server database to a data factory. The following table provides description for JSON elements specific to on-premises SQL Server linked service.
+You create a linked service of type **OnPremisesSqlServer** to link a SQL Server database to a data factory. The following table provides description for JSON elements specific to SQL Server linked service.
 
 The following table provides description for JSON elements specific to SQL Server linked service.
 
 | Property | Description | Required |
 | --- | --- | --- |
 | type |The type property should be set to: **OnPremisesSqlServer**. |Yes |
-| connectionString |Specify connectionString information needed to connect to the on-premises SQL Server database using either SQL authentication or Windows authentication. |Yes |
-| gatewayName |Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database. |Yes |
+| connectionString |Specify connectionString information needed to connect to the SQL Server database using either SQL authentication or Windows authentication. |Yes |
+| gatewayName |Name of the gateway that the Data Factory service should use to connect to the SQL Server database. |Yes |
 | username |Specify user name if you are using Windows Authentication. Example: **domainname\\username**. |No |
 | password |Specify password for the user account you specified for the username. |No |
 
@@ -5032,7 +5032,7 @@ You can encrypt credentials using the **New-AzDataFactoryEncryptValue** cmdlet a
 ```
 #### Example: JSON for using Windows Authentication
 
-If username and password are specified, gateway uses them to impersonate the specified user account to connect to the on-premises SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
+If username and password are specified, gateway uses them to impersonate the specified user account to connect to the SQL Server database. Otherwise, gateway connects to the SQL Server directly with the security context of Gateway (its startup account).
 
 ```json
 {
@@ -5543,7 +5543,7 @@ The following properties are supported in the **typeProperties** section when yo
 
 | Property | Description | Required |
 | --- | --- | --- |
-| storedProcedureName |Specify the name of the stored procedure in the Azure SQL database or Azure SQL Data Warehouse that is represented by the linked service that the output table uses. |Yes |
+| storedProcedureName |Specify the name of the stored procedure in Azure SQL Database or Azure SQL Data Warehouse that is represented by the linked service that the output table uses. |Yes |
 | storedProcedureParameters |Specify values for stored procedure parameters. If you need to pass null for a parameter, use the syntax: "param1": null (all lower case). See the following sample to learn about using this property. |No |
 
 If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. You must specify an output dataset for a stored procedure activity.

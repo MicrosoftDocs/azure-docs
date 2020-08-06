@@ -78,7 +78,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 Azure Scheduler supports multiple job types: 
 
-* HTTP jobs, including HTTPS jobs that support SSL, 
+* HTTP jobs, including HTTPS jobs that support TLS, 
 for when you have the endpoint for an existing service or workload
 * Storage queue jobs for workloads that use Storage queues, 
 such as posting messages to Storage queues

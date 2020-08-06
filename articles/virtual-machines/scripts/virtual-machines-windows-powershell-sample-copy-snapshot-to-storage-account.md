@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:
@@ -39,9 +39,9 @@ This script uses following commands to generate SAS URI for a managed snapshot a
 
 | Command | Notes |
 |---|---|
-| [Grant-AzSnapshotAccess](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Generates SAS URI for a snapshot that is used to copy it to a storage account. |
-| [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | Creates a storage account context using the account name and key. This context can be used to perform read/write operations on the storage account. |
-| [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | Copies the underlying VHD of a snapshot to a storage account |
+| [Grant-AzSnapshotAccess](/powershell/module/az.compute/new-azdisk) | Generates SAS URI for a snapshot that is used to copy it to a storage account. |
+| [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) | Creates a storage account context using the account name and key. This context can be used to perform read/write operations on the storage account. |
+| [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) | Copies the underlying VHD of a snapshot to a storage account |
 
 ## Next steps
 
@@ -49,6 +49,6 @@ This script uses following commands to generate SAS URI for a managed snapshot a
 
 [Create a virtual machine from a managed disk](./virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -2,12 +2,12 @@
 title: Assess physical servers for migration to Azure with Azure Migrate Server Assessment
 description: Describes how to assess on-premises physical servers for migration to Azure using Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 11/18/2019
+ms.date: 04/15/2020
 ---
 
-# Assess physical servers with Azure Migrate: Server Assessment
+# Assess physical servers with Azure Migrate:Server Assessment
 
-This article shows you how to assess on-premises physical servers, using the Azure Migrate: Server Assessment tool.
+This article shows you how to assess on-premises physical servers, using the Azure Migrate:Server Assessment tool.
 
 [Azure Migrate](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings.
 
@@ -29,8 +29,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - [Complete](tutorial-prepare-physical.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
 - Here's what you should have done in the first tutorial:
-    - [Set up Azure permissions](tutorial-prepare-physical.md#prepare-azure) for Azure Migrate.
+    - [Set up Azure permissions](tutorial-prepare-physical.md) for Azure Migrate.
     - [Prepare physical servers](tutorial-prepare-physical.md#prepare-for-physical-server-assessment) for assessment. Appliance requirements should be verified. You should also have an account set up for physical server discovery. Required ports should be available, and you should be aware of the URLs needed for access to Azure.
+
+
 
 
 ## Set up an Azure Migrate project
@@ -44,8 +46,8 @@ Set up a new Azure Migrate project as follows.
     ![Discover and assess servers](./media/tutorial-assess-physical/assess-migrate.png)
 
 4. In **Getting started**, click **Add tools**.
-5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.     
-6. In **Project Details**, specify the project name, and the geography in which you want to create the project. Asia, Europe, UK and the United States are supported.
+5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.  
+6. In **Project Details**, specify the project name, and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
     - The project geography is used only to store the metadata gathered from on-premises servers.
     - You can select any target region when you run a migration.
@@ -73,7 +75,7 @@ Azure Migrate: Server Assessment runs a lightweight appliance.
     - Extract the contents from the zipped file. Launch the PowerShell console with administrative privileges.
     - Execute the PowerShell script to launch the appliance web application.
     - Configure the appliance for the first time, and register it with the Azure Migrate project.
-- You can set up multiple appliances for a single Azure Migrate project. Across all appliances, you can discover any number of physical servers. A maximum of 250 servers can be discovered per appliance.
+- You can set up multiple appliances for a single Azure Migrate project. Across all appliances, you can discover any number of physical servers. A maximum of 1000 servers can be discovered per appliance.
 
 ### Download the installer script
 
@@ -91,16 +93,22 @@ Download the zipped file for the appliance.
 Check that the zipped file is secure, before you deploy it.
 
 1. On the machine to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the zipped file
+2. Run the following command to generate the hash for the zipped file:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+    - Example usage for public cloud: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - Example usage for government cloud: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
+3.  Verify the latest appliance versions and hash values:
+    - For the public cloud:
 
-3.  For the latest appliance version, the generated hash should match these settings.
+        **Scenario** | **Download*** | **Hash value**
+        --- | --- | ---
+        Physical (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
 
-  **Algorithm** | **Hash value**
-  --- | ---
-  MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-  SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+    - For Azure Government:
+
+        **Scenario** | **Download*** | **Hash value**
+        --- | --- | ---
+        Physical (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
 
 ### Run the Azure Migrate installer script
 
@@ -111,28 +119,26 @@ The installer script does the following:
 - Download and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/download/details.aspx?id=7435).
 - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
 - Creates the following files under the path:
-    - **Config Files**: %ProgramData%\Microsoft Azure\Config
-    - **Log Files**: %ProgramData%\Microsoft Azure\Logs
+    - **Config Files**: %Programdata%\Microsoft Azure\Config
+    - **Log Files**: %Programdata%\Microsoft Azure\Logs
 
 Run the script as follows:
 
-1. Extract the zipped file to a folder on the server that will host the appliance.
+1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a machine on an existing Azure Migrate appliance.
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
 4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
-    ```
-    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
-    ```
-The script will launch the appliance web application when it finishes successfully.
 
-In case of any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+    - For the public cloud: ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
+    - For Azure Government: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 
-> [!NOTE]
-> Please do not execute the Azure Migrate installer script on an existing Azure Migrate appliance.
+    The script will launch the appliance web application when it finishes successfully.
+
+If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance can connect to [Azure URLs](migrate-appliance.md#url-access).
+Make sure that the appliance can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
 
 ### Configure the appliance
@@ -156,7 +162,7 @@ Set up the appliance for the first time.
 1. Click **Log In**. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
 2. On the new tab, sign in using your Azure credentials.
     - Sign in with your username and password.
-    - Sign-in with a PIN isn't supported.
+    - Sign in with a PIN isn't supported.
 3. After successfully signing in, go back to the web app.
 4. Select the subscription in which the Azure Migrate project was created. Then select the project.
 5. Specify a name for the appliance. The name should be alphanumeric with 14 characters or less.
@@ -168,13 +174,14 @@ Set up the appliance for the first time.
 Now, connect from the appliance to the physical servers to be discovered, and start the discovery.
 
 1. Click **Add Credentials** to specify the account credentials that the appliance will use to discover servers.  
-2. Specify the **Operating System**,  friendly name for the credentials, **Username** and **Password** and click **Add**.
-You can add one set of credentials each for Windows and Linux servers.
+2. Sign in with username and password. Sign in with a Key isn't supported. Also User must be a root login or part of the local admin group.
+3. Specify the **Operating System**,  a friendly name for the credentials, and the username and password. Then click **Add**.
+You can add multiple credentials for Windows and Linux servers.
 4. Click **Add server**, and specify server details- FQDN/IP address and friendly name of credentials (one entry per row) to connect to the server.
-3. Click **Validate**. After validation, the list of servers that can be discovered is shown.
+5. Click **Validate**. After validation, the list of servers that can be discovered is shown.
     - If validation fails for a server, review the error by hovering over the icon in the **Status** column. Fix issues, and validate again.
     - To remove a server, select > **Delete**.
-4. After validation, click **Save and start discovery** to start the discovery process.
+6. After validation, click **Save and start discovery** to start the discovery process.
 
 This starts discovery. It takes around 1.5 minutes per server for metadata of discovered server to appear in the Azure portal.
 

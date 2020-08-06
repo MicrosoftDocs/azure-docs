@@ -6,7 +6,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
 
@@ -134,7 +134,7 @@ Yes, you can use the Azure portal to deploy the new SKUs. However, you will see 
 
 ### What regions are available for me to use the new SKUs?
 
-See [Availability Zones](../availability-zones/az-overview.md#services-support-by-region) for the latest list of available regions.
+See [Availability Zones](../availability-zones/az-region.md) for the latest list of available regions.
 
 ### Can I change/migrate/upgrade my existing virtual network gateways to zone-redundant or zonal gateways?
 

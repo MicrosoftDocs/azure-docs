@@ -1,7 +1,7 @@
 ---
 
 title: Azure operational security overview| Microsoft Docs
-description: This article provides an overview of Azure operational security.
+description: Learn about Azure operational security in this overview. Operational security refers to asset protection services, controls, and features.
 services: security
 documentationcenter: na
 author: unifycloud
@@ -58,7 +58,7 @@ For more information, see the [Azure Backup components table](/azure/backup/back
 
 -	Enables identity and access management (IAM) as a cloud service.
 -	Provides central access management, single sign-on (SSO), and reporting.
--	Supports integrated access management for [thousands of applications](https://azure.microsoft.com/marketplace/active-directory/) in the Azure Marketplace, including Salesforce, Google Apps, Box, and Concur.
+-	Supports integrated access management for [thousands of applications](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) in the Azure Marketplace, including Salesforce, Google Apps, Box, and Concur.
 
 Azure AD also includes a full suite of [identity management capabilities](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), including these:
 
@@ -85,7 +85,7 @@ With Azure Active Directory, all applications that you publish for your partners
 - Disk encryption validation.
 - Network-based attacks.
 
-Security Center uses [Role-Based Access Control (RBAC)](/azure/role-based-access-control/role-assignments-portal). RBAC provides [built-in roles](../../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
+Security Center uses [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal). RBAC provides [built-in roles](../../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
 Security Center assesses the configuration of your resources to identify security issues and vulnerabilities. In Security Center, you see information related to a resource only when you're assigned the role of owner, contributor, or reader for the subscription or resource group that a resource belongs to.
 

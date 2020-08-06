@@ -2,7 +2,7 @@
 title: Resource availability by region
 description: Availability of compute and memory resources for the Azure Container Instances service in different Azure regions.
 ms.topic: article
-ms.date: 02/19/2020
+ms.date: 04/27/2020
 ms.author: danlep
 
 ---
@@ -13,7 +13,7 @@ This article details the availability of Azure Container Instances compute, memo
 Values presented are the maximum resources available per deployment of a [container group](container-instances-container-groups.md). Values are current at time of publication. 
 
 > [!NOTE]
-> Container groups created within these resource limits are subject to availability within the deployment region. When a region is under heavy load, you may experience a failure when deploying instances. To mitigate such a deployment failure, try deploying instances with lower resource settings, or try your deployment at a later time.
+> Container groups created within these resource limits are subject to availability within the deployment region. When a region is under heavy load, you may experience a failure when deploying instances. To mitigate such a deployment failure, try deploying instances with lower resource settings, or try your deployment at a later time or in a different region with available resources.
 
 For information about quotas and other limits in your deployments, see [Quotas and limits for Azure Container Instances](container-instances-quotas.md).
 
@@ -49,9 +49,6 @@ The following regions and maximum resources are available to a container group d
 ## Availability - GPU resources (preview)
 
 The following regions and maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview).
-
-> [!IMPORTANT]
-> GPU resources are available only upon request. To request access to GPU resources, please submit an [Azure support request][azure-support].
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]

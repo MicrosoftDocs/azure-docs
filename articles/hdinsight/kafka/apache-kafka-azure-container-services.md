@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
 ---
@@ -119,7 +119,7 @@ Use the following steps to configure Kafka to advertise IP addresses instead of 
 
 5. To configure Kafka to advertise IP addresses, add the following text to the bottom of the __kafka-env-template__ field:
 
-    ```
+    ```bash
     # Configure Kafka to advertise IP addresses instead of FQDN
     IP_ADDRESS=$(hostname -i)
     echo advertised.listeners=$IP_ADDRESS
@@ -158,7 +158,7 @@ At this point, Kafka and Azure Kubernetes Service are in communication through t
     * `var topic = 'mytopic'`: Replace `mytopic` with the name of the Kafka topic used by this application.
     * `var brokerHost = '176.16.0.13:9092`: Replace `176.16.0.13` with the internal IP address of one of the broker hosts for your cluster.
 
-        To find the internal IP address of the broker hosts (workernodes) in the cluster, see the [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes) document. Pick IP address of one of the entries where the domain name begins with `wn`.
+        To find the internal IP address of the broker hosts (workernodes) in the cluster, see the [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#get-the-internal-ip-address-of-cluster-nodes) document. Pick IP address of one of the entries where the domain name begins with `wn`.
 
 4. From a command line in the `src` directory, install dependencies and use Docker to build an image for deployment:
 
@@ -171,7 +171,7 @@ At this point, Kafka and Azure Kubernetes Service are in communication through t
 
 5. Log in to your Azure Container Registry (ACR) and find the loginServer name:
 
-    ```bash
+    ```azurecli
     az acr login --name <acrName>
     az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
     ```

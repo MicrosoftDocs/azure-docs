@@ -6,7 +6,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 02/14/2020
+ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
@@ -16,6 +16,7 @@ ms.author: diberry
 Use the Language Understanding (LUIS) prediction client library for .NET to:
 
 * Get prediction by slot
+* Prediction by Version
 
 [Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Runtime) | [Prediction runtime Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) | [C# Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/LanguageUnderstanding/predict-with-sdk-3x)
 
@@ -23,52 +24,9 @@ Use the Language Understanding (LUIS) prediction client library for .NET to:
 
 * Language Understanding (LUIS) portal account - [Create one for free](https://www.luis.ai)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-
-Looking for more documentation?
-
- * [SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet)
+* A LUIS app ID - use the public IoT app ID of `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. The user query used in the quickstart code is specific to that app.
 
 ## Setting up
-
-### Create an environment variable
-
-Using your key, and the name of your resource, create two environment variables for authentication:
-
-* `LUIS_PREDICTION_KEY` - The resource key for authenticating your requests.
-* `LUIS_ENDPOINT_NAME` - The resource name associated with your key.
-
-Use the instructions for your operating system.
-
-#### [Windows](#tab/windows)
-
-```console
-setx LUIS_PREDICTION_KEY <replace-with-your-resource-key>
-setx LUIS_ENDPOINT_NAME <replace-with-your-resource-name>
-```
-
-After you add the environment variable, restart the console window.
-
-#### [Linux](#tab/linux)
-
-```bash
-export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
-export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
-```
-
-After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
-
-#### [macOS](#tab/unix)
-
-Edit your `.bash_profile`, and add the environment variable:
-
-```bash
-export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
-export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
-```
-
-After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
-
----
 
 ### Create a new C# application
 
@@ -132,13 +90,7 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 
 ## Authenticate the client
 
-1. Create variables for the key, name and app ID:
-
-    A variables to manage your prediction key pulled from an environment variable named `LUIS_PREDICTION_KEY`. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
-
-    Create a variable to hold your resource name `LUIS_ENDPOINT_NAME`.
-
-    Create a variable for the app ID as an environment variable named `LUIS_APP_ID`. Set the environment variable to the public IoT app:
+1. Create variables for the key, resource name, app ID, and publishing slot. Set the app ID to the public IoT app:
 
     **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`**
 

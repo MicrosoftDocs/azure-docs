@@ -3,20 +3,18 @@ title: Problem installing the Application Proxy Agent Connector | Microsoft Docs
 description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector 
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-
 ms.collection: M365-identity-device-management
 ---
 
@@ -45,22 +43,71 @@ When the installation of a connector fails, the root cause is usually one of the
 
 2.  If any of those ports is not successful, verify that the Firewall or backend proxy has access to the required domains and ports see, [Prepare your on-premises environment](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
-3.  Open a browser (separate tab) and go to the following web page: <https://login.microsoftonline.com>, make sure that you can login to that page.
+3.  Open a browser (separate tab) and go to the following web page: `https://login.microsoftonline.com`, make sure that you can login to that page.
 
-## Verify Machine and backend components support for Application Proxy trust cert
+## Verify Machine and backend components support for Application Proxy trust certificate
 
-**Objective:** Verify that the connector machine, backend proxy and firewall can support the certificate created by the connector for future trust.
+**Objective:** Verify that the connector machine, backend proxy and firewall can support the certificate created by the connector for future trust and that the certificate is valid.
 
 >[!NOTE]
 >The connector tries to create a SHA512 cert that is supported by TLS1.2. If the machine or the backend firewall and proxy does not support TLS1.2, the installation fails.
 >
 >
 
-**To resolve the issue:**
+**Review the pre-requisites required:**
 
 1.  Verify the machine supports TLS1.2 – All Windows versions after 2012 R2 should support TLS 1.2. If your connector machine is from a version of 2012 R2 or prior, make sure that the following KBs are installed on the machine: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
 2.  Contact your network admin and ask to verify that the backend proxy and firewall do not block SHA512 for outgoing traffic.
+
+**To verify the client certificate:**
+
+Verify the thumbprint of the current client certificate. The certificate store can be found in %ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<ConnectorTrustSettingsFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CloudProxyTrust>
+    <Thumbprint>4905CC64B2D81BBED60962ECC5DCF63F643CCD55</Thumbprint>
+    <IsInUserStore>false</IsInUserStore>
+  </CloudProxyTrust>
+</ConnectorTrustSettingsFile>
+```
+
+Here are the possible **IsInUserStore** values and meanings:
+
+- **false** - The client certificate was created during the installation or registration initiated by Register-AppProxyConnector command. It is stored in the personal container in the certificate store of the local machine. 
+
+Follow the steps to verify the certificate:
+
+1. Run **certlm.msc**
+2. In the management console expand the Personal container and click on Certificates
+3. Locate the certificate issued by **connectorregistrationca.msappproxy.net**
+
+- **true** - The automatically renewed certificate is stored in the personal container in the user certificate store of the Network Service. 
+
+Follow the steps to verify the certificate:
+
+1. Download [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
+2. Extract [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) from the package and run **psexec -i -u "nt authority\network service" cmd.exe** from an elevated command prompt.
+3. Run **certmgr.msc** in the newly appeared command prompt
+2. In the management console expand the Personal container and click on Certificates
+3. Locate the certificate issued by **connectorregistrationca.msappproxy.net**
+
+**To renew the client certificate:**
+
+If a connector is not connected to the service for several months, its certificates may be outdated. The failure of the certificate renewal leads to an expired certificate. This makes the connector service to stop working. The event 1000 is recorded in the admin log of the connector:
+
+"Connector re-registration failed: The Connector trust certificate expired. Run the PowerShell cmdlet Register-AppProxyConnector on the computer on which the Connector is running to re-register your Connector."
+
+In this case, uninstall and reinstall the connector to trigger registration or you can run the following PowerShell commands:
+
+```
+Import-module AppProxyPSModule
+Register-AppProxyConnector
+```
+
+To learn more about the Register-AppProxyConnector command, please see [Create an unattended installation script for the Azure AD Application Proxy connector](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-register-connector-powershell)
 
 ## Verify admin is used to install the connector
 
@@ -68,9 +115,9 @@ When the installation of a connector fails, the root cause is usually one of the
 
 **To verify the credentials are correct:**
 
-Connect to <https://login.microsoftonline.com> and use the same credentials. Make sure the login is successful. You can check the user role by going to **Azure Active Directory** -&gt; **Users and Groups** -&gt; **All Users**. 
+Connect to `https://login.microsoftonline.com` and use the same credentials. Make sure the login is successful. You can check the user role by going to **Azure Active Directory** -&gt; **Users and Groups** -&gt; **All Users**. 
 
-Select your user account, then “Directory Role” in the resulting menu. Verify that the selected role is "Application Administrator". If you are unable to access any of the pages along these steps, you do not have the required role.
+Select your user account, then "Directory Role" in the resulting menu. Verify that the selected role is "Application Administrator". If you are unable to access any of the pages along these steps, you do not have the required role.
 
 ## Next steps
 [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)

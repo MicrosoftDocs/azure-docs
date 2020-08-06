@@ -1,13 +1,14 @@
 ---
 title: Maintenance notifications for virtual machine scale sets in Azure
 description: View maintenance notifications and start self-service maintenance for virtual machine scale sets in Azure.
-author: shants123
-tags: azure-service-management,azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 08/20/2019
-ms.author: shants
+ms.reviewer: jushiman
+ms.custom: mimckitt
 
 ---
 
@@ -107,7 +108,7 @@ After you start maintenance, the affected VMs in your virtual machine scale set 
  
 ## Check maintenance status by using PowerShell
 
-You can use Azure PowerShell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available by using the [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) cmdlet when you use the `-InstanceView` parameter.
+You can use Azure PowerShell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available by using the [Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet when you use the `-InstanceView` parameter.
  
 Maintenance information is returned only if maintenance is planned. If no maintenance is scheduled that affects the VM instance, the cmdlet doesn't return any maintenance information. 
 
@@ -142,7 +143,7 @@ You can view planned maintenance information by using [az vmss list-instances](/
  
 Maintenance information is returned only if maintenance is planned. If no maintenance that affects the VM instance is scheduled, the command doesn't return any maintenance information. 
 
-```azure-cli
+```azurecli
 az vmss list-instances -g rgName -n vmssName --expand instanceView
 ```
 
@@ -162,7 +163,7 @@ The following properties are returned under **MaintenanceRedeployStatus** for ea
 
 The following call initiates maintenance on a VM instance if `IsCustomerInitiatedMaintenanceAllowed` is set to **true**:
 
-```azure-cli
+```azurecli
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 ```
 
@@ -176,7 +177,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **A:** Virtual machines deployed in an availability set or in virtual machine scale sets use update domains. When performing maintenance, Azure honors the update domain constraint and doesn't reboot VMs from a different update domain (within the same availability set). Azure also waits for at least 30 minutes before moving to the next group of VMs. 
 
-For more information about high availability, see [Regions and availability for virtual machines in Azure](../virtual-machines/windows/availability.md).
+For more information about high availability, see [Regions and availability for virtual machines in Azure](../virtual-machines/availability.md).
 
 **Q: How can I be notified about planned maintenance?**
 

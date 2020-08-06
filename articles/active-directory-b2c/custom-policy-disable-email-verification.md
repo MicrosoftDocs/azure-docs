@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -24,14 +24,17 @@ Complete the steps in [Get started with custom policies](custom-policy-get-start
 
 ## Add the metadata to the self-asserted technical profile
 
-The **LocalAccountSignUpWithLogonEmail** technical profile is a [self-asserted](self-asserted-technical-profile.md), which is invoked during the sign-up flow. To disable the email verification, set the `EnforceEmailVerification` metadata to false. Override the LocalAccountSignUpWithLogonEmail technical profiles in the extension file. Find the `ClaimsProviders` element. Add the following claims provider to the `ClaimsProviders` element:
+The **LocalAccountSignUpWithLogonEmail** technical profile is a [self-asserted](self-asserted-technical-profile.md), which is invoked during the sign-up flow. To disable the email verification, set the `EnforceEmailVerification` metadata to false. Override the LocalAccountSignUpWithLogonEmail technical profiles in the extension file. 
 
+1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
+1. Find the `ClaimsProviders` element. If the element doesn't exist, add it.
+1. Add the following claims provider to the `ClaimsProviders` element:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
       <Metadata>
         <Item Key="EnforceEmailVerification">false</Item>
       </Metadata>

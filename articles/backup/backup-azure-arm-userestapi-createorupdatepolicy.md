@@ -127,7 +127,7 @@ The policy says:
 
 ## Responses
 
-The backup policy creation/update is a [asynchronous operation](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). It means this operation creates another operation that needs to be tracked separately.
+The backup policy creation/update is a [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
 It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
 

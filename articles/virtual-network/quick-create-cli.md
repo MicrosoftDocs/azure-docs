@@ -1,7 +1,7 @@
 ---
 title: Create a virtual network - quickstart - Azure CLI
 titlesuffix: Azure Virtual Network
-description: In this quickstart, you learn to create a virtual network using the Azure CLI. A virtual network lets Azure resources, like virtual machines, communicate privately with each other, and with the internet.
+description: In this quickstart, learn to create a virtual network using the Azure CLI. A virtual network lets Azure resources communicate with each other and with the internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -12,7 +12,8 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 01/22/2019
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create a virtual network using the Azure CLI
@@ -75,7 +76,7 @@ az vm create \
 
 The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI returns output like this:
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm2",

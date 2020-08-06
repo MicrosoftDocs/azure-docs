@@ -4,20 +4,20 @@ description: Learn how to create a Front Door with redirected traffic from HTTP 
 services: front-door
 author: sharad4u
 ms.service: frontdoor
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
 
 ---
 # Create a Front Door with HTTP to HTTPS redirection using the Azure portal
 
-You can use the Azure portal to create a [Front Door](front-door-overview.md) with a certificate for SSL termination. A routing rule is used to redirect HTTP traffic to HTTPS.
+You can use the Azure portal to create a [Front Door](front-door-overview.md) with a certificate for TLS termination. A routing rule is used to redirect HTTP traffic to HTTPS.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Front Door with an existing Web App resource
-> * Add a custom domain with SSL certificate 
+> * Add a custom domain with TLS/SSL certificate 
 > * Setup HTTPS redirect on the custom domain
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. Click **Create a resource** found on the upper left-hand corner of the Azure portal.
 3. Search for **Front Door** using the search bar and once you find the resource type, click **Create**.
-4. Choose a subscription and then either use an existing resource group or create a new one. Note, the location asked in the UI is for the resource group only. Your Front Door configuration will get deployed across all of [Azure Front Door's POP locations](https://docs.microsoft.com/azure/frontdoor/front-door-faq#what-are-the-pop-locations-for-azure-front-door-service).
+4. Choose a subscription and then either use an existing resource group or create a new one. Note, the location asked in the UI is for the resource group only. Your Front Door configuration will get deployed across all of [Azure Front Door's POP locations](front-door-faq.md#what-are-the-pop-locations-for-azure-front-door).
 
     ![Configure basics for new Front Door](./media/front-door-url-redirect/front-door-create-basics.png)
 
@@ -83,7 +83,7 @@ After you add the CNAME, the DNS records page looks like the following example:
 ### Enable HTTPS on your custom domain
 
 1. Click on the custom domain that was added and under the section **Custom domain HTTPS**, change the status to **Enabled**.
-2. You can leave the **Certificate management type** set to _Front Door managed_ for the free certificate maintained, managed, and autorotated by Front Door. You can also choose to use your own custom SSL certificate stored with Azure Key Vault. This tutorial assumes that the use of Front Door managed certificate.
+2. You can leave the **Certificate management type** set to _Front Door managed_ for the free certificate maintained, managed, and autorotated by Front Door. You can also choose to use your own custom TLS/SSL certificate stored with Azure Key Vault. This tutorial assumes that the use of Front Door managed certificate.
 ![Enabling HTTPS for custom domain](./media/front-door-url-redirect/front-door-custom-domain-https.png)
 
 3. Click on **Update** to save the selection and then click **Save**.

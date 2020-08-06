@@ -47,6 +47,7 @@ Run the recovery plan failover as follows:
 4. In **Failover**, select a **Recovery Point** to which to fail over.
 
     - **Latest**: Use the latest point. This processes all the data that's been sent to Site Recovery service, and creates a recovery point for each machine. This option provides the lowest RPO (Recovery Point Objective) because the VM created after failover has all the data that's been replicated to Site Recovery when the failover was triggered.
+    Please note that when the source region goes down, there is no more log processing possible. So, you will have to failover to Latest Processed recovery point. See the next point to understand more.
    - **Latest processed**: Use this option to fail over VMs to the latest recovery point already processed by Site Recovery. You can see the latest processed recovery point in the VM **Latest Recovery Points**. This option provides a low RTO as no time is spent to processing the unprocessed data
    - **Latest app-consistent**: Use this option to fail VMs over to the latest application consistent recovery point that's been processed by Site Recovery.
    - **Latest multi-VM processed**:  With this option VMs that are part of a replication group failover to the latest common multi-VM consistent recovery point. Other virtual machines fail over to their latest processed recovery point. This option is only for recovery plans that have at least one VM with multi-VM consistency enabled.
@@ -106,7 +107,7 @@ In some cases, VM failover requires intermediate step that usually takes around 
 You might want to automate actions during failover. To do this, you can use scripts or Azure automation runbooks in recovery plans.
 
 - [Learn](site-recovery-create-recovery-plans.md) about creating and customizing recovery plans, including adding scripts.
-- [Learn](site-recovery-runbook-automation.md) abut adding Azure Automation runbooks to recovery plans.
+- [Learn](site-recovery-runbook-automation.md) about adding Azure Automation runbooks to recovery plans.
 
 
 ## Configure settings after failover

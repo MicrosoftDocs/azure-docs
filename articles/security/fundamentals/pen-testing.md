@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2018
-ms.author: barclayn
+ms.author: terrylan
 
 ---
 # Penetration Testing
@@ -37,8 +37,6 @@ Standard tests you can perform include:
 * Tests on your endpoints to uncover the [Open Web Application Security Project (OWASP) top 10 vulnerabilities](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
 * [Fuzz testing](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) of your endpoints
 * [Port scanning](https://en.wikipedia.org/wiki/Port_scanner) of your endpoints
-
-One type of test that you can’t perform is any kind of [Denial of Service (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) attack. This includes initiating a DoS attack itself, or performing related tests that might determine, demonstrate or simulate any type of DoS attack.
 
 ## Next steps
 

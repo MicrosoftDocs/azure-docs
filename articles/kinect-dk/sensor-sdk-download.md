@@ -23,7 +23,7 @@ This page has the download links for each version of the Azure Kinect Sensor SDK
 
 ## Windows download link
 
-[Microsoft installer](https://download.microsoft.com/download/e/6/6/e66482b2-b6c1-4e34-bfee-95294163fc40/Azure%20Kinect%20SDK%201.3.0.exe) | [GitHub source code](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/800)
+[Microsoft installer](https://download.microsoft.com/download/3/d/6/3d6d9e99-a251-4cf3-8c6a-8e108e960b4b/Azure%20Kinect%20SDK%201.4.1.exe) | [GitHub source code](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/issues/1093)
 
 > [!NOTE]
 > When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect SDK 1.2". You will find the tools referenced in articles in this path.

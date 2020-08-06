@@ -9,7 +9,8 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.workload: infrastructure
 ms.date: 06/14/2018
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI script example: Load balance VMs across availability zones
@@ -45,7 +46,7 @@ This Azure CLI script example creates everything needed to run several Ubuntu vi
 
   # Create an Azure Load Balancer.
    az network lb create \
-    --resource-group myResourceGroupLB \
+    --resource-group myResourceGroup \
     --name myLoadBalancer \
     --public-ip-address myPublicIP \
     --frontend-ip-name myFrontEndPool \

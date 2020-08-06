@@ -33,7 +33,7 @@ This ability to specify different filters on your stream provides a powerful **D
 
 ## Overview of manifests
 
-Azure Media Services supports HLS, MPEG DASH, and Smooth Streaming protocols. As part of [Dynamic Packaging](dynamic-packaging-overview.md), the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description [MPD], and Smooth Streaming) are dynamically generated based on the format selector in the URL. For more information, see the delivery protocols in [Common on-demand workflow](dynamic-packaging-overview.md#delivery-protocols).
+Azure Media Services supports HLS, MPEG DASH, and Smooth Streaming protocols. As part of [Dynamic Packaging](dynamic-packaging-overview.md), the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description [MPD], and Smooth Streaming) are dynamically generated based on the format selector in the URL. For more information, see the delivery protocols in [Common on-demand workflow](dynamic-packaging-overview.md#to-prepare-your-source-files-for-delivery).
 
 ### Get and examine manifest files
 

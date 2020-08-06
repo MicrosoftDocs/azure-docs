@@ -5,7 +5,7 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
@@ -15,6 +15,22 @@ ms.collection: M365-identity-device-management
 
 # Azure AD Connect:  ADSyncTools PowerShell Reference
 The following documentation provides reference information for the ADSyncTools.psm1 PowerShell Module that is included with Azure AD Connect.
+
+## Install the ADSyncTools PowerShell Module
+To install the ADSyncTools PowerShell Module do the following:
+
+1.  Open Windows PowerShell with administrative priviledges
+2.  Type or copy and paste the following: 
+	``` powershell
+	Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
+	```
+3.  Hit enter.
+4.  To verify the module was installed, enter or copy and paste the following"
+	```powershell
+	Get-module AdSyncTools
+	```
+5.  You should now see information about the module.
+
 
 ## Clear-ADSyncToolsConsistencyGuid
 

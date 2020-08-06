@@ -1,13 +1,13 @@
 ---
 title: Create, change, or delete an Azure virtual network
 titlesuffix: Azure Virtual Network
-description: Learn how to create, change, or delete a virtual network in Azure.
+description: Create and delete a virtual network and change settings, like DNS servers and IP address spaces, for an existing virtual network.
 services: virtual-network
 documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
@@ -175,4 +175,4 @@ To perform tasks on virtual networks, your account must be assigned to the [netw
 ## Next steps
 
 - Create a virtual network using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or using Azure [Resource Manager templates](template-samples.md)
-- Create and apply [Azure policy](policy-samples.md) for virtual networks
+- Create and assign [Azure Policy definitions](policy-samples.md) for virtual networks

@@ -24,10 +24,10 @@ Security Center continuously analyzes your hybrid cloud workloads using advanced
 > * Investigate further to determine the root cause and scope of a security incident
 > * Search security data to aid in investigation
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
-To step through the features covered in this tutorial, you must be on Security Center’s Standard pricing tier. You can try Security Center Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through how to upgrade to Standard.
+To step through the features covered in this tutorial, you must be on Security Center's standard pricing tier. You can try Security Center Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through how to upgrade to Standard.
 
 ## Scenario
 Contoso recently migrated some of their on-premises resources to Azure, including some virtual machine-based line-of-business workloads and SQL databases. Currently, Contoso's Core Computer Security Incident Response Team (CSIRT) has a problem investigating security issues because of security intelligence not being integrated with their current incident response tools. This lack of integration introduces a problem during the Detect stage (too many false positives), as well as during the Assess and Diagnose stages. As part of this migration, they decided to opt in for Security Center to help them address this problem.
@@ -82,7 +82,7 @@ Security Center provides a unified view of all security alerts. Security alerts 
 
    ![Investigation](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
 
-   The investigation map is a graphical representation of the entities that are connected to this security alert or incident. By clicking on an entity in the map, the information about that entity will show new entities, and the map expands. The entity that is selected in the map has its properties highlighted in the pane on the right side of the page. The information available on each tab will vary according to the selected entity. During the investigation process, review all relevant information to better understand the attacker’s movement.
+   The investigation map is a graphical representation of the entities that are connected to this security alert or incident. By clicking on an entity in the map, the information about that entity will show new entities, and the map expands. The entity that is selected in the map has its properties highlighted in the pane on the right side of the page. The information available on each tab will vary according to the selected entity. During the investigation process, review all relevant information to better understand the attacker's movement.
 
 2. If you need more evidence, or must further investigate entities that were found during the investigation, proceed to the next step.
 
@@ -93,12 +93,13 @@ You can use search capabilities in Security Center to find more evidence of comp
 To perform a search open the **Security Center** dashboard, click **Search** in the left navigation pane, select the workspace that contains the entities that you want to search, type the search query, and click the search button.
 
 ## Clean up resources
-Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the Standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
+
+Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
 
 1. Return to the Security Center main menu and select **Security Policy**.
 2. Select the subscription or policy that you want to return to Free. **Security policy** opens.
 3. Under **POLICY COMPONENTS**, select **Pricing tier**.
-4. Select **Free** to change subscription from Standard tier to Free tier.
+4. Select **Free** to change subscription from standard tier to Free tier.
 5. Select **Save**.
 
 If you wish to disable automatic provisioning:
@@ -109,7 +110,7 @@ If you wish to disable automatic provisioning:
 4. Select **Save**.
 
 >[!NOTE]
-> Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
+> Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
 >
 
 ## Next steps
@@ -119,8 +120,3 @@ In this tutorial, you learned about Security Center features to be used when res
 > * Security incident which is an aggregation of related alerts for a resource
 > * Investigation map which is a graphical representation of the entities connected to a security alert or incident
 > * Search capabilities to find more evidence of compromised systems
-
-To learn more about Security Center's investigation feature see:
-
-> [!div class="nextstepaction"]
-> [Investigate incidents and alerts](security-center-investigation.md)

@@ -37,7 +37,7 @@ The source machine registers with the configuration server when you install the 
     3. Ensure that the folders listed in [Site Recovery folder exclusions from antivirus programs](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) are excluded from the antivirus software.
     4. When network issues are resolved, retry the registration by following the guidelines in [Register the source machine with the configuration server](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-6. If the string **post request: (7) - Couldn't connect to server** isn't found, in the same log file, look for the string **request: (60) - Peer certificate cannot be authenticated with given CA certificates**. This error might occur because the configuration server certificate has expired or the source machine doesn't support TLS 1.0 or later SSL protocols. It also might occur if a firewall blocks SSL communication between the source machine and the configuration server. If the string is found: 
+6. If the string **post request: (7) - Couldn't connect to server** isn't found, in the same log file, look for the string **request: (60) - Peer certificate cannot be authenticated with given CA certificates**. This error might occur because the configuration server certificate has expired or the source machine doesn't support TLS 1.0 or later protocols. It also might occur if a firewall blocks TLS communication between the source machine and the configuration server. If the string is found: 
     1. To resolve, connect to the configuration server IP address by using a web browser on the source machine. Use the URI https:\/\/<configuration server IP address\>:443/. Ensure that the source machine can reach the configuration server through port 443.
     2. Check whether any firewall rules on the source machine need to be added or removed for the source machine to talk to the configuration server. Because of the variety of firewall software that might be in use, we can't list all required firewall configurations. Work with your network admins to unblock any connection issues.
     3. Ensure that the folders listed in [Site Recovery folder exclusions from antivirus programs](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) are excluded from the antivirus software.  
@@ -48,6 +48,8 @@ The source machine registers with the configuration server when you install the 
     b. Open the Installation_Directory/Vx/bin/uninstall.sh file and comment out the call to the **stop_services** function.
     c. Open the Installation_Directory/Fx/uninstall.sh file and comment out the entire section that's trying to stop the Fx service.
     d. [Uninstall](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) the mobility agent. After successful uninstallation, reboot the system, and then try to reinstall the mobility agent.
+
+8. Ensure that multi-factor authentication is not enabled for user account. Azure Site Recovery does not support multi-factor authentication for user account as of now. Register the configuration server without multi-factor authentication enabled user account.  
 
 ## Installation failure: Failed to load accounts
 
@@ -158,16 +160,18 @@ The configuration server upgrade fails when certain services do not stop.
 
 To identify the issue, navigate to C:\ProgramData\ASRSetupLogs\CX_TP_InstallLogFile on the configuration server. If you find following errors, use the steps below to resolve the issue: 
 
-	2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
-	2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
-	2018-06-28 14:28:12.944   Stopping svagents service.
-	2018-06-28 14:31:32.949   Unable to stop svagents service.
-	2018-06-28 14:31:32.949   Stopping svagents service.
-	2018-06-28 14:34:52.960   Unable to stop svagents service.
-	2018-06-28 14:34:52.960   Stopping svagents service.
-	2018-06-28 14:38:12.971   Unable to stop svagents service.
-	2018-06-28 14:38:12.971   Rolling back the install changes.
-	2018-06-28 14:38:12.971   Upgrade has failed.
+```output
+2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
+2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
+2018-06-28 14:28:12.944   Stopping svagents service.
+2018-06-28 14:31:32.949   Unable to stop svagents service.
+2018-06-28 14:31:32.949   Stopping svagents service.
+2018-06-28 14:34:52.960   Unable to stop svagents service.
+2018-06-28 14:34:52.960   Stopping svagents service.
+2018-06-28 14:38:12.971   Unable to stop svagents service.
+2018-06-28 14:38:12.971   Rolling back the install changes.
+2018-06-28 14:38:12.971   Upgrade has failed.
+```
 
 To resolve the issue:
 
@@ -189,7 +193,7 @@ You have insufficient permissions to create an application in Azure Active Direc
 To resolve the issue, sign in to the Azure portal and do one of the following:
 
 - Request the Application Developer role in AAD. For more information on the Application Developer role, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Verify that the **User can create application** flag is set to *true* in AAD. For more information, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Verify that the **User can create application** flag is set to *true* in AAD. For more information, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## Process server/Master Target are unable to communicate with the configuration server 
 
@@ -207,8 +211,10 @@ TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // Replace IP with
 
 If you find traces similar to the following in the MT agent logs, the MT Agent is reporting errors on port 443:
 
-    #~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
-    #~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+```output
+#~> (11-20-2018 20:31:51):   ERROR  2508 8408 313 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+#~> (11-20-2018 20:31:54):   ERROR  2508 8408 314 FAILED : PostToSVServer with error [at curlwrapper.cpp:CurlWrapper::processCurlResponse:212]   failed to post request: (7) - Couldn't connect to server
+```
  
 This error can be encountered when other applications are also using port 443 or due to a firewall setting blocking the port.
 

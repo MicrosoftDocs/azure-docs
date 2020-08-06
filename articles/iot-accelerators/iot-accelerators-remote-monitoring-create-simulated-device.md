@@ -8,6 +8,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
+ms.custom:  mqtt, devx-track-javascript
 
 # As a developer, I want to know how to create and test a new simulated device before I deploy it to the cloud.
 ---
@@ -69,7 +70,7 @@ The following table shows the initial status of the device:
 
 To complete the steps in this how-to guide, you need an active Azure subscription.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

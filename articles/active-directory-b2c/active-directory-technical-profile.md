@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/09/2020
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -37,7 +37,7 @@ Following [custom policy starter pack](custom-policy-get-started.md#custom-polic
 
 The following example shows the **AAD-Common** technical profile:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-Common">
   <DisplayName>Azure Active Directory</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -92,7 +92,7 @@ The **PersistedClaims** element contains all of the values that should be persis
 
 The **AAD-UserWriteUsingLogonEmail** technical profile, which creates new local account, persists following claims:
 
-```XML
+```xml
   <PersistedClaims>
     <!-- Required claims -->
     <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
@@ -111,6 +111,7 @@ The name of the claim is the name of the Azure AD attribute unless the **Partner
 ## Requirements of an operation
 
 - There must be exactly one **InputClaim** element in the claims bag for all Azure AD technical profiles.
+- The [user profile attributes article](user-profile-attributes.md) describes the supported Azure AD B2C user profile attributes you can use in the input claims, output claims, and persisted claims. 
 - If the operation is `Write` or `DeleteClaims`, then it must also appear in a **PersistedClaims** element.
 - The value of the **userPrincipalName** claim must be in the format of `user@tenant.onmicrosoft.com`.
 - The **displayName** claim is required and cannot be an empty string.
@@ -121,7 +122,7 @@ The name of the claim is the name of the Azure AD attribute unless the **Partner
 
 The **Read** operation reads data about a single user account. The following technical profile reads data about a user account using the user's objectId:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingObjectId">
   <Metadata>
     <Item Key="Operation">Read</Item>
@@ -151,7 +152,7 @@ The **Read** operation reads data about a single user account. The following tec
 
 The **Write** operation creates or updates a single user account. The following technical profile creates new social account:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">Write</Item>
@@ -191,7 +192,7 @@ The **Write** operation creates or updates a single user account. The following 
 
 The **DeleteClaims** operation clears the information from a provided list of claims. The following technical profile deletes claims:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteClaimsUsingObjectId">
   <Metadata>
     <Item Key="Operation">DeleteClaims</Item>
@@ -212,7 +213,7 @@ The **DeleteClaims** operation clears the information from a provided list of cl
 
 The **DeleteClaimsPrincipal** operation deletes a single user account from the directory. The following technical profile deletes a user account from the directory using the user principal name:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteUserUsingObjectId">
   <Metadata>
     <Item Key="Operation">DeleteClaimsPrincipal</Item>
@@ -227,7 +228,7 @@ The **DeleteClaimsPrincipal** operation deletes a single user account from the d
 
 The following technical profile deletes a social user account using **alternativeSecurityId**:
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-DeleteUserUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">DeleteClaimsPrincipal</Item>
@@ -250,7 +251,7 @@ The following technical profile deletes a social user account using **alternativ
 | ClientId | No | The client identifier for accessing the tenant as a third party. For more information, see [Use custom attributes in a custom profile edit policy](custom-policy-custom-attributes.md) |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 
-### Error messages
+### UI elements
  
 The following settings can be used to configure the error message displayed upon failure. The metadata should be configured in the [self-asserted](self-asserted-technical-profile.md) technical profile. The error messages can be [localized](localization.md).
 

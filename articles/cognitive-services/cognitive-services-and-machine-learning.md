@@ -3,12 +3,10 @@ title: Cognitive Services and Machine Learning
 titleSuffix: Azure Cognitive Services
 description: Learn where Azure Cognitive Services fits in with other Azure offerings for machine learning.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.author: diberry
 ---
 # Cognitive Services and machine learning
 
@@ -67,7 +65,7 @@ Cognitive Services, as a group of services, can require none, some, or all custo
 
 ### No additional training data required
 
-Services that provide a fully-trained model can be treated as a _black box_. You don't need to know how they work or what data was used to train them. You bring your data to a fully trained model to get a prediction. 
+Services that provide a fully-trained model can be treated as a _opaque box_. You don't need to know how they work or what data was used to train them. You bring your data to a fully trained model to get a prediction. 
 
 ### Some or all training data required
 
@@ -102,8 +100,8 @@ The following data categorizes each service by which kind of data it allows or r
 |[Speech Speech-to-text (STT)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
 |[Text Analytics](./text-analytics/overview.md)|x|||
-|[Translator Text](./translator/translator-info-overview.md)|x|||
-|[Translator Text - custom translator](./translator/custom-translator/overview.md)||x||
+|[Translator](./translator/translator-info-overview.md)|x|||
+|[Translator - custom translator](./translator/custom-translator/overview.md)||x||
 
 *Personalizer only needs training data collected by the service (as it operates in real-time) to evaluate your policy and data. Personalizer does not need large historical datasets for up-front or batch training. 
 
@@ -133,7 +131,7 @@ Cognitive Services that provide exported models for other machine learning tools
 ## Next steps
 
 * Create your Cognitive Service account in the [Azure portal](cognitive-services-apis-create-account.md) or with [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
-* Learn how to [authenticate](authentication.md) to an Cognitive Service.
+* Learn how to [authenticate](authentication.md) to a Cognitive Service.
 * Use [diagnostic logging](diagnostic-logging.md) for issue identification and debugging. 
 * Deploy a Cognitive Service in a Docker [container](cognitive-services-container-support.md).
 * Keep up to date with [service updates](https://azure.microsoft.com/updates/?product=cognitive-services).

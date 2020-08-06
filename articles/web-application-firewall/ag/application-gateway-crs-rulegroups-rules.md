@@ -35,6 +35,9 @@ The WAF protects against the following web vulnerabilities:
 
 CRS 3.1 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
+> [!NOTE]
+> CRS 3.1 is only available on the WAF_v2 SKU.
+
 |Rule group|Description|
 |---|---|
 |**[General](#general-31)**|General group|
@@ -213,6 +216,7 @@ The following rule groups and rules are available when using Web Application Fir
 |932120|Remote Command Execution = Windows PowerShell Command Found|
 |932130|Remote Command Execution = Unix Shell Expression Found|
 |932140|Remote Command Execution = Windows FOR/IF Command Found|
+|932150|Remote Command Execution: Direct Unix Command Execution|
 |932160|Remote Command Execution = Unix Shell Code Found|
 |932170|Remote Command Execution = Shellshock (CVE-2014-6271)|
 |932171|Remote Command Execution = Shellshock (CVE-2014-6271)|
@@ -276,6 +280,7 @@ The following rule groups and rules are available when using Web Application Fir
 |---|---|
 |942100|SQL Injection Attack Detected via libinjection|
 |942110|SQL Injection Attack: Common Injection Testing Detected|
+|942120|SQL Injection Attack: SQL Operator Detected|
 |942130|SQL Injection Attack: SQL Tautology Detected.|
 |942140|SQL Injection Attack = Common DB Names Detected|
 |942150|SQL Injection Attack|

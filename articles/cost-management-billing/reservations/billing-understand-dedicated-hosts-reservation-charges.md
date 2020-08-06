@@ -1,13 +1,9 @@
 ---
-title: Understand Azure Dedicated Hosts Reserved Instances discount | Microsoft Docs
+title: Understand Azure Dedicated Hosts Reserved Instances discount
 description: Learn how Azure Reserved VM Instance discount is applied to Azure Dedicated Hosts.
 author: yashesvi
-manager: yashar
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/28/2020
 ms.author: banders
 ---
@@ -27,7 +23,7 @@ can't carry forward unused reserved hours.
 
 When you delete a dedicated host, the reservation discount automatically applies
 to another matching resource in the specified scope. If no matching resources
-are found in the specified scope, then the reserved hours are *lost*.
+are found in the specified scope, then the reserved hours are *lost*.
 
 ## Reservation discount for Dedicated Hosts
 

@@ -5,12 +5,12 @@ description: Learn how to use Azure Machine Learning to deploy a model to a Web 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/27/2019
-
+ms.date: 06/23/2020
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 
 ---
 
@@ -26,7 +26,7 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 
 * Advanced [authentication](/azure/app-service/configure-authentication-provider-aad) for enhanced security. Authentication methods include both Azure Active Directory and multi-factor auth.
 * [Autoscale](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json) without having to redeploy.
-* [SSL support](/azure/app-service/configure-ssl-certificate-in-code) for secure communications between clients and the service.
+* [TLS support](/azure/app-service/configure-ssl-certificate-in-code) for secure communications between clients and the service.
 
 For more information on features provided by Azure App Service, see the [App Service overview](/azure/app-service/overview).
 
@@ -111,14 +111,14 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-When `show_output=True`, the output of the Docker build process is shown. Once the process finishes, the image has been created in the Azure Container Registry for your workspace. Once the image has been built, the location in your Azure Container Registry is displayed. The location returned is in the format `<acrinstance>.azurecr.io/package:<imagename>`. For example, `myml08024f78fd10.azurecr.io/package:20190827151241`.
+When `show_output=True`, the output of the Docker build process is shown. Once the process finishes, the image has been created in the Azure Container Registry for your workspace. Once the image has been built, the location in your Azure Container Registry is displayed. The location returned is in the format `<acrinstance>.azurecr.io/package@sha256:<imagename>`. For example, `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
 
 > [!IMPORTANT]
 > Save the location information, as it is used when deploying the image.
 
 ## Deploy image as a web app
 
-1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<acrinstance>` with th e value returned previously from `package.location`:
+1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<acrinstance>` with the value returned previously from `package.location`:
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -159,7 +159,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 1. To create the web app, use the following command. Replace `<app-name>` with the name you want to use. Replace `<acrinstance>` and `<imagename>` with the values from returned `package.location` earlier:
 
     ```azurecli-interactive
-    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
+    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package@sha256:<imagename>
     ```
 
     This command returns information similar to the following JSON document:
@@ -188,7 +188,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 1. To provide the web app with the credentials needed to access the container registry, use the following command. Replace `<app-name>` with the name you want to use. Replace `<acrinstance>` and `<imagename>` with the values from returned `package.location` earlier. Replace `<username>` and `<password>` with the ACR login information retrieved earlier:
 
     ```azurecli-interactive
-    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
+    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package@sha256:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
     ```
 
     This command returns information similar to the following JSON document:
@@ -217,7 +217,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     },
     {
         "name": "DOCKER_CUSTOM_IMAGE_NAME",
-        "value": "DOCKER|myml08024f78fd10.azurecr.io/package:20190827195524"
+        "value": "DOCKER|myml08024f78fd10.azurecr.io/package@sha256:20190827195524"
     }
     ]
     ```
@@ -268,6 +268,6 @@ print(response.json())
 
 * Learn to configure your Web App in the [App Service on Linux](/azure/app-service/containers/) documentation.
 * Learn more about scaling in [Get started with Autoscale in Azure](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json).
-* [Use an SSL certificate in your Azure App Service](/azure/app-service/configure-ssl-certificate-in-code).
+* [Use a TLS/SSL certificate in your Azure App Service](/azure/app-service/configure-ssl-certificate-in-code).
 * [Configure your App Service app to use Azure Active Directory sign-in](/azure/app-service/configure-authentication-provider-aad).
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)

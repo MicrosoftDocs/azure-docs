@@ -1,12 +1,8 @@
 ---
-title: Assess large numbers of VMware VMs for migration to Azure with Azure Migrate | Microsoft Docs
-description: Describes how to assess large numbers of VMware VMs for migration to Azure using the Azure Migrate service.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 07/12/2019
-ms.author: hamusa
+title: Assess large numbers of VMware VMs for migration to Azure with Azure Migrate 
+description: Describes how to assess large numbers of VMware VMs for migration to Azure using the Azure Migrate service.e
+ms.topic: how-to
+ms.date: 03/23/2020
 ---
 
 # Assess large numbers of VMware VMs for migration to Azure
@@ -33,8 +29,10 @@ When planning for assessment of large number of VMware VMs, there are a couple o
 
 - **Plan Azure Migrate projects**: Figure out how to deploy Azure Migrate projects. For example, if your data centers are in different geographies, or you need to store discovery, assessment or migration-related metadata in a different geography, you might need multiple projects. 
 - **Plan appliances**: Azure Migrate uses an on-premises Azure Migrate appliance, deployed as a VMware VM, to continually discover VMs. The appliance monitors environment changes such as adding VMs, disks, or network adapters. It also sends metadata and performance data about them to Azure. You need to figure out how many appliances you need to deploy.
-- **Plan accounts for discovery**: The Azure Migrate appliance uses an account with access to vCenter Server in order to discover VMs for assessment and migration. If you're discovering more than 10,000 VMs, set up multiple accounts.
+- **Plan accounts for discovery**: The Azure Migrate appliance uses an account with access to vCenter Server in order to discover VMs for assessment and migration. If you're discovering more than 10,000 VMs, set up multiple accounts as it is required there is no overlap among VMs discovered from any two appliances in a project. 
 
+> [!NOTE]
+> If you are setting up multiple appliances, ensure there is no overlap among the VMs on the vCenter accounts provided. A discovery with such an overlap is an unsupported scenario. If a VM is discovered by more than one appliance, this results in duplicates in discovery and in issues while enabling replication for the VM using the Azure portal in Server Migration.
 
 ## Planning limits
  
@@ -51,11 +49,12 @@ With these limits in mind, here are some example deployments:
 
 
 **vCenter server** | **VMs on server** | **Recommendation** | **Action**
----|---|---
+---|---|---|---
 One | < 10,000 | One Azure Migrate project.<br/> One appliance.<br/> One vCenter account for discovery. | Set up appliance, connect to vCenter Server with an account.
-One | > 10,000 | One Azure Migrate project.<br/> Multiple appliances.<br/> Multiple vCenter accounts. | Set up appliance for every 10,000 VMs.<br/><br/> Set up vCenter accounts, and divide inventory to limit access for an account to less than 10,000 VMs.<br/> Connect each appliance to vCenter server with an account.<br/> You can analyze dependencies across machines that are discovered with different appliances.
+One | > 10,000 | One Azure Migrate project.<br/> Multiple appliances.<br/> Multiple vCenter accounts. | Set up appliance for every 10,000 VMs.<br/><br/> Set up vCenter accounts, and divide inventory to limit access for an account to less than 10,000 VMs.<br/> Connect each appliance to vCenter server with an account.<br/> You can analyze dependencies across machines that are discovered with different appliances. <br/> <br/> Ensure there is no overlap among the VMs on the vCenter accounts provided. A discovery with such an overlap is an unsupported scenario. If a VM is discovered by more than one appliance, this results in a duplicates in discovery and in issues while enabling replication for the VM using the Azure portal in Server Migration.
 Multiple | < 10,000 |  One Azure Migrate project.<br/> Multiple appliances.<br/> One vCenter account for discovery. | Set up appliances, connect to vCenter Server with an account.<br/> You can analyze dependencies across machines that are discovered with different appliances.
-Multiple | > 10,000 | One Azure Migrate project.<br/> Multiple appliances.<br/> Multiple vCenter accounts. | If vCenter Server discovery < 10,000 VMs, set up an appliance for each vCenter Server.<br/><br/> If vCenter Server discovery > 10,000 VMs, set up an appliance for every 10,000 VMs.<br/> Set up vCenter accounts, and divide inventory to limit access for an account to less than 10,000 VMs.<br/> Connect each appliance to vCenter server with an account.<br/> You can analyze dependencies across machines that are discovered with different appliances.
+Multiple | > 10,000 | One Azure Migrate project.<br/> Multiple appliances.<br/> Multiple vCenter accounts. | If vCenter Server discovery < 10,000 VMs, set up an appliance for each vCenter Server.<br/><br/> If vCenter Server discovery > 10,000 VMs, set up an appliance for every 10,000 VMs.<br/> Set up vCenter accounts, and divide inventory to limit access for an account to less than 10,000 VMs.<br/> Connect each appliance to vCenter server with an account.<br/> You can analyze dependencies across machines that are discovered with different appliances. <br/><br/> Ensure there is no overlap among the VMs on the vCenter accounts provided. A discovery with such an overlap is an unsupported scenario. If a VM is discovered by more than one appliance, this results in a duplicates in discovery and in issues while enabling replication for the VM using the Azure portal in Server Migration.
+
 
 
 ## Plan discovery in a multi-tenant environment
@@ -64,7 +63,7 @@ If you're planning for a multi-tenant environment, you can scope the discovery o
 
 - You can set the appliance discovery scope to a vCenter Server datacenters, clusters or folder of clusters, hosts or folder of hosts, or individual VMs.
 - If your environment is shared across tenants and you want to discover each tenant separately, you can scope access to the vCenter account that the appliance uses for discovery. 
-    - You may want to scope by VM folders if the tenants share hosts. Azure Migrate can't discover VMs if the vCenter account has access granted at the vCenter VM folder level. If you are looking to scope your discovery by VM folders, you can do so by ensuring the vCenter account has read-only access assigned at a VM level. Learn more about scoping discovery [here](tutorial-assess-vmware.md#set-the-scope-of-discovery).
+    - You may want to scope by VM folders if the tenants share hosts. Azure Migrate can't discover VMs if the vCenter account has access granted at the vCenter VM folder level. If you are looking to scope your discovery by VM folders, you can do so by ensuring the vCenter account has read-only access assigned at a VM level. [Learn more](set-discovery-scope.md).
 
 ## Prepare for assessment
 

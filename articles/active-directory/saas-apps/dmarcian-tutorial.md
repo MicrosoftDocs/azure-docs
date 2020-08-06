@@ -82,29 +82,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-    | |
-	| -- |
-	| `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-	| `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-	| `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+    ```http
+    https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-    | |
-	|--|
-	| `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
-	| `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
-	| `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
+    ```http
+    https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/
+    https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/
+    https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/
+    ```
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
 	
-    | |
-	|--|
-	| `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
-	| `https://dmarcian-eu.com/login/<ACCOUNT_ID>` |
-	| `https://dmarciam-ap.com/login/<ACCOUNT_ID>` |
+    ```http
+    https://us.dmarcian.com/login/<ACCOUNT_ID>
+    https://dmarcian-eu.com/login/<ACCOUNT_ID>
+    https://dmarciam-ap.com/login/<ACCOUNT_ID>
+    ```
 	 
 	> [!NOTE] 
 	> These values are not real. You will update these values with the actual Identifier, Reply URL and Sign-On URL which is explained later in the tutorial.

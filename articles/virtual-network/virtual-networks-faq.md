@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/26/2020
 ms.author: kumud
 
 ---
@@ -50,8 +50,14 @@ You can use the following tools to create or configure a VNet:
 * A network configuration file (netcfg - for classic VNets only). See the [Configure a VNet using a network configuration file](virtual-networks-using-network-configuration-file.md) article.
 
 ### What address ranges can I use in my VNets?
-Any IP address range defined in [RFC 1918](https://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16. 
-You cannot add the following address ranges:
+We recommend that you use the address ranges enumerated in [RFC 1918](https://tools.ietf.org/html/rfc1918), which have been set aside by the IETF for private, non-routable address spaces:
+* 10.0.0.0 - 10.255.255.255  (10/8 prefix)
+* 172.16.0.0 - 172.31.255.255  (172.16/12 prefix)
+* 192.168.0.0 - 192.168.255.255 (192.168/16 prefix)
+
+Other address spaces may work but may have undesirable side effects.
+
+In addition, you cannot add the following address ranges:
 * 224.0.0.0/4 (Multicast)
 * 255.255.255.255/32 (Broadcast)
 * 127.0.0.0/8 (Loopback)
@@ -84,7 +90,7 @@ Yes. You can create a route table and associate it to a subnet. For more informa
 No. Multicast and broadcast are not supported.
 
 ### What protocols can I use within VNets?
-You can use TCP, UDP, and ICMP TCP/IP protocols within VNets. Unicast is supported within VNets, with the exception of Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68 / destination port UDP/67). Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. 
+You can use TCP, UDP, and ICMP TCP/IP protocols within VNets. Unicast is supported within VNets, with the exception of Dynamic Host Configuration Protocol (DHCP) via Unicast (source port UDP/68 / destination port UDP/67) and UDP source port 65330 which is reserved for the host. Multicast, broadcast, IP-in-IP encapsulated packets, and Generic Routing Encapsulation (GRE) packets are blocked within VNets. 
 
 ### Can I ping my default routers within a VNet?
 No.
@@ -225,7 +231,7 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/v
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
-- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/az.network) and [classic](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) deployment models.
+- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/az.network) and [classic](/powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0) deployment models.
 - The Azure command-line interface (CLI) to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) deployment models.  
 
 ## VNet peering
@@ -395,9 +401,8 @@ Azure Active Directory (Azure AD) doesn't support service endpoints natively. Co
 ### Are there any limits on how many VNet service endpoints I can set up from my VNet?
 There is no limit on the total number of VNet service endpoints in a virtual network. For an Azure service resource (such as an Azure Storage account), services may enforce limits on the number of subnets used for securing the resource. The following table shows some example limits: 
 
-|||
-|---|---|
 |Azure service|	Limits on VNet rules|
+|---|---|
 |Azure Storage|	100|
 |Azure SQL|	128|
 |Azure SQL Data Warehouse|	128|

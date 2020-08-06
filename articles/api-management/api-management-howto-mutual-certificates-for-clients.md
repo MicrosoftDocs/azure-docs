@@ -20,7 +20,7 @@ ms.author: apimpm
 
 API Management provides the capability to secure access to APIs (i.e., client to API Management) using client certificates. You can validate incoming certificate and check certificate properties against desired values using policy expressions.
 
-For information about securing access to the back-end service of an API using client certificates (i.e., API Management to backend), see [How to secure back-end services using client certificate authentication](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+For information about securing access to the back-end service of an API using client certificates (i.e., API Management to backend), see [How to secure back-end services using client certificate authentication](./api-management-howto-mutual-certificates.md)
 
 > [!IMPORTANT]
 > To receive and verify client certificates over HTTP/2 in the Developer, Basic, Standard, or Premium tiers you must turn on the "Negotiate client certificate" setting on the "Custom domains" blade as shown below.
@@ -95,5 +95,5 @@ The following example shows how to check the thumbprint of a client certificate 
 
 ## Next steps
 
--   [How to secure back-end services using client certificate authentication](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
--   [How to upload certificates](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+-   [How to secure back-end services using client certificate authentication](./api-management-howto-mutual-certificates.md)
+-   [How to upload certificates](./api-management-howto-mutual-certificates.md)

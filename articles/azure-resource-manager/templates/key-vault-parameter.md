@@ -6,7 +6,7 @@ ms.date: 01/06/2020
 ---
 # Use Azure Key Vault to pass secure parameter value during deployment
 
-Instead of putting a secure value (like a password) directly in your template or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/key-vault-overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you're deploying to.
+Instead of putting a secure value (like a password) directly in your template or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. The key vault can exist in a different subscription than the resource group you're deploying to.
 
 This article focuses on the scenario of passing a sensitive value in as a template parameter. It doesn't cover the scenario of setting a virtual machine property to the URL of a certificate in a Key Vault. For a quickstart template of that scenario, see [Install a certificate from Azure Key Vault on a Virtual Machine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows).
 
@@ -85,11 +85,11 @@ Set-AzKeyVaultAccessPolicy `
 
 For more information about creating key vaults and adding secrets, see:
 
-- [Set and retrieve a secret by using CLI](../../key-vault/quick-create-cli.md)
-- [Set and retrieve a secret by using Powershell](../../key-vault/quick-create-powershell.md)
-- [Set and retrieve a secret by using the portal](../../key-vault/quick-create-portal.md)
-- [Set and retrieve a secret by using .NET](../../key-vault/quick-create-net.md)
-- [Set and retrieve a secret by using Node.js](../../key-vault/quick-create-node.md)
+- [Set and retrieve a secret by using CLI](../../key-vault/secrets/quick-create-cli.md)
+- [Set and retrieve a secret by using PowerShell](../../key-vault/secrets/quick-create-powershell.md)
+- [Set and retrieve a secret by using the portal](../../key-vault/secrets/quick-create-portal.md)
+- [Set and retrieve a secret by using .NET](../../key-vault/secrets/quick-create-net.md)
+- [Set and retrieve a secret by using Node.js](../../key-vault/secrets/quick-create-node.md)
 
 ## Grant access to the secrets
 
@@ -157,7 +157,7 @@ The following template deploys a SQL server that includes an administrator passw
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminLogin": {
@@ -195,7 +195,7 @@ In the following parameter file, the key vault secret must already exist, and yo
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "adminLogin": {
@@ -229,7 +229,7 @@ Deploy the template and pass in the parameter file:
 
 ```azurecli-interactive
 az group create --name SqlGroup --location westus2
-az group deployment create \
+az deployment group create \
   --resource-group SqlGroup \
   --template-uri <template-file-URI> \
   --parameters <parameter-file>
@@ -261,7 +261,7 @@ The following template dynamically creates the key vault ID and passes it as a p
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "location": {
@@ -308,7 +308,7 @@ The following template dynamically creates the key vault ID and passes it as a p
           "scope": "inner"
         },
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "adminLogin": {
@@ -369,5 +369,5 @@ The following template dynamically creates the key vault ID and passes it as a p
 
 ## Next steps
 
-- For general information about key vaults, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md).
+- For general information about key vaults, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
 - For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

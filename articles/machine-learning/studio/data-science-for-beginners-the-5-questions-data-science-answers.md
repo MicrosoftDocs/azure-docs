@@ -1,6 +1,5 @@
 ---
-title: Data Science for Beginners
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Data Science for Beginners - Azure'
 description: Data Science for Beginners is teaches basic concepts in 5 short videos, starting with The 5 Questions Data Science Answers. From Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -13,6 +12,7 @@ ms.custom: seodec18
 ms.date: 03/22/2019
 ---
 # Data Science for Beginners video 1: The 5 questions data science answers
+
 Get a quick introduction to data science from *Data Science for Beginners* in five short videos from a top data scientist. These videos are basic but useful, whether you're interested in doing data science or you work with data scientists.
 
 This first video is about the kinds of questions that data science can answer. To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
@@ -73,12 +73,12 @@ The next question data science can answer is: Is this weird? This question is an
 
 ![Anomaly Detection algorithms: Is this weird?](./media/data-science-for-beginners-the-5-questions-data-science-answers/anomaly-detection-algorithms.png)
 
-If you have a credit card, you’ve already benefited from anomaly detection. Your credit card company analyzes your purchase patterns, so that they can alert you to possible fraud. Charges that are "weird" might be a purchase at a store where you don't normally shop or buying an unusually pricey item.
+If you have a credit card, you've already benefited from anomaly detection. Your credit card company analyzes your purchase patterns, so that they can alert you to possible fraud. Charges that are "weird" might be a purchase at a store where you don't normally shop or buying an unusually pricey item.
 
 This question can be useful in lots of ways. For instance:
 
 * If you have a car with pressure gauges, you might want to know: Is this pressure gauge reading normal?
-* If you're monitoring the internet, you’d want to know: Is this message from the internet typical?
+* If you're monitoring the internet, you'd want to know: Is this message from the internet typical?
 
 Anomaly detection flags unexpected or unusual events or behaviors. It gives clues where to look for problems.
 
@@ -97,7 +97,7 @@ They help answer any question that asks for a number.
 ## Question 4: How is this organized? uses clustering algorithms
 Now the last two questions are a bit more advanced.
 
-Sometimes you want to understand the structure of a data set - How is this organized? For this question, you don’t have examples that you already know outcomes for.
+Sometimes you want to understand the structure of a data set - How is this organized? For this question, you don't have examples that you already know outcomes for.
 
 There are a lot of ways to tease out the structure of data. One approach is clustering. It separates data into natural "clumps," for easier interpretation. With clustering, there is no one right answer.
 
@@ -131,4 +131,4 @@ So that's it - The 5 questions data science can answer.
 
 ## Next steps
 * [Try a first data science experiment with Machine Learning Studio (classic)](create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)
+* [Get an introduction to Machine Learning on Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)

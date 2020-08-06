@@ -6,7 +6,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
 ---
@@ -160,7 +160,7 @@ To retrieve IoT hub information used by the connector, use the following steps:
 
    * __From the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, use the following command:
 
-       ```azure-cli
+       ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
        ```
 
@@ -184,7 +184,7 @@ To retrieve IoT hub information used by the connector, use the following steps:
 
         1. To get the primary key value, use the following command:
 
-            ```azure-cli
+            ```azurecli
             az iot hub policy show --hub-name myhubname --name service --query "primaryKey"
             ```
 
@@ -192,7 +192,7 @@ To retrieve IoT hub information used by the connector, use the following steps:
 
         2. To get the connection string for the `service` policy, use the following command:
 
-            ```azure-cli
+            ```azurecli
             az iot hub show-connection-string --name myhubname --policy-name service --query "connectionString"
             ```
 
@@ -272,7 +272,7 @@ For more information on configuring the connector sink, see [https://github.com/
 
     Once the connector starts, send messages to IoT hub from your device(s). As the connector reads messages from the IoT hub and stores them in the Kafka topic, it logs information to the console:
 
-    ```text
+    ```output
     [2017-08-29 20:15:46,112] INFO Polling for data - Obtained 5 SourceRecords from IotHub (com.microsoft.azure.iot.kafka.connect.IotHubSourceTask:39)
     [2017-08-29 20:15:54,106] INFO Finished WorkerSourceTask{id=AzureIotHubConnector-0} commitOffsets successfully in 4 ms (org.apache.kafka.connect.runtime.WorkerSourceTask:356)
     ```
@@ -292,7 +292,7 @@ From an SSH connection to the edge node, use the following command to start the 
 
 As the connector runs, information similar to the following text is displayed:
 
-```text
+```output
 [2017-08-30 17:49:16,150] INFO Started tasks to send 1 messages to devices. (com.microsoft.azure.iot.kafka.connect.sink.
 IotHubSinkTask:47)
 [2017-08-30 17:49:16,150] INFO WorkerSinkTask{id=AzureIotHubSinkConnector-0} Committing offsets (org.apache.kafka.connect.runtime.WorkerSinkTask:262)
@@ -342,7 +342,7 @@ To send messages through the connector, use the following steps:
 
     If you're using the simulated Raspberry Pi device, and it's running, the following message is logged by the device:
 
-    ```text
+    ```output
     Receive message: Turn On
     ```
 

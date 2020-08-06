@@ -3,11 +3,10 @@ title: Changes made to WebAPI projects when connecting to Azure AD
 description: Describes what happens to your WebAPI project when you connect to Azure AD using Visual Studio
 author: ghogen
 manager: jillfra
-ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
 ms.workload: azure-vs
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
