@@ -40,11 +40,10 @@ You need the following account permissions to configure the Always On availabili
 - An existing domain user account that has **Create Computer Object** permission in the domain. For example, a domain admin account typically has sufficient permission (for example: account@domain.com). _This account should also be part of the local administrator group on each VM to create the cluster._
 - The domain user account that controls SQL Server. 
 
-## Create cluster
+## Configure cluster
 
-Create the cluster using the Azure portal. You can either create a new cluster, or you add an existing cluster that was created using [the Azure Cli or PowerShell](availability-group-az-commandline-configure.md), or a [quickstart template](availablity-group-quickstart-template-configure.md). 
+Configure the cluster using the Azure portal. You can either create a new cluster, or if you already have an existing cluster, you can onboard it.
 
-Follow the steps below to either create a new cluster, or onboard an existing one. 
 
 ### Create a new cluster
 
@@ -67,325 +66,79 @@ If you do not already have an existing cluster, create it using the Azure portal
 1. Select the SQL Server VMs that you want to add to the cluster. Note whether or not a restart is required, and proceed with caution. Only VMs that are in the same location, domain, and on the same virtual network will be visible. 
 1. Select **Apply** to create the cluster. 
 
-### Add existing cluster
+You can check the status of your deployment in the **Activity log** which is accessible from the bell icon in the top navigation bar. 
 
+### Onboard existing cluster
 
- 
-## Step 1: Create a storage account as a cloud witness
-The cluster needs a storage account to act as the cloud witness. You can use any existing storage account, or you can create a new storage account. If you want to use an existing storage account, skip ahead to the next section. 
+If you already have a cluster configured in your SQL Server VM environment, you can onboard it from the Azure portal. To do so, follow these steps:
 
-The following code snippet creates the storage account: 
+1. Sign into the [Azure portal](https://portal.azure.com). 
+1. Navigate to your [SQL virtual machines](manage-sql-vm-portal.md) resource. 
+1. Select **High Availability** under **Settings**. 
+1. Select **Onboard existing Windows Server failover cluster** to open the **Onboard Windows Server failover cluster**
 
-# [Azure CLI](#tab/azure-cli)
+   :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="Onboard an existing cluster from the High Availability page on your SQL virtual machines resource":::
 
+1. 
 
-```azurecli-interactive
-# Create the storage account
-# example: az storage account create -n 'cloudwitness' -g SQLVM-RG -l 'West US' `
-#  --sku Standard_LRS --kind StorageV2 --access-tier Hot --https-only true
 
-az storage account create -n <name> -g <resource group name> -l <region> `
-  --sku Standard_LRS --kind StorageV2 --access-tier Hot --https-only true
-```
+## Create availability group
 
->[!TIP]
-> You might see the error `az sql: 'vm' is not in the 'az sql' command group` if you're using an outdated version of the Azure CLI. Download the [latest version of Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) to get past this error.
+Create the availability group using the Azure portal. To do so, follow these steps:
 
+1. Sign into the [Azure portal](https://portal.azure.com). 
+1. Navigate to your [SQL virtual machines](manage-sql-vm-portal.md) resource. 
+1. Select **High Availability** under **Settings**. 
+1. Select **+ Create Always On availability group** to open the **Create availability group** page.
+1. Enter a name for the availability group. 
+1. Select **Configure listener** to open the **Configure availability group listener** page. 
+1. Fill out the values, and either use an existing load balancer, or select **Create new** to create a new load balancer.  Select **Apply** to save your settings and create your listener and load balancer. 
 
-# [PowerShell](#tab/azure-powershell)
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-listener.png" alt-text="Fill out the values in the form to create your new listener and load balancer":::
 
-```powershell-interactive
-# Create the storage account
-# example: New-AzStorageAccount -ResourceGroupName SQLVM-RG -Name cloudwitness `
-#    -SkuName Standard_LRS -Location West US -Kind StorageV2 `
-#    -AccessTier Hot -EnableHttpsTrafficOnly
+1. Choose **+ Select replica** to open the **Configure availability group replicas** page.
+1. Select the virtual machines you want to add to the availability group, and choose the availability group settings that best suit your business needs. Select **Apply** to save your settings. 
 
-New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
-    -SkuName Standard_LRS -Location <region> -Kind StorageV2 `
-    -AccessTier Hot -EnableHttpsTrafficOnly
-```
----
+   :::image type="content" source="media/availability-group-az-portal-configure/add-replicas.png" alt-text=Choose VMs to add to your availability group and configure settings appropriate to your business":::
 
+1. Verify your availability group settings and then select **Apply** to create your availability group. 
 
+You can check the status of your deployment in the **Activity log** which is accessible from the bell icon in the top navigation bar. 
 
-## Step 2: Define Windows failover cluster metadata
+## Add database to availability group
 
-The Azure CLI [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) command group manages the metadata of the Windows Server Failover Cluster (WSFC) service that hosts the availability group. Cluster metadata includes the Active Directory domain, cluster accounts, storage accounts to be used as the cloud witness, and SQL Server version. Use [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) to define the metadata for WSFC so that when the first SQL Server VM is added, the cluster is created as defined. 
+After the availability creation completes, add your databases to your availability group. The below steps use the SQL Server Management Studio (SSMS) GUI but you can use [Transact-SQL or PowerShell](/sql/database-engine/availability-groups/windows/availability-group-add-a-database) as well. 
 
-The following code snippet defines the metadata for the cluster:
+To add databases to your availability group using SQL Server Management Studio, follow these steps:
 
+1. Connect to one of your SQL Server VMs by using your preferred method, such as Remote Desktop Connection (RDP). 
+1. Open SQL Server Management Studio (SSMS).
+1. Connect to your SQL Server instance. 
+1. Expand **Always On High Availability** in **Object Explorer**
+1. Expand **Availability Groups**, right-click your availability group and choose to **Add database...**
 
-## Step 3: Add SQL Server VMs to the cluster
+   :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text=Right-click the availability group in object explorer and choose to Add database":::
 
-Adding the first SQL Server VM to the cluster creates the cluster. The [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) command creates the cluster with the name previously given, installs the cluster role on the SQL Server VMs, and adds them to the cluster. Subsequent uses of the `az sql vm add-to-group` command add more SQL Server VMs to the newly created cluster. 
+1. Follow the prompts to select the database(s) you want to add to your availability group. 
+1. Select **OK** to save your settings and add your database to the availability group. 
+1. After the database is added, refresh **Object Explorer** to confirm the status of your database as `synchronized`. 
 
-The following code snippet creates the cluster and adds the first SQL Server VM to it: 
-
-
-
-## Step 4: Create the availability group
-
-Manually create the availability group as you normally would, by using [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell), or [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
-
->[!IMPORTANT]
-> Do *not* create a listener at this time because this is done through the Azure CLI in the following sections.  
-
-## Step 5: Create the internal load balancer
-
-The Always On availability group listener requires an internal instance of Azure Load Balancer. The internal load balancer provides a “floating” IP address for the availability group listener that allows for faster failover and reconnection. If the SQL Server VMs in an availability group are part of the same availability set, you can use a Basic load balancer. Otherwise, you need to use a Standard load balancer.  
-
-> [!NOTE]
-> The internal load balancer should be in the same virtual network as the SQL Server VM instances. 
-
-The following code snippet creates the internal load balancer:
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-# Create the internal load balancer
-# example: az network lb create --name sqlILB -g SQLVM-RG --sku Standard `
-# --vnet-name SQLVMvNet --subnet default
-
-az network lb create --name sqlILB -g <resource group name> --sku Standard `
-  --vnet-name <VNet Name> --subnet <subnet name>
-```
-
-# [PowerShell](#tab/azure-powershell)
-
-```powershell-interactive
-# Create the internal load balancer
-# example: New-AzLoadBalancer -name sqlILB -ResourceGroupName SQLVM-RG  `
-#  -Sku Standard -Location West US
-
-New-AzLoadBalancer -name sqlILB -ResourceGroupName <resource group name> `
-   -Sku Standard -Location <region>
-```
-
----
-
->[!IMPORTANT]
-> The public IP resource for each SQL Server VM should have a Standard SKU to be compatible with the Standard load balancer. To determine the SKU of your VM's public IP resource, go to **Resource Group**, select your **Public IP Address** resource for the desired SQL Server VM, and locate the value under **SKU** in the **Overview** pane.  
-
-## Step 6: Create the availability group listener
-
-After you manually create the availability group, you can create the listener by using [az sql vm ag-listener](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
-
-The *subnet resource ID* is the value of `/subnets/<subnetname>` appended to the resource ID of the virtual network resource. To identify the subnet resource ID:
-   1. Go to your resource group in the [Azure portal](https://portal.azure.com). 
-   1. Select the virtual network resource. 
-   1. Select **Properties** in the **Settings** pane. 
-   1. Identify the resource ID for the virtual network and append `/subnets/<subnetname>` to the end of it to create the subnet resource ID. For example:
-      - Your virtual network resource ID is:
-        `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
-      - Your subnet name is: `default`
-      - Therefore, your subnet resource ID is:
-        `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`
-
-
-The following code snippet creates the availability group listener:
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-# Create the availability group listener
-# example: az sql vm group ag-listener create -n AGListener -g SQLVM-RG `
-#  --ag-name SQLAG --group-name Cluster --ip-address 10.0.0.27 `
-#  --load-balancer sqlilb --probe-port 59999  `
-#  --subnet /subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default `
-#  --sqlvms sqlvm1 sqlvm2
-
-az sql vm group ag-listener create -n <listener name> -g <resource group name> `
-  --ag-name <availability group name> --group-name <cluster name> --ip-address <ag listener IP address> `
-  --load-balancer <lbname> --probe-port <Load Balancer probe port, default 59999>  `
-  --subnet <subnet resource id> `
-  --sqlvms <names of SQL VM's hosting AG replicas, ex: sqlvm1 sqlvm2>
-```
-
-# [PowerShell](#tab/azure-powershell)
-
-```powershell-interactive
-
-# example: New-AzAvailabilityGroupListener -Name AGListener -ResourceGroupName SQLVM-RG `
-#    -AvailabilityGroupName SQLAG  -GroupName Cluster `
-#    -IpAddress 10.0.0.27 -LoadBalancerResourceId sqlilb `
-#    -ProbePort 59999 `
-#    -SubnetId /subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default `
-#    -SqlVirtualMachineId sqlvm1 sqlvm2
-
-
-New-AzAvailabilityGroupListener -Name <listener name> -ResourceGroupName <resource group name> `
-   -AvailabilityGroupName <availability group name> -GroupName <cluster name> `
-   -IpAddress <ag listener IP address> -LoadBalancerResourceId <lbid> `
-   -ProbePort <Load Balancer probe port, default 59999> `
-   -SubnetId <subnet resource id> `
-   -SqlVirtualMachineId <names of SQL VM's hosting AG replicas>
-```
-
----
-
-## Modify the number of replicas in an availability group
-There's an added layer of complexity when you're deploying an availability group to SQL Server VMs hosted in Azure. The resource provider and the virtual machine group now manage the resources. As such, when you're adding or removing replicas in the availability group, there's an additional step of updating the listener metadata with information about the SQL Server VMs. When you're modifying the number of replicas in the availability group, you must also use the [az sql vm group ag-listener update](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-2018-03-01-hybrid#az-sql-vm-group-ag-listener-update) command to update the listener with the metadata of the SQL Server VMs. 
-
-
-### Add a replica
-
-To add a new replica to the availability group:
-
-# [Azure CLI](#tab/azure-cli)
-
-1. Add the SQL Server VM to the cluster group:
-   ```azurecli-interactive
-
-   # Add the SQL Server VM to the cluster group
-   # example: az sql vm add-to-group -n SQLVM3 -g SQLVM-RG --sqlvm-group Cluster `
-   # -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
-
-   az sql vm add-to-group -n <VM3 Name> -g <Resource Group Name> --sqlvm-group <cluster name> `
-   -b <bootstrap account password> -p <operator account password> -s <service account password>
-   ```
-
-1. Use SQL Server Management Studio to add the SQL Server instance as a replica within the availability group.
-1. Add the SQL Server VM metadata to the listener:
-
-   ```azurecli-interactive
-   # Update the listener metadata with the new VM
-   # example: az sql vm group ag-listener update -n AGListener `
-   # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2 sqlvm3
-
-   az sql vm group ag-listener update -n <Listener> `
-   -g <RG name> --group-name <cluster name> --sqlvms <SQL VMs, along with new SQL VM>
-   ```
-
-# [PowerShell](#tab/azure-powershell)
-
-1. Add the SQL Server VM to the cluster group:
-
-   ```powershell-interactive
-   # Add the SQL Server VM to the cluster group
-   # example: $sqlvm3 = Get-AzSqlVM -Name SQLVM3 -ResourceGroupName SQLVM-RG 
-   # $group = Get-AzSqlVMGroup -ResourceGroupName SQLVM-RG -Name Cluster
-   # $sqlvmconfig3 = Set-AzSqlVMConfigGroup -SqlVM $sqlvm3 -SqlVMGroup $group `
-   #  -ClusterOperatorAccountPassword Str0ngAzur3P@ssword! `
-   #  -SqlServiceAccountPassword Str0ngAzur3P@ssword! `
-   #  -ClusterBootstrapAccountPassword Str0ngAzur3P@ssword!
-
-   $sqlvm3 = Get-AzSqlVM -Name <VM1 Name> -ResourceGroupName <Resource Group Name>
-   $group = Get-AzSqlVMGroup  -ResourceGroupName <resource group name> -Name <name>
-   $sqlvmconfig3 = Set-AzSqlVMConfigGroup -SqlVM $sqlvm3 -SqlVMGroup $group `
-   -ClusterOperatorAccountPassword <operator account password> `
-   -SqlServiceAccountPassword <service account password> `
-   -ClusterBootstrapAccountPassword <bootstrap account password>
-
-   Update-AzSqlVM -ResourceId $sqlvm3.ResourceId -SqlVM $sqlvmconfig3
-   ```
-
-1. Use SQL Server Management Studio to add the SQL Server instance as a replica within the availability group.
-1. Add the SQL Server VM metadata to the listener:
-
-   ```powershell-interactive
-   # Update the listener metadata with the new VM
-   # example: Update-AzAvailabilityGroupListener -Name AGListener -ResourceGroupName SQLVM-RG `
-   #   -SqlVMGroupName Cluster -SqlVirtualMachineId SQLVM3
-
-   Update-AzAvailabilityGroupListener -Name <Listener> -ResourceGroupName <Resource Group Name> `
-      -SqlVMGroupName <cluster name> -SqlVirtualMachineId <SQL VMs, along with new SQL VM> 
-
-   ```
-
----
-
-### Remove a replica
-
-To remove a replica from the availability group:
-
-# [Azure CLI](#tab/azure-cli)
-
-1. Remove the replica from the availability group by using SQL Server Management Studio. 
-1. Remove the SQL Server VM metadata from the listener:
-   ```azurecli-interactive
-   # Update the listener metadata by removing the VM from the SQLVMs list
-   # example: az sql vm group ag-listener update -n AGListener `
-   # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2
-
-   az sql vm group ag-listener update -n <Listener> `
-   -g <RG name> --group-name <cluster name> --sqlvms <SQL VMs that remain>
-   ```
-1. Remove the SQL Server VM from the cluster:
-   ```azurecli-interactive
-   # Remove the SQL VM from the cluster
-   # example: az sql vm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
-
-   az sql vm remove-from-group --name <SQL VM name> --resource-group <RG name> 
-   ```
-
-# [PowerShell](#tab/azure-powershell)
-
-1. Remove the replica from the availability group by using SQL Server Management Studio. 
-1. Remove the SQL Server VM metadata from the listener:
-
-   ```powershell-interactive
-   # Update the listener metadata by removing the VM from the SQLVMs list
-   # example: Update-AzAvailabilityGroupListener -Name AGListener -ResourceGroupName SQLVM-RG `
-   #  -SqlVMGroupName Cluster -SqlVirtualMachineId SQLVM3
-
-   Update-AzAvailabilityGroupListener -Name <Listener> -ResourceGroupName <Resource Group Name> `
-      -SqlVMGroupName <cluster name> -SqlVirtualMachineId <SQL VMs that remain>
-
-   ```
-1. Remove the SQL Server VM from the cluster:
-
-   ```powershell-interactive
-   # Remove the SQL VM from the cluster
-   # example: $sqlvm = Get-AzSqlVM -Name SQLVM3 -ResourceGroupName SQLVM-RG
-   #  $sqlvm. SqlVirtualMachineGroup = ""
-   #  Update-AzSqlVM -ResourceId $sqlvm -SqlVM $sqlvm
-
-   $sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
-      $sqlvm. SqlVirtualMachineGroup = ""
-    
-    Update-AzSqlVM -ResourceId $sqlvm -SqlVM $sqlvm
-   ```
-
----
-
-## Remove the availability group listener
-If you later need to remove the availability group listener configured with the Azure CLI, you must go through the SQL VM resource provider. Because the listener is registered through the SQL VM resource provider, just deleting it via SQL Server Management Studio is insufficient. 
-
-The best method is to delete it through the SQL VM resource provider by using the following code snippet in the Azure CLI. Doing so removes the availability group listener metadata from the SQL VM resource provider. It also physically deletes the listener from the availability group. 
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-# Remove the availability group listener
-# example: az sql vm group ag-listener delete --group-name Cluster --name AGListener --resource-group SQLVM-RG
-
-az sql vm group ag-listener delete --group-name <cluster name> --name <listener name > --resource-group <resource group name>
-```
-
-# [PowerShell](#tab/azure-powershell)
-
-```powershell-interactive
-# Remove the availability group listener
-# example: Remove-AzAvailabilityGroupListener -Name AGListener `
-#   -ResourceGroupName SQLVM-RG -SqlVMGroupName Cluster
-
-Remove-AzAvailabilityGroupListener -Name <Listener> `
-   -ResourceGroupName <Resource Group Name> -SqlVMGroupName <cluster name>
-```
-
----
 
 ## Next steps
 
-For more information, see the following articles: 
+For more information about availability groups, see:
+
+- [Overview of availability groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+* [Administration of an availability group &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
 
 * [Overview of SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [FAQ for SQL Server VMs](frequently-asked-questions-faq.md)
+
 * [Release notes for SQL Server VMs](../../database/doc-changes-updates-release-notes.md)
 * [Switching licensing models for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md)
-* [Overview of Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)   
+* 
 * [Configuration of a server instance for Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/configuration-of-a-server-instance-for-always-on-availability-groups-sql-server)   
-* [Administration of an availability group &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
+
 * [Monitoring of availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server)
 * [Overview of Transact-SQL statements for Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/transact-sql-statements-for-always-on-availability-groups)   
 * [Overview of PowerShell cmdlets for Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)  
+* [FAQ for SQL Server VMs](frequently-asked-questions-faq.md)
