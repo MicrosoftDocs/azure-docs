@@ -53,7 +53,7 @@ The Cognitive Services listed below support virtual networks in Commercial Cloud
 
 ## Service Tags
 
-Cognitive Services also supports a service tag for network rules configuration. The services listed below are included in the CognitiveServicesManagement service tag.
+Cognitive Services supports service tags for network rules configuration. The services listed below are included in the **CognitiveServicesManagement** service tag.
 > [!div class="checklist"]
 
 > * [Anomaly Detector](./anomaly-detector/index.yml)
