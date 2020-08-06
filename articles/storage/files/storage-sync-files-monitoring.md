@@ -18,7 +18,7 @@ This article describes how to monitor your Azure File Sync deployment by using A
 The following scenarios are covered in this guide: 
 - View Azure File Sync metrics in Azure Monitor.
 - Create alerts in Azure Monitor to proactively notify you of critical conditions.
-- Monitor health of your Azure File Sync deployment using the Azure portal.
+- View health of your Azure File Sync deployment using the Azure portal.
 - How to use the event logs and performance counters on your Windows Servers to monitor the health of your Azure File Sync deployment. 
 
 ## Azure Monitor
@@ -29,7 +29,9 @@ Use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) to 
 
 Metrics for Azure File Sync are enabled by default and are sent to Azure Monitor every 15 minutes.
 
-To view Azure File Sync metrics in Azure Monitor, select the **Storage Sync Services** resource type.
+**How to view Azure File Sync metrics in Azure Monitor**
+- Go to your **Storage Sync Service** in the **Azure portal** and click **Metrics**.
+- Click the **Metric** drop-down and select the metric you want to view.
 
 The following metrics for Azure File Sync are available in Azure Monitor:
 
