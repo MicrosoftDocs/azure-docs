@@ -1,6 +1,6 @@
 ---
 title: Mobility Service data structures in Azure Maps| Microsoft Azure Maps
-description: Understand how data is organized into metro areas in Mobility Services. See which fields are used for storing information about public transit stops and lines.
+description: Understand how data is organized into metro areas in Azure Maps Mobility services. See which fields store information about public transit stops and lines.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/05/2019
