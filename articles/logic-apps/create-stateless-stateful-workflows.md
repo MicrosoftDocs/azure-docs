@@ -113,34 +113,45 @@ ms.date: 09/22/2020
 
    1. From the list that appears, select the subscriptions that you want to appear, and then select **OK**.
 
-## Develop your workflow app
+## Create workflow app project
 
-1. In the Azure pane, next to **Azure: Functions**, select **Create workflow**.
+1. Before you start, make sure that you close any open folders or files in Visual Studio Code.
 
-   ![Screenshot that shows Azure pane and selected "Create workflow"](./media/create-stateless-stateful-workflows/create-workflow-app-project.png)
+1. In the Azure pane, next to **Azure: Functions**, select **Create new project**.
 
-1. When the prompt appears, select **Create new project**.
+   ![Screenshot that shows Azure pane toolbar with "Create new project" selected](./media/create-stateless-stateful-workflows/create-new-project-folder.png)
 
-   ![Screenshot that shows dialog box with "Create new project" selected](./media/create-stateless-stateful-workflows/create-new-project-prompt.png)
+1. Browse to the location where you want to save your project. Create a folder for your project, select that folder, and then select **Select**.
 
-1. Browse to the location where you want to save your project. Create a folder for your project.
+   ![Screenshot that shows dialog box with "Create new project" selected](./media/create-stateless-stateful-workflows/select-project-folder.png)
 
 1. From the languages list that appears, select **C#**.
 
-   ![Screenshot that shows a language list with C# selected](./media/create-stateless-stateful-workflows/select-language-for-project.png)
+   ![Screenshot that shows a languages list with C# selected](./media/create-stateless-stateful-workflows/select-language-for-project.png)
 
 1. From the templates list that appears, select **Skip for now**.
 
-   ![Screenshot that shows a template list with "Skip for now" selected](./media/create-stateless-stateful-workflows/select-project-template.png)
+   ![Screenshot that shows a templates list with "Skip for now" selected](./media/create-stateless-stateful-workflows/select-project-template.png)
 
-1. From the locations list, select **Show in current window**.
+1. From the locations list, select **Open in current window**.
 
-   ![Screenshot that shows ](./media/create-stateless-stateful-workflows/select-project-location.png)
+   ![Screenshot that shows locations list with "Open in current window" selected](./media/create-stateless-stateful-workflows/select-project-location.png)
 
-1. 
+   After Visual Studio Code reloads, the Explorer pane opens and shows your new workflow app project.
 
-   ![Screenshot that shows ](./media/create-stateless-stateful-workflows/workflow-app-project-created.png)
+   ![Screenshot that shows Explorer pane and workflow app project](./media/create-stateless-stateful-workflows/workflow-app-project-created.png)
 
+   If a prompt to restore unresolved dependencies appears, ignore that prompt for now.
+
+1. On the Visual Studio Code toolbar, select the Azure icon to reopen the Azure pane.
+
+1. In the Azure pane, next to **Azure: Functions**, select **Create workflow**.
+
+   ![Screenshot that shows Azure pane toolbar with "Create workflow" selected](./media/create-stateless-stateful-workflows/create-workflow-app-project.png)
+
+1. From the templates list that appears, select **Stateful Workflow**.
+
+   ![Screenshot that shows a templates list with "Stateful Workflow" selected](./media/create-stateless-stateful-workflows/select-stateful-workflow.png)
 
 ## Test your workflow app
 
