@@ -23,10 +23,10 @@ If you're starting out with Privileged Identity Management (PIM) in your Azure A
 
 ## Discovery and insights (preview)
 
-Before your organization starts using Privileged Identity Management, all role assignments are permanent. Users are always in in their assigned roles even when they don't need their privileges. Discovery and insights (preview) shows you a list of privileged roles and how many users are currently in those roles. You can list out assignments for a role to learn more about the assigned users if one or more of them are unfamiliar.
+Before your organization starts using Privileged Identity Management, all role assignments are permanent. Users are always in in their assigned roles even when they don't need their privileges. Discovery and insights (preview), which replaces the former Security Wizard, shows you a list of privileged roles and how many users are currently in those roles. You can list out assignments for a role to learn more about the assigned users if one or more of them are unfamiliar.
 
 > [!WARNING]
-> It is important that you have at least one Global administrator, and more than one Privileged Role Administrator with a work or school account (not a Microsoft account). If there were only one Privileged Role Administrator, the organization couldn't manage Privileged Identity Management if that account were deleted.
+> It is critical that you have at least one Global administrator, and more than one Privileged Role Administrator with a work or school account (not a Microsoft account). If there were only one Privileged Role Administrator, the organization couldn't manage Privileged Identity Management if that account were deleted.
 > Also, keep role assignments permanent if a user has a Microsoft account (in other words, an account they use to sign in to Microsoft services like Skype, or Outlook.com). If you require multi-factor authentication to be activated in such a role, the user will be locked out because those users aren't authenticated by Azure AD.
 
 ## Open Discovery and insights (preview)
