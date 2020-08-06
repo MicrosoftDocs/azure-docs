@@ -24,13 +24,13 @@ Here is how to enable alerts for your Azure Digital Twins instance:
 
 2. Select **Alerts** from the menu, then **+ New alert rule**.
 
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot showing the Alerts page and button to add. There are no alerts configured yet":::
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot showing the Alerts page and button to add. There are no alerts configured yet" lightbox="media/troubleshoot-alerts/alerts-pre.png":::
 
 3. On the *Create alert rule* page that follows, you can follow the prompts to define conditions, actions to be triggered, and alert details.     
     * **Scope** details should fill automatically with the details for your instance.
     * You will define **Condition** and **Action group** details to customize alert triggers and responses.
 
-    :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Screenshot showing the Create Alert Rule page with sections for scope, condition, and action group":::
+    :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Screenshot showing the Create Alert Rule page with sections for scope, condition, and action group" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
 For a guided walkthrough of filling out these fields, see [*Overview of alerts in Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Below are some examples of what the steps will look like for Azure Digital Twins.
 
@@ -44,7 +44,7 @@ After selecting a signal, you'll be asked to configure the logic of the alert. Y
  
 After settings up alerts, they'll show up back on the *Alerts* page for your instance.
  
-:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Screenshot showing the Alerts page and button to add. There are several alerts configured":::
+:::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Screenshot showing the Alerts page and button to add. There is one alert configured" lightbox="media/troubleshoot-alerts/alerts-post.png":::
 
 
 ## Next steps
