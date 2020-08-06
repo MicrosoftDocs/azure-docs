@@ -129,7 +129,7 @@ a secure, authenticated channel with Azure platform resources.
 Nodes located outside Azure that are connected by Azure Arc require connectivity
 to the Guest Configuration service.
 Details about network and proxy requirements provided in the
-[Azure Arc documentation](../../../azure-arc/servers/overview.md#networking-configuration).
+[Azure Arc documentation](../../../azure-arc/servers/overview.md).
 
 To communicate with the Guest Configuration resource provider in Azure, machines require outbound
 access to Azure datacenters on port **443**. If a network in Azure doesn't allow outbound traffic,
