@@ -1,5 +1,5 @@
 ---
-title: Australian Government ISM PROTECTED blueprint sample overview
+title: Australian Government ISM PROTECTED blueprint sample controls
 description: Overview of the Australian Government ISM PROTECTED blueprint sample. This blueprint sample helps customers assess specific ISM PROTECTED controls.
 ms.date: 08/03/2020
 ms.topic: sample
