@@ -20,7 +20,7 @@ ms.reviewer: aragra, lenalepa, sureshja
 
 # Quickstart: Register an application with the Microsoft identity platform
 
-In this quickstart, you create an app registration in the Azure portal so the Microsoft identity platform can provide authentication and authorization services for your application its users.
+In this quickstart, you register an app in the Azure portal so the Microsoft identity platform can provide authentication and authorization services for your application and its users.
 
 Each application you want the Microsoft identity platform to perform identity and access management (IAM) for needs to be registered. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a *trust relationship* between your application and the identity provider, the Microsoft identity platform.
 
@@ -31,7 +31,7 @@ Each application you want the Microsoft identity platform to perform identity an
 
 ## Register an application in the Azure portal
 
-As mentioned in the introduction, registering your application establishes a trust relationship between your app and the Microsoft identity platform. The trust is *unidirectional*: your app trusts the the Microsoft identity platform, and not the other way around.
+Registering your application establishes a trust relationship between your app and the Microsoft identity platform. The trust is *unidirectional*: your app trusts the the Microsoft identity platform, and not the other way around.
 
 Follow these steps to create the app registration:
 
@@ -49,11 +49,11 @@ Follow these steps to create the app registration:
     | **Accounts in any organizational directory and personal Microsoft accounts** | Select this option to target the widest set of customers.<br><br>By selecting this option, you're registering a **multi-tenant** application that can also support users with personal **Microsoft accounts** (MSA). |
 
 1. Don't enter anything for **Redirect URI (optional)**, you'll configure one in the next section.
-1. Select **Register** to submit the app registration.
+1. Select **Register** to complete the initial app registration.
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Screenshot of the Azure portal in a web browser showing the Register an application pane.":::
 
-When the registration completes, the Azure portal displays the app registration's **Overview** pane, which includes its **Application (client) ID**. Also referred to simply as the *client ID*, this value uniquely identifies your application in the Microsoft identity platform.
+When registration completes, the Azure portal displays the app registration's **Overview** pane, which includes its **Application (client) ID**. Also referred to simply as the *client ID*, this value uniquely identifies your application in the Microsoft identity platform.
 
 Your application's code, or more typically an authentication library used in your application, also uses the client ID as one aspect in validating the security tokens it receives from the identity platform.
 
