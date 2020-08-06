@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Get started creating your first ML experiment with the Python SDK

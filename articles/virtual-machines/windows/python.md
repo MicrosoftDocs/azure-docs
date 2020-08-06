@@ -7,7 +7,7 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Create and manage Windows VMs in Azure using Python
