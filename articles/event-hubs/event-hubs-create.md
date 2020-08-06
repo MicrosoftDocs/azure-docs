@@ -15,7 +15,7 @@ In this quickstart, you create an event hub using the [Azure portal](https://por
 To complete this quickstart, make sure that you have:
 
 - Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- [Visual Studio 2019)](https://www.visualstudio.com/vs) or later.
+- [Visual Studio 2019](https://www.visualstudio.com/vs) or later.
 - [.NET Standard SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 ## Create a resource group
@@ -40,13 +40,16 @@ A resource group is a logical collection of Azure resources. All resources are d
 An Event Hubs namespace provides a unique scoping container, referenced by its fully qualified domain name, in which you create one or more event hubs. To create a namespace in your resource group using the portal, do the following actions:
 
 1. In the Azure portal, and click **Create a resource** at the top left of the screen.
-2. Select **All services** in the left menu, and select **star (`*`)** next to **Event Hubs** in the **Analytics** category. Confirm that **Event Hubs** is added to **FAVORITES** in the left navigational menu. 
+   1. Enter **Event Hubs** for the search bar. 
+   2. Select **Create**.
+   or
+1. Select **All services** in the left menu, and select **star (`*`)** next to **Event Hubs** in the **Analytics** category. Confirm that **Event Hubs** is added to **FAVORITES** in the left navigational menu. 
     
    ![Search for Event Hubs](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
-3. Select **Event Hubs** under **FAVORITES** in the left navigational menu, and select **Add** on the toolbar.
+   1. Select **Event Hubs** under **FAVORITES** in the left navigational menu, and select **Add** on the toolbar.
 
    ![Add button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
-4. On the **Create namespace** page, take the following steps:
+2. On the **Create namespace** page, take the following steps:
     1. Select the **subscription** in which you want to create the namespace.
     2. Select the **resource group** you created in the previous step. 
     3. Enter a **name** for the namespace. The system immediately checks to see if the name is available.
