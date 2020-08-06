@@ -105,12 +105,17 @@ ms.date: 09/22/2020
 
    After you sign in, the Azure pane shows the Azure subscriptions that are associated with your account.
 
+<<<<<<< HEAD
    If the Azure pane doesn't show the subscriptions that you expect don't appear, or you want to view only specific subscriptions, follow these steps:
+=======
+   If you don't see the subscriptions that you expect, or if the Azure pane shows too many subscriptions, follow these steps:
+>>>>>>> 279ec472006e09bccb3b5521526624d2ca0ef134
 
    1. Move your pointer over the first subscription in the list so that the **Select subscriptions** filter icon appears. Select the filter icon.
 
       ![Screenshot that shows Azure pane and selected filter icon](./media/create-stateless-stateful-workflows/filter-subscription-list.png)
 
+<<<<<<< HEAD
    1. From the list that appears, select the subscriptions that you want to appear, and then select **OK**.
 
 ## Develop your workflow app
@@ -135,6 +140,13 @@ ms.date: 09/22/2020
 
    ![temp](./media/create-stateless-stateful-workflows/workflow-app-project-created.png)
 
+=======
+   1. From the list that appears, select the subscriptions that you want to appear.
+
+## Develop your workflow app
+
+1. In the Azure Create a project folder for your app.
+>>>>>>> 279ec472006e09bccb3b5521526624d2ca0ef134
 
 ## Test your workflow app
 
