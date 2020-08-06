@@ -92,7 +92,7 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 - [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md) 
 
 **Azure Security Center monitoring**: Yes
 
