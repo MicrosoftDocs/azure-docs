@@ -146,7 +146,7 @@ Two data types -- `Usage` and `AzureActivity` -- are retained for a minimum of 9
 
 Data types from workspace-based Application Insights resources (`AppAvailabilityResults`, `AppBrowserTimings`, `AppDependencies`, `AppExceptions`, `AppEvents`, `AppMetrics`, `AppPageViews`, `AppPerformanceCounters`, `AppRequests`, `AppSystemEvents` and `AppTraces`) are also retained for 90 days by default, and there is no charge for for this 90 day retention. Their retention can be adjust using the retention by data type functionality. 
 
-Note that the Log Analytics [purge API](https://docs.microsoft.com/en-us/rest/api/loganalytics/workspacepurge/purge) does not affect retention billing and is intended to be used for very limited cases. To reduce your retention bill, the retention period must be reduced either for the workspace or for specific data types. 
+Note that the Log Analytics [purge API](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/purge) does not affect retention billing and is intended to be used for very limited cases. To reduce your retention bill, the retention period must be reduced either for the workspace or for specific data types. 
 
 ### Retention by data type
 
