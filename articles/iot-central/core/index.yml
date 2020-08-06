@@ -51,12 +51,14 @@ landingContent:
             url: concepts-get-connected.md
           - text: Device templates
             url: concepts-device-templates.md
+          - text: Message payloads
+            url: concepts-telemetry-properties-commands.md
       - linkListType: how-to-guide
         links:
           - text: Set up a template
             url: howto-set-up-template.md
-          - text: Connect a DevKit device
-            url: howto-connect-devkit.md
+          - text: Connect aa Azure Sphere device
+            url: howto-connect-sphere.md
   - title: Stay connected
     linkLists:
       - linkListType: tutorial
