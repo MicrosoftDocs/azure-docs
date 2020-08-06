@@ -58,10 +58,10 @@ Set the target framework in the project file for your ASP.NET Core project. For 
 
 ::: zone pivot="platform-linux"
 
-Run the following command in the [Cloud Shell](https://shell.azure.com) to set the .NET Core version to 2.1:
+Run the following command in the [Cloud Shell](https://shell.azure.com) to set the .NET Core version to 3.1:
 
 ```azurecli-interactive
-az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|2.1"
+az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|3.1"
 ```
 
 ::: zone-end
