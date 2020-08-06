@@ -256,7 +256,7 @@ To control what claims are emitted and where the data comes from, use the proper
 **Data type:** JSON blob with one or more claim schema entries
 
 **Summary:** This property defines which claims are present in the tokens affected by the policy, in addition to the basic claim set and the core claim set.
-For each claim schema entry defined in this property, certain information is required. Specify where the data is coming from (**Value** or **Source/ID pair**), and which claim the data is emitted as (**Claim Type**).
+For each claim schema entry defined in this property, certain information is required. Specify where the data is coming from (**Value**, **Source/ID pair**, or **Source/ExtensionID pair**), and which claim the data is emitted as (**Claim Type**).
 
 ### Claim schema entry elements
 
