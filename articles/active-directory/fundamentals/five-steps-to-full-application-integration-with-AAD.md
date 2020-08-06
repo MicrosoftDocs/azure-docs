@@ -84,7 +84,8 @@ You can also migrate apps that use a different cloud-based identity provider to 
 
 Traditionally, applications were kept secure by allowing access only while connected to the corporate network. However, in an increasingly connected world we want to allow access to apps for customers, partners, and/or employees, regardless of where they are in the world. [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-proxy) (AppProxy) is a feature of Azure AD that connects your existing on-premises apps to Azure AD and does not require that you maintain edge servers or other additional infrastructure to do so.
 
-![A diagram shows the Application Proxy Service in action. A user accesses "https://sales.contoso.com" and their request is redirected through "https://sales-contoso.msappproxy.net" in Azure Active Directory to the on premises address "http://sales"](./media/five-steps-to-full-application-integration-with-AAD\AppProxy.png )
+![A diagram shows the Application Proxy Service in action. A user accesses "https://sales.contoso.com" and their request is redirected through "https://sales-contoso.msappproxy.net" in Azure Active Directory to the on premises address "http://sales"](./media/five-steps-to-full-application-integration-with-AAD\AppProxy.png)
+
 You can use [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application) to enable Application Proxy and add an on-premises application to your Azure AD tenant.
 
 In addition, you can integrate application delivery controllers like F5 Big-IP APM or Zscaler Private Access. By integrating these with Azure AD, you get the modern authentication and identity management of Azure AD alongside the traffic management and security features of the partner product. We call this solution [Secure Hybrid Access](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access). If you use any of the following services today, we have tutorials that will step you through how to integrate them with Azure AD.
@@ -100,9 +101,7 @@ For apps that are built within your company, your developers can use the [Micros
 
 Developers can use the platform for both internal-use apps and customer facing apps, and there are other benefits that come with using the platform. [Microsoft Authentication Libraries (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview), which is part of the platform, allows developers to enable modern experiences like multi-factor authentication and the use of security keys to access their apps without needing to implement it themselves. Additionally, apps integrated with the Microsoft identity platform can access [Microsoft Graph](https://docs.microsoft.com/azure/active-directory/develop/microsoft-graph-intro) - a unified API endpoint providing the Microsoft 365 data that describes the patterns of productivity, identity, and security in an organization. Developers can use this information to implement features that increase productivity for your users. For example, by identifying the people the user has been interacting with recently and surfacing them in the app&#39;s UI.
 
-We have a video series that provides a comprehensive introduction to the platform (below) as well as [many code samples](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code) in supported languages and platforms.
-
-[[https://www.youtube.com/watch?v=zjezqZPPOfc&amp;list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX](https://www.youtube.com/watch?v=zjezqZPPOfc&amp;list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX)]
+We have a [video series](https://www.youtube.com/watch?v=zjezqZPPOfc&amp;list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX) that provides a comprehensive introduction to the platform as well as [many code samples](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code) in supported languages and platforms.
 
 ## Next steps
 
