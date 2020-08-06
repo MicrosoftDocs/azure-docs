@@ -4,7 +4,7 @@ description: The Azure Load Balancer security baseline provides procedural guida
 author: msmbaldwin
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 08/06/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -21,7 +21,7 @@ The Azure Security Baseline for Azure Load Balancer contains recommendations tha
 
 ## Network security
 
-*For more information, see [Security control: Network security](/azure/security/benchmarks/security-control-network-security).*
+*For more information, see the [Azure Security Benchmark: Network security](/azure/security/benchmarks/security-control-network-security).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
@@ -121,11 +121,17 @@ Standard ALB is built on the zero trust network security model, secure by defaul
 However,, there are various options at the Azure Platform to prevent communication with malicious IP addresses. These include:
 
 Enable distributed denial of service (DDoS) Standard protection on your Azure Virtual Network to guard against DDoS attacks. 
-Deploy Azure Firewall at each of the organization's network boundaries with threat intelligence-based filtering enabled and configured to "Alert and deny" for malicious network traffic.​​ 
+Deploy Azure Firewall at each of the organization's network boundaries with threat intelligence-based filtering enabled and configured to "Alert and deny" for malicious network traffic.
+
+ 
 Use Azure Security Center  threat protection to detect  communications with known malicious IP addresses. 
-​​Use Azure Security Center (Standard Tier) just-in-time virtual machine access, and configure allowed source IP addresses to allow access only from approved IP addresses/ranges.​ ​
-Use Azure Security Center Adaptive Network Hardening to recommend network security group configurations that limit ports and source IPs based on actual traffic and threat intelligence.​ 
-​​
+
+Use Azure Security Center (Standard Tier) just-in-time virtual machine access, and configure allowed source IP addresses to allow access only from approved IP addresses/ranges.
+ 
+
+Use Azure Security Center Adaptive Network Hardening to recommend network security group configurations that limit ports and source IPs based on actual traffic and threat intelligence.
+ 
+
 - [Manage Azure DDoS Protection Standard using the Azure Portal](/azure/virtual-network/manage-ddos`protection)
 
 - [Azure Firewall threat intelligence-based filtering](../firewall/threat-intel.md)
@@ -134,7 +140,7 @@ Use Azure Security Center Adaptive Network Hardening to recommend network securi
 
 - [Secure your management ports with just-in-time access](../security-center/security-center-just-in-time.md)
 
-- [Adaptive Network Hardening in Azure Security Center](../security-center/security-center-adaptive-network-hardening.md​)
+- [Adaptive Network Hardening in Azure Security Center](../security-center/security-center-adaptive-network-hardening.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -275,7 +281,7 @@ Create alerts in Azure Monitor to notify you when critical resources are changed
 
 ## Logging and monitoring
 
-*For more information, see [Security control: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see the [Azure Security Benchmark: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### 2.2: Configure central security log management
 
@@ -462,7 +468,7 @@ Load Balancer, see Using Azure DNS with other Azure services.
 
 ## Identity and access control
 
-*For more information, see [Security control: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see the [Azure Security Benchmark: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -549,10 +555,10 @@ Use Azure Security Center identity and access recommendations.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32375.).
 
 **Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks for Azure Load Balancer (ALB) that require elevated privileges.
-​
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md​)
 
-- [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md​)
+- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+
+- [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -673,7 +679,7 @@ You can also ingest data into Azure Sentinel for further investigation.
 
 ## Data protection
 
-*For more information, see [Security control: Data protection](/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see the [Azure Security Benchmark: Data protection](/azure/security/benchmarks/security-control-data-protection).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -812,7 +818,7 @@ Use Azure SQL Data Discovery &amp; Classification to assist in the classificatio
 
 ## Vulnerability management
 
-*For more information, see [Security control: Vulnerability management](/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see the [Azure Security Benchmark: Vulnerability management](/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -882,7 +888,7 @@ Credentials for the scan account should be protected, monitored, and used only f
 
 ## Inventory and asset management
 
-*For more information, see [Security control: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see the [Azure Security Benchmark: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -911,8 +917,8 @@ Although classic Azure resources may be discovered via Azure Resource Graph Expl
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32398.).
 
 **Guidance**: Use Policy Name, Description, and Category to logically organize assets according to a taxonomy for your Azure Load Balancer (ALB) instances.
-​
-- [For more information about tagging assets, see Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json​)
+
+- [For more information about tagging assets, see Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1086,7 +1092,7 @@ Implement a third-party solution if this does not meet the requirement.
 
 ## Secure configuration
 
-*For more information, see [Security control: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see the [Azure Security Benchmark: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -1295,7 +1301,7 @@ Credential Scanner will also encourage moving discovered credentials to more sec
 
 ## Malware defense
 
-*For more information, see [Security control: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see the [Azure Security Benchmark: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
 
 ### 8.1: Use centrally managed antimalware software
 
@@ -1332,7 +1338,7 @@ Credential Scanner will also encourage moving discovered credentials to more sec
 
 ## Data recovery
 
-*For more information, see [Security control: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see the [Azure Security Benchmark: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1392,7 +1398,7 @@ If Azure Storage is used to store backups, enable soft delete to save and recove
 
 ## Incident response
 
-*For more information, see [Security control: Incident response](/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident response](/azure/security/benchmarks/security-control-incident-response).*
 
 ### 10.1: Create an incident response guide
 
@@ -1496,7 +1502,7 @@ You can use the Azure Security Center data connector to stream the alerts to Azu
 
 ## Penetration tests and red team exercises
 
-*For more information, see [Security control: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
