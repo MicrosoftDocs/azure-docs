@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: troubleshooting
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 07/22/2020
+ms.date: 08/06/2020
 ---
 
 # Interactive debugging with Visual Studio Code
@@ -269,7 +269,7 @@ In some cases, you may need to interactively debug the Python code contained in 
 > [!IMPORTANT]
 > This method of debugging does not work when using `Model.deploy()` and `LocalWebservice.deploy_configuration` to deploy a model locally. Instead, you must create an image using the [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-) method.
 
-Local web service deployments require a working Docker installation on your local system. For more information on using Docker, see the [Docker Documentation](https://docs.docker.com/).
+Local web service deployments require a working Docker installation on your local system. For more information on using Docker, see the [Docker Documentation](https://docs.docker.com/). Note that when working with compute instances, Docker is already installed.
 
 ### Configure development environment
 
@@ -341,7 +341,7 @@ Local web service deployments require a working Docker installation on your loca
     print("Debugger attached...")
     ```
 
-1. Create an image based on the environment definition and pull the image to the local registry. During debugging, you may want to make changes to the files in the image without having to recreate it. To install a text editor (vim) in the Docker image, use the `Environment.docker.base_image` and `Environment.docker.base_dockerfile` properties:
+1. Create an image based on the environment definition and pull the image to the local registry. 
 
     > [!NOTE]
     > This example assumes that `ws` points to your Azure Machine Learning workspace, and that `model` is the model being deployed. The `myenv.yml` file contains the conda dependencies created in step 1.
@@ -354,7 +354,7 @@ Local web service deployments require a working Docker installation on your loca
 
     myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
     myenv.docker.base_image = None
-    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04\nRUN apt-get update && apt-get install vim -y"
+    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04"
     inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
     package = Model.package(ws, [model], inference_config)
     package.wait_for_creation(show_output=True)  # Or show_output=False to hide the Docker build logs.
@@ -385,7 +385,15 @@ Local web service deployments require a working Docker installation on your loca
 1. To start a Docker container using the image, use the following command:
 
     ```bash
-    docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
+    docker run -it --name debug -p 8000:5001 -p 5678:5678 -v <my_path_to_score.py>:/var/azureml-apps/score.py debug:1 /bin/bash
+    ```
+
+    This attaches your `score.py` localy to the one in the container. Therefore, any changes made in the editor are automatically reflected in the container.
+
+1. Inside the container, run the following command in the shell
+
+    ```bash
+    runsvdir /var/runit
     ```
 
 1. To attach VS Code to debugpy inside the container, open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning Deployment: Docker Debug__ configuration. You can also select the debug icon from the side bar, the __Azure Machine Learning Deployment: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
@@ -395,38 +403,6 @@ Local web service deployments require a working Docker installation on your loca
 At this point, VS Code connects to debugpy inside the Docker container and stops at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
 
 For more information on using VS Code to debug Python, see [Debug your Python code](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
-
-<a id="editfiles"></a>
-### Modify the container files
-
-To make changes to files in the image, you can attach to the running container, and execute a bash shell. From there, you can use vim to edit files:
-
-1. To connect to the running container and launch a bash shell in the container, use the following command:
-
-    ```bash
-    docker exec -it debug /bin/bash
-    ```
-
-1. To find the files used by the service, use the following command from the bash shell in the container if the default directory is different than `/var/azureml-app`:
-
-    ```bash
-    cd /var/azureml-app
-    ```
-
-    From here, you can use vim to edit the `score.py` file. For more information on using vim, see [Using the Vim editor](https://www.tldp.org/LDP/intro-linux/html/sect_06_02.html).
-
-1. Changes to a container are not normally persisted. To save any changes you make, use the following command, before you exit the shell started in the step above (that is, in another shell):
-
-    ```bash
-    docker commit debug debug:2
-    ```
-
-    This command creates a new image named `debug:2` that contains your edits.
-
-    > [!TIP]
-    > You will need to stop the current container and start using the new version before changes take effect.
-
-1. Make sure to keep the changes you make to files in the container in sync with the local files that VS Code uses. Otherwise, the debugger experience will not work as expected.
 
 ### Stop the container
 
