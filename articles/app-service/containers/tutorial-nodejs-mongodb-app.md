@@ -361,7 +361,7 @@ Open _modules/articles/client/views/view-article.client.view.html_.
 
 Just above the closing `</section>` tag, add the following line to display `comment` along with the rest of the article data:
 
-```HTML
+```html
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
@@ -369,7 +369,7 @@ Open _modules/articles/client/views/list-articles.client.view.html_.
 
 Just above the closing `</a>` tag, add the following line to display `comment` along with the rest of the article data:
 
-```HTML
+```html
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
@@ -377,7 +377,7 @@ Open _modules/articles/client/views/admin/list-articles.client.view.html_.
 
 Inside the `<div class="list-group">` element and just above the closing `</a>` tag, add the following line to display `comment` along with the rest of the article data:
 
-```HTML
+```html
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
@@ -385,7 +385,7 @@ Open _modules/articles/client/views/admin/form-article.client.view.html_.
 
 Find the `<div class="form-group">` element that contains the submit button, which looks like this:
 
-```HTML
+```html
 <div class="form-group">
   <button type="submit" class="btn btn-default">{{vm.article._id ? 'Update' : 'Create'}}</button>
 </div>
@@ -393,7 +393,7 @@ Find the `<div class="form-group">` element that contains the submit button, whi
 
 Just above this tag, add another `<div class="form-group">` element that lets people edit the `comment` field. Your new element should look like this:
 
-```HTML
+```html
 <div class="form-group">
   <label class="control-label" for="comment">Comment</label>
   <textarea name="comment" data-ng-model="vm.article.comment" id="comment" class="form-control" cols="30" rows="10" placeholder="Comment"></textarea>

@@ -68,3 +68,4 @@ The following gated preview containers are hosted on the Container Preview regis
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=cstt) | Custom Speech-to-text | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=tts) | Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | Custom Text-to-speech | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
+| [Text Analytics for health](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Text Analytics for health | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |

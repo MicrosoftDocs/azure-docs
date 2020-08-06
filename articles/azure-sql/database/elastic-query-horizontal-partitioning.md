@@ -43,10 +43,12 @@ These statements create the metadata representation of your sharded data tier in
 
 The credential is used by the elastic query to connect to your remote databases.  
 
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
-    CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
-    SECRET = '<password>'
-    [;]
+```sql
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'password';
+CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
+SECRET = '<password>'
+[;]
+```
 
 > [!NOTE]
 > Make sure that the *"\<username\>"* does not include any *"\@servername"* suffix.
@@ -55,30 +57,36 @@ The credential is used by the elastic query to connect to your remote databases.
 
 Syntax:
 
-    <External_Data_Source> ::=
+```sql
+<External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
-            (TYPE = SHARD_MAP_MANAGER,
-                       LOCATION = '<fully_qualified_server_name>',
-            DATABASE_NAME = ‘<shardmap_database_name>',
-            CREDENTIAL = <credential_name>,
-            SHARD_MAP_NAME = ‘<shardmapname>’
-                   ) [;]
+        (TYPE = SHARD_MAP_MANAGER,
+                   LOCATION = '<fully_qualified_server_name>',
+        DATABASE_NAME = ‘<shardmap_database_name>',
+        CREDENTIAL = <credential_name>,
+        SHARD_MAP_NAME = ‘<shardmapname>’
+               ) [;]
+```
 
 ### Example
 
-    CREATE EXTERNAL DATA SOURCE MyExtSrc
-    WITH
-    (
-        TYPE=SHARD_MAP_MANAGER,
-        LOCATION='myserver.database.windows.net',
-        DATABASE_NAME='ShardMapDatabase',
-        CREDENTIAL= SMMUser,
-        SHARD_MAP_NAME='ShardMap'
-    );
+```sql
+CREATE EXTERNAL DATA SOURCE MyExtSrc
+WITH
+(
+    TYPE=SHARD_MAP_MANAGER,
+    LOCATION='myserver.database.windows.net',
+    DATABASE_NAME='ShardMapDatabase',
+    CREDENTIAL= SMMUser,
+    SHARD_MAP_NAME='ShardMap'
+);
+```
 
 Retrieve the list of current external data sources:
 
-    select * from sys.external_data_sources;
+```sql
+select * from sys.external_data_sources;
+```
 
 The external data source references your shard map. An elastic query then uses the external data source and the underlying shard map to enumerate the databases that participate in the data tier.
 The same credentials are used to read the shard map and to access the data on the shards during the processing of an elastic query.
@@ -87,47 +95,55 @@ The same credentials are used to read the shard map and to access the data on th
 
 Syntax:  
 
-    CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
-        ( { <column_definition> } [ ,...n ])
-        { WITH ( <sharded_external_table_options> ) }
-    ) [;]  
+```sql
+CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
+    ( { <column_definition> } [ ,...n ])
+    { WITH ( <sharded_external_table_options> ) }
+) [;]  
 
-    <sharded_external_table_options> ::=
-      DATA_SOURCE = <External_Data_Source>,
-      [ SCHEMA_NAME = N'nonescaped_schema_name',]
-      [ OBJECT_NAME = N'nonescaped_object_name',]
-      DISTRIBUTION = SHARDED(<sharding_column_name>) | REPLICATED |ROUND_ROBIN
+<sharded_external_table_options> ::=
+  DATA_SOURCE = <External_Data_Source>,
+  [ SCHEMA_NAME = N'nonescaped_schema_name',]
+  [ OBJECT_NAME = N'nonescaped_object_name',]
+  DISTRIBUTION = SHARDED(<sharding_column_name>) | REPLICATED |ROUND_ROBIN
+```
 
 **Example**
 
-    CREATE EXTERNAL TABLE [dbo].[order_line](
-         [ol_o_id] int NOT NULL,
-         [ol_d_id] tinyint NOT NULL,
-         [ol_w_id] int NOT NULL,
-         [ol_number] tinyint NOT NULL,
-         [ol_i_id] int NOT NULL,
-         [ol_delivery_d] datetime NOT NULL,
-         [ol_amount] smallmoney NOT NULL,
-         [ol_supply_w_id] int NOT NULL,
-         [ol_quantity] smallint NOT NULL,
-         [ol_dist_info] char(24) NOT NULL
-    )
+```sql
+CREATE EXTERNAL TABLE [dbo].[order_line](
+     [ol_o_id] int NOT NULL,
+     [ol_d_id] tinyint NOT NULL,
+     [ol_w_id] int NOT NULL,
+     [ol_number] tinyint NOT NULL,
+     [ol_i_id] int NOT NULL,
+     [ol_delivery_d] datetime NOT NULL,
+     [ol_amount] smallmoney NOT NULL,
+     [ol_supply_w_id] int NOT NULL,
+     [ol_quantity] smallint NOT NULL,
+      [ol_dist_info] char(24) NOT NULL
+)
 
-    WITH
-    (
-        DATA_SOURCE = MyExtSrc,
-         SCHEMA_NAME = 'orders',
-         OBJECT_NAME = 'order_details',
-        DISTRIBUTION=SHARDED(ol_w_id)
-    );
+WITH
+(
+    DATA_SOURCE = MyExtSrc,
+     SCHEMA_NAME = 'orders',
+     OBJECT_NAME = 'order_details',
+    DISTRIBUTION=SHARDED(ol_w_id)
+);
+```
 
 Retrieve the list of external tables from the current database:
 
-    SELECT * from sys.external_tables;
+```sql
+SELECT * from sys.external_tables;
+```
 
 To drop external tables:
 
-    DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
+```sql
+DROP EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name[;]
+```
 
 ### Remarks
 

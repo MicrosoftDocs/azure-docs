@@ -1,5 +1,5 @@
 ---
-title: Testing for DevOps - LUIS
+title: Testing for DevOps for LUIS apps
 description: How to test your Language Understanding (LUIS) app in a DevOps environment.
 ms.topic: conceptual
 ms.date: 06/3/2020

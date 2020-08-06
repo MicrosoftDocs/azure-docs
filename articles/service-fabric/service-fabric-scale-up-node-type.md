@@ -9,11 +9,8 @@ ms.date: 02/13/2019
 This article describes how to scale up a Service Fabric cluster primary node type by increasing the virtual machine resources. A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Virtual machine scale sets are an Azure compute resource that you use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately. After creating a Service Fabric cluster, you can scale a cluster node type vertically (change the resources of the nodes) or upgrade the operating system of the node type VMs.  You can scale the cluster at any time, even when workloads are running on the cluster.  As the cluster scales, your applications automatically scale as well.
 
 > [!WARNING]
-> Do not start to change the primary nodetype VM SKU, if the cluster health is unhealthy. If the cluster health is unhealthy, you will only destabilize the cluster further, if you try to change the VM SKU.
+> Do not attempt a primary node type scale up procedure if the cluster status is unhealthy, as this will only destabilize the cluster further.
 >
-> We recommend that you do not change the VM SKU of a scale set/node type unless it is running at [Silver durability or greater](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. This means your primary node type, which is running stateful service fabric system services, or any node type that is running your stateful application work loads.
->
-
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -47,7 +44,7 @@ Next, sign in to your Azure account.
 Login-AzAccount -SubscriptionId "<your subscription ID>"
 ```
 
-This tutorial walks through the scenario of creating a self-signed certificate. To use an existing certificate from Azure Key Vault, skip the step below and instead mirror the steps in [using an existing certificate to deploy the cluster](https://docs.microsoft.com/azure/service-fabric/upgrade-managed-disks#use-an-existing-certificate-to-deploy-the-cluster).
+This tutorial walks through the scenario of creating a self-signed certificate. To use an existing certificate from Azure Key Vault, skip the step below and instead mirror the steps in [using an existing certificate to deploy the cluster](./upgrade-managed-disks.md#use-an-existing-certificate-to-deploy-the-cluster).
 
 ### Generate a self-signed certificate and deploy the cluster
 
@@ -155,6 +152,8 @@ Get-ServiceFabricClusterHealth
 
 We're now ready to start disabling the nodes of the original scale set. As these nodes become disabled, the system services and seed nodes migrate to the VMs of the new scale set because it is also marked as the primary node type.
 
+For scaling up non-primary node types, in this step you would modify the service placement constraint to include the new virtual machine scale set/node type and then reduce the old virtual machine scale set instance count to zero, one node at a time (to ensure node removal doesn't impact cluster reliability).
+
 ```powershell
 # Disable the nodes in the original scale set.
 $nodeNames = @("_NTvm1_0","_NTvm1_1","_NTvm1_2","_NTvm1_3","_NTvm1_4")
@@ -247,4 +246,3 @@ The cluster's primary node type has now been upgraded. Verify that any deployed 
 * [Scale an Azure cluster in or out](service-fabric-tutorial-scale-cluster.md).
 * [Scale an Azure cluster programmatically](service-fabric-cluster-programmatic-scaling.md) using the fluent Azure compute SDK.
 * [Scale a standalone cluster in or out](service-fabric-cluster-windows-server-add-remove-nodes.md).
-

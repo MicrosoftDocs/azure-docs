@@ -53,6 +53,7 @@ Performing these steps in order ensures that old versions of the client library 
 
 Alternatively, create a Visual Studio application that opens your ShardMapManager, iterates over all shards, and performs the metadata upgrade by calling the methods [UpgradeLocalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradelocalstore) and [UpgradeGlobalStore](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.upgradeglobalstore) as in this example:
 
+```csharp
     ShardMapManager smm =
        ShardMapManagerFactory.GetSqlShardMapManager
        (connStr, ShardMapManagerLoadPolicy.Lazy);
@@ -63,6 +64,7 @@ Alternatively, create a Visual Studio application that opens your ShardMapManage
     {
        smm.UpgradeLocalStore(loc);
     }
+```
 
 These techniques for metadata upgrades can be applied multiple times without harm. For example, if an older client version inadvertently creates a shard after you have already updated, you can run upgrade again across all shards to ensure that the latest metadata version is present throughout your infrastructure.
 

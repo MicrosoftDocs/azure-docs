@@ -16,12 +16,8 @@ Data encryption with customer-managed keys for Azure Database for PostgreSQL Sin
 
 Key Vault is a cloud-based, external key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by FIPS 140-2 Level 2 validated hardware security modules (HSMs). It doesn't allow direct access to a stored key, but does provide services of encryption and decryption to authorized entities. Key Vault can generate the key, imported it, or [have it transferred from an on-premises HSM device](../key-vault/key-Vault-hsm-protected-keys.md).
 
-
 > [!NOTE]
-> This capability is currently being rolled out globally and will be soon available in all regions. If you do not see it in your region, contact AskAzureDBforPostgreSQL@service.microsoft.com.
-
-> [!NOTE]
-> This feature is available in all Azure regions where Azure Database for PostgreSQL Single server supports "General Purpose" and "Memory Optimized" pricing tiers.
+> This feature is available in all Azure regions where Azure Database for PostgreSQL Single server supports "General Purpose" and "Memory Optimized" pricing tiers. For other limitations, refer to the [limitation](concepts-data-encryption-postgresql.md#limitations) section.
 
 ## Benefits
 
@@ -50,7 +46,7 @@ For a PostgreSQL server to use customer-managed keys stored in Key Vault for enc
 * **wrapKey**: To be able to encrypt the DEK.
 * **unwrapKey**: To be able to decrypt the DEK.
 
-The key vault administrator can also [enable logging of Key Vault audit events](../azure-monitor/insights/azure-key-vault.md), so they can be audited later.
+The key vault administrator can also [enable logging of Key Vault audit events](../azure-monitor/insights/key-vault-insights-overview.md), so they can be audited later.
 
 When the server is configured to use the customer-managed key stored in the key vault, the server sends the DEK to the key vault for encryptions. Key Vault returns the encrypted DEK, which is stored in the user database. Similarly, when needed, the server sends the protected DEK to the key vault for decryption. Auditors can use Azure Monitor to review Key Vault audit event logs, if logging is enabled.
 

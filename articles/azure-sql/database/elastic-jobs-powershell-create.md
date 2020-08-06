@@ -91,7 +91,7 @@ $agentServer | New-AzSqlServerFirewallRule -AllowAllAzureIPs
 $agentServer
 
 # create the job database
-Write-Output "Creating a blank SQL database to be used as the Job Database..."
+Write-Output "Creating a blank database to be used as the Job Database..."
 $jobDatabaseName = "JobDatabase"
 $jobDatabase = New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $agentServerName -DatabaseName $jobDatabaseName -RequestedServiceObjectiveName "S0"
 $jobDatabase

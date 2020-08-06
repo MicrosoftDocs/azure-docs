@@ -4,8 +4,8 @@ description: Understand the current list of actions supported by Azure Synapse L
 services: synapse-analytics 
 author: ArnoMicrosoft
 ms.service: synapse-analytics 
-ms.topic: quickstart
-ms.subservice: 
+ms.topic: conceptual
+ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick

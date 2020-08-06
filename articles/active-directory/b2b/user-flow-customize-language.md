@@ -7,7 +7,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
@@ -16,10 +16,9 @@ ms.collection: M365-identity-device-management
 ---
 
 # Language customization in Azure Active Directory (Preview)
-|     |
-| --- |
-| Self-service sign-up is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+
+> [!NOTE]
+> Self-service sign-up is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Language customization in Azure Active Directory (Azure AD) allows your user flow to accommodate different languages to suit your user's needs. Microsoft provides the translations for [36 languages](#supported-languages). Even if your experience is provided for only a single language, you can customize the attribute names on the attribute collection page.
 

@@ -59,4 +59,11 @@ Now that you've read an introduction to Azure Database for MySQL and answered th
 
 - See the pricing page for cost comparisons and calculators. [Pricing](https://azure.microsoft.com/pricing/details/mysql/)
 - Get started by creating your first server. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- Build your first app using your preferred language: [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)
+- Build your first app using your preferred language:
+  - [Python](./connect-python.md)
+  - [Node.JS](./connect-nodejs.md)
+  - [Java](./connect-java.md)
+  - [Ruby](./connect-ruby.md)
+  - [PHP](./connect-php.md)
+  - [.NET (C#)](./connect-csharp.md)
+  - [Go](./connect-go.md)

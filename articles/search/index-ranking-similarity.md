@@ -16,7 +16,7 @@ ms.date: 03/13/2020
 > [!IMPORTANT]
 > Starting July 15, 2020, newly created search services will use the BM25 ranking function automatically, which has proven in most cases to provide search rankings that align better with user expectations than the current default ranking. Beyond superior ranking, BM25 also enables configuration options for tuning results based on factors such as document size.  
 >
-> With this change, you will most likely see slight changes in the ordering of your search results. For those who want to test the impact of this change, the BM25 algorithm is available in the api-version 2019-05-06-Preview.  
+> With this change, you will most likely see slight changes in the ordering of your search results. For those who want to test the impact of this change, the BM25 algorithm is available in the api-version 2019-05-06-Preview and in 2020-06-30.  
 
 This article describes how you can use the new BM25 ranking algorithm on existing search services for new indexes created and queried using the preview API.
 
@@ -26,7 +26,7 @@ While conceptually similar to the older Classic Similarity algorithm, BM25 takes
 
 ## How to test BM25 today
 
-When you create a new index, you can set a **similarity** property to specify the algorithm. You will need to use the `api-version=2019-05-06-Preview`, as shown below.
+When you create a new index, you can set a **similarity** property to specify the algorithm. You can use the `api-version=2019-05-06-Preview`, as shown below, or `api-version=2020-06-30`.
 
 ```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview

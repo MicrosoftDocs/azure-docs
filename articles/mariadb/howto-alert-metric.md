@@ -4,7 +4,7 @@ description: This article describes how to configure and access metric alerts fo
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 

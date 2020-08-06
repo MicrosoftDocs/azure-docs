@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: how-to
+ms.topic: troubleshooting
 ms.date: 03/15/2019
 ms.author: alkohli
 ---

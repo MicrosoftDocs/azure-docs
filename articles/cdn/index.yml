@@ -76,4 +76,15 @@ landingContent:
             url: cdn-verizon-custom-reports.md
           - text: Analyze usage statistics with Azure CDN advanced HTTP reports
             url: cdn-advanced-http-reports.md
-     
+  
+  # Card
+  - title: Verizon Premium 
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Verizon Premium rules engine
+            url: cdn-verizon-premium-rules-engine-reference.md
+          - text: Rules engine conditional expressions
+            url: cdn-verizon-premium-rules-engine-reference-conditional-expressions.md
+          - text: Rules engine features
+            url: cdn-verizon-premium-rules-engine-reference-features.md

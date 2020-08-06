@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/28/2020
+ms.date: 06/20/2020
 ---
 
 # Tutorial: Index from multiple data sources using the .NET SDK

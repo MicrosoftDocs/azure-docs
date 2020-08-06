@@ -165,7 +165,7 @@ Go to the Debug Console site `https://yoursite.scm.azurewebsites.net/DebugConsol
 
 Go into your site/wwwroot directory. You see a command prompt as shown in the following example:
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
+![Screenshot that shows your site/wwwroot directory and command prompt.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
 
 Run the command `npm install v8-profiler`.
 
@@ -198,11 +198,11 @@ http.createServer(function (req, res) {
 
 The preceding code profiles the WriteConsoleLog function and then writes the profile output to the ‘profile.cpuprofile’ file under your site wwwroot. Send a request to your application. You see a ‘profile.cpuprofile’ file created under your site wwwroot.
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
+![Screenshot that shows the profile.cpuprofile file.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
 Download this file and open it with Chrome F12 Tools. Press F12 on Chrome, then choose the **Profiles** tab. Choose the **Load** button. Select your profile.cpuprofile file that you downloaded. Click on the profile you just loaded.
 
-![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
+![Screenshot that shows the profile.cpuprofile file that you loaded.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
 You can see that 95% of the time was consumed by the WriteConsoleLog function. The output also shows you the exact line numbers and source files that caused the issue.
 

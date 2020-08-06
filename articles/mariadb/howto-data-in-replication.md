@@ -4,7 +4,7 @@ description: This article describes how to set up Data-in Replication in Azure D
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/11/2020
 ---
 

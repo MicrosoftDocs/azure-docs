@@ -1,5 +1,5 @@
 ---
-title: System views
+title: System views supported in Synapse SQL - workspaces preview
 description: Links to the documentation for system views supported in Synapse SQL.
 author: filippopovic
 ms.service: synapse-analytics 

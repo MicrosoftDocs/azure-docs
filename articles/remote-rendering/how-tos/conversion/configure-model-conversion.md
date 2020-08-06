@@ -13,7 +13,8 @@ This chapter documents the options for the model conversion.
 
 ## Settings file
 
-If a file called `ConversionSettings.json` is found in the input container beside the input model, then it is used to provide additional configuration for the model conversion process.
+If a file called `<modelName>.ConversionSettings.json` is found in the input container beside the input model `<modelName>.<ext>`, then it will be used to provide additional configuration for the model conversion process.
+For example, `box.ConversionSettings.json` would be used when converting `box.gltf`.
 
 The contents of the file should satisfy the following json schema:
 
@@ -49,7 +50,7 @@ The contents of the file should satisfy the following json schema:
 }
 ```
 
-An example `ConversionSettings.json` file might be:
+An example file `box.ConversionSettings.json` might be:
 
 ```json
 {
@@ -61,15 +62,18 @@ An example `ConversionSettings.json` file might be:
 
 ### Geometry parameters
 
-* `scaling` - This parameter scales a model uniformly. Scaling can be used to grow or shrink a model, for example to display a building model on a table top. Since the rendering engine expects lengths to be specified in meters, another important use of this parameter arises when a model is defined in different units. For example, if a model is defined in centimeters, then applying a scale of 0.01 should render the model at the correct size.
+* `scaling` - This parameter scales a model uniformly. Scaling can be used to grow or shrink a model, for example to display a building model on a table top.
+Scaling is also important when a model is defined in units other than meters, since the rendering engine expects meters.
+For example, if a model is defined in centimeters, then applying a scale of 0.01 should render the model at the correct size.
 Some source data formats (for example .fbx) provide a unit scaling hint, in which case the conversion implicitly scales the model to meter units. The implicit scaling provided by the source format will be applied on top of the scaling parameter.
 The final scaling factor is applied to the geometry vertices and the local transforms of the scene graph nodes. The scaling for the root entity's transform remains unmodified.
 
 * `recenterToOrigin` - States that a model should be converted so that its bounding box is centered at the origin.
-Centering is important if the source model is displaced far from the origin, since in that case floating point precision issues may cause rendering artifacts.
+If a source model is displaced far from the origin, floating point precision issues may cause rendering artifacts.
+Centering the model can help in this situation.
 
 * `opaqueMaterialDefaultSidedness` - The rendering engine assumes that opaque materials are double-sided.
-If that is not the intended behavior, this parameter should be set to "SingleSided". For more information, see [:::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
+if that assumption isn't true of a particular model, this parameter should be set to "SingleSided". For more information, see [:::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
 
 ### Material overrides
 
@@ -94,10 +98,10 @@ If a model is defined using gamma space, then these options should be set to tru
 
 * `sceneGraphMode` - Defines how the scene graph in the source file is converted:
   * `dynamic` (default): All objects in the file are exposed as [entities](../../concepts/entities.md) in the API and can be transformed independently. The node hierarchy at runtime is identical to the structure in the source file.
-  * `static`: All objects are exposed in the API but cannot be transformed independently.
+  * `static`: All objects are exposed in the API but they cannot be transformed independently.
   * `none`: The scene graph is collapsed into one object.
 
-Each mode has different runtime performance. In `dynamic` mode, the performance cost scales linearly with the number of [entities](../../concepts/entities.md) in the graph, even when no part is moved. It should only be used when moving parts individually is necessary for the application, for example for an 'explosion view' animation.
+Each mode has different runtime performance. In `dynamic` mode, the performance cost scales linearly with the number of [entities](../../concepts/entities.md) in the graph, even when no part is moved. Use `dynamic` mode only when it is necessary to move parts individually, for example for an 'explosion view' animation.
 
 The `static` mode exports the full scene graph, but parts inside this graph have a constant transform relative to its root part. The root node of the object, however, can still be moved, rotated, or scaled at no significant performance cost. Furthermore, [spatial queries](../../overview/features/spatial-queries.md) will return individual parts and each part can be modified through [state overrides](../../overview/features/override-hierarchical-state.md). With this mode, the runtime overhead per object is negligible. It is ideal for large scenes where you still need per-object inspection but no per-object transform changes.
 
@@ -273,6 +277,11 @@ In these use cases, the models often have very high detail within a small volume
 * Individual parts should be selectable and movable, so the `sceneGraphMode` must be left to `dynamic`.
 * Ray casts are typically an integral part of the application, so collision meshes must be generated.
 * Cut planes look better with the `opaqueMaterialDefaultSidedness` flag enabled.
+
+## Deprecated features
+
+Providing settings using the non-model-specific filename `conversionSettings.json` is still supported but deprecated.
+Please use the model-specific filename `<modelName>.ConversionSettings.json` instead.
 
 ## Next steps
 

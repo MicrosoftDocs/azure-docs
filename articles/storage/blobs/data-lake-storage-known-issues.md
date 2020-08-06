@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -60,19 +60,6 @@ Unmanaged VM disks are not supported in accounts that have a hierarchical namesp
 
 - Get and set ACL operations are not currently recursive.
 
-
-## Lifecycle management policies
-
-The deletion of blob snapshots is not yet supported. 
-
-## Archive Tier
-
-There is currently a bug that affects the archive access tier.
-
-## Blobfuse
-
-Blobfuse is not supported.
-
 <a id="known-issues-tools"></a>
 
 ## AzCopy
@@ -118,6 +105,8 @@ Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumG
 #Enable logging
 Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
 ```
+
+The setting for retention days is not yet supported, but you can delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK.
 
 ### Lifecycle management policies
 

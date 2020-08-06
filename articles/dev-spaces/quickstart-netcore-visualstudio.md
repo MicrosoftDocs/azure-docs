@@ -78,15 +78,15 @@ Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready 
 
 In your project, select **Azure Dev Spaces** from the launch settings dropdown as shown below.
 
-![](media/get-started-netcore-visualstudio/LaunchSettings.png)
+![Screenshot of the Visual Studio UI with the IIS Express option highlighted and selected and the Azure Dev Spaces option highlighted.](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
 In the Azure Dev Spaces dialog, select your *Subscription* and *Azure Kubernetes Cluster*. Leave *Space* set to *default* and enable the *Publicly Accessible* checkbox. Click *OK*.
 
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
+![Screenshot of the Azure Dev Spaces dialog box.](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
 This process deploys your service to the *default* dev space with a publicly accessible URL. If you choose a cluster that hasn't been configured to work with Azure Dev Spaces, you'll see a message asking if you want to configure it. Click *OK*.
 
-![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
+![Screenshot of the Add Azure Spaces Resource dialog box.](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
 The public URL for the service running in the *default* dev space is displayed in the *Output* window:
 

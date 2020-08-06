@@ -181,7 +181,7 @@ The **Location** - The location the connection was initiated from:
 
 - **Success**: One or more conditional access policies applied to the user and application (but not necessarily the other conditions) during sign-in. 
 
-- **Failure**: One or more conditional access policies applied and was not satisfied during sign-in.
+- **Failure**: The sign-in satisfied the user and application condition of at least one Conditional Access policy and grant controls are either not satisfied or set to block access.
 
 
 

@@ -1,21 +1,10 @@
 ---
 title: Azure Service Bus authentication and authorization | Microsoft Docs
 description: Authenticate apps to Service Bus with Shared Access Signature (SAS) authentication.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-editor: spelluru
-
-ms.assetid: 18bad0ed-1cee-4a5c-a377-facc4785c8c9
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/11/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # Service Bus authentication and authorization
 There are two ways to authenticate and authorize access to Azure Service Bus resources: Azure Activity Directory (Azure AD) and Shared Access Signatures (SAS). This article gives you details on using these two types of security mechanisms. 
 

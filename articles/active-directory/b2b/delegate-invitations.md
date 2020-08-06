@@ -5,7 +5,7 @@ description: Learn how to enable Active Directory B2B external collaboration and
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 
 ms.author: mimart

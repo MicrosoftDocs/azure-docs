@@ -4,13 +4,12 @@ description: Learn how to configure a pre-built Java container for your app. Thi
 keywords: azure app service, web app, linux, oss, java, java ee, jee, javaee
 author: bmitchell287
 manager: barbkess
-
 ms.devlang: java
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-java
 ---
 
 # Configure a Linux Java app for Azure App Service

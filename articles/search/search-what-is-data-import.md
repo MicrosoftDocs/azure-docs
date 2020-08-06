@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 06/30/2020
 ---
 # Data import overview - Azure Cognitive Search
 
@@ -58,11 +58,15 @@ In the .NET SDK, package up your data into an `IndexBatch` object. An `IndexBatc
 
 There are two ways to [search your index using the REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). One way is to issue an HTTP POST request where your query parameters are defined in a JSON object in the request body. The other way is to issue an HTTP GET request where your query parameters are defined within the request URL. POST has more [relaxed limits](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) on the size of query parameters than GET. For this reason, we recommend using POST unless you have special circumstances where using GET would be more convenient.
 
-For both POST and GET, you need to provide your *service name*, *index name*, and the proper *API version* (the current API version is `2019-05-06` at the time of publishing this document) in the request URL. For GET, the *query string* at the end of the URL is where you provide the query parameters. See below for the URL format:
+For both POST and GET, you need to provide your *service name*, *index name*, and an *API version* in the request URL. 
 
+For GET, the *query string* at the end of the URL is where you provide the query parameters. See below for the URL format:
+
+```http
     https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2019-05-06
+```
 
-The format for POST is the same, but with only api-version in the query string parameters.
+The format for POST is the same, but with `api-version` in the query string parameters.
 
 ## Pulling data into an index
 
@@ -71,7 +75,7 @@ The pull model crawls a supported data source and automatically uploads the data
 + [Blob storage](search-howto-indexing-azure-blob-storage.md)
 + [Table storage](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-+ [Azure SQL database, and SQL Server on Azure VMs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
++ [Azure SQL Database, SQL Managed Instance, and SQL Server on Azure VMs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 Indexers connect an index to a data source (usually a table, view, or equivalent structure), and map source fields to equivalent fields in the index. During execution, the rowset is automatically transformed to JSON and loaded into the specified index. All indexers support scheduling so that you can specify how frequently the data is to be refreshed. Most indexers provide change tracking if the data source supports it. By tracking changes and deletes to existing documents in addition to recognizing new documents, indexers remove the need to actively manage the data in your index. 
 

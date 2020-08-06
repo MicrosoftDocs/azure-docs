@@ -9,8 +9,8 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 10/22/2019
+ms.topic: how-to
+ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ---
@@ -357,7 +357,7 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 |TransformationMethod|Expected input|Expected output|Description|
 |-----|-----|-----|-----|
 |Join|string1, string2, separator|outputClaim|Joins input strings by using a separator in between. For example: string1:"foo@bar.com" , string2:"sandbox" , separator:"." results in outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
+|ExtractMailPrefix|Email or UPN|extracted string|ExtensionAttributes 1-15 or any other Schema Extensions which are storing a UPN or email address value for the user e.g. johndoe@contoso.com. Extracts the local part of an email address. For example: mail:"foo@bar.com" results in outputClaim:"foo". If no \@ sign is present, then the original input string is returned as is.|
 
 **InputClaims:** Use an InputClaims element to pass the data from a claim schema entry to a transformation. It has two attributes: **ClaimTypeReferenceId** and **TransformationClaimType**.
 
@@ -430,6 +430,9 @@ Claims mapping policies can only be assigned to service principal objects.
 ### Example claims mapping policies
 
 In Azure AD, many scenarios are possible when you can customize claims emitted in tokens for specific service principals. In this section, we walk through a few common scenarios that can help you grasp how to use the claims mapping policy type.
+
+> [!NOTE]
+> When creating a claims mapping policy, you can also emit a claim from a directory schema extension attribute in tokens. Use *ExtensionID* for the extension attribute instead of *ID* in the `ClaimsSchema` element.  For more info on extension attributes, see [Using directory schema extension attributes](active-directory-schema-extensions.md).
 
 #### Prerequisites
 
@@ -522,4 +525,5 @@ In this example, you create a policy that emits a custom claim "JoinedData" to J
 
 ## See also
 
-To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
+- To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)
+- To learn more about extension attributes, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).

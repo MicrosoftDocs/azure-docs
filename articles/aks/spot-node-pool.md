@@ -39,9 +39,6 @@ When you create a cluster to use a spot node pool, that cluster must also use Vi
 
 To create an AKS cluster that uses a spot node pool, you must enable the *spotpoolpreview* feature flag on your subscription. This feature provides the latest set of service enhancements when configuring a cluster.
 
-> [!CAUTION]
-> When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
-
 Register the *spotpoolpreview* feature flag using the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive

@@ -107,22 +107,17 @@ To configure Azure AD single sign-on with Citrix ShareFile, perform the followin
 
     b. In the **Identifier (Entity ID)** textbox, type a URL using the following pattern:
 
-	| |
-	|---|
-	| `https://<tenant-name>.sharefile.com`|
-	| `https://<tenant-name>.sharefile.com/saml/info`|
-	| `https://<tenant-name>.sharefile1.com/saml/info`|
-	| `https://<tenant-name>.sharefile1.eu/saml/info`|
-	| `https://<tenant-name>.sharefile.eu/saml/info`|
-	| |
-	
+    - `https://<tenant-name>.sharefile.com`
+	- `https://<tenant-name>.sharefile.com/saml/info`
+	- `https://<tenant-name>.sharefile1.com/saml/info`
+	- `https://<tenant-name>.sharefile1.eu/saml/info`
+	- `https://<tenant-name>.sharefile.eu/saml/info`
+
 	c. In the **Reply URL** textbox, type a URL using the following pattern:
 	
-	| |
-	|---|
-	| `https://<tenant-name>.sharefile.com/saml/acs`|
-	| `https://<tenant-name>.sharefile.eu/saml/<URL path>`|
-	| `https://<tenant-name>.sharefile.com/saml/<URL path>`|
+	- `https://<tenant-name>.sharefile.com/saml/acs`
+	- `https://<tenant-name>.sharefile.eu/saml/<URL path>`
+	- `https://<tenant-name>.sharefile.com/saml/<URL path>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Citrix ShareFile Client support team](https://www.citrix.co.in/products/citrix-content-collaboration/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
+ms.date: 07/13/2020
 ---
 
 # Copy data from and to Salesforce by using Azure Data Factory
@@ -37,8 +37,7 @@ Specifically, this Salesforce connector supports:
 - Salesforce Developer, Professional, Enterprise, or Unlimited editions.
 - Copying data from and to Salesforce production, sandbox, and custom domain.
 
-The Salesforce connector is built on top of the Salesforce REST/Bulk API (The
-connector automatically choose one for better performance). By default, the connector uses [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) to copy data from Salesforce, and uses [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) to copy data to Salesforce. You can also explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service.
+The Salesforce connector is built on top of the Salesforce REST/Bulk API. By default, the connector uses [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) to copy data from Salesforce, and uses [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) to copy data to Salesforce. You can also explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service.
 
 ## Prerequisites
 
@@ -51,7 +50,7 @@ Salesforce has limits for both total API requests and concurrent API requests. N
 - If the number of concurrent requests exceeds the limit, throttling occurs and you see random failures.
 - If the total number of requests exceeds the limit, the Salesforce account is blocked for 24 hours.
 
-You might also receive the "REQUEST_LIMIT_EXCEEDED" error message in both scenarios. For more information, see the "API request limits" section in [Salesforce developer limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
+You might also receive the "REQUEST_LIMIT_EXCEEDED" error message in both scenarios. For more information, see the "API request limits" section in [Salesforce developer limits](https://developer.salesforce.com/docs/atlas.en-us.218.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm).
 
 ## Get started
 
@@ -241,7 +240,7 @@ To copy data to Salesforce, set the sink type in the copy activity to **Salesfor
 |:--- |:--- |:--- |
 | type | The type property of the copy activity sink must be set to **SalesforceSink**. | Yes |
 | writeBehavior | The write behavior for the operation.<br/>Allowed values are **Insert** and **Upsert**. | No (default is Insert) |
-| externalIdFieldName | The name of the external ID field for the upsert operation. The specified field must be defined as "External Id Field" in the Salesforce object. It can't have NULL values in the corresponding input data. | Yes for "Upsert" |
+| externalIdFieldName | The name of the external ID field for the upsert operation. The specified field must be defined as "External ID Field" in the Salesforce object. It can't have NULL values in the corresponding input data. | Yes for "Upsert" |
 | writeBatchSize | The row count of data written to Salesforce in each batch. | No (default is 5,000) |
 | ignoreNullValues | Indicates whether to ignore NULL values from input data during a write operation.<br/>Allowed values are **true** and **false**.<br>- **True**: Leave the data in the destination object unchanged when you do an upsert or update operation. Insert a defined default value when you do an insert operation.<br/>- **False**: Update the data in the destination object to NULL when you do an upsert or update operation. Insert a NULL value when you do an insert operation. | No (default is false) |
 
@@ -292,7 +291,7 @@ To query the soft deleted records from the Salesforce Recycle Bin, you can speci
 
 ### Difference between SOQL and SQL query syntax
 
-When copying data from Salesforce, you can use either SOQL query or SQL query. Note that these two has different syntax and functionality support, do not mix it. You are suggested to use the SOQL query which is natively supported by Salesforce. The following table lists the main differences:
+When copying data from Salesforce, you can use either SOQL query or SQL query. Note that these two has different syntax and functionality support, do not mix it. You are suggested to use the SOQL query, which is natively supported by Salesforce. The following table lists the main differences:
 
 | Syntax | SOQL Mode | SQL Mode |
 |:--- |:--- |:--- |
@@ -310,7 +309,7 @@ When you specify the SOQL or SQL query, pay attention to the DateTime format dif
 * **SOQL sample**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL sample**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
-### Error of MALFORMED_QUERY:Truncated
+### Error of MALFORMED_QUERY: Truncated
 
 If you hit error of "MALFORMED_QUERY: Truncated", normally it's due to you have JunctionIdList type column in data and Salesforce has limitation on supporting such data with large number of rows. To mitigate, try to exclude JunctionIdList column or limit the number of rows to copy (you can partition to multiple copy activity runs).
 
@@ -326,7 +325,7 @@ When you copy data from Salesforce, the following mappings are used from Salesfo
 | Date |DateTime |
 | Date/Time |DateTime |
 | Email |String |
-| Id |String |
+| ID |String |
 | Lookup Relationship |String |
 | Multi-Select Picklist |String |
 | Number |Decimal |

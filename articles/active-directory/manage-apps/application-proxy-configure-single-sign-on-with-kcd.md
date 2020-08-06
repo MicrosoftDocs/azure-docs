@@ -151,3 +151,4 @@ But, in some cases, the request is successfully sent to the backend application 
 
 * [How to configure an Application Proxy application to use Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Troubleshoot issues you're having with Application Proxy](application-proxy-troubleshoot.md)
+

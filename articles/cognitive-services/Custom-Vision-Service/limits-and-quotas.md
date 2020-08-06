@@ -3,14 +3,14 @@ title: Limits and quotas - Custom Vision Service
 titleSuffix: Azure Cognitive Services
 description: This article explains the different types of licensing keys and about the limits and quotas for the Custom Vision Service.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.author: anroth
+ms.author: pafarley
 ---
 
 # Limits and quotas
@@ -19,7 +19,7 @@ There are two tiers of keys for the Custom Vision service. You can sign up for a
 
 The number of training images per project and tags per project are expected to increase over time for S0 projects.
 
-||**F0**|**S0**|
+|Factor|**F0**|**S0**|
 |-----|-----|-----|
 |Projects|2|100|
 |Training images per project |5,000|100,000|

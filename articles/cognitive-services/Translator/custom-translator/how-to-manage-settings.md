@@ -23,7 +23,7 @@ To access the settings page:
 
     ![Setting Link](media/how-to/how-to-settings.png)
 
-## Associating Microsoft Translator Subscription
+## Associating Translator Subscription
 
 You need to have a Translator subscription key associated with your workspace to train or deploy models.
 

@@ -170,7 +170,7 @@ let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, r
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 ```
 
-> |Where: ||
+> |Where: | Description |
 > |---------|---------|
 > | `clientId` | The Application ID from the application registered in *portal.azure.com* |
 > | `authority` | The Microsoft identity platform endpoint. In most of cases this will be *https<span/>://login.microsoftonline.com/common* |
@@ -234,7 +234,7 @@ let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParamete
 self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* Add your handling logic */}
 ```
 
-> |Where:||
+> |Where:| Description |
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs  (`api://<Application ID>/access_as_user`) |
 
@@ -254,7 +254,7 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 }
 ```
 
-> |Where: ||
+> |Where: | Description |
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs (`api://<Application ID>/access_as_user`) |
 > | `account` | The account a token is being requested for. This quickstart is about a single account application. If you want to build a multi-account app you'll need to define logic to identify which account to use for token requests using `accountsFromDeviceForParameters:completionBlock:` and passing correct `accountIdentifier` |

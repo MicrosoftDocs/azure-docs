@@ -196,4 +196,4 @@ The above syntax assumes a shared home directory, else .ssh directory must be co
 
 ## Next steps
 
-Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) on Azure.
+Learn more about [HPC](/azure/architecture/topics/high-performance-computing/) on Azure.

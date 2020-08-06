@@ -13,7 +13,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Create a NAT gateway using Azure CLI

@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ---
 
-# Datasets in Azure Data Factory
+# Datasets in Azure Data Factory (version 1)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-create-datasets.md)
 > * [Version 2 (current version)](../concepts-datasets-linked-services.md)
@@ -33,7 +33,7 @@ An activity can take zero or more input **datasets**, and produce one or more ou
 
 Before you create a dataset, create a **linked service** to link your data store to the data factory. Linked services are much like connection strings, which define the connection information needed for Data Factory to connect to external resources. Datasets identify data within the linked data stores, such as SQL tables, files, folders, and documents. For example, an Azure Storage linked service links a storage account to the data factory. An Azure Blob dataset represents the blob container and the folder that contains the input blobs to be processed.
 
-Here is a sample scenario. To copy data from Blob storage to a SQL database, you create two linked services: Azure Storage and Azure SQL Database. Then, create two datasets: Azure Blob dataset (which refers to the Azure Storage linked service) and Azure SQL Table dataset (which refers to the Azure SQL Database linked service). The Azure Storage and Azure SQL Database linked services contain connection strings that Data Factory uses at runtime to connect to your Azure Storage and Azure SQL Database, respectively. The Azure Blob dataset specifies the blob container and blob folder that contains the input blobs in your Blob storage. The Azure SQL Table dataset specifies the SQL table in your SQL database to which the data is to be copied.
+Here is a sample scenario. To copy data from Blob storage to SQL Database, you create two linked services: Azure Storage and Azure SQL Database. Then, create two datasets: Azure Blob dataset (which refers to the Azure Storage linked service) and Azure SQL Table dataset (which refers to the Azure SQL Database linked service). The Azure Storage and Azure SQL Database linked services contain connection strings that Data Factory uses at runtime to connect to your Azure Storage and Azure SQL Database, respectively. The Azure Blob dataset specifies the blob container and blob folder that contains the input blobs in your Blob storage. The Azure SQL Table dataset specifies the SQL table in your SQL database to which the data is to be copied.
 
 The following diagram shows the relationships among pipeline, activity, dataset, and linked service in Data Factory:
 
@@ -276,7 +276,7 @@ The **policy** section in the dataset definition defines the criteria or the con
 | Policy name | Description | Applied to | Required | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Validates that the data in **Azure Blob storage** meets the minimum size requirements (in megabytes). |Azure Blob storage |No |NA |
-| minimumRows |Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL database</li><li>Azure table</li></ul> |No |NA |
+| minimumRows |Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure table</li></ul> |No |NA |
 
 #### Examples
 **minimumSizeMB:**

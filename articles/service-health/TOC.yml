@@ -7,7 +7,12 @@
 - name: Quickstarts
   items:
   - name: Configure alerts for service health events
-    href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
+    items:
+    - name: Azure portal
+      href: alerts-activity-log-service-notifications-portal.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: alerts-activity-log-service-notifications-arm.md
 - name: Concepts
   items:
   - name: Azure status page
@@ -19,7 +24,7 @@
 - name: How To
   items:
   - name: Configure alerts for service health events
-    href: alerts-activity-log-service-notifications.md
+    href: ./alerts-activity-log-service-notifications-portal.md
   - name: View service health notifications by using the Azure portal
     href: service-notifications.md
   - name: Send alerts to outside systems via webhook
@@ -30,7 +35,9 @@
     href: service-health-alert-webhook-pagerduty.md
   - name: Send alerts to OpsGenie
     href: service-health-alert-webhook-opsgenie.md
-  - name: Configure alerts for resource health events
+  - name: Configure resource health alerts using Azure portal
+    href: resource-health-alert-monitor-guide.md
+  - name: Configure resource health alerts using Resource Manager templates
     href: resource-health-alert-arm-template-guide.md
 - name: Reference
   items:
@@ -48,4 +55,3 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Notification Pricing
     href: https://azure.microsoft.com/pricing/details/monitor/
-  

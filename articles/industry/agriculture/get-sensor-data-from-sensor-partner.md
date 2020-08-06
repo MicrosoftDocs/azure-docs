@@ -62,7 +62,13 @@ Follow the below steps to  generate the above information:
     cd  
     ```
 
-6. Run the following command. This will download a script to your home directory.
+6. Run the following command. This connects an authenticated account to use for Azure AD requests
+
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+    
+7. Run the following command. This will download a script to your home directory.
 
     ```azurepowershell-interactive 
 
@@ -70,7 +76,7 @@ Follow the below steps to  generate the above information:
 
     ```
 
-7. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
+8. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
 
     ```azurepowershell-interactive 
 
@@ -78,7 +84,7 @@ Follow the below steps to  generate the above information:
 
     ```
 
-8. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
+9. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
 
 ### Integrate device data by using the generated credentials
 

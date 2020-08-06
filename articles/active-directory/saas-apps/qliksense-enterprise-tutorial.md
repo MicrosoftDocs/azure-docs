@@ -84,11 +84,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Identifier** textbox, type a URL using one of the following pattern:
 
-    | |
-    |--|
-    | `https://<Fully Qualified Domain Name>.qlikpoc.com`|
-    | `https://<Fully Qualified Domain Name>.qliksense.com`|
-    | |
+    ```http
+    https://<Fully Qualified Domain Name>.qlikpoc.com
+    https://<Fully Qualified Domain Name>.qliksense.com
+    ```
 
     c. In the **Reply URL** textbox, type a URL using the following pattern:
 

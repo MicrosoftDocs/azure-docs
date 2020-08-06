@@ -8,7 +8,7 @@ ms.date: 04/20/2017
 # Batch Analytics
 The topics in Batch Analytics contain reference information for the events and alerts available for Batch service resources.
 
-See [Azure Batch diagnostic logging](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) for more information on enabling and consuming Batch diagnostic logs.
+See [Azure Batch diagnostic logging](./batch-diagnostics.md) for more information on enabling and consuming Batch diagnostic logs.
 
 ## Diagnostic logs
 

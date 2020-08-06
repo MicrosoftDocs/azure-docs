@@ -137,7 +137,7 @@ git push
 
 Once your local changes are committed and pushed to the server repository, you can deploy them to your API Management service instance.
 
-For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/tenantconfiguration).
+For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](/rest/api/apimanagement/2019-12-01/tenantconfiguration).
 
 ## File and folder structure reference of local Git repository
 
@@ -167,8 +167,8 @@ These files can be created, deleted, edited, and managed on your local file syst
 > [!NOTE]
 > The following entities are not contained in the Git repository and cannot be configured using Git.
 >
-> * [Users](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user)
-> * [Subscriptions](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription)
+> * [Users](/rest/api/apimanagement/2019-12-01/user)
+> * [Subscriptions](/rest/api/apimanagement/2019-12-01/subscription)
 > * Named Values
 > * Developer portal entities other than styles
 >
@@ -217,15 +217,15 @@ The final setting, `$ref-policy`, maps to the global policy statements file for 
 ### apis folder
 The `apis` folder contains a folder for each API in the service instance, which contains the following items.
 
-* `apis\<api name>\configuration.json` - this is the configuration for the API and contains information about the backend service URL and the operations. This is the same information that would be returned if you were to call [Get a specific API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apis/get) with `export=true` in `application/json` format.
-* `apis\<api name>\api.description.html` - this is the description of the API and corresponds to the `description` property of the [API entity](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.entityproperty).
-* `apis\<api name>\operations\` - this folder contains `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API, which maps to the `description` property of the [operation entity](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) in the REST API.
+* `apis\<api name>\configuration.json` - this is the configuration for the API and contains information about the backend service URL and the operations. This is the same information that would be returned if you were to call [Get a specific API](/rest/api/apimanagement/2019-12-01/apis/get) with `export=true` in `application/json` format.
+* `apis\<api name>\api.description.html` - this is the description of the API and corresponds to the `description` property of the [API entity](/java/api/com.microsoft.azure.storage.table.entityproperty).
+* `apis\<api name>\operations\` - this folder contains `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API, which maps to the `description` property of the [operation entity](/rest/api/visualstudio/operations/list#operationproperties) in the REST API.
 
 ### groups folder
 The `groups` folder contains a folder for each group defined in the service instance.
 
-* `groups\<group name>\configuration.json` - this is the configuration for the group. This is the same information that would be returned if you were to call the [Get a specific group](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/group/get) operation.
-* `groups\<group name>\description.html` - this is the description of the group and corresponds to the `description` property of the [group entity](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
+* `groups\<group name>\configuration.json` - this is the configuration for the group. This is the same information that would be returned if you were to call the [Get a specific group](/rest/api/apimanagement/2019-12-01/group/get) operation.
+* `groups\<group name>\description.html` - this is the description of the group and corresponds to the `description` property of the [group entity](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### policies folder
 The `policies` folder contains the policy statements for your service instance.
@@ -244,8 +244,8 @@ The `portalStyles` folder contains configuration and style sheets for developer 
 ### products folder
 The `products` folder contains a folder for each product defined in the service instance.
 
-* `products\<product name>\configuration.json` - this is the configuration for the product. This is the same information that would be returned if you were to call the [Get a specific product](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/product/get) operation.
-* `products\<product name>\product.description.html` - this is the description of the product and corresponds to the `description` property of the [product entity](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) in the REST API.
+* `products\<product name>\configuration.json` - this is the configuration for the product. This is the same information that would be returned if you were to call the [Get a specific product](/rest/api/apimanagement/2019-12-01/product/get) operation.
+* `products\<product name>\product.description.html` - this is the description of the product and corresponds to the `description` property of the [product entity](/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) in the REST API.
 
 ### templates
 The `templates` folder contains configuration for the [email templates](api-management-howto-configure-notifications.md) of the service instance.
@@ -257,8 +257,8 @@ The `templates` folder contains configuration for the [email templates](api-mana
 For information on other ways to manage your service instance, see:
 
 * Manage your service instance using the following PowerShell cmdlets
-  * [Service deployment PowerShell cmdlet reference](https://docs.microsoft.com/powershell/module/wds)
-  * [Service management PowerShell cmdlet reference](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
+  * [Service deployment PowerShell cmdlet reference](/powershell/module/wds)
+  * [Service management PowerShell cmdlet reference](/powershell/azure/servicemanagement/overview)
 * Manage your service instance using the REST API
   * [API Management REST API reference](/rest/api/apimanagement/)
 
@@ -276,7 +276,3 @@ For information on other ways to manage your service instance, see:
 [api-management-identity-settings]: ./media/api-management-configuration-repository-git/api-management-identity-settings.png
 [api-management-delegation-settings]: ./media/api-management-configuration-repository-git/api-management-delegation-settings.png
 [api-management-git-icon-enable]: ./media/api-management-configuration-repository-git/api-management-git-icon-enable.png
-
-
-
-

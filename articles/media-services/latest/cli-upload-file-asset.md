@@ -14,7 +14,8 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
-ms.author: juliako
+ms.author: juliako 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI example: Upload a local file to a container
@@ -23,7 +24,7 @@ The Azure CLI script in this article shows how to upload a local file to a stora
 
 ## Prerequisites
 
-* [Create a Media Services account](create-account-cli-how-to.md).
+* [Create a Media Services account](./create-account-howto.md).
 * Review [manage assets](manage-asset-concept.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]

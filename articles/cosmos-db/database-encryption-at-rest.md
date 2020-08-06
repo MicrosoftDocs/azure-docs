@@ -19,7 +19,7 @@ As a PaaS service, Azure Cosmos DB is very easy to use. Because all user data st
 
 Encryption at rest is implemented by using a number of security technologies, including secure key storage systems, encrypted networks, and cryptographic APIs. Systems that decrypt and process data have to communicate with systems that manage keys. The diagram shows how storage of encrypted data and the management of keys is separated. 
 
-![Design diagram](./media/database-encryption-at-rest/design-diagram.png)
+:::image type="content" source="./media/database-encryption-at-rest/design-diagram.png" alt-text="Design diagram" border="false":::
 
 The basic flow of a user request is as follows:
 - The user database account is made ready, and storage keys are retrieved via a request to the Management Service Resource Provider.

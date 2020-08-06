@@ -8,8 +8,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 07/08/2019
+ms.topic: tutorial
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -129,7 +129,7 @@ After you create the application for the identity provider that you want to add,
 
 In the tutorial that you completed as part of the prerequisites, you created a user flow for sign-up and sign-in named *B2C_1_signupsignin1*. In this section, you add the identity providers to the *B2C_1_signupsignin1* user flow.
 
-1. Select **User flows (policies)**, and then select the *B2C_1_signupsignin1* user flow.
+1. Select **User flows**, and then select the *B2C_1_signupsignin1* user flow.
 2. Select **Identity providers**, select the **Facebook** and **Contoso Azure AD** identity providers that you added.
 3. Select **Save**.
 

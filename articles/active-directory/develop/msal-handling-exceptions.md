@@ -519,16 +519,20 @@ When getting tokens silently (using `acquireTokenSilent`) using MSAL.js, your ap
 The pattern to handle this error is to make an interactive call to acquire token in MSAL.js such as `acquireTokenPopup` or `acquireTokenRedirect` as in the following example:
 
 ```javascript
-myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenResponse) {
+myMSALObj.acquireTokenSilent(accessTokenRequest).then(function(accessTokenResponse) {
     // call API
-}).catch( function (error) {
+}).catch(function(error) {
     if (error instanceof InteractionRequiredAuthError) {
-        // Extract claims from error message
-        accessTokenRequest.claimsRequest = extractClaims(error.errorMessage);
+    
+        // extract, if exists, claims from error message
+        if (error.ErrorMessage.claims) {
+            accessTokenRequest.claimsRequest = JSON.stringify(error.ErrorMessage.claims);
+        }
+        
         // call acquireTokenPopup in case of InteractionRequiredAuthError failure
-        myMSALObj.acquireTokenPopup(accessTokenRequest).then(function (accessTokenResponse) {
+        myMSALObj.acquireTokenPopup(accessTokenRequest).then(function(accessTokenResponse) {
             // call API
-        }).catch(function (error) {
+        }).catch(function(error) {
             console.log(error);
         });
     }

@@ -1,11 +1,11 @@
 ---
 title: Common SAS URI issues and fixes - Azure Marketplace
 description: Common issues encountered and suggested resolutions when working with shared access signatures.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/09/2020
 ---
 

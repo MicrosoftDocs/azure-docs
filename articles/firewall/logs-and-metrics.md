@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 07/21/2020
 ms.author: victorh
 ---
 
@@ -94,9 +94,13 @@ The following metrics are available for Azure Firewall:
 
     Unit: count
 
-- **Data processed** - Amount of data traversing the firewall.
+- **Data processed** - Sum of data traversing the firewall in a given time window.
 
     Unit: bytes
+
+- **Throughput** - Rate of data traversing the firewall per second.
+
+    Unit: bits per second
 
 - **Firewall health state** - Indicates the health of the firewall based on SNAT port availability.
 

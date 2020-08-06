@@ -4,7 +4,7 @@ description: This article describes how to optimize query time with the TOAST ta
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
 ---
 

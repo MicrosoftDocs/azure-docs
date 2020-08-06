@@ -58,7 +58,7 @@ All classic alerts on storage accounts can be migrated except alerts on these me
 - SASThrottlingError
 - ThrottlingError
 
-Classic alert rules on Percent metrics must be migrated based on [the mapping between old and new storage metrics](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Thresholds will need to be modified appropriately because the new metric available is an absolute one.
+Classic alert rules on Percent metrics must be migrated based on [the mapping between old and new storage metrics](../../storage/common/storage-metrics-migration.md#metrics-mapping-between-old-metrics-and-new-metrics). Thresholds will need to be modified appropriately because the new metric available is an absolute one.
 
 Classic alert rules on AnonymousThrottlingError, SASThrottlingError and ThrottlingError must be split into two new alerts because there is no combined metric that provides the same functionality. Thresholds will need to be adapted appropriately.
 
@@ -98,7 +98,7 @@ Alerts on Mongo Failed Requests metrics must be split into multiple alerts becau
 
 ### Classic compute metrics
 
-Any alerts on classic compute metrics will not be migrated using the migration tool as classic compute resources are not yet supported with new alerts. Support for new alerts on these resource types will be added in future. Once that is available, customers must recreate new equivalent alert rules based on their classic alert rules before June 2020.
+Any alerts on classic compute metrics will not be migrated using the migration tool as classic compute resources are not yet supported with new alerts. Support for new alerts on these resource types is currently in public preview and customers can recreate new equivalent alert rules based on their classic alert rules.
 
 ### Classic alert rules on deprecated metrics
 

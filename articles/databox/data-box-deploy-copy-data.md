@@ -60,7 +60,7 @@ Under block blob and page blob shares, first-level entities are containers, and 
 
 The following table shows the UNC path to the shares on your Data Box and Azure Storage path URL where the data is uploaded. The final Azure Storage path URL can be derived from the UNC share path.
  
-|                   |                                                            |
+|Azure Storage types  | Data Box shares            |
 |-------------------|--------------------------------------------------------------------------------|
 | Azure Block blobs | <li>UNC path to shares: `\\<DeviceIPAddress>\<StorageAccountName_BlockBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li> |  
 | Azure Page blobs  | <li>UNC path to shares: `\\<DeviceIPAddres>\<StorageAccountName_PageBlob>\<ContainerName>\files\a.txt`</li><li>Azure Storage URL: `https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/files/a.txt`</li>   |  
@@ -68,32 +68,32 @@ The following table shows the UNC path to the shares on your Data Box and Azure 
 
 If using a Windows Server host computer, follow these steps to connect to the Data Box.
 
-1. The first step is to authenticate and start a session. Go to **Connect and copy**. Click **Get credentials** to get the access credentials for the shares associated with your storage account. 
+1. The first step is to authenticate and start a session. Go to **Connect and copy**. Select **SMB** to get the access credentials for the shares associated with your storage account. 
 
     ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Click **OK**.
+2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Select **OK**.
     
     ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. To access the shares associated with your storage account (*devicemanagertest1* in the following example) from your host computer, open a command window. At the command prompt, type:
+3. To access the shares associated with your storage account (*utsac1* in the following example) from your host computer, open a command window. At the command prompt, type:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
     Depending upon your data format, the share paths are as follows:
-    - Azure Block blob - `\\10.126.76.172\devicemanagertest1_BlockBlob`
-    - Azure Page blob - `\\10.126.76.172\devicemanagertest1_PageBlob`
-    - Azure Files - `\\10.126.76.172\devicemanagertest1_AzFile`
+    - Azure Block blob - `\\10.126.76.138\utSAC1_202006051000_BlockBlob`
+    - Azure Page blob - `\\10.126.76.138\utSAC1_202006051000_PageBlob`
+    - Azure Files - `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
 4. Enter the password for the share when prompted. The following sample shows connecting to a share via the preceding command.
 
     ```
-    C:\Users\Databoxuser>net use \\10.126.76.172\devicemanagertest1_BlockBlob /u:devicemanagertest1
-    Enter the password for 'devicemanagertest1' to connect to '10.126.76.172':
+    C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
+    Enter the password for 'testuser1' to connect to '10.126.76.138':
     The command completed successfully.
     ```
 
-4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK** to open File Explorer.
+4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Select **OK** to open File Explorer.
     
     ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
@@ -105,7 +105,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     
 If using a Linux client, use the following command to mount the SMB share. The "vers" parameter below is the version of SMB that your Linux host supports. Plug in the appropriate version in the command below. For versions of SMB that the Data Box supports see [Supported file systems for Linux clients](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
 
-    `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
+    `sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home/databoxubuntuhost/databox`
 
 ## Copy data to Data Box
 
@@ -213,11 +213,23 @@ To optimize the performance, use the following robocopy parameters when copying 
 
 For more information on Robocopy command, go to [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
 
-Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the error files for troubleshooting. For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
+During the copy process, if there are any errors, you will see a notification.
+
+![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-1.png)
+
+Select **Download issue list**.
+
+![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-2.png)
+
+Open the list to view the details of the error and select the resolution URL to view the recommended resolution.
+
+![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-3.png)
+
+For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
 
 To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
 
-   ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
+![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
 ::: zone-end
 

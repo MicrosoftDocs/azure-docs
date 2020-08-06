@@ -91,7 +91,7 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  Verify the latest appliance versions and has values:
+3.  Verify the latest appliance versions and hash values:
 
     - For the Azure public cloud:
 
@@ -125,7 +125,7 @@ Import the downloaded file, and create the VM.
 2. In **Choose Import Type**, click **Copy the virtual machine (create a new unique ID)**. Then click **Next**.
 3. In **Choose Destination**, leave the default setting. Click **Next**.
 4. In **Storage Folders**, leave the default setting. Click **Next**.
-5. In **Choose Network**, specify the virtual switch that the VM will use. The switch needs internet connectivity to send data to Azure. [Learn](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) about creating a virtual switch.
+5. In **Choose Network**, specify the virtual switch that the VM will use. The switch needs internet connectivity to send data to Azure. [Learn](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) about creating a virtual switch.
 6. In **Summary**, review the settings. Then click **Finish**.
 7. In Hyper-V Manager > **Virtual Machines**, start the VM.
 

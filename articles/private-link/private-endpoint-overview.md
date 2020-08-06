@@ -33,7 +33,7 @@ Here are some key details about private endpoints:
  
 - Network connections can only be initiated by clients connecting to the Private endpoint, Service providers do not have any routing configuration to initiate connections into service consumers. Connections can only be establish in a single direction.
 
-- When creating a private endpoint, a read-only network interface is also created for the lifecycle of the resource. The interface is assigned dynamically private IP addresses from the subnet that maps to the private link resource. the value of the private IP address remains unchanged for the entire lifecycle of the private endpoint.
+- When creating a private endpoint, a read-only network interface is also created for the lifecycle of the resource. The interface is assigned dynamically private IP addresses from the subnet that maps to the private link resource. The value of the private IP address remains unchanged for the entire lifecycle of the private endpoint.
  
 - The private endpoint must be deployed in the same region as the virtual network. 
  
@@ -62,18 +62,25 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
 |**Azure IoT Hub** | Microsoft.Devices/IotHubs    | iotHub |
 |**Azure Key Vault** | Microsoft.KeyVault/vaults    | vault |
-|**Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters    | managedCluster |
+|**Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters    | management |
 |**Azure Search** | Microsoft.Search/searchService| searchService|  
 |**Azure Container Registry** | Microsoft.ContainerRegistry/registries    | registry |
-|**Azure App Configuration** | Microsoft.Appconfiguration/configurationStores    | configurationStore |
+|**Azure App Configuration** | Microsoft.Appconfiguration/configurationStores    | configurationStores |
 |**Azure Backup** | Microsoft.RecoveryServices/vaults    | vault |
 |**Azure Event Hub** | Microsoft.EventHub/namespaces    | namespace |
 |**Azure Service Bus** | Microsoft.ServiceBus/namespaces | namespace |
 |**Azure Relay** | Microsoft.Relay/namespaces | namespace |
 |**Azure Event Grid** | Microsoft.EventGrid/topics    | topic |
 |**Azure Event Grid** | Microsoft.EventGrid/domains    | domain |
-|**Azure WebApps** | Microsoft.Web/sites    | site |
+|**Azure WebApps** | Microsoft.Web/sites    | sites |
 |**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | workspace |
+|**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
+|**Azure Monitor** | Microsoft.Insights/privateLinkScopes    | azuremonitor |
+|**Cognitive Services** | (Microsoft.CognitiveServices/accounts    | account |
+|**Azure File Sync** | Microsoft.StorageSync/storageSyncServices    | Afs |
+    
+  
+
   
  
 ## Network security of private endpoints 

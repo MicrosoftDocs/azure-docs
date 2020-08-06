@@ -4,7 +4,7 @@ description: Learn how to validate the encryption of the Azure Database for Post
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
 ---
 
