@@ -19,7 +19,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card (optional)
-  - title: About [service]
+  - title: About
     linkLists:
       - linkListType: overview
         links:
@@ -32,50 +32,36 @@ landingContent:
           - text: Storage configuration
             url: storage-configuration.md
 
-  # # Card (optional)
-  # - title: Get started
-  #   linkLists:
-  #     - linkListType: linkListType
-  #       links:
-  #         - text: linktext1
-  #           url: file1.md
-  #         - text: linktext2
-  #           url: file2.md
-  #     - linkListType: linkListType
-  #       links:
-  #         - text: linktext1
-  #           url: file1.md
-  #         - text: linktext2
-  #           url: file2.md
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create data controller
+            url: create-data-controller.md
+          - text: Install client tools
+            url: install-client-tools.md
 
-  # # Card
-  # - title: cardtitle3
-  #   linkLists:
-  #     - linkListType: linkListType
-  #       links:
-  #         - text: linktext1
-  #           url: file1.md
-  #         - text: linktext2
-  #           url: file2.md
-  #     - linkListType: linkListType
-  #       links:
-  #         - text: linktext1
-  #           url: file1.md
-  #         - text: linktext2
-  #           url: file2.md
+  # Card (optional)
+  - title: Do with Postgres
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create PostgreSQL instance
+            url: create-postgres-instances.md
+          - text: Extend single node to hyperscale
+            url: postgres_extend_singlenode-to-hyperscale.md
+          - text: Restore sample database
+            url: restore-adventureworks-sample-db-to-pg.md
 
-  # # Card
-  # - title: cardtitle4
-  #   linkLists:
-  #     - linkListType: linkListType
-  #       links:
-  #         - text: linktext1
-  #           url: file1.md
-  #         - text: linktext2
-  #           url: file2.md
-  #     - linkListType: linkListType
-  #       links:
-  #         - text: linktext1
-  #           url: file1.md
-  #         - text: linktext2
-  #           url: file2.md
+  # Card (optional)
+  - title: Do with SQL Managed Instance
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create Managed instance
+            url: create-sqlmiaa-instance.md
+          - text: Migrate to Managed Instance
+            url: migrate-to-managed-instance-azure-arc.md
+          - text: Restore sample database
+            url: restore-adventureworks-sample-db.md
