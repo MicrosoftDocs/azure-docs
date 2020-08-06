@@ -66,7 +66,7 @@ IoT Edge device:
 > [!NOTE]
 > IoT Edge for Windows requires Windows version 1809 (OS build 17763), which is the latest [Windows long-term support build](https://docs.microsoft.com/en-us/windows/release-information/).
 
-  Once your virtual machine is started, you can download an RDP file for use when connecting to your virtual machine:
+  Once your virtual machine starts, you can download an RDP file for use when connecting to your virtual machine:
 
   1. Navigate to your new Windows virtual machine in the Azure portal.
   1. Select **Connect**.
