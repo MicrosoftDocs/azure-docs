@@ -5,7 +5,7 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
-ms.date: 08/04/2020
+ms.date: 08/06/2020
 ms.author: robinsh
 ms.custom: mvc
 ---
@@ -18,7 +18,6 @@ In this quickstart, you use an Azure Resource Manager template (ARM template) to
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-
 
 ## The template
 
@@ -61,39 +60,37 @@ SET ENV_DEVICE_ID = "Contoso-Test-Device"
 1. Log into the [Azure portal](http://portal.azure.com]. Select **Resource Groups** then select the resource group created for this quickstart.
 
 **SCREENSHOT** 
-01-select-resource-group.png 
+   ![Select the resource group](./media/iot-hub-horizontal-arm-route-messages/01-select-resource-group.png)
 
 1. You see the IoT Hub and storage account that were created when you deployed the ARM template.
 
 Wait until the template is fully deployed before continuing. Then select your resource group to see your resources.
 
 **SCREENSHOT**
-02-view-resources-in-group.png
+   ![View resources in a resource group](./media/iot-hub-horizontal-arm-route-messages/02-view-resources-in-group.png)
 
 1. Select the hub. Then copy the name of the hub and paste it into <hub-name-goes-here> in the environment variable file.
 
 **SCREENSHOT**
-03-copy-hub-name.png
+   ![Copy the hub name](./media/iot-hub-horizontal-arm-route-messages/03-copy-hub-name.png)
+
 1. In the IoT Hub pane, look through the properties and select **IOT DEVICES**. 
 
-04-select-iot-devices.png
+   ![Select IoT Devices](./media/iot-hub-horizontal-arm-route-messages/04-select-iot-devices.png)
 
 1. On the right side of the screen, select **+ NEW** to add a new device. 
-
-**SCREENSHOT** 
-05-set-device-name.png  **missing**
 
 Fill in the new device name. This quickstart uses a name starting with **Contoso-Test-Device**. Save the device and then open that screen again to retrieve the device key. (The key is generated for you when you close the pane.) Select either the primary or secondary key and copy it to the clipboard, then paste it into the <device-key-goes-here> field in the environment variables file.
 
 1. Set the device id to **Contoso-Test-Device** (unless you changed it in the ARM template). 
  
-1. Save the environment variables file, using a file extension of `cmd`. Copy this to the solution folder where the project file arm-read-write.csproj resides. Copy each row and paste it into the command-line in the Command window and select Enter to execute the command. Do this for each of the environment variables. When you're finished, type in the command SET and select Enter -- it shows all the active variables, including the three you just set up.
+1. Save the environment variables file, using a file extension of `cmd`. Copy this to the solution folder where the project file arm-read-write.csproj resides. Copy each row and paste it into the command-line in the Command window and select Enter to execute each command. Do this for each of the environment variables. When you're finished, type in the command SET and select Enter -- it shows all the active variables, including the three you just set up.
 
 1. DO NOT CLOSE THE CMD WINDOW. Since the application is a .NET Core application, you can run it without even opening the code. 
 
 1. In the Command window, type the following command.
 
-    DOTNET RUN ARM-READ-WRITE
+    `DOTNET RUN ARM-READ-WRITE
 
 The application runs, generating and displaying messages as it sends each one to the IoT Hub. The Iot Hub uses the routing configuration to route the messages to the storage account. Let the app run for 10 to 15 minutes, then press Enter one or twice until it stops running.
 
@@ -119,4 +116,3 @@ Go to the [Azure portal](https://portal.azure.com). Select **Resource Groups**, 
 > [!div class="nextstepaction"]
 > [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 ```
--->
