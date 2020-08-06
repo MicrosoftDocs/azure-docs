@@ -71,3 +71,7 @@ private SilentAuthenticationCallback getAuthSilentCallback() {
     };
 }
 ```
+
+## Next steps 
+
+Learn more about [logging errors](https://docs.microsoft.com/azure/active-directory/develop/msal-logging?tabs=android) 
