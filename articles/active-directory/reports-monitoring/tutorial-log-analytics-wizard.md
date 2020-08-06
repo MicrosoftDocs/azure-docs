@@ -144,7 +144,7 @@ Take 10 random entries from the input data:
 
 `SigninLogs | take 10`
 
-Look at the signins where the Conditional Access was a success
+Look at the sign-ins where the Conditional Access was a success
 
 `SigninLogs | where ConditionalAccessStatus == "success" | project UserDisplayName, ConditionalAccessStatus` 
 
@@ -154,9 +154,9 @@ Count how many successes there have been
 `SigninLogs | where ConditionalAccessStatus == "success" | project UserDisplayName, ConditionalAccessStatus | count'
 
 
-Aggregate count of successful signins by user by day:
+Aggregate count of successful sign-ins by user by day:
 
-`SigninLogs | where ConditionalAccessStatus == "success" | summarize SuccessfulSignins = count() by UserDisplayName, bin(TimeGenerated, 1d)` 
+`SigninLogs | where ConditionalAccessStatus == "success" | summarize SuccessfulSign-ins = count() by UserDisplayName, bin(TimeGenerated, 1d)` 
 
 
 View how many times a user does a certain operation in specific time period:
@@ -209,7 +209,7 @@ This procedure shows how to send alerts when the breakglass account is used.
 
 2. Search for **Azure Active Directory**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azuread.png)
+    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Logs**.
 
@@ -233,11 +233,11 @@ This procedure shows how to send alerts when the breakglass account is used.
 
     ![Alert logic](./media/tutorial-log-analytics-wizard/alert-logic.png)
 
-    a. As **Based on**, select **Number of results**.
+    1. As **Based on**, select **Number of results**.
 
-    b. As **Operator**, select **Greater than**.
+    2. As **Operator**, select **Greater than**.
 
-    c. As **Threshold value**, select **0**. 
+    3. As **Threshold value**, select **0**. 
 
 11. On the **Configure signal logic** page, in the **Evaluated based on** section, perform the following steps:
 
@@ -291,7 +291,7 @@ This procedure shows how to send alerts when the breakglass account is used.
 
 ## Create a custom workbook
 
-This procedure shows how to create a new workbook using the quick start template.
+This procedure shows how to create a new workbook using the quickstart template.
 
 
 
@@ -306,7 +306,7 @@ This procedure shows how to create a new workbook using the quick start template
 
     ![Workbooks](./media/tutorial-log-analytics-wizard/workbooks.png)
 
-4. In the **Quick start** section, click **Empty**.
+4. In the **Quickstart** section, click **Empty**.
 
     ![Quick start](./media/tutorial-log-analytics-wizard/quick-start.png)
 
