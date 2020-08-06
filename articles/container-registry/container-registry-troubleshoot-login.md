@@ -2,7 +2,7 @@
 title: Troubleshoot login to registry
 description: Symptoms, causes, and resolution of common problems when logging into an Azure container registry
 ms.topic: article
-ms.date: 07/31/2020
+ms.date: 08/06/2020
 ---
 
 # Troubleshoot registry login
@@ -10,6 +10,8 @@ ms.date: 07/31/2020
 This article helps you troubleshoot problems you might encounter when logging into an Azure container registry. 
 
 ## Symptoms
+
+May include one or more of the following:
 
 * Unable to login to registry using `docker login`, `az acr login`, or both
 * Unable to login to registry and you receive Docker error `unauthorized: authentication required`
@@ -29,7 +31,7 @@ This article helps you troubleshoot problems you might encounter when logging in
 * The credentials aren't authorized for push, pull, or Azure Resource Manager operations - [solution](#confirm-credentials-are-authorized-to-access-registry)
 * The credentials are expired - [solution](#check-that-credentials-arent-expired)
 
-If you don't resolve your problem here, see [Next steps](#next-steps) for other options.
+If you don't resolve your problem here, see [Advanced troubleshooting](#advanced-troubleshooting) and [Next steps](#next-steps) for other options.
 
 ## Potential solutions
 
@@ -47,7 +49,7 @@ Related links:
 * To login to the registry using `docker login`, specify the login server name of the registry. Ensure that you use only lowercase letters and the suffix `azurecr.io`:
 
   ```console
-  `docker login myregistry.azurecr.io`
+  docker login myregistry.azurecr.io
   ```
 
 * To login to the registry using [az acr login](/cli/azure/acr#az-acr-login) with an enabled Azure Active Directory identity, first [sign into the Azure CLI](/cli/azure/authenticate-azure-cli), and then specify the Azure resource name of the registry as follows:
@@ -112,9 +114,11 @@ Related links:
 * [Regenerate token passwords](container-registry-repository-scoped-permissions.md#regenerate-token-passwords)
 * [Individual login with Azure AD](container-registry-authentication.md#individual-login-with-azure-ad)
 
-## Further troubleshooting
+## Advanced troubleshooting
 
-If your permissions to registry resources allow, check the health of the registry environment or review registry resouorce logs. For example, review [registry authentication failures](container-registry-diagnostics-audit-logs.md#registry-authentication-failures) in the ContainerRegistryLoginEvents table in the registry resource log.
+If your permissions to registry resources allow, [check the health of the registry environment](container-registry-check-health.md). If errors are reported, review the [error reference](container-registry-health-error-reference.md) for potential solutions.
+
+If [collection of resource logs](container-registry-diagnostics-audit-logs.md) is enabled in the registry, review the ContainterRegistryLoginEvents log. This log stores authentication events and status, including the incoming identity and IP address. Query the log for [registry authentication failures](container-registry-diagnostics-audit-logs.md#registry-authentication-failures). 
 
 Related links:
 

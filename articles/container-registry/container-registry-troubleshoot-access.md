@@ -11,6 +11,8 @@ This article helps you troubleshoot problems you might encounter when accessing 
 
 ## Symptoms
 
+May include one or more of the following:
+
 * Unable to push or pull images and you receive error `dial tcp: lookup myregistry.azurecr.io`
 * Unable to push or pull images and you receive Azure CLI error `Could not connect to the registry login server`
 * Unable to pull images from registry to Azure Kubernetes Service or another Azure service
@@ -30,7 +32,7 @@ This article helps you troubleshoot problems you might encounter when accessing 
 * Virtual network configuration prevents access - [solution](#configure-vnet-access)
 * You attempt to integrate Azure Security Center with a registry that has a private endpoint - [solution](#configure-image-scanning-solution)
 
-If you don't resolve your problem here, see [Next steps](#next-steps) for other options.
+If you don't resolve your problem here, [Advanced troubleshooting](#advanced-troubleshooting) and [Next steps](#next-steps)for other options.
 
 ## Potential solutions
 
@@ -92,9 +94,11 @@ If your registry is configured with a private endpoint, you can't currently inte
 * [Twistlock Enterprise Edition](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock)
 
 
-## Further troubleshooting
+## Advanced troubleshooting
 
-If your permissions to registry resources allow, check the health of the registry environment or review registry logs. For example, review [registry authentication failures](container-registry-diagnostics-audit-logs.md#registry-authentication-failures) in the ContainerRegistryLoginEvents table in the registry resource log.
+If your permissions to registry resources allow, [check the health of the registry environment](container-registry-check-health.md). If errors are reported, review the [error reference](container-registry-health-error-reference.md) for potential solutions.
+
+If [collection of resource logs](container-registry-diagnostics-audit-logs.md) is enabled in the registry, review the ContainterRegistryLoginEvents log. This log stores authentication events and status, including the incoming identity and IP address. Query the log for [registry authentication failures](container-registry-diagnostics-audit-logs.md#registry-authentication-failures). 
 
 Related links:
 

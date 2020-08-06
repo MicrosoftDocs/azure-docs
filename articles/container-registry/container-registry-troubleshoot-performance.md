@@ -11,6 +11,8 @@ This article helps you troubleshoot problems you might encounter with the perfor
 
 ## Symptoms
 
+May include one or more of the following:
+
 * Pull or push images with the Docker CLI takes longer than expected
 * Deployment of images to a service such as Azure Kubernetes Service takes longer than expected
 * You're not able to complete a large number of concurrent pull or push operations in the expected time
@@ -22,7 +24,7 @@ This article helps you troubleshoot problems you might encounter with the perfor
 * You're reaching a limit in your registry service tier  - [solution](#review-service-limits)
 * Your geo-replicated registry has replicas in nearby regions - [solution](#configure-geo-replicated-registry)
 
-If you don't resolve your problem here, see [Next steps](#next-steps) for other options.
+If you don't resolve your problem here, see [Advanced troubleshooting](#advanced-troubleshooting) and [Next steps](#next-steps) for other options.
 
 ## Potential solutions
 
@@ -62,9 +64,9 @@ Related links:
 * [Troubleshoot push operations with geo-replicated registries](container-registry-geo-replication.md#troubleshoot-push-operations-with-geo-replicated-registries)
 * [Temporarily disable routing to replication](container-registry-geo-replication.md#temporarily-disable-routing-to-replication)
 
-## Further troubleshooting
+## Advanced troubleshooting
 
-If your permissions to registry resources allow, check the health of the registry environment or review registry logs.
+If your permissions to registry resources allow, [check the health of the registry environment](container-registry-check-health.md). If errors are reported, review the [error reference](container-registry-health-error-reference.md) for potential solutions.
 
 Related links:
 
