@@ -483,5 +483,10 @@ When a working PHP app behaves differently in App Service or has errors, try the
 > [!div class="nextstepaction"]
 > [Tutorial: PHP app with MySQL](tutorial-php-mysql-app.md)
 
+::: zone pivot="platform-linux"
+
 > [!div class="nextstepaction"]
 > [App Service Linux FAQ](faq-app-service-linux.md)
+
+::: zone-end
+

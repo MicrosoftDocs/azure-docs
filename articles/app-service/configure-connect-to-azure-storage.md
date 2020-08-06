@@ -113,12 +113,12 @@ az webapp config storage-account list --resource-group <resource-group> --name <
 
 ::: zone pivot="container-windows"
 
-- [Migrate an ASP.NET app to Azure App Service using a Windows container (Preview)](tutorial-custom-container.md).
+- [Migrate custom software to Azure App Service using a custom container (Preview)](tutorial-custom-container.md?pivots=container-windows).
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
-- [Configure web apps in Azure App Service](configure-custom-container.md).
+- [Configure web apps in Azure App Service](configure-custom-container.md?pivots=platform-linux).
 
 ::: zone-end
