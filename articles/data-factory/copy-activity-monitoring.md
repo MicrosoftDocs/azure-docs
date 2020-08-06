@@ -52,7 +52,7 @@ Copy activity execution details and performance characteristics are also returne
 | filesRead | The number of files read from the file-based source. | Int64 value (no unit) |
 | filesWritten | The number of files written/committed to the file-based sink. | Int64 value (no unit) |
 | filesSkipped | The number of files skipped from the file-based source. | Int64 value (no unit) |
-| dataConsistencyVerification | Details of data consistency verification where you can see if your copied data has been verified to be consistent between source and destination store. Learn more from [this article](copy-activity-data-consistency#monitoring). | Array |
+| dataConsistencyVerification | Details of data consistency verification where you can see if your copied data has been verified to be consistent between source and destination store. Learn more from [this article](copy-activity-data-consistency.md#monitoring). | Array |
 | sourcePeakConnections | Peak number of concurrent connections established to the source data store during the Copy activity run. | Int64 value (no unit) |
 | sinkPeakConnections | Peak number of concurrent connections established to the sink data store during the Copy activity run. | Int64 value (no unit) |
 | rowsRead | Number of rows read from the source. This metric does not apply when copying files as-is without parsing them, for example, when source and sink datasets are binary format type, or other format type with identical settings. | Int64 value (no unit) |
@@ -71,7 +71,7 @@ Copy activity execution details and performance characteristics are also returne
 | logPath | Path to the session log of skipped data in the blob storage. See [Fault tolerance](copy-activity-overview.md#fault-tolerance). | Text (string) |
 | executionDetails | More details on the stages the Copy activity goes through and the corresponding steps, durations, configurations, and so on. We don't recommend that you parse this section because it might change. To better understand how it helps you understand and troubleshoot copy performance, refer to [Monitor visually](#monitor-visually) section. | Array |
 | perfRecommendation | Copy performance tuning tips. See [Performance tuning tips](copy-activity-performance-troubleshooting.md#performance-tuning-tips) for details. | Array |
-| billingReference | The billing consumption for the given run. Learn more from [Monitor consumption at activity-run level](plan-manage-costs#monitor-consumption-at-activity-run-level). | Object |
+| billingReference | The billing consumption for the given run. Learn more from [Monitor consumption at activity-run level](plan-manage-costs.md#monitor-consumption-at-activity-run-level). | Object |
 | durationInQueue | Queueing duration in second before the copy activity starts to execute. | Object |
 
 **Example:**
