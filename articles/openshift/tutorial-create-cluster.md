@@ -29,42 +29,12 @@ To create an Azure Red Hat OpenShift cluster, verify the following permissions o
 |**User Access Administrator**|X|X| |
 |**Contributor**|X|X|X|
 
-### Install the `az aro` extension
-The `az aro` extension allows you to create, access, and delete Azure Red Hat OpenShift clusters directly from the command line using the Azure CLI.
-
-Run the following command to install the `az aro` extension.
-
-```azurecli-interactive
-az extension add -n aro --index https://az.aroapp.io/stable
-```
-
-If you already have the extension installed, you can update by running the following command.
-
-```azurecli-interactive
-az extension update -n aro --index https://az.aroapp.io/stable
-```
-
 ### Register the resource provider
 
 Next, you need to register the `Microsoft.RedHatOpenShift` resource provider in your subscription.
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
-```
-
-Verify the extension is registered.
-
-```azurecli-interactive
-az -v
-```
-
-  You should get an output similar to the below.
-
-```output
-...
-Extensions:
-aro                                1.0.0
-...
 ```
 
 ### Get a Red Hat pull secret (optional)

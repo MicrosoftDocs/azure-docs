@@ -322,6 +322,6 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-Learn about other [Oracle solutions on Azure](oracle-considerations.md). 
+Learn about other [Oracle solutions on Azure](./oracle-overview.md). 
 
 Try the [Installing and Configuring Oracle Automated Storage Management](configure-oracle-asm.md) tutorial.

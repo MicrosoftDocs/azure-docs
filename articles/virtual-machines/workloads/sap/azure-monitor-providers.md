@@ -82,4 +82,4 @@ To configure Microsoft SQL Server provider, the SAP System ID, the Host IP addre
 ## Next steps
 
 - Create your first Azure Monitor for SAP solutions resource.
-- Do you have questions about Azure Monitor for SAP Solutions? Check the [FAQ](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/azure-monitor-faq) section
+- Do you have questions about Azure Monitor for SAP Solutions? Check the [FAQ](./azure-monitor-faq.md) section

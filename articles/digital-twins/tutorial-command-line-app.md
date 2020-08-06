@@ -79,7 +79,7 @@ Make sure to save the file before moving on.
 > If you want to try creating your own model, you can paste the *Room* model code into a new file that you save with a *.json* extension in the *AdtSampleApp\SampleClientApp\Models* folder. Then, play around with adding properties and relationships to represent whatever you'd like. You can also look at the other sample models in this folder for ideas.
 
 > [!TIP] 
-> There is a language-agnostic [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [How-to: Parse and validate models](how-to-use-parser.md).
+> There is a language-agnostic [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [*How-to: Parse and validate models*](how-to-use-parser.md).
 
 ### Get started with the command-line app
 
@@ -317,10 +317,10 @@ In this tutorial, you got started with Azure Digital Twins by setting up an inst
 Continue to the next tutorial to use the sample command-line app in combination with other Azure services to complete a data-driven, end-to-end scenario:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Connect an end-to-end solution](tutorial-end-to-end.md)
+> [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)
 
 Or, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
-* [Concepts: Custom models](concepts-models.md)
+* [*Concepts: Custom models*](concepts-models.md)
 
 You can also go more in-depth on the processes in this tutorial by starting the how-to articles:
-* [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md)
+* [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)

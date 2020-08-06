@@ -28,49 +28,36 @@ Developing functions on your local computer and publishing them to Azure using C
 
 There are three versions of Azure Functions Core Tools. The version you use depends on your local development environment, [choice of language](supported-languages.md), and level of support required:
 
++ [**Version 3.x/2.x**](#v2): Supports either [version 3.x or 2.x of the Azure Functions runtime](functions-versions.md). These versions support [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2), and [Linux](?tabs=linux#v2) and use platform-specific package managers or npm for installation.
+
 + **Version 1.x**: Supports version 1.x of the Azure Functions runtime. This version of the tools is only supported on Windows computers and is installed from an [npm package](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [**Version 3.x/2.x**](#v2): Supports either [version 3.x or 2.x of the Azure Functions runtime](functions-versions.md). These versions support [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2), and [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) and use platform-specific package managers or npm for installation.
-
 Unless otherwise noted, the examples in this article are for version 3.x.
+
+## Prerequisites
+
+Azure Functions Core Tools currently depends on the Azure CLI for authenticating with your Azure account. 
+This means that you must [install the Azure CLI locally](/cli/azure/install-azure-cli) to be able to [publish to Azure](#publish) from Azure Functions Core Tools. 
 
 ## Install the Azure Functions Core Tools
 
 [Azure Functions Core Tools] includes a version of the same runtime that powers Azure Functions runtime that you can run on your local development computer. It also provides commands to create functions, connect to Azure, and deploy function projects.
 
->[!IMPORTANT]
->You must have the [Azure CLI](/cli/azure/install-azure-cli) installed locally to be able to publish to Azure from Azure Functions Core Tools.  
-
 ### <a name="v2"></a>Version 3.x and 2.x
 
-Version 3.x/2.x of the tools uses the Azure Functions runtime that is built on .NET Core. This version is supported on all platforms .NET Core supports, including [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2), and [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
+Version 3.x/2.x of the tools uses the Azure Functions runtime that is built on .NET Core. This version is supported on all platforms .NET Core supports, including [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2), and [Linux](?tabs=linux#v2). 
 
 > [!IMPORTANT]
 > You can bypass the requirement for installing the .NET Core SDK by using [extension bundles].
 
 # [Windows](#tab/windows)
 
-The following steps use npm to install Core Tools on Windows. You can also use [Chocolatey](https://chocolatey.org/). For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+The following steps use a Windows installer (MSI) to install Core Tools v3.x. For more information about other package-based installers, which are required to install Core Tools v2.x, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Install [Node.js], which includes npm.
-    - For version 3.x of the tools, only Node.js 10 and later versions are supported.
-    - For version 2.x of the tools, only Node.js 8.5 and later versions are supported.
+1. Download and run the Core Tools installer, based on your version of Windows:
 
-1. Install the Core Tools package:
-
-    ##### v3.x (recommended)
-
-    ```cmd
-    npm install -g azure-functions-core-tools@3
-    ```
-
-    ##### v2.x
-
-    ```cmd
-    npm install -g azure-functions-core-tools@2
-    ```
-
-   It may take a few minutes for npm to download and install the Core Tools package.
+    - [v3.x - Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2135274) (Recommended. [Visual Studio Code debugging](functions-develop-vs-code.md#debugging-functions-locally) requires 64-bit.)
+    - [v3.x - Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2135275)
 
 1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for Windows](https://dotnet.microsoft.com/download).
 
@@ -235,7 +222,7 @@ When no valid storage connection string is set for [`AzureWebJobsStorage`] and t
 
 ### Get your storage connection strings
 
-Even when using the Microsoft Azure Storage Emulator for development, you may want to test with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-create-storage-account.md), you can get a valid storage connection string in one of the following ways:
+Even when using the Microsoft Azure Storage Emulator for development, you may want to test with an actual storage connection. Assuming you have already [created a storage account](../storage/common/storage-account-create.md), you can get a valid storage connection string in one of the following ways:
 
 - From the [Azure portal], search for and select **Storage accounts**. 
   ![Select Storage accounts from Azure portal](./media/functions-run-local/select-storage-accounts.png)
@@ -338,7 +325,7 @@ func start
 ```
 func start
 ```
-This command must be [run in a virtual environment](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv).
+This command must be [run in a virtual environment](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv).
 
 # [TypeScript](#tab/ts)
 
@@ -569,7 +556,7 @@ This type of streaming logs requires that Application Insights integration be en
 
 ## Next steps
 
-Learn how to develop, test, and publish Azure Functions by using Azure Functions Core Tools [Microsoft learn module](https://docs.microsoft.com/learn/modules/develop-test-deploy-azure-functions-with-core-tools/)
+Learn how to develop, test, and publish Azure Functions by using Azure Functions Core Tools [Microsoft learn module](/learn/modules/develop-test-deploy-azure-functions-with-core-tools/)
 Azure Functions Core Tools is [open source and hosted on GitHub](https://github.com/azure/azure-functions-cli).  
 To file a bug or feature request, [open a GitHub issue](https://github.com/azure/azure-functions-cli/issues).
 

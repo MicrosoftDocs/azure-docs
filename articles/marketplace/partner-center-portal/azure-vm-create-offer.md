@@ -1,12 +1,12 @@
 ---
 title: Create an Azure virtual machine offer on Azure Marketplace
-description: Learn how to create a virtual machine offer on Azure Marketplace with the required SKU.
+description: Learn how to publish a virtual machine offer to Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 06/17/2020
+ms.date: 07/28/2020
 ---
 
 # Create an Azure virtual machine offer on Azure Marketplace
@@ -240,16 +240,17 @@ Provide logos and images to use with your offer. All images must be in PNG forma
 >[!NOTE]
 >If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.
 
-#### Azure Marketplace logos
+#### Store logos
 
-Provide PNG files of your offer's logo with the following four image dimensions:
+Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) and a **Medium** (90 x 90 pixels) size logo. You can optionally replace these with different images.
 
-- **Small** (48 &times; 48 pixels)
-- **Medium** (90 &times; 90 pixels)
-- **Large** (216 &times; 216 pixels)
-- **Wide** (255 &times; 115 pixels)
+All three logo sizes are required for use in different places in the listing:
 
-All four logos are required, and they're displayed in various Azure Marketplace listings.
+- **Small** (48 x 48)
+- **Medium** (90 x 90)
+- **Large** (between 216 x 216 and 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### Screenshots
 
@@ -281,7 +282,7 @@ Select **Save draft** before you proceed to the next section.
 
 ## Plan overview
 
-You can provide a variety of plan options within the same offer in Partner Center. These plans were formerly referred to as SKUs. An offer requires at least one plan, which can vary by monetization audience, Azure region, features, or VM images.
+You can provide a variety of plan options within the same offer in Partner Center. An offer requires at least one plan (formerly called a SKU), which can vary by monetization audience, Azure region, features, or VM images.
 
 After you create your plans, select the **Plan overview** tab to display:
 
@@ -347,7 +348,7 @@ In this section, you configure the listing details of the plan. This pane displa
 
 #### Plan name
 
-This field is autofilled with the name that you gave your plan when you created it. This name appears on Azure Marketplace as the title of this plan. It is limited to 100 characters.
+This field is automatically filled with the name that you gave your plan when you created it. This name appears on Azure Marketplace as the title of this plan. It is limited to 100 characters.
 
 #### Plan summary
 
@@ -363,7 +364,7 @@ Select **Save draft** before you continue.
 
 On this pane, you configure:
 
-- Markets where this plan is available.
+- Markets where this plan is available. Every plan must be available in at least one [market](../marketplace-geo-availability-currencies.md).
 - The price per hour.
 - Whether to make the plan visible to everyone or only to specific customers (a private audience).
 
@@ -407,7 +408,6 @@ You can design each plan to be visible to everyone or only to a preselected audi
 
 >[!Note]
 >Private offers are not supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
-
 
 #### Hide a plan
 
@@ -511,10 +511,10 @@ The **Offer overview** page shows a visual representation of the steps, both com
 
 This page also includes links to help you work with the offer, depending on its status:
 
-- If the offer is a draft: [Delete draft offer](update-existing-offer.md#delete-a-draft-offer))
-- If the offer is live: [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- If the offer is in preview: [Go-live](publishing-status.md#publisher-approval))
-- If you haven't completed publisher sign-out: [Cancel publishing](update-existing-offer.md#cancel-publishing))
+- If the offer is a draft: [Delete draft offer](update-existing-offer.md#delete-a-draft-offer)
+- If the offer is live: [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- If the offer is in preview: [Go-live](publishing-status.md#publisher-approval)
+- If you haven't completed publisher sign-out: [Cancel publishing](update-existing-offer.md#cancel-publishing)
 
 ## Marketplace examples
 

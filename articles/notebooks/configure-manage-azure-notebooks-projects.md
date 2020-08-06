@@ -3,7 +3,7 @@ title: Configure and manage Azure Notebooks Preview
 description: Learn how to manage project metadata, project files, the project's environment and setup steps through both the Azure Notebooks UI and direct terminal access.
 ms.topic: how-to
 ms.date: 02/28/2020
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # <a id="manage-and-configure-projects" /> Manage and configure projects in Azure Notebooks Preview

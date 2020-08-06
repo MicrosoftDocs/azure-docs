@@ -2,7 +2,8 @@
 title: "Quickstart: Your first Azure CLI query"
 description: In this quickstart, you follow the steps to enable the Resource Graph extension for Azure CLI and run your first query.
 ms.date: 05/20/2020
-ms.topic: quickstart
+ms.topic: quickstart 
+ms.custom: devx-track-azurecli
 ---
 # Quickstart: Run your first Resource Graph query using Azure CLI
 

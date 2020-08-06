@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 07/20/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -26,6 +26,7 @@ Azure AD join is intended for organizations that want to be cloud-first or cloud
 |   | Applicable to all users in an organization |
 | **Device ownership** | Organization |
 | **Operating Systems** | All Windows 10 devices |
+|   | [Windows Server 2019 Virtual Machines running in Azure](howto-vm-sign-in-azure-ad-windows.md) (Server core is not supported) |
 | **Provisioning** | Self-service: Windows OOBE or Settings |
 |   | Bulk enrollment |
 |   | Windows Autopilot |

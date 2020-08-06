@@ -15,7 +15,7 @@ In this tutorial, you'll learn how to develop multi-service applications using A
 ## Call another container
 In this section, you're going to create a second service, `mywebapi`, and have `webfrontend` call it. Each service will run in separate containers. You'll then debug across both containers.
 
-![](media/common/multi-container.png)
+![The diagram shows the webfrontend service calling (as indicated by an arrow) the mywebapi service.](media/common/multi-container.png)
 
 ### Download sample code for *mywebapi*
 For the sake of time, let's download sample code from a GitHub repository. Go to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository. The code for this section is in `samples/dotnetcore/getting-started/mywebapi`.
@@ -28,7 +28,7 @@ For the sake of time, let's download sample code from a GitHub repository. Go to
 2. When `mywebapi` is ready, open your browser to the localhost address and append `/api/values` to the URL to invoke the default GET API for the `ValuesController`. 
 3. If all the steps were successful, you should be able to see a response from the `mywebapi` service that looks like this.
 
-    ![](media/get-started-netcore-visualstudio/WebAPIResponse.png)
+    ![The web page shows a json array of two strings: "value1" and "value2".](media/get-started-netcore-visualstudio/WebAPIResponse.png)
 
 ### Make a request from *webfrontend* to *mywebapi*
 Let's now write code in `webfrontend` that makes a request to `mywebapi`. Switch to the Visual Studio window that has the `webfrontend` project. In the `HomeController.cs` file, *replace* the code for the About method with the following code:

@@ -146,7 +146,6 @@ This section guides you through the steps to configure the Azure AD provisioning
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference|
 
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to iProva**.

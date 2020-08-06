@@ -21,7 +21,7 @@ If you're looking for information about an error code and that information isn't
 | AccountPropertyCannotBeSet | Check available storage account properties. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | The cluster or region doesn't have resources available or can't support the requested VM size. Retry the request at a later time, or request a different VM size. | [Provisioning and allocation issues for Linux](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [Provisioning and allocation issues for Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) and [Troubleshoot allocation failures](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Wait for concurrent operation to complete. | |
-| AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope.<br><br>You might receive this error when a required resource provider isn't registered. | [Azure Role-Based Access Control](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolve registration](error-register-resource-provider.md) |
+| AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope.<br><br>You might receive this error when a required resource provider isn't registered. | [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolve registration](error-register-resource-provider.md) |
 | BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) and [Supported locations](resource-location.md) |
 | Conflict | You're requesting an operation that isn't allowed in the resource's current state. For example, disk resizing is allowed only when creating a VM or when the VM is deallocated. | |
 | DeploymentActiveAndUneditable | Wait for concurrent deployment to this resource group to complete. | |
@@ -72,7 +72,7 @@ If you're looking for information about an error code and that information isn't
 | SubnetsNotInSameVnet | A virtual machine can only have one virtual network. When deploying several NICs, make sure they belong to the same virtual network. | [Multiple NICs](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotRegistered | When deploying network resources, the Microsoft.Network resource provider is automatically registered in the subscription. Sometimes, the automatic registration doesn't complete in time. To avoid this intermittent error, register the Microsoft.Network resource provider before deployment. | [Resolve registration](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Remove unnecessary dependencies. | [Resolve circular dependencies](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Reduce number of resource groups for a single deployment. | [Cross resource group deployment](cross-resource-group-deployment.md) |
+| TooManyTargetResourceGroups | Reduce number of resource groups for a single deployment. | [Cross scope deployment](cross-scope-deployment.md) |
 
 ## Find error code
 

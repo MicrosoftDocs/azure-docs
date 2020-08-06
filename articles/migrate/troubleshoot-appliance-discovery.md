@@ -161,6 +161,9 @@ The application discovery runs once every 24 hours. If you would like to see the
 ## Unable to export application inventory
 Ensure the user downloading the inventory from the portal has Contributor privileges on the subscription.
 
+## No suitable authentication method found to complete authentication (publickey)
+Key based authentication will not work, use password authentication.
+
 ## Common app discovery errors
 
 Azure Migrate supports discovery of applications, roles, and features, using Azure Migrate: Server Assessment. App discovery is currently supported for VMware only. [Learn more](how-to-discover-applications.md) about the requirements and steps for setting up app discovery.

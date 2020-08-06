@@ -71,7 +71,7 @@ Also note that you must disable deep packet inspection for your firewall solutio
 **Guidance**: When virtual machines are deployed in the same virtual network as your Azure Cognitive Services container, define and implement standard security configurations for related network resources with Azure Policy. Use Azure Policy aliases in the "Microsoft.CognitiveServices" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Azure Cache for Redis instances. You may also make use of built-in policy definitions such as:
 - DDoS Protection Standard should be enabled
 
-You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies, in a single blueprint definition. Easily apply the blueprint to new subscriptions and environments, and fine-tune control and management through versioning.
 
 If you are using Cognitive Services within a container, you may augment your container deployment with a front-facing web-application firewall solution that filters malicious traffic and supports end-to-end TLS encryption, keeping the container endpoint private and secure.
 

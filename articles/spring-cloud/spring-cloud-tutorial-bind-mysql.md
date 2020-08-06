@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
 
 # Bind an Azure Database for MySQL instance to your Azure Spring Cloud application 

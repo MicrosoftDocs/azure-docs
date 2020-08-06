@@ -4,14 +4,15 @@ description: API to retrieve the current status of the offer.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 07/14/2020
 ---
-
 
 # Retrieve offer status
 
 > [!NOTE]
-> The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues to work after the migration to Partner Center.
+> The Cloud Partner Portal APIs are integrated with and will continue working in Partner Center. The transition introduces small changes. Review the changes listed in [Cloud Partner Portal API Reference](./cloud-partner-portal-api-overview.md) to ensure your code continues working after transitioning to Partner Center. CPP APIs should only be used for existing products that were already integrated before transition to Partner Center; new products should use Partner Center submission APIs.
 
 Retrieves the current status of the offer.
 
@@ -26,7 +27,6 @@ Retrieves the current status of the offer.
 |  api-version    | Latest version of API                        |     Date       |
 |  |  |
 
-
 ## Header
 
 
@@ -37,7 +37,6 @@ Retrieves the current status of the offer.
 |  |  |
 
 ## Body example
-
 
 ### Response
 
@@ -111,7 +110,6 @@ Retrieves the current status of the offer.
       liveLinks": [],
   }
 ```
-
 
 ### Response body properties
 

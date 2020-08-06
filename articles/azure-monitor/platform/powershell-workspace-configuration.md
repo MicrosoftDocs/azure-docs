@@ -188,7 +188,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> The format for the **CustomLogRawJson** parameter which defines the configuration for a custom log can be complex. Use [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) to retrieve the configuration for an existing Custom Log. The **Properties** property is the configuration required for the **CustomLogRawJson** parameter.
+> The format for the **CustomLogRawJson** parameter which defines the configuration for a custom log can be complex. Use [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) to retrieve the configuration for an existing Custom Log. The **Properties** property is the configuration required for the **CustomLogRawJson** parameter.
 
 In the above example regexDelimiter was defined as "\\n" for newline. The log delimiter may also be a timestamp.  These are the supported formats:
 
@@ -207,14 +207,13 @@ In the above example regexDelimiter was defined as "\\n" for newline. The log de
 | `yyyy-MM-ddTHH:mm:ss` <br> The T is a literal letter T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` |
 
 ## Troubleshooting
-When you create a workspace that was deleted in the last 14 days and in [soft-delete state](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior), the operation could have different outcome depending on your workspace configuration:
+When you create a workspace that was deleted in the last 14 days and in [soft-delete state](./delete-workspace.md#soft-delete-behavior), the operation could have different outcome depending on your workspace configuration:
 1. If you provide the same workspace name, resource group, subscription and region as in the deleted workspace, your workspace will be recovered including its data, configuration and connected agents.
 2. If you use the same workspace name, but different resource group, subscription or region, you will get an error *The workspace name 'workspace-name' is not unique*, or *conflict*. To override the soft-delete and permanently delete your workspace and create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:
-   * [Recover](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) your workspace
-   * [Permanently delete](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) your workspace
+   * [Recover](./delete-workspace.md#recover-workspace) your workspace
+   * [Permanently delete](./delete-workspace.md#permanent-workspace-delete) your workspace
    * Create a new workspace using the same workspace name
 
 
 ## Next steps
-* [Review Log Analytics PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.operationalinsights/) for additional information on using PowerShell for configuration of Log Analytics.
-
+* [Review Log Analytics PowerShell cmdlets](/powershell/module/az.operationalinsights/) for additional information on using PowerShell for configuration of Log Analytics.

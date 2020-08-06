@@ -57,7 +57,7 @@ Values from resource pickers can come from the workbook context, static list or 
 > [!NOTE]
 > Azure Resource Graph is not yet available in all clouds. Ensure that it is supported in your target cloud if you choose this approach.
 
-[Azure Resource Graph documentation](https://docs.microsoft.com/azure/governance/resource-graph/overview)
+[Azure Resource Graph documentation](../../governance/resource-graph/overview.md)
 
 ## Creating a resource parameter  (JSON list)
 1. Start with an empty workbook in edit mode.

@@ -84,6 +84,11 @@ You can use the following combinations of authorization and Azure Storage types:
 | *Managed  Identity* | Supported      | Supported        | Supported     |
 | *User  Identity*    | Supported      | Supported        | Supported     |
 
+
+> [!IMPORTANT]
+> When accessing storage that is protected with the firewall, only Managed Identity can be used. You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an Azure role](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
+>
+
 ## Credentials
 
 To query a file located in Azure Storage, your SQL on-demand end point needs a credential that contains the authentication information. Two types of credentials are used:
@@ -106,11 +111,7 @@ To use the credential, a user must have `REFERENCES` permission on a specific cr
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-To ensure a smooth Azure AD pass-through experience, all users will, by default, have a right to use the `UserIdentity` credential. This is achieved by an automatic execution of the following statement upon Azure Synapse workspace provisioning:
-
-```sql
-GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
-```
+To ensure a smooth Azure AD pass-through experience, all users will, by default, have a right to use the `UserIdentity` credential.
 
 ## Server-scoped credential
 
@@ -216,7 +217,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ## Examples
 
-**Accessing publicly available data source**
+### **Access a publicly available data source**
 
 Use the following script to create a table that accesses publicly available data source.
 
@@ -241,11 +242,11 @@ SELECT TOP 10 * FROM dbo.userPublicData;
 GO
 SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
                                 DATA_SOURCE = [mysample],
-                                FORMAT=PARQUET) as rows;
+                                FORMAT='PARQUET') as rows;
 GO
 ```
 
-**Accessing data source using credential**
+### **Access a data source using credentials**
 
 Modify the following script to create an external table that accesses Azure storage using SAS token, Azure AD identity of user, or managed identity of workspace.
 
@@ -286,7 +287,7 @@ Database user can read the content of the files from the data source using [exte
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT='PARQUET') as rows;
 GO
 ```
 

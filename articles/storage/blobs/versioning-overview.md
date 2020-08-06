@@ -9,7 +9,8 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurecli
 ---
 
 # Blob versioning (preview)
@@ -191,6 +192,10 @@ The following table shows the permission required on a SAS to delete a blob vers
 
 Blob versioning is available in preview in the following regions:
 
+- East US 2
+- Central US
+- North Europe
+- West Europe
 - France Central
 - Canada East
 - Canada Central

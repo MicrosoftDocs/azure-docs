@@ -25,14 +25,14 @@ See [What is Application Insights?](../app/app-insights-overview.md).
 ## Azure Monitor for Containers
 Azure Monitor for containers monitors the performance of container workloads deployed to either Azure Container Instances or managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). Monitoring your containers is critical, especially when you're running a production cluster, at scale, with multiple applications.
 
-See [Azure Monitor for containers overview](../insights/container-insights-overview.md).
+See [Azure Monitor for containers overview](./container-insights-overview.md).
 
 ![Azure Monitor for Containers](media/insights-overview/container-insights.png)
 
 ## Azure Monitor for Resource Groups (preview)
 Azure Monitor for resource groups helps to triage and diagnose any problems your individual resources encounter, while offering context as to the health and performance of the resource group as a whole.
 
-See [Monitor resource groups with Azure Monitor (preview)](../insights/resource-group-insights.md).
+See [Monitor resource groups with Azure Monitor (preview)](./resource-group-insights.md).
 
 ![Azure Monitor for Resource Groups](media/insights-overview/resource-group-insights.png)
 
@@ -51,3 +51,4 @@ See [What is Azure Monitor for VMs?](vminsights-overview.md)
 ## Next steps
 * Learn more about the [Azure Monitor data platform](../platform/data-platform.md) leveraged by insights.
 * Learn about the different [data sources used by Azure Monitor](../platform/data-sources.md) and the different kinds of data collected by each of the insights.
+

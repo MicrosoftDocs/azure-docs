@@ -32,7 +32,7 @@ When **Deny public network access** setting is set to **Yes**, only connections 
 
  ![Screenshot of connectivity with deny public network access][2]
 
-Any attempts to set **Deny public network access** setting to **Yes** without an existing private endpoints at the logical server will fail with an error message similar to:  
+Any attempts to set **Deny public network access** setting to **Yes** without any existing private endpoints at the logical server will fail with an error message similar to:  
 
 ```output
 Error 42102
@@ -168,7 +168,7 @@ $sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql
 $id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-(Get-AzResource -ResourceId $id).Properties.connectionType
+(Get-AzResource -ResourceId $id -ApiVersion 2014-04-01 -Verbose).Properties.ConnectionType
 
 # Update connection policy
 Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f

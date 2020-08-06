@@ -27,7 +27,7 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | Azure AD integration<sup>1</sup>                                                             | No          | Yes       | No    | Yes      | Yes     |
 | Virtual Network (VNet) support                                                               | No          | Yes       | No    | No       | Yes     |
 | Multi-region deployment                                                                      | No          | No        | No    | No       | Yes     |
-| Multiple custom domain names                                                                 | No          | No        | No    | No       | Yes     |
+| Multiple custom domain names                                                                 | No          | Yes        | No    | No       | Yes     |
 | Developer portal<sup>2</sup>                                                                 | No          | Yes       | Yes   | Yes      | Yes     |
 | Built-in cache                                                                               | No          | Yes       | Yes   | Yes      | Yes     |
 | Built-in analytics                                                                           | No          | Yes       | Yes   | Yes      | Yes     |

@@ -74,7 +74,7 @@ Following is a summary of the Azure setup:
 ![Screenshot of the DR topology page](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### Approach 2: Site-to-site VPN
-Site-to-site VPN is a better approach. For more information about setting up a VPN, see [Create a virtual network with a Site-to-Site VPN connection using CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
+Site-to-site VPN is a better approach. For more information about setting up a VPN, see [Create a virtual network with a Site-to-Site VPN connection using CLI](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md).
 
 #### Topology
 

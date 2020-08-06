@@ -31,7 +31,7 @@ Azure SQL Analytics is a cloud only monitoring solution supporting streaming of 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
 | [Diagnostics settings](../platform/diagnostic-settings.md) | **Yes** | Azure metric and log data are sent to Azure Monitor Logs directly by Azure. |
-| [Azure storage account](../platform/collect-azure-metrics-logs.md) | No | Azure Monitor doesn't read the data from a storage account. |
+| [Azure storage account](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure Monitor doesn't read the data from a storage account. |
 | [Windows agents](../platform/agent-windows.md) | No | Direct Windows agents aren't used by Azure SQL Analytics. |
 | [Linux agents](../learn/quick-collect-linux-computer.md) | No | Direct Linux agents aren't used by Azure SQL Analytics. |
 | [System Center Operations Manager management group](../platform/om-agents.md) | No | A direct connection from the Operations Manager agent to Azure Monitor is not used by Azure SQL Analytics. |
@@ -53,7 +53,7 @@ The below table outlines supported options for two versions of the Azure SQL Ana
 
 ## Configuration
 
-Use the process described in [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md) to add Azure SQL Analytics (Preview) to your Log Analytics workspace.
+Use the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md) to add Azure SQL Analytics (Preview) to your Log Analytics workspace.
 
 ### Configure Azure SQL Database to stream diagnostics telemetry
 
@@ -294,3 +294,4 @@ While Azure SQL Analytics is free to use, consumption of diagnostics telemetry a
 - Use [log queries](../log-query/log-query-overview.md) in Azure Monitor to view detailed Azure SQL data.
 - [Create your own dashboards](../learn/tutorial-logs-dashboards.md) showing Azure SQL data.
 - [Create alerts](../platform/alerts-overview.md) when specific Azure SQL events occur.
+

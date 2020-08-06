@@ -23,9 +23,9 @@ Partner Center is the hub of a Microsoft partner experience. For organizations w
 
 ## Migration from the Cloud Partner Portal
 
-Partner Center is evolving to better integrate all aspects of our relationship with software publishers. As part of this evolution, we have migrated all commercial marketplace offer management from the [Cloud Partner Portal](https://cloudpartner.azure.com/) to Partner Center.
+Partner Center is evolving to better integrate all aspects of our relationship with software publishers. As part of this evolution, we have migrated all commercial marketplace offer management from the Cloud Partner Portal (CPP) to Partner Center.
 
-Existing publishers who previously used the Cloud Partner Portal will find a familiar but improved and intuitive user experience with Partner Center. Users will be seamlessly directed to the appropriate location. Customers won't be affected by this partner experience upgrade.
+Existing publishers who previously used the CPP will find a familiar but improved and intuitive user experience with Partner Center. Users will be seamlessly directed to the appropriate location. Customers won't be affected by this partner experience upgrade.
 
 ### Improvements on publishing and offer management user experience
 

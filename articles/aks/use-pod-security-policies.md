@@ -3,18 +3,17 @@ title: Use pod security policies in Azure Kubernetes Service (AKS)
 description: Learn how to control pod admissions by using PodSecurityPolicy in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 07/21/2020
 ---
 
 # Preview - Secure your cluster using pod security policies in Azure Kubernetes Service (AKS)
 
-<!--
 > [!WARNING]
-> **The pod security policy feature on AKS is set for deprecation** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md). The feature described in this document is not moving to general availability and is set for removal in September 2020.
-> It is highly recommended to begin testing with the Azure Policy Add-on which offers unique policies which support scenarios captured by pod security policy.
-
-**This document and feature are set for deprecation.**
--->
+> **The feature described in this document, pod security policy (preview), is set for deprecation and will no longer be available after October 15th, 2020** in favor of [Azure Policy for AKS](use-pod-security-on-azure-policy.md).
+>
+> After pod security policy (preview) is deprecated, you must disable the feature on any existing clusters using the deprecated feature to perform future cluster upgrades and stay within Azure support.
+>
+> It is highly recommended to begin testing scenarios with Azure Policy for AKS, which offers built-in policies to secure pods and built-in initiatives which map to pod security policies. Click here to learn about [migrating to Azure Policy from pod security policy (preview)](use-pod-security-on-azure-policy.md#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
 
 To improve the security of your AKS cluster, you can limit what pods can be scheduled. Pods that request resources you don't allow can't run in the AKS cluster. You define this access using pod security policies. This article shows you how to use pod security policies to limit the deployment of pods in AKS.
 
@@ -43,6 +42,8 @@ az extension update --name aks-preview
 ```
 
 ### Register pod security policy feature provider
+
+**This document and feature are set for deprecation on October 15th, 2020.**
 
 To create or update an AKS cluster to use pod security policies, first enable a feature flag on your subscription. To register the *PodSecurityPolicyPreview* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
 
@@ -342,7 +343,7 @@ kubectl apply -f psp-deny-privileged-clusterrole.yaml
 Now create a ClusterRoleBinding to use the ClusterRole created in the previous step. Create a file named `psp-deny-privileged-clusterrolebinding.yaml` and paste the following YAML manifest:
 
 ```yaml
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: psp-deny-privileged-clusterrolebinding

@@ -5,6 +5,8 @@
   items:
   - name: Solution architecture
     href: architecture.md
+  - name: Security solution for Azure RTOS
+    href: iot-security-azure-rtos.md
   - name: Security agents
     href: security-agent-architecture.md
   - name: Edge security module
