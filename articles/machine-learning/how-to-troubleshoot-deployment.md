@@ -10,7 +10,7 @@ ms.author:  clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.topic: conceptual
-ms.custom: troubleshooting, contperfq4, tracking-python
+ms.custom: troubleshooting, contperfq4, devx-track-python
 ---
 
 # Troubleshoot Docker deployment of models with Azure Kubernetes Service and Azure Container Instances 
@@ -148,7 +148,7 @@ For more information on customizing your Python environment, see [Create and man
 During local testing, you may need to update the `score.py` file to add logging or attempt to resolve any problems that you've discovered. To reload changes to the `score.py` file, use `reload()`. For example, the following code reloads the script for the service, and then sends data to it. The data is scored using the updated `score.py` file:
 
 > [!IMPORTANT]
-> The `reload` method is only available for local deployments. For information on updating a deployment to another compute target, see the update section of [Deploy models](how-to-deploy-and-where.md#update).
+> The `reload` method is only available for local deployments. For information on updating a deployment to another compute target, see [how to update your webservice](how-to-deploy-update-web-service.md).
 
 ```python
 service.reload()

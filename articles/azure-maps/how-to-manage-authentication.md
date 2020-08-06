@@ -51,7 +51,7 @@ The links in the table take you to detailed configuration information for each s
 
 ## View role definitions
 
-To view RBAC roles that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*. These Azure Maps roles are the roles that you can grant access to.
+To view Azure roles that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*. These Azure Maps roles are the roles that you can grant access to.
 
 > [!div class="mx-imgBorder"]
 > ![View available roles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)

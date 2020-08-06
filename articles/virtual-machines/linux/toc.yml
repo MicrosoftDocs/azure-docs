@@ -45,9 +45,9 @@
   - name: 13 - Manage VM security
     href: tutorial-azure-security.md
   - name: 14a - Build with Jenkins
-    href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
+    href: /azure/developer/jenkins/pipeline-with-github-and-docker
   - name: 14b - Integrate Jenkins with Azure DevOps
-    href: ../../jenkins/tutorial-build-deploy-jenkins.md
+    href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
   - name: 15a - Configure Rolling deployment strategy
     href: tutorial-devops-azure-pipelines-classic.md
   - name: 15b - Configure Canary deployment strategy
@@ -190,7 +190,7 @@
   - name: VM types and sizes
     items:
     - name: VM sizes
-      href: sizes.md
+      href: ../sizes.md
     - name: Generation 2 VMs
       href: generation-2.md
     - name: General purpose
@@ -372,7 +372,7 @@
   - name: Monitoring
     href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Backup and recovery
-    href: backup-recovery.md
+    href: ../backup-recovery.md
   - name: Cloud adoption framework
     href: /azure/cloud-adoption-framework/get-started/
   - name: Architecture center
@@ -634,6 +634,8 @@
         href: mac-create-ssh-keys.md
       - name: On Windows
         href: ssh-from-windows.md
+      - name: In the portal
+        href: ../ssh-keys-portal.md
       - name: Detailed steps
         href: create-ssh-keys-detailed.md
   - name: Protect VMs
@@ -804,13 +806,13 @@
         - name: Enable monitoring overview
           href: ../../azure-monitor/insights/vminsights-enable-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Enable for single Azure VM
-          href: ../../azure-monitor/insights/vminsights-enable-single-vm.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../azure-monitor/insights/vminsights-enable-portal.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Enable using Azure Policy
-          href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Enable using Azure PowerShell
-          href: ../../azure-monitor/insights/vminsights-enable-at-scale-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../azure-monitor/insights/vminsights-enable-powershell.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Enable for Hybrid environment
-          href: ../../azure-monitor/insights/vminsights-enable-hybrid-cloud.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+          href: ../../azure-monitor/insights/vminsights-enable-hybrid.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: Map dependencies
         href: ../../azure-monitor/insights/vminsights-maps.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Monitor performance
@@ -848,11 +850,11 @@
     - name: Ansible
       items:
       - name: Install and configure
-        href: ansible-install-configure.md
+        href: /azure/developer/ansible/install-on-linux-vm
       - name: Create a Linux VM
-        href: ansible-create-vm.md
+        href: /azure/developer/ansible/vm-configure
       - name: Manage a Linux VM
-        href: ansible-manage-linux-vm.md
+        href: /azure/developer/ansible/vm-manage
     - name: Terraform
       items:
       - name: Install and configure

@@ -6,7 +6,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # Additional documentation and resources by focus area

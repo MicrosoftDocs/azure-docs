@@ -5,8 +5,9 @@ author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.author: jushiman
+ms.date: 08/01/2020
+ms.author: amverma
+ms.reviewer: jushiman
 ---
 
 # H-series
@@ -93,4 +94,7 @@ The Azure Marketplace has many Linux distributions that support RDMA connectivit
 
 ## Next steps
 
-Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+- Learn more about optimizing your HPC applications for Azure and some examples at [HPC Workloads](./workloads/hpc/overview.md).
+- Read about the latest announcements and some HPC examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
+- Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

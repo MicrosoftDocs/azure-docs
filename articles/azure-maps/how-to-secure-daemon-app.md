@@ -104,7 +104,7 @@ When running on a non-Azure environment Managed Identities are not available. Th
 
 ### Grant role based access for the daemon application to Azure Maps
 
-You grant *role-based access control* (RBAC) by assigning either the created Managed Identity or the service principal to one or more Azure Maps access control role definitions. To view RBAC role definitions that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*. These Azure Maps roles are the roles that you can grant access to.
+You grant *role-based access control* (RBAC) by assigning either the created Managed Identity or the service principal to one or more Azure Maps access control role definitions. To view Azure role definitions that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*. These Azure Maps roles are the roles that you can grant access to.
 
 > [!div class="mx-imgBorder"]
 > ![View available roles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)

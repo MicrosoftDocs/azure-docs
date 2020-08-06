@@ -91,7 +91,7 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 {
 "principalId":"<Object Id of Group>",
 "roleDefinitionId":"<Id of role definition>",
-"resourceScope":"/"
+"directoryScopeId":"/"
 }
 ```
 
