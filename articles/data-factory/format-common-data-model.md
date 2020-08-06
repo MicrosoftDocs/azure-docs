@@ -51,15 +51,15 @@ The below table lists the properties supported by a CDM source. You can edit the
 
 * Point to the CDM entity reference file that contains the definition of the entity you would like to write.
 
-![entity settings](media/data-flow/cdm111.png "Entity reference")
+![entity settings](media/data-flow/common-data-model-111.png "Entity reference")
 
 * Define the partition path and format of the output files that you want ADF to use for writing your entities.
 
-![entity format](media/data-flow/cdm222.png "Entity format")
+![entity format](media/data-flow/common-data-model-222.png "Entity format")
 
 * Set the output file location and the location and name for the manifest file.
 
-![cdm location](media/data-flow/cdm333.png "CDM location")
+![cdm location](media/data-flow/common-data-model-333.png "CDM location")
 
 
 #### Import schema
@@ -68,7 +68,7 @@ CDM is only available as an inline dataset and, by default, doesn't have an asso
 
 When mapping data flow columns to entity properties in the Sink transformation, click on the "Mapping" tab and select "Import Schema". ADF will read the entity reference that you pointed to in your Sink options, allowing you to map to the target CDM schema.
 
-![CDM sink settings](media/data-flow/cdm444.png "CDM Maping")
+![CDM sink settings](media/data-flow/common-data-model-444.png "CDM Mapping")
 
 > [!NOTE]
 >  When using model.json source type that originates from Power BI or Power Platform dataflows, you may encounter "corpus path is null or empty" errors from the source transformation. This is likely due to formatting issues of the partition location path in the model.json file. To fix this, follow these steps: 
