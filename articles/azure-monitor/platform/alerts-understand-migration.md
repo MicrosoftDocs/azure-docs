@@ -7,11 +7,11 @@ ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
 ---
-# Understand how the migration options to newer alerts
+# Understand migration options to newer alerts
 
 Classic alerts are [retired](./monitoring-classic-retirement.md), though still in limited use for resources that do not yet support the new alerts. A new date will be announced soon for remaining alerts migration, [Azure Government cloud](../../azure-government/documentation-government-welcome.md), and [Azure China 21Vianet](https://docs.azure.cn/).
 
-This article explains how the manual migration and voluntary migration tool works, which will be used to migrate remaining alert rules. It also describes remedies for some common problems.
+This article explains how the manual migration and voluntary migration tool work, which will be used to migrate remaining alert rules. It also describes remedies for some common problems.
 
 > [!IMPORTANT]
 > Activity log alerts (including Service health alerts) and Log alerts are not impacted by the migration. The migration only applies to classic alert rules described [here](monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
@@ -21,7 +21,7 @@ This article explains how the manual migration and voluntary migration tool work
 
 ## Manually migrating classic alerts to newer alerts
 
-Customers that are interested in manually migrating their remaining alerts can already do so using the following sections. These section also define metrics that are retired by the resource provider and currently can not be directly migrated.
+Customers that are interested in manually migrating their remaining alerts can already do so using the following sections. These sections also define metrics that are retired by the resource provider and currently can not be directly migrated.
 
 ### Guest metrics on virtual machines
 

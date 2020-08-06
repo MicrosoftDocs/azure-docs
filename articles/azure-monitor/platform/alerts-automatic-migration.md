@@ -16,14 +16,14 @@ This article walks you through the automatic migration process and help you reso
 ## What will happen during the automatic migration process?
 
 - Starting **September 1, 2019**, customers won't be able to create any new classic alert rules except on [certain metrics](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts).
-  - For the exceptions, customer can continue to create new classic alert rules and use their classic alerts until June 2020.
+- For the exceptions, customer can continue to create new classic alert rules and use their classic alerts until further announcement.
 - Starting **September 1, 2019**, migration of classic alerts will be triggered in batches for any customers that have classic alerts.
-- As with the voluntary migration tool, certain classic alert rules that aren't migratable will be left as they are. These classic alert rules will continue to be supported until June 2020. However, any invalid classic alert rules will be deleted as they're non-functional.
+- As with the voluntary migration tool, certain classic alert rules that aren't migratable will be left as they are. These classic alert rules will continue to be supported until further announcement. However, any invalid classic alert rules will be deleted as they're non-functional.
 Any classic alert rules that are monitoring deleted target resources or on [metrics that are no longer supported](alerts-understand-migration.md#classic-alert-rules-on-deprecated-metrics) are considered invalid.
 - Once migration for your subscription starts, unless there are any issues, migration should be complete within an hour. Customers can monitor the status of migration on [the migration blade in Azure Monitor](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel).
 - Subscription owners will receive an email on successful completion of migration.
 - If there are any issues during the migration, subscription owners will also receive an email informing them of the same. Customers can use the migration blade to see full details of the issue.
-- In case an action is needed from customer like temporarily disabling a resource lock or changing a policy assignment, customers will need to resolve any such issues. If the issues are not resolved by then, successful migration of your classic alerts can't be guaranteed.
+- In case an action is needed from customers, like temporarily disabling a resource lock or changing a policy assignment, customers will need to resolve any such issues. If the issues are not resolved by then, successful migration of your classic alerts can't be guaranteed.
 
     > [!NOTE]
     > If you don't want to wait for the automatic migration process to start, you can still trigger the migration voluntarily using the migration tool.
@@ -46,7 +46,7 @@ When the automatic migration process fails, subscription owners will receive an 
 See the [troubleshooting guide](alerts-understand-migration.md#common-problems-and-remedies) for help with problems you might face during migration.
 
   > [!NOTE]
-  > In case an action is needed from customer like temporarily disabling a resource lock or changing a policy assignment, customers will need to resolve any such issues. If the issues are not resolved by then, successful migration of your classic alerts cannot be guaranteed.
+  > In case an action is needed from customers, like temporarily disabling a resource lock or changing a policy assignment, customers will need to resolve any such issues. If the issues are not resolved by then, successful migration of your classic alerts cannot be guaranteed.
 
 ## Next steps
 
