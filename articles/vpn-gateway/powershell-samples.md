@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell samples for VPN Gateway
-description: Azure PowerShell samples for VPN Gateway.
+description: Access Azure PowerShell scripts for creating VPN gateways, creating site-to-site and Vnet-to-Vnet connections, and downloading VPN device templates.
 services: vpn-gateway
 author: cherylmc
 
