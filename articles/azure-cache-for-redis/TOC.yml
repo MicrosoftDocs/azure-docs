@@ -45,6 +45,8 @@
     href: cache-how-to-manage-redis-cache-powershell.md
   - name: Azure CLI
     href: cli-samples.md
+  - name: Development FAQs
+    href: cache-development-faq.md
 - name: Concepts
   items:
     - name: Failover and patching
@@ -82,6 +84,8 @@
       href: cache-migration-guide.md
     - name: Migrate from Managed Cache Service (deprecated)
       href: cache-migrate-to-redis.md
+    - name: Planning FAQs
+      href: cache-planning-faq.md
   - name: Automate
     items:
     - name: Deploy and manage using Azure PowerShell
@@ -106,12 +110,16 @@
       href: cache-how-to-redis-cli-tool.md
     - name: Remove TLS 1.0 and 1.1
       href: cache-remove-tls-10-11.md
+    - name: Management FAQs
+      href: cache-management-faq.md
   - name: Monitor
     items:
     - name: Monitor in Azure portal
       href: cache-how-to-monitor.md
     - name: Set alerts for exceptions
       href: cache-how-to-monitor.md#operations-and-alerts
+    - name: Monitoring FAQs
+      href: cache-monitoring-troubleshooting-faq.md
   - name: Diagnose and troubleshoot
     items:
     - name: Troubleshoot Redis server
@@ -122,6 +130,8 @@
       href: cache-troubleshoot-timeouts.md
     - name: Troubleshoot data loss
       href: cache-troubleshoot-data-loss.md
+    - name: Troubleshooting FAQs
+      href: cache-monitoring-troubleshooting-faq.md
   - name: Scale
     items:
     - name: Update to a different size and tier
@@ -152,7 +162,7 @@
     href: https://redis.io/commands#
 - name: Resources
   items:
-  - name: Azure Cache for Redis FAQ
+  - name: Azure Cache for Redis FAQs
     href: cache-faq.md
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+redis+cache
