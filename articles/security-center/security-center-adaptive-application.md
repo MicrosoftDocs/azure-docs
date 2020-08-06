@@ -25,7 +25,7 @@ Learn about the benefits of Azure Security Center's adaptive application control
 
 Adaptive application controls are an intelligent and automated solution for defining which applications should run on your machines. 
 
-Often, organizations have collections of stable machines that routinely run the same processes. Security Center uses machine learning to analyze the applications running on your machines and create a list of the known-safe software. The allow lists are based on your specific Azure workloads, and you can further customize the recommendations using the instructions below.
+Often, organizations have collections of stable machines that routinely run the same processes. Security Center uses machine learning to analyze the applications running on your machines and create a list of the known-safe software. Allow lists are based on your specific Azure workloads, and you can further customize the recommendations using the instructions below.
 
 When you've enabled and configured adaptive application controls, you'll get security alerts if any process runs other than the ones you've defined as safe.
 
@@ -98,7 +98,7 @@ Select that recommendation, or open the adaptive application controls page to vi
    
    1. **Recommended applications** - Review this list of applications that are common to the machines within this group, and recommended to be allowed to run.
    
-   1. **More applications** - Review this list of applications that are either seen less frequently on the machines within this group or are known to be exploitable. A warning icon indicates that a specific application could be used by an attacker to bypass an application allow list. We recommend that you carefully review these applications.
+   1. **More applications** - Review this list of applications that are either seen less frequently on the machines within this group, or are known to be exploitable. A warning icon indicates that a specific application could be used by an attacker to bypass an application allow list. We recommend that you carefully review these applications.
 
       > [!TIP]
       > Both application lists include the option to restrict a specific application to certain users. Adopt the principle of least privilege whenever possible.
@@ -128,12 +128,12 @@ To edit the rules for a group of machines:
 
       ![Add a custom rule](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
-   1. If you're defining a known safe path, change the rule type to path. You can include wildcards in the path.
+   1. If you're defining a known safe path, change the **Rule type** to 'Path'. You can include wildcards in the path.
    
       > [!TIP]
       > Some scenarios for which wildcards in a path might be useful:
       > 
-      > * Using a wildcard at the end of a path to allow all executables within this folder and sub-folders
+      > * Using a wildcard at the end of a path to allow all executables within this folder and sub-folders.
       > * Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (for example, personal user folders containing a known executable, automatically generated folder names, etc).
   
    1. Define the allowed users and protected file types.
