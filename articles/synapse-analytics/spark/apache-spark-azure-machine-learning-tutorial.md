@@ -325,3 +325,7 @@ NYCGreenTaxiModel 1
 Last, you can also access the results of the iterations by navigating to the experiment in your Azure Machine Learning Workspace. Here, you will be able to dig into additional details on the status of your run, attempted models, and other model metrics. 
 
 ![apache-spark-aml-workspace](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-aml-workspace.png)
+
+## Next steps
+- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Apache Spark MLlib Tutorial](./apache-spark-machine-learning-mllib-notebook.md)
