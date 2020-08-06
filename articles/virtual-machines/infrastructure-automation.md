@@ -29,9 +29,9 @@ To create and manage Azure virtual machines (VMs) in a consistent manner at scal
 
 Learn how to:
 
-- [Install and configure Ansible on Linux for use with Azure](../ansible/ansible-install-configure.md).
-- [Create a Linux virtual machine](../ansible/ansible-create-vm.md).
-- [Manage a Linux virtual machine](../ansible/ansible-manage-linux-vm.md).
+- [Install and configure Ansible on Linux for use with Azure](/azure/developer/ansible/install-on-linux-vm).
+- [Create a Linux virtual machine](/azure/developer/ansible/vm-configure).
+- [Manage a Linux virtual machine](/azure/developer/ansible/vm-manage).
 
 
 ## Chef
@@ -40,7 +40,7 @@ Learn how to:
 Learn how to:
 
 - [Deploy Chef Automate from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
-- [Install Chef on Windows and create Azure VMs](../chef/chef-automation.md).
+- [Install Chef on Windows and create Azure VMs](/azure/developer/chef/windows-vm-configure).
 
 
 ## Puppet
@@ -76,7 +76,7 @@ Learn how to:
 
 
 ## Azure Custom Script Extension
-The Azure Custom Script Extension for [Linux](./linux/extensions-customscript.md) or [Windows](./windows/extensions-customscript.md) downloads and executes scripts on Azure VMs. You can use the extension when you create a VM, or any time after the VM is in use.
+The Azure Custom Script Extension for [Linux](./extensions/custom-script-linux.md) or [Windows](./extensions/custom-script-windows.md) downloads and executes scripts on Azure VMs. You can use the extension when you create a VM, or any time after the VM is in use.
 
 Scripts can be downloaded from Azure storage or any public location such as a GitHub repository. With the Custom Script Extension, you can write scripts in any language that runs on the source VM. These scripts can be used to install applications or configure the VM as desired. To secure credentials, sensitive information such as passwords can be stored in a protected configuration. These credentials are only decrypted inside the VM.
 
@@ -111,7 +111,7 @@ Azure Automation also provides a Desired State Configuration (DSC) service that 
 
 Learn how to:
 
-- [Create a PowerShell runbook](../automation/automation-first-runbook-textual-powershell.md).
+- [Create a PowerShell runbook](../automation/learn/automation-tutorial-runbook-textual-powershell.md).
 - [Use Hybrid Runbook Worker to manage on-premises resources](../automation/automation-hybrid-runbook-worker.md).
 - [Use Azure Automation DSC](../automation/automation-dsc-getting-started.md).
 
@@ -121,7 +121,7 @@ Learn how to:
 
 Learn more about:
 
-- [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
+- [Azure DevOps Services](/azure/devops/user-guide/index?view=vsts).
 
 
 ## Jenkins
@@ -129,7 +129,7 @@ Learn more about:
 
 Learn how to:
 
-- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](../jenkins/tutorial-jenkins-github-docker-cicd.md).
+- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](/azure/developer/jenkins/pipeline-with-github-and-docker).
 
 
 ## Azure Resource Manager template
@@ -144,4 +144,3 @@ Learn how to:
 
 ## Next steps
 There are many different options to use infrastructure automation tools in Azure. You have the freedom to use the solution that best fits your needs and environment. To get started and try some of the tools built-in to Azure, see how to automate the customization of a [Linux](./linux/tutorial-automate-vm-deployment.md) or [Windows](./windows/tutorial-automate-vm-deployment.md) VM.
-
