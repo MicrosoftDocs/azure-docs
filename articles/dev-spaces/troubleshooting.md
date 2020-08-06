@@ -261,7 +261,7 @@ This error occurs because Azure Dev Spaces does not currently support multi-stag
 
 ### Network traffic is not forwarded to your AKS cluster when connecting your development machine
 
-When using [Azure Dev Spaces to connect your AKS cluster to your development machine](how-to/local-process-kubernetes-vs-code.md), you may encounter an issue where network traffic is not forwarded between your development machine and your AKS cluster.
+When using [Azure Dev Spaces to connect your AKS cluster to your development machine](https://code.visualstudio.com/docs/containers/local-process-kubernetes), you may encounter an issue where network traffic is not forwarded between your development machine and your AKS cluster.
 
 When connecting your development machine to your AKS cluster, Azure Dev Spaces forwards network traffic between your AKS cluster and your development machine by modifying your development machine's `hosts` file. Azure Dev Spaces creates an entry in the `hosts` with the address of the Kubernetes service you are replacing as a host name. This entry is used with port forwarding to direct network traffic between your development machine and the AKS cluster. If a service on your development machine conflicts with the port of the Kubernetes service you are replacing, Azure Dev Spaces cannot forward network traffic for the Kubernetes service. For example, the *Windows BranchCache* service is usually bound to *0.0.0.0:80*, which conflicts will cause a conflict for port 80 on all local IPs.
 

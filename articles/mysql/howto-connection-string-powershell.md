@@ -1,15 +1,15 @@
 ---
 title: Generate a connection string with PowerShell - Azure Database for MySQL
-description: This quickstart provides an Azure PowerShell example to generate a connection string for connecting to Azure Database for MySQL.
+description: This article provides an Azure PowerShell example to generate a connection string for connecting to Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc, devx-track-azurepowershell
 ms.topic: quickstart
-ms.date: 8/3/2020
+ms.date: 8/5/2020
 ---
 
-# Azure Database for MySQL: Generate a connection string with PowerShell
+# How to generate an Azure Database for MySQL connection string with PowerShell
 
 This article demonstrates how to generate a connection string for an Azure Database for MySQL
 server. You can use a connection string to connect to an Azure Database for MySQL from many
@@ -48,4 +48,4 @@ Valid values for the `Client` parameter include:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Design an Azure Database for MySQL using PowerShell](tutorial-design-database-using-powershell.md)
+> [Customize Azure Database for MySQL server parameters using PowerShell](howto-configure-server-parameters-using-powershell.md)
