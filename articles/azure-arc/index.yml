@@ -23,11 +23,11 @@ highlightedContent:
     - title: Learn more about Azure Arc
       itemType: overview
       url: hhttps://azure.microsoft.com/services/azure-arc/
-    - title: Azure Arc enabled servers
+    - title: Azure Arc enabled servers (preview)
       itemType: overview
       url: ./servers/overview.md
     # Card
-    - title: Azure Arc enabled Kubernetes
+    - title: Azure Arc enabled Kubernetes (preview)
       itemType: overview
       url: ./kubernetes/overview.md
     # # Card
