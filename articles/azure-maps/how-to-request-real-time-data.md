@@ -1,6 +1,6 @@
 ---
 title: Request real-time public transit data | Microsoft Azure Maps
-description: Learn how to request real-time public transit data, such as arrivals at a transit stop. See how to use Azure Maps Mobility Service for this purpose.
+description: Learn how to request real-time public transit data, such as arrivals at a transit stop. See how to use the Azure Maps Mobility Service for this purpose.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/06/2019
