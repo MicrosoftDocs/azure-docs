@@ -392,6 +392,12 @@ This is due to the APPINSIGHTS_JAVASCRIPT_ENABLED application setting being set 
 
 For the latest information on the Application Insights agent/extension, check out the [release notes](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
+### Default website deployed with web apps does not support automatic client-side monitoring
+
+When you create a web app with the `ASP.NET` or `.NET Core` runtimes in Azure App Services it deploys a single static HTML page as a starter website. The static webpage also loads a .NET managed web part in IIS. This allows for testing codeless server-side monitoring, but does not support automatic client-side monitoring.
+
+If you wish to test out codeless server and client-side monitoring for ASP.NET or ASP.NET Core in a Azure App Services web app we recommend following the official guides for [creating a ASP.NET Core web app](../../app-service/app-service-web-get-started-dotnet.md) and [creating an ASP.NET Framework web app](../../app-service/app-service-web-get-started-dotnet-framework) and then use the instructions in the current article to enable monitoring.
+
 ### PHP and WordPress are not supported
 
 PHP and WordPress sites are not supported. There is currently no officially supported SDK/agent for server-side monitoring of these workloads. However, manually instrumenting client-side transactions on a PHP or WordPress site by adding the client-side javascript to your web pages can be accomplished by using the [JavaScript SDK](./javascript.md).
