@@ -39,14 +39,12 @@
     items:
     - name: Use Spring Boot Initializer
       href: cache-java-spring-boot-initializer-with-redis-cache.md
-  - name: Use caching with leaderboards
+  - name: Create leaderboards
     href: cache-web-app-cache-aside-leaderboard.md
-  - name: Azure PowerShell
+  - name: Manage with Azure PowerShell
     href: cache-how-to-manage-redis-cache-powershell.md
-  - name: Azure CLI
+  - name: Manage with Azure CLI
     href: cli-samples.md
-  - name: Development FAQs
-    href: cache-development-faq.md
 - name: Concepts
   items:
     - name: Failover and patching
@@ -86,6 +84,10 @@
       href: cache-migrate-to-redis.md
     - name: Planning FAQs
       href: cache-planning-faq.md
+  - name: Build
+    items:
+    - name: Development FAQs
+      href: cache-development-faq.md
   - name: Automate
     items:
     - name: Deploy and manage using Azure PowerShell
@@ -120,6 +122,12 @@
       href: cache-how-to-monitor.md#operations-and-alerts
     - name: Monitoring FAQs
       href: cache-monitoring-troubleshooting-faq.md
+  - name: Scale
+    items:
+    - name: Update to a different size and tier
+      href: cache-how-to-scale.md
+    - name: Use Redis cluster to scale in/out
+      href: cache-how-to-premium-clustering.md
   - name: Diagnose and troubleshoot
     items:
     - name: Troubleshoot Redis server
@@ -132,12 +140,6 @@
       href: cache-troubleshoot-data-loss.md
     - name: Troubleshooting FAQs
       href: cache-monitoring-troubleshooting-faq.md
-  - name: Scale
-    items:
-    - name: Update to a different size and tier
-      href: cache-how-to-scale.md
-    - name: Use Redis cluster to scale in/out
-      href: cache-how-to-premium-clustering.md
 - name: Reference
   items:
   - name: Azure Cache for Redis samples
