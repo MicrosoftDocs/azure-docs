@@ -77,13 +77,13 @@ Configuring a log analytics workspace consists of two main steps:
 
     ![Create log analytics workspace](./media/tutorial-log-analytics-wizard/create-log-analytics-workspace.png)
 
-    a. Select your subscription.
+    1. Select your subscription.
 
-    b. Select a resource group.
+    2. Select a resource group.
  
-    c. In the **Name** textbox, type a name (e.g.: MytestWorkspace1).
+    3. In the **Name** textbox, type a name (e.g.: MytestWorkspace1).
 
-    d. Select your region.
+    4. Select your region.
 
 5. Click **Review + Create**.
 
@@ -95,7 +95,7 @@ Configuring a log analytics workspace consists of two main steps:
 
 7. Search for **Azure Active Directory**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azuread.png)
+    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 8. In **Monitoring** section, click **Diagnostic setting**.
 
@@ -109,11 +109,11 @@ Configuring a log analytics workspace consists of two main steps:
 
     ![Select diagnostics settings](./media/tutorial-log-analytics-wizard/select-diagnostics-settings.png)
 
-    a. Under **Category details**, select **AuditLogs** and **SigninLogs**.
+    1. Under **Category details**, select **AuditLogs** and **SigninLogs**.
 
-    b. Under **Destination details**, select **Send to Log Analytics**, and then select your new log analytics workspace. 
+    2. Under **Destination details**, select **Send to Log Analytics**, and then select your new log analytics workspace. 
    
-    c. Click **Save**. 
+    3. Click **Save**. 
 
 ## Run queries  
 
@@ -127,7 +127,7 @@ This procedure shows how to run queries using the **Kusto Query Language (KQL)**
 
 2. Search for **Azure Active Directory**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azuread.png)
+    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Logs**.
 
@@ -243,11 +243,11 @@ This procedure shows how to send alerts when the breakglass account is used.
 
     ![Evaluated based on](./media/tutorial-log-analytics-wizard/evaluated-based-on.png)
 
-    a. As **Period (in minutes)**, select **5**.
+    1. As **Period (in minutes)**, select **5**.
 
-    b. As **Frequency (in minutes)**, select **5**.
+    2. As **Frequency (in minutes)**, select **5**.
 
-    c. Click **Done**. 
+    3. Click **Done**. 
 
 12. Under **Action group**, click **Select action group**. 
 
@@ -261,30 +261,30 @@ This procedure shows how to send alerts when the breakglass account is used.
 
     ![Instance details](./media/tutorial-log-analytics-wizard/instance-details.png)
 
-    a. In the **Action group name** textbox, type **My action group**.
+    1. In the **Action group name** textbox, type **My action group**.
 
-    b. In the **Display name** textbox, type **My action**.
+    2. In the **Display name** textbox, type **My action**.
 
-    c. Click **Review + create**. 
+    3. Click **Review + create**. 
 
-    d. Click **Create**.
+    4. Click **Create**.
 
 
 15. Under **Customize action**, perform the following steps:
 
     ![Customize actions](./media/tutorial-log-analytics-wizard/customize-actions.png)
 
-    a. Select **Email subject**.
+    1. Select **Email subject**.
 
-    b. In the **Subject line** textbox, type: `Breakglass account has been used`
+    2. In the **Subject line** textbox, type: `Breakglass account has been used`
 
 16. Under **Alert rule details**, perform the following steps:
 
     ![Alert rule details](./media/tutorial-log-analytics-wizard/alert-rule-details.png)
 
-    a. In the **Alert rule name** textbox, type: `Breakglass account`
+    1. In the **Alert rule name** textbox, type: `Breakglass account`
 
-    b. In the **Description** textbox, type: `Your emergency access account has been used`
+    2. In the **Description** textbox, type: `Your emergency access account has been used`
 
 17. Click **Create alert rule**.   
 
@@ -300,7 +300,7 @@ This procedure shows how to create a new workbook using the quickstart template.
 
 2. Search for **Azure Active Directory**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azuread.png)
+    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Workbooks**.
 
@@ -352,7 +352,7 @@ This procedure shows how to add a query to an existing workbook template. The ex
 
 2. Search for **Azure Active Directory**.
 
-    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azuread.png)
+    ![Azure Active Firectory](./media/tutorial-log-analytics-wizard/search-azure-ad.png)
 
 3. In the **Monitoring** section, click **Workbooks**.
 
@@ -380,7 +380,7 @@ This procedure shows how to add a query to an existing workbook template. The ex
 
 10. Click **Visualization**, and then select **Bar chart**. 
 
-10. Click **Advanced Settings**, as chart title, type `Conditional Access status over the last 20 days`, and then click **Done Editing**. 
+11. Click **Advanced Settings**, as chart title, type `Conditional Access status over the last 20 days`, and then click **Done Editing**. 
 
     ![Set chart title](./media/tutorial-log-analytics-wizard/set-chart-title.png)
 
