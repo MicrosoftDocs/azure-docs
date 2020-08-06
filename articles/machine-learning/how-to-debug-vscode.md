@@ -398,7 +398,7 @@ Local web service deployments require a working Docker installation on your loca
     docker run -it --name debug -p 8000:5001 -p 5678:5678 -v <my_path_to_score.py>:/var/azureml-apps/score.py debug:1 /bin/bash
     ```
 
-    This attaches your `score.py` localy to the one in the container. Therefore, any changes made in the editor are automatically reflected in the container.
+    This attaches your `score.py` locally to the one in the container. Therefore, any changes made in the editor are automatically reflected in the container.
 
 1. Inside the container, run the following command in the shell
 
