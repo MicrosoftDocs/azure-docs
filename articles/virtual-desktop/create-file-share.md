@@ -185,8 +185,6 @@ To configure your NTFS permissions:
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-5. Select **Apply**.
-
 ## Configure FSLogix on session host VMs
 
 This section will show you how to configure a VM with FSLogix. You'll need to follow these instructions every time you configure a session host. Before you start configuring, follow the instructions in [Download and install FSLogix](/fslogix/install-ht). There are several options available that ensure the registry keys are set on all session hosts. You can set these options in an image or configure a group policy.

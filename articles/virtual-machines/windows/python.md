@@ -459,7 +459,7 @@ You can stop a virtual machine and keep all its settings, but continue to be cha
 
 ### Resize the VM
 
-Many aspects of deployment should be considered when deciding on a size for your virtual machine. For more information, see [VM sizes](sizes.md).
+Many aspects of deployment should be considered when deciding on a size for your virtual machine. For more information, see [VM sizes](../sizes.md).
 
 1. To change the size of the virtual machine, add this function after the variables in the .py file:
 

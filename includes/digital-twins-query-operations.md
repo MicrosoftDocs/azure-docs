@@ -14,7 +14,7 @@ Azure Digital Twins provides extensive query capabilities against the twin graph
 > [!NOTE]
 > All Azure Digital Twins query operations are case-sensitive.
 
-Here are the operations available in Azure Digital Twins Query Store language.
+Here are the operations available in Azure Digital Twins query language.
 
 Get digital twins by their...
 * model (using `IS_OF_MODEL` operator)

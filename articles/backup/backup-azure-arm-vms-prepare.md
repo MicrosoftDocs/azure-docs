@@ -45,7 +45,7 @@ Modify the storage replication type as follows:
 1. In the new vault, select **Properties** in the **Settings** section.
 2. In **Properties**, under **Backup Configuration**, select **Update**.
 3. Select the storage replication type, and select **Save**.
-s
+
       ![Set the storage configuration for new vault](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
 > [!NOTE]

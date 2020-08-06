@@ -44,7 +44,7 @@ This document is broken into two sections:
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * An [Azure Container Registry](/azure/container-registry) or other Docker registry that is accessible on the internet.
-* The steps in this document assume that you are familiar with creating and using an __inference configuration__ object as part of model deployment. For more information, see the "prepare to deploy" section of [Where to deploy and how](how-to-deploy-and-where.md#prepare-to-deploy).
+* The steps in this document assume that you are familiar with creating and using an __inference configuration__ object as part of model deployment. For more information, see [Where to deploy and how](how-to-deploy-and-where.md).
 
 ## Create a custom base image
 

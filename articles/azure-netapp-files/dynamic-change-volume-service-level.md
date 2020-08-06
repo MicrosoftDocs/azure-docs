@@ -33,7 +33,9 @@ This wait period does not apply if you move the volume to a capacity pool that h
 
 ## Register the feature
 
-1. The feature to move a volume to another capacity pool is currently in preview. If this is your first time using this feature, register the feature before using it: 
+The feature to move a volume to another capacity pool is currently in preview. If you are using this feature for the first time, you need to register the feature first.
+
+1. Register the feature: 
 
     ```azurepowershell-interactive
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange

@@ -117,7 +117,7 @@
   - name: Images
     href: shared-image-galleries.md
   - name: VM types and sizes
-    href: ../virtual-machines/windows/sizes.md
+    href: ../virtual-machines/sizes.md
     items:
     - name: General purpose
       href: ../virtual-machines/sizes-general.md
@@ -193,10 +193,10 @@
       href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
       maintainContext: true
   - name: Networking
-    href: ../virtual-machines/windows/network-overview.md
+    href: ../virtual-machines/network-overview.md
     maintainContext: true
   - name: Infrastructure automation
-    href: ../virtual-machines/windows/infrastructure-automation.md
+    href: ../virtual-machines/infrastructure-automation.md
     maintainContext: true
   - name: Security
     items:
@@ -378,13 +378,13 @@
   - name: Use Ansible
     items:
     - name: Create and manage scale sets
-      href: /azure/ansible/ansible-create-configure-vmss
+      href: /azure/developer/ansible/vm-scale-set-configure
       maintainContext: true
     - name: Deploy apps to scale sets
-      href: /azure/ansible/ansible-deploy-app-vmss
+      href: /azure/developer/ansible/vm-scale-set-deploy-app
       maintainContext: true
     - name: Autoscale a scale set
-      href: /azure/ansible/ansible-auto-scale-vmss
+      href: /azure/developer/ansible/vm-scale-set-auto-scale
       maintainContext: true
 - name: Reference
   items:
