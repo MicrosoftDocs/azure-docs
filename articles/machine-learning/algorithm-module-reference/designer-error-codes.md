@@ -5,7 +5,7 @@ description: Troubleshoot module error codes in Azure Machine Learning designer 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
