@@ -23,7 +23,7 @@ Learn how to deploy your first application to the cloud using App Service for We
 
 - [.NET](/azure/app-service/quickstart-dotnetcore)
 - [Node.js](/azure/app-service/quickstart-nodejs)
-- [PHP](/azure/app-service/app-service-web-get-started-php)
+- [PHP](/azure/app-service/quickstart-php)
 - [Java](/azure/app-service/quickstart-java)
 - [Python](/azure/app-service/quickstart-python)
 - [HTML](/azure/app-service/quickstart-html)
