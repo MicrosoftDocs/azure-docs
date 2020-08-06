@@ -79,7 +79,11 @@ If you have an issue uploading files, make sure your local network does not bloc
 
 ### Add logos
 
-1. Under **Logos**, upload a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a Small and a Medium size logo. You can optionally replace these with different images.
+1. Under **Logos**, upload logos with the following pixel sizes in .PNG format:
+ 
+-   **Small** (48 x 48)
+-   **Medium** (90 x 90)
+-   **Large** (between 216 x 216 and 350 x 350)
 
 2. You can optionally provide a wide image (255 x 115).
 
