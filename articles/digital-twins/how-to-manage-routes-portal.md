@@ -130,16 +130,15 @@ To actually send data from Azure Digital Twins to an endpoint, you'll need to de
 
 ### Create an event route 
 
-An event route definition can contain these elements:
+An event route definition contains these elements:
 * The route name you want to use
 * The name of the endpoint you want to use
 * A filter that defines which events are sent to the endpoint
+    - To disable the route so that no events are sent, use a filter value of `false`
+    - To enable a route that has no specific filtering, use a filter value of `true`
+    - For details on any other type of filter, see the [*Filter events*](#filter-events) section below.
 
-If there is no route name, no messages are routed outside of Azure Digital Twins.
-If there is a route name and the filter is `true`, all messages are routed to the endpoint.
-If there is a route name and a different filter is added, messages will be filtered based on the filter.
-
-One route should allow multiple notifications and event types to be selected.
+A single route can allow multiple notifications and event types to be selected.
 
 To create an event route, go to the details page for your Azure Digital Twins instance in the [Azure portal](https://portal.azure.com) (you can find the instance by entering its name into the portal search bar).
 
