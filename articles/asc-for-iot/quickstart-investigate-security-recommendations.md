@@ -33,7 +33,7 @@ The IoT Hub recommendations list displays all of the aggregated security recomme
 
 1.  In the Azure portal, open the **IoT Hub** you want to investigate for new recommendations.
 
-1.  From the **Security** menu, select **Recommendations**. All of the security recommendations for the IoT Hub will display, and the alerts with a **New** flag, mark your alerts from the past 24 hours. 
+1.  From the **Security** menu, select **Recommendations**. All of the security recommendations for the IoT Hub will display, and the recommendations with a **New** flag, mark your recommendations from the past 24 hours. 
 
     ![Investigate security recommendations with ASC for IoT](./media/quickstart/investigate-security-recommendations.png)
 
@@ -45,7 +45,7 @@ Open each aggregated recommendation to display the detailed recommendation descr
 
 1.  Select and open any security recommendation from the **IoT Hub** \> **Security** \> **Recommendations** list.
 
-1.  Review the alert **description**, **severity**, **device details** of all devices that issued this recommendation in the aggregation period. 
+1.  Review the recommendation **description**, **severity**, **device details** of all devices that issued this recommendation in the aggregation period. 
 
 1.  After reviewing recommendation specifics, use the **manual remediation step** instructions to help remediate and resolve the issue that caused the recommendation. 
 
