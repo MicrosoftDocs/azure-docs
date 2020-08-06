@@ -1,6 +1,6 @@
 ---
-title: Create stateless and stateful workflows with Visual Studio Code
-description: Create stateless and stateful workflows by using Azure Logic Apps and Visual Studio Code
+title: Create stateful and stateless workflows with Visual Studio Code
+description: Create stateful and stateless workflows by using Azure Logic Apps and Visual Studio Code
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ---
 
-# Create stateless and stateful workflows by using Azure Logic Apps and Visual Studio Code
+# Create stateful and stateless workflows by using Azure Logic Apps and Visual Studio Code
 
 
-## What is stateless?
+## What are stateful and stateless?
 
 * *Stateful*
 
@@ -161,6 +161,10 @@ ms.date: 09/22/2020
 1. Open the shortcut menu for your `workflow.json` file, select **Open in Designer**.
 
    ![Screenshot that shows Explorer pane and shortcut window for workflow.json file with Open in Designer selected](./media/create-stateless-stateful-workflows/open-definition-file-in-designer.png)
+
+1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**.
+
+   ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected](./media/create-stateless-stateful-workflows/use-connectors-from-azure.png)
 
 Now, continue with either the next steps for stateful workflow or for [stateless workflow](#stateless-workflow).
 
