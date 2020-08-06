@@ -43,7 +43,7 @@ When running in Azure, clients using the .NET SDK can hit Azure SNAT (PAT) port 
 If you are running on Azure VMs, follow the [SNAT Port Exhaustion guide](troubleshoot-dot-net-sdk.md#snat).
 
 #### Solution 2:
-If you are running on Azure App Service, follow the [connection errors troubleshooting guide](../app-service/app-service/troubleshoot-intermittent-outbound-connection-errors.md#cause) and [use App Service diagnostics](https://azure.github.io/AppService/2018/03/01/Deep-Dive-into-TCP-Connections-in-App-Service-Diagnostics.html).
+If you are running on Azure App Service, follow the [connection errors troubleshooting guide](../app-service/troubleshoot-intermittent-outbound-connection-errors.md#cause) and [use App Service diagnostics](https://azure.github.io/AppService/2018/03/01/Deep-Dive-into-TCP-Connections-in-App-Service-Diagnostics.html).
 
 #### Solution 3:
 If you use an HTTP proxy, make sure it can support the number of connections configured in the SDK `ConnectionPolicy`.
