@@ -76,7 +76,7 @@ To fix this:
 
 Windows node pools do not support service principal rotation. To update the service principal, create a new Windows node pool and migrate your pods from the older pool to the new one. Once this is complete, delete the older node pool.
 
-Instead, use a managed identity which is essentially a wrapper around service principals. For more information, see [Use managed identities in Azure Kubernetes Service][managed-identity].
+Instead, use a managed identities which are essentially wrappers around service principals. For more information, see [Use managed identities in Azure Kubernetes Service][managed-identity].
 
 ## How many node pools can I create?
 
