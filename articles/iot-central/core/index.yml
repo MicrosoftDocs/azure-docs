@@ -57,7 +57,7 @@ landingContent:
         links:
           - text: Set up a template
             url: howto-set-up-template.md
-          - text: Connect aa Azure Sphere device
+          - text: Connect an Azure Sphere device
             url: howto-connect-sphere.md
   - title: Stay connected
     linkLists:
