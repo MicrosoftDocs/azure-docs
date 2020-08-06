@@ -164,7 +164,7 @@ After enabling the minimal filter of `true`, endpoints will receive a variety of
 * Life-cycle events, fired when twins or relationships are created or deleted
 * Model change events, fired when [models](concepts-models.md) configured in an Azure Digital Twins instance are added or deleted
 
-You can restrict the types of events being sent by adding a more-specific filter.
+You can restrict the types of events being sent by defining a more-specific filter.
 
 To add an event filter while you are creating an event route, use the _Add an event route filter_ section of the *Create an event route* page. 
 
@@ -172,7 +172,7 @@ You can either select from some basic common filter options, or use the advanced
 
 #### Use the basic filters
 
-To use the basic filters, expand the _Event types_ option and select the checkboxes corresponding to the events you'd like to filter on. 
+To use the basic filters, expand the _Event types_ option and select the checkboxes corresponding to the events you'd like to send to your endpoint. 
 
 :::row:::
     :::column:::
