@@ -81,13 +81,16 @@ The following operating systems are currently supported by the Azure Monitor age
   - Windows Server 2012 R2
 
 ### Linux
-  - Linux
-  - CentOS 7
-  - Oracle Linux 6, 7
-  - RHEL 6, 7, 8
-  - Debian 9 + 10
-  - Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS
+  - CentOS 6<sup>1</sup>, 7
+  - Debian 9, 10
+  - Oracle Linux 6<sup>1</sup>, 7
+  - RHEL 6<sup>1</sup>, 7, 8
   - SLES 11, 12, 15
+  - Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS
+
+> [!IMPORTANT]
+> <sup>1</sup>For these distributions to send Syslog data, you must remove rsyslog and install syslog-ng.
+
 
 ## Security
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before deploying the agent.
