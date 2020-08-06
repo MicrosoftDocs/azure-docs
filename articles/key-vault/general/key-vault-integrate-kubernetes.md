@@ -66,7 +66,7 @@ Complete the "Create a resource group," "Create AKS cluster," and "Connect to th
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. To display the metadata of the AKS cluster that you've created, use the following command. Copy the **principalId**, **clientId**, **subscriptionId**, and **nodeResourceGroup** for later use.
+1. To display the metadata of the AKS cluster that you've created, use the following command. Copy the **principalId**, **clientId**, **subscriptionId**, and **nodeResourceGroup** for later use. If the ASK cluster was not created with managed identities enabled, the **principalId** and **clientId** will be null. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -162,7 +162,7 @@ The following image shows the console output for **az keyvault show --name conto
 
 ### Assign a service principal
 
-If you're using a service principal, grant permissions for it to access your key vault and retrieve secrets. Assign the *Reader* role, and grant the service principal permissions to *get* secrets from your key vault by doing the following:
+If you're using a service principal, grant permissions for it to access your key vault and retrieve secrets. Assign the *Reader* role, and grant the service principal permissions to *get* secrets from your key vault by doing the following command:
 
 1. Assign your service principal to your existing key vault. The **$AZURE_CLIENT_ID** parameter is the **appId** that you copied after you created your service principal.
     ```azurecli
@@ -200,10 +200,10 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 If you're using managed identities, assign specific roles to the AKS cluster you've created. 
 
-1. To create, list, or read a user-assigned managed identity, your AKS cluster needs to be assigned the [Managed Identity Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role. Make sure that the **$clientId** is the Kubernetes cluster's clientId.
+1. To create, list, or read a user-assigned managed identity, your AKS cluster needs to be assigned the [Managed Identity Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) role. Make sure that the **$clientId** is the Kubernetes cluster's clientId. For the scope, it will be under your Azure subscription service, specifically the node resource group that was made when the AKS cluster was created. This scope will ensure only resources within that group are affected by the roles assigned below. 
 
     ```azurecli
-    az role assignment create --role "Managed Identity Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     ```
