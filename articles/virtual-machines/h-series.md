@@ -38,7 +38,7 @@ Memory Preserving Updates: Not Supported
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 > [!NOTE]
-> Among the [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), the H-series are non-SR-IOV enabled. This implies that the supported [VM Images](./workloads/hpc/configure.md#vm-images), [InfiniBand driver](./workloads/hpc/enable-infiniband.md) requirements and supported [MPI libraries](./workloads/hpc/setup-mpi.md) are different when compared with the SR-IOV enabled VMs.
+> Among the [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), the H-series are not-SR-IOV enabled. Therefore, the supported [VM Images](./workloads/hpc/configure.md#vm-images), [InfiniBand driver](./workloads/hpc/enable-infiniband.md) requirements and supported [MPI libraries](./workloads/hpc/setup-mpi.md) are different from the SR-IOV enabled VMs.
 
 ## Other sizes
 
