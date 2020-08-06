@@ -150,7 +150,7 @@ On the *Create an event route* page that opens up, choose at minimum:
 
 For the route to be enabled, you must also **Add an event route filter** of at least `true`. (Leaving the default value of `false` will create the route, but no events will be sent to it.) To do this, toggle the switch for the _Advanced editor_ to enable it, and write `true` in the *Filter* box.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot of creating event route for your instance.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot of creating event route for your instance." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 When finished, hit the _Save_ button to create your event route.
 
