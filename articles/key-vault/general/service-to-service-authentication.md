@@ -16,7 +16,7 @@ ms.subservice: general
 # Service-to-service authentication to Azure Key Vault using .NET
 
 > [!NOTE]
-> **Microsoft.Azure.Services.AppAuthentication** is deprecated. 
+> **Microsoft.Azure.Services.AppAuthentication** is no longer recommended to use with new Key Vault SDK. 
 > It is replaced wit new Azure Identity library **DefaultAzureCredentials** available for .NET, Java, TypeScript and Python and should be used for all new development. 
 > More information can be found here: [Authentication and the Azure SDK](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html).
 
