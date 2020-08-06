@@ -12,7 +12,7 @@ ms.custom: seodec18
 ---
 # Best practices and troubleshooting guide for node applications on Azure App Service Windows
 
-In this article, you learn best practices and troubleshooting steps for [node applications](quickstart-nodejs.md) running on Azure App Service (with [iisnode](https://github.com/azure/iisnode)).
+In this article, you learn best practices and troubleshooting steps for [Windows Node.js applications](quickstart-nodejs.md?pivots=platform-windows) running on Azure App Service (with [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
 > Use caution when using troubleshooting steps on your production site. Recommendation is to troubleshoot your app on a non-production setup for example your staging slot and when the issue is fixed, swap your staging slot with your production slot.

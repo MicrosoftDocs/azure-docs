@@ -264,7 +264,7 @@ The default PHP image for App Service uses Apache, and it doesn't let you custom
 </IfModule>
 ```
 
-If you would rather not use *.htaccess* rewrite, you can deploy your Laravel application with a [custom Docker image](containers/quickstart-docker-go.md) instead.
+If you would rather not use *.htaccess* rewrite, you can deploy your Laravel application with a [custom Docker image](quickstart-custom-container.md) instead.
 
 ::: zone-end
 

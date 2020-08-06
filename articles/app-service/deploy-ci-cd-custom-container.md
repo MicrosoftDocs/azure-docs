@@ -60,8 +60,8 @@ az webapp deployment container config --name <app-name> --resource-group <group-
 ## Next steps
 
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
-* [Create a .NET Core web app in App Service on Linux](containers/quickstart-dotnetcore.md)
+* [Create a .NET Core web app in App Service on Linux](quickstart-dotnetcore.md?pivots=platform-linux)
 * [Create a Ruby web app in App Service on Linux](quickstart-ruby.md)
-* [Deploy a Docker web app in Web App for Containers](containers/quickstart-docker-go.md)
+* [Quickstart: Run a custom container on App Service](quickstart-custom-container.md?pivots=container-linux)
 * [App Service on Linux FAQ](faq-app-service-linux.md)
 * [Configure custom Linux containers](configure-custom-container.md)
