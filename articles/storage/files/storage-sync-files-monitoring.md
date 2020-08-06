@@ -72,6 +72,8 @@ The following table lists some example scenarios to monitor and the proper metri
 | Registered server is failing to communicate with the Storage Sync Service | Server online status |
 | Cloud tiering recall size has exceeded 500GiB in a day  | Cloud tiering recall size |
 
+For instructions on how to create alerts for these scenarios, see the [Alert Examples](#alert-examples) section.
+
 ## Storage Sync Service
 
 To view registered server health, server endpoint health, and metrics, go to the Storage Sync Service in the Azure portal. You can view registered server health in the **Registered servers** blade and server endpoint health in the **Sync groups** blade.
@@ -159,6 +161,7 @@ The following performance counters for Azure File Sync are available in Performa
 | AFS Sync Operations\Total Sync File Operations/sec | Total number of files synced (upload and download). |
 
 ## Alert Examples
+This section provides some example alerts for Azure File Sync. 
 
 ### How to create an alert if the server endpoint health shows an error in the portal
 
