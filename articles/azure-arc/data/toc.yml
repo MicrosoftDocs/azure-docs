@@ -4,8 +4,6 @@
   items:
     - name: What is Azure Arc enabled data services
       href: overview.md
-    - name: Compare Arc enabled data servics with Arc for SQL Server
-      href: compare.md
 - name: Quickstarts
   items:
     - name: Install client tools
