@@ -46,32 +46,32 @@ Advisor identifies virtual machines with standard disks that have a high volume 
 
 Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines that run I/O-intensive workloads. Virtual machine disks that use Premium Storage accounts store data on solid-state drives (SSDs). For the best performance for your application, we recommend that you migrate any virtual machine disks that require high IOPS to Premium Storage.
 
-## Remove data skew on your SQL Data Warehouse tables to increase query performance
+## Remove data skew on your Azure Synapse Analytics tables to increase query performance
 
 Data skew can cause unnecessary data movement or resource bottlenecks when you run your workload. Advisor detects distribution data skew of greater than 15%. It recommends that you redistribute your data and revisit your table distribution key selections. To learn more about identifying and removing skew, see [troubleshooting skew](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice).
 
-## Create or update outdated table statistics in your SQL Data Warehouse tables to increase query performance
+## Create or update outdated table statistics in your Azure Synapse Analytics tables to increase query performance
 
-Advisor identifies tables that don't have up-to-date [table statistics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) and recommends creating or updating the statistics. The query optimizer in Azure SQL Data Warehouse uses up-to-date statistics to estimate the cardinality or number of rows in query results. These estimates enable the query optimizer to create a query plan to provide the fastest performance.
+Advisor identifies tables that don't have up-to-date [table statistics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) and recommends creating or updating the statistics. The query optimizer in Azure Synapse Analytics uses up-to-date statistics to estimate the cardinality or number of rows in query results. These estimates enable the query optimizer to create a query plan to provide the fastest performance.
 
 ## Improve MySQL connection management
 
 Advisor analysis can indicate that your application connecting to a MySQL server might not be managing connections efficiently. This condition could lead to unnecessary resource consumption and overall higher application latency. To improve connection management, we recommend that you reduce the number of short-lived connections and eliminate unnecessary idle connections. You can make these improvements by configuring a server-side connection pooler, like ProxySQL.
 
 
-## Scale up to optimize cache utilization on your SQL Data Warehouse tables to increase query performance
+## Scale up to optimize cache utilization on your Azure Synapse Analytics tables to increase query performance
 
-Azure Advisor detects whether your SQL Data Warehouse tables have a high cache-used percentage and a low hit percentage. This condition indicates high cache eviction, which can affect the performance of your SQL Data Warehouse instance. Advisor recommends that you scale up your SQL Data Warehouse instance to ensure you allocate enough cache capacity for your workload.
+Azure Advisor detects whether your Azure Synapse Analytics tables have a high cache-used percentage and a low hit percentage. This condition indicates high cache eviction, which can affect the performance of your Azure Synapse Analytics instance. Advisor recommends that you scale up your Azure Synapse Analytics instance to ensure you allocate enough cache capacity for your workload.
 
-## Convert SQL Data Warehouse tables to replicated tables to increase query performance
+## Convert Azure Synapse Analytics tables to replicated tables to increase query performance
 
 Advisor identifies tables that aren't replicated tables but that would benefit from conversion. It suggests that you convert these tables. Recommendations are based on:
 - The size of the replicated table. 
 - The number of columns. 
 - The table distribution type. 
-- The number of partitions on the SQL Data Warehouse table. 
+- The number of partitions on the Azure Synapse Analytics table. 
 
-Additional heuristics might be provided in the recommendation for context. To learn more about how this recommendation is determined, see [SQL Data Warehouse recommendations](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
+Additional heuristics might be provided in the recommendation for context. To learn more about how this recommendation is determined, see [Azure Synapse Analytics recommendations](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
 
 ## Migrate your storage account to Azure Resource Manager to get the latest Azure features
 
