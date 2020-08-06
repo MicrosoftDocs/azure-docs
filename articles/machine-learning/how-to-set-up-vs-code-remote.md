@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 07/22/2020
+ms.date: 08/06/2020
 # As a data scientist, I want to how to use SSH to set up a VS COde remote to use with an Azure ML compute instance. 
 ---
 
@@ -23,7 +23,7 @@ In this article, you'll learn how to set up Visual Studio Code Remote extension 
 
 ## Prerequisite  
 
-* SSH-enabled compute instance. For more information, [see the create a compute instance guide.](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#create).
+* SSH-enabled compute instance. For more information, [see the Create a compute instance guide.](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#create).
 * On Windows platforms, you must [install an OpenSSH compatible SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) if one is not already present. 
 
 > [!Note]
@@ -113,6 +113,6 @@ From here on, you are entirely working on the compute instance and you can now e
 
 ## Next steps
 
-Now that you've set up Visual Studio Code Remote, you can use a compute instance as remote compute from Visual Studio Code to interactively debug your code.
+Now that you've set up Visual Studio Code Remote, you can use a compute instance as remote compute from Visual Studio Code to [interactively debug your code](how-to-debug-visual-studio-code.md).
 
 [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.

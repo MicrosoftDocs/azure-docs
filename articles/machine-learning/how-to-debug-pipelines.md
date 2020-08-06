@@ -162,7 +162,7 @@ For more information on using the OpenCensus Python library in this manner, see 
 
 ## Visual Studio Code
 
-In some cases, you may need to interactively debug the Python code used in your ML pipeline. By using Visual Studio Code (VS Code) and debugpy, you can attach to the code as it runs in the training environment. For more information, visit the [interactive debugging in VS Code guide](how-to-debug-vscode.md#debug-and-troubleshoot-machine-learning-pipelines).
+In some cases, you may need to interactively debug the Python code used in your ML pipeline. By using Visual Studio Code (VS Code) and debugpy, you can attach to the code as it runs in the training environment. For more information, visit the [interactive debugging in VS Code guide](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines).
 
 ## Next steps
 

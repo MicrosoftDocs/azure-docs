@@ -422,7 +422,7 @@ To stop the container, use the following command:
 docker stop debug
 ```
 
-## Next Steps
+## Next steps
 
 Now that you've set up Visual Studio Code Remote, you can use a compute instance as remote compute from Visual Studio Code to interactively debug your code. 
 

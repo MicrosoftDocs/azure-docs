@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 03/31/2020
+ms.date: 08/06/2020
 
 ---
 # Known issues and troubleshooting in Azure Machine Learning
@@ -214,7 +214,7 @@ Limitations and known issues for data drift monitors:
     | Categorical | string, bool, int, float | The number of unique values in the feature is less than 100 and less than 5% of the number of rows. | Null is treated as its own category. | 
     | Numerical | int, float | The values in the feature are of a numerical data type and do not meet the condition for a categorical feature. | Feature dropped if >15% of values are null. | 
 
-* When you have [created a datadrift monitor](how-to-monitor-datasets.md) but cannot see data on the **Dataset monitors** page in Azure Machine Learning studio, try the following.
+* When you have [created a data drift monitor](how-to-monitor-datasets.md) but cannot see data on the **Dataset monitors** page in Azure Machine Learning studio, try the following.
 
     1. Check if you have selected the right date range at the top of the page.  
     1. On the **Dataset Monitors** tab, select the experiment link to check run status.  This link is on the far right of the table.
@@ -279,7 +279,7 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 
 ## Automated machine learning
 
-* **TensorFlow**: As of version 1.5.0 of the SDK, automated machine learning does not install tensorflow models by default. To install tensorflow and use it with your automated ML experiments, install tensorflow==1.12.0 via CondaDependecies. 
+* **TensorFlow**: As of version 1.5.0 of the SDK, automated machine learning does not install TensorFlow models by default. To install TensorFlow and use it with your automated ML experiments, install tensorflow==1.12.0 via CondaDependecies. 
  
    ```python
    from azureml.core.runconfig import RunConfiguration
@@ -378,5 +378,5 @@ See more troubleshooting articles for Azure Machine Learning:
 * [Docker deployment troubleshooting with Azure Machine Learning](how-to-troubleshoot-deployment.md)
 * [Debug machine learning pipelines](how-to-debug-pipelines.md)
 * [Debug the ParallelRunStep class from the Azure Machine Learning SDK](how-to-debug-parallel-run-step.md)
-* [Interactive debugging of a machine learning compute instance with VS Code](how-to-debug-vscode.md)
+* [Interactive debugging of a machine learning compute instance with VS Code](how-to-debug-visual-studio-code.md)
 * [Use Application Insights to debug machine learning pipelines](how-to-debug-pipelines-application-insights.md)

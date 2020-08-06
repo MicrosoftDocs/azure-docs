@@ -477,7 +477,7 @@
       href: how-to-manage-resources-vscode.md
     - name: VS Code interactive debugging
       displayName: vscode,remote,debug,pipelines,deployments,ssh
-      href: how-to-debug-vscode.md      
+      href: how-to-debug-visual-studio-code.md      
     - name: Export and delete data
       displayName: GDPR
       href: how-to-export-delete-data.md
