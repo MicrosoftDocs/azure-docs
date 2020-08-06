@@ -17,7 +17,7 @@ You can instantiate Azure Spring Cloud using the Azure portal or the Azure CLI. 
 
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 
-## Provision a service instance on the Azure portal
+## Provision a service instance using the Azure portal
 The following procedure creates an instance of Azure Spring Cloud using the Azure portal.
 
 1. In a new tab, open the [Azure portal](https://ms.portal.azure.com/). 
@@ -42,7 +42,7 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
 6. Click **Review and create**.
 
-## Azure Cloud Shell
+## Provision a service instance using the Azure CLI extension
 The Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
 
 ### Install the Azure CLI extension

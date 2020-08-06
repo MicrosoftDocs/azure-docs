@@ -172,33 +172,31 @@ The following procedures deploy a Hello World application using the IntelliJ IDE
 * Deploy to Azure Spring Cloud
 * Show streaming logs
 
-### Open gs-spring-boot project
+### Open Piggymetrics project
 
-1. Download and unzip the source repository for this tutorial, or clone it using Git: git clone https://github.com/spring-guides/gs-spring-boot.git 
-1. cd into gs-spring-boot\complete.
-1. Open IntelliJ **Welcome** dialog, select **Import Project** to open the import wizard.
-1. Select `gs-spring-boot\complete` folder.
+1. Download and unzip the source repository for this tutorial, or clone it using Git: git clone git clone https://github.com/Azure-Samples/piggymetrics  
+1. cd into piggymetrics folder.
+1. Open IntelliJ **Welcome** dialog.
+1. Select **Open or Import** to open the import wizard.
+1. Select `piggymetrics` folder.
 
-    ![Import Project](media/spring-cloud-intellij-howto/import-project-1.png)
+    ![Import Project](media/spring-cloud-intellij-howto/revision-import-project-1.png)
 
 ### Deploy to Azure Spring Cloud
 In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
 
-    ![Deploy to Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1.png)
+    ![Deploy to Azure 1](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
 
+1. Follow instructions to sign in to Azure.
 1. Accept the name for app in the **Name** field. **Name** refers to the configuration, not app name. Users don't usually need to change it.
 1. Accept the identifier from the project for the **Artifact**.
 1. Select **App:** then click **Create app...**.
-
-    ![Deploy to Azure 2](media/spring-cloud-intellij-howto/deploy-to-azure-2.png)
-
 1. Enter **App name**, then click **OK**.
-
-    ![Deploy to Azure OK](media/spring-cloud-intellij-howto/deploy-to-azure-2a.png)
-
 1. Start the deployment by clicking **Run** button. 
+
+    ![Deploy to Azure OK](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
 
     ![Deploy to Azure 3](media/spring-cloud-intellij-howto/deploy-to-azure-3.png)
 
