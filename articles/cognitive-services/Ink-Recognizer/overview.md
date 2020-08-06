@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 08/06/2020
 ms.author: aahi
 ---
 
@@ -21,7 +21,7 @@ The Ink Recognizer Cognitive Service provides a cloud-based REST API to analyze 
 
 ## Features
 
-With the Ink Recognizer API, you can easily recognize handwritten content in your applications. 
+With the Ink Recognizer API, you can easily recognize handwritten content in your applications. The API accepts up to 1500 digital ink strokes per request. 
 
 |Feature  |Description  |
 |---------|---------|
