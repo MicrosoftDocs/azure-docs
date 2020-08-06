@@ -88,7 +88,7 @@ Open the *pnp_temp_controller_with_thermostats.py* file in an editor of your cho
   - A thermostat
   - Device information developed by Azure.
 
-3. Defines the DTMI `model_id`for the device that's being implemented. The DTMI is user-defined and must match the DTMI in the DTDL model file.
+3. Defines the DTMI `model_id` for the device that's being implemented. The DTMI is user-defined and must match the DTMI in the DTDL model file.
 
 4. Defines the names given to the components in the DTDL file. There are two thermostats in the DTDL and one device information component. A constant called `serial_number` is also defined in the root interface. A `serial_number` can't change for a device.
 
