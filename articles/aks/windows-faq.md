@@ -76,6 +76,8 @@ To fix this:
 
 Windows node pools do not support service principal rotation. To update the service principal, create a new Windows node pool and migrate your pods from the older pool to the new one. Once this is complete, delete the older node pool.
 
+Instead, use a managed identity which is essentially a wrapper around service principals. For more information, see [Use managed identities in Azure Kubernetes Service][managed-identity].
+
 ## How many node pools can I create?
 
 The AKS cluster can have a maximum of 10 node pools. You can have a maximum of 1000 nodes across those node pools. [Node pool limitations][nodepool-limitations].
@@ -146,3 +148,4 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [windows-rdp]: rdp.md
 [upgrade-node-image]: node-image-upgrade.md
+[managed-identity]: use-managed-identity.md
