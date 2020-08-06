@@ -1,6 +1,6 @@
 ---
 title: Mobility (transit) coverage
-description: Learn which level of coverage the Azure Maps Mobility Service provides in which regions for public transit features, such as routing and service alerts.
+description: Learn which level of coverage the Azure Maps Mobility service provides in which regions for public transit features, such as routing and service alerts.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/23/2020
