@@ -51,13 +51,13 @@ Follow these steps to create the app registration:
 1. Don't enter anything for **Redirect URI (optional)**, you'll configure one in the next section.
 1. Select **Register** to submit the app registration.
 
-    ![Screenshot of the Azure portal in a web browser showing the Register an application pane.](./media/quickstart-add-azure-ad-app-preview/new-app-registration.png)
+    :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Screenshot of the Azure portal in a web browser showing the Register an application pane.":::
 
 When the registration completes, the Azure portal displays the app registration's **Overview** pane, which includes its **Application (client) ID**. Also referred to simply as the *client ID*, this value uniquely identifies your application in the Microsoft identity platform.
 
 Your application's code, or more typically an authentication library used in your application, also uses the client ID as one aspect of validation of the tokens it receives from the identity platform.
 
-![Screenshot of the Azure portal in a web browser showing an app registration's Overview pane.](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot of the Azure portal in a web browser showing an app registration's Overview pane.":::
 
 ## Add a redirect URI
 
@@ -91,17 +91,6 @@ Depending on the application you're registering, there are some additional setti
 * For legacy apps that were using the Live SDK to integrate with the Microsoft account service, configure **Live SDK support**. New apps don't need this setting.
 * **Default client type**.
 * **Supported account types**.
-
-### Modify supported account types
-
-The **Supported account types** specify who can use the application or access the API.
-
-If you configured the supported account types when you registered the application, you can only change this setting using the application manifest editor if:
-
-* You change account types from **AzureADMyOrg** or **AzureADMultipleOrgs** to **AzureADandPersonalMicrosoftAccount**, or the other way around, or
-* You change account types from **AzureADMyOrg** to **AzureADMultipleOrgs**, or the other way around.
-
-To change the supported account types for an existing app registration, update the `signInAudience` key. For more information, see [Configure the application manifest](reference-app-manifest.md#configure-the-app-manifest).
 
 ## Configure platform settings for your application
 
