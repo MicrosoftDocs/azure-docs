@@ -76,9 +76,8 @@ You can point your cluster to a previously created Azure SQL Database at any tim
 
 ## Hive metastore guidelines
 
-* Use a custom metastore whenever possible, to help separate compute resources (your running cluster) and metadata (stored in the metastore).
-
-* Start with an S2 tier, which provides 50 DTU and 250 GB of storage. If you see a bottleneck, you can scale the database up.
+> [!NOTE]
+> Use a custom metastore whenever possible, to help separate compute resources (your running cluster) and metadata (stored in the metastore). Start with the S2 tier, which provides 50 DTU and 250 GB of storage. If you see a bottleneck, you can scale the database up.
 
 * If you intend multiple HDInsight clusters to access separate data, use a separate database for the metastore on each cluster. If you share a metastore across multiple HDInsight clusters, it means that the clusters use the same metadata and underlying user data files.
 
