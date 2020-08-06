@@ -50,8 +50,8 @@ to audit that vulnerabilities identified during SQL Vulnerability Assessment sca
 
 ## A.9.1.2 Access to networks and network services
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to manage who has access to Azure resources. This blueprint helps you control access to Azure
+Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
+to manage who has access to Azure resources. This blueprint helps you control access to Azure
 resources by assigning seven [Azure Policy](../../../policy/overview.md) definitions. These policies
 audit use of resource types and configurations that may allow more permissive access to resources.
 Understanding resources that are in violation of these policies can help you take corrective actions
@@ -104,8 +104,8 @@ corrective action to ensure authenticators aren't compromised.
 
 ## A.9.2.5 Review of user access rights
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
+to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint assigns four [Azure
 Policy](../../../policy/overview.md) definitions to audit accounts that should be prioritized for
 review, including depreciated accounts and external accounts with elevated permissions.
@@ -117,8 +117,8 @@ review, including depreciated accounts and external accounts with elevated permi
 
 ## A.9.2.6 Removal or adjustment of access rights
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using [Azure Active
+Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
+to help you manage who has access to resources in Azure. Using [Azure Active
 Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) and RBAC, you can
 update user roles to reflect organizational changes. When needed, accounts can be blocked from
 signing in (or removed), which immediately removes access rights to Azure resources. This blueprint

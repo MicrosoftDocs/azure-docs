@@ -123,7 +123,7 @@ For more information about regional availability, see [regions](regions.md#stand
 |Locale  | Language            | Gender | Voice name | Style support |
 |--|--|--|--|--|
 | `ar-EG` | Arabic (Egypt)                  | Female | `ar-EG-SalmaNeural`      | General |
-| `ar-SA` | Arabic (Saudi Arabia)           | Female | `ar-SA-ZariyahNeura`     | General |
+| `ar-SA` | Arabic (Saudi Arabia)           | Female | `ar-SA-ZariyahNeural`    | General |
 | `ca-ES` | Catalan (Spain)                 | Female | `ca-ES-AlbaNeural`       | General |
 | `da-DK` | Danish (Denmark)                | Female | `da-DK-ChristelNeural`   | General |
 | `de-DE` | German (Germany)                | Female | `de-DE-KatjaNeural`      | General |

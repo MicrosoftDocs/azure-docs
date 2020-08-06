@@ -527,6 +527,7 @@ This multi-value property holds the list of registered redirect_uri values that 
 
 - `Web`
 - `InstalledClient`
+- `Spa`
 
 To learn more, see [replyUrl restrictions and limitations](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
 
