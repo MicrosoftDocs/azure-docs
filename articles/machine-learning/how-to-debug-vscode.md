@@ -34,7 +34,7 @@ In some cases, you may need to interactively debug the Python code used in your 
 
 For more information on using an Azure Virtual Network with Azure Machine Learning, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
 
-> ![TIP]
+> [!TIP]
 > Although you can work with Azure Machine Learning resources that are not behind a virtual network, using a virtual network is recommended.
 
 ### How it works
@@ -58,6 +58,8 @@ To enable debugging, make the following changes to the Python script(s) used by 
 1. Add the following import statements:
 
     ```python
+    import argparse
+    import os
     import debugpy
     import socket
     from azureml.core import Run
@@ -68,9 +70,14 @@ To enable debugging, make the following changes to the Python script(s) used by 
     ```python
     parser.add_argument('--remote_debug', action='store_true')
     parser.add_argument('--remote_debug_connection_timeout', type=int,
-                    default=300,
-                    help=f'Defines how much time the Azure ML compute target '
-                    f'will await a connection from a debugger client (VSCODE).')
+                        default=300,
+                        help=f'Defines how much time the AML compute target '
+                        f'will await a connection from a debugger client (VSCODE).')
+    parser.add_argument('--remote_debug_client_ip', type=str,
+                        help=f'Defines IP Address of VS Code client')
+    parser.add_argument('--remote_debug_port', type=int,
+                        default=5678,
+                        help=f'Defines Port of VS Code client')
     ```
 
 1. Add the following statements. These statements load the current run context so that you can log the IP address of the node that the code is running on:
@@ -86,9 +93,12 @@ To enable debugging, make the following changes to the Python script(s) used by 
     if args.remote_debug:
         print(f'Timeout for debug connection: {args.remote_debug_connection_timeout}')
         # Log the IP and port
-        ip = socket.gethostbyname(socket.gethostname())
+        try:
+            ip = args.remote_debug_client_ip
+        except:
+            print("Need to supply IP address for VS Code client")
         print(f'ip_address: {ip}')
-        debugpy.listen(('<HOST>', '<PORT>'))
+        debugpy.listen(address=(ip, args.remote_debug_port))
         # Wait for the timeout for debugger to attach
         debugpy.wait_for_client()
         print(f'Debugger attached = {debugpy.is_client_connected()}')
@@ -180,7 +190,7 @@ run_config.environment.python.user_managed_dependencies = False
 
 # specify CondaDependencies obj
 run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'],
-                                                                           pip_packages=['debugpy', 'azureml-sdk==1.0.83'])
+                                                                           pip_packages=['debugpy', 'azureml-sdk==<SDK-VERSION>'])
 ```
 
 In the [Configure Python scripts](#configure-python-scripts) section, two new arguments were added to the scripts used by your ML pipeline steps. The following code snippet demonstrates how to use these arguments to enable debugging for the component and set a timeout. It also demonstrates how to use the environment created earlier by setting `runconfig=run_config`:
@@ -189,7 +199,7 @@ In the [Configure Python scripts](#configure-python-scripts) section, two new ar
 # Use RunConfig from a pipeline step
 step1 = PythonScriptStep(name="train_step",
                          script_name="train.py",
-                         arguments=['--remote_debug', '--remote_debug_connection_timeout', 300,'--remote_debug_client_ip','<VS-CODE-CLIENT-IP','--remote_debug_port',5678],
+                         arguments=['--remote_debug', '--remote_debug_connection_timeout', 300,'--remote_debug_client_ip','<VS-CODE-CLIENT-IP>','--remote_debug_port',5678],
                          compute_target=aml_compute,
                          source_directory=source_directory,
                          runconfig=run_config,
@@ -212,7 +222,7 @@ Save the `ip_address` value. It is used in the next section.
 
 1. To install debugpy on your VS Code development environment, use the following command:
 
-    ```
+    ```bash
     python -m pip install --upgrade debugpy
     ```
 
@@ -222,7 +232,7 @@ Save the `ip_address` value. It is used in the next section.
 
     1. From VS Code, select the __Debug__ menu and then select __Open configurations__. A file named __launch.json__ opens.
 
-    1. In the __launch.json__ file, find the line that contains `"configurations": [`, and insert the following text after it. Change the `"host": "10.3.0.5"` entry to the IP address returned in your logs from the previous section. Change the `"localRoot": "${workspaceFolder}/code/step"` entry to a local directory that contains a copy of the script being debugged:
+    1. In the __launch.json__ file, find the line that contains `"configurations": [`, and insert the following text after it. Change the `"host": "<IP-ADDRESS>"` entry to the IP address returned in your logs from the previous section. Change the `"localRoot": "${workspaceFolder}/code/step"` entry to a local directory that contains a copy of the script being debugged:
 
         ```json
         {
@@ -230,7 +240,7 @@ Save the `ip_address` value. It is used in the next section.
             "type": "python",
             "request": "attach",
             "port": 5678,
-            "host": "10.3.0.5",
+            "host": "<IP-ADDRESS>",
             "redirectOutput": true,
             "pathMappings": [
                 {
