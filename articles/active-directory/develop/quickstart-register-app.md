@@ -22,7 +22,7 @@ ms.reviewer: aragra, lenalepa, sureshja
 
 In this quickstart, you create an app registration in the Azure portal so the Microsoft identity platform can provide authentication and authorization services for your application its users.
 
-Each application for which you'd like the Microsoft identity platform to perform identity and access management (IAM) needs to be registered. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a *trust relationship* between your application and the identity provider, the Microsoft identity platform.
+Each application you want the Microsoft identity platform to perform identity and access management (IAM) for needs to be registered. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a *trust relationship* between your application and the identity provider, the Microsoft identity platform.
 
 ## Prerequisites
 
@@ -31,12 +31,12 @@ Each application for which you'd like the Microsoft identity platform to perform
 
 ## Register an application in the Azure portal
 
-As mentioned in the introduction, registering your application establishes a trust relationship between your app and the Microsoft identity platform. The trust is *unidirectional*: your app trusts the security token issuer (the Microsoft identity platform), and not the other way around.
+As mentioned in the introduction, registering your application establishes a trust relationship between your app and the Microsoft identity platform. The trust is *unidirectional*: your app trusts the the Microsoft identity platform, and not the other way around.
 
 Follow these steps to create the app registration:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If you have access to multiple tenants, use the **Directory + subscription** filter in the top menu (:::image type="icon" source="./media/quickstart-register-app/portal-01-directory-subscription-filter.png" border="false":::) to select the tenant in which you want to register an application.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-register-app/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**, then **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
@@ -44,8 +44,8 @@ Follow these steps to create the app registration:
 
     | Supported account types | Description |
     |-------------------------|-------------|
-    | **Accounts in this organizational directory only** | Select this option if you're building an application for use only by users (or guests) in *your* tenant.<br><br>Often referred to as a line-of-business (LOB) application, this is an Azure AD-only **single-tenant** application. |
-    | **Accounts in any organizational directory** | Select this option if you'd like users in *any* Azure AD tenant to be able to use your application. This option is appropriate if, for example, you're building a software-as-a-service (SaaS) application that you intend to provide to multiple organizations.<br><br>This is an Azure AD-only **multi-tenant** application. |
+    | **Accounts in this organizational directory only** | Select this option if you're building an application for use only by users (or guests) in *your* tenant.<br><br>Often referred to as a line-of-business (LOB) application, this is known as a **single-tenant** application. |
+    | **Accounts in any organizational directory** | Select this option if you'd like users in *any* Azure AD tenant to be able to use your application. This option is appropriate if, for example, you're building a software-as-a-service (SaaS) application that you intend to provide to multiple organizations.<br><br>This is known as a **multi-tenant** application. |
     | **Accounts in any organizational directory and personal Microsoft accounts** | Select this option to target the widest set of customers.<br><br>By selecting this option, you're registering a **multi-tenant** application that can also support users with personal **Microsoft accounts** (MSA). |
 
 1. Don't enter anything for **Redirect URI (optional)**, you'll configure one in the next section.
@@ -55,7 +55,7 @@ Follow these steps to create the app registration:
 
 When the registration completes, the Azure portal displays the app registration's **Overview** pane, which includes its **Application (client) ID**. Also referred to simply as the *client ID*, this value uniquely identifies your application in the Microsoft identity platform.
 
-Your application's code, or more typically an authentication library used in your application, also uses the client ID as one aspect of validation of the tokens it receives from the identity platform.
+Your application's code, or more typically an authentication library used in your application, also uses the client ID as one aspect in validating the security tokens it receives from the identity platform.
 
 :::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot of the Azure portal in a web browser showing an app registration's Overview pane.":::
 
