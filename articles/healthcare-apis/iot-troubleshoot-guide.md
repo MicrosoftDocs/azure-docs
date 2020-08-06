@@ -1,35 +1,54 @@
 ---
 title: Azure IoT Connector for FHIR (preview) - Troubleshooting guide and how-to
-description: How to troubleshoot common Azure IoT Connector for FHIR (preview) error messages and conditions and copy mapping files
+description: How to troubleshoot common Azure IoT Connector for FHIR (preview) error messages and conditions and copying mapping files
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
-ms.topic: conceptual
-ms.date: 08/03/2020
+ms.topic: troubleshooting
+ms.date: 08/06/2020
 ms.author: jasteppe
 ---
 # Azure IoT Connector for FHIR (preview) troubleshooting guide
 
 This article provides steps for troubleshooting common Azure IoT Connector for FHIR* error messages and conditions.  
 
-You'll also learn how to create copies of the Azure IoT Connector for FHIR JSON-mapping files for editing and archiving outside of the Azure portal or for providing to Azure Technical Support when opening a support ticket. 
+You'll also learn how to create copies of the Azure IoT Connector for FHIR JSON-mapping files.  
 
-## Error messages and fixes
+You can use the mapping file copies for editing and archiving outside of the Azure portal.  
 
-|Message   |Condition  |Fix         |
-|----------|-----------|------------|
-|Invalid mapping name, mapping name should be device or FHIR|Mapping type supplied isn't device or FHIR|Use one of the two supported mapping types (for example: Device or FHIR)|
-|Regenerate key parameters not defined|Regenerate key request|Include the parameters in the regeneration key request|
-|Reached the maximum number of IoT Connector* instances that can be provisioned in this subscription|Azure IoT Connector for FHIR subscription quota reached (Default is (2) per subscription)|Delete one of the existing instances of Azure IoT Connector for FHIR, use a different subscription that has not reached the subscription quota or request a subscription quota increase|
-|Move resource is not supported for IoT Connector enabled Azure API for FHIR resource|Attempting to do a move operation on an Azure API for FHIR resource that has one or more instances of the Azure IoT Connector for FHIR|Delete existing instance(s) of Azure IoT Connector for FHIR to perform and complete the move operation|
-|IoT Connector not provisioned|Attempting to use child services (connections & mappings) when parent (Azure IoT Connector for FHIR) hasn't been provisioned|Provision an Azure IoT Connector for FHIR|
-|The request is not supported|Specific API request isn't supported|Use the correct API request|
-|Account does not exist|Attempting to add an Azure IoT Connector for FHIR and the Azure API for FHIR resource doesn't exist|Create the Azure API for FHIR resource and then reattempt the operation|
-|Azure API for FHIR resource FHIR version is not supported for IoT Connector|Attempting to use an Azure IoT Connector for FHIR with an incompatible version of the Azure API for FHIR resource|Create a new Azure API for FHIR resource (version R4) or use an existing Azure API for FHIR resource (version R4)
+The mapping file copies can also be used for assisting Azure Technical Support when opening a support ticket.
+
+## Error messages and fixes for Azure IoT Connector for FHIR (preview)
+
+|Message   |Displayed  |Condition   |Fix		    | 
+|----------|-----------|------------|------------|
+|Invalid mapping name, mapping name should be device or FHIR.|API|Mapping type supplied isn't device or FHIR.|Use one of the two supported mapping types (for example: Device or FHIR).|
+|Validation failed. Required information is missing or not valid.|API and Azure portal|Attempting to save a JSON-mapping file missing needed information or element.|Add missing JSON information or element and attempt to save the file again.|
+|Regenerate key parameters not defined.|API|Regenerate key request.|Include the parameters in the regeneration key request.|
+|Reached the maximum number of IoT Connector instances that can be provisioned in this subscription.|API and Azure portal|Azure IoT Connector for FHIR subscription quota reached (Default is (2) per subscription).|Delete one of the existing instances of Azure IoT Connector for FHIR.  Use a different subscription that hasn't reached the subscription quota.  Request a subscription quota increase.|
+|Move resource is not supported for IoT Connector enabled Azure API for FHIR resource.|API and Azure portal|Attempting to do a move operation on an Azure API for FHIR resource that has one or more instances of the Azure IoT Connector for FHIR.|Delete existing instance(s) of Azure IoT Connector for FHIR to do the move operation.|
+|IoT Connector not provisioned.|API|Attempting to use child services (connections & mappings) when parent (Azure IoT Connector for FHIR) hasn't been provisioned.|Provision an Azure IoT Connector for FHIR.|
+|The request is not supported.|API|Specific API request isn't supported.|Use the correct API request.|
+|Account does not exist.|API|Attempting to add an Azure IoT Connector for FHIR and the Azure API for FHIR resource doesn't exist.|Create the Azure API for FHIR resource and then reattempt the operation.|
+|Azure API for FHIR resource FHIR version is not supported for IoT Connector.|API|Attempting to use an Azure IoT Connector for FHIR with an incompatible version of the Azure API for FHIR resource.|Create a new Azure API for FHIR resource (version R4) or use an existing Azure API for FHIR resource (version R4).
+
+##  Why is my Azure IoT Connector for FHIR (preview) data not showing up in Azure API for FHIR
+
+|Potential Issues  |Fixes            |
+|------------------|-----------------|
+|Data is still being processed.|Data is egressed to the Azure API for FHIR in batches (every ~15 minutes).  It’s possible the data is still being processed and additional time is needed for the data to be persisted in the Azure API for FHIR.|
+|A device-mapping JSON file hasn't been configured.|Configure and save a valid device mapping file.|
+|A FHIR mapping JSON file has not been configured.|Configure and save a valid FHIR mapping file.|
+|The device message doesn't contain an expected expression defined in the device mapping JSON file.|Remove the expression from the device mapping JSON file.|
+|A Device Resource hasn't been created in the Azure API for FHIR (Resolution Type: Lookup only).|Create a valid Device Resource in the Azure API for FHIR.|
+|A Patient Resource has not been created in the Azure API for FHIR (Resolution Type: Lookup only).|Create a valid Patient Resource in the Azure API for FHIR.|
+|The Device.patient reference isn't set, or the reference is invalid (Resolution Type: Lookup only).|Create a valid Device.patient reference in the Azure API for FHIR.| 
 
 ## Creating copies of the Azure IoT Connector for FHIR (preview) mapping files
-The copying of Azure IoT Connector for FHIR mapping files can be useful for editing and archiving outside of the Azure portal website and for providing to Azure Technical Support when opening a support ticket.
+The copying of Azure IoT Connector for FHIR mapping files can be useful for editing and archiving outside of the Azure portal website.
+
+The mapping file copies should be provided to Azure Technical Support when opening a support ticket to assist in troubleshooting.
 
 > [!NOTE]
 > JSON is the only supported format for Device and FHIR mapping files at this time.
