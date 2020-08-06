@@ -1,6 +1,6 @@
 ---
 title: 'Azure VPN Gateway: Cryptographic requirements'
-description: This article discusses cryptographic requirements and Azure VPN gateways 
+description: Learn how to configure Azure VPN gateways to satisfy cryptographic requirements for cross-premises S2S VPN tunnels and VNet-to-VNet connections within Azure.
 services: vpn-gateway
 author: yushwang
 
