@@ -119,21 +119,27 @@ ms.date: 09/22/2020
 
    ![Screenshot that shows Azure pane and selected "Create workflow"](./media/create-stateless-stateful-workflows/create-workflow-app-project.png)
 
-1. When you're prompted to create a new project, select **Create new project**.
+1. When the prompt appears, select **Create new project**.
 
-   ![temp](./media/create-stateless-stateful-workflows/create-new-project-prompt.png)
+   ![Screenshot that shows dialog box with "Create new project" selected](./media/create-stateless-stateful-workflows/create-new-project-prompt.png)
 
 1. Browse to the location where you want to save your project. Create a folder for your project.
 
-1. Select C# as the language for your project.
+1. From the languages list that appears, select **C#**.
 
-   ![temp](./media/create-stateless-stateful-workflows/select-language-for-project.png)
+   ![Screenshot that shows a language list with C# selected](./media/create-stateless-stateful-workflows/select-language-for-project.png)
 
-   ![temp](./media/create-stateless-stateful-workflows/select-project-template.png)
+1. From the templates list that appears, select **Skip for now**.
 
-   ![temp](./media/create-stateless-stateful-workflows/select-location-to-open-project.png)
+   ![Screenshot that shows a template list with "Skip for now" selected](./media/create-stateless-stateful-workflows/select-project-template.png)
 
-   ![temp](./media/create-stateless-stateful-workflows/workflow-app-project-created.png)
+1. From the locations list, select **Show in current window**.
+
+   ![Screenshot that shows ](./media/create-stateless-stateful-workflows/select-project-location.png)
+
+1. 
+
+   ![Screenshot that shows ](./media/create-stateless-stateful-workflows/workflow-app-project-created.png)
 
 
 ## Test your workflow app
