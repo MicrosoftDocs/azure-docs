@@ -16,60 +16,11 @@ During the lifecycle of your IoT solution, you'll need to roll certificates. Two
 
 Rolling certificates is a security best practice to help secure your system in the event of a breach. As part of [Assume Breach Methodology](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft advocates the need for having reactive security processes in place along with preventative measures. Rolling your device certificates should be included as part of these security processes. The frequency in which you roll your certificates will depend on the security needs of your solution. Customers with solutions involving highly sensitive data may roll certificate daily, while others roll their certificates every couple years.
 
-Rolling device certificates will involve updating the certificate stored on the device and the IoT hub. 
 
 ## Obtain new X.509 certificates
 
-You can create your own X.509 certificates using a tool like OpenSSL. This approach is great for testing X.509 certificates but provides few guarantees around security. We recommend you only use this approach for testing unless you prepared to act as your own CA provider.
+You can create your own X.509 certificates using a tool like OpenSSL. This approach is great for testing X.509 certificates but provides few guarantees around security. Only use this approach for testing unless you prepared to act as your own CA provider.
 
-
-
-## Individual enrollments and security breaches
-
-If you're rolling certificates in response to a security breach, you should use the following approach that updates the current certificate immediately:
-
-
-1. Click **Devices**, and select the device. 
-
-    ![Devices](./media/how-to-roll-x509-certificates/devices.png)
-
-2. Click **Connect**, and device connection page opens up.
-
-    ![Connect Device](./media/how-to-roll-x509-certificates/connect.png)
-
-3. Select **Certificates (X.509)** as mechanism.
-
-    ![Manage individual enrollments](./media/how-to-roll-x509-certificates/certificateupdate.png)
-
-4. For certificate update, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save**.
-
-    These steps should be completed for the primary and secondary certificate, if both are compromised.
-
-
-
-## Individual enrollments and certificate expiration
-
-If you're rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to reduce downtime for devices attempting to provision.
-
-Later when the secondary certificate also nears expiration, and needs to be rolled, you can rotate to using the primary configuration. Rotating between the primary and secondary certificates in this way reduces downtime for devices attempting to provision.
-
-1. Click **Devices**, and select the device.
-   
-    ![Devices](./media/how-to-roll-x509-certificates/devices.png)
-
-
-2. Click **Connect**, and select connect method as **Individual Enrollment**
-
-    ![Connect Device](./media/how-to-roll-x509-certificates/connect.png)
-
-3. Select **Certificates (X.509)** as mechanism.
-
-    ![Manage individual enrollments](./media/how-to-roll-x509-certificates/certificateupdate.png)
-
-4. For Secondary certificate update, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save**.
-
-
-5. Later when the primary certificate has expired, come back and update that primary certificate.
 
 ## Enrollment groups and security breaches
 
@@ -89,13 +40,13 @@ To update a group enrollment in response to a security breach, you should use th
 
 4. Add and verify root X.509 certificate in the enrollment group.
 
-These steps should be completed for the primary and secondary certificate, if both are compromised.
+   Complete these steps for the primary and secondary certificates, if both are compromised.
 
 
 
 ## Enrollment groups and certificate expiration
 
-If you are rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to ensure no downtime for devices attempting to provision.
+If you are rolling certificates to handle certificate expirations, use the following approach to update the current certificate immediately:
 
 1. Navigate to **Administration**  in the left pane and click on **Device connection**. 
 
@@ -111,4 +62,51 @@ If you are rolling certificates to handle certificate expirations, you should us
 4. Add and verify root X.509 certificate in the enrollment group.
 
 5. Later when the secondary certificate has expired, come back and update that secondary certificate.
+
+
+
+## Individual enrollments and security breaches
+
+If you're rolling certificates in response to a security breach, use the following approach to update the current certificate immediately:
+
+
+1. Click **Devices**, and select the device. 
+
+2. Click **Connect**, and device connection page opens up.
+
+3. Select **Certificates (X.509)** as mechanism.
+
+    ![Manage individual enrollments](./media/how-to-roll-x509-certificates/certificateupdate.png)
+
+4. For certificate update, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save**.
+
+    Complete these steps for the primary and secondary certificates, if both are compromised
+
+
+
+## Individual enrollments and certificate expiration
+
+If you're rolling certificates to handle certificate expirations, you should use the secondary certificate configuration as follows to reduce downtime for devices attempting to provision.
+
+Later when the secondary certificate also nears expiration, and needs to be rolled, you can rotate to using the primary configuration. Rotating between the primary and secondary certificates in this way reduces downtime for devices attempting to provision.
+
+1. Click **Devices**, and select the device.
+
+
+2. Click **Connect**, and select connect method as **Individual Enrollment**
+
+3. Select **Certificates (X.509)** as mechanism.
+
+    ![Manage individual enrollments](./media/how-to-roll-x509-certificates/certificateupdate.png)
+
+4. For secondary certificate update, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save**.
+
+
+5. Later when the primary certificate has expired, come back and update that primary certificate.
+
+
+## Next steps
+
+Now that you've learned how to roll X.509 certificates in your Azure IoT Central application, you can [Get connected to Azure IoT Central](concepts-get-connected.md).
+
 
