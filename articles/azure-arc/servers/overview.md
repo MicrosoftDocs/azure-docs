@@ -7,6 +7,7 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
+ms.custom: references_regions
 ms.date: 08/06/2020
 ms.topic: overview
 ---
