@@ -72,14 +72,14 @@ For more information, see [Schedule updates](cache-administration.md#schedule-up
 > 
 > 
 
-## Geo-replication
+## Enable geo-replication
 
 **Geo-replication** provides a mechanism for linking two Premium tier Azure Cache for Redis instances. One cache is designated as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and data written to the primary cache is replicated to the secondary linked cache. This functionality can be used to replicate a cache across Azure regions.
 
 For more information, see [How to configure Geo-replication for Azure Cache for Redis](cache-how-to-geo-replication.md).
 
 
-## To scale to the premium tier
+## Scale to the premium tier
 To scale to the premium tier, choose one of the premium tiers in the **Change pricing tier** blade. You can also scale your cache to the premium tier using PowerShell and CLI. For step-by-step instructions, see [How to Scale Azure Cache for Redis](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
 ## Next steps
