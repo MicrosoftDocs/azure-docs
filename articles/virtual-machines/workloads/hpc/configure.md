@@ -21,7 +21,7 @@ ms.reviewer: cynthn
 This article shares known techniques to configure and optimize the InfiniBand-enabled [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) VMs for HPC.
 
 ## VM images
-On InfiniBand enabled VMs, the appropriate drivers are required to enable RDMA. On Linux, the CentOS-HPC VM images in the Marketplace come pre-configured with the appropriate drivers. The Ubuntu VM images can be configured with the right drivers using the [instructions here](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). It is also recommended to create [custom VM images](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) with the appropriate drivers and configuration and reuse those recurringly.
+On InfiniBand enabled VMs, the appropriate drivers are required to enable RDMA. On Linux, the CentOS-HPC VM images in the Marketplace come pre-configured with the appropriate drivers. The Ubuntu VM images can be configured with the right drivers using the [instructions here](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). It is also recommended to create [custom VM images](../../linux/tutorial-custom-images.md) with the appropriate drivers and configuration and reuse those recurringly.
 
 ### CentOS-HPC VM images
 For non-SR-IOV enabled [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances), CentOS-HPC version 6.5 or a later version, up to 7.5 in the Marketplace are suitable. As an example, for [H16-series VMs](../../h-series.md), versions 7.1 to 7.5 are recommended. These VM images come pre-loaded with the Network Direct drivers for RDMA and Intel MPI version 5.1.
@@ -49,7 +49,7 @@ The following are some optional optimization settings for improved performance o
 
 ### Update LIS
 
-If necessary for functionality or performance, [Linux Integration Services (LIS) drivers](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) can be installed or updated on supported OS distros, especially is deploying using a custom image or an older OS version such as CentOS/RHEL 6.x or earlier version of 7.x.
+If necessary for functionality or performance, [Linux Integration Services (LIS) drivers](../../linux/endorsed-distros.md) can be installed or updated on supported OS distros, especially is deploying using a custom image or an older OS version such as CentOS/RHEL 6.x or earlier version of 7.x.
 
 ```bash
 wget https://aka.ms/lis

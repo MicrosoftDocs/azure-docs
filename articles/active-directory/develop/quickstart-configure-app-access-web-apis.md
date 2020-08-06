@@ -1,6 +1,7 @@
 ---
-title: "Quickstart: Access web APIs for app - Microsoft identity platform | Azure"
-description: In this quickstart, configure an app registered with the Microsoft identity platform to include redirect URIs, credentials, or permissions to access web APIs.
+title: "Quickstart: Configure an app to access a web API | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, you configure an app registered with the Microsoft identity platform to include redirect URIs, credentials, or permissions to access web APIs.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,14 +10,14 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/22/2020
+ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 #Customer intent: As an application developer, I need to know how to configure my application to add redirect URI(s), credentials, or permissions so I can access web APIs.
 ---
 
-# Quickstart: Configure a client application to access web APIs
+# Quickstart: Configure a client application to access a web API
 
 In this quickstart, you add redirect URIs, credentials, or permissions to access web APIs for your application. A web or confidential client application needs to establish secure credentials to participate in an authorization grant flow that requires authentication. The default authentication method supported by the Azure portal is client ID + secret key. The app obtains an access token during this process.
 
@@ -24,9 +25,8 @@ Before a client can access a web API exposed by a resource application, such as 
 
 ## Prerequisites
 
-* Completion of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
-* Review of [Permissions and consent in the Microsoft identity platform endpoint](v2-permissions-and-consent.md).
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Completion of [Quickstart: Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md).
 
 ## Sign in to the Azure portal and select the app
 
@@ -110,7 +110,7 @@ To configure application settings based on the platform or device, you're target
    | **Mobile and desktop applications**  | Optional. Select one of the recommended **Suggested redirect URIs** if you're building apps for desktop and devices.<br/>Optional. Enter a **Custom redirect URI**, which is used as the location where Azure AD will redirect users in response to authentication requests. For example, for .NET Core applications where you want interaction, use `http://localhost`. |
 
    > [!NOTE]
-   > On Active Directory Federation Services (AD FS) and Azure AD B2C, you must also specify a port number.  For example: `http://localhost:1234`. 
+   > On Active Directory Federation Services (AD FS) and Azure AD B2C, you must also specify a port number.  For example: `http://localhost:1234`.
 
    > [!IMPORTANT]
    > For mobile applications that aren't using the latest Microsoft Authentication Library (MSAL) or not using a broker, you must configure the redirect URIs for these applications in **Desktop + devices**.
@@ -197,16 +197,7 @@ The consent prompt provides the option to **Accept** or **Cancel**. Select **Acc
 
 ## Next steps
 
-Advance to the next article to learn how to expose web APIs.
+Advance to the next quickstart in the series to learn how to configure which account types can access your application. For example, you might want to limit access only to those users in your organization (single-tenant) or allow users in other Azure AD tenants (multi-tenant) and those with personal Microsoft accounts (MSA).
+
 > [!div class="nextstepaction"]
-> [Quickstart: Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis.md)
-
-* To learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
-
-* To learn more about the branding guidelines you should use when developing applications with Azure Active Directory, see [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md).
-
-* [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
-
-* [Quickstart: Modify the accounts supported by an application](quickstart-modify-supported-accounts.md)
-
-* [Quickstart: Remove an application registered with the Microsoft identity platform](quickstart-remove-app.md)
+> [Modify the accounts supported by an application](quickstart-modify-supported-accounts.md)
