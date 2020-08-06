@@ -3,7 +3,7 @@ title: Connect to Azure Event Hubs
 description: Create automated tasks and workflows that monitor and manage events by using Azure Event Hubs and Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
@@ -80,12 +80,12 @@ specific condition is met. Each time the trigger fires, the Logic Apps engine cr
 This example shows how you can start a logic app workflow when new events are sent to your Event Hub. 
 
 > [!NOTE]
-> All Event Hub triggers are *long-polling* triggers, so when a long-pulling trigger fires, the trigger processes all the events 
-> and then waits 30 seconds for more events to appear in your Event Hub. If any partitions exist in your Event Hub, the delay 
-> increases to 30 seconds per partition. So, for example, if you have 32 partitions, you might have to wait up to 16 minutes for 
-> the trigger to finish polling all the partitions. For lower latency, use a smaller number of partitions. If no events are 
-> received within this delay, the trigger run is skipped. Otherwise, the trigger continues reading events until your Event Hub 
-> is empty. The next trigger poll happens based on the recurrence interval that you specify in the trigger's properties.
+> All Event Hub triggers are *long-polling* triggers, which means that the trigger processes all the events 
+> and then waits 30 seconds per partition for more events to appear in your Event Hub. So, if the trigger is 
+> set up with four partitions, this delay might take up to two minutes before the trigger finishes polling 
+> all the partitions. If no events are received within this delay, the trigger run is skipped. Otherwise, 
+> the trigger continues reading events until your Event Hub is empty. The next trigger poll happens based 
+> on the recurrence interval that you specify in the trigger's properties.
 
 1. In the Azure portal or Visual Studio, 
 create a blank logic app, which opens Logic Apps Designer. 
