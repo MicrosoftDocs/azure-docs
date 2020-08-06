@@ -11,7 +11,6 @@ ms.date: 08/06/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 
-
 ---
 # Scenario: Route traffic through NVAs - custom (Preview)
 
@@ -21,9 +20,9 @@ When working with Virtual WAN virtual hub routing, there are quite a few availab
 
 In this scenario we will use the naming convention:
 
-* "Service VNet" for virtual networks where users have deployed an NVA (VNet 4 in **Figure 1**) to inspect non-Internet traffic.
-* "DMZ VNet" for virtual networks where users have deployed an NVA to be used to inspect Internet-bound traffic (VNet 5 in **Figure 1**).
-* "NVA Spokes" for virtual networks connected to an NVA VNet (VNet 1, VNet 2, and VNet 3 in **Figure 1**).
+* "Service VNet" for virtual networks where users have deployed an NVA (VNet 4 in [Figure 1](#figure-1)) to inspect non-Internet traffic.
+* "DMZ VNet" for virtual networks where users have deployed an NVA to be used to inspect Internet-bound traffic (VNet 5 in [Figure 1](#figure-1)).
+* "NVA Spokes" for virtual networks connected to an NVA VNet (VNet 1, VNet 2, and VNet 3 in [Figure 1](#figure-1)).
 * "Hubs" for Microsoft-managed Virtual WAN Hubs.
 
 The following connectivity matrix summarizes the flows supported in this scenario:
@@ -80,7 +79,7 @@ For more information about virtual hub routing, see [About virtual hub routing](
 
 ## <a name="architecture"></a>Architecture
 
-In **Figure 1**, there is one hub, **Hub 1**.
+In [Figure 1](#figure-1), there is one hub, **Hub 1**.
 
 * **Hub 1** is directly connected to NVA VNets **VNet 4** and **VNet 5**.
 
@@ -88,7 +87,7 @@ In **Figure 1**, there is one hub, **Hub 1**.
 
 * All Internet bound traffic from VNets 1, 2, and 3 is expected to go via **VNet 5 NVA** 10.5.0.5.
 
-**Figure 1**
+### <a name="figure-1"></a>Figure 1
 
 :::image type="content" source="./media/routing-scenarios/nva-custom/figure-1.png" alt-text="Figure 1":::
 
@@ -98,7 +97,7 @@ To set up routing via NVA, here are the steps to consider:
 
 1. In order for Internet-bound traffic to go via VNet 5, you need VNets 1, 2, and 3 to directly connect via VNet peering to VNet 5. You also need a UDR set up in the VNets for 0.0.0.0/0 and next hop 10.5.0.5. Currently, Virtual WAN does not allow a next hop NVA in the virtual hub for 0.0.0.0/0.
 
-1. In the Azure portal, navigate to your virtual hub and create a custom route table **RT_Shared** that will learn routes via propagation from all VNets and Branch connections. In **Figure 2**, this is depicted as an empty Custom Route Table **RT_Shared**.
+1. In the Azure portal, navigate to your virtual hub and create a custom route table **RT_Shared** that will learn routes via propagation from all VNets and Branch connections. In [Figure 2](#figure-2), this is depicted as an empty Custom Route Table **RT_Shared**.
 
    * **Routes:** You do not need to add any static routes.
 
@@ -108,7 +107,7 @@ To set up routing via NVA, here are the steps to consider:
 
 1. Create a custom route table **RT_V2B** for directing traffic from VNets 1, 2, and 3 to branches.
 
-   * **Routes:** Add an aggregated static route entry for Branches (VPN/ER/P2S) (10.2.0.0/16 in **Figure 2**) with next hop as the VNet 4 connection. You also need to configure a static route in VNet 4’s connection for branch prefixes, and indicate the next hop to be the specific IP of the NVA in VNet 4.
+   * **Routes:** Add an aggregated static route entry for Branches (VPN/ER/P2S) (10.2.0.0/16 in [Figure 2](#figure-2)) with next hop as the VNet 4 connection. You also need to configure a static route in VNet 4’s connection for branch prefixes, and indicate the next hop to be the specific IP of the NVA in VNet 4.
 
    * **Association:** Select all VNets 1, 2, and 3. This implies that VNet connections 1, 2, and 3 will associate to this route table and be able to learn routes (static and dynamic via propagation) in this route table.
 
@@ -118,13 +117,13 @@ To set up routing via NVA, here are the steps to consider:
 
    All VPN, ExpressRoute, and User VPN connections are associated to the default route table. All VPN, ExpressRoute, and User VPN connections propagate routes to the same set of route tables.
 
-   * **Routes:** Add an aggregated static route entry for VNets 1, 2, and 3 (10.1.0.0/16 in **Figure 2**) with next hop as the VNet 4 connection. You also need to configure a static route in VNet 4’s connection for VNet 1, 2, and 3 aggregated prefixes, and indicate the next hop to be the specific IP of the NVA in VNet 4.
+   * **Routes:** Add an aggregated static route entry for VNets 1, 2, and 3 (10.1.0.0/16 in [Figure 2](#figure-2)) with next hop as the VNet 4 connection. You also need to configure a static route in VNet 4’s connection for VNet 1, 2, and 3 aggregated prefixes, and indicate the next hop to be the specific IP of the NVA in VNet 4.
 
    * **Association:** Make sure the option for branches (VPN/ER/P2S) is selected, ensuring on-premises branch connections are associated to the *defaultroutetable*.
 
    * **Propagation from:** Make sure the option for branches (VPN/ER/P2S) is selected, ensuring on-premise connections are propagating routes to the *defaultroutetable*.
 
-**Figure 2**
+### <a name="figure-2"></a>Figure 2
 
 :::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Figure 2" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
