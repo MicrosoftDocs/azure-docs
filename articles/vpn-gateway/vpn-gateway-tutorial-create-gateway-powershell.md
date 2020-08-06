@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial - Create and manage a gateway using Azure VPN Gateway'
-description: Tutorial - Create and Manage VPN gateway with the Azure PowerShell module
+description: Use this tutorial to deploy an Azure VPN gateway to provide connectivity between customer premises and Azure. View, resize, and reset a VPN gateway.
 services: vpn-gateway
 author: cherylmc
 

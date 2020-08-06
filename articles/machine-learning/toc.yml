@@ -229,7 +229,7 @@
         - name: Set input & output directories
           displayName: large data, write, experiment files, size limit
           href: how-to-save-write-experiment-files.md
-        - name: Interactive debugging
+        - name: Visual Studio Code
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
           href: how-to-set-up-vs-code-remote.md
         - name: Git integration
@@ -477,6 +477,9 @@
     - name: Manage resources VS Code
       displayName: vscode,resources
       href: how-to-manage-resources-vscode.md
+    - name: VS Code interactive debugging
+      displayName: vscode,remote,debug,pipelines,deployments,ssh
+      href: how-to-debug-visual-studio-code.md      
     - name: Export and delete data
       displayName: GDPR
       href: how-to-export-delete-data.md
