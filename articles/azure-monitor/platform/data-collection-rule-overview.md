@@ -10,17 +10,17 @@ ms.date: 07/27/2020
 ---
 
 # Data collection rules in Azure Monitor (preview)
-Data Collection Rules (DCR) define data coming into Azure Monitor and specify where it should be sent. This article provides an overview of DCRs including their contents and structure and how you can create and work with them.
+Data Collection Rules (DCR) define data coming into Azure Monitor and specify where that data should be sent or stored. This article provides an overview of data collection rules including their contents and structure and how you can create and work with them.
 
 ## Input sources
 Data collection rules currently support the following input sources:
 
-- Azure virtual machine with the Azure Monitor agent.
+- Azure virtual machine with the Azure Monitor agent. See [Configure data collection for the Azure Monitor agent (preview)](data-collection-rule-ama.md).
 
 
 
-## Components of a DCR
-A DCR includes the following components.
+## Components of a data collection rule
+A data collection rule includes the following components.
 
 | Component | Description |
 |:---|:---|
@@ -33,7 +33,7 @@ A DCR includes the following components.
 <Diagram of DCR and contents>
 
 ### Data source types
-Each data source has a Data Source Type. Each type defines a unique set of properties that must be specified for each data source. The data source types currently available are shown the following table. Follow the link for the set of properties that must be defined for each.
+Each data source has a data source type. Each type defines a unique set of properties that must be specified for each data source. The data source types currently available are shown the following table. Follow the link for the set of properties that must be defined for each.
 
 | Data source type | Description | 
 |:---|:---|
@@ -44,7 +44,7 @@ Each data source has a Data Source Type. Each type defines a unique set of prope
 
 
 ## Limits
-The following table lists the limits that currently apply to each DCR.
+The following table lists the limits that currently apply to each data collection rule.
 
 | Limit | Value |
 |:---|:---|
@@ -62,11 +62,11 @@ The following table lists the limits that currently apply to each DCR.
 ## Create a DCR
 There are currently two available methods to create a DCR:
 
-- Use the Azure portal to create a DCR and assign to one or more virtual machines. See [Create using Azure portal](data-collection-rule-portal.md#create-using-the-azure-portal).
-- Directly edit the DCR in JSON and submit using the REST API. See [Create using REST API](data-collection-rule-portal.md#create-using-rest-api).
+- [Use the Azure portal](data-collection-rule-ama.md) to create a data collection rule and have it associated with one or more virtual machines.
+- Directly edit the data collection rule in JSON and [submit using the REST API](data-collection-rule-portal.md#create-using-rest-api).
 
-## Sample DCR
-The sample DCR below has the following details:
+## Sample data collection rule
+The sample data collection rule below is for virtual machines with Azure Management agent and has the following details:
 
 - Performance data
   - Collects specific Processor, Memory, Logical Disk, and Physical Disk counters every 15 seconds and uploads every minute.

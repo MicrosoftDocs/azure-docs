@@ -320,13 +320,7 @@
   - name: Data collection
     items:
     - name: Data collection rules
-      items: 
-      - name: Overview
-        displayname: data collection rule
-        href: platform/data-collection-rule-overview.md
-      - name: Create
-        displayname: data collection rule
-        href: platform/data-collection-rule-portal.md
+      href: platform/data-collection-rule-overview.md
     - name: Custom metrics
       items:
       - name: Custom metrics
@@ -357,7 +351,11 @@
     - name: Azure Monitor Agent
       items:
       - name: Overview
+        displayname: Azure Monitor agent
         href: platform/azure-monitor-agent-overview.md
+      - name: Data collection
+        displayname: data collection rule,Azure Monitor agent
+        href: platform/data-collection-rule-ama.md
     - name: Azure Diagnostics extension
       items:
       - name: Overview
