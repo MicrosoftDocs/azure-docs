@@ -8,7 +8,7 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/06/2020
 ms.author: kumud
 ---
 
@@ -132,9 +132,7 @@ You can add more faces to the person by selecting **Add images**.
 
 #### Delete a face
 
-1. Click on the person model.
-1. Select the image you wish to delete.
-1. Click **Delete**.
+Select the image you wish to delete and click **Delete**.
 
 #### Rename and delete the person 
 
