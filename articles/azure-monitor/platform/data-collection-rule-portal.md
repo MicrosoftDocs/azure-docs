@@ -13,9 +13,12 @@ Data Collection Rules (DCR) define data coming into Azure Monitor and specify wh
 
 For a complete description of data collection rules, see [Data collection rules in Azure Monitor (preview)](data-collection-rule-overview.md).
 
+> [!NOTE]
+> This article describes how to configure data for virtual machines with the Azure Monitor agent which is currently in preview. See [Overview of Azure Monitor agents](agents-overview.md) for a description of agents that are generally available.
+
 
 ## DCR associations
-To apply a DCR to a virtual machine, you create an association between the two. A DCR may have an association with multiple virtual machines, and a virtual machine may have an association with multiple DCRs. This allows you to define a set of DCRs, each matching a particular requirement and apply them to only the virtual machines where they apply. 
+To apply a DCR to a virtual machine, you create an association for the virtual machine. A virtual machine may have an association to multiple DCRs, and a DCR may have multiple virtual machines associated to it. This allows you to define a set of DCRs, each matching a particular requirement, and apply them to only the virtual machines where they apply. 
 
 The following diagram shows an example of how you might define a set of DCRs and apply them to different virtual machines in your environment.
 
@@ -23,13 +26,13 @@ The following diagram shows an example of how you might define a set of DCRs and
 
 
 ## Create using the Azure portal
-You can use the Azure portal to create a data collection rule and assign it to virtual machines in your subscription. The Azure Monitor agent will be automatically installed and a managed identify 
+You can use the Azure portal to create a data collection rule and associate virtual machines in your subscription to that rule. The Azure Monitor agent will be automatically installed and a managed identity created. 
 
 In the **Azure Monitor** menu in the Azure portal, select **Data Collection Rules** from the **Settings** section. Click **Add** to add a new Data Collection Rule and assignment.
 
 ![Data Collection Rules](media/azure-monitor-agent/data-collection-rules.png)
 
-Click **Add** to create a new rule and set of associations. Provide a **Rule name** and specify a **Subscription** and **Resource Group**.  
+Click **Add** to create a new rule and set of associations. Provide a **Rule name** and specify a **Subscription** and **Resource Group**. This specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
 
 ![Data Collection Rule Basics](media/azure-monitor-agent/data-collection-rule-basics.png)
 
@@ -46,11 +49,13 @@ To specify other logs and performance counters, select **Custom**. You can then 
 
 ![Data source custom](media/azure-monitor-agent/data-collection-rule-data-source-custom.png)
 
-One the **Destination** tab, add one or more destinations for the data source. Windows event and Syslog data sources can only send to Log Analytics workspaces. Performance counters can send to both Azure Monitor Metrics and Log Analytics workspaces.
+On the **Destination** tab, add one or more destinations for the data source. Windows event and Syslog data sources can only send to Log Analytics workspaces. Performance counters can send to both Azure Monitor Metrics and Log Analytics workspaces.
 
 ![Destination](media/azure-monitor-agent/data-collection-rule-destination.png)
 
 Click **Add Data Source** and then **Review + create** to review the details of the data collection rule and association with the set of VMs. Click **Create** to create it.
+
+Once the DCR and associations have been created, it may take up to 5 minutes for data to be sent to the destinations.
 
 ## Create using REST API
 Follow the steps below to create a DCR and associations using the REST API. 

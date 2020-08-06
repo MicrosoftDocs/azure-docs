@@ -15,7 +15,7 @@ Data Collection Rules (DCR) define data coming into Azure Monitor and specify wh
 ## Input sources
 Data collection rules currently support the following input sources:
 
-- Azure Monitor agent installed on Azure virtual machine.
+- Azure virtual machine with the Azure Monitor agent.
 
 
 
@@ -38,18 +38,18 @@ Each data source has a Data Source Type. Each type defines a unique set of prope
 | Data source type | Description | 
 |:---|:---|
 | [extension](https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/datacollectionrules/datacollectionrules_create?view=azure-rest-preview&branch=openapiHub_production_ad39a35d2f16#extensiondatasource) | VM extension-based data source |
-| [performanceCounters](https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/datacollectionrules/datacollectionrules_create?view=azure-rest-preview&branch=openapiHub_production_ad39a35d2f16#perfcounterdatasource) | Performance counters |
+| [performanceCounters](https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/datacollectionrules/datacollectionrules_create?view=azure-rest-preview&branch=openapiHub_production_ad39a35d2f16#perfcounterdatasource) | Performance counters for both Windows and Linux |
 | [syslog](https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/datacollectionrules/datacollectionrules_create?view=azure-rest-preview&branch=openapiHub_production_ad39a35d2f16#syslogdatasource) | Syslog events on Linux virtual machine |
 | [windowsEventLogs](https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/datacollectionrules/datacollectionrules_create?view=azure-rest-preview&branch=openapiHub_production_ad39a35d2f16#syslogdatasource) | Windows event log |
 
 
 ## Limits
-The following table lists the limits that currently apply to DCRs.
+The following table lists the limits that currently apply to each DCR.
 
 | Limit | Value |
 |:---|:---|
-| Number of data sources in a | 10 |
-| Maximum counter specifiers in performance | 10 |
+| Maximum number of data sources | 10 |
+| Maximum counter specifiers in performance | 100 |
 | Maximum facility names in SysLog | 20 |
 | Maximum XPath queries in EventLog | 100 |
 | Maximum data flows | 10 |
@@ -69,10 +69,11 @@ There are currently two available methods to create a DCR:
 The sample DCR below has the following details:
 
 - Performance data
-  - Collects specific Processor, Memory, Logical Disk, and Physical Disk counters every 15 minutes.
-  - Collects specific Process counters every 15 minutes.
+  - Collects specific Processor, Memory, Logical Disk, and Physical Disk counters every 15 seconds and uploads every minute.
+  - Collects specific Process counters every 30 seconds and uploads every 5 minutes.
 - Windows events
-  - Collects Windows security events every minute.
+  - Collects Windows security events and uploads every minute.
+  - Collects Windows application and system events and uploads every 5 minutes.
 - Syslog
   - Collects Debug, Critical, and Emergency events from cron facility.
   - Collects Alert, Critical, and Emergency events from syslog facility.
