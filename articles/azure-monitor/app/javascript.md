@@ -2,7 +2,7 @@
 title: Azure Application Insights for JavaScript web apps
 description: Get page view and session counts, web client data, Single Page Applications (SPA), and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 08/06/2020
 ms.custom: devx-track-javascript
 ---
 
