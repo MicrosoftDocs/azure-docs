@@ -26,7 +26,7 @@ An alternative Boot Diagnostics experience is to use a user-managed storage acco
 ## Boot Diagnostics View
 Located in the Virtual Machine blade in the Azure portal, the Boot Diagnostics option is under the Support and Troubleshooting section. By viewing the boot diagnostics information users will find a screenshot and serial log tab. The serial log contains kernel messaging and the screenshot is a snapshot of your VMs current state. Based on if the VM is running Windows or Linux determines what the expected screenshot would look like. For Windows, if your VM creation is successful you will see a desktop background, and for Linux you will see a login prompt.
 
-:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-linux.png" alt-text="Screenshot of Linux boot diagnostics.":::
+:::image type="content" source="./media/boot-diagnostics/boot-diagnostics-linux.png" alt-text="Screenshot of Linux boot diagnostics":::
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-windows.png" alt-text="Screenshot of Windows boot diagnostics":::
 
 
