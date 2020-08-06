@@ -29,7 +29,7 @@ In the indirectly connected mode, you can use the Azure Portal to generate a scr
 
 ## Using the Azure Portal to create a Azure Arc data controller
 
-Many of the experiences for Azure Arc start in the Azure Portal even though the resource to be created or managed is outside of Azure infrastructure.  The user experience pattern in these cases, especially when there is no direct connectivity between Azure and the customer environment is to use the Azure Portal to generate a script which can then be downloaded and executed in the customer environment to establish a secure connection back to Azure.  For example, Azure Arc enabled for servers follows this pattern to [create Arc connected machines](https://docs.microsoft.com/en-us/azure/azure-arc/servers/onboard-portal).
+Many of the experiences for Azure Arc start in the Azure Portal even though the resource to be created or managed is outside of Azure infrastructure.  The user experience pattern in these cases, especially when there is no direct connectivity between Azure and the customer environment is to use the Azure Portal to generate a script which can then be downloaded and executed in the customer environment to establish a secure connection back to Azure.  For example, Azure Arc enabled for servers follows this pattern to [create Arc connected machines](/azure-arc/servers/onboard-portal).
 
 In this scenario, you will see the initial experience for creating a data controller resource in the Azure Portal.  The experience will be changing as we evolve the design and thinking, but we value your early feedback on it so we are publishing the scenario documentation now.
 

@@ -144,7 +144,7 @@ For example:
 | User name       | `postgres`        | Default user is always named `postgres`                      |
 | Password        | `PASSWORD`        | Retrieve the Postgres user password from `azdata postgres server endpoint` as described above |
 
-Once connected, you can utilize the full functionality of PostgreSQL Hyperscale, including [creating distributed tables](https://docs.microsoft.com/en-us/azure/postgresql/quickstart-create-hyperscale-portal#create-and-distribute-tables).
+Once connected, you can utilize the full functionality of PostgreSQL Hyperscale, including [creating distributed tables](/postgresql/quickstart-create-hyperscale-portal#create-and-distribute-tables).
 
 ## Next Steps
 

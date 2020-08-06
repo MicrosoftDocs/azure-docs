@@ -56,8 +56,6 @@ export AZDATA_PASSWORD="<your password of choice>"
 ```terminal
 $ENV:AZDATA_USERNAME="<your username of choice> - e.g. arcadmin"
 $ENV:AZDATA_PASSWORD="<your password of choice>"
-$ENV:REGISTRY_USERNAME="22cda7bb-2eb1-419e-a742-8710c313fe79"
-$ENV:REGISTRY_PASSWORD="cb892016-5c33-4135-acbf-7b15bc8cb0f7"
 ```
 
 ## Install the Azure Arc data controller
@@ -253,4 +251,4 @@ kubectl describe po/control-2g7bl -n arc
 
 ## Next steps
 
-Now try to [deploy a SQL Database managed instance](003-create-sqlmiaa-instance.md)
+Now try to [deploy a SQL Database managed instance](create-sqlmiaa-instance.md)
