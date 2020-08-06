@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to install and configure an NGINX ingress controller for an internal, private network in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 07/21/2020
 
 ---
 
@@ -181,7 +181,7 @@ In the following example, traffic to the address `http://10.240.0.42/` is routed
 Create a file named `hello-world-ingress.yaml` and copy in the following example YAML.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress

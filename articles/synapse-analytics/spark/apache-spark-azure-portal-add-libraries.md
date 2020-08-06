@@ -17,7 +17,8 @@ Libraries provide reusable code that you may want to include in your programs or
 ## Default Installation
 Apache Spark in Azure Synapse Analytics has a full Anacondas install plus additional libraries. The full libraries list can be found at [Apache Spark version support](apache-spark-version-support.md). 
 
-When a Spark instance starts up, a new virtual environment is created using this installation as the base. Additional Python and custom built packages can be added at the Spark pool (preview) level.
+When a Spark instance starts up, these libraries will automatically be included. Additional Python and custom built packages can be added at the Spark pool (preview) level.
+
 
 ## Manage Python packages
 Once you have identified the libraries that you would like to use for your Spark application, you can install them into a Spark pool (preview). 

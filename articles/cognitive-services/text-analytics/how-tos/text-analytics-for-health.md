@@ -1,29 +1,29 @@
 ---
-title: How to use Text Analytics for Health
+title: How to use Text Analytics for health
 titleSuffix: Azure Cognitive Services
-description: Learn how to extract and label medical information from unstructured clinical text with Text Analytics for Health. 
+description: Learn how to extract and label medical information from unstructured clinical text with Text Analytics for health. 
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/28/2020
 ms.author: aahi
 ---
 
-# How to: Use Text Analytics for Health (preview)
+# How to: Use Text Analytics for health (preview)
 
 > [!IMPORTANT] 
 > Text Analytics for health is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, **Text Analytics for health (preview) should not be implemented or deployed in any production use.** 
 Text Analytics for health is not intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability is not designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of Text Analytics for health. Microsoft does not warrant that Text Analytics for health or any materials provided in connection with the capability will be sufficient for any medical purposes or otherwise meet the health or medical requirements of any person. 
 
 
-Azure Text Analytics for Health is a containerized service that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  
+Text Analytics for health is a containerized service that extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.  
 
 ## Features
 
-The Text Analytics for Health container currently performs Named Entity Recognition (NER), relation extraction, entity negation and entity linking for English-language text in your own development environment that meets your specific security and data governance requirements.
+The Text Analytics for health container currently performs Named Entity Recognition (NER), relation extraction, entity negation and entity linking for English-language text in your own development environment that meets your specific security and data governance requirements.
 
 #### [Named Entity Recognition](#tab/ner)
 
@@ -47,26 +47,26 @@ Entity Linking disambiguates distinct entities by associating named entities men
 > [!div class="mx-imgBorder"]
 > ![Health EL](../media/ta-for-health/health-entity-linking.png)
 
-Text Analytics for Health supports linking to the health and biomedical vocabularies found in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
+Text Analytics for health supports linking to the health and biomedical vocabularies found in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
 
 #### [Negation Detection](#tab/negation-detection) 
 
-The meaning of medical content is highly affected by modifiers such as negation, which can have critical implication if misdiagnosed. Text Analytics for Health supports negation detection for the different entities mentioned in the text. 
+The meaning of medical content is highly affected by modifiers such as negation, which can have critical implication if misdiagnosed. Text Analytics for health supports negation detection for the different entities mentioned in the text. 
 
 > [!div class="mx-imgBorder"]
 > ![Health NEG](../media/ta-for-health/health-negation.png)
 
 ---
 
-See the [entity categories](../named-entity-types.md?tabs=health) returned by Text Analytics for Healthcare for a full list of supported entities.
+See the [entity categories](../named-entity-types.md?tabs=health) returned by Text Analytics for health for a full list of supported entities.
 
 ## Supported languages
 
-Text Analytics for Health only supports English language documents.
+Text Analytics for health only supports English language documents.
 
 ## Request access to the container registry
 
-Fill out and submit the [Cognitive Services containers request form](https://aka.ms/cognitivegate) to request access to the container. Currently you will not be billed for Text Analytics for Health usage. 
+Fill out and submit the [Cognitive Services containers request form](https://aka.ms/cognitivegate) to request access to the container. Currently you will not be billed for Text Analytics for health usage. 
 
 [!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -76,8 +76,8 @@ Fill out and submit the [Cognitive Services containers request form](https://aka
 
 There are multiple ways you can install and run the container. 
 
-1. Using the [Azure portal](text-analytics-how-to-install-containers.md?tabs=healthcare) to create a Text Analytics resource, and use Docker to get your container.
-2. Using the below PowerShell and [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) scripts to automate resource deployment container configuration.
+- Use the [Azure portal](text-analytics-how-to-install-containers.md?tabs=healthcare) to create a Text Analytics resource, and use Docker to get your container.
+- Use the following PowerShell and [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) scripts to automate resource deployment container configuration.
 
 ### Install the container using Azure Web App for Containers
 
@@ -182,7 +182,7 @@ server {
 
 #### Example Docker compose file
 
-The below example shows how a [docker compose](https://docs.docker.com/compose/reference/overview) file can be created to deploy the NGINX and Text Analytics for Health containers:
+The below example shows how a [docker compose](https://docs.docker.com/compose/reference/overview) file can be created to deploy the NGINX and Text Analytics for health containers:
 
 ```yaml
 version: "3.7"
@@ -228,7 +228,7 @@ curl -X POST 'http://<serverURL>:5000/text/analytics/v3.0-preview.1/domains/heal
 
 ```
 
-The following JSON is an example of a JSON file attached to the Text Analytics for Health API request's POST body:
+The following JSON is an example of a JSON file attached to the Text Analytics for health API request's POST body:
 
 ```json
 example.json
@@ -251,7 +251,7 @@ example.json
 
 ## API response body
 
-The following JSON is an example of the Text Analytics for Health API response body:
+The following JSON is an example of the Text Analytics for health API response body:
 
 ```json
 {

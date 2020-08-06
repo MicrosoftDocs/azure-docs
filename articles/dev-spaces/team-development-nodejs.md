@@ -5,6 +5,7 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio Code to do team development on a Node.js application in Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
+ms.custom: devx-track-javascript
 ---
 
 # Team development using Node.js and Visual Studio Code with Azure Dev Spaces

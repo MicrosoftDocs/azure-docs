@@ -61,7 +61,7 @@ EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 
 The import statements are not required, they are pre-imported for the notebook experience.
 
-### Transferring data to or from a SQL pool attached with the workspace
+### Transfer data to or from a SQL pool attached with the workspace
 
 > [!NOTE]
 > **Imports not needed in notebook experience**
@@ -128,7 +128,7 @@ df.write.
 
 ```
 
-### If you are transferring data to or from a SQL pool or database outside the workspace
+### If you transfer data to or from a SQL pool or database outside the workspace
 
 > [!NOTE]
 > Imports not needed in notebook experience
@@ -154,7 +154,7 @@ option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### Using SQL Auth instead of AAD
+### Use SQL Auth instead of AAD
 
 #### Read API
 
@@ -178,7 +178,7 @@ option(Constants.PASSWORD, <SQLServer Login Password>).
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### Using the PySpark connector
+### Use the PySpark connector
 
 > [!NOTE]
 > This example is given with only the notebook experience kept in mind.
@@ -202,7 +202,7 @@ pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTE
 
 Similarly, in the read scenario, read the data using Scala and write it into a temp table, and use Spark SQL in PySpark to query the temp table into a dataframe.
 
-## Allowing other users to use the Azure Synapse Apache Spark to Synapse SQL connector in your workspace
+## Allow other users to use the Azure Synapse Apache Spark to Synapse SQL connector in your workspace
 
 You need to be Storage Blob Data Owner on the ADLS Gen2 storage account connected to the workspace to alter missing permissions for others. Ensure the user has access to the workspace and permissions to run notebooks.
 

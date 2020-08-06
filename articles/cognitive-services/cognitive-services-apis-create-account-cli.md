@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 07/27/2020
 ms.author: aahi
 ---
 
@@ -53,9 +53,9 @@ az account list-locations \
     --out table
 ```
 
-After you have your azure location, create a new resource group in the Azure CLI using the [az group create](/cli/azure/group#az-group-create) command.
+After you have your Azure location, create a new resource group in the Azure CLI using the [az group create](/cli/azure/group#az-group-create) command.
 
-In the example below, replace the azure location `westus2` with one of the Azure locations available for your subscription.
+In the example below, replace the Azure location `westus2` with one of the Azure locations available for your subscription.
 
 ```azurecli-interactive
 az group create \
@@ -146,6 +146,8 @@ az cognitiveservices account create \
     --location westus2 \
     --yes
 ```
+
+[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 ## Get the keys for your resource
 

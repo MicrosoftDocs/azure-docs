@@ -47,7 +47,7 @@ To ensure that you do not receive these errors, follow the procedures in [Abando
  
 ## Abandoning the ADSync service account encryption key
 >[!IMPORTANT]
->The following procedures only apply to Azure AD Connect build 1.1.443.0 or older.
+>The following procedures only apply to Azure AD Connect build 1.1.443.0 or older. This cannot be used for newer versions of Azure AD Connect.
 
 Use the following procedures to abandon the encryption key.
 

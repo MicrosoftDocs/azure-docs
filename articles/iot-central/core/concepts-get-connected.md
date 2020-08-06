@@ -207,13 +207,13 @@ One of the key features of IoT Central is the ability to associate device templa
 
 The following snippets show the format of the additional payload the device must send during the DPS registration call for automatic association to work.
 
-This is the format for devices that use the generally available device SDK that doesn't support IoT Plug and Play:
+This is the format for devices that use the generally available device SDK:
 
 ```javascript
     iotcModelId: '< this is the URN for the capability model>';
 ```
 
-This is the format for devices using public preview device SDK that does support IoT Plug and Play:
+This is the format for devices using public preview device SDK:
 
 ```javascript
 '__iot:interfaces': {
@@ -274,8 +274,6 @@ The following table summarizes how Azure IoT Central device features map on to I
 | Property | Device twin reported properties |
 | Property (writeable) | Device twin desired and reported properties |
 | Command | Direct methods |
-
-To learn more about using the Device SDKs, see [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md) for example code.
 
 ### Protocols
 

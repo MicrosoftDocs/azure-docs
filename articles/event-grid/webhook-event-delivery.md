@@ -11,7 +11,7 @@ Webhooks are one of the many ways to receive events from Azure Event Grid. When 
 
 Like many other services that support webhooks, Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint. This requirement prevents a malicious user from flooding your endpoint with events. When you use any of the three Azure services listed below, the Azure infrastructure automatically handles this validation:
 
-- Azure Logic Apps with [Event Grid Connector](https://docs.microsoft.com/connectors/azureeventgrid/)
+- Azure Logic Apps with [Event Grid Connector](/connectors/azureeventgrid/)
 - Azure Automation via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 - Azure Functions with [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)
 

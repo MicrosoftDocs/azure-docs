@@ -3,15 +3,22 @@ title: Java developer reference for Azure Functions
 description: Understand how to develop functions with Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
+ms.custom: devx-track-java
 ---
 
 # Azure Functions Java developer guide
 
-The Azure Functions runtime supports [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/). This guide contains information about the intricacies of writing Azure Functions with Java.
+This guide contains detailed information to help you succeed developing Azure Functions using Java.
 
-As it happens to other languages, a Function App may have one or more functions. A Java function is a `public` method, decorated with the annotation `@FunctionName`. This method defines the entry for a Java function, and must be unique in a particular package. One Function App written in Java may have multiple classes with multiple public methods annotated with `@FunctionName`.
+As a Java developer, if you're new to Azure Functions, please consider first reading one of the following articles:
 
-This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should also complete one of the following Functions quickstarts: [Create your first Java function using Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java) or [Create your first Java function from the command line using Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java).
+| Getting started | Concepts| 
+| -- | -- |  
+| <ul><li>[Java function using Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[Java/Maven function with terminal/command prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[Java function using Gradle](functions-create-first-java-gradle.md)</li><li>[Java function using Eclipse](functions-create-maven-eclipse.md)</li><li>[Java function using IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> |
+
+## Java function basics
+
+A Java function is a `public` method, decorated with the annotation `@FunctionName`. This method defines the entry for a Java function, and must be unique in a particular package. The package can have multiple classes with multiple public methods annotated with `@FunctionName`. A single package is deployed to a function app in Azure. When running in Azure, the function app provides the deployment, execution, and management context for your individual Java functions.
 
 ## Programming model 
 
@@ -89,7 +96,7 @@ Example:
 ```java
 public class Function {
     public String echo(@HttpTrigger(name = "req", 
-      methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
+      methods = {HttpMethod.POST},  authLevel = AuthorizationLevel.ANONYMOUS) 
         String req, ExecutionContext context) {
         return String.format(req);
     }
@@ -261,7 +268,7 @@ import com.microsoft.azure.functions.annotation.*;
 public class Function {
     @FunctionName("echo")
     public static String echo(
-        @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String inputReq,
+        @HttpTrigger(name = "req", methods = { HttpMethod.PUT }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String inputReq,
         @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") TestInputData inputData
         @TableOutput(name = "myOutputTable", tableName = "Person", connection = "AzureWebJobsStorage") OutputBinding<Person> testOutputData,
     ) {
@@ -391,7 +398,7 @@ import com.microsoft.azure.functions.annotation.*;
 public class Function {
     @FunctionName("metadata")
     public static String metadata(
-        @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
+        @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
         @BindingName("name") String queryValue
     ) {
         return body.orElse(queryValue);
@@ -433,7 +440,7 @@ import com.microsoft.azure.functions.*;
 import com.microsoft.azure.functions.annotation.*;
 
 public class Function {
-    public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
+    public String echo(@HttpTrigger(name = "req", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
         if (req.isEmpty()) {
             context.getLogger().warning("Empty request body received by function " + context.getFunctionName() + " with invocation " + context.getInvocationId());
         }
@@ -476,7 +483,7 @@ The following example gets the [application setting](functions-how-to-use-azure-
 ```java
 
 public class Function {
-    public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
+    public String echo(@HttpTrigger(name = "req", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
         context.getLogger().info("My app setting value: "+ System.getenv("myAppSetting"));
         return String.format(req);
     }

@@ -20,7 +20,7 @@ ms.date: 04/28/2020
 Transactional replication allows you to replicate data from one database to another hosted on either SQL Server or [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) (public preview). SQL Managed Instance can be a publisher, distributor or subscriber in the replication topology. See [transactional replication configurations](replication-transactional-overview.md#common-configurations) for available configurations.
 
 > [!NOTE]
-> This article describes the use of [transactional replication](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL Managed Instance. It is unrelated to [failover groups](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), an Azure SQL Managed Instance feature that allows you to create complete readable replicas of individual instances.
+> This article describes the use of [transactional replication](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL Managed Instance. It is unrelated to [failover groups](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), an Azure SQL Managed Instance feature that allows you to create complete readable replicas of individual instances. There are additional considerations when configuring [transactional replication with failover groups](replication-transactional-overview.md#with-failover-groups).
 
 This tutorial teaches you to configure one managed instance as the publisher and distributor, and then a second managed instance as the subscriber.  
 

@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen
+ms.custom: codepen, devx-track-javascript
 ---
 
 # How to use image templates

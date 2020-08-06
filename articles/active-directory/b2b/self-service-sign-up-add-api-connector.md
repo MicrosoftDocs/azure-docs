@@ -38,9 +38,16 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 8. Select the claims you want to send to the API.
 9. Select any claims you plan to receive back from the API.
 
-   ![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connector-claims.png)
+   <!-- ![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connector-claims.png) -->
 
 10. Select **Save**.
+
+### Selection of 'Claims to send' and 'Claims to receive'
+> [!IMPORTANT]
+> You may see all the claims selected by default as illustrated below. All API connectors will be updated to behave this way. Your API will receive all available claims and can send back any supported claim without configuring them in the API connector definition. 
+
+![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connector-claims-new.png)
+
 
 ## Enable the API connector in a user flow
 

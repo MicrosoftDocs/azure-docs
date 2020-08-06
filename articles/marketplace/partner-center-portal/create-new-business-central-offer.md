@@ -175,15 +175,19 @@ In the **Support contact** section, you must also provide the **Support URL** wh
 
 Provide at least one (and up to three) related marketing documents here, such as white papers, brochures, checklists, or presentations. These documents must be in .pdf format.
 
-### Marketplace images
+### Store logos
 
-Provide logos and images for your offer. All images must be in PNG format. Upload your offer logo in two sizes:
+Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) size logo. You can optionally replace this with a different image.
 
-* **Small** (48 x 48 pixels)
-* **Large** (216 x 216 pixels)
+Both logo sizes are required for use in different places in the listing:
+
+- **Small** (48 x 48)
+- **Large** (between 216 x 216 and 350 x 350)
 
 >[!NOTE]
 >If you have an issue uploading files, make sure your local network does not block the `https://upload.xboxlive.com` service used by Partner Center.
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### Screenshots
 

@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
+ms.custom: devx-track-javascript
 ---
 
 # Use the Azure Maps services module

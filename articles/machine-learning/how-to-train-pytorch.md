@@ -5,12 +5,12 @@ description: Learn how to run your PyTorch training scripts at enterprise scale 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.reviewer: peterlu
 ms.date: 08/01/2019
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: how-to
 
 #Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---

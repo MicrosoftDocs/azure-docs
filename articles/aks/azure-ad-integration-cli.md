@@ -75,7 +75,7 @@ serverApplicationSecret=$(az ad sp credential reset \
     --query password -o tsv)
 ```
 
-The Azure AD needs permissions to perform the following actions:
+The Azure AD service principal needs permissions to perform the following actions:
 
 * Read directory data
 * Sign in and read user profile

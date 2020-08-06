@@ -157,8 +157,7 @@ kubectl apply -f byok-azure-disk.yaml
 
 ## Limitations
 
-* Data Disk Encryption supported with Kubernetes version 1.17 and above   
-* Available only in regions where BYOK is supported
+* Data Disk Encryption supported with Kubernetes version 1.17 and above
 * Encryption with customer-managed keys currently is for new AKS clusters only, existing clusters cannot be upgraded
 
 ## Next steps

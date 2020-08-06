@@ -74,8 +74,8 @@ Data Sync isn't the preferred solution for the following scenarios:
 
 | | Data Sync | Transactional Replication |
 |---|---|---|
-| Advantages | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration <br/>-Azure SQL Managed Instance support |
-| Disadvantages | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can't publish from Azure SQL Database <br/>-    High maintenance cost |
+| **Advantages** | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration <br/>-Azure SQL Managed Instance support |
+| **Disadvantages** | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can't publish from Azure SQL Database <br/>-    High maintenance cost |
 
 ## Get started 
 

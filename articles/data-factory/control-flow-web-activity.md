@@ -20,7 +20,7 @@ ms.date: 12/19/2018
 Web Activity can be used to call a custom REST endpoint from a Data Factory pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
 
 > [!NOTE]
-> Web Activity can call only publicly exposed URLs. It’s not supported for URLs that are hosted in a private virtual network.
+> Web Activity is supported for invoking URLs that are hosted in a private virtual network as well by leveraging self-hosted integration runtime. The integration runtime should have a line of sight to the URL endpoint. 
 
 ## Syntax
 
@@ -31,6 +31,10 @@ Web Activity can be used to call a custom REST endpoint from a Data Factory pipe
    "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
+      "connectVia": {
+          "referenceName": "<integrationRuntimeName>",
+          "type": "IntegrationRuntimeReference"
+      }
       "headers":{
          "Content-Type":"application/json"
       },
@@ -72,6 +76,7 @@ body | Represents the payload that is sent to the endpoint.  | String (or expres
 authentication | Authentication method used for calling the endpoint. Supported Types are "Basic, or ClientCertificate." For more information, see [Authentication](#authentication) section. If authentication is not required, exclude this property. | String (or expression with resultType of string) | No
 datasets | List of datasets passed to the endpoint. | Array of dataset references. Can be an empty array. | Yes
 linkedServices | List of linked services passed to endpoint. | Array of linked service references. Can be an empty array. | Yes
+connectVia | The [integration runtime](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | The integration runtime reference. | No 
 
 > [!NOTE]
 > REST endpoints that the web activity invokes must return a response of type JSON. The activity will timeout at 1 minute with an error if it does not receive a response from the endpoint.

@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use Azure RBAC for Kubernetes Authorization with Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 07/20/2020
 ms.author: jpalma
 author: palma21
 
@@ -30,29 +30,25 @@ The ability to manage RBAC for Kubernetes resources from Azure gives you the cho
 
 ### Prerequisites 
 - Sign up for the preview <https://aka.ms/aad-rbac-sign-up-form>.
+- Ensure you have the Azure CLI version 2.9.0 or later
 - Ensure you have the `EnableAzureRBACPreview` feature flag enabled.
-- Ensure you have the `AAD-V2` feature flag enabled.
 - Ensure you have the `aks-preview` [CLI extension][az-extension-add] v0.4.55 or higher installed
 - Ensure you have installed [kubectl v1.18.3+][az-aks-install-cli].
 
-#### Register `EnableAzureRBACPreview` and `AAD-V2` preview features
+#### Register `EnableAzureRBACPreview` preview feature
 
-To create an AKS cluster that uses Azure RBAC for Kubernetes Authorization, you must enable the `EnableAzureRBACPreview` and `AAD-V2` feature flags on your subscription.
+To create an AKS cluster that uses Azure RBAC for Kubernetes Authorization, you must enable the `EnableAzureRBACPreview` feature flag on your subscription.
 
-Register the `EnableAzureRBACPreview` and `AAD-V2` feature flags using the [az feature register][az-feature-register] command as shown in the following example:
+Register the `EnableAzureRBACPreview` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
-
-az feature register --namespace "Microsoft.ContainerService"  --name "AAD-V2"
 ```
 
 It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
-
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
@@ -280,7 +276,7 @@ az group delete -n MyResourceGroup
 
 - Read more about AKS Authentication, Authorization, and RBAC [here](concepts-identity.md).
 - Read more about Azure RBAC [here](../role-based-access-control/overview.md).
-- Read more about the all the actions you can use to granularly define custom Azure RBAC roles for Kubernetes authorization [here](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
+- Read more about the all the actions you can use to granularly define custom Azure roles for Kubernetes authorization [here](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
 
 
 <!-- LINKS - Internal -->

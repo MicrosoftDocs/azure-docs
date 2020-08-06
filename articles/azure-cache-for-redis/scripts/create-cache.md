@@ -7,7 +7,8 @@ ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
-ms.author: yegu
+ms.author: yegu 
+ms.custom: devx-track-azurecli
 ---
 
 # Create an Azure Cache for Redis

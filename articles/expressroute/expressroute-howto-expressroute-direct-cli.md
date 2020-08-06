@@ -8,7 +8,8 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/20/2019
-ms.author: cherylmc
+ms.author: cherylmc 
+ms.custom: devx-track-azurecli
 
 ---
 

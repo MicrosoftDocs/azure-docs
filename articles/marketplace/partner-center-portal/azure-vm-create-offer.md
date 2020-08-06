@@ -1,12 +1,12 @@
 ---
 title: Create an Azure virtual machine offer on Azure Marketplace
-description: Learn how to create a virtual machine offer on Azure Marketplace with the required plan.
+description: Learn how to publish a virtual machine offer to Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 07/17/2020
+ms.date: 07/28/2020
 ---
 
 # Create an Azure virtual machine offer on Azure Marketplace
@@ -240,16 +240,17 @@ Provide logos and images to use with your offer. All images must be in PNG forma
 >[!NOTE]
 >If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.
 
-#### Azure Marketplace logos
+#### Store logos
 
-Provide PNG files of your offer's logo with the following four image dimensions:
+Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) and a **Medium** (90 x 90 pixels) size logo. You can optionally replace these with different images.
 
-- **Small** (48 &times; 48 pixels)
-- **Medium** (90 &times; 90 pixels)
-- **Large** (216 &times; 216 pixels)
-- **Wide** (255 &times; 115 pixels)
+All three logo sizes are required for use in different places in the listing:
 
-All four logos are required, and they're displayed in various Azure Marketplace listings.
+- **Small** (48 x 48)
+- **Medium** (90 x 90)
+- **Large** (between 216 x 216 and 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### Screenshots
 
@@ -347,7 +348,7 @@ In this section, you configure the listing details of the plan. This pane displa
 
 #### Plan name
 
-This field is autofilled with the name that you gave your plan when you created it. This name appears on Azure Marketplace as the title of this plan. It is limited to 100 characters.
+This field is automatically filled with the name that you gave your plan when you created it. This name appears on Azure Marketplace as the title of this plan. It is limited to 100 characters.
 
 #### Plan summary
 
@@ -363,7 +364,7 @@ Select **Save draft** before you continue.
 
 On this pane, you configure:
 
-- Markets where this plan is available.
+- Markets where this plan is available. Every plan must be available in at least one [market](../marketplace-geo-availability-currencies.md).
 - The price per hour.
 - Whether to make the plan visible to everyone or only to specific customers (a private audience).
 
