@@ -147,7 +147,7 @@ To edit the rules for a group of machines:
 
 ## Responding to the "Allowlist rules in your adaptive application control policy should be updated" recommendation
 
-This recommendation appears when Security Center's machine learning identifies potentially legitimate behavior that hasn't previously been allowed. The recommendation, prompts you to add new rules to the existing policy to reduce the number of false positive alerts.
+This recommendation appears when Security Center's machine learning identifies potentially legitimate behavior that hasn't previously been allowed. The recommendation prompts you to add new rules to the existing policy to reduce the number of false positive alerts.
 
 To remediate the issues:
 
@@ -170,7 +170,7 @@ To remediate the issues:
 
 1. To investigate further, select a group.
 
-   ![Whitelisting rules](./media/security-center-adaptive-application/recent-alerts.png)
+   ![Recent alerts](./media/security-center-adaptive-application/recent-alerts.png)
 
 1. For further details and the list of affected machines, select an alert.
 
@@ -204,7 +204,7 @@ Some of the functions that are available from the REST API:
 
 * **List** retrieves all your group recommendations and provides a JSON with an object for each group.
 
-* **Get** retrieves the JSON with the full recommendation data (that is, list of machines, publisher/path rules, and so on)
+* **Get** retrieves the JSON with the full recommendation data (that is, list of machines, publisher/path rules, and so on).
 
 * **Put** configures your rule (use the JSON you retrieved with **Get** as the body for this request).
  
@@ -221,7 +221,7 @@ Some of the functions that are available from the REST API:
 
 
 ## Next steps
-In this document, you learned how to use adaptive application control in Azure Security Center to define allow lists of applications running on your Azure and non-Azure VMs. To learn more about some of Security Center's other cloud workload protection features, see:
+In this document, you learned how to use adaptive application control in Azure Security Center to define allow lists of applications running on your Azure and non-Azure machines. To learn more about some of Security Center's other cloud workload protection features, see:
 
 * [Understanding just-in-time (JIT) VM access](just-in-time-explained.md)
 * [Securing your Azure Kubernetes clusters](azure-kubernetes-service-integration.md)
