@@ -55,8 +55,6 @@ If you don't have an existing Event Hubs namespace to export to, follow these st
   3. Create a new key or choose an existing key that has **Send** permissions. 
   4. Copy either the primary or secondary connection string. You'll use this to set up a new destination in IoT Central.
 
-// TODO screenshot
-
 ### Create a Service Bus queue or topic destination
 
 If you don't have an existing Service Bus namespace to export to, follow these steps:
@@ -71,8 +69,6 @@ If you don't have an existing Service Bus namespace to export to, follow these s
   2. Click on **Settings/Shared access policies**. 
   3. Create a new key or choose an existing key that has **Send** permissions. 
   4. Copy either the primary or secondary connection string. You'll use this to set up a new destination in IoT Central.
-
-// TODO screenshot
 
 When you choose Service Bus as an export destination, the queues and topics must not have Sessions or Duplicate Detection enabled. If either of those options are enabled, some messages won't arrive in your queue or topic.
 
@@ -119,15 +115,15 @@ You can choose between continuously exporting different types of data. Here are 
 
 | Data type | Description | Data format |
 | :------------- | :---------- | :----------- |
-|  Telemetry | Export telemetry messages from devices in near-real time. Each exported message will contain the full contents of the original device message, normalized.   | [telemetry message format](TODO)   |
-| Property changes   | Export changes to device and cloud properties in near-real time. For device properties, changes to the reported values of read and read-write properties will be exported. | [property change message format](TODO) |
+|  Telemetry | Export telemetry messages from devices in near-real time. Each exported message will contain the full contents of the original device message, normalized.   |  [Telemetry message format](#Telemetry-format)   |
+| Property changes   | Export changes to device and cloud properties in near-real time. For device properties, changes to the reported values of read and read-write properties will be exported. | [Property change message format](#Property-changes-format) |
 
 ## 2. (Optional) Add filters
 Add filters to reduce the amount of data exported based on filter conditions. There are different types of filters available for each type of data to export.
 
 ### Telemetry filters
   - **Capability filter**: If you choose a telemetry item in the dropdown, the exported stream will only contain telemetry that meets the filter condition. If you choose a device or cloud property item in the dropdown, the exported stream will only contain telemetry from devices that have properties that match the filter condition.
-  - **Message property filter**: Devices using the device SDKs are allowed to send *message properties* or [*application properties*](TODO) on each telemetry message, which is a bag of key-value pairs generally used to tag the message with custom identifiers. You can create a message property filter by typing in the message property key you are looking for, and specifying a condition. Only telemetry messages that have message properties that match the specified filter condition will be exported. Only equals/not equals, and exists/not exists operators are supported.
+  - **Message property filter**: Devices using the device SDKs are allowed to send *message properties* or *application properties* on each telemetry message, which is a bag of key-value pairs generally used to tag the message with custom identifiers. You can create a message property filter by typing in the message property key you are looking for, and specifying a condition. Only telemetry messages that have message properties that match the specified filter condition will be exported. Only equals/not equals, and exists/not exists operators are supported. [Learn more about application properties from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 ### Property changes filters
   - **Property filter**: Choose a property item in the dropdown, and the exported stream will only contain changes to the selected property that meets the filter condition.
@@ -142,7 +138,7 @@ Create a new destination or add a destination that you have already created.
   
 1. Click on the **create a new destination** link. Fill in the following information:
   - **Destination name**: the display name of the destination in IoT Central
-  - **Destination type**: choose the type of destination. If you haven't already, [set up your export destination resource](TODO)
+  - **Destination type**: choose the type of destination. If you haven't already, [set up your export destination](#Set-up-export-destination)
   - For Azure Event Hubs, Azure Service Bus queue or topic, paste the connection string for your resource. 
   - For Azure Blob Storage, paste the connection string for your resource and enter the container name (case sensitive).
   - For Webhook, paste the callback URL for your webhook endpoint. 
@@ -172,7 +168,7 @@ Each exported message contains a normalized form of the full message the device 
 - `schema` is the name and version of the payload schema
 - `templateId` is the device template Id associated to the device
 - `enrichments` are any enrichments that were set up on the export
-- `messageProperties` are the additional pieces of data that the device sent alongside the message. This is also known as *application properties*, [learn more from IoT Hub docs](TODO)
+- `messageProperties` are the additional pieces of data that the device sent alongside the message. This is also known as *application properties*, [learn more from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 For Event Hubs and Service Bus, IoT Central exports a new message quickly after it receives the message from a device.
 
