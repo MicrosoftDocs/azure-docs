@@ -281,7 +281,7 @@ You can increase the timeout or try to speed up the service by modifying the sco
 
 ## Advanced debugging
 
-In some cases, you may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using Visual Studio Code and the Python Tools for Visual Studio (PTVSD), you can attach to the code running inside the Docker container. For more information, visit the [interactive debugging in VS Code guide](how-to-debug-vscode.md#debug-and-troubleshoot-machine-learning-pipelines).
+In some cases, you may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using Visual Studio Code and the debugpy, you can attach to the code running inside the Docker container. For more information, visit the [interactive debugging in VS Code guide](how-to-debug-vscode.md#debug-and-troubleshoot-machine-learning-pipelines).
 
 ## Next steps
 
