@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/28/2020
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: 
 ms.collection: M365-identity-device-management
@@ -22,9 +22,9 @@ This step-by-step guide describes how to plan the deployment of Privileged Ident
 
 > [!TIP]
 > Throughout this article, you will see items marked as:
-> 
+>
 > :heavy_check_mark: **Microsoft recommends**
-> 
+>
 > These are general recommendations, and you should only implement if they apply to your specific enterprise needs.
 
 ## Learn about Privileged Identity Management
@@ -137,9 +137,9 @@ Follow these steps to enforce the principle of least privilege for your Azure AD
 
 1. Understand the granularity of the roles by reading and understanding the [available Azure AD administrator roles](../users-groups-roles/directory-assign-admin-roles.md#available-roles). You and your team should also reference [administrator roles by identity task in Azure AD](../users-groups-roles/roles-delegate-by-task.md), which explains the least privileged role for specific tasks.
 
-1. List who has privileged roles in your organization. You can use the [Privileged Identity Management wizard](pim-security-wizard.md#run-the-wizard) to get to a page like the following.
+1. List who has privileged roles in your organization. You can use the Privileged Identity Management [Discovery and insights (preview)](pim-security-wizard.md) to get to a page like the following.
 
-    ![Discover privileged roles pane showing who has privileged roles](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Discovery and insights (preview) page to reduce exposure via privileged roles](./media/pim-deployment-plan/new-preview-page.png)
 
 1. For all Global Administrators in your organization, find out why they need the role. Based on reading the previous documentation, if the person’s job can be performed by one or more granular administrator roles, you should remove them from the Global Administrator role and make assignments accordingly inside Azure Active Directory (As a reference: Microsoft currently only has about 10 administrators with the Global Administrator role. Learn more at [how Microsoft uses Privileged Identity Management](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
 
