@@ -1,16 +1,15 @@
 ---
 title: Create datasets with Azure Open Datasets
-titleSuffix: Azure Machine Learning
+titleSuffix: Azure Open Datasets
 description: Learn how to create an Azure Machine Learning dataset from Azure Open Datasets.
-services: machine-learning
-ms.service: machine-learning
+ms.service: open-datasets
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 08/05/2020
-ms.custom: seodec18, tracking-python
+ms.custom: how-to, tracking-python
 
 # Customer intent: As an experienced Python developer, I want to use Azure Open Datasets in my ML workflows for improved model accuracy.
 ---
@@ -45,7 +44,7 @@ To create and work with datasets, you need:
 
 ## Create datasets with the SDK
 
-To create datasets with Azure Open Datasets from the Azure Machine Learning Python SDK, make sure you've installed the package with `pip install azureml-opendatasets`. Each discrete data set is represented by its own class in the SDK, and certain classes are available as either a `TabularDataset`, `FileDataset`, or both. See the [reference documentation](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) for a full list of classes.
+To create datasets via Open Datasets classes in the Azure Machine Learning Python SDK, make sure you've installed the package with `pip install azureml-opendatasets`. Each discrete data set is represented by its own class in the SDK, and certain classes are available as either a `TabularDataset`, `FileDataset`, or both. See the [reference documentation](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) for a full list of classes.
 
 You can retrieve certain classes as either a `TabularDataset` or `FileDataset`, which allows you to manipulate and/or download the files directly. Other classes can get a dataset **only** by using one of `get_tabular_dataset()` or `get_file_dataset()` functions. The following code sample shows a few examples of these types of classes.
 
@@ -66,7 +65,7 @@ When you register a dataset created from Open Datasets, no data is immediately d
 
 ## Create datasets with the studio
 
-You can also create datasets from Open Datasets classes through the [Azure Machine Learning studio](https://ml.azure.com). In your workspace, select the **Datasets** tab under **Assets**. On the **Create dataset** drop-down menu, select **From Open Datasets**.
+You can also create datasets from Open Datasets with the [Azure Machine Learning studio](https://ml.azure.com). In your workspace, select the **Datasets** tab under **Assets**. On the **Create dataset** drop-down menu, select **From Open Datasets**.
 
 ![Open Dataset with the UI](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
 
@@ -81,6 +80,7 @@ Choose a name under which to register the dataset, and optionally filter the dat
 The dataset is now available in your workspace under **Datasets**. You can use it in the same way as other datasets you've created.
 
 ## Example notebooks
+
 For examples and demonstrations of Open Datasets functionality,  see these [notebooks](https://github.com/Azure/OpenDatasetsNotebooks/tree/master/tutorials).
 
 ## Next steps
