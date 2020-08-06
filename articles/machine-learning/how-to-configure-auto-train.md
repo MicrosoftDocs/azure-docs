@@ -55,7 +55,7 @@ Requirements for training data:
 
 The following code examples demonstrate how to store the data in these formats.
 
-* TabularDataset
+* Azure Machine Learning TabularDataset
 
   ```python
   from azureml.core.dataset import Dataset
@@ -79,7 +79,9 @@ The following code examples demonstrate how to store the data in these formats.
 
 ## Fetch data for running experiments on remote compute
 
-For remote executions, training data must be accessible from the remote compute. The class [`Datasets`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) in the SDK exposes functionality to:
+For remote experiments, training data must be accessible from the remote compute. To do so, AutoML only accepts the Azure Machine Learning dataset type, [TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) when working on a remote compute. For local experiments, we recommend using a pandas dataframe.  
+
+Azure Machine Learning datasets exposes functionality to:
 
 * easily transfer data from static files or URL sources into your workspace
 * make your data available to training scripts when running on cloud compute resources
@@ -189,6 +191,7 @@ When configuring your experiments in your `AutoMLConfig` object, you can enable/
 > your input data automatically.
 
 ### Time Series Forecasting
+
 The time series `forecasting` task requires additional parameters in the configuration object:
 
 1. `time_column_name`: Required parameter that defines the name of the column in your training data containing a valid time-series.
