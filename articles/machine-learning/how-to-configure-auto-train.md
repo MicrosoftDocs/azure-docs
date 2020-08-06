@@ -32,6 +32,17 @@ Configuration options available in automated machine learning:
 
 If you prefer a no code experience, you can also [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
 
+## Prerequisites
+
+For this article you need, 
+* An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+
+* The Azure Machine Learning Python SDK installed.
+    To install the SDK you can either, 
+    * Create a compute instance, which automatically installs the SDK and is preconfigured for ML workflows. See [What is an Azure Machine Learning compute instance?](concept-compute-instance.md#managing-a-compute-instance) for more information. 
+
+    * [Install the SDK yourself](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). Just be sure to include the `automl` extra. 
+
 ## Select your experiment type
 
 Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of **classification, regression**, and **forecasting**. Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
@@ -81,14 +92,14 @@ The following code examples demonstrate how to store the data in these formats.
 
 For remote experiments, training data must be accessible from the remote compute. To do so, AutoML only accepts the Azure Machine Learning dataset type, [TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) when working on a remote compute. For local experiments, we recommend using a pandas dataframe.  
 
-Azure Machine Learning datasets exposes functionality to:
+Azure Machine Learning datasets expose functionality to:
 
 * easily transfer data from static files or URL sources into your workspace
 * make your data available to training scripts when running on cloud compute resources
 
 See the [how-to](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) for an example of using the `Dataset` class to mount data to your compute target.
 
-## Training, validation and test data
+## Training, validation, and test data
 
 You can specify separate train and validation sets directly in the `AutoMLConfig` constructor with the following options. Learn more about [how to configure data splits and cross validation](how-to-configure-cross-validation-data-splits.md) for your AutoML experiments. 
 
@@ -96,7 +107,7 @@ You can specify separate train and validation sets directly in the `AutoMLConfig
 
 Use `n_cross_validations` setting to specify the number of cross validations. The training data set will be randomly split into `n_cross_validations` folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for `n_cross_validations` rounds until each fold is used once as validation set. The average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set.
 
-Learn more about how autoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
+Learn more about how AutoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ### Monte Carlo Cross Validation (Repeated Random Sub-Sampling)
 
@@ -138,7 +149,7 @@ Some examples include:
        label_column_name=label,
        n_cross_validations=2)
    ```
-2. Below is an example of a regression experiment set to end after 60 minutes with five validation cross folds.
+1. The following example is a regression experiment set to end after 60 minutes with five validation cross folds.
 
    ```python
       automl_regressor = AutoMLConfig(
@@ -150,8 +161,30 @@ Some examples include:
       label_column_name=label,
       n_cross_validations=5)
    ```
-    To help avoid  experiment timeout failures, Automated ML's validation service will require that `experiment_timeout_minutes` be set to a minimum of 15 minutes, or 60 minutes if your row by column size exceeds 10 million.
+    To help avoid  experiment time out failures, Automated ML's validation service will require that `experiment_timeout_minutes` be set to a minimum of 15 minutes, or 60 minutes if your row by column size exceeds 10 million.
 
+1. Forecasting tasks require additional setup, see the [Auto-train a time-series forecast model](how-to-auto-train-forecast.md) article for more details. 
+
+    ```python
+    time_series_settings = {
+        'time_column_name': time_column_name,
+        'time_series_id_column_names': time_series_id_column_names,
+        'drop_column_names': ['logQuantity'],
+        'forecast_horizon': n_test_periods
+    }
+    
+    automl_config = AutoMLConfig(task = 'forecasting',
+                                 debug_log='automl_oj_sales_errors.log',
+                                 primary_metric='normalized_root_mean_squared_error',
+                                 experiment_timeout_minutes=20,
+                                 training_data=train_data,
+                                 label_column_name=label,
+                                 n_cross_validations=5,
+                                 path=project_folder,
+                                 verbosity=logging.INFO,
+                                 **time_series_settings)
+    ```
+    
 ### Supported models
 
 Automated machine learning supports different algorithms, models to try out,  during the automation and tuning process. As a user, there is no need for you to specify the algorithm. 
@@ -165,7 +198,7 @@ The primary metric determines the metric to be used during model training for op
 Learn about the specific definitions of these metrics in [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
 |Classification | Regression | Time Series Forecasting
-|-- |-- |--
+|--|--|--
 |accuracy| spearman_correlation | spearman_correlation
 |AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
 |average_precision_score_weighted | r2_score | r2_score
@@ -174,14 +207,16 @@ Learn about the specific definitions of these metrics in [Understand automated m
 
 ### Data featurization
 
-In every automated machine learning experiment, your data is automatically scaled and normalized to help *certain* algorithms that are sensitive to features that are on different scales. This scaling and normalization is referred to as featurization. You can also enable additional featurization, such as missing values imputation, encoding, and transforms. See [Featurization in AutoML](how-to-configure-auto-features.md#) for more detail and code examples. 
+In every automated machine learning experiment, your data is automatically scaled and normalized to help *certain* algorithms that are sensitive to features that are on different scales. This scaling and normalization is referred to as featurization. 
+
+You can also enable additional featurization, such as missing values imputation, encoding, and transforms. See [Featurization in AutoML](how-to-configure-auto-features.md#) for more detail and code examples. 
 
 When configuring your experiments in your `AutoMLConfig` object, you can enable/disable the setting `featurization`. The following table shows the accepted settings for featurization in the [AutoMLConfig class](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
 |Featurization Configuration | Description |
 | ------------- | ------------- |
 |`"featurization": 'auto'`| Indicates that as part of preprocessing, [data guardrails and featurization steps](how-to-configure-auto-features.md#featurization) are performed automatically. **Default setting**.|
-|`"featurization": 'off'`| Indicates featurization step should not be done automatically.|
+|`"featurization": 'off'`| Indicates featurization step shouldn't be done automatically.|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Indicates customized featurization step should be used. [Learn how to customize featurization](how-to-configure-auto-features.md#customize-featurization).|
 
 > [!NOTE]
@@ -189,45 +224,6 @@ When configuring your experiments in your `AutoMLConfig` object, you can enable/
 > converting text to numeric, etc.) become part of the underlying model. When using the model for
 > predictions, the same featurization steps applied during training are applied to
 > your input data automatically.
-
-### Time Series Forecasting
-
-The time series `forecasting` task requires additional parameters in the configuration object:
-
-1. `time_column_name`: Required parameter that defines the name of the column in your training data containing a valid time-series.
-1. `forecast_horizon`: Defines how many periods forward you would like to forecast. The integer horizon is in units of the timeseries frequency. For example if you have training data with daily frequency, you define how far out in days you want the model to train for.
-1. `time_series_id_column_names`: Defines the columns that uniquely identify the time series in data that has multiple rows with the same timestamp. For example, if you are forecasting sales of a particular brand by store, you would define store and brand columns as your time series identifiers. Separate forecasts will be created for each grouping. If the time series identifiers are not defined, the data set is assumed to be one time series.
-
-For examples of the settings used below, see the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
-
-```python
-# Setting Store and Brand as time series identifiers for training.
-time_series_id_column_names = ['Store', 'Brand']
-nseries = data.groupby(time_series_id_column_names).ngroups
-
-# View the number of time series data with defined time series identifiers
-print('Data contains {0} individual time-series.'.format(nseries))
-```
-
-```python
-time_series_settings = {
-    'time_column_name': time_column_name,
-    'time_series_id_column_names': time_series_id_column_names,
-    'drop_column_names': ['logQuantity'],
-    'forecast_horizon': n_test_periods
-}
-
-automl_config = AutoMLConfig(task = 'forecasting',
-                             debug_log='automl_oj_sales_errors.log',
-                             primary_metric='normalized_root_mean_squared_error',
-                             experiment_timeout_minutes=20,
-                             training_data=train_data,
-                             label_column_name=label,
-                             n_cross_validations=5,
-                             path=project_folder,
-                             verbosity=logging.INFO,
-                             **time_series_settings)
-```
 
 <a name="ensemble"></a>
 
@@ -331,10 +327,11 @@ There are a few options you can define to end your experiment.
 
 You can view your training results in a widget or inline if you are in a notebook. See [Track and evaluate models](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) for more details.
 
+See [Understand automated machine learning results](how-to-understand-automated-ml.md) for definitions and examples of the performance charts and metrics provided after each run. 
+
+## Register and deploy models
+
 For details on how to download or register a model for deployment to a web service, see [how and where to deploy a model](how-to-deploy-and-where.md).
-
-## Understand automated ML models
-
 
 <a name="explain"></a>
 
@@ -354,4 +351,5 @@ For general information on how model explanations and feature importance can be 
 + Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
 + Learn more about [how to train a regression model with Automated machine learning](tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](how-to-auto-train-remote.md).
-+ Learn how to train multiple models with autoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).
+
++ Learn how to train multiple models with AutoML in the [Many Models Solution Accelerator](https://aka.ms/many-models).
