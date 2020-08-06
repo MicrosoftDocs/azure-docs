@@ -63,7 +63,7 @@ On the following *Create Resource* page, fill in the values given below:
 
 When finished, select _Review + create_. This will take you to a summary page, where you can review the instance details you entered and hit _Create_. 
 
-### Verify success
+### Verify success and collect important values
 
 After pushing *Create*, you can view the status of your instance's deployment in your Azure notifications along the portal icon bar. The notification will indicate when deployment has succeeded, and you'll be able to select the _Go to resource_ button to view your created instance.
 

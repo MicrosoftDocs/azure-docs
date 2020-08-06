@@ -49,7 +49,7 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
-Locate `case DemoStep::ConfigSession:` and add the following line, substituting in your account domain from earlier: `configuration.AccountDomain("MyAccountDomain");`.
+Locate the `SpatialAnchorsAccountDomain` field and replace `Set me` with the account domain.
 
 ## Deploy the app to your HoloLens
 

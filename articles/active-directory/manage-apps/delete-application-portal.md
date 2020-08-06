@@ -38,6 +38,9 @@ To delete an application from your Azure AD tenant:
 1. In the **Manage** section in the left pane, select **Properties**.
 1. Select **Delete**, and then select **Yes** to confirm you want to delete the app from your Azure AD tenant.
 
+> [!TIP]
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
 ## Clean up resources
 
 When your done with this quickstart series, consider deleting the app to clean up your test tenant. Deleting the app was covered in this quickstart.
