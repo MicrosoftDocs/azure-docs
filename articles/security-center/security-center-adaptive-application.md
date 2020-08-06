@@ -1,6 +1,6 @@
 ---
 title: Adaptive application controls in Azure Security Center
-description: This document helps you use adaptive application control in Azure Security Center to whitelist applications running in Azure machines.
+description: This document helps you use adaptive application control in Azure Security Center to allow list applications running in Azure machines.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -82,7 +82,7 @@ Select that recommendation, or open the adaptive application controls page to vi
       - The list of applications and processes is unstable and Security Center can't see a pattern
       - It's missing a Log Analytics agent
       - The Log Analytics agent isn't sending events
-      - The machine has a pre-existing AppLocker policy enabled by either a GPO or a local security policy
+      - The machine has a pre-existing [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker) policy enabled by either a GPO or a local security policy
 
 1. Open the **Recommended** tab. The groups of machines with recommended allow lists appears.
 
@@ -112,7 +112,7 @@ Select that recommendation, or open the adaptive application controls page to vi
 
 ## Editing a group's adaptive application controls rule
 
-You might decide to edit the allow list for a group of a machines because of known changes in your organization. 
+You might decide to edit the allow list for a group of machines because of known changes in your organization. 
 
 To edit the rules for a group of machines:
 
@@ -178,7 +178,7 @@ To remediate the issues:
 
 ## Move a machine from one group to another
 
-When you move a machine from one group to another, the application control policy applied to it changes to the settings of the group that you moved it to. You can also move a machine from a configured group to a non-configured group, which results in removing any application control policy that was previously applied to the machine.
+When you move a machine from one group to another, the application control policy applied to it changes to the settings of the group that you moved it to. You can also move a machine from a configured group to a non-configured group, doing so removes any application control rules that were applied to the machine.
 
 1. From the **Adaptive application controls** page, from the **Configured** tab, select the group containing the  machine to be moved.
 
@@ -198,13 +198,13 @@ When you move a machine from one group to another, the application control polic
 
 To manage your adaptive application controls programatically, use our REST API. 
 
-The full API documentation is [here](https://docs.microsoft.com/en-us/rest/api/securitycenter/adaptiveapplicationcontrols.
+The full API documentation is [here](https://docs.microsoft.com/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Some of the functions that are available from the REST API:
 
 * **List** retrieves all your group recommendations and provides a JSON with an object for each group.
 
-* **Get** retrieves the JSON with the full recommendation data (i.e. list of machines, publisher/path rules, and so on)
+* **Get** retrieves the JSON with the full recommendation data (that is, list of machines, publisher/path rules, and so on)
 
 * **Put** configures your rule (use the JSON you retrieved with **Get** as the body for this request).
  
