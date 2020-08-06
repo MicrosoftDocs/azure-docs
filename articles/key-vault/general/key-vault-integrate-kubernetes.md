@@ -200,10 +200,10 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 If you're using managed identities, assign specific roles to the AKS cluster you've created. 
 
-1. To create, list, or read a user-assigned managed identity, your AKS cluster needs to be assigned the [Managed Identity Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role. Make sure that the **$clientId** is the Kubernetes cluster's clientId.
+1. To create, list, or read a user-assigned managed identity, your AKS cluster needs to be assigned the [Managed Identity Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) role. Make sure that the **$clientId** is the Kubernetes cluster's clientId. For the scope, it'll be under your Azure subcription service, specifically the node resource group that was made when the AKS cluster was created. This will ensure only resources within that group are affected by the roles assigned below. 
 
     ```azurecli
-    az role assignment create --role "Managed Identity Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     ```
