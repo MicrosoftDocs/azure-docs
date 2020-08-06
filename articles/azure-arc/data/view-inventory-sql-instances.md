@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Scenario: View inventory of your instances in the Azure portal
 
-**After you have uploaded your [metrics, logs](007-upload-metrics-and-logs-to-Azure-Monitor.md), or [usage](021-view-billing-data-in-Azure.md), you can view your instance as an Azure resource from the Azure portal. To do so navigate to the special URL [https://aka.ms/arcdata](https://aka.ms/arcdata) and follow the screen shots below
+**After you have uploaded your [metrics, logs](upload-metrics-and-logs-to-azure-monitor.md), or [usage](view-billing-data-in-azure.md), you can view your instance as an Azure resource from the Azure portal. To do so navigate to the special URL [https://aka.ms/arcdata](https://aka.ms/arcdata) and follow the screen shots below
 
 - Go to All services
 ![alt text](/assets/allservices.png)

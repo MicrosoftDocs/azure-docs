@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Restore the AdventureWorks sample database into SQL managed instance
 
-[AdventureWorks](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=tsql) is a sample database containing an OLTP database that is oftentimes used in tutorials, examples, etc.  It is provided and maintained by Microsoft as part of the [SQL Server samples GitHub repository](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases).
+[AdventureWorks]((/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=tsql) is a sample database containing an OLTP database that is oftentimes used in tutorials, examples, etc.  It is provided and maintained by Microsoft as part of the [SQL Server samples GitHub repository](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases).
 
 This document describes a simple process to get the AdventureWorks sample database restored into your SQL managed instance.
 

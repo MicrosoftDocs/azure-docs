@@ -79,7 +79,7 @@ azdata arc postgres server create -n <name> --workers 2 --external-endpoint --st
 >  If you deployed the data controller using AZDATA_USERNAME and AZDATA_PASSWORD in the same terminal session, then the values for AZDATA_USERNAME and AZDATA_PASSWORD will be used to deploy the PostgreSQL instance too.
 
 > [!NOTE]
->  Creating a PostgreSQL Instance will not immediately register resources in Azure. As part of the process of [uploading metrics/logs](/scenarios-new/007-upload-metrics-and-logs-to-Azure-Monitor.md) or [billing data](/scenarios-new/021-view-billing-data-in-Azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in Azure portal.
+>  Creating a PostgreSQL Instance will not immediately register resources in Azure. As part of the process of [uploading metrics/logs](/scenarios-new/007-upload-metrics-and-logs-to-Azure-Monitor.md) or [billing data](/scenarios-new/view-billing-data-in-azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in Azure portal.
 
 > [!NOTE]
 >  The --port parameter does not work on the July 2020 release.
@@ -191,5 +191,5 @@ psql postgresql://postgres:PASSWORD@10.0.0.4:30655
 
 ## Next Steps
 
-- [Register your instance with Azure and upload metrics and logs about your instance](007-upload-metrics-and-logs-to-Azure-Monitor.md)
-- [Scale out your Azure Database for PostgreSQL Hyperscale server group](008-scale-out-pghsaa.md)
+- [Register your instance with Azure and upload metrics and logs about your instance](upload-metrics-and-logs-to-azure-monitor.md)
+- [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgres-hyperscale.md)

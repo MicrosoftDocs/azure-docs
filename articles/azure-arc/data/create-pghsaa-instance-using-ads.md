@@ -17,7 +17,7 @@ This document walks you through the steps for using Azure Data Studio to provisi
 
 ## Pre-requisites
 
-- [Install azdata, Azure Data Studio, and Azure CLI](/scenarios/001-install-client-tools.md)
+- [Install azdata, Azure Data Studio, and Azure CLI](/scenarios/install-client-tools.md)
 
 ## Login to the Azure Arc data controller
 
@@ -101,7 +101,7 @@ az network nsg rule create -n db_port --destination-port-ranges 30655 --source-a
 
 ## Connect with Azure Data Studio
 
-Open Azure Data Studio and connect to your instance with the external endpoint IP address and port number above, and the password retrieved from the `azdata postgres server endpoint` command. Follow steps here on how to [connect to a Postgres endpoint using Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/quickstart-postgres?view=sql-server-ver15)
+Open Azure Data Studio and connect to your instance with the external endpoint IP address and port number above, and the password retrieved from the `azdata postgres server endpoint` command. Follow steps here on how to [connect to a Postgres endpoint using Azure Data Studio]((/sql/azure-data-studio/quickstart-postgres?view=sql-server-ver15)
 
 Remember if you are using an Azure VM you will need the _public_ IP address which is accessible via the following command:
 
@@ -148,4 +148,4 @@ Once connected, you can utilize the full functionality of PostgreSQL Hyperscale,
 
 ## Next Steps
 
-Try to [Scale out your Azure Database for PostgreSQL Hyperscale server group](008-scale-out-pghsaa.md).
+Try to [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgres-hyperscale.md).

@@ -19,8 +19,8 @@ Azure Data Studio provides an experience similar to the Azure Portal for viewing
 
 ### Prerequisites
 
-- Azure Data Studio is installed (/scenarios/001-install-client-tools.md)
-- Azure Arc extension is installed (/scenarios/001-install-client-tools.md)
+- Azure Data Studio is installed (/scenarios/install-client-tools.md)
+- Azure Arc extension is installed (/scenarios/install-client-tools.md)
 
 ### Step 1: Determining the data controller server API endpoint URL
 

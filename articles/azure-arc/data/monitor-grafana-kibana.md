@@ -111,4 +111,4 @@ The relevant dashboards are:
 
 ## Next Steps
 
-Try [Upload metrics and logs to Azure Monitor](007-upload-metrics-and-logs-to-Azure-Monitor.md).
+Try [Upload metrics and logs to Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md).

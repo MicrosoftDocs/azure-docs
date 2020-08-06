@@ -178,4 +178,4 @@ Total execution time: 00:00:00.362
 
 ## Next Steps
 
-Try out [Backup and Restore for Azure Database for PostgreSQL Hyperscale server groups](010-backup-restore-pghsaa.md).
+Try out [Backup and Restore for Azure Database for PostgreSQL Hyperscale server groups](backup-restore-pghsaa.md).

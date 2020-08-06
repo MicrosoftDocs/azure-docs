@@ -93,4 +93,4 @@ Click on the Azure Arc extension.  If there is an update available, you can see 
 
 ## Next steps
 
-Now [install the latest version of azdata + extensions](001-install-client-tools.md)
+Now [install the latest version of azdata + extensions](install-client-tools.md)

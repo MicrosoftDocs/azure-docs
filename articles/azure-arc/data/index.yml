@@ -28,7 +28,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Connectivity
-            url: connectivity.md.md
+            url: connectivity.md
           - text: Storage configuration
             url: storage-configuration.md
 

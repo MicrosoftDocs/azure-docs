@@ -20,7 +20,7 @@ This scenario will show you:
 
 ## Get started with Azure Data Studio
 
-For starting, you need to install Azure Data Studio as explained in [this scenario](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/blob/jul-2020/scenarios/001-install-client-tools.md#step-8-install-azure-data-studio-and-arc-extension-and-log-into-azure).
+For starting, you need to install Azure Data Studio as explained in [this scenario](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/blob/jul-2020/scenarios/install-client-tools.md#step-8-install-azure-data-studio-and-arc-extension-and-log-into-azure).
 
 Once installed, start Azure Data Studio and reach its welcome page:
 ![Screenshot of Azure Data Studio Welcome page.](/assets/ADS_Jul2020_welcome.jpg)

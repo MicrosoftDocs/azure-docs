@@ -18,7 +18,7 @@ You can create a data controller using Azure Data Studio through the Deployment 
 ## Prerequisites
 
 - You need access to a Kubernetes cluster and have your kubeconfig file.
-- You need to [install the client tools](/scenarios/001-install-client-tools.md) including the Azure Data Studio extension called 'Arc deployment'.
+- You need to [install the client tools](/scenarios/install-client-tools.md) including the Azure Data Studio extension called 'Arc deployment'.
 - You need to log in to Azure in Azure Data Studio.  To do this: type CTRL/Command + SHIFT + P to open the command text window and type 'Azure'.  Choose 'Azure: Sign in'.   In the panel the comes up click the + icon in the top right to add an Azure AD account.
 
 > [!NOTE]

@@ -204,4 +204,4 @@ to list the extensions that have been created in your Postgres instance.
 
 ## Next steps
 
-Now, try to [view logs and metrics using Kibana and Grafana](005-monitor-grafana-kibana.md)
+Now, try to [view logs and metrics using Kibana and Grafana](monitor-grafana-kibana.md)

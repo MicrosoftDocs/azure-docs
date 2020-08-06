@@ -192,7 +192,7 @@ Go here to install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kube
 ## Step 5: Install Azure CLI
 
 -------
-Follow these steps to [install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) on your client machine
+Follow these steps to [install the Azure CLI](/azure/install-azure-cli?view=azure-cli-latest) on your client machine
 
 Once installed, set the cloud environment and login
 
@@ -277,4 +277,4 @@ sudo apt-get install postgresql-client-10
 
 ## Next steps
 
-Now [deploy the Azure Arc data controller](002-create-data-controller.md)
+Now [deploy the Azure Arc data controller](create-data-controller.md)

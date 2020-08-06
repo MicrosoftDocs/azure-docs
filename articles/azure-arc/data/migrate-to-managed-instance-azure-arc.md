@@ -21,15 +21,15 @@ This method uses Azure Blob Storage as a temporary storage location that you can
 
 ### Pre-requisites
 
-- [Install Azure Data Studio](/scenarios/001-install-client-tools.md)
-- [Install Azure Storage Explorer](https://azure.microsoft.com/is-is/features/storage-explorer/)
+- [Install Azure Data Studio](/scenarios/install-client-tools.md)
+- [Install Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - Azure subscription
 
 ### Step 1: Provision Azure Blob Storage
 
 1) Follow the steps described in [Create an Azure Blob Storage account](/storage/blobs/storage-blob-create-account-block-blob?tabs=azure-portal)
 2) Launch Azure Storage Explorer
-3) [Sign in to Azure in the Azure Storage Explorer](https://docs.microsoft.com/is-is/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) to access the blob storage created in previous step
+3) [Sign in to Azure in the Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) to access the blob storage created in previous step
 4) Right click on the blob storage account and select **Create Blob Container** to create a new container where the backup file will be stored
 
 ![alt text](/assets/createblobcontainer.png)
@@ -120,9 +120,9 @@ Example:
 
 Learn more about backup to URL here:
 
-[Backup to URL docs](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-ver15)
+[Backup to URL docs]((/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-ver15)
 
-[Backup to URL using SQL Server Management Studio (SSMS)](https://docs.microsoft.com/en-us/sql/relational-databases/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service?view=sql-server-ver15&tabs=SSMS)
+[Backup to URL using SQL Server Management Studio (SSMS)]((/sql/relational-databases/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service?view=sql-server-ver15&tabs=SSMS)
 
 -------
 

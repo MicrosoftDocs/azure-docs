@@ -18,7 +18,7 @@ Notebooks provide a great way to document procedures because they can include ma
 In this scenario, we'll look at how to use the built-in troubleshooting notebook in Azure Data Studio for troubleshooting a PostgreSQL Hyperscale server group that might be having some problems.
 
 ### Step 1: install Azure Data Studio, kubectl and azdata
-You need to have installed Azure Data Studio, kubectl and azdata **on the client machine you are using to run the notebook in Azure Data Studio**. To do this, please follow scenario [001-install-client-tools.md](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/blob/jul-2020/scenarios/001-install-client-tools.md)
+You need to have installed Azure Data Studio, kubectl and azdata **on the client machine you are using to run the notebook in Azure Data Studio**. To do this, please follow scenario [install-client-tools.md](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/blob/jul-2020/scenarios/install-client-tools.md)
 
 ### Step 2: update the PATH environment variable
 Makes sure that these tools can be invoked from anywhere on this client machine. For example, on a Windows client machine, update the PATH system environment variable and add the folder in which you installed kubectl.
@@ -26,14 +26,14 @@ Makes sure that these tools can be invoked from anywhere on this client machine.
 ### Step 3: login with Azdata
 Login to your Arc Data Controller from this client machine and before you launch Azure Data Studio. To do this, run a command like:
 
-    ```terminal
-    azdata login --endpoint https://12.345.67.890:30080
-    ```
-    Replacing the IP address with the one of your Kubernetes cluster and the port on which Kubernetes is listening. You will be prompted for user and password. You can read more details by running:
+```console
+azdata login --endpoint https://12.345.67.890:30080
+```
+Replacing the IP address with the one of your Kubernetes cluster and the port on which Kubernetes is listening. You will be prompted for user and password. You can read more details by running:
 
-    ```terminal
-    azdata login --help
-    ```
+```console
+azdata login --help
+```
 
 ### Step 4: log into your Kubernetes cluster with kubectl
 To do this, you may want to use the example commands provided in this blog post: https://blog.christianposta.com/kubernetes/logging-into-a-kubernetes-cluster-with-kubectl/

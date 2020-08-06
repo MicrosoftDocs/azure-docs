@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Scenario: View Azure Arc data controller resource in Azure Portal
 
-Once you have done your first [metrics or logs upload to Azure](007-upload-metrics-and-logs-to-Azure-Monitor.md) or [uploaded usage](021-view-billing-data-in-Azure.md), you will be able to see that the Azure Arc data controller resource that is created in Azure in the Azure Portal.
+Once you have done your first [metrics or logs upload to Azure](upload-metrics-and-logs-to-azure-monitor.md) or [uploaded usage](view-billing-data-in-azure.md), you will be able to see that the Azure Arc data controller resource that is created in Azure in the Azure Portal.
 
 Open the Azure Portal using the special URL:  [https://aka.ms/arcdata](https://aka.ms/arcdata).
 

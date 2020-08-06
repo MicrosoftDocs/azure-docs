@@ -17,7 +17,7 @@ This document walks you through the steps for installing Azure SQL managed insta
 
 ## Pre-requisites
 
-- [Install azdata, Azure Data Studio, and Azure CLI](/scenarios/001-install-client-tools.md)
+- [Install azdata, Azure Data Studio, and Azure CLI](/scenarios/install-client-tools.md)
 
 ## Login to the Azure Arc data controller
 
@@ -44,7 +44,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 ![alt text](/assets/newdeployement.png)
 
 - Select Azure SQL managed instance - Azure Arc and hit select
-  > **Note:** You may be prompted to install the azdata CLI here if it is not currently installed.  **DO NOT** install azdata from Azure Data Studio!  It will install the wrong version currently.  Instead you should [install azdata by following these instructions](/scenarios/001-install-client-tools.md).
+  > **Note:** You may be prompted to install the azdata CLI here if it is not currently installed.  **DO NOT** install azdata from Azure Data Studio!  It will install the wrong version currently.  Instead you should [install azdata by following these instructions](/scenarios/install-client-tools.md).
 
 ![alt text](/assets/selectsql.png)
 
@@ -115,4 +115,4 @@ For example:
 
 ## Next Steps
 
-Now try to [monitor your SQL instance](005-monitor-grafana-kibana)
+Now try to [monitor your SQL instance](monitor-grafana-kibana)

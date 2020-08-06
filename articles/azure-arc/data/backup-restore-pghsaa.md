@@ -213,6 +213,7 @@ azdata postgres backup delete -n <server group name> -bn <backup name> --tier <t
 
 #Example:
 azdata postgres backup delete -n pg1 -ns arc --tier 1
+```
 
 ## Next Steps
 
