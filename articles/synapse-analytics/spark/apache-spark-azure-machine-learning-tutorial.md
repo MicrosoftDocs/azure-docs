@@ -134,8 +134,8 @@ ws = Workspace(workspace_name = workspace_name,
 
 ```
 
-## Convert Dataframe to a Tabular Dataset
-To run our experiment, we will need to convert our Spark dataframe in an Azure Machine Learning ```TabularDatset```. A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided files.
+## Convert Dataframe to an Azure Machine Learning Dataset
+To submit our experiment, we will need to convert our dataset into a Pandas dataframe or Azure Machine Learning Dataset. In this example, we will need to convert our Spark dataframe in an Azure Machine Learning ```TabularDatset```. A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided files.
 
 The following code gets the existing workspace and the default Azure Machine Learning default datastore. It then passes the datastore and file locations to the path parameter to create a new ```TabularDataset```. 
 
@@ -191,7 +191,7 @@ automl_config = AutoMLConfig(task='regression',
 >Automated machine learning pre-processing steps (feature normalization, handling missing data, converting text to numeric, etc.) become part of the underlying model. When using the model for predictions, the same pre-processing steps applied during training are applied to your input data automatically.
 
 #### Train the automatic regression model 
-Now, we will create an experiment object in your workspace. An experiment acts as a container for your individual runs. 
+Now, we will create an experiment object in your Azure Machine Learning workspace. An experiment acts as a container for your individual runs. 
 
 ```python
 from azureml.core.experiment import Experiment
@@ -207,6 +207,9 @@ run_details = local_run.get_details()
 Once the experiment has completed, the output will return details about the completed iterations. For each iteration, you see the model type, the run duration, and the training accuracy. The field BEST tracks the best running training score based on your metric type.
 
 ![Model Output](./media/apache-spark-machine-learning-aml-notebook/aml-regression-output.png)
+
+> [!NOTE]
+> Once submitted, the AutoML experiment will run various iterations and model types. This run will typically take 1-1.5 hours. 
 
 #### Retrieve the Best Model
 To select the best model from your iterations, we will use the ```get_output``` function to return the best run and fitted model. The code below will retrieve the best run and fitted model for any logged metric or a particular iteration.
