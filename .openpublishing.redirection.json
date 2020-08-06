@@ -26565,7 +26565,7 @@
     },
     {
       "source_path": "articles/storage/blobs/storage-simulate-failure-ragrs-account-app.md",
-      "redirect_url": "/azure/storage/common/simulate-primary-region-failure",
+      "redirect_url": "/azure/storage/blobs/simulate-primary-region-failure",
       "redirect_document_id": false
     },
     {
@@ -55399,6 +55399,11 @@
       "source_path": "articles/active-directory/b2b/what-is-b2b.md",
       "redirect_url": "/azure/active-directory/external-identities/what-is-b2b",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/aks/windows-node-limitations.md",
+      "redirect_url": "/azure/aks/windows-faq",
+      "redirect_document_id": false
     }
   ]
 }
