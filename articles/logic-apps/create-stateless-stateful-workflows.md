@@ -137,11 +137,12 @@ ms.date: 09/22/2020
 
    ![Screenshot that shows locations list with "Open in current window" selected](./media/create-stateless-stateful-workflows/select-project-location.png)
 
-   After Visual Studio Code reloads, the Explorer pane opens and shows your new workflow app project.
+   After Visual Studio Code reloads, the Explorer pane opens and shows your workflow app project.
 
    ![Screenshot that shows Explorer pane and workflow app project](./media/create-stateless-stateful-workflows/workflow-app-project-created.png)
 
-   If a prompt to restore unresolved dependencies appears, ignore that prompt for now.
+   > [!NOTE]
+   > If a prompt to restore unresolved dependencies appears, ignore that prompt for now.
 
 1. On the Visual Studio Code toolbar, select the Azure icon to reopen the Azure pane.
 
@@ -149,11 +150,31 @@ ms.date: 09/22/2020
 
    ![Screenshot that shows Azure pane toolbar with "Create workflow" selected](./media/create-stateless-stateful-workflows/create-workflow-app-project.png)
 
-1. From the templates list that appears, select **Stateful Workflow**.
+1. From the templates list that appears, select either **Stateful Workflow** or **Stateless Workflow**, and then provide a name for your workflow app.
 
-   ![Screenshot that shows a templates list with "Stateful Workflow" selected](./media/create-stateless-stateful-workflows/select-stateful-workflow.png)
+   ![Screenshot that shows a templates list with "Stateful Workflow" and "Stateless Workflow"](./media/create-stateless-stateful-workflows/select-stateful-stateless-workflow.png)
 
-## Test your workflow app
+   Your project folder now includes a folder with your specified name and a `workflow.json` file, which stores the JSON definition for your workflow.
+
+   ![Screenshot that shows Explorer window with project folder, workflow folder, and .json file](./media/create-stateless-stateful-workflows/sample-workflow-folder.png)
+
+1. Open the shortcut menu for your `workflow.json` file, select **Open in Designer**.
+
+   ![Screenshot that shows Explorer pane and shortcut window for workflow.json file with Open in Designer selected](./media/create-stateless-stateful-workflows/open-definition-file-in-designer.png)
+
+Now, continue with either the next steps for stateful workflow or for [stateless workflow](#stateless-workflow).
+
+<a name="stateful-workflow"></a>
+
+## Create stateful workflow
+
+
+<a name="stateless-workflow"></a>
+
+## Create stateless workflow
+
+
+## Test your workflow
 
 
 ## Deploy to Docker container
