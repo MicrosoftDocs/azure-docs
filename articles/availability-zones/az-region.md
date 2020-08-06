@@ -20,7 +20,7 @@ Services that are available in each region, along with upcoming roadmap for avai
 ## Americas
 
 | Service | Central US | East US | East US 2 | West US 2 |
-|---|---|---|---|---|
+| --- | :---: | :---: | :---: | :---: |
 | **Compute** |  |  |  |  |
 | Linux Virtual Machines             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Windows Virtual Machines           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -53,7 +53,7 @@ Services that are available in each region, along with upcoming roadmap for avai
 ## Europe
 
 | Service | France Central | North Europe | UK South | West Europe |
-|---|---|---|---|---|
+| --- | :---: | :---: | :---: | :---: |
 | **Compute** |  |  |  |  |
 | Linux Virtual Machines             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Windows Virtual Machines           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -86,7 +86,7 @@ Services that are available in each region, along with upcoming roadmap for avai
 ## Asia Pacific
 
 | Service | Japan East | Southeast Asia | Australia East |
-|---|---|---|---|
+| --- | :---: | :---: | :---: |
 | **Compute** |  |  |  |
 | Linux Virtual Machines             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Windows Virtual Machines           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
