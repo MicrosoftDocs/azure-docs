@@ -62,7 +62,7 @@ Cognitive Services supports service tags for network rules configuration. The se
 > * [Custom Vision](./custom-vision-service/index.yml)
 > * [Face](./face/index.yml)
 > * [Form Recognizer](./form-recognizer/index.yml)
-> * [Language Understanding](./luis/index.yml)
+> * [Language Understanding (LUIS)](./luis/index.yml)
 > * [Personalizer](./personalizer/index.yml)
 > * [Text Analytics](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
