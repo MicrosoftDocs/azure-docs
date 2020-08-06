@@ -1,7 +1,7 @@
 ---
 title: Hyperledger Fabric consortium on Azure Kubernetes Service (AKS)
 description: How to deploy and configure Hyperledger Fabric consortium network on Azure Kubernetes Service
-ms.date: 07/27/2020
+ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ---
@@ -346,10 +346,21 @@ Follow the steps:
 From peer client application, execute below command to instantiate chaincode on the channel.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
 Pass instantiation function name and space separated list of arguments in `<instantiateFunc>` and `<instantiateFuncArgs>` respectively. For example, in chaincode_example02.go chaincode, to instantiate the chaincode set `<instantiateFunc>` to `init`and `<instantiateFuncArgs>` to “a” “2000” “b” “1000”.
+
+You can also pass the collections configuration JSON file using the `--collections-config` flag or even set the transient arguments, using the `-t` flag while instantiating a chaincode used for private transactions, as shown below in the example commands.
+
+```bash
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
+
+```
+The `<collectionConfigJSONFilePath>` is the path to the JSON file containing the collections defined for the instantiation of a private data chaincode. You can find a sample collections configuration JSON file relative to the azhlfTool directory at the following path: `./samples/chaincode/src/private_marbles/collections_config.json`.
+The `<transientArgs>` should be a valid JSON in string format, escaping the required characters. You can consider the example:
+`'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > Execute the command for once from any one peer organization in the channel. Once the transaction is successfully submitted to the orderer, the orderer distributes this transaction to all the peer organizations in the channel. Hence, the chaincode is instantiated on all the peer nodes on all the peer organizations in the channel.  
@@ -373,8 +384,11 @@ Pass invoke function name and space separated list of arguments in `<invokeFun
 Execute below command to query chaincode:  
 
 ```bash
-./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
+./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
+Endorsing peers are those peers on whom the chaincode is installed and can be called for execution of transactions. You must set the `<endorsingPeers>` as the space separated strings containing peer node name(s) from the current peer organization, which are the endorsing peers for given chaincode and channel combination. For example, you can set `<endorsingPeers>` to “peer1” “peer3”. 
+If you are using azhlfTool to install your chaincodes then you can pass any peer node name(s) as a value to this argument as the chaincode will be installed on every peer node for that organization. 
+
 Pass query function name and space separated list of arguments in `<queryFunction>` and `<queryFuncArgs>` respectively. Again, taking chaincode_example02.go chaincode as reference, to query value of “a” in the world state set `<queryFunction>` to `query` and `<queryArgs>` to “a”.  
 
 ## Troubleshoot
