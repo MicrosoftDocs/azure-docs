@@ -21,7 +21,7 @@ The Ink Recognizer Cognitive Service provides a cloud-based REST API to analyze 
 
 ## Features
 
-With the Ink Recognizer API, you can easily recognize handwritten content in your applications. The API accepts up to 1500 digital ink strokes per request. 
+With the Ink Recognizer API, you can easily recognize handwritten content in your applications. 
 
 |Feature  |Description  |
 |---------|---------|
@@ -38,7 +38,7 @@ The Ink Recognizer API is a RESTful web service, making it easy to call from any
 
 After signing up:
 
-1. Take your ink stroke data and [format it](concepts/send-ink-data.md#sending-ink-data) into valid JSON.
+1. Take your ink stroke data and [format it](concepts/send-ink-data.md#sending-ink-data) into valid JSON. The API accepts up to 1500 ink strokes per request. 
 1. Send a request to the Ink Recognizer API with your data.
 1. Process the API response by parsing the returned JSON message.
 
