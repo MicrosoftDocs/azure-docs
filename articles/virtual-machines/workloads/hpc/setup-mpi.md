@@ -170,7 +170,7 @@ MPI Benchmarks are under `mpi/` folder.
 
 ## Discover partition keys
 
-Discover partition keys (p-keys) for communicating with other VMs within the same tenant (Availability Set or VM Scale Set).
+Discover partition keys (p-keys) for communicating with other VMs within the same tenant (Availability Set or Virtual Machine Scale Set).
 
 ```bash
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
@@ -188,7 +188,7 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 
 Use the partition other than default (0x7fff) partition key. UCX requires the MSB of p-key to be cleared. For example, set UCX_IB_PKEY as 0x000b for 0x800b.
 
-Also note that as long as the tenant (AVSet or VMSS) exists, the PKEYs remain the same. This is true even when nodes are added/deleted. New tenants get different PKEYs.
+Also note that as long as the tenant (Availability Set or Virtual Machine Scale Set) exists, the PKEYs remain the same. This is true even when nodes are added/deleted. New tenants get different PKEYs.
 
 
 ## Set up user limits for MPI
