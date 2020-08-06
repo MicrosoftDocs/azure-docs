@@ -18,12 +18,12 @@ ms.author: memildin
 ---
 # Use adaptive application controls to reduce your machines' attack surfaces
 
-Learn about the benefits of Azure Security Center's adaptive application controls and how to you can enhance your security with this data-driven, intelligent feature.
+Learn about the benefits of Azure Security Center's adaptive application controls and how you can enhance your security with this data-driven, intelligent feature.
 
 
 ## What are Security Center's adaptive application controls?
 
-Adaptive application controls is an intelligent and automated solution for defining which applications should run on your machines. 
+Adaptive application controls are an intelligent and automated solution for defining which applications should run on your machines. 
 
 Often, organizations have collections of stable machines that routinely run the same processes. Security Center uses machine learning to analyze the applications running on your machines and create a list of the known-safe software. The allow lists are based on your specific Azure workloads, and you can further customize the recommendations using the instructions below.
 
