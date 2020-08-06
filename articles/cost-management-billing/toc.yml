@@ -94,7 +94,7 @@
         href: reservations/understand-reserved-instance-usage.md?toc=/azure/cost-management-billing/toc.json
       - name: Usage data for Enterprise customers
         href: reservations/understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/toc.json
-    - name: Billing terminology
+    - name: Billing
       items:
       - name: Individual subscription usage terms
         href: understand/understand-usage.md
@@ -108,6 +108,8 @@
         href: manage/mca-understand-pricesheet.md
       - name: Microsoft Partner Agreement invoice terms
         href: understand/mpa-invoice-terms.md
+      - name: Changes to your updated individual billing account
+        href: understand/mosp-new-customer-experience.md
       - name: Billing accounts for Microsoft Customer Agreement
         href: understand/mca-overview.md
       - name: Billing accounts for Microsoft Partner Agreement
