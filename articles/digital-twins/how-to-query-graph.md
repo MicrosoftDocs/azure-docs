@@ -135,7 +135,7 @@ In the example above, note how *reportedCondition* is a property of the *service
 
 ### Query with multiple JOINs
 
-Currently in preview, up to five `JOIN`s are supported in a single query. This allows you to traverse multiple twin collections or multiple levels of relationships at once.
+Currently in preview, up to five `JOIN`s are supported in a single query. This allows you to traverse multiple levels of relationships at once.
 
 Here is an example of a multi-join query, which gets all the light bulbs contained in the light panels in rooms 1 and 2.
 
