@@ -145,7 +145,7 @@ When working on Azure Functions, instances should also follow the existing [guid
 
 **Disable content response on write operations**
 
-For workloads that have heave create payloads set the EnableContentResponseOnWrite request option to false. The service will no longer return the created or updated resource to the SDK. Normally the application has the object being created so it does not need the service to return it. The header values are still accessible like request charge. This can improve performance because the SDK will no longer need to allocate memory or serialize the body of the response. This also reduces the network bandwidth usage to further help performance.  
+For workloads that have heavy create payloads set the EnableContentResponseOnWrite request option to false. The service will no longer return the created or updated resource to the SDK. Normally the application has the object being created so it does not need the service to return it. The header values are still accessible like request charge. This can improve performance because the SDK will no longer need to allocate memory or serialize the body of the response. This also reduces the network bandwidth usage to further help performance.  
 
 ```csharp
 ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
