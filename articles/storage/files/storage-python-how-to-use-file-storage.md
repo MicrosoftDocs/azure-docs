@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Develop for Azure Files with Python
