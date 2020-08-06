@@ -43,13 +43,13 @@
     items:
     - name: Overview
       displayName: standards, Australian, Government, ISM, PROTECTED
-      href: ./samples/ism-protected/control-mapping.md
+      href: ./samples/ism-protected/index.md
     - name: Control mapping
       displayName: standards, Australian, Government, ISM, PROTECTED
       href: ./samples/ism-protected/control-mapping.md
     - name: Steps to deploy
       displayName: standards, Australian, Government, ISM, PROTECTED
-      href: ./samples/ism-protected/control-mapping.md
+      href: ./samples/ism-protected/deploy.md
   - name: Canada Federal PBMM
     items:
     - name: Overview

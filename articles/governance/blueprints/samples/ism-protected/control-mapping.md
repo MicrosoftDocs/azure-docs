@@ -362,6 +362,10 @@ This blueprint helps you restrict the location for the deployment of all resourc
 
 Additional articles about blueprints and how to use them:
 
+> [!div class="nextstepaction"]
+> [ISM PROTECTED blueprint - Overview](./index.md)
+> [ISM PROTECTED blueprint - Deploy steps](./deploy.md)
+
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
