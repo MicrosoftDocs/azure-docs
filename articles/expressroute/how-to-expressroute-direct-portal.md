@@ -16,7 +16,11 @@ ms.author: cherylmc
 This article shows you how to create ExpressRoute Direct using the Azure portal.
 ExpressRoute Direct lets you connect directly into Microsoft’s global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct](expressroute-erdirect-about.md).
 
-## <a name="create-erdir"></a>1. Create ExpressRoute Direct
+## <a name="create-erdir"></a>1. Enable Azure Microsoft.Network Resource provider
+
+To enable a Microsoft Azure Resource provider you need to access your subscription settings as discribed in [Azure resource providers and types](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
+
+## <a name="create-erdir"></a>2. Create ExpressRoute Direct
 
 1. In the [Azure portal](https://portal.azure.com) menu, or from the **Home** page, select **Create a resource**.
 
