@@ -41,7 +41,7 @@ Each of the cells in the connectivity matrix describes whether a Virtual WAN con
 
 * NVA Spokes:
   * Spokes will reach other spokes directly over Virtual WAN hubs.
-  * Spokes will get connectivity to branches via a static route pointing to the Service VNet. They should not learn specific prefixes from the branches (otherwise those would be more specific, and override the summary).
+  * Spokes will get connectivity to branches via a static route pointing to the Service VNet. They should not learn specific prefixes from the branches (otherwise those would be more specific and override the summary).
   * Spokes will send Internet traffic to the DMZ VNet through a direct VNet peering.
 * Branches:
   * Branches will get to spokes via a static routing pointing to the Service VNet. They should not learn specific prefixes from the VNets that override the summarized static route.
@@ -126,7 +126,7 @@ To set up routing via NVA, here are the steps to consider:
 
 **Figure 2**
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Figure 2"  lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Figure 2" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
 ## Next steps
 
