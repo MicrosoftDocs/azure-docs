@@ -45,7 +45,7 @@ appropriate action to ensure account management requirements are met.
 ## 2.6, 5.1, 6.4, and 6.5A Account Management | Role-Based Schemes
 
 Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint also assigns [Azure Policy](../../../policy/overview.md)
 definitions to audit use of Azure Active Directory authentication for SQL Servers and Service
 Fabric. Using Azure Active Directory authentication enables simplified permission management and
@@ -88,7 +88,7 @@ separation of duties.
 ## 1.3, 5.1, and 6.4 Least Privilege | Review of User Privileges
 
 Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint assigns [Azure Policy](../../../policy/overview.md)
 definitions to audit accounts that should be prioritized for review. Reviewing these account
 indicators can help you ensure least privilege controls are implemented.
