@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/27/2020
+ms.date: 08/06/2020
 ---
 
 # Create Linux-based clusters in HDInsight by using the Azure portal
