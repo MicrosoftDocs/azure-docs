@@ -32,7 +32,7 @@ Then, open the *pom.xml* file in a text editor, and add a `<dependency>` for `sp
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.5</version>
 </dependency>
 ```
 
@@ -42,7 +42,7 @@ Then, open the *pom.xml* file in a text editor, and add a `<dependency>` for `sp
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.2.2</version>
+    <version>1.2.7</version>
 </dependency>
 ```
 
