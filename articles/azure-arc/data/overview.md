@@ -12,12 +12,12 @@ ms.topic: overview
 # Customer intent: As a data professional, I want understand why my solutions would benefit from running with Azure Arc enabled so that I can leverage the capability of the feature..
 ---
 
-# What is <product/service>? 
+# What is Azure Arc enabled data services?
 
 Introductory paragraph.
 
-## <article body>
+## Article body
 
-## <Top task>
+## Top task
 
 ## Next steps
