@@ -437,26 +437,28 @@
           href: how-to-schedule-pipelines.md
         - name: Trigger a pipeline
           href: how-to-trigger-published-pipeline.md
+        - name: Designer (drag-n-drop)
+          items: 
+            - name: Log metrics
+              displayName: designer, logging
+              href: how-to-track-designer-experiments.md
+            - name: Transform data
+              displayName: pipeline
+              href: how-to-designer-transform-data.md
+            - name: Retrain using published pipelines
+              displayName: retrain, designer, published pipeline
+              href: how-to-retrain-designer.md
+            - name: Batch predictions
+              displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+              href: how-to-run-batch-predictions-designer.md
+            - name: Execute Python code
+              displayName: feature extraction, feature engineering
+              href: how-to-designer-python.md
         - name: Debug & troubleshoot pipelines
           displayName: designer
           href: how-to-debug-pipelines.md
         - name: Debug pipelines in Application Insights
           href: how-to-debug-pipelines-application-insights.md
-        - name: Designer log metrics
-          displayName: designer, logging
-          href: how-to-track-designer-experiments.md
-        - name: Designer transform data
-          displayName: pipeline
-          href: how-to-designer-transform-data.md
-        - name: Designer retrain using published pipelines
-          displayName: retrain, designer, published pipeline
-          href: how-to-retrain-designer.md
-        - name: Designer batch predictions
-          displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-          href: how-to-run-batch-predictions-designer.md
-        - name: Designer execute Python code
-          displayName: feature extraction, feature engineering
-          href: how-to-designer-python.md
         - name: Use parallel run step
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md
