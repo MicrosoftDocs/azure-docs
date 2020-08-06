@@ -49,6 +49,8 @@
     items:
     - name: Azure AD architecture
       href: active-directory-architecture.md
+    - name: Five steps for integrating all your apps with Azure AD
+      href: five-steps-to-full-application-integration-with-AAD.md
   - name: Deployment guide
     items:
     - name: Deployment 30, 90, and beyond
