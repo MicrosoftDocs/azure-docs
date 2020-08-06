@@ -120,14 +120,14 @@ Follow the [Extract printed and handwritten text](./QuickStarts/CSharp-hand-text
 
 ### Supported languages
 
-#### Printed text languages
+#### Print text
 The [Read 3.0 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. 
 
 The [Read 3.1 API public preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) adds support for Simplified Chinese. If your scenario requires supporting more languages, see the OCR API section in this document. 
 
 Refer to the list of all [OCR supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr).
 
-#### Handwritten text languages
+#### Handwriting text
 Right now, the Read operation supports extracting handwritten text exclusively in English.
 
 ### Data privacy and security
