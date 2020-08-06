@@ -82,8 +82,8 @@ landingContent:
             url: quickstarts/client-library.md?pivots=programming-language-java
           - text: Using the JavaScript SDK
             url: quickstarts/client-library.md?pivots=programming-language-javascript
-          - text: Using the REST API (cURL)
-            url: quickstarts/curl-train-extract.md
+          - text: Using the REST API (Python)
+            url: quickstarts/python-receipts.md
           - text: Using the REST API (cURL)
             url: quickstarts/curl-receipts.md
 
