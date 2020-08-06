@@ -10,9 +10,10 @@ ms.service: iot-central
 manager: corywink
 ---
 
-# Export IoT data to destinations in Azure
+# Export IoT data to destinations in Azure using data export V1
 
-*This topic applies to administrators.*
+> [!Note]
+> There is a new way to export data in IoT Central. You can use the new data export to filter and enrich your exported data, and export it to new destinations like webhook endpoints. You can learn about the new data export [here](./howto-use-data-export-new.md). To learn about the differences between the new data export and data export V1, see the [comparison table](./howto-use-data-export-new.md#Comparison-of-data-export-V1-and-new-data-export).
 
 This article describes how to use the data export feature in Azure IoT Central. This feature lets you export your data continuously to **Azure Event Hubs**, **Azure Service Bus**, or **Azure Blob storage** instances. Data export uses the JSON format and can include telemetry, device information, and device template information. Use the exported data for:
 
