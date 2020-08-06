@@ -1,6 +1,6 @@
 ---
 title: Extended GeoJSON geometries | Microsoft Azure Maps
-description: Learn how Azure Maps extends the GeoJSON spec to represent additional geometric shapes. View examples that show how to represent circles and rectangles.
+description: Learn how Azure Maps extends the GeoJSON spec to include additional geometric shapes. View examples that set up circles and rectangles for use in maps.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/17/2018
