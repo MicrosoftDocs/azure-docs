@@ -68,15 +68,15 @@ We have published guidance for managing the business process of integrating apps
 
 A good place to start is by evaluating your use of Active Directory Federation Services (ADFS). Many organizations use ADFS for authentication with SaaS apps, custom Line-of-Business apps, and Office 365 and Azure AD-based apps:
 
-![](\media\five-steps-to-full-application-integration-with-AAD\ADFSIntegration1.png)
+![Diagram shows on-premises apps, line of buisness apps, SaaS apps, and, via Azure AD, Office 365 all connecting with dotted lines into Active Directory and AD FS.](\media\five-steps-to-full-application-integration-with-AAD\ADFSIntegration1.png)
 
 You can upgrade this configuration by [replacing ADFS with Azure AD as the center](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure) of your identity management solution. Doing so enables sign-on for every app your employees want to access, and makes it easy for employees to find any business application they need via the [MyApps portal](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access), in addition to the other benefits mentioned above.
 
-![](\media\five-steps-to-full-application-integration-with-AAD\ADFSIntegration2.png)
+![Diagram shows on-premises apps via Active Directory and AD FS, line of buisness apps, SaaS apps, and Office 365 all connecting with dotted lines into Azure Active Directory.](\media\five-steps-to-full-application-integration-with-AAD\ADFSIntegration2.png)
 
 Once Azure AD becomes the central identity provider, you may be able to switch from ADFS completely, rather than using a federated solution. Apps that previously used ADFS for authentication can now use Azure AD alone.
 
-![](\media\five-steps-to-full-application-integration-with-AAD\ADFSIntegration3.png)
+![Diagram shows on-premises, line of buisness apps, SaaS apps, and Office 365 all connecting with dotted lines into Azure Active Directory. Active Directory and AD FS is not present.](\media\five-steps-to-full-application-integration-with-AAD\ADFSIntegration3.png)
 
 You can also migrate apps that use a different cloud-based identity provider to Azure AD. Your organization may have multiple Identity Access Management (IAM) solutions in place. Migrating to one Azure AD infrastructure is an opportunity to reduce dependencies on IAM licenses (on-premises or in the cloud) and infrastructure costs. In cases where you may have already paid for Azure AD via M365 licenses, there is no reason to pay the added cost of another IAM solution.
 
