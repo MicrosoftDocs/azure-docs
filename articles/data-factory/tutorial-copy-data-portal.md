@@ -1,6 +1,6 @@
 ---
 title: Use the Azure portal to create a data factory pipeline
-description: This tutorial provides step-by-step instructions for using the Azure portal to create a data factory with a pipeline. The pipeline uses the copy activity to copy data from Azure Blob storage to an Azure SQL database.
+description: This tutorial provides step-by-step instructions for using the Azure portal to create a data factory with a pipeline. The pipeline uses the copy activity to copy data from Azure Blob storage to Azure SQL Database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,11 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/13/2020
+ms.date: 05/28/2020
 ms.author: jingwang
 ---
-# Copy data from Azure Blob storage to a SQL database by using Azure Data Factory
-In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). The pipeline in this data factory copies data from Azure Blob storage to an Azure SQL database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+# Copy data from Azure Blob storage to a database in Azure SQL Database by using Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). The pipeline in this data factory copies data from Azure Blob storage to a database in Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 > [!NOTE]
 > - If you're new to Data Factory, see [Introduction to Azure Data Factory](introduction.md).
@@ -33,7 +36,7 @@ In this tutorial, you perform the following steps:
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md) for steps to create one.
-* **Azure SQL Database**. You use the database as a *sink* data store. If you don't have an Azure SQL database, see [Create a SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one.
+* **Azure SQL Database**. You use the database as a *sink* data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one.
 
 ### Create a blob and a SQL table
 
@@ -53,7 +56,7 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
 
 #### Create a sink SQL table
 
-1. Use the following SQL script to create the **dbo.emp** table in your SQL database:
+1. Use the following SQL script to create the **dbo.emp** table in your database:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -67,7 +70,7 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Allow Azure services to access SQL Server. Ensure that **Allow access to Azure services** is turned **ON** for your SQL Server so that Data Factory can write data to your SQL Server. To verify and turn on this setting, go to Azure SQL server > Overview > Set server firewall> set the **Allow access to Azure services** option to **ON**.
+1. Allow Azure services to access SQL Server. Ensure that **Allow access to Azure services** is turned **ON** for your SQL Server so that Data Factory can write data to your SQL Server. To verify and turn on this setting, go to logical SQL server > Overview > Set server firewall> set the **Allow access to Azure services** option to **ON**.
 
 ## Create a data factory
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory.
@@ -106,7 +109,8 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 1. On the **Let's get started** page, select **Create pipeline**.
 
    ![Create pipeline](./media/doc-common-process/get-started-page.png)
-1. In the **General** tab for the pipeline, enter **CopyPipeline** for **Name** of the pipeline.
+
+1. 1. In the General panel under **Properties**, specify **CopyPipeline** for **Name**. Then collapse the panel by clicking the Properties icon in the top-right corner.
 
 1. In the **Activities** tool box, expand the **Move and Transform** category, and drag and drop the **Copy Data** activity from the tool box to the pipeline designer surface. Specify **CopyFromBlobToSql** for **Name**.
 
@@ -145,7 +149,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
 1. In the **New Dataset** dialog box, input "SQL" in the search box to filter the connectors, select **Azure SQL Database**, and then select **Continue**. In this tutorial, you copy data to a SQL database.
 
-1. In the **Set Properties** dialog box, enter **OutputSqlDataset** for Name. From the **Linked service** dropdown list, select **+ New**. A dataset must be associated with a linked service. The linked service has the connection string that Data Factory uses to connect to the SQL database at runtime. The dataset specifies the container, folder, and the file (optional) to which the data is copied.
+1. In the **Set Properties** dialog box, enter **OutputSqlDataset** for Name. From the **Linked service** dropdown list, select **+ New**. A dataset must be associated with a linked service. The linked service has the connection string that Data Factory uses to connect to SQL Database at runtime. The dataset specifies the container, folder, and the file (optional) to which the data is copied.
 
 1. In the **New Linked Service (Azure SQL Database)** dialog box, take the following steps:
 
@@ -153,7 +157,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
     b. Under **Server name**, select your SQL Server instance.
 
-    c. Under **Database name**, select your SQL database.
+    c. Under **Database name**, select your database.
 
     d. Under **User name**, enter the name of the user.
 
@@ -194,13 +198,13 @@ In this step, you manually trigger the pipeline you published in the previous st
 
 1. Go to the **Monitor** tab on the left. You see a pipeline run that is triggered by a manual trigger. You can use links under the **PIPELINE NAME** column to view activity details and to rerun the pipeline.
 
-    ![Monitor pipeline runs](./media/tutorial-copy-data-portal/monitor-pipeline.png)
+    [![Monitor pipeline runs](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png)](./media/tutorial-copy-data-portal/monitor-pipeline-inline-and-expended.png#lightbox)
 
 1. To see activity runs associated with the pipeline run, select the **CopyPipeline** link under the **PIPELINE NAME** column. In this example, there's only one activity, so you see only one entry in the list. For details about the copy operation, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column. Select **All pipeline runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
 
-    ![Monitor activity runs](./media/tutorial-copy-data-portal/view-activity-runs.png)
+    [![Monitor activity runs](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
 
-1. Verify that two more rows are added to the **emp** table in the SQL database.
+1. Verify that two more rows are added to the **emp** table in the database.
 
 ## Trigger the pipeline on a schedule
 In this schedule, you create a schedule trigger for the pipeline. The trigger runs the pipeline on the specified schedule, such as hourly or daily. Here you set the trigger to run every minute until the specified end datetime.
@@ -238,7 +242,7 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
 
 1. Go to the **Monitor** tab on the left to see the triggered pipeline runs.
 
-    ![Triggered pipeline runs](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)   
+    [![Triggered pipeline runs](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/triggered-pipeline-runs-inline-and-expended.png#lightbox)
 
 1. To switch from the **Pipeline Runs** view to the **Trigger Runs** view, select **Trigger Runs** on the left side of the window.
 

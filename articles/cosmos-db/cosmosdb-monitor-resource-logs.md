@@ -4,8 +4,8 @@ description: Learn how to use Azure Diagnostic settings to monitor the performan
 author: SnehaGunda
 services: cosmos-db
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 12/09/2019
+ms.topic: how-to
+ms.date: 05/05/2020
 ms.author: sngun
 ---
 
@@ -68,6 +68,40 @@ For detailed information about how to create a diagnostic setting by using the A
 
 ## <a id="diagnostic-queries"></a> Troubleshoot issues with diagnostics queries
 
+1. How to query for the operations that are taking longer than 3 milliseconds to run:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+   | summarize count() by clientIpAddress_s, TimeGenerated
+   ```
+
+1. How to query for the user agent that is running the operations:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+   | summarize count() by OperationName, userAgent_s
+   ```
+
+1. How to query for the long running operations:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+   | project TimeGenerated , duration_s 
+   | summarize count() by bin(TimeGenerated, 5s)
+   | render timechart
+   ```
+    
+1. How to get partition Key statistics to evaluate skew across top 3 partitions for database account:
+
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+   ```
+
 1. How to get the request charges for expensive queries?
 
    ```Kusto
@@ -91,6 +125,37 @@ For detailed information about how to create a diagnostic setting by using the A
    | where TimeGenerated >= ago(2h) 
    | summarize max(responseLength_s), max(requestLength_s), max(requestCharge_s), count = count() by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
    ```
+
+1. How to get all queries that are consuming more then 100 RU/s joined with data from **DataPlaneRequests** and **QueryRunTimeStatistics**.
+
+   ```Kusto
+   AzureDiagnostics
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
+   | project activityId_g, requestCharge_s
+   | join kind= inner (
+           AzureDiagnostics
+           | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
+           | project activityId_g, querytext_s
+   ) on $left.activityId_g == $right.activityId_g
+   | order by requestCharge_s desc
+   | limit 100
+   ```
+
+1. How to get the request charges and the execution duration of a query?
+
+   ```kusto
+   AzureDiagnostics
+   | where TimeGenerated >= ago(24hr)
+   | where Category == "QueryRuntimeStatistics"
+   | join (
+   AzureDiagnostics
+   | where TimeGenerated >= ago(24hr)
+   | where Category == "DataPlaneRequests"
+   ) on $left.activityId_g == $right.activityId_g
+   | project databasename_s, collectionname_s, OperationName1 , querytext_s,requestCharge_s1, duration_s1, bin(TimeGenerated, 1min)
+   ```
+
+
 1. How to get the distribution for different operations?
 
    ```Kusto
@@ -146,11 +211,36 @@ For detailed information about how to create a diagnostic setting by using the A
 
 1. How to get partition Key statistics to evaluate skew across top three partitions for database account?
 
-    ```Kusto
-    AzureDiagnostics 
-    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
-    | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
-    ```
+   ```Kusto
+   AzureDiagnostics 
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
+   | project SubscriptionId, regionName_s, databaseName_s, collectionName_s, partitionKey_s, sizeKb_d, ResourceId
+   ```
+
+1. How to get P99 or P50 replication latencies for operations, request charge or the length of the response?
+
+   ```Kusto
+   AzureDiagnostics
+   | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+   | where TimeGenerated >= ago(2d)
+   | summarize
+   percentile(todouble(responseLength_s), 50), percentile(todouble(responseLength_s), 99), max(responseLength_s),
+   percentile(todouble(requestCharge_s), 50), percentile(todouble(requestCharge_s), 99), max(requestCharge_s),
+   percentile(todouble(duration_s), 50), percentile(todouble(duration_s), 99), max(duration_s),
+   count()
+   by OperationName, requestResourceType_s, userAgent_s, collectionRid_s, bin(TimeGenerated, 1h)
+   ```
+ 
+1. How to get Controlplane logs?
+ 
+   remember to switch on flag as described in the [disable key-based metadata write access](audit-control-plane-logs.md#disable-key-based-metadata-write-access) articleand execute the operations via Azure PowerShell, CLI or ARM.
+ 
+   ```Kusto  
+   AzureDiagnostics 
+   | where Category =="ControlPlaneRequests"
+   | summarize by OperationName 
+   ```
+
 
 ## Next steps
 

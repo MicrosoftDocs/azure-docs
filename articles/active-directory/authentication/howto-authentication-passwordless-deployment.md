@@ -64,7 +64,7 @@ Organizations must meet the following prerequisites before beginning a passwordl
 
 | Prerequisite | Authenticator app | FIDO2 Security Keys |
 | --- | --- | --- |
-| [Combined registration for Azure Multi-factor authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) is enabled (preview feature) | √ | √ |
+| [Combined registration for Azure Multi-factor authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md) is enabled | √ | √ |
 | [Users can perform Azure Multi-factor authentication](howto-mfa-getstarted.md) | √ | √ |
 | [Users have registered for Azure Multi-factor authentication and SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Users have registered their mobile devices to Azure Active Directory](../devices/overview.md) | √ |   |

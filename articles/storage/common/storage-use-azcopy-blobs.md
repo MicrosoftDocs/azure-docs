@@ -3,8 +3,8 @@ title: Transfer data to or from Azure Blob storage by using AzCopy v10 | Microso
 description: This article contains a collection of AzCopy example commands that help you create containers, copy files, and synchronize directories between local file systems and containers.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
-ms.date: 04/10/2020
+ms.topic: how-to
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
@@ -59,7 +59,6 @@ This section contains the following examples:
 > |---|---|
 > |Upload files as Append Blobs or Page Blobs.|**--blob-type**=\[BlockBlob\|PageBlob\|AppendBlob\]|
 > |Upload to a specific access tier (such as the archive tier).|**--block-blob-tier**=\[None\|Hot\|Cool\|Archive\]|
-> |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
 > 
 > For a complete list, see [options](storage-ref-azcopy-copy.md#options).
 
@@ -107,7 +106,7 @@ You can upload the contents of a directory without copying the containing direct
 
 ### Upload specific files
 
-You can specify complete file names, or use partial names with wildcard characters (*).
+You can upload specific files by using complete file names, partial names with wildcard characters (*), or by using dates and times.
 
 #### Specify multiple complete file names
 
@@ -137,6 +136,18 @@ You can also exclude files by using the `--exclude-pattern` option. To learn mor
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
 
+#### Upload files that were modified after a date and time 
+
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`). 
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Example** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'` |
+
+For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+
 ## Download files
 
 You can use the [azcopy copy](storage-ref-azcopy-copy.md) command to download blobs, directories, and containers to your local computer.
@@ -154,7 +165,7 @@ This section contains the following examples:
 >
 > |Scenario|Flag|
 > |---|---|
-> |Automatically decompress files.|**--decompress**=\[gzip\|deflate\]|
+> |Automatically decompress files.|**--decompress**|
 > |Specify how detailed you want your copy-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
 > |Specify if and how to overwrite the conflicting files and blobs at the destination.|**--overwrite**=\[true\|false\|ifSourceNewer\|prompt\]|
 > 
@@ -198,7 +209,7 @@ You can download the contents of a directory without copying the containing dire
 
 ### Download specific files
 
-You can specify complete file names, or use partial names with wildcard characters (*).
+You can download specific files by using complete file names, partial names with wildcard characters (*), or by using dates and times. 
 
 #### Specify multiple complete file names
 
@@ -228,6 +239,18 @@ You can also exclude files by using the `--exclude-pattern` option. To learn mor
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
 
+#### Download files that were modified after a date and time 
+
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`). 
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>/*' '<local-directory-path>' --include-after <Date-Time-in-ISO-8601-format>` |
+| **Example** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+| **Example** (hierarchical namespace) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'` |
+
+For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+
 ## Copy blobs between storage accounts
 
 You can use AzCopy to copy blobs to other storage accounts. The copy operation is synchronous so when the command returns, that indicates that all files have been copied. 
@@ -237,7 +260,7 @@ AzCopy uses [server-to-server](https://docs.microsoft.com/rest/api/storageservic
 > [!NOTE]
 > This scenario has the following limitations in the current release.
 >
-> - You have to append a SAS token to each source URL. If you provide authorization credentials by using Azure Active Directory (AD), you can omit the SAS token only from the destination URL.
+> - You have to append a SAS token to each source URL. If you provide authorization credentials by using Azure Active Directory (AD), you can omit the SAS token only from the destination URL. Make sure that you've set up the proper roles in your destination account. See [Option 1: Use Azure Active Directory](storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json#option-1-use-azure-active-directory).
 >-  Premium block blob storage accounts don't support access tiers. Omit the access tier of a blob from the copy operation by setting the `s2s-preserve-access-tier` to `false` (For example: `--s2s-preserve-access-tier=false`).
 
 This section contains the following examples:

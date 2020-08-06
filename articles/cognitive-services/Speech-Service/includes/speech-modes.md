@@ -1,10 +1,10 @@
 ---
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/22/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Speech modes

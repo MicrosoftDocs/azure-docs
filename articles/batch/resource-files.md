@@ -1,14 +1,8 @@
 ---
-title: Creating and using resource files - Azure Batch
+title: Creating and using resource files 
 description: Learn how to create Batch resource files from various input sources. This article covers a few common methods on how to create and place them on a VM.
-services: batch
-author: LauraBrenner
-manager: evansma
-
-ms.service: batch
-ms.topic: article
 ms.date: 03/18/2020
-ms.author: labrenne
+ms.topic: how-to
 ---
 
 # Creating and using resource files
@@ -51,7 +45,7 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 > [!NOTE]
 > For container access, you must have both `Read` and `List` permissions, whereas with blob access, you only need `Read` permission.
 
-Once the permissions are configured, create the SAS token and format the SAS URL for access to the storage container. Using the formatted SAS URL for the storage container, generate a resource file with [`FromStorageContainerUrl`](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet).
+Once the permissions are configured, create the SAS token and format the SAS URL for access to the storage container. Using the formatted SAS URL for the storage container, generate a resource file with [`FromStorageContainerUrl`](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet).
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);
@@ -100,7 +94,7 @@ If each task has many files unique to that task, resource files are the best opt
 
 If there are several hundred resource files specified on a task, Batch might reject the task as being too large. It's best to keep your tasks small by minimizing the number of resource files on the task itself.
 
-If there's no way to minimize the number of files your task needs, you can optimize the task by creating a single resource file that references a storage container of resource files. To do this, put your resource files into an Azure Storage container and use the different "container" [methods](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile?view=azure-dotnet#methods) for resource files. Use the blob prefix options to specify collections of files to be downloaded for your tasks.
+If there's no way to minimize the number of files your task needs, you can optimize the task by creating a single resource file that references a storage container of resource files. To do this, put your resource files into an Azure Storage container and use the different "container" [methods](/dotnet/api/microsoft.azure.batch.resourcefile?view=azure-dotnet#methods) for resource files. Use the blob prefix options to specify collections of files to be downloaded for your tasks.
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Scale Azure Cosmos DB on a schedule by using Azure Functions timer
 description: Learn how to scale changes in throughput in Azure Cosmos DB using PowerShell and Azure Functions.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
 ---
@@ -12,7 +12,7 @@ ms.author: mjbrown
 
 The performance of an Azure Cosmos account is based on the amount of provisioned throughput expressed in Request Units per second (RU/s). The provisioning is at a second granularity and is billed based upon the highest RU/s per hour. This provisioned capacity model enables the service to provide a predictable and consistent throughput, guaranteed low latency, and high availability. Most production workloads these features. However, in development and testing environments where Azure Cosmos DB is only used during working hours, you can scale up the throughput in the morning and scale back down in the evening after working hours.
 
-You can set the throughput via [Azure Resource Manager Templates](resource-manager-samples.md), [Azure CLI](cli-samples.md), and [PowerShell](powershell-samples-sql.md), for Core (SQL) API accounts, or by using the language-specific Azure Cosmos DB SDKs. The benefit of using Resource Manager Templates, Azure CLI or PowerShell is that they support all Azure Cosmos DB model APIs.
+You can set the throughput via [Azure Resource Manager Templates](resource-manager-samples.md), [Azure CLI](cli-samples.md), and [PowerShell](powershell-samples.md), for Core (SQL) API accounts, or by using the language-specific Azure Cosmos DB SDKs. The benefit of using Resource Manager Templates, Azure CLI or PowerShell is that they support all Azure Cosmos DB model APIs.
 
 ## Throughput scheduler sample project
 

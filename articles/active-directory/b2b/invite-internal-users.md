@@ -5,7 +5,7 @@ description: If you have internal user accounts for partners, distributors, supp
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/12/2020
 
 ms.author: mimart
@@ -18,10 +18,8 @@ ms.collection: M365-identity-device-management
 
 # Invite internal users to B2B collaboration
 
-|     |
-| --- |
-| Inviting internal users to use B2B collaboration is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). |
-|     |
+> [!NOTE]
+> Inviting internal users to use B2B collaboration is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Before the availability of Azure AD B2B collaboration, organizations could collaborate with distributors, suppliers, vendors, and other guest users by setting up internal credentials for them. If you have internal guest users like this, you can invite them to use B2B collaboration so you can take advantage of Azure AD B2B benefits. Your B2B guest users will be able to use their own identities and credentials to sign in, and you won’t need to maintain passwords or manage account lifecycles.
 
@@ -60,7 +58,7 @@ Use the following command to invite the user to B2B collaboration:
 ```powershell
 Uninstall-Module AzureADPreview
 Install-Module AzureADPreview
-$ADGraphUser = Get-AzureADUser -searchstring "<<external email>>"
+$ADGraphUser = Get-AzureADUser -objectID "UPN of Internal User"
 $msGraphUser = New-Object Microsoft.Open.MSGraph.Model.User -ArgumentList $ADGraphUser.ObjectId
 New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitationMessage $True -InviteRedirectUrl "http://myapps.microsoft.com" -InvitedUser $msGraphUser
 ```
@@ -74,22 +72,24 @@ POST https://graph.microsoft.com/v1.0/invitations
 Authorization: Bearer eyJ0eX...
 ContentType: application/json
 {
-    "invitedUserEmailAddress": "<<external email>>"",
-    "sendInvitationMessage": true,
-    "invitedUserMessageInfo": {
-        "messageLanguage": "en-US",
-        "ccRecipients": [
-            {
-                "emailAddress": {
-                    "name": null,
-                    "address": "<<optional additional notification email>>""
-                }
-            }
-        ],
-        "customizedMessageBody": "<<custom message>>"
-    },
-    "inviteRedirectUrl": "https://myapps.microsoft.com?tenantId=",
-    "invitedUser": {"id": "<<ID for the user you want to convert>>"}
+    "invitedUserEmailAddress": "<<external email>>",
+    "sendInvitationMessage": true,
+    "invitedUserMessageInfo": {
+        "messageLanguage": "en-US",
+        "ccRecipients": [
+            {
+                "emailAddress": {
+                    "name": null,
+                    "address": "<<optional additional notification email>>"
+                }
+            }
+        ],
+        "customizedMessageBody": "<<custom message>>"
+    },
+    "inviteRedirectUrl": "https://myapps.microsoft.com?tenantId=",
+    "invitedUser": {
+        "id": "<<ID for the user you want to convert>>"
+    }
 }
 ```
 

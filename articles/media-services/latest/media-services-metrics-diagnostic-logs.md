@@ -55,12 +55,12 @@ You should also review [account quotas and limits](limits-quotas-constraints.md)
 
 ### Streaming Endpoint
 
-The following Media Services [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) metrics are supported:
+The following Media Services [Streaming Endpoints](/rest/api/media/streamingendpoints) metrics are supported:
 
 |Metric name|Display name|Description|
 |---|---|---|
 |Requests|Requests|Provides the total number of HTTP requests served by the Streaming Endpoint.|
-|Egress|Egress|The total number of egress bytes. For example, bytes streamed by the Streaming Endpoint.|
+|Egress|Egress|Egress bytes total per minute per Streaming Endpoint.|
 |SuccessE2ELatency|Success end to end Latency|Time duration from when the Streaming Endpoint received the request to when the last byte of the response was sent.|
 
 ### Why would I want to use metrics?

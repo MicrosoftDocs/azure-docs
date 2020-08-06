@@ -2,16 +2,17 @@
 title: 'Moving application authentication from AD FS to Azure Active Directory'
 description: This article is intended to help organizations understand how to move applications to Azure AD, with a focus on federated SaaS applications.
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 04/01/2020
-ms.author: baselden
+ms.author: kenwith
+ms.reviewer: baselden
 ms.collection: M365-identity-device-management
 ---
 
@@ -194,7 +195,7 @@ The following table describes some of the most common mapping of settings betwee
 | Configuration setting| AD FS| How to configure in Azure AD| SAML Token |
 | - | - | - | - |
 | **App sign-on URL** <p>The URL for the user to sign-in to the app in a Service Provider (SP)-initiated SAML flow.| N/A| Open Basic SAML Configuration from SAML based sign-on| N/A |
-| **App reply URL** <p>The URL of the app from the identity provider's (IdP's) perspective. The IdP sends the user and token here after the user has signed in to the IdP.  ‎This is also known as **SAML assertion consumer endpoint**.| Select the **Endpoints** tab| Open Basic SAML Configuration from SAML based sign-on| Destination element in the SAML token. Example value: [https://contoso.my.salesforce.com](https://contoso.my.salesforce.com/) |
+| **App reply URL** <p>The URL of the app from the identity provider's (IdP's) perspective. The IdP sends the user and token here after the user has signed in to the IdP.  ‎This is also known as **SAML assertion consumer endpoint**.| Select the **Endpoints** tab| Open Basic SAML Configuration from SAML based sign-on| Destination element in the SAML token. Example value: `https://contoso.my.salesforce.com` |
 | **App sign-out URL** <p>This is the URL to which "sign-out cleanup" requests are sent when a user signs out from an app. The IdP sends the request to sign out the user from all other apps as well.| Select the **Endpoints** tab| Open Basic SAML Configuration from SAML based sign-on| N/A |
 | **App identifier** <p>This is the app identifier from the IdP's perspective. The sign-in URL value is often used for the identifier (but not always).  ‎Sometimes the app calls this the "entity ID."| Select the **Identifiers** tab|Open Basic SAML Configuration from SAML based sign-on| Maps to the **Audience** element in the SAML token. |
 | **App federation metadata** <p>This is the location of the app's federation metadata. The IdP uses it to automatically update specific configuration settings, such as endpoints or encryption certificates.| Select the **Monitoring** tab| N/A. Azure AD doesn't support consuming application federation metadata directly. You can manually import the federation metadata.| N/A |
@@ -219,7 +220,7 @@ Configure your applications to point to Azure AD versus AD FS for SSO. Here, we'
 
 | Element| Configuration Value |
 | - | - |
-| Identity provider issuer| [https://sts.windows.net/{tenant-id}/](https://sts.windows.net/{tenant-id}/) |
+| Identity provider issuer| https:\//sts.windows.net/{tenant-id}/ |
 | Identity provider login URL| [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) |
 | Identity provider logout URL| [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) |
 | Federation metadata location| [https://login.windows.net/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={application-id}](https://login.windows.net/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={application-id}) |
@@ -231,11 +232,11 @@ SaaS apps need to know where to send authentication requests and how to validate
 
 | Configuration setting| AD FS| How to configure in Azure AD |
 | - | - | - |
-| **IdP Sign-on URL** <p>Sign-on URL of the IdP from the app's perspective (where the user is redirected for login).| The AD FS sign-on URL is the AD FS federation service name followed by "/adfs/ls/." <p>For example: [https://fs.contoso.com/adfs/ls/](https://fs.contoso.com/adfs/ls/)| Replace {tenant-id} with your tenant ID. <p> ‎For apps that use the SAML-P protocol: [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>‎For apps that use the WS-Federation protocol: [https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
-| **IdP sign-out URL**<p>Sign-out URL of the IdP from the app's perspective (where the user is redirected when they choose to sign out of the app).| The sign-out URL is either the same as the sign-on URL, or the same URL with "wa=wsignout1.0" appended. For example: [https://fs.contoso.com/adfs/ls/?wa=wsignout1.0](https://fs.contoso.com/adfs/ls/?wa=wsignout1.0)| Replace {tenant-id} with your tenant ID.<p>For apps that use the SAML-P protocol:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> ‎For apps that use the WS-Federation protocol: [https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
+| **IdP Sign-on URL** <p>Sign-on URL of the IdP from the app's perspective (where the user is redirected for login).| The AD FS sign-on URL is the AD FS federation service name followed by "/adfs/ls/." <p>For example: `https://fs.contoso.com/adfs/ls/`| Replace {tenant-id} with your tenant ID. <p> ‎For apps that use the SAML-P protocol: [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>‎For apps that use the WS-Federation protocol: [https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
+| **IdP sign-out URL**<p>Sign-out URL of the IdP from the app's perspective (where the user is redirected when they choose to sign out of the app).| The sign-out URL is either the same as the sign-on URL, or the same URL with "wa=wsignout1.0" appended. For example: `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| Replace {tenant-id} with your tenant ID.<p>For apps that use the SAML-P protocol:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> ‎For apps that use the WS-Federation protocol: [https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
 | **Token signing certificate**<p>The IdP uses the private key of the certificate to sign issued tokens. It verifies that the token came from the same IdP that the app is configured to trust.| Find the AD FS token signing certificate in AD FS Management under **Certificates**.| Find it in the Azure portal in the application's **Single sign-on properties** under the header **SAML Signing Certificate**. There, you can download the certificate for upload to the app.  <p>‎If the application has more than one certificate, you can find all certificates in the federation metadata XML file. |
-| **Identifier/ "issuer"**<p>Identifier of the IdP from the app's perspective (sometimes called the "issuer ID").<p>‎In the SAML token, the value appears as the Issuer element.| The identifier for AD FS is usually the federation service identifier in AD FS Management under **Service > Edit Federation Service Properties**. For example: [http://fs.contoso.com/adfs/services/trust](http://fs.contoso.com/adfs/services/trust)| Replace {tenant-id} with your tenant ID.<p>[https://sts.windows.net/{tenant-id}/](https://sts.windows.net/{tenant-id}/) |
-| **IdP federation metadata**<p>Location of the IdP's publicly available federation metadata. (Some apps use federation metadata as an alternative to the administrator configuring URLs, identifier, and token signing certificate individually.)| Find the AD FS federation metadata URL in AD FS Management under **Service > Endpoints > Metadata > Type: Federation Metadata**. For example: [https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml](https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml)| The corresponding value for Azure AD follows the pattern [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml). Replace {TenantDomainName} with your tenant's name in the format "contoso.onmicrosoft.com."   <p>For more information, see [Federation metadata](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata). |
+| **Identifier/ "issuer"**<p>Identifier of the IdP from the app's perspective (sometimes called the "issuer ID").<p>‎In the SAML token, the value appears as the Issuer element.| The identifier for AD FS is usually the federation service identifier in AD FS Management under **Service > Edit Federation Service Properties**. For example: `http://fs.contoso.com/adfs/services/trust`| Replace {tenant-id} with your tenant ID.<p>https:\//sts.windows.net/{tenant-id}/ |
+| **IdP federation metadata**<p>Location of the IdP's publicly available federation metadata. (Some apps use federation metadata as an alternative to the administrator configuring URLs, identifier, and token signing certificate individually.)| Find the AD FS federation metadata URL in AD FS Management under **Service > Endpoints > Metadata > Type: Federation Metadata**. For example: `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| The corresponding value for Azure AD follows the pattern [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml). Replace {TenantDomainName} with your tenant's name in the format "contoso.onmicrosoft.com."   <p>For more information, see [Federation metadata](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata). |
 
 
 ## Represent AD FS security policies in Azure AD
@@ -392,7 +393,7 @@ To implement built-in policies in Azure AD, you can use a [new conditional acces
 In this table, we've listed some useful Permit and Except options and how they map to Azure AD. 
 
 
-| | How to configure Permit option in Azure AD?| How to configure Except option in Azure AD? |
+| Option | How to configure Permit option in Azure AD?| How to configure Except option in Azure AD? |
 | - | - | - |
 | From specific network| Maps to [Named Location](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) in Azure AD| Use the **Exclude** option for [trusted locations](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) |
 | From specific groups| [Set a User/Groups Assignment](https://docs.microsoft.com/azure/active-directory/manage-apps/assign-user-or-group-access-portal)| Use the **Exclude** option in Users and Groups |
@@ -457,7 +458,7 @@ Depending on how you configure your app, verify that SSO works properly.
 ‎ |
 | Password-Based SSO| Download and install the [MyApps Secure Sign](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)[-](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)[in Extension](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction). This extension helps you start any of your organization's cloud apps that require you to use an SSO process.  
 ‎ |
-| Application Proxy| Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot)[ ](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot)for further assistance.  
+| Application Proxy| Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) for further assistance.  
 ‎ |
 
 > [!NOTE]
@@ -477,7 +478,7 @@ While the planned outage window itself can be minimal, you should still plan on 
 
 Once deployment is complete, you can send communication informing the users of the successful deployment and remind them of any new steps that they need to take.
 
-* Instruct users to use the [Access Panel](https://myapps.microsoft.com.com/) to access all the migrated applications. 
+* Instruct users to use the [Access Panel](https://myapps.microsoft.com) to access all the migrated applications. 
 
 * Remind users they might need to update their MFA settings. 
 

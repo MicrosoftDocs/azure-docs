@@ -30,7 +30,9 @@ Computer groups created from a log query contain all of the computers returned b
 
 You can use any query for a computer group, but it must return a distinct set of computers by using `distinct Computer`.  Following is a typical example query that you could use for as a computer group.
 
-    Heartbeat | where Computer contains "srv" | distinct Computer
+```kusto
+Heartbeat | where Computer contains "srv" | distinct Computer
+```
 
 Use the following procedure to create a computer group from a log search in the Azure portal.
 
@@ -90,26 +92,28 @@ Click the **x** in the **Remove** column to delete the computer group.  Click th
 ## Using a computer group in a log query
 You use a Computer group created from a log query in a query by treating its alias as a function, typically with the following syntax:
 
-  `Table | where Computer in (ComputerGroup)`
+```kusto
+Table | where Computer in (ComputerGroup)`
+```
 
 For example, you could use the following to return UpdateSummary records for only computers in a computer group called mycomputergroup.
- 
-  `UpdateSummary | where Computer in (mycomputergroup)`
 
+```kusto
+UpdateSummary | where Computer in (mycomputergroup)`
+```
 
 Imported computer groups and their included computers are stored in the **ComputerGroup** table.  For example, the following query would return a list of computers in the Domain Computers group from Active Directory. 
 
-  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+```kusto
+ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer
+```
 
 The following query would return UpdateSummary records for only computers in Domain Computers.
 
-  ```
-  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+```kusto
+let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
   UpdateSummary | where Computer in (ADComputers)
-  ```
-
-
-
+```
 
 ## Computer group records
 A record is created in the Log Analytics workspace for each computer group membership created from Active Directory or WSUS.  These records have a type of **ComputerGroup** and have the properties in the following table.  Records are not created for computer groups based on log queries.

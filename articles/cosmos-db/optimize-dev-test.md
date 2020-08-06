@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 04/27/2020
 ---
 
 # Optimize development and testing cost in Azure Cosmos DB
@@ -16,8 +16,11 @@ This article describes the different options to use Azure Cosmos DB for developm
 
 [Azure Cosmos DB emulator](local-emulator.md) is a local downloadable version that mimics the Azure Cosmos DB cloud service. You can write and test code that uses the Azure Cosmos DB APIs even if you have no network connection and without incurring any costs. Azure Cosmos DB emulator provides a local environment for development purposes with high fidelity to the cloud service. You can develop and test your application locally, without creating an Azure subscription. When you're ready to deploy your application to the cloud, update the connection string to connect to the Azure Cosmos DB endpoint in the cloud, no other modifications are needed. You can also [set up a CI/CD pipeline with the Azure Cosmos DB emulator](tutorial-setup-ci-cd.md) build task in Azure DevOps to run tests. You can get started by visiting the [Azure Cosmos DB emulator](local-emulator.md) article.
 
-## Azure Cosmos DB free tier 
-Azure Cosmos DB free tier makes it easy to get started, develop and test your applications, or even run small production workloads for free. When free tier is enabled on an account, you'll get the first 400 RU/s and 5 GB of storage in the account free. You can also create a shared throughput database with 25 containers that share 400 RU/s at the database level, all covered by free tier (limit 5 shared throughput databases in a free tier account). Free tier lasts indefinitely for the lifetime of the account and comes with all the [benefits and features](introduction.md#key-benefits) of a regular Azure Cosmos DB account, including unlimited storage and throughput (RU/s), SLAs, high availability, turnkey global distribution in all Azure regions, and more. You can have up to one free tier account per Azure subscription and must opt-in when creating the account. To get started, [create a new account with free tier enabled](create-cosmosdb-resources-portal.md). See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for more details. 
+## Azure Cosmos DB free tier
+
+Azure Cosmos DB free tier makes it easy to get started, develop and test your applications, or even run small production workloads for free. When free tier is enabled on an account, you'll get the first 400 RU/s and 5 GB of storage in the account free. You can also create a shared throughput database with 25 containers that share 400 RU/s at the database level, all covered by free tier (limit 5 shared throughput databases in a free tier account). When using the free tier, if you provision a shared database with a minimum throughput of 400 RU/s, all the containers within that database can share the throughput. Any new databases with shared throughput or containers with dedicated throughput are billed at the regular pricing.
+
+Free tier lasts indefinitely for the lifetime of the account and comes with all the [benefits and features](introduction.md#key-benefits) of a regular Azure Cosmos DB account, including unlimited storage and throughput (RU/s), SLAs, high availability, turnkey global distribution in all Azure regions, and more. You can have up to one free tier account per Azure subscription and must opt-in when creating the account. To get started, [create a new account in Azure portal with free tier enabled](create-cosmosdb-resources-portal.md) or use an [ARM Template](manage-sql-with-resource-manager.md#free-tier). See the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for more details.
 
 ## Try Azure Cosmos DB for free
 
@@ -29,7 +32,7 @@ Azure Cosmos DB is included in the [Azure free account](https://azure.microsoft.
 
 ## Use shared throughput databases
 
-In a [shared throughput database](set-throughput.md#set-throughput-on-a-database), all containers inside the database share the provisioned throughput (RU/s) of the database. For example, if you provision a database with 400 RU/s and have four containers, all four containers will share the 400 RU/s. In a development or testing environment, where each container may be be accessed less frequently and thus require lower than the minimum of 400 RU/s,  putting containers in a shared throughput database can help optimize cost. 
+In a [shared throughput database](set-throughput.md#set-throughput-on-a-database), all containers inside the database share the provisioned throughput (RU/s) of the database. For example, if you provision a database with 400 RU/s and have four containers, all four containers will share the 400 RU/s. In a development or testing environment, where each container may be be accessed less frequently and thus require lower than the minimum of 400 RU/s,  putting containers in a shared throughput database can help optimize cost.
 
 For example, suppose your development or test account has four containers. If you create four containers with dedicated throughput (minimum of 400 RU/s), your total RU/s will be 1600 RU/s. In contrast, if you create a shared throughput database (minimum 400 RU/s) and put your containers there, your total RU/s will be just 400 RU/s. In general, shared throughput databases are great for scenarios where you don't need guaranteed throughput on any individual container.  Learn more about [shared throughput databases.](set-throughput.md#set-throughput-on-a-database)
 
@@ -44,4 +47,3 @@ You can get started with using the emulator or the free Azure Cosmos DB accounts
 * Learn more about [Optimizing the cost of reads and writes](optimize-cost-reads-writes.md)
 * Learn more about [Optimizing the cost of queries](optimize-cost-queries.md)
 * Learn more about [Optimizing the cost of multi-region Azure Cosmos accounts](optimize-cost-regions.md)
-

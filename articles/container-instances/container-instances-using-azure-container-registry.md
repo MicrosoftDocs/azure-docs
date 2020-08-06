@@ -3,7 +3,7 @@ title: Deploy container image from Azure Container Registry
 description: Learn how to deploy containers in Azure Container Instances by pulling container images from an Azure container registry.
 services: container-instances
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 07/02/2020
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -31,7 +31,7 @@ In the following section, you create an Azure key vault and a service principal,
 
 ### Create key vault
 
-If you don't already have a vault in [Azure Key Vault](../key-vault/key-vault-overview.md), create one with the Azure CLI using the following commands.
+If you don't already have a vault in [Azure Key Vault](../key-vault/general/overview.md), create one with the Azure CLI using the following commands.
 
 Update the `RES_GROUP` variable with the name of an existing resource group in which to create the key vault, and `ACR_NAME` with the name of your container registry. For brevity, commands in this article assume that your registry, key vault, and container instances are all created in the same resource group.
 
@@ -131,7 +131,7 @@ You can specify the properties of your Azure container registry in an Azure Reso
 [...]
 ```
 
-For complete container group settings, see the [Resource Manager template reference](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
+For complete container group settings, see the [Resource Manager template reference](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups).    
 
 For details on referencing Azure Key Vault secrets in a Resource Manager template, see [Use Azure Key Vault to pass secure parameter value during deployment](../azure-resource-manager/templates/key-vault-parameter.md).
 

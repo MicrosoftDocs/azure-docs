@@ -69,7 +69,7 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
-> We have configured your project with values of your app's properties and it's ready to run. 
+> We have configured your project with values of your app's properties and it's ready to run.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
@@ -77,7 +77,7 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 
 > [!div renderon="docs"]
 > #### Step 3: Configure your Visual Studio project
-> 
+>
 > 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
 > 1. Open the project in Visual Studio. You might be prompted to install a UWP SDK. In that case, accept.
 > 1. Edit **MainPage.Xaml.cs** and replace the values of the `ClientId` field:
@@ -130,7 +130,7 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
-> |Where: ||
+> |Where: | Description |
 > |---------|---------|
 > | `ClientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
 
@@ -152,9 +152,9 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
-> |Where:||
+> |Where:| Description |
 > |---------|---------|
-> | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom Web APIs. |
+> | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs. |
 
 #### Get a user token silently
 
@@ -167,9 +167,9 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Where: ||
+> |Where: | Description |
 > |---------|---------|
-> | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom Web APIs |
+> | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom web APIs |
 > | `firstAccount` | Specifies the first user account in the cache (MSAL supports multiple users in a single app) |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

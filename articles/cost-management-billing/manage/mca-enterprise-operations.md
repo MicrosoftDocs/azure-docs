@@ -5,7 +5,7 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/13/2020
 ms.author: banders
 
 ---
@@ -120,7 +120,7 @@ Account owners on the Enterprise Agreement get permission to create Azure subscr
 
 To create additional Azure subscriptions, you are given the following role on the new billing account.
 
-**Azure subscription creator** - You are assigned the azure subscription creator role on the invoice section that is created for your department in Enterprise Agreement. If your account doesn't belong to a department, you get Azure subscription creator role on a section named Default invoice section. The role lets you create Azure subscriptions for the invoice section.
+**Azure subscription creator** - You are assigned the Azure subscription creator role on the invoice section that is created for your department in Enterprise Agreement. If your account doesn't belong to a department, you get Azure subscription creator role on a section named Default invoice section. The role lets you create Azure subscriptions for the invoice section.
 
 ### Create an Azure subscription
 

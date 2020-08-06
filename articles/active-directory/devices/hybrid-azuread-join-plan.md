@@ -38,13 +38,12 @@ This article assumes that you are familiar with the [Introduction to device iden
 
 To plan your hybrid Azure AD implementation, you should familiarize yourself with:
 
-|   |   |
-| --- | --- |
-| ![Check][1] | Review supported devices |
-| ![Check][1] | Review things you should know |
-| ![Check][1] | Review controlled validation of hybrid Azure AD join |
-| ![Check][1] | Select your scenario based on your identity infrastructure |
-| ![Check][1] | Review on-premises AD UPN support for hybrid Azure AD join |
+> [!div class="checklist"]
+> - Review supported devices
+> - Review things you should know
+> - Review controlled validation of hybrid Azure AD join
+> - Select your scenario based on your identity infrastructure
+> - Review on-premises AD UPN support for hybrid Azure AD join
 
 ## Review supported devices
 
@@ -90,12 +89,12 @@ As a first planning step, you should review your environment and determine wheth
 ### Handling devices with Azure AD registered state
 If your Windows 10 domain joined devices are [Azure AD registered](overview.md#getting-devices-in-azure-ad) to your tenant, it could lead to a dual state of Hybrid Azure AD joined and Azure AD registered device. We recommend upgrading to Windows 10 1803 (with KB4489894 applied) or above to automatically address this scenario. In pre-1803 releases, you will need to remove the Azure AD registered state manually before enabling Hybrid Azure AD join. In 1803 and above releases, the following changes have been made to avoid this dual state:
 
-- Any existing Azure AD registered state for a user would be automatically removed <i>after the device is Hybrid Azure AD joined and the same user logs in</i>. For example, if User A had an Azure AD registered state on the device, the dual state for User A is cleaned up only when User A logs in to the device. if there are multiple users on the same device, the dual state is cleaned up individually when those users log in.
-- You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
+- Any existing Azure AD registered state for a user would be automatically removed <i>after the device is Hybrid Azure AD joined and the same user logs in</i>. For example, if User A had an Azure AD registered state on the device, the dual state for User A is cleaned up only when User A logs in to the device. If there are multiple users on the same device, the dual state is cleaned up individually when those users log in. In addition to removing the Azure AD registered state, Windows 10 will also unenroll the device from Intune or other MDM, if the enrollment happened as part of the Azure AD registration via auto-enrollment.
+- You can prevent your domain joined device from being Azure AD registered by adding the following registry value to HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001.
 - In Windows 10 1803, if you have Windows Hello for Business configured, the user needs to re-setup Windows Hello for Business after the dual state clean up.This issue has been addressed with KB4512509
 
 > [!NOTE]
-> The Azure AD registered device will not be automatically removed if it is managed by Intune.
+> Even though Windows 10 automatically removes the Azure AD registered state locally, the device object in Azure AD is not immediately deleted if it is managed by Intune. You can validate the removal of Azure AD registered state by running dsregcmd /status and consider the device not to be Azure AD registered based on that.
 
 ### Additional considerations
 - If your environment uses virtual desktop infrastructure (VDI), see [Device identity and desktop virtualization](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
@@ -119,6 +118,9 @@ Hybrid Azure AD join works with both, managed and federated environments dependi
 A managed environment can be deployed either through [Password Hash Sync (PHS)](/azure/active-directory/hybrid/whatis-phs) or [Pass Through Authentication (PTA)](/azure/active-directory/hybrid/how-to-connect-pta) with [Seamless Single Sign On](/azure/active-directory/hybrid/how-to-connect-sso).
 
 These scenarios don't require you to configure a federation server for authentication.
+
+> [!NOTE]
+> [Cloud authentication using Staged rollout](/hybrid/how-to-connect-staged-rollout) is only supported starting Windows 10 1903 update
 
 ### Federated environment
 

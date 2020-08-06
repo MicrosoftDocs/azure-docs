@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -78,7 +78,7 @@ using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
 ## Recognize speech
 
-The [Recognizer class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotne) for the Speech SDK for C# exposes a few methods that you can use for speech recognition.
+The [Recognizer class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet) for the Speech SDK for C# exposes a few methods that you can use for speech recognition.
 
 * Single-shot recognition (async) - Performs recognition in a non-blocking (asynchronous) mode. This will recognize a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
 * Continuous recognition (async) - Asynchronously initiates continuous recognition operation. The user registers to events and handles various application state. To stop asynchronous continuous recognition, call [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync?view=azure-dotnet).

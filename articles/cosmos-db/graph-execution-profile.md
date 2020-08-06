@@ -7,7 +7,7 @@ manager: kfile
 
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: lbosq
 

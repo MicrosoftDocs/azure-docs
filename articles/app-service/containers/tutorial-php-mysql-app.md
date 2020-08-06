@@ -158,18 +158,18 @@ az mysql server create --resource-group myResourceGroup --name <mysql-server-nam
 
 When the MySQL server is created, the Azure CLI shows information similar to the following example:
 
-```json
+<pre>
 {
-  "administratorLogin": "<admin-user>",
+  "administratorLogin": "&lt;admin-user&gt;",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql-server-name>.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>",
+  "fullyQualifiedDomainName": "&lt;mysql-server-name&gt;.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/&lt;mysql-server-name&gt;",
   "location": "westeurope",
-  "name": "<mysql-server-name>",
+  "name": "&lt;mysql-server-name&gt;",
   "resourceGroup": "myResourceGroup",
   ...
 }
-```
+</pre>
 
 ### Configure server firewall
 
@@ -383,7 +383,7 @@ git push azure master
 
 During deployment, Azure App Service communicates its progress with Git.
 
-```bash
+<pre>
 Counting objects: 3, done.
 Delta compression using up to 8 threads.
 Compressing objects: 100% (3/3), done.
@@ -395,8 +395,8 @@ remote: Preparing deployment for commit id 'a5e076db9c'.
 remote: Running custom deployment command...
 remote: Running deployment command...
 ...
-< Output has been truncated for readability >
-```
+&lt; Output has been truncated for readability &gt;
+</pre>
 
 <!-- > [!NOTE]
 > You may notice that the deployment process installs [Composer](https://getcomposer.org/) packages at the end. App Service does not run these automations during default deployment, so this sample repository has three additional files in its root directory to enable it:
@@ -560,7 +560,7 @@ If you added any tasks, they are retained in the database. Updates to the data s
 
 ## Stream diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## Manage the Azure app
 

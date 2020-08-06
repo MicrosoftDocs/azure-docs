@@ -3,10 +3,10 @@ title: "Quickstart: Azure Blob storage for JavaScript v10 in the browser"
 description: Learn to upload, list, and delete blobs using JavaScript v10 SDK in an HTML page.
 services: storage
 author: mhopkins-msft
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ms.service: storage
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
 ---
@@ -17,13 +17,16 @@ ms.subservice: blobs
 
 In this quickstart, you learn to manage blobs by using JavaScript code running entirely in the browser. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll use required security measures to ensure protected access to your blob storage account.
 
+> [!NOTE]
+> This quickstart uses a legacy version of the Azure Blob storage client library. To get started with the latest version, see [Quickstart: Manage blobs with JavaScript v12 SDK in a browser](quickstart-blobs-javascript-browser.md).
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
 - A local web server. This article uses [Node.js](https://nodejs.org) to open a basic server.
 - [Visual Studio Code](https://code.visualstudio.com).
-- A VS Code extension for browser debugging, such as [Debugger for Chrome](vscode:extension/msjsdiag.debugger-for-chrome) or [Debugger for Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge).
+- A VS Code extension for browser debugging, such as [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) or [Debugger for Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge).
 
 ## Setting up storage account CORS rules
 
@@ -89,7 +92,7 @@ Now that the SAS is generated, copy the return value and save it somewhere for u
 
 ## Implement the HTML page
 
-In this section, you'll create a basic web page and configure VS Code to launch and debug the page. Before you can launch, however, you'll need to use Node.js to start a local web server and serve the page when your browser requests it. Next, you'll add JavaScript code to call various blob storage APIs and display the results in the page. You can also see the results of these calls in the [Azure portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer), and the [Azure Storage extension](vscode:extension/ms-azuretools.vscode-azurestorage) for VS Code.
+In this section, you'll create a basic web page and configure VS Code to launch and debug the page. Before you can launch, however, you'll need to use Node.js to start a local web server and serve the page when your browser requests it. Next, you'll add JavaScript code to call various blob storage APIs and display the results in the page. You can also see the results of these calls in the [Azure portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer), and the [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for VS Code.
 
 ### Set up the web application
 

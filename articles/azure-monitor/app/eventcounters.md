@@ -8,7 +8,7 @@ ms.date: 09/20/2019
 
 # EventCounters introduction
 
-`EventCounter` is .NET/.NET Core mechanism to publish and consume counters or statistics. [This](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) document gives an overview of `EventCounters` and examples on how to publish and consume them. EventCounters are supported in all OS platforms - Windows, Linux, and macOS. It can be thought of as a cross-platform equivalent for the [PerformanceCounters](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter) that is only supported in Windows systems.
+`EventCounter` is .NET/.NET Core mechanism to publish and consume counters or statistics. [This](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) document gives an overview of `EventCounters` and examples on how to publish and consume them. EventCounters are supported in all OS platforms - Windows, Linux, and macOS. It can be thought of as a cross-platform equivalent for the [PerformanceCounters](/dotnet/api/system.diagnostics.performancecounter) that is only supported in Windows systems.
 
 While users can publish any custom `EventCounters` to meet their needs, the .NET Core 3.0 runtime publishes a set of these counters by default. The document will walk through the steps required to collect and view `EventCounters` (system defined or user defined) in Azure Application Insights.
 
@@ -87,14 +87,14 @@ The following example shows how to add/remove counters. This customization would
 
 ## Event counters in Metric Explorer
 
-To view EventCounter metrics in [Metric Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), select Application Insights resource, and chose Log-based metrics as metric namespace. Then EventCounter metrics get displayed under Custom category.
+To view EventCounter metrics in [Metric Explorer](../platform/metrics-charts.md), select Application Insights resource, and chose Log-based metrics as metric namespace. Then EventCounter metrics get displayed under Custom category.
 
 > [!div class="mx-imgBorder"]
 > ![Event counters reported in Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## Event counters in Analytics
 
-You can also search and display event counter reports in [Analytics](../../azure-monitor/app/analytics.md), in the **customMetrics** table.
+You can also search and display event counter reports in [Analytics](../log-query/log-query-overview.md), in the **customMetrics** table.
 
 For example, run the following query to see what counters are collected and available to query:
 
@@ -120,7 +120,7 @@ customMetrics
 Like other telemetry, **customMetrics** also has a column `cloud_RoleInstance` that indicates the identity of the host server instance on which your app is running. The above query shows the counter value per instance, and can be used to compare performance of different server instances.
 
 ## Alerts
-Like other metrics, you can [set an alert](../../azure-monitor/app/alerts.md) to warn you if an event counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
+Like other metrics, you can [set an alert](../platform/alerts-log.md) to warn you if an event counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
 
 ## Frequently asked questions
 
@@ -140,8 +140,9 @@ EventCounter doesn't require any special permissions, and is supported in all pl
 
 ### I have enabled Application Insights from Azure Web App Portal. But I can't see EventCounters.?
 
- [Application Insights extension](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) for ASP.NET Core doesn't yet support this feature. This document will be updated when this feature is supported.
+ [Application Insights extension](./azure-web-apps.md) for ASP.NET Core doesn't yet support this feature. This document will be updated when this feature is supported.
 
 ## <a name="next"></a>Next steps
 
-* [Dependency tracking](../../azure-monitor/app/asp-net-dependencies.md)
+* [Dependency tracking](./asp-net-dependencies.md)
+

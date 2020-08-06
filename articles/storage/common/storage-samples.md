@@ -7,7 +7,8 @@ ms.author: mhopkins
 ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
-ms.topic: sample
+ms.topic: sample 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure Storage samples
@@ -46,9 +47,9 @@ To explore the Node.js samples, download the [Node.js Storage Client Library](ht
 
 To explore the C++ samples, download the [C++ Storage Client Library](https://www.nuget.org/packages/wastorage/) from NuGet.
 
-* [Get started with blobs](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted)
-* [Get started with tables](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted)
-* [Get started with queues](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted)
+* [Get started with blobs](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp)
+* [Get started with tables](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted.cpp)
+* [Get started with queues](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted.cpp)
 
 ## Azure CLI
 
@@ -64,7 +65,7 @@ To explore the Azure CLI samples, first [Install the Azure CLI](/cli/azure/insta
 |----------|---------------|-------------|
 | .NET | [.NET Client Library Reference](https://docs.microsoft.com/dotnet/api/overview/azure/storage) | [Source code for the .NET storage client library](https://github.com/Azure/azure-storage-net) |
 | Java | [Java Client Library Reference](https://docs.microsoft.com/java/api/overview/azure/storage) | [Source code for the Java storage client library](https://github.com/azure/azure-storage-java) |
-| Python | [Python Client Library Reference](https://azure-storage.readthedocs.io/) | [Source code for the Python storage client library](https://github.com/Azure/azure-storage-p[ython]) |
+| Python | [Python Client Library Reference](https://azure-storage.readthedocs.io/) | [Source code for the Python storage client library](https://github.com/Azure/azure-storage-python) |
 | Node.js | [Node.js Client Library Reference](https://azure.github.io/azure-storage-node) | [Source code for the Node.js storage client library](https://github.com/Azure/azure-storage-node) |
 | C++ | [C++ Client Library Reference](https://azure.github.io/azure-storage-cpp/) | [Source code for the C++ storage client library](https://github.com/Azure/azure-storage-cpp)|
 | Azure CLI | [Azure CLI Library Reference](/cli/azure/storage) | [Source code for the Azure CLI storage client library](https://github.com/Azure-Samples/azure-cli-samples/tree/master/storage)

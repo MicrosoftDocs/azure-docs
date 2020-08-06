@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
 ---
@@ -30,7 +30,13 @@ This article shows how you can connect to an on-premises file system as describe
 
 * Access to the computer that has the file system you want to use. For example, if you install the data gateway on the same computer as your file system, you need the account credentials for that computer.
 
-* An email account from a provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](https://docs.microsoft.com/connectors/). This logic app uses an Office 365 Outlook account. If you use another email account, the overall steps are the same, but your UI might slightly differ.
+* An email account from a provider that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, [review the connectors list here](/connectors/). This logic app uses an Office 365 Outlook account. If you use another email account, the overall steps are the same, but your UI might slightly differ.
+
+  > [!IMPORTANT]
+  > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
+  > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
+  > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
+  > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). For this example, you need a blank logic app.
 
@@ -65,7 +71,7 @@ This article shows how you can connect to an on-premises file system as describe
    | **Connection Name** | Yes | <*connection-name*> | The name you want for your connection |
    | **Root folder** | Yes | <*root-folder-name*> | The root folder for your file system, for example, if you installed your on-premises data gateway  such as a local folder on the computer where the on-premises data gateway is installed, or the folder for a network share that the computer can access. <p>For example: `\\PublicShare\\DropboxFiles` <p>The root folder is the main parent folder, which is used for relative paths for all file-related actions. |
    | **Authentication Type** | No | <*auth-type*> | The type of authentication that your file system uses: **Windows** |
-   | **Username** | Yes | <*domain*>\\<*username*> | The username for the computer where you have your file system |
+   | **Username** | Yes | <*domain*>\\<*username*> <p>-or- <p><*local-computer*>\\<*username*> | The username for the computer where you have your file system folder. <p>If your file system folder is on the same computer as the on-premises data gateway, you can use <*local-computer*>\\<*username*>. |
    | **Password** | Yes | <*your-password*> | The password for the computer where you have your file system |
    | **gateway** | Yes | <*installed-gateway-name*> | The name for your previously installed gateway |
    |||||
@@ -88,7 +94,7 @@ This article shows how you can connect to an on-premises file system as describe
 
 ## Connector reference
 
-For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/fileconnector/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/fileconnector/).
 
 > [!NOTE]
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 

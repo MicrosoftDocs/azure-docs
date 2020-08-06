@@ -7,7 +7,7 @@ manager: rkarlin
 
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/15/2020
+ms.date: 07/10/2020
 ms.author: memildin
 ---
 # Azure security policies monitored by Security Center
@@ -18,13 +18,13 @@ This article provides a list of [Azure Policy](../governance/policy/overview.md)
 
 To learn about the built-in policies that are monitored by Security Center, see the following table:
 
-[!INCLUDE [azure-policy-samples-init-asc](../../includes/azure-policy-samples-init-asc.md)]
+[!INCLUDE [azure-policy-samples-init-asc](../../includes/policy/samples/custom/init-asc.md)]
 
 ## Built-in policy initiatives
 
 To learn about the built-in initiatives that are monitored by Security Center, see the following table:
 
-[!INCLUDE [azure-policy-samples-policyset-security-center](../../includes/azure-policy-samples-policyset-security-center.md)]
+[!INCLUDE [azure-policy-samples-policyset-security-center](../../includes/policy/samples/bycat/policysets-security-center.md)]
 
 ## Next steps
 

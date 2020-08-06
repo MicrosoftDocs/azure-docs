@@ -1,18 +1,19 @@
 ---
-title: 'Interactive debug: VS Code & ML compute instances'
+title: 'Interactive debug: VS Code & ML compute instances (preview)'
 titleSuffix: Azure Machine Learning
 description: Set up VS Code Remote to interactively debug your code with Azure Machine Learning. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
+ms.custom: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 12/09/2019
+ms.date: 07/09/2020
 # As a data scientist, I want to how to use SSH to set up a VS COde remote to use with an Azure ML compute instance. 
 ---
 
-# Debug interactively on an Azure Machine Learning Compute Instance with VS Code Remote
+# Debug interactively on an Azure Machine Learning Compute Instance with VS Code Remote (preview)
 
 In this article, you'll learn how to set up Visual Studio Code Remote on an Azure Machine Learning Compute Instance so you can **interactively debug your code** from VS Code. 
 

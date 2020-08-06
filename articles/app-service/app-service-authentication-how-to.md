@@ -1,8 +1,8 @@
 ---
-title: Advanced usage of AuthN/AuthO
+title: Advanced usage of AuthN/AuthZ
 description: Learn to customize the authentication and authorization feature in App Service for different scenarios, and get user claims and different tokens.
 ms.topic: article
-ms.date: 10/24/2019
+ms.date: 07/08/2020
 ms.custom: seodec18
 ---
 
@@ -19,6 +19,7 @@ To get started quickly, see one of the following tutorials:
 * [How to configure your app to use Google login](configure-authentication-provider-google.md)
 * [How to configure your app to use Microsoft Account login](configure-authentication-provider-microsoft.md)
 * [How to configure your app to use Twitter login](configure-authentication-provider-twitter.md)
+* [How to configure your app to login using an OpenID Connect provider (Preview)](configure-authentication-provider-openid-connect.md)
 
 ## Use multiple sign-in providers
 
@@ -30,7 +31,7 @@ In **Action to take when request is not authenticated**, select **Allow Anonymou
 
 In the sign-in page, or the navigation bar, or any other location of your app, add a sign-in link to each of the providers you enabled (`/.auth/login/<provider>`). For example:
 
-```HTML
+```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
 <a href="/.auth/login/microsoftaccount">Log in with Microsoft Account</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
@@ -42,7 +43,7 @@ When the user clicks on one of the links, the respective sign-in page opens to s
 
 To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_url` query string parameter (not to be confused with the Redirect URI in your identity provider configuration). For example, to navigate the user to `/Home/Index` after sign-in, use the following HTML code:
 
-```HTML
+```html
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
 ```
 
@@ -98,7 +99,7 @@ Users can initiate a sign-out by sending a `GET` request to the app's `/.auth/lo
 
 Here's a simple sign-out link in a webpage:
 
-```HTML
+```html
 <a href="/.auth/logout">Sign out</a>
 ```
 
@@ -185,7 +186,7 @@ Once your provider is configured, you can [find the refresh token and the expira
 
 To refresh your access token at any time, just call `/.auth/refresh` in any language. The following snippet uses jQuery to refresh your access tokens from a JavaScript client.
 
-```JavaScript
+```javascript
 function refreshTokens() {
   let refreshUrl = "/.auth/refresh";
   $.ajax(refreshUrl) .done(function() {
@@ -272,6 +273,196 @@ The identity provider may provide certain turn-key authorization. For example:
 ### Application level
 
 If either of the other levels don't provide the authorization you need, or if your platform or identity provider isn't supported, you must write custom code to authorize users based on the [user claims](#access-user-claims).
+
+## <a name="config-file"> </a>Configure using a file (preview)
+
+Your auth settings can optionally be configured via a file that is provided by your deployment. This may be required by certain preview capabilities of App Service Authentication / Authorization.
+
+> [!IMPORTANT]
+> Remember that your app payload, and therefore this file, may move between environments, as with [slots](./deploy-staging-slots.md). It is likely you would want a different app registration pinned to each slot, and in these cases, you should continue to use the standard configuration method instead of using the configuration file.
+
+### Enabling file-based configuration
+
+> [!CAUTION]
+> During preview, enabling file-based configuration will disable management of the App Service Authentication / Authorization feature for your application through some clients, such as the Azure portal, Azure CLI, and Azure PowerShell.
+
+1. Create a new JSON file for your configuration at the root of your project (deployed to D:\home\site\wwwroot in your web / function app). Fill in your desired configuration according to the [file-based configuration reference](#configuration-file-reference). If modifying an existing Azure Resource Manager configuration, make sure to translate the properties captured in the `authsettings` collection into your configuration file.
+
+2. Modify the existing configuration, which is captured in the [Azure Resource Manager](../azure-resource-manager/management/overview.md) APIs under `Microsoft.Web/sites/<siteName>/config/authsettings`. To modify this, you can use an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) or a tool like [Azure Resource Explorer](https://resources.azure.com/). Within the authsettings collection, you will need to set three properties (and may remove others):
+
+    1.	Set `enabled` to "true"
+    2.	Set `isAuthFromFile` to "true"
+    3.	Set `authFilePath` to the name of the file (for example, "auth.json")
+
+Once you have made this configuration update, the contents of the file will be used to define the behavior of App Service Authentication / Authorization for that site. If you ever wish to return to Azure Resource Manager configuration, you can do so by setting `isAuthFromFile` back to "false".
+
+### Configuration file reference
+
+Any secrets that will be referenced from your configuration file must be stored as [application settings](./configure-common.md#configure-app-settings). You may name the settings anything you wish. Just make sure that the references from the configuration file uses the same keys.
+
+The following exhausts possible configuration options within the file:
+
+```json
+{
+    "platform": {
+        "enabled": <true|false>
+    },
+    "globalValidation": {
+        "requireAuthentication": <true|false>,
+        "unauthenticatedClientAction": "RedirectToLoginPage|AllowAnonymous|Return401|Return403",
+        "redirectToProvider": "<default provider alias>",
+        "excludedPaths": [
+            "/path1",
+            "/path2"
+        ]
+    },
+    "identityProviders": {
+        "azureActiveDirectory": {
+            "enabled": <true|false>,
+            "registration": {
+                "openIdIssuer": "<issuer url>",
+                "clientId": "<app id>",
+                "clientSecretSettingName": "APP_SETTING_CONTAINING_AAD_SECRET",
+            },
+            "login": {
+                "loginParameters": [
+                    "paramName1=value1",
+                    "paramName2=value2"
+                ]
+            },
+            "validation": {
+                "allowedAudiences": [
+                    "audience1",
+                    "audience2"
+                ]
+            }
+        },
+        "facebook": {
+            "enabled": <true|false>,
+            "registration": {
+                "appId": "<app id>",
+                "appSecretSettingName": "APP_SETTING_CONTAINING_FACEBOOK_SECRET"
+            },
+            "graphApiVersion": "v3.3",
+            "login": {
+                "scopes": [
+                    "profile",
+                    "email"
+                ]
+            },
+        },
+        "gitHub": {
+            "enabled": <true|false>,
+            "registration": {
+                "clientId": "<client id>",
+                "clientSecretSettingName": "APP_SETTING_CONTAINING_GITHUB_SECRET"
+            },
+            "login": {
+                "scopes": [
+                    "profile",
+                    "email"
+                ]
+            }
+        },
+        "google": {
+            "enabled": true,
+            "registration": {
+                "clientId": "<client id>",
+                "clientSecretSettingName": "APP_SETTING_CONTAINING_GOOGLE_SECRET"
+            },
+            "login": {
+                "scopes": [
+                    "profile",
+                    "email"
+                ]
+            },
+            "validation": {
+                "allowedAudiences": [
+                    "audience1",
+                    "audience2"
+                ]
+            }
+        },
+        "twitter": {
+            "enabled": <true|false>,
+            "registration": {
+                "consumerKey": "<consumer key>",
+                "consumerSecretSettingName": "APP_SETTING_CONTAINING TWITTER_CONSUMER_SECRET"
+            }
+        },
+        "openIdConnectProviders": {
+            "provider name": {
+                "enabled": <true|false>,
+                "registration": {
+                    "clientId": "<client id>",
+                    "clientCredential": {
+                        "secretSettingName": "<name of app setting containing client secret>"
+                    },
+                    "openIdConnectConfiguration": {
+                        "authorizationEndpoint": "<url specifying authorization endpoint>",
+                        "tokenEndpoint": "<url specifying token endpoint>",
+                        "issuer": "<url specifying issuer>",
+                        "certificationUri": "<url specifying jwks endpoint>",
+                        "wellKnownOpenIdConfiguration": "<url specifying .well-known/open-id-configuration endpoint - if this property is set, the other properties of this object are ignored, and authorizationEndpoint, tokenEndpoint, issuer, and certificationUri are set to the corresponding values listed at this endpoint>"
+                    }
+                },
+                "login": {
+                    "nameClaimType": "<name of claim containing name>",
+                    "scope": [
+                        "openid",
+                        "profile",
+                        "email"
+                    ],
+                    "loginParameterNames": [
+                        "paramName1=value1",
+                        "paramName2=value2"
+                    ],
+                }
+            },
+            //...
+        },
+        "login": {
+            "routes": {
+                "logoutEndpoint": "<logout endpoint>"
+            },
+            "tokenStore": {
+                "enabled": <true|false>,
+                "tokenRefreshExtensionHours": "<double>",
+                "fileSystem": {
+                    "directory": "<directory to store the tokens in if using a file system token store (default)>"
+                },
+                "azureBlobStorage": {
+                    "sasUrlSettingName": "<app setting name containing the sas url for the Azure Blob Storage if opting to use that for a token store>"
+                }
+            },
+            "preserveUrlFragmentsForLogins": <true|false>,
+            "allowedExternalRedirectUrls": [
+                "https://uri1.azurewebsites.net/",
+                "https://uri2.azurewebsites.net/"
+            ],
+            "cookieExpiration": {
+                "convention": "FixedTime|IdentityProviderDerived",
+                "timeToExpiration": "<timespan>"
+            },
+            "nonce": {
+                "validateNonce": <true|false>,
+                "nonceExpirationInterval": "<timespan>"
+            }
+        },
+        "httpSettings": {
+            "requireHttps": <true|false>,
+            "routes": {
+                "apiPrefix": "<api prefix>"
+            },
+            "forwardProxy": {
+                "convention": "NoProxy|Standard|Custom",
+                "customHostHeaderName": "<host header value>",
+                "customProtoHeaderName": "<proto header value>"
+            }
+        }
+    }
+}
+```
 
 ## Next steps
 

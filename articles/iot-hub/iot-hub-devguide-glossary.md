@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
+ms.custom: [amqp, mqtt]
 ---
 
 # Glossary of IoT Hub terms
@@ -20,7 +21,7 @@ This article lists some of the common terms used in the IoT Hub articles.
 
 ## Automatic Device Management
 
-Automatic Device Management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With Automatic Device Management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  Consists of [automatic device configurations](iot-hub-auto-device-config.md) and [IoT Edge automatic deployments](../iot-edge/how-to-deploy-monitor.md).
+Automatic Device Management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With Automatic Device Management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  Consists of [automatic device configurations](iot-hub-auto-device-config.md) and [IoT Edge automatic deployments](../iot-edge/how-to-deploy-at-scale.md).
 
 ## Automatic device configuration
 
@@ -56,7 +57,7 @@ The [Microsoft Azure portal](https://portal.azure.com) is a central place where 
 
 ## Azure PowerShell
 
-[Azure PowerShell](/powershell/azure/overview) is a collection of cmdlets you can use to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform.
+[Azure PowerShell](/powershell/azure/) is a collection of cmdlets you can use to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform.
 
 ## Azure Resource Manager
 
@@ -214,7 +215,7 @@ IoT Hub is a fully managed Azure service that enables reliable and secure bidire
 
 ## IoT Hub query language
 
-The [IoT Hub query language](iot-hub-devguide-query-language.md) is a SQL-like language that enables you to query your [](#job) and device twins.
+The [IoT Hub query language](iot-hub-devguide-query-language.md) is a SQL-like language that enables you to query your [Job](#job) and device twins.
 
 ## IoT Hub Resource REST API
 
@@ -335,7 +336,7 @@ You can use a token service to implement an authentication mechanism for your de
 
 ## Twin queries
 
-[Device and module twin queries](iot-hub-devguide-query-language.md) use the SQL-like IoT Hub query language to retrieve information from your device twins or module twins. You can use the same IoT Hub query language to retrieve information about [](#job) running in your IoT hub.
+[Device and module twin queries](iot-hub-devguide-query-language.md) use the SQL-like IoT Hub query language to retrieve information from your device twins or module twins. You can use the same IoT Hub query language to retrieve information about a [Job](#job) running in your IoT hub.
 
 ## Twin synchronization
 

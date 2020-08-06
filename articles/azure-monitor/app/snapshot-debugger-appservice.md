@@ -24,12 +24,12 @@ If you are using a preview version of .NET Core, please follow the instructions 
 
 Application Insights Snapshot Debugger is pre-installed as part of the App Services runtime, but you need to turn it on to get snapshots for your App Service app. Once you have deployed an app, even if you have included the Application Insights SDK in the source code, follow the steps below to enable the snapshot debugger.
 
-1. Go to the **App Services** pane in the Azure portal.
-2. Navigate to **Settings > Application Insights** pane.
+1. Navigate to the Azure control panel for your App Service.
+2. Go to the **Settings > Application Insights** page.
 
    ![Enable App Insights on App Services portal](./media/snapshot-debugger/applicationinsights-appservices.png)
 
-3. Either follow the instructions on the pane to create a new resource or select an existing App Insights resource to monitor your app. Also make sure both switches for Snapshot Debugger are **On**.
+3. Either follow the instructions on the page to create a new resource or select an existing App Insights resource to monitor your app. Also make sure both switches for Snapshot Debugger are **On**.
 
    ![Add App Insights site extension][Enablement UI]
 

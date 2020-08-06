@@ -2,23 +2,43 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 07/27/2020
 ---
 
 # Create resources at the management group level
 
-As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [role-based access controls](../../role-based-access-control/overview.md) for a management group. With management group level templates, you can declaratively apply policies and assign roles at the management group level.
+As your organization matures, you can deploy an Azure Resource Manager template (ARM template) to create resources at the management group level. For example, you may need to define and assign [policies](../../governance/policy/overview.md) or [role-based access controls](../../role-based-access-control/overview.md) for a management group. With management group level templates, you can declaratively apply policies and assign roles at the management group level.
 
 ## Supported resources
 
-You can deploy the following resource types at the management group level:
+Not all resource types can be deployed to the management group level. This section lists which resource types are supported.
 
-* [deployments](/azure/templates/microsoft.resources/deployments) - for nested templates that deploy to subscriptions or resource groups.
+For Azure Blueprints, use:
+
+* [artifacts](/azure/templates/microsoft.blueprint/blueprints/artifacts)
+* [blueprints](/azure/templates/microsoft.blueprint/blueprints)
+* [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
+* [versions](/azure/templates/microsoft.blueprint/blueprints/versions)
+
+For Azure Policies, use:
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+* [remediations](/azure/templates/microsoft.policyinsights/remediations)
+
+For role-based access control, use:
+
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+
+For nested templates that deploy to subscriptions or resource groups, use:
+
+* [deployments](/azure/templates/microsoft.resources/deployments)
+
+For managing your resources, use:
+
+* [tags](/azure/templates/microsoft.resources/tags)
 
 ### Schema
 
@@ -70,6 +90,95 @@ You can provide a name for the deployment, or use the default deployment name. T
 
 For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
 
+## Deployment scopes
+
+When deploying to a management group, you can target the management group specified in the deployment command or other management groups in the tenant. You can also target subscriptions or resource groups within a management group. The user deploying the template must have access to the specified scope.
+
+Resources defined within the resources section of the template are applied to the management group from the deployment command.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        management-group-level-resources
+    ],
+    "outputs": {}
+}
+```
+
+To target another management group, add a nested deployment and specify the `scope` property.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2019-10-01",
+            "name": "nestedDeployment",
+            "scope": "[variables('mgId')]",
+            "location": "eastus",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    nested-template
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+To target a subscription within the management group, use a nested deployment and the `subscriptionId` property. To target a resource group within that subscription, add another nested deployment and the `resourceGroup` property.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "nestedSub",
+      "location": "westus2",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Resources/deployments",
+              "apiVersion": "2020-06-01",
+              "name": "nestedRG",
+              "resourceGroup": "rg2",
+              "properties": {
+                "mode": "Incremental",
+                "template": {
+                  nested-template
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
 ## Use template functions
 
 For management group deployments, there are some important considerations when using template functions:
@@ -91,7 +200,7 @@ For management group deployments, there are some important considerations when u
   /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
 
-## Create policies
+## Azure Policy
 
 ### Define policy
 
@@ -161,9 +270,85 @@ The following example assigns an existing policy definition to the management gr
 }
 ```
 
-## Template sample
+## Deploy to subscription and resource group
 
-* [Create a resource group, a policy, and a policy assignment](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+From a management group level deployment, you can target a subscription within the management group. The following example creates a resource group within a subscription and deploys a storage account to that resource group.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "nestedsubId": {
+      "type": "string"
+    },
+    "nestedRG": {
+      "type": "string"
+    },
+    "storageAccountName": {
+      "type": "string"
+    },
+    "nestedLocation": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-06-01",
+      "name": "nestedSub",
+      "location": "[parameters('nestedLocation')]",
+      "subscriptionId": "[parameters('nestedSubId')]",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+          },
+          "variables": {
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Resources/resourceGroups",
+              "apiVersion": "2020-06-01",
+              "name": "[parameters('nestedRG')]",
+              "location": "[parameters('nestedLocation')]",
+            },
+            {
+              "type": "Microsoft.Resources/deployments",
+              "apiVersion": "2020-06-01",
+              "name": "nestedSubRG",
+              "resourceGroup": "[parameters('nestedRG')]",
+              "dependsOn": [
+                "[parameters('nestedRG')]"
+              ],
+              "properties": {
+                "mode": "Incremental",
+                "template": {
+                  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                  "contentVersion": "1.0.0.0",
+                  "resources": [
+                    {
+                      "type": "Microsoft.Storage/storageAccounts",
+                      "apiVersion": "2019-04-01",
+                      "name": "[parameters('storageAccountName')]",
+                      "location": "[parameters('nestedLocation')]",
+                      "sku": {
+                        "name": "Standard_LRS"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
 
 ## Next steps
 

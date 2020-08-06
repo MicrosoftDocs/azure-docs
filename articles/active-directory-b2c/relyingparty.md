@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/03/2020
+ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -21,7 +21,7 @@ The **RelyingParty** element specifies the user journey to enforce for the curre
 
 The following example shows a **RelyingParty** element in the *B2C_1A_signup_signin* policy file:
 
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
@@ -40,7 +40,7 @@ The following example shows a **RelyingParty** element in the *B2C_1A_signup_sig
   <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <UserJourneyBehaviors>
-      <SingleSignOn Scope="TrustFramework" KeepAliveInDays="7"/>
+      <SingleSignOn Scope="Tenant" KeepAliveInDays="7"/>
       <SessionExpiryType>Rolling</SessionExpiryType>
       <SessionExpiryInSeconds>300</SessionExpiryInSeconds>
       <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="your-application-insights-key" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
@@ -82,7 +82,7 @@ The `DefaultUserJourney` element specifies a reference to the identifier of the 
 
 *B2C_1A_signup_signin* policy:
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn">
   ...
@@ -90,7 +90,7 @@ The `DefaultUserJourney` element specifies a reference to the identifier of the 
 
 *B2C_1A_TrustFrameWorkBase* or *B2C_1A_TrustFrameworkExtensionPolicy*:
 
-```XML
+```xml
 <UserJourneys>
   <UserJourney Id="SignUpOrSignIn">
   ...
@@ -218,7 +218,7 @@ The **SubjectNamingInfo** element contains the following attribute:
 
 The following example shows how to define an OpenID Connect relying party. The subject name info is configured as the `objectId`:
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
   <TechnicalProfile Id="PolicyProfile">
@@ -238,7 +238,7 @@ The following example shows how to define an OpenID Connect relying party. The s
 ```
 The JWT token includes the `sub` claim with the user objectId:
 
-```JSON
+```json
 {
   ...
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",

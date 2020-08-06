@@ -1,5 +1,5 @@
 ---
-title: Understanding Azure Security Center for IoT security agent local configuration file for C# | Microsoft Docs
+title: Security agent local configuration (C#)
 description: Learn more about the Azure Security Center for IoT security service, security agent local configuration file for C#.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -16,11 +16,9 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-
 ---
 
 # Understanding the local configuration file (C# agent)
-
 
 The Azure Security Center for IoT security agent uses configurations from a local configuration file.
 
@@ -32,18 +30,21 @@ The C# security agent uses multiple configuration files:
 - **Authentication.config** - Authentication related configuration (including authentication details).
 - **SecurityIotInterface.config** - IoT related configurations.
 
-The configuration files contain the default configuration. Authentication configuration is populated during agent installation and changes to the configuration file are made when the agent is restarted. 
+The configuration files contain the default configuration. Authentication configuration is populated during agent installation and changes to the configuration file are made when the agent is restarted.
 
 ## Configuration file location
+
 For Linux:
+
 - Operating system configuration files are located in `/var/ASCIoTAgent`.
 
 For Windows:
-- Operating system configuration files are located within the directory of the security agent. 
+
+- Operating system configuration files are located within the directory of the security agent.
 
 ### General.config configurations
 
-| Configuration Name | Possible values | Details | 
+| Configuration Name | Possible values | Details |
 |:-----------|:---------------|:--------|
 | agentId | GUID | Agent unique identifier |
 | readRemoteConfigurationTimeout | TimeSpan | Time period for fetching remote configuration from IoT Hub. If the agent can't fetch the configuration within the specified time, the operation will time out.|
@@ -58,7 +59,8 @@ For Windows:
 | defaultEventPriority | "High", "Low", "Off" | Default event priority. |
 
 ### General.config example
-```XML
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <General>
   <add key="agentId" value="da00006c-dae9-4273-9abc-bcb7b7b4a987" />
@@ -77,7 +79,7 @@ For Windows:
 
 ### Authentication.config
 
-| Configuration name | Possible values | Details | 
+| Configuration name | Possible values | Details |
 |:-----------|:---------------|:--------|
 | moduleName | string | Name of the security module identity. This name must correspond to the module identity name in the device. |
 | deviceId | string | ID of the device (as registered in Azure IoT Hub). || schedulerInterval | TimeSpan string | Internal scheduler interval. |
@@ -91,7 +93,8 @@ For Windows:
 |
 
 ### Authentication.config example
-```XML
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Authentication>
   <add key="moduleName" value="azureiotsecurity"/>
@@ -105,15 +108,17 @@ For Windows:
   <add key="registrationId" value="d1"/>
 </Authentication>
 ```
+
 ### SecurityIotInterface.config
 
-| Configuration Name | Possible values | Details | 
+| Configuration Name | Possible values | Details |
 |:-----------|:---------------|:--------|
 | transportType | "Ampq" "Mqtt" | IoT Hub transport type. |
 |
 
 ### SecurityIotInterface.config example
-```XML
+
+```xml
 <ExternalInterface>
   <add key="facadeType"  value="Microsoft.Azure.Security.IoT.Agent.Common.SecurityIoTHubInterface, Security.Common" />
   <add key="transportType" value="Amqp"/>
@@ -121,6 +126,7 @@ For Windows:
 ```
 
 ## Next steps
+
 - Read the Azure Security Center for IoT service [Overview](overview.md)
 - Learn more about Azure Security Center for IoT [Architecture](architecture.md)
 - Enable the Azure Security Center for IoT [service](quickstart-onboard-iot-hub.md)

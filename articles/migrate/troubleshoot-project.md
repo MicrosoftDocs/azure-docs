@@ -27,7 +27,7 @@ Finding an existing Azure Migrate project depends upon whether you're using the 
 
 ## Can't find a geography
 
-You can create an Azure Migrate project in [supported geographies](migrate-support-matrix.md#supported-geographies). Note that the project geography is used to store discovered machine metadata. You can assess or migrate machines in other locations too.
+You can create an Azure Migrate project in supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
 ## What are VM limits?
 
@@ -47,7 +47,7 @@ If you try to create a project and encounter a deployment error:
 - If you receive the error, "Requests must contain user identity headers", this might indicate that you don't have access to the Azure Active Directory (Azure AD) tenant of the organization. In this case:
     - When you're added to an Azure AD tenant for the first time, you receive an email invitation to join the tenant.
     - Accept the invitation to be added to the tenant.
-    - If you can't see the email, contact a user with access to the tenant, and ask them to [resend the invitation](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users) to you.
+    - If you can't see the email, contact a user with access to the tenant, and ask them to [resend the invitation](../active-directory/b2b/add-users-administrator.md#resend-invitations-to-guest-users) to you.
     - After receiving the invitation email, open it and select the link to accept the invitation. Then, sign out of the Azure portal and sign in again. (refreshing the browser won't work.) You can then start creating the migration project.
 
 ## How do I delete a project

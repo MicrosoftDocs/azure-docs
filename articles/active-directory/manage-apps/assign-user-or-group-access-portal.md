@@ -2,14 +2,14 @@
 title: Assign a user or group to an enterprise app in Azure AD
 description: How to select an enterprise app to assign a user or group to it in Azure Active Directory
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/21/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
 ---
@@ -22,6 +22,9 @@ For greater control, certain types of enterprise applications can be configured 
 
 To [assign a user or group to an enterprise app](#assign-users-or-groups-to-an-app-via-the-azure-portal), you'll need to sign in as a global administrator, application administrator, cloud application administrator, or the assigned owner of the enterprise app.
 
+> [!IMPORTANT]
+> When you assign a group to an application, only users in the group will have access. The assignment does not cascade to nested groups.
+
 > [!NOTE]
 > Group-based assignment requires Azure Active Directory Premium P1 or P2 edition. Group-based assignment is supported for Security groups only. Nested group memberships and Office 365 groups are not currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
 
@@ -33,7 +36,7 @@ With the following types of applications, you have the option of requiring users
 - Application Proxy applications that use Azure Active Directory Pre-Authentication
 - Applications built on the Azure AD application platform that use OAuth 2.0 / OpenID Connect Authentication after a user or admin has consented to that application.
 
-When user assignment is required, only those users you explicitly assign to the application will be able to sign in. They can access the app on their My Apps page or by using a direct link. 
+When user assignment is required, only those users you explicitly assign to the application (either through direct user assignment or based on group membership) will be able to sign in. They can access the app on their My Apps page or by using a direct link. 
 
 When assignment is *not required*, either because you've set this option to **No** or because the application uses another SSO mode, any user will be able to access the application if they have a direct link to the application or the **User Access URL** in the application’s **Properties** page. 
 
@@ -105,9 +108,11 @@ To require user assignment for an application:
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
-For more information about how to assign a user to an application role visit the documentation for [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
+For more information about how to assign a user to an application role, see the documentation for [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
 
-To assign a group to an enterprise app, you need to replace `Get-AzureADUser` with `Get-AzureADGroup`.
+To assign a group to an enterprise app, you must replace `Get-AzureADUser` with `Get-AzureADGroup` and replace `New-AzureADUserAppRoleAssignment` with `New-AzureADGroupAppRoleAssignment`.
+
+For more information about how to assign a group to an application role, see the documentation for [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
 
 ### Example
 

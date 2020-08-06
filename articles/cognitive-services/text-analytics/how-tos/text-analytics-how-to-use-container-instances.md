@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/07/2020
 ms.author: aahi
 ---
 
@@ -35,6 +35,10 @@ Learn how to deploy the Cognitive Services [Text Analytics][install-and-run-cont
 #### [Sentiment Analysis](#tab/sentiment)
 
 [!INCLUDE [Verify the Sentiment Analysis container instance](../includes/verify-sentiment-analysis-container.md)]
+
+#### [Text Analytics for health](#tab/health)
+
+[!INCLUDE [Verify the health container instance](../includes/verify-health-container.md)]
 
 ***
 

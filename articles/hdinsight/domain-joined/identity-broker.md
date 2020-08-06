@@ -5,7 +5,7 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/12/2019
 ---
 
@@ -41,15 +41,65 @@ The ID Broker feature will add one extra VM to the cluster. This VM is the ID Br
 
 ![Option to enable ID Broker](./media/identity-broker/identity-broker-enable.png)
 
+### Using Azure Resource Manager templates
+If you add a new role called `idbrokernode` with the following attributes to the compute profile of your template, then the cluster will get created with the ID broker node enabled:
+
+```json
+.
+.
+.
+"computeProfile": {
+    "roles": [
+        {
+            "autoscale": null,
+            "name": "headnode",
+           ....
+        },
+        {
+            "autoscale": null,
+            "name": "workernode",
+            ....
+        },
+        {
+            "autoscale": null,
+            "name": "idbrokernode",
+            "targetInstanceCount": 1,
+            "hardwareProfile": {
+                "vmSize": "Standard_A2_V2"
+            },
+            "virtualNetworkProfile": {
+                "id": "string",
+                "subnet": "string"
+            },
+            "scriptActions": [],
+            "dataDisksGroups": null
+        }
+    ]
+}
+.
+.
+.
+```
+
 ## Tool integration
 
 The HDInsight [IntelliJ plug-in](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) is updated to support OAuth. You can use this plug-in to connect to the cluster and submit jobs.
+
+You can also use [Spark & Hive Tools for VS Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) to leverage notebook and submit jobs.
 
 ## SSH access without a password hash in Azure AD DS
 
 After ID Broker is enabled, you'll still need a password hash stored in Azure AD DS for SSH scenarios with domain accounts. To SSH to a domain-joined VM, or to run the `kinit` command, you need to provide a password. 
 
 SSH authentication requires the hash to be available in Azure AD DS. If you want to use SSH for administrative scenarios only, you can create one cloud-only account and use that to SSH to the cluster. Other users can still use Ambari or HDInsight tools (such as the IntelliJ plug-in) without having the password hash available in Azure AD DS.
+
+## Clients using OAuth to connect to HDInsight gateway with ID Broker setup
+
+In the ID broker setup, custom apps and clients connecting to the gateway can be updated to acquire the required OAuth token first. You can follow the steps in this [document](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) to acquire the token with the following information:
+
+*	OAuth resource uri: `https://hib.azurehdinsight.net` 
+* AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
+*	Permission: (name: Cluster.ReadWrite, id: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 ## Next steps
 

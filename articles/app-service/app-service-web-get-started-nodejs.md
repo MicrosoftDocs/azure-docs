@@ -4,10 +4,7 @@ description: Deploy your first Node.js Hello World to Azure App Service in minut
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 03/04/2020
-ms.custom: mvc, devcenter, seodec18
-
-experimental: false
-experiment_id: a231f2b4-2625-4d
+ms.custom: mvc, devcenter, seodec18, devx-track-javascript
 
 # NOTE: this article is nearly identical to app-service/containers/quickstart-nodejs.md.
 # The difference is that this article uses the advanced web app step to deploy to Windows, whereas the other
@@ -22,7 +19,7 @@ Get started with Azure App Service by creating a Node.js/Express app locally usi
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - [Node.js and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
 - [Visual Studio Code](https://code.visualstudio.com/).
-- The [Azure App Service extension](vscode:extension/ms-azuretools.vscode-azureappservice) for Visual Studio Code.
+- The [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) for Visual Studio Code.
 
 ## Clone and run a local Node.js application
 
@@ -44,7 +41,7 @@ Get started with Azure App Service by creating a Node.js/Express app locally usi
     npm start
     ```
     
-1. Open your browser and navigate to [http://localhost:1337](http://localhost:1337). The browser should display "Hello World!".
+1. Open your browser and navigate to `http://localhost:1337`. The browser should display "Hello World!".
 
 1. Press **Ctrl**+**C** in the terminal to stop the server.
 
@@ -156,7 +153,13 @@ You can view log output (calls to `console.log`) from the app directly in the VS
 
 Congratulations, you've successfully completed this quickstart!
 
-Next, check out the other Azure extensions.
+> [!div class="nextstepaction"]
+> [Tutorial: Node.js app with MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure Node.js app](configure-language-nodejs.md)
+
+Check out the other Azure extensions.
 
 * [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
@@ -166,3 +169,4 @@ Next, check out the other Azure extensions.
 
 Or get them all by installing the
 [Node Pack for Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack.
+

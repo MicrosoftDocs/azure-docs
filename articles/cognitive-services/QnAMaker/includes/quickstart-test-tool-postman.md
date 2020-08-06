@@ -2,14 +2,12 @@
 title: include file
 description: include file
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 02/08/2020
-ms.author: diberry
+ms.date: 04/27/2020
 ---
 
 This Postman-based quickstart walks you through getting an answer from your knowledge base.
@@ -35,7 +33,7 @@ Use this procedure to configure Postman, then read each subsequent section to co
     |Name|Setting|Purpose and value|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|This is the HTTP method and route for the URL.|
-    |`Host`|`https://diberry-qna-s0-s.azurewebsites.net/qnamaker`|This is the host of the URL. Concatenate the Host and Post values to get the complete generateAnswer URL.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.azurewebsites.net/qnamaker`|This is the host of the URL. Concatenate the Host and Post values to get the complete generateAnswer URL.|
     |`Authorization`|`EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|The header value for to authorize your request to Azure. |
     |`Content-type`|`application/json`|The header value for your content.|
     ||`{"question":"<Your question>"}`|The body of the POST request as a JSON object. This value will change in each following section depending on what the query is meant to do.|
@@ -59,7 +57,7 @@ In a previous quickstart, metadata was added to two QnA pairs to distinguish bet
     }
     ```
 
-    The question is just a single word, `size`, which can return either of the two question and answer sets. The `strictFilters` array tells the response to reduce to just the `qna_maker` answers.
+    The question is just a single word, `size`, which can return either of the two question and answer pairs. The `strictFilters` array tells the response to reduce to just the `qna_maker` answers.
 
 1. The response includes only the answer that meets the filter criteria.
 
@@ -98,9 +96,12 @@ In a previous quickstart, metadata was added to two QnA pairs to distinguish bet
     }
     ```
 
-    If there is a question and answer set that didn't meet the search term but did meet the filter, it would not be returned. Instead, the general answer `No good match found in KB.` is returned.
+    If there is a question and answer pair that didn't meet the search term but did meet the filter, it would not be returned. Instead, the general answer `No good match found in KB.` is returned.
 
 ## Use debug query property
+
+> [!NOTE]
+>We don't recommend to use Debug property for any dependency. This property has been added to help the product team in troubleshooting.
 
 Debug information helps you understand how the returned answer was determined. While it is helpful, it is not necessary. To generate an answer with debug information, add the `debug` property:
 

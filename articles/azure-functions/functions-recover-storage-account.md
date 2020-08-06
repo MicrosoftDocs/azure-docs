@@ -1,11 +1,9 @@
 ---
 title: 'Troubleshoot error: Azure Functions Runtime is unreachable'
 description: Learn how to troubleshoot an invalid storage account.
-author: alexkarcher-msft
 
 ms.topic: article
 ms.date: 09/05/2018
-ms.author: alkarche
 ---
 
 # Troubleshoot error: "Azure Functions Runtime is unreachable"
@@ -14,7 +12,7 @@ This article helps you troubleshoot the following error string that appears in t
 
 > "Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration."
 
-This issue occurs when the Azure Functions Runtime can't start. The most common reason for the issue is that the function app has lost access to its storage account. For more information, see [Storage account requirements](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements).
+This issue occurs when the Azure Functions Runtime can't start. The most common reason for the issue is that the function app has lost access to its storage account. For more information, see [Storage account requirements](./functions-create-function-app-portal.md#storage-account-requirements).
 
 The rest of this article helps you troubleshoot the following causes of this error, including how to identify and resolve each case.
 
@@ -22,7 +20,7 @@ The rest of this article helps you troubleshoot the following causes of this err
 
 Every function app requires a storage account to operate. If that account is deleted, your function won't work.
 
-Start by looking up your storage account name in your application settings. Either `AzureWebJobsStorage` or `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contains the name of your storage account wrapped up in a connection string. For more information, see [App settings reference for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
+Start by looking up your storage account name in your application settings. Either `AzureWebJobsStorage` or `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contains the name of your storage account wrapped up in a connection string. For more information, see [App settings reference for Azure Functions](./functions-app-settings.md#azurewebjobsstorage).
 
 Search for your storage account in the Azure portal to see whether it still exists. If it has been deleted, re-create the storage account and replace your storage connection strings. Your function code is lost, and you need to redeploy it.
 
@@ -33,12 +31,12 @@ In the preceding step, if you can't find a storage account connection string, it
 ### Required application settings
 
 * Required:
-    * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
+    * [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)
 * Required for consumption plan functions:
-    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
-    * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
+    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md)
+    * [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md)
 
-For more information, see [App settings reference for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings).
+For more information, see [App settings reference for Azure Functions](./functions-app-settings.md).
 
 ### Guidance
 
@@ -48,7 +46,7 @@ For more information, see [App settings reference for Azure Functions](https://d
 
 ## Storage account credentials are invalid
 
-The previously discussed storage account connection strings must be updated if you regenerate storage keys. For more information about storage key management, see [Create an Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
+The previously discussed storage account connection strings must be updated if you regenerate storage keys. For more information about storage key management, see [Create an Azure Storage account](../storage/common/storage-account-create.md).
 
 ## Storage account is inaccessible
 
@@ -56,7 +54,7 @@ Your function app must be able to access the storage account. Common issues that
 
 * The function app is deployed to your App Service Environment without the correct network rules to allow traffic to and from the storage account.
 
-* The storage account firewall is enabled and not configured to allow traffic to and from functions. For more information, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+* The storage account firewall is enabled and not configured to allow traffic to and from functions. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## Daily execution quota is full
 
@@ -84,7 +82,7 @@ To verify your App Service Environment configuration:
    
 You can also use the portal from a computer that's connected to the virtual network that's running your app or to a virtual machine that's running in your virtual network. 
 
-For more information about inbound rule configuration, see the "Network Security Groups" section of [Networking considerations for an App Service Environment](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups).
+For more information about inbound rule configuration, see the "Network Security Groups" section of [Networking considerations for an App Service Environment](../app-service/environment/network-info.md#network-security-groups).
 
 ## Next steps
 

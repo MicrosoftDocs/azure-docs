@@ -5,14 +5,15 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 02/19/2020
+ms.date: 02/19/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI samples
 
 The following table includes links to bash scripts for Azure App Configuration by using the Azure CLI.
 
-| | |
+| Script | Description |
 |-|-|
 |**Create**||
 | [Create an App Configuration store](./scripts/cli-create-service.md) | Creates a resource group and an App Configuration store instance.  |

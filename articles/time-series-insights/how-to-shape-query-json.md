@@ -4,16 +4,16 @@ description: Learn how to improve your Azure Time Series Insights query efficien
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
 
-# Customer intent: As a developer, I want to learn about best practices for shaping JSON so that I can create efficient Time Series Insights queries when I use APIs.
+# Customer intent: As a developer, I want to learn about best practices for shaping JSON so that I can create efficient Azure Time Series Insights queries when I use APIs.
 ---
 
-# Shape JSON to maximize query performance 
+# Shape JSON to maximize query performance in your Gen1 environment
 
 This article provides guidance on how to shape JSON to maximize the efficiency of your Azure Time Series Insights queries.
 
@@ -25,16 +25,13 @@ This article provides guidance on how to shape JSON to maximize the efficiency o
 
 ## Best practices
 
-Think about how you send events to Time Series Insights. Namely, you always:
+Think about how you send events to Azure Time Series Insights. Namely, you always:
 
 1. Send data over the network as efficiently as possible.
 1. Make sure your data is stored in a way so that you can perform aggregations suitable for your scenario.
-1. Make sure that you don't reach the Time Series Insights maximum property limits of:
+1. Make sure that you don't reach the Azure Time Series Insights maximum property limits of:
    - 600 properties (columns) for S1 environments.
    - 800 properties (columns) for S2 environments.
-
-> [!TIP]
-> Review [limits and planning](time-series-insights-update-plan.md) in Azure Time Series Insights Preview.
 
 The following guidance helps to ensure the best possible query performance:
 
@@ -42,7 +39,7 @@ The following guidance helps to ensure the best possible query performance:
 1. Don't send unnecessary properties. If a query property isn't required, it's best not to send it. This way you avoid storage limitations.
 1. Use [reference data](time-series-insights-add-reference-data-set.md) to avoid sending static data over the network.
 1. Share dimension properties among multiple events to send data over the network more efficiently.
-1. Don't use deep array nesting. Time Series Insights supports up to two levels of nested arrays that contain objects. Time Series Insights flattens arrays in the messages into multiple events with property value pairs.
+1. Don't use deep array nesting. Azure Time Series Insights supports up to two levels of nested arrays that contain objects. Azure Time Series Insights flattens arrays in the messages into multiple events with property value pairs.
 1. If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events and might improve query performance because fewer events need to be processed. When there are several measures, sending them as values in a single property minimizes the possibility of reaching the maximum property limit.
 
 ## Example overview
@@ -58,7 +55,7 @@ The examples are based on a scenario where multiple devices send measurements or
 
 In the following example, there's a single Azure IoT Hub message where the outer array contains a shared section of common dimension values. The outer array uses reference data to increase the efficiency of the message. Reference data contains device metadata that doesn't change with every event, but it provides useful properties for data analysis. Batching common dimension values and employing reference data saves on bytes sent over the wire, which makes the message more efficient.
 
-Consider the following JSON payload sent to your Time Series Insights GA environment using an [IoT Device Message object](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) that is serialized into JSON when sent to Azure cloud:
+Consider the following JSON payload sent to your Azure Time Series Insights GA environment using an [IoT Device Message object](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) that is serialized into JSON when sent to Azure cloud:
 
 
 ```JSON
@@ -97,7 +94,7 @@ Consider the following JSON payload sent to your Time Series Insights GA environ
    | FXXX | LINE\_DATA | EU |
    | FYYY | LINE\_DATA | US |
 
-* Time Series Insights event table, after flattening:
+* Azure Time Series Insights event table, after flattening:
 
    | deviceId | messageId | deviceLocation | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
    | --- | --- | --- | --- | --- | --- |
@@ -108,8 +105,8 @@ Consider the following JSON payload sent to your Time Series Insights GA environ
 > [!NOTE]
 > - The **deviceId** column serves as the column header for the various devices in a fleet. Making the **deviceId** value its own property name limits the total devices to 595 (for S1 environments) or 795 (for S2 environments) with the other five columns.
 > - Unnecessary properties are avoided (for example, the make and model information). Because the properties won't be queried in the future, eliminating them enables better network and storage efficiency.
-> - Reference data is used to reduce the number of bytes transferred over the network. The two attributes **messageId** and **deviceLocation** are joined by using the key property **deviceId**. This data is joined with the telemetry data at ingress time and is then stored in Time Series Insights for querying.
-> - Two layers of nesting are used, which is the maximum amount of nesting supported by Time Series Insights. It's critical to avoid deeply nested arrays.
+> - Reference data is used to reduce the number of bytes transferred over the network. The two attributes **messageId** and **deviceLocation** are joined by using the key property **deviceId**. This data is joined with the telemetry data at ingress time and is then stored in Azure Time Series Insights for querying.
+> - Two layers of nesting are used, which is the maximum amount of nesting supported by Azure Time Series Insights. It's critical to avoid deeply nested arrays.
 > - Measures are sent as separate properties within the same object because there are few measures. Here, **series.Flow Rate psi** and **series.Engine Oil Pressure ft3/s** are unique columns.
 
 ## Scenario two: Several measures exist
@@ -169,7 +166,7 @@ Example JSON payload:
    | FYYY | pumpRate | LINE\_DATA | US | Flow Rate | ft3/s |
    | FYYY | oilPressure | LINE\_DATA | US | Engine Oil Pressure | psi |
 
-* Time Series Insights event table, after flattening:
+* Azure Time Series Insights event table, after flattening:
 
    | deviceId | series.tagId | messageId | deviceLocation | type | unit | timestamp | series.value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -183,7 +180,7 @@ Example JSON payload:
 > [!NOTE]
 > - The columns **deviceId** and **series.tagId** serve as the column headers for the various devices and tags in a fleet. Using each as its own attribute limits the query to 594 (for S1 environments) or 794 (for S2 environments) total devices with the other six columns.
 > - Unnecessary properties were avoided, for the reason cited in the first example.
-> - Reference data is used to reduce the number of bytes transferred over the network by introducing **deviceId**, which is used for the unique pair of **messageId** and **deviceLocation**. The composite key **series.tagId** is used for the unique pair of **type** and **unit**. The composite key allows the  **deviceId** and **series.tagId** pair to be used to refer to four values: **messageId, deviceLocation, type,** and **unit**. This data is joined with the telemetry data at ingress time. It's then stored in Time Series Insights for querying.
+> - Reference data is used to reduce the number of bytes transferred over the network by introducing **deviceId**, which is used for the unique pair of **messageId** and **deviceLocation**. The composite key **series.tagId** is used for the unique pair of **type** and **unit**. The composite key allows the  **deviceId** and **series.tagId** pair to be used to refer to four values: **messageId, deviceLocation, type,** and **unit**. This data is joined with the telemetry data at ingress time. It's then stored in Azure Time Series Insights for querying.
 > - Two layers of nesting are used, for the reason cited in the first example.
 
 ### For both scenarios
@@ -197,6 +194,6 @@ For a property with a large number of possible values, it's best to send as dist
 
 - Read more about sending [IoT Hub device messages to the cloud](../iot-hub/iot-hub-devguide-messages-construct.md).
 
-- Read [Azure Time Series Insights query syntax](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) to learn more about the query syntax for the Time Series Insights data access REST API.
+- Read [Azure Time Series Insights query syntax](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) to learn more about the query syntax for the Azure Time Series Insights data access REST API.
 
 - Learn [how to shape events](./time-series-insights-send-events.md).

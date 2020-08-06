@@ -85,7 +85,7 @@ Parameters to these commands can be found in the generated manifests inside the 
 
 Once the application has been deployed, open a browser and navigate to
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) at
-[http://localhost:19080/Explorer](http://localhost:19080/Explorer). Then, expand the **Applications** node and note
+`http://localhost:19080/Explorer`. Then, expand the **Applications** node and note
 that there is now an entry for your application type and another for the first instance of that type.
 
 > [!IMPORTANT]

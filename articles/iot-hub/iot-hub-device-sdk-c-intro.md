@@ -8,6 +8,7 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: robinsh
+ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Azure IoT device SDK for C
@@ -80,7 +81,7 @@ The device explorer tool uses the Azure IoT service libraries to perform various
 
 If you're not familiar with the device explorer tool, the following procedure describes how to use it to add a device and obtain a device connection string.
 
-1. To install the device explorer tool, see [How to use the Device Explorer for IoT Hub devices](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+1. To install the device explorer tool, see [How to use the Device Explorer for IoT Hub devices](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/).
 
 1. When you run the program, you see this interface:
 

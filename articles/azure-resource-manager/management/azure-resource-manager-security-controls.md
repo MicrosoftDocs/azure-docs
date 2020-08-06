@@ -41,7 +41,7 @@ This article documents the security controls built into Azure Resource Manager.
 
 | Security control | Yes/No | Notes|
 |---|---|--|
-| Authentication| Yes | [Azure Active Directory](/azure/active-directory) based.|
+| Authentication| Yes | [Azure Active Directory](../../active-directory/index.yml) based.|
 | Authorization| Yes | |
 
 ## Configuration management

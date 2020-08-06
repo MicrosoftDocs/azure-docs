@@ -4,10 +4,10 @@ description: Learn how to use Spot VMs to save on costs.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
-ms.date: 03/25/2020
+ms.topic: conceptual
+ms.date: 07/20/2020
 ms.author: cynthn
-#pmcontact: jagaveer
+ms.reviewer: jagaveer
 ---
 
 
@@ -17,7 +17,7 @@ ms.author: cynthn
 
 
 ## Next steps
-Use the [portal](spot-portal.md), [CLI](../linux/spot-cli.md) or [PowerShell](spot-powershell.md) to deploy Spot VMs.
+Use the [portal](spot-portal.md), [CLI](../linux/spot-cli.md), [ARM template](../linux/spot-template.md), or [PowerShell](spot-powershell.md) to deploy Spot VMs.
 
 You can also deploy a [scale set with Spot VM instances](../../virtual-machine-scale-sets/use-spot.md).
 

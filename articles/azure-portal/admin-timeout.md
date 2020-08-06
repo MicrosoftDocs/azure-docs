@@ -6,7 +6,7 @@ keywords: settings, timeout
 author: mgblythe
 ms.author: mblythe
 ms.date: 02/10/2020
-ms.topic: conceptual
+ms.topic: how-to
 
 ms.service: azure-portal
 manager:  mtillman

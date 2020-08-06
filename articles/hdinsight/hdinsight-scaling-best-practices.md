@@ -5,15 +5,16 @@ author: ashishthaps
 ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.date: 04/06/2020
+ms.topic: how-to
+ms.custom: seoapr2020
+ms.date: 04/29/2020
 ---
 
 # Scale Azure HDInsight clusters
 
 HDInsight provides elasticity with options to scale up and scale down the number of worker nodes in your clusters. This elasticity allows you to shrink a cluster after hours or on weekends. And expand it during peak business demands.
 
-Scale up your cluster before periodic batch processing so the cluster has adequate resources.  After processing completes, and usage goes down, scale down the HDInsight cluster to fewer worker nodes.
+Scale up your cluster before periodic batch processing so the cluster has adequate resources.  After processing completes, and usage goes down, scale down the HDInsight cluster to fewer worker nodes.
 
 You can scale a cluster manually using one of the methods outlined below. You can also use [autoscale](hdinsight-autoscale-clusters.md) options to automatically scale up and down in response to certain metrics.
 
@@ -68,27 +69,46 @@ The impact of changing the number of data nodes varies for each type of cluster 
 
 * Apache Storm
 
-    You can seamlessly add or remove data nodes while Storm is running. However, after a successful completion of the scaling operation, you'll need to rebalance the topology.
-
-    Rebalancing can be accomplished in two ways:
+    You can seamlessly add or remove data nodes while Storm is running. However, after a successful completion of the scaling operation, you'll need to rebalance the topology. Rebalancing allows the topology to readjust [parallelism settings](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) based on the new number of nodes in the cluster. To rebalance running topologies, use one of the following options:
 
   * Storm web UI
+
+    Use the following steps to rebalance a topology using the Storm UI.
+
+    1. Open `https://CLUSTERNAME.azurehdinsight.net/stormui` in your web browser, where `CLUSTERNAME` is the name of your Storm cluster. If prompted, enter the HDInsight cluster administrator (admin) name and password you specified when creating the cluster.
+
+    1. Select the topology you wish to rebalance, then select the **Rebalance** button. Enter the delay before the rebalance operation is done.
+
+        ![HDInsight Storm scale rebalance](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
   * Command-line interface (CLI) tool
 
-    For more information, see [Apache Storm documentation](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    Connect to the server and use the following command to rebalance a topology:
 
-    The Storm web UI is available on the HDInsight cluster:
+    ```bash
+     storm rebalance TOPOLOGYNAME
+    ```
 
-    ![HDInsight Storm scale rebalance](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    You can also specify parameters to override the parallelism hints originally provided by the topology. For example, the code below reconfigures the `mytopology` topology to 5 worker processes, 3 executors for the blue-spout component, and 10 executors for the yellow-bolt component.
 
-    Here is an example CLI command to rebalance the Storm topology:
-
-    ```console
+    ```bash
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
+
+* Kafka
+
+    You should rebalance partition replicas after scaling operations. For more information, see the [High availability of data with Apache Kafka on HDInsight](./kafka/apache-kafka-high-availability.md) document.
+
+* Apache Hive LLAP
+
+    After scaling to `N` worker nodes, HDInsight will automatically set the following configurations and restart Hive.
+
+  * Maximum Total Concurrent Queries: `hive.server2.tez.sessions.per.default.queue = min(N, 32)`
+  * Number of nodes used by Hive's LLAP: `num_llap_nodes  = N`
+  * Number of Node(s) for running Hive LLAP daemon: `num_llap_nodes_for_llap_daemons = N`
 
 ## How to safely scale down a cluster
 
@@ -102,7 +122,7 @@ To avoid having your running jobs fail during a scale down operation, you can tr
 
 To see a list of pending and running jobs, you can use the YARN **Resource Manager UI**, following these steps:
 
-1. From the [Azure portal](https://portal.azure.com/), select your cluster.  See [List and show clusters](./hdinsight-administer-use-portal-linux.md#showClusters) for the instructions. The cluster is opened in a new portal page.
+1. From the [Azure portal](https://portal.azure.com/), select your cluster.  The cluster is opened in a new portal page.
 2. From the main view, navigate to **Cluster dashboards** > **Ambari home**. Enter your cluster  credentials.
 3. From the Ambari UI, select **YARN** on the list of services on the left-hand menu.  
 4. From the YARN page, select **Quick Links** and hover over the active head node, then select **Resource Manager UI**.
@@ -246,4 +266,8 @@ Region servers are automatically balanced within a few minutes after completing 
 ## Next steps
 
 * [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md)
-* [Introduction to Azure HDInsight](hadoop/apache-hadoop-introduction.md)
+
+For specific information on scaling your HDInsight cluster, see:
+
+* [Manage Apache Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Manage Apache Hadoop clusters in HDInsight by using Azure CLI](hdinsight-administer-use-command-line.md#scale-clusters)

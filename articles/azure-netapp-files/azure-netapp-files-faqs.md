@@ -1,6 +1,6 @@
 ---
 title: FAQs About Azure NetApp Files | Microsoft Docs
-description: Answers frequently asked questions about Azure NetApp Files.
+description: Review frequently asked questions about Azure NetApp Files, such as networking, security, performance, capacity management, and data migration/protection.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 07/27/2020
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -41,6 +41,10 @@ Yes, you can, if you create the required DNS entries. Azure NetApp Files supplie
 > [!NOTE] 
 > Azure NetApp Files can deploy additional IPs for the service as needed.  DNS entries may need to be updated periodically.
 
+### Can I set or select my own IP address for an Azure NetApp Files volume?  
+
+No. IP assignment to Azure NetApp Files volumes is dynamic. Static IP assignment is not supported. 
+ 
 ## Security FAQs
 
 ### Can the network traffic between the Azure VM and the storage be encrypted?
@@ -88,11 +92,15 @@ You can convert MB/s to IOPS by using the following formula:
 
 ### How do I change the service level of a volume?
 
-Changing the service level of a volume is not currently supported.
+You can change the service level of an existing volume by moving the volume to another capacity pool that uses the [service level](azure-netapp-files-service-levels.md) you want for the volume. See [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md). 
 
 ### How do I monitor Azure NetApp Files performance?
 
 Azure NetApp Files provides volume performance metrics. You can also use Azure Monitor for monitoring usage metrics for Azure NetApp Files.  See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md) for the list of performance metrics for Azure NetApp Files.
+
+### What’s the performance impact of Kerberos on NFSv4.1?
+
+See [Performance impact of Kerberos on NFSv4.1](configure-kerberos-encryption.md#kerberos_performance) for information about security options for NFSv4.1, the performance vectors tested, and the expected performance impact. 
 
 ## NFS FAQs
 
@@ -115,6 +123,10 @@ Azure NetApp Files supports NFSv3 and NFSv4.1. You can [create a volume](azure-n
 Root squashing is currently not supported.
 
 ## SMB FAQs
+
+### Which SMB versions are supported by Azure NetApp Files?
+
+Azure NetApp Files supports SMB 2.1 and SMB 3.1 (which includes support for SMB 3.0).    
 
 ### Is an Active Directory connection required for SMB access? 
 
@@ -152,6 +164,15 @@ Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
 
+## Dual-protocol FAQs
+
+### I tried to use the ‘root’ and local users to access a dual-protocol volume with the NTFS security style on a UNIX system. Why did I encounter a “Permission denied” error?   
+
+A dual-protocol volume supports both the NFS and SMB protocols.  When you try to access the mounted volume on the UNIX system, the system attempts to map the UNIX user you use to a Windows user. If no mapping is found, the “Permission denied” error occurs.  This situation applies also when you use the ‘root’ user for the access.    
+
+To avoid the “Permission denied” issue, make sure that Windows Active Directory includes `pcuser` before you access the mount point. If you add `pcuser` after encountering the “Permission denied” issue, wait 24 hours for the cache entry to clear before trying the access again.
+
+
 ## Capacity management FAQs
 
 ### How do I monitor usage for capacity pool and volume of Azure NetApp Files? 
@@ -164,23 +185,26 @@ No. Azure NetApp Files is not supported by Azure Storage Explorer.
 
 ### How do I determine if a directory is approaching the limit size?
 
-You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit (320 MB).
+You can use the `stat` command from a client to see whether a directory is approaching the maximum size limit for directory metadata (320 MB).
 
 For a 320 MB directory, the number of blocks is 655360, with each block size being 512 bytes.  (That is, 320x1024x1024/512.)  
 
 Examples:
 
-    [makam@cycrh6rtp07 ~]$ stat bin
-    File: 'bin'
-    Size: 4096            Blocks: 8          IO Block: 65536  directory
+```console
+[makam@cycrh6rtp07 ~]$ stat bin
+File: 'bin'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
 
-    [makam@cycrh6rtp07 ~]$ stat tmp
-    File: 'tmp'
-    Size: 12288           Blocks: 24         IO Block: 65536  directory
+[makam@cycrh6rtp07 ~]$ stat tmp
+File: 'tmp'
+Size: 12288           Blocks: 24         IO Block: 65536  directory
  
-    [makam@cycrh6rtp07 ~]$ stat tmp1
-    File: 'tmp1'
-    Size: 4096            Blocks: 8          IO Block: 65536  directory
+[makam@cycrh6rtp07 ~]$ stat tmp1
+File: 'tmp1'
+Size: 4096            Blocks: 8          IO Block: 65536  directory
+```
+
 
 ## Data migration and protection FAQs
 
@@ -225,5 +249,5 @@ No. Azure Import/Export service does not support Azure NetApp Files currently.
 - [Microsoft Azure ExpressRoute FAQs](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
-- [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)
+- [Azure Data Box](https://docs.microsoft.com/azure/databox)
 - [FAQs about SMB performance for Azure NetApp Files](azure-netapp-files-smb-performance.md)

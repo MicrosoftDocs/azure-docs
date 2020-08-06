@@ -5,7 +5,9 @@ ms.date: 11/21/2018
 ms.topic: tutorial
 description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio Code to debug a multi-service Java application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
+ms.custom: devx-track-java
 ---
+
 # Running multiple dependent services: Java and Visual Studio Code with Azure Dev Spaces
 
 In this tutorial, you'll learn how to develop multi-service applications using Azure Dev Spaces, along with some of the added benefits that Dev Spaces provides.

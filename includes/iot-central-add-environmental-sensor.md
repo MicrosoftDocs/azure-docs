@@ -5,7 +5,7 @@
  author: dominicbetts
  ms.service: iot-central
  ms.topic: include
- ms.date: 03/12/2020
+ ms.date: 07/07/2020
  ms.author: dobett
  ms.custom: include file
 ---
@@ -14,9 +14,9 @@
 
 Create a folder called `environmental-sensor` on your local machine.
 
-Download the [Environmental sensor capability model](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json) JSON file and save it in the `environmental-sensor` folder.
+Download the [Environmental sensor capability model](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensorInline.capabilitymodel.json) JSON file and save it in the `environmental-sensor` folder.
 
-Use a text editor to replace the two instances of `{YOUR_COMPANY_NAME_HERE}` with your company name in the `EnvironmentalSensorInline.capabilitymodel.json` file you downloaded.
+Use a text editor to replace the two instances of `{YOUR_COMPANY_NAME_HERE}` with your company name in the `EnvironmentalSensorInline.capabilitymodel.json` file you downloaded. Use only the characters a-z, A-Z, 0-9, and underscore.
 
 In your Azure IoT Central application, create a device template called *Environmental sensor* by importing the `EnvironmentalSensorInline.capabilitymodel.json` device capability model file:
 
@@ -74,12 +74,11 @@ In your Azure IoT Central application, add a real device to the device template 
 
 1. On the **Devices** page, select the **Environmental sensor** device template.
 
-    > [!TIP]
-    > Be sure to select the template to use before you select **+ New**, otherwise you'll create an unassociated device.
-
 1. Select **+ New**.
 
-1. Make sure that **Simulated** is **Off**. Then select **Create**.
+1. In the **Create a new device** dialog, make sure that **Environmental Sensor** is the template type and that **Simulate this device?** is set to **No**.
+
+1. Then select **Create**.
 
 Click on the device name, and then select **Connect**. Make a note of the device connection information on the **Device Connection** page - **ID scope**, **Device ID**, and **Primary key**. You need these values when you create your device code:
 

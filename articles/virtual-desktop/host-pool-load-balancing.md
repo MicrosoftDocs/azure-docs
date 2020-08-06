@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop host pool load-balancing - Azure
-description: Host pool load-balancing methods for a Windows Virtual Desktop environment.
+description: Learn about host pool load-balancing methods for a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,6 +11,9 @@ ms.author: helohr
 manager: lizross
 ---
 # Host pool load-balancing methods
+
+>[!IMPORTANT]
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/host-pool-load-balancing-2019.md).
 
 Windows Virtual Desktop supports two load-balancing methods. Each method determines which session host will host a user's session when they connect to a resource in a host pool.
 

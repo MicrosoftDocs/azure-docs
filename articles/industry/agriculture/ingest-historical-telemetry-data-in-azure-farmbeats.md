@@ -5,6 +5,7 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
+ms.custom: has-adal-ref
 ---
 
 # Ingest historical telemetry data
@@ -53,10 +54,16 @@ Follow these steps:
 5. Go to your home directory.
 
     ```azurepowershell-interactive 
-    cd  
+    cd
+    ```
+    
+6. Run the following command. This connects an authenticated account to use for Azure AD requests
+
+    ```azurepowershell-interactive 
+    Connect-AzureAD
     ```
 
-6. Run the following command. This will download a script to your home directory.
+7. Run the following command. This will download a script to your home directory.
 
     ```azurepowershell-interactive 
 
@@ -64,15 +71,15 @@ Follow these steps:
 
     ```
 
-7. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
+8. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
 
     ```azurepowershell-interactive 
 
-    ./generatePartnerCredentials.ps1   
+    ./generatePartnerCredentials.ps1
 
     ```
 
-8. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
+9. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
 
 
 ## Create device or sensor metadata
@@ -87,7 +94,7 @@ Follow these steps:
 - /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either a gateway or a node.
 - /**Device**: Device corresponds to a physical device present on the farm.
 - /**SensorModel**: SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measurement, such as ambient temperature and pressure.
-- /**Sensor**: Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.  
+- /**Sensor**: Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
 
 
 |        DeviceModel   |  Suggestions   |
@@ -103,7 +110,7 @@ Follow these steps:
 |   DeviceModelId     |     ID of the associated device model.  |
 |  HardwareId	       | Unique ID for the device, such as the MAC address.
 |  ReportingInterval        |   Reporting interval in seconds.
-|  Location            |  Device latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).   
+|  Location            |  Device latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).
 |ParentDeviceId       |    ID of the parent device to which this device is connected. For example, a node that's connected to a gateway. A node has parentDeviceId as the gateway.  |
 |    Name            | A name to identify the resource. Device partners must send a name that's consistent with the device name on the partner side. If the partner device name is user defined, then the same user-defined name should be propagated to FarmBeats.|
 |     Description       |      Provide a meaningful description. |
@@ -134,7 +141,7 @@ For more information about objects, see [Swagger](https://aka.ms/FarmBeatsDatahu
 
 ### API request to create metadata
 
-To make an API request, you combine the HTTP (POST) method, the URL to the API service, and the URI to a resource to query, submit data to, create, or delete a request. Then you add one or more HTTP request headers. The URL to the API service is the API endpoint, that is, the Datahub URL (https://\<yourdatahub>.azurewebsites.net).  
+To make an API request, you combine the HTTP (POST) method, the URL to the API service, and the URI to a resource to query, submit data to, create, or delete a request. Then you add one or more HTTP request headers. The URL to the API service is the API endpoint, that is, the Datahub URL (https://\<yourdatahub>.azurewebsites.net).
 
 ### Authentication
 
@@ -153,22 +160,27 @@ headers = *{"Authorization": "Bearer " + access_token, …}*
 The following sample Python code gives the access token, which can be used for subsequent API calls to FarmBeats: 
 
 ```python
-import azure 
+import requests
+import json
+import msal
 
-from azure.common.credentials import ServicePrincipalCredentials 
-import adal 
-#FarmBeats API Endpoint 
-ENDPOINT = "https://<yourdatahub>.azurewebsites.net" [Azure website](https://<yourdatahub>.azurewebsites.net)
-CLIENT_ID = "<Your Client ID>"   
-CLIENT_SECRET = "<Your Client Secret>"   
-TENANT_ID = "<Your Tenant ID>" 
-AUTHORITY_HOST = 'https://login.microsoftonline.com' 
-AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID 
-#Authenticating with the credentials 
-context = adal.AuthenticationContext(AUTHORITY) 
-token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLIENT_ID, CLIENT_SECRET) 
-#Should get an access token here 
-access_token = token_response.get('accessToken') 
+# Your service principal App ID
+CLIENT_ID = "<CLIENT_ID>"
+# Your service principal password
+CLIENT_SECRET = "<CLIENT_SECRET>"
+# Tenant ID for your Azure subscription
+TENANT_ID = "<TENANT_ID>"
+
+AUTHORITY_HOST = 'https://login.microsoftonline.com'
+AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID
+
+ENDPOINT = "https://<yourfarmbeatswebsitename-api>.azurewebsites.net"
+SCOPE = ENDPOINT + "/.default"
+
+context = msal.ConfidentialClientApplication(CLIENT_ID, authority=AUTHORITY, client_credential=CLIENT_SECRET)
+token_response = context.acquire_token_for_client(SCOPE)
+# We should get an access token here
+access_token = token_response.get('access_token')
 ```
 
 **HTTP request headers**
@@ -287,10 +299,10 @@ Sensor
 The following sample request creates a device. This request has input JSON as payload with the request body.
 
 ```bash
-curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
+curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 "accept: application/json" -H  "Content-Type: application/json" -H
-"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
-\"reportingInterval\": 900,  \"name\": \"Device123\",  
+"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",
+\"reportingInterval\": 900,  \"name\": \"Device123\",
 \"description\": \"Test Device 123\"}" *
 ```
 

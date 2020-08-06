@@ -8,9 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/06/2020
+ms.date: 04/14/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
+ms.custom: devx-track-python, devx-track-javascript
+zone_pivot_groups: programming-languages-set-two-with-js
 ---
 
 # Learn the basics of speech synthesis
@@ -23,8 +24,8 @@ In this article, you learn common design patterns for doing text-to-speech synth
 * Using neural voices
 
 > [!TIP]
-> If you haven't had a chance to complete one of our quickstarts, we encourage you to kick the tires and try speech recognition out for yourself.
-> * [Recognize speech from a microphone](quickstarts/text-to-speech.md)
+> If you haven't had a chance to complete one of our quickstarts, we encourage you to kick the tires and try text to speech for yourself.
+> * [Synthesize speech to a speaker](quickstarts/text-to-speech.md)
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-csharp.md)]
@@ -36,6 +37,10 @@ In this article, you learn common design patterns for doing text-to-speech synth
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Java Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

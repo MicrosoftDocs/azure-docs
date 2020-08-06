@@ -5,8 +5,8 @@ description: Learn how to improve your security posture by blocking legacy authe
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 03/31/2020
+ms.topic: how-to
+ms.date: 05/13/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -62,6 +62,7 @@ The following options are considered legacy authentication protocols
 
 - Authenticated SMTP - Used by POP and IMAP client's to send email messages.
 - Autodiscover - Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.
+- Exchange ActiveSync (EAS) - Used to connect to mailboxes in Exchange Online.
 - Exchange Online PowerShell - Used to connect to Exchange Online with remote PowerShell. If you block Basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell Module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
 - Exchange Web Services (EWS) - A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.
 - IMAP4 - Used by IMAP email clients.
@@ -81,7 +82,7 @@ Before you can block legacy authentication in your directory, you need to first 
 
 1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-ins**.
 1. Add the Client App column if it is not shown by clicking on **Columns** > **Client App**.
-1. **Add filters** > **Client App** > select all of the legacy authentication protocols, and click **Apply**.
+1. **Add filters** > **Client App** > select all of the legacy authentication protocols. Select outside the filtering dialog blox to apply your selections and close the dialog box.
 
 Filtering will only show you sign-in attempts that were made by legacy authentication protocols. Clicking on each individual sign-in attempt will show you additional details. The **Client App** field under the **Basic Info** tab will indicate which legacy authentication protocol was used.
 
@@ -151,3 +152,4 @@ If you block legacy authentication using the **Other clients** condition, you ca
 - [Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
 - If you are not familiar with configuring Conditional Access policies yet, see [require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md) for an example.
 - For more information about modern authentication support, see [How modern authentication works for Office 2013 and Office 2016 client apps](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- [How to set up a multifunction device or application to send email using Office 365 and Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

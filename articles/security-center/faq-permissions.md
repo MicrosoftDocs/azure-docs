@@ -20,7 +20,7 @@ ms.author: memildin
 
 ## How do permissions work in Azure Security Center?
 
-Azure Security Center uses [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
+Azure Security Center uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
 Security Center assesses the configuration of your resources to identify security issues and vulnerabilities. In Security Center, you only see information related to a resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to.
 
@@ -30,6 +30,6 @@ See [Permissions in Azure Security Center](security-center-permissions.md) to le
 
 ## Who can modify a security policy?
 
-To modify a security policy, you must be a Security Administrator or an Owner or Contributor of that subscription.
+To modify a security policy, you must be a Security Admin or an Owner or Contributor of that subscription.
 
 To learn how to configure a security policy, see [Setting security policies in Azure Security Center](tutorial-security-policy.md).

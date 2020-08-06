@@ -8,8 +8,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 03/30/2020
+ms.topic: how-to
+ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -110,7 +110,7 @@ Client certificate authentication is a mutual certificate-based authentication, 
 For non-production environments, if you don't already have a certificate, you can use a self-signed certificate. On Windows, you can use PowerShell's [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet to generate a certificate.
 
 1. Execute this PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
-    ```PowerShell
+    ```powershell
     New-SelfSignedCertificate `
         -KeyExportPolicy Exportable `
         -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
@@ -207,11 +207,19 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 1. Open the extensions file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
 1. Locate the [ClaimsSchema](claimsschema.md) element. If the element doesn't exist, add it.
-1. Add the city bearerToken to the **ClaimsSchema** element.  
+1. Add the following claims to the **ClaimsSchema** element.  
 
 ```xml
 <ClaimType Id="bearerToken">
-  <DisplayName>bearer token</DisplayName>
+  <DisplayName>Bearer token</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+<ClaimType Id="grant_type">
+  <DisplayName>Grant type</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+<ClaimType Id="scope">
+  <DisplayName>scope</DisplayName>
   <DataType>string</DataType>
 </ClaimType>
 ```
@@ -229,7 +237,7 @@ For the ServiceUrl, replace your-tenant-name with the name of your Azure AD tena
   <DisplayName></DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
-    <Item Key="ServiceUrl">https://login.microsoftonline.com/your-tenant-name.microsoft.com/oauth2/v2.0/token</Item>
+    <Item Key="ServiceUrl">https://login.microsoftonline.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token</Item>
     <Item Key="AuthenticationType">Basic</Item>
      <Item Key="SendClaimsIn">Form</Item>
   </Metadata>
@@ -273,7 +281,7 @@ To support bearer token authentication in your custom policy, modify the REST AP
 
 After you add the above snippets, your technical profile should look like the following XML code:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>

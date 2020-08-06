@@ -59,6 +59,12 @@ Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
   -Context $ctx
+
+# upload a file to a folder
+Set-AzStorageBlobContent -File "D:\_TestImages\foldername\Image003.jpg" `
+  -Container $containerName `
+  -Blob "Foldername/Image003.jpg" `
+  -Context $ctx 
 ```
 
 Upload as many files as you like before continuing.
@@ -112,10 +118,10 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## Next steps
 
-In this quickstart, you transferred files between a local disk and Azure Blob storage. To learn more about working with Blob storage by using PowerShell, continue to How-to use Azure PowerShell with Azure Storage.
+In this quickstart, you transferred files between a local file system and Azure Blob storage. To learn more about working with Blob storage by using PowerShell, explore Azure PowerShell samples for Blob storage.
 
 > [!div class="nextstepaction"]
-> [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Azure PowerShell samples for Azure Blob storage](storage-samples-blobs-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### Microsoft Azure PowerShell Storage cmdlets reference
 

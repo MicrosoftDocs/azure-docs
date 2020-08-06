@@ -1,8 +1,8 @@
 ---
 title: Best practices for Azure Maps Route Service  | Microsoft Azure Maps 
-description: Learn how to route efficiently by using Route Service from Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+description: Learn how to route vehicles by using Route Service from Microsoft Azure Maps.
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/11/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -26,7 +26,7 @@ The Route Directions and Route Matrix APIs in Azure Maps [Route Service](https:/
 
 ## Prerequisites
 
-To make calls to the Azure Maps APIs, you need an Azure Maps account and a key. For more information, see [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [Get a primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account). The primary key is also known as the primary subscription key, or subscription key.
+To make calls to the Azure Maps APIs, you need an Azure Maps account and a key. For more information, see [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) and [Get a primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account). The primary key is also known as the primary subscription key, or subscription key.
 
 For information about authentication in Azure Maps, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md). And for more information about the coverage of the Route Service, see the [Routing Coverage](routing-coverage.md).
 
@@ -51,7 +51,7 @@ Consider calling Matrix Routing API if your scenario is to:
 
 Here is a comparison to show some capabilities of the Route Directions and Matrix APIs:
 
-| Azure Maps API | Max number of queries in the request | Avoid areas | Truck and electric vehicle routing | waypoints and Traveling Salesman optimization | Supporting points |
+| Azure Maps API | Max number of queries in the request | Avoid areas | Truck and electric vehicle routing | Waypoints and Traveling Salesman optimization | Supporting points |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
 | Get Route Directions | 1 | | X | X | |
 | Post Route Directions | 1 | X | X | X | X |

@@ -1,10 +1,10 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.topic: include
-ms.author: dapine
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ---
 
@@ -63,6 +63,8 @@ Insert this code below your `IntentRecognizer`. Make sure that you replace `"You
 > If you need help finding this value, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=19-27)]
+
+This example uses the `add_intents()` function to add a list of explicitly-defined intents. If you want to add all intents from a model, use `add_all_intents(model)` and pass the model.
 
 ## Recognize an intent
 

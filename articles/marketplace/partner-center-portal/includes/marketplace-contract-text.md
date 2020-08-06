@@ -2,14 +2,13 @@
 title: include file
 description: include file of text for Microsoft commercial marketplace standard contract
 documentationcenter: partner-center-commercial-marketplace
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 01/22/2020
-ms.author: dsindona
 ms.custom: include file
-
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 Microsoft provides a standard contract template for the commercial marketplace.
@@ -51,5 +50,4 @@ If you want to provide your own custom terms and conditions, you can elect to en
 
 Customers are required to accept these terms before they can try your offer.
 
-Remember to **Save** before moving on to the next section.
-Remember to **Save** before moving on to the next section.
+Select **Save draft** before continuing.

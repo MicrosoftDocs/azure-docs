@@ -29,7 +29,7 @@ When creating custom presets, the following considerations apply:
 
 ## Prerequisites 
 
-- [Create a Media Services account](create-account-cli-how-to.md). <br/>Make sure to remember the resource group name and the Media Services account name. 
+- [Create a Media Services account](./create-account-howto.md). <br/>Make sure to remember the resource group name and the Media Services account name. 
 - [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md).<br/>Make sure to follow the last step in the topic [Get Azure AD Token](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## Define a custom preset
@@ -130,7 +130,7 @@ In this example, we first add an AacAudio layer for the audio encoding and two H
 
 ## Create a new transform  
 
-In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first use [Get](https://docs.microsoft.com/rest/api/media/transforms/get) to check if one already exists. If the Transform exists, reuse it. 
+In this example, we create a **Transform** that is based on the custom preset we defined earlier. When creating a Transform, you should first use [Get](/rest/api/media/transforms/get) to check if one already exists. If the Transform exists, reuse it. 
 
 In the Postman's collection that you downloaded, select **Transforms and Jobs**->**Create or Update Transform**.
 
@@ -148,4 +148,4 @@ For Media Services to apply the Transform to the specified video or audio, you n
 
 ## Next steps
 
-See [other REST operations](https://docs.microsoft.com/rest/api/media/)
+See [other REST operations](/rest/api/media/)
