@@ -103,15 +103,16 @@ ms.date: 09/22/2020
 
    ![Screenshot that shows Azure pane and selected link for Azure sign in](./media/create-stateless-stateful-workflows/sign-in-azure-subscription.png)
 
-   After you sign in, the Azure pane shows the Azure subscriptions that are associated with your account.
-
-   If the Azure pane doesn't show the subscriptions that you expect don't appear, or you want to view only specific subscriptions, follow these steps:
+   After you sign in, the Azure pane shows the Azure subscriptions that are associated with your account. However, if the Azure pane doesn't show the subscriptions that you expect, or you want to view only specific subscriptions, follow these steps:
 
    1. Move your pointer over the first subscription in the list so that the **Select subscriptions** filter icon appears. Select the filter icon.
 
       ![Screenshot that shows Azure pane and selected filter icon](./media/create-stateless-stateful-workflows/filter-subscription-list.png)
 
    1. From the list that appears, select the subscriptions that you want to appear, and then select **OK**.
+
+   > [!TIP]
+   > Later, if Visual Studio Code signs you out from Azure, you're prompted to sign back in when necessary.
 
 ## Create workflow app project
 
@@ -166,7 +167,21 @@ ms.date: 09/22/2020
 
    ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected](./media/create-stateless-stateful-workflows/use-connectors-from-azure.png)
 
-Now, continue with either the next steps for stateful workflow or for [stateless workflow](#stateless-workflow).
+1. From the resource groups list, select **Create new resource group**.
+
+   ![Screenshot that shows Explorer pane with resource groups list and "Create new resource group" selected](./media/create-stateless-stateful-workflows/create-select-resource-group.png)
+
+1. From the locations list, select the Azure region to use for your resource group and resources. This example uses **West US**.
+
+   ![Screenshot that shows Explorer pane with locations list and "West US" selected](./media/create-stateless-stateful-workflows/select-azure-region.png)
+
+   When Visual Studio Code starts the workflow design-time API, a message appears that startup might take a few seconds. You can ignore this message or select **OK**.
+
+1. After the Logic Apps designer appears, continue with either the steps for stateful workflow or for [stateless workflow](#stateless-workflow).
+
+### Troubleshoot problems
+
+* If you get a message that **Workflow design time could not be started**, <what action to take?>
 
 <a name="stateful-workflow"></a>
 
@@ -177,6 +192,15 @@ Now, continue with either the next steps for stateful workflow or for [stateless
 
 ## Create stateless workflow
 
+### Enable run history for stateless workflows
+
+In your workflow's JSON definition, set the `operationOptions` property inside the `runtimeConfiguration` object to `WithStatelessRunHistory`, for example:
+
+```json
+"runtimeConfiguration": {
+   "operationOptions": "WithStatelessRunHistory"
+}
+```
 
 ## Test your workflow
 
