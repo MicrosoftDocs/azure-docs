@@ -402,7 +402,9 @@ __Configuration__
 
 __Requirements__
 
-* The AKS instance and the Azure virtual network must be in the same region. If you secure the Azure Storage account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance.
+* The Azure Kubernetes Service (AKS) instance and the Azure virtual network must be in the same region. If you secure the Azure Storage account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance.
+
+* You must follow the guidance in [Control egress traffic for cluster nodes in Azure Kubernetes Service](/azure/aks/limit-egress-traffic) when restricting access.
 
 __Limitations__
 
@@ -410,8 +412,15 @@ __Limitations__
 
 __Configuration__
 
-* Follow the prerequisites in the [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) article and plan the IP addressing for your cluster.
+* To __plan the IP addressing__ for your cluster, follow the prerequisites in the [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) article.
 
+* To __create AKS behind the virtual network, with a public load balancer__:
+
+* To __Create AKS behind the virtual network, with a private load balancer__:
+
+* To __Attach AKS using a private endpoint__:
+
+<!-- 
 * To create an Azure Kubernetes Service from studio, use the following steps:
 
     1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
@@ -543,6 +552,7 @@ __Configuration__
             # Wait for the operation to complete
             aks_target.wait_for_completion(show_output = True)
             ```
+ -->
 
 ## Use Azure Container Instances (ACI)
 
