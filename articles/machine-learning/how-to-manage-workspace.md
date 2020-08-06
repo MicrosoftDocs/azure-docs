@@ -64,11 +64,11 @@ To create a workspace, you need an Azure subscription. If you don't have an Azur
 1. When you are finished configuring networking, you can select __Review + Create__, or advance to the optional __Advanced__ configuration.
 
     > [!WARNING]
-    > When creating multiple workspaces with private endpoints, using the _same Private DNS Zone_, only the virtual network for the first private endpoint will be added to the DNS zone. To add entries for the virtual networks used by the additional workspaces/private endpoints, use the following steps:
+    > When you create a private endpoint, a new Private DNS Zone named __privatelink.api.azureml.ms__ is created. This contains a link to the virtual network. If you create multiple workspaces with private endpoints in the same resource group, only the virtual network for the first private endpoint may be added to the DNS zone. To add entries for the virtual networks used by the additional workspaces/private endpoints, use the following steps:
     > 
-    > 1. In the [Azure portal](https://portal.azure.com), select the Private DNS Zone named __privatelink.api.azureml.ms__.
+    > 1. In the [Azure portal](https://portal.azure.com), select the resource group that contains the workspace. Then select the Private DNS Zone resource named __privatelink.api.azureml.ms__.
     > 2. In the __Settings__, select __Virtual network links__.
-    > 3. Select __Add__. From the __Add virtual network link__ page, provide a unique __Link name__, and then select the __Virtual network__ to be added. Select __OK__ to add the network link
+    > 3. Select __Add__. From the __Add virtual network link__ page, provide a unique __Link name__, and then select the __Virtual network__ to be added. Select __OK__ to add the network link.
     >
     > For more information, see [Azure Private Endpoint DNS configuration](/azure/private-link/private-endpoint-dns).
 
