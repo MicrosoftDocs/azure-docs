@@ -10,12 +10,18 @@ An Azure Service Fabric application is a collection of services. During an upgra
 
 > [!NOTE]
 > [Application parameter](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s are not preserved across an application upgrade. In order to preserve current application parameters, the user should get the parameters first and pass them into the upgrade API call like below:
->
-> $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
->
-> $appParams = $myApplication.ApplicationParameters
->
-> Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter ($appParams -as [Hashtable]) -Monitored -FailureAction Rollback
+```powershell
+$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
+$appParamCollection = $myApplication.ApplicationParameters
+
+$applicationParameterMap = @{}
+foreach ($pair in $appParamCollection)
+{
+    $applicationParameterMap.Add($pair.Name, $pair.Value);
+}
+
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```
 
 ## Rolling upgrades overview
 In a rolling application upgrade, the upgrade is performed in stages. At each stage, the upgrade is applied to a subset of nodes in the cluster, called an update domain. As a result, the application remains available throughout the upgrade. During the upgrade, the cluster may contain a mix of the old and new versions.

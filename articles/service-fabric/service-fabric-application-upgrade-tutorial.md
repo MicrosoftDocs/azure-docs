@@ -18,12 +18,22 @@ Azure Service Fabric simplifies the process of upgrading cloud applications by e
 
 > [!NOTE]
 > [Application parameter](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s are not preserved across an application upgrade. In order to preserve current application parameters, the user should get the parameters first and pass them into the upgrade API call like below:
->
-> $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
->
-> $appParams = $myApplication.ApplicationParameters
->
-> Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter ($appParams -as [Hashtable]) -Monitored -FailureAction Rollback
+```csharp
+> [!NOTE]
+> [Application parameter](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s are not preserved across an application upgrade. In order to preserve current application parameters, the user should get the parameters first and pass them into the upgrade API call like below:
+```powershell
+$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
+$appParamCollection = $myApplication.ApplicationParameters
+
+$applicationParameterMap = @{}
+foreach ($pair in $appParamCollection)
+{
+    $applicationParameterMap.Add($pair.Name, $pair.Value);
+}
+
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```
+```
 
 ## Step 1: Build and publish the Visual Objects sample
 First, download the [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) application from GitHub. Then, build and publish the application by right-clicking on the application project, **VisualObjects**, and selecting the **Publish** command in the Service Fabric menu item.
