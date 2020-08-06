@@ -19,7 +19,7 @@ The latency measurements are collected from ThousandEyes agents, hosted in Azure
 
 ## July 2020 round-trip latency figures
 
-The monthly average round-trip times between Azure regions for past 30 days (ending on June 30, 2020) are shown below. The following measurements are powered by [ThousandEyes](https://thousandeyes.com).
+The monthly average round-trip times between Azure regions for past 31 days (ending on July 31, 2020) are shown below. The following measurements are powered by [ThousandEyes](https://thousandeyes.com).
 
 [![Azure inter-region latency statistics](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
 
