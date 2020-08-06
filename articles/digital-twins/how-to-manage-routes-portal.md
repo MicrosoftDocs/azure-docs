@@ -144,7 +144,11 @@ To create an event route, go to the details page for your Azure Digital Twins in
 
 From the instance menu, select _Event routes_. Then from the *Event routes* page that follows, select *+ Create an event route*. 
 
-On the *Create an event route* page that opens up, choose at minimum a name for your route in the _Name_ field, and select the _Endpoint_ you would like to use to create route from the dropdown.
+On the *Create an event route* page that opens up, choose at minimum:
+* A name for your route in the _Name_ field
+* The _Endpoint_ you would like to use to create the route 
+
+For the route to be enabled, you must also **Add an event route filter** of at least `true`. (Leaving the default value of `false` will create the route, but no events will be sent to it.) To do this, toggle the switch for the _Advanced editor_ to enable it, and write `true` in the *Filter* box.
 
 :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot of creating event route for your instance.":::
 
@@ -152,15 +156,17 @@ When finished, hit the _Save_ button to create your event route.
 
 ### Filter events
 
-Without filtering, endpoints receive a variety of events from Azure Digital Twins:
+As described above, routes have a **filter** field. If the filter value on your route is `false`, no events will be sent to your endpoint. 
+
+After enabling the minimal filter of `true`, endpoints will receive a variety of events from Azure Digital Twins:
 * Telemetry fired by [digital twins](concepts-twins-graph.md) using the Azure Digital Twins service API
 * Twin property change notifications, fired on property changes for any twin in the Azure Digital Twins instance
 * Life-cycle events, fired when twins or relationships are created or deleted
 * Model change events, fired when [models](concepts-models.md) configured in an Azure Digital Twins instance are added or deleted
 
-You can restrict the events being sent by adding a **filter** for an endpoint to your event route.
+You can restrict the types of events being sent by adding a more-specific filter.
 
-To add a filter while you are creating an event route, use the _Add an event route filter_ section of the *Create an event route* page. 
+To add an event filter while you are creating an event route, use the _Add an event route filter_ section of the *Create an event route* page. 
 
 You can either select from some basic common filter options, or use the advanced filter options to write your own custom filters.
 
