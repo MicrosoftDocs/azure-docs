@@ -23,11 +23,11 @@ ms.collection: M365-identity-device-management
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Configure a workspace
-> * Run queries
-> * Create an alert rule
-> * Create a custom workbook
-> * Add a query to a workbook template
+> * Configure a log analytics workspace for your audit and sign-in logs
+> * Run queries using the Kusto Query Language (KQL)
+> * Create an alert rule that sends alerts when a specific account is used
+> * Create a custom workbook using the quickstart template
+> * Add a query to an existing workbook template
 
 ## Prerequisites
 
