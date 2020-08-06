@@ -372,7 +372,7 @@
   - name: Monitoring
     href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Boot Diagnostics
-    href: ../../virtual-machines/boot-diagnostics.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    href: ../../virtual-machines/boot-diagnostics.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Backup and recovery
     href: ../backup-recovery.md
   - name: Cloud adoption framework
