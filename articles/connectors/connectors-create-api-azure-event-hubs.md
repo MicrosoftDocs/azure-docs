@@ -135,13 +135,12 @@ for the tasks you want to perform with the trigger results.
    meet your condition. 
 
 > [!NOTE]
-> All Event Hub triggers are *long-polling* triggers, 
-> which means that when a trigger fires, the trigger processes all the events
-> and then waits for 30 seconds for more events to appear in your Event Hub.
-> If no events are received in 30 seconds, the trigger run is skipped. 
-> Otherwise, the trigger continues reading events until your Event Hub is empty.
-> The next trigger poll happens based on the recurrence 
-> interval that you specify in the trigger's properties.
+> All Event Hub triggers are *long-polling* triggers, so when a trigger fires, the trigger processes all the events and 
+> then waits 30 seconds for more events to appear in your Event Hub. If any partitions exist in your Event Hub, the delay 
+> increases to 30 seconds per partition. So, for example, if you have 32 partitions, you might have to wait up to 16 minutes 
+> for the trigger to finish polling all the partitions. For lower latency, use a smaller number of partitions. If no events 
+> are received within this delay, the trigger run is skipped. Otherwise, the trigger continues reading events until your 
+> Event Hub is empty. The next trigger poll happens based on the recurrence interval that you specify in the trigger's properties.
 
 <a name="add-action"></a>
 
