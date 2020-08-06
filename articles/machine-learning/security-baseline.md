@@ -4,7 +4,7 @@ description: The Machine Learning Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: machine-learning
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 08/06/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -21,7 +21,7 @@ The Azure Security Baseline for the Machine Learning Service contains recommenda
 
 ## Network security
 
-*For more information, see [Security control: Network security](/azure/security/benchmarks/security-control-network-security).*
+*For more information, see the [Azure Security Benchmark: Network security](/azure/security/benchmarks/security-control-network-security).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
@@ -197,7 +197,7 @@ For an resources in your Azure Machine Learning virtual network that support the
 
 ## Logging and monitoring
 
-*For more information, see [Security control: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see the [Azure Security Benchmark: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -358,14 +358,13 @@ Azure Machine Learning has varying support across different compute resources an
 
 **Guidance**: Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources are owned by your organization, use Azure Security Center to enable security event log monitoring for Azure virtual machines. Azure Security Center provisions the Log Analytics agent on all supported Azure VMs, and any new ones that are created if automatic provisioning is enabled. Or you can install the agent manually. The agent enables the process creation event 4688 and the commandline field inside event 4688. New processes created on the VM are recorded by event log and monitored by Security Center's detection services.
 
-
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
 
 ## Identity and access control
 
-*For more information, see [Security control: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see the [Azure Security Benchmark: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -382,7 +381,6 @@ You can also use the Azure AD PowerShell module to perform adhoc queries to disc
 
 - [How to get a directory role in Azure Active Directory with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-
 **Azure Security Center monitoring**: Yes
 
 **Responsibility**: Customer
@@ -393,7 +391,6 @@ You can also use the Azure AD PowerShell module to perform adhoc queries to disc
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32547.).
 
 **Guidance**: Access management to Machine Learning resources is controlled through Azure Active Directory (Azure AD). Azure AD does not have the concept of default passwords.
-
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -451,7 +448,7 @@ You can also enable a just-in-time access to administrative accounts byusing Azu
 a secure, Azure-managed workstation (also known as a Privileged Access Workstation,
 or PAW) for administrative tasks that require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md​)
+- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
 
 - [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -571,7 +568,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ## Data protection
 
-*For more information, see [Security control: Data protection](/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see the [Azure Security Benchmark: Data protection](/azure/security/benchmarks/security-control-data-protection).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -702,7 +699,7 @@ Microsoft manages the underlying infrastructure for Machine Learning and has imp
 
 ## Vulnerability management
 
-*For more information, see [Security control: Vulnerability management](/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see the [Azure Security Benchmark: Vulnerability management](/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -773,7 +770,7 @@ Azure Machine Learning has varying support across different compute resources an
 
 ## Inventory and asset management
 
-*For more information, see [Security control: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see the [Azure Security Benchmark: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -926,7 +923,6 @@ In addition, use the Azure Resource Graph to query for and discover resources in
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-
 **Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
@@ -954,7 +950,6 @@ Implement a third-party solution if adaptive application controls don't not meet
 **Guidance**: Use Azure AD Conditional Access to limit users' ability to interact with Azure Resources Manager by configuring "Block access" for the "Microsoft Azure Management" App.
  
 - [How to configure Conditional Access to block access to Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
-
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -988,7 +983,7 @@ Implement a third-party solution if adaptive application controls don't not meet
 
 ## Secure configuration
 
-*For more information, see [Security control: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see the [Azure Security Benchmark: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -1097,7 +1092,6 @@ Azure Machine Learning fully supports Git repositories for tracking work; you ca
 
 - [Azure Repos documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
 
-
 **Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
@@ -1146,8 +1140,6 @@ Azure Machine Learning fully supports Git repositories for tracking work; you ca
 Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, use Azure Automation State Configuration for Desired State Configuration (DSC) nodes in any cloud or on-premises datacenter. You can easily onboard machines, assign them declarative configurations, and view reports showing each machine's compliance to the desired state you specified. 
 
 - [How to enable Azure Automation State Configuration](../automation/automation-dsc-onboarding.md)
-
-
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1238,7 +1230,7 @@ Use Azure Key Vault to pass secrets to remote runs securely instead of cleartext
 
 ## Malware defense
 
-*For more information, see [Security control: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see the [Azure Security Benchmark: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
 
 ### 8.1: Use centrally managed antimalware software
 
@@ -1257,7 +1249,6 @@ uploaded to storage accounts.
 - [How to configure Microsoft Antimalware for Azure](../security/fundamentals/antimalware.md)
 
 - [Threat protection in Azure Security Center](../security-center/threat-protection.md)
-
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -1293,7 +1284,7 @@ Azure Machine Learning has varying support across different compute resources an
 
 ## Data recovery
 
-*For more information, see [Security control: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see the [Azure Security Benchmark: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1367,7 +1358,7 @@ Enable soft delete and purge protection in Key Vault to protect keys against acc
 
 ## Incident response
 
-*For more information, see [Security control: Incident response](/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident response](/azure/security/benchmarks/security-control-incident-response).*
 
 ### 10.1: Create an incident response guide
 
@@ -1459,7 +1450,7 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 
 ## Penetration tests and red team exercises
 
-*For more information, see [Security control: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
