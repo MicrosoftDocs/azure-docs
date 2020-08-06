@@ -3,11 +3,9 @@ title: Create datasets with Azure Open Datasets
 titleSuffix: Azure Open Datasets
 description: Learn how to create an Azure Machine Learning dataset from Azure Open Datasets.
 ms.service: open-datasets
-ms.subservice: core
 ms.topic: conceptual
 ms.author: nibaccam
 author: nibaccam
-ms.reviewer: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
 
@@ -17,9 +15,12 @@ ms.custom: how-to, tracking-python
 # Create Azure Machine Learning datasets from Azure Open Datasets
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to create an Azure Machine Learning dataset from [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) to access data for your local or remote experiments. To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](../machine-learning/concept-data.md#data-workflow) article.
+In this article, you learn how to create an Azure Machine Learning dataset from [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) to access data for your local or remote experiments. 
 
-By creating an Azure Machine Learning dataset, you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk unintentionally changing your original data sources. Also datasets are lazily evaluated, which aids in workflow performance speeds. [Learn more about Azure Machine Learning datasets](../machine-learning/how-to-create-register-datasets.md). 
+By creating an [Azure Machine Learning dataset](../machine-learning/how-to-create-register-datasets.md), you create a reference to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk unintentionally changing your original data sources. Also, datasets are lazily evaluated, which aids in workflow performance speeds.
+ 
+To understand where datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](../machine-learning/concept-data.md#data-workflow) article.
+
 
 Open Datasets are in the cloud on Microsoft Azure and are included in both the [Azure Machine Learning Python SDK](#create-datasets-with-the-sdk) and the [Azure Machine Learning studio](#create-datasets-with-the-studio).
 
@@ -38,6 +39,12 @@ To create and work with datasets, you need:
 * An [Azure Machine Learning workspace](../machine-learning/how-to-manage-workspace.md).
 
 * The [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), which includes the azureml-datasets package.
+
+    * You can create a compute instance and not have to deal with the install (concept-compute-instance.md#managing-a-compute-instance)
+
+    OR
+
+    * Install the SDK yourself with [these instructions](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 
 > [!NOTE]
 > Some dataset classes have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package, which is only compatible with 64-bit Python. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9), and CentOS (7).
@@ -78,6 +85,11 @@ Choose a name under which to register the dataset, and optionally filter the dat
 ![Set dataset params and create dataset](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 
 The dataset is now available in your workspace under **Datasets**. You can use it in the same way as other datasets you've created.
+
+
+## Access datasets for your experiments
+
+Use your datasets in your machine learning experiments for training ML models. [Learn more about how to train with datasets](../machine-learning/how-to-train-with-datasets.md).
 
 ## Example notebooks
 
