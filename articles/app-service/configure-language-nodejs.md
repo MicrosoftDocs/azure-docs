@@ -330,5 +330,10 @@ When a working Node.js app behaves differently in App Service or has errors, try
 > [!div class="nextstepaction"]
 > [Tutorial: Node.js app with MongoDB](tutorial-nodejs-mongodb-app.md)
 
+::: zone pivot="platform-linux"
+
 > [!div class="nextstepaction"]
 > [App Service Linux FAQ](faq-app-service-linux.md)
+
+::: zone-end
+

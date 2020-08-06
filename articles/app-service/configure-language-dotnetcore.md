@@ -221,5 +221,10 @@ For more information, see [Configure ASP.NET Core to work with proxy servers and
 > [!div class="nextstepaction"]
 > [Tutorial: ASP.NET Core app with SQL Database](tutorial-dotnetcore-sqldb-app.md)
 
+::: zone pivot="platform-linux"
+
 > [!div class="nextstepaction"]
 > [App Service Linux FAQ](faq-app-service-linux.md)
+
+::: zone-end
+
