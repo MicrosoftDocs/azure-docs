@@ -1,4 +1,4 @@
-﻿---
+---
 title: Remove limits on creating app registrations - Azure AD | Microsoft Docs
 description: Assign a custom role to grant unrestricted app registrations in the Azure AD Active Directory
 services: active-directory
@@ -84,7 +84,8 @@ get-module azureadpreview
 
 Create a new role using the following PowerShell script:
 
-``` PowerShell
+```powershell
+
 # Basic role information
 $displayName = "Application Registration Creator"
 $description = "Can create an unlimited number of application registrations."
@@ -102,16 +103,16 @@ $rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
 $customRole = New-AzureAdMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-#### Assign the custom role
+### Assign the custom role
 
-Assign the role using the below PowerShell script:
+Assign the role using the following PowerShell script:
 
-``` PowerShell
+```powershell
 # Get the user and role definition you want to link
 $user = Get-AzureADUser -Filter "userPrincipalName eq 'Adam@contoso.com'"
 $roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Application Registration Creator'"
 
-# Get resource scope for assignment.
+# Get resource scope for assignment
 $resourceScope = '/'
 
 # Create a scoped role assignment
