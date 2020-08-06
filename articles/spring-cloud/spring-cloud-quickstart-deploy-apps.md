@@ -165,14 +165,14 @@ You can add the Azure Toolkit for IntelliJ IDEA 3.35.0 from the IntelliJ **Plugi
 
 1. Click **Restart IDE**.
 
-## IntelliJ procedures
+### IntelliJ app deployment procedures
 The following procedures deploy a Hello World application using the IntelliJ IDEA.
 
 * Open gs-spring-boot project
 * Deploy to Azure Spring Cloud
 * Show streaming logs
 
-### Open Piggymetrics project
+#### Open Piggymetrics project
 
 1. Download and unzip the source repository for this tutorial, or clone it using Git: git clone git clone https://github.com/Azure-Samples/piggymetrics  
 1. cd into piggymetrics folder.
@@ -182,7 +182,7 @@ The following procedures deploy a Hello World application using the IntelliJ IDE
 
     ![Import Project](media/spring-cloud-intellij-howto/revision-import-project-1.png)
 
-### Deploy to Azure Spring Cloud
+#### Deploy to Azure Spring Cloud
 In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
