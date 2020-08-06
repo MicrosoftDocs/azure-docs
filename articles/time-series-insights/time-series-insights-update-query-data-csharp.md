@@ -65,7 +65,7 @@ Alternatively, add each package using [NuGet 2.12+](https://www.nuget.org/). For
 * `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 4.5.1`
 
 ## C# sample code
-Azure-Time-Series-Insights
+
 [!code-csharp[csharpquery-example](~/samples-tsi/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClientSampleApp/Program.cs)]
 
 > [!NOTE]
