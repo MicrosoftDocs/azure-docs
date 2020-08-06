@@ -138,7 +138,7 @@
   - name: JavaScript
     href: https://docs.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node-latest
   - name: Python
-    href: https://docs.microsoft.com/windows/python/
+    href: https://docs.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python
   - name: Go
     href: https://golang.org/doc/
 - name: Resources
