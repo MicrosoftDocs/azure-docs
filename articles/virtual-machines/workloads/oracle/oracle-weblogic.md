@@ -33,19 +33,19 @@ _If you want to work closely on your migration scenarios with the engineering te
 
 ## Oracle WebLogic Server Single Node
 
-This offer provisions a single virtual machine and installs Oracle WebLogic Server on it. It doesn't create a domain or start the Administration Server. Single node is useful for scenarios with highly customized domain configuration.
+This offer provisions a single virtual machine and installs WLS on it. It doesn't create a domain or start the Administration Server. Single node is useful for scenarios with highly customized domain configuration.
 
 ## Oracle WebLogic Server with Admin Server
 
-This offer provisions a single virtual machine and installs Oracle WebLogic Server on it. It creates a domain and starts up the Administration Server, which allows you to manage the domain.
+This offer provisions a single virtual machine and installs WLS on it. It creates a domain and starts up the Administration Server, which allows you to manage the domain.
 
 ## Oracle WebLogic Server Cluster
 
-This offer creates a highly available cluster of Oracle WebLogic Server virtual machines. The Administration Server and all managed servers are started by default, which allow you to manage the domain.
+This offer creates a highly available cluster of WLS virtual machines. The Administration Server and all managed servers are started by default, which allow you to manage the domain.
 
 ## Oracle WebLogic Server Dynamic Cluster
 
-This offer creates a highly available and scalable dynamic cluster of Oracle WebLogic Server virtual machines. The Administration Server and all managed servers are started by default, which allow you to manage the domain.
+This offer creates a highly available and scalable dynamic cluster of WLS virtual machines. The Administration Server and all managed servers are started by default, which allow you to manage the domain.
 
 ## Next steps
 
