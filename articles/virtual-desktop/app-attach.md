@@ -215,7 +215,7 @@ MSIX app attach has four distinct phases that must be performed in the following
 
 Each phase creates a PowerShell script. Sample scripts for each phase are available [here](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
-### Stage the PowerShell script
+### Stage PowerShell script
 
 Before you update the PowerShell scripts, make sure you have the volume GUID of the volume in the VHD. To get the volume GUID:
 
