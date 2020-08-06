@@ -95,4 +95,3 @@ You can also use [API connectors](api-connectors-overview.md) to integrate your 
 - [Licensing guidance for Azure AD B2B collaboration](licensing-guidance.md)
 - [Add B2B collaboration guest users in the portal](add-users-administrator.md)
 - [Understand the invitation redemption process](redemption-experience.md)
-- And, as always, connect with the product team for any feedback, discussions, and suggestions through our [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
