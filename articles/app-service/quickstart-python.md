@@ -73,7 +73,7 @@ Then go into that folder:
 cd python-docs-hello-world
 ```
 
-The sample code contains an *application.py* file, which tells App Service that the code contains a Flask app. For more information, see [Container startup process and customizations](configure-language-python.md).
+The sample code contains an *application.py* file, which tells App Service that the code contains a Flask app. For more information, see [Container startup process](configure-language-python.md#container-startup-process).
 
 ## Run the sample
 
