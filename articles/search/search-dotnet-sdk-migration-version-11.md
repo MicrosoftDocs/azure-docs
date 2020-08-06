@@ -21,6 +21,7 @@ Version 11 is a fully redesigned client library, released by the Azure SDK devel
 Some key differences you'll notice in the new version include:
 
 + One package and library as opposed to multiple
++ A new package name: `Azure.Search.Documents` instead of `Microsoft.Azure.Search`.
 + Three clients instead of two: `SearchClient`, `SearchIndexClient`, `SearchIndexerClient`
 + Naming differences across a range of APIs and small structural differences that simplify some tasks
 
@@ -32,26 +33,30 @@ Version 11 consolidates multiple packages and libraries into one. Post-migration
 
 + [API reference for the client library](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
 
-
 ## Client differences
 
 Where applicable, the following table maps the client libraries between the two versions.
 
 | Scope of operations | Microsoft.Azure.Search&nbsp;(v10) | Azure.Search.Documents&nbsp;(v11) |
 |---------------------|------------------------------|------------------------------|
-| Client used for queries and to populate an index. | [SearchIndexClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient) | [SearchIndexClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient) |
-| Client used for indexes, analyzers, synonym maps | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient) |
-| Client used for indexers, data sources, skillsets | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**new**)](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient)|
+| Client used for queries and to populate an index. | [SearchIndexClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient) | [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient) |
+| Client used for indexes, analyzers, synonym maps | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient) |
+| Client used for indexers, data sources, skillsets | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**new**)](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
-## Naming differences
+> [!Important]
+> Both versions have a `SearchIndexClient`, but each version uses the client for different things. When updating client references, follow the sequence of steps in [Steps to upgrade](#UpgradeSteps) to avoid confusion during search-and-replace.
+
+## Naming and other API differences
 
 API name differences are summarized below. This list is not exhaustive but provides a basic change list when updating classes, methods, and properties.
 
 | Version 10 | Version 11 equivalent |
 |------------|-----------------------|
-| [SearchParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters) |  [SearchOptions](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchoptions)  |
-| [IndexBatch](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch) | [IndexDocumentsBatch](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch) |
 | [DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) | [SearchResult](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.searchresult-1) or [SearchResults](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.searchresults-1), depending on whether the result is a single document or multiple. |
+| [DocumentSuggestResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsuggestresult-1) | [SuggestResults](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.suggestresults-1) |
+| [IndexAction](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction) | [IndexDocumentsAction](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsaction) |
+| [IndexBatch](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch) | [IndexDocumentsBatch](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch) |
+| [SearchParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters) |  [SearchOptions](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchoptions)  |
 
 Field definitions are streamlined: [SearchableField](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchablefield), [SimpleField](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.simplefield), [ComplexField](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.complexfield) are new APIs for creating field definitions.
 
@@ -72,9 +77,9 @@ Version 11 fully supports the following objects and operations:
 
 ### Pending features
 
-The following version 10 are not yet available in version 11. If you use these features, hold off on migration until they are supported.
+The following version 10 features are not yet available in version 11. If you use these features, hold off on migration until they are supported.
 
-+ [geo-spatial filters](search-query-odata-geo-spatial-functions.md)
++ [geospatial types](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.serialization.geojsonextensions)
 + [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) 
 + [Knowledge store](knowledge-store-concept-intro.md)
 
@@ -94,13 +99,15 @@ The following version 10 are not yet available in version 11. If you use these f
    using Azure.Search.Documents.Models;
    ```
 
-1. If you are using indexers or indexer-related objects, update the client to [SearchIndexerClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient). This client is new in version 11 and has no antecedent.
- 
-1. Next, update the [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) references to [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient). 
+1. Update client references for indexer-related objects. If you are using indexers, datasources, or skillsets, change the client references to [SearchIndexerClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient). This client is new in version 11 and has no antecedent.
+
+1. Update client references for queries and data import. Instances of [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) should be changed to [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient). To avoid name confusion, make sure you catch all instances before proceeding to the next step.
+
+1. Update client references for index, indexer, synonym map, and analyzer objects. Instances of [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) should be changed to [SearchIndexClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchindexclient). 
 
 1. As much as possible, update classes, methods, and properties to use the APIs of the new library. The [naming differences](#naming-differences) section is a place to start.
 
-1. Rebuild the solution. After fixing any build errors or warnings, you can make changes to your application to take advantage of [new functionality](#WhatsNew).
+1. Rebuild the solution. After fixing any build errors or warnings, you can make additional changes to your application to take advantage of [new functionality](#WhatsNew).
 
 <a name="ListOfChanges"></a>
 
