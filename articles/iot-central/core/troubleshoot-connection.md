@@ -51,7 +51,7 @@ az set account --subscription <your-subscription-id>
 To monitor the telemetry your device is sending, use the following command:
 
 ```cmd/bash
-az iot central app monitor-events -n <app-id> -d <device-name>`
+az iot central app monitor-events -n <app-id> -d <device-name>
 ```
 
 ![Sample output from event monitoring](media/troubleshoot-connection/monitor-events.png)
@@ -72,9 +72,9 @@ If you don't see any data appear after a few minutes, try pressing the `Enter` o
 
 If you're still not seeing any data appear on your terminal, it's likely that your device is having network connectivity issues, or is not sending data correctly to IoT Central.
 
-### Check status of your device
+### Check the provisioning status of your device
 
-If your data is not appearing on the monitor, check your device status by running the following command:
+If your data is not appearing on the monitor, check the provisioning status of your device by running the following command:
 
 ```cmd/bash
 az iot central app device registration-info -n <app-id> -d <device-id>
@@ -82,12 +82,12 @@ az iot central app device registration-info -n <app-id> -d <device-id>
 
 ![Example registration info](media/troubleshoot-connection/registration-info.png)
 
-| Device Status | Description | Possible Mitigation |
+| Device provisioning status | Description | Possible mitigation |
 | - | - | - |
 | Provisioned | No immediately recognizable issue. | N/A |
 | Registered | The device has not yet connected to IoT Central. | Check your device logs for connectivity issues. |
-| Blocked | The device is blocked from connecting to IoT Central. | Ask your app Builder or Administrator to unblock the device. |
-| Unapproved | The device is not approved. | Ask your app Builder or Administrator to approve the device. |
+| Blocked | The device is blocked from connecting to IoT Central. | Device is blocked from connecting to the IoT Central application. Unblock the device in IoT Central and retry. To learn more, see [Block devices](concepts-get-connected.md#device-status-values). |
+| Unapproved | The device is not approved. | Device isn't approved to connect to the IoT Central application. Approve the device in IoT Central and retry. To learn more, see [Approve devices](concepts-get-connected.md#connect-without-registering-devices) |
 | Unassociated | The device is not associated with a device template. | Associate the device with a device template so that IoT Central knows how to parse the data. |
 
 Learn more about [device status codes](concepts-get-connected.md#device-status-values).
@@ -106,10 +106,10 @@ If you are seeing issues related to your authentication flow:
 | - | - | - |
 | 400 | The body of the request is not valid. For example, it cannot be parsed, or the object cannot be validated. | Ensure that you're sending the correct request body as part of the attestation flow, or use a device SDK. |
 | 401 | The authorization token cannot be validated. For example, it has expired or doesn't apply to the request's URI. This error code is also returned to devices as part of the TPM attestation flow. | Ensure that your device has the correct credentials. |
-| 404 | The Device Provisioning Service instance, or a resource such as an enrollment doesn't exist. | File a ticket with customer support. |
-| 412 | The `ETag` in the request doesn't match the `ETag` of the existing resource, as per RFC7232. | File a ticket with customer support. | 
-| 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | Reduce message frequency, split responsibilities among more devices. | 
-| 500 | An internal error occurred. | File a ticket with Customer Support to see if they can help you further. |
+| 404 | The Device Provisioning Service instance, or a resource such as an enrollment doesn't exist. | [File a ticket with customer support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
+| 412 | The `ETag` in the request doesn't match the `ETag` of the existing resource, as per RFC7232. | [File a ticket with customer support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
+| 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | Reduce message frequency, split responsibilities among more devices. |
+| 500 | An internal error occurred. | [File a ticket with customer support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to see if they can help you further. |
 
 ## Payload shape issues
 
@@ -118,16 +118,20 @@ When you've established that your device is sending data to IoT Central, the nex
 There are two main categories of common issues that cause device data to not appear in IoT Central:
 
 - Device template to device data mismatch:
-    - Mismatch in naming such as typos or case-matching issues.
-    - Unmodeled properties where the schema isn't defined in the device template.
-    - Schema mismatch such as a type defined in the template as `boolean`, but the data is a string.
-    - The same telemetry name is defined in multiple interfaces, but the device isn't IoT Plug and Play compliant.
+  - Mismatch in naming such as typos or case-matching issues.
+  - Unmodeled properties where the schema isn't defined in the device template.
+  - Schema mismatch such as a type defined in the template as `boolean`, but the data is a string.
+  - The same telemetry name is defined in multiple interfaces, but the device isn't IoT Plug and Play compliant.
 - Data shape is invalid JSON. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
 
 To detect which categories your issue is in, run the most appropriate command for your scenario:
 
-- To validate telemetry, use the preview command `az iot central app validate-messages -n <app-id> -d <device-name>`
-- To validate property updates, use the preview command `az iot central app validate-properties -n <app-id> -d <device-name>`
+- To validate telemetry, use the preview command:
+    `az iot central app validate-messages -n <app-id> -d <device-name>`
+
+- To validate property updates, use the preview command
+    `az iot central app validate-properties -n <app-id> -d <device-name>`
+
 - If you prefer to use a GUI, use the IoT Central **Raw data** view to see if something isn't being modeled. The **Raw data** view doesn't detect if the device is sending malformed JSON.
 
 You may be prompted to install the `uamqp` library the first time you run a `validate` command.
