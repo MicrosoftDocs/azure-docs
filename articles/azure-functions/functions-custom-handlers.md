@@ -394,9 +394,9 @@ By setting the `message` output equal to the order data that came in from the re
 For HTTP-triggered functions with no additional bindings or outputs, you may want your handler to work directly with the HTTP request and response instead of the custom handler [request](#request-payload) and [response](#response-payload) payloads. This behavior can be configured in *host.json* using the `enableForwardingHttpRequest` setting.
 
 > [!IMPORTANT]
-> The primary purpose of the custom handlers feature is to enable languages and runtimes that do not currently have first-class support on Azure Functions. While it may be possible to run web applications using custom handlers, Azure Functions is not a standard reverse proxy. Some features such as response streaming, HTTP/2, and WebSockets are not available. Some components of the HTTP request such as certain headers and routes may be restricted. Your application may also experience excessive [cold start](functions-scale.md#cold-start). We will not provide support for custom handler apps running strictly HTTP-only workloads.
-> 
-> We recommend you run your web apps on [Azure App Service](../app-service/overview.md).
+> The primary purpose of the custom handlers feature is to enable languages and runtimes that do not currently have first-class support on Azure Functions. While it may be possible to run web applications using custom handlers, Azure Functions is not a standard reverse proxy. Some features such as response streaming, HTTP/2, and WebSockets are not available. Some components of the HTTP request such as certain headers and routes may be restricted. Your application may also experience excessive [cold start](functions-scale.md#cold-start).
+>
+> We recommend you run your web apps on [Azure App Service](../app-service/overview.md). We may be unable to provide support for custom handler apps that are more suitable for Azure App Service.
 
 The following example demonstrates how to configure an HTTP-triggered function with no additional bindings or outputs. The scenario implemented in this example features a function named `hello` that accepts a `GET` or `POST` .
 
@@ -531,8 +531,48 @@ Refer to the [custom handler samples GitHub repo](https://github.com/Azure-Sampl
 
 ## Troubleshooting and support
 
-**TODO**
+### Trace logging
 
-* startup problems
-* invocation problems
-* specify what we support and what we do not
+If your custom handler process fails to start up or if it has problems communicating with the Functions host, you can increase the function app's log level to `Trace` to see more diagnostic or error messages from the host.
+
+To change the function app's default log level, configure the `logLevel` setting in the `logging` section of *host.json*.
+
+```json
+{
+  "version": "2.0",
+  "customHandler": {
+    "description": {
+      "defaultExecutablePath": "server.exe"
+    }
+  },
+  "logging": {
+    "logLevel": {
+      "default": "Trace"
+    }
+  }
+}
+```
+
+The Functions host will output extra log messages including information related to the custom handler process. Use the logs to investigate problems starting your custom handler process or invoking functions in your custom handler.
+
+Locally, logs are printed to the console.
+
+In Azure, [query Application Insights traces](functions-monitoring.md#query-telemetry-data) to view the log messages. If your app produces a high volume of logs, only a subset of log messages are sent to Application Insights. [Disable sampling](functions-monitoring.md#configure-sampling) to ensure all messages are logged.
+
+### Test custom handler in isolation
+
+Because a custom handler is a web server process, it may be helpful to start it on its own and test function invocations by sending mock [HTTP requests](#request-payload) using a tool like [cURL](https://curl.haxx.se/) or [Postman](https://www.postman.com/).
+
+You can also use this strategy in your CI/CD pipelines to run automated tests on your custom handler.
+
+### Execution environment
+
+Custom handlers run in the same environment as a typical Azure Functions app. Test your handler to ensure the environment contains all the dependencies it needs to run. For apps that require additional dependencies, you may need to run them using a [custom container image](functions-create-function-linux-custom-image.md) hosted on Azure Functions [Premium plan](functions-premium-plan.md).
+
+### Get support
+
+If you need help on a function app with custom handlers, you can submit a request through regular support channels. However, due to the wide variety of languages you can use to build custom handlers, it is important to understand what you can receive support for.
+
+We may be able to support you if the Functions host has problems starting your custom handler process or communicating with it.
+
+For problems specific to the inner workings of your custom handler process, such as issues with the chosen language or framework, our Support Team is unable to provide assistance.
