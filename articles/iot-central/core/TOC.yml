@@ -138,7 +138,7 @@
             - name: About your application
               href: howto-get-app-info.md
             - name: Roll X.509 certificates
-              href: howto-roll-x509-certificates.md
+              href: how-to-roll-x509-certificates.md
         - name: Manage from other places
           items:
             - name: Manage from the Azure portal
