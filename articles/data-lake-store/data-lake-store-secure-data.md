@@ -18,7 +18,7 @@ ms.author: twooley
 # Securing data stored in Azure Data Lake Storage Gen1
 Securing data in Azure Data Lake Storage Gen1 is a three-step approach.  Both role-based access control (RBAC) and access control lists (ACLs) must be set to fully enable access to data for users and security groups.
 
-1. Start by creating security groups in Azure Active Directory (AAD). These security groups are used to implement role-based access control (RBAC) in Azure portal. For more information, see [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
+1. Start by creating security groups in Azure Active Directory (AAD). These security groups are used to implement Azure role-based access control (Azure RBAC) in the Azure portal. For more information, see [Azure RBAC](../role-based-access-control/role-assignments-portal.md).
 2. Assign the AAD security groups to the Data Lake Storage Gen1 account. This controls access to the Data Lake Storage Gen1 account from the portal and management operations from the portal or APIs.
 3. Assign the AAD security groups as access control lists (ACLs) on the Data Lake Storage Gen1 file system.
 4. Additionally, you can also set an IP address range for clients that can access the data in Data Lake Storage Gen1.
