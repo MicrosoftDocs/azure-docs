@@ -26,19 +26,16 @@ Use this quickstart to create and manage Azure Cognitive Services resources usin
 
 [!INCLUDE Java SDK quickstart](./includes/quickstarts/management-java.md)
 
-
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
 [!INCLUDE NodeJS SDK quickstart](./includes/quickstarts/management-node.md)
 
-
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE Python SDK quickstart](./includes/quickstarts/management-python.md)
-
 
 ::: zone-end
