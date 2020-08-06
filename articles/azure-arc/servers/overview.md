@@ -23,7 +23,7 @@ To deliver this experience with your hybrid machines hosted outside of Azure, th
 
 ## Supported scenarios
 
-When you connect your machine to Azure Arc for servers (preview), it enables you to accomplish the following configuration management goals:
+When you connect your machine to Azure Arc for servers (preview), it enables the ability to perform the following configuration management tasks:
 
 - Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) using the same experience as policy assignment for Azure virtual machines.
 
