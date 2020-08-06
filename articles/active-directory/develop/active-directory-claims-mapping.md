@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ---
@@ -262,7 +262,9 @@ For each claim schema entry defined in this property, certain information is req
 
 **Value:** The Value element defines a static value as the data to be emitted in the claim.
 
-**Source/ID pair:** The Source and ID elements define where the data in the claim is sourced from. 
+**Source/ID pair:** The Source and ID elements define where the data in the claim is sourced from.  
+
+**Source/ExtensionID pair:** The Source and ExtensionID elements define the directory schema extension attribute where the data in the claim is sourced from. For more information, see [Using directory schema extension attributes in claims](active-directory-schema-extensions.md).
 
 Set the Source element to one of the following values: 
 
