@@ -302,6 +302,7 @@
           href: single-multi-account.md
         - name: Handle errors and exceptions
           href: msal-android-handling-exceptions.md
+          displayName: android, mobile
         - name: Logging
           href: msal-logging.md?tabs=android
     - name: iOS & macOS

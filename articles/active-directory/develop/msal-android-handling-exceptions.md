@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/29/2020
+ms.date: 08/07/2020
 ms.author: hahamil
 ms.reviewer: marsma
 ---
@@ -18,7 +18,7 @@ ms.reviewer: marsma
 
 # Handle exceptions and errors in MSAL for Android
 
-Exceptions in the Microsoft Authentication Library (MSAL) are intended for app developers to troubleshoot. Exception messages are not localized.
+Exceptions in the Microsoft Authentication Library (MSAL) are intended to help app developers troubleshoot their application. Exception messages are not localized.
 
 When processing exceptions and errors, you can use the exception type itself and the error code to distinguish between exceptions.  For a list of error codes, see [Authentication and authorization error codes](reference-aadsts-error-codes.md).
 
@@ -37,7 +37,7 @@ During the sign-in experience, you may encounter errors about consents, Conditio
 
 ## Catching errors
 
-The following code snippet provides an example of catching errors in the case of silent acquireToken calls.
+The following code snippet shows an example of catching errors in the case of silent `acquireToken` calls.
 
 ```java
 /**
