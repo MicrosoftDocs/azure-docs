@@ -265,7 +265,6 @@ You need to open some **outgoing ports** in your server's firewall to allow the 
 
 The following Azure Monitor logs **features are not currently available** in Azure Government:
 - Solutions that are in preview in Microsoft Azure, including:
-    - Service Map
     - Windows 10 Upgrade Analytics solution
     - Application Insights solution
     - Azure Networking Security Group Analytics solution
