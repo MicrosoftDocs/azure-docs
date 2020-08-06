@@ -1,6 +1,6 @@
 ---
 title: Handle map events | Microsoft Azure Maps
-description: Learn which events are fired when users interact with maps. View a list of all supported map events. See how to use the Azure Maps web SDK to handle events.
+description: Learn which events are fired when users interact with maps. View a list of all supported map events. See how to use the Azure Maps Web SDK to handle events.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2019

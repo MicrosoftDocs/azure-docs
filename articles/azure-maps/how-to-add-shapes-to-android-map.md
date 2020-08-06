@@ -1,6 +1,6 @@
 ---
 title: Add shapes to Android maps | Microsoft Azure Maps
-description: Learn how to add shapes to a map. See code samples that use the Azure Maps Android SDK to add a line and a polygon to a map.
+description: Learn how to add shapes to maps. See code samples that use the Azure Maps Android SDK to add a line and a polygon to a map.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
