@@ -34,7 +34,7 @@ To learn more about new features, check out [this blog post](https://techcommuni
 
 ### Autoscaling tool update
 
-The latest version of the autoscaling tool that was in preview is now generally available. This tool uses an Azure automation account and the Azure Logic App to automatically shut down and restart session host virtual machines (VMs) within a host pool, reducing infrastructure costs.
+The latest version of the autoscaling tool that was in preview is now generally available. This tool uses an Azure automation account and the Azure Logic App to automatically shut down and restart session host virtual machines (VMs) within a host pool, reducing infrastructure costs. Learn more at [Scale session hosts using Azure Automation](set-up-scaling-script.md).
 
 ### Azure portal
 
@@ -45,7 +45,7 @@ You can now do the following things with the Azure portal in Windows Virtual Des
 
 ### Diagnostics
 
-We've released some new prebuilt queries for the Log Analytics workspace. To access the queries, go to **Logs** and under **Category**, select **Windows Virtual Desktop**.
+We've released some new prebuilt queries for the Log Analytics workspace. To access the queries, go to **Logs** and under **Category**, select **Windows Virtual Desktop**. Learn more at [Use Log Analytics for the diagnostics feature](diagnostics-log-analytics.md).
 
 ### Update for Remote Desktop client for Android
 
