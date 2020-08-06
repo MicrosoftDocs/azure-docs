@@ -107,7 +107,7 @@ Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-wor
 
 | Capabilities     | Edition                 |
 |------------------------------------------------------------------------------------|:-----------:|
-| [Role-based Access Control](how-to-assign-roles.md) (RBAC) support                                           | All                     |
+| [Azure role-based access control (Azure RBAC)](how-to-assign-roles.md) (RBAC) support                                           | All                     |
 | [Virtual Network (VNet)](how-to-enable-virtual-network.md) support for compute                                         | All                     |
 | Scoring endpoint authentication                                                    | All                     |
 | [Workspace Private link](how-to-configure-private-link.md)                                                            | All                     |

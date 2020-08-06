@@ -46,7 +46,7 @@ appropriate action to ensure account management requirements are met.
 
 ## AC-2 (7) Account Management | Role-Based Schemes
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
+Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
 (RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint also assigns
 [Azure Policy](../../../policy/overview.md) definitions to audit use of Azure Active Directory
@@ -101,7 +101,7 @@ virtual machine administrator permissions can help you implement appropriate sep
 
 ## AC-6 (7) Least Privilege | Review of User Privileges
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
+Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
 (RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint assigns
 [Azure Policy](../../../policy/overview.md) definitions to audit accounts that should be prioritized
