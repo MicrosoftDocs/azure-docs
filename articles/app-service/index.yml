@@ -8,7 +8,7 @@ metadata:
   description: Host websites, web apps, RESTful APIs, and mobile back ends in Azure App Service. Find quickstarts, tutorials, and samples to help you succeed with App Service.
   ms.topic: landing-page
   ms.service: app-service
-  ms.date: 02/26/2020
+  ms.date: 08/06/2020
 
 landingContent:
   - title: About App Service
@@ -30,15 +30,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: First ASP.NET Core app
-            url: quickstart-dotnetcore.md
+            url: quickstart-dotnetcore.md?pivots=platform-windows
           - text: First ASP.NET app (Windows only)
             url: quickstart-dotnet-framework.md
           - text: First Node.js app
-            url: quickstart-nodejs.md
+            url: quickstart-nodejs.md?pivots=platform-linux
           - text: First PHP app
-            url: quickstart-php.md
+            url: quickstart-php.md?pivots=platform-linux
           - text: First Java app
-            url: quickstart-java.md
+            url: quickstart-java.md?pivots=platform-linux
           - text: First Python Flask app (Linux only)
             url: quickstart-python.md
           - text: First Ruby app (Linux only)
@@ -103,17 +103,17 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: ASP.NET Core app with SQL Database
-            url: tutorial-dotnetcore-sqldb-app.md
+            url: tutorial-dotnetcore-sqldb-app.md?pivots=platform-linux
           - text: PHP (Laravel) app with Azure MySQL
-            url: tutorial-php-mysql-app.md
+            url: tutorial-php-mysql-app.md?pivots=platform-linux
           - text: Node.js (MEAN.js) app with MongoDB
-            url: tutorial-nodejs-mongodb-app.md
+            url: tutorial-nodejs-mongodb-app.md?pivots=platform-linux
           - text: Java (Spring Boot) with Cosmos DB
-            url: tutorial-java-spring-cosmosdb.md         
+            url: tutorial-java-spring-cosmosdb.md?pivots=platform-linux         
           - text: Python (Django) app with PostgreSQL
-            url:  tutorial-python-postgresql-app.md
+            url:  tutorial-python-postgresql-app.md?pivots=platform-linux
           - text: Ruby (Rails) app with PostgreSQL
-            url: tutorial-ruby-postgres-app.md                              
+            url: tutorial-ruby-postgres-app.md?pivots=platform-linux                              
           - text: Migrate a legacy app to Azure in a Windows container
             url: app-service-web-tutorial-windows-containers-custom-fonts.md
           - text: Run a Docker Compose app (Linux only)
