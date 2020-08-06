@@ -42,7 +42,7 @@ After Azure Active Directory authenticates a user so that the user can access Da
 
 Four basic roles are defined for Data Lake Storage Gen1 by default. The roles permit different operations on a Data Lake Storage Gen1 account via the Azure portal, PowerShell cmdlets, and REST APIs. The Owner and Contributor roles can perform a variety of administration functions on the account. You can assign the Reader role to users who only view account management data.
 
-![RBAC roles](./media/data-lake-store-security-overview/rbac-roles.png "RBAC roles")
+![Azure roles](./media/data-lake-store-security-overview/rbac-roles.png "Azure roles")
 
 Note that although roles are assigned for account management, some roles affect access to data. You need to use ACLs to control access to operations that a user can perform on the file system. The following table shows a summary of management rights and data access rights for the default roles.
 

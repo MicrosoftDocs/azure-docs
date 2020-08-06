@@ -4,7 +4,7 @@ description: Transfer data with AzCopy and file storage.
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ---
@@ -95,7 +95,7 @@ You can upload the contents of a directory without copying the containing direct
 
 ### Upload specific files
 
-You can specify complete file names, or use partial names with wildcard characters (*).
+You can upload specific files by using complete file names, partial names with wildcard characters (*), or by using dates and times.
 
 #### Specify multiple complete file names
 
@@ -122,6 +122,17 @@ Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pa
 You can also exclude files by using the `--exclude-pattern` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
+
+#### Upload files that were modified after a date and time 
+
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-after` option. Specify a date and time in ISO 8601 format (For example: `2020-08-19T15:04:00Z`). 
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name><SAS-token>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Example** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --include-after '2020-08-19T15:04:00Z'` |
+
+For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
 ## Download files
 
@@ -179,7 +190,7 @@ You can download the contents of a directory without copying the containing dire
 
 ### Download specific files
 
-You can specify complete file names, or use partial names with wildcard characters (*).
+You can download specific files by using complete file names, partial names with wildcard characters (*), or by using dates and times.
 
 #### Specify multiple complete file names
 
@@ -206,6 +217,18 @@ Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pa
 You can also exclude files by using the `--exclude-pattern` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
 The `--include-pattern` and `--exclude-pattern` options apply only to filenames and not to the path.  If you want to copy all of the text files that exist in a directory tree, use the `–recursive` option to get the entire directory tree, and then use the `–include-pattern` and specify `*.txt` to get all of the text files.
+
+#### Download files that were modified after a date and time 
+
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`). 
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-or-directory-name>/*<SAS-token>' '<local-directory-path>'  --include-after <Date-Time-in-ISO-8601-format>` |
+| **Example** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/*?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' 'C:\myDirectory' --include-after '2020-08-19T15:04:00Z'` |
+
+
+For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
 ## Copy files between storage accounts
 

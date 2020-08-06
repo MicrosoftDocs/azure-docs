@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 07/28/2020
 ms.author: victorh
 ---
 
@@ -60,6 +60,13 @@ There's more than one way to deploy Azure Firewall Manager, but the following ge
 > - You can't have more than one hub per virtual wan per region. But you can add multiple virtual WANs in the region to achieve this.
 > - You can't have overlapping IP spaces for hubs in a vWAN.
 > - Your hub VNet connections must be in the same region as the hub.
+
+## Convert virtual networks
+
+The following information applies if you convert an existing virtual network to a hub virtual network:
+
+- If the virtual network has an existing Azure Firewall, you select a Firewall Policy to associate with the existing firewall. The firewall provisioning status will be updating while the firewall policy replaces firewall rules. During the provisioning state, the firewall continues processing traffic and has no downtime. You can import existing rules to a Firewall Policy using Firewall Manager or Azure PowerShell.
+- If the virtual network doesn't have an associated Azure Firewall, a firewall is deployed and the Firewall Policy is associated with the new firewall.
 
 ## Next steps
 

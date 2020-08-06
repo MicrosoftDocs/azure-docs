@@ -24,7 +24,7 @@ This topic will walk you through how to set up MSIX app attach in a Windows Virt
 Before you get started, here's what you need to configure MSIX app attach:
 
 - Access to the Windows Insider portal to obtain the version of Windows 10 with support for the MSIX app attach APIs.
-- A functioning Windows Virtual Desktop deployment. To learn how to deploy the Windows Virtual Desktop Fall 2019 release, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy the Windows Virtual Desktop Spring 2020 release, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
+- A functioning Windows Virtual Desktop deployment. To learn how to deploy Windows Virtual Desktop (classic), see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy Windows Virtual Desktop with Azure Resource Manager integration, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
 - The MSIX packaging tool.
 - A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored.
 
@@ -197,12 +197,12 @@ If your app uses a certificate that isn't public-trusted or was self-signed, her
 
 1. Right-click the package and select **Properties**.
 2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab, as shown in the following image. Select that item to highlight the item, then select **Details**.
-3. When the digital signature details window appears, select the **General** tab, then select **Install certificate**.
+3. When the digital signature details window appears, select the **General** tab, then select **View Certificate**, then select **Install certificate**.
 4. When the installer opens, select **local machine** as your storage location, then select **Next**.
 5. If the installer asks you if you want to allow the app to make changes to your device, select **Yes**.
 6. Select **Place all certificates in the following store**, then select **Browse**.
 7. When the select certificate store window appears, select **Trusted people**, then select **OK**.
-8. Select **Finish**.
+8. Select **Next** and **Finish**.
 
 ## Prepare PowerShell scripts for MSIX app attach
 

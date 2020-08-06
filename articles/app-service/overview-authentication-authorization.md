@@ -16,15 +16,20 @@ Secure authentication and authorization require deep understanding of security, 
 > [!IMPORTANT]
 > You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, keep in mind that [Chrome 80 is making breaking changes to its implementation of SameSite for cookies](https://www.chromestatus.com/feature/5088147346030592) (release date around March 2020), and custom remote authentication or other scenarios that rely on cross-site cookie posting may break when client Chrome browsers are updated. The workaround is complex because it needs to support different SameSite behaviors for different browsers. 
 >
-> The ASP.NET Core 2.1 and above versions hosted by App Service are already patched for this breaking change and handle Chrome 80 and older browsers appropriately. In addition, the same patch for ASP.NET Framework 4.7.2 is being deployed on the App Service instances throughout January 2020. For more information, including how to know if your app has received the patch, see [Azure App Service SameSite cookie update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
+> The ASP.NET Core 2.1 and above versions hosted by App Service are already patched for this breaking change and handle Chrome 80 and older browsers appropriately. In addition, the same patch for ASP.NET Framework 4.7.2 has been deployed on the App Service instances throughout January 2020. For more information, see [Azure App Service SameSite cookie update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
 
 > [!NOTE]
 > The Authentication/Authorization feature is also sometimes referred to as "Easy Auth".
 
+> [!NOTE]
+> Enabling this feature will cause **all** non-secure HTTP requests to your application to be automatically redirected to HTTPS, regardless of the App Service configuration setting to [enforce HTTPS](configure-ssl-bindings.md#enforce-https). If needed, you can disable this via the `requireHttps` setting in the [auth settings configuration file](app-service-authentication-how-to.md#configuration-file-reference), but you must then take care to ensure no security tokens ever get transmitted over non-secure HTTP connections.
+
 For information specific to native mobile apps, see [User authentication and authorization for mobile apps with Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
 ## How it works
+
+### On Windows
 
 The authentication and authorization module runs in the same sandbox as your application code. When it's enabled, every incoming HTTP request passes through it before being handled by your application code.
 
@@ -38,6 +43,10 @@ This module handles several things for your app:
 - Injects identity information into request headers
 
 The module runs separately from your application code and is configured using app settings. No SDKs, specific languages, or changes to your application code are required. 
+
+### On Containers
+
+The authentication and authorization module runs in a separate container, isolated from your application code. Using what's known as the [Ambassador pattern](https://docs.microsoft.com/azure/architecture/patterns/ambassador), it interacts with the incoming traffic to perform similar functionality as on Windows. Because it does not run in-process, no direct integration with specific language frameworks is possible; however, the relevant information that your app needs is passed through using request headers as explained below.
 
 ### User/Application claims
 

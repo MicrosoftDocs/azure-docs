@@ -66,8 +66,11 @@ This model defines a name and a unique ID for the patient room, and properties t
 
 Following this method, you can go on to define models for the hospital's wards, zones, or the hospital itself.
 
-> [!TIP]
-> There is a client-side library available for parsing and validating DTDL. It generates a C# object model of the DTDL content, which can be used in model-driven development scenarios, like generating UI elements. You can also use this library to make sure your models have no syntax errors before you upload them. For more information about this library and access to a sample built on it for a DTDL Validator, see [*How-to: Parse and validate models*](how-to-use-parser.md).
+### Validate syntax
+
+There is a client-side library available for parsing and validating DTDL. It generates a C# object model of the DTDL content, which can be used in model-driven development scenarios, like generating UI elements. You can also use this library to make sure your models have no syntax errors before you upload them. 
+
+For more information about this library and access to a sample built on it for a DTDL Validator, see [*How-to: Parse and validate models*](how-to-use-parser.md).
 
 ## Manage models with APIs.
 
@@ -83,7 +86,10 @@ The following sections show how to complete different model management operation
 
 Once models are created, you can upload them to the Azure Digital Twins instance.
 
-Here is a code snippet showing how to do this:
+> [!TIP]
+> It's recommended to validate your models offline before uploading them to your Azure Digital Twins instance. You can use the [DTDL client-side parser library](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) and [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) described in [*How-to: Parse and validate models*](how-to-use-parser.md) to check your models before you upload them to the service.
+
+When you're ready to upload a model, you can use the following code snippet:
 
 ```csharp
 // 'client' is an instance of DigitalTwinsClient
@@ -127,10 +133,7 @@ Model files can contain more than a single model. In this case, the models need 
 ]
 ```
  
-On upload, model files are validated.
-
-> [!TIP] 
-> Note that you can also use the [DTDL client-side parser library](how-to-use-parser.md) to validate models on the client side.
+On upload, model files are validated by the service.
 
 ### Retrieve models
 

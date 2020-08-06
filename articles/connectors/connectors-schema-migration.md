@@ -51,4 +51,5 @@ everywhere that you use DropBox v1.
 
 ## Next steps
 
-* Learn how to [manually migrate your Logic apps](../logic-apps/logic-apps-schema-2015-08-01.md)
+* Learn how to [manually migrate your Logic apps](../logic-apps/logic-apps-schema-2016-04-01.md)
+

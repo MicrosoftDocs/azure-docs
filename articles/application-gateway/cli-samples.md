@@ -6,7 +6,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: sample
 ms.date: 11/16/2019
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurecli
 
 ---
 # Azure CLI examples for Azure Application Gateway

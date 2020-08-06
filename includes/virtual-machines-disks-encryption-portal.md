@@ -36,7 +36,7 @@ The VM deployment process is similar to the standard deployment process, the onl
 1. Navigate to a VM that is in the same region as one of your disk encryption sets.
 1. Open the VM and select **Stop**.
 
-    ![Screenshot of the main overlay for your example VM. With the Stop button highlighted](media/virtual-machines-disk-encryption-portal/server-side-encryption-stop-vm-to-encrypt-disk-fix.png)
+    ![Screenshot of the main overlay for your example VM, with the Stop button highlighted.](media/virtual-machines-disk-encryption-portal/server-side-encryption-stop-vm-to-encrypt-disk-fix.png)
 
 1. After the VM has finished stopping, select **Disks** and then select the disk you want to encrypt.
 

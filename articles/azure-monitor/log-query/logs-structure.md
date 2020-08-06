@@ -85,4 +85,5 @@ While each table in Azure Monitor Logs has its own schema, there are standard pr
 
 ## Next steps
 - Learn about using [Log Analytics to create and edit log searches](./log-query-overview.md).
-- Check out a [tutorial on writing queries](../log-query/get-started-queries.md) using the new query language.
+- Check out a [tutorial on writing queries](./get-started-queries.md) using the new query language.
+

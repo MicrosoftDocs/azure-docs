@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
+ms.custom: devx-track-javascript
 ---
 
 # Troubleshooting SDK load failure for JavaScript web apps

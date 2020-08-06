@@ -66,7 +66,7 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
 
-When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, and all related resources. You can delete the resources as follows:
+When no longer needed, you can use the Azure CLI [az group delete](/cli/azure/group) command to remove the resource group and all related resources:
 
 ```azurecli
 az group delete --name myResourceGroup

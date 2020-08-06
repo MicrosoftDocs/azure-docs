@@ -10,6 +10,7 @@ ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
+ms.custom: devx-track-java
 ms.author: aahi
 ---
 

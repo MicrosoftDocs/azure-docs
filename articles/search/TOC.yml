@@ -110,6 +110,13 @@
       href: knowledge-store-projection-overview.md
     - name: Incremental enrichment
       href: cognitive-search-incremental-indexing-conceptual.md
+  - name: Security
+    items:
+    - name: Security overview
+      href: search-security-overview.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
 - name: How-to guides
   items:
   - name: Create indexes and constructs
@@ -324,12 +331,12 @@
       href: search-api-migration.md
   - name: Security
     items:
-    - name: Overview
-      href: search-security-overview.md
     - name: Data encryption
       items:
       - name: Customer-managed keys
         href: search-security-manage-encryption-keys.md
+      - name: Get key information
+        href: search-security-get-encryption-keys.md
     - name: Inbound security
       items:
       - name: API access keys

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 07/30/2020
 ms.author: victorh
 ---
 
@@ -163,7 +163,9 @@ Azure Firewall's initial throughput capacity is 2.5 - 3 Gbps and it scales out t
 
 ## How long does it take for Azure Firewall to scale out?
 
-Azure Firewall gradually scales when average throughput or CPU consumption is at 60%. Scale out takes five to seven minutes. When performance testing, make sure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created Firewall nodes.
+Azure Firewall gradually scales when average throughput or CPU consumption is at 60%. A default deployment maximum throughput is approximately 2.5 - 3 Gbps and starts to scale out when it reaches 60% of that number. Scale out takes five to seven minutes. 
+
+When performance testing, make sure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created Firewall nodes.
 
 ## Does Azure Firewall allow access to Active Directory by default?
 
@@ -214,4 +216,4 @@ No, currently you must deploy Azure Firewall with a public IP address.
 
 ## Where does Azure Firewall store customer data?
 
-Azure Firewall doesn't move or store customer data out of the region it is deployed in.
+Azure Firewall doesn't move or store customer data out of the region it's deployed in.

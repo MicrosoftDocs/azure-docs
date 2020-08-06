@@ -4,8 +4,8 @@ description: Learn the steps and considerations for creating a new Azure applica
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: qianw211
-ms.author: dsindona 
+author: AarathiN
+ms.author: aarathin
 ms.date: 07/14/2020
 ---
 

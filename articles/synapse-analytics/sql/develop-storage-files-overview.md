@@ -10,7 +10,7 @@ ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
-# Accessing external storage in Synapse SQL (on-demand)
+# Access external storage in Synapse SQL (on-demand)
 
 This document describes how can user read data from the files stored on Azure Storage in Synapse SQL (on-demand). Users have the following options to access storage:
 
@@ -53,7 +53,7 @@ If there is no server-level CREDENTIAL that matches URL or SQL user don't have r
 > [!NOTE]
 > This version of OPENROWSET is designed for quick-and-easy data exploration using default authentication. To leverage impersonation or Managed Identity, use OPENROWSET with DATASOURCE described in the next section.
 
-### Querying data sources using OPENROWSET
+### Query data sources using OPENROWSET
 
 OPENROWSET enables user to query the files placed on some external data source:
 
@@ -85,7 +85,7 @@ Caller must have one of the following permissions to execute OPENROWSET function
   - `ADMINISTER DATABASE BULK OPERATIONS` enables database scoped user to execute OPENROWSET function.
 - REFERENCES DATABASE SCOPED CREDENTIAL to the credential that is referenced in EXTERNAL DATA SOURCE
 
-#### Accessing anonymous data sources
+#### Access anonymous data sources
 
 User can create EXTERNAL DATA SOURCE without CREDENTIAL that will reference public access storage OR use Azure AD passthrough authentication:
 
@@ -126,7 +126,7 @@ CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 
 DATABASE SCOPED CREDENTIAL specifies how to access files on the referenced data source.
 
-### Reading external files with EXTERNAL TABLE
+### Read external files with EXTERNAL TABLE
 
 EXTERNAL TABLE enables you to read data from the files that are referenced via data source using standard SQL SELECT statement:
 
