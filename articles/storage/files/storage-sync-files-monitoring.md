@@ -67,7 +67,7 @@ The following table lists some example scenarios to monitor and the proper metri
 
 | Scenario | Metric to use for alert |
 |-|-|
-| Server endpoint health in the portal = Error | Sync session result |
+| Server endpoint health shows an error in the portal | Sync session result |
 | Files are failing to sync to a server or cloud endpoint | Files not syncing |
 | Registered server is failing to communicate with the Storage Sync Service | Server online status |
 | Cloud tiering recall size has exceeded 500GiB in a day  | Cloud tiering recall size |
@@ -157,6 +157,96 @@ The following performance counters for Azure File Sync are available in Performa
 | AFS Sync Operations\Downloaded Sync Files/sec | Number of files downloaded per second. |
 | AFS Sync Operations\Uploaded Sync Files/sec | Number of files uploaded per second. |
 | AFS Sync Operations\Total Sync File Operations/sec | Total number of files synced (upload and download). |
+
+## Alert Examples
+
+### How to create an alert if the server endpoint health shows an error in the portal
+
+1. In the **Azure portal**, navigate to respective **Storage Sync Service**. 
+2. Go to the **Monitoring** section and click **Alerts**. 
+3. Click on **+ New alert rule** to create a new alert rule. 
+4. Configure condition by clicking **Select condition**.
+5. Within **Configure signal logic** blade, click **Sync session result** under signal name.  
+6. Select the following dimension configuration: 
+ 	- Dimension name: **Sync Group Name**  
+ 	- Operator: **=** 
+ 	- Dimension values: **All current and future values**  
+7. Navigate to **Alert Logic** and complete the following: 
+ 	- Threshold set to **Static** 
+ 	- Operator: **Less than** 
+ 	- Aggregation type: **Maximum**  
+ 	- Threshold value: **1** 
+ 	- Evaluated based on: Aggregation granularity = **1 hour** | Frequency of evaluation = **Every hour** 
+ 	- Click **Done.** 
+8. Click **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+9. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
+10. Click **Create alert rule**. 
+
+### How to create an alert if files are failing to sync to a server or cloud endpoint
+
+1. In the **Azure portal**, navigate to respective **Storage Sync Service**. 
+2. Go to the **Monitoring** section and click **Alerts**. 
+3. Click on **+ New alert rule** to create a new alert rule. 
+4. Configure condition by clicking **Select condition**.
+5. Within **Configure signal logic** blade, click **Files not syncing** under signal name.  
+6. Select the following dimension configuration: 
+	 - Dimension name: **Sync Group Name**  
+	 - Operator: **=** 
+	 - Dimension values: **All current and future values**  
+7. Navigate to **Alert Logic** and complete the following: 
+	 - Threshold set to **Static** 
+	 - Operator: **Greater than** 
+	 - Aggregation type: **Total**  
+	 - Threshold value: **50** 
+	 - Evaluated based on: Aggregation granularity = **15 minutes** | Frequency of evaluation = **Every 5 minutes** 
+	 - Click **Done.** 
+8. Click **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+9. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
+10. Click **Create alert rule**. 
+
+### How to create an alert if a registered server is failing to communicate with the Storage Sync Service
+
+1. In the **Azure portal**, navigate to respective **Storage Sync Service**. 
+2. Go to the **Monitoring** section and click **Alerts**. 
+3. Click on **+ New alert rule** to create a new alert rule. 
+4. Configure condition by clicking **Select condition**.
+5. Within **Configure signal logic** blade, click **Server online status** under signal name.  
+6. Select the following dimension configuration: 
+	 - Dimension name: **Server name**  
+	 - Operator: **=** 
+	 - Dimension values: **All current and future values**  
+7. Navigate to **Alert Logic** and complete the following: 
+	 - Threshold set to **Static** 
+	 - Operator: **Less than** 
+	 - Aggregation type: **Maximum**  
+	 - Threshold value (in bytes): **1** 
+	 - Evaluated based on: Aggregation granularity = **15 minutes** | Frequency of evaluation = **Every 15 minutes** 
+	 - Click **Done.** 
+8. Click **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+9. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
+10. Click **Create alert rule**. 
+
+### How to create an alert if the cloud tiering recall size has exceeded 500GiB in a day
+
+1. In the **Azure portal**, navigate to respective **Storage Sync Service**. 
+2. Go to the **Monitoring** section and click **Alerts**. 
+3. Click on **+ New alert rule** to create a new alert rule. 
+4. Configure condition by clicking **Select condition**.
+5. Within **Configure signal logic** blade, click **Cloud tiering recall size** under signal name.  
+6. Select the following dimension configuration: 
+	 - Dimension name: **Server name**  
+	 - Operator: **=** 
+	 - Dimension values: **All current and future values**  
+7. Navigate to **Alert Logic** and complete the following: 
+	 - Threshold set to **Static** 
+	 - Operator: **Greater than** 
+	 - Aggregation type: **Total**  
+	 - Threshold value (in bytes): **67108864000** 
+	 - Evaluated based on: Aggregation granularity = **24 hours** | Frequency of evaluation = **Every hour** 
+ 	- Click **Done.** 
+8. Click **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+9. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
+10. Click **Create alert rule**. 
 
 ## Next steps
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
