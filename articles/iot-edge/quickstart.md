@@ -61,7 +61,12 @@ IoT Edge device:
   az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
   ```
 
-  It may take a few minutes to create and start the new virtual machine. You can then download an RDP file for use when connecting to your virtual machine:
+  It may take a few minutes to create and start the new virtual machine.
+
+> [!NOTE]
+> IoT Edge for Windows requires Windows version 1809 (OS build 17763), which is the latest [Windows long-term support build](https://docs.microsoft.com/en-us/windows/release-information/).
+
+  Once your virtual machine is started, you can download an RDP file for use when connecting to your virtual machine:
 
   1. Navigate to your new Windows virtual machine in the Azure portal.
   1. Select **Connect**.
