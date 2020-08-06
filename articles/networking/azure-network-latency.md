@@ -5,7 +5,7 @@ services: networking
 author: nayak-mahesh
 ms.service: virtual-network
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 08/05/2020
 ms.author: kumud
 
 ---
