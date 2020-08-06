@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 08/06/2020
+ms.date: 08/07/2020
 ms.author: jasteppe
 ---
 # Azure IoT Connector for FHIR (preview) troubleshooting guide
@@ -17,7 +17,8 @@ You'll also learn how to create copies of the Azure IoT Connector for FHIR JSON-
 
 You can use the mapping file copies for editing and archiving outside of the Azure portal.  
 
-The mapping file copies can also be used for assisting Azure Technical Support when opening a support ticket.
+> [!TIP]
+> If you'll be opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the Azure IoT Connector for FHIR, make sure to include copies of your mapping files to help with the troubleshooting process.
 
 ## Error messages and fixes for Azure IoT Connector for FHIR (preview)
 
