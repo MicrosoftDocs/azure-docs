@@ -41,7 +41,7 @@ basis.
 
 **Can I migrate vSphere VMs from on-premises environments to AVS private clouds?**
 
-Yes. VM migration and vMotion can be used to move VMs to a private cloud if standard cross vCenter [vMotion requirements][https://kb.vmware.com/s/article/210695] are met.
+Yes. VM migration and vMotion can be used to move VMs to a private cloud if standard cross vCenter [vMotion requirements](https://kb.vmware.com/s/article/210695) are met.
 
 **Is a specific version of vSphere required in on-premises environments?**
 
