@@ -5,7 +5,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # Identity federation in Azure Australia

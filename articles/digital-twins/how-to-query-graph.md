@@ -174,7 +174,7 @@ There may be a delay of up to 10 seconds before changes in your instance are ref
 There are additional limitations on using `JOIN` during preview.
 * No subqueries are supported within the `FROM` statement.
 * `OUTER JOIN` semantics are not supported, meaning if the relationship has a rank of zero, then the entire "row" is eliminated from the output result set.
-* During public preview, graph traversal depth is restricted: only one `JOIN` is allowed per query.
+* During preview, graph traversal depth is restricted to five `JOIN` levels per query.
 * The source for `JOIN` operations is restricted: query must declare the twins where the query begins.
 
 ## Query best practices

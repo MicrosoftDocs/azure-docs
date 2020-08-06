@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In a custom isolation scenario for VNets, the goal is to prevent specific set of VNets from being able to reach other specific set of VNets. However, the VNets are required to reach all branches (VPN/ER/User VPN). For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
-## <a name="design"></a>Scenario design
+## <a name="design"></a>Design
 
 In order to figure out how many route tables will be needed, you can build a connectivity matrix. For this scenario it will look like the following, where each cell represents whether a source (row) can communicate to a destination (column):
 
@@ -49,7 +49,7 @@ The branches will need to learn the prefixes from both Red and Blue VNets, so al
 
 For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
-## <a name="architecture"></a>Scenario workflow
+## <a name="architecture"></a>Workflow
 
 In **Figure 1**, there are Blue and Red VNet connections.
 

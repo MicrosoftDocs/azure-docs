@@ -1,7 +1,7 @@
 ---
 title: Authorize access to data with a managed identity
 titleSuffix: Azure Storage
-description: Learn how to use managed identities for Azure resources to authorize access to blob and queue data from applications running in Azure virtual machines, function apps, virtual machine scale sets, and others.  
+description: Use managed identities for Azure resources to authorize blob and queue data access from applications running in Azure VMs, function apps, and others.
 services: storage
 author: tamram
 

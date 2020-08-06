@@ -65,6 +65,8 @@
     href: network-best-practices.md
   - name: DDoS Protection
     href: ddos-best-practices.md
+  - name: DDoS Protection security baseline
+    href: ddos-protection-security-baseline.md
   - name: Dangling DNS and subdomain takeover
     href: subdomain-takeover.md
   - name: Secure hybrid network architecture

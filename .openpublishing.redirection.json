@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/digital-twins/how-to-manage-routes.md",
+      "redirect_url": "/azure/digital-twins/how-to-manage-routes-apis-cli",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/digital-twins/how-to-set-up-instance.md",
       "redirect_url": "/azure/digital-twins/how-to-set-up-instance-scripted",
       "redirect_document_id": false
@@ -408,11 +413,6 @@
     {
       "source_path": "articles/security/develop/secure-pci-web-app.md",
       "redirect_url": "/previous-versions/azure/security/develop/secure-pci-web-app",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/security/fundamentals/ddos-protection-security-baseline.md",
-      "redirect_url": "/azure/security/fundamentals/ddos-best-practices",
       "redirect_document_id": false
     },
     {
@@ -23474,6 +23474,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/application-saml-sso-configure-api.md",
+      "redirect_url": "/graph/application-saml-sso-configure-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-reporting-activity-sign-ins-mfa.md",
       "redirect_url": "/azure/active-directory/authentication/howto-mfa-reporting",
       "redirect_document_id": false
@@ -39306,6 +39311,11 @@
     {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-php-get-intent.md",
       "redirect_url": "/azure/cognitive-services/LUIS/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-kws-guidelines.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/custom-keyword-overview",
       "redirect_document_id": false
     },
     {

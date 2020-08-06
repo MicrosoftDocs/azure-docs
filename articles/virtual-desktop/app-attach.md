@@ -197,12 +197,12 @@ If your app uses a certificate that isn't public-trusted or was self-signed, her
 
 1. Right-click the package and select **Properties**.
 2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab, as shown in the following image. Select that item to highlight the item, then select **Details**.
-3. When the digital signature details window appears, select the **General** tab, then select **Install certificate**.
+3. When the digital signature details window appears, select the **General** tab, then select **View Certificate**, then select **Install certificate**.
 4. When the installer opens, select **local machine** as your storage location, then select **Next**.
 5. If the installer asks you if you want to allow the app to make changes to your device, select **Yes**.
 6. Select **Place all certificates in the following store**, then select **Browse**.
 7. When the select certificate store window appears, select **Trusted people**, then select **OK**.
-8. Select **Finish**.
+8. Select **Next** and **Finish**.
 
 ## Prepare PowerShell scripts for MSIX app attach
 
