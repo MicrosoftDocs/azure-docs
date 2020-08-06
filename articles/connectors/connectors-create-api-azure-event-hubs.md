@@ -74,15 +74,18 @@ or [Add an Event Hubs action](#add-action).
 
 ## Add Event Hubs trigger
 
-In Azure Logic Apps, every logic app must start with a 
-[trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), 
-which fires when a specific event happens or when a 
-specific condition is met. Each time the trigger fires, 
-the Logic Apps engine creates a logic app instance 
-and starts running your app's workflow.
+In Azure Logic Apps, every logic app must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific event happens or when a 
+specific condition is met. Each time the trigger fires, the Logic Apps engine creates a logic app instance and starts running your app's workflow.
 
-This example shows how you can start a logic app workflow
-when new events are sent to your Event Hub. 
+This example shows how you can start a logic app workflow when new events are sent to your Event Hub. 
+
+> [!NOTE]
+> All Event Hub triggers are *long-polling* triggers, so when a long-pulling trigger fires, the trigger processes all the events 
+> and then waits 30 seconds for more events to appear in your Event Hub. If any partitions exist in your Event Hub, the delay 
+> increases to 30 seconds per partition. So, for example, if you have 32 partitions, you might have to wait up to 16 minutes for 
+> the trigger to finish polling all the partitions. For lower latency, use a smaller number of partitions. If no events are 
+> received within this delay, the trigger run is skipped. Otherwise, the trigger continues reading events until your Event Hub 
+> is empty. The next trigger poll happens based on the recurrence interval that you specify in the trigger's properties.
 
 1. In the Azure portal or Visual Studio, 
 create a blank logic app, which opens Logic Apps Designer. 
@@ -133,14 +136,6 @@ for the tasks you want to perform with the trigger results.
    such as a category, you can add a condition so that the 
    **Send event** action sends only the events that 
    meet your condition. 
-
-> [!NOTE]
-> All Event Hub triggers are *long-polling* triggers, so when a trigger fires, the trigger processes all the events and 
-> then waits 30 seconds for more events to appear in your Event Hub. If any partitions exist in your Event Hub, the delay 
-> increases to 30 seconds per partition. So, for example, if you have 32 partitions, you might have to wait up to 16 minutes 
-> for the trigger to finish polling all the partitions. For lower latency, use a smaller number of partitions. If no events 
-> are received within this delay, the trigger run is skipped. Otherwise, the trigger continues reading events until your 
-> Event Hub is empty. The next trigger poll happens based on the recurrence interval that you specify in the trigger's properties.
 
 <a name="add-action"></a>
 
