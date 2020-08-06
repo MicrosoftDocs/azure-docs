@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure Arc
-summary: Simplify complex and distributed environments across on-premises, edge and multicloud.
+summary: Simplify complex and distributed environments across on-premises, edge, and multicloud
 # brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-bi | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
 brand: azure
 
@@ -35,7 +35,7 @@ highlightedContent:
 # productDirectory section (optional)
 productDirectory:
   title: Azure Arc enabled services
-  summary: Get started with Azure Arc enabled services
+  summary: See how to run these services anywhere
   items: 
     # Card
     - title: Servers
