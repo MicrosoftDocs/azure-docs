@@ -1,6 +1,6 @@
 ---
-title: Create stateless and stateful workflows
-description: Create stateless and stateful workflows in Azure Logic Apps
+title: Create stateless and stateful workflows with Visual Studio Code
+description: Create stateless and stateful workflows by using Azure Logic Apps and Visual Studio Code
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ---
 
-# Create stateless and stateful workflows in Azure Logic Apps
+# Create stateless and stateful workflows by using Azure Logic Apps and Visual Studio Code
 
 
 ## What is stateless?
@@ -28,33 +28,38 @@ ms.date: 09/22/2020
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Visual Studio Code Extension for Azure Logic Apps
+* Access to the internet so that you can sign in to your Azure subscription and the Azure portal
 
-* Azure Functions Core Tools, which you can install from these locations:<p>
+* Download and install these tools:
 
-  > [!NOTE]
-  > If you previously installed the Azure Functions Core Tools, 
-  > uninstall them first, or make sure that the PATH environment variable 
-  > points at the appropriate version specified here.
+  * [Visual Studio Code version 1.25.1 or later](https://code.visualstudio.com/), which is free
 
-  * [Win x64 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x64.msi)
-  * [Win x86 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x86.msi)
+  * Azure Functions Core Tools, which you can download and install from these locations:
 
-* [C# extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which enables F5 functionality to run your workflow
+    > [!NOTE]
+    > If you previously installed the Azure Functions Core Tools, 
+    > uninstall them first, or make sure that the PATH environment variable 
+    > points at the appropriate version specified here.
 
-* If you don't have the standalone Azure Storage Emulator, download and install the latest version. Before you can start, if you never used the emulator before, you need to initialize the emulator. You also need to have a local SQL DB, such as SQL Express, installed for the storage emulator to use. For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
+    * [Azure Functions Core Tools 3.0.2569 Win x64 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x64.msi)
+
+    * [Azure Functions Core Tools 3.0.2569 Win x86 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x86.msi)
+
+  * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which enables F5 functionality to run your workflow
+
+  * If you don't have the standalone Azure Storage Emulator, download and install the latest version. Before you can start, if you never used the emulator before, you need to initialize the emulator. You also need to have a local SQL DB, such as SQL Express, installed for the storage emulator to use. For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
    Or, use [Azurite](https://github.com/Azure/Azurite/blob/master/README.md) instead?
 
-
 ## Set up environment
 
-1. To install the preview Azure Logic Apps Extension for Azure Functions, follow these steps:
+1. To install the preview extension, follow these steps:
 
-   > [!NOTE]
-   > This version replaces any currently installed Azure Functions extension but preserves the capability to author Azure Functions.
+   1. Download the preview [Azure Functions for Visual Studio Code extension 0.22.1-alpha (ZIP)](https://workflowscdn.azureedge.net/2020-05-preview/VsExtension/LogicAppsVSCodeExtension-0.22.1-alpha.zip) to your local computer, and extract the ZIP file.
 
-   1. Download the preview Azure Logic Apps Extension for Azure Functions runtime to your local computer from this location:
+      > [!NOTE]
+      > This extension includes the capability for you to create stateless and stateful workflow apps with Azure Logic Apps 
+      > and replaces any currently installed Azure Functions extension but preserves the capability to author Azure Functions.
 
    1. On the Visual Studio Code left toolbar, select **Extensions**. From the **Extensions** menu, select the ellipses (**...**) button > **Install from VSIX**.
 
@@ -86,7 +91,53 @@ ms.date: 09/22/2020
 
    `%TEMP%\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows*`
 
-1. For deployment to Azure, check that you can browse your app in the Azure portal by using the [preview URL](https://portal.azure.com/?websitesextension_workflowspreview=true).
+1. For deployment to Azure, check that you can browse for your app in the Azure portal by using the [preview URL](https://portal.azure.com/?websitesextension_workflowspreview=true).
+
+## Connect to your Azure account
+
+1. On the Visual Studio Code toolbar, select the Azure icon.
+
+   ![Screenshot that shows Visual Studio Code toolbar and selected Azure icon](./media/create-stateless-stateful-workflows/visual-studio-code-azure-icon.png)
+
+1. In the Azure pane, under **Azure: Functions**, select **Sign in to Azure**. When the Microsoft sign-in page prompts you, sign in with your Azure account.
+
+   ![Screenshot that shows Azure pane and selected link for Azure sign in](./media/create-stateless-stateful-workflows/sign-in-azure-subscription.png)
+
+   After you sign in, the Azure pane shows the Azure subscriptions that are associated with your account.
+
+   If the Azure pane doesn't show the subscriptions that you expect don't appear, or you want to view only specific subscriptions, follow these steps:
+
+   1. Move your pointer over the first subscription in the list so that the **Select subscriptions** filter icon appears. Select the filter icon.
+
+      ![Screenshot that shows Azure pane and selected filter icon](./media/create-stateless-stateful-workflows/filter-subscription-list.png)
+
+   1. From the list that appears, select the subscriptions that you want to appear, and then select **OK**.
+
+## Develop your workflow app
+
+1. In the Azure pane, next to **Azure: Functions**, select **Create workflow**.
+
+   ![Screenshot that shows Azure pane and selected "Create workflow"](./media/create-stateless-stateful-workflows/create-workflow-app-project.png)
+
+1. When you're prompted to create a new project, select **Create new project**.
+
+   ![temp](./media/create-stateless-stateful-workflows/create-new-project-prompt.png)
+
+1. Browse to the location where you want to save your project. Create a folder for your project.
+
+1. Select C# as the language for your project.
+
+   ![temp](./media/create-stateless-stateful-workflows/select-language-for-project.png)
+
+   ![temp](./media/create-stateless-stateful-workflows/select-project-template.png)
+
+   ![temp](./media/create-stateless-stateful-workflows/select-location-to-open-project.png)
+
+   ![temp](./media/create-stateless-stateful-workflows/workflow-app-project-created.png)
+
+
+## Test your workflow app
+
 
 ## Deploy to Docker container
 
