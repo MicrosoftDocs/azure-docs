@@ -30,18 +30,18 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: First ASP.NET Core app
-            url: app-service-web-get-started-dotnet.md
-          - text: First ASP.NET app
-            url: app-service-web-get-started-dotnet-framework.md
+            url: quickstart-dotnetcore.md
+          - text: First ASP.NET app (Windows only)
+            url: quickstart-dotnet-framework.md
           - text: First Node.js app
-            url: app-service-web-get-started-nodejs.md
+            url: quickstart-nodejs.md
           - text: First PHP app
-            url: app-service-web-get-started-php.md
+            url: quickstart-php.md
           - text: First Java app
-            url: app-service-web-get-started-java.md
-          - text: First Python app
+            url: quickstart-java.md
+          - text: First Python Flask app (Linux only)
             url: quickstart-python.md
-          - text: First Ruby app
+          - text: First Ruby app (Linux only)
             url: quickstart-ruby.md
   - title: Common tasks
     linkLists:
@@ -98,10 +98,26 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Run a custom Windows container
-            url: app-service-web-get-started-windows-container.md
+          - text: Run a custom container
+            url: quickstart-custom-container.md
       - linkListType: tutorial
         links:
+          - text: ASP.NET Core app with SQL Database
+            url: tutorial-dotnetcore-sqldb-app.md
+          - text: PHP (Laravel) app with Azure MySQL
+            url: tutorial-php-mysql-app.md
+          - text: Node.js (MEAN.js) app with MongoDB
+            url: tutorial-nodejs-mongodb-app.md
+          - text: Java (Spring Boot) with Cosmos DB
+            url: tutorial-java-spring-cosmosdb.md         
+          - text: Python (Django) app with PostgreSQL
+            url:  tutorial-python-postgresql-app.md
+          - text: Ruby (Rails) app with PostgreSQL
+            url: tutorial-ruby-postgres-app.md                              
+          - text: Migrate a legacy app to Azure in a Windows container
+            url: app-service-web-tutorial-windows-containers-custom-fonts.md
+          - text: Run a Docker Compose app (Linux only)
+            url: tutorial-multi-container-app.md          
           - text: Migrate custom software to Azure in a container
             url: tutorial-custom-container.md
           - text: Run a Docker Compose app

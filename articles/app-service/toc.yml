@@ -12,19 +12,25 @@
   expanded: true
   items:
   - name: Create .NET Core app
-    href: app-service-web-get-started-dotnet.md
+    href: quickstart-dotnetcore.md
   - name: Create .NET Framework app
-    href: app-service-web-get-started-dotnet-framework.md
+    href: quickstart-dotnet-framework.md
   - name: Create Node.js app
-    href: app-service-web-get-started-nodejs.md
+    href: quickstart-nodejs.md
   - name: Create PHP app
-    href: app-service-web-get-started-php.md
+    href: quickstart-php.md
   - name: Create Java app
-    href: app-service-web-get-started-java.md
+    href: quickstart-java.md
+  - name: Create Python app
+    href: quickstart-python.md
+  - name: Create Ruby app
+    href: quickstart-ruby.md
   - name: Create static HTML site
-    href: app-service-web-get-started-html.md
-  - name: Run Windows container
-    href: app-service-web-get-started-windows-container.md
+    href: quickstart-html.md
+  - name: Run custom container
+    href: quickstart-custom-container.md
+  - name: Create multi-container app
+    href: quickstart-multi-container.md
 - name: Tutorials
   items:
   - name: App with DB

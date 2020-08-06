@@ -20,7 +20,7 @@ ms.custom: seodec18
 This tutorial shows how to create web apps and App Service plans in an [App Service Environment v1](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
-> If you want to learn how to create a web app but don't need to do it in an App Service Environment, see [Create a .NET web app](../app-service-web-get-started-dotnet.md) or one of the related tutorials for other languages and frameworks.
+> If you want to learn how to create a web app but don't need to do it in an App Service Environment, see [Create a .NET web app](../quickstart-dotnetcore.md) or one of the related tutorials for other languages and frameworks.
 > 
 > 
 

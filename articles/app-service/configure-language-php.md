@@ -13,7 +13,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 This guide shows you how to configure your PHP web apps, mobile back ends, and API apps in Azure App Service.
 
-This guide provides key concepts and instructions for PHP developers who deploy apps to App Service. If you've never used Azure App Service, follow the [PHP quickstart](app-service-web-get-started-php.md) and [PHP with MySQL tutorial](tutorial-php-mysql-app.md) first.
+This guide provides key concepts and instructions for PHP developers who deploy apps to App Service. If you've never used Azure App Service, follow the [PHP quickstart](quickstart-php.md) and [PHP with MySQL tutorial](tutorial-php-mysql-app.md) first.
 
 ## Show PHP version
 

@@ -55,28 +55,28 @@ App Service on Linux supports a number of language specific built-in images. Jus
 Create your first web app.
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core (on Windows or Linux)](app-service-web-get-started-dotnet.md)
+> [ASP.NET Core (on Windows or Linux)](quickstart-dotnetcore.md)
 
 > [!div class="nextstepaction"]
-> [ASP.NET (on Windows)](app-service-web-get-started-dotnet-framework.md)
+> [ASP.NET (on Windows)](quickstart-dotnet-framework.md)
 
 > [!div class="nextstepaction"]
-> [PHP (on Windows or Linux)](app-service-web-get-started-php.md)
+> [PHP (on Windows or Linux)](quickstart-php.md)
 
 > [!div class="nextstepaction"]
 > [Ruby (on Linux)](quickstart-ruby.md)
 
 > [!div class="nextstepaction"]
-> [Node.js (on Windows or Linux)](app-service-web-get-started-nodejs.md)
+> [Node.js (on Windows or Linux)](quickstart-nodejs.md)
 
 > [!div class="nextstepaction"]
-> [Java (on Windows or Linux)](app-service-web-get-started-java.md)
+> [Java (on Windows or Linux)](quickstart-java.md)
 
 > [!div class="nextstepaction"]
 > [Python (on Linux)](quickstart-python.md)
 
 > [!div class="nextstepaction"]
-> [HTML (on Windows or Linux)](app-service-web-get-started-html.md)
+> [HTML (on Windows or Linux)](quickstart-html.md)
 
 > [!div class="nextstepaction"]
 > [Custom container (Windows or Linux)](tutorial-custom-container.md)
