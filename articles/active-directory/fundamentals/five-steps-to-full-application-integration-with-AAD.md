@@ -20,7 +20,7 @@ If your company has a Microsoft 365 subscription, you likely [already use](https
 
 This guide explains how to integrate all your applications with Azure AD. In each step, we explain the value and provide links to resources that will explain the technical details. We present these steps in an order we recommend. However, you can jump to any part of the process to get started with whatever adds the most value for you.
 
-Other resources on this topic, including in-depth business process whitepapers, that can be found at [https://aka/ms/migreateapps](https://aka.ms/migrateapps).
+Other resources on this topic, including in-depth business process whitepapers, that can be found on our [Resources for migrating applications to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) page.
 
 ## Use Azure AD for new applications
 
