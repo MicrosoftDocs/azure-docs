@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Create a store locator application using Azure Maps | Microsoft Azure Maps'
-description: Learn how to create a store locator web application. Walk through the steps of using the web SDK to create a user interface and render data on a map.
+description: Learn how to create store locator web applications. Use the Azure Maps Web SDK to create a webpage, query the search service, and display results on a map.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/14/2020
