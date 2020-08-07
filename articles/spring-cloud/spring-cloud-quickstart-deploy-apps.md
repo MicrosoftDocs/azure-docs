@@ -144,15 +144,14 @@ To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.a
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=deploy)
 
 ## IntelliJ deployment
+The IntelliJ plug-in for Azure Spring Cloud supports application deployment from the IntelliJ IDEA.  
 
-The IntelliJ plug-in for Azure Spring Cloud supports application deployment from the IntelliJ IDEA.
-
-### Prerequisites
+## Prerequisites
 * [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable)
 * [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 * [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
 
-### Install the plug-in
+## Install the plug-in
 You can add the Azure Toolkit for IntelliJ IDEA 3.35.0 from the IntelliJ **Plugins** UI.
 
 1. Start IntelliJ.  If you have opened a project previously, close the project to show the welcome dialog. Select **Configure** from link lower right, and then click **Plugins** to open the plug-in configuration dialog, and select **Install Plugins from disk**.
@@ -165,38 +164,40 @@ You can add the Azure Toolkit for IntelliJ IDEA 3.35.0 from the IntelliJ **Plugi
 
 1. Click **Restart IDE**.
 
-### IntelliJ app deployment procedures
+## IntelliJ procedures
 The following procedures deploy a Hello World application using the IntelliJ IDEA.
 
 * Open gs-spring-boot project
 * Deploy to Azure Spring Cloud
 * Show streaming logs
 
-#### Open Piggymetrics project
+## Open gs-spring-boot project
 
-1. Download and unzip the source repository for this tutorial, or clone it using Git: git clone git clone https://github.com/Azure-Samples/piggymetrics  
-1. cd into piggymetrics folder.
-1. Open IntelliJ **Welcome** dialog.
-1. Select **Open or Import** to open the import wizard.
-1. Select `piggymetrics` folder.
+1. Download and unzip the source repository for this tutorial, or clone it using Git: git clone https://github.com/spring-guides/gs-spring-boot.git 
+1. cd into gs-spring-boot\complete.
+1. Open IntelliJ **Welcome** dialog, select **Import Project** to open the import wizard.
+1. Select `gs-spring-boot\complete` folder.
 
-    ![Import Project](media/spring-cloud-intellij-howto/revision-import-project-1.png)
+    ![Import Project](media/spring-cloud-intellij-howto/import-project-1.png)
 
-#### Deploy to Azure Spring Cloud
+## Deploy to Azure Spring Cloud
 In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
 
-    ![Deploy to Azure 1](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
+    ![Deploy to Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1.png)
 
-1. Follow instructions to sign in to Azure.
 1. Accept the name for app in the **Name** field. **Name** refers to the configuration, not app name. Users don't usually need to change it.
 1. Accept the identifier from the project for the **Artifact**.
 1. Select **App:** then click **Create app...**.
-1. Enter **App name**, then click **OK**.
-1. Start the deployment by clicking **Run** button. 
 
-    ![Deploy to Azure OK](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
+    ![Deploy to Azure 2](media/spring-cloud-intellij-howto/deploy-to-azure-2.png)
+
+1. Enter **App name**, then click **OK**.
+
+    ![Deploy to Azure OK](media/spring-cloud-intellij-howto/deploy-to-azure-2a.png)
+
+1. Start the deployment by clicking **Run** button. 
 
     ![Deploy to Azure 3](media/spring-cloud-intellij-howto/deploy-to-azure-3.png)
 
