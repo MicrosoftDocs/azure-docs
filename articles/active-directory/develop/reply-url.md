@@ -12,7 +12,7 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ---
-# Redirect URI/reply URL restrictions and limitations
+# Redirect URI (reply URL) restrictions and limitations
 
 A redirect URI, or reply URL, is the location the authorization server sends the user once the app has been successfully authorized and granted an authorization code or access token. The code or token is contained in the redirect URI or reply token, so it's important you register the correct location as part of the app registration process.
 
@@ -24,7 +24,7 @@ A redirect URI, or reply URL, is the location the authorization server sends the
 
 ## Maximum number of redirect URIs
 
-This table shows the maximum number of redirect URIs you can add to an app registration.
+This table shows the maximum number of redirect URIs you can add to an app registration in the Microsoft identity platform.
 
 | Accounts being signed in | Maximum number of redirect URIs | Description |
 |--------------------------|---------------------------------|-------------|
@@ -37,38 +37,44 @@ You can use a maximum of 256 characters for each redirect URI you add to an app 
 
 ## Supported schemes
 
-The Azure Active Directory (Azure AD) application model currently supports both HTTP and HTTPS schemes for apps that sign in work or school accounts in any organization's Azure AD tenant. These account types are specified by the `AzureADMyOrg` or `AzureADMultipleOrgs` values in the `signInAudience` field of the application manifest. For the apps that sign in personal Microsoft accounts (MSA) *and* work and school accounts (that is, the `signInAudience` is set to `AzureADandPersonalMicrosoftAccount`), only the HTTPS scheme is allowed.
+The Azure Active Directory (Azure AD) application model currently supports both HTTP and HTTPS schemes for apps that sign in work or school accounts in any organization's Azure AD tenant. These account types are specified by the `AzureADMyOrg` and `AzureADMultipleOrgs` values in the `signInAudience` field of the application manifest. For apps that sign in personal Microsoft accounts (MSA) *and* work and school accounts (that is, the `signInAudience` is set to `AzureADandPersonalMicrosoftAccount`), only the HTTPS scheme is allowed.
 
-To add redirect URIs with an HTTP scheme to app registrations that sign in work or school accounts, you need to use the application manifest editor in [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) Azure portal. However, though it's possible to set an HTTP-based redirect URI by using the manifest editor, we *strongly* recommend that developers use the HTTPS scheme for their redirect URIs.
+To add redirect URIs with an HTTP scheme to app registrations that sign in work or school accounts, you need to use the application manifest editor in [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) in the Azure portal. However, though it's possible to set an HTTP-based redirect URI by using the manifest editor, we *strongly* recommend that you use the HTTPS scheme for your redirect URIs.
 
 ## Localhost exceptions
 
 Per [RFC 8252 sections 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) and [7.3](https://tools.ietf.org/html/rfc8252#section-7.3), "loopback" or "localhost" redirect URIs come with two special considerations:
 
-1. `http` URI schemes are acceptable because the redirect never leaves the device. This means that both `http://127.0.0.1/myApp` are `https://127.0.0.1/myApp` are acceptable.
-1. Due to ephemeral port ranges often required by native applications, the port component (for example, `:5001` or `:443`) is ignored for the purposes of matching a redirect URI. As a result, `http://127.0.0.1:5000/MyApp` and `http://127.0.0.1:1234/MyApp` both match `http://127.0.0.1/MyApp`, as does `http://127.0.0.1:8080/MyApp`.
+1. `http` URI schemes are acceptable because the redirect never leaves the device. As such, both of these are acceptable:
+    - `http://127.0.0.1/myApp`
+    - `https://127.0.0.1/myApp`
+1. Due to ephemeral port ranges often required by native applications, the port component (for example, `:5001` or `:443`) is ignored for the purposes of matching a redirect URI. As a result, all of these are considered equivalent:
+    - `http://127.0.0.1/MyApp`
+    - `http://127.0.0.1:1234/MyApp`
+    - `http://127.0.0.1:5000/MyApp`
+    - `http://127.0.0.1:8080/MyApp`.
 
 From a development standpoint, this means a few things:
 
-1. Do not register multiple redirect URIs where only the port differs. The login server will pick one arbitrarily and use the behavior associated with that redirect URI (for example, whether it's `web`-, `native`-, or `spa`-type redirect.
+1. Do not register multiple redirect URIs where only the port differs. The login server will pick one arbitrarily and use the behavior associated with that redirect URI (for example, whether it's `web`-, `native`-, or `spa`-type redirect).
 1. If you need to register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI. For example, `http://127.0.0.1/MyWebApp` doesn't match `http://127.0.0.1/MyNativeApp`.
 1. Per RFC guidance, you should not use `localhost` in the redirect URI. Instead, use the actual loopback IP address, `127.0.0.1`. This prevents your app from being broken by misconfigured firewalls or renamed network interfaces.
 
-The IPv6 loopback address (`[::1]`) is not currently supported.
+    The IPv6 loopback address (`[::1]`) is not currently supported.
 
 ## Restrictions on wildcards in redirect URIs
 
-Wildcard URIs like `https://*.contoso.com` may seem convenient but should be avoided due to security implications. According to the OAuth 2.0 specification ([section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), a redirection endpoint URI must be an absolute URI.
+Wildcard URIs like `https://*.contoso.com` may seem convenient, but should be avoided due to security implications. According to the OAuth 2.0 specification ([section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), a redirection endpoint URI must be an absolute URI.
 
-Wildcard URIs are currently unsupported in app registrations configured to sign in personal Microsoft accounts and work or school accounts. Wildcard URIs are allowed, however, for apps that are configured to sign in work or school accounts in an organization's Azure AD tenant.
+Wildcard URIs are currently unsupported in app registrations configured to sign in personal Microsoft accounts and work or school accounts. Wildcard URIs are allowed, however, for apps that are configured to sign in only work or school accounts in an organization's Azure AD tenant.
 
-To add redirect URIs with wildcards to app registrations that sign in work or school accounts, you need to use the application manifest editor in [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) in the Azure portal. Though it's possible to set a redirect URI with a wildcard by using the manifest editor, we *strongly* recommend that developers use only absolute URIs.
+To add redirect URIs with wildcards to app registrations that sign in work or school accounts, you need to use the application manifest editor in [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) in the Azure portal. Though it's possible to set a redirect URI with a wildcard by using the manifest editor, we *strongly* recommend you adhere to [section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) and use only absolute URIs.
 
 If your scenario requires more redirect URIs than the maximum limit allowed, consider the [following approach](#use-a-state-parameter) instead of adding a wildcard redirect URI.
 
 ### Use a state parameter
 
-If you have several subdomains and your scenario requires that, upon successful authentication, you redirect users to the same page on which they started, using a state parameter might be helpful.
+If you have several subdomains and your scenario requires that, upon successful authentication, you redirect users to the same page from which they started, using a state parameter might be helpful.
 
 In this approach:
 
@@ -79,7 +85,7 @@ In this approach:
 1. The application can then use the value in the state parameter to determine which URL to further send the user to. Make sure you validate for CSRF protection.
 
 > [!WARNING]
-> This approach allows a compromised client to modify the additional parameters sent in the state parameter, thereby redirecting the user to a different URL, which is the [open redirector threat](https://tools.ietf.org/html/rfc6819#section-4.2.4) described in RFC 6819. Therefore, the client must protect these parameters by encrypting the state or verifying it by some other means such as validating domain name in the redirect URI against the token.
+> This approach allows a compromised client to modify the additional parameters sent in the state parameter, thereby redirecting the user to a different URL, which is the [open redirector threat](https://tools.ietf.org/html/rfc6819#section-4.2.4) described in RFC 6819. Therefore, the client must protect these parameters by encrypting the state or verifying it by some other means, like validating the domain name in the redirect URI against the token.
 
 ## Next steps
 
