@@ -36,7 +36,7 @@ Argentina
 
 Austria
 * Austria Identity Card
-* Austrai Tax Identification Number
+* Austria Tax Identification Number
 * Austria Value Added Tax (VAT) Number
 
 Australia
