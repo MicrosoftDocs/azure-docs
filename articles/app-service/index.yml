@@ -30,15 +30,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: First ASP.NET Core app
-            url: quickstart-dotnetcore.md?pivots=platform-windows
+            url: quickstart-dotnetcore.md
           - text: First ASP.NET app (Windows only)
             url: quickstart-dotnet-framework.md
           - text: First Node.js app
-            url: quickstart-nodejs.md?pivots=platform-linux
+            url: quickstart-nodejs.md
           - text: First PHP app
-            url: quickstart-php.md?pivots=platform-linux
+            url: quickstart-php.md
           - text: First Java app
-            url: quickstart-java.md?pivots=platform-linux
+            url: quickstart-java.md
           - text: First Python Flask app (Linux only)
             url: quickstart-python.md
           - text: First Ruby app (Linux only)
