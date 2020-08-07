@@ -28,7 +28,7 @@ To see the Kubernetes resources, navigate to your AKS cluster in the Azure porta
 
 :::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Kubernetes services displayed in the Azure portal.":::
 
-In this sample AKS cluster, the Azure Vote application from the [AKS quickstart][portal-quickstart] was deployed. The portal shows both Kubernetes Services that were created: the internal service (azure-vote-back), and the external service (azure-vote-front) to access the Azure Vote application. The external service includes a linked external IP address so you can quickly view your application in your browser.
+In this sample AKS cluster, the Azure Vote application from the [AKS quickstart][portal-quickstart] was deployed. The portal shows both Kubernetes services that were created: the internal service (azure-vote-back), and the external service (azure-vote-front) to access the Azure Vote application. The external service includes a linked external IP address so you can quickly view your application in your browser.
 
 ### Monitor deployment insights
 
@@ -63,5 +63,5 @@ This article showed you how to access Kubernetes resources for your AKS cluster.
 <!-- LINKS - internal -->
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [concepts-identity]: concepts-identity.md
-[portal-quickstart]: kubernetes-walkthrough-portal#run-the-application
-[deployments]: concepts-clusters-workloads#deployments-and-yaml-manifests
+[portal-quickstart]: kubernetes-walkthrough-portal.md#run-the-application
+[deployments]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
