@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/digital-twins/how-to-use-parser.md",
+      "redirect_url": "/azure/digital-twins/how-to-parse-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/digital-twins/how-to-manage-routes.md",
       "redirect_url": "/azure/digital-twins/how-to-manage-routes-apis-cli",
       "redirect_document_id": false
