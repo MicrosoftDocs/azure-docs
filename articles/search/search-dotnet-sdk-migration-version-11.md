@@ -44,7 +44,7 @@ Where applicable, the following table maps the client libraries between the two 
 | Client used for indexers, data sources, skillsets | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**new**)](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Important]
-> Version 11 renames the version 10 `SearchIndexClient` to `SearchClient`, and then reuses the name for a client that works with index, analyzer, and synonym map objects. When updating client references, follow the sequence of steps in [Steps to upgrade](#UpgradeSteps) to avoid confusion during search-and-replace.
+> `SearchIndexClient` exists in both versions, but supports different things. In version 10, `SearchIndexClient` create indexes and other objects. In version 11, `SearchIndexClient` works with existing indexes. To avoid confusion when updating code, be mindful of the order in which client references are updated. Following the sequence in [Steps to upgrade](#UpgradeSteps) should help mitigate any string replacement issues.
 
 <a name="naming-differences"></a>
 
