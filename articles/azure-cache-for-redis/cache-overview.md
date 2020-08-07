@@ -18,7 +18,6 @@ Azure Cache for Redis offers Redis as a managed service. It provides secure and 
 Azure Cache for Redis can be used as a distributed data or content cache, a session store, a message broker, and more. It can be deployed as a standalone or along side with other Azure database service, such as Azure SQL or Cosmos DB.
 
 ## Key scenarios
-
 Azure Cache for Redis improves application performance by supporting common application architecture patterns. Some of the most common include the following:
 
 | Pattern      | Description                                        |
@@ -30,7 +29,6 @@ Azure Cache for Redis improves application performance by supporting common appl
 | Distributed transactions | Applications sometimes require a series of commands against a backend data-store to execute as a single atomic operation. All commands must succeed, or all must be rolled back to the initial state. Azure Cache for Redis supports executing a batch of commands as a single [transaction](https://redis.io/topics/transactions). |
 
 ## Service tiers
-
 Azure Cache for Redis is available in the following tiers:
 
 | Tier | Description |
@@ -38,8 +36,8 @@ Azure Cache for Redis is available in the following tiers:
 Basic | A single node cache. This tier supports multiple memory sizes (250 MB - 53 GB)and is ideal for development/test and non-critical workloads. The Basic tier has no service-level agreement (SLA) |
 | Standard | A replicated cache in a two-node, primary/replica, configuration managed by Azure with a high-availability SLA (99.9%) |
 | Premium | The Premium tier is the Enterprise-ready tier. Premium tier Caches support more features and have higher throughput with lower latencies. Caches in the Premium tier are deployed on more powerful hardware providing better performance compared to the Basic or Standard Tier. This advantage means the throughput for a cache of the same size will be higher in Premium compared to Standard tier. |
-### Feature comparison
 
+### Feature comparison
 The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/) provides a detailed comparison of each tier. The following table helps describe some of the features supported by tier:
 
 | Feature Description | Premium | Standard | Basic |
@@ -56,7 +54,6 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [Reboot](cache-administration.md#reboot) |✔|✔|✔|
 
 ### Choosing the right tier
-
 You should consider the following when choosing an Azure Cache for Redis tier.
 
 * **Memory**: The Basic and Standard tiers offer 250 MB – 53 GB. The Premium tier offers up to 1.2 TB (as a cluster) or 120 GB (non-clustered). For more information, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
@@ -72,12 +69,9 @@ You should consider the following when choosing an Azure Cache for Redis tier.
 * **Redis is single-threaded** so having more than two cores does not provide additional benefit over having just two cores, but larger VM sizes typically have more bandwidth than smaller sizes. If the cache server or client reaches the bandwidth limits, then you receive timeouts on the client side.
 * **Performance improvements**: Caches in the Premium tier are deployed on hardware that has faster processors, giving better performance compared to the Basic or Standard tier. Premium tier Caches have higher throughput and lower latencies. For more information, see [Azure Cache for Redis performance](cache-planning-faq.md#azure-cache-for-redis-performance)
 
-
 You can scale your cache up to a higher tier after it has been created. Scaling down to a lower tier is not supported. For step-by-step scaling instructions, see [How to Scale Azure Cache for Redis](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-
 ## Next steps
-
 * [ASP.NET Web App Quickstart](cache-web-app-howto.md)
   Create a simple ASP.NET web app that uses an Azure Cache for Redis.
 * [.NET Quickstart](cache-dotnet-how-to-use-azure-redis-cache.md)
