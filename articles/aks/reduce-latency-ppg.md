@@ -21,7 +21,7 @@ When deploying your application in Azure, spreading Virtual Machine (VM) instanc
 * A node pool must use Virtual Machine Scale Sets to associate a proximity placement group.
 * A node pool can associate a proximity placement group at node pool create time only.
 
-[!INCLUDE [preview features callout](../includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Before you begin
 
