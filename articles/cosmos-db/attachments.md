@@ -21,9 +21,9 @@ There are two types of attachments:
 
 
 > [!NOTE]
-> Attachments are a legacy feature, in which support is scoped to continued functionality for customers already using this feature. 
+> Attachment is a legacy feature. Support is scoped to continued functionality for customers already using this feature.
 > 
-> Instead of Attachments - we highly recommend customers to use Azure Blob Storage, as a purpose-built blob storage service, for storing blob data. Users can continue to store structured metadata along with reference URI links in Azure Cosmos DB as properties within standard items to enhance queryability and indexing for blobs stored in Azure Blob Storage.
+> We recommend customers to use Azure Blob Storage, as a purpose-built blob storage service, for storing blob data instead of using attachments. Users can continue to store metadata related to blobs, along with reference URI links, in Azure Cosmos DB as item properties to provide the ability to query metadata and link to blobs stored in Azure Blob Storage.
 > 
 > Microsoft is committed to provide a minimum 36-month notice prior to fully deprecating attachments – which will be announced at a further date.
 
@@ -33,7 +33,7 @@ Azure Cosmos DB’s managed attachments are distinct from its support for standa
 
 - Attachments aren't supported in all versions of Azure Cosmos DB’s SDKs.
 - Managed attachments are limited to 2 GB of storage per database account.
-- Managed attachments aren't compatible with Azure Cosmos DB’s global distribution feature set.
+- Managed attachments aren't compatible with Azure Cosmos DB’s global distribution, and aren't replicated across regions.
 
 ## Next Steps
 
