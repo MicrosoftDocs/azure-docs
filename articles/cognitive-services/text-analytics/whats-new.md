@@ -24,9 +24,9 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
     * Additional government and country specific [entity categories](named-entity-types.md?tabs=personal) for Named Entity Recognition.
 * An HTTP 400 error will now be returned for v3 API requests that exceed the published [data limits](concepts/data-limits.md). 
 
-### Text Analytics for health August updates
+### Text Analytics for health container August updates
 
-The following updates are specific to Text Analytics for health only.
+The following updates are specific to the August release of the Text Analytics for health container only.
 
 * New model-version for Text Analytics for health: `2020-07-24`
 * New URL for sending Text Analytics for health requests: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
