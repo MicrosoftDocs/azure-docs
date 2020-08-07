@@ -23,13 +23,13 @@ This article shows how to use the storage account key to create a service SAS fo
 
 The following code example creates a SAS for a container. If the name of an existing stored access policy is provided, that policy is associated with the SAS. If no stored access policy is provided, then the code creates an ad hoc SAS on the container.
 
-# [\.NET v12](#tab/dotnet)
+### [\.NET v12](#tab/dotnet)
 
 Create a new [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder). Then, call the [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) to get the SAS token string. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetContainerSasUri":::
 
-# [\.NET v11](#tab/dotnetv11)
+### [\.NET v11](#tab/dotnetv11)
 
 To create a service SAS for a container, call the [CloudBlobContainer.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) method.
 
@@ -79,13 +79,13 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 
 The following code example creates a SAS on a blob. If the name of an existing stored access policy is provided, that policy is associated with the SAS. If no stored access policy is provided, then the code creates an ad hoc SAS on the blob.
 
-# [\.NET v12](#tab/dotnet)
+### [\.NET v12](#tab/dotnet)
 
 Create a new [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder). Then, call the [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) to get the SAS token string. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_GetBlobSasUri":::
 
-# [\.NET v11](#tab/dotnetv11)
+### [\.NET v11](#tab/dotnetv11)
 
 To create a service SAS for a blob, call the [CloudBlob.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) method.
 
