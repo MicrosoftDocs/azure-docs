@@ -319,7 +319,7 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
   * Check that the region is one of the supported regions: `eastus2`, `eastus`, `westcentralus`, `southeastasia`, `westeurope`, `australiaeast`, `westus2`, `southcentralus`.
   * Ensure access to the region using the Azure Portal.
   
-* **import AutoMLConfig fails**: There were package changes in the automated machine learning version 1.0.76, which require the previous version to be uninstalled before updating to the new version. If the `ImportError: cannot import name `AutoMLConfig` is encountered after upgrading from an SDK version before v1.0.76 to v1.0.76 or later, resolve the error by running: `pip uninstall azureml-train automl` and then `pip install azureml-train-auotml`. The automl_setup.cmd script does this automatically. 
+* **import AutoMLConfig fails**: There were package changes in the automated machine learning version 1.0.76, which require the previous version to be uninstalled before updating to the new version. If the `ImportError: cannot import name `AutoMLConfig`` is encountered after upgrading from an SDK version before v1.0.76 to v1.0.76 or later, resolve the error by running: `pip uninstall azureml-train automl` and then `pip install azureml-train-auotml`. The automl_setup.cmd script does this automatically. 
 
 * **workspace.from_config fails**: If the calls ws = Workspace.from_config()' fails -
   1. Ensure that the configuration.ipynb notebook has run successfully.
