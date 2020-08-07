@@ -50,7 +50,7 @@ A DTDL model interface may contain zero, one, or many of each of the following f
 > [!NOTE]
 > The [spec for DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) also defines **Commands**, which are methods that can be executed on a digital twin (like a reset command, or a command to switch a fan on or off). However, *commands are not currently supported in Azure Digital Twins.*
 
-### Properties versus telemetry
+### Properties vs. telemetry
 
 Here is some additional guidance on distinguishing between DTDL **properties** and **telemetry** fields.
 
