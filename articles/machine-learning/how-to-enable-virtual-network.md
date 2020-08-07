@@ -56,7 +56,7 @@ Some combinations of resources with a private endpoint require an Enterprise edi
 | Workspace and any other resource with private endpoint | ✔ | |
 | Workspace with private endpoint. Other resources without private endpoint or virtual network | ✔ | ✔ |
 | Azure Container Registry in a virtual network | ✔ | |
-| Customer Managed Keys for workspace | ✔ | |
+| Customer-Managed Keys for workspace | ✔ | |
 
 > [!WARNING]
 > 
@@ -136,7 +136,7 @@ __Configuration__
 * The designer uses the storage account attached to your workspace to store output by default. However, you can specify it to store output to any datastore that you have access to. If your environment uses virtual networks, you can use these controls to ensure your data remains secure and accessible. To set a new default storage for a pipeline:
 
     1. In a pipeline draft, select the **Settings gear icon** near the title of your pipeline.
-    1. Select **Select default datastore**.
+    1. Select the **Select default datastore** entry.
     1. Specify a new datastore.
 
     You can also override the default datastore on a per-module basis. This gives you control over the storage location for each individual module.
@@ -249,7 +249,10 @@ __Limitations__
     * One public IP address
     * One load balancer
     
-    In the case of clusters these resources are deleted (and recreated) every time the cluster scales down to 0 nodes, however for an instance the resources are held onto until the instance is deleted (stopping does not remove the resources). 
+    For __compute clusters__, these resources are deleted (and recreated) every time the cluster scales down to 0 nodes.
+    
+    For a __compute instance__ the resources are held onto until the instance is deleted (stopping does not remove the resources).
+
     These resources are limited by the subscription's [resource quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 __Configuration__
@@ -310,7 +313,7 @@ __Configuration__
 
 * If you're using notebooks on an Azure Compute instance, you must ensure that your notebook is running on a compute resource behind the same virtual network and subnet as your data. 
 
-    You must configure your Compute Instance to be in the same virtual network during creation under **Advanced settings** > **Configure virtual network**. You cannot add an existing Compute Instance to a virtual network.
+    Configure your Compute Instance to be in the same virtual network during creation under **Advanced settings** > **Configure virtual network**. You cannot add an existing Compute Instance to a virtual network.
 
 * If you plan on securing the virtual network by restricting network traffic to/from the public internet, you must allow inbound communications from the Azure Batch service.
 
@@ -519,7 +522,7 @@ __Configuration__
         az network vnet show -g myresourcegroup -n myvnet --query subnets[].id
         ```
         
-        This command returns an array of IDs for the subnets in the virtual network. The following is an example from a virtual network that only has one subnet:
+        This command returns an array of IDs for the subnets in the virtual network. The following JSON is an example from a virtual network that only has one subnet:
 
         ```json
         [
@@ -529,7 +532,7 @@ __Configuration__
 
         If multiple IDs are returned, select the one that you want to use.
 
-    1. To create an AKS cluster a private endpoint, use the information in the __Advanced networking__ section of the [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters#advanced-networking) article. When creating the cluster, use the subnet ID from the previous command with the `--vnet-subnet-id` paramter.
+    1. To create an AKS cluster a private endpoint, use the information in the __Advanced networking__ section of the [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters#advanced-networking) article. When creating the cluster, use the subnet ID from the previous command with the `--vnet-subnet-id` parameter.
 
     1. To attach the cluster, use the information in the [Deploy to Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster) article.
 
@@ -611,7 +614,7 @@ __Configuration__
     
     For more information, see the [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) method reference.
 
-1. You must apply the following Azure Resource Manager template. This template enables your workspace to communicate with ACR.
+1. To enable your workspace to communicate with the ACR instance, apply the following Azure Resource Manager template:
 
     > [!WARNING]
     > This template enables a private endpoint for your workspace and changes it to an enterprise workspace. You cannot undo these changes.
@@ -712,7 +715,7 @@ __Configuration__
 
     * [Extend HDInsight using an Azure virtual network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)
 
-1. An NSG is automatically created for Linux-based Azure Virtual Machines. This NSG allows access to port 22 from any source. If you want to restrict access to the SSH port, you must allow access from Azure Machine Learning. To preserve access for Azure ML, you must allow access from a __source service__ with a __source service tag__ of __AzureMachineLearning__. For example, the following Azure CLI commands modify the SSH rule to only allow access from Azure Machine Learning.
+1. An NSG is automatically created for Linux-based Azure Virtual Machines. This NSG allows access to port 22 from any source. If you want to limit access to the SSH port, you must allow access from Azure Machine Learning. To preserve access for Azure ML, you must allow access from a __source service__ with a __source service tag__ of __AzureMachineLearning__. For example, the following Azure CLI commands modify the SSH rule to only allow access from Azure Machine Learning.
 
     ```azurecli
     # Get default SSH rule
