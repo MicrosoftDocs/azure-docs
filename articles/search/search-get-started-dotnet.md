@@ -16,7 +16,7 @@ ms.date: 08/05/2020
 
 Use the new [Azure.Search.Documents (version 11) client library](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) to create a .NET Core console application in C# that creates, loads, and queries a search index.
 
-[Download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart-v11) to start with a finished project or follow the steps in this article to create your own.
+[Download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart-v11) to start with a finished project or follow the steps in this article to create your own.
 
 > [!NOTE]
 > Looking for an earlier version? See [Create a search index using Microsoft.Azure.Search v10](search-get-started-dotnet-v10.md) instead.
@@ -179,13 +179,17 @@ When uploading documents, you must use an [IndexDocumentsBatch](https://docs.mic
 
     Console.WriteLine("{0}", "Loading index...\n");
     qryclient.IndexDocuments(batch, idxoptions);
+    ```
 
+    Once you initialize the [IndexDocumentsBatch](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) object, you can send it to the index by calling [IndexDocuments](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.indexdocuments) on your [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient) object.
+
+1. Because this is a console app that runs all commands sequentially, add a 2-second wait time between indexing and queries.
+
+    ```csharp
     // Wait 2 seconds for indexing to complete before starting queries (for demo and console-app purposes only)
     Console.WriteLine("Waiting for indexing...\n");
     System.Threading.Thread.Sleep(2000);
     ```
-
-    Once you initialize the [IndexDocumentsBatch](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) object, you can send it to the index by calling [IndexDocuments](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.indexdocuments) on your [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient) object.
 
     The 2-second delay compensates for indexing, which is asynchronous, so that all documents can be indexed before the queries are executed. Coding in a delay is typically only necessary in demos, tests, and sample applications.
 
