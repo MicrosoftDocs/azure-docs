@@ -1,8 +1,10 @@
 ---
 title: What is Language Understanding (LUIS)?
 description: Language Understanding (LUIS) is a cloud-based API service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
+keywords: Azure, artificial intelligence, ai, natural language processing, nlp, natural language understanding, nlu, ai conversation, conversational ai, ai chatbot, chatbot maker, LUIS, nlp ai, luis ai, azure luis
 ms.topic: overview
-ms.date: 05/05/2020
+ms.date: 08/07/2020
+ms.custom: cog-serv-seo-aug-2020
 ---
 
 # What is Language Understanding (LUIS)?
@@ -35,7 +37,9 @@ The LUIS app provides intelligence so the client application can make smart choi
 <a name="Key-LUIS-concepts"></a>
 <a name="what-is-a-luis-model"></a>
 
-## Natural language processing
+## Natural language processing (NLP)
+
+[LUIS provides artificial intelligence (AI)](artificial-intelligence.md) in the form of natural language understanding (NLU), a subset of natural language processing (NLP).
 
 Your LUIS app contains a domain-specific natural language model. You can start the LUIS app with a prebuilt domain model, build your own model, or blend pieces of a prebuilt domain with your own custom information.
 
