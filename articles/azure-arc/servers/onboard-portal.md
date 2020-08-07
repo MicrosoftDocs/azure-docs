@@ -83,7 +83,6 @@ msiexec.exe /i AzureConnectedMachineAgent.msi /?
 2. If the machine needs to communicate through a proxy server, to set the proxy server environment variable, run the following command:
 
     ```powershell
-    # If a proxy server is needed, execute these commands with the proxy URL and port.
     [Environment]::SetEnvironmentVariable("https_proxy", "http://{proxy-url}:{proxy-port}", "Machine")
     $env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
     # For the changes to take effect, the agent service needs to be restarted after the proxy environment variable is set.
