@@ -95,7 +95,7 @@ On Linux or Mac, your commands will start similar to this:
 To use the `spx` command installed in a container, always enter the full command shown above, followed by the parameters of your request.
 For example, on Windows, this command sets your key:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set YOUR-SUBSCRIPTION-KEY`
+`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY`
 
 > [!NOTE]
 > You cannot use your computer's microphone or speaker when you run Speech CLI within a Docker container.
@@ -111,8 +111,8 @@ See the [region support](https://docs.microsoft.com/azure/cognitive-services/spe
 Once you have your subscription key and region identifier (ex. `eastus`, `westus`), run the following commands.
 
 ```shell
-spx config @key --set YOUR-SUBSCRIPTION-KEY
-spx config @region --set YOUR-REGION-ID
+spx config @key --set SUBSCRIPTION-KEY
+spx config @region --set REGION
 ```
 
 Your subscription authentication is now stored for future SPX requests. If you need to remove either of these stored values, run `spx config @region --clear` or `spx config @key --clear`.
