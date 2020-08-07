@@ -1,10 +1,7 @@
 ---
 title: Deploy the diagnostics tool for Windows Virtual Desktop (classic) - Azure
 description: How to deploy the diagnostics UX tool for Windows Virtual Desktop (classic).
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
