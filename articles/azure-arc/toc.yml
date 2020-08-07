@@ -14,6 +14,8 @@
   items:
     - name: Monitor machine
       href: ./servers/learn/tutorial-enable-vm-insights.md
+    - name: Assign policy from portal
+      href: /servers/learn/tutorial-assign-policy-portal.md
 - name: Samples
   items:
   - name: Azure Policy built-ins 
