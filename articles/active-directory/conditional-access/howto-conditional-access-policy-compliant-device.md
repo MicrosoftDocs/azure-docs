@@ -41,7 +41,7 @@ The following steps will help create a Conditional Access policy to require devi
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
    1. If you must exclude specific applications from your policy, you can choose them from the **Exclude** tab under **Select excluded cloud apps** and choose **Select**.
    1. Select **Done**.
-1. Under **Conditions** > **Client apps (Preview)**, set **Configure** to **Yes**, and select **Done**.
+1. Under **Conditions** > **Client apps (Preview)** > **Select the client apps this policy will apply to**, leave all defaults selected and select **Done**.
 1. Under **Access controls** > **Grant**, select **Require device to be marked as compliant**.
    1. Select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
