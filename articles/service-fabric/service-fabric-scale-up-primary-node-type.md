@@ -203,8 +203,15 @@ foreach($node in $nodes)
   }
 }
 ```
+3. Deallocate nodes in the original Virtual Machine Scale Set 
+```powershell
+$scaleSetName="nt1vm"
+$scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
 
-3. Remove node state from node type 0.
+Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
+```
+
+4. Remove node state from node type 0.
 ```powershell
 foreach($node in $nodes)
 {
@@ -216,7 +223,7 @@ foreach($node in $nodes)
   }
 }
 ```
-4. Set the primary node type property in the Service Fabric cluster resource to false. 
+5. Set the primary node type property in the Service Fabric cluster resource to false. 
 
 ```json
    {
@@ -251,26 +258,25 @@ New-AzResourceGroupDeployment `
     -TemplateParameterFile $parameterFilePath `
 ```
 
-7. You can now delete the original IP, Load Balancer, and virtual machine scale set resources. In this step you will also update the DNS name. 
+7. You can now delete the original IP, and Load Balancer resources. In this step you will also update the DNS name. 
 ```powershell
-$scaleSetName="nt1vm"
-Remove-AzureRmVmss -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -Force
-
 $lbname="LB-cluster-name-nt1vm"
+$lbResourceType="Microsoft.Network/loadBalancers"
+$ipResourceType="Microsoft.Network/publicIPAddresses"
 $oldPublicIpName="PublicIP-LB-FE-nt1vm"
 $newPublicIpName="PublicIP-LB-FE-nt2vm"
 
-$oldprimaryPublicIP = Get-AzureRmPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $resourceGroupName
+$oldprimaryPublicIP = Get-AzPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $resourceGroupName
 $primaryDNSName = $oldprimaryPublicIP.DnsSettings.DomainNameLabel
 $primaryDNSFqdn = $oldprimaryPublicIP.DnsSettings.Fqdn
 
-Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $resourceGroupName -Force
-Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $resourceGroupName -Force
+Remove-AzResource -ResourceName $lbname -ResourceType $lbResourceType -ResourceGroupName $resourceGroupName -Force
+Remove-AzResource -ResourceName $oldPublicIpName -ResourceType $ipResourceType -ResourceGroupName $resourceGroupName -Force
 
-$PublicIP = Get-AzureRmPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $resourceGroupName
+$PublicIP = Get-AzPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $resourceGroupName
 $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
-Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
+Set-AzPublicIpAddress -PublicIpAddress $PublicIP
 ``` 
 6. Update the management endpoint on the cluster to reference the new IP. 
 ```json
