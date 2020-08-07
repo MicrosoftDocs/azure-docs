@@ -83,26 +83,26 @@ Open the *pnp_temp_controller_with_thermostats.py* file in an editor of your cho
 
 1. Imports `pnp_helper_preview_refresh.py` to get access to helper methods.
 
-1. Defines two digital twin model identifiers (DTMIs) that uniquely represent two different interfaces, defined in the DTDL model. The components in a real temperature controller should implement these two interfaces. These two interfaces are already published in a central repository. These DTMIs must be known to the user and vary dependent on the scenario of device implementation. For the current sample, these two interfaces represent:
+2. Defines two digital twin model identifiers (DTMIs) that uniquely represent two different interfaces, defined in the DTDL model. The components in a real temperature controller should implement these two interfaces. These two interfaces are already published in a central repository. These DTMIs must be known to the user and vary dependent on the scenario of device implementation. For the current sample, these two interfaces represent:
 
   - A thermostat
   - Device information developed by Azure.
 
-. Defines the DTMI `model_id`for the device that's being implemented. The DTMI is user-defined and must match the DTMI in the DTDL model file.
+3. Defines the DTMI `model_id` for the device that's being implemented. The DTMI is user-defined and must match the DTMI in the DTDL model file.
 
-1. Defines the names given to the components in the DTDL file. There are two thermostats in the DTDL and one device information component. A constant called `serial_number` is also defined in the root interface. A `serial_number` can't change for a device.
+4. Defines the names given to the components in the DTDL file. There are two thermostats in the DTDL and one device information component. A constant called `serial_number` is also defined in the root interface. A `serial_number` can't change for a device.
 
-1. Defines command handler implementations. These define what the device does when it receives command requests.
+5. Defines command handler implementations. These define what the device does when it receives command requests.
 
-1. Defines functions to create a command response. These define how the device responds with to command requests. You create command response functions if a command needs to send a custom response back to the IoT hub. If a response function for a command isn't provided, a generic response is sent. In this sample, only the **getMaxMinReport** command has a custom response.
+6. Defines functions to create a command response. These define how the device responds with to command requests. You create command response functions if a command needs to send a custom response back to the IoT hub. If a response function for a command isn't provided, a generic response is sent. In this sample, only the **getMaxMinReport** command has a custom response.
 
-1. Defines a function to send telemetry from this device. Both the thermostats and the root interface send telemetry. This function takes in a optional component name parameter to enable it to identify which component sent the telemetry.
+7. Defines a function to send telemetry from this device. Both the thermostats and the root interface send telemetry. This function takes in a optional component name parameter to enable it to identify which component sent the telemetry.
 
-1. Defines a listener for command requests.
+8. Defines a listener for command requests.
 
-1. Defines a listener for desired property updates.
+9. Defines a listener for desired property updates.
 
-1. Has a `main` function that:
+10. Has a `main` function that:
 
     1. Uses the device SDK to create a device client and connect to your IoT hub. The device sends the `model_id` so that the IoT hub can identify the device as an IoT Plug and Play device.
 
