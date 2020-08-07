@@ -16,7 +16,7 @@ ms.custom: devx-track-java
 [Stream logs in real time](spring-cloud-howto-log-streaming.md)
 
 ## Set up logs following deployment in the Azure portal
-This example is based on the procedure [provision Azure Spring Cloud service](spring-cloud-quickstart-provision-service-instance.md#provision-a-service-instance-on-the-azure-portal).
+This example is based on the procedure [provision Azure Spring Cloud service](spring-cloud-quickstart-provision-service-instance.md#provision-a-service-instance-using-the-azure-portal).
 
 1. Click the **Diagnostic Setting** tab to open the following dialog.
 
