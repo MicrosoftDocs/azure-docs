@@ -129,6 +129,62 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
+### Cast string to JSON object to process
+
+If you have a string field that is JSON and want to convert it to a JSON object for processing in a JavaScript UDF, you can use the **JSON.parse()** function to create a JSON object that can then be used.
+
+**JavaScript user-defined function definition:**
+
+```javascript
+function main(x) {
+var person = JSON.parse(x);  
+return person.name;
+}
+```
+
+**Sample query:**
+```SQL
+SELECT
+    UDF.getName(input) AS Name
+INTO
+    output
+FROM
+    input
+```
+
+### Using try/catch for error handling
+
+If the input data can have malformed fields that are passed to a JavaScript UDF, using a try/catch block can be useful for identifying the problem.
+
+**JavaScript user-defined function definition:**
+
+```javascript
+function main(input, x) {
+    var obj = null;
+
+    try{
+        obj = JSON.parse(x);
+    }catch(error){
+        throw input;
+    }
+    
+    return obj.Value;
+}
+```
+
+**Sample query:**
+```SQL
+SELECT
+    A.context.company AS Company,
+    -- passing the entire record for input as first parameter,
+    -- so that the entire record can be returned if there is an error.
+    udf.getValue(A, A.context.value) as Value
+INTO
+    output
+FROM
+    input A
+```
+
 ## Next steps
 
 * [Machine Learning UDF](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
