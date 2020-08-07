@@ -1298,5 +1298,5 @@ In this quickstart
 To learn more about Azure Load Balancer, continue to [What is Azure Load Balancer?](load-balancer-overview.md) and [Load Balancer frequently asked questions](load-balancer-faqs.md).
 
 * Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
-* For more information on Azure Bastion see [What is Azure Bastion?](https://docs.microsoft.com/azure/bastion/bastion-overview)
+* For more information on Azure Bastion see [What is Azure Bastion?](https://docs.microsoft.com/azure/bastion/bastion-overview).
 
