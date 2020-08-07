@@ -38,7 +38,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 1. On the **Review + create** tab, review the permissions and select **Create**.
 
-## Assign the role in the Azure AD portal
+### Assign the role in the Azure AD portal
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in your Azure AD organization.
 1. Select **Azure Active Directory** and then select **Roles and administrators**.
