@@ -1294,7 +1294,7 @@ It takes a few minutes to create and configure the three VMs.
 
 ## Install IIS
 
-1. [Sign in](http://portal.azure.com) to the Azure portal.
+1. [Sign in](https://portal.azure.com) to the Azure portal.
 
 2. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **myResourceGroupLB** resource group.
 
