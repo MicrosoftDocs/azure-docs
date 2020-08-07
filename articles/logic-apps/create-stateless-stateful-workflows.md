@@ -192,10 +192,22 @@ Now, continue creating your workflow app.
 
 ## Create stateful workflow
 
+This example stateful workflow ...
+
+1. In the designer search box, find and select this trigger: **When a HTTP request is received**
+
+   ![Screenshot that shows Logic App Designer with "When a HTTP request is received" trigger selected](./media/create-stateless-stateful-workflows/add-request-trigger.png)
+
+1. Under the trigger, select **Next step**.
+
+1. Under the **Choose an action** search box, select **Azure**. Find and select the Office 365 Outlook action: **Send an email (V2)**
+
+   ![Screenshot that shows Logic App Designer with Office 365 Outlook "Send an email" action selected](./media/create-stateless-stateful-workflows/add-send-email-action.png)
 
 <a name="stateless-workflow"></a>
 
 ## Create stateless workflow
+
 
 ### Enable run history for stateless workflows
 
