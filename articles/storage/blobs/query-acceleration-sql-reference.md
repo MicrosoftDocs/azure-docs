@@ -1,23 +1,20 @@
 ---
-title: Query acceleration SQL language reference (preview)
+title: Query acceleration SQL language reference
 titleSuffix: Azure Storage
 description: Learn how to use query acceleration sql syntax.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 08/07/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
 ---
 
-# Query acceleration SQL language reference (preview)
+# Query acceleration SQL language reference
 
 Query acceleration supports an ANSI SQL-like language for expressing queries over blob contents.  The query acceleration SQL dialect is a subset of ANSI SQL, with a limited set of supported data types, operators, etc., but it also expands on ANSI SQL to support queries over hierarchical semi-structured data formats such as JSON. 
-
-> [!NOTE]
-> The query acceleration feature is in public preview, and is available in the Canada Central and France Central regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup). 
 
 ## SELECT Syntax
 
@@ -91,7 +88,7 @@ The query acceleration SQL language supports only a tiny subset of the data type
 
 The query acceleration SQL language supports the following standard SQL string functions:
 
-``LIKE``, ``CHAR_LENGTH``, ``CHARACTER_LENGTH``, ``LOWER``, ``UPPER``, ``SUBSTRING``, ``TRIM``, ``LEADING``, ``TRAILING``.
+``CHAR_LENGTH``, ``CHARACTER_LENGTH``, ``LOWER``, ``UPPER``, ``SUBSTRING``, ``TRIM``, ``LEADING``, ``TRAILING``.
 
 Here's a few examples:
 
@@ -103,16 +100,6 @@ Here's a few examples:
 |UPPER|``SELECT UPPER('AbCdEfG') from BlobStorage``|``ABCDEFG``|
 |SUBSTRING|``SUBSTRING('123456789', 1, 5)``|``23456``|
 |TRIM|``TRIM(BOTH '123' FROM '1112211Microsoft22211122')``|``Microsoft``|
-
-The [LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) function helps you to search for a pattern. Here's a few examples that use the [LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) function to search the data string ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i ``.
-
-|Query|Example|
-|--|--|
-|``SELECT _1, _2, _3 from BlobStorage where _2 LIKE 'a%'``|``abc,abd,cd\n``|
-|``SELECT * from BlobStorage where _1 LIKE 'a[bcd]c``|``abc,abd,cd\n``|
-|``SELECT _1 from BlobStorage where _2 LIKE '[^xyz]%'``|``abc\ntest\n``|
-|``SELECT * from BlobStorage where _1 LIKE 'a_``|``abc,abd,cd\n``|
-|``SELECT _2,_3 from BlobStorage where _3 LIKE '[g-h]_![[a-j]' Escape '!'``|``xc%d^e,gh[i\n``|
 
 ### Date functions
 
@@ -318,6 +305,6 @@ In most cases, the size of each batch will be slightly higher than the number th
 
 ## See also
 
-- [Azure Data Lake Storage query acceleration (preview)](data-lake-storage-query-acceleration.md)
-- [Filter data by using Azure Data Lake Storage query acceleration (preview)](data-lake-storage-query-acceleration-how-to.md)
+- [Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration.md)
+- [Filter data by using Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration-how-to.md)
 

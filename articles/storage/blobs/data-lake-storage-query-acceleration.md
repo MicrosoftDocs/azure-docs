@@ -1,21 +1,18 @@
 ---
-title: Azure Data Lake Storage query acceleration (preview)
-description: Query acceleration (preview) is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that is required for a processing operation.
+title: Azure Data Lake Storage query acceleration
+description: Query acceleration is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that is required for a processing operation.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 04/21/2020
+ms.date: 08/07/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ---
 
-# Azure Data Lake Storage query acceleration (preview)
+# Azure Data Lake Storage query acceleration
 
-Query acceleration (preview) is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. This reduces the time and processing power that is required to gain critical insights into stored data.
-
-> [!NOTE]
-> The query acceleration feature is in public preview, and is available in the Canada Central and France Central regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup).  
+Query acceleration is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. This reduces the time and processing power that is required to gain critical insights into stored data.
 
 ## Overview
 
@@ -72,8 +69,7 @@ Despite the change to the billing model, Query acceleration's pricing model is d
 
 ## Next steps
 
-- [Query acceleration enrollment form](https://aka.ms/adls/qa-preview-signup)    
-- [Filter data by using Azure Data Lake Storage query acceleration (preview)](data-lake-storage-query-acceleration-how-to.md)
-- [Query acceleration SQL language reference (preview)](query-acceleration-sql-reference.md)
+- [Filter data by using Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration-how-to.md)
+- [Query acceleration SQL language reference](query-acceleration-sql-reference.md)
 
 
