@@ -25,17 +25,13 @@ This version of this article goes through these steps manually, one by one, usin
 * To go through these steps manually using the CLI, see the CLI version of this article: [*How-to: Set up an instance and authentication (CLI)*](how-to-set-up-instance-cli.md).
 * To run through an automated setup using a deployment script sample, see the scripted version of this article: [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
- 
-Then, log in to the [Azure portal](https://ms.portal.azure.com/) with your credentials.
-
-[!INCLUDE [digital-twins-setup-role-prereq.md](../../includes/digital-twins-setup-role-prereq.md)]
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
 ## Create the Azure Digital Twins instance
 
-In this section, you will **create a new instance of Azure Digital Twins** using the Azure portal.
+In this section, you will **create a new instance of Azure Digital Twins** using the [Azure portal](https://ms.portal.azure.com/). Navigate to the portal and log in with your credentials.
 
-After you are logged into [Azure portal](https://ms.portal.azure.com/), start by selecting _Create a resource_ in the Azure services home page menu.
+Once in the portal, start by selecting _Create a resource_ in the Azure services home page menu.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Selecting 'Create a resource' from the home page of the Azure portal":::
 
