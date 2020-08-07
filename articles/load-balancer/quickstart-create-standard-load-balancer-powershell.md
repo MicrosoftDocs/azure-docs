@@ -259,14 +259,17 @@ $rg = 'myResourceGroupLB'
 $loc = 'eastus'
 $bas = 'myBastionHost'
 $basip = 'myBastionIP'
+$all = 'Static'
+$sku 'Standard'
 
 ## Create public IP address for Bastion host ##
-$basip = 
-New-AzPublicIPAddress -ResourceGroupName $rg -Location $loc
+$baspubip = 
+New-AzPublicIPAddress -ResourceGroupName $rg -Name $basip -Location $loc -AllocationMethod $all -Sku $sku
 
 ## Create the bastion host using the $vnet variable from previous step ##
-New-AzBastion -ResourceGroupName $rg -Name $bas -PublicIpAddress $basip -VirtualNetwork $vnet
+New-AzBastion -ResourceGroupName $rg -Name $bas -PublicIpAddress $baspubip -VirtualNetwork $vnet
 ```
+It will take a few minutes for the bastion host to be deployed to the virtual network.
 
 ### Create network security group
 Create network security group to define inbound connections to your virtual network.
