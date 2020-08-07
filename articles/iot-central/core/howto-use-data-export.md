@@ -145,15 +145,22 @@ Create a new destination or add a destination that you have already created.
 
 ## Export contents and format
 
-For Event Hubs and Service Bus destinations, data is exported in near-realtime. The data is in the message body and is in JSON format encoded as UTF-8. See below for examples.
+### Azure Blob Storage destination
 
-For Blob storage, data is exported once per minute, with each file containing the batch of changes since the last exported file. Exported data is placed in three folders in JSON format. The default paths in your storage account are:
+Data is exported once per minute, with each file containing the batch of changes since the last exported file. Exported data is placed in three folders in JSON format. The default paths in your storage account are:
 
 - Telemetry: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
 - Property changes: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
 
 To browse the exported files in the Azure portal, navigate to the file and select the **Edit blob** tab.
 
+### Azure Event Hubs and Azure Service Bus destinations
+
+Data is exported in near-realtime. The data is in the message body and is in JSON format encoded as UTF-8. 
+
+In the annotations or system properties bag of the message, you can find `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` which have the same values as the corresponding fields in the message body.
+
+### Webhook destination
 For webhooks destinations, data is also exported in near-real time. The data is in the message body is in the same format as for Event Hubs and Service Bus.
 
 
