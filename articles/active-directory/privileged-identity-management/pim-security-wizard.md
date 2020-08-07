@@ -1,6 +1,6 @@
 ---
-title: Azure AD roles Discovery and Insights in PIM, former Security Wizard - Azure Active Directory | Microsoft Docs
-description: Use Discovery and insights (formerly the Security Wizard) to removes or convert permanent privileged Azure AD role assignments to eligible with Privileged Identity Management (PIM).
+title: Azure AD roles Discovery and insights (preview) in Privileged Identity Management former Security Wizard - Azure Active Directory
+description: Discovery and insights (formerly Security Wizard) help you convert permanent Azure AD role assignments to just-in-time assignments with Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -19,15 +19,15 @@ ms.collection: M365-identity-device-management
 
 # Discovery and Insights (preview) for Azure AD roles (formerly Security Wizard)
 
-If you're starting out with Privileged Identity Management (PIM) in your Azure Active Directory (Azure AD) organization, you can use **Discovery and insights (preview)** to get started. This feature helps you understand the security risks of privileged identities and how to use Privileged Identity Management to reduce those risks. You don't even need to make any changes to existing role assignments in Discovery and Insights (preview), if you prefer to do it later.
+If you're starting out with Privileged Identity Management (PIM) in your Azure Active Directory (Azure AD) organization, you can use the **Discovery and insights (preview)** page to get started. This feature shows you who is assigned to privileged roles in your organization and how to use PIM to quickly change permanent role assignments into just-in-time assignments. You can view or make changes to your permanent privileged role assignments in **Discovery and Insights (preview)**. It's an analysis tool and an action tool.
 
 ## Discovery and insights (preview)
 
-Before your organization starts using Privileged Identity Management, all role assignments are permanent. Users are always in in their assigned roles even when they don't need their privileges. Discovery and insights (preview), which replaces the former Security Wizard, shows you a list of privileged roles and how many users are currently in those roles. You can list out assignments for a role to learn more about the assigned users if one or more of them are unfamiliar.
+Before your organization starts using Privileged Identity Management, all role assignments are permanent. Users are always in their assigned roles even when they don't need their privileges. Discovery and insights (preview), which replaces the former Security Wizard, shows you a list of privileged roles and how many users are currently in those roles. You can list out assignments for a role to learn more about the assigned users if one or more of them are unfamiliar.
 
 :heavy_check_mark: **Microsoft recommends** that you keep 2 break glass accounts that are permanently assigned to the global administrator role that doesn't require multifactor authentication when signing in. You can use these in any break glass scenario or in case no one is able to elevate into their Global Administrator role
 
-:heavy_check_mark: **Microsoft recommends** that you keep role assignments permanent if a user has a Microsoft account (in other words, an account they use to sign in to Microsoft services like Skype, or Outlook.com). If you require multi-factor authentication to be activated in such a role, the user will be locked out.
+Also, keep role assignments permanent if a user has a Microsoft account (in other words, an account they use to sign in to Microsoft services like Skype, or Outlook.com). If you require multi-factor authentication to be activated in such a role, the user will be locked out.
 
 ## Open Discovery and insights (preview)
 
