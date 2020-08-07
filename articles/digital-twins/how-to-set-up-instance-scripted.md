@@ -26,7 +26,9 @@ This version of this article completes these steps by running an [**automated de
 * To view the manual steps according to the Azure portal, see the portal version of this article: [*How-to: Set up an instance and authentication (portal)*](how-to-set-up-instance-portal.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
-[!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]
+[!INCLUDE [digital-twins-setup-role-prereq.md](../../includes/digital-twins-setup-role-prereq.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
 
 ## Run the deployment script
 
