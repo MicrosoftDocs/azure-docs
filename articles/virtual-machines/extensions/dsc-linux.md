@@ -24,25 +24,17 @@ Desired State Configuration (DSC) is a management platform that you can use to m
 
 The DSCForLinux extension is published and supported by Microsoft. The extension installs the OMI and DSC agent on Azure virtual machines. The DSC extension can also do the following actions:
 
-
 - Register the Linux VM to an Azure Automation account to pull configurations from the Azure Automation service (Register ExtensionAction).
 - Push MOF configurations to the Linux VM (Push ExtensionAction).
 - Apply meta MOF configuration to the Linux VM to configure a pull server in order to pull node configuration (Pull ExtensionAction).
 - Install custom DSC modules to the Linux VM (Install ExtensionAction).
 - Remove custom DSC modules from the Linux VM (Remove ExtensionAction).
 
- 
-
 ## Prerequisites
 
 ### Operating system
 
-The DSC Linux extension supports all the [Linux distributions endorsed on Azure](../linux/endorsed-distros.md) except:
-
-| Distribution | Version |
-|---|---|
-| Debian | All versions |
-| Ubuntu| 18.04 |
+For nodes running Linux, the DSC Linux extension supports all the Linux distributions listed in the [PowerShell DSC documentation](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
  
 ### Internet connectivity
 

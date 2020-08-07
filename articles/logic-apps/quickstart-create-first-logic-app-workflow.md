@@ -1,5 +1,5 @@
 ---
-title: Create your first automated workflow
+title: Create an automated integration workflow
 description: Quickstart - Build your first automated workflow by using Azure Logic Apps for system integration and enterprise application integration (EAI) solutions
 services: logic-apps
 ms.suite: integration
@@ -7,9 +7,11 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/23/2020
+
+# Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps
 ---
 
-# Quickstart: Create your first workflow by using Azure Logic Apps - Azure portal
+# Quickstart: Create your first automated integration workflow by using Azure Logic Apps - Azure portal
 
 This quickstart introduces the basic general concepts behind how to build your first workflow by using [Azure Logic Apps](logic-apps-overview.md), such as creating a blank logic app, adding a trigger and an action, and then testing your logic app. In this quickstart, you build a logic app that regularly checks a website's RSS feed for new items. If new items exist, the logic app sends an email for each item. When you're done, your logic app looks like this workflow at a high level:
 
@@ -25,7 +27,7 @@ For this scenario, you need an Azure subscription or [sign up for a free Azure a
 
 ## Create your logic app
 
-1. Go to the [Azure portal](https://portal.azure.com), and sign in with your Azure account credentials.
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
 1. In the Azure portal search box, enter `logic apps`, and select **Logic Apps**.
 

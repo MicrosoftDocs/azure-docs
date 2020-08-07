@@ -19,7 +19,7 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in R
 
 * Receive and respond to an HTTPS call from another logic app.
 
-The Request trigger supports [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) for authorizing inbound calls to your logic app. For more information about enabling this authentication, see [Secure access and data in Azure Logic Apps - Enable Azure AD OAuth authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+The Request trigger supports [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) for authorizing inbound calls to your logic app. For more information about enabling this authentication, see [Secure access and data in Azure Logic Apps - Enable Azure AD OAuth authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ The Request trigger supports [Azure Active Directory Open Authentication](/azure
 
 ## Transport Layer Security (TLS)
 
-* Inbound calls support *only* Transport Layer Security (TLS) 1.2. If you get TLS handshake errors, make sure that you use TLS 1.2. For more information, see [Solving the TLS 1.0 problem](https://docs.microsoft.com/security/solving-tls1-problem). Outbound calls support TLS 1.0, 1.1, and 1.2, based on the target endpoint's capability.
+* Inbound calls support *only* Transport Layer Security (TLS) 1.2. If you get TLS handshake errors, make sure that you use TLS 1.2. For more information, see [Solving the TLS 1.0 problem](/security/solving-tls1-problem). Outbound calls support TLS 1.0, 1.1, and 1.2, based on the target endpoint's capability.
 
 * Inbound calls support these cipher suites:
 
@@ -285,3 +285,4 @@ Your logic app keeps the incoming request open only for a [limited time](../logi
 ## Next steps
 
 * [Connectors for Logic Apps](../connectors/apis-list.md)
+

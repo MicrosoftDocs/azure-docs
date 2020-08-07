@@ -1,8 +1,8 @@
 ---
 title: Create a consulting service offer - Microsoft commercial marketplace
 description: Learn how to publish a consulting service offer to either Microsoft AppSource or Azure Marketplace using Partner Center.
-author: anbene
-ms.author: mingshen
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

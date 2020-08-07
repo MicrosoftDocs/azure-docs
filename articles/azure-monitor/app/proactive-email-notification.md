@@ -40,6 +40,7 @@ If you have any questions or concerns about this change, don’t hesitate to [co
 
 Learn more about Smart Detection:
 
-- [Failure anomalies](../../azure-monitor/app/proactive-failure-diagnostics.md)
-- [Memory Leaks](../../azure-monitor/app/proactive-potential-memory-leak.md)
-- [Performance anomalies](../../azure-monitor/app/proactive-performance-diagnostics.md)
+- [Failure anomalies](./proactive-failure-diagnostics.md)
+- [Memory Leaks](./proactive-potential-memory-leak.md)
+- [Performance anomalies](./proactive-performance-diagnostics.md)
+

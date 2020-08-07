@@ -61,12 +61,12 @@ For Site Recovery to work as expected, you need to modify outbound network conne
 
 If you're using a URL-based firewall proxy to control outbound connectivity, allow access to these URLs:
 
-| **URL** | **Details** |
-| ------- | ----------- |
-| `*.blob.core.windows.net` | Allows data to be written from the VM to the cache storage account in the source region. |
-| `login.microsoftonline.com` | Provides authorization and authentication to Site Recovery service URLs. |
-| `*.hypervrecoverymanager.windowsazure.com` | Allows the VM to communicate with the Site Recovery service. |
-| `*.servicebus.windows.net` | Allows the VM to write Site Recovery monitoring and diagnostics data. |
+| **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`	            | Allows data to be written from the VM to the cache storage account in the source region. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Provides authorization and authentication to Site Recovery service URLs. |
+| Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Allows the VM to communicate with the Site Recovery service. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
 
 ### Outbound connectivity for IP address ranges
 
@@ -99,7 +99,7 @@ Azure Site Recovery provides three built-in roles to control Site Recovery manag
   operations. This role is best suited for an IT monitoring executive who can monitor the current
   state of protection and raise support tickets.
 
-Learn more about [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md).
+Learn more about [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
 ## Enable replication for a VM
 

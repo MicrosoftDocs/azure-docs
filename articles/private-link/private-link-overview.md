@@ -35,7 +35,7 @@ Azure Private Link provides the following benefits:
 - **Extend to your own services**: Enable the same experience and functionality to render your service privately to consumers in Azure. By placing your service behind a standard Azure Load Balancer, you can enable it for Private Link. The consumer can then connect directly to your service using a private endpoint in their own virtual network. You can manage the connection requests using an approval call flow. Azure Private Link works for consumers and services belonging to different Azure Active Directory tenants. 
 
 ## Availability 
- The following table lists the Private Link services and the regions where they're available. 
+ The following table lists the Private Link services and the regions where they are available. 
 
 |Supported services  |Available regions | Additional considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
@@ -45,7 +45,7 @@ Azure Private Link provides the following benefits:
 |  Azure SQL Database         | All public regions <br/> All Government regions      |  Supported for Proxy [connection policy](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) | GA <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
 |Azure Synapse Analytics (SQL Data Warehouse)| All public regions <br/> All Government regions |  Supported for Proxy [connection policy](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) |GA <br/> [Learn more](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
 |Azure Cosmos DB|  All public regions<br/> All Government regions | |GA <br/> [Learn more](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
-|  Azure Database for PostgreSQL - Single server         | All public regions <br/> All Government regions     | Supported for General Purpose and Meomry Optimized pricing tiers | GA <br/> [Learn more](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  Azure Database for PostgreSQL - Single server         | All public regions <br/> All Government regions     | Supported for General Purpose and Memory Optimized pricing tiers | GA <br/> [Learn more](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
 |  Azure Database for MySQL         | All public regions<br/> All Government regions      |  | GA <br/> [Learn more](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
 |  Azure Database for MariaDB         | All public regions<br/> All Government regions     |  | GA <br/> [Learn more](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
 |  Azure Key Vault         | All public regions<br/> All Government regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/key-vault/private-link-service)   |

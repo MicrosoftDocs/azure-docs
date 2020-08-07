@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://auth.<ENVIRONMENT>.com/sp/ACS.saml2`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [Datasite Client support team](mailto:service@datasite.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-On URL. Contact [Datasite Client support team](mailto:applicationsupport@datasite.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Datasite application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -137,11 +137,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Datasite SSO
 
-To configure single sign-on on **Datasite** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Datasite support team](mailto:service@datasite.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Datasite** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Datasite support team](mailto:applicationsupport@datasite.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Datasite test user
 
-In this section, you create a user called B.Simon in Datasite. Work with [Datasite support team](mailto:service@datasite.com) to add the users in the Datasite platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Datasite. Work with [Datasite support team](mailto:applicationsupport@datasite.com) to add the users in the Datasite platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

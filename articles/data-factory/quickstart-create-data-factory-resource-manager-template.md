@@ -53,7 +53,7 @@ Save the file in the **C:\ADFv2QuickStartPSH** folder. (If the folder doesn't al
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-data-factory-v2-blob-to-blob-copy/).
 
-:::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json" range="1-196" highlight="40-187":::
+:::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
 
 There are Azure resources defined in the template:
 
@@ -80,10 +80,10 @@ More Azure Data Factory template samples can be found in the [quickstart templat
     - **Subscription**: Select an Azure subscription.
     - **Resource group**: Select **Create new**, enter a unique name for the resource group, and then select **OK**.
     - **Region**: Select a location.  For example, *East US*.
-    - **Data Factory Name**: Enter a name for the Azure Data Factory service. It must be globally unique.
-    - **Location**: Enter a location where you want to create your Azure Data Factory service.
-    - **Storage Account Name**: The name of the storage account.
-    - **Blob Container**: The name of the container created in the storage account.
+    - **Data Factory Name**: Use  default value.
+    - **Location**: Use default value.
+    - **Storage Account Name**: Use default value.
+    - **Blob Container**: Use default value.
 
 ## Review deployed resources
 

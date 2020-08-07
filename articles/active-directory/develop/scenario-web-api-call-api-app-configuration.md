@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/15/2020
+ms.date: 08/05/2020
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web API that calls web APIs by using the Microsoft identity platform for developers.
@@ -80,7 +80,7 @@ public class Startup
   {
    // ...
    services.AddMicrosoftWebApiAuthentication(Configuration)
-           .AddMicrosoftWebApiCallsWebApi()
+           .AddMicrosoftWebApiCallsWebApi(Configuration)
            .AddInMemoryTokenCaches();
   // ...
   }

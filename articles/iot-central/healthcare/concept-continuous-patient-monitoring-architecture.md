@@ -3,7 +3,7 @@ title: Continuous patient monitoring architecture in Azure IoT Central | Microso
 description: Learn about a continuous patient monitoring solution architecture.
 author: philmea
 ms.author: philmea
-ms.date: 10/24/2019
+ms.date: 7/23/2020
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -32,7 +32,7 @@ This section outlines each part of the architecture diagram in more detail.
 Many medical wearables used in the healthcare IoT space are Bluetooth Low Energy devices. They're unable to speak directly to the cloud and will need to pass through a gateway. This architecture suggests using a mobile phone application as this gateway. 
 
 ### Mobile phone gateway
-The mobile phone application's primary function is to ingest BLE data from medical devices and communicate it to Azure IoT Central. Additionally, the app can help guide patients through a device setup and provisioning flow and help them see a view of their personal health data. Other solutions can use a tablet gateway or a static gateway if inside a hospital room to achieve the same communication flow. 
+The mobile phone application's primary function is to ingest BLE data from medical devices and communicate it to Azure IoT Central. Additionally, the app can help guide patients through a device setup and provisioning flow and help them see a view of their personal health data. Other solutions can use a tablet gateway or a static gateway if inside a hospital room to achieve the same communication flow. We've created an open-source sample mobile application available for Android and iOS that you can use as a starting point to jump-start your application development efforts. For more information about the IoT Central Continuous Patient Monitoring mobile app sample, see [Azure Samples](https://docs.microsoft.com/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
 
 ### Export to Azure API for FHIR&reg;
 Azure IoT Central is HIPAA-compliant and HITRUST&reg; certified, but you may also want to send patient health-related data to the Azure API for FHIR. [Azure API for FHIR](../../healthcare-apis/overview.md) is a fully managed, standards-based, compliant API for clinical health data that enables you to create new systems of engagement with your health data. It enables rapid exchange of data through FHIR APIs, backed by a managed Platform-as-a Service (PaaS) offering in the cloud. Using the Continuous Data Export functionality of IoT Central, you can send data to the Azure API for FHIR via the [Azure IoT connector for FHIR](https://docs.microsoft.com/azure/healthcare-apis/iot-fhir-portal-quickstart).

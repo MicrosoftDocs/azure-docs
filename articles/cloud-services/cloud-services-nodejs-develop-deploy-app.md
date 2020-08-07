@@ -9,7 +9,7 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
-
+ms.custom: devx-track-javascript
 ---
 # Build and deploy a Node.js application to an Azure Cloud Service
 

@@ -2,12 +2,12 @@
 title: Reprotect Azure VMs to the primary region with Azure Site Recovery | Microsoft Docs
 description: Describes how to reprotect Azure VMs after failover, the secondary to primary region, using Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: rajanaki
+ms.author: ramamill
 ---
 
 # Reprotect failed over Azure VMs to the primary region
@@ -90,10 +90,6 @@ The following conditions determine how much data is replicated:
 |Source region has 1 VM with 1 TB premium disk.<br/>Only 20 GB data is used and rest of the disk is empty.<br/>Disk type is premium with 200 MBps throughput.<br/>The initial data on the disk immediately after failover was 15 GB. There was 5 GB data change after failover. Total populated data is therefore 20 GB| Approximate time: 30-45 minutes.<br/>Since the data populated in the disk is less than 10% of the size of the disk, we perform a complete initial replication.<br/>Transfer speed is approximately 16% of throughput, or 32MBps. Therefore, transfer time to apply changes of 20 GB that is 20 GB/32 MBps, approximately 11 minutes.<br/>Some overhead time is required for Site Recovery to auto scale, approximately 20-30 minutes |
 
 When the VM is re-protected after failing back to the primary region (i.e., if the VM is re-protected from primary region to DR region), the target VM and associated NIC(s) are deleted.
-
-When the VM is re-protected from the DR region to the primary region, we do not delete the erstwhile primary VM and associated NIC(s).
-
-When the VM is re-protected after failing back to the primary region (i.e., if the VM is re-protected from primary region to DR region), the target VM and associated NIC(s) are deleted. 
 
 When the VM is re-protected from the DR region to the primary region, we do not delete the erstwhile primary VM and associated NIC(s).
 
