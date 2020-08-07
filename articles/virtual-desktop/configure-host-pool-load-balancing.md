@@ -1,7 +1,8 @@
 ---
 title: Configure Windows Virtual Desktop load-balancing - Azure
 description: How to configure the load-balancing method for a Windows Virtual Desktop environment.
-author: Heidilohrms.topic: how-to
+author: Heidilohr
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross

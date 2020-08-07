@@ -1,7 +1,8 @@
 ---
 title: Create an Azure Files file share with a domain controller - Azure
 description: Set up an FSLogix profile container on an Azure file share in an existing Windows Virtual Desktop host pool with your Active Directory domain.
-author: Heidilohrms.topic: how-to
+author: Heidilohr
+ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross

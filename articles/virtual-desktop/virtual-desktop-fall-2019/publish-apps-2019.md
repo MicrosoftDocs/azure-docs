@@ -1,7 +1,8 @@
 ---
 title: Publish built-in apps in Windows Virtual Desktop (classic) - Azure
 description: How to publish built-in apps in Windows Virtual Desktop (classic).
-author: Heidilohrms.topic: how-to
+author: Heidilohr
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
