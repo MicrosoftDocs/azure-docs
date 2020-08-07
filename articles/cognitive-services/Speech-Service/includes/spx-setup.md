@@ -58,6 +58,12 @@ Type this command to see help for the Speech CLI:
 
 `docker run -it --rm msftspeech/spx`
 
+### Mount a directory in the container
+
+foo
+
+### Run Speech CLI in the container
+
 This documentation shows the `spx` command used in non-Docker installations.
 
 You must mount a directory in docker to your filesystem where the Speech CLI can store and find configuration values and input and output files.
