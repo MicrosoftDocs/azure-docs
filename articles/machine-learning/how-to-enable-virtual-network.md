@@ -45,24 +45,22 @@ Since communication to the workspace is only allowed from the virtual network, a
 > [!IMPORTANT]
 > The private endpoint does not effect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal.
 
-> [!TIP]
-> Some combinations of resources with a private endpoint require an Enterprise edition workspace. Use the following table to understand what scenarios require Enterprise edition:
->
-> | Scenario | Enterprise</br>edition | Basic</br>edition |
-> | ----- |:-----:|:-----:| 
-> | No virtual network or private endpoint | ✔ | ✔ |
-> | Workspace without private endpoint. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
-> | Workspace without private endpoint. Other resources with private endpoint | ✔ | |
-> | Workspace with private endpoint. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
-> | Workspace and any other resource with private endpoint | ✔ | |
-> | Workspace with private endpoint. Other resources without private endpoint or virtual network | ✔ | ✔ |
-> | Azure Container Registry in a virtual network | ✔ | |
-> | Customer Managed Keys for workspace | ✔ | |
-> 
+Some combinations of resources with a private endpoint require an Enterprise edition workspace. Use the following table to understand what scenarios require Enterprise edition:
+
+| Scenario | Enterprise</br>edition | Basic</br>edition |
+| ----- |:-----:|:-----:| 
+| No virtual network or private endpoint | ✔ | ✔ |
+| Workspace without private endpoint. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
+| Workspace without private endpoint. Other resources with private endpoint | ✔ | |
+| Workspace with private endpoint. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
+| Workspace and any other resource with private endpoint | ✔ | |
+| Workspace with private endpoint. Other resources without private endpoint or virtual network | ✔ | ✔ |
+| Azure Container Registry in a virtual network | ✔ | |
+| Customer Managed Keys for workspace | ✔ | |
 
 > [!WARNING]
 > 
-> Azure Machine Learning compute instances preview is not supported in a workspace where private endpoint is enabled.
+> Azure Machine Learning compute instances is not supported in a workspace where private endpoint is enabled.
 >
 > Azure Machine Learning does not support using an Azure Kubernetes Service that has private endpoint enabled. Instead, you can use Azure Kubernetes Service in a virtual network. For more information, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
 
@@ -99,21 +97,21 @@ __Requirements__
 
 * To access data in a storage account, the storage account must be in the same virtual network as the workspace.
 
-__Limitations__
-
 * If your data is stored in a virtual network, you must use a workspace [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to grant the studio access to your data.
 
     > [!IMPORTANT]
     > While most of studio works with data stored in a virtual network, integrated notebooks __do not__. Integrated notebooks do not support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Compute clusters & instances](#compute-instance) section.
 
-    If you fail to grant studio access, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.`, and disable the following operations:
+    If you don't grant studio access, you will receive this error, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` The following operations will not be available:
 
     * Preview data in the studio.
     * Visualize data in the designer.
     * Submit an AutoML experiment.
     * Start a labeling project.
 
-* The studio supports reading data from the following datastore types in a virtual network:
+__Limitations__
+
+* Azure Machine Learning studio supports reading data from the following datastore types in a virtual network:
 
     * Azure Blob
     * Azure Data Lake Storage Gen1
@@ -679,7 +677,7 @@ __Configuration__
 To use Azure Machine Learning experimentation capabilities with Azure Key Vault behind a virtual network, use the [Configure Azure Key Vault firewalls and virtual networks](/azure/key-vault/general/network-security) article.
 
 > [!IMPORTANT]
-> When following the steps in the article, use the same virtual network as used by your experimentation compute resources. You must also __qllow trusted Microsoft services to bypass this firewall__.
+> When following the steps in the article, use the same virtual network as used by your experimentation compute resources. You must also __allow trusted Microsoft services to bypass this firewall__.
 
 ## Azure Databricks
 
