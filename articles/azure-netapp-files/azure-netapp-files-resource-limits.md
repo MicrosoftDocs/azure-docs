@@ -28,7 +28,7 @@ The following table describes resource limits for Azure NetApp Files:
 |----------------|---------------------|--------------------------------------|
 |  Number of NetApp accounts per Azure region   |  10    |  Yes   |
 |  Number of capacity pools per NetApp account   |    25     |   Yes   |
-|  Number of volumes pools per NetApp account   |    500     |   Yes   |
+|  Number of volumes per NetApp account   |    500     |   Yes   |
 |  Number of volumes per capacity pool     |    500   |    Yes     |
 |  Number of snapshots per volume       |    255     |    No        |
 |  Number of subnets delegated to Azure NetApp Files (Microsoft.NetApp/volumes) per Azure Virtual Network    |   1   |    No    |
