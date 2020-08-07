@@ -163,6 +163,9 @@ The following performance counters for Azure File Sync are available in Performa
 ## Alert Examples
 This section provides some example alerts for Azure File Sync.
 
+  > [!Note]  
+  > If you create an alert and it's too noisy, adjust the threshold value and alert logic.
+  
 ### How to create an alert if the server endpoint health shows an error in the portal
 
 1. In the **Azure portal**, navigate to respective **Storage Sync Service**. 
