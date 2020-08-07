@@ -28,7 +28,7 @@ Last month, we introduced Windows Virtual Desktop with Azure Resource Manager in
 
 ### Windows Virtual Desktop is now integrated with Azure Resource Manager (Preview)
 
-Windows Virtual Desktop is now integrated into Azure Resource Manager. In the latest update, all Windows Virtual Desktop objects are now Azure Resource Manager resources. This update is also integrated with Azure role-based access controls (RBAC). See [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) to learn more.
+Windows Virtual Desktop is now integrated into Azure Resource Manager. In the latest update, all Windows Virtual Desktop objects are now Azure Resource Manager resources. This update is also integrated with Azure role-based access control (Azure RBAC). See [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) to learn more.
 
 Here's what this change does for you:
 
@@ -44,7 +44,7 @@ Here's what this change does for you:
 
 - Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You also now have two options to visualize your reports. You can run Kusto queries and use Workbooks to create visual reports.
 
-- You're no longer required to complete Azure Active Directory (Azure AD) consent to use Windows Virtual Desktop. In this update, the Azure AD tenant on your Azure subscription authenticates your users and provides RBAC controls for your admins.
+- You're no longer required to complete Azure Active Directory (Azure AD) consent to use Windows Virtual Desktop. In this update, the Azure AD tenant on your Azure subscription authenticates your users and provides Azure RBAC controls for your admins.
 
 
 ### PowerShell support

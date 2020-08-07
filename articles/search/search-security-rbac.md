@@ -1,7 +1,7 @@
 ---
 title: Set Azure roles for Azure administrative access
 titleSuffix: Azure Cognitive Search
-description: Role-based administrative control (RBAC) in the Azure portal for controlling and delegating administrative tasks for Azure Cognitive Search management.
+description: Role-based access control (RBAC) in the Azure portal for controlling and delegating administrative tasks for Azure Cognitive Search management.
 
 manager: nitinme
 author: HeidiSteen
@@ -16,7 +16,7 @@ ms.date: 06/03/2020
 Azure provides a [global role-based authorization model](../role-based-access-control/role-assignments-portal.md) for all services managed through the portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of *service administration* for Active Directory users, groups, and security principals assigned to each role. 
 
 > [!Note]
-> There is no role-based access controls for securing portions of an index or a subset of documents. For identity-based access over search results, you can create security filters to trim results by identity, removing documents for which the requestor should not have access. For more information, see [Security filters](search-security-trimming-for-azure-search.md) and [Secure with Active Directory](search-security-trimming-for-azure-search-with-aad.md).
+> There is no role-based access control (RBAC) for securing portions of an index or a subset of documents. For identity-based access over search results, you can create security filters to trim results by identity, removing documents for which the requestor should not have access. For more information, see [Security filters](search-security-trimming-for-azure-search.md) and [Secure with Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
 ## Management tasks by role
 
