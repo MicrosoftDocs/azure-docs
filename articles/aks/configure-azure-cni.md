@@ -83,7 +83,7 @@ A minimum value for maximum pods per node is enforced to guarantee space for sys
 
 ### Configure maximum - existing clusters
 
-The maxPod per node setting can be defined when you create a new node pool. If you need to increase the maxPod per node setting on an existing cluster, add a new node pool with the new desired maxPod count. After migrating your pods to the new pool, delete the older pool. To delete any older pool in a cluster, ensure you are setting node pool modes as defined in the [system node pool document[system-node-pools].
+The maxPod per node setting can be defined when you create a new node pool. If you need to increase the maxPod per node setting on an existing cluster, add a new node pool with the new desired maxPod count. After migrating your pods to the new pool, delete the older pool. To delete any older pool in a cluster, ensure you are setting node pool modes as defined in the [system node pools document][system-node-pools].
 
 ## Deployment parameters
 
