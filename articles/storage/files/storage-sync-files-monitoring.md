@@ -161,7 +161,7 @@ The following performance counters for Azure File Sync are available in Performa
 | AFS Sync Operations\Total Sync File Operations/sec | Total number of files synced (upload and download). |
 
 ## Alert Examples
-This section provides some example alerts for Azure File Sync. 
+This section provides some example alerts for Azure File Sync.
 
 ### How to create an alert if the server endpoint health shows an error in the portal
 
@@ -171,7 +171,7 @@ This section provides some example alerts for Azure File Sync.
 4. Configure condition by clicking **Select condition**.
 5. Within **Configure signal logic** blade, click **Sync session result** under signal name.  
 6. Select the following dimension configuration: 
- 	- Dimension name: **Sync Group Name**  
+ 	- Dimension name: **Server Endpoint Name**  
  	- Operator: **=** 
  	- Dimension values: **All current and future values**  
 7. Navigate to **Alert Logic** and complete the following: 
@@ -179,7 +179,7 @@ This section provides some example alerts for Azure File Sync.
  	- Operator: **Less than** 
  	- Aggregation type: **Maximum**  
  	- Threshold value: **1** 
- 	- Evaluated based on: Aggregation granularity = **1 hour** | Frequency of evaluation = **Every hour** 
+ 	- Evaluated based on: Aggregation granularity = **24 hours** | Frequency of evaluation = **Every hour** 
  	- Click **Done.** 
 8. Click **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 9. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
@@ -193,15 +193,15 @@ This section provides some example alerts for Azure File Sync.
 4. Configure condition by clicking **Select condition**.
 5. Within **Configure signal logic** blade, click **Files not syncing** under signal name.  
 6. Select the following dimension configuration: 
-	 - Dimension name: **Sync Group Name**  
+	 - Dimension name: **Server Endpoint Name**  
 	 - Operator: **=** 
 	 - Dimension values: **All current and future values**  
 7. Navigate to **Alert Logic** and complete the following: 
 	 - Threshold set to **Static** 
 	 - Operator: **Greater than** 
 	 - Aggregation type: **Total**  
-	 - Threshold value: **50** 
-	 - Evaluated based on: Aggregation granularity = **15 minutes** | Frequency of evaluation = **Every 5 minutes** 
+	 - Threshold value: **100** 
+	 - Evaluated based on: Aggregation granularity = **5 minutes** | Frequency of evaluation = **Every 5 minutes** 
 	 - Click **Done.** 
 8. Click **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 9. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
@@ -223,7 +223,7 @@ This section provides some example alerts for Azure File Sync.
 	 - Operator: **Less than** 
 	 - Aggregation type: **Maximum**  
 	 - Threshold value (in bytes): **1** 
-	 - Evaluated based on: Aggregation granularity = **15 minutes** | Frequency of evaluation = **Every 15 minutes** 
+	 - Evaluated based on: Aggregation granularity = **1 hour** | Frequency of evaluation = **Every 30 minutes** 
 	 - Click **Done.** 
 8. Click **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 9. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
