@@ -224,6 +224,8 @@ Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) F
 
 > [!NOTE]
 > The FQDN tag contains all the FQDNs listed above and is kept automatically up to date.
+>
+> We recommend having a minimum of 20 Frontend IPs on the Azure Firewall for production scenarios to avoid incurring in SNAT port exhaustion issues.
 
 Below is an example architecture of the deployment:
 
@@ -408,7 +410,7 @@ Now an AKS cluster can be deployed into the existing virtual network. We'll also
 
 ### Create a service principal with access to provision inside the existing virtual network
 
-A service principal is used by AKS to create cluster resources. The service principal that is passed at create time is used to create underlying AKS resources such as Storage resources, IPs and Load Balancers used by AKS (you may also use a [managed identity](use-managed-identity.md) instead). If not granted the appropriate permissions below, you won't be able to provision the AKS Cluster.
+A service principal is used by AKS to create cluster resources. The service principal that is passed at create time is used to create underlying AKS resources such as Storage resources, IPs, and Load Balancers used by AKS (you may also use a [managed identity](use-managed-identity.md) instead). If not granted the appropriate permissions below, you won't be able to provision the AKS Cluster.
 
 ```azure-cli
 # Create SP and Assign Permission to Virtual Network
@@ -758,7 +760,7 @@ az network firewall nat-rule create --collection-name exampleset --destination-a
 
 Navigate to the Azure Firewall frontend IP address in a browser to validate connectivity.
 
-You should see the AKS voting app. In this example the Firewall public IP was `52.253.228.132`.
+You should see the AKS voting app. In this example, the Firewall public IP was `52.253.228.132`.
 
 
 ![aks-vote](media/limit-egress-traffic/aks-vote.png)
