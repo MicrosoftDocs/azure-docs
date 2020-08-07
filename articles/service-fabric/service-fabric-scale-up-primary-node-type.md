@@ -45,7 +45,7 @@ New-AzResourceGroup `
 4. Deploy the cluster to the resource group created in step 2. 
 ```powershell
 # deploy the template files to the resource group created above
-$templateFilePath = "C:\AzureDeploy-Start.json"
+$templateFilePath = "C:\AzureDeploy-1.json"
 $parameterFilePath = "C:\AzureDeploy.Parameters.json"
 
 New-AzResourceGroupDeployment `
@@ -143,7 +143,7 @@ OS SKU
 6. Deploy the updated ARM template. 
 ```powershell
 # deploy the updated template files to the existing resource group
-$templateFilePath = "C:\AzureDeploy-Step2.json"
+$templateFilePath = "C:\AzureDeploy-2.json"
 $parameterFilePath = "C:\AzureDeploy.Parameters.json"
 
 New-AzResourceGroupDeployment `
@@ -170,11 +170,19 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterConnectionEndpoint `
 
 Write-Host "Connected to cluster"
 
-$nodeNames = @("_nt1vm_0", "_nt1vm_1", "_nt1vm_2", "_nt1vm_3", "_nt1vm_4")
+
+$nodeType = "nt1vm" # specify the name of node type
+$nodes = Get-ServiceFabricNode 
 
 Write-Host "Disabling nodes..."
-foreach($name in $nodeNames) {
-    Disable-ServiceFabricNode -NodeName $name -Intent RemoveNode -Force
+foreach($node in $nodes)
+{
+  if ($node.NodeType -eq $nodeType)
+  {
+    $node.NodeName
+
+    Disable-ServiceFabricNode -Intent RemoveNode -NodeName $node.NodeName -Force
+  }
 }
 ```
 Once the nodes are all disabled, the system services will be running on the new primary node type that had been added to the cluster. 
@@ -182,14 +190,32 @@ Once the nodes are all disabled, the system services will be running on the new 
 > [!Note]
 > This step may take a while to complete. 
 
-2. Remove node state from node type 0.
+2. Stop data on node type 0. 
 ```powershell
-Write-Host "Removing node state..."
-foreach($name in $nodeNames) {
-    Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
+foreach($node in $nodes)
+{
+  if ($node.NodeType -eq $nodeType)
+  {
+    $node.NodeName
+
+    Start-ServiceFabricNodeTransition -Stop -OperationId (New-Guid) -NodeInstanceId $node.NodeInstanceId -NodeName $node.NodeName -StopDurationInSeconds 10000
+  }
 }
 ```
-3. Remove the original node type from the Service Fabric resource in the ARM template.
+
+3. Remove node state from node type 0.
+```powershell
+foreach($node in $nodes)
+{
+  if ($node.NodeType -eq $nodeType)
+  {
+    $node.NodeName
+
+    Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
+  }
+}
+```
+4. Remove the original node type from the Service Fabric resource in the ARM template.
 
 '''json
    {
@@ -211,7 +237,7 @@ foreach($name in $nodeNames) {
           }
 '''
 
-4. Once the node state has been removed, you can delete the original IP, Load Balancer, and virtual machine scale set resources. In this step you will also update the DNS name. 
+5. Once the node state has been removed, you can delete the original IP, Load Balancer, and virtual machine scale set resources. In this step you will also update the DNS name. 
 ```powershell
 $scaleSetName="nt0"
 Remove-AzureRmVmss -ResourceGroupName $groupname -VMScaleSetName $scaleSetName -Force
@@ -232,7 +258,7 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
 Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
 ``` 
-5. Remove the original node type reference from the Service Fabric resource in the ARM template. 
+6. Remove the original node type reference from the Service Fabric resource in the ARM template. 
 ```json
 "name": "[variables('vmNodeType0Name')]",
 "applicationPorts": {
@@ -250,16 +276,16 @@ Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupna
 "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
 "vmInstanceCount": "[parameters('nt0InstanceCount')]"
 ```
-6. Update the management endpoint on the cluster. 
+7. Update the management endpoint on the cluster. 
 ```json
   "managementEndpoint": "[concat('https://',reference(concat(variables('lbIPName'),'-',variables('vmNodeType1Name'))).dnsSettings.fqdn,':',variables('nt0fabricHttpGatewayPort'))]",
 ```
-7. Remove all other resources related to the original node type from the ARM template. See [Service Fabric - New Node Type Cluster](http://TODO) for a template with all of these original resources removed.
+8. Remove all other resources related to the original node type from the ARM template. See [Service Fabric - New Node Type Cluster](http://TODO) for a template with all of these original resources removed.
 
-8. Deploy the template with the original node type and related resources removed. 
+9. Deploy the template with the original node type and related resources removed. 
 ```powershell
 # deploy the updated template files to the existing resource group
-$templateFilePath = "C:\AzureDeploy-Final.json"
+$templateFilePath = "C:\AzureDeploy-3.json"
 $parameterFilePath = "C:\AzureDeploy.Parameters.json"
 
 New-AzResourceGroupDeployment `
