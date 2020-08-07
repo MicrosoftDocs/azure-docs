@@ -34,6 +34,7 @@ Here is how to enable diagnostic settings for your Azure Digital Twins instance:
         - ModelsOperation
         - QueryOperation
         - AllMetrics
+        
         For more details about these options, see the [*Category details*](#category-details) section below.
      * **Destination details**: Choose where you want to send the logs. You can select any combination of the three options:
         - Send to Log Analytics
@@ -60,6 +61,7 @@ Here are more details about the log categories that can be selected under **Cate
 | ADTDigitalTwinsOperation | Log all API calls pertaining to Azure Digital Twins |
 
 Each log category consists of operations of write, read, delete and action.  These map to REST API calls as follows:
+
 | Event Type | REST API Operations |
 | --- | --- |
 | Write | PUT and PATCH |
