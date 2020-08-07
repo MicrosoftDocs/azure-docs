@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 07/22/2020
+ms.date: 08/07/2020
 ---
 
 # Create an IoT Edge module offer
@@ -189,6 +189,8 @@ To learn more about creating offer listings, see [Offer listing best practices](
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
+[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
@@ -202,6 +204,8 @@ Provide PNG files of your offer's logo in each of the following four pixel sizes
 - **Wide (255 x 115)**
 
 All four logos are required and are used in different places in the marketplace listing.
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-markteplace-only.md)]
 
 #### Screenshots (optional)
 
