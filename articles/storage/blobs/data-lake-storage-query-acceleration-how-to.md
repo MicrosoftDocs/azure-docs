@@ -18,19 +18,17 @@ Query acceleration is a new capability for Azure Data Lake Storage that enables 
 
 ## Prerequisites
 
-### [.NET](#tab/dotnet)
-
 - To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 - A **general-purpose v2** storage account that has the **Hierarchical namespace** feature enabled. see [Create a storage account](../common/storage-quickstart-create-account.md).
+
+Choose a tab to view any SDK-specific prerequisites.
+
+### [.NET](#tab/dotnet)
 
 - [.NET SDK](https://dotnet.microsoft.com/download). 
 
 ### [Java](#tab/java)
-
-- To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-- A **general-purpose v2** storage account that has the **Hierarchical namespace** feature enabled. see [Create a storage account](../common/storage-quickstart-create-account.md).
 
 - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 or above.
 
@@ -41,15 +39,11 @@ Query acceleration is a new capability for Azure Data Lake Storage that enables 
   
 ### [Python](#tab/python)
 
-- To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-- A **general-purpose v2** storage account that has the **Hierarchical namespace** feature enabled. see [Create a storage account](../common/storage-quickstart-create-account.md).
+There are no additional prerequisites required to use the Python SDK.
 
 ### [Node.js](#tab/nodejs)
 
-- To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-- A **general-purpose v2** storage account that has the **Hierarchical namespace** feature enabled. see [Create a storage account](../common/storage-quickstart-create-account.md).
+There are no additional prerequisites required to use the Node.js SDK.
 
 ---
 
@@ -57,43 +51,22 @@ Query acceleration is a new capability for Azure Data Lake Storage that enables 
 
 ### [.NET](#tab/dotnet)
 
-1. Download the query acceleration packages. You can obtain a compressed .zip file that contains these packages by using this link: [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net). 
 
-2. Extract the contents of this file to your project directory.
-
-3. Open your project file (*.csproj*) in a text editor, and add these package references inside of the \<Project\> element.
-
-   ```xml
-   <ItemGroup>
-       <PackageReference Include="Azure.Storage.Blobs" Version="12.5.0-preview.6" />
-       <PackageReference Include="Azure.Storage.Common" Version="12.4.0-preview.6" />
-   </ItemGroup>
-   ```
-
-4. Restore the SDK packages. This example command restores the SDK packages by using the `dotnet restore` command. 
+1. Open a command prompt and change directory (`cd`) into your project folder For example:
 
    ```console
-   dotnet restore --source C:\Users\contoso\myProject
+   cd myProject
    ```
 
-5. Restore all other dependencies from the public NuGet repository.
+2. Install the Azure Blob storage client library for .NET package by using the `dotnet add package` command.
 
-   ```console
-   dotnet restore
-   ```
+```console
+dotnet add package Azure.Storage.Blobs
+```
 
 ### [Java](#tab/java)
 
-1. Create directory in the root of your project. The root directory is the directory that contains the **pom.xml** file.
-
-   > [!NOTE]
-   > The examples in this article assume that the name of the directory is **lib**.
-
-2. Download the query acceleration packages. You can obtain a compressed .zip file that contains these packages by using this link: [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java). 
-
-3. Extract the files in this .zip file to the directory that you created. In our example, that directory is named **lib**. 
-
-4. Open the *pom.xml* file in your text editor. Add the following dependency elements to the group of dependencies. 
+1. Open the *pom.xml* file of your project in a text editor. Add the following dependency elements to the group of dependencies. 
 
    ```xml
    <!-- Request static dependencies from Maven -->
