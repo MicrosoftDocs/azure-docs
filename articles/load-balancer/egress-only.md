@@ -66,7 +66,7 @@ Create a virtual machine in the new virtual network.
     |------------------|-----------------------------------------------------------------|
     | **Project Details**  |                                                                 |
     | Subscription     | Select your Azure subscription                                  |
-    | Resource Group   | Select **myResourceGroupLB** |
+    | Resource Group   | Select **Create new**. </br> Enter **myResourceGroupLB**. </br> Select **OK**. |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
     | Region           | Select **East US 2** |
@@ -77,7 +77,7 @@ Create a virtual machine in the new virtual network.
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
-    | IPv4 address space | Enter **10.2.0.0/16** |
+    | IPv4 address space | Enter **10.1.0.0/16** |
 
 5. Under **Subnet name**, select the word **default**.
 
@@ -86,7 +86,7 @@ Create a virtual machine in the new virtual network.
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Subnet name | Enter **myBackendSubnet** |
-    | Subnet address range | Enter **10.2.0.0/24** |
+    | Subnet address range | Enter **10.1.0.0/24** |
 
 7. Select **Save**.
 
@@ -97,7 +97,7 @@ Create a virtual machine in the new virtual network.
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Bastion name | Enter **myBastionHost** |
-    | AzureBastionSubnet address space | Enter **10.2.1.0/24** |
+    | AzureBastionSubnet address space | Enter **10.1.1.0/24** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
 
@@ -118,9 +118,8 @@ Create a virtual machine in the new virtual network.
     | Resource Group | Select **myResourceGroupLB** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM** |
-    | Region | Select **West Europe** |
-    | Availability Options | Select **Availability zones** |
-    | Availability zone | Select **Zone Redundant** |
+    | Region | Select **East US 2** |
+    | Availability Options | Select **No infrastructure redundancy required** |
     | Image | Select **Windows Server 2019 Datacenter** |
     | Azure Spot instance | Select **No** |
     | Size | Choose VM size or take default setting |
@@ -129,7 +128,8 @@ Create a virtual machine in the new virtual network.
     | Password | Enter a password |
     | Confirm password | Reenter password |
     | **Inbound port rules** |  |
-    | Public inbound ports | Select **None** |
+    | Public inbound ports | Select **Allow selected ports** |
+    | Select inbound ports | Select **RDP (3389)** |
 
 3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
   
@@ -221,9 +221,11 @@ Create the backend address pool **myInternalBackendPool**:
 
 3. On the **Add a backend pool** page, for name, type **myInternalBackendPool**, as the name for your backend pool.
  
-4. Under **Virtual machines**, select **Add** and choose **myVM**.
+4. In **Virtual network**, select **myVNet**.
+
+5. Under **Virtual machines**, select **Add** and choose **myVM**.
  
-5. select **Add**.
+6. select **Add**.
 
 ### Create public backend address pool
 
@@ -234,10 +236,12 @@ Create the backend address pool **myPublicBackendPool**:
 2. Under **Settings**, select **Backend pools**, then select **Add**.
 
 3. On the **Add a backend pool** page, for name, type **myPublicBackendPool**, as the name for your backend pool.
+
+4. In **Virtual network**, select **myVNet**.
  
-4. Under **Virtual machines**, select **Add** and choose **myVM**.
+5. Under **Virtual machines**, select **Add** and choose **myVM**.
  
-5. select **Add**.
+6. select **Add**.
 
 ### Test connectivity before outbound rule
 
@@ -290,6 +294,7 @@ Create the backend address pool **myPublicBackendPool**:
 
 8. The connection should succeed.
 
+9. The IP address displayed should be the frontend IP address of **myPublicLoadBalancer**.
 
 ## Clean up resources
 
