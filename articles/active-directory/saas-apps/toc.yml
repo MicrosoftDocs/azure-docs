@@ -577,6 +577,8 @@
         href: ezofficeinventory-tutorial.md
       - name: ExponentHR
         href: exponenthr-tutorial.md
+      - name: EY GlobalOne
+        href: globalone-tutorial.md
       - name: EZRentOut
         href: ezrentout-tutorial.md
 
@@ -672,8 +674,6 @@
         href: github-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
-      - name: GlobalOne
-        href: globalone-tutorial.md
       - name: GoLinks
         href: golinks-tutorial.md
       - name: GoToMeeting
