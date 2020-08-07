@@ -144,6 +144,7 @@ The LUIS portal shows when the entity has a different entity prediction than the
 The erroring text is highlighted within the example utterance, and the example utterance line has an error indicator to the right, shown as a red triangle. 
 
 Use this information to resolve entity errors using one or more of the following:
+* The highlighted text is mislabeled. To fix, review, correct, and retrain. 
 * Create a [feature](luis-concept-feature.md) for the entity to help identify the entity's concept
 * Add more [example utterances](luis-concept-utterance.md) and label with the entity
 * [Review active learning suggestions](luis-concept-review-endpoint-utterances.md) for any utterances received at the prediction endpoint that can help identify the entity's concept.
