@@ -17,7 +17,7 @@ ms.date: 05/28/2020
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this guide, you'll learn:
+In this guide, you learn:
 
 - What featurization settings Azure Machine Learning offers.
 - How to customize those features for your [automated machine learning experiments](concept-automated-ml.md).
@@ -66,7 +66,7 @@ The following table summarizes techniques that are automatically applied to your
 |**Impute missing values*** |For numeric features, impute with the average of values in the column.<br/><br/>For categorical features, impute with the most frequent value.|
 |**Generate additional features*** |For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br><br> *For forecasting tasks,* these additional DateTime features are created: ISO year, Half - half-year, Calendar month as string, Week, Day of week as string, Day of quarter, Day of year, AM/PM (0 if hour is before noon (12 pm), 1 otherwise), AM/PM as string, Hour of day (12hr basis)<br/><br/>For Text features: Term frequency based on unigrams, bigrams, and trigrams. Learn more about [how this is done with BERT.](#bert-integration)|
 |**Transform and encode***|Transform numeric features that have few unique values into categorical features.<br/><br/>One-hot encoding is used for low-cardinality categorical features. One-hot-hash encoding is used for high-cardinality categorical features.|
-|**Word embeddings**|A text featurizer converts vectors of text tokens into sentence vectors by using a pretrained model. Each word's embedding vector in a document is aggregated with the rest to produce a document feature vector.|
+|**Word embeddings**|A text featurizer converts vectors of text tokens into sentence vectors by using a pre-trained model. Each word's embedding vector in a document is aggregated with the rest to produce a document feature vector.|
 |**Target encodings**|For categorical features, this step maps each category with an averaged target value for regression problems, and to the class probability for each class for classification problems. Frequency-based weighting and k-fold cross-validation are applied to reduce overfitting of the mapping and noise caused by sparse data categories.|
 |**Text target encoding**|For text input, a stacked linear model with bag-of-words is used to generate the probability of each class.|
 |**Weight of Evidence (WoE)**|Calculates WoE as a measure of correlation of categorical columns to the target column. WoE is calculated as the log of the ratio of in-class vs. out-of-class probabilities. This step produces one numeric feature column per class and removes the need to explicitly impute missing values and outlier treatment.|
@@ -140,8 +140,170 @@ featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "m
 featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
 ```
 
-## BERT integration 
-[BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) is used in the featurization layer of Automated ML. In this layer we detect if a column contains free text or other types of data like timestamps or simple numbers and we featurize accordingly. For BERT we fine-tune/train the model by utilizing the user-provided labels, then we output document embeddings (for BERT these are the final hidden state associated with the special [CLS] token) as features alongside other features like timestamp-based features (e.g. day of week) or numbers that many typical datasets have. 
+## Featurization transparency
+
+Every AutoML model has featurization automatically applied.  Featurization includes automated feature engineering (when `"featurization": 'auto'`) and scaling and normalization, which then impacts the selected algorithm and its hyperparameter values. AutoML supports different methods to ensure you have tranparency into what was applied to your model.
+
+Consider this forecasting example:
+
++ There are four input features: A (Numeric), B (Numeric), C (Numeric), D (DateTime).
++ Numeric feature C is dropped because it is an ID column with all unique values.
++ Numeric features A and B have missing values and hence are imputed by the mean.
++ DateTime feature D is featurized into 11 different engineered features.
+
+To get this information, use the `fitted_model` output from your automated ML experiment run.
+
+```python
+automl_config = AutoMLConfig(…)
+automl_run = experiment.submit(automl_config …)
+best_run, fitted_model = automl_run.get_output()
+```
+### Automated feature engineering 
+The `get_engineered_feature_names()` returns a list of engineered feature names.
+
+  >[!Note]
+  >Use 'timeseriestransformer' for task='forecasting', else use 'datatransformer' for 'regression' or 'classification' task.
+
+  ```python
+  fitted_model.named_steps['timeseriestransformer']. get_engineered_feature_names ()
+  ```
+
+This list includes all engineered feature names. 
+
+  ```
+  ['A', 'B', 'A_WASNULL', 'B_WASNULL', 'year', 'half', 'quarter', 'month', 'day', 'hour', 'am_pm', 'hour12', 'wday', 'qday', 'week']
+  ```
+
+The `get_featurization_summary()` gets a featurization summary of all the input features.
+
+  ```python
+  fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+  ```
+
+Output
+
+  ```
+  [{'RawFeatureName': 'A',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 2,
+    'Tranformations': ['MeanImputer', 'ImputationMarker']},
+   {'RawFeatureName': 'B',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 2,
+    'Tranformations': ['MeanImputer', 'ImputationMarker']},
+   {'RawFeatureName': 'C',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'Yes',
+    'EngineeredFeatureCount': 0,
+    'Tranformations': []},
+   {'RawFeatureName': 'D',
+    'TypeDetected': 'DateTime',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 11,
+    'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
+  ```
+
+   |Output|Definition|
+   |----|--------|
+   |RawFeatureName|Input feature/column name from the dataset provided.|
+   |TypeDetected|Detected datatype of the input feature.|
+   |Dropped|Indicates if the input feature was dropped or used.|
+   |EngineeringFeatureCount|Number of features generated through automated feature engineering transforms.|
+   |Transformations|List of transformations applied to input features to generate engineered features.|
+
+### Scaling and normalization
+
+To understand the scaling/normalization and the selected algorithm with its hyperparameter values, use `fitted_model.steps`. 
+
+The following is sample output after running `fitted_model.steps` for a chosen run:
+
+```
+[('RobustScaler', 
+  RobustScaler(copy=True, 
+  quantile_range=[10, 90], 
+  with_centering=True, 
+  with_scaling=True)), 
+
+  ('LogisticRegression', 
+  LogisticRegression(C=0.18420699693267145, class_weight='balanced', 
+  dual=False, 
+  fit_intercept=True, 
+  intercept_scaling=1, 
+  max_iter=100, 
+  multi_class='multinomial', 
+  n_jobs=1, penalty='l2', 
+  random_state=None, 
+  solver='newton-cg', 
+  tol=0.0001, 
+  verbose=0, 
+  warm_start=False))
+```
+
+To get more details, use this helper function: 
+
+```python
+from pprint import pprint
+
+def print_model(model, prefix=""):
+    for step in model.steps:
+        print(prefix + step[0])
+        if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
+            pprint({'estimators': list(
+                e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            print()
+            for estimator in step[1].estimators:
+                print_model(estimator[1], estimator[0] + ' - ')
+        else:
+            pprint(step[1].get_params())
+            print()
+
+print_model(model)
+```
+
+The aforementioned code outputs the following for a particular run using `LogisticRegression with RobustScalar` as the specific algorithm.
+
+```
+RobustScaler
+{'copy': True,
+'quantile_range': [10, 90],
+'with_centering': True,
+'with_scaling': True}
+
+LogisticRegression
+{'C': 0.18420699693267145,
+'class_weight': 'balanced',
+'dual': False,
+'fit_intercept': True,
+'intercept_scaling': 1,
+'max_iter': 100,
+'multi_class': 'multinomial',
+'n_jobs': 1,
+'penalty': 'l2',
+'random_state': None,
+'solver': 'newton-cg',
+'tol': 0.0001,
+'verbose': 0,
+'warm_start': False}
+```
+
+### Predict class probability
+
+Models produced using automated ML all have wrapper objects that mirror functionality from their open-source origin class. Most classification model wrapper objects returned by automated ML implement the `predict_proba()` function, which accepts an array-like or sparse matrix data sample of your features (X values), and returns an n-dimensional array of each sample and its respective class probability.
+
+Assuming you have retrieved the best run and fitted model using the same calls from above, you can call `predict_proba()` directly from the fitted model, supplying an `X_test` sample in the appropriate format depending on the model type.
+
+```python
+best_run, fitted_model = automl_run.get_output()
+class_prob = fitted_model.predict_proba(X_test)
+```
+
+If the underlying model does not support the `predict_proba()` function or the format is incorrect, a model class-specific exception will be thrown. See the [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) and [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) reference docs for examples of how this function is implemented for different model types.
+
+## BERT integration
+
+[BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) is used in the featurization layer of AutoML. In this layer, we detect if a column contains free text or other types of data like timestamps or simple numbers and then featurize accordingly. For BERT, we fine-tune/train the model by utilizing the user-provided labels, then we output document embeddings (for BERT these are the final hidden state associated with the special [CLS] token) as features alongside other features like timestamp-based features (e.g. day of week) or numbers that many typical datasets have. 
 
 To enable BERT, you should use GPU compute for training. If a CPU compute is used, then instead of BERT, AutoML will enable BiLSTM DNN featurizer. In order to invoke BERT, you have to set  "enable_dnn: True" in automl_settings and use GPU compute (e.g. vm_size = "STANDARD_NC6", or a higher GPU). Please see [this notebook for an example](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
 
