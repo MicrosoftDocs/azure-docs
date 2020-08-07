@@ -101,7 +101,7 @@ You can find a template with all of the following steps completed here: [Service
 
 Node Type Ref 
 ```json
-"nodeTypeRef": "[variables('vmNodeType1Name')]",
+"nodeTypeRef": "[variables('vmNodeType1Name')]"
 ```
 
 VM SKU
@@ -120,7 +120,7 @@ OS SKU
     "offer": "[parameters('vmImageOffer1')]",
     "sku": "[parameters('vmImageSku1')]",
     "version": "[parameters('vmImageVersion1')]"
-},
+}
 ```
 5. Add a new node type to the cluster, which references the Virtual Machine Scale Set that was created above. The **isPrimary** property on this node type should be set to true. 
 ```json
@@ -218,7 +218,7 @@ foreach($node in $nodes)
 ```
 4. Set the primary node type property in the Service Fabric cluster resource to false. 
 
-'''json
+```json
    {
             "name": "[variables('vmNodeType0Name')]",
             "applicationPorts": {
@@ -236,9 +236,10 @@ foreach($node in $nodes)
             "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
             "vmInstanceCount": "[parameters('nt0InstanceCount')]"
           }
-'''
+```
 
 5. Deploy the template with the updated isPrimary property on the original node type. You can find a template with the primary flag set to false on the original node type here: [Service Fabric - Primary Node Type False](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-3.json).
+
 ```powershell
 # deploy the updated template files to the existing resource group
 $templateFilePath = "C:\AzureDeploy-3.json"
