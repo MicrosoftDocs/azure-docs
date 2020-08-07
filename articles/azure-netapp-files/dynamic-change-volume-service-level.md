@@ -28,7 +28,7 @@ The capacity pool that you want to move the volume to must already exist. The ca
 
 * After the volume is moved to another capacity pool, you will no longer have access to the previous volume activity logs and volume metrics. The volume will start with new activity logs and metrics under the new capacity pool.
 
-* If you move a volume to a capacity pool of a higher service level (for example, moving from *Standard* to *Premium* or *Ultra* service level), you must wait at least seven days before you can move that volume *again* to a capacity pool of a lower service level again (for example, moving from *Ultra* to *Premium* or *Standard*).  
+* If you move a volume to a capacity pool of a higher service level (for example, moving from *Standard* to *Premium* or *Ultra* service level), you must wait at least seven days before you can move that volume *again* to a capacity pool of a lower service level (for example, moving from *Ultra* to *Premium* or *Standard*).  
 
 ## Register the feature
 
