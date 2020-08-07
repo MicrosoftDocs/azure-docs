@@ -24,7 +24,7 @@ The Network Watcher service does not store customer data except for the Connecti
 ## Connection Monitor (preview) data residency
 The *Connection Monitor (preview)* service stores customer data. This data is automatically stored by Network Watcher in a single region. So *Connection Monitor (preview)*  automatically satisfies in-region data residency requirements including as specified in [Trust Center](https://azuredatacentermap.azurewebsites.net/)
 
-##Singapore data residency
+## Singapore data residency
 
 In Azure, the feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo. For more information, see [Trust Center](https://azuredatacentermap.azurewebsites.net/).
 
