@@ -138,7 +138,7 @@ After you install all the requirements, disable automatic extension updates for 
 
    ![Screenshot that shows Explorer pane and workflow app project](./media/create-stateless-stateful-workflows/workflow-app-project-created.png)
 
-Now, continue with creating your workflow app.
+Now, continue creating your workflow app.
 
 ## Create workflow app
 
@@ -180,14 +180,13 @@ Now, continue with creating your workflow app.
 
 1. From the locations list, select the Azure region to use for your resource group and resources. This example uses **West Central US**.
 
-   ![Screenshot that shows Explorer pane with locations list and "West US 2" selected](./media/create-stateless-stateful-workflows/select-azure-region.png)
+   ![Screenshot that shows Explorer pane with locations list and "West Central US" selected](./media/create-stateless-stateful-workflows/select-azure-region.png)
 
    When Visual Studio Code starts the workflow design-time API, a message appears that startup might take a few seconds. You can ignore this message or select **OK**.
 
 1. After the Logic App Designer appears, continue with either the steps for stateful workflow or for [stateless workflow](#stateless-workflow).
 
-### Troubleshoot problems
-
+   ![Screenshot that shows Logic App Designer](./media/create-stateless-stateful-workflows/workflow-app-designer.png)
 
 <a name="stateful-workflow"></a>
 
