@@ -480,14 +480,14 @@ Add another IP address to the approved ranges with the following command
 CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 
 # Add to AKS approved list
-az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 
 ```
 
  Use the [az aks get-credentials][az-aks-get-credentials] command to configure `kubectl` to connect to your newly created Kubernetes cluster. 
 
  ```azure-cli
- az aks get-credentials -g $RG -n $AKS_NAME
+ az aks get-credentials -g $RG -n $AKSNAME
  ```
 
 ### Deploy a public service
