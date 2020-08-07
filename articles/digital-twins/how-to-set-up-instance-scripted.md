@@ -27,7 +27,7 @@ This version of this article completes these steps by running an [**automated de
 
 [!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Run the deployment script
 
