@@ -41,11 +41,11 @@ Also, note that some solutions, such as [Azure Security Center](https://azure.mi
 
 ### Log Analytics Dedicated Clusters
 
-Log Analytics Dedicated Clusters are collections of workspaces into a single managed Azure Data Explorer cluster to support advanced scenarios such as [Customer-Managed Keys](customer-managed-keys.md).  Log Analytics Dedicated Clusters support only a Capacity Reservation pricing model starting at 1000 GB/day with a 25% discount compared to Pay-As-You-Go pricing. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The cluster Capacity Reservation has a 31-day commitment period after the reservation level is increased. During the commitment period the capacity reservation level cannot be reduced, but it can be increased at any time. Learn more about [creating a Log Analytics Clusters](customer-managed-keys#create-cluster-resource.md) and [associating workspaces to it](customer-managed-keys#workspace-association-to-cluster-resource.md).  
+Log Analytics Dedicated Clusters are collections of workspaces into a single managed Azure Data Explorer cluster to support advanced scenarios such as [Customer-Managed Keys](customer-managed-keys.md).  Log Analytics Dedicated Clusters support only a Capacity Reservation pricing model starting at 1000 GB/day with a 25% discount compared to Pay-As-You-Go pricing. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. The cluster Capacity Reservation has a 31-day commitment period after the reservation level is increased. During the commitment period the capacity reservation level cannot be reduced, but it can be increased at any time. Learn more about [creating a Log Analytics Clusters](customer-managed-keys#create-cluster-resource.md) and [associating workspaces to it](customer-managed-keys.md#workspace-association-to-cluster-resource).  
 
-The cluster capacity reservation level is configured via programatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. This is detailed [here](customer-managed-keys#create-cluster-resource.md). If your cluster needs a reservation above 2000 GB/day contact us at [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
+The cluster capacity reservation level is configured via programatically with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 1000 GB/day or more in increments of 100 GB/day. This is detailed at [Azure Monitor customer-managed key](customer-managed-keys.md#create-cluster-resource). If your cluster needs a reservation above 2000 GB/day contact us at [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
-There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when [configuring your cluster](customer-managed-keys#cmk-manage.md). The two modes are: 
+There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when [configuring your cluster](customer-managed-keys.md#cmk-manage). The two modes are: 
 
 1. **Cluster**: in this case (which is the default), billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster is aggregated to calculate the daily bill for the cluster. Note that per-node allocations from [Azure Security Center](https://docs.microsoft.com/azure/security-center/) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. 
 
@@ -55,7 +55,7 @@ In cluster billing options, data retention is billed at the workspace level. Not
 
 ## Estimating the costs to manage your environment 
 
-If you're not yet using Azure Monitor Logs, you can use the [Azure Monitor pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor) to estimate the cost of using Log Analytics. Start by entering "Azure Monitor" in the Search box, and clicking on the resulting Azure Monitor tile. Scroll down the page to Azure Monitor, and select Log Analytics from the Type dropdown.  Here you can enter the number of VMs and the GB of data you expect to collect from each VM. Typically 1 to 3 GB of data month is ingested from a typical Azure VM. If you're already evaluating Azure Monitor Logs already, you can use your data statistics from your own environment. See below for how to determine the [number of monitored VMs](manage-cost-storage.md#understanding-nodes-sending-data) and the [volume of data your workspace is ingesting](manage-cost-storage#understanding-ingested-data-volume.md). 
+If you're not yet using Azure Monitor Logs, you can use the [Azure Monitor pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=monitor) to estimate the cost of using Log Analytics. Start by entering "Azure Monitor" in the Search box, and clicking on the resulting Azure Monitor tile. Scroll down the page to Azure Monitor, and select Log Analytics from the Type dropdown.  Here you can enter the number of VMs and the GB of data you expect to collect from each VM. Typically 1 to 3 GB of data month is ingested from a typical Azure VM. If you're already evaluating Azure Monitor Logs already, you can use your data statistics from your own environment. See below for how to determine the [number of monitored VMs](#understanding-nodes-sending-data) and the [volume of data your workspace is ingesting](#understanding-ingested-data-volume). 
 
 ## Understand your usage and estimate costs
 
@@ -115,7 +115,7 @@ There are also some behaviors between the use of legacy Log Analytics tiers and 
 2. If the workspace is in the legacy Per Node tier, Azure Security Center will be billed using the current [Azure Security Center node-based pricing model](https://azure.microsoft.com/pricing/details/security-center/). 
 3. In other pricing tiers (including Capacity Reservations), if Azure Security Center was enabled before June 19, 2017, Azure Security Center will be billed only for Log Analytics data ingestion. Otherwise Azure Security Center will be billed using the current Azure Security Center node-based pricing model.
 
-More details of pricing tier limitations are available [here](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#log-analytics-workspaces).
+More details of pricing tier limitations are available at [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces).
 
 None of the legacy pricing tiers has regional-based pricing.  
 
@@ -221,7 +221,7 @@ The following steps describe how to configure a limit to manage the volume of da
 
     ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
 	
-The daily cap can be configured via ARM by setting the `dailyQuotaGb` parameter under `WorkspaceCapping` as described [here](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
+The daily cap can be configured via ARM by setting the `dailyQuotaGb` parameter under `WorkspaceCapping` as described at [Workspaces - Create Or Update](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate#workspacecapping). 
 
 ### Alert when Daily Cap reached
 
@@ -419,7 +419,7 @@ You can also parse the `_ResourceId` more fully if needed as well using
 To dig deeper into the source of data for a particular data type, here are some useful example queries:
 
 + **Workspace-based Application Insights** resources
-  - learn more [here](https://docs.microsoft.com/azure/azure-monitor/app/pricing#data-volume-for-workspace-based-application-insights-resources)
+  - learn more at [Manage usage and costs for Application Insights](../app/pricing.md#data-volume-for-workspace-based-application-insights-resources)
 + **Security** solution
   - `SecurityEvent | summarize AggregatedValue = count() by EventID`
 + **Log Management** solution
@@ -595,7 +595,7 @@ When you receive an alert, use the steps in the above sections about how to trou
 
 ## Data transfer charges using Log Analytics
 
-Sending data to Log Analytics might incur data bandwidth charges. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is very small (few %) compared to the costs for Log Analytics data ingestion. Consequently controlling costs for Log Analytics needs to focus on your ingested data volume, and we have guidance to help understand that [here](manage-cost-storage#understanding-ingested-data-volume.md).   
+Sending data to Log Analytics might incur data bandwidth charges. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is very small (few %) compared to the costs for Log Analytics data ingestion. Consequently controlling costs for Log Analytics needs to focus on your [ingested data volume](#understanding-ingested-data-volume). 
 
 
 ## Troubleshooting why Log Analytics is no longer collecting data
@@ -619,7 +619,7 @@ To be notified when data collection stops, use the steps described in *Create da
 
 ## Limits summary
 
-There are some additional Log Analytics limits, some of which depend on the Log Analytics pricing tier. These are documented [here](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#log-analytics-workspaces).
+There are some additional Log Analytics limits, some of which depend on the Log Analytics pricing tier. These are documented at [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#log-analytics-workspaces).
 
 
 ## Next steps
