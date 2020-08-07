@@ -37,7 +37,7 @@ You can use extension bundles with version 2.x and later versions of the Functio
 
 Use extension bundles for local development using Azure Functions Core Tools, Visual Studio Code, and when you build remotely. When developing locally, make sure you are using the latest version of [Azure Functions Core Tools](functions-run-local.md#v2). Extension bundles are also used when developing functions in the Azure portal. 
 
-If you don't use extension bundles, you must install the .NET Core 2.x SDK on your local computer before you [manually install any binding extensions](#manually-add-extensions). An extensions.csproj file, which defines the required extensions, is added to your project. Extension bundles removes these requirements for local development. 
+If you don't use extension bundles, you must install the .NET Core 2.x SDK on your local computer before you [explicitly install any binding extensions](#explicitly-install-extensions). An extensions.csproj file, which explicitly defines the required extensions, is added to your project. Extension bundles removes these requirements for local development. 
 
 To use extension bundles, update the *host.json* file to include the following entry for `extensionBundle`:
  
