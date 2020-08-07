@@ -50,15 +50,11 @@ Type `spx` to see help for the Speech CLI.
 
 Follow these steps to install the Speech CLI within a Docker container:
 
-1. Install [Docker Desktop for your platform](https://www.docker.com/get-started).
-1. Run Docker Desktop.
+1. Install and run [Docker Desktop for your platform](https://www.docker.com/get-started).
 1. In a new command prompt or terminal, type this command:
-
-`docker pull msftspeech/spx`
-
-Type this command to see help for the Speech CLI:
-
-`docker run -it --rm msftspeech/spx`
+    `sudo docker pull msftspeech/spx`
+1. Type this command. You should see help information for Speech CLI:
+    `sudo docker run -it --rm msftspeech/spx help`
 
 ### Mount a directory in the container
 
@@ -83,20 +79,20 @@ You will use the absolute path when you call Speech CLI.
 ### Run Speech CLI in the container
 
 This documentation shows the Speech CLI `spx` command used in non-Docker installations.
-When calling this command in a Docker container,
-you must mount a directory in Docker to your filesystem where the Speech CLI can store and find configuration values and input and output files.
+When calling the `spx` command in a Docker container,
+you must mount a directory in the container to your filesystem where the Speech CLI can store and find configuration values and read and write files.
 On Windows, your commands will start like this:
 
 `docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
 
 On Linux or Mac, your commands will start similar to this:
 
-`docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
+`sudo docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
 
 > [!NOTE]
 > Replace `/ABSOLUTE_PATH` with the absolute path shown by the `pwd` command in the section above.
 
-To use the `spx` command installed in Docker, always enter the full command shown above, followed by the parameters of your request.
+To use the `spx` command installed in a container, always enter the full command shown above, followed by the parameters of your request.
 For example, on Windows, this command sets your key:
 
 `docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set YOUR-SUBSCRIPTION-KEY`
