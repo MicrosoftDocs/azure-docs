@@ -57,7 +57,7 @@ There are two permissions available for granting the ability to create applicati
 - microsoft.directory/applications/createAsOwner: Assigning this permission results in the creator being added as the first owner of the created app registration, and the created app registration will count against the creator's 250 created objects quota.
 - microsoft.directory/applicationPolicies/create: Assigning this permission results in the creator not being added as the first owner of the created app registration, and the created app registration will not count against the creator's 250 created objects quota. Use this permission carefully, because there is nothing preventing the assignee from creating app registrations until the directory-level quota is hit. If both permissions are assigned, this permission takes precedence.
 
-## Assign a custom role using Azure AD PowerShell
+## Create a custom role in Azure AD PowerShell
 
 ### Prepare PowerShell
 
@@ -76,7 +76,7 @@ get-module azureadpreview
   Binary     2.0.0.115    azureadpreview               {Add-AzureADAdministrati...}
 ```
 
-## Create a custom role using Azure AD PowerShell
+### Create the custom role in Azure AD PowerShell
 
 Create a new role using the following PowerShell script:
 
@@ -115,7 +115,7 @@ $resourceScope = '/'
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-## Create a custom role in Microsoft Graph API
+## Create a custom role in the Microsoft Graph API
 
 HTTP request to create the custom role.
 
@@ -151,7 +151,7 @@ Body
 }
 ```
 
-### Assign the role in Microsoft Graph API
+### Assign the role in the Microsoft Graph API
 
 The role assignment combines a security principal ID (which can be a user or service principal), a role definition (role) ID, and an Azure AD resource scope.
 
