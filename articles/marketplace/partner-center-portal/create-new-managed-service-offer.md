@@ -139,6 +139,8 @@ Provide your offer's logo in four pixel sizes:
 - **Large** (216 x 216)
 - **Wide** (255 x 115)
 
+These logos are used in different places in the Azure Marketplace:
+
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### Screenshots
