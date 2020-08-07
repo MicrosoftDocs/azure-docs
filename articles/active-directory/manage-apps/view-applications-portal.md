@@ -62,6 +62,11 @@ To search for a particular application:
 3. Try entering the first few letters of an application name. This example shows all the applications that start with **Sales**.
     ![Example shows all apps that start with Sales](media/view-applications-portal/search-by-prefix.png)
 
+
+> [!TIP]
+> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+
 ## Clean up resources
 
 You did not create any new resources in this quickstart, so there is nothing to clean up.

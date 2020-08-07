@@ -750,6 +750,32 @@ To avoid this problem, we recommend one of the following approaches:
     /subscriptions/{subscription-guid}/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault
     ```
 
+### Virtual network not linked to private DNS zone
+
+When creating a workspace with a private endpoint, the template creates a Private DNS Zone named __privatelink.api.azureml.ms__. A __virtual network link__ is automatically added to this private DNS zone. The link is only added for the first workspace and private endpoint you create in a resource group; if you create another virtual network and workspace with a private endpoint in the same resource group, the second virtual network may not get added to the private DNS zone.
+
+To view the virtual network links that already exist for the private DNS zone, use the following Azure CLI command:
+
+```azurecli
+az network private-dns link vnet list --zone-name privatelink.api.azureml.ms --resource-group myresourcegroup
+```
+
+To add the virtual network that contains another workspace and private endpoint, use the following steps:
+
+1. To find the virtual network ID for the network that you want to add, use the following command:
+
+    ```azurecli
+    az network vnet show --name myvnet --resource-group myresourcegroup --query id
+    ```
+    
+    This command returns a value similar to `"/subscriptions/GUID/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet"'. Save this value and use it in the next step.
+
+2. To add a virtual network link to the privatelink.api.azureml.ms Private DNS Zone, use the following command. For the `--virtual-network` parameter, use the output of the previous command:
+
+    ```azurecli
+    az network private-dns link vnet create --name mylinkname --registration-enabled true --resource-group myresourcegroup --virtual-network myvirtualnetworkid --zone-name privatelink.api.azureml.ms
+    ```
+
 ## Next steps
 
 * [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md).
