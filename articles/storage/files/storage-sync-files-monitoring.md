@@ -76,17 +76,31 @@ For instructions on how to create alerts for these scenarios, see the [Alert Exa
 
 ## Storage Sync Service
 
-To view registered server health, server endpoint health, and metrics, go to the Storage Sync Service in the Azure portal. You can view registered server health in the **Registered servers** blade and server endpoint health in the **Sync groups** blade.
+To view the health of your Azure File Sync deployment in the **Azure portal**, navigate to the **Storage Sync Service** and the following information is available:
+
+- Registered server health
+- Server endpoint health
+- Files not syncing
+- Sync activity
+- Cloud tiering efficiency
+- Files not tiering
+- Recall errors 
+
+To learn more, review the sections below.
 
 ### Registered server health
+
+To view the registered server health in the portal, navigate to the **Registered servers** section of the **Storage Sync Service**.
 
 - If the **Registered server** state is **Online**, the server is successfully communicating with the service.
 - If the **Registered server** state is **Appears Offline**, the Storage Sync Monitor process (AzureStorageSyncMonitor.exe) is not running or the server is unable to access the Azure File Sync service. See the [troubleshooting documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) for guidance.
 
 ### Server endpoint health
 
+To view the server endpoint health in the portal, navigate to the **Sync groups** section of the **Storage Sync Service** and select a **sync group**.
+
 - The server endpoint health in the portal is based on the sync events that are logged in the Telemetry event log on the server (ID 9102 and 9302). If a sync session fails because of a transient error, such as error canceled, sync might still appear healthy in the portal as long as the current sync session is making progress. Event ID 9302 is used to determine if files are being applied. For more information, see [sync health](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) and [sync progress](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
-- If the portal shows a sync error because sync is not making progress, see the [troubleshooting documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) for guidance.
+- If the portal shows an error because sync is not making progress, see the [troubleshooting documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) for guidance.
 
 ### Metric charts
 
