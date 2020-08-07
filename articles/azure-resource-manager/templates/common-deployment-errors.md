@@ -11,8 +11,6 @@ This article describes some common Azure deployment errors, and provides informa
 
 If you're looking for information about an error code and that information isn't provided in this article, let us know. At the bottom of this page, you can leave feedback. The feedback is tracked with GitHub Issues.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## Error codes
 
 | Error code | Mitigation | More information |
