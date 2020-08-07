@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
+ms.date: 08/10/2020
 
 ---
 
@@ -29,8 +29,9 @@ A data collection rule includes the following components.
 | Destinations | Set of destinations where the data should be sent. Examples include Log Analytics workspace, Azure Monitor Metrics, and Azure Event Hubs. | 
 | Data flows | Definition of which streams should be sent to which destinations. | 
 
+The following diagram shows the components of a data collection rule and their relationship
 
-<Diagram of DCR and contents>
+[![Diagram of DCR](media/data-collection-rule/dcr-components.png)](media/data-collection-rule/dcr-components.png#lightbox)
 
 ### Data source types
 Each data source has a data source type. Each type defines a unique set of properties that must be specified for each data source. The data source types currently available are shown the following table. Follow the link for the set of properties that must be defined for each.
@@ -194,4 +195,4 @@ The sample data collection rule below is for virtual machines with Azure Managem
 
 ## Next steps
 
-- [Create a data collection rule](data-colection-rule-ama.md) and an association to it from a virtual machine using the Azure Monitor agent.
+- [Create a data collection rule](data-collection-rule-ama.md) and an association to it from a virtual machine using the Azure Monitor agent.

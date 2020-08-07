@@ -4,7 +4,7 @@ description:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/06/2020
+ms.date: 08/10/2020
 
 ---
 
@@ -26,13 +26,13 @@ You can use the Azure portal to create a data collection rule and associate virt
 
 In the **Azure Monitor** menu in the Azure portal, select **Data Collection Rules** from the **Settings** section. Click **Add** to add a new Data Collection Rule and assignment.
 
-[![Data Collection Rules](media/azure-monitor-agent/data-collection-rule.png)](media/azure-monitor-agent/data-collection-rules.png#lightbox)
+[![Data Collection Rules](media/azure-monitor-agent/data-collection-rule.png)](media/azure-monitor-agent/data-collection-rule.png#lightbox)
 
 Click **Add** to create a new rule and set of associations. Provide a **Rule name** and specify a **Subscription** and **Resource Group**. This specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
 
-[![Data Collection Rule Basics](media/azure-monitor-agent/data-collection-rule-basics.png)]((media/azure-monitor-agent/data-collection-rule-basics.png)#lightbox)
+[![Data Collection Rule Basics](media/azure-monitor-agent/data-collection-rule-basics.png)](media/azure-monitor-agent/data-collection-rule-basics.png#lightbox)
 
-In the **Virtual machines** tab, add virtual machines that should have the Data Collection Rule applied. The Azure Monitor Agent will be installed on VMs that don't already have it installed.
+In the **Virtual machines** tab, add virtual machines that should have the Data Collection Rule applied. The Azure Monitor Agent will be installed on virtual machines that don't already have it installed.
 
 [![Data Collection Rule virtual machines](media/azure-monitor-agent/data-collection-rule-vms.png)](media/azure-monitor-agent/data-collection-rule-vms.png#lightbox)
 
@@ -45,7 +45,7 @@ To specify other logs and performance counters, select **Custom**. You can then 
 
 [![Data source custom](media/azure-monitor-agent/data-collection-rule-data-source-custom.png)](media/azure-monitor-agent/data-collection-rule-data-source-custom.png#lightbox)
 
-On the **Destination** tab, add one or more destinations for the data source. Windows event and Syslog data sources can only send to Log Analytics workspaces. Performance counters can send to both Azure Monitor Metrics and Log Analytics workspaces.
+On the **Destination** tab, add one or more destinations for the data source. Windows event and Syslog data sources can only send to Azure Monitor Logs. Performance counters can send to both Azure Monitor Metrics and Azure Monitor Logs.
 
 [![Destination](media/azure-monitor-agent/data-collection-rule-destination.png)](media/azure-monitor-agent/data-collection-rule-destination.png#lightbox)
 

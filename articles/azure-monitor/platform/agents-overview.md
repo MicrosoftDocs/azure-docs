@@ -43,7 +43,7 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 | **Data sent to** | Azure Monitor Logs<br>Azure Storage<br>Azure Monitor Metrics<br>Event Hub | Azure Storage<br>Event Hub | Azure Monitor Metrics | Azure Monitor Logs | Azure Monitor Logs |
 
 ## Azure Monitor agent (preview)
-The [Azure Monitor agent](azure-monitor-agent.md) is currently in preview and will replace the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux virtual machines. It can to send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
+The [Azure Monitor agent](azure-monitor-agent-overview.md) is currently in preview and will replace the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux virtual machines. It can to send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
 
 Use the Azure Monitor agent if you need to:
 

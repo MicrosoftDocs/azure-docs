@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/07/2020
+ms.date: 08/10/2020
 
 ---
 
@@ -29,11 +29,11 @@ In addition to consolidating this functionality into a single agent, the Azure M
 ### Changes in data collection
 The methods for defining data collection for the existing agents are distinctly different from each other, and each have challenges that are addressed with Azure Monitor agent.
 
-- Log Analytics agent gets its configuration from a Log Analytics workspace. This is easy to centrally configure, but difficult to define independent definitions for different virtual machines. It can also only send data to a Log Analytics workspace.
+- Log Analytics agent gets its configuration from a Log Analytics workspace. This is easy to centrally configure, but difficult to define independent definitions for different virtual machines. It can only send data to a Log Analytics workspace.
 
 - Diagnostic extension has a configuration for each virtual machine. This is easy to define independent definitions for different virtual machines but difficult to centrally manage. It can only send data to Azure Monitor Metrics, Azure Event Hubs, or Azure Storage. For Linux agents, the open source Telegraf agent is required to send data to Azure Monitor Metrics.
 
-Azure Monitor agent uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) to configure data to collect from each agent. Data collection rules enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the virtual machine which allows them to be defined once and reused across machines and environments.
+Azure Monitor agent uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) to configure data to collect from each agent. Data collection rules enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the virtual machine, which allows them to be defined once and reused across machines and environments. See [Configure data collection for the Azure Monitor agent (preview)](data-collection-rule-ama.md).
 
 
 
@@ -59,7 +59,7 @@ For example, Azure Monitor for VMs uses the Log Analytics agent to send performa
 There is no cost for Azure Monitor agent, but you may incur charges for the data ingested. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for details on Log Analytics data collection and retention and for customer metrics.
 
 ## Data sources and destinations
-The following table lists the types of data you can collect with the Azure Monitor agent using data collection rules and where you can send that data. See [What is monitored by Azure Monitor?](../monitor-reference.md) for a list of insights, solutions, and other solutions that use the Azure Monitor agent to collect other kinds of data.
+The following table lists the types of data you can currently collect with the Azure Monitor agent using data collection rules and where you can send that data. See [What is monitored by Azure Monitor?](../monitor-reference.md) for a list of insights, solutions, and other solutions that use the Azure Monitor agent to collect other kinds of data.
 
 
 The Azure Monitor agent sends data to Azure Monitor Metrics or a Log Analytics workspace supporting Azure Monitor Logs.
@@ -107,7 +107,7 @@ The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-
 
 Install the Azure Monitor agent using any of the methods to install virtual machine agents including the following using PowerShell or CLI. Alternatively, you can install the agent and configure data collection on virtual machines in your Azure subscription using the portal with the procedure described in [Configure data collection for the Azure Monitor agent (preview)](data-collection-rule-ama.md#create-using-the-azure-portal).
 
-## Windows
+### Windows
 
 # [CLI](#tab/CLI1)
 
@@ -124,7 +124,7 @@ Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publ
 ---
 
 
-## Linux
+### Linux
 
 # [CLI](#tab/CLI2)
 
