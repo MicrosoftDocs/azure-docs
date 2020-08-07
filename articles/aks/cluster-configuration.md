@@ -3,7 +3,7 @@ title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
 ---
@@ -228,6 +228,72 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 
 If you want to create regular Gen1 node pools, you can do so by omitting the custom `--aks-custom-headers` tag.
 
+
+## Ephemeral OS (Preview)
+
+Ephemeral OS disks are created on the local virtual machine (VM) storage of your cluster agent nodes and not saved to the remote Azure Storage. Ephemeral OS disks are suited for container workloads as they were designed with stateless workloads in mind, where applications are tolerant of individual VM failures, but are more affected by VM deployment time or reimaging the individual VM instances. With Ephemeral OS disk, you get lower read/write latency to the OS disk, similar to a temporary disk, and faster node scaling and cluster upgrades.
+
+In addition to this Ephemeral OS disk is free that is, you incur no storage cost for the OS disk. You can still be charged for any data disks attached to the agent node.
+
+To use Gen2 VMs during preview, you'll require:
+- The `aks-preview` CLI extension installed.
+- The `EnableEphemeralOSDiskPreview` feature flag registered.
+
+Register the `EnableEphemeralOSDiskPreview` feature:
+
+```azurecli
+az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
+```
+
+It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
+```
+
+When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+To install the aks-preview CLI extension, use the following Azure CLI commands:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+To update the aks-preview CLI extension, use the following Azure CLI commands:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+> [!IMPORTANT]
+> After Ephemeral OS becomes generally available on AKS, it'll be the default and only option available for OS Disk on new clusters. You can still use network-attached OS disk nodepools and clusters on older kubernetes supported versions until those fall off support. 
+> 
+> We recommend you test your workloads on ephemeral OS node pools before upgrading or creating new clusters with this OS disk type.
+
+
+### Use Ephemeral OS on new clusters (Preview)
+
+Configure the cluster to use Ephemeral OS disks when the cluster is created. Use the `--aks-custom-headers` flag to set Ephemeral OS as the OS disk type for the new cluster.
+
+```azure-cli
+az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+If you want to create a regular cluster using network-attached OS disks, you can do so by omitting the custom `--aks-custom-headers` tag. You can also choose to add more ephemeral OS node pools as per below.
+
+### Use Ephemeral OS on existing clusters (Preview)
+Configure a new node pool to use Ephemeral OS disks. Use the `--aks-custom-headers` flag to set as the OS disk type as the OS disk type for that node pool.
+
+```azure-cli
+az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+If you want to create node pools with network-attached OS disks, you can do so by omitting the custom `--aks-custom-headers` tag.
+
 ## Custom resource group name
 
 When you deploy an Azure Kubernetes Service cluster in Azure, a second resource group gets created for the worker nodes. By default, AKS will name the node resource group `MC_resourcegroupname_clustername_location`, but you can also provide your own name.
@@ -254,6 +320,7 @@ As you work with the node resource group, keep in mind that you can't:
 - See [Upgrade an Azure Kubernetes Service (AKS) cluster](upgrade-cluster.md) to learn how to upgrade your cluster to the latest version of Kubernetes.
 - Read more about [`containerd` and Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - See the list of [Frequently asked questions about AKS](faq.md) to find answers to some common AKS questions.
+- Read more about [Ephemeral OS disks](../virtual-machines/ephemeral-os-disks).
 
 
 <!-- LINKS - internal -->
