@@ -6,7 +6,7 @@ ms. subservice: azure-arc-servers
 ms.topic: tutorial
 author: mgoedtel
 ms.author: magoedte
-ms.date: 08/03/2020
+ms.date: 08/06/2020
 ---
 
 # Tutorial: Monitor a hybrid machine with Azure Monitor for VMs
@@ -64,3 +64,12 @@ Select **Map** to open the maps feature, which shows the processes running on th
 Expand the processes for your virtual machine. Select one of the processes to view its details and to highlight its dependencies.
 
 Select your virtual machine again and then select **Log Events**. You see a list of tables that are stored in the Log Analytics workspace for the virtual machine. This list will be different depending whether you're using a Windows or Linux virtual machine. Select the **Event** table. This includes all events from the Windows event log. Log Analytics opens with a simple query to retrieve collected event log entries.
+
+## Next steps
+
+Now that you've enabled Azure Monitor for VMs, you are ready to enable Azure Policy to understand compliance in Azure.
+
+To learn how to identify virtual machines that contain expiring certificates, continue to the tutorial:
+
+> [!div class="nextstepaction"]
+> [Create a policy assignment to identify non-compliant resources](tutorial-assign-policy-portal.md)
