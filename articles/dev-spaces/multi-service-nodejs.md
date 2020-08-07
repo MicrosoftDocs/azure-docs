@@ -5,6 +5,7 @@ ms.date: 11/21/2018
 ms.topic: tutorial
 description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio Code to debug a multi-service Node.js application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
+ms.custom: devx-track-javascript
 ---
 # Running multiple dependent services: Node.js and Visual Studio Code with Azure Dev Spaces
 

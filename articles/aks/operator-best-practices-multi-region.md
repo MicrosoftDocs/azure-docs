@@ -53,9 +53,9 @@ Traffic Manager performs DNS lookups and returns a user's most appropriate endpo
 
 For information on how to set up endpoints and routing, see [Configure the geographic traffic routing method by using Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).
 
-### Layer 7 application routing with Azure Front Door Service
+### Application routing with Azure Front Door Service
 
-Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door Service](../frontdoor/front-door-overview.md) provides an HTTP/HTTPS (layer 7) routing option. Additional features of Azure Front Door Service include TLS termination, custom domain, web application firewall, URL Rewrite, and session affinity. Review the needs of your application traffic to understand which solution is the most suitable.
+Using split TCP-based anycast protocol, [Azure Front Door Service](../frontdoor/front-door-overview.md) ensures that your end users promptly connect to the nearest Front Door POP (Point of Presence). Additional features of Azure Front Door Service include TLS termination, custom domain, web application firewall, URL Rewrite, and session affinity. Review the needs of your application traffic to understand which solution is the most suitable.
 
 ### Interconnect regions with global virtual network peering
 

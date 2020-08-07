@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop environment (Fall 2019) - Azure
-description: Learn about the basic elements of a Windows Virtual Desktop (Fall 2019 release) environment, like tenants and host pools.
+title: Windows Virtual Desktop (classic) environment - Azure
+description: The basic elements of a Windows Virtual Desktop (classic) environment.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,10 +10,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Windows Virtual Desktop environment (Fall 2019 release)
+# Windows Virtual Desktop (classic) environment
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../environment-setup.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../environment-setup.md).
 
 Windows Virtual Desktop is a service that gives users easy and secure access to their virtualized desktops and RemoteApps. This topic will tell you a bit more about the general structure of the Windows Virtual Desktop environment.
 

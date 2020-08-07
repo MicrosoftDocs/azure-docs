@@ -27,7 +27,7 @@ Models are written using the JSON-LD-based **Digital Twin Definition Language (D
 
 Models for Azure Digital Twins are defined using the Digital Twins Definition language (DTDL). DTDL is based on JSON-LD and is programming-language independent. DTDL is not exclusive to Azure Digital Twins, but is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). 
 
-Azure Digital Twins uses DTDL *version 2*. For more information about this version of DTDL, see its spec documentation in GitHub: [Digital Twins Definition Language (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Azure Digital Twins uses **DTDL _version 2_**. For more information about this version of DTDL, see its spec documentation in GitHub: [*Digital Twins Definition Language (DTDL) - version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Use of DTDL _version 1_ with Azure Digital Twins has now been deprecated.
 
 > [!TIP] 
 > Not all services that use DTDL implement the exact same features of DTDL. For example, IoT Plug and Play does not use the DTDL features that are for graphs, while Azure Digital Twins does not currently implement DTDL commands. For more information on the DTDL features that are specific to Azure Digital Twins, see the section later in this article on [Azure Digital Twins DTDL implementation specifics](#azure-digital-twins-dtdl-implementation-specifics).
@@ -205,14 +205,7 @@ The extending interface cannot change any of the definitions of the parent inter
 
 ## Validating models
 
-> [!TIP]
-> It's recommended to validate your models offline before uploading them to your Azure Digital Twins instance.
-
-There is a language-agnostic sample available for validating model documents to make sure the DTDL is correct. It is located here: [**DTDL Validator sample**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
-
-The DTDL validator sample is built on a .NET DTDL parser library, which is available on NuGet as a client-side library: [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). You can also use the library directly to design your own validation solution. When using the parser library, make sure to use a version that is compatible with the version that Azure Digital Twins is running. During preview, this is version *3.7.0*.
-
-You can learn more about the parser library, including usage examples, in [*How-to: Parse and validate models*](how-to-use-parser.md).
+[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
 ## Next steps
 

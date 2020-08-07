@@ -157,7 +157,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Gov4Miles](https://www.milestechnologies.com)|
 |Gravity Pro Consulting|
 |[Green House Data](https://www.greenhousedata.com/)|
-|[Hanu Software Solutions Inc.](https://hanusoftware.com/contact)|
+|[Hanu Software Solutions Inc.](https://www.hanusoftware.com/contact)|
 |[Harmonia Holdings Group LLC](https://www.harmonia.com)|
 |[HCL Technologies](https://www.hcltech.com/aerospace-and-defense)|
 |[HD Dynamics](https://www.hddynamics.com/)|
@@ -362,7 +362,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[VVL Systems & Consulting, LLC](https://www.vvlsystems.com/)|
 |[Vistronix, LLC](http://www.vistronix.com/)|
 |[Vology Inc.](https://www.vology.com/)|
-|[vSolvIT](https://www.vsolvit.com/)|
+|[vSolvIT](http://www.vsolvit.com/)|
 |[Wintellect, LLC](https://www.wintellect.com)|
 |[Workspot, Inc.](https://workspot.com)|
 |[WWT](https://www2.wwt.com)|
@@ -420,7 +420,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Four Points Technolgy, LLC](https://www.4points.com)|
 |[KTL Solutions, Inc.](https://www.ktlsolutions.com)|
 |[LiftOff LLC](https://www.liftoffllc.com)|
-|[Permuta Technologies, Inc.](https://www.permuta.com/)|
+|[Permuta Technologies, Inc.](http://www.permuta.com/)|
 |[Planet Technologies, Inc.](https://go-planet.com)|
 |[Quiet Professionals, LLC](https://quietprofessionalsllc.com)|
 |[Smartronix](https://www.smartronix.com)|

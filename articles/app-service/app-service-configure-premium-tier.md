@@ -83,7 +83,7 @@ If your app runs in an App Service deployment where **PremiumV2** isn't availabl
 
 ## Automate with scripts
 
-You can automate app creation in the **PremiumV2** tier with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
+You can automate app creation in the **PremiumV2** tier with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 
 ### Azure CLI
 

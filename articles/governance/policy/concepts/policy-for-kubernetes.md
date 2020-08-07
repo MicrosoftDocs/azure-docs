@@ -444,7 +444,7 @@ compliance reporting experience. For more information, see
 ## Assign a built-in policy definition
 
 To assign a policy definition to your Kubernetes cluster, you must be assigned the appropriate
-role-based access control (RBAC) policy assignment operations. The built-in RBAC roles **Resource
+role-based access control (RBAC) policy assignment operations. The Azure built-in roles **Resource
 Policy Contributor** and **Owner** have these operations. To learn more, see
 [RBAC permissions in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 

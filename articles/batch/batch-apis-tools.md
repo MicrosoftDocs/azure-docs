@@ -61,7 +61,7 @@ The Azure Resource Manager APIs for Batch provide programmatic access to Batch a
 
 These command-line tools provide the same functionality as the Batch service and Batch Management APIs: 
 
-- [Batch PowerShell cmdlets](/powershell/module/az.batch/): The Azure Batch cmdlets in the [Azure PowerShell](/powershell/azure/overview) module enable you to manage Batch resources with PowerShell.
+- [Batch PowerShell cmdlets](/powershell/module/az.batch/): The Azure Batch cmdlets in the [Azure PowerShell](/powershell/azure/) module enable you to manage Batch resources with PowerShell.
 - [Azure CLI](/cli/azure): The Azure CLI is a cross-platform toolset that provides shell commands for interacting with many Azure services, including the Batch service and Batch Management service. See [Manage Batch resources with Azure CLI](batch-cli-get-started.md) for more information about using the Azure CLI with Batch.
 
 ## Other tools for application development

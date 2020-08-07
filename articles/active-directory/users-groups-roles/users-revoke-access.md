@@ -1,5 +1,5 @@
 ---
-title: Revoke user access for emergency in Azure Active Directory | Microsoft Docs
+title: Revoke user access in an emergency in Azure Active Directory | Microsoft Docs
 description: Add users in bulk in the Azure AD admin center in Azure Active Directory
 services: active-directory 
 ms.service: active-directory
@@ -10,7 +10,7 @@ author: curtand
 ms.author: curtand
 manager: daveba
 ms.reviewer: krbain
-ms.date: 06/26/2020
+ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---

@@ -3,7 +3,7 @@ title: Deploy Azure dedicated hosts using the Azure PowerShell
 description: Deploy VMs to dedicated hosts using Azure PowerShell.
 author: cynthn
 ms.service: virtual-machines-windows
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn

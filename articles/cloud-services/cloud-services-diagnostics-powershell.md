@@ -12,7 +12,7 @@ ms.author: tagore
 
 ---
 # Enable diagnostics in Azure Cloud Services using PowerShell
-You can collect diagnostic data like application logs, performance counters etc. from a Cloud Service using the Azure Diagnostics extension. This article describes how to enable the Azure Diagnostics extension for a Cloud Service using PowerShell.  See [How to install and configure Azure PowerShell](/powershell/azure/overview) for the prerequisites needed for this article.
+You can collect diagnostic data like application logs, performance counters etc. from a Cloud Service using the Azure Diagnostics extension. This article describes how to enable the Azure Diagnostics extension for a Cloud Service using PowerShell.  See [How to install and configure Azure PowerShell](/powershell/azure/) for the prerequisites needed for this article.
 
 ## Enable diagnostics extension as part of deploying a Cloud Service
 This approach is applicable to continuous integration type of scenarios, where the diagnostics extension can be enabled as part of deploying the cloud service. When creating a new Cloud Service deployment, you can enable the diagnostics extension by passing in the *ExtensionConfiguration* parameter to the [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-3.7.0) cmdlet. The *ExtensionConfiguration* parameter takes an array of diagnostics configurations that can be created using the [New-AzureServiceDiagnosticsExtensionConfig](/powershell/module/servicemanagement/azure.service/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) cmdlet.

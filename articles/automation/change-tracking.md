@@ -198,7 +198,7 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 
 - To enable the feature from an Automation account, see [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md).
 
-- To enable the feature by browsing the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](automation-onboard-solutions-from-browse.md).
+- To enable the feature by browsing the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](automation-enable-changes-from-browse.md).
 
 - To enable the feature from a runbook, see [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md).
 

@@ -2,7 +2,7 @@
 title: Tutorial - Configure networking for your VMware private cloud in Azure
 description: Learn to create and configure the networking needed to deploy your private cloud in Azure
 ms.topic: tutorial
-ms.date: 05/04/2020
+ms.date: 07/22/2020
 ---
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
@@ -66,7 +66,6 @@ Now that you've created a virtual network, you'll create a virtual network gatew
    | **Name** | Enter a unique name for the virtual network gateway. |
    | **Region** | Select the geographical location of the virtual network gateway. |
    | **Gateway type** | Select **ExpressRoute**. |
-   | **VPN type** | Select **Route-based**. |
    | **SKU** | Leave the default value: **standard**. |
    | **Virtual network** | Select the virtual network you created previously. If you do not see the virtual network, make sure the region of the gateway matches the region of your virtual network. |
    | **Gateway subnet address range** | This value is populated when you select the virtual network. Don't change the default value. |

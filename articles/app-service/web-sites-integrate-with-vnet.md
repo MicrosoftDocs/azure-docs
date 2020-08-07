@@ -4,7 +4,7 @@ description: Integrate app in Azure App Service with Azure virtual networks.
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 06/08/2020
+ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -167,6 +167,33 @@ Group
 Commands:
     list : List the virtual network integrations used in an appservice plan.
 ```
+
+Powershell support for regional VNet integration is available too, but you must create generic resource with a property array of the subnet resourceID
+
+```azurepowershell
+# Parameters
+$sitename="myWebApp"
+$resourcegroupname="myRG"
+$VNetname="myVNet"
+$location="myRegion"
+$integrationsubnetname = "myIntegrationSubnet"
+$subscriptionID = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
+
+#Property array with the SubnetID
+$properties = @{
+      "subnetResourceId" = "/subscriptions/"+$subscriptionID+"/resourceGroups/"+$resourcegroupname+"/providers/Microsoft.Network/virtualNetworks/"+$VNetname+"/subnets/"+$integrationsubnetname;
+      }
+      
+#Creation of the VNet integration
+$resourceID = $sitename+"/VirtualNetwork"
+New-AzResource -ResourceName $resourceID `
+-Location $location  `
+-ResourceGroupName $resourcegroupname `
+-ResourceType Microsoft.Web/sites/networkConfig `
+-PropertyObject $properties 
+
+```
+
 
 For gateway-required VNet Integration, you can integrate App Service with an Azure virtual network by using PowerShell. For a ready-to-run script, see [Connect an app in Azure App Service to an Azure virtual network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3).
 

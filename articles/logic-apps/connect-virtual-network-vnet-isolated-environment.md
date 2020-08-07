@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 07/22/2020
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -42,7 +42,7 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
   > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). 
   > For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
-* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). Your virtual network needs to have four *empty* subnets that aren't delegated to any service for creating and deploying resources in your ISE. Each subnet supports a different Logic Apps component that's used in your ISE. You can create the subnets in advance, or you can wait until you create your ISE where you can create subnets at the same time. Learn more about [subnet requirements](#create-subnet).
+* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). Your virtual network needs to have four *empty* subnets, which are required for creating and deploying resources in your ISE and are used by internal Logic Apps components, such as connectors and caching for performance. You can create the subnets in advance, or you can wait until you create your ISE so that you can create subnets at the same time. However, before you create your subnets, review the [subnet requirements](#create-subnet).
 
   > [!IMPORTANT]
   >
@@ -53,12 +53,6 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
   > * 127.0.0.0/8
   > * 168.63.129.16/32
   > * 169.254.169.254/32
-  > 
-  > Subnet names need to start with either an alphabetic character or an underscore 
-  > and can't use these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`. To deploy your 
-  > ISE through an Azure Resource Manager template, first make sure that you delegate 
-  > one empty subnet to `Microsoft.Logic/integrationServiceEnvironment`. You don't need 
-  > to do this delegation when you deploy through the Azure portal.
 
   * Make sure that your virtual network [enables access for your ISE](#enable-access) so that your ISE can work correctly and stay accessible.
 
@@ -174,18 +168,30 @@ Also, you need to add outbound rules for [App Service Environment (ASE)](../app-
    | **Additional capacity** | Premium: <br>Yes <p><p>Developer: <br>Not applicable | Premium: <br>0 to 10 <p><p>Developer: <br>Not applicable | The number of additional processing units to use for this ISE resource. To add capacity after creation, see [Add ISE capacity](../logic-apps/ise-manage-integration-service-environment.md#add-capacity). |
    | **Access endpoint** | Yes | **Internal** or **External** | The type of access endpoints to use for your ISE. These endpoints determine whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network. <p><p>Your selection also affects the way that you can view and access inputs and outputs in your logic app runs history. For more information, see [ISE endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Important**: You can select the access endpoint only during ISE creation and can't change this option later. |
    | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, [create an Azure virtual network first](../virtual-network/quick-create-portal.md). <p><p>**Important**: You can *only* perform this injection when you create your ISE. |
-   | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating and deploying resources in your environment. To create each subnet, [follow the steps under this table](#create-subnet). |
+   | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets, which are required for creating and deploying resources in your ISE and are used by internal Logic Apps components, such as connectors and caching for performance. <p>**Important**: Make sure that you [review the subnet requirements before continuing with these steps to create your subnets](#create-subnet). |
    |||||
 
    <a name="create-subnet"></a>
 
-   **Create subnet**
+   **Create subnets**
 
-   To create and deploy resources in your environment, your ISE needs four *empty* subnets that aren't delegated to any service. Each subnet supports a different Logic Apps component that's used in your ISE. You *can't* change these subnet addresses after you create your environment. Each subnet needs to meet these requirements:
+   Your ISE needs four *empty* subnets, which are required for creating and deploying resources in your ISE and are used by internal Logic Apps components, such as connectors and caching for performance. You *can't* change these subnet addresses after you create your environment. If you create and deploy your ISE through the Azure portal, make sure that you don't delegate these subnets to any Azure services. However, if you create and deploy your ISE through the REST API, Azure PowerShell, or an Azure Resource Manager template, you need to [delegate](../virtual-network/manage-subnet-delegation.md) one empty subnet to `Microsoft.integrationServiceEnvironment`. For more information, see [Add a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
-   * Has a name that starts with an alphabetic character or an underscore (no numbers), and doesn't use these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
+   Each subnet needs to meet these requirements:
+
+   * Uses a name that starts with either an alphabetic character or an underscore (no numbers), and doesn't use these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
 
    * Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) and a Class B address space.
+   
+     > [!IMPORTANT]
+     >
+     > Don't use the following IP address spaces for your virtual network or subnets because they aren't resolvable by Azure Logic Apps:<p>
+     > 
+     > * 0.0.0.0/8
+     > * 100.64.0.0/10
+     > * 127.0.0.0/8
+     > * 168.63.129.16/32
+     > * 169.254.169.254/32
 
    * Uses a `/27` in the address space because each subnet requires 32 addresses. For example, `10.0.0.0/27` has 32 addresses because 2<sup>(32-27)</sup> is 2<sup>5</sup> or 32. More addresses won't provide additional benefits. To learn more about calculating addresses, see [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 

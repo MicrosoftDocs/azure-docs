@@ -1,15 +1,15 @@
 ---
 title: Create an Azure IoT Edge module offer with Partner Center in Azure Marketplace
-description: Learn how to create, configure, and publish an IoT Edge module offer in Azure Marketplace using Partner Center
+description: Learn how to create, configure, and publish an IoT Edge module offer in Azure Marketplace using Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-author: anbene
-ms.author: mingshen
-ms.date: 06/17/2020
+ms.topic: article
+author: keferna
+ms.author: keferna
+ms.date: 07/22/2020
 ---
 
-# Create, configure, and publish an IoT Edge module offer in Azure Marketplace
+# Create an IoT Edge module offer
 
 This article describes how to create and publish an Internet of Things (IoT) Edge module offer for Azure Marketplace. Before starting, [Create a Commercial Marketplace account in Partner Center](create-account.md) if you haven't done so yet. Ensure your account is enrolled in the commercial marketplace program.
 
@@ -45,10 +45,10 @@ The **Offer overview** page shows a visual representation of the steps required 
 
 This page includes links to perform operations on this offer based on the selection you make. For example:
 
-- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer))
-- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval))
-- If you haven't completed publisher sign-out - [Cancel publishing.](update-existing-offer.md#cancel-publishing))
+- If the offer is a draft - [Delete draft offer](update-existing-offer.md#delete-a-draft-offer)
+- If the offer is live - [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- If the offer is in preview - [Go-live](publishing-status.md#publisher-approval)
+- If you haven't completed publisher sign-out - [Cancel publishing.](update-existing-offer.md#cancel-publishing)
 
 ## Offer setup
 

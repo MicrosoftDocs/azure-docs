@@ -51,7 +51,7 @@ If you want to learn about updates to the Speech service, Speech SDK, Speech Dev
 
 ### GitHub issues opened in May
 
-These issues were opened in June. This table lists the user that opened the issue, when it was opened, and it's status.  
+These issues were opened in May. This table lists the user that opened the issue, when it was opened, and it's status.  
 
 This table is updated monthly and only reflects issues opened in May.  
 

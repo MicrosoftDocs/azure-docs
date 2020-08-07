@@ -6,7 +6,7 @@ author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ---
 # Tutorial: Deploy a Java application to a Service Fabric cluster in Azure
 

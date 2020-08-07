@@ -12,7 +12,7 @@ ms.date: 06/15/2020
 > Resource logs were previously known as diagnostic logs. The name was changed in October 2019 as the types of logs gathered by Azure Monitor shifted to include more than just the Azure resource. 
 > Also, the list of resource log categories you could collect used to be listed in this article. They were moved to [Resource log categories](resource-logs-categories.md). 
 
-[Azure Monitor resource logs](../../azure-monitor/platform/platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
+[Azure Monitor resource logs](./platform-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
 
 A combination of the resource type (available in the `resourceId` property) and the `category` uniquely identify a schema. This article describes the top-level schema for resource logs and links to the schemata for each service.
 
@@ -84,7 +84,8 @@ The schema for resource logs varies depending on the resource and log category. 
 ## Next Steps
 
 * [See the resource log categories you can collect](resource-logs-categories.md)
-* [Learn more about resource logs](../../azure-monitor/platform/platform-logs-overview.md)
+* [Learn more about resource logs](./platform-logs-overview.md)
 * [Stream resource resource logs to **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
 * [Change resource log diagnostic settings using the Azure Monitor REST API](/rest/api/monitor/diagnosticsettings)
 * [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
+

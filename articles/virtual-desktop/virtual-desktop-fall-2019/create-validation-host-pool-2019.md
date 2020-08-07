@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop host pool service updates (Fall 2019) - Azure
-description: Learn how to create a validation host pool to monitor service updates before rolling out updates to production.
+title: Windows Virtual Desktop (classic) host pool service updates - Azure
+description: How to create a validation host pool to monitor service updates before rolling out updates to production.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,10 +10,10 @@ ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ---
-# Tutorial: Create a host pool to validate service updates (Fall 2019 release)
+# Tutorial: Create a host pool to validate service updates in Windows Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../create-validation-host-pool.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../create-validation-host-pool.md).
 
 Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Before deploying host pools to your production environment, we highly recommend you create a validation host pool. Updates are applied first to validation host pools, letting you monitor service updates before rolling them out to your production environment. Without a validation host pool, you may not discover changes that introduce errors, which could result in downtime for users in your production environment.
 

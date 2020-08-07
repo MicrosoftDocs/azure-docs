@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -180,6 +180,16 @@ GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 ```
+
+## SAML assertions obtained with an OAuth2.0 OBO flow
+
+Some OAuth-based web services need to access other web service APIs that accept SAML assertions in non-interactive flows. Azure Active Directory can provide a SAML assertion in response to an On-Behalf-Of flow that uses a SAML-based web service as a target resource.
+
+>[!NOTE]
+>This is a non-standard extension to the OAuth 2.0 On-Behalf-Of flow that allows an OAuth2-based application to access web service API endpoints that consume SAML tokens.
+
+> [!TIP]
+> When you call a SAML-protected web service from a front-end web application, you can simply call the API and initiate a normal interactive authentication flow with the user's existing session. You only need to use an OBO flow when a service-to-service call requires a SAML token to provide user context.
 
 ## Gaining consent for the middle-tier application
 
