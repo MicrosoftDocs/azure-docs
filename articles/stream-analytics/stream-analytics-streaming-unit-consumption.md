@@ -6,7 +6,7 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 08/06/2020
 ---
 
 # Understand and adjust Streaming Units
@@ -22,7 +22,7 @@ The SU % utilization metric, which ranges from 0% to 100%, describes the memory 
 
 2. In the list of resources, find the Stream Analytics job that you want to scale and then open it. 
 
-3. In the job page, under the **Configure** heading, select **Scale**. 
+3. In the job page, under the **Configure** heading, select **Scale**. Default number of SUs is 3 when creating a job.
 
     ![Azure portal Stream Analytics job configuration][img.stream.analytics.preview.portal.settings.scale]
     

@@ -3,8 +3,9 @@ title: 'Tutorial: Build and run a custom image in Azure App Service'
 description: A step-by-step guide to build a custom Linux or Windows image, push the image to Azure Container Registry, and then deploy that image to Azure App Service. Learn how to migrate deploy custom software to App Service in a custom container.
 ms.topic: tutorial
 ms.date: 07/16/2020
+ms.author: msangapu
 keywords: azure app service, web app, linux, windows, docker, container
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 
