@@ -52,9 +52,9 @@ Follow these steps to install the Speech CLI within a Docker container:
 
 1. Install and run [Docker Desktop for your platform](https://www.docker.com/get-started).
 1. In a new command prompt or terminal, type this command:
-    `sudo docker pull msftspeech/spx`
+    `docker pull msftspeech/spx`
 1. Type this command. You should see help information for Speech CLI:
-    `sudo docker run -it --rm msftspeech/spx help`
+    `docker run -it --rm msftspeech/spx help`
 
 ### Mount a directory in the container
 
