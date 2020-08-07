@@ -1,5 +1,5 @@
 ---
-title: Azure Cache for Redis Planning FAQs
+title: Azure Cache for Redis planning FAQs
 description: Learn the answers to common questions that help you plan for Azure Cache for Redis
 author: yegu-ms
 ms.author: yegu
@@ -7,14 +7,20 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
 ---
-# Azure Cache for Redis Planning FAQs
+# Azure Cache for Redis planning FAQs
+
+This article provides answers to common questions about how to plan for Azure Cache for Redis.
+
+## Common questions and answers
+This section covers the following FAQs:
+
 * [Azure Cache for Redis performance](#azure-cache-for-redis-performance)
 * [In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
 * [Where do my cached data reside?](#where-do-my-cached-data-reside)
 * [How am I billed for Azure Cache for Redis?](#how-am-i-billed-for-azure-cache-for-redis)
 * [Can I use Azure Cache for Redis with Azure Government Cloud, Azure China 21Vianet Cloud, or Microsoft Azure Germany?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-21vianet-cloud-or-microsoft-azure-germany)
 
-## Azure Cache for Redis performance
+### Azure Cache for Redis performance
 The following table shows the maximum bandwidth values observed while testing various sizes of Standard and Premium caches using `redis-benchmark.exe` from an IaaS VM against the Azure Cache for Redis endpoint. For TLS throughput, redis-benchmark is used with stunnel to connect to the Azure Cache for Redis endpoint.
 
 >[!NOTE] 
@@ -47,20 +53,20 @@ From this table, we can draw the following conclusions:
 
 For instructions on setting up stunnel or downloading the Redis tools such as `redis-benchmark.exe`, see [How can I run Redis commands?](cache-development-faq.md#how-can-i-run-redis-commands).
 
-## In what region should I locate my cache?
+### In what region should I locate my cache?
 For best performance and lowest latency, locate your Azure Cache for Redis in the same region as your cache client application.
 
-## Where do my cached data reside?
+### Where do my cached data reside?
 Azure Cache for Redis stores your application data in the RAM of the VM or VMs, depending on the tier, that host your cache. Your data reside strictly in the Azure region you've selected by default. There are two cases where your data may leave a region:
-  1. When you enable persistence on the cache, Azure Cache for Redis will backup your data to an Azure Storage account you own. If the storage account you provide happens to be in another region, a copy of your data will end up there.
-  1. If you set up geo-replication and your secondary cache is in a different region, which would be the case normally, your data will be replicated to that region.
+* When you enable persistence on the cache, Azure Cache for Redis will backup your data to an Azure Storage account you own. If the storage account you provide happens to be in another region, a copy of your data will end up there.
+* If you set up geo-replication and your secondary cache is in a different region, which would be the case normally, your data will be replicated to that region.
 
 You'll need to explicitly configure Azure Cache for Redis to use these features. You also have complete control over the region that the storage account or secondary cache is located.
 
-## How am I billed for Azure Cache for Redis?
+### How am I billed for Azure Cache for Redis?
 Azure Cache for Redis pricing is [here](https://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly and monthly rate. Caches are billed on a per-minute basis from the time that the cache is created until the time that a cache is deleted. There is no option for stopping or pausing the billing of a cache.
 
-## Can I use Azure Cache for Redis with Azure Government Cloud, Azure China 21Vianet Cloud, or Microsoft Azure Germany?
+### Can I use Azure Cache for Redis with Azure Government Cloud, Azure China 21Vianet Cloud, or Microsoft Azure Germany?
 Yes, Azure Cache for Redis is available in Azure Government Cloud, Azure China 21Vianet Cloud, and Microsoft Azure Germany. The URLs for accessing and managing Azure Cache for Redis are different in these clouds compared with Azure Public Cloud.
 
 | Cloud   | Dns Suffix for Redis            |

@@ -121,7 +121,7 @@
     - name: Set alerts for exceptions
       href: cache-how-to-monitor.md#operations-and-alerts
     - name: Monitoring FAQs
-      href: cache-monitoring-troubleshooting-faq.md
+      href: cache-monitor-troubleshoot-faq.md
   - name: Scale
     items:
     - name: Update to a different size and tier
@@ -139,7 +139,7 @@
     - name: Troubleshoot data loss
       href: cache-troubleshoot-data-loss.md
     - name: Troubleshooting FAQs
-      href: cache-monitoring-troubleshooting-faq.md
+      href: cache-monitor-troubleshoot-faq.md
 - name: Reference
   items:
   - name: Azure Cache for Redis samples

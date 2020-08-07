@@ -7,6 +7,7 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
+ROBOTS: NOINDEX
 
 ---
 # Introduction to the Azure Cache for Redis Premium tier
@@ -27,7 +28,7 @@ The Premium tier allows you to persist the cache data in an Azure Storage accoun
 For instructions on configuring persistence, see [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md).
 
 ## Redis cluster
-If you want to create caches larger than 53 GB or want to shard data across multiple Redis nodes, you can use Redis clustering that is available in the Premium tier. Each node consists of a primary/replica cache pair managed by Azure for high availability. 
+If you want to create caches larger than 120 GB or want to shard data across multiple Redis nodes, you can use Redis clustering that is available in the Premium tier. Each node consists of a primary/replica cache pair managed by Azure for high availability. 
 
 **Redis clustering gives you maximum scale and throughput.** Throughput increases linearly as you increase the number of shards (nodes) in the cluster. For example, if you create a P4 cluster of 10 shards, the available throughput is 250K *10 = 2.5 Million requests per second. See the [Choosing the right tier](cache-overview.md#choosing-the-right-tier) for more details about size, throughput, and bandwidth with premium caches.
 

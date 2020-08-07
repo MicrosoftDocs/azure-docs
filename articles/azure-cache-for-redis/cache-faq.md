@@ -13,7 +13,7 @@ Learn the answers to common questions, patterns, and best practices for Azure Ca
 * [Planning FAQs](cache-planning-faq.md)
 * [Development FAQs](cache-development-faq.md)
 * [Management FAQs](cache-management-faq.md)
-* [Monitoring and troubleshooting FAQs](cache-monitoring-troubleshooting-faq.md)
+* [Monitoring and troubleshooting FAQs](cache-monitor-troubleshoot-faq.md)
 
 ## Deprecated cache services
 
@@ -34,5 +34,5 @@ If your question isn't listed here, let us know and we'll help you find an answe
 
 * To reach a wider audience, you can post a question on the [Microsoft Q&A question page for Azure Cache](https://docs.microsoft.com/answers/topics/azure-cache-redis.html) and engage with the Azure Cache team and other members of the community.
 * If you want to make a feature request, you can submit your requests and ideas to [Azure Cache for Redis User Voice](https://feedback.azure.com/forums/169382-cache).
-* You can also send an email to us at [Azure Cache External Feedback](mailto:azurecache@microsoft.com).
+* You can also send your question to us at [azurecache@microsoft.com](mailto:azurecache@microsoft.com).
 
