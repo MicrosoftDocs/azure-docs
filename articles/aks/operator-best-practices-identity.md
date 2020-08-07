@@ -91,7 +91,7 @@ There are two levels of access needed to fully operate an AKS cluster:
 1. Access the AKS resource on your Azure subscription. This access level allows you to control things scaling or upgrading your cluster using the AKS APIs as well as pull your kubeconfig.
 To see how to control access to the AKS resource and the kubeconfig, see [Limit access to cluster configuration file](control-kubeconfig-access.md).
 
-2. Access to the Kubernetes API. This access level is controlled either by [Kubernetes RBAC](#use-kubernetes-role-based-access-controls-rbac) (traditionally) or by integrating Azure RBAC with AKS for kubernetes authorization.
+2. Access to the Kubernetes API. This access level is controlled either by [Kubernetes RBAC](#use-kubernetes-role-based-access-control-rbac) (traditionally) or by integrating Azure RBAC with AKS for kubernetes authorization.
 To see how to granularly give permissions to the Kubernetes API using Azure RBAC see [Use Azure RBAC for Kubernetes authorization](manage-azure-rbac.md).
 
 ## Use pod identities
