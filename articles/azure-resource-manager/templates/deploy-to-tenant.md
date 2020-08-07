@@ -2,7 +2,7 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/06/2020
 ---
 
 # Create resources at the tenant level
@@ -22,7 +22,6 @@ For Azure Policies, use:
 For role-based access control, use:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
 For nested templates that deploy to management groups, subscriptions, or resource groups, use:
 
