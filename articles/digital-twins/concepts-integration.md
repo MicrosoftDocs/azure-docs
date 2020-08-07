@@ -34,7 +34,7 @@ Azure Digital Twins can send data to connected **endpoints**. Supported endpoint
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-Endpoints are attached to Azure Digital Twins using management APIs or the Azure portal. Learn more about how to attach an endpoint to Azure Digital Twins in [*How-to: Manage endpoints and routes*](how-to-manage-routes.md).
+Endpoints are attached to Azure Digital Twins using management APIs or the Azure portal. Learn more about how to attach an endpoint to Azure Digital Twins in [*How-to: Manage endpoints and routes*](how-to-manage-routes-apis-cli.md).
 
 There are many other services where you may want to ultimately direct your data, such as [Azure Storage](../storage/common/storage-introduction.md) or [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). To send your data to services like these, attach the destination service to an endpoint.
 

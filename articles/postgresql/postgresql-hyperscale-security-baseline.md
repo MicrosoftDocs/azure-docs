@@ -4,7 +4,7 @@ description: The Azure Database for PostgreSQL - Hyperscale security baseline pr
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -175,8 +175,7 @@ Additionally, The PostgreSQL engine uses roles to control access to database obj
 
 **Responsibility**: Customer
 
-### 3.5: Use
-multi-factor authentication for all Azure Active Directory based access
+### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
 **Guidance**: For access to the Azure portal enable Azure Active Directory Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and Access Management recommendations.
 
@@ -189,9 +188,7 @@ multi-factor authentication for all Azure Active Directory based access
 
 **Responsibility**: Customer
 
-### 3.6: Use
-dedicated machines (Privileged Access Workstations) for all administrative
-tasks
+### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
 **Guidance**: Use Privileged Access Workstations (PAWs) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
 
@@ -204,8 +201,7 @@ tasks
 
 **Responsibility**: Customer
 
-### 3.7: Alert
-on account login behavior deviation
+### 3.7: Alert on account login behavior deviation
 
 **Guidance**: Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
@@ -623,8 +619,7 @@ Pre-scan any content being uploaded to non-compute Azure resources, such as App 
 
 *For more information, see [Security control: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
 
-### 9.1: Ensure
-regular automated back ups
+### 9.1: Ensure regular automated back ups
 
 **Guidance**: Azure Database for PostgreSQL – Hyperscale (Citus) automatically creates backups of each node and stores them in locally redundant storage. Backups can be used to restore your Hyperscale (Citus) cluster to a specified time.
 

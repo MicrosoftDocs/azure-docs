@@ -3,7 +3,7 @@ title: 'Quickstart: Create a C# ASP.NET app'
 description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET web app template from Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
-ms.date: 04/21/2020
+ms.date: 08/06/2020
 ms.custom: mvc, devcenter, seodec18
 ---
 
