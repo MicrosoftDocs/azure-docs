@@ -62,7 +62,7 @@ You can install the Connected Machine agent manually by running the Windows Inst
 >* To install or uninstall the agent, you must have *Administrator* permissions.
 >* You must first download and copy the Installer package to a folder on the target server, or from a shared network folder. If you run the Installer package without any options, it starts a setup wizard that you can follow to install the agent interactively.
 
-If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command that's described in step 2 below. This sets the proxy server system environment variable `https_proxy`.
+If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command that's described in the steps below. This command sets the proxy server system environment variable `https_proxy`.
 
 If you are unfamiliar with the command-line options for Windows Installer packages, review [Msiexec standard command-line options](/windows/win32/msi/standard-installer-command-line-options) and [Msiexec command-line options](/windows/win32/msi/command-line-options).
 
