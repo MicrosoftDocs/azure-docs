@@ -86,7 +86,7 @@ environment.
 
 Select **Compliance** in the left side of the page. Then locate the **\[Preview]: Log Analytics agent should be installed on your Windows Azure Arc machines** or **\[Preview]: Log Analytics agent should be installed on your Linux Azure Arc machines** policy assignment you created.
 
-:::image type="content" source="./media/assign-policy-portal/policy-compliance.png" alt-text="Compliance details on the Policy Compliance page" border="false":::
+:::image type="content" source="./media/tutorial-assign-policy-portal/policy-compliance.png" alt-text="Compliance details on the Policy Compliance page" border="false":::
 
 If there are any existing resources that aren't compliant with this new assignment, they appear
 under **Non-compliant resources**.
