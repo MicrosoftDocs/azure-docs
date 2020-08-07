@@ -117,7 +117,7 @@ To remove the assignment created, follow these steps:
 
 1. Right-click the policy assignment and select **Delete assignment**.
 
-   :::image type="content" source="./media/assign-policy-portal/delete-assignment.png" alt-text="Delete an assignment from the Compliance page" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/delete-assignment.png" alt-text="Delete an assignment from the Compliance page" border="false":::
 
 ## Next steps
 
