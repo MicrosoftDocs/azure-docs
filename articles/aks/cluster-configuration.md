@@ -323,7 +323,7 @@ As you work with the node resource group, keep in mind that you can't:
 - See [Upgrade an Azure Kubernetes Service (AKS) cluster](upgrade-cluster.md) to learn how to upgrade your cluster to the latest version of Kubernetes.
 - Read more about [`containerd` and Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - See the list of [Frequently asked questions about AKS](faq.md) to find answers to some common AKS questions.
-- Read more about [Ephemeral OS disks](../virtual-machines/ephemeral-os-disks).
+- Read more about [Ephemeral OS disks](../virtual-machines/ephemeral-os-disks.md).
 
 
 <!-- LINKS - internal -->
