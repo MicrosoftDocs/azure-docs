@@ -4,7 +4,7 @@ description: The App Service security baseline provides procedural guidance and 
 author: msmbaldwin
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/07/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -27,34 +27,33 @@ For more information, see [Azure Security Baselines overview](../security/benchm
 ### 1.1: Protect Azure resources within virtual networks
 
 **Guidance**: 
-App Service achieves perimeter security with Virtual Networks. An App Service Environment (ASE) is a deployment of Azure App Service into a subnet in an Azure virtual network. An ASE can be secured with Network Security Groups (NSG) to block inbound and outbound traffic to the resources in a Virtual network. There are two types of ASEs, External ASE and ILB (Internal Load Balancer) ASE.
+App Service achieves perimeter security with virtual networks. An App Service Environment (ASE) is a deployment of Azure App Service into a subnet in an Azure Virtual Network. An ASE can be secured with network security groups to block inbound and outbound traffic to the resources in a Virtual network. There are two types of ASEs, External ASE and ILB (Internal Load Balancer) ASE.
 
-NSGs include an implicit deny rule at the lowest priority to deny everything at the Azure portal, and any allow rules are required to be built. NSGs can be applied on the ASE subnet in order to restrict access to the apps on the ASE. An NSG that's applied to an integration subnet is in effect regardless of any routes applied to the integration subnet. 
+Network security groups include an implicit deny rule at the lowest priority to deny everything at the Azure portal, and any allow rules are required to be built. Network security groups can be applied on the ASE subnet in order to restrict access to the apps on the ASE. A network security group that's applied to an integration subnet is in effect regardless of any routes applied to the integration subnet. 
 
 You can also use Azure Firewall to centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall uses a static public IP address for your virtual network resources allowing outside firewalls to identify traffic originating from your virtual network. The service is fully integrated with Azure Monitor for logging and analytics. ASEs can be protected by an Application Gateway with a Web Application Firewall (WAF) at Layer 7 with OWASP Top protection. 
 
 No access is available to the VMs being used to host the ASE as they're in a Microsoft-managed subscription. 
 
-In the Multi-tenant App Service, NSGs can be used to block outbound traffic. To block traffic to public addresses, the application must be using regional Virtual network Integration and have the app setting WEBSITE_VIRTUAL NETWORK_ROUTE_ALL set to 1. The inbound rules in an NSG don't apply to an app because Virtual network Integration affects only outbound traffic from your app. 
+In the multi-tenant App Service, network security groups can be used to block outbound traffic. To block traffic to public addresses, the application must be using regional Virtual network Integration and have the app setting WEBSITE_VIRTUAL NETWORK_ROUTE_ALL set to 1. The inbound rules in a network security group don't apply to an app because Virtual Network Integration affects only outbound traffic from your app. 
 
-The Virtual network Integration feature is used in multitenant apps. Virtual network Integration is used only to make outbound calls from an app into its Virtual network. 
-When using Virtual network Integration with Virtual Networks in the same region, NSGs and Route tables (UDRs) can be used:
+The Virtual Network integration feature is used in multi-tenant apps. Virtual Network integration is used only to make outbound calls from an app into its Virtual network. When using Virtual Network integration with Virtual Networks in the same region, network security groups, and route tables (UDRs) can be used:
 
-•	The inbound rules don't apply because Virtual network Integration can't be used to provide inbound access to an app
+- The inbound rules don't apply because Virtual network Integration can't be used to provide inbound access to an app
 
-•	Route tables (UDRs) can be placed on the integration subnet to send outbound traffic where intended
+- Route tables (UDRs) can be placed on the integration subnet to send outbound traffic where intended
 
 Inbound traffic to your app can be secured with:
 
-•	Access Restrictions – a series of allow/deny rules that control inbound access
+- Access Restrictions: a series of allow/deny rules that control inbound access
 
-•	Service Endpoints – enable you to secure traffic to originating from a set of Virtual network/subnets
+- Service Endpoints: enable you to secure traffic to originating from a set of Virtual network/subnets
 
-•	Private Endpoints – expose your app on an address in your Virtual network. With these enabled on your app, it is no longer internet accessible.
+- Private Endpoints: expose your app on an address in your Virtual network. With these enabled on your app, it is no longer internet accessible.
 
-You can combine Access Restrictions and Service Endpoints but you cannot use Private Endpoints in conjunction with Access Restrictions and Service Endpoints.  
+You can combine access restrictions and service endpoints but you cannot use Private Endpoints in conjunction with access restrictions and service endpoints.  
 
-- [Network Security Groups](../virtual-network/security-overview.md)
+- [Network security groups](../virtual-network/security-overview.md)
 
 - [Networking considerations for an App Service Environment](environment/network-info.md)
 
