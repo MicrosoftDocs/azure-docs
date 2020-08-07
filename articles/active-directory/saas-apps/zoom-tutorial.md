@@ -86,6 +86,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `<companyname>.zoom.us`
 
+    c. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<companyname>.zoom.us`
+
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Zoom Client support team](https://support.zoom.us/hc/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -165,7 +168,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     f. In the **Issuer** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal. 
 
-    g. Click **Save**.
+    g. Click **Save Changes**.
 
     > [!NOTE]
 	> For more information, visit the zoom documentation [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
