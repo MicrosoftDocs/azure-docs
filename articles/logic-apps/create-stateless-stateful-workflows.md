@@ -47,7 +47,7 @@ ms.date: 09/22/2020
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which enables F5 functionality to run your workflow
 
-  * [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/?LinkId=717179&clcid=0x409). You also need to have a local SQL DB, such as SQL Express, installed for the storage emulator to use. For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
+  * [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/?LinkId=717179&clcid=0x409). You also need to have a local SQL DB, such as [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/?linkid=866658), installed for the storage emulator to use. For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
     > [!IMPORTANT]
     > Before you start creating your workflow, make sure that you start the emulator.
@@ -166,6 +166,17 @@ ms.date: 09/22/2020
 
    ![Screenshot that shows Explorer pane and shortcut window for workflow.json file with Open in Designer selected](./media/create-stateless-stateful-workflows/open-definition-file-in-designer.png)
 
+   If Windows Defender Firewall prompts you to permit access for the `func.exe`, which is the Azure Functions Core Tools, select **Private networks, such as my home or work network** > **Allow access**.
+
+   ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected](./media/create-stateless-stateful-workflows/windows-defender-firewall.png)
+
+   > [!NOTE]
+   > If you get a message that `Workflow design time could not be started`, make sure that Azure Storage Emulator is running. 
+   > 
+
+ try closing everything and restarting your computer.
+
+
 1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**.
 
    ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected](./media/create-stateless-stateful-workflows/use-connectors-from-azure.png)
@@ -180,11 +191,10 @@ ms.date: 09/22/2020
 
    When Visual Studio Code starts the workflow design-time API, a message appears that startup might take a few seconds. You can ignore this message or select **OK**.
 
-1. After the Logic Apps designer appears, continue with either the steps for stateful workflow or for [stateless workflow](#stateless-workflow).
+1. After the Logic App Designer appears, continue with either the steps for stateful workflow or for [stateless workflow](#stateless-workflow).
 
 ### Troubleshoot problems
 
-* If you get a message that **Workflow design time could not be started**, <what action to take?>
 
 <a name="stateful-workflow"></a>
 
