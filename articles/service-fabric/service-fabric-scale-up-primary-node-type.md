@@ -54,7 +54,7 @@ New-AzResourceGroupDeployment `
     -TemplateParameterFile $parameterFilePath `
 ```
 
-## Add a new primary node type to the cluster
+### Add a new primary node type to the cluster
 > [!Note]
 > The resources created in the following steps will become the new primary node type in your cluster once the scaling operation is complete. Ensure that you use names that are unique from the initial Subnet, Public IP, Load Balancer, Virtual Machine Scale Set, and Node Type. 
 
