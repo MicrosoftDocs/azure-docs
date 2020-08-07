@@ -3,7 +3,7 @@ title: Service Fabric app upgrade tutorial
 description: This article walks through the experience of deploying a Service Fabric application, changing the code, and rolling out an upgrade by using Visual Studio.
 
 ms.topic: conceptual
-ms.date: 8/5/2020
+ms.date: 2/23/2018
 ---
 # Service Fabric application upgrade tutorial using Visual Studio
 > [!div class="op_single_selector"]
@@ -15,46 +15,6 @@ ms.date: 8/5/2020
 <br/>
 
 Azure Service Fabric simplifies the process of upgrading cloud applications by ensuring that only changed services are upgraded, and that application health is monitored throughout the upgrade process. It also automatically rolls back the application to the previous version upon encountering issues. Service Fabric application upgrades are *Zero Downtime*, since the application can be upgraded with no downtime. This tutorial covers how to complete a rolling upgrade from Visual Studio.
-
-> [!NOTE]
-> [Application parameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s are not preserved across an application upgrade. In order to preserve current application parameters, the user should get the parameters first and pass them into the upgrade API call like below:
-```csharp
-    public static async Task Main(string[] args)
-    {
-        using (var fc = new FabricClient())
-        {
-            var applicationList = await fc.QueryManager.GetApplicationListAsync(new Uri("fabric:/myApplication"));
-            var application = applicationList.FirstOrDefault();
-            if (application != default)
-            {
-                var appParamList = application.ApplicationParameters;
-
-                var appParamCollection = new NameValueCollection();
-                foreach (var appParam in appParamList)
-                {
-                    appParamCollection[appParam.Name] = appParam.Value;
-                }
-
-                var upgradeDescription = new ApplicationUpgradeDescription()
-                {
-                    ApplicationName = application.ApplicationName,
-                    TargetApplicationTypeVersion = "2.0.0",
-                    ApplicationParameters = { appParamCollection },
-                    UpgradePolicyDescription = new MonitoredRollingApplicationUpgradePolicyDescription()
-                    {
-                        UpgradeMode = RollingUpgradeMode.Monitored,
-                        MonitoringPolicy = new RollingUpgradeMonitoringPolicy()
-                        {
-                            FailureAction = UpgradeFailureAction.Rollback
-                        }
-                    }
-                };
-
-                await fc.ApplicationManager.UpgradeApplicationAsync(upgradeDescription);
-            }
-        }
-    }
-```
 
 ## Step 1: Build and publish the Visual Objects sample
 First, download the [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) application from GitHub. Then, build and publish the application by right-clicking on the application project, **VisualObjects**, and selecting the **Publish** command in the Service Fabric menu item.
