@@ -37,8 +37,8 @@ Azure Digital Twins uses **DTDL _version 2_**. For more information about this v
 Within a model definition, the top-level code item is an **interface**. This encapsulates the entire model, and the rest of the model is defined within the interface. 
 
 A DTDL model interface may contain zero, one, or many of each of the following fields:
-* **Property** - Properties are data fields that represent the state of an entity (like the properties in many object-oriented programming languages). Unlike telemetry, which is a time-bound data event, properties have backing storage and can be read at any time.
-* **Telemetry** - Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Telemetry is not stored on a digital twin; it is more like a stream of data events ready to be sent somewhere. 
+* **Property** - Properties are data fields that represent the state of an entity (like the properties in many object-oriented programming languages). Properties have backing storage and can be read at any time.
+* **Telemetry** - Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Unlike properties, telemetry is not stored on a digital twin; it is a series of time-bound data events that need to be handled as they occur. For more on the differences between property and telemetry, see the [Properties vs. telemetry](#properties-vs-telemetry) section below.
 * **Component** - Components allow you to build your model interface as an assembly of other interfaces, if you want. An example of a component is a *frontCamera* interface (and another component interface *backCamera*) that are used in defining a model for a *phone*. You must first define an interface for *frontCamera* as though it were its own model, and then you can reference it when defining *Phone*.
 
     Use a component to describe something that is an integral part of your solution but doesn't need a separate identity, and doesn't need to be created, deleted, or rearranged in the twin graph independently. If you want entities to have independent existences in the twin graph, represent them as separate digital twins of different models, connected by *relationships* (see next bullet).
@@ -52,9 +52,9 @@ A DTDL model interface may contain zero, one, or many of each of the following f
 
 ### Properties vs. telemetry
 
-Here is some additional guidance on distinguishing between DTDL **properties** and **telemetry** fields.
+Here is some additional guidance on distinguishing between DTDL **property** and **telemetry** fields in Azure Digital Twins.
 
-The difference between properties and telemetry as defined in DTDL is as follows:
+The difference between properties and telemetry for Azure Digital Twins models is as follows:
 * **Properties** are expected to have backing storage. This means that you can read a property at any time and retrieve its value. If the property is writeable, you can also store a value in the property.  
 * **Telemetry** is more like a stream of events; it's a set of data messages that have short lifespans. If you don't set up listening for the event and actions to take when it happens, there is no trace of the event at a later time. You can't come back ot it and read it later. 
   - In C# terms, telemetry is like a C# event. 
