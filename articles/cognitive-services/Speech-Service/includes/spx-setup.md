@@ -52,7 +52,9 @@ Follow these steps to install the Speech CLI within a Docker container:
 
 1. Install [Docker Desktop for your platform](https://www.docker.com/get-started).
 1. Run Docker Desktop.
-1. In a new command prompt or terminal, type this command: `docker pull msftspeech/spx`
+1. In a new command prompt or terminal, type this command: 
+
+`docker pull msftspeech/spx`
 
 Type this command to see help for the Speech CLI:
 
@@ -61,7 +63,7 @@ Type this command to see help for the Speech CLI:
 ### Mount a directory in the container
 
 The Speech CLI tool saves configuration settings as files, and loads these files when performing any command (except help commands).
-When using Speech CLI within a Docker container, you must map a directory into the container, so the tool can store or find the configuration settings,
+When using Speech CLI within a Docker container, you must mount a local directory from the container, so the tool can store or find the configuration settings,
 and also so the tool can read or write any files required by the command, such as audio files of speech.
 
 On Windows, type this command to create a local directory Speech CLI can use from within the container:
@@ -89,15 +91,15 @@ On Windows, your commands will start like this:
 
 On Linux, your commands will start similar to this:
 
-`docker run -it -v /ABSOLUTE_PATH/spx-data:/data --rm msftspeech/spx`
+`docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
 
 > [!NOTE]
-> Replace /ABSOLUTE_PATH/ with the absolute path output by the `pwd` command in the section above.
+> Replace `/ABSOLUTE_PATH` with the absolute path shown by the `pwd` command in the section above.
 
 To use the `spx` command installed in Docker, always enter the full command shown above, followed by the parameters of your request.
 For example, on Windows, this command sets your key:
 
-`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set YOUR-SUBSCRIPTION-KEY`
+`docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY`
 
 > [!NOTE]
 > You cannot use your computer's microphone or speaker when you run Speech CLI within a Docker container.
