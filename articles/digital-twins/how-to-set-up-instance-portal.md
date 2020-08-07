@@ -74,7 +74,7 @@ First, open the page for your Azure Digital Twins instance in the Azure portal. 
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecting to add a role assignment from the 'Access control (IAM)' page":::
 
-On the following *Add role assignment* page, fill in the values (must be completed by an owner of the Azure subscription):
+On the following *Add role assignment* page, fill in the values (must be completed by a user with [sufficient permissions](#prerequisites-permission-requirements) in the Azure subscription):
 * **Role**: Select *Azure Digital Twins Owner (Preview)* from the dropdown menu
 * **Assign access to**: Select *Azure AD user, group or service principal* from the dropdown menu
 * **Select**: Search for the name or email address of the user to assign. When you select the result, the user will show up in a *Selected members* section.
