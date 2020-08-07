@@ -4,7 +4,7 @@ description: The Machine Learning Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: machine-learning
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/07/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
