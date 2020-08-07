@@ -477,9 +477,11 @@ You can change the runtime version used by your app. The new runtime version sho
 
 #### View the current runtime version
 
+You can view the current version of the platform authentication middleware either using the Azure CLI or via one of the built0-in version HTTP endpoints in your app.
+
 ##### From the Azure CLI
 
-Using the Azure CLI, view the current runtime version with the [az webapp auth show](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) command.
+Using the Azure CLI, view the current middleware version with the [az webapp auth show](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) command.
 
 ```azurecli-interactive
 az webapp auth show --name <my_app_name> \
@@ -500,7 +502,8 @@ You will see the `runtimeVersion` field in the CLI output. It will resemble the 
 ```
 
 ##### From the version endpoint
-You can also hit /.auth/version endpoint on an app also to view the app's runtime version. It will resemble the following example output:
+
+You can also hit /.auth/version endpoint on an app also to view the current middleware version that the app is running on. It will resemble the following example output:
 ```output
 {
 "version": "1.3.2"
@@ -508,8 +511,6 @@ You can also hit /.auth/version endpoint on an app also to view the app's runtim
 ```
 
 #### Update the current runtime version
-
-##### From the Azure CLI
 
 Using the Azure CLI, you can update the `runtimeVersion` setting in the app with the [az webapp auth update](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update) command.
 
