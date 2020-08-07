@@ -10,8 +10,6 @@ ms.date: 06/13/2018
 # How to configure Redis clustering for a Premium Azure Cache for Redis
 Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. This article describes how to configure clustering in a premium Azure Cache for Redis instance.
 
-For information on other premium cache features, see [Introduction to the Azure Cache for Redis Premium tier](cache-premium-tier-intro.md).
-
 ## What is Redis Cluster?
 Azure Cache for Redis offers Redis cluster as [implemented in Redis](https://redis.io/topics/cluster-tutorial). With Redis Cluster, you get the following benefits: 
 
@@ -85,7 +83,7 @@ The following list contains answers to commonly asked questions about Azure Cach
   For more information, see [Redis Cluster Specification - Implemented subset](https://redis.io/topics/cluster-spec#implemented-subset).
 * If you are using [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/), you must use 1.0.481 or later. You connect to the cache using the same [endpoints, ports, and keys](cache-configure.md#properties) that you use when connecting to a cache that does not have clustering enabled. The only difference is that all reads and writes must be done to database 0.
   
-  * Other clients may have different requirements. See [Do all Redis clients support clustering?](#do-all-redis-clients-support-clustering)
+  Other clients may have different requirements. See [Do all Redis clients support clustering?](#do-all-redis-clients-support-clustering)
 * If your application uses multiple key operations batched into a single command, all keys must be located in the same shard. To locate keys in the same shard, see [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
 * If you are using Redis ASP.NET Session State provider you must use 2.0.1 or higher. See [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
@@ -150,9 +148,9 @@ Clustering is only available for premium caches.
 If you are using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you are using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
 ## Next steps
-Learn how to use more premium cache features.
+Learn more about Azure Cache for Redis features.
 
-* [Introduction to the Azure Cache for Redis Premium tier](cache-premium-tier-intro.md)
+* [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 
