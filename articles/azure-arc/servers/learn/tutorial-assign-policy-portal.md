@@ -30,12 +30,12 @@ disks_ policy definition.
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
    for and selecting **Policy**.
 
-   :::image type="content" source="./media/assign-policy-portal/search-policy.png" alt-text="Search for Policy in All Services" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/search-policy.png" alt-text="Search for Policy in All Services" border="false":::
 
 1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that
    has been assigned to take place within a specific scope.
 
-   :::image type="content" source="./media/assign-policy-portal/select-assignments.png" alt-text="Select Assignments page from Policy Overview page" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignments.png" alt-text="Select Assignments page from Policy Overview page" border="false":::
 
 1. Select **Assign Policy** from the top of the **Policy - Assignments** page.
 
@@ -63,7 +63,7 @@ disks_ policy definition.
 1. Search through the policy definitions list to find the _\[Preview]: Log Analytics agent should be installed on your Windows Azure Arc machines_
    definition if you have enabled the Arc for servers (preview) agent on a Windows-based machine. For a Linux-based machine, find the corresponding _\[Preview]: Log Analytics agent should be installed on your Linux Azure Arc machines_ policy definition. Click on that policy and click **Select**.
 
-   :::image type="content" source="./media/assign-policy-portal/select-available-definition.png" alt-text="Find the correct policy definition" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Find the correct policy definition" border="false":::
 
 1. The **Assignment name** is automatically populated with the policy name you selected, but you can
    change it. For this example, leave _\[Preview]: Log Analytics agent should be installed on your Windows Azure Arc machines_ or _\[Preview]: Log Analytics agent should be installed on your Linux Azure Arc machines_ depending on which one you selected. You can also add an optional **Description**. The description provides details about this policy assignment.
@@ -72,10 +72,10 @@ disks_ policy definition.
 
 1. Leave **Create a Managed Identity** unchecked. This box _must_ be checked when the policy or
    initiative includes a policy with the
-   [deployIfNotExists](./concepts/effects.md#deployifnotexists) effect. As the policy used for this
+   [deployIfNotExists](../../../governance/concepts/effects.md#deployifnotexists) effect. As the policy used for this
    quickstart doesn't, leave it blank. For more information, see
-   [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) and
-   [how remediation security works](./how-to/remediate-resources.md#how-remediation-security-works).
+   [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md) and
+   [how remediation security works](../../../governance/how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Click **Assign**.
 
