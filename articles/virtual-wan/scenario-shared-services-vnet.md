@@ -32,7 +32,7 @@ We can use a connectivity matrix to summarize the requirements of this scenario.
 
 Similar to the [Isolated VNet scenario](scenario-isolate-vnets.md), this connectivity matrix gives us two different row patterns, which translate to two route tables (the shared services VNets and the branches have the same connectivity requirements). Virtual WAN already has a Default route table, so we will need another custom route table, which we will call **RT_SHARED** in this example.
 
-VNets will be associated to the **RT_SHARED** route table. Because they need connectivity to branches and to the shared service VNets, they will need to propagate to **RT_SHARED** (otherwise the VNets would not learn the branch and shared VNet prefixes). Because the branches are always associated to the Default route table, and the connectivity requirements are the same for shared services VNets, we will associate the shared service VNets to the Default route table too.
+VNets will be associated to the **RT_SHARED** route table. Because they need connectivity to branches and to the shared service VNets, the shared service VNet and branches will need to propagate to **RT_SHARED** (otherwise the VNets would not learn the branch and shared VNet prefixes). Because the branches are always associated to the Default route table, and the connectivity requirements are the same for shared services VNets, we will associate the shared service VNets to the Default route table too.
 
 As a result, this is the final design:
 
