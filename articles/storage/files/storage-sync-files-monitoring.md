@@ -107,7 +107,7 @@ To view registered server health, server endpoint health, and metrics, go to the
 
 ## Windows Server
 
-On Windows Server, you can view cloud tiering, registered server, and sync health.
+On the Windows Server that has the Azure File Sync agent installed, you can view cloud tiering, registered server, and sync health.
 
 ### Event logs
 
