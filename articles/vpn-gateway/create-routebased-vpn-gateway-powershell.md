@@ -1,6 +1,6 @@
 ﻿---
 title: 'Azure VPN Gateway: Create route-based gateway: PowerShell'
-description: Quickly create a route-based VPN Gateway using PowerShell
+description: Learn how to create a route-based Azure VPN gateway using PowerShell. Use a VPN gateway to connect to your on-premises network.
 services: vpn-gateway
 author: cherylmc
 

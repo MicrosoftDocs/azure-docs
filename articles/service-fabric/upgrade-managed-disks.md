@@ -159,7 +159,7 @@ Here are the section-by-section modifications of the original cluster deployment
 
 #### Parameters
 
-Add a parameter for the instance name of the new scale set. Note that `vmNodeType1Name` is unique to the new scale set, while the count and size values are identical to the original scale set.
+Add parameters for the instance name, count, and size of the new scale set. Note that `vmNodeType1Name` is unique to the new scale set, while the count and size values are identical to the original scale set.
 
 **Template file**
 
@@ -168,7 +168,18 @@ Add a parameter for the instance name of the new scale set. Note that `vmNodeTyp
     "type": "string",
     "defaultValue": "NTvm2",
     "maxLength": 9
-}
+},
+"nt1InstanceCount": {
+    "type": "int",
+    "defaultValue": 5,
+    "metadata": {
+        "description": "Instance count for node type"
+    }
+},
+"vmNodeType1Size": {
+    "type": "string",
+    "defaultValue": "Standard_D2_v2"
+},
 ```
 
 **Parameters file**
@@ -176,6 +187,12 @@ Add a parameter for the instance name of the new scale set. Note that `vmNodeTyp
 ```json
 "vmNodeType1Name": {
     "value": "NTvm2"
+},
+"nt1InstanceCount": {
+    "value": 5
+},
+"vmNodeType1Size": {
+    "value": "Standard_D2_v2"
 }
 ```
 
@@ -193,13 +210,13 @@ In the deployment template `variables` section, add an entry for the inbound NAT
 
 In the deployment template *resources* section, add the new virtual machine scale set, keeping in mind these things:
 
-* The new scale set references the new node type:
+* The new scale set references the same node type as the original:
 
     ```json
-    "nodeTypeRef": "[parameters('vmNodeType1Name')]",
+    "nodeTypeRef": "[parameters('vmNodeType0Name')]",
     ```
 
-* The new scale set references the same load balancer backend address and subnet as the original, but uses a different load balancer inbound NAT pool:
+* The new scale set references the same load balancer backend address and subnet (but uses a different load balancer inbound NAT pool):
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -230,33 +247,6 @@ In the deployment template *resources* section, add the new virtual machine scal
         "storageAccountType": "[parameters('storageAccountType')]"
     }
     ```
-
-Next, add an entry to the `nodeTypes` list of the *Microsoft.ServiceFabric/clusters* resource. Use the same values as the original node type entry, except for the `name`, which should reference the new node type (*vmNodeType1Name*).
-
-```json
-"nodeTypes": [
-    {
-        "name": "[parameters('vmNodeType0Name')]",
-        ...
-    },
-    {
-        "name": "[parameters('vmNodeType1Name')]",
-        "applicationPorts": {
-            "endPort": "[parameters('nt0applicationEndPort')]",
-            "startPort": "[parameters('nt0applicationStartPort')]"
-        },
-        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
-        "ephemeralPorts": {
-            "endPort": "[parameters('nt0ephemeralEndPort')]",
-            "startPort": "[parameters('nt0ephemeralStartPort')]"
-        },
-        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
-        "isPrimary": true,
-        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-    }
-],
-```
 
 Once you've implemented all the changes in your template and parameters files, proceed to the next section to acquire your Key Vault references and deploy the updates to your cluster.
 

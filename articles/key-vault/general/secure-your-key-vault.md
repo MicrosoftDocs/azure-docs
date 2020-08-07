@@ -194,7 +194,7 @@ We recommend that you set up additional secure access to your key vault by [conf
 
 ## Resources
 
-* [Azure AD RBAC](../../role-based-access-control/role-assignments-portal.md)
+* [Azure RBAC](../../role-based-access-control/role-assignments-portal.md)
 
 * [RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
 
