@@ -404,7 +404,9 @@ __Requirements__
 
 * The Azure Kubernetes Service (AKS) instance and the Azure virtual network must be in the same region. If you secure the Azure Storage account(s) used by the workspace in a virtual network, they must be in the same virtual network as the AKS instance.
 
-* You must follow the guidance in [Control egress traffic for cluster nodes in Azure Kubernetes Service](/azure/aks/limit-egress-traffic) when restricting access.
+* To __plan the IP addressing__ for your cluster, follow the prerequisites in the [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) article.
+
+* To restrict inbound and outbound communication to the AKS cluster, follow the guidance in the [Control egress traffic for cluster nodes in Azure Kubernetes Service](/azure/aks/limit-egress-traffic) article to make sure _outbound_ communication from AKS is configured correctly. _Inbound_ communication requirements, if any, are called out in the configuration section below.
 
 __Limitations__
 
@@ -412,147 +414,126 @@ __Limitations__
 
 __Configuration__
 
-* To __plan the IP addressing__ for your cluster, follow the prerequisites in the [Configure advanced networking in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) article.
+> [!IMPORTANT]
+> This section contains multiple configurations. Select the one that best suits your needs.
 
-* To __create AKS behind the virtual network, with a public load balancer__:
+* To __use AKS behind the virtual network, with a public load balancer__:
 
-* To __Create AKS behind the virtual network, with a private load balancer__:
+    1. Create or attach the AKS cluster. If you are __creating__ a new cluster, you must specify the virtual network to use for the cluster.
+    
+        The following example demonstrates how to create a new AKS cluster using the Python SDK:
+
+        ```python
+        from azureml.core.compute import ComputeTarget, AksCompute
+
+        # Create the compute configuration and set virtual network information
+        config = AksCompute.provisioning_configuration(location="eastus2")
+        config.vnet_resourcegroup_name = "mygroup"
+        config.vnet_name = "mynetwork"
+        config.subnet_name = "default"
+        config.service_cidr = "10.0.0.0/16"
+        config.dns_service_ip = "10.0.0.10"
+        config.docker_bridge_cidr = "172.17.0.1/16"
+
+        # Create the compute target
+        aks_target = ComputeTarget.create(workspace=ws,
+                                        name="myaks",
+                                        provisioning_configuration=config)
+        ```
+
+        If you have an existing AKS cluster that is already behind the virtual network, use the information in the [Deploy to Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster) article.
+
+    1. Make sure that the network security group that controls the virtual network has an __inbound__ security rule enabled for the scoring endpoint so that it can be called from outside the virtual network.
+
+* To __use AKS behind the virtual network, with a private load balancer__:
+
+    1. Create or attach the AKS cluster. If you are __creating__ a new cluster, you must specify the virtual network to use for the cluster.
+    
+        The following example demonstrates how to create a new AKS cluster using the Python SDK:
+
+        ```python
+        from azureml.core.compute import ComputeTarget, AksCompute
+
+        # Create the compute configuration and set virtual network information
+        config = AksCompute.provisioning_configuration(location="eastus2")
+        config.vnet_resourcegroup_name = "mygroup"
+        config.vnet_name = "mynetwork"
+        config.subnet_name = "default"
+        config.service_cidr = "10.0.0.0/16"
+        config.dns_service_ip = "10.0.0.10"
+        config.docker_bridge_cidr = "172.17.0.1/16"
+
+        # Create the compute target
+        aks_target = ComputeTarget.create(workspace=ws,
+                                        name="myaks",
+                                        provisioning_configuration=config)
+        ```
+
+        If you have an existing AKS cluster that is already behind the virtual network, use the information in the [Deploy to Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster) article.
+
+    1. To find the service principal or managed identity ID for AKS, use the following Azure CLI commands. Replace `<aks-cluster-name>` with the name of the cluster. Replace `<resource-group-name>` with the name of the resource group that _contains the AKS cluster_:
+
+        ```azurecli-interactive
+        az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
+        ``` 
+
+        If this command returns a value of `msi`, use the following command to identify the principal ID for the managed identity:
+
+        ```azurecli-interactive
+        az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
+        ```
+    1. To find the ID of the resource group that contains your virtual network, use the following command. Replace `<resource-group-name>` with the name of the resource group that _contains the virtual network_:
+
+        ```azurecli-interactive
+        az group show -n <resource-group-name> --query id
+        ```
+
+    1. To add the service principal or managed identity as a network contributor, use the following command. Replace `<SP-or-managed-identity>` with the ID returned for the service principal or managed identity. Replace `<resource-group-id>` with the ID returned for the resource group that contains the virtual network:
+
+        ```azurecli-interactive
+        az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
+        ```
+
+    1. To update the AKS cluster to use a __private load balancer__, use the Python SDK. The following code snippet demonstrates how to update an existing AKS cluster that has been added or attached to the workspace:
+    
+        ```python
+        import azureml.core
+        from azureml.core.compute.aks import AksUpdateConfiguration
+        from azureml.core.compute import AksCompute
+
+        # ws = workspace object. Creation not shown in this snippet
+        aks_target = AksCompute(ws,"myaks")
+
+        # Change to the name of the subnet that contains AKS
+        subnet_name = "default"
+        # Update AKS configuration to use an internal load balancer
+        update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
+        aks_target.update(update_config)
+        # Wait for the operation to complete
+        aks_target.wait_for_completion(show_output = True)
+        ```
 
 * To __Attach AKS using a private endpoint__:
 
-<!-- 
-* To create an Azure Kubernetes Service from studio, use the following steps:
-
-    1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/), and then select your subscription and workspace.
-    1. Select __Compute__ on the left.
-    1. Select __Inference clusters__ from the center, and then select __+__.
-    1. In the __New Inference Cluster__ dialog, select __Advanced__ under __Network configuration__.
-    1. To configure this compute resource to use a virtual network, perform the following actions:
-
-        1. In the __Resource group__ drop-down list, select the resource group that contains the virtual network.
-        1. In the __Virtual network__ drop-down list, select the virtual network that contains the subnet.
-        1. In the __Subnet__ drop-down list, select the subnet.
-        1. In the __Kubernetes Service address range__ box, enter the Kubernetes service address range. This address range uses a Classless Inter-Domain Routing (CIDR) notation IP range to define the IP addresses that are available for the cluster. It must not overlap with any subnet IP ranges (for example, 10.0.0.0/16).
-        1. In the __Kubernetes DNS service IP address__ box, enter the Kubernetes DNS service IP address. This IP address is assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range (for example, 10.0.0.10).
-        1. In the __Docker bridge address__ box, enter the Docker bridge address. This IP address is assigned to Docker Bridge. It must not be in any subnet IP ranges, or the Kubernetes service address range (for example, 172.17.0.1/16).
-
-    1. Make sure that the NSG group that controls the virtual network has an inbound security rule enabled for the scoring endpoint so that it can be called from outside the virtual network.
-
-        > [!IMPORTANT]
-        > Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
-
-* The following Python code demonstrates how to create a new Azure Kubernetes Service cluster using the SDK:
-
-    ```python
-    from azureml.core.compute import ComputeTarget, AksCompute
-
-    # Create the compute configuration and set virtual network information
-    config = AksCompute.provisioning_configuration(location="eastus2")
-    config.vnet_resourcegroup_name = "mygroup"
-    config.vnet_name = "mynetwork"
-    config.subnet_name = "default"
-    config.service_cidr = "10.0.0.0/16"
-    config.dns_service_ip = "10.0.0.10"
-    config.docker_bridge_cidr = "172.17.0.1/16"
-
-    # Create the compute target
-    aks_target = ComputeTarget.create(workspace=ws,
-                                    name="myaks",
-                                    provisioning_configuration=config)
-    ```
-
-* To attach an existing Azure Kubernetes cluster that is already the virtual network, attach it to the workspace as described in [How to deploy to AKS](how-to-deploy-and-where.md).
-
-* By default, a public IP address is assigned to Azure Kubernetes Service deployments. When using Azure Kubernetes Service inside a virtual network, you can use a private IP address instead. Private IP addresses are only accessible from inside the virtual network or joined networks. A private IP address is enabled by configuring AKS to use an _internal load balancer_. To use a private IP, use the following steps:
-
-     1. If you create or attach an AKS cluster by providing a virtual network you previously created, you must grant the service principal (SP) or managed identity for your AKS cluster the _Network Contributor_ role to the resource group that contains the virtual network. This must be done before you try to change the internal load balancer to private IP. To add the identity as network contributor, use the following steps:
-
-        1. To find the service principal or managed identity ID for AKS, use the following Azure CLI commands. Replace `<aks-cluster-name>` with the name of the cluster. Replace `<resource-group-name>` with the name of the resource group that _contains the AKS cluster_:
-
-            ```azurecli-interactive
-            az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query servicePrincipalProfile.clientId
-            ``` 
-
-            If this command returns a value of `msi`, use the following command to identify the principal ID for the managed identity:
-
-            ```azurecli-interactive
-            az aks show -n <aks-cluster-name> --resource-group <resource-group-name> --query identity.principalId
-            ```
-
-        1. To find the ID of the resource group that contains your virtual network, use the following command. Replace `<resource-group-name>` with the name of the resource group that _contains the virtual network_:
-
-            ```azurecli-interactive
-            az group show -n <resource-group-name> --query id
-            ```
-
-        1. To add the service principal or managed identity as a network contributor, use the following command. Replace `<SP-or-managed-identity>` with the ID returned for the service principal or managed identity. Replace `<resource-group-id>` with the ID returned for the resource group that contains the virtual network:
-
-            ```azurecli-interactive
-            az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
-            ```
+    1. Use the following Azure CLI command to get the __subnet ID__ of the subnet that the AKS cluster will use. For example, the default subnet for your virtual network:
     
-    1. Enable private IP:
+        ```azurecli
+        az network vnet show -g myresourcegroup -n myvnet --query subnets[].id
+        ```
+        
+        This command returns an array of IDs for the subnets in the virtual network. The following is an example from a virtual network that only has one subnet:
 
-        * The following code snippet demonstrates how to __create a new AKS cluster__, and then update it to use a private IP/internal load balancer:
+        ```json
+        [
+            "/subscriptions/GUID/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/default"
+        ]
+        ```
 
-            ```python
-            import azureml.core
-            from azureml.core.compute.aks import AksUpdateConfiguration
-            from azureml.core.compute import AksCompute, ComputeTarget
+        If multiple IDs are returned, select the one that you want to use.
 
-            # Verify that cluster does not exist already
-            try:
-                aks_target = AksCompute(workspace=ws, name=aks_cluster_name)
-                print("Found existing aks cluster")
+    1. To create an AKS cluster a private endpoint, use the information in the __Advanced networking__ section of the [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters#advanced-networking) article. When creating the cluster, use the subnet ID from the previous command with the `--vnet-subnet-id` paramter.
 
-            except:
-                print("Creating new aks cluster")
-
-                # Subnet to use for AKS
-                subnet_name = "default"
-                # Create AKS configuration
-                prov_config = AksCompute.provisioning_configuration(location = "eastus2")
-                # Set info for existing virtual network to create the cluster in
-                prov_config.vnet_resourcegroup_name = "myvnetresourcegroup"
-                prov_config.vnet_name = "myvnetname"
-                prov_config.service_cidr = "10.0.0.0/16"
-                prov_config.dns_service_ip = "10.0.0.10"
-                prov_config.subnet_name = subnet_name
-                prov_config.docker_bridge_cidr = "172.17.0.1/16"
-
-                # Create compute target
-                aks_target = ComputeTarget.create(workspace = ws, name = "myaks", provisioning_configuration = prov_config)
-                # Wait for the operation to complete
-                aks_target.wait_for_completion(show_output = True)
-                
-                # Update AKS configuration to use an internal load balancer
-                update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
-                aks_target.update(update_config)
-                # Wait for the operation to complete
-                aks_target.wait_for_completion(show_output = True)
-            ```
-
-        * When __attaching an existing cluster__ to your workspace, you must wait until after the attach operation to configure the load balancer. For information on attaching a cluster, see [Attach an existing AKS cluster](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster).
-
-            After attaching the existing cluster, you can then update the cluster to use a private IP.
-
-            ```python
-            import azureml.core
-            from azureml.core.compute.aks import AksUpdateConfiguration
-            from azureml.core.compute import AksCompute
-
-            # ws = workspace object. Creation not shown in this snippet
-            aks_target = AksCompute(ws,"myaks")
-
-            # Change to the name of the subnet that contains AKS
-            subnet_name = "default"
-            # Update AKS configuration to use an internal load balancer
-            update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
-            aks_target.update(update_config)
-            # Wait for the operation to complete
-            aks_target.wait_for_completion(show_output = True)
-            ```
- -->
+    1. To attach the cluster, use the information in the [Deploy to Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster) article.
 
 ## Use Azure Container Instances (ACI)
 
