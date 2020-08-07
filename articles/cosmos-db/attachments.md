@@ -14,10 +14,10 @@ ms.reviewer: sngun
 
 Azure Cosmos DB attachments are special items that contain references to an associated metadata with an external blob or media file.
 
-There two types of attachments:
+There are two types of attachments:
 
-1. **Unmanaged Attachments** are a wrapper around an arbitrary URI reference to a blob stored in an external service (e.g. Azure Storage, OneDrive, etc.). This is similar in approach to storing a URI property in a standard Azure Cosmos DB item.
-2. **Managed Attachments** are blobs managed and stored internally by Azure Cosmos DB and exposed via a system generated mediaLink.
+1. **Unmanaged Attachments** are a wrapper around an URI reference to a blob stored in an external service (for example, Azure Storage, OneDrive, etc.). This approach is similar to storing a URI property in a standard Azure Cosmos DB item.
+2. **Managed Attachments** are blobs managed and stored internally by Azure Cosmos DB and exposed via a system-generated mediaLink.
 
 
 > [!NOTE]
@@ -31,9 +31,9 @@ There two types of attachments:
 
 Azure Cosmos DB’s managed attachments are distinct from its support for standard items – for which it offers unlimited scalability, global distribution, and integration with other Azure services.
 
-- Attachments are not supported in all versions of Azure Cosmos DB’s SDKs.
-- Managed attachments are limited to 2GB worth of storage per database account.
-- Managed attachments are not compatible with Azure Cosmos DB’s global distribution feature set.
+- Attachments aren't supported in all versions of Azure Cosmos DB’s SDKs.
+- Managed attachments are limited to 2 GB of storage per database account.
+- Managed attachments aren't compatible with Azure Cosmos DB’s global distribution feature set.
 
 ## Next Steps
 
