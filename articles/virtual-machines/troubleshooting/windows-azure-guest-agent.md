@@ -108,7 +108,7 @@ The Windows Azure Guest Agent has an auto-update feature, so it will automatical
     In very rare cases where Guest Agent doesn't install properly, you can [Install the VM agent offline](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
     
 
-### Step 4 Check if the VM can connect to the Fabric Controller
+### Step 3 Check if the VM can connect to the Fabric Controller
 
  Use the tool such as PsPing to test if the VM can connect to 168.63.129.16 on ports 80, 32526 and 443. If it isn’t connecting as expected,  check if outbound communication over ports 80, 443 and 32526 is open in your local firewall of the VM. If this IP address is blocked, unexpected behavior of VM Agent can occur in a variety of scenarios.
 
@@ -119,13 +119,13 @@ There are two logs files which you should be aware of for troubleshooting Window
 - C:\WindowsAzure\Logs\WaAppAgent.log
 - C:\WindowsAzure\Logs\TransparentInstaller.log
 
-Here are some common scenarios which usually lead to  Windows Azure Guest Agent being in **Not ready** status or not working as expected. The followings are the common issues with suggested solution.
+The followings are some common scenarios which usually lead to  Windows Azure Guest Agent being in **Not ready** status or not working as expected.
 
 ### Agent Stuck on Starting
 
-In waappagent.log file, you can see that Agent is stuck starting but unable to start:
+In waappagent.log file, you can see that the agent is stuck starting but unable to start:
 
-**Log Lines Indication**
+**Log information**
  
 [00000007] [05/28/2019 12:58:50.90] [INFO] WindowsAzureGuestAgent starting. Version 2.7.41491.901
 
@@ -156,12 +156,14 @@ i. Delete the OLD folder in C:\WindowsAzure.
 
 You can find following logs in waappagent.log and telemetry.log:
 
-**Log Lines Indication**
+**Log information**
 
-- [ERROR] GetVersions() failed with exception: Microsoft.ServiceModel.Web.WebProtocolException: Server Error: Service Unavailable (ServiceUnavailable) ---> 
-System.Net.WebException: The remote server returned an error: (503) Server Unavailable.`
- 
-- [00000011] [12/11/2018 06:27:55.66] [WARN]  (Ignoring) Exception while fetching supported versions from HostGAPlugin: System.Net.WebException: Unable to connect to the remote server 
+```Log
+[ERROR] GetVersions() failed with exception: Microsoft.ServiceModel.Web.WebProtocolException: Server Error: Service Unavailable (ServiceUnavailable) ---> 
+System.Net.WebException: The remote server returned an error: (503) Server Unavailable.
+```
+```Log
+[00000011] [12/11/2018 06:27:55.66] [WARN]  (Ignoring) Exception while fetching supported versions from HostGAPlugin: System.Net.WebException: Unable to connect to the remote server 
 ---> System.Net.Sockets.SocketException: An attempt was made to access a socket in a way forbidden by its access permissions 168.63.129.16:32526
 at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
 at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState status, IAsyncResult asyncResult, Exception& exception)
@@ -170,6 +172,7 @@ at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
 at System.Net.WebClient.DownloadString(Uri address)
 at Microsoft.GuestAgentHostPlugin.Client.GuestInformationServiceClient.GetVersions()
 at Microsoft.WindowsAzure.GuestAgent.ContainerStateMachine.HostGAPluginUtility.UpdateHostGAPluginAvailability()`
+```
 
 **Analysis**
 
@@ -188,7 +191,7 @@ The VM is not able to reach the Wireserver (Host).
 
 You can find the following errors in WaAppAgent.log:
 
-**Log Lines Indication** 
+**Log information** 
 
 [00000007] [07/18/2019 14:46:28.87] [WARN] WindowsAzureGuestAgent stopping.
 [00000007] [07/18/2019 14:46:28.89] [INFO] Uninitializing StateExecutor with WaitForTerminalStateReachedOnEnd : True
