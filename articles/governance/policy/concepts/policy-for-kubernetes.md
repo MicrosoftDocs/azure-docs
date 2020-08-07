@@ -1,7 +1,7 @@
 ---
 title: Preview - Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises. This is a preview feature.
-ms.date: 06/12/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy for Kubernetes clusters (preview)
@@ -145,12 +145,21 @@ you want to manage.
 
   1. In the main page, select the **Enable add-on** button.
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Enable the Azure Policy for AKS add-on" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Enable the Azure Policy for AKS add-on":::
 
+     <a name="migrate-from-v1"></a>
      > [!NOTE]
      > If the **Enable add-on** button is grayed out, the subscription hasn't yet been added to the
-     > preview. If the **Disable add-on** button is enabled and a migration warning to v2 message is
-     > displayed, Gatekeepver v2 is still installed and must be removed.
+     > preview. If the **Disable add-on** button is enabled and a migration warning v2 message is
+     > displayed, v1 add-on is installed and must be removed prior to assigning v2 policy
+     > definitions. The _deprecated_ v1 add-on will automatically be replaced with the v2 add-on
+     > starting August 24, 2020. New v2 versions of the policy definitions must then be assigned. To
+     > upgrade now, follow these steps:
+     > 
+     > 1. Validate your AKS cluster has the v1 add-on installed by visiting the **Policies (preview)** page on your AKS cluster and has the "The current cluster uses Azure Policy add-on v1..." message.
+     > 1. [Remove the add-on](#remove-the-add-on-from-aks).
+     > 1. Select the **Enable add-on** button to install the v2 version of the add-on.
+     > 1. [Assign v2 versions of your v1 built-in policy definitions](#assign-a-built-in-policy-definition)
 
 - Azure CLI
 
