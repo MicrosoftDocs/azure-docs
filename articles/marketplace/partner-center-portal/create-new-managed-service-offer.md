@@ -3,10 +3,10 @@ title: Create a Managed Service offer in Microsoft commercial marketplace
 description: How to create a new Managed Service offer for listing in Azure Marketplace using the Commercial Marketplace portal in Partner Center. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.date: 07/07/2020
+ms.date: 08/07/2020
 ---
 
 # Create a Managed Service offer
