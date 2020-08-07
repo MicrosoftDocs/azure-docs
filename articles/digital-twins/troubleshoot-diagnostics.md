@@ -62,14 +62,14 @@ Here are more details about the log categories that can be selected under **Cate
 
 Each log category consists of operations of write, read, delete and action.  These map to REST API calls as follows:
 
-| Event Type | REST API Operations |
+| Event type | REST API operations |
 | --- | --- |
 | Write | PUT and PATCH |
 | Read | GET |
 | Delete | DELETE |
 | Action | POST |
 
-Here is a comprehensive list of the Operations and corresponding REST API calls that are logged in each category:
+Here is a comprehensive list of the operations and corresponding REST API calls that are logged in each category:
 
 | Log category | Operation | REST API calls and other events |
 | --- | --- | --- |
