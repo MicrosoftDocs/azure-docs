@@ -1,7 +1,8 @@
 ---
 title: Delegated access in Windows Virtual Desktop - Azure
 description: How to delegate administrative capabilities on a Windows Virtual Desktop deployment, including examples.
-author: Heidilohrms.topic: conceptual
+author: Heidilohr
+ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross

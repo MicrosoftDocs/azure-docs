@@ -1,7 +1,8 @@
 ---
 title: Troubleshoot Windows Virtual Desktop session host - Azure
 description: How to resolve issues when you're configuring Windows Virtual Desktop session host virtual machines.
-author: Heidilohrms.topic: troubleshooting
+author: Heidilohr
+ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross

@@ -1,7 +1,8 @@
 ---
 title: Windows 10 Enterprise multi-session FAQ - Azure
 description: Frequently asked questions and best practices for using Windows 10 Enterprise multi-session for Windows Virtual Desktop.
-author: Heidilohrms.topic: conceptual
+author: Heidilohr
+ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross

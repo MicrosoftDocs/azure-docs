@@ -1,7 +1,8 @@
 ---
 title: Windows Virtual Desktop (classic) management tool - Azure
 description: How to troubleshoot issues with the Windows Virtual Desktop (classic) management tool.
-author: Heidilohrms.topic: troubleshooting
+author: Heidilohr
+ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross

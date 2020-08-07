@@ -1,7 +1,8 @@
 ---
 title: Windows Virtual Desktop Linux Support - Azure
 description: A brief overview Linux support for Windows Virtual Desktop.
-author: Heidilohrms.topic: conceptual
+author: Heidilohr
+ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross

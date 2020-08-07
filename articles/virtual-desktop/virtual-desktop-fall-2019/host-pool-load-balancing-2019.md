@@ -1,7 +1,8 @@
 ---
 title: Windows Virtual Desktop (classic) host pool load-balancing - Azure
 description: Host pool load-balancing methods for a Windows Virtual Desktop environment.
-author: Heidilohrms.topic: conceptual
+author: Heidilohr
+ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross

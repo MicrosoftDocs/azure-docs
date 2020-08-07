@@ -1,7 +1,8 @@
 ---
 title: Manage app groups for Windows Virtual Desktop portal - Azure
 description: How to manage Windows Virtual Desktop app groups with the Azure portal.
-author: Heidilohrms.topic: tutorial
+author: Heidilohr
+ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
