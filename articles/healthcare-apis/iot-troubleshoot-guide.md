@@ -39,12 +39,14 @@ You can use the mapping file copies for editing and archiving outside of the Azu
 |Potential Issues  |Fixes            |
 |------------------|-----------------|
 |Data is still being processed.|Data is egressed to the Azure API for FHIR in batches (every ~15 minutes).  It’s possible the data is still being processed and additional time is needed for the data to be persisted in the Azure API for FHIR.|
-|A device-mapping JSON file hasn't been configured.|Configure and save a valid device mapping file.|
-|A FHIR mapping JSON file has not been configured.|Configure and save a valid FHIR mapping file.|
-|The device message doesn't contain an expected expression defined in the device mapping JSON file.|Remove the expression from the device mapping JSON file.|
-|A Device Resource hasn't been created in the Azure API for FHIR (Resolution Type: Lookup only).|Create a valid Device Resource in the Azure API for FHIR.|
-|A Patient Resource has not been created in the Azure API for FHIR (Resolution Type: Lookup only).|Create a valid Patient Resource in the Azure API for FHIR.|
-|The Device.patient reference isn't set, or the reference is invalid (Resolution Type: Lookup only).|Create a valid Device.patient reference in the Azure API for FHIR.| 
+|A device-mapping JSON file hasn't been configured.|Configure and save a conforming device mapping.|
+|A FHIR mapping JSON file has not been configured.|Configure and save a conforming FHIR mapping.|
+|The device message doesn't contain an expected expression defined in the device mapping.|Remove the expression from the device mapping.|
+|A Device Resource hasn't been created in the Azure API for FHIR (Resolution Type: Lookup only)*.|Create a valid Device Resource in the Azure API for FHIR.|
+|A Patient Resource has not been created in the Azure API for FHIR (Resolution Type: Lookup only)*.|Create a valid Patient Resource in the Azure API for FHIR.|
+|The Device.patient reference isn't set, or the reference is invalid (Resolution Type: Lookup only)*.|Create a valid Device.patient reference in the Azure API for FHIR.| 
+
+*Reference [Quickstart: Deploy Azure IoT Connector (preview) using Azure portal](iot-fhir-portal-quickstart.md#create-new-azure-iot-connector-for-fhir-preview) for a functional description of the Azure IoT Connector for FHIR resolution types (For example: Lookup vs. Create).
 
 ## Creating copies of the Azure IoT Connector for FHIR (preview) mapping files
 The copying of Azure IoT Connector for FHIR mapping files can be useful for editing and archiving outside of the Azure portal website.
