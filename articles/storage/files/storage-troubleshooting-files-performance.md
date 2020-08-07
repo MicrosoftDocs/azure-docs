@@ -1,6 +1,6 @@
 ---
 title: Azure Files performance troubleshooting guide
-description: Known performance issues with Azure file shares and associated workarounds.
+description: Troubleshoot known performance issues with Azure file shares. Discover potential causes and associated workarounds when these problems are encountered.
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
