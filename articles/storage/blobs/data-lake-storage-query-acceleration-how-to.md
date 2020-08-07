@@ -26,13 +26,13 @@ Choose a tab to view any SDK-specific prerequisites.
 
 ### [.NET](#tab/dotnet)
 
-- [.NET SDK](https://dotnet.microsoft.com/download). 
+The [.NET SDK](https://dotnet.microsoft.com/download) 
 
 ### [Java](#tab/java)
 
-- [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 or above.
+- [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 or above
 
-- [Apache Maven](https://maven.apache.org/download.cgi). 
+- [Apache Maven](https://maven.apache.org/download.cgi) 
 
   > [!NOTE] 
   > This article assumes that you've created a Java project by using Apache Maven. For an example of how to create a project by using Apache Maven, see [Setting up](storage-quickstart-blobs-java.md#setting-up).
@@ -60,9 +60,9 @@ There are no additional prerequisites required to use the Node.js SDK.
 
 2. Install the Azure Blob storage client library for .NET package by using the `dotnet add package` command.
 
-```console
-dotnet add package Azure.Storage.Blobs
-```
+   ```console
+   dotnet add package Azure.Storage.Blobs
+   ```
 
 ### [Java](#tab/java)
 
