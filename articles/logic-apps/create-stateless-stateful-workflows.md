@@ -47,9 +47,12 @@ ms.date: 09/22/2020
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which enables F5 functionality to run your workflow
 
-  * If you don't have the standalone Azure Storage Emulator, download and install the latest version. Before you can start, if you never used the emulator before, you need to initialize the emulator. You also need to have a local SQL DB, such as SQL Express, installed for the storage emulator to use. For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
+  * [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/?LinkId=717179&clcid=0x409). You also need to have a local SQL DB, such as SQL Express, installed for the storage emulator to use. For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
-   Or, use [Azurite](https://github.com/Azure/Azurite/blob/master/README.md) instead?
+    > [!IMPORTANT]
+    > Before you start creating your workflow, make sure that you start the emulator.
+
+     Or, use [Azurite](https://github.com/Azure/Azurite/blob/master/README.md) instead?
 
 ## Set up environment
 
@@ -171,9 +174,9 @@ ms.date: 09/22/2020
 
    ![Screenshot that shows Explorer pane with resource groups list and "Create new resource group" selected](./media/create-stateless-stateful-workflows/create-select-resource-group.png)
 
-1. From the locations list, select the Azure region to use for your resource group and resources. This example uses **West US**.
+1. From the locations list, select the Azure region to use for your resource group and resources. This example uses **West Central US**.
 
-   ![Screenshot that shows Explorer pane with locations list and "West US" selected](./media/create-stateless-stateful-workflows/select-azure-region.png)
+   ![Screenshot that shows Explorer pane with locations list and "West US 2" selected](./media/create-stateless-stateful-workflows/select-azure-region.png)
 
    When Visual Studio Code starts the workflow design-time API, a message appears that startup might take a few seconds. You can ignore this message or select **OK**.
 
