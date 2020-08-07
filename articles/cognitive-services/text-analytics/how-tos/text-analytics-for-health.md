@@ -14,6 +14,9 @@ ms.author: aahi
 
 # How to: Use Text Analytics for health (preview)
 
+> [!NOTE]
+> The Text Analytics for health container has recently updated. See [What's new](../whats-new.md) for more information on recent changes. Remember to pull the latest container to use the updates listed.
+
 > [!IMPORTANT] 
 > Text Analytics for health is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, **Text Analytics for health (preview) should not be implemented or deployed in any production use.** 
 Text Analytics for health is not intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability is not designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of Text Analytics for health. Microsoft does not warrant that Text Analytics for health or any materials provided in connection with the capability will be sufficient for any medical purposes or otherwise meet the health or medical requirements of any person. 
@@ -265,7 +268,7 @@ The following JSON is an example of the Text Analytics for health API response b
                     "offset": 17,
                     "length": 11,
                     "text": "itchy sores",
-                    "type": "SYMPTOM_OR_SIGN",
+                    "category": "SymptomOrSign",
                     "score": 0.97,
                     "isNegated": false
                 }
@@ -279,7 +282,7 @@ The following JSON is an example of the Text Analytics for health API response b
                     "offset": 11,
                     "length": 4,
                     "text": "50mg",
-                    "type": "DOSAGE",
+                    "category": "Dosage",
                     "score": 1.0,
                     "isNegated": false
                 },
@@ -288,7 +291,7 @@ The following JSON is an example of the Text Analytics for health API response b
                     "offset": 16,
                     "length": 8,
                     "text": "benadryl",
-                    "type": "MEDICATION_NAME",
+                    "category": "MedicationName",
                     "score": 0.99,
                     "isNegated": false,
                     "links": [
@@ -335,15 +338,18 @@ The following JSON is an example of the Text Analytics for health API response b
                     "offset": 32,
                     "length": 11,
                     "text": "twice daily",
-                    "type": "FREQUENCY",
+                    "category": "Frequency",
                     "score": 1.0,
                     "isNegated": false
                 }
             ],
             "relations": [
                 {
-                    "relationType": "DOSAGE_OF_MEDICATION",
+                    "relationType": "DosageOfMedication",
                     "score": 1.0,
+                    "bidirectional": false,
+                    "source": "#/documents/2/entities/0",
+                    "target": "#/documents/2/entities/1",
                     "entities": [
                         {
                             "id": "0",
@@ -356,7 +362,7 @@ The following JSON is an example of the Text Analytics for health API response b
                     ]
                 },
                 {
-                    "relationType": "FREQUENCY_OF_MEDICATION",
+                    "relationType": "FrequencyOfMedication",
                     "score": 1.0,
                     "entities": [
                         {
@@ -373,12 +379,13 @@ The following JSON is an example of the Text Analytics for health API response b
         }
     ],
     "errors": [],
-    "modelVersion": "2020-05-08"
+    "modelVersion": "2020-07-24"
 }
 ```
 
-> [!NOTE] 
-> With negation detection, in some cases a single negation term may address several terms at once. The negation of a recognized entity is represented in the JSON output by the boolean value of the `isNegated` flag:
+### Negation detection output
+
+When using negation detection, in some cases a single negation term may address several terms at once. The negation of a recognized entity is represented in the JSON output by the boolean value of the `isNegated` flag:
 
 ```json
 {
@@ -386,7 +393,7 @@ The following JSON is an example of the Text Analytics for health API response b
   "offset": 90,
   "length": 10,
   "text": "chest pain",
-  "type": "SYMPTOM_OR_SIGN",
+  "category": "SymptomOrSign",
   "score": 0.9972,
   "isNegated": true,
   "links": [
@@ -399,6 +406,33 @@ The following JSON is an example of the Text Analytics for health API response b
       "id": "0000023593"
     },
     ...
+```
+
+### Relation extraction output
+
+Relation extraction output contains URI references to the *source* of the relation, and its *target*. Entities with relation role of `ENTITY` are assigned to the `target` field. Entities with relation role of `ATTRIBUTE` are assigned to the `source` field. Abbreviation relations contain bidirectional `source` and `target` fields, and `bidirectional` will be set to `true`. 
+
+```json
+"relations": [
+  {
+      "relationType": "DosageOfMedication",
+      "score": 1.0,
+      "bidirectional": false,
+      "source": "#/documents/2/entities/0",
+      "target": "#/documents/2/entities/1",
+      "entities": [
+          {
+              "id": "0",
+              "role": "ATTRIBUTE"
+          },
+          {
+              "id": "1",
+              "role": "ENTITY"
+          }
+      ]
+  },
+...
+]
 ```
 
 ## See also
