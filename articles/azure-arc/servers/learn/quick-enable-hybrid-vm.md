@@ -102,9 +102,9 @@ After you install the agent and configure it to connect to Azure Arc for servers
 
 ## Next steps
 
-Now that you've enabled your Linux or Windows hybrid machine to successfully connect to the service, you are ready to enable management and monitoring.
+Now that you've enabled your Linux or Windows hybrid machine to successfully connect to the service, you are ready to enable Azure Policy to understand compliance in Azure.
 
-To learn how to monitor and view the performance, running process and their dependencies from your machine, continue to the tutorial:
+To learn how to identify Azure Arc for servers (preview) enabled machine that don't have the Log Analytics agent installed, continue to the tutorial:
 
 > [!div class="nextstepaction"]
-> [Enable Azure Monitor for VMs](tutorial-enable-vm-insights.md)
+> [Create a policy assignment to identify non-compliant resources](tutorial-assign-policy-portal.md)

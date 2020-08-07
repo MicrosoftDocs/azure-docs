@@ -67,9 +67,7 @@ Select your virtual machine again and then select **Log Events**. You see a list
 
 ## Next steps
 
-Now that you've enabled Azure Monitor for VMs, you are ready to enable Azure Policy to understand compliance in Azure.
-
-To learn how to identify Azure Arc enabled machines that don't have the Log Analytics agent installed, continue to the tutorial:
+To learn more about Azure Monitor, look at the following article:
 
 > [!div class="nextstepaction"]
-> [Create a policy assignment to identify non-compliant resources](tutorial-assign-policy-portal.md)
+> [Azure Monitor overview](../../../azure-monitor/overview.md)

@@ -15,7 +15,7 @@ The first step in understanding compliance in Azure is to identify the status of
 This tutorial steps you through the process of creating a policy assignment to identify your Azure Arc for servers (preview)
 machines and them to identify machines that do not have the Log Analytics agent installed on your Azure Arc enabled machines.
 
-At the end of this process, you'll successfully identify machines don't have the Log Analytics agent for Windows or Linux installed. They're _non-compliant_ with the policy assignment.
+At the end of this process, you'll successfully identify machines that don't have the Log Analytics agent for Windows or Linux installed. They're _non-compliant_ with the policy assignment.
 
 ## Prerequisites
 
@@ -123,10 +123,9 @@ To remove the assignment created, follow these steps:
 
 In this tutorial, you assigned a policy definition to a scope and evaluated its compliance report.
 The policy definition validates that all the resources in the scope are compliant and identifies
-which ones aren't.
+which ones aren't. Now you are ready to monitor your Azure Arc for servers (Preview) machine with Azure Monitor for VMs.
 
-To learn more about assigning policies to validate that new resources are compliant, continue to the
-tutorial for:
+To learn how to monitor and view the performance, running process and their dependencies from your machine, continue to the tutorial:
 
 > [!div class="nextstepaction"]
-> [Creating and managing policies](../../../governance/policy/tutorials/create-and-manage.md)
+> [Enable Azure Monitor for VMs](tutorial-enable-vm-insights.md)

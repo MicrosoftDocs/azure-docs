@@ -12,10 +12,10 @@
     href: ./servers/learn/quick-enable-hybrid-vm.md
 - name: Tutorials
   items:
+    - name: Assign policy to assess compliance
+      href: /servers/learn/tutorial-assign-policy-portal.md
     - name: Monitor machine
       href: ./servers/learn/tutorial-enable-vm-insights.md
-    - name: Assign policy from portal
-      href: /servers/learn/tutorial-assign-policy-portal.md
 - name: Samples
   items:
   - name: Azure Policy built-ins 
