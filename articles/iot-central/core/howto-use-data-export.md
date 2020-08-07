@@ -28,7 +28,7 @@ This article describes how to use the new data export preview features in Azure 
 
 ## Prerequisites
 
-You must be an administrator in your IoT Central application, or have Data export permissions.
+To use data export (preview), you must have a V3 application, and you must have Data export permissions.
 
 ## Set up export destination
 
@@ -256,6 +256,7 @@ This is a table that highlights the differences between the legacy data export a
 | Filtering | None | Depends on the data type exported. For telemetry, filtering by telemetry, message properties, property values |
 | Enrichments | None | Enrich with a custom string or a property value on the device |
 | Destinations | Azure Event Hubs, Azure Service Bus queues and topics, Azure Blob Storage | Same as for legacy data export and webhooks| 
+| Supported apps | V2, V3 | V3 only |
 | Notable limits | 5 exports per app, 1 destination per export | 10 exports-destination connections per app | 
 
 ## Next steps
