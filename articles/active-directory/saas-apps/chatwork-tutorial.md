@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://www.chatwork.com/s/<TENANT_NAME>`
 
 	> [!NOTE]
-	> The value is not real. Update the value with the prvate login URL which you set after **Chatwork SSO configuration**.
+	> The value is not real. Update the value with the private login URL which you set after **Chatwork SSO configuration**.
 
 1. Chatwork application expects the value of **Unique User Identifier** attribute matches the email address registered in Chatwork. The attribute is mapped to **user.principalname** by default. If the principalname is different from the email address, map  **Unique User Identifier** to **user.mail**.
 
