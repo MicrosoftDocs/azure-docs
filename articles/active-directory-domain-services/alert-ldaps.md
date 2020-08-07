@@ -28,7 +28,7 @@ This article helps you understand and resolve common alerts with secure LDAP acc
 
 ### Resolution
 
-When you enable secure LDAP, it's recommended to create additional rules that restrict inbound LDAPS access to specific IP addresses. These rules protect the Azure AD DS managed domain from brute force attacks. To update the network security group to restrict TCP port 636 access for secure LDAP, complete the following steps:
+When you enable secure LDAP, it's recommended to create additional rules that restrict inbound LDAPS access to specific IP addresses. These rules protect the managed domain from brute force attacks. To update the network security group to restrict TCP port 636 access for secure LDAP, complete the following steps:
 
 1. In the Azure portal, search for and select **Network security groups**.
 1. Choose the network security group associated with your managed domain, such as *AADDS-contoso.com-NSG*, then select **Inbound security rules**
@@ -39,7 +39,7 @@ When you enable secure LDAP, it's recommended to create additional rules that re
 1. Specify the priority for the rule, then enter a name such as *RestrictLDAPS*.
 1. When ready, select **Add** to create the rule.
 
-The Azure AD DS managed domain's health automatically updates itself within two hours and removes the alert.
+The managed domain's health automatically updates itself within two hours and removes the alert.
 
 > [!TIP]
 > TCP port 636 isn't the only rule needed for Azure AD DS to run smoothly. To learn more, see the [Azure AD DS Network security groups and required ports](network-considerations.md#network-security-groups-and-required-ports).

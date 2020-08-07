@@ -133,8 +133,10 @@ This section shows how to use **Postman** to execute a REST API that returns a J
 
     Alternatively, click **Bulk Edit** link on the right of the Postman window and paste the following code.
 
-        Content-Type:application/x-www-form-urlencoded
-        Keep-Alive:true
+    ```javascript
+    Content-Type:application/x-www-form-urlencoded
+    Keep-Alive:true
+    ```
 
 6. Press the **Body** tab.
 7. Enter the body information using the "Key/Value" data grid (replace the client ID and secret values). 
@@ -143,10 +145,12 @@ This section shows how to use **Postman** to execute a REST API that returns a J
 
     Alternatively, click **Bulk Edit** on the right of the Postman window and paste the following body (replace the client ID and secret values):
 
-        grant_type:client_credentials
-        client_id:{Your Client ID that you got from your Azure AD Application}
-        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
-        resource:https://rest.media.azure.net
+    ```javascript
+    grant_type:client_credentials
+    client_id:{Your Client ID that you got from your Azure AD Application}
+    client_secret:{Your client secret that you got from your Azure AD Application's Keys}
+    resource:https://rest.media.azure.net
+    ```
 
 8. Press **Send**.
 
@@ -176,11 +180,13 @@ This section shows how to access the **Assets** API using **Postman**.
 5. Click **Bulk Edit** link on the right the Postman window.
 6. Paste the following headers:
 
-        x-ms-version:2.19
-        Accept:application/json
-        Content-Type:application/json
-        DataServiceVersion:3.0
-        MaxDataServiceVersion:3.0
+    ```javascript
+    x-ms-version:2.19
+    Accept:application/json
+    Content-Type:application/json
+    DataServiceVersion:3.0
+    MaxDataServiceVersion:3.0
+    ```
 
 7. Press **Send**.
 

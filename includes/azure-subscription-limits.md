@@ -1,9 +1,8 @@
 ---
  title: include file
  description: include file
- services: billing
- author: rothja
- ms.service: cost-management-billing
+  author: rothja
+ ms.service: azure-resource-manager
  ms.topic: include
  ms.date: 05/18/2018
  ms.author: jroth

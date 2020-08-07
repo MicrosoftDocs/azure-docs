@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
+ms.custom: tracking-python
 
 ---
 
@@ -79,6 +80,9 @@ conn.close()
 ## Dependencies with "django" integration
 
 Track your outgoing Django requests with the OpenCensus `django` integration.
+
+> [!NOTE]
+> The only outgoing Django requests that are tracked are calls made to a database. For requests made to the Django application, see [incoming requests](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request#tracking-django-applications).
 
 Download and install `opencensus-ext-django` from [PyPI](https://pypi.org/project/opencensus-ext-django/) and add the following line to the `MIDDLEWARE` section in the Django `settings.py` file.
 

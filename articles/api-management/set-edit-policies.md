@@ -37,7 +37,7 @@ To set or edit a policy, follow the following steps:
 7. Select the **</>** (code editor) icon in the **Inbound processing** or **Outbound processing** section.
 8. Paste the desired policy code into one of the appropriate blocks.
 
-    ```XML
+    ```xml
     <policies>
         <inbound>
             <base />

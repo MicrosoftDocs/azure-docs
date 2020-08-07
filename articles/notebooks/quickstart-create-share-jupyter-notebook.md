@@ -3,9 +3,12 @@ title: Create and share a Jupyter notebook on Azure Notebooks Preview
 description: Quickly create and run a Jupyter notebook on Azure Notebooks Preview, then share that notebook with others.
 ms.topic: quickstart
 ms.date: 12/04/2018
+ms.custom: tracking-python
 ---
 
 # Quickstart: Create and share a notebook in Azure Notebooks Preview
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 In this quickstart, you create and run a Jupyter notebook on Azure Notebooks, then share that notebook with others. Jupyter lets you easily combine Markdown text, executable code, persistent data, graphics, and visualizations on one sharable canvas, the notebook. Azure Notebooks is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation.
 
@@ -13,8 +16,6 @@ In this quickstart, you create and run a Jupyter notebook on Azure Notebooks, th
 None.
 
 ## Create a new project and notebook
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Go to the [Azure Notebooks site (https://notebooks.azure.com)](https://notebooks.azure.com) and sign in. For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 

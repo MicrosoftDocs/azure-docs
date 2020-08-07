@@ -44,7 +44,7 @@ Media Services depends on a storage key provided to it. Specifically, the locato
  
     The following example shows how to sync keys to storage accounts.
   
-         Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+    `Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId`
   
  3. Wait an hour or so. Verify the streaming scenarios are working.
  4. Change storage account secondary key through the powershell cmdlet or Azure portal.
@@ -55,14 +55,15 @@ Media Services depends on a storage key provided to it. Specifically, the locato
 
 The following example demonstrates how to get the storage account and sync it with the AMS account.
 
-	$regionName = "West US"
-	$resourceGroupName = "SkyMedia-USWest-App"
-	$mediaAccountName = "sky"
-	$storageAccountName = "skystorage"
-	$storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
+```console
+$regionName = "West US"
+$resourceGroupName = "SkyMedia-USWest-App"
+$mediaAccountName = "sky"
+$storageAccountName = "skystorage"
+$storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-	Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
-
+Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+```
  
 ## Steps to add storage accounts to your AMS account
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 06/16/2020
 ms.author: alkohli
 ---
 # Azure Data Box security and data protection
@@ -40,7 +40,6 @@ Data Box provides a secure solution for data protection by ensuring that only au
 The Data Box device is protected by the following features:
 
 - A rugged device casing that withstands shocks, adverse transportation, and environmental conditions. 
-- Tamper-evident seals to indicate any device tampering during transit.
 - Hardware and software tampering detection that prevents further device operations.
 - Runs only Data Box-specific software.
 - Boots up in a locked state.
@@ -52,7 +51,7 @@ The Data Box device is protected by the following features:
 The data that flows in and out of Data Box is protected by the following features:
 
 - AES 256-bit encryption for Data-at-rest.
-- Encrypted protocols can be used for data-in-flight.
+- Encrypted protocols can be used for data-in-flight. We recommend that you use SMB 3.0 with encryption to protect data when you copy it from your data servers.
 - Secure erasure of data from device once upload to Azure is complete. Data erasure is in accordance with guidelines in [Appendix A for ATA Hard Disk Drives in NIST 800-88r1 standards](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). The data erasure event is recorded in the [order history](data-box-logs.md#download-order-history).
 
 ### Data Box service protection

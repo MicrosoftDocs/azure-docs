@@ -2,7 +2,7 @@
 title: Monitoring Azure Blockchain Service (ABS)
 description: Monitoring Azure Blockchain Service through Azure Monitor
 ms.date: 01/08/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: v-umha
 ---
 

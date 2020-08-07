@@ -10,7 +10,7 @@ ms.author: ccompy
 ms.custom: seodec18
 
 ---
-# Azure App Service Access Restrictions #
+# Azure App Service access restrictions
 
 Access restrictions enable you to define a priority ordered allow/deny list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, there is then an implicit "deny all" that exists at the end of the list.
 
@@ -56,6 +56,10 @@ Service endpoints cannot be used to restrict access to apps that run in an App S
 
 With service endpoints, you can configure your app with Application Gateways or other WAF devices. You can also configure multi-tier applications with secure backends. For more details on some of the possibilities, read [Networking features and App Service](networking-features.md) and [Application Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md).
 
+> [!NOTE]
+> Service endpoints currently are not supported for web apps that use IP SSL virtual IP (VIP). 
+>
+
 ## Managing access restriction rules
 
 You can click on any row to edit an existing access restriction rule. Edits are effective immediately including changes in priority ordering.
@@ -70,7 +74,7 @@ To delete a rule, click the **...** on your rule and then click **Remove**.
 
 ![delete access restriction rule](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-## Blocking a single IP Address ##
+## Blocking a single IP address ##
 
 When adding your first IP Restriction rule, the service will add an explicit **Deny all** rule with a priority of 2147483647. In practice, the explicit **Deny all** rule will be last rule executed and will block access to any IP address that is not explicitly allowed using an **Allow** rule.
 
@@ -122,12 +126,12 @@ The JSON syntax for the earlier example is:
 }
 ```
 
-## Azure Function App Access Restrictions
+## Azure Functions access restrictions
 
-Access restrictions are also available for Function Apps with the same functionality as App Service plans. Enabling access restrictions will disable the portal code editor for any disallowed IPs.
+Access restrictions are also available for function apps with the same functionality as App Service plans. Enabling access restrictions will disable the portal code editor for any disallowed IPs.
 
 ## Next steps
-[Access restrictions for Azure Function Apps](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
+[Access restrictions for Azure Functions](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
 [Application Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md)
 

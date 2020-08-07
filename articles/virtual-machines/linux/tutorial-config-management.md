@@ -26,7 +26,7 @@ Azure [Change Tracking](../../automation/change-tracking.md) allows you to easil
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Manage Windows updates
+> * Manage Linux updates
 > * Monitor changes and inventory
 
 ## Launch Azure Cloud Shell

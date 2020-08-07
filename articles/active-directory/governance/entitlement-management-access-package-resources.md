@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -88,7 +88,7 @@ For more information, see [Compare groups](https://docs.microsoft.com/office365/
 
     Once you select the group or team, the **Sub type** column will list one of the following subtypes:
 
-    |  |  |
+    | Sub type | Description |
     | --- | --- |
     | Security | Used for granting access to resources. |
     | Distribution | Used for sending notifications to a group of people. |

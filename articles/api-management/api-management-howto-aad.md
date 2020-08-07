@@ -34,7 +34,7 @@ This article shows you how to enable access to the developer portal for users fr
 3. Type **api** in the search box.
 4. Select **API Management services**.
 5. Select your API Management service instance.
-6. Under **Security**, select **Identities**.
+6. Under **Developer portal**, select **Identities**.
 7. Select **+Add** from the top.
 
     The **Add identity provider** pane appears on the right.
@@ -85,7 +85,7 @@ To add an external Azure AD group into APIM, you must first complete the previou
 
 1. Go back to your App Registration that was created in the previous section.
 2. Select **API Permissions**, and then click **+Add a permission**. 
-3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, and then select the **Microsoft Graph** tile. Select **Application permissions**, search for **Directory**, and then select the **Directory.Read.All** permission. 
+3. In the **Request API Permissions** pane, select the **Microsoft APIs** tab, scroll down and then select the **Azure Active Directory Graph** tile. Select **Application permissions**, search for **Directory**, and then select the **Directory.Read.All** permission. 
 4. Click **Add permissions** at the bottom of the pane, and then click **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
 
 Now you can add external Azure AD groups from the **Groups** tab of your API Management instance.
@@ -100,7 +100,7 @@ After you add an external Azure AD group, you can review and configure its prope
  
 Users from the configured Azure AD instance can now sign in to the developer portal. They can view and subscribe to any groups for which they have visibility.
 
-## <a id="log_in_to_dev_portal"/> Developer portal - add Azure AD account authentication
+## <a id="log_in_to_dev_portal"></a> Developer portal - add Azure AD account authentication
 
 In the developer portal, sign-in with AAD is possible with the **Sign-in button: OAuth** widget. The widget is already included on the sign-in page of the default developer portal content.
 

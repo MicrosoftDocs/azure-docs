@@ -20,7 +20,7 @@ ms.subservice: B2C
 
 The **BuildingBlocks** element is added inside the [TrustFrameworkPolicy](trustframeworkpolicy.md) element.
 
-```XML
+```xml
 <TrustFrameworkPolicy
   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"

@@ -27,7 +27,7 @@ Capabilities within the Azure Blockchain Workbench generated web application are
 
 The REST API is primarily used for interactive clients such as web, mobile, and bot applications.
 
-This section looks at patterns focused on the aspects of the REST API that send transactions to a distributed ledger and patterns that query data about transactions from Azure Blockchain Workbench's *off chain* SQL database.
+This section looks at patterns focused on the aspects of the REST API that send transactions to a distributed ledger and patterns that query data about transactions from Azure Blockchain Workbench's *off chain* database.
 
 ### Sending transactions to a distributed ledger from an external system
 
@@ -212,7 +212,7 @@ The data integration is well known:
 
 -   Azure Blockchain Workbench stores metadata about applications, workflows, contracts, and transactions as part of its normal operating behavior.
 -   External systems or tools provide one or more dialogs to facilitate the collection of information about the database, such as database server name, database name, type of authentication, login credentials, and which database views to utilize.
--   Queries are written against SQL database views to facilitate downstream consumption by external systems, services, reporting, developer tools, and enterprise productivity tools.
+-   Queries are written against database views to facilitate downstream consumption by external systems, services, reporting, developer tools, and enterprise productivity tools.
 
 ## Storage integration
 

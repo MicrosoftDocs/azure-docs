@@ -5,20 +5,20 @@ author: normesta
 ms.service: storage
 ms.date: 02/14/2019
 ms.author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ---
 
 # Migrate from on-prem HDFS store to Azure Storage with Azure Data Box
 
-You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device. You can choose from an 80-TB Data Box or a 770-TB Data Box Heavy.
+You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device. You can choose from Data Box Disk, an 80-TB Data Box or a 770-TB Data Box Heavy.
 
 This article helps you complete these tasks:
 
 > [!div class="checklist"]
 > * Prepare to migrate your data.
-> * Copy your data to a Data Box or a Data Box Heavy device.
+> * Copy your data to a Data Box Disk, Data Box or a Data Box Heavy device.
 > * Ship the device back to Microsoft.
 > * Apply access permissions to files and directories (Data Lake Storage Gen2 only)
 
@@ -235,7 +235,7 @@ Run this command to apply permissions to the data that you copied into the Data 
 
 Before you move your data onto a Data Box device, you'll need to download some helper scripts, ensure that your data is organized to fit onto a Data Box device, and exclude any unnecessary files.
 
-<a id="download-helper-scripts" />
+<a id="download-helper-scripts"></a>
 
 ### Download helper scripts and set up your edge node to run them
 

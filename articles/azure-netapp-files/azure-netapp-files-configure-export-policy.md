@@ -6,7 +6,7 @@ author: b-juche
 ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/18/2019
 ---
 # Configure export policy for an NFS volume

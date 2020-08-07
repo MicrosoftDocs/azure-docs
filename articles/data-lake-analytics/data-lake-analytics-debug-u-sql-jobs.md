@@ -7,7 +7,7 @@ author: yanancai
 ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/30/2017
 ---
 # Debug user-defined C# code for failed U-SQL jobs
@@ -87,7 +87,7 @@ After these settings, start debugging with **F5** and breakpoints. You can also 
 
 After debugging, if the project completes successfully the output window shows the following message:
 
-    The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
+`The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).`
 
 ![Azure Data Lake Analytics U-SQL debug succeed](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 

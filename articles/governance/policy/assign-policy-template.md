@@ -1,16 +1,17 @@
 ---
 title: "Quickstart: New policy assignment with templates"
-description: In this quickstart, you use a Resource Manager template to create a policy assignment to identify non-compliant resources.
-ms.date: 03/16/2020
+description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a policy assignment to identify non-compliant resources.
+ms.date: 05/21/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
 ---
-# Quickstart: Create a policy assignment to identify non-compliant resources by using a Resource Manager template
+# Quickstart: Create a policy assignment to identify non-compliant resources by using an Azure Resource Manager template
 
 The first step in understanding compliance in Azure is to identify the status of your resources.
 This quickstart steps you through the process of creating a policy assignment to identify virtual
-machines that aren't using managed disks. At the end of this process, you'll successfully identify virtual machines that aren't using managed
-disks. They're _non-compliant_ with the policy assignment.
+machines that aren't using managed disks. At the end of this process, you'll successfully identify
+virtual machines that aren't using managed disks. They're _non-compliant_ with the policy
+assignment.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -29,7 +30,7 @@ _Audit VMs that do not use managed disks_. For a partial list of available built
 
 The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 
-:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-36" highlight="26-34":::
+:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-30" highlight="20-28":::
 
 The resource defined in the template is:
 
@@ -43,7 +44,7 @@ The resource defined in the template is:
 
 1. Select the following image to sign in to the Azure portal and open the template:
 
-   [![Deploy the Policy template to Azure](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
+   :::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy the ARM template for assigning an Azure Policy to Azure" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 1. Select or enter the following values:
 
@@ -65,8 +66,8 @@ Some additional resources:
   [Azure Quickstart template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Authorization&pageNumber=1&sort=Popular).
 - To see the template reference, go to
   [Azure template reference](/azure/templates/microsoft.authorization/allversions).
-- To learn how to develop Resource Manager templates, see
-  [Azure Resource Manager documentation](../../azure-resource-manager/management/overview.md).
+- To learn how to develop Resource Manager templates (ARM templates), see
+  [Resource Manager documentation](../../azure-resource-manager/management/overview.md).
 - To learn subscription-level deployment, see
   [Create resource groups and resources at the subscription level](../../azure-resource-manager/templates/deploy-to-subscription.md).
 
@@ -75,7 +76,7 @@ Some additional resources:
 Select **Compliance** in the left side of the page. Then locate the **Audit VMs that do not use
 managed disks** policy assignment you created.
 
-![Policy compliance overview page](./media/assign-policy-template/policy-compliance.png)
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Policy compliance overview page" border="false":::
 
 If there are any existing resources that aren't compliant with this new assignment, they appear
 under **Non-compliant resources**.
@@ -93,7 +94,7 @@ To remove the assignment created, follow these steps:
 1. Right-click the **Audit VMs that do not use managed disks** policy assignment and select **Delete
    assignment**.
 
-   ![Delete an assignment from the compliance overview page](./media/assign-policy-template/delete-assignment.png)
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Delete an assignment from the compliance overview page" border="false":::
 
 ## Next steps
 

@@ -12,6 +12,7 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 02/27/2020
 ms.author: aahi
+ms.custom: tracking-python
 ---
 # Quickstart: Use the Bing Custom Search client library
 

@@ -122,7 +122,7 @@ But why even try to pick a single partition scheme out for all users? Why limit 
 When building for scale, consider the following dynamic pattern. You may need to adapt it to your situation:
 
 1. Instead of trying to pick a partitioning scheme for everyone up front, build a "manager service".
-2. The job of the manager service is to look at customer information when they sign up for your service. Then depending on that information the manager service create an instance of your _actual_ contact-storage service _just for that customer_. If they require particular configuration, isolation, or upgrades, you can also decide to spin up an Application instance for this customer. 
+2. The job of the manager service is to look at customer information when they sign up for your service. Then depending on that information the manager service creates an instance of your _actual_ contact-storage service _just for that customer_. If they require particular configuration, isolation, or upgrades, you can also decide to spin up an Application instance for this customer. 
 
 This dynamic creation pattern many benefits:
 

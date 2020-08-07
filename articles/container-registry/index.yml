@@ -38,6 +38,8 @@ landingContent:
             url: container-registry-get-started-azure-cli.md
           - text: Create container registry - Portal
             url: container-registry-get-started-portal.md
+          - text: Create container registry - ARM template
+            url: container-registry-get-started-geo-replication-template.md
           - text: Push and pull image with Docker
             url: container-registry-get-started-docker-cli.md
     - linkListType: concept

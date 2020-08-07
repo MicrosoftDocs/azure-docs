@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
 ---
 # Create and manage firewall rules in Azure Database for PostgreSQL - Single Server using Azure CLI

@@ -86,6 +86,9 @@ To deploy a private template in a storage account, generate a SAS token and incl
 
 If you haven't created the resource group, see [Create resource group](./deployment-tutorial-local-template.md#create-resource-group).
 
+> [!NOTE]
+> In the below Azure CLI code, date parameter -d would be an invalid argument in macOS. So macOS users, to add 2 hrs to current time in terminal on macOS you should use -v+2H.
+
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell

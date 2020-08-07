@@ -1,6 +1,6 @@
 ---
 title: HTTP application routing add-on on Azure Kubernetes Service (AKS)
-description: Use the HTTP application routing add-on on Azure Kubernetes Service (AKS).
+description: Use the HTTP application routing add-on to access applications deployed on Azure Kubernetes Service (AKS).
 services: container-service
 author: lachie83
 ms.topic: article
@@ -41,16 +41,17 @@ You can also enable HTTP routing on an existing AKS cluster using the [az aks en
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
 ```
 
-After the cluster is deployed or updated, use the [az aks show][az-aks-show] command to retrieve the DNS zone name. This name is needed to deploy applications to the AKS cluster.
+After the cluster is deployed or updated, use the [az aks show][az-aks-show] command to retrieve the DNS zone name. 
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 ```
 
-Result
+This name is needed to deploy applications to the AKS cluster and is shown in the following example output:
 
+```console
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
-
+```
 
 ## Deploy HTTP routing: Portal
 
@@ -62,6 +63,22 @@ After the cluster is deployed, browse to the auto-created AKS resource group and
 
 ![Get the DNS zone name](media/http-routing/dns.png)
 
+## Connect to your AKS cluster
+
+To connect to the Kubernetes cluster from your local computer, you use [kubectl][kubectl], the Kubernetes command-line client.
+
+If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [az aks install-cli][] command:
+
+```azurecli
+az aks install-cli
+```
+
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials][] command. The following example gets credentials for the AKS cluster named *MyAKSCluster* in the *MyResourceGroup*:
+
+```azurecli
+az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
+```
+
 ## Use HTTP routing
 
 The HTTP application routing solution may only be triggered on Ingress resources that are annotated as follows:
@@ -72,7 +89,6 @@ annotations:
 ```
 
 Create a file named **samples-http-application-routing.yaml** and copy in the following YAML. On line 43, update `<CLUSTER_SPECIFIC_DNS_ZONE>` with the DNS zone name collected in the previous step of this article.
-
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -131,6 +147,12 @@ spec:
 ```
 
 Use the [kubectl apply][kubectl-apply] command to create the resources.
+
+```bash
+kubectl apply -f samples-http-application-routing.yaml
+```
+
+The following example shows the created resources:
 
 ```bash
 $ kubectl apply -f samples-http-application-routing.yaml
@@ -257,7 +279,13 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 
 ## Clean up
 
-Remove the associated Kubernetes objects created in this article.
+Remove the associated Kubernetes objects created in this article using `kubectl delete`.
+
+```bash
+kubectl delete -f samples-http-application-routing.yaml
+```
+
+The example output shows Kubernetes objects have been removed.
 
 ```bash
 $ kubectl delete -f samples-http-application-routing.yaml
@@ -276,11 +304,13 @@ For information on how to install an HTTPS-secured Ingress controller in AKS, se
 [az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
 [ingress-https]: ./ingress-tls.md
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
-
+[az aks install-cli]: /cli/azure/aks#az-aks-install-cli
+[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete

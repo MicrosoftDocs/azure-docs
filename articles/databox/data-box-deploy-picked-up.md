@@ -22,7 +22,7 @@ ms.localizationpriority: high
 
 ::: zone target="chromeless"
 
-# Return Data Box and verify data upload to Azure
+## Return Data Box and verify data upload to Azure
 
 ::: zone-end
 
@@ -44,7 +44,7 @@ In this tutorial, you will learn about topics such as:
 Before you begin, make sure:
 
 - You've have completed the [Tutorial: Copy data to Azure Data Box and verify](data-box-deploy-copy-data.md). 
-- Copy jobs are complete. Prepare to ship can't run if copy jobs are in progress.
+- Copy jobs are complete and there are no errors on the **Connect and copy** page. Prepare to ship can't run if copy jobs are in progress or there are errors in the **Connect and copy** page.
 
 ## Prepare to ship
 

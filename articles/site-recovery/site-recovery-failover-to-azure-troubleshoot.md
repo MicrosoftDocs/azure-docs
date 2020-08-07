@@ -68,6 +68,10 @@ To manually change the startup type of drivers for **Windows Guest OS**, follow 
 
 ## Unable to connect/RDP/SSH to the failed over virtual machine due to grayed out Connect button on the virtual machine
 
+For detailed troubleshooting instructions on RDP issues, please see our documentation [here](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).
+
+For detailed troubleshooting instructions on SSH issues, please see our documentation [here](../virtual-machines/troubleshooting/troubleshoot-ssh-connection.md).
+
 If the **Connect** button on the failed over VM in Azure is grayed out and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, then,
 
 1. Go to **Virtual machine** > **Networking**, click on the name of required network interface.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
@@ -80,7 +84,7 @@ If the **Connect** button on the failed over VM in Azure is grayed out and you a
 
 ## Unable to connect/RDP/SSH - VM Connect button available
 
-If the **Connect** button on the failed over VM in Azure is available (not grayed out), then check **Boot diagnostics** on your Virtual Machine and check for errors as listed in [this article](../virtual-machines/windows/boot-diagnostics.md).
+If the **Connect** button on the failed over VM in Azure is available (not grayed out), then check **Boot diagnostics** on your Virtual Machine and check for errors as listed in [this article](../virtual-machines/troubleshooting/boot-diagnostics.md).
 
 1. If the virtual machine has not started, try failing over to an older recovery point.
 2. If the application inside the virtual machine is not up, try failing over to an app-consistent recovery point.
@@ -122,7 +126,7 @@ This is normally not a cause for concern and can usually be ignored for unplanne
 
 This issue is indicated when you are unable to see the datastore in Azure the portal when trying to reprotect the virtual machine that has experienced a failover. This is because the Master target is not recognized as a virtual machine under vCenters added to Azure Site Recovery.
 
-For more information about reprotecting a vitual machine, see [Reprotect and fail back machines to an on-premises site after failover to Azure](vmware-azure-reprotect.md).
+For more information about reprotecting a virtual machine, see [Reprotect and fail back machines to an on-premises site after failover to Azure](vmware-azure-reprotect.md).
 
 To resolve the issue:
 
@@ -132,7 +136,7 @@ Manually create the Master target in the vCenter that manages your source machin
 > 
 > The discovery and refresh fabric operations can take up to 30 minutes to complete. 
 
-## Linux Master Target registration with CS fails with an SSL error 35 
+## Linux Master Target registration with CS fails with a TLS error 35 
 
 The Azure Site Recovery Master Target registration with the configuration server fails due to the Authenticated Proxy being enabled on the Master Target. 
  
@@ -166,7 +170,7 @@ To resolve the issue:
 
 
 ## Next steps
-- Troubleshoot [RDP connection to Windows VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)
-- Troubleshoot [SSH connection to Linux VM](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
+- Troubleshoot [RDP connection to Windows VM](../virtual-machines/troubleshooting/troubleshoot-rdp-connection.md)
+- Troubleshoot [SSH connection to Linux VM](../virtual-machines/troubleshooting/detailed-troubleshoot-ssh-connection.md)
 
-If you need more help, then post your query on [Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) or leave a comment at the end of this document. We have an active community that should be able to assist you.
+If you need more help, then post your query on [Microsoft Q&A question page for Site Recovery](/answers/topics/azure-site-recovery.html) or leave a comment at the end of this document. We have an active community that should be able to assist you.

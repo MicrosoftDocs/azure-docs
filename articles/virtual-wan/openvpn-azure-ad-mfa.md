@@ -5,7 +5,7 @@ services: virtual-wan
 author: anzaman
 
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2020
 ms.author: alzam
 

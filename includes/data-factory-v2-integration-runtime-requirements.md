@@ -8,7 +8,7 @@ ms.author: jingwang
 <!--
     Separate the generic requirement on Self-hosted Integration Runtime set-up from connector articles.
 -->
-If your data store is configured in one of the following ways, you need to set up a [Self-hosted Integration Runtime](../articles/data-factory/create-self-hosted-integration-runtime.md) in order to connect to this data store:
+If your data store is configured in one of the following ways, you need to set up a [self-hosted integration runtime](../articles/data-factory/create-self-hosted-integration-runtime.md) to connect to the data store:
 
-- The data store is located inside an on-premises network, inside Azure Virtual Network, or inside Amazon Virtual Private Cloud.
-- The data store is a managed cloud data service where the access is restricted to IPs whitelisted in the firewall rules.
+- The data store is located inside an on-premises network, inside an Azure virtual network, or inside Amazon Virtual Private Cloud.
+- The data store is a managed cloud data service where the access is restricted to IPs that are whitelisted in the firewall rules.

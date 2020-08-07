@@ -4,7 +4,7 @@ description: Learn how to create a custom probe for Application Gateway by using
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ---
@@ -195,7 +195,7 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## Next steps
 
-If you want to configure Secure Sockets Layer (SSL) offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
+If you want to configure Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL) offload, see [Configure an application gateway for TLS offload](application-gateway-ssl.md).
 
 If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).
 

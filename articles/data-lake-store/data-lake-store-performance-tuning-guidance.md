@@ -61,15 +61,11 @@ Sometimes, data pipelines have limited control over the raw data that has lots o
 
 For Hive and ADLA workloads, partition pruning of time-series data can help some queries read only a subset of the data, which improves performance.
 
-Those pipelines that ingest time-series data, often place their files with a structured naming for files and folders. The following is a common example we see for data that is structured by date:
-
-    \DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv
+Those pipelines that ingest time-series data, often place their files with a structured naming for files and folders. The following is a common example we see for data that is structured by date: *\DataSet\YYYY\MM\DD\datafile_YYYY_MM_DD.tsv*.
 
 Notice that the datetime information appears both as folders and in the filename.
 
-For date and time, the following is a common pattern
-
-    \DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv
+For date and time, the following is a common pattern: *\DataSet\YYYY\MM\DD\HH\mm\datafile_YYYY_MM_DD_HH_mm.tsv*.
 
 Again, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder.
 

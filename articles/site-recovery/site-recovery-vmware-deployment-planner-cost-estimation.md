@@ -164,4 +164,4 @@ The Azure Site Recovery Deployment Planner can generate the cost report with any
 |TRY|Turkish Lira (TL)||USD| US Dollar ($)||ZAR|South African Rand (R)|
 
 ## Next steps
-Learn more about protecting [VMware VMs to Azure using Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure).
+Learn more about protecting [VMware VMs to Azure using Azure Site Recovery](./vmware-azure-tutorial.md).

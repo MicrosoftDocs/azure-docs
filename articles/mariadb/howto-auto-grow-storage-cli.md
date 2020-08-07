@@ -4,7 +4,7 @@ description: This article describes how you can enable auto grow storage using t
 author: ambhatna
 ms.author: ambhatna
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 # Auto-grow Azure Database for MariaDB storage using the Azure CLI

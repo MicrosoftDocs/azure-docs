@@ -6,8 +6,8 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 09/11/2019
-ms.topic: conceptual
+ms.date: 04/16/2020
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
@@ -16,7 +16,7 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk download a list of groups (preview) in Azure Active Directory
+# Bulk download a list of groups in Azure Active Directory
 
 Using Azure Active Directory (Azure AD) portal, you can bulk download the list of all the groups in your organization to a comma-separated values (CSV) file.
 
@@ -30,9 +30,9 @@ Using Azure Active Directory (Azure AD) portal, you can bulk download the list o
 
 ## Check download status
 
-You can see the status of all of your pending bulk requests in the **Bulk operation results (preview)** page.
+You can see the status of all of your pending bulk requests in the **Bulk operation results** page.
 
-   ![The Bulk operations results page shows you bulk request status](./media/groups-bulk-download/bulk-center.png)
+[![](media/groups-bulk-download/bulk-center.png "Check status in the Bulk Operations Results page")](media/groups-bulk-download/bulk-center.png#lightbox)
 
 ## Bulk download service limits
 

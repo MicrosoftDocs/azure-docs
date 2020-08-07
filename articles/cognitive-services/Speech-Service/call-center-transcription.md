@@ -94,7 +94,7 @@ A typical solution uses these services:
 - [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) is used to create the shared access signatures (SAS) URI for each recording, and trigger the HTTP POST request to start a transcription. Additionally, Azure Functions is used to create requests to retrieve and delete transcriptions using the Batch Transcription API.
 
 Internally we are using the above technologies to support Microsoft customer calls in Batch mode.
-![Batch Architecture](media/scenarios/call-center-batch-pipeline.png)
+:::image type="content" source="media/scenarios/call-center-batch-pipeline.png" alt-text="Technologies used to support Microsoft customer calls in Batch mode.":::
 
 ## Real-time transcription for call center data
 

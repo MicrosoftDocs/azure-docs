@@ -71,7 +71,7 @@ Now that you have the package(s), you must upload them to your VM on Azure.
 
 4. When logged on, create a directory to upload the IBM packages. Keep in mind Linux is case sensitive. For example, this demo assumes the packages are uploaded to:
 
-        /home/MyUserID/ZDT/adcd/nov2017/volumes
+    `/home/MyUserID/ZDT/adcd/nov2017/volumes`
 
 5. Upload the files using an SSH client such as[WinSCP](https://winscp.net/eng/index.php). Since SCP is a part of SSH , it uses port 22, which is what SSH uses. If your local computer is not Windows, you can type the [scp command](http://man7.org/linux/man-pages/man1/scp.1.html) in your SSH session.
 
@@ -84,8 +84,8 @@ Now that you have the package(s), you must upload them to your VM on Azure.
 
 8. When the uploads are complete, navigate to the volumes directory and decompress all of the **gz** volumes:
 
-    ```
-        gunzip \*.gz
+    ```console
+    gunzip \*.gz
     ```
     
 ![File explorer showing decompressed gz volumes](media/01-gunzip.png)
@@ -95,9 +95,9 @@ Now that you have the package(s), you must upload them to your VM on Azure.
 The next step is to configure zD&T to use the uploaded package(s). The image storage process within zD&T allows you to mount and use the images. It can use SSH or FTP.
 
 1. Start the **zDTServer**. To do this, you must be at the root level. Enter the following two commands in order:
-    ```
-        sudo su -
-        /opt/ibm/zDT/bin/startServer
+    ```console
+    sudo su -
+    /opt/ibm/zDT/bin/startServer
     ```
 2. Note the URL output by the command and use this URL to access the web server. It looks similar to:
      > https://(your VM name or IP address):9443/ZDTMC/index.html

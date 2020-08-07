@@ -4,7 +4,7 @@ description: Learn how to configure a pre-built Python container for your app. T
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, tracking-python
 ---
 
 # Configure a Linux Python app for Azure App Service
@@ -170,7 +170,7 @@ Popular web frameworks let you access the `X-Forwarded-*` information in your st
 
 ## Access diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## Open SSH session in browser
 

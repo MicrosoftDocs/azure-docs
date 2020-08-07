@@ -4,7 +4,7 @@ description: Mount an Azure Blob storage container with FUSE on Linux
 author: rishabpoh
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm

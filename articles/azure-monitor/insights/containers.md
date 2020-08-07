@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/22/2019
+ms.date: 07/06/2020
 
 ---
 
@@ -614,7 +614,6 @@ When you're troubleshooting a specific error, it can help to see where it is occ
 - **KubeEvents_CL**  Use this type to see the Kubernetes events.
 - **KubePodInventory_CL**  Use this type when you want to understand the cluster hierarchy information.
 
-
 ### To query logs for container data
 
 * Choose an image that you know has failed recently and find the error logs for it. Start by finding a container name that is running that image with a **ContainerInventory** search. For example, search for `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
@@ -624,7 +623,7 @@ When you're troubleshooting a specific error, it can help to see where it is occ
 
 ## Example log queries
 
-It's often useful to build queries starting with an example or two and then modifying them to fit your environment. As a starting point, you can experiment with the **Sample Queries** area to help you build more advanced queries.
+It's often useful to build queries starting with an example or two and then modifying them to fit your environment. As a starting point, you can experiment with the **SAMPLE QUERIES** area on the far right of the solution page, to help you build more advanced queries.
 
 ![Containers queries](./media/containers/containers-queries.png)
 

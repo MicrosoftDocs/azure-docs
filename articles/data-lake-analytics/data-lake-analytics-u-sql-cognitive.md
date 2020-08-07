@@ -8,7 +8,7 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/05/2018
 ---
 # Get started with the Cognitive capabilities of U-SQL

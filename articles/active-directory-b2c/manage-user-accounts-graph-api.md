@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -62,7 +62,7 @@ In the Microsoft Graph API, both local and federated identities are stored in th
 
 The following **Identities** property, with a local account identity with a sign-in name, an email address as sign-in, and with a social identity. 
 
- ```JSON
+ ```json
  "identities": [
      {
        "signInType": "userName",
@@ -90,7 +90,7 @@ For a local identity, the **passwordProfile** property is required, and contains
 
 For a federated (social) identity, the **passwordProfile** property is not required.
 
-```JSON
+```json
 "passwordProfile" : {
     "password": "password-value",
     "forceChangePasswordNextSignIn": false
@@ -103,7 +103,7 @@ The Azure AD B2C password policy (for local accounts) is based on the Azure Acti
 
 In user migration scenarios, if the accounts you want to migrate have weaker password strength than the [strong password strength](../active-directory/authentication/concept-sspr-policy.md) enforced by Azure AD B2C, you can disable the strong password requirement. To change the default password policy, set the `passwordPolicies` property to `DisableStrongPassword`. For example, you can modify the create user request as follows:
 
-```JSON
+```json
 "passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
 ```
 
@@ -113,7 +113,7 @@ Every customer-facing application has unique requirements for the information to
 
 Microsoft Graph API supports creating and updating a user with extension attributes. Extension attributes in the Graph API are named by using the convention `extension_ApplicationObjectID_attributename`. For example:
 
-```JSON
+```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
@@ -146,7 +146,7 @@ The application displays a list of commands you can execute. For example, get al
 
 ### Code discussion
 
-The sample code uses the [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview), which is designed to simplify building high-quality, efficient, and resilient applications that access Microsoft Graph. So, you don't need to make a direct all the Microsoft Graph API.
+The sample code uses the [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview), which is designed to simplify building high-quality, efficient, and resilient applications that access Microsoft Graph.
 
 Any request to the Microsoft Graph API requires an access token for authentication. The solution makes use of the [Microsoft.Graph.Auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) NuGet package that provides an authentication scenario-based wrapper of the Microsoft Authentication Library (MSAL) for use with the Microsoft Graph SDK.
 

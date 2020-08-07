@@ -1,11 +1,11 @@
 ---
 title: Update an existing Commercial Marketplace offer
 description: How to make updates to an existing Commercial Marketplace offer, including editing, deleting a draft, canceling a publish request, stop selling an offer or plan, and syncing private audiences. 
-author: dsindona 
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 01/16/2020
 ---
 
@@ -32,20 +32,29 @@ When you're ready to publish your updated offer, select **Publish** from any pag
 > [!IMPORTANT]
 > You must review your offer preview once it's available and select **Go-live** to publish your updated offer to your intended audience (public or private).
 
+## Add a plan to an existing offer
+
+To add a new plan within an existing offer that you've already published:
+
+1. With the **Offer overview** page for your existing offer open, go to the **Plan overview** page, and then select **Create new plan**.
+1. Create a new plan according to the [guidelines](./create-new-saas-offer.md#plan-overview) by using the **existing plans Pricing model**.
+1. Select **Save draft** after you change the plan name. 
+1. Select **Publish** when you're ready to publish your updates. The **[Review and publish](#review-and-publish-an-updated-offer)** page opens and provides a completion status for your updates.
+
 ## Update a plan within an existing offer
 
 To make changes to a plan within an existing offer that you've already published:
 
-- With the **Offer overview** page open for your existing offer, choose the plan that you want to change. If the plan is not accessible from the **Plan overview** list, select **See all plans**.
-- You can choose to select the plan **Name**, **Pricing model**, or **Availability**. *Currently plans are only available in English (United States)*.
-- Select **Save** after making any necessary changes to the plan name, description, pricing, or audience availability. 
-- Select **Publish** once you are ready to publish your updates. The **[Review and publish](#review-and-publish-an-updated-offer)** page will open and provide a completion status for your updates.
+1. With the **Offer overview** page for your existing offer open, choose the plan that you want to change. If the plan isn't accessible from the **Plan overview** list, select **See all plans**.
+1. You can choose to select the plan **Name**, **Pricing model**, or **Availability**. *Currently, plans are available only in English (United States)*.
+1. Select **Save** after making any necessary changes to the plan name, description, or audience availability. 
+1. Select **Publish** when you're ready to publish your updates. The **[Review and publish](#review-and-publish-an-updated-offer)** page opens and provides a completion status for your updates.
 
 ## Compare changes to marketplace offers
 
-You can audit the changes you make to a [published](#compare-changes-to-published-offer) or [preview](#compare-changes-to-a-preview-offer) offer before making them live using **Compare**.
+You can audit the changes you make to a [published](#compare-changes-to-published-offer) or [preview](#compare-changes-to-a-preview-offer) offer before making them live by using **Compare**.
 
->[!NOTE]
+> [!NOTE]
 > A published offer is an offer that's been successfully published to Preview or Live state.
 
 See below for general auditing information:
@@ -117,9 +126,9 @@ After you confirm that you want to delete the draft plan, the plan will no longe
 
 To cancel an offer with the **Publish in progress** status:
 
-- Select the offer name to open the **Offer overview** page.
-- Select **Cancel publish** from the top right-hand corner of the page.
-- Confirm that you want to stop the offer from being published.
+1. Select the offer name to open the **Offer overview** page.
+1. Select **Cancel publish** from the top-right corner of the page.
+1. Confirm that you want to stop the offer from being published.
 
 If you want to publish the offer at a later time, you'll need to start the publishing process over.
 

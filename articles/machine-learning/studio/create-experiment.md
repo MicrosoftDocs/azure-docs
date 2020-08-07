@@ -16,8 +16,6 @@ ms.date: 02/06/2019
 
 # Quickstart: Create your first data science experiment in Azure Machine Learning Studio (classic)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
-
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
 In this quickstart, you create a machine learning experiment in [Azure Machine Learning Studio (classic)](what-is-ml-studio.md) that predicts the price of a car based on different variables such as make and technical specifications.
@@ -136,7 +134,7 @@ Finding a good set of features for creating a predictive model requires experime
 
 Let's build a model that uses a subset of the features in our dataset. You can come back later and select different features, run the experiment again, and see if you get better results. But to start, let's try the following features:
 
-    make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+> make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
 1. Drag another [Select Columns in Dataset][select-columns] module to the experiment canvas. Connect the left output port of the [Clean Missing Data][clean-missing-data] module to the input of the [Select Columns in Dataset][select-columns] module.
 

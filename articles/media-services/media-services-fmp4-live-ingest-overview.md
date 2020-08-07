@@ -52,7 +52,7 @@ The following list describes special format definitions that apply to live inges
 ## 4. Protocol format – HTTP
 ISO fragmented MP4-based live ingest for Media Services uses a standard long-running HTTP POST request to transmit encoded media data that is packaged in fragmented MP4 format to the service. Each HTTP POST sends a complete fragmented MP4 bitstream ("stream"), starting from the beginning with header boxes (**ftyp**, **Live Server Manifest Box**, and **moov** boxes), and continuing with a sequence of fragments (**moof** and **mdat** boxes). For URL syntax for the HTTP POST request, see section 9.2 in [1]. An example of the POST URL is: 
 
-    http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
+`http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)`
 
 ### Requirements
 Here are the detailed requirements:

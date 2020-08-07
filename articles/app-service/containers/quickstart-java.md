@@ -30,7 +30,7 @@ ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 Execute the following Maven command in the Cloud Shell prompt to create a new app named `helloworld`:
 
 ```bash
-mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp"
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
 ```
 Then change your working directory to the project folder:
 
@@ -40,27 +40,23 @@ cd helloworld
 
 ## Configure the Maven plugin
 
-The deploy process to Azure App Service uses account credentials from the Azure CLI. [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) before continuing.
+The deploy process to Azure App Service can pickup your Azure credentials from the Azure CLI automatically. If you don't have Azure CLI installed, Maven plugin will sign you in with Oauth or device login. Check details on [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) if you need.
 
-```azurecli
-az login
-```
-
-Then you can configure the deployment, run the maven command in the Command Prompt and use the default configurations by pressing **ENTER** until you get the **Confirm (Y/N)** prompt, then press **'y'** and the configuration is done. 
+To configure the deployment, run the maven command in the Command Prompt and use the default configurations by pressing **ENTER** until you get the **Confirm (Y/N)** prompt, then press **'y'** and the configuration is done. 
 ```cmd
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
 A sample process looks like:
 
 ```cmd
-~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.0:config
+~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 [INFO] Scanning for projects...
 [INFO]
 [INFO] ----------------------< example.demo:helloworld >-----------------------
 [INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
 [INFO] --------------------------------[ war ]---------------------------------
 [INFO]
-[INFO] --- azure-webapp-maven-plugin:1.9.0:config (default-cli) @ helloworld ---
+[INFO] --- azure-webapp-maven-plugin:1.9.1:config (default-cli) @ helloworld ---
 [WARNING] The plugin may not work if you change the os of an existing webapp.
 Define value for OS(Default: Linux):
 1. linux [*]
@@ -89,7 +85,13 @@ Confirm (Y/N)? : Y
 > [!NOTE]
 > In this article we are only working with Java apps packaged in WAR files. The plugin also supports JAR web applications, visit [Deploy a Java SE JAR file to App Service on Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to try it out.
 
-Navigate to `pom.xml` again to see the plugin configuration is updated,  You can modify other configurations for App Service directly in your pom file if needed, some common ones are listed below:
+Open to `pom.xml` to see the updated configuration.
+
+```bash
+code pom.xml
+```
+
+You can modify the configurations for App Service directly in your pom file if needed, some common ones are listed below:
 
  Property | Required | Description | Version
 ---|---|---|---
@@ -134,16 +136,16 @@ This command may take a minute to run.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to Azure SQL database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Connect to Azure SQL Database with Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
-> [Connect to Azure DB for MySQL with Java](/azure/mysql/connect-java?toc=/azure/java/toc.json)
+> [Connect to Azure DB for MySQL with Java](/azure/mysql/connect-java)
 
 > [!div class="nextstepaction"]
-> [Connect to Azure DB for PostgreSQL with Java](/azure/postgresql/connect-java?toc=/azure/java/toc.json)
+> [Connect to Azure DB for PostgreSQL with Java](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
-> [Configure Java app](configure-custom-container.md)
+> [Configure Java app](configure-language-java.md)
 
 > [!div class="nextstepaction"]
 > [CI/CD with Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)

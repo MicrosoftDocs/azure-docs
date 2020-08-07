@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 06/30/2020
 ms.author: victorh
 ---
 
@@ -15,7 +15,7 @@ Azure Firewall has NAT rules, network rules, and applications rules. The rules a
 
 ## Network rules and applications rules
 
-Network rules are applied first, then application rules. The rules are terminating. So if a match is found in network rules, then application rules are not processed.  If there is no network rule match, and if the packet protocol is HTTP/HTTPS, the packet is then evaluated by the application rules. If still no match is found, then the packet is evaluated against the infrastructure rule collection. If there is still no match, then the packet is denied by default.
+Network rules are applied first, then application rules. The rules are terminating. So if a match is found in network rules, then application rules aren't processed.  If no network rule matches, and if the packet protocol is HTTP/HTTPS, the packet is then evaluated by the application rules. If still no match is found, then the packet is evaluated against the infrastructure rule collection. If there's still no match, then the packet is denied by default.
 
 ## NAT rules
 
@@ -23,10 +23,10 @@ Inbound connectivity can be enabled by configuring Destination Network Address T
 
 ## Inherited rules
 
-Network rule collections inherited from a parent policy are always prioritized above network rule collections that are defined as part of your new policy. The same logic also apply to application rule collections. However, network rule collections are always processed before application rule collections regardless of inheritance.
+Network rule collections inherited from a parent policy are always prioritized above network rule collections that are defined as part of your new policy. The same logic also applies to application rule collections. However, network rule collections are always processed before application rule collections regardless of inheritance.
 
-By default, your policy inherits it's parent policy threat intelligence mode. You can override this by setting your threat Intelligence mode to a different value in the policy settings page. It is only possible to override with a stricter value. For example, if you parent policy is set to *Alert only*, you can configure this local policy to *Alert and deny*, but you can't turn it off.
+By default, your policy inherits its parent policy threat intelligence mode. You can override this by setting your threat Intelligence mode to a different value in the policy settings page. It's only possible to override with a stricter value. For example, if you parent policy is set to *Alert only*, you can configure this local policy to *Alert and deny*, but you can't turn it off.
 
 ## Next steps
 
-- [Learn more about Azure Firewall Manager Preview](overview.md)
+- [Learn more about Azure Firewall Manager](overview.md)

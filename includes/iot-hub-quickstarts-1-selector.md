@@ -19,3 +19,4 @@
 > * [Python](../articles/iot-hub/quickstart-send-telemetry-python.md)
 > * [Android](../articles/iot-hub/quickstart-send-telemetry-android.md)
 > * [iOS](../articles/iot-hub/quickstart-send-telemetry-ios.md)
+> * [Xamarin.Forms](../articles/iot-hub/quickstart-send-telemetry-xamarinforms.md)

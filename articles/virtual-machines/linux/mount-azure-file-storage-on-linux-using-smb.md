@@ -3,7 +3,7 @@ title: Mount Azure File storage on Linux VMs using SMB
 description: How to mount Azure File storage on Linux VMs using SMB with the Azure CLI
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn

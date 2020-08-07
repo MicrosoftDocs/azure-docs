@@ -22,7 +22,7 @@ Baseline policies are a set of predefined policies that help protect organizatio
 Managing customized Conditional Access policies requires an Azure AD Premium license.
 
 > [!IMPORTANT]
-> Baseline policies are being deprecated. See [What's new in Azure Active Directory?](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults) for more information.
+> Baseline policies are being deprecated. See [Archive for What's new in Azure Active Directory?](../fundamentals/whats-new-archive.md#replacement-of-baseline-policies-with-security-defaults) for more information.
 
 ## Baseline policies
 

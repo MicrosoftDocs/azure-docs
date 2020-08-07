@@ -13,16 +13,16 @@ ms.author: victorh
 
 Custom rules allow you to create tailored rules to suit the exact needs of your applications and security policies. Now, you can restrict access to your web applications by country/region. As with all custom rules, this logic can be compounded with other rules to suit the needs of your application.
 
-To create a geo-filtering custom rule, simply select *Geo-location* as the Match Type, and then select the country or countries you want to allow/block from your application. See [how to create custom rules in Powershell](configure-waf-custom-rules.md) and more custom rule examples(create-custom-waf-rules.md) for more information.
+To create a geo-filtering custom rule, simply select *Geo-location* as the Match Type, and then select the country/region or countries/regions you want to allow/block from your application. See [how to create custom rules in Powershell](configure-waf-custom-rules.md) and more custom rule examples(create-custom-waf-rules.md) for more information.
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
-## Country codes
+## Country/Region codes
 
-If you are using the Geomatch operator, the selectors can be any of the following two-digit country codes. 
+If you are using the Geomatch operator, the selectors can be any of the following two-digit country/region codes. 
 
-|Country code | Country name |
+|Country/Region code | Country/Region name |
 | ----- | ----- |
 | AD | Andorra |
 | AE | United Arab Emirates|

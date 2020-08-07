@@ -2,7 +2,7 @@
 title: Tutorial - Use quickstart templates
 description: Learn how to use Azure Quickstart templates to complete your template development.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -72,6 +72,8 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
 ```azurecli
 az deployment group create \
   --name addwebapp \
@@ -81,6 +83,9 @@ az deployment group create \
 ```
 
 ---
+
+> [!NOTE]
+> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
 
 ## Clean up resources
 

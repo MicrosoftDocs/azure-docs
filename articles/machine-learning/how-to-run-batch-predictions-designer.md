@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 02/24/2020
-ms.custom: Ignite2019
+ms.custom: Ignite2019, designer
 ---
 
 # Run batch predictions using Azure Machine Learning designer (preview)

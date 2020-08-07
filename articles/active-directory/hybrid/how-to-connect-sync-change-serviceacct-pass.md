@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -79,7 +79,7 @@ Abandon the existing encryption key so that new encryption key can be created:
 
 2. Start a new PowerShell session.
 
-3. Navigate to folder: `$env:Program Files\Microsoft Azure AD Sync\bin\`
+3. Navigate to folder: `'$env:ProgramFiles\Microsoft Azure AD Sync\bin\'`
 
 4. Run the command: `./miiskmu.exe /a`
 

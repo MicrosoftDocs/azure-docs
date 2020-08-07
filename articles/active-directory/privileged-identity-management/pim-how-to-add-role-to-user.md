@@ -7,10 +7,10 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 07/01/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ---
@@ -48,15 +48,13 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
     ![Azure AD roles](./media/pim-how-to-add-role-to-user/roles-list.png)
 
-1. Select **Add member** to open the **New assignment** page.
+1. Select **Add assignments** to open the **Add assignments** page.
 
-1. Select **Select a role** to open the Select a role page.
+1. Select **Select a role** to open the **Select a role** page.
 
     ![New assignment pane](./media/pim-how-to-add-role-to-user/select-role.png)
 
-1. Select a role you want to assign and then click **Select**.
-
-1. Select a member to whom you want to assign to the role and then select **Select**.
+1. Select a role you want to assign, select a member to whom you want to assign to the role, and then select **Next**.
 
 1. In the **Assignment type** list on the **Membership settings** pane, select **Eligible** or **Active**.
 
@@ -64,15 +62,11 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
     - **Active** assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned to the role at all times.
 
-1. If the assignment should be permanent (permanently eligible or permanently assigned), select the **Permanently** checkbox.
-
-    Depending on the role settings, the check box might not appear or might be unmodifiable.
-
-1. To specify a specific assignment duration, clear the check box and modify the start and/or end date and time boxes. When finished, select **Done**.
+1. To specify a specific assignment duration, add a start and end date and time boxes. When finished, select **Assign** to create the new role assignment.
 
     ![Memberships settings - date and time](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
-1. To create the new role assignment, select **Add**. A notification of the status is displayed.
+1. After the role is assigned, a assignment status notification is displayed.
 
     ![New assignment - Notification](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
@@ -124,7 +118,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
 1. Now that the user is eligible for the role, let them know that they can activate it according to the instructions in [Activate my Azure AD roles in Privileged Identity Management](pim-how-to-activate-role.md).
 
-    Eligible administrators are asked to register for Azure Multi-Factor Authentication (MFA) during activation. If a user cannot register for MFA, or is using a Microsoft account (such as @outlook.com), you need to make them permanent in all their roles.
+    Eligible administrators are asked to register for Azure Multi-Factor Authentication during activation. If a user cannot register for MFA, or is using a Microsoft account (such as @outlook.com), you need to make them permanent in all their roles.
 
 ## Make a role assignment permanent
 

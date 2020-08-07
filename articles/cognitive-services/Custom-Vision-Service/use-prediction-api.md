@@ -3,14 +3,14 @@ title: "Use prediction endpoint to programmatically test images with classifier 
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the API to programmatically test images with your Custom Vision Service classifier.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.author: anroth
+ms.author: pafarley
 ---
 
 # Use your model with the prediction API
@@ -130,8 +130,4 @@ When you run the application, you are prompted to enter a path to an image file 
 
 In this guide, you learned how to submit images to your custom image classifier/detector and receive a response programmatically with the C# SDK. Next, learn how to complete end-to-end scenarios with C#, or get started using a different language SDK.
 
-* [Quickstart: .NET SDK](csharp-tutorial.md)
-* [Quickstart: Python SDK](python-tutorial.md)
-* [Quickstart: Java SDK](java-tutorial.md)
-* [Quickstart: Node SDK](node-tutorial.md)
-* [Quickstart: Go SDK](go-tutorial.md)
+* [Quickstart: Custom Vision SDK](quickstarts/image-classification.md)

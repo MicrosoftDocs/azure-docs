@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/19/2019
 ---
 # Customize server configuration parameters for Azure Database for PostgreSQL - Single Server using Azure CLI

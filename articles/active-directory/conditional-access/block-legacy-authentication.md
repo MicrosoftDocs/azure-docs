@@ -5,8 +5,8 @@ description: Learn how to improve your security posture by blocking legacy authe
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 03/25/2020
+ms.topic: how-to
+ms.date: 05/13/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -62,6 +62,7 @@ The following options are considered legacy authentication protocols
 
 - Authenticated SMTP - Used by POP and IMAP client's to send email messages.
 - Autodiscover - Used by Outlook and EAS clients to find and connect to mailboxes in Exchange Online.
+- Exchange ActiveSync (EAS) - Used to connect to mailboxes in Exchange Online.
 - Exchange Online PowerShell - Used to connect to Exchange Online with remote PowerShell. If you block Basic authentication for Exchange Online PowerShell, you need to use the Exchange Online PowerShell Module to connect. For instructions, see [Connect to Exchange Online PowerShell using multi-factor authentication](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
 - Exchange Web Services (EWS) - A programming interface that's used by Outlook, Outlook for Mac, and third-party apps.
 - IMAP4 - Used by IMAP email clients.
@@ -72,6 +73,8 @@ The following options are considered legacy authentication protocols
 - POP3 - Used by POP email clients.
 - Reporting Web Services - Used to retrieve report data in Exchange Online.
 - Other clients - Other protocols identified as utilizing legacy authentication.
+
+For more information about these authentication protocols and services, see [Sign-in activity reports in the Azure Active Directory portal](../reports-monitoring/concept-sign-ins.md#filter-sign-in-activities).
 
 ### Identify legacy authentication use
 
@@ -87,7 +90,7 @@ These logs will indicate which users are still depending on legacy authenticatio
 
 ### Block legacy authentication 
 
-In a Conditional Access policy, you can set a condition that is tied to the client apps that are used to access your resources. The client apps condition enables you to narrow down the scope to apps using legacy authentication by selecting **Other clients** for **Mobile apps and desktop clients**.
+In a Conditional Access policy, you can set a condition that is tied to the client apps that are used to access your resources. The client apps condition enables you to narrow down the scope to apps using legacy authentication by selecting **Exchange ActiveSync clients** and **Other clients** under **Mobile apps and desktop clients**.
 
 ![Other clients](./media/block-legacy-authentication/01.png)
 
@@ -149,3 +152,4 @@ If you block legacy authentication using the **Other clients** condition, you ca
 - [Determine impact using Conditional Access report-only mode](howto-conditional-access-report-only.md)
 - If you are not familiar with configuring Conditional Access policies yet, see [require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md) for an example.
 - For more information about modern authentication support, see [How modern authentication works for Office 2013 and Office 2016 client apps](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- [How to set up a multifunction device or application to send email using Office 365 and Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

@@ -5,7 +5,7 @@ description: Learn about things you should know and what it is you should avoid 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/25/2019
 
 ms.author: joflore

@@ -1,15 +1,15 @@
 ---
-title: Create a SQL (Core) API database and container for Azure Cosmos DB
-description: Create a SQL (Core) API database and container for Azure Cosmos DB
+title: Create a Core (SQL) API database and container for Azure Cosmos DB
+description: Create a Core (SQL) API database and container for Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 9/25/2019
+ms.date: 06/03/2020
 ---
 
-# Create an Azure Cosmos SQL (Core) API account, database and container using Azure CLI
+# Create an Azure Cosmos Core (SQL) API account, database and container using Azure CLI
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 

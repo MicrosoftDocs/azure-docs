@@ -133,7 +133,7 @@ This table shows the straight-line distance between two locations. In networks, 
 
 `minimum RTT = 2 * (Distance in kilometers / Speed of propagation)`
 
-You can use 200 for the speed of propagation. This is the distance, in meters, that light travels in 1 millisecond.
+You can use 200 for the speed of propagation. This is the distance, in kilometers, that light travels in 1 millisecond.
 
 Let's take New York to San Francisco as an example. The straight-line distance is 4,148 km. Plugging that value into the equation, we get the following:
 

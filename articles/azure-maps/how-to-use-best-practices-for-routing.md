@@ -1,8 +1,8 @@
 ---
 title: Best practices for Azure Maps Route Service  | Microsoft Azure Maps 
-description: Learn how to route efficiently by using Route Service from Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+description: Learn how to route vehicles by using Route Service from Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
 ms.date: 03/11/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -51,7 +51,7 @@ Consider calling Matrix Routing API if your scenario is to:
 
 Here is a comparison to show some capabilities of the Route Directions and Matrix APIs:
 
-| Azure Maps API | Max number of queries in the request | Avoid areas | Truck and electric vehicle routing | waypoints and Traveling Salesman optimization | Supporting points |
+| Azure Maps API | Max number of queries in the request | Avoid areas | Truck and electric vehicle routing | Waypoints and Traveling Salesman optimization | Supporting points |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
 | Get Route Directions | 1 | | X | X | |
 | Post Route Directions | 1 | X | X | X | X |

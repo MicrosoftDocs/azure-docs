@@ -2,7 +2,7 @@
 title: Manage users in Azure Blockchain Workbench
 description: How to manage users in Azure Blockchain Workbench.
 ms.date: 05/09/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: brendal
 #Customer intent: As an administrator of Blockchain Workbench, I want to manage users for blockchain apps in Azure Blockchain Workbench.
 ---

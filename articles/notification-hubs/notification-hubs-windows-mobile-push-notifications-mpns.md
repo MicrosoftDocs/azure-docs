@@ -80,8 +80,11 @@ In this section, you create a Windows Phone application that registers itself wi
     ![Visual Studio - NuGet Package Manager][20]
 4. Open the file App.xaml.cs and add the following `using` statements:
 
-        using Microsoft.Phone.Notification;
-        using Microsoft.WindowsAzure.Messaging;
+    ```csharp
+    using Microsoft.Phone.Notification;
+    using Microsoft.WindowsAzure.Messaging;
+    ```
+
 5. Add the following code at the top of `Application_Launching` method in `App.xaml.cs`:
 
     ```csharp
@@ -173,4 +176,4 @@ In this simple example, you broadcasted push notifications to all your Windows P
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [toast catalog]: https://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [tile catalog]: https://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
-[Notification Hubs - Windows Phone Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
+[Notification Hubs - Windows Phone Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari

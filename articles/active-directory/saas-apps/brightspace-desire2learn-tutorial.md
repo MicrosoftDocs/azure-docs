@@ -104,10 +104,10 @@ To configure Azure AD single sign-on with Brightspace by Desire2Learn, perform t
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 	
-	| |
-	|--|
-	| `https://<companyname>.tenants.brightspace.com/samlLogin`|
-	| `https://<companyname>.desire2learn.com/shibboleth-sp`|
+    ```http
+    https://<companyname>.tenants.brightspace.com/samlLogin
+    https://<companyname>.desire2learn.com/shibboleth-sp
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`

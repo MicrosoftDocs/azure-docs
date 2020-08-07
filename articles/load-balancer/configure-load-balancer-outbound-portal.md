@@ -5,7 +5,7 @@ description: This article shows how to configure load balancing and outbound rul
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
 
@@ -40,7 +40,7 @@ In this section, you create a load balancer that will load balance virtual machi
     | Name                   | **myLoadBalancer**                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Public**.                                        |
-    | SKU           | Select **Standard** or **Basic**. Microsoft recommends Standard for production workloads. |
+    | SKU           | Select **Standard**. |
     | Public IP address | Select **Create new**. If you have an existing Public IP you would like to use, select **Use existing**.  Existing public IP must be **Standard** SKU.  Basic public IPs aren't compatible with **Standard** SKU load balancer.  |
     | Public IP address name              | Type **myPublicIP** in the text box.|
     | Availability zone | Select **Zone-redundant** to create a resilient Load Balancer. To create a zonal Load Balancer, select a specific zone from 1, 2, or 3 |

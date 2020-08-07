@@ -70,7 +70,7 @@ An Azure Active Directory tenant administrator doesn’t have direct access to A
 
 3. Under **Access management for Azure resources**, set the switch to **Yes**.
 
-   ![Global admin can manage Azure Subscriptions and Management Groups - screenshot](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
+   ![Access management for Azure resources - screenshot](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
    - When you set the switch to Yes, you are assigned the User Access Administrator role in Azure RBAC at the root scope (/). This grants you permission to assign roles in all Azure subscriptions and management groups associated with this Azure AD directory. This switch is only available to users who are assigned the Global Administrator role in Azure AD.
 
@@ -157,7 +157,7 @@ Once the RBAC roles have been assigned to the users, the tenant administrator sh
 
 2. In the navigation list, click **Azure Active Directory** and then click **Properties**.
 
-3. Under **Global admin can manage Azure Subscriptions and Management Groups**, set the switch to **No**.
+3. Under **Access management for Azure resources**, set the switch to **No**.
 
 4. Click **Save** to save your setting.
 

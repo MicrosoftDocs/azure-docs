@@ -29,7 +29,9 @@ Usually your Azure subscription you were using for HANA Large Instance deploymen
 ### Register through CLI interface
 You need to be logged into your Azure subscription, used for the HANA Large Instance deployment via the Azure CLI interface. You can (re-)register the HANA Large Instance Provider with this command:
     
-    az provider register --namespace Microsoft.HanaOnAzure
+```azurecli
+az provider register --namespace Microsoft.HanaOnAzure
+```
 
 For more information, see the article [Azure resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
 

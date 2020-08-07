@@ -63,6 +63,11 @@ Use the following procedure.
      **Add criteria screen**
 
      ![Add criteria](media/alerts-activity-log/add-criteria.png)
+     
+     > [!NOTE]
+     > 
+     >  In order to have a high quality and effective rules, we ask to add at least one more condition to rules with the signal "All Administrative". 
+     > As a part of the definition of the alert you must fill one of the drop downs: "Event level", "Status" or "Initiated by" and by that the rule will be more specific.
 
      - **History time**: Events available for the selected operation can be plotted over the last 6, 12, or 24 hours or over the last week.
 
@@ -191,6 +196,11 @@ To create an activity log alert rule by using an Azure Resource Manager template
 }
 ```
 The previous sample JSON can be saved as, for example, sampleActivityLogAlert.json for the purpose of this walk-through and can be deployed by using [Azure Resource Manager in the Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
+
+  > [!NOTE]
+  > 
+  > Notice that the highest-level activity log alerts can be defined is subscription.
+  > Meaning there is no option to define alert on couple of subscriptions, therefore the definition should be alert  per subscription.
 
 The following fields are the options that you can use in the Azure Resource Manager template for the conditions fields:
 Notice that “Resource Health”, “Advisor” and “Service Health” have extra properties fields for their special fields. 

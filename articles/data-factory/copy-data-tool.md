@@ -10,11 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/18/2018
+ms.date: 06/17/2020
 ms.author: yexu
 
 ---
 # Copy Data tool in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The Azure Data Factory Copy Data tool eases and optimizes the process of ingesting data into a data lake, which is usually a first step in an end-to-end data integration scenario.  It saves time, especially when you use Azure Data Factory to ingest data from a data source for the first time. Some of the benefits of using this tool are:
 
 - When using the Azure Data Factory Copy Data tool, you do not need understand Data Factory definitions for linked services, datasets, pipelines, activities, and triggers. 
@@ -31,7 +33,7 @@ The following table provides guidance on when to use the Copy Data tool vs. per-
 
 To start the Copy Data tool, click the **Copy Data** tile on the home page of your data factory.
 
-![Get started page - link to Copy Data tool](./media/copy-data-tool/get-started-page.png)
+![Get started page - link to Copy Data tool](./media/doc-common-process/get-started-page.png)
 
 
 ## Intuitive flow for loading data into a data lake

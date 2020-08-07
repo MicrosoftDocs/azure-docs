@@ -65,17 +65,17 @@ Business One is an application that has two tiers:
 - A client tier with a 'fat' client
 - A database tier that contains the database schema for a tenant
 
-A better overview which components are running in the client part and which parts are running in the server part is documented in [SAP Business One Administrator's Guide](https://help.sap.com/http.svc/rc/879bd9289df34a47af838e67d74ea302/9.3/en-US/AdministratorGuide_SQL.pdf) 
+A better overview which components are running in the client part and which parts are running in the server part is documented in [SAP Business One Administrator's Guide](https://help.sap.com/doc/601fbd9113be4240b81d74626439cfa9/10.0/en-US/AdministratorGuide_SQL.pdf) 
 
 Since there is heavy latency critical interaction between the client tier and the DBMS tier, both tiers need to be located in Azure when deploying in Azure. it is usual that the users then RDS into one or multiple VMs running an RDS service for the Business One client components.
 
 ### Sizing VMs for SAP Business One
 
-Regarding the sizing of the client VM(s), the resource requirements are documented by SAP in the document [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). For Azure, you need to focus and calculate with the requirements stated in chapter 2.4 of the document.
+Regarding the sizing of the client VM(s), the resource requirements are documented by SAP in the document [SAP Business One Hardware Requirements Guide](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). For Azure, you need to focus and calculate with the requirements stated in chapter 2.4 of the document.
 
 As Azure virtual machines for hosting the Business One client components and the DBMS host, only VMs that are SAP NetWeaver supported are allowed. To find the list of SAP NetWeaver supported Azure VMs, read [SAP Note #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
-Running SAP HANA as DBMS backend for Business One, only VMs, which are listed for Business on HANA in the [HANA certifeid IaaS platform list](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) are supported for HANA. The Business One client components are not affected by this stronger restriction for the SAP HANA as DBMS system.
+Running SAP HANA as DBMS backend for Business One, only VMs, which are listed for Business on HANA in the [HANA certified IaaS platform list](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure%23SAP%20Business%20One) are supported for HANA. The Business One client components are not affected by this stronger restriction for the SAP HANA as DBMS system.
 
 ### Operating system releases to use for SAP Business One
 
@@ -105,7 +105,7 @@ A more sophisticated version of an Azure network configuration is based on the A
 For cases where the users are connecting through the internet without any private connectivity into Azure, the design of the network in Azure should be aligned with the principles documented in the Azure reference architecture for [DMZ between Azure and the Internet](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
 ### Business One database server
-For the database type, SQL Server and SAP HANA are available. Independent of the DBMS, you should read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) to get a general understanding of DBMS deployments in azure VMs and the related networking and storage topics.
+For the database type, SQL Server and SAP HANA are available. Independent of the DBMS, you should read the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) to get a general understanding of DBMS deployments in Azure VMs and the related networking and storage topics.
 
 Though emphasized in the specific and generic database documents already, you should make yourself familiar with:
 
@@ -134,7 +134,7 @@ Rough sizing estimates for the DBMS side for SQL Server are:
 | up to 80 | 16 | 64 GB | D16s_v3, E16s_v3 |
 | up to 150 | 32 | 128 GB | D32s_v3, E32s_v3 |
 
-The sizing listed above should give an idea where to start with. It may be that you need less  or more resources, in which case an adaption on azure is easy. A change between VM types is possible with just a restart of the VM.
+The sizing listed above should give an idea where to start with. It may be that you need less  or more resources, in which case an adaption on Azure is easy. A change between VM types is possible with just a restart of the VM.
 
 #### SAP HANA as DBMS
 Using SAP HANA as DBMS the following sections you should follow the considerations of the document [SAP HANA on Azure operations guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).

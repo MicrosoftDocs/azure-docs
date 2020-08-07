@@ -131,23 +131,33 @@ Strings can be compared in filters for exact matches using the `eq` and `ne` ope
 
 Match documents where the `Rating` field is between 3 and 5, inclusive:
 
-    Rating ge 3 and Rating le 5
+```text
+Rating ge 3 and Rating le 5
+```
 
 Match documents where the `Location` field is less than 2 kilometers from the given latitude and longitude:
 
-    geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
+```text
+geo.distance(Location, geography'POINT(-122.031577 47.578581)') lt 2.0
+```
 
 Match documents where the `LastRenovationDate` field is greater than or equal to January 1st, 2015, midnight UTC:
 
-    LastRenovationDate ge 2015-01-01T00:00:00.000Z
+```text
+LastRenovationDate ge 2015-01-01T00:00:00.000Z
+```
 
 Match documents where the `Details/Sku` field is not `null`:
 
-    Details/Sku ne null
+```text
+Details/Sku ne null
+```
 
 Match documents for hotels where at least one room has type "Deluxe Room", where the string of the `Rooms/Type` field matches the filter exactly:
 
-    Rooms/any(room: room/Type eq 'Deluxe Room')
+```text
+Rooms/any(room: room/Type eq 'Deluxe Room')
+```
 
 ## Next steps  
 
