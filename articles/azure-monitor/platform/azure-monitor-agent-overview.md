@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
+ms.date: 08/07/2020
 
 ---
 
@@ -33,7 +33,7 @@ The methods for defining data collection for the existing agents are distinctly 
 
 - Diagnostic extension has a configuration for each virtual machine. This is easy to define independent definitions for different virtual machines but difficult to centrally manage. It can only send data to Azure Monitor Metrics, Azure Event Hubs, or Azure Storage. For Linux agents, the open source Telegraf agent is required to send data to Azure Monitor Metrics.
 
-Azure Monitor agent uses [Data Collection Rules (DCR)](data-collection-rule-portal.md) to configure data to collect from each agent. Data collection rules enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the virtual machine which allows them to be defined once and reused across machines and environments.
+Azure Monitor agent uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) to configure data to collect from each agent. Data collection rules enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the virtual machine which allows them to be defined once and reused across machines and environments.
 
 
 
@@ -142,3 +142,4 @@ Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publishe
 
 ## Next steps
 
+- [Create a data collection rule](data-collection-rule-ama.md) to collect data from the agent and send it to Azure Monitor.

@@ -26,7 +26,7 @@ You can use the Azure portal to create a data collection rule and associate virt
 
 In the **Azure Monitor** menu in the Azure portal, select **Data Collection Rules** from the **Settings** section. Click **Add** to add a new Data Collection Rule and assignment.
 
-[![Data Collection Rules](media/azure-monitor-agent/data-collection-rules.png)](media/azure-monitor-agent/data-collection-rules.png#lightbox)
+[![Data Collection Rules](media/azure-monitor-agent/data-collection-rule.png)](media/azure-monitor-agent/data-collection-rules.png#lightbox)
 
 Click **Add** to create a new rule and set of associations. Provide a **Rule name** and specify a **Subscription** and **Resource Group**. This specifies where the DCR will be created. The virtual machines and their associations can be in any subscription or resource group in the tenant.
 
@@ -41,7 +41,7 @@ On the **Collect and deliver** tab, click **Add data source** to add a data sour
 [![Data source basic](media/azure-monitor-agent/data-collection-rule-data-source-basic.png)](media/azure-monitor-agent/data-collection-rule-data-source-basic.png#lightbox)
 
 
-To specify other logs and performance counters, select **Custom**. You can then specify an [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) for any specific values to collect. See [Sample DCR](data-collection-rule-overview.md#sample-dcr) for examples.
+To specify other logs and performance counters, select **Custom**. You can then specify an [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) for any specific values to collect. See [Sample DCR](data-collection-rule-overview.md#sample-data-collection-rule) for examples.
 
 [![Data source custom](media/azure-monitor-agent/data-collection-rule-data-source-custom.png)](media/azure-monitor-agent/data-collection-rule-data-source-custom.png#lightbox)
 
@@ -57,10 +57,11 @@ Click **Add Data Source** and then **Review + create** to review the details of 
 ## Create using REST API
 Follow the steps below to create a DCR and associations using the REST API. 
 
-1. Manually create the DCR file using the JSON format shown in [Sample DCR](data-collection-rule-overview.md#sample-dcr).
+1. Manually create the DCR file using the JSON format shown in [Sample DCR](data-collection-rule-overview.md#sample-data-collection-rule).
 2. Create the rule using the [REST API](https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/datacollectionrules/datacollectionrules_create?view=azure-rest-preview&branch=openapiHub_production_ad39a35d2f16#definitions).
 3. Create an association for each virtual machine to the data collection rule using the [REST API](https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/datacollectionruleassociations/datacollectionruleassociations_create?view=azure-rest-preview&branch=openapiHub_production_ad39a35d2f16#examples).
 
 ## Next steps
 
-
+- Learn more about the [Azure Monitor Agent](azure-monitor-agent-overview.md).
+- Learn more about [data collection rules](data-collection-rule-overview.md).

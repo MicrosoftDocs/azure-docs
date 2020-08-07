@@ -339,9 +339,6 @@
         href: platform/logicapp-flow-connector.md
       - name: Application Insights connector
         href: app/automate-with-logic-apps.md
-    - name: REST API
-      displayname: metrics, analyze
-      href: platform/rest-api-walkthrough.md
   - name: Agents
     items:
     - name: Overview
@@ -1266,6 +1263,9 @@
       href: /rest/api/monitor/
     - name: Azure Monitor Logs
       href: /rest/api/loganalytics
+    - name: REST API Walkthrough
+      displayname: metrics, analyze
+      href: platform/rest-api-walkthrough.md
   - name: Resource Manager templates
     items:
     - name: Azure Monitor
