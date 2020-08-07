@@ -22,13 +22,13 @@ For more detailed information about creating and using SSH keys with Linux VMs, 
 
 ## Generate new keys
 
-1. Open the [Azure portal](https://portal.azure.com.
+1. Open the [Azure portal](https://portal.azure.com).
 
 1. At the top of the page, type *SSH* to search. Under **Marketplace*, select **SSH keys**.
 
 1. On the **SSH Key** page, select **Create**.
 
-:::image type="content" source="./media/ssh-keys/portal-sshkey.png" alt-text="Create a new resource group and generate an SSH key pair":::
+   :::image type="content" source="./media/ssh-keys/portal-sshkey.png" alt-text="Create a new resource group and generate an SSH key pair":::
 
 1. In **Resource group** select **Create new** to create a new resource group to store your keys. Type a name for your resource group and select **OK**.
 
@@ -44,7 +44,7 @@ For more detailed information about creating and using SSH keys with Linux VMs, 
 
 1. You will then get a pop-up window to, select **Download private key and create resource**. This will download the SSH key as a .pem file.
 
-:::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Download the private key as a .pem file":::
+   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Download the private key as a .pem file":::
 
 1. Once the .pem file is downloaded, you might want to move it somewhere on your computer where it is easy to point to from your SSH client.
 
@@ -64,13 +64,13 @@ For example, type: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
 
 You can also upload a public SSH key to store in Azure. For information about how to create an SSH key pair, see [Use SSH keys to connect to Linux VMs](./linux/ssh-from-windows.md).
 
-1. Open the [Azure portal](https://portal.azure.com.
+1. Open the [Azure portal](https://portal.azure.com).
 
 1. At the top of the page, type *SSH* to search. Under **Marketplace*, select **SSH keys**.
 
 1. On the **SSH Key** page, select **Create**.
 
-:::image type="content" source="./media/ssh-keys/upload.png" alt-text="Upload an SSH public key to be stored in Azure":::
+   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Upload an SSH public key to be stored in Azure":::
 
 1. In **Resource group** select **Create new** to create a new resource group to store your keys. Type a name for your resource group and select **OK**.
 
