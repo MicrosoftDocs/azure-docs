@@ -72,7 +72,7 @@ If you're rolling certificates in response to a security breach, use the followi
 
 1. Click **Devices**, and select the device. 
 
-2. Click **Connect**, and device connection page opens up.
+2. Click **Connect**, and select connect method as **Individual Enrollment**
 
 3. Select **Certificates (X.509)** as mechanism.
 
@@ -91,7 +91,6 @@ If you're rolling certificates to handle certificate expirations, you should use
 Later when the secondary certificate also nears expiration, and needs to be rolled, you can rotate to using the primary configuration. Rotating between the primary and secondary certificates in this way reduces downtime for devices attempting to provision.
 
 1. Click **Devices**, and select the device.
-
 
 2. Click **Connect**, and select connect method as **Individual Enrollment**
 
