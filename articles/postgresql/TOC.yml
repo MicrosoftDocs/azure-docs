@@ -347,6 +347,10 @@
       items:
       - name: Azure portal
         href: howto-hyperscale-manage-firewall-using-portal.md
+    - name: Distributed data
+      items:
+      - name: Creating and modifying
+        href: howto-hyperscale-dist-modify.md
     - name: High availability
       href: howto-hyperscale-high-availability.md
     - name: Monitor
