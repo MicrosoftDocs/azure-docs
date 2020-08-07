@@ -298,6 +298,25 @@ These commands accept "Credential" as a parameter to complete the registration i
 
 ```
 
+In the case of server core installations where access to a web proxy is required for outbound internet access, consider using the following method to deploy web proxy settings to allow the agent registration to complete successfully.
+
+Add proxy settings for the entire machine in machine.config -> c:\windows\Microsoft.NET\Framework64\<version>\config\machine.config
+defaultProxyElement: https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings
+e.g. proxy can be added for all .NET applications on the machine via a <defaultProxy/> section in <configuration><system.net/></configuration>
+
+```
+<system.net>  
+    <defaultProxy>  
+      <proxy  
+        usesystemdefault="True"  
+        proxyaddress="http://192.168.1.10:3128"  
+        bypassonlocal="True"  
+      />  
+    </defaultProxy>  
+</system.net>
+```
+
+
 ## Configure Azure AD Connect Health Agents to use HTTP Proxy
 
 You can configure Azure AD Connect Health Agents to work with an HTTP Proxy.
