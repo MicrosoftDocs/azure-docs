@@ -65,7 +65,7 @@ A redirect URI is the location to which the Microsoft identity platform redirect
 
 In a production web application, for example, the redirect URI is often a public endpoint where your app is running, like `https://contoso.com/auth-response`. During development, it's common to also add the endpoint where you run your app locally, like `https://localhost:5000`.
 
-You can add and modify redirect URIs for your registered applications by configuring their **Platform settings**.
+You can add and modify redirect URIs for your registered applications by configuring their [platform settings](#configure-platform-settings).
 
 ### Configure platform settings
 
@@ -75,7 +75,7 @@ To configure application settings based on the platform or device you're targeti
 
 1. Under **Manage**, select **Authentication**.
 1. Under **Platform configurations**, select **Add a platform**.
-1. Configure settings appropriate for your application type or platform.
+1. In **Configure platforms**, select the tile for your application type (platform) to configure its settings.
 
     :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Screenshot of the Platform configuration pane in the Azure portal" border="false":::
 
