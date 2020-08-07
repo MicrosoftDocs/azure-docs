@@ -32,7 +32,7 @@ Yes. You can link a private DNS zone with thousands of virtual networks. For mor
 
 ## Can a virtual network that belongs to a different subscription be linked to a private zone?
 
-Yes. You must have write operation permission on the virtual networks and the private DNS zone. The write permission can be granted to several Azure roles. For example, the Classic Network Contributor Azure role has write permissions to virtual networks and Private DNS zones Contributor role has write permissions on the private DNS zones. For more information on Azure roles, see [Role-based access control](../role-based-access-control/overview.md).
+Yes. You must have write operation permission on the virtual networks and the private DNS zone. The write permission can be granted to several Azure roles. For example, the Classic Network Contributor Azure role has write permissions to virtual networks and Private DNS zones Contributor role has write permissions on the private DNS zones. For more information on Azure roles, see [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 ## Will the automatically registered virtual machine DNS records in a private zone be automatically deleted when you delete the virtual machine?
 
