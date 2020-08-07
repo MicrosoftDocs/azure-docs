@@ -269,7 +269,7 @@ The following JSON is an example of the Text Analytics for health API response b
                     "length": 11,
                     "text": "itchy sores",
                     "category": "SymptomOrSign",
-                    "score": 0.97,
+                    "ConfidenceScore": 1.0,
                     "isNegated": false
                 }
             ]
@@ -283,7 +283,7 @@ The following JSON is an example of the Text Analytics for health API response b
                     "length": 4,
                     "text": "50mg",
                     "category": "Dosage",
-                    "score": 1.0,
+                    "ConfidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
@@ -292,7 +292,7 @@ The following JSON is an example of the Text Analytics for health API response b
                     "length": 8,
                     "text": "benadryl",
                     "category": "MedicationName",
-                    "score": 0.99,
+                    "ConfidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
@@ -339,44 +339,22 @@ The following JSON is an example of the Text Analytics for health API response b
                     "length": 11,
                     "text": "twice daily",
                     "category": "Frequency",
-                    "score": 1.0,
+                    "ConfidenceScore": 1.0,
                     "isNegated": false
                 }
             ],
             "relations": [
                 {
                     "relationType": "DosageOfMedication",
-                    "score": 1.0,
                     "bidirectional": false,
-                    "source": "#/documents/2/entities/0",
-                    "target": "#/documents/2/entities/1",
-                    "entities": [
-                        {
-                            "id": "0",
-                            "role": "ATTRIBUTE"
-                        },
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        }
-                    ]
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
                 },
                 {
                     "relationType": "FrequencyOfMedication",
-                    "score": 1.0,
                     "bidirectional": false,
-                    "source": "#/documents/2/entities/1",
-                    "target": "#/documents/2/entities/2",
-                    "entities": [
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        },
-                        {
-                            "id": "2",
-                            "role": "ATTRIBUTE"
-                        }
-                    ]
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
                 }
             ]
         }
