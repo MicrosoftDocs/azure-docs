@@ -46,7 +46,7 @@ disks_ policy definition.
    resources or grouping of resources the policy assignment gets enforced on. Then click **Select**
    at the bottom of the **Scope** page.
 
-   This example uses the **Contoso** subscription. Your subscription will differ.
+   This example uses the **Parnell Aerospace** subscription. Your subscription will differ.
 
 1. Resources can be excluded based on the **Scope**. **Exclusions** start at one level lower than
    the level of the **Scope**. **Exclusions** are optional, so leave it blank for now.
