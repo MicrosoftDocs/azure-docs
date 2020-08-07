@@ -4,7 +4,7 @@ description: The Azure IoT Hub security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: iot-hub
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/07/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -332,11 +332,11 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32458.).
 
-**Guidance**: &lt;--- Online searches don't come out dedicated topics on IoT hub and AAD integration and admin account management. There is Microsoft IoT solution accelerartor available, ../iot-accelerators/iot-accelerators-remote-monitoring-rbac.md, enable AAD based RBAC in which Admin role is created by default, more details are available in the link, not sure we can use it as reference the baseline, actually this solution accelerator is mentioned in official IoT doc at ../iot-fundamentals/iot-security-ground-up.md#secure-processing-and-storage-in-the-cloud ---&gt; 
+**Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure IoT hub through role assignments. You can assign these roles to users, groups service principals and managed identities. There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
 
-&lt;--- we need to confirm with IoT owners on Azure IoT Hub access control is based on AAD or not, likely yes, generic guidelines appply here ---&gt;
+- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [&lt;--- Additionally Azure IoT Hub has device identy management, need to confirm with owners on if admin accounts are involved, how query works? Azure IoT Hub identity registry](iot-hub-devguide-identity-registry.md) ---&gt;
+- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Yes
 
@@ -348,8 +348,6 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32459.).
 
 **Guidance**: Access management to Azure IoT Hub resources is controlled through Azure Active Directory (Azure AD). Azure AD does not have the concept of default passwords.
-
-&lt;--- again, AAD question before we can use this guideline ---&gt;
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -917,9 +915,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32498.).
 
-**Guidance**: &lt;--- what is Azure IoT Hub alias? Found namespace Microsoft.IoTCentral, below content can be used if we found one ---&gt;
-
-Define and implement standard security configurations for your Azure Iot Hub service with Azure Policy. Use Azure Policy aliases in the "Microsoft.???" namespace to create custom policies to audit or enforce the configuration of your Azure IoT Hub services.
+**Guidance**: Define and implement standard security configurations for your Azure Iot Hub service with Azure Policy. Use Azure Policy aliases in the "Microsoft.Devices" namespace to create custom policies to audit or enforce the configuration of your Azure IoT Hub services.
 
 Azure Resource Manager has the ability to export the template in Java Script Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization.
 
@@ -1004,9 +1000,7 @@ You can also use the recommendations from Azure Security Center as a secure conf
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32504.).
 
-**Guidance**: &lt;--- what is Azure IoT Hub alias? Found namespace Microsoft.IoTCentral, below content can be used if we found one ---&gt;
-
-Use Azure Policy aliases in the "Microsoft.???" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
+**Guidance**: Use Azure Policy aliases in the "Microsoft.Devices" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 - [How to use aliases](../governance/policy/concepts/definition-structure.md#aliases)
