@@ -7,7 +7,8 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 03/24/2020
+ms.custom: references_regions
+ms.date: 08/06/2020
 ms.topic: overview
 ---
 
@@ -23,10 +24,15 @@ To deliver this experience with your hybrid machines hosted outside of Azure, th
 
 ## Supported scenarios
 
-Azure Arc for servers (preview) supports the following scenarios with connected machines:
+When you connect your machine to Azure Arc for servers (preview), it enables the ability to perform the following configuration management tasks:
 
 - Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) using the same experience as policy assignment for Azure virtual machines.
-- Log data collected by the Log Analytics agent, stored in the Log Analytics workspace the machine is registered. The log data from the hybrid machine now contains properties specific to the machine, such as a Resource ID, which can be used to support [resource-context](../../azure-monitor/platform/design-logs-deployment.md#access-mode) log access.
+
+- Monitor your connected machine guest operating system performance, and discover application components to monitor their processes and dependencies with other resources the application communicates using [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md).
+
+- Simplify deployment with other Azure services like Azure Automation State Configuration and Azure Monitor Log Analytics workspace using the supported [Azure VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machines. This includes performing post-deployment configuration or software installation using the Custom Script Extension.
+
+Log data collected and stored in a Log Analytics workspace from the hybrid machine now contains properties specific to the machine, such as a Resource ID. This can be used to support [resource-context](../../azure-monitor/platform/design-logs-deployment.md#access-mode) log access.
 
 ## Supported regions
 
@@ -37,7 +43,7 @@ With Azure Arc for servers (preview), only certain regions are supported:
 - WestEurope
 - SoutheastAsia
 
-In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. Data at rest will be stored within the Azure geography containing the region you specify, which may also affect your choice of region if you have data residency requirements. If the Azure region your machine is connected to is affected by an outage, the connected machine is not affected, but management operations using Azure may be unable to complete. For resilience in the event of a regional outage, if you have multiple locations which provide a geographically-redundant service, it is best to connect the machines in each location to a different Azure region.
+In most cases, the location you select when you create the installation script should be the Azure region geographically closest to your machine's location. Data at rest will be stored within the Azure geography containing the region you specify, which may also affect your choice of region if you have data residency requirements. If the Azure region your machine is connected to is affected by an outage, the connected machine is not affected, but management operations using Azure may be unable to complete. In the event of a regional outage, if you have multiple locations that provide a geographically redundant service, it is best to connect the machines in each location to a different Azure region.
 
 ### Agent status
 

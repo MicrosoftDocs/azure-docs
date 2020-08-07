@@ -28,7 +28,7 @@ When you enable Enterprise State Roaming, your organization is automatically gra
 ## To enable Enterprise State Roaming
 
 1. Sign in to [Azure AD admin center](https://aad.portal.azure.com/).
-1. Select **Azure Active Directory** &gt; **Devices** &gt; **Enterprise State Roaming**.
+1. Select **Azure Active Directory** > **Devices** > **Enterprise State Roaming**.
 1. Select **Users may sync settings and app data across devices**. For more information, see [how to configure device settings](/azure/active-directory/device-management-azure-portal).
   
    ![image of device setting labeled Users may sync settings and app data across devices](./media/enterprise-state-roaming-enable/device-settings.png)
@@ -53,7 +53,7 @@ The country/region value is set as part of the Azure AD directory creation proce
 Follow these steps to view a per-user device sync status report.
 
 1. Sign in to [Azure AD admin center](https://aad.portal.azure.com/).
-1. Select **Azure Active Directory** &gt; **Users** &gt; **All users**.
+1. Select **Azure Active Directory** > **Users** > **All users**.
 1. Select the user, and then select **Devices**.
 1. Under **Show**, select **Devices syncing settings and app data** to show sync status.
   

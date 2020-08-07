@@ -7,7 +7,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Quickstart: Use Service Bus topics and subscriptions with Python

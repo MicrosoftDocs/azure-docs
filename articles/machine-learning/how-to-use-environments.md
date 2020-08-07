@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
 
@@ -374,6 +374,12 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 # Submit the run 
 run = experiment.submit(sk_est)
+```
+### Retrieve Dockerfile from a run
+
+Use the following code to obtain the Dockerfile for a Docker-enabled run.
+```python
+print(run.get_environment().get_image_details().dockerfile)
 ```
 
 ## Use environments for web service deployment
