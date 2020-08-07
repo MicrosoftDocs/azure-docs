@@ -44,7 +44,7 @@ Where applicable, the following table maps the client libraries between the two 
 | Client used for indexers, data sources, skillsets | [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) | [SearchIndexerClient (**new**)](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient) |
 
 > [!Important]
-> Version 11 renames the version 10 `SearchIndexClient` to `SearchClient`, and then reuses the name for a client that works with index, analyzer, and synonym map objects. When updating client references, follow the sequence of steps in [Steps to upgrade](#UpgradeSteps) to avoid confusion during search-and-replace.
+> `SearchIndexClient` exists in both versions, but supports different things. In version 10, `SearchIndexClient` create indexes and other objects. In version 11, `SearchIndexClient` works with existing indexes. To avoid confusion when updating code, be mindful of the order in which client references are updated. Following the sequence in [Steps to upgrade](#UpgradeSteps) should help mitigate any string replacement issues.
 
 <a name="naming-differences"></a>
 
@@ -121,7 +121,7 @@ Version 11 fully supports the following objects and operations:
 
 The following version 10 features are not yet available in version 11. If you use these features, hold off on migration until they are supported.
 
-+ [geospatial types](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.serialization.geojsonextensions)
++ geospatial types
 + [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) (although you can use [this workaround](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/tests/Samples/FieldBuilder/FieldBuilder.cs)).
 + [Knowledge store](knowledge-store-concept-intro.md)
 
