@@ -39,7 +39,7 @@ This section describes the two Azure AD-based technologies that can be used to s
 
 #### Role-based access control (RBAC)
 
-[Role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) give you fine-grained access control over your Azure resources. RBAC roles and permissions can be managed from the Azure portal.
+[Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) give you fine-grained access control over your Azure resources. RBAC roles and permissions can be managed from the Azure portal.
 
 Storage Explorer supports RBAC access to Storage Accounts, Blobs, and Queues. If you need access to File Shares or Tables, you'll need to assign RBAC roles that grant permission to list storage account keys.
 

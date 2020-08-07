@@ -263,7 +263,7 @@
         - name: On-premises functions
           href: functions-runtime-install.md
         - name: Deploy using the Jenkins plugin
-          href: /azure/jenkins/jenkins-azure-functions-deploy
+          href: /azure/developer/jenkins/deploy-to-azure-functions
           maintainContext: true
     - name: Configure
       items:
