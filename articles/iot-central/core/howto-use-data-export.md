@@ -48,10 +48,10 @@ If you don't have an existing Event Hubs namespace to export to, follow these st
 2. Create an event hub in your Event Hubs namespace. Go to your namespace, and select **+ Event Hub** at the top to create an event hub instance.
 
 3. Generate a key that you will use in IoT Central to set up your data export. 
-  - Click on the event hub instance you created. 
-  - Click on **Settings/Shared access policies**. 
-  - Create a new key or choose an existing key that has **Send** permissions. 
-  - Copy either the primary or secondary connection string. You'll use this to set up a new destination in IoT Central.
+    - Click on the event hub instance you created. 
+    - Click on **Settings/Shared access policies**. 
+    - Create a new key or choose an existing key that has **Send** permissions. 
+    - Copy either the primary or secondary connection string. You'll use this to set up a new destination in IoT Central.
 
 ### Create a Service Bus queue or topic destination
 
@@ -62,10 +62,10 @@ If you don't have an existing Service Bus namespace to export to, follow these s
 2. To create a queue or topic to export to, go to your Service Bus namespace, and select **+ Queue** or **+ Topic**.
 
 3. Generate a key that you will use in IoT Central to set up your data export. 
-  - Click on the queue or topic you created. 
-  - Click on **Settings/Shared access policies**. 
-  - Create a new key or choose an existing key that has **Send** permissions. 
-  - Copy either the primary or secondary connection string. You'll use this to set up a new destination in IoT Central.
+    - Click on the queue or topic you created. 
+    - Click on **Settings/Shared access policies**. 
+    - Create a new key or choose an existing key that has **Send** permissions. 
+    - Copy either the primary or secondary connection string. You'll use this to set up a new destination in IoT Central.
 
 ### Create an Azure Blob Storage destination
 
@@ -121,7 +121,7 @@ Add filters to reduce the amount of data exported based on filter conditions. Th
   - **Message property filter**: Devices using the device SDKs are allowed to send *message properties* or *application properties* on each telemetry message, which is a bag of key-value pairs generally used to tag the message with custom identifiers. You can create a message property filter by typing in the message property key you are looking for, and specifying a condition. Only telemetry messages that have message properties that match the specified filter condition will be exported. Only string comparison operators are supported (equals, does not equal, contains, does not contain, exists, does not exist). [Learn more about application properties from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 ### Property changes filters
-  - **Property filter**: Choose a property item in the dropdown, and the exported stream will only contain changes to the selected property that meets the filter condition.
+**Property filter**: Choose a property item in the dropdown, and the exported stream will only contain changes to the selected property that meets the filter condition.
 
 ## 3. (Optional) Add enrichments
 Add enrichments to enrich exported messages with additional metadata in key-value pairs. These are the available enrichments for telemetry and property changes data types:
@@ -132,12 +132,12 @@ Add enrichments to enrich exported messages with additional metadata in key-valu
 Create a new destination or add a destination that you have already created. 
   
 1. Click on the **create a new destination** link. Fill in the following information:
-  - **Destination name**: the display name of the destination in IoT Central
-  - **Destination type**: choose the type of destination. If you haven't already, [set up your export destination](#set-up-export-destination)
-  - For Azure Event Hubs, Azure Service Bus queue or topic, paste the connection string for your resource. 
-  - For Azure Blob Storage, paste the connection string for your resource and enter the container name (case sensitive).
-  - For Webhook, paste the callback URL for your webhook endpoint. 
-  - Click **Create**
+    - **Destination name**: the display name of the destination in IoT Central
+    - **Destination type**: choose the type of destination. If you haven't already, [set up your export destination](#set-up-export-destination)
+    - For Azure Event Hubs, Azure Service Bus queue or topic, paste the connection string for your resource. 
+    - For Azure Blob Storage, paste the connection string for your resource and enter the container name (case sensitive).
+    - For Webhook, paste the callback URL for your webhook endpoint. 
+    - Click **Create**
 
 2. Click **+ Destination** and choose a destination from the dropdown. You an add up to 5 destinations to a single export.
 
