@@ -21,7 +21,7 @@ In this quick start guide, you will create a custom role with permission to crea
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Create a new custom role using the Azure AD portal
+## Create a custom role using the Azure AD portal
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged Role administrator or Global administrator permissions in the Azure AD organization.
 1. Select **Azure Active Directory**, select **Roles and administrators**, and then select **New custom role**.
