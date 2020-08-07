@@ -68,9 +68,7 @@ Following this method, you can go on to define models for the hospital's wards, 
 
 ### Validate syntax
 
-There is a client-side library available for parsing and validating DTDL. It generates a C# object model of the DTDL content, which can be used in model-driven development scenarios, like generating UI elements. You can also use this library to make sure your models have no syntax errors before you upload them. 
-
-For more information about this library and access to a sample built on it for a DTDL Validator, see [*How-to: Parse and validate models*](how-to-parse-models.md).
+[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
 ## Manage models with APIs.
 
