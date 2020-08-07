@@ -55,7 +55,7 @@ Relation extraction identifies meaningful connections between concepts mentioned
 | DirectionOfExamination | Direction of an examination. |
 | DirectionOfTreatment | Direction of a treatment. |
 | TimeOfCondition | The time associated with the onset of a condition. |
-| QualifierOfCondition | |
+| QualifierOfCondition | The associated qualifier for a condition. |
 | DosageOfMedication | A dosage of medication. |
 | FormOfMedication | A form of medication. |
 | RouteOfMedication | A route or mode of consuming a medicine. For example *oral*. |
@@ -67,6 +67,6 @@ Relation extraction identifies meaningful connections between concepts mentioned
 | FrequencyOfTreatment | The frequency at which a treatment is administered. |
 | ValueOfExamination | A numerical value associated with an examination. | 
 | UnitOfExamination | A unit (such as a percentage) associated with an examination. |
-| RelationOfExamination | | 
+| RelationOfExamination | A relation between an entity and an examination. | 
 | TimeOfExamination | The time associated with an examination. |
 | Abbreviation | An abbreviation.  | 
