@@ -28,18 +28,18 @@ In addition to deployments, you also trigger deletions when you run the [what-if
 
 When you give a deployment the same name as one in the history, you reset its place in the history. The deployment moves to the most recent place in the history. You also reset a deployment's place when you [roll back to that deployment](rollback-on-error.md) after an error.
 
-## Locks block deletions
+## Remove locks that block deletions
 
 If you have a [CanNotDelete lock](../management/lock-resources.md) on a resource group, the deployments for that resource group can't be deleted. You must remove the lock to take advantage of automatic deletions in the deployment history.
 
-To delete a lock, use:
+To use PowerShell to delete a lock, run the following commands:
 
 ```azurepowershell-interactive
 $lockId = (Get-AzResourceLock -ResourceGroupName lockedRG).LockId
 Remove-AzResourceLock -LockId $lockId
 ```
 
-To delete a lock, use:
+To use Azure CLI to delete a lock, run the following commands:
 
 ```azurecli-interactive
 lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
