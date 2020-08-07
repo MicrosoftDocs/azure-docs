@@ -179,13 +179,17 @@ When uploading documents, you must use an [IndexDocumentsBatch](https://docs.mic
 
     Console.WriteLine("{0}", "Loading index...\n");
     qryclient.IndexDocuments(batch, idxoptions);
+    ```
 
+    Once you initialize the [IndexDocumentsBatch](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) object, you can send it to the index by calling [IndexDocuments](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.indexdocuments) on your [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient) object.
+
+1. Because this is a console app that runs all commands sequentially, add a 2-second wait time between indexing and queries.
+
+    ```csharp
     // Wait 2 seconds for indexing to complete before starting queries (for demo and console-app purposes only)
     Console.WriteLine("Waiting for indexing...\n");
     System.Threading.Thread.Sleep(2000);
     ```
-
-    Once you initialize the [IndexDocumentsBatch](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) object, you can send it to the index by calling [IndexDocuments](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.indexdocuments) on your [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient) object.
 
     The 2-second delay compensates for indexing, which is asynchronous, so that all documents can be indexed before the queries are executed. Coding in a delay is typically only necessary in demos, tests, and sample applications.
 
