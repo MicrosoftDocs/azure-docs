@@ -163,9 +163,9 @@ Firewall rules, virtual network rules, and parameter settings are not inherited 
 ### Scaling
 Scaling vCores or between General Purpose and Memory Optimized:
 * PostgreSQL requires the `max_connections` setting on a secondary server to be [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html), otherwise the secondary will not start.
-* In Azure Database for PostgreSQL, the maximum allowed connections for each server is [fixed to the compute sku](concepts-limits.md) since connections occupy memory. 
+* In Azure Database for PostgreSQL, the maximum allowed connections for each server is fixed to the compute sku since connections occupy memory. You can learn more about the [mapping between max_connections and compute skus](concepts-limits.md).
 * **Scaling up**: First scale up a replica's compute, then scale up the primary. This order will prevent errors from violating the `max_connections` requirement.
-* **Scaling down**: First scale down the primary's compute, then scale down the replica. If you try to scale the replica lower than the primary, there will be an error since this violates the `max_connections` requirement
+* **Scaling down**: First scale down the primary's compute, then scale down the replica. If you try to scale the replica lower than the primary, there will be an error since this violates the `max_connections` requirement.
 
 Scaling storage:
 * All replicas have storage auto-grow enabled to prevent replication issues from a storage-full replica. This setting cannot be disabled.
