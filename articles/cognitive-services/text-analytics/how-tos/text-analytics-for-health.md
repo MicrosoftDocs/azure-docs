@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
 ---
 
@@ -224,7 +224,7 @@ The container provides REST-based query prediction endpoint APIs.
 Use the example cURL request below to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.0-preview.1/domains/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/domains/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
