@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 08/06/2020
+ms.date: 08/07/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
@@ -24,7 +24,7 @@ This article is updated monthly. Make sure to check back here often to keep up w
 
 ## July 2020  
 
-July was when Windows Virtual Desktop with Azure Resource Management integration is now generally available.
+July was when Windows Virtual Desktop with Azure Resource Management integration became generally available.
 
 Here's what changed with this new release: 
 
