@@ -46,25 +46,24 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
 3. Select **Event Hubs** under **FAVORITES** in the left navigational menu, and select **Add** on the toolbar.
 
    ![Add button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
-4. On the **Create namespace** page, take the following steps:
-    1. Select the **subscription** in which you want to create the namespace.
-    2. Select the **resource group** you created in the previous step. 
-    3. Enter a **name** for the namespace. The system immediately checks to see if the name is available.
-    4. Select a **location** for the namespace.    
-    5. Choose the **pricing tier** (Basic or Standard).  
-    6. Leave the **throughput units** settings as it is. To learn about throughput units, see [Event Hubs scalability](event-hubs-scalability.md#throughput-units)  
-    5. Select **Review + Create** at the bottom of the page.
+4. On the **Create namespace** page, take the following steps:  
+    a. Select the **subscription** in which you want to create the namespace.  
+    b. Select the **resource group** you created in the previous step.   
+    c. Enter a **name** for the namespace. The system immediately checks to see if the name is available.  
+    d. Select a **location** for the namespace.      
+    e. Choose the **pricing tier** (Basic or Standard).    
+    f. Leave the **throughput units** settings as it is. To learn about throughput units, see [Event Hubs scalability](event-hubs-scalability.md#throughput-units)  
+    g. Select **Review + Create** at the bottom of the page.
 
        ![Create an event hub namespace](./media/event-hubs-quickstart-portal/create-event-hub1.png)
-   6. On the **Review + Create** page, review the settings, and select **Create**. Wait for the deployment to complete. 
+   h. On the **Review + Create** page, review the settings, and select **Create**. Wait for the deployment to complete. 
 
        ![Review + create page](./media/event-hubs-quickstart-portal/review-create.png)
-   7. On the **Deployment** page, select **Go to resource** to navigate to the page for your namespace. 
+   i. On the **Deployment** page, select **Go to resource** to navigate to the page for your namespace. 
 
-      ![Deployment complete - go to resource](./media/event-hubs-quickstart-portal/deployment-complete.png)
-   8. Confirm that you see the **Event Hubs Namespace** page similar to the following example: 
-
-       ![Home page for the namespace](./media/event-hubs-quickstart-portal/namespace-home-page.png)       
+      ![Deployment complete - go to resource](./media/event-hubs-quickstart-portal/deployment-complete.png)  
+   j. Confirm that you see the **Event Hubs Namespace** page similar to the following example:   
+      ![Home page for the namespace](./media/event-hubs-quickstart-portal/namespace-home-page.png)       
 
        > [!NOTE]
        > Azure Event Hubs provides you with a Kafka endpoint. This endpoint enables your Event Hubs namespace to natively understand [Apache Kafka](https://kafka.apache.org/intro) message protocol and APIs. With this capability, you can communicate with your event hubs as you would with Kafka topics without changing your protocol clients or running your own clusters. Event Hubs supports [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) and later. For more information, see [Use Event Hubs from Apache Kafka applications](event-hubs-for-kafka-ecosystem-overview.md).
