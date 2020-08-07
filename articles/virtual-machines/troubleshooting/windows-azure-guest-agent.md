@@ -14,11 +14,11 @@ ms.author: genli
 ---
 # Troubleshooting Windows Azure Guest Agent
 
-Windows Azure Guest Agent is a virtual machine (VM) Agent in Azure Windows VMs. It allows the VM to communicate with the Fabric Controller (Underlying Host on which VM is hosted) on IP address 168.63.129.16. This IP address is a virtual public IP address that facilitates this communication. For more information, see [What is IP address 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+Windows Azure Guest Agent is a virtual machine (VM) Agent in Azure Windows VMs. It allows the VM to communicate with the Fabric Controller (Underlying Host on which VM is hosted) on IP address 168.63.129.16. This IP address is a virtual public IP address that facilitates the communication. For more information, see [What is IP address 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
 
-The Windows Azure Guest Agent is installed by default on any Windows VM deployed from an Azure Marketplace image. The VM that is migrated to Azure from On-Premise or is created by using a customized image will not have Windows Azure Guest Agent installed. In these scenarios, you have to manually install it. For more information about how to install the VM Agent, see [Azure Virtual Machine Agent Overview](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+ The VM that is migrated to Azure from on-Premises or is created by using a customized image doesn't have the Windows Azure Guest Agent installed. In these scenarios, you have to manually install it. For more information about how to install the VM Agent, see [Azure Virtual Machine Agent Overview](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
 
-When the Windows Azure Guest Agent is successfully installed, you will be able to see following three services under services.msc within virtual machines:
+When the Windows Azure Guest Agent is successfully installed, you can see following three services under services.msc within the VM:
  
 - Windows Azure Guest Agent Service
 - Telemetry Service
@@ -31,57 +31,54 @@ When the Windows Azure Guest Agent is successfully installed, you will be able t
 **RD Agent Service**: Responsible for the Installation of Guest Agent. Transparent Installer is also a component of Rd Agent that helps in upgrading other components and services of Guest Agent. Also, RDAgent is responsible for sending heartbeats from Guest (VM ) to Host Agent on Host. 
 
 > [!NOTE]
-> Starting with version 2.7.41491.971 of the VM agent, the Telemetry component is included into the RDAgent service, so you might not see this service in newly created VMs.
+> Starting with version 2.7.41491.971 of the VM guest agent, the Telemetry component is included into the RDAgent service, so you might not see this service in newly created VMs.
 
 ## Checking Agent Status and Version
 
-If the VM Agent is working correctly, it will be in **Ready** state. You can navigate to VM properties page in Azure portal to check the Agent information.
+Go to to VM properties page in Azure portal, check the **Agent status**. If the Windows Azure Guest Agent is working correctly, the status shows **Ready**. If VM Agent is in **Not Ready** status, the extensions and **Run Command** on the Azure portal won’t work.
 
-> [!NOTE]
-> If VM Agent is in **Not Ready** State or if VM is stopped, the Extensions and Run Command on the Azure portal won’t work.
-
-## Troubleshooting VM Agent that is in Not ready state
+## Troubleshooting VM Agent that is in not ready status
 
 ### Step 1 Check if the Windows Azure Guest Agent service is installed
 
-- Package
+You can use one of the following methods to check if  the Windows Azure Guest Agent service is installed:
 
-    If you go the location C:\WindowsAzure, you will be able to see the Guest Agent folder with version which means that Windows Azure Guest Agent was installed on the system. If the Windows Azure Guest Agent service was never installed in your system, you may not see the Windows Azure folder under C:\
-    
-    Another way to check is that when you have Windows Azure Guest Agent installed in the VM, the package can be located under the following location -C:\windows\OEM\GuestAgent\VMAgentPackage.zip
+- Check the Package
+
+    Go to the `C:\WindowsAzure` folder, if you see the **GuestAgent** folder with version, that means the Windows Azure Guest Agent was installed on the VM. Another way to check is that when you have Windows Azure Guest Agent installed in the VM, the package was saved in the following location: `C:\windows\OEM\GuestAgent\VMAgentPackage.zip`.
     
     You can run the following PowerShell command to check if VM agent has been deployed to the VM:
     
     `Get-Az VM -ResourceGroup “RGNAME” – Name “VMNAME” -displayhint expand`
     
-    The output contains the section with property of ProvisionVMAgent as follows shows that VM Agent has been deployed to the VM.
+    In the output, locate the **ProvisionVMAgent** property and check if the value is true, that means the agent is installed on the VM.
     
-- Services and Processes
+- Check the Services and Processes
 
-    Go to the Services console (services.msc) and check the state of the following services:  Windows Azure Guest Agent Service, RDAgent service, Windows Azure Telemetry Service and Windows Azure Network Agent service.
+    Go to the Services console (services.msc) and check the status of the following services: Windows Azure Guest Agent Service, RDAgent service, Windows Azure Telemetry Service and Windows Azure Network Agent service.
  
-     You can also check if these services are running  by checking the task manager for the following process:
+    You can also check if these services are running by checking the task manager for the following process:
        
     - WindowsAzureGuestAgent.exe - Windows Azure Guest Agent service
     - WaAppAgent.exe - RDAgent service
     - WindowsAzureNetAgent.exe - Windows Azure Network Agent service
     - WindowsAzureTelemetryService.exe - Windows Azure Telemetry Service
 
-    If you cannot find these Processes and Services running, it indicates you do not have Windows Azure Guest Agent installed.
-        
-### Step 2 Check installation under Programs and Features
+    If you cannot find these processes and services, it indicates you do not have Windows Azure Guest Agent installed.
 
-In Control Panel, go to **Programs and Features** to determine whether the Windows Azure Guest Agent service is installed.
+- Check the program and feature
 
-- If you don't find any packages, services and processes running and do not even see Windows Azure Guest Agent installed under Programs and Features, try [installing Windows Azure Guest Agent service](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows). If the Guest Agent doesn't install properly, you can [Install the VM agent offline](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+    In Control Panel, go to **Programs and Features** to determine whether the Windows Azure Guest Agent service is installed.
 
-- If you can see the services and in case they are running, restart them. In case they are stopped, start them and after few minutes, check again if the VM Agent is reporting as **Ready**. If you notice that these services are crashing, there maybe some third party processes causing these services to crash and need further troubleshooting for which you may need to contact Microsoft Support.
+If you don't find any packages, services and processes running and do not even see Windows Azure Guest Agent installed under Programs and Features, try [installing Windows Azure Guest Agent service](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows). If the Guest Agent doesn't install properly, you can [Install the VM agent offline](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
 
-### Step 3 Check if auto-update feature is working 
+If you can see the services and they are running, restart the service that see if the problem is resolved. If the services are stopped, start them and wait few minutes, and then check if the **Agent status** is reporting as **Ready**. If you find that these services are crashing, there maybe some third party processes causing these services to crash and need further troubleshooting for which you may need to contact Microsoft Support.
 
- Guest Agent has an auto-update feature, so it will automatically check for new updates and install them automatically. If the auto-update doesn't work correctly, try uninstalling and installing the Windows Azure Guest Agent by using the following steps:
+### Step 2 Check if auto-update feature is working
 
-1. If the Windows Azure Guest Agent appears in Programs and Features, uninstall the Windows Azure Guest Agent.
+The Windows Azure Guest Agent has an auto-update feature, so it will automatically check for new updates and install them automatically. If the auto-update doesn't work correctly, try uninstalling and installing the Windows Azure Guest Agent by using the following steps:
+
+1. If the Windows Azure Guest Agent appears in **Programs and Features**, uninstall the Windows Azure Guest Agent.
 
 2. Open Command Prompt with Administrator privileges.
 
@@ -97,7 +94,7 @@ In Control Panel, go to **Programs and Features** to determine whether the Windo
     sc delete WindowsAzureGuestAgent
     sc delete WindowsAzureTelemetryService
     ```
-1. Under C:\WindowsAzure create a folder called OLD.
+1. Under `C:\WindowsAzure` create a folder called OLD.
 
 1. Move any folder named Packages or GuestAgent into the OLD folder.
 
@@ -124,7 +121,7 @@ There are two logs files which you should be aware of for troubleshooting Window
 - C:\WindowsAzure\Logs\WaAppAgent.log
 - C:\WindowsAzure\Logs\TransparentInstaller.log
 
-Here are some common scenarios which usually lead to  Windows Azure Guest Agent being in **Not ready** state or not working as expected. The followings are the common issues with suggested solution.
+Here are some common scenarios which usually lead to  Windows Azure Guest Agent being in **Not ready** status or not working as expected. The followings are the common issues with suggested solution.
 
 ### Agent Stuck on Starting
 
@@ -169,7 +166,7 @@ System.Net.WebException: The remote server returned an error: (503) Server Unava
 - [00000011] [12/11/2018 06:27:55.66] [WARN]  (Ignoring) Exception while fetching supported versions from HostGAPlugin: System.Net.WebException: Unable to connect to the remote server 
 ---> System.Net.Sockets.SocketException: An attempt was made to access a socket in a way forbidden by its access permissions 168.63.129.16:32526
 at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
-at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState status, IAsyncResult asyncResult, Exception& exception)
 --- End of inner exception stack trace ---
 at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
 at System.Net.WebClient.DownloadString(Uri address)
