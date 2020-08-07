@@ -10,7 +10,7 @@ author: aniththa
 ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Tutorial: Use automated machine learning to predict taxi fares

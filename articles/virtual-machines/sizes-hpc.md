@@ -94,6 +94,6 @@ Azure provides several options to create clusters of Windows HPC VMs that can co
 
 ## Next steps
 
-- Learn more about optimizing your HPC applications for Azure and some examples at [HPC Workloads](./workloads/hpc/overview.md).
+- Learn more about [configuring your VMs](./workloads/hpc/configure.md), [enabling InfiniBand](./workloads/hpc/enable-infiniband.md), [setting up MPI](./workloads/hpc/setup-mpi.md) and optimizing HPC applications for Azure at [HPC Workloads](./workloads/hpc/overview.md).
 - Read about the latest announcements and some HPC examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
