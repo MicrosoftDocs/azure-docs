@@ -43,7 +43,7 @@ docker build . -t "yourDockerImageName" 
 docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATION_KEY" -e ENABLE_HA=true HA_PORT=8060 "yourDockerImageName"    
 ```
 > [!NOTE]
-> AUTH_KEY is mandatory for this command. NODE_NAME, ENABLE_HA and HA_PORT are optional. If you don't the set the value, the command will use default values. The default value of ENABLE_HA is false and HA_PORT is 8060.
+> AUTH_KEY is mandatory for this command. NODE_NAME, ENABLE_HA and HA_PORT are optional. If you don't set the value, the command will use default values. The default value of ENABLE_HA is false and HA_PORT is 8060.
 
 ## Container health check 
 After 120 seconds startup period, the health checker will run periodically every 30 seconds. It will provide the IR health status to container engine. 
