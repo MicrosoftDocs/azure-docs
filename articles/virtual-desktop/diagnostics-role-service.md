@@ -1,11 +1,7 @@
 ---
 title: Windows Virtual Desktop diagnose issues - Azure
 description: How to use the Windows Virtual Desktop diagnostics feature to diagnose issues.
-services: virtual-desktop
-author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: troubleshooting
+author: Heidilohrms.topic: troubleshooting
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
