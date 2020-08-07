@@ -1,5 +1,5 @@
 ---
-title: Azure AD roles Discover and Insights in PIM - Azure Active Directory | Microsoft Docs
+title: Azure AD roles Discovery and Insights in PIM, former Security Wizard - Azure Active Directory | Microsoft Docs
 description: Use Discovery and insights (formerly the Security Wizard) to removes or convert permanent privileged Azure AD role assignments to eligible with Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -11,13 +11,13 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/06/2020
+ms.date: 08/07/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ---
 
-# Discovery and Insights (preview) for Azure AD roles in Privileged Identity Management
+# Discovery and Insights (preview) for Azure AD roles (formerly Security Wizard)
 
 If you're starting out with Privileged Identity Management (PIM) in your Azure Active Directory (Azure AD) organization, you can use **Discovery and insights (preview)** to get started. This feature helps you understand the security risks of privileged identities and how to use Privileged Identity Management to reduce those risks. You don't even need to make any changes to existing role assignments in Discovery and Insights (preview), if you prefer to do it later.
 
@@ -25,9 +25,9 @@ If you're starting out with Privileged Identity Management (PIM) in your Azure A
 
 Before your organization starts using Privileged Identity Management, all role assignments are permanent. Users are always in in their assigned roles even when they don't need their privileges. Discovery and insights (preview), which replaces the former Security Wizard, shows you a list of privileged roles and how many users are currently in those roles. You can list out assignments for a role to learn more about the assigned users if one or more of them are unfamiliar.
 
-> [!WARNING]
-> It is critical that you have at least one Global administrator, and more than one Privileged Role Administrator with a work or school account (not a Microsoft account). If there were only one Privileged Role Administrator, the organization couldn't manage Privileged Identity Management if that account were deleted.
-> Also, keep role assignments permanent if a user has a Microsoft account (in other words, an account they use to sign in to Microsoft services like Skype, or Outlook.com). If you require multi-factor authentication to be activated in such a role, the user will be locked out because those users aren't authenticated by Azure AD.
+:heavy_check_mark: **Microsoft recommends** that you keep 2 break glass accounts that are permanently assigned to the global administrator role that doesn't require multifactor authentication when signing in. You can use these in any break glass scenario or in case no one is able to elevate into their Global Administrator role
+
+:heavy_check_mark: **Microsoft recommends** that you keep role assignments permanent if a user has a Microsoft account (in other words, an account they use to sign in to Microsoft services like Skype, or Outlook.com). If you require multi-factor authentication to be activated in such a role, the user will be locked out.
 
 ## Open Discovery and insights (preview)
 
