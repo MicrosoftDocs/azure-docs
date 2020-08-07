@@ -70,27 +70,31 @@ On Windows, type this command to create a local directory Speech CLI can use fro
 
 Or on Linux, type this command to create a directory and see its absolute path:
 
-`mkdir ~/spx-data`
-`cd ~/spx-data`
-`pwd`
+```bash
+mkdir ~/spx-data
+cd ~/spx-data
+pwd
+```
 
-Use the absolute path below.
+You will use the absolute path when you call Speech CLI.
 
 ### Run Speech CLI in the container
 
-This documentation shows the `spx` command used in non-Docker installations.
-
-You must mount a directory in docker to your filesystem where the Speech CLI can store and find configuration values and input and output files.
+This documentation shows the Speech CLI `spx` command used in non-Docker installations.
+When calling this command in a Docker container,
+you must mount a directory in Docker to your filesystem where the Speech CLI can store and find configuration values and input and output files.
+On Windows, your commands will start like this:
 
 `docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
 
-On Linux, like this:
+On Linux, your commands will start similar to this:
 
-`docker run -it -v /home/YourUsername/spx-data:/data --rm msftspeech/spx`
+`docker run -it -v /ABSOLUTE_PATH/spx-data:/data --rm msftspeech/spx`
 
-You must replace `YourAccount` with the absolute path output by the `pwd` command in the section above.
+> [!NOTE]
+> Replace /ABSOLUTE_PATH/ with the absolute path output by the `pwd` command in the section above.
 
-To use the `spx` command installed in Docker, always enter the `docker run` command shown above, followed by the parameters of your request.
+To use the `spx` command installed in Docker, always enter the full command shown above, followed by the parameters of your request.
 For example, on Windows, this command sets your key:
 
 `docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set YOUR-SUBSCRIPTION-KEY`
