@@ -118,7 +118,7 @@ After the private endpoint connection request is approved, it means that traffic
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 
-If the `provisioningState` of the resource is `Succeeded` and `properties.status` is `Approved`, it means that the shared private link resource is functional and indexers can be configured to communicate over the private endpoint.
+If the `properties.provisioningState` of the resource is `Succeeded` and `properties.status` is `Approved`, it means that the shared private link resource is functional and indexers can be configured to communicate over the private endpoint.
 
 ```json
 {
@@ -128,9 +128,9 @@ If the `provisioningState` of the resource is `Succeeded` and `properties.status
         "groupId": "blob",
         "requestMessage": "please approve",
         "status": "Approved",
-        "resourceRegion": null
-      },
-      "provisioningState": "Succeeded"
+        "resourceRegion": null,
+        "provisioningState": "Succeeded"
+      }
 }
 
 ```
@@ -158,7 +158,7 @@ The indexer should be created successfully, and should be making progress - inde
 ## Troubleshooting issues
 
 - When creating an indexer, if creation fails with an error message similar to "Data source credentials are invalid", it means that either the private endpoint connection has not been *Approved* or it is not function.
-Obtain the status of the shared private link resource using the [GET API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/get). If it has been *Approved* check the `provisioningState` of the resource. If it is `Incomplete`, this means some of the underlying dependencies for the resource failed to provision - reissue the `PUT` request to "re-create" the shared private link resource that should fix the issue. A reapproval might be necessary - check the status of the resource once again to verify.
+Obtain the status of the shared private link resource using the [GET API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/get). If it has been *Approved* check the `properties.provisioningState` of the resource. If it is `Incomplete`, this means some of the underlying dependencies for the resource failed to provision - reissue the `PUT` request to "re-create" the shared private link resource that should fix the issue. A reapproval might be necessary - check the status of the resource once again to verify.
 - If the indexer is created without setting its `executionEnvironment`, the indexer creation might succeed, but its execution history will show that indexer runs are unsuccessful. You should [update the indexer](https://docs.microsoft.com/rest/api/searchservice/update-indexer) to specify the execution environment.
 - If the indexer is created without setting the `executionEnvironment` and it runs successfully, it means that Azure Cognitive Search has decided that its execution environment is the search service specific "private" environment. However, this can change based on a variety of factors (resources consumed by the indexer, the load on the search service, and so on) and can fail at a later point - we highly recommend you set the `executionEnvironment` as `"Private"` to ensure that it will not fail in the future.
 
