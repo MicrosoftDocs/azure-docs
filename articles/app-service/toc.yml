@@ -51,7 +51,7 @@
       href: tutorial-java-spring-cosmosdb.md
   - name: Custom containers
     items:
-    - name: Customize Windows (container)
+    - name: Deploy from ACR
       href: tutorial-custom-container.md
     - name: Multi-container app
       href: tutorial-multi-container-app.md
