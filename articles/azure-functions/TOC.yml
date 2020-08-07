@@ -273,8 +273,6 @@
           displayName: app setting, application setting
         - name: Set the runtime version
           href: set-runtime-version.md
-        - name: Manually register an extension
-          href: install-update-binding-extensions-manual.md
         - name: Disable a function
           href: disable-function.md
         - name: Geo-disaster recovery
