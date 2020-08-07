@@ -41,8 +41,6 @@ Go to to VM properties page in Azure portal, check the **Agent status**. If the 
 
 ### Step 1 Check if the Windows Azure Guest Agent service is installed
 
-You can use one of the following methods to check if  the Windows Azure Guest Agent service is installed:
-
 - Check the Package
 
     Go to the `C:\WindowsAzure` folder, if you see the **GuestAgent** folder with version, that means the Windows Azure Guest Agent was installed on the VM. Another way to check is that when you have Windows Azure Guest Agent installed in the VM, the package was saved in the following location: `C:\windows\OEM\GuestAgent\VMAgentPackage.zip`.
@@ -66,7 +64,7 @@ You can use one of the following methods to check if  the Windows Azure Guest Ag
 
     If you cannot find these processes and services, it indicates you do not have Windows Azure Guest Agent installed.
 
-- Check the program and feature
+- Check the Program and Feature
 
     In Control Panel, go to **Programs and Features** to determine whether the Windows Azure Guest Agent service is installed.
 
@@ -100,7 +98,7 @@ The Windows Azure Guest Agent has an auto-update feature, so it will automatical
 
 1. Download and install the latest version of the agent installation package from [here](https://go.microsoft.comfwlink/?linkid=394789&clcid=0x409). You must have Administrator rights to complete the installation.
 
-1. Install guest agent using the MSI command below
+1. Install guest agent by using the following command:
 
     ```
     msiexec.exe /i c:\VMAgentMSI\WindowsAzureVmAgent.2.7.<version>.fre.msi /quiet /L*v c:\VMAgentMSI\msiexec.log
