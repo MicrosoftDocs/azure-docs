@@ -70,13 +70,13 @@ You can also enable a Just-In-Time / Just-Enough-Access solution by using [Azure
 
 *For more information, see [Security control: Data protection](../../../security/benchmarks/security-control-data-protection.md).*
 
-### 4.6: Use Role-based access control to control access to resources
+### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure Active Directory role-based access control (RBAC) to control access to Azure Policy.
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to Azure Policy.
 
-* [RBAC Permissions in Azure Policy](../overview.md#rbac-permissions-in-azure-policy)
+* [Azure RBAC Permissions in Azure Policy](../overview.md#rbac-permissions-in-azure-policy)
 
-* [How to configure RBAC in Azure](../../../role-based-access-control/role-assignments-portal.md)
+* [How to configure Azure RBAC](../../../role-based-access-control/role-assignments-portal.md)
 
 
 **Azure Security Center monitoring**: Currently not available
