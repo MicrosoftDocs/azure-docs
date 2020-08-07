@@ -1,5 +1,5 @@
 ---
-title: Use Managed Identities to Access App Configuration
+title: Use Managed Identities to access App Configuration
 titleSuffix: Azure App Configuration
 description: Authenticate to Azure App Configuration using Azure managed identities
 author: lisaguthrie
@@ -8,9 +8,9 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 2/25/2020
 ---
-# Use Managed Identities to Access App Configuration
+# Use Managed Identities to access App Configuration
 
-Azure Active Directory [managed identities](../active-directory/managed-identities-azure-resources/overview.md) simplify secrets management for your cloud application. With a managed identity, your code can use the service principal created for the Azure service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string. 
+Azure Active Directory [managed identities](../active-directory/managed-identities-azure-resources/overview.md) simplify secrets management for your cloud application. With a managed identity, your code can use the service principal created for the Azure service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string.
 
 Azure App Configuration and its .NET Core, .NET Framework, and Java Spring client libraries have managed identity support built into them. Although you aren't required to use it, the managed identity eliminates the need for an access token that contains secrets. Your code can access the App Configuration store using only the service endpoint. You can embed this URL in your code directly without exposing any secret.
 
@@ -78,7 +78,7 @@ To set up a managed identity in the portal, you first create an application and 
 
 1. Find the endpoint to your App Configuration store. This URL is listed on the **Access keys** tab for the store in the Azure portal.
 
-1. Open *appsettings.json*, and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your App Configuration store. 
+1. Open *appsettings.json*, and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your App Configuration store.
 
     ```json
     "AppConfig": {
@@ -239,7 +239,7 @@ http://<app_name>.azurewebsites.net
 
 ## Use managed identity in other languages
 
-App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. You can use your store's URL endpoint instead of its full connection string when you configure one of these providers. 
+App Configuration providers for .NET Framework and Java Spring also have built-in support for managed identity. You can use your store's URL endpoint instead of its full connection string when you configure one of these providers.
 
 For example, you can update the .NET Framework console app created in the quickstart to specify the following settings in the *App.config* file:
 
