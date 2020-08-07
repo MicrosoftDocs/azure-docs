@@ -364,6 +364,9 @@ The following JSON is an example of the Text Analytics for health API response b
                 {
                     "relationType": "FrequencyOfMedication",
                     "score": 1.0,
+                    "bidirectional": false,
+                    "source": "#/documents/2/entities/1",
+                    "target": "#/documents/2/entities/2",
                     "entities": [
                         {
                             "id": "1",
