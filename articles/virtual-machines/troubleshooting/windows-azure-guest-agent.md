@@ -150,7 +150,7 @@ Manually uninstall the Windows Azure Guest Agent, and then reinstall it by using
  
 1. Check the WaAppAgent.log to make sure that the latest version of Windows Azure Guest Agent is running.
  
-i. Delete the OLD folder in C:\WindowsAzure.
+1. Delete the OLD folder in C:\WindowsAzure.
   
 ### Unable to connect to WireServer IP (Host IP) 
 
@@ -158,11 +158,11 @@ You can find following logs in waappagent.log and telemetry.log:
 
 **Log information**
 
-```Log
+```Log sample
 [ERROR] GetVersions() failed with exception: Microsoft.ServiceModel.Web.WebProtocolException: Server Error: Service Unavailable (ServiceUnavailable) ---> 
 System.Net.WebException: The remote server returned an error: (503) Server Unavailable.
 ```
-```Log
+```Log sample
 [00000011] [12/11/2018 06:27:55.66] [WARN]  (Ignoring) Exception while fetching supported versions from HostGAPlugin: System.Net.WebException: Unable to connect to the remote server 
 ---> System.Net.Sockets.SocketException: An attempt was made to access a socket in a way forbidden by its access permissions 168.63.129.16:32526
 at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
@@ -193,6 +193,7 @@ You can find the following errors in WaAppAgent.log:
 
 **Log information** 
 
+```Log sample
 [00000007] [07/18/2019 14:46:28.87] [WARN] WindowsAzureGuestAgent stopping.
 [00000007] [07/18/2019 14:46:28.89] [INFO] Uninitializing StateExecutor with WaitForTerminalStateReachedOnEnd : True
 [00000004] [07/18/2019 14:46:28.89] [WARN] WindowsAzureGuestAgent could not be stopped. Exception: System.NullReferenceException: Object reference not set to an instance of an object.
@@ -202,7 +203,7 @@ at Microsoft.WindowsAzure.GuestAgent.ContainerStateMachine.GoalStateExecutorForC
 at Microsoft.WindowsAzure.GuestAgent.AgentCore.AgentCore.Stop(Boolean waitForTerminalState)
 at Microsoft.WindowsAzure.GuestAgent.AgentCore.AgentService.DoStopService()
 at Microsoft.WindowsAzure.GuestAgent.AgentCore.AgentService.<>c__DisplayClass2.<OnStopProcessing>b__1()
-
+```
 **Analysis**
 
 The Windows Azure Guest Agent is stuck on stopping. 
@@ -216,10 +217,11 @@ The Windows Azure Guest Agent is stuck on stopping.
 
 You can find the following errors in WaAppAgent.log :
  
+```Log sample
 [00000006] [06/20/2019 07:44:28.93] [INFO]  Attempting to discover fabric address on interface Npcap Loopback Adapter.
 [00000024] [06/20/2019 07:44:28.93] [WARN]  Empty DHCP option data returned
 [00000006] [06/20/2019 07:44:28.93] [ERROR] Did not discover fabric address on interface Npcap Loopback Adapter
-
+```
 **Analysis**
 
 Npcap loopback adapter is introduced on the machine by Wireshark. Wireshark is an open-source tool for profiling network traffic and analyzing packets. Such a tool is often referred to as a network analyzer, network protocol analyzer or sniffer.
