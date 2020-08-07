@@ -10,11 +10,11 @@ ms.author: mingshen
 ms.date: 07/05/2020
 ---
 
-# Review and publish an offer to commercial marketplace
+# Review and publish an offer to the commercial marketplace
 
-This article shows you how to use Partner Center to submit your offer to preview, preview your offer, and then publish it to the Microsoft commercial marketplace. We also cover how to check your publishing status as it proceeds through the publishing steps. You must have already created an offer that you want to publish.
+This article shows you how to use Partner Center to submit your offer to preview, preview your offer, and then publish it to Microsoft commercial marketplace. We also cover how to check your publishing status as it proceeds through the publishing steps. You must have already created an offer that you want to publish.
 
-## Go to your offer in commercial marketplace
+## Go to your offer in the commercial marketplace
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.

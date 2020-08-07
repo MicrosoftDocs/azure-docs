@@ -29,6 +29,7 @@ The IP firewall rules are applied at the Service Bus namespace level. Therefore,
 > The following Microsoft services are required to be on a virtual network
 > - Azure App Service
 > - Azure Functions
+> - Azure Monitor (diagnostic setting)
 
 ## Use Azure portal
 This section shows you how to use the Azure portal to create IP firewall rules for a Service Bus namespace. 

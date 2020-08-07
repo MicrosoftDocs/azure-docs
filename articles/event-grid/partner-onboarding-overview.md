@@ -86,7 +86,7 @@ The following resource model is for partner topics.
 ### Partner topic types
 * Resource: `partnerTopicTypes`
 * Used by: Customers
-* Description: Partner topic types are tenantwide resource types that enable customers to discover the list of approved partner topic types. The URL looks like https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
+* Description: Partner topic types are tenant-wide resource types that enable customers to discover the list of approved partner topic types. The URL looks like https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
 * Scope: Global
 
 ## Publish events to Event Grid
@@ -148,7 +148,7 @@ After posting to the partnerNamespace endpoint, you receive a response. The resp
 ## References
 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
-  * [ARM template](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
+  * [ARM template](/azure/templates/microsoft.eventgrid/allversions)
   * [ARM template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [REST APIs](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
   * [CLI extension](/cli/azure/ext/eventgrid/?view=azure-cli-latest)
