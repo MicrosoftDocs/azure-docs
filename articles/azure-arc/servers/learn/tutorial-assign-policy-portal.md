@@ -35,11 +35,11 @@ disks_ policy definition.
 1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that
    has been assigned to take place within a specific scope.
 
-   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignments.png" alt-text="Select Assignments page from Policy Overview page" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assignment.png" alt-text="Select Assignments page from Policy Overview page" border="false":::
 
 1. Select **Assign Policy** from the top of the **Policy - Assignments** page.
 
-   :::image type="content" source="./media/assign-policy-portal/select-assign-policy.png" alt-text="Assign a policy definition from Assignments page" border="false":::
+   :::image type="content" source="./media/tutorial-assign-policy-portal/select-assign-policy.png" alt-text="Assign a policy definition from Assignments page" border="false":::
 
 1. On the **Assign Policy** page, select the **Scope** by clicking the ellipsis and selecting either
    a management group or subscription. Optionally, select a resource group. A scope determines what
@@ -58,7 +58,7 @@ disks_ policy definition.
    - Apply tag and its value
    - Inherit a tag from the resource group if missing
 
-   For a partial list of available built-in policies, see [Azure Policy samples](./samples/index.md).
+   For a partial list of available built-in policies, see [Azure Policy samples](../../../governance/policy/samples/index.md).
 
 1. Search through the policy definitions list to find the _\[Preview]: Log Analytics agent should be installed on your Windows Azure Arc machines_
    definition if you have enabled the Arc for servers (preview) agent on a Windows-based machine. For a Linux-based machine, find the corresponding _\[Preview]: Log Analytics agent should be installed on your Linux Azure Arc machines_ policy definition. Click on that policy and click **Select**.
@@ -72,10 +72,10 @@ disks_ policy definition.
 
 1. Leave **Create a Managed Identity** unchecked. This box _must_ be checked when the policy or
    initiative includes a policy with the
-   [deployIfNotExists](../../../governance/concepts/effects.md#deployifnotexists) effect. As the policy used for this
+   [deployIfNotExists](../../../governance/policy/concepts/effects.md#deployifnotexists) effect. As the policy used for this
    quickstart doesn't, leave it blank. For more information, see
    [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md) and
-   [how remediation security works](../../../governance/how-to/remediate-resources.md#how-remediation-security-works).
+   [how remediation security works](../../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Click **Assign**.
 
@@ -129,4 +129,4 @@ To learn more about assigning policies to validate that new resources are compli
 tutorial for:
 
 > [!div class="nextstepaction"]
-> [Creating and managing policies](./tutorials/create-and-manage.md)
+> [Creating and managing policies](../../../governance/policy/tutorials/create-and-manage.md)
