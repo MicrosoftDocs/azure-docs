@@ -1,6 +1,6 @@
 ---
 title: Tutorial to ship Azure Data Box back| Microsoft Docs
-description: Learn how to ship your Azure Data Box to Microsoft
+description: In this tutorial, learn how to return Azure Data Box, including preparing to ship, shipping Data Box, verifying data upload, and erasing data from Data Box.
 services: databox
 author: alkohli
 

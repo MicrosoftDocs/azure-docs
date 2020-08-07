@@ -127,7 +127,7 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
 
     > [!NOTE]
     > Please refer to [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) for a list of supported regions.
-    > To obtain the region name that is supported by our command line tools, please use `az account list-locations -query "[].{Region:name}" --out table`
+    > To obtain the region name that is supported by our command line tools, please use `az account list-locations --query "[].{Region:name}" --out table`
     >
 
 2. Create a new resource group by using the [az group create](/cli/azure/group#az-group-create) command:
