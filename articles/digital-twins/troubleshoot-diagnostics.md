@@ -69,7 +69,10 @@ Each log category consists of operations of write, read, delete and action.  The
 | Delete | DELETE |
 | Action | POST |
 
-Here is a comprehensive list of the operations and corresponding REST API calls that are logged in each category:
+Here is a comprehensive list of the operations and corresponding REST API calls that are logged in each category. 
+
+>[!NOTE]
+> Each log category contains several operations/REST API calls. In the table below, each log category maps to all operations/REST API calls underneath it until the next log category is listed. 
 
 | Log category | Operation | REST API calls and other events |
 | --- | --- | --- |
