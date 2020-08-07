@@ -98,7 +98,7 @@ To configure the access mode in an Azure Resource Manager template, set the **en
 
 ## Manage access using workspace permissions
 
-Each workspace can have multiple accounts associated with it, and each account can have access to multiple workspaces. Access is managed using [Azure role-based access](../../role-based-access-control/role-assignments-portal.md).
+Each workspace can have multiple accounts associated with it, and each account can have access to multiple workspaces. Access is managed using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
 The following activities also require Azure permissions:
 

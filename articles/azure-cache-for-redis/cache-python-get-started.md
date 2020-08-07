@@ -6,7 +6,7 @@ ms.author: yegu
 ms.service: cache
 ms.devlang: python
 ms.topic: quickstart
-ms.custom: [mvc, seo-python-october2019, tracking-python]
+ms.custom: [mvc, seo-python-october2019, devx-track-python]
 ms.date: 11/05/2019
 #Customer intent: As a Python developer new to Azure Cache for Redis, I want to create a new Python app that uses Azure Cache for Redis.
 ---
