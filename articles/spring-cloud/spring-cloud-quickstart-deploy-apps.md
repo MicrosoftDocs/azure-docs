@@ -151,7 +151,7 @@ The IntelliJ plug-in for Azure Spring Cloud supports application deployment from
 * [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 * [IntelliJ IDEA, Community/Ultimate Edition, version 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
 
-## Install the plug-in
+### Install the plug-in
 You can add the Azure Toolkit for IntelliJ IDEA 3.35.0 from the IntelliJ **Plugins** UI.
 
 1. Start IntelliJ.  If you have opened a project previously, close the project to show the welcome dialog. Select **Configure** from link lower right, and then click **Plugins** to open the plug-in configuration dialog, and select **Install Plugins from disk**.
@@ -164,14 +164,14 @@ You can add the Azure Toolkit for IntelliJ IDEA 3.35.0 from the IntelliJ **Plugi
 
 1. Click **Restart IDE**.
 
-## IntelliJ procedures
+### Deployment procedures
 The following procedures deploy a Hello World application using the IntelliJ IDEA.
 
 * Open gs-spring-boot project
 * Deploy to Azure Spring Cloud
 * Show streaming logs
 
-## Open gs-spring-boot project
+### Open gs-spring-boot project
 
 1. Download and unzip the source repository for this tutorial, or clone it using Git: git clone https://github.com/spring-guides/gs-spring-boot.git 
 1. cd into gs-spring-boot\complete.
@@ -180,7 +180,7 @@ The following procedures deploy a Hello World application using the IntelliJ IDE
 
     ![Import Project](media/spring-cloud-intellij-howto/import-project-1.png)
 
-## Deploy to Azure Spring Cloud
+### Deploy to Azure Spring Cloud
 In order to deploy to Azure you must sign-in with your Azure account, and choose your subscription.  For sign-in details, see [Installation and sign-in](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in).
 
 1. Right-click your project in IntelliJ project explorer, and select **Azure** -> **Deploy to Azure Spring Cloud**.
