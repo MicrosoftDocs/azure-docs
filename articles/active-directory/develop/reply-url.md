@@ -52,7 +52,7 @@ Per [RFC 8252 sections 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) and
     - `http://127.0.0.1/MyApp`
     - `http://127.0.0.1:1234/MyApp`
     - `http://127.0.0.1:5000/MyApp`
-    - `http://127.0.0.1:8080/MyApp`.
+    - `http://127.0.0.1:8080/MyApp`
 
 From a development standpoint, this means a few things:
 
