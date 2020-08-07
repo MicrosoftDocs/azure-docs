@@ -119,7 +119,7 @@ In the new experience, Reply URLs can be found on an app\'s
 Authentication section. In addition, they are referred to as redirect
 URIs and the format for redirect URIs has changed. They are required to
 be associated with an app type (web or public client - mobile and
-desktop). [Learn more](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+desktop). [Learn more](quickstart-register-app.md#add-a-redirect-uri)
 
 Web APIs are configured in Expose an API page.
 

@@ -5,17 +5,14 @@ services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2020
+ms.date: 08/07/2020
 ms.author: jmprieur
-ms.custom: include file 
-
 ---
 
 ## Register secrets or certificates
@@ -31,7 +28,7 @@ The management of client credentials happens on the **Certificates & secrets** p
 - You create a *client secret* by selecting **New client secret** in the app's registration in the Azure portal. When you create a client secret, you _must_ record the secret's string before navigating away from the **Certificates & secrets** pane. The secret's string is never displayed again.
 - During application registration, you use the **Upload certificate** button to upload the certificate. Azure AD supports only certificates that are directly registered on the application and don't follow certificate chains.
 
-For details, see [Quickstart: Configure a client application to access web APIs | Add credentials to your application](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application).
+For details, see [Quickstart: Register an application | Add credentials](../articles/active-directory/develop/quickstart-register-app.md#add-credentials).
 
 ### Register client secrets by using PowerShell
 

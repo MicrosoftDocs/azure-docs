@@ -65,7 +65,7 @@ A redirect URI is the location to which the Microsoft identity platform redirect
 
 ### Configure platform settings
 
-Each application type (platform) is configured differently in **Platform configurations** in the Azure portal. Some platforms, like **Web** and **Single-page application** require a manually configured redirect URI. Redirect URIs for other platforms like mobile and desktop platforms are created automatically when you configure those platforms' other options.
+Each application type (platform) is configured differently in **Platform configurations** in the Azure portal. Some platforms, like **Web** and **Single-page application** require a manually configured redirect URI. Redirect URIs for other platforms like mobile and desktop can created automatically when you configure those platforms' other options.
 
 To configure application settings based on the platform or device you're targeting:
 
@@ -77,19 +77,11 @@ To configure application settings based on the platform or device you're targeti
 
     | Platform | Configuration settings |
     | -------- | ---------------------- |
-    | **Web** | Enter the **Redirect URI** for your application. A redirect URI is the location to which the Microsoft identity platform redirects a user's client and sends security tokens after authentication. |
-    | **Single-page application** | Enter the **Redirect URI** for your application. |
+    | **Web** | Enter the **Redirect URI** for your application.<br/><br/>A redirect URI is the location to which the Microsoft identity platform redirects a user's client and sends security tokens after authentication. |
+    | **Single-page application** | Enter the **Redirect URI** for your application.<br/><br/>A redirect URI is the location to which the Microsoft identity platform redirects a user's client and sends security tokens after authentication. |
     | **iOS / macOS** | Enter the app **Bundle ID**, which you can find in XCode in *Info.plist* or Build Settings. Adding the bundle ID automatically creates a redirect URI for the application. |
     | **Android** | Provide the app **Package name**, which you can find in the *AndroidManifest.xml* file.<br/>Generate and enter the **Signature hash**. Adding the signature hash automatically creates a redirect URI for the application. |
-    | **Mobile and desktop applications** | Optional. Select one of the recommended **Suggested redirect URIs** if you're building apps for desktop and devices.<br/>Optional. Enter a **Custom redirect URI**, which is used as the location where Azure AD will redirect users in response to authentication requests. For example, for .NET Core applications where you want interaction, use `http://localhost`. |
-
-Depending on the platform you chose, there may be additional settings that you can configure. For example, for **Web** apps you can:
-
-* Add more redirect URIs
-* Configure **Implicit grant** to select the tokens you'd like to be issued by the authorization endpoint:
-
-  * For single-page apps, select both **Access tokens** and **ID tokens**
-  * For web apps, select **ID tokens**
+    | **Mobile and desktop applications** | (Optional) Select one of the **Suggested redirect URIs** if you're building apps for desktop and devices.<br/><br/>(Optional) Enter a **Custom redirect URI**, the location to which the Microsoft identity platform redirects a user's client and sends security tokens after authentication. |
 
 ### Redirect URI restrictions
 
@@ -98,9 +90,9 @@ Depending on the platform you chose, there may be additional settings that you c
 
 For a full list of restrictions and limitations, see [Redirect URI/reply URL restrictions and limitations](reply-url.md).
 
-## Add credentials to your web application
+## Add credentials
 
-To add a credential to your web application, either add a certificate or create a client secret. To add a certificate:
+To add a credential to a web application, add a certificate or create a client secret. To add a certificate:
 
 1. From the app **Overview** page, select the **Certificates & secrets** section.
 1. Select **Upload certificate**.
