@@ -202,7 +202,7 @@ Provide logos and images to use with your offer. All images must be in PNG forma
 
 All four logos are required and are used in different places in the marketplace listing.
 
-[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-markteplace-only.md)]
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### Screenshots (optional)
 

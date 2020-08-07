@@ -253,7 +253,7 @@ Provide PNG files of your offer's logo with the following four image dimensions:
 
 All four logos are required, and they're displayed in various Azure Marketplace listings.
 
-[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-markteplace-only.md)]
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### Screenshots
 

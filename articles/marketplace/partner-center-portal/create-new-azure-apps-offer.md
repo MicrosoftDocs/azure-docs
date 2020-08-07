@@ -253,7 +253,7 @@ Provide PNG files of your offer's logo in the following three pixel sizes:
 
 All three logos are required and are used in different places in the listing.
 
-[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-markteplace-only.md)]
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### Screenshots
 
