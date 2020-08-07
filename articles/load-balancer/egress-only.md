@@ -21,9 +21,16 @@ Use a combination of internal and external standard load balancers to create out
 
 This configuration provides outbound NAT for an internal load balancer scenario, producing an "egress only" setup for your backend pool.
 
+
 <p align="center">
-  <img src="./media/egress-only/lb-egress-only.svg" alt="Figure depicts a egress only load balancer configuration." width="500" title="Virtual Network NAT">
+  <img src="./media/egress-only/lb-egress-only.png" alt="Figure depicts a egress only load balancer configuration." width="500" title="Virtual Network NAT">
 </p>
+
+
+<!-- 
+    :::image type="content" source="./media/egress-only/lb-egress-only.png" alt-text="Figure depicts a egress only load balancer configuration" border="true":::
+-->
+
 
 *Figure: Egress only load balancer configuration*
 
