@@ -46,6 +46,8 @@ ms.date: 09/22/2020
 
     > [!IMPORTANT]
     > Before you create your workflow, make sure that you start the emulator.
+    >
+    > ![Screenshot that shows Azure Storage Emulator running](./media/create-stateless-stateful-workflows/start-storage-emulator.png)
 
   * [Azure Functions for Visual Studio Code 0.22.1-alpha (ZIP)](https://workflowscdn.azureedge.net/2020-05-preview/VsExtension/LogicAppsVSCodeExtension-0.22.1-alpha.zip)
 
@@ -135,6 +137,10 @@ After you install all the requirements, disable automatic extension updates for 
    After Visual Studio Code reloads, the Explorer pane opens and shows your workflow app project.
 
    ![Screenshot that shows Explorer pane and workflow app project](./media/create-stateless-stateful-workflows/workflow-app-project-created.png)
+
+Now, continue with creating your workflow app.
+
+## Create workflow app
 
 1. On the Visual Studio Code toolbar, select the Azure icon to reopen the Azure pane.
 
