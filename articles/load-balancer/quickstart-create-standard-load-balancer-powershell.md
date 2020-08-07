@@ -274,10 +274,6 @@ It will take a few minutes for the bastion host to be deployed to the virtual ne
 ### Create network security group
 Create network security group to define inbound connections to your virtual network.
 
-#### Create a network security group rule for port 3389
-
-Create a network security group with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig):
-
 #### Create a network security group rule for port 80
 Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig):
 
@@ -941,38 +937,6 @@ New-AzBastion -ResourceGroupName $rg -Name $bas -PublicIpAddress $basip -Virtual
 ### Create network security group
 Create network security group to define inbound connections to your virtual network.
 
-#### Create a network security group rule for port 3389
-
-Create a network security group with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig):
-
-* Named **myNSGRuleRDP**.
-* Description of **Allow RDP**.
-* Access of **Allow**.
-* Protocol **TCP**.
-* Direction **Inbound**.
-* Priority **1000**.
-* Source of the **Internet**.
-* Source port range of **(*)**.
-* Destination address prefix of **(*)**.
-* Destination **Port 3389**.
-
-```azurepowershell-interactive
-## Variables for command ##
-$rnm = 'myNSGRuleRDP'
-$des = 'Allow RDP'
-$acc = 'Allow'
-$pro = 'Tcp'
-$dir = 'Inbound'
-$pri = '1000'
-$spfx = 'Internet'
-$spr = '*'
-$dpfx = '*'
-$dpr = '3389'
-
-$rule1 = 
-New-AzNetworkSecurityRuleConfig -Name $rnm -Description $des -Access $acc -Protocol $pro -Direction $dir -Priority $pri -SourceAddressPrefix $spfx -SourcePortRange $spr -DestinationAddressPrefix $dpfx -DestinationPortRange $dpr
-```
-
 #### Create a network security group rule for port 80
 Create a network security group rule with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig):
 
@@ -1333,4 +1297,6 @@ In this quickstart
 
 To learn more about Azure Load Balancer, continue to [What is Azure Load Balancer?](load-balancer-overview.md) and [Load Balancer frequently asked questions](load-balancer-faqs.md).
 
-Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
+* Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
+* For more information on Azure Bastion see [What is Azure Bastion?](https://docs.microsoft.com/azure/bastion/bastion-overview)
+
