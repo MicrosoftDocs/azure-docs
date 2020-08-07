@@ -48,7 +48,23 @@ A DTDL model interface may contain zero, one, or many of each of the following f
 * **Relationship** - Relationships let you represent how a digital twin can be involved with other digital twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("compressor is billed to user"), etc. Relationships allow the solution to provide a graph of interrelated entities.
 
 > [!NOTE]
-> The spec for DTDL also defines **Commands**, which are methods that can be executed on a digital twin (like a reset command, or a command to switch a fan on or off). However, *commands are not currently supported in Azure Digital Twins.*
+> The [spec for DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) also defines **Commands**, which are methods that can be executed on a digital twin (like a reset command, or a command to switch a fan on or off). However, *commands are not currently supported in Azure Digital Twins.*
+
+### Properties versus telemetry
+
+Here is some additional guidance on distinguishing between DTDL **properties** and **telemetry** fields.
+
+The difference between properties and telemetry as defined in DTDL is as follows:
+* **Properties** are expected to have backing storage. That is, you can read a property at any time and retrieve a value. If the property is write-able, you can also store a value in the property.  
+* **Telemetry** is more akin to an event: It is an ephemeral data message. If you don't listen to the event and take action, there is no trace of it at a later time, you cannot come back to it. In C# terms, telemetry is like a C# event. In IoT terms, telemetry is typically a single measurement sent by a device 
+
+In devices, telemetry is commonly used, because many devices are not capable or not interested in storing the measurement values they generate. They just send them out as a stream of telemetry events. You cannot go back to the device and inquire for the latest value of the telemetry field - you need to listen to the messages from the device and take actions as the messages arrive. 
+
+Therefore, in most cases, in digital twins you will use Properties when you model your twins instead of telemetry fields - you want the backing storage and the ability to read and query the data fields
+
+As all ingress to ADT is via APIs, you typically will use your ingress function to read telemetry or property events from devices and set a property in ADT in response. 
+
+You can also publish a telemetry event from the ADT API, but that, again, is just an ephemeral event that someone needs to listen to. 
 
 ### Azure Digital Twins DTDL implementation specifics
 
