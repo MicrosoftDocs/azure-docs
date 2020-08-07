@@ -31,25 +31,27 @@ The following table indicates when and how you register bindings.
 
 ## <a name="extension-bundles"></a>Extension bundles
 
-Extension bundles is a deployment technology that lets you add a compatible set of Functions binding extensions to your function app. A predefined set of extensions are added when you build your app. Extension packages defined in a bundle are compatible with each other, which helps you avoid conflicts between packages. Extension bundles allows you to avoid having to publish .NET project code with a non-.NET functions project. You enable extension bundles in the app's host.json file.  
+Extension bundles is way to add a compatible set of Functions binding extensions to your function app. When using bundles, a predefined set of extensions are added when you build your app. Extension packages defined in a bundle are verified to be compatible with each other, which helps you avoid conflicts between packages. Extension bundles allows you to avoid having to publish .NET project code with a non-.NET functions project. You enable extension bundles in the app's host.json file.  
 
-You can use extension bundles with version 2.x and later versions of the Functions runtime. When developing locally, make sure you are using the latest version of [Azure Functions Core Tools](functions-run-local.md#v2).
+You can use extension bundles with version 2.x and later versions of the Functions runtime. 
 
-Use extension bundles for local development using Azure Functions Core Tools, Visual Studio Code, and when you build remotely. The 
+Use extension bundles for local development using Azure Functions Core Tools, Visual Studio Code, and when you build remotely. When developing locally, make sure you are using the latest version of [Azure Functions Core Tools](functions-run-local.md#v2). Extension bundles are also used when developing functions in the Azure portal. 
 
-If you don't use extension bundles, you must install the .NET Core 2.x SDK on your local computer before you [manually install any binding extensions](#manually-add-extensions). An exstensions.csproj file, which defines the required extensions, is added to your project. Extension bundles removes these requirements for local development. 
+If you don't use extension bundles, you must install the .NET Core 2.x SDK on your local computer before you [manually install any binding extensions](#manually-add-extensions). An extensions.csproj file, which defines the required extensions, is added to your project. Extension bundles removes these requirements for local development. 
 
 To use extension bundles, update the *host.json* file to include the following entry for `extensionBundle`:
  
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-<a name="local-csharp"></a>
+## Explicitly install extensions
 
-## Manually add extensions
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
 
-If you aren't able to use extension bundles, the Azure Functions Core Tools lets you manually add specific extension packages at a specific version. When you have bindings defined in one or more function.json files, you can call the `func extension install` command to add packages for your extensions to your local project. You can even target specific versions in the generated extensionss.csproj file. For more information, see [Register individual extensions](functions-run-local.md#register-individual-extensions). 
+## <a name="local-csharp"></a>NuGet packages
 
-## <a name="vs"></a> C\# class library with Visual Studio
+For a C# class library-based functions project, you should install Extension bundles is designed specifically for projects that aren't class 
+
+### <a name="vs"></a> C\# class library with Visual Studio
 
 In **Visual Studio**, you can install packages from the Package Manager Console using the [Install-Package](/nuget/tools/ps-ref-install-package) command, as shown in the following example:
 
