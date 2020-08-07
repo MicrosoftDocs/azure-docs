@@ -52,7 +52,7 @@ Follow these steps to install the Speech CLI within a Docker container:
 
 1. Install [Docker Desktop for your platform](https://www.docker.com/get-started).
 1. Run Docker Desktop.
-1. In a new command prompt or terminal, type this command: 
+1. In a new command prompt or terminal, type this command:
 
 `docker pull msftspeech/spx`
 
@@ -70,7 +70,7 @@ On Windows, type this command to create a local directory Speech CLI can use fro
 
 `mkdir c:\spx-data`
 
-Or on Linux, type this command to create a directory and see its absolute path:
+Or on Linux or Mac, type this command in a terminal to create a directory and see its absolute path:
 
 ```bash
 mkdir ~/spx-data
@@ -89,7 +89,7 @@ On Windows, your commands will start like this:
 
 `docker run -it -v c:\spx-data:/data --rm msftspeech/spx`
 
-On Linux, your commands will start similar to this:
+On Linux or Mac, your commands will start similar to this:
 
 `docker run -it -v /ABSOLUTE_PATH:/data --rm msftspeech/spx`
 
