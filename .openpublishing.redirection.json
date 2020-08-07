@@ -55399,6 +55399,11 @@
       "source_path": "articles/active-directory/b2b/what-is-b2b.md",
       "redirect_url": "/azure/active-directory/external-identities/what-is-b2b",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/aks/windows-node-limitations.md",
+      "redirect_url": "/azure/aks/windows-faq",
+      "redirect_document_id": false
     }
   ]
 }
