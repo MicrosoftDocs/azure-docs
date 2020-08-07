@@ -1,10 +1,7 @@
 ---
 title: Windows Virtual Desktop safe URL list - Azure
 description: A list of URLs you should unblock to ensure your Windows Virtual Desktop deployment works as intended.
-services: virtual-desktop
-author: heidilohr
-
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: helohr
