@@ -72,9 +72,7 @@ IoT Edge device:
   Open this file with Remote Desktop Connection to connect to your Windows virtual machine using the administrator name and password you specified with the `az vm create` command.
 
 > [!NOTE]
-> Your Windows virtual machine starts with Windows version 1809 (build 17763). Windows will automatically push a Windows version update that is incompatible with IoT Edge for Windows. The Windows operating system automatically checks for available Windows updates every 22 hours by default. If you need to keep your Windows virtual machine active for longer than 22 hours, you can temporarily pause updates from being installed for up to 35 days. To pause updates:
->
-> Select **Start** > **Settings** > **Update & Security** > **Windows Update** > **Advanced options** and click to turn on the pause under **Pause updates**.
+> Your Windows virtual machine starts with Windows version 1809 (build 17763), which is the latest [Windows long-term support build](https://docs.microsoft.com/en-us/windows/release-information/). Windows will automatically check for updates after 22 hours and subsequently push a Windows version update that is incompatible with IoT Edge for Windows.
 >
 > This quickstart uses a Windows desktop virtual machine for simplicity. For information about which Windows operating systems are generally available for production scenarios, see [Azure IoT Edge supported systems](support.md).
 >
