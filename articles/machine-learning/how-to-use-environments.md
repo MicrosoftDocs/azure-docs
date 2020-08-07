@@ -318,6 +318,14 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 > [!WARNING]
 > If you install some Python dependencies in your Docker image and forget to set user_managed_dependencies = True, those packages will not exist in the execution environment thus causing runtime failures. By default, Azure ML will build a Conda environment with dependencies you specified, and will execute the run in that environment instead of using any Python libraries that you installed on the base image.
 
+### Retrieve image details
+
+For a registered environment, you can retrieve image details using the following code where `details` is an instance of [DockerImageDetails](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockerimagedetails?view=azure-ml-py) (AzureML Python SDK >= 1.11) and provides all the information about the environment image such as the dockerfile, registry, and image name.
+
+```python
+details = environment.get_image_details()
+```
+
 ## Use environments for training
 
 To submit a training run, you need to combine your environment, [compute target](concept-compute-target.md), and your training Python script into a run configuration. This configuration is a wrapper object that's used for submitting runs.
@@ -374,12 +382,6 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 # Submit the run 
 run = experiment.submit(sk_est)
-```
-### Retrieve Dockerfile from a run
-
-Use the following code to obtain the Dockerfile for a Docker-enabled run.
-```python
-print(run.get_environment().get_image_details().dockerfile)
 ```
 
 ## Use environments for web service deployment

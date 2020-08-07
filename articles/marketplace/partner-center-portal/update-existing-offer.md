@@ -38,7 +38,7 @@ To add a new plan within an existing offer that you've already published:
 
 1. With the **Offer overview** page for your existing offer open, go to the **Plan overview** page, and then select **Create new plan**.
 1. Create a new plan according to the [guidelines](./create-new-saas-offer.md#plan-overview) by using the **existing plans Pricing model**.
-1. Select **Save draft** after you change the plan name. 
+1. Select **Save draft** after you change the plan name.
 1. Select **Publish** when you're ready to publish your updates. The **[Review and publish](#review-and-publish-an-updated-offer)** page opens and provides a completion status for your updates.
 
 ## Update a plan within an existing offer
@@ -50,6 +50,24 @@ To make changes to a plan within an existing offer that you've already published
 1. Select **Save draft** after making any changes to the plan name, description, or audience availability.
 1. Select **Review and publish** when you're ready to publish your updates. The **[Review and publish](#review-and-publish-an-updated-offer)** page opens and provides a completion status for your updates.
 1. Submit the updated plan for publishing by selecting **Publish**. We'll email you when a preview version of the the updated offer is available for you to review and sign off.
+
+## Offer a virtual machine plan at a new price
+
+After a virtual machine plan is published, its price can’t be changed. To offer the same plan at a different price, you must hide the plan and create a new one with the updated price. First, hide the plan with the price you want to change:
+
+1. With the **Offer overview** page for your existing offer open, choose the plan that you want to change. If the plan isn't accessible from the **Plan overview** list, select **See all plans**.
+1. Select the **Hide plan** checkbox. Save the draft before you continue.
+
+Now that you have hidden the plan with the old price, create a copy of that plan with the updated price:
+
+1. In Partner Center, go back to **Plan overview**.
+2. Select **Create new plan**. Enter a **Plan ID** and a **Plan name**, then select **Create**.
+1. To reuse the technical configuration from the plan you’ve hidden, select the **Reuse technical configuration** checkbox. Read [Plan overview](azure-vm-create-offer.md#plan-overview) to learn more.
+    > [!IMPORTANT]
+    > If you select **This plan reuses technical configuration from another plan**, you won’t be able to stop selling the parent plan later. Don’t use this option if you want to stop selling the parent plan.
+3. Complete all the required sections for the new plan, including the new price.
+1. Select **Save draft**.
+1. After you've completed all the required sections for the new plan, select **Review and publish**. This will submit your offer for review and publication. Read [Review and publish an offer to the commercial marketplace](../review-publish-offer.md) for more details.
 
 ## Compare changes to marketplace offers
 

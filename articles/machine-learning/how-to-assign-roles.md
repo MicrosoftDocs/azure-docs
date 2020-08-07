@@ -63,7 +63,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## Azure Machine Learning operations
 
-Azure Machine Learning built-in actions for many operations and tasks. For a complete list, see [Azure resource providers operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Azure Machine Learning built-in actions for many operations and tasks. For a complete list, see [Azure resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## Create custom role
 
@@ -379,9 +379,9 @@ Here are a few things to be aware of while you use Azure role-based access contr
 To assign a user assigned identity on Amlcompute clusters, one has to have write permissions to create compute and have [Managed Identity Operator Role](/azure/role-based-access-control/built-in-roles#managed-identity-operator). For more information on RBAC with Managed Identities, read [How to manage user assigned identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
-### Q. Do we support role-based access controls on the Studio portal?
+### Q. Do we support role-based access control on the Studio portal?
 
-Azure Machine Learning Studio supports role-based access controls. 
+Azure Machine Learning Studio supports Azure role-based access control (Azure RBAC). 
 
 > [!IMPORTANT]
 > Once you have assigned a custom role with specific permissions to a data scientist in your workspace, corresponding actions (such as adding a compute button) are automatically hidden from the users. Hiding these items prevents any confusion from seeing controls that return an Unauthorized Access notification from the service when used.
