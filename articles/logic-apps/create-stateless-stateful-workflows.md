@@ -28,57 +28,48 @@ ms.date: 09/22/2020
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Access to the internet so that you can sign in to your Azure subscription and the Azure portal
+* Access to the internet so that you can download the requirements and sign in to your Azure account
 
 * Download and install these tools:
 
   * [Visual Studio Code version 1.25.1 or later](https://code.visualstudio.com/), which is free
 
-  * Azure Functions Core Tools, which you can download and install from these locations:
-
-    > [!NOTE]
-    > If you previously installed the Azure Functions Core Tools, 
-    > uninstall them first, or make sure that the PATH environment variable 
-    > points at the appropriate version specified here.
-
-    * [Azure Functions Core Tools 3.0.2569 Win x64 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x64.msi)
-
-    * [Azure Functions Core Tools 3.0.2569 Win x86 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x86.msi)
-
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which enables F5 functionality to run your workflow
 
-  * [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/?LinkId=717179&clcid=0x409). You also need to have a local SQL DB, such as [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/?linkid=866658), installed for the storage emulator to use. For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
+  * Azure Functions Core Tools 3.0.2569. If you have an earlier installation, uninstall that version first, or make sure that the PATH environment variable points at the appropriate version specified here after you download and install the tools:
+
+    * [Win x64 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x64.msi)
+
+    * [Win x86 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x86.msi)
+
+  * [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/?LinkId=717179&clcid=0x409). The emulator also requires that you have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/?linkid=866658), for the emulator to use. For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
     > [!IMPORTANT]
-    > Before you start creating your workflow, make sure that you start the emulator.
+    > Before you create your workflow, make sure that you start the emulator.
 
-     Or, use [Azurite](https://github.com/Azure/Azurite/blob/master/README.md) instead?
+  * [Azure Functions for Visual Studio Code 0.22.1-alpha (ZIP)](https://workflowscdn.azureedge.net/2020-05-preview/VsExtension/LogicAppsVSCodeExtension-0.22.1-alpha.zip)
+
+    This public preview extension provides the capability for you to create stateless and stateful workflow apps and replaces any currently installed Azure Functions extension but preserves the capability to author Azure Functions.
+
+    1. Download the ZIP file to your local computer and extract file.
+
+    1. In Visual Studio Code, on the left toolbar, select **Extensions**. From the **Extensions** menu, select the ellipses (**...**) button > **Install from VSIX**.
+
+       ![Screenshot that shows Visual Studio extension menu with selected ellipsis button and Install from VSIX menu command](./media/create-stateless-stateful-workflows/install-from-vsix.png)
+
+After you install all the requirements, disable automatic extension updates for Visual Studio Code so that the preview extension isn't overwritten by the public extension when you restart Visual Studio Code.
+
+1. In Visual Studio Code, on the **File** menu, select **Preferences** > **Settings**.
+
+1. Under **User**, expand **Features**, and select **Extensions**.
+
+1. Under **Auto Update**, clear **When enabled, automatically installs updates for extensions. The updates are fetched from a Microsoft online service**.
+
+   ![Screenshot that shows Visual Studio extension settings with cleared checkbox for auto update](./media/create-stateless-stateful-workflows/disable-extension-auto-update.png)
 
 ## Set up environment
 
-1. To install the preview extension, follow these steps:
-
-   1. Download the preview [Azure Functions for Visual Studio Code extension 0.22.1-alpha (ZIP)](https://workflowscdn.azureedge.net/2020-05-preview/VsExtension/LogicAppsVSCodeExtension-0.22.1-alpha.zip) to your local computer, and extract the ZIP file.
-
-      > [!NOTE]
-      > This extension includes the capability for you to create stateless and stateful workflow apps with Azure Logic Apps 
-      > and replaces any currently installed Azure Functions extension but preserves the capability to author Azure Functions.
-
-   1. On the Visual Studio Code left toolbar, select **Extensions**. From the **Extensions** menu, select the ellipses (**...**) button > **Install from VSIX**.
-
-      ![Screenshot that shows Visual Studio extension menu with selected ellipsis button and Install from VSIX menu command](./media/create-stateless-stateful-workflows/install-from-vsix.png)
-
-1. Disable automatic updates for extensions in Visual Studio Code so that the preview extension isn't overwritten by the public extension when you restart Visual Studio Code.
-
-   1. On the **File** menu, select **Preferences** > **Settings**.
-
-   1. Under **User**, expand **Features**, and select **Extensions**.
-
-   1. Under **Auto Update**, clear **When enabled, automatically installs updates for extensions. The updates are fetched from a Microsoft online service**.
-
-      ![Screenshot that shows Visual Studio extension settings with cleared checkbox for auto update](./media/create-stateless-stateful-workflows/disable-extension-auto-update.png)
-
-1. After you install all the requirements, reload Visual Studio Code so that the extensions are correctly installed. Or, you can close and reopen Visual Studio Code.
+1. To make sure that all the extensions are correctly installed, reload or restart Visual Studio Code.
 
 1. Set Visual Studio Code to use Azure Functions Project Runtime version 3.
 
@@ -112,7 +103,7 @@ ms.date: 09/22/2020
 
       ![Screenshot that shows Azure pane and selected filter icon](./media/create-stateless-stateful-workflows/filter-subscription-list.png)
 
-   1. From the list that appears, select the subscriptions that you want to appear, and then select **OK**.
+   1. From the list that appears, select the subscriptions that you want to appear, and select **OK**.
 
    > [!TIP]
    > Later, if Visual Studio Code signs you out from Azure, you're prompted to sign back in when necessary.
@@ -125,7 +116,7 @@ ms.date: 09/22/2020
 
    ![Screenshot that shows Azure pane toolbar with "Create new project" selected](./media/create-stateless-stateful-workflows/create-new-project-folder.png)
 
-1. Browse to the location where you want to save your project. Create a folder for your project, select that folder, and then select **Select**.
+1. Browse to the location where you want to save your project. Create a folder for your project, select that folder, and select **Select**.
 
    ![Screenshot that shows dialog box with "Create new project" selected](./media/create-stateless-stateful-workflows/select-project-folder.png)
 
@@ -145,16 +136,13 @@ ms.date: 09/22/2020
 
    ![Screenshot that shows Explorer pane and workflow app project](./media/create-stateless-stateful-workflows/workflow-app-project-created.png)
 
-   > [!NOTE]
-   > If a prompt to restore unresolved dependencies appears, ignore that prompt for now.
-
 1. On the Visual Studio Code toolbar, select the Azure icon to reopen the Azure pane.
 
 1. In the Azure pane, next to **Azure: Functions**, select **Create workflow**.
 
    ![Screenshot that shows Azure pane toolbar with "Create workflow" selected](./media/create-stateless-stateful-workflows/create-workflow-app-project.png)
 
-1. From the templates list that appears, select either **Stateful Workflow** or **Stateless Workflow**, and then provide a name for your workflow app.
+1. From the templates list that appears, select either **Stateful Workflow** or **Stateless Workflow**. Provide a name for your workflow app.
 
    ![Screenshot that shows a templates list with "Stateful Workflow" and "Stateless Workflow"](./media/create-stateless-stateful-workflows/select-stateful-stateless-workflow.png)
 
@@ -166,16 +154,15 @@ ms.date: 09/22/2020
 
    ![Screenshot that shows Explorer pane and shortcut window for workflow.json file with Open in Designer selected](./media/create-stateless-stateful-workflows/open-definition-file-in-designer.png)
 
-   If Windows Defender Firewall prompts you to permit access for the `func.exe`, which is the Azure Functions Core Tools, select **Private networks, such as my home or work network** > **Allow access**.
+   If Windows Defender Firewall prompts you to grant access for the `func.exe`, which is the Azure Functions Core Tools, select **Private networks, such as my home or work network** > **Allow access**.
 
-   ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected](./media/create-stateless-stateful-workflows/windows-defender-firewall.png)
+   ![Screenshot that shows Windows Defender Firewall with "Private networks, such as my home or work network" selected and "Allow access" selected](./media/create-stateless-stateful-workflows/windows-defender-firewall.png)
 
    > [!NOTE]
-   > If you get a message that `Workflow design time could not be started`, make sure that Azure Storage Emulator is running. 
-   > 
-
- try closing everything and restarting your computer.
-
+   > If you get a message that `Workflow design time could not be started`, try these steps:
+   >
+   > * Make sure that Azure Storage Emulator is running.
+   > * Close everything, restart your computer, reopen your workflow project, and open the `workflow.json` file in the designer.
 
 1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**.
 
