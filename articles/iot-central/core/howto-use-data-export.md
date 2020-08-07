@@ -171,7 +171,7 @@ Each exported message contains a normalized form of the full message the device 
 - `messageSource` which is *telemetry* for exporting telemetry data
 - `deviceId` of the device that sent the telemetry message
 - `schema` is the name and version of the payload schema
-- `templateId` is the device template Id associated to the device
+- `templateId` is the device template ID associated to the device
 - `enrichments` are any enrichments that were set up on the export
 - `messageProperties` are the additional pieces of data that the device sent alongside the message. This is also known as *application properties*, [learn more from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
@@ -219,7 +219,7 @@ Each message or record represents one change to a device or cloud property. For 
 - `messageType` which is either *cloudPropertyChange* or *devicePropertyDesiredChange*, *devicePropertyReportedChange*
 - `deviceId` of the device whose properties changed
 - `schema` is the name and version of the payload schema
-- `templateId` is the device template Id associated to the device
+- `templateId` is the device template ID associated to the device
 - `enrichments` are any enrichments that were set up on the export
 
 For Event Hubs and Service Bus, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time.
