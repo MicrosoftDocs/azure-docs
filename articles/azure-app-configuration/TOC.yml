@@ -83,8 +83,6 @@
           href: concept-customer-managed-keys.md
         - name: Secure your config store using Private Endpoints
           href: concept-private-endpoint.md
-        - name: Integrate with Azure Managed Identity
-          href: howto-integrate-azure-managed-service-identity.md
         - name: Enable access using Azure Active Directory
           href: concept-enable-rbac.md
         - name: Assign an Azure Managed Identity
@@ -105,6 +103,8 @@
       href: howto-app-configuration-event.md
     - name: Backup configuration store automatically
       href: howto-backup-config-store.md
+    - name: Use Managed Identities to Access App Configuration
+      href: howto-integrate-azure-managed-service-identity.md
     - name: Best practices
       href: howto-best-practices.md
 - name: Reference
