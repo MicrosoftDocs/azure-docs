@@ -13,7 +13,7 @@ manager: corywink
 # Export IoT data to cloud destinations using data export (preview)
 
 > [!Note]
-> Looking for the legacy data export? You can find data export docs [here](./howto-export-data.md). To learn about the differences between the new data export and legacy data export, see the [comparison table](#Comparison-of-legacy-data-export-and-new-data-export).
+> Looking for the legacy data export? You can find data export docs [here](./howto-export-data.md). To learn about the differences between the new data export and legacy data export, see the [comparison table](#comparison-of-legacy-data-export-and-new-data-export).
 
 This article describes how to use the new data export preview features in Azure IoT Central. You can use this feature to continuously export your filtered and enriched IoT data to your cloud services. You can use data export to push changes in near-real time to other parts of your cloud solution for warm-path insights, analytics, and storage. 
 
@@ -45,32 +45,27 @@ If you don't have an existing Event Hubs namespace to export to, follow these st
 
 1. Create a [new Event Hubs namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). You can learn more in [Azure Event Hubs docs](../../event-hubs/event-hubs-create.md).
 
-2. Choose a subscription. You can export data to other subscriptions that aren't in the same subscription as your IoT Central application. You connect using a connection string in this case.
+2. Create an event hub in your Event Hubs namespace. Go to your namespace, and select **+ Event Hub** at the top to create an event hub instance.
 
-3. Create an event hub in your Event Hubs namespace. Go to your namespace, and select **+ Event Hub** at the top to create an event hub instance.
-
-4. Generate a key that you will use in IoT Central to set up your data export. 
-  1. Click on the event hub instance you created. 
-  2. Click on **Settings/Shared access policies**. 
-  3. Create a new key or choose an existing key that has **Send** permissions. 
-  4. Copy either the primary or secondary connection string. You'll use this to set up a new destination in IoT Central.
+3. Generate a key that you will use in IoT Central to set up your data export. 
+  - Click on the event hub instance you created. 
+  - Click on **Settings/Shared access policies**. 
+  - Create a new key or choose an existing key that has **Send** permissions. 
+  - Copy either the primary or secondary connection string. You'll use this to set up a new destination in IoT Central.
 
 ### Create a Service Bus queue or topic destination
 
 If you don't have an existing Service Bus namespace to export to, follow these steps:
 
 1. Create a [new Service Bus namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). You can learn more in [Azure Service Bus docs](../../service-bus-messaging/service-bus-create-namespace-portal.md).
-2. Choose a subscription. You can export data to other subscriptions that aren't in the same subscription as your IoT Central application. You connect using a connection string in this case.
 
-3. To create a queue or topic to export to, go to your Service Bus namespace, and select **+ Queue** or **+ Topic**.
+2. To create a queue or topic to export to, go to your Service Bus namespace, and select **+ Queue** or **+ Topic**.
 
-4. Generate a key that you will use in IoT Central to set up your data export. 
-  1. Click on the queue or topic you created. 
-  2. Click on **Settings/Shared access policies**. 
-  3. Create a new key or choose an existing key that has **Send** permissions. 
-  4. Copy either the primary or secondary connection string. You'll use this to set up a new destination in IoT Central.
-
-When you choose Service Bus as an export destination, the queues and topics must not have Sessions or Duplicate Detection enabled. If either of those options are enabled, some messages won't arrive in your queue or topic.
+3. Generate a key that you will use in IoT Central to set up your data export. 
+  - Click on the queue or topic you created. 
+  - Click on **Settings/Shared access policies**. 
+  - Create a new key or choose an existing key that has **Send** permissions. 
+  - Copy either the primary or secondary connection string. You'll use this to set up a new destination in IoT Central.
 
 ### Create an Azure Blob Storage destination
 
@@ -90,7 +85,7 @@ If you don't have an existing Azure storage account to export to, follow these s
 3. Generate a connection string for your storage account by going to **Settings/Access keys**. Copy one of the two connection strings.
 
 ### Create a webhook endpoint
-You can provide a publicly available HTTP endpoint for data to be exported to. You can create a test webhook endpoint using RequestBin:
+You can provide a publicly available HTTP endpoint for data to be exported to. You can create a test webhook endpoint using RequestBin. Keep in mind that RequestBin has a set request limit before requests get throttled.
 
 1. Open [RequestBin](https://requestbin.net/).
 2. Create a new RequestBin and copy the Bin URL.
@@ -115,15 +110,15 @@ You can choose between continuously exporting different types of data. Here are 
 
 | Data type | Description | Data format |
 | :------------- | :---------- | :----------- |
-|  Telemetry | Export telemetry messages from devices in near-real time. Each exported message will contain the full contents of the original device message, normalized.   |  [Telemetry message format](#Telemetry-format)   |
-| Property changes   | Export changes to device and cloud properties in near-real time. For device properties, changes to the reported values of read and read-write properties will be exported. | [Property change message format](#Property-changes-format) |
+|  Telemetry | Export telemetry messages from devices in near-real time. Each exported message will contain the full contents of the original device message, normalized.   |  [Telemetry message format](#telemetry-format)   |
+| Property changes | Export changes to device and cloud properties in near-real time. For read-only device properties, changes to the reported values will be exported. For read-write properties, both reported and desired values will be exported. | [Property change message format](#property-changes-format) |
 
 ## 2. (Optional) Add filters
 Add filters to reduce the amount of data exported based on filter conditions. There are different types of filters available for each type of data to export.
 
 ### Telemetry filters
   - **Capability filter**: If you choose a telemetry item in the dropdown, the exported stream will only contain telemetry that meets the filter condition. If you choose a device or cloud property item in the dropdown, the exported stream will only contain telemetry from devices that have properties that match the filter condition.
-  - **Message property filter**: Devices using the device SDKs are allowed to send *message properties* or *application properties* on each telemetry message, which is a bag of key-value pairs generally used to tag the message with custom identifiers. You can create a message property filter by typing in the message property key you are looking for, and specifying a condition. Only telemetry messages that have message properties that match the specified filter condition will be exported. Only equals/not equals, and exists/not exists operators are supported. [Learn more about application properties from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md).
+  - **Message property filter**: Devices using the device SDKs are allowed to send *message properties* or *application properties* on each telemetry message, which is a bag of key-value pairs generally used to tag the message with custom identifiers. You can create a message property filter by typing in the message property key you are looking for, and specifying a condition. Only telemetry messages that have message properties that match the specified filter condition will be exported. Only string comparison operators are supported (equals, does not equal, contains, does not contain, exists, does not exist). [Learn more about application properties from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 ### Property changes filters
   - **Property filter**: Choose a property item in the dropdown, and the exported stream will only contain changes to the selected property that meets the filter condition.
@@ -138,7 +133,7 @@ Create a new destination or add a destination that you have already created.
   
 1. Click on the **create a new destination** link. Fill in the following information:
   - **Destination name**: the display name of the destination in IoT Central
-  - **Destination type**: choose the type of destination. If you haven't already, [set up your export destination](#Set-up-export-destination)
+  - **Destination type**: choose the type of destination. If you haven't already, [set up your export destination](#set-up-export-destination)
   - For Azure Event Hubs, Azure Service Bus queue or topic, paste the connection string for your resource. 
   - For Azure Blob Storage, paste the connection string for your resource and enter the container name (case sensitive).
   - For Webhook, paste the callback URL for your webhook endpoint. 
@@ -150,7 +145,7 @@ Create a new destination or add a destination that you have already created.
 
 ## Export contents and format
 
-For Event Hubs and Service Bus destinations, data is exported in near-realtime. The data is in the `body` property and is in JSON format. See below for examples.
+For Event Hubs and Service Bus destinations, data is exported in near-realtime. The data is in the message body and is in JSON format encoded as UTF-8. See below for examples.
 
 For Blob storage, data is exported once per minute, with each file containing the batch of changes since the last exported file. Exported data is placed in three folders in JSON format. The default paths in your storage account are:
 
@@ -159,8 +154,11 @@ For Blob storage, data is exported once per minute, with each file containing th
 
 To browse the exported files in the Azure portal, navigate to the file and select the **Edit blob** tab.
 
+For webhooks destinations, data is also exported in near-real time. The data is in the message body is in the same format as for Event Hubs and Service Bus.
+
+
 ## Telemetry format
-Each exported message contains a normalized form of the full message the device sent in the body property in JSON format. Additional information included in each message include:
+Each exported message contains a normalized form of the full message the device sent in the message body in JSON format encoded as UTF-8. Additional information included in each message include:
 
 - `applicationId` of the IoT Central app
 - `messageSource` which is *telemetry* for exporting telemetry data
@@ -174,10 +172,7 @@ For Event Hubs and Service Bus, IoT Central exports a new message quickly after 
 
 For Blob storage, messages are batched and exported once per minute.
 
-> [!NOTE]
-> TODO IS THIS STILL TRUE? For Blob storage, ensure that your devices are sending messages that have `contentType: application/JSON` and `contentEncoding:utf-8` (or `utf-16`, `utf-32`). See the [IoT Hub documentation](../../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body) for an example.
-
-The following example shows an exported telemetry message received in Azure Blob Storage.
+The following example shows an exported telemetry message:
 
 ```json
 
@@ -200,7 +195,7 @@ The following example shows an exported telemetry message received in Azure Blob
         "RespiratoryRate": 13
     },
     "enrichments": {
-      "key": "value"
+      "userSpecifiedKey": "sampleValue"
     },
     "messageProperties": {
       "messageProp": "value"
@@ -214,8 +209,8 @@ Each message or record represents one change to a device or cloud property. For 
 
 - `applicationId` of the IoT Central app
 - `messageSource` which is *properties* for exporting property changes data
-- `messageType` which is either *cloudPropertyChange* or *deviceReportedPropertyChange*
-- `deviceId` of the device that sent the telemetry message
+- `messageType` which is either *cloudPropertyChange* or *devicePropertyDesiredChange*, *devicePropertyReportedChange*
+- `deviceId` of the device whose properties changed
 - `schema` is the name and version of the payload schema
 - `templateId` is the device template Id associated to the device
 - `enrichments` are any enrichments that were set up on the export
@@ -239,20 +234,22 @@ The following example shows an exported property change message received in Azur
         "fieldName": "MachineSerialNumber",
         "value": "abc"
     }],
-    "enrichments": {}
+    "enrichments": {
+        "userSpecifiedKey" : "sampleValue"
+    }
 }
 ```
 
 ## Comparison of legacy data export and new data export
 This is a table that highlights the differences between the legacy data export and the new data export. You can learn about the legacy data export [here](howto-export-data.md).
 
-|  | Legacy data export | New data export |
+| Capabilities  | Legacy data export | New data export |
 | :------------- | :---------- | :----------- |
 | Available data types | Telemetry, Devices, Device templates | Telemetry, Property changes |
 | Filtering | None | Depends on the data type exported. For telemetry, filtering by telemetry, message properties, property values |
 | Enrichments | None | Enrich with a custom string or a property value on the device |
 | Destinations | Azure Event Hubs, Azure Service Bus queues and topics, Azure Blob Storage | Same as for legacy data export and webhooks| 
-| Notable limits | 5 exports per app, 1 destination per export | 10 exports per app, multiple destinations per export | 
+| Notable limits | 5 exports per app, 1 destination per export | 10 exports-destination connections per app | 
 
 ## Next steps
 
