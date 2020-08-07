@@ -9,7 +9,7 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Example: Create a custom skill using Python

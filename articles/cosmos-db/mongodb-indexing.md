@@ -1,11 +1,11 @@
 ---
 title: Manage indexing in Azure Cosmos DB's API for MongoDB
-description: This article presents an overview of Azure Cosmos DB indexing capabilities using the MongoDB API.
+description: This article presents an overview of Azure Cosmos DB indexing capabilities using Azure Cosmos DB's API for MongoDB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 08/06/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
@@ -309,7 +309,7 @@ The index progress details show the percentage of progress for the current index
    }
    ```
 
-### Background index updates
+## Background index updates
 
 Regardless of the value specified for the **Background** index property, index updates are always done in the background. Because index updates consume Request Units (RUs) at a lower priority than other database operations, index changes won't result in any downtime for writes, updates, or deletes.
 
