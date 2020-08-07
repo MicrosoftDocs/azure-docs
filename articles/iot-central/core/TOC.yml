@@ -108,6 +108,7 @@
         - name: Export data to destinations in Azure (legacy)
           href: howto-export-data.md
         - name: Export data to cloud destinations (preview)
+          href: howto-use-data-export.md
         - name: Create webhooks on rules
           href: howto-create-webhooks.md
         - name: Use workflows to integrate with other services
