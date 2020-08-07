@@ -69,7 +69,7 @@ Select your virtual machine again and then select **Log Events**. You see a list
 
 Now that you've enabled Azure Monitor for VMs, you are ready to enable Azure Policy to understand compliance in Azure.
 
-To learn how to identify virtual machines that contain expiring certificates, continue to the tutorial:
+To learn how to identify Azure Arc enabled machines that don't have the Log Analytics agent installed, continue to the tutorial:
 
 > [!div class="nextstepaction"]
 > [Create a policy assignment to identify non-compliant resources](tutorial-assign-policy-portal.md)
