@@ -226,23 +226,23 @@ foreach($node in $nodes)
 5. Set the primary node type property in the Service Fabric cluster resource to false. 
 
 ```json
-   {
-            "name": "[variables('vmNodeType0Name')]",
-            "applicationPorts": {
-              "endPort": "[variables('nt0applicationEndPort')]",
-              "startPort": "[variables('nt0applicationStartPort')]"
-            },
-            "clientConnectionEndpointPort": "[variables('nt0fabricTcpGatewayPort')]",
-            "durabilityLevel": "Bronze",
-            "ephemeralPorts": {
-              "endPort": "[variables('nt0ephemeralEndPort')]",
-              "startPort": "[variables('nt0ephemeralStartPort')]"
-            },
-            "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
-            "isPrimary": false,
-            "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
-            "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-          }
+{
+    "name": "[variables('vmNodeType0Name')]",
+    "applicationPorts": {
+        "endPort": "[variables('nt0applicationEndPort')]",
+        "startPort": "[variables('nt0applicationStartPort')]"
+    },
+    "clientConnectionEndpointPort": "[variables('nt0fabricTcpGatewayPort')]",
+    "durabilityLevel": "Bronze",
+    "ephemeralPorts": {
+        "endPort": "[variables('nt0ephemeralEndPort')]",
+        "startPort": "[variables('nt0ephemeralStartPort')]"
+    },
+    "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
+    "isPrimary": false,
+    "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
+    "vmInstanceCount": "[parameters('nt0InstanceCount')]"
+}
 ```
 
 5. Deploy the template with the updated isPrimary property on the original node type. You can find a template with the primary flag set to false on the original node type here: [Service Fabric - Primary Node Type False](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-3.json).
