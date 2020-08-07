@@ -14,7 +14,7 @@ This article helps you troubleshoot problems you might encounter when logging in
 May include one or more of the following:
 
 * Unable to login to registry using `docker login`, `az acr login`, or both
-* Unable to login to registry and you receive Docker error `unauthorized: authentication required`
+* Unable to login to registry with Docker and you receive error `unauthorized: authentication required` or `unauthorized: Application not registered with AAD`
 * Unable to login to registry and you receive Azure CLI error `Could not connect to the registry login server`
 * Unable to push or pull images and you receive Docker error `unauthorized: authentication required`
 * Unable to access registry from Azure Kubernetes Service, Azure DevOps, or another Azure service
@@ -38,8 +38,8 @@ If you don't resolve your problem here, see [Advanced troubleshooting](#advanced
 
 ### Check Docker configuration
 
-Most Azure Container Registry authentication flows require a local Docker installation. Confirm that the Docker CLI client and daemon (Docker Engine) are running in your environment. You need Docker client version 18.03 or later. 
-
+Most Azure Container Registry authentication flows require a local Docker installation so you can authenticate with your registry for operations such as pushing and pulling images. Confirm that the Docker CLI client and daemon (Docker Engine) are running in your environment. You need Docker client version 18.03 or later. 
+s
 Related links:
 
 * [Authentication overview](container-registry-authentication.md#authentication-options)
@@ -51,7 +51,7 @@ When using `docker login`, provide the full login server name of the registry, s
 
 ```console
 docker login myregistry.azurecr.io
- ```
+```
 
 When using [az acr login](/cli/azure/acr#az-acr-login) with an Azure Active Directory identity, first [sign into the Azure CLI](/cli/azure/authenticate-azure-cli), and then specify the Azure resource name of the registry. The resource name is the name provided when the registry was created, such as *myregistry* (without a domain suffix). Example:
 
@@ -67,7 +67,7 @@ Related links:
 
 Check the validity of the credentials you use for your scenario, or were provided to you by a registry owner. Some possible issues:
 
-* If using an Active Directory service principal, ensure you use the correct credentials:
+* If using an Active Directory service principal, ensure you use the correct credentials in the Active Directory tenant:
   * User name - service principal application ID (also called *client ID*)
   * Password - service principal password (also called *client secret*)
 * If using an Azure service such as Azure Kubernetes Service or Azure DevOps to access the registry, confirm the registry configuration for your service.
@@ -134,6 +134,6 @@ Related links:
   * [Troubleshoot registry performance](container-registry-troubleshoot-performance.md)
 * [Community support](https://azure.microsoft.com/support/community/) options
 * [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
-* [Open a support ticket](https://azure.microsoft.com/support/create-ticket/)
+* [Open a support ticket](https://azure.microsoft.com/support/create-ticket/) - based on information you provide, a quick diagnostic might be run for authentication failures in your registry
 
 
