@@ -72,7 +72,7 @@ During this phase, you plan the migration of your SAP workload to the Azure plat
 4.	Design of foundation services. This design should include the following items:
 	- Active Directory and DNS design.
 	- Network topology within Azure and assignment of different SAP systems.
-	- [Role-based access](../../../role-based-access-control/overview.md) structure for teams that manage infrastructure and SAP applications in Azure.
+	- [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/overview.md) structure for teams that manage infrastructure and SAP applications in Azure.
 	- Resource group topology.
 	- [Tagging strategy](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
 	- Naming conventions for VMs and other infrastructure components and/or logical names.
