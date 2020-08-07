@@ -31,7 +31,7 @@ Each application you want the Microsoft identity platform to perform identity an
 
 ## Register an application
 
-Registering your application establishes a trust relationship between your app and the Microsoft identity platform. The trust is *unidirectional*: your app trusts the the Microsoft identity platform, and not the other way around.
+Registering your application establishes a trust relationship between your app and the Microsoft identity platform. The trust is unidirectional: your app trusts the the Microsoft identity platform, and not the other way around.
 
 Follow these steps to create the app registration:
 
@@ -40,7 +40,7 @@ Follow these steps to create the app registration:
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations**, then **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
-1. Specify who can use the application, sometimes referred to as the *sign-in audience*:
+1. Specify who can use the application, sometimes referred to as the *sign-in audience*.
 
     | Supported account types | Description |
     |-------------------------|-------------|
@@ -63,9 +63,13 @@ Your application's code, or more typically an authentication library used in you
 
 A redirect URI is the location to which the Microsoft identity platform redirects a user's client and sends security tokens after authentication.
 
+In a production web application, for example, the redirect URI might be a public endpoint where your app is running, like `https://contoso.com/auth-response`. During app development, you might also add the endpoint where your app is running locally, like `https://localhost:5000`.
+
+You can add or modify redirect URIs for your registered applications by configuring their **Platform settings**.
+
 ### Configure platform settings
 
-Each application type (platform) is configured differently in **Platform configurations** in the Azure portal. Some platforms, like **Web** and **Single-page application** require a manually configured redirect URI. Redirect URIs for other platforms like mobile and desktop can created automatically when you configure those platforms' other options.
+Settings for each application type, including redirect URIs, are configured in **Platform configurations** in the Azure portal. Some platforms, like **Web** and **Single-page applications**, require you to manually specify a redirect URI. For other platforms like mobile and desktop, you can select from redirect URIs generated for you when you configure other settings for the platform.
 
 To configure application settings based on the platform or device you're targeting:
 
@@ -80,7 +84,7 @@ To configure application settings based on the platform or device you're targeti
     | **Web** | Enter the **Redirect URI** for your application.<br/><br/>A redirect URI is the location to which the Microsoft identity platform redirects a user's client and sends security tokens after authentication. |
     | **Single-page application** | Enter the **Redirect URI** for your application.<br/><br/>A redirect URI is the location to which the Microsoft identity platform redirects a user's client and sends security tokens after authentication. |
     | **iOS / macOS** | Enter the app **Bundle ID**, which you can find in XCode in *Info.plist* or Build Settings. Adding the bundle ID automatically creates a redirect URI for the application. |
-    | **Android** | Provide the app **Package name**, which you can find in the *AndroidManifest.xml* file.<br/>Generate and enter the **Signature hash**. Adding the signature hash automatically creates a redirect URI for the application. |
+    | **Android** | Provide the app **Package name**, which you can find in the *AndroidManifest.xml* file.<br/><br/>Generate and enter the **Signature hash**. Adding the signature hash automatically creates a redirect URI for the application. |
     | **Mobile and desktop applications** | (Optional) Select one of the **Suggested redirect URIs** if you're building apps for desktop and devices.<br/><br/>(Optional) Enter a **Custom redirect URI**, the location to which the Microsoft identity platform redirects a user's client and sends security tokens after authentication. |
 
 ### Redirect URI restrictions

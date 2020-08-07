@@ -126,7 +126,7 @@ Web APIs are configured in Expose an API page.
 > [!NOTE]
 > Try out the new Authentication settings experience where you can
 configure settings for your application based on the platform or device
-that you want to target. [Learn more](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
+that you want to target. [Learn more](quickstart-register-app.md#configure-platform-settings)
 
 ## Microsoft Graph permissions/API permissions
 
