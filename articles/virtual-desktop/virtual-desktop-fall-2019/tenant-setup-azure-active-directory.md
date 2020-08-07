@@ -1,10 +1,7 @@
 ---
 title: Create a tenant in Windows Virtual Desktop (classic) - Azure
 description: Describes how to set up Windows Virtual Desktop (classic) tenants in Azure Active Directory.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
@@ -77,12 +74,12 @@ To assign the TenantCreator application role:
    > ![Screenshot of searching for Enterprise applications in the Azure portal](../media/azure-portal-enterprise-applications.png)
 
 2. Within **Enterprise applications**, search for **Windows Virtual Desktop**. You'll see the two applications that you provided consent for in the previous section. Of these two apps, select **Windows Virtual Desktop**.
-   
+
    > [!div class="mx-imgBorder"]
    > ![A screenshot of the search results when searching for "Windows Virtual Desktop" in "Enterprise applications." The app named "Windows Virtual Desktop" is highlighted.](../media/tenant-enterprise-app.png)
 
 3. Select **Users and groups**. You might see that the administrator who granted consent to the application is already listed with the **Default Access** role assigned. This is not enough to create a Windows Virtual Desktop tenant. Continue following these instructions to add the **TenantCreator** role to a user.
-   
+
    > [!div class="mx-imgBorder"]
    > ![A screenshot of the users and groups assigned to manage the "Windows Virtual Desktop" enterprise application. The screenshot shows only one assignment, which is for "Default Access."](../media/tenant-default-access.png)
 
@@ -121,13 +118,13 @@ To find your Azure Active Directory tenant ID (or **Directory ID**):
 
 To find your Azure subscription ID:
 1. In the same [Azure portal](https://portal.azure.com) session, search for and select **Subscriptions**.
-   
+
    > [!div class="mx-imgBorder"]
    > ![A screenshot of the search results for "Azure Active Directory" in the Azure portal. The search result under "Services" is highlighted.](../media/tenant-search-subscription.png)
 
 2. Select the Azure subscription you want to use to receive Windows Virtual Desktop service notifications.
 3. Look for **Subscription ID**, and then hover over the value until a clipboard icon appears. Select the clipboard icon and paste it in a handy location so you can use it later as the **AzureSubscriptionId** value.
-   
+
    > [!div class="mx-imgBorder"]
    > ![A screenshot of the Azure subscription properties. The mouse is hovering over the clipboard icon for "Subscription ID" to copy and paste.](../media/tenant-subscription-id.png)
 
