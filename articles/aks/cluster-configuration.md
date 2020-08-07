@@ -233,7 +233,7 @@ If you want to create regular Gen1 node pools, you can do so by omitting the cus
 
 By default, the operating system disk for an Azure virtual machine is automatically replicated to Azure storage to avoid data loss should the VM need to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and lower read/write latency.
 
-Ephemeral OS disks are created on the local virtual machine (VM) storage of your cluster agent nodes and not saved to the remote Azure Storage. Ephemeral OS disks are suited for container workloads as they were designed with stateless workloads in mind, where applications are tolerant of individual VM failures, but are more affected by VM deployment time or reimaging the individual VM instances. With Ephemeral OS disk, you get lower read/write latency to the OS disk, similar to a temporary disk, and faster node scaling and cluster upgrades.
+By contrast, ephemeral OS disks are stored only on the host machine, just like a temporary disk. This provides lower read/write latency, along with faster node scaling and cluster upgrades.
 
 Like the temporary disk, an ephemeral OS disk is included in the price of the virtual machine, so you incur no additional storage costs.
 
