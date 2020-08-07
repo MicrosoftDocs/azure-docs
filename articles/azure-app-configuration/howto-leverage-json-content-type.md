@@ -178,7 +178,7 @@ az appconfig kv export -d file --format json --path "~/Export.json" --separator 
 The easiest way to consume JSON key-values in your application is through App Configuration provider libraries. With the provider libraries, you don't need to implement special handling of JSON key-values in your application. They're always deserialized for your application in the same way that other JSON configuration provider libraries do. 
 
 > [!Important]
-> Native support for JSON key-values is currently available only in .NET Configuration Provider version 4.0.0 (or later).
+> Native support for JSON key-values is available in .NET configuration provider version 4.0.0 (or later). See [*Next steps*](#next-steps) section for more details.
 
 If you are using the SDK or REST API to read key-values from App Configuration, based on the content-type, your application is responsible for deserializing the value of a JSON key-value using any standard JSON deserializer.
 
@@ -192,7 +192,7 @@ If you are using the SDK or REST API to read key-values from App Configuration, 
 Now that you know how to work with JSON key-values in your App Configuration store, create an application for consuming these key-values:
 
 * [ASP.NET Core quickstart](./quickstart-aspnet-core-app.md)
-    * Prerequisite: [Microsoft.Azure.AppConfiguration.AspNetCore package](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore/4.0.0-preview)
+    * Prerequisite: [Microsoft.Azure.AppConfiguration.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) package v4.0.0 or later.
 
 * [.NET Core quickstart](./quickstart-dotnet-core-app.md)
-    * Prerequisite: [Microsoft.Extensions.Configuration.AzureAppConfiguration package](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/4.0.0-preview)
+    * Prerequisite: [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration) package v4.0.0 or later.
