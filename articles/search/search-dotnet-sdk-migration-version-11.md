@@ -121,7 +121,7 @@ Version 11 fully supports the following objects and operations:
 
 The following version 10 features are not yet available in version 11. If you use these features, hold off on migration until they are supported.
 
-+ [geospatial types](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.serialization.geojsonextensions)
++ geospatial types
 + [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) (although you can use [this workaround](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/tests/Samples/FieldBuilder/FieldBuilder.cs)).
 + [Knowledge store](knowledge-store-concept-intro.md)
 
