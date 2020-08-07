@@ -619,7 +619,7 @@
     - name: Automation scripts of self-hosted integration runtime
       href: self-hosted-integration-runtime-automation-scripts.md
     - name: Run Self-Hosted Integration Runtime in Windows container
-      href: how-to-run-shir-in-windows-container.md
+      href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
   - name: Run SSIS packages in Azure
     items:
     - name: Run SSIS packages in Azure from SSDT
