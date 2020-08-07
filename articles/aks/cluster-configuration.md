@@ -231,13 +231,11 @@ If you want to create regular Gen1 node pools, you can do so by omitting the cus
 
 ## Ephemeral OS (Preview)
 
+By default, the operating system disk for an Azure virtual machine is automatically replicated to Azure storage to avoid data loss should the VM need to be relocated to another host. However, since containers aren't designed to have local state persisted, this behavior offers limited value while providing some drawbacks, including slower node provisioning and lower read/write latency.
+
 Ephemeral OS disks are created on the local virtual machine (VM) storage of your cluster agent nodes and not saved to the remote Azure Storage. Ephemeral OS disks are suited for container workloads as they were designed with stateless workloads in mind, where applications are tolerant of individual VM failures, but are more affected by VM deployment time or reimaging the individual VM instances. With Ephemeral OS disk, you get lower read/write latency to the OS disk, similar to a temporary disk, and faster node scaling and cluster upgrades.
 
-In addition to this Ephemeral OS disk is free that is, you incur no storage cost for the OS disk. You can still be charged for any data disks attached to the agent node.
-
-To use Gen2 VMs during preview, you'll require:
-- The `aks-preview` CLI extension installed.
-- The `EnableEphemeralOSDiskPreview` feature flag registered.
+Like the temporary disk, an ephemeral OS disk is included in the price of the virtual machine, so you incur no additional storage costs.
 
 Register the `EnableEphemeralOSDiskPreview` feature:
 
@@ -269,12 +267,6 @@ To update the aks-preview CLI extension, use the following Azure CLI commands:
 az extension update --name aks-preview
 ```
 
-> [!IMPORTANT]
-> After Ephemeral OS becomes generally available on AKS, it'll be the default and only option available for OS Disk on new clusters. You can still use network-attached OS disk nodepools and clusters on older kubernetes supported versions until those fall off support. 
-> 
-> We recommend you test your workloads on ephemeral OS node pools before upgrading or creating new clusters with this OS disk type.
-
-
 ### Use Ephemeral OS on new clusters (Preview)
 
 Configure the cluster to use Ephemeral OS disks when the cluster is created. Use the `--aks-custom-headers` flag to set Ephemeral OS as the OS disk type for the new cluster.
@@ -293,7 +285,7 @@ az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-grou
 ```
 
 > [!IMPORTANT]
-> With ephemeral OS you can deploy VM and instance images up to the size of the VM cache. In the AKS case, the default node OS disk configuration uses 100Gb, which means that you need a VM size that has a cache larger than 100 GiB. The default Standard_DS2_v2 has a cache size of 86 GiB, which is not large enough. The Standard_DS3_v2 has a cache size of 172 GiB, which is large enough. You can also reduce the default size of the OS disk by using `--node-osdisk-size`. The minimum size for AKS images is 30Gb. 
+> With ephemeral OS you can deploy VM and instance images up to the size of the VM cache. In the AKS case, the default node OS disk configuration uses 100Gb, which means that you need a VM size that has a cache larger than 100 GiB. The default Standard_DS2_v2 has a cache size of 86 GiB, which is not large enough. The Standard_DS3_v2 has a cache size of 172 GiB, which is large enough. You can also reduce the default size of the OS disk by using `--node-osdisk-size`. The minimum size for AKS images is 30Gib. 
 
 If you want to create node pools with network-attached OS disks, you can do so by omitting the custom `--aks-custom-headers` tag.
 
