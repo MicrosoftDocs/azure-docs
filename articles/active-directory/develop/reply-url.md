@@ -14,7 +14,7 @@ ms.reviewer: lenalepa, manrath
 ---
 # Redirect URI (reply URL) restrictions and limitations
 
-A redirect URI, or reply URL, is the location the authorization server sends the user once the app has been successfully authorized and granted an authorization code or access token. The code or token is contained in the redirect URI or reply token, so it's important you register the correct location as part of the app registration process.
+A redirect URI, or reply URL, is the location where the authorization server sends the user once the app has been successfully authorized and granted an authorization code or access token. The authorization server sends the code or token to the redirect URI, so it's important you register the correct location as part of the app registration process.
 
  The following restrictions apply to redirect URIs:
 
