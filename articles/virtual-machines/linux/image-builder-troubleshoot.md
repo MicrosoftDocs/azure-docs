@@ -3,7 +3,7 @@ title: Troubleshoot Azure Image Builder Service
 description: Troubleshoot common problems and errors when using Azure VM Image Builder Service
 author: cynthn
 ms.author: danis
-ms.date: 05/07/2020
+ms.date: 08/07/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -13,16 +13,22 @@ ms.subservice: imaging
 
 This article helps you troubleshoot and resolve common issues you may encounter when using Azure Image Builder Service.
 
+AIB failures can happen in 2 areas:
+1. Image Template submission
+2. Image Build
+
 ## Troubleshoot image template submission errors
 
-Image template submission errors are returned at submission only. There isn't an error log for image template submission errors. If there was an error during submission, you can return the error by checking the status of the template.
+Image template submission errors are returned at submission only. There isn't an error log for image template submission errors. If there was an error during submission, you can return the error by checking the status of the template, specifically reviewing the `ProvisioningState` and `ProvisioningErrorMessage`/`provisioningError`.
 
 ```azurecli
-az resource show \
-    --resource-group <imageTemplateResourceGroup> \
-    --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    --name <imageTemplateName>
+az image builder show --name $imageTemplateName  --resource-group $imageResourceGroup
 ```
+
+```azurepowershell-interactive
+Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGroupName <imageTemplateResourceGroup> | Select-Object ProvisioningState, ProvisioningErrorMessage
+```
+> Note! For PowerShell, you will need to install the [Azure Image Builder PowerShell Modules](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-powershell#prerequisites)
 
 The following sections include problem resolution guidance for common image template submission errors.
 
@@ -127,11 +133,13 @@ Ensure the file is reachable. Verify the name and location are correct.
 
 For image build failures, you can get the error from the `lastrunstatus`, and then review the details in the customization.log.
 
+
 ```azurecli
-az resource show \
-    --resource-group <imageTemplateResourceGroup> \
-    --resource-type Microsoft.VirtualMachineImages/imageTemplates \
-    --name <imageTemplateName>
+az image builder show --name $imageTemplateName  --resource-group $imageResourceGroup
+```
+
+```azurepowershell-interactive
+Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGroupName <imageTemplateResourceGroup> | Select-Object LastRunStatus, LastRunStatusMessage
 ```
 
 ### Customization log
@@ -142,7 +150,8 @@ The storage account name uses the following pattern: **IT_\<ImageResourceGroupNa
 
 For example, *IT_aibmdi_helloImageTemplateLinux01*.
 
-You can view the storage account in the resource group by selecting **Storage Account > Blobs > packerlogs**.  Then select **directory > customization.log**.
+You can view the customization.log in storage account in the resource group by selecting **Storage Account > Blobs > packerlogs**.  Then select **directory > customization.log**.
+
 
 ### Understanding the customization log
 
@@ -204,6 +213,10 @@ The customization.log includes the following stages:
     ```text
     PACKER ERR 2020/02/04 02:04:23 packer: 2020/02/04 02:04:23 Azure request method="DELETE" request="https://management.azure.com/subscriptions/<subId>/resourceGroups/IT_aibDevOpsImg_t_vvvvvvv_yyyyyy-de5f-4f7c-92f2-xxxxxxxx/providers/Microsoft.Network/networkInterfaces/pkrnijamvpo08eo?[REDACTED]" body=""
     ```
+## Tips for troubleshooting script/inline customization
+1. Test the code before supplying it to Image Builder
+2. Ensure Azure Policy's and Firewalls allow connectivity to remote resources.
+3. Ouput comments to the console, such as using `Write-Host` or `echo`, this will allow you to search the customization.log.
 
 ## Troubleshoot common build errors
 
@@ -301,7 +314,7 @@ Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in dis
 
 #### Cause
 
-Image Builder timed out waiting for the image to be added and replicated to the Shared Image Gallery (SIG). If the image is being injected into the SIG, it can be assumed the image build was successful. However, the overall process failed, because the image builder was waiting on shared image gallery to complete the replication. Even though the build has failed, the replication continues. Therefore, you can expect to see an image there. You can get the properties of the image version by checking the distribution *runOutput*.
+Image Builder timed out waiting for the image to be added and replicated to the Shared Image Gallery (SIG). If the image is being injected into the SIG, it can be assumed the image build was successful. However, the overall process failed, because the image builder was waiting on shared image gallery to complete the replication. Even though the build has failed, the replication continues. You can get the properties of the image version by checking the distribution *runOutput*.
 
 ```bash
 $runOutputName=<distributionRunOutput>
@@ -314,7 +327,7 @@ az resource show \
 
 Increase the **buildTimeoutInMinutes**.
  
-### Repetitive packer errors
+### Low Windows resource information events
 
 #### Error
 
@@ -419,7 +432,7 @@ Recheck Azure Image Builder has all permissions it requires.
 
 For more information on configuring permissions, see [Configure Azure Image Builder Service permissions using Azure CLI](image-builder-permissions-cli.md) or [Configure Azure Image Builder Service permissions using PowerShell](image-builder-permissions-powershell.md)
 
-###
+### Sysprep timing
 
 #### Error
 
@@ -485,6 +498,33 @@ Increase the VM size. Or, you can add a 60-second PowerShell sleep customization
 
 ## DevOps task 
 
+### Troubleshooting the task
+The task will only fail if an error occurs during customization, when this happens the task will report failure and leave the staging resource group, with the logs, so you can identify the issue. 
+
+To locate the log, you need to know the template name, go into pipeline > failed build > drill into the AIB DevOps task, then you will see the log and a template name:
+```text
+start reading task parameters...
+found build at:  /home/vsts/work/r1/a/_ImageBuilding/webapp
+end reading parameters
+getting storage account details for aibstordot1556933914
+created archive /home/vsts/work/_temp/temp_web_package_21475337782320203.zip
+Source for image:  { type: 'SharedImageVersion',
+  imageVersionId: '/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<imageDefName>/versions/<imgVersionNumber>' }
+template name:  t_1556938436xxx
+``` 
+
+Go to the portal, search for the template name in resource group, then look for the resource group with IT_*.
+Go to the storage account > blobs > containers > logs.
+
+### Troubleshooting successful builds
+There maybe some cases where you need to investigate successful builds, and want to review the log. As mentioned, if the image build is successful, the staging resource group that contains the logs will be deleted as part of the clean up. However, what you can do, is introduce a sleep after the inline command, then get the logs as the build is paused. To do this follow these steps:
+ 
+1. Update the inline command, and add:
+Write-Host / Echo “Sleep” – this will allow you to search in the log
+2. Add a sleep for at least 10mins, you can use [Start-Sleep](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7), or `Sleep` Linux command.
+3. Use the method above to identify the log location, and then keep downloading/checking the log until it gets to the sleep.
+
+
 ### Operation was canceled
 
 #### Error
@@ -523,7 +563,7 @@ For more information on Azure DevOps capabilities and limitations, see [Microsof
  
 #### Solution
 
-You can host your own DevOps agents, or look to reduce the time of your build. For example, if you are distributing to the shared image gallery, replicate to one region. 
+You can host your own DevOps agents, or look to reduce the time of your build. For example, if you are distributing to the shared image gallery, replicate to one region. If you want to replicate asyncronously 
  
 ## VMs created from AIB images do not create successfully
 
@@ -552,13 +592,24 @@ Linux:
 ### Sysprep Command: Windows
 
 ```PowerShell
-echo '>>> Waiting for GA to start ...'
+Write-Output '>>> Waiting for GA Service (RdAgent) to start ...'
 while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }
-while ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running') { Start-Sleep -s 5 }
+Write-Output '>>> Waiting for GA Service (WindowsAzureTelemetryService) to start ...'
+while ((Get-Service WindowsAzureTelemetryService) -and ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running')) { Start-Sleep -s 5 }
+Write-Output '>>> Waiting for GA Service (WindowsAzureGuestAgent) to start ...'
 while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }
-echo '>>> Sysprepping VM ...'
-if( Test-Path $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml -Force} & $Env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit
-while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 5  } else { break } }
+Write-Output '>>> Sysprepping VM ...'
+if( Test-Path $Env:SystemRoot\system32\Sysprep\unattend.xml ) {
+  Remove-Item $Env:SystemRoot\system32\Sysprep\unattend.xml -Force
+}
+& $Env:SystemRoot\System32\Sysprep\Sysprep.exe /oobe /generalize /quiet /quit
+while($true) {
+  $imageState = (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\State).ImageState
+  Write-Output $imageState
+  if ($imageState -eq 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { break }
+  Start-Sleep -s 5
+}
+Write-Output '>>> Sysprep complete ...'
 ```
 
 ### Deprovision Command: Linux
@@ -570,3 +621,14 @@ while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Window
 ### Overriding the Commands
 
 To override the commands, use the PowerShell or shell script provisioners to create the command files with the exact file name and put them in the directories listed previously. Azure Image Builder reads these commands and output is written to the *customization.log*.
+
+## Getting Support
+If you have referred to the guidance, and still cannot troubleshoot your issue, you can open a support case. When doing so, please select right product and support topic, doing this will engage the Azure VM Image Builder support team.
+
+Selecting the case product:
+```bash
+Product Family: Azure
+Product: Virtual Machine Running Windows
+Support Topic: Management
+Support Subtopic: Issues with Azure Image Builder
+```
