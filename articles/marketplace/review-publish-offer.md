@@ -37,7 +37,7 @@ This article shows you how to use Partner Center to submit your offer to preview
 
 1. To submit your offer to preview, select **Review and publish** at the upper-right corner of the portal. The **Review and publish** page appears.
 1. Make sure that the **Status** column for each page says **Complete**. The three possible statuses are as follows:
-   - **Not started** – The page has not been touched and needs to be completed.
+   - **Not started** – The page is incomplete.
    - **Incomplete** – The page is missing required information or has errors that need to be fixed. You'll need to go back to the page and update it.
    - **Complete** – The page is complete. All required data has been provided and there are no errors.
 1. If any of the pages have a status other than **Complete**, in the **Page** column, select the page name, correct the issue, save the page, and then select **Review and publish** again to return to this page.
@@ -53,7 +53,7 @@ After you select **Publish**, the validation and publishing processes proceed in
 | Automated validation | We process a set of automated validations. |
 | Certification | We conduct manual validations. |
 | Preview creation | The listing page for your offer preview is available to anyone who has the preview link. If your offer will be sold through Microsoft (transactable), only the audience you specified on the **Preview audience** page of your offer can purchase and access the offer for testing. |
-| Publisher signoff | We send you an email with a request for you to preview and approve your offer. |
+| Publisher sign-off | We send you an email with a request for you to preview and approve your offer. |
 | Publish | We run a series of steps to verify that the preview offer is published live to the commercial marketplace. |
 |||
 
@@ -78,7 +78,7 @@ The first step in the publishing process is a set of automated validations. Each
 
 ## Certification phase
 
-Before being published, offers submitted to the commercial marketplace must be certified. Submitted offers undergo rigorous testing, some automated and others manual. Review the [commercial marketplace certification policies](https://aka.ms/commercial-marketplace-certification-policies) to learn more.
+Offers submitted to the commercial marketplace must be certified before being published. Offers undergo rigorous testing, some automated and others manual. To learn more, see [commercial marketplace certification policies](https://aka.ms/commercial-marketplace-certification-policies).
 
 ### Types of validation that take place during certification
 There are three levels of validation included in the certification process for each submitted offer.
@@ -87,7 +87,7 @@ There are three levels of validation included in the certification process for e
 - Technical validation
 
 #### Publisher business eligibility
-Each offer type checks a set of base eligibility criteria that the publisher must meet. Eligibility criteria may include the publisher's MPN status, competencies held, competency levels, and so on.
+Each offer type checks a set of required base eligibility criteria. This criteria may include publisher MPN status, competencies held, competency levels, and so on.
 
 #### Content validation
 
@@ -114,7 +114,7 @@ The offer is tested across various platforms and versions to ensure it’s robus
 
 If your offer fails any of the listing, technical, or policy checks, or if you are not eligible to submit an offer of that type, we email a certification failure report to you.
 
-This report contains descriptions of any policies that failed, along with review notes. Review this email report , address any issues, make updates to your offer where needed, and resubmit the offer using the [commercial marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) in Partner Center. You can resubmit the offer as many times as needed until passing certification.
+This report contains descriptions of any policies that failed, along with review notes. Review this email report, address any issues, make updates to your offer where needed, and resubmit the offer using the [commercial marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) in Partner Center. You can resubmit the offer as many times as needed until passing certification.
 
 ## Preview creation phase
 
@@ -159,7 +159,7 @@ Now that you’ve chosen to go live with your offer, making it available in the 
 
 - **Test drive provisioning (~30 min)**
 
-      In this step, we deploy and replicate instances of your test drive so that they are ready for customer use. This step is only applicable for offers with a test drive enabled.
+    In this step, we deploy and replicate instances of your test drive so that they are ready for customer use. This step is only applicable for offers with a test drive enabled.
 
 - **Lead management validation and registration (>15 min)**
 
