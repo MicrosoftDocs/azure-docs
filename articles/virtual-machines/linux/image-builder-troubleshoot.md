@@ -521,7 +521,7 @@ There maybe some cases where you need to investigate successful builds, and want
  
 1. Update the inline command, and add:
 Write-Host / Echo “Sleep” – this will allow you to search in the log
-2. Add a sleep for at least 10mins, you can use [Start-Sleep](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7), or `Sleep` Linux command.
+2. Add a sleep for at least 10mins, you can use [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep), or `Sleep` Linux command.
 3. Use the method above to identify the log location, and then keep downloading/checking the log until it gets to the sleep.
 
 
