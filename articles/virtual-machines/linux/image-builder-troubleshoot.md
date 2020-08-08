@@ -150,7 +150,7 @@ The storage account name uses the following pattern: **IT_\<ImageResourceGroupNa
 
 For example, *IT_aibmdi_helloImageTemplateLinux01*.
 
-You can view the customization.log in storage account in the resource group by selecting **Storage Account > Blobs > packerlogs**.  Then select **directory > customization.log**.
+You can view the customization.log in storage account in the resource group by selecting **Storage Account** > **Blobs** > `packerlogs`.  Then select **directory > customization.log**.
 
 
 ### Understanding the customization log
@@ -216,7 +216,7 @@ The customization.log includes the following stages:
 ## Tips for troubleshooting script/inline customization
 1. Test the code before supplying it to Image Builder
 2. Ensure Azure Policy's and Firewalls allow connectivity to remote resources.
-3. Ouput comments to the console, such as using `Write-Host` or `echo`, this will allow you to search the customization.log.
+3. Output comments to the console, such as using `Write-Host` or `echo`, this will allow you to search the customization.log.
 
 ## Troubleshoot common build errors
 
@@ -563,7 +563,7 @@ For more information on Azure DevOps capabilities and limitations, see [Microsof
  
 #### Solution
 
-You can host your own DevOps agents, or look to reduce the time of your build. For example, if you are distributing to the shared image gallery, replicate to one region. If you want to replicate asyncronously 
+You can host your own DevOps agents, or look to reduce the time of your build. For example, if you are distributing to the shared image gallery, replicate to one region. If you want to replicate asynchronously. 
  
 ## VMs created from AIB images do not create successfully
 
