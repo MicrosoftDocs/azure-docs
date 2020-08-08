@@ -5,24 +5,33 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/12/2020
+ms.date: 08/07/2020
 
 ---
 
 # Monitoring solutions in Azure Monitor
 
-Monitoring solutions leverage services in Azure to provide additional analysis of the operation of a particular application or service. This article provides a brief overview of monitoring solutions in Azure and details on using and installing them. You can add monitoring solutions to Azure Monitor for any applications and services that you use. They're typically available at no cost but collect data that could invoke usage charges.
+Monitoring solutions in Azure Monitor provide analysis of the operation of a particular Azure application or service. This article provides a brief overview of monitoring solutions in Azure and details on using and installing them. You can add monitoring solutions to Azure Monitor for any applications and services that you use. They're typically available at no cost but collect data that could invoke usage charges.
+
+> [!NOTE]
+> 
+
+## Cost
+There is no cost for monitoring solutions, but 
 
 ## Use monitoring solutions
 
-Open the **Overview** page in Azure Monitor to display a tile for each solution installed in the workspace.
+The solutions **Overview** page in Azure Monitor displays a tile for each solution installed in a Log Analytics workspace. To open this page 
 
-1. Go to the [Azure portal](https://ms.portal.azure.com). Search for and select **Monitor**.
-1. Under the **Insights** menu, select **More**.
-1. Use the dropdown boxes at the top of the screen to change the workspace or the time range used for the tiles.
-1. Click on the tile for a solution to open its view that includes more detailed analysis its collected data.
+ Go to the [Azure portal](https://ms.portal.azure.com). Search for and select **Monitor**. Under the **Insights** menu, select **More** to open the **Insights Hub**. Click on **Log Analytics workspaces**.
 
-![Overview](media/solutions/overview.png)
+[![Insights Hub](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
+
+
+3. Use the dropdown boxes at the top of the screen to change the workspace or the time range used for the tiles.
+4. Click on the tile for a solution to open its view that includes more detailed analysis its collected data.
+
+[![Overview](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
 Monitoring solutions can contain multiple types of Azure resources, and you can view any resources included with a solution just like any other resource. For example, any log queries included in the solution are listed under **Solution Queries** in [Query explorer](../log-query/get-started-portal.md#load-queries) You can use those queries when performing ad hoc analysis with [log queries](../log-query/log-query-overview.md).
 
