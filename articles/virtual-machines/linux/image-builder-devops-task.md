@@ -16,16 +16,16 @@ This article shows you how to use an Azure DevOps task to inject build artifacts
 ## DevOps Task versions
 There are two Azure VM Image Builder (AIB) DevOps Tasks:
 
-* ['Stable' AIB Task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), this allows us to put in the latest updates and features, allow customers to test them, before we promote it to the 'stable' task, approx 1 week later. 
+* ['Stable' AIB Task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder), this allows us to put in the latest updates and features, allow customers to test them, before we promote it to the 'stable' task, approximately 1 week later. 
 
 
-* ['Unstable' AIB Task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary), this allows us to put in the latest updates and features, allow customers to test them, before we promote it to the 'stable' task. If there are no reported issues, and our telemetry shows no issues, approx 1 week later, we will promote the task code to 'stable'. 
+* ['Unstable' AIB Task](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary), this allows us to put in the latest updates and features, allow customers to test them, before we promote it to the 'stable' task. If there are no reported issues, and our telemetry shows no issues, approximately 1 week later, we will promote the task code to 'stable'. 
 
 ## Prerequisites
 
 * Install the [Stable DevOps Task from Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder).
 * You must have a VSTS DevOps account, and a Build Pipeline created
-* Register and enable the Image Builder feature requirements in the subcription used by the pipelines:
+* Register and enable the Image Builder feature requirements in the subscription used by the pipelines:
     * [Az PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-powershell#register-features)
     * [Az CLI](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder#register-the-features)
     
@@ -90,7 +90,7 @@ The source images must be of the supported Image Builder OSs. You can choose exi
     If you need to get the latest Shared Image Gallery version, you can have an AZ PowerShell or AZ CLI task before that will get the latest version and set a DevOps variable. Use the variable in the AZ VM Image Builder DevOps task. For more information, see the [examples](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/8_Getting_Latest_SIG_Version_ResID#getting-the-latest-image-version-resourceid-from-shared-image-gallery).
 
 * (Marketplace) Base Image
-    There is a drop downlist of popular images, these will always use the 'latest' version of the supported OS's. 
+    There is a drop-down list of popular images, these will always use the 'latest' version of the supported OS's. 
 
     If the base image is not in the list, you can specify the exact image using `Publisher:Offer:Sku`.
 
