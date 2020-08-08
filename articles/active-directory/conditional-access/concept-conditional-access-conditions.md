@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Within a Conditional Access policy, an administrator can make use of signals from conditions like risk, device platform, or location to enhance their policy decisions. 
 
-![Define a Conditional Access policy and specify conditions](./media/concept-conditional-access-conditions/conditional-access-conditions.png)
+[ ![Define a Conditional Access policy and specify conditions](./media/concept-conditional-access-conditions/conditional-access-conditions.png)](./media/concept-conditional-access-conditions/conditional-access-conditions.png#lightbox)
 
 Multiple conditions can be combined to create fine-grained and specific Conditional Access policies.
 
@@ -59,10 +59,15 @@ More information about locations can be found in the article, [What is the locat
 
 ## Client apps
 
-Conditional Access policies by default apply to browser-based applications and applications that utilize modern authentication protocols. In addition to these applications, administrators can choose to include Exchange ActiveSync clients and other clients.
+By default, all newly created Conditional Access policies will apply to all client app types even if the client apps condition is not configured. 
 
 > [!NOTE]
-> The behavior of the client apps condition was updated in July 2020 [link to Alex Simons blog post]. By default, all new Conditional Access policies will apply to all client app types when the client apps condition is not configured, including browser, mobile apps and desktop clients, Exchange ActiveSync, and other clients. If you have exisiting Conditional Access policies, they will remain unchanged. However, if you click on an existing policy, the configure toggle has been removed and the client apps the policy applies to are selected.
+> The behavior of the client apps condition was updated in August 2020. If you have existing Conditional Access policies, they will remain unchanged. However, if you click on an existing policy, the configure toggle has been removed and the client apps the policy applies to are selected.
+
+> [!IMPORTANT]
+> Sign-ins from legacy authentication clients don’t support MFA and don’t pass device state information to Azure AD, so they will be blocked by Conditional Access grant controls, like requiring MFA or compliant devices. If you have accounts which must use legacy authentication, you either exclude those accounts from the policy, or configure the policy to only apply to modern authentication clients.
+
+The **Configure** toggle when set to **Yes** applies to checked items, when set to **No** it applies to all client apps, including modern and legacy authentication clients. This toggle does not appear in policies created before August 2020.
 
 - Modern authentication clients
    - Browser
