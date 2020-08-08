@@ -2,9 +2,8 @@
 title: Use Azure AD in Azure Kubernetes Service
 description: Learn how to use Azure AD in Azure Kubernetes Service (AKS) 
 services: container-service
-manager: gwallace
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 07/27/2020
 ms.author: thomasge
 ---
 
@@ -47,6 +46,7 @@ kubectl version --client
 ```
 
 Use [these instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/) for other operating systems.
+
 
 ## Before you begin
 
@@ -119,7 +119,7 @@ aks-nodepool1-15306047-0   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-1   Ready    agent   102m   v1.15.10
 aks-nodepool1-15306047-2   Ready    agent   102m   v1.15.10
 ```
-Configure [Role Based Access Control (RBAC)](./azure-ad-rbac.md) to configure additional security groups for your clusters.
+Configure [Azure role-based access control (Azure RBAC)](./azure-ad-rbac.md) to configure additional security groups for your clusters.
 
 ## Troubleshooting access issues with Azure AD
 
@@ -136,7 +136,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster 
 
 ## Upgrading to AKS-managed Azure AD Integration
 
-If your cluster uses legacy Azure AD integration or is RBAC enabled cluster only, you can upgrade to AKS-managed Azure AD Integration.
+If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD Integration.
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]

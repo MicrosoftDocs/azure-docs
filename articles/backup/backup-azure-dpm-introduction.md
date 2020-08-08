@@ -18,7 +18,7 @@ The article provides:
 
 ## Why back up DPM to Azure?
 
-[System Center DPM](https://docs.microsoft.com/system-center/dpm/dpm-overview) backs up file and application data. DPM interacts with Azure Backup as follows:
+[System Center DPM](/system-center/dpm/dpm-overview) backs up file and application data. DPM interacts with Azure Backup as follows:
 
 - **DPM running on a physical server or on-premises VM** — You can back up data to a Backup vault in Azure, in addition to disk and tape backup.
 - **DPM running on an Azure VM** — From System Center 2012 R2 with Update 3 or later, you can deploy DPM on an Azure VM. You can back up data to Azure disks attached to the VM, or use Azure Backup to back up the data to a Backup vault.
@@ -37,12 +37,12 @@ DPM on a physical server | System Center 2012 SP1 or later; System Center 2012 R
 DPM on a Hyper-V VM | System Center 2012 SP1 or later; System Center 2012 R2.
 DPM on a VMware VM | System Center 2012 R2 with Update Rollup 5 or later.
 Components | The DPM server should have Windows PowerShell and .NET Framework 4.5 installed.
-Supported apps | [Learn](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) what DPM can back up.
+Supported apps | [Learn](/system-center/dpm/dpm-protection-matrix) what DPM can back up.
 Supported file types | These file types can be backed up with Azure Backup: Encrypted (full backups only); Compressed (incremental backups supported); Sparse (incremental backups supported); Compressed and sparse (treated as sparse).
 Unsupported file types | Servers on case-sensitive file systems; hard links (skipped); reparse points (skipped); encrypted and compressed (skipped); encrypted and sparse (skipped); Compressed stream; parse stream.
 Local storage | Each machine you want to back up must have local free storage that's at least 5% of the size of the data that is being backed up. For example, backing up 100 GB of data requires a minimum of 5 GB of free space in the scratch location.
 Vault storage | There’s no limit to the amount of data you can back up to an Azure Backup vault, but the size of a data source (for example a virtual machine or database) shouldn’t exceed 54,400 GB.
-Azure ExpressRoute | You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering isn't supported.<br/><br/> **With public peering**: Ensure access to the following domains/addresses:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **With Microsoft peering**, select the following services/regions and relevant community values:<br/><br/>- Azure Active Directory (12076:5060)<br/><br/>- Microsoft Azure Region (according to the location of your Recovery Services vault)<br/><br/>- Azure Storage (according to the location of your Recovery Services vault)<br/><br/>For more information, see [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).<br/><br/>**Note**: Public peering is deprecated for new circuits.
+Azure ExpressRoute | You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering isn't supported.<br/><br/> **With public peering**: Ensure access to the following domains/addresses:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **With Microsoft peering**, select the following services/regions and relevant community values:<br/><br/>- Azure Active Directory (12076:5060)<br/><br/>- Microsoft Azure Region (according to the location of your Recovery Services vault)<br/><br/>- Azure Storage (according to the location of your Recovery Services vault)<br/><br/>For more information, see [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).<br/><br/>**Note**: Public peering is deprecated for new circuits.
 Azure Backup agent | If DPM is running on System Center 2012 SP1, install Rollup 2 or later for DPM SP1. This is required for agent installation.<br/><br/> This article describes how to deploy the latest version of the Azure Backup agent, also known as the Microsoft Azure Recovery Service (MARS) agent. If you have an earlier version deployed, update to the latest version to ensure that backup works as expected.
 
 Before you start, you need an Azure account with the Azure Backup feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. Read about [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
@@ -55,7 +55,7 @@ You can choose between geo-redundant storage and locally redundant storage.
 
 - By default, your vault has geo-redundant storage.
 - If the vault is your primary backup, leave the option set to geo-redundant storage. If you want a cheaper option that isn't quite as durable, use the following procedure to configure locally redundant storage.
-- Learn about [Azure storage](../storage/common/storage-redundancy.md), and the [geo-redundant](../storage/common/storage-redundancy-grs.md) and [locally redundant](../storage/common/storage-redundancy-lrs.md) storage options.
+- Learn about [Azure storage](../storage/common/storage-redundancy.md), and the [geo-redundant](../storage/common/storage-redundancy.md) and [locally redundant](../storage/common/storage-redundancy.md) storage options.
 - Modify storage settings before the initial backup. If you've already backed up an item, stop backing it up in the vault before you modify storage settings.
 
 To edit the storage replication setting:
@@ -159,7 +159,7 @@ Every machine that's backed up by Azure Backup must have the Backup agent (also 
 
 7. Click **Register** to register the DPM server to the vault.
 
-After the server is registered successfully to the vault and you are now ready to start backing up to Microsoft Azure. You'll need to configure the protection group in the DPM console to backup workloads to Azure. [Learn how](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) to deploy protection groups.
+After the server is registered successfully to the vault and you are now ready to start backing up to Microsoft Azure. You'll need to configure the protection group in the DPM console to backup workloads to Azure. [Learn how](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) to deploy protection groups.
 
 ## Troubleshoot vault credentials
 

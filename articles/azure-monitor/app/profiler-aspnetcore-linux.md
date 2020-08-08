@@ -13,7 +13,7 @@ ms.reviewer: mbullwin
 
 This feature is currently in preview.
 
-Find out how much time is spent in each method of your live web application when using [Application Insights](../../azure-monitor/app/app-insights-overview.md). Application Insights Profiler is now available for ASP.NET Core web apps that are hosted in Linux on Azure App Service. This guide provides step-by-step instructions on how the Profiler traces can be collected for ASP.NET Core Linux web apps.
+Find out how much time is spent in each method of your live web application when using [Application Insights](./app-insights-overview.md). Application Insights Profiler is now available for ASP.NET Core web apps that are hosted in Linux on Azure App Service. This guide provides step-by-step instructions on how the Profiler traces can be collected for ASP.NET Core Linux web apps.
 
 After you complete this walkthrough, your app can collect Profiler traces like the traces that are shown in the image. In this example, the Profiler trace indicates that a particular web request is slow because of time spent waiting. The *hot path* in the code that's slowing the app is marked by a flame icon. The **About** method in the **HomeController** section is slowing the web app because the method is calling the **Thread.Sleep** function.
 
@@ -145,7 +145,7 @@ For more deployment options, see [this article](../../app-service/containers/cho
 
 ## Add Application Insights to monitor your web apps
 
-1. [Create an Application Insights resource](./../../azure-monitor/app/create-new-resource.md ).
+1. [Create an Application Insights resource](./create-new-resource.md).
 
 2. Copy the **iKey** value of the Application Insights resource and set the following settings in your web apps:
 
@@ -169,3 +169,4 @@ Enable Service Profiler for a containerized ASP.NET Core application](https://gi
 
 Report any issues or suggestions to the Application Insights GitHub repository:
 [ApplicationInsights-Profiler-AspNetCore: Issues](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).
+

@@ -11,7 +11,7 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
-ms.custom: seo-java-july2019, seo-java-august2019
+ms.custom: seo-java-july2019, seo-java-august2019, devx-track-java
 ---
 # Quickstart: Use Java to call the Azure Text Analytics Cognitive Service
 <a name="HOLTop"></a>

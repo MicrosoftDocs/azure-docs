@@ -108,6 +108,7 @@ To use secure LDAP, the network traffic is encrypted using public key infrastruc
 * A **private** key is applied to the managed domain.
     * This private key is used to *decrypt* the secure LDAP traffic. The private key should only be applied to the managed domain and not widely distributed to client computers.
     * A certificate that includes the private key uses the *.PFX* file format.
+    * The encryption algorithm for the certificate must be *TripleDES-SHA1*.
 * A **public** key is applied to the client computers.
     * This public key is used to *encrypt* the secure LDAP traffic. The public key can be distributed to client computers.
     * Certificates without the private key use the *.CER* file format.
@@ -147,7 +148,7 @@ Before you can use the digital certificate created in the previous step with you
 
 1. As this certificate is used to decrypt data, you should carefully control access. A password can be used to protect the use of the certificate. Without the correct password, the certificate can't be applied to a service.
 
-    On the **Security** page, choose the option for **Password** to protect the *.PFX* certificate file. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for your managed domain.
+    On the **Security** page, choose the option for **Password** to protect the *.PFX* certificate file. The encryption algorithm must be *TripleDES-SHA1*. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for your managed domain.
 1. On the **File to Export** page, specify the file name and location where you'd like to export the certificate, such as *C:\Users\accountname\azure-ad-ds.pfx*. Keep a note of the password and location of the *.PFX* file as this information would be required in next steps.
 1. On the review page, select **Finish** to export the certificate to a *.PFX* certificate file. A confirmation dialog is displayed when the certificate has been successfully exported.
 1. Leave the MMC open for use in the following section.
@@ -208,7 +209,7 @@ A notification is displayed that secure LDAP is being configured for the managed
 
 It takes a few minutes to enable secure LDAP for your managed domain. If the secure LDAP certificate you provide doesn't match the required criteria, the action to enable secure LDAP for the managed domain fails.
 
-Some common reasons for failure are if the domain name is incorrect, or the certificate expires soon or has already expired. You can re-create the certificate with valid parameters, then enable secure LDAP using this updated certificate.
+Some common reasons for failure are if the domain name is incorrect, the encryption algorithm for the certificate isn't *TripleDES-SHA1*, or the certificate expires soon or has already expired. You can re-create the certificate with valid parameters, then enable secure LDAP using this updated certificate.
 
 ## Lock down secure LDAP access over the internet
 

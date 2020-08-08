@@ -85,8 +85,8 @@ const msalConfig = {
         windowHashTimeout: 60000,
         iframeHashTimeout: 6000,
         loadFrameTimeout: 0
-    };
-}
+    }
+};
 
 // Create an instance of PublicClientApplication
 const msalInstance = new PublicClientApplication(msalConfig);

@@ -1,7 +1,7 @@
 ---
 title: Azure CLI script sample - Configure IPv6 frontend - Standard Load Balancer
 titlesuffix: Azure Virtual Network
-description: Enable IPv6 endpoints using Azure CLI in Azure Virtual Network
+description: Learn how to configure IPv6 endpoints in a virtual network script sample using Standard Load Balancer.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,7 +11,8 @@ ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurecli
 ---
 
 # Configure IPv6 endpoints in virtual network script sample using Standard Load Balancer(preview)

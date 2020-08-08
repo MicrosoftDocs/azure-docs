@@ -106,6 +106,12 @@ Workbooks can provide cross-workspace queries in one of three methods, each of w
 | Edit the workbook interactively | An advanced user modifying an existing workbook can edit the queries in it, selecting the target workspaces using the workspace selector in the editor. | This option enables a power user to easily modify existing workbooks to work with multiple workspaces. |
 |
 
+### Cross-workspace hunting
+
+Azure Sentinel provides preloaded query samples designed to get you started and get you familiar with the tables and the query language. These built-in hunting queries are developed by Microsoft security researchers on a continuous basis, both adding new queries and fine-tuning existing queries, to provide you with an entry point to look for new detections and identify signs of intrusion that may have gone undetected by your security tools.  
+
+Cross-workspace hunting capabilities enable your threat hunters to create new hunting queries, or adapt existing ones, to cover multiple workspaces, by using the union operator and the workspace() expression as shown above.
+
 ## Cross-workspace management using automation
 
 To configure and manage multiple Azure Sentinel workspaces, you will need to automate the use of the Azure Sentinel management API. For more information on how to automate the deployment of Azure Sentinel resources, including alert rules, hunting queries, workbooks and playbooks, see [Extending Azure Sentinel: APIs, Integration and management automation](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).

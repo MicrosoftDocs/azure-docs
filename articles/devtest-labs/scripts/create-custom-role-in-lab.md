@@ -37,11 +37,11 @@ This script uses the following commands:
 | Command | Notes |
 |---|---|
 | [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Gets the operations for an Azure resource provider that are securable using Azure RBAC. |
-| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Lists all Azure RBAC roles that are available for assignment. |
+| [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Lists all Azure roles that are available for assignment. |
 | [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) | Creates a custom role. |
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 
 Additional Azure Lab Services PowerShell script samples can be found in the [Azure Lab Services PowerShell samples](../samples-powershell.md).

@@ -9,7 +9,7 @@ ms.reviewer: sdash
 
 # Monitor the availability of any website
 
-After you've deployed your web app/website, you can set up recurring tests to monitor availability and responsiveness. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It can alert you if your application isn't responding, or if it responds too slowly.
+After you've deployed your web app/website, you can set up recurring tests to monitor availability and responsiveness. [Azure Application Insights](./app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It can alert you if your application isn't responding, or if it responds too slowly.
 
 You can set up availability tests for any HTTP or HTTPS endpoint that is accessible from the public internet. You don't have to make any changes to the website you're testing. In fact, it doesn't even have to be a site you own. You can test the availability of a REST API that your service depends on.
 
@@ -103,9 +103,9 @@ From an availability test result, you can see the transaction details across all
 * Log an issue or work item in Git or Azure Boards to track the problem. The bug will contain a link to this event.
 * Open the web test result in Visual Studio.
 
-Learn more about the end to end transaction diagnostics experience [here](../../azure-monitor/app/transaction-diagnostics.md).
+Learn more about the end to end transaction diagnostics experience [here](./transaction-diagnostics.md).
 
-Click on the exception row to see the details of the server-side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](../../azure-monitor/app/snapshot-debugger.md) for richer code level diagnostics.
+Click on the exception row to see the details of the server-side exception that caused the synthetic availability test to fail. You can also get the [debug snapshot](./snapshot-debugger.md) for richer code level diagnostics.
 
 ![Server-side diagnostics](./media/monitor-web-app-availability/open-instance-4.png)
 
@@ -116,8 +116,8 @@ In addition to the raw results, you can also view two key Availability metrics i
 
 ## Automation
 
-* [Use PowerShell scripts to set up an availability test](../../azure-monitor/app/powershell.md#add-an-availability-test) automatically.
-* Set up a [webhook](../../azure-monitor/platform/alerts-webhooks.md) that is called when an alert is raised.
+* [Use PowerShell scripts to set up an availability test](./powershell.md#add-an-availability-test) automatically.
+* Set up a [webhook](../platform/alerts-webhooks.md) that is called when an alert is raised.
 
 ## Troubleshooting
 
@@ -127,3 +127,4 @@ Dedicated [troubleshooting article](troubleshoot-availability.md).
 
 * [Availability Alerts](availability-alerts.md)
 * [Multi-step web tests](availability-multistep.md)
+

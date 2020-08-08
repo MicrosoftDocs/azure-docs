@@ -127,7 +127,7 @@ Like other telemetry, **performanceCounters** also has a column `cloud_RoleInsta
 
 * *Exception rate* is a system performance counter. The CLR counts all the handled and unhandled exceptions that are thrown, and divides the total in a sampling interval by the length of the interval. The Application Insights SDK collects this result and sends it to the portal.
 
-* *Exceptions* is a count of the TrackException reports received by the portal in the sampling interval of the chart. It includes only the handled exceptions where you have written TrackException calls in your code, and doesn't include all [unhandled exceptions](../../azure-monitor/app/asp-net-exceptions.md). 
+* *Exceptions* is a count of the TrackException reports received by the portal in the sampling interval of the chart. It includes only the handled exceptions where you have written TrackException calls in your code, and doesn't include all [unhandled exceptions](./asp-net-exceptions.md). 
 
 ## Performance counters for applications running in Azure Web Apps
 
@@ -143,9 +143,10 @@ Support for performance counters in ASP.NET Core is limited:
 * SDK Versions 2.8.0 and later support cpu/memory counter in Linux. No other counter is supported in Linux. The recommended way to get system counters in Linux (and other non-Windows environments) is by using [EventCounters](eventcounters.md)
 
 ## Alerts
-Like other metrics, you can [set an alert](../../azure-monitor/platform/alerts-log.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
+Like other metrics, you can [set an alert](../platform/alerts-log.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
 
 ## <a name="next"></a>Next steps
 
-* [Dependency tracking](../../azure-monitor/app/asp-net-dependencies.md)
-* [Exception tracking](../../azure-monitor/app/asp-net-exceptions.md)
+* [Dependency tracking](./asp-net-dependencies.md)
+* [Exception tracking](./asp-net-exceptions.md)
+

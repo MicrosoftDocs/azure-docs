@@ -109,4 +109,5 @@ Else, if the specified Log Analytic workspace has not yet been switched to use [
 
 - Learn about the [Azure Monitor - Log Alerts](alerts-unified-log.md).
 - Learn how to create [log alerts in Azure Alerts](alerts-log.md).
-- Learn more about the [Azure Alerts experience](../../azure-monitor/platform/alerts-overview.md).
+- Learn more about the [Azure Alerts experience](./alerts-overview.md).
+

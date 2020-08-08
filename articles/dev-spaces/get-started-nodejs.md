@@ -5,6 +5,7 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio Code to debug and rapidly iterate a Node.js application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
+ms.custom: devx-track-javascript, devx-track-azurecli
 ---
 # Create a Kubernetes dev space: Visual Studio Code and Node.js with Azure Dev Spaces
 
@@ -249,7 +250,7 @@ app.get('/api', function (req, res) {
 
 Save the file, and in the **Debug actions pane**, click the **Restart** button. 
 
-![The Debug actions pane is a small pane at the top center of the page (just below the page title). The Restart button displays a circular arrow, and is highlighted. The hover image for the button is "Restart (Ctrl+Shift+F5)".](media/common/debug-action-refresh.png)
+![The Debug actions pane is a small pane at the top center of the page (just below the page title). The Restart button displays a circular arrow, and is highlighted. The hover image for the button is "Restart (control + shift + F 5)".](media/common/debug-action-refresh.png)
 
 Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Azure Dev Spaces will restart the Node.js process in between debug sessions to provide a faster edit/debug loop.
 
