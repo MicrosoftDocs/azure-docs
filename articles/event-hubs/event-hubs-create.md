@@ -54,15 +54,14 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
     e. Choose the **pricing tier** (Basic or Standard).    
     f. Leave the **throughput units** settings as it is. To learn about throughput units, see [Event Hubs scalability](event-hubs-scalability.md#throughput-units)  
     g. Select **Review + Create** at the bottom of the page.
-
        ![Create an event hub namespace](./media/event-hubs-quickstart-portal/create-event-hub1.png)
-   h. On the **Review + Create** page, review the settings, and select **Create**. Wait for the deployment to complete. 
-
+       
+    h. On the **Review + Create** page, review the settings, and select **Create**. Wait for the deployment to complete. 
        ![Review + create page](./media/event-hubs-quickstart-portal/review-create.png)
-   i. On the **Deployment** page, select **Go to resource** to navigate to the page for your namespace. 
-
+      
+    i. On the **Deployment** page, select **Go to resource** to navigate to the page for your namespace. 
       ![Deployment complete - go to resource](./media/event-hubs-quickstart-portal/deployment-complete.png)  
-   j. Confirm that you see the **Event Hubs Namespace** page similar to the following example:   
+    j. Confirm that you see the **Event Hubs Namespace** page similar to the following example:   
       ![Home page for the namespace](./media/event-hubs-quickstart-portal/namespace-home-page.png)       
 
        > [!NOTE]
