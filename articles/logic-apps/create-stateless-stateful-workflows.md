@@ -128,11 +128,15 @@ After you install all the requirements, disable automatic extension updates for 
 
 1. From the templates list that appears, select **Skip for now**.
 
+   <!--
    ![Screenshot that shows a templates list with "Skip for now" selected](./media/create-stateless-stateful-workflows/select-project-template.png)
+   -->
 
 1. From the locations list, select **Open in current window**.
 
+   <!--
    ![Screenshot that shows locations list with "Open in current window" selected](./media/create-stateless-stateful-workflows/select-project-location.png)
+   -->
 
    After Visual Studio Code reloads, the Explorer pane opens and shows your workflow app project.
 
@@ -148,15 +152,17 @@ Now, continue creating your workflow app.
 
    ![Screenshot that shows Azure pane toolbar with "Create workflow" selected](./media/create-stateless-stateful-workflows/create-workflow-app-project.png)
 
-1. From the templates list that appears, select either **Stateful Workflow** or **Stateless Workflow**. Provide a name for your workflow app.
+1. From the templates list that appears, select either **Stateful Workflow** or **Stateless Workflow**. Provide a name for your workflow app. This example uses `example-workflow`.
 
+   <!--
    ![Screenshot that shows a templates list with "Stateful Workflow" and "Stateless Workflow"](./media/create-stateless-stateful-workflows/select-stateful-stateless-workflow.png)
+   -->
 
-   Your project folder now includes a folder with your specified name and a `workflow.json` file, which stores the JSON definition for your workflow.
+   In your project folder, Visual Studio Code adds a workflow app folder that has the specified name and a `workflow.json` file, which stores your workflow's JSON definition.
 
    ![Screenshot that shows Explorer window with project folder, workflow folder, and .json file](./media/create-stateless-stateful-workflows/sample-workflow-folder.png)
 
-1. Open the shortcut menu for your `workflow.json` file, select **Open in Designer**.
+1. From the `workflow.json` file's shortcut menu, select **Open in Designer**.
 
    ![Screenshot that shows Explorer pane and shortcut window for workflow.json file with Open in Designer selected](./media/create-stateless-stateful-workflows/open-definition-file-in-designer.png)
 
@@ -165,10 +171,10 @@ Now, continue creating your workflow app.
    ![Screenshot that shows Windows Defender Firewall with "Private networks, such as my home or work network" selected and "Allow access" selected](./media/create-stateless-stateful-workflows/windows-defender-firewall.png)
 
    > [!NOTE]
-   > If you get a message that `Workflow design time could not be started`, try these steps:
+   > If you get the message that `Workflow design time could not be started`, try these steps:
    >
    > * Make sure that Azure Storage Emulator is running.
-   > * Close everything, restart your computer, reopen your workflow project, and open the `workflow.json` file in the designer.
+   > * Close everything, restart your computer, reopen your workflow project, and reopen the `workflow.json` file in the designer.
 
 1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**.
 
@@ -184,13 +190,13 @@ Now, continue creating your workflow app.
 
    When Visual Studio Code starts the workflow design-time API, a message appears that startup might take a few seconds. You can ignore this message or select **OK**.
 
-1. After the Logic App Designer appears, continue with either the steps for stateful workflow or for [stateless workflow](#stateless-workflow).
+1. After the Logic App Designer appears, continue with the steps for either a stateful workflow or a [stateless workflow](#stateless-workflow).
 
    ![Screenshot that shows Logic App Designer](./media/create-stateless-stateful-workflows/workflow-app-designer.png)
 
 <a name="stateful-workflow"></a>
 
-## Create stateful workflow
+## Create a stateful workflow
 
 This example stateful workflow ...
 
@@ -206,7 +212,7 @@ This example stateful workflow ...
 
 <a name="stateless-workflow"></a>
 
-## Create stateless workflow
+## Create a stateless workflow
 
 
 ### Enable run history for stateless workflows
