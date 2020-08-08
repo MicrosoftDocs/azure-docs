@@ -78,7 +78,7 @@ In the **Select** field under **Principal**, fill in the `principalId` that you 
 
 ### Generate a key in Azure Key Vault
 
-In the Azure portal, go to the Key Vault instance in the **key** section, select **Generate/Import**. Select the **Key Type** to be `RSA` and **RSA Key Size** to be at least `2048` bits in length. `EC` key types are currently not supported as a customer-managed key on a Batch account.
+In the Azure portal, go to the Key Vault instance in the **key** section, select **Generate/Import**. Select the **Key Type** to be `RSA` and **RSA Key Size** to be at least `2048` bits. `EC` key types are currently not supported as a customer-managed key on a Batch account.
 
 ![Create a key](./media/batch-customer-managed-key/create-key.png)
 
