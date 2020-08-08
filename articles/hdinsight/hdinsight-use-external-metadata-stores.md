@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/30/2020
+ms.date: 08/06/2020
 ---
 
 # Use external metadata stores in Azure HDInsight
@@ -33,10 +33,10 @@ By default, HDInsight creates a metastore with every cluster type. You can inste
 
 * You can't share the default metastore with other clusters.
 
-* The default metastore uses the basic Azure SQL Database, which has a five DTU (database transaction unit) limit.
-This default metastore is typically used for relatively simple workloads. Workloads that don't require multiple clusters and don't need metadata preserved beyond the cluster's lifecycle.
+* Default metastore is recommended only for simple workloads. Workloads that don't require multiple clusters and don't need metadata preserved beyond the cluster's lifecycle.
 
-* For production workloads, we recommend migrating to an external metastore. Please see the below section for more details.
+> [!IMPORTANT]
+> The default metastore provides an Azure SQL Database with a **basic tier 5 DTU limit (not upgradeable)**! Suitable for basic testing purposes. For large or production workloads, we recommend migrating to an external metastore.
 
 ## Custom metastore
 
@@ -76,9 +76,8 @@ You can point your cluster to a previously created Azure SQL Database at any tim
 
 ## Hive metastore guidelines
 
-* Use a custom metastore whenever possible, to help separate compute resources (your running cluster) and metadata (stored in the metastore).
-
-* Start with an S2 tier, which provides  50 DTU and 250 GB of storage. If you see a bottleneck, you can scale the database up.
+> [!NOTE]
+> Use a custom metastore whenever possible, to help separate compute resources (your running cluster) and metadata (stored in the metastore). Start with the S2 tier, which provides 50 DTU and 250 GB of storage. If you see a bottleneck, you can scale the database up.
 
 * If you intend multiple HDInsight clusters to access separate data, use a separate database for the metastore on each cluster. If you share a metastore across multiple HDInsight clusters, it means that the clusters use the same metadata and underlying user data files.
 

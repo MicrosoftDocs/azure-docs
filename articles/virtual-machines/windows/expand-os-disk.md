@@ -155,7 +155,7 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
 
 ## Resizing data disks
 
-This article is focused primarily on expanding the OS disk of the VM, but the script can also be used for expanding the data disks attached to the VM. For example, to expand the first data disk attached to the VM, replace the `OSDisk` object of `StorageProfile` with `DataDisks` array and use a numeric index to obtain a reference to first attached data disk, as shown below:
+This article is focused primarily on expanding the OS disk of the VM, but the script can also be used for expanding the data disks attached to the VM. If only expanding a data disk, the VM does **not** have to be deallocated. For example, to expand the first data disk attached to the VM, replace the `OSDisk` object of `StorageProfile` with `DataDisks` array and use a numeric index to obtain a reference to first attached data disk, as shown below:
 
 **Managed disk**
 

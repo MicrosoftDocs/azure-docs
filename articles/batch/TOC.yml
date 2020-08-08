@@ -51,6 +51,9 @@
   items:
   - name: Security
     items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
   - name: Batch service workflow and resources
@@ -95,6 +98,10 @@
       href: batch-management-dotnet.md
     - name: Cost analysis and budgets
       href: budget.md
+    - name: Use private endpoints with Batch accounts
+      href: private-connectivity.md
+    - name: Configure customer-managed keys
+      href: batch-customer-managed-key.md
   - name: Authenticate with Azure AD
     items:
     - name: Azure AD with Batch service
@@ -132,6 +139,10 @@
       href: batch-custom-images.md
     - name: Create a pool in a virtual network
       href: batch-virtual-network.md
+    - name: Create a pool with public IP addresses
+      href: create-pool-public-ip.md
+    - name: Create a pool without public IP addresses
+      href: batch-pool-no-public-ip-address.md
     - name: Mount a virtual file system
       href: virtual-file-mount.md
     - name: Mount an Azure file share
@@ -267,13 +278,13 @@
   - name: Batch feedback
     href: https://feedback.azure.com/forums/269742-batch
   - name: Microsoft Q&A question page for Batch
-    href: https://docs.microsoft.com/answers/topics/azure-batch.html
+    href: /answers/topics/azure-batch.html
   - name: Batch Shipyard
     href: https://github.com/Azure/batch-shipyard
   - name: Blog
-    href: https://blogs.technet.microsoft.com/windowshpc/
+    href: /archive/blogs/windowshpc/
   - name: HPC on Azure
-    href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
+    href: /azure/architecture/topics/high-performance-computing/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/batch/
   - name: Pricing calculator

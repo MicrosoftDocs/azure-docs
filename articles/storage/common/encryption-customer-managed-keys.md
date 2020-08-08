@@ -6,10 +6,10 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
 ---
 
@@ -43,13 +43,13 @@ Data in the Blob and File services is always protected by customer-managed keys 
 
 ## Enable customer-managed keys for a storage account
 
-Customer-managed keys can enabled only on existing storage accounts. The key vault must be provisioned with access policies that grant key permissions to the managed identity that is associated with the storage account. The managed identity is available only after the storage account is created.
-
 When you configure a customer-managed key, Azure Storage wraps the root data encryption key for the account with the customer-managed key in the associated key vault. Enabling customer-managed keys does not impact performance, and takes effect immediately.
 
-When you modify the key being used for Azure Storage encryption by enabling or disabling customer-managed keys, updating the key version, or specifying a different key, then the encryption of the root key changes, but the data in your Azure Storage account does not need to be re-encrypted.
-
 When you enable or disable customer managed keys, or when you modify the key or the key version, the protection of the root encryption key changes, but the data in your Azure Storage account does not need to be re-encrypted.
+
+Customer-managed keys can enabled only on existing storage accounts. The key vault must be configured with access policies that grant permissions to the managed identity that is associated with the storage account. The managed identity is available only after the storage account is created.
+
+You can switch between customer-managed keys and Microsoft-managed keys at any time. For more information about Microsoft-managed keys, see [About encryption key management](storage-service-encryption.md#about-encryption-key-management).
 
 To learn how to use customer-managed keys with Azure Key Vault for Azure Storage encryption, see one of these articles:
 
@@ -62,15 +62,22 @@ To learn how to use customer-managed keys with Azure Key Vault for Azure Storage
 
 ## Store customer-managed keys in Azure Key Vault
 
-To enable customer-managed keys on a storage account, you must use an Azure Key Vault to store your keys. You must enable both the **Soft Delete** and **Do Not Purge** properties on the key vault.
+To enable customer-managed keys on a storage account, you must use an Azure key vault to store your keys. You must enable both the **Soft Delete** and **Do Not Purge** properties on the key vault.
 
-Only 2048-bit RSA and RSA-HSM keys are supported with Azure Storage encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+Azure storage encryption supports RSA and RSA-HSM keys of sizes 2048, 3072 and 4096. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+
+Using Azure Key Vault has associated costs. For more information, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## Rotate customer-managed keys
 
-You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. When the key is rotated, you must update the storage account to use the new key version URI. To learn how to update the storage account to use a new version of the key in the Azure portal, see the section titled **Update the key version** in [Configure customer-managed keys for Azure Storage by using the Azure portal](storage-encryption-keys-portal.md).
+You can rotate a customer-managed key in Azure Key Vault according to your compliance policies. You have two options for rotating a customer-managed key:
 
-Rotating the key does not trigger re-encryption of data in the storage account. There is no further action required from the user.
+- **Automatic rotation:** To configure automatic rotation of customer-managed keys, omit the key version when you enable encryption with customer-managed keys for the storage account. If the key version is omitted, then Azure Storage checks Azure Key Vault daily for a new version of a customer-managed key. If a new key version is available, then Azure Storage automatically uses the latest version of the key.
+- **Manual rotation:** To use a particular key version for Azure Storage encryption, specify that key version when you enable encryption with customer-managed keys for the storage account. If you specify the key version, then Azure Storage uses that version for encryption until you manually update the key version.
+
+    When the key is manually rotated, you must update the storage account to use the new key version URI. To learn how to update the storage account to use a new version of the key in the Azure portal, see [Manually update the key version](storage-encryption-keys-portal.md#manually-update-the-key-version).
+
+Rotating a customer-managed key does not trigger re-encryption of data in the storage account. There is no further action required from the user.
 
 ## Revoke access to customer-managed keys
 

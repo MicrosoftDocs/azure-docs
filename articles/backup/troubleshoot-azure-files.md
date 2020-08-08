@@ -20,6 +20,7 @@ This article provides troubleshooting information to address any issues you come
   >All file shares in a Storage Account can be protected only under one Recovery Services vault. You can use [this script](scripts/backup-powershell-script-find-recovery-services-vault.md) to find the recovery services vault where your storage account is registered.
 
 - Ensure that the file share isn't present in any of the unsupported Storage Accounts. You can refer to the [Support matrix for Azure file share backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
+- Please ensure that the combined length of storage account name and resource group name doesn't exceed 84 characters in case of new Storage accounts and 77 characters in case of classic storage accounts. 
 - Check the firewall settings of storage account to ensure that the option of allowing trusted Microsoft Services to access storage account is enabled.
 
 ### Error in portal states discovery of storage accounts failed
@@ -51,6 +52,9 @@ In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage
 >A recovery services vault can only be deleted after unregistering all storage accounts registered with the vault.
 
 ## Common backup or restore errors
+
+>[!NOTE]
+>Refer to [this document](./backup-rbac-rs-vault.md#minimum-role-requirements-for-the-azure-file-share-backup) to ensure you have sufficient permissions for performing backup or restore operations.
 
 ### FileShareNotFound- Operation failed as the file share is not found
 
@@ -272,8 +276,6 @@ Error Message: Another operation is in progress on the selected item.
 
 Wait for the other in-progress operation to complete and retry at a later time.
 
-From the file: troubleshoot-azure-files.md
-
 ## Common Soft Delete Related Errors
 
 ### UserErrorRestoreAFSInSoftDeleteState- This restore point is not available as the snapshot associated with this point is in a File Share that is in soft-deleted state
@@ -309,7 +311,7 @@ Error Code: UserErrorBackupAFSInDeleteState
 
 Error Message: Backup failed as the associated Azure File Share is permanently deleted
 
-Check if the backed-up file share is permanently deleted. If yes, stop the backup for the file share to avoid repeated backup failures. To learn how to stop protection see [Stop Protection for Azure file share](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share)
+Check if the backed-up file share is permanently deleted. If yes, stop the backup for the file share to avoid repeated backup failures. To learn how to stop protection see [Stop Protection for Azure file share](./manage-afs-backup.md#stop-protection-on-a-file-share)
 
 ## Next steps
 

@@ -44,7 +44,7 @@ Below is a sample overview of the CI/CD lifecycle in an Azure data factory that'
 
 1.  After a pull request is approved and changes are merged in the master branch, the changes get published to the development factory.
 
-1.  When the team is ready to deploy the changes to a test or UAT factory, the team goes to their Azure Pipelines release and deploys the desired version of the development factory to UAT. This deployment takes place as part of an Azure Pipelines task and uses Resource Manager template parameters to apply the appropriate configuration.
+1.  When the team is ready to deploy the changes to a test or UAT (User Acceptance Testing) factory, the team goes to their Azure Pipelines release and deploys the desired version of the development factory to UAT. This deployment takes place as part of an Azure Pipelines task and uses Resource Manager template parameters to apply the appropriate configuration.
 
 1.  After the changes have been verified in the test factory, deploy to the production factory by using the next task of the pipelines release.
 
@@ -93,7 +93,7 @@ The following is a guide for setting up an Azure Pipelines release that automate
 
     ![Stage view](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Create a new task. Search for **Azure Resource Group Deployment**, and then select **Add**.
+    b.  Create a new task. Search for **ARM Template Deployment**, and then select **Add**.
 
     c.  In the Deployment task, select the subscription, resource group, and location for the target data factory. Provide credentials if necessary.
 
@@ -356,6 +356,14 @@ Below is the current default parameterization template. If you need to add only 
                         "value": "-::secureString"
                     },
                     "resourceId": "="
+                },
+                "computeProperties": {
+                    "dataFlowProperties": {
+                        "externalComputeInfo": [{
+                                "accessToken": "-::secureString"
+                            }
+                        ]
+                    }
                 }
             }
         }
@@ -390,6 +398,7 @@ Below is the current default parameterization template. If you need to add only 
                     "accessKeyId": "=",
                     "servicePrincipalId": "=",
                     "userId": "=",
+                    "host": "=",
                     "clientId": "=",
                     "clusterUserName": "=",
                     "clusterSshUserName": "=",
@@ -408,7 +417,11 @@ Below is the current default parameterization template. If you need to add only 
                     "systemNumber": "=",
                     "server": "=",
                     "url":"=",
+                    "functionAppUrl":"=",
+                    "environmentUrl": "=",
                     "aadResourceId": "=",
+                    "sasUri": "|:-sasUri:secureString",
+                    "sasToken": "|",
                     "connectionString": "|:-connectionString:secureString"
                 }
             }
@@ -565,7 +578,7 @@ Remember to add the Data Factory scripts in your CI/CD pipeline before and after
 
 If you don't have Git configured, you can access the linked templates via **Export ARM Template** in the **ARM Template** list.
 
-## Hotfix production branch
+## Hotfix production environment
 
 If you deploy a factory to production and realize there's a bug that needs to be fixed right away, but you can't deploy the current collaboration branch, you might need to deploy a hotfix. This approach is as known as quick-fix engineering or QFE.
 
@@ -606,7 +619,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 - By design, Data Factory doesn't allow cherry-picking of commits or selective publishing of resources. Publishes will include all changes made in the data factory.
 
     - Data factory entities depend on each other. For example, triggers depend on pipelines, and pipelines depend on datasets and other pipelines. Selective publishing of a subset of resources could lead to unexpected behaviors and errors.
-    - On rare occasions when you need selective publishing, consider using a hotfix. For more information, see [Hotfix production branch](#hotfix-production-branch).
+    - On rare occasions when you need selective publishing, consider using a hotfix. For more information, see [Hotfix production environment](#hotfix-production-environment).
 
 -   You can't publish from private branches.
 
@@ -709,8 +722,10 @@ function triggerSortUtil {
         return;
     }
     $visited[$trigger.Name] = $true;
-    $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
-        triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+    if ($trigger.Properties.DependsOn) {
+        $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
+            triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+        }
     }
     $sortedList.Push($trigger)
 }

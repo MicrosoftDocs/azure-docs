@@ -1,12 +1,12 @@
 ---
 title: 'Create a route-based VPN gateway: portal'
 titleSuffix: Azure VPN Gateway
-description: Create a route-based VPN Gateway using the Azure portal
+description: Learn how to create a route-based Azure VPN gateway using the Azure portal. Use a VPN gateway to connect to your on-premises network.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/03/2020
 ms.author: cherylmc
 ---

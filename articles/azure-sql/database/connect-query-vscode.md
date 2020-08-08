@@ -1,7 +1,7 @@
 ---
 title: Use Visual Studio Code to connect and query
 titleSuffix: Azure SQL Database & SQL Managed Instance 
-description: Learn how to connect to Azure SQL Database or a SQL Managed Instance on Azure by using Visual Studio Code. Then, run Transact-SQL (T-SQL) statements to query and edit data.
+description: Learn how to connect to Azure SQL Database or SQL Managed Instance on Azure by using Visual Studio Code. Then, run Transact-SQL (T-SQL) statements to query and edit data.
 keywords: connect to sql database
 services: sql-database
 ms.service: sql-database
@@ -12,18 +12,18 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-ms.date: 03/25/2019
+ms.date: 05/29/2020
 ---
 # Quickstart: Use Visual Studio Code to connect and query 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 [Visual Studio Code](https://code.visualstudio.com/docs) is a graphical code editor for Linux, macOS, and Windows. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying a SQL Server instance, Azure SQL Database, an Azure SQL Managed Instance, and a database in Azure Synapse Analytics. In this quickstart, you'll use Visual Studio Code to connect to Azure SQL Database or Azure SQL Managed Instance and then run Transact-SQL statements to query, insert, update, and delete data.
 
 ## Prerequisites
 
-- A database in Azure SQL Database or a SQL Managed Instance. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
+- A database in Azure SQL Database or Azure SQL Managed Instance. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-  || SQL Database | SQL Managed Instance |
+  | Action | Azure SQL Database | Azure SQL Managed Instance |
   |:--- |:--- |:---|
   | Create| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) |
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |

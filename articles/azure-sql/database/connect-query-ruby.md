@@ -1,6 +1,7 @@
 ---
 title: Use Ruby to query
-description: This topic shows you how to use Ruby to create a program that connects to a database in Azure SQL Database and query it using Transact-SQL statements.
+description: This topic shows you how to use Ruby to create a program that connects to a database and query it using Transact-SQL statements.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,20 +11,20 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-ms.date: 03/25/2019
+ms.date: 05/29/2020
 ---
-# Quickstart: Use Ruby to query a database in Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# Quickstart: Use Ruby to query a database in Azure SQL Database or Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-This quickstart demonstrates how to use [Ruby](https://www.ruby-lang.org) to connect to a database in Azure SQL Database and query data with Transact-SQL statements.
+This quickstart demonstrates how to use [Ruby](https://www.ruby-lang.org) to connect to a database and query data with Transact-SQL statements.
 
 ## Prerequisites
 
 To complete this quickstart, you need the following prerequisites:
 
-- A database in Azure SQL Database. You can use one of these quickstarts to create and then configure the database:
+- A database. You can use one of these quickstarts to create and then configure the database:
 
-  || SQL Database | SQL Managed Instance | SQL Server on Azure VM |
+  | Action | SQL Database | SQL Managed Instance | SQL Server on Azure VM |
   |:--- |:--- |:---|:---|
   | Create| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |

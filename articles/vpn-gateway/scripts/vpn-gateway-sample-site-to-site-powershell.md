@@ -1,9 +1,9 @@
 ---
 title: 'Azure PowerShell script sample - Configure a Site-to-Site VPN | Microsoft Docs'
-description: Configure Site-to-Site VPN.
+description: This PowerShell script creates a route-based VPN Gateway and adds Site-to-Site configuration. Learn about all the cmdlets in the script.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: anzaman
+author: kumudD
 
 ms.service: vpn-gateway
 ms.devlang: powershell
@@ -111,4 +111,4 @@ This script uses the following commands to create the deployment. Each item in t
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).

@@ -4,7 +4,7 @@ description: Deploy your first Node.js Hello World to Azure App Service in minut
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 03/04/2020
-ms.custom: mvc, devcenter, seodec18
+ms.custom: mvc, devcenter, seodec18, devx-track-javascript
 
 # NOTE: this article is nearly identical to app-service/containers/quickstart-nodejs.md.
 # The difference is that this article uses the advanced web app step to deploy to Windows, whereas the other
@@ -153,7 +153,13 @@ You can view log output (calls to `console.log`) from the app directly in the VS
 
 Congratulations, you've successfully completed this quickstart!
 
-Next, check out the other Azure extensions.
+> [!div class="nextstepaction"]
+> [Tutorial: Node.js app with MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure Node.js app](configure-language-nodejs.md)
+
+Check out the other Azure extensions.
 
 * [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
@@ -163,3 +169,4 @@ Next, check out the other Azure extensions.
 
 Or get them all by installing the
 [Node Pack for Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack.
+

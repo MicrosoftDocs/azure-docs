@@ -126,20 +126,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `google.com/a/<yourdomain.com>` |
-	| `google.com` |
-	| `https://google.com` |
-	| `https://google.com/a/<yourdomain.com>` |
+    ```http
+    google.com/a/<yourdomain.com>
+    google.com
+    https://google.com
+    https://google.com/a/<yourdomain.com>
+    ```
 
     c. In the **Reply URL** textbox, type a URL using the following pattern: 
 
-    | |
-	|--|
-	| `https://www.google.com` |
-	| `https://www.google.com/a/<yourdomain.com>` |
-
+    ```http
+    https://www.google.com
+    https://www.google.com/a/<yourdomain.com>
+    ```
 
 1. On the **Basic SAML Configuration** section, if you want to configure for the **Google Cloud Platform** perform the following steps:
 
@@ -147,19 +146,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
 	
-	| |
-	|--|
-	| `google.com/a/<yourdomain.com>` |
-	| `google.com` |
-	| `https://google.com` |
-	| `https://google.com/a/<yourdomain.com>` |
+    ```http
+    google.com/a/<yourdomain.com>
+    google.com
+    https://google.com
+    https://google.com/a/<yourdomain.com>
+    ```
     
     c. In the **Reply URL** textbox, type a URL using the following pattern: 
     
-    | |
-	|--|
-	| `https://www.google.com` |
-	| `https://www.google.com/a/<yourdomain.com>` |
+    ```http
+    https://www.google.com
+    https://www.google.com/a/<yourdomain.com>
+    ```
 
     > [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Google Cloud (G Suite) Connector doesn't provide Entity ID/Identifier value on Single Sign On configuration so when you uncheck the **domain specific issuer** option the Identifier value will be `google.com`. If you check the **domain specific issuer** option it will be `google.com/a/<yourdomainname.com>`. To check/uncheck the **domain specific issuer** option you need to go to the **Configure Google Cloud (G Suite) Connector SSO** section which is explained later in the tutorial. For more information contact [Google Cloud (G Suite) Connector Client support team](https://www.google.com/contact/).

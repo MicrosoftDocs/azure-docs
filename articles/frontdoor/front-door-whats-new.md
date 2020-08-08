@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door | Microsoft Docs
-description: This article provides an overview of Azure Front Door. Find out if it is the right choice for load-balancing user traffic for your application.
+title: Azure Front Door recent changes
+description: This article provides an ongoing list of recent changes that are made to Azure Front Door. 
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
@@ -28,6 +28,7 @@ Azure Front Door is updated on an ongoing basis. To stay updated with the most r
 
 |Feature  |Description  |Date added  |
 |---------|---------|---------|
+| Rules Engine GA | Customize how http requests are handled at the edge. For more information, see the [Rules Engine overview](front-door-rules-engine.md). |June 2020 |
 | Rules Engine (Preview) | Customize how http requests are handled at the edge. For more information, see the [Rules Engine overview](front-door-rules-engine.md). |April 2020 |
 
 

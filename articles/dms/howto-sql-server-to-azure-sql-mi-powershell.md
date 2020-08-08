@@ -1,5 +1,5 @@
 ---
-title: "PowerShell: Migrate SQL Server to SQL managed instance"
+title: "PowerShell: Migrate SQL Server to SQL Managed Instance"
 titleSuffix: Azure Database Migration Service
 description: Learn to migrate from SQL Server to Azure SQL Managed Instance by using Azure PowerShell and the Azure Database Migration Service.
 services: database-migration
@@ -9,7 +9,7 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019"
+ms.custom: "seo-lt-2019,fasttrack-edit"
 ms.topic: article
 ms.date: 02/20/2020
 ---
@@ -116,13 +116,11 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-The next example shows creation of Connection Info for a Azure SQL Managed Instance named ‘targetmanagedinstance.database.windows.net’ using sql authentication:
+The next example shows creation of Connection Info for a Azure SQL Managed Instance named ‘targetmanagedinstance’:
 
 ```powershell
-$targetConnInfo = New-AzDmsConnInfo -ServerType SQL `
-  -DataSource "targetmanagedinstance.database.windows.net" `
-  -AuthType SqlAuthentication `
-  -TrustServerCertificate:$false
+$targetResourceId = (Get-AzSqlInstance -Name "targetmanagedinstance").Id
+$targetConnInfo = New-AzDmsConnInfo -ServerType SQLMI -MiResourceId $targetResourceId
 ```
 
 ### Provide databases for the migration project
@@ -221,6 +219,9 @@ Create variable containing the SAS URI that provides the Azure Database Migratio
 ```powershell
 $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%3A33Z&se=2019-07-14T18%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=qKlSA512EVtest3xYjvUg139tYSDrasbftY%3D"
 ```
+
+> [!NOTE]
+> Azure Database Migration Service does not support using an account level SAS token. You must use a SAS URI for the storage account container. [Learn how to get the SAS URI for blob container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).
 
 ### Additional configuration requirements
 

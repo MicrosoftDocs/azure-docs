@@ -11,23 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2020
+ms.date: 07/12/2020
 ms.author: memildin
 ---
 
 # Feature coverage for machines
 
-The tables below show Azure Security Center features that are available for virtual machines and servers.
+The two tabs below show the features of Azure Security Center that are available for Windows and Linux virtual machines and servers.
 
 ## Supported features for virtual machines and servers <a name="vm-server-features"></a>
 
-### [Windows machines](#tab/features-windows)
+### [**Windows machines**](#tab/features-windows)
 
-|||||||||
-|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
+|----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Standard|
-|[Virtual Machine Behavioral Analytics (and security alerts)](threat-protection.md)|✔|✔|✔|Recommendations (Free) </br></br> Security alerts (Standard)|
+|[Virtual Machine Behavioral Analytics (and security alerts)](threat-protection.md)|✔|✔|✔|Standard|
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
 |[Network-based security alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
@@ -36,24 +35,22 @@ The tables below show Azure Security Center features that are available for virt
 |[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|Adaptive network controls|✔|✔|-|Standard|
 |[Regulatory Compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recommendations and threat protection on Docker-hosted IaaS containers|-|-|-|Standard|
-|Missing OS patches assessment|✔|✔|✔|Free|
-|Security misconfigurations assessment|✔|✔|✔|Free|
-|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Free|
+|Missing OS patches assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
+|Security misconfigurations assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
+|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
 |Disk encryption assessment|✔|✔|-|Free|
 |Third-party vulnerability assessment|✔|-|-|Free|
 |[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|Free|
 
 
-### [Linux machines](#tab/features-linux)
+### [**Linux machines**](#tab/features-linux)
 
-|||||||||
-|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
+|----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|-|-|-|Standard|
-|[Virtual Machine Behavioral Analytics  (and security alerts)](security-center-alerts-iaas.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Recommendations (Free) </br></br> Security alerts (Standard)|
+|[Virtual Machine Behavioral Analytics  (and security alerts)](security-center-alerts-iaas.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Standard|
 |[Fileless security alerts](alerts-reference.md#alerts-windows)|-|-|-|Standard|
 |[Network-based security alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
@@ -62,11 +59,10 @@ The tables below show Azure Security Center features that are available for virt
 |[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|Adaptive network controls|✔|✔|-|Standard|
 |[Regulatory Compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Recommendations and threat protection on Docker-hosted IaaS containers|✔|✔|✔|Standard|
-|Missing OS patches assessment|✔|✔|✔|Free|
-|Security misconfigurations assessment|✔|✔|✔|Free|
+|Missing OS patches assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
+|Security misconfigurations assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
 |[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Free|
 |Disk encryption assessment|✔|✔|-|Free|
 |Third-party vulnerability assessment|✔|-|-|Free|
@@ -101,7 +97,7 @@ For information about when recommendations are generated for each of these prote
  **\*** The coverage state and supporting data is currently only available in the Log Analytics workspace associated to your protected subscriptions. It isn't reflected in the Azure Security Center portal.
 
 > [!NOTE]
-> Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
+> Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell (v3.0 or newer).
 
 
 ## Next steps

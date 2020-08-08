@@ -1,9 +1,9 @@
 ---
 title: Enable SQL TDE with Azure Key Vault
-titleSuffix: Azure SQL Database & Azure Synapse Analytics 
-description: "Learn how to configure an Azure SQL Database and Azure Synapse Analytics to start using Transparent Data Encryption (TDE) for encryption-at-rest using PowerShell or CLI."
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics 
+description: "Learn how to configure an Azure SQL Database and Azure Synapse Analytics to start using Transparent Data Encryption (TDE) for encryption-at-rest using PowerShell or the Azure CLI."
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang:
@@ -14,10 +14,10 @@ ms.reviewer: vanto
 ms.date: 03/12/2019
 ---
 
-# PowerShell and CLI: Enable Transparent Data Encryption with customer-managed key from Azure Key Vault
+# PowerShell and the Azure CLI: Enable Transparent Data Encryption with customer-managed key from Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-This article walks through how to use a key from Azure Key Vault for Transparent Data Encryption (TDE) on Azure SQL Database or Azure Synapse Analytics (formerly SQL DW). To learn more about the TDE with Azure Key Vault integration - Bring Your Own Key (BYOK) Support, visit [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md).
+This article walks through how to use a key from Azure Key Vault for Transparent Data Encryption (TDE) on Azure SQL Database or Azure Synapse Analytics (formerly SQL Data Warehouse). To learn more about the TDE with Azure Key Vault integration - Bring Your Own Key (BYOK) Support, visit [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-overview.md).
 
 ## Prerequisites for PowerShell
 
@@ -27,7 +27,7 @@ This article walks through how to use a key from Azure Key Vault for Transparent
 - Create an Azure Key Vault and Key to use for TDE.
   - [Instructions for using a hardware security module (HSM) and Key Vault](../../key-vault/keys/hsm-protected-keys.md)
     - The key vault must have the following property to be used for TDE:
-  - [soft-delete](../../key-vault/general/overview-soft-delete.md) and purge protection
+  - [soft-delete](../../key-vault/general/soft-delete-overview.md) and purge protection
 - The key must have the following attributes to be used for TDE:
   - No expiration date
   - Not disabled
@@ -42,9 +42,9 @@ For specifics on Key Vault, see [PowerShell instructions from Key Vault](../../k
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager (RM) module is still supported, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
 
-## Assign an Azure AD identity to your server
+## Assign an Azure Active Directory (Azure AD) identity to your server
 
-If you have an existing [server](logical-servers.md), use the following to add an Azure AD identity to your server:
+If you have an existing [server](logical-servers.md), use the following to add an Azure Active Directory (Azure AD) identity to your server:
 
    ```powershell
    $server = Set-AzSqlServer -ResourceGroupName <SQLDatabaseResourceGroupName> -ServerName <LogicalServerName> -AssignIdentity
@@ -116,11 +116,11 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
    -ServerName <LogicalServerName> -DatabaseName <DatabaseName>  
 ```
 
-# [Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
-To install the required Command-Line Interface version 2.0 or later and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+To install the required version of the Azure CLI (version 2.0 or later) and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-For specifics on Key Vault, see [Manage Key Vault using CLI 2.0](../../key-vault/general/manage-with-cli2.md) and [How to use Key Vault soft-delete with CLI](../../key-vault/general/soft-delete-cli.md).
+For specifics on Key Vault, see [Manage Key Vault using the CLI 2.0](../../key-vault/general/manage-with-cli2.md) and [How to use Key Vault soft-delete with the CLI](../../key-vault/general/soft-delete-cli.md).
 
 ## Assign an Azure AD identity to your server
 
@@ -202,7 +202,7 @@ az sql db tde show --database <dbname> --server <servername> --resource-group <r
    Remove-AzSqlServerKeyVaultKey -KeyId <KeyVaultKeyId> -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-# [Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
 - For general database settings, see [az sql](/cli/azure/sql).
 
@@ -224,7 +224,7 @@ Check the following if an issue occurs:
    Get-AzSubscription -SubscriptionId <SubscriptionId>
    ```
 
-   # [Azure CLI](#tab/azure-cli)
+   # [The Azure CLI](#tab/azure-cli)
 
    ```powershell
    az account show - s <SubscriptionId>

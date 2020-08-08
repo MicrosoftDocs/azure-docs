@@ -10,7 +10,7 @@ manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.date: 11/08/2019

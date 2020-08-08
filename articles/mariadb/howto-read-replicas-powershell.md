@@ -4,8 +4,9 @@ description: Learn how to set up and manage read replicas in Azure Database for 
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 5/26/2020
+ms.topic: how-to
+ms.date: 6/10/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to create and manage read replicas in Azure Database for MariaDB using PowerShell
@@ -43,6 +44,9 @@ If you choose to use PowerShell locally, connect to your Azure account using the
 > tiers.
 
 ### Create a read replica
+
+> [!IMPORTANT]
+> When you create a replica for a master that has no existing replicas, the master will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
 
 A read replica server can be created using the following command:
 

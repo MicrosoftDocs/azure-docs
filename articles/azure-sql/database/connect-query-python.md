@@ -1,21 +1,22 @@
 ---
 title: Use Python to query a database
 description: This topic shows you how to use Python to create a program that connects to a database in Azure SQL Database and query it using Transact-SQL statements.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: seo-python-october2019, sqldbrb=2 
+ms.custom: seo-python-october2019, sqldbrb=2, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-ms.date: 03/25/2019
+ms.date: 05/29/2020
 ---
-# Quickstart: Use Python to query a database in Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# Quickstart: Use Python to query a database in Azure SQL Database or Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-In this quickstart, you use Python to connect to an Azure SQL database and use T-SQL statements to query data.
+In this quickstart, you use Python to connect to Azure SQL Database or Azure SQL Managed Instance, and use T-SQL statements to query data.
 
 ## Prerequisites
 
@@ -23,7 +24,7 @@ To complete this quickstart, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-  || SQL Database | SQL Managed Instance | SQL Server on Azure VM |
+  | Action | SQL Database | SQL Managed Instance | SQL Server on Azure VM |
   |:--- |:--- |:---|:---|
   | Create| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -97,15 +98,16 @@ Get the connection information you need to connect to the database in Azure SQL 
    server = '<server>.database.windows.net'
    database = '<database>'
    username = '<username>'
-   password = '<password>'
+   password = '<password>'   
    driver= '{ODBC Driver 17 for SQL Server}'
-   cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
-   cursor = cnxn.cursor()
-   cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
-   row = cursor.fetchone()
-   while row:
-       print (str(row[0]) + " " + str(row[1]))
-       row = cursor.fetchone()
+   
+   with pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password) as conn:
+       with conn.cursor() as cursor:
+           cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
+           row = cursor.fetchone()
+           while row:
+               print (str(row[0]) + " " + str(row[1]))
+               row = cursor.fetchone()
    ```
    
 

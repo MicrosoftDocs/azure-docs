@@ -15,7 +15,7 @@ ms.date: 03/12/2019
 # Get the required values for authenticating an application to access Azure SQL Database from code
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-To create and manage SQL Database from code you must register your app in the Azure Active Directory (AAD) domain in the subscription where your Azure resources have been created.
+To create and manage Azure SQL Database from code you must register your app in the Azure Active Directory (Azure AD) domain in the subscription where your Azure resources have been created.
 
 ## Create a service principal to access resources from an application
 

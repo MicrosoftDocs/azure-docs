@@ -1,5 +1,5 @@
 ---
-title: Setup alerts and notifications (Azure portal)
+title: Setup alerts and notifications (the Azure portal)
 description: Use the Azure portal to create alerts, which can trigger notifications or automation when the conditions you specify are met.
 services: sql-database
 ms.service: sql-database
@@ -12,13 +12,13 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/04/2020
 ---
-# Create alerts for Azure SQL Database and Azure Synapse using Azure portal
+# Create alerts for Azure SQL Database and Azure Synapse Analytics using the Azure portal
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 
 ## Overview
 
-This article shows you how to set up alerts for databases in Azure SQL Database and Azure Synapse (formerly Azure SQL Data Warehouse) using the Azure portal. Alerts can send you an email or call a web hook when some metric (for example database size or CPU usage) reaches the threshold. This article also provides best practices for setting alert periods.
+This article shows you how to set up alerts for databases in Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) using the Azure portal. Alerts can send you an email or call a web hook when some metric (for example database size or CPU usage) reaches the threshold.
 
 > [!NOTE]
 > For Azure SQL Managed Instance specific instructions, see [Create alerts for Azure SQL Managed Instance](../managed-instance/alerts-create.md).
@@ -36,9 +36,9 @@ You can configure an alert to do the following when it triggers:
 
 You can configure and get information about alert rules using
 
-* [Azure portal](../../azure-monitor/platform/alerts-classic-portal.md)
+* [The Azure portal](../../azure-monitor/platform/alerts-classic-portal.md)
 * [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
-* [command-line interface (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
+* [A command-line interface (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## Create an alert rule on a metric with the Azure portal
@@ -54,7 +54,7 @@ You can configure and get information about alert rules using
 4. In the **Condition** section, click **Add**.
   ![Define condition](./media/alerts-insights-configure-portal/create-rule.png)
 5. In the **Configure signal logic** page, select a signal.
-  ![Select signal](./media/alerts-insights-configure-portal/select-signal.png).
+  ![Select signal](./media/alerts-insights-configure-portal/select-signal.png)
 6. After selecting a signal, such as **CPU percentage**, the **Configure signal logic** page appears.
   ![Configure signal logic](./media/alerts-insights-configure-portal/configure-signal-logic.png)
 7. On this page, configure that threshold type, operator, aggregation type, threshold value, aggregation granularity, and frequency of evaluation. Then click **Done**.

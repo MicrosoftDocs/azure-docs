@@ -22,6 +22,7 @@ Azure Web Application Firewall is updated on an ongoing basis. To stay up-to-dat
 
 |Feature  |Description  |Date added  |
 |---------|---------|---------|
+|Per-site policy GA| Per-site policy is now Generally Available. | July 2020 |
 |Bot Mitigation Ruleset (preview)|You can enable a Bot Mitigation ruleset, alongside the CRS ruleset you choose. | November 2019 |
 |GeoDB Integration (preview)|Now you can create custom rules restricting traffic by country/region of origin. | November 2019 |
 |WAF per-site/per-URI policy (preview)|WAF-v2 now supports applying a policy to listeners, as well as path-based rules. See [Create WAF Policy](create-waf-policy-ag.md). | November 2019 |

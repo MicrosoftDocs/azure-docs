@@ -25,7 +25,7 @@ This article provides steps to resolve issues where Windows Boot Manager prevent
 
 The VM is stuck waiting upon a user prompt and doesn't boot unless manually instructed to.
 
-When you use [Boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view the screenshot of the VM, you'll see that the screenshot displays the Windows Boot Manager with the message *Choose an operating system to start, or press TAB to select a tool:*.
+When you use [Boot diagnostics](./boot-diagnostics.md) to view the screenshot of the VM, you'll see that the screenshot displays the Windows Boot Manager with the message *Choose an operating system to start, or press TAB to select a tool:*.
 
 Figure 1
  
@@ -49,7 +49,7 @@ Process Overview:
 
 If you have access to serial console, there are two ways you can achieve faster boot times. Either decrease the *displaybootmenu* wait time, or remove the flag altogether.
 
-1. Follow directions to access [Azure Serial Console for Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) to gain access to the text-based console.
+1. Follow directions to access [Azure Serial Console for Windows](./serial-console-windows.md) to gain access to the text-based console.
 
    > [!NOTE]
    > If you're unable to access serial console, skip ahead to [Create and Access a Repair VM](#create-and-access-a-repair-vm).
@@ -73,7 +73,7 @@ If you have access to serial console, there are two ways you can achieve faster 
 
 ### Create and Access a Repair VM
 
-1. Use [steps 1-3 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) to prepare a Repair VM.
+1. Use [steps 1-3 of the VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) to prepare a Repair VM.
 2. Use Remote Desktop Connection connect to the Repair VM.
 
 ### Configure for Faster Boot Time on a Repair VM
@@ -150,4 +150,4 @@ To enable memory dump collection and Serial Console, run the following script:
 
 ### Rebuild the Original VM
 
-Use [step 5 of the VM Repair Commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to reassemble the VM.
+Use [step 5 of the VM Repair Commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) to reassemble the VM.

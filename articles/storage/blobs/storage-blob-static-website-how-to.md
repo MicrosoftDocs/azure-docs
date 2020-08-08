@@ -7,6 +7,7 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
+ms.custom: devx-track-javascript
 ---
 
 # Host a static website in Azure Storage
@@ -148,13 +149,10 @@ These instructions show you how to upload files by using the version of Storage 
 
 Upload objects to the *$web* container from a source directory.
 
-> [!NOTE]
-> If you're using Azure Cloud Shell, make sure to add an `\` escape character when referring to the `$web` container (For example: `\$web`). If you're using a local installation of the Azure CLI, then you won't have to use the escape character.
-
 This example assumes that you're running commands from Azure Cloud Shell session.
 
 ```azurecli-interactive
-az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
+az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-account-name>
 ```
 
 > [!NOTE] 

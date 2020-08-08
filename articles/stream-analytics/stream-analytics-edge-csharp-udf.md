@@ -27,7 +27,7 @@ Before you start, make sure you've completed the following prerequisites:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Install [Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md) and the **Azure development** or **Data Storage and Processing** workloads.
-* Take a look at the existing [Stream Analytics Edge development guide] if you are building an IoT Edge job(stream-analytics-tools-for-visual-studio-edge-jobs.md).
+* Take a look at the existing [Stream Analytics Edge development guide](stream-analytics-tools-for-visual-studio-edge-jobs.md) if you are building an IoT Edge job.
 
 ## Create a container in your Azure Storage Account
 

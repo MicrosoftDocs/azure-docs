@@ -1,10 +1,9 @@
 ---
-title: Security Considerations for SQL Server in Azure | Microsoft Docs
-description: This topic provides general guidance for securing SQL Server running in an Azure Virtual Machine.
+title: Security considerations | Microsoft Docs
+description: This topic provides general guidance for securing SQL Server running in an Azure virtual machine.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 
@@ -18,7 +17,7 @@ ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ---
-# Security Considerations for SQL Server in Azure Virtual Machines
+# Security considerations for SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This topic includes overall security guidelines that help establish secure access to SQL Server instances in an Azure virtual machine (VM).
@@ -27,7 +26,7 @@ Azure complies with several industry regulations and standards that can enable y
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-## Control access to the SQL VM
+## Control access to the SQL virtual machine
 
 When you create your SQL Server virtual machine, consider how to carefully control who has access to the machine and to SQL Server. In general, you should do the following:
 
@@ -42,7 +41,7 @@ When you create a SQL Server virtual machine with a gallery image, the **SQL Ser
 
 ![SQL Server connectivity](./media/security-considerations-best-practices/sql-vm-connectivity-option.png)
 
-For the best security, choose the most restrictive option for your scenario. For example, if you are running an application that accesses SQL Server on the same VM, then **Local** is the most secure choice. If you are running an Azure application that requires access to the SQL Server, then **Private** secures communication to SQL Server only within the specified [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). If you require **Public** (internet) access to the SQL Server VM, then make sure to follow other best practices in this topic to reduce your attack surface area.
+For the best security, choose the most restrictive option for your scenario. For example, if you are running an application that accesses SQL Server on the same VM, then **Local** is the most secure choice. If you are running an Azure application that requires access to the SQL Server, then **Private** secures communication to SQL Server only within the specified [Azure virtual network](../../../virtual-network/virtual-networks-overview.md). If you require **Public** (internet) access to the SQL Server VM, then make sure to follow other best practices in this topic to reduce your attack surface area.
 
 The selected options in the portal use inbound security rules on the VM's [network security group](../../../active-directory/identity-protection/security-overview.md) (NSG) to allow or deny network traffic to your virtual machine. You can modify or create new inbound NSG rules to allow traffic to the SQL Server port (default 1433). You can also specify specific IP addresses that are allowed to communicate over this port.
 
@@ -50,13 +49,13 @@ The selected options in the portal use inbound security rules on the VM's [netwo
 
 In addition to NSG rules to restrict network traffic, you can also use the Windows Firewall on the virtual machine.
 
-If you are using endpoints with the classic deployment model, remove any endpoints on the virtual machine if you do not use them. For instructions on using ACLs with endpoints, see [Manage the ACL on an endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). This is not necessary for VMs that use the Resource Manager.
+If you are using endpoints with the classic deployment model, remove any endpoints on the virtual machine if you do not use them. For instructions on using ACLs with endpoints, see [Manage the ACL on an endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). This is not necessary for VMs that use the Azure Resource Manager.
 
 Finally, consider enabling encrypted connections for the instance of the SQL Server Database Engine in your Azure virtual machine. Configure SQL server instance with a signed certificate. For more information, see [Enable Encrypted Connections to the Database Engine](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) and [Connection String Syntax](https://msdn.microsoft.com/library/ms254500.aspx).
 
 ## Encryption
 
-Managed disks offer Server Side Encryption, and Azure Disk Encryption. [Server Side Encryption](/azure/virtual-machines/windows/disk-encryption) provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) uses either Bitlocker or DM-Crypt technology, and integrates with Azure Key Vault to encrypt both the OS and data disks. 
+Managed disks offer Server-Side Encryption, and Azure Disk Encryption. [Server-Side Encryption](/azure/virtual-machines/windows/disk-encryption) provides encryption-at-rest and safeguards your data to meet your organizational security and compliance commitments. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) uses either Bitlocker or DM-Crypt technology, and integrates with Azure Key Vault to encrypt both the OS and data disks. 
 
 ## Use a non-default port
 
@@ -85,7 +84,7 @@ You don't want attackers to easily guess account names or passwords. Use the fol
 
 - Use complex strong passwords for all your accounts. For more information about how to create a strong password, see [Create a strong password](https://support.microsoft.com/instantanswers/9bd5223b-efbe-aa95-b15a-2fb37bef637d/create-a-strong-password) article.
 
-- By default, Azure selects Windows Authentication during SQL Server Virtual Machine setup. Therefore, the **SA** login is disabled and a password is assigned by setup. We recommend that the **SA** login should not be used or enabled. If you must have a SQL login, use one of the following strategies:
+- By default, Azure selects Windows Authentication during SQL Server virtual machine setup. Therefore, the **SA** login is disabled and a password is assigned by setup. We recommend that the **SA** login should not be used or enabled. If you must have a SQL login, use one of the following strategies:
 
   - Create a SQL account with a unique name that has **sysadmin** membership. You can do this from the portal by enabling **SQL Authentication** during provisioning.
 
@@ -103,9 +102,9 @@ For more information about on-premises security practices, see [Security Conside
 For more information about virtual machine security, see the [virtual machines security overview](/azure/security/fundamentals/virtual-machines-overview).
 
 
-## Next Steps
+## Next steps
 
-If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server in Azure Virtual Machines](performance-guidelines-best-practices.md).
+If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server on Azure Virtual Machines](performance-guidelines-best-practices.md).
 
 For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).
 

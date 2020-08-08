@@ -1,13 +1,13 @@
 ---
 title: 'Azure VPN Gateway: About P2S routing'
-description: This article helps you understand how Point-to-Site VPN routing behaves.
+description: Learn about Azure Point-to-Site VPN routing behavior, which depends on client OS, the protocol used for the connection, and how the virtual networks connect.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/24/2020
-ms.author: anzaman
+ms.author: kumud
 
 ---
 # About Point-to-Site VPN routing

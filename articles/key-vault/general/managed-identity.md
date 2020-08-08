@@ -31,7 +31,7 @@ To complete this guide, you must have the following resources.
    - [Create a key vault with Azure PowerShell](../secrets/quick-create-powershell.md)
    - [Create a key vault with the Azure portal](../secrets/quick-create-portal.md).
 - An existing App Service application to which to grant key vault access. You can quickly create one by following the steps in the [App Service documentation](../../app-service/overview.md).
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview). Alternatively, you can use the [Azure portal](https://portal.azure.com).
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/). Alternatively, you can use the [Azure portal](https://portal.azure.com).
 
 
 ## Adding a system-assigned identity 
@@ -48,7 +48,7 @@ To set up a managed identity in the portal, you will first create an application
 
 1. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**. 
 
-	![](../media/managed-identity-system-assigned.png)
+   ![Screenshot that shows saving a system-assigned identity.](../media/managed-identity-system-assigned.png)
 
 ### Azure CLI
 
@@ -96,7 +96,7 @@ Make a note of the `PrincipalId`, which will be needed in next section.
 
 1.	Click **Add** to finish adding the new access policy.
 
-	![](../media/managed-identity-access-policy.png)
+	![Screenshot that shows adding a new access policy in the Azure portal.](../media/managed-identity-access-policy.png)
 
 ### Azure CLI
 

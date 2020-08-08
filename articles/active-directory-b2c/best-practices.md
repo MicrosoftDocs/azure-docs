@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
 ---
@@ -20,7 +20,7 @@ The following best practices and recommendations cover some of the primary aspec
 
 ## Fundamentals
 
-|  |  |
+| Best practice | Description |
 |--|--|
 | Choose user flows for most scenarios | The Identity Experience Framework of Azure AD B2C is the core strength of the service. Policies fully describe identity experiences such as sign-up, sign-in, or profile editing. To help you set up the most common identity tasks, the Azure AD B2C portal includes predefined, configurable policies called user flows. With user flows, you can create great user experiences in minutes, with just a few clicks. [Learn when to use user flows vs. custom policies](custom-policy-overview.md#comparing-user-flows-and-custom-policies).|
 | App registrations | Every application (web, native) and API that is being secured must be registered in Azure AD B2C. If an app has both a web and native version of iOS and Android, you can register them as one application in Azure AD B2C with the same client ID. Learn how to [register OIDC, SAML, web, and native apps](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications?tabs=applications). Learn more about [application types that can be used in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/application-types). |
@@ -30,7 +30,7 @@ The following best practices and recommendations cover some of the primary aspec
 
 Define your application and service architecture, inventory current systems, and plan your migration to Azure AD B2C.
 
-|  |  |
+| Best practice | Description |
 |--|--|
 | Architect an end-to-end solution | Include all of your applications' dependencies when planning an Azure AD B2C integration. Consider all services and products that are currently in your environment or that might need to be added to the solution, for example, Azure Functions, customer relationship management (CRM) systems, Azure API Management gateway, and storage services. Take into account the security and scalability for all services. |
 | Document your users' experiences | Detail all the user journeys your customers can experience in your application. Include every screen and any branching flows they might encounter when interacting with the identity and profile aspects of your application. Include usability, accessibility, and localization in your planning. |
@@ -45,7 +45,7 @@ Define your application and service architecture, inventory current systems, and
 
 During the implementation phase, consider the following recommendations.
 
-|  |  |
+| Best practice | Description |
 |--|--|
 | Edit custom policies with the Azure AD B2C extension for Visual Studio Code | Download Visual Studio Code and this community-built [extension from the Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c). While not an official Microsoft product, the Azure AD B2C extension for Visual Studio Code includes several features that help make working with custom policies easier. |
 | Learn how to troubleshoot Azure AD B2C | Learn how to [troubleshoot custom policies](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) during development. Learn what a normal authentication flow looks like and use tools for discovering anomalies and errors. For example, use [Application Insights](troubleshoot-with-application-insights.md) to review output logs of user journeys. |
@@ -56,7 +56,7 @@ During the implementation phase, consider the following recommendations.
 
 Test and automate your Azure AD B2C implementation.
 
-|  |  |
+| Best practice | Description |
 |--|--|
 | Account for global traffic | Use traffic sources from different global address to test the performance and localization requirements. Make sure all the HTMLs, CSS, and dependencies can meet your performance needs. |
 | Functional and UI testing | Test the user flows end-to-end. Add synthetic tests every few minutes using Selenium, VS Web Test, etc. |
@@ -70,7 +70,7 @@ Test and automate your Azure AD B2C implementation.
 
 Manage your Azure AD B2C environment.
 
-|  |  |
+| Best practice | Description |
 |--|--|
 | Create multiple environments | For easier operations and deployment roll-out, create separate environments for development, testing, pre-production, and production. Create Azure AD B2C tenants for each. |
 | Use version control for your custom policies | Consider using GitHub, Azure Repos, or another cloud-based version control system for your Azure AD B2C custom policies. |
@@ -84,7 +84,7 @@ Manage your Azure AD B2C environment.
 
 Stay up to date with the state of the service and find support options.
 
-|  |  |
+| Best practice | Description |
 |--|--|
 | [Service updates](https://azure.microsoft.com/updates/?product=active-directory-b2c) |  Stay up to date with Azure AD B2C product updates and announcements. |
 | [Microsoft Support](support-options.md) | File a support request for Azure AD B2C technical issues. Billing and subscription management support is provided at no cost. |

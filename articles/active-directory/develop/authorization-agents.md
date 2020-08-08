@@ -73,7 +73,7 @@ The order of browsers in the browser list is determined by the operating system.
 
 The following browsers have been tested to see if they correctly redirect to the `"redirect_uri"` specified in the configuration file:
 
-| | Built-in Browser | Chrome | Opera  | Microsoft Edge | UC Browser | Firefox |
+| Device | Built-in Browser | Chrome | Opera  | Microsoft Edge | UC Browser | Firefox |
 | -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
 | Nexus 4 (API 17) | pass | pass |not applicable |not applicable |not applicable |not applicable |
 | Samsung S7 (API 25) | pass* | pass | pass | pass | fail |pass |

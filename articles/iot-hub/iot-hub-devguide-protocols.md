@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.custom: [amqp, mqtt]
+ms.custom: [amqp, mqtt,'Role: Cloud Development','Role: IoT Device']
 ---
 
 # Reference - choose a communication protocol

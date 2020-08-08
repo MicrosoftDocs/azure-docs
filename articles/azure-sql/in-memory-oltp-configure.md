@@ -17,7 +17,7 @@ ms.date: 11/07/2018
 [In-Memory OLTP](in-memory-oltp-overview.md) can be used to improve the performance of transaction processing, data ingestion, and transient data scenarios, in [Premium and Business Critical tier](database/service-tiers-vcore.md) databases without increasing the pricing tier.
 
 > [!NOTE]
-> Learn how [Quorum doubles key database's workload while lowering DTU by 70% with SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+> Learn how [Quorum doubles key database's workload while lowering DTU by 70% with Azure SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 
 Follow these steps to adopt In-Memory OLTP in your existing database.
 
@@ -131,7 +131,7 @@ CREATE PROCEDURE schemaname.procedurename
         END;
 ```
 
-* For the TRANSACTION_ISOLATION_LEVEL, SNAPSHOT is the most common value for the natively compiled stored procedure. However,  a subset of the other values are also supported:
+* For the TRANSACTION_ISOLATION_LEVEL, SNAPSHOT is the most common value for the natively compiled stored procedure. However, a subset of the other values is also supported:
   
   * REPEATABLE READ
   * SERIALIZABLE

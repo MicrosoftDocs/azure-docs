@@ -3,7 +3,7 @@ title: Azure Application Insights IP address collection | Microsoft Docs
 description: Understanding how IP addresses and geolocation are handled with Azure Application Insights
 ms.topic: conceptual
 ms.date: 09/11/2019
-
+ms.custom: devx-track-javascript
 ---
 
 # Geolocation and IP address handling
@@ -23,7 +23,7 @@ This behavior is by design to help avoid unnecessary collection of personal data
 
 ## Overriding default behavior
 
-While the default behavior is to minimize the collection of personal data, we still offer the flexibility to collect and store IP address data. Before choosing to store any personal data like IP addresses, we strongly recommend verifying that this does not break any compliance requirements or local regulations that you may be subject to. To learn more about personal data handling in Application Insights, consult the [guidance for personal data](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt).
+While the default behavior is to minimize the collection of personal data, we still offer the flexibility to collect and store IP address data. Before choosing to store any personal data like IP addresses, we strongly recommend verifying that this does not break any compliance requirements or local regulations that you may be subject to. To learn more about personal data handling in Application Insights, consult the [guidance for personal data](../platform/personal-data-mgmt.md).
 
 ## Storing IP address data
 
@@ -95,7 +95,7 @@ If you only need to modify the behavior for a single Application Insights resour
 
 ### Rest API
 
-The [Rest API](https://docs.microsoft.com/rest/api/azure/) payload to make the same modifications is as follows:
+The [Rest API](/rest/api/azure/) payload to make the same modifications is as follows:
 
 ```
 PATCH https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/microsoft.insights/components/<resource-name>?api-version=2018-05-01-preview HTTP/1.1
@@ -116,7 +116,7 @@ Content-Length: 54
 
 ## Telemetry initializer
 
-If you need a more flexible alternative than `DisableIpMasking` to  record all or part of IP addresses, you can use a [telemetry initializer](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) to copy all or part the IP to a custom field. 
+If you need a more flexible alternative than `DisableIpMasking` to  record all or part of IP addresses, you can use a [telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) to copy all or part the IP to a custom field. 
 
 ### ASP.NET / ASP.NET Core
 
@@ -229,6 +229,6 @@ Newly collected IP addresses should appear in the `customDimensions_client-ip` c
 
 ## Next Steps
 
-* Learn more about [personal data collection](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) in Application Insights.
+* Learn more about [personal data collection](../platform/personal-data-mgmt.md) in Application Insights.
 
-* Learn more about how [IP address collection](https://apmtips.com/blog/2016/07/05/client-ip-address/) in Application Insights works. (This is an older external blog post written by one of our engineers. It predates the current default behavior where IP address is recorded as `0.0.0.0`, but it goes into greater depth on the mechanics of the built-in `ClientIpHeaderTelemetryInitializer`.)
+* Learn more about how [IP address collection](https://apmtips.com/posts/2016-07-05-client-ip-address/) in Application Insights works. (This is an older external blog post written by one of our engineers. It predates the current default behavior where IP address is recorded as `0.0.0.0`, but it goes into greater depth on the mechanics of the built-in `ClientIpHeaderTelemetryInitializer`.)

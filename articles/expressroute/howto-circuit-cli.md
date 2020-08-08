@@ -5,9 +5,10 @@ services: expressroute
 author: cherylmc
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: cherylmc
+ms.author: cherylmc 
+ms.custom: devx-track-azurecli
 
 ---
 # Create and modify an ExpressRoute circuit using CLI

@@ -59,7 +59,7 @@ The `error` field has several possible values - review the protocol documentatio
 | Error Code         | Description        | Client Action    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Protocol error, such as a missing required parameter. | Fix and resubmit the request.|
-| `invalid_grant`    | Some of the authentication material (auth code, refresh token, access token, PKCE challenge) was invalid, unparseable, missing, or otherwise unuseable | Try a new request to the `/authorize` endpoint to get a new authorization code.  Consider reviewing and validating that app's use of the protocols. |
+| `invalid_grant`    | Some of the authentication material (auth code, refresh token, access token, PKCE challenge) was invalid, unparseable, missing, or otherwise unusable | Try a new request to the `/authorize` endpoint to get a new authorization code.  Consider reviewing and validating that app's use of the protocols. |
 | `unauthorized_client` | The authenticated client isn't authorized to use this authorization grant type. | This usually occurs when the client application isn't registered in Azure AD or isn't added to the user's Azure AD tenant. The application can prompt the user with instruction for installing the application and adding it to Azure AD. |
 | `invalid_client` | Client authentication failed.  | The client credentials aren't valid. To fix, the application administrator updates the credentials.   |
 | `unsupported_grant_type` | The authorization server does not support the authorization grant type. | Change the grant type in the request. This type of error should occur only during development and be detected during initial testing. |
@@ -122,8 +122,8 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - Tenant-identifying information was not found in either the request or implied by any provided credentials. The user can contact the tenant admin to help resolve the issue. |
 | AADSTS50061 | SignoutInvalidRequest - The sign-out request is invalid. |
 | AADSTS50064 | CredentialAuthenticationError - Credential validation on username or password has failed. |
-| AADSTS50068 | SignoutInitiatorNotParticipant - Signout has failed. The app that initiated signout is not a participant in the current session. |
-| AADSTS50070 | SignoutUnknownSessionIdentifier - Signout has failed. The signout request specified a name identifier that didn't match the existing session(s). |
+| AADSTS50068 | SignoutInitiatorNotParticipant - Sign out has failed. The app that initiated sign out is not a participant in the current session. |
+| AADSTS50070 | SignoutUnknownSessionIdentifier - Sign out has failed. The sign out request specified a name identifier that didn't match the existing session(s). |
 | AADSTS50071 | SignoutMessageExpired - The logout request has expired. |
 | AADSTS50072 | UserStrongAuthEnrollmentRequiredInterrupt - User needs to enroll for second factor authentication (interactive). |
 | AADSTS50074 | UserStrongAuthClientAuthNRequiredInterrupt - Strong authentication is required and the user did not pass the MFA challenge. |
@@ -169,7 +169,7 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS50187 | DeviceInformationNotProvided - The service failed to perform device authentication. |
 | AADSTS50196 | LoopDetected - A client loop has been detected. Check the app’s logic to ensure that token caching is implemented, and that error conditions are handled correctly.  The app has made too many of the same request in too short a period, indicating that it is in a faulty state or is abusively requesting tokens. |
 | AADSTS50197 | ConflictingIdentities - The user could not be found. Try signing in again. |
-| AADSTS50199 | CmsiInterrupt - For security reasons, user confirmation is required for this request.  Because this is an "interaction_required" error, the client should do interactive auth.  This occurs because a system webview has been used to request a token for a native application - the user must be prompted to ask if this was actually the app they meant to sign into.|
+| AADSTS50199 | CmsiInterrupt - For security reasons, user confirmation is required for this request.  Because this is an "interaction_required" error, the client should do interactive auth.  This occurs because a system webview has been used to request a token for a native application - the user must be prompted to ask if this was actually the app they meant to sign into. To avoid this prompt, the redirect URI should be part of the following safe list: <br />http://<br />https://<br />msauth://(iOS only)<br />msauthv2://(iOS only)<br />chrome-extension:// (desktop Chrome browser only) |
 | AADSTS51000 | RequiredFeatureNotEnabled - The feature is disabled. |
 | AADSTS51001 | DomainHintMustbePresent - Domain hint must be present with on-premises security identifier or on-premises UPN. |
 | AADSTS51004 | UserAccountNotInDirectory - The user account doesn’t exist in the directory. |
@@ -260,6 +260,7 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS90093 | GraphUserUnauthorized - Graph returned with a forbidden error code for the request. |
 | AADSTS90094 | AdminConsentRequired - Administrator consent is required. |
 | AADSTS900382 | Confidential Client is not supported in Cross Cloud request. |
+| AADSTS90099 | The application '{appId}' ({appName}) has not been authorized in the tenant '{tenant}'. Applications must be authorized to access the customer tenant before partner delegated administrators can use them. Provide pre-consent or execute the appropriate Partner Center API to authorize the application. |
 | AADSTS90100 | InvalidRequestParameter - The parameter is empty or not valid. |
 | AADSTS901002 | AADSTS901002: The 'resource' request parameter is not supported. |
 | AADSTS90101 | InvalidEmailAddress - The supplied data isn't a valid email address. The email address must be in the format `someone@example.com`. |
@@ -310,7 +311,7 @@ Search on the numeric part of the returned error code.  For example, if you rece
 | AADSTS700022 | InvalidMultipleResourcesScope - The provided value for the input parameter scope isn't valid because it contains more than one resource. |
 | AADSTS700023 | InvalidResourcelessScope - The provided value for the input parameter scope isn't valid when request an access token. |
 | AADSTS7000215 | Invalid client secret is provided. Developer error - the app is attempting to sign in without the necessary or correct authentication parameters.|
-| AADSTS7000222| InvalidClientSecretExpiredKeysProvided - The provided client secret keys are expired. Visit the Azure Portal to create new keys for your app, or consider using certificate credentials for added security: https://aka.ms/certCreds |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided - The provided client secret keys are expired. Visit the Azure portal to create new keys for your app, or consider using certificate credentials for added security: [https://aka.ms/certCreds](https://aka.ms/certCreds) |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant - Provided Authorization Code is intended to use against other tenant, thus rejected. OAuth2 Authorization Code must be redeemed against same tenant it was acquired for (/common or /{tenant-ID} as appropriate) |
 | AADSTS1000000 | UserNotBoundError - The Bind API requires the Azure AD user to also authenticate with an external IDP, which hasn't happened yet. |
 | AADSTS1000002 | BindCompleteInterruptError - The bind completed successfully, but the user must be informed. |

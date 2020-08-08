@@ -153,7 +153,7 @@ At present, Azure Cosmos DB has an optimized experience for a cloud environment 
 
 Azure Cosmos DB provides two free full backups taken at four-hour intervals across all APIs. So you don't need to set up a backup schedule. 
 
-If you want to modify retention and frequency, send email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) or raise a support case. Information about backup capability is provided in the [Automatic online backup and restore with Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md) article.
+If you want to modify retention and frequency, send email to [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) or raise a support case. Information about backup capability is provided in the [Automatic online backup and restore with Azure Cosmos DB](online-backup-and-restore.md) article.
 
 ### How does the Cassandra API account handle failover if a region goes down?
 

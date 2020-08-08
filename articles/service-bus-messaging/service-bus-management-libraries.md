@@ -1,21 +1,9 @@
 ---
 title: Azure Service Bus management libraries| Microsoft Docs
 description: This article explains how to use Azure Service Bus management libraries to dynamically provision Service Bus namespaces and entities.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid:
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Service Bus management libraries

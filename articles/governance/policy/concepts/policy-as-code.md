@@ -1,7 +1,7 @@
 ---
 title: Design Policy as Code workflows
 description: Learn to design workflows to deploy your Azure Policy definitions as code and automatically validate resources.
-ms.date: 05/20/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
 ---
 # Design Policy as Code workflows
@@ -12,20 +12,40 @@ and repeatable at enterprise scale. Two of the predominant approaches to managin
 in the cloud are:
 
 - Infrastructure as Code: The practice of treating the content that defines your environments,
-  everything from Resource Manager templates to Azure Policy definitions to Azure Blueprints, as
-  source code.
+  everything from Azure Resource Manager templates (ARM templates) to Azure Policy definitions to
+  Azure Blueprints, as source code.
 - DevOps: The union of people, process, and products to enable continuous delivery of value to our
   end users.
 
 Policy as Code is the combination of these ideas. Essentially, keep your policy definitions in
-source control and whenever a change is made, test, and validate that change. However, that shouldn't
-be the extent of policies involvement with Infrastructure as Code or DevOps.
+source control and whenever a change is made, test, and validate that change. However, that
+shouldn't be the extent of policies involvement with Infrastructure as Code or DevOps.
 
 The validation step should also be a component of other continuous integration or continuous
 deployment workflows. Examples include deploying an application environment or virtual
 infrastructure. By making Azure Policy validation an early component of the build and deployment
-process the application and operations teams discover if their changes are non-complaint, long
+process the application and operations teams discover if their changes are non-compliant, long
 before it's too late and they're attempting to deploy in production.
+
+## Definitions and foundational information
+
+Before getting into the details of Policy as Code workflow, review the following definitions and
+examples:
+
+- [Policy definition](./definition-structure.md)
+- [Initiative definition](./initiative-definition-structure.md)
+
+The file names align to portions of either the policy or initiative definition:
+- `policy(set).json` - The entire definition
+- `policy(set).parameters.json` - The `properties.parameters` portion of the definition
+- `policy.rules.json` - The `properties.policyRule` portion of the definition
+- `policyset.definitions.json` - The `properties.policyDefinitions` portion of the definition
+
+Examples of these file formats are available in the
+[Azure Policy GitHub Repo](https://github.com/Azure/azure-policy/):
+
+- Policy definition: [Add a tag to resources](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
+- Initiative definition: [Billing Tags](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
 
 ## Workflow overview
 
@@ -162,8 +182,8 @@ resources.
 
 The general workflow for Policy as Code is for developing and deploying policies and initiatives to
 an environment at scale. However, policy evaluation should be part of the deployment process for any
-workflow that deploys or creates resources in Azure, such as deploying applications or running
-Resource Manager templates to create infrastructure.
+workflow that deploys or creates resources in Azure, such as deploying applications or running ARM
+templates to create infrastructure.
 
 In these cases, after the application or infrastructure deployment is done to a test subscription or
 resource group, policy evaluation should be done for that scope checking validation of all existing

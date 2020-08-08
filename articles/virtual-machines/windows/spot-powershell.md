@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/25/2020
+ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
 ---
@@ -27,7 +27,8 @@ Create a spotVM using [New-AzVmConfig](/powershell/module/az.compute/new-azvmcon
 - a dollar amount, up to 5 digits. For example, `-MaxPrice .98765` means that the VM will be deallocated once the price for a spotVM goes about $.98765 per hour.
 
 
-This example creates a spotVM that will not be deallocated based on pricing (only when Azure needs the capacity back).
+This example creates a spotVM that will not be deallocated based on pricing (only when Azure needs the capacity back). The eviction policy is set to deallocate the VM, so that it can be restarted at a later time. If you want to delete the VM and the underlying disk when the VM is evicted, set `-EvictionPolicy` to `Delete` in `New-AzVMConfig`.
+
 
 ```azurepowershell-interactive
 $resourceGroup = "mySpotRG"
@@ -52,7 +53,7 @@ $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Loc
 
 # Create a virtual machine configuration and set this to be a Spot VM
 
-$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1 -Priority "Spot" -MaxPrice -1| `
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1 -Priority "Spot" -MaxPrice -1 -EvictionPolicy Deallocate | `
 Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
 Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzVMNetworkInterface -Id $nic.Id
@@ -69,6 +70,6 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
 
 ## Next steps
 
-You can also create a Spot VM using the [Azure CLI](../linux/spot-cli.md) or a [template](../linux/spot-template.md).
+You can also create a Spot VM using the [Azure CLI](../linux/spot-cli.md), [portal](spot-portal.md) or a [template](../linux/spot-template.md).
 
 If you encounter an error, see [Error codes](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

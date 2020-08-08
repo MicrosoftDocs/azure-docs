@@ -41,7 +41,7 @@ This scenario collects basic information such as storage and hardware configurat
 
 - Storage information
 
-- Azure Virtual Machine Configuration (collected using [Azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service))
+- Azure Virtual Machine Configuration (collected using [Azure Instance Metadata Service](../windows/instance-metadata-service.md))
 
 - List of running processes, Disk, Memory, and CPU usage
 
@@ -106,7 +106,7 @@ Information about the Linux virtual machine, operating system, block devices, hi
   - /etc/waagent.config
   - Output of journalctl for the last five days
 
-- [Azure virtual machine instance metadata](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+- [Azure virtual machine instance metadata](../windows/instance-metadata-service.md)
 
 >[!Note]
 >[`*`] PCI information is not yet collected on Debian and SLES distributions

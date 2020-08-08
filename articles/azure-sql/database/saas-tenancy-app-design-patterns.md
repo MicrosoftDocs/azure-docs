@@ -72,7 +72,7 @@ Each tenant database is deployed as a single database.  This model provides the 
 
 #### Vendor management
 
-The vendor can access all the databases in all the standalone app instances, even if the app instances are installed in different tenant subscriptions.  The access is achieved via SQL connections.  This cross-instance access can enable the vendor to centralize schema management and cross-database query for reporting or analytics purposes.  If this kind of centralized management is desired, a catalog must be deployed that maps tenant identifiers to database URIs.  Azure SQL Database provides a sharding library that is used together with a SQL database to provide a catalog.  The sharding library is formally named the [Elastic Database Client Library][docu-elastic-db-client-library-536r].
+The vendor can access all the databases in all the standalone app instances, even if the app instances are installed in different tenant subscriptions.  The access is achieved via SQL connections.  This cross-instance access can enable the vendor to centralize schema management and cross-database query for reporting or analytics purposes.  If this kind of centralized management is desired, a catalog must be deployed that maps tenant identifiers to database URIs.  Azure SQL Database provides a sharding library that is used together to provide a catalog.  The sharding library is formally named the [Elastic Database Client Library][docu-elastic-db-client-library-536r].
 
 ## D. Multi-tenant app with database-per-tenant
 

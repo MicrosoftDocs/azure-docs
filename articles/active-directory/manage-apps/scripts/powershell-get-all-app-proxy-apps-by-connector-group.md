@@ -1,5 +1,5 @@
 ---
-title: PowerShell sample - List all Application Proxy connector groups
+title: List Azure AD Application Proxy connector groups for apps
 description: PowerShell example that lists all Azure Active Directory (Azure AD) Application Proxy Connector groups with the assigned applications.
 services: active-directory
 author: msmimart

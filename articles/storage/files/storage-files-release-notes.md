@@ -1,11 +1,11 @@
 ---
 title: Release notes for the Azure File Sync agent | Microsoft Docs
-description: Release notes for the Azure File Sync agent.
+description: Read the release notes for the Azure File Sync agent, which lets you centralize your organization's file shares in Azure Files.
 services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 5/19/2020
+ms.date: 7/28/2020
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,6 +20,7 @@ The following versions are supported for the Azure File Sync agent:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
+| V10.1 Release - [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | June 5, 2020 | Supported |
 | May 2020 update rollup - [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | May 19, 2020 | Supported |
 | V10 Release - [KB4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | April 9, 2020 | Supported |
 | December 2019 update rollup - [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | December 12, 2019 | Supported |
@@ -36,6 +37,16 @@ The following versions are supported for the Azure File Sync agent:
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## Agent version 10.1.0.0
+The following release notes are for version 10.1.0.0 of the Azure File Sync agent released June 5, 2020. These notes are in addition to the release notes listed for version 10.0.0.0 and 10.0.2.0.
+
+### Improvements and issues that are fixed
+
+- Azure private endpoint support
+	- Sync traffic to the Storage Sync Service can now be sent to a private endpoint. This enables tunneling over an ExpressRoute or VPN connection. To learn more, see [Configuring Azure File Sync network endpoints](https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-endpoints).
+- Files Synced metric will now display progress while a large sync is running, rather than at the end.
+- Miscellaneous reliability improvements for agent installation, cloud tiering, sync and telemetry
 
 ## Agent version 10.0.2.0
 The following release notes are for version 10.0.2.0 of the Azure File Sync agent released May 19, 2020. These notes are in addition to the release notes listed for version 10.0.0.0.
@@ -114,7 +125,7 @@ The following items don't sync, but the rest of the system continues to operate 
 
 ### Cloud endpoint
 - Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, the [Invoke-AzStorageSyncChangeDetection](https://docs.microsoft.com/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet can be used to manually initiate the detection of changes in the Azure file share. In addition, changes made to an Azure file share over the REST protocol will not update the SMB last modified time and will not be seen as a change by sync.
-- The storage sync service and/or storage account can be moved to a different resource group or subscription within the existing Azure AD tenant. If the storage account is moved, you need to give the Hybrid File Sync Service access to the storage account (see [Ensure Azure File Sync has access to the storage account](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+- The storage sync service and/or storage account can be moved to a different resource group, subscription, or Azure AD tenant. After the  storage sync service or storage account is moved, you need to give the Microsoft.StorageSync application access to the storage account (see [Ensure Azure File Sync has access to the storage account](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
     > [!Note]  
     > When creating the cloud endpoint, the storage sync service and storage account must be in the same Azure AD tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Azure AD tenants.

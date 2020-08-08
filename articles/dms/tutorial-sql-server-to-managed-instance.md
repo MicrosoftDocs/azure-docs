@@ -1,15 +1,15 @@
 ---
-title: "Tutorial: Migrate SQL Server to SQL managed instance"
+title: "Tutorial: Migrate SQL Server to SQL Managed Instance"
 titleSuffix: Azure Database Migration Service
 description: Learn to migrate from SQL Server to an Azure SQL Managed Instance by using Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019"
+ms.custom: "seo-lt-2019,fasttrack-edit"
 ms.topic: article
 ms.date: 01/08/2020
 ---
@@ -56,7 +56,7 @@ To complete this tutorial, you need to:
 - If you're running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that Azure Database Migration Service can connect to a named instance on your source server.
 - If you're using a firewall appliance in front of your source databases, you may need to add firewall rules to allow Azure Database Migration Service to access the source database(s) for migration, as well as files via SMB port 445.
 - Create a SQL Managed Instance by following the detail in the article [Create a SQL Managed Instance in the Azure portal](https://aka.ms/sqldbmi).
-- Ensure that the logins used to connect the source SQL Server and target managed instance are members of the sysadmin server role.
+- Ensure that the logins used to connect the source SQL Server and target SQL Managed Instance are members of the sysadmin server role.
 
     >[!NOTE]
     >By default, Azure Database Migration Service only supports migrating SQL logins. However, you can enable the ability to migrate Windows logins by:
@@ -71,6 +71,9 @@ To complete this tutorial, you need to:
 - Make a note of a Windows user (and password) that has full control privilege on the network share that you previously created. Azure Database Migration Service impersonates the user credential to upload the backup files to Azure Storage container for restore operation.
 - Create a blob container and retrieve its SAS URI by using the steps in the article [Manage Azure Blob Storage resources with Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container), be sure to select all permissions (Read, Write, Delete, List) on the policy window while creating the SAS URI. This detail provides Azure Database Migration Service with access to your storage account container for uploading the backup files used for migrating databases to SQL Managed Instance.
 
+    > [!NOTE]
+    > Azure Database Migration Service does not support using an account level SAS token when configuring the Storage Account settings during the [Configure Migration Settings](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance#configure-migration-settings) step.
+    
 ## Register the Microsoft.DataMigration resource provider
 
 1. Sign in to the Azure portal, select **All services**, and then select **Subscriptions**.
@@ -105,7 +108,7 @@ To complete this tutorial, you need to:
 
     For more information on how to create a virtual network in Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
 
-    For additional detail, see the article [Network topologies for Azure SQL DB managed instance migrations using Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
+    For additional detail, see the article [Network topologies for Azure SQL Managed Instance migrations using Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
 
 6. Select a pricing tier.
 
@@ -196,7 +199,7 @@ After an instance of the service is created, locate it within the Azure portal, 
     |**Network location share** | The local SMB network share that Azure Database Migration Service can take the source database backups to. The service account running source SQL Server instance must have write privileges on this network share. Provide an FQDN or IP addresses of the server in the network share, for example, '\\\servername.domainname.com\backupfolder' or '\\\IP address\backupfolder'.|
     |**User name** | Make sure that the Windows user has full control privilege on the network share that you provided above. Azure Database Migration Service will impersonate the user credential to upload the backup files to Azure Storage container for restore operation. If TDE-enabled databases are selected for migration, the above windows user must be the built-in administrator account and [User Account Control](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview) must be disabled for Azure Database Migration Service to upload and delete the certificates files.) |
     |**Password** | Password for the user. |
-    |**Storage account settings** | The SAS URI that provides Azure Database Migration Service with access to your storage account container to which the service uploads the backup files and that is used for migrating databases to SQL Managed Instance. [Learn how to get the SAS URI for blob container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
+    |**Storage account settings** | The SAS URI that provides Azure Database Migration Service with access to your storage account container to which the service uploads the backup files and that is used for migrating databases to SQL Managed Instance. [Learn how to get the SAS URI for blob container](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). This SAS URI must be for the blob container, not for the storage account.|
     |**TDE Settings** | If you're migrating the source databases with Transparent Data Encryption (TDE) enabled, you need to have write privileges on the target SQL Managed Instance.  Select the subscription in which the SQL Managed Instance provisioned from the drop-down menu.  Select the target **Azure SQL Database Managed Instance** in the drop-down menu. |
 
     ![Configure Migration Settings](media/tutorial-sql-server-to-managed-instance/dms-configure-migration-settings3.png)
@@ -237,6 +240,6 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 ## Next steps
 
-- For a tutorial showing you how to migrate a database to a managed instance using the T-SQL RESTORE command, see [Restore a backup to a managed instance using the restore command](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-- For information about managed instance, see [What is a managed instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
-- For information about connecting apps to a managed instance, see [Connect applications](../azure-sql/managed-instance/connect-application-instance.md).
+- For a tutorial showing you how to migrate a database to SQL Managed Instance using the T-SQL RESTORE command, see [Restore a backup to SQL Managed Instance using the restore command](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
+- For information about SQL Managed Instance, see [What is SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+- For information about connecting apps to SQL Managed Instance, see [Connect applications](../azure-sql/managed-instance/connect-application-instance.md).

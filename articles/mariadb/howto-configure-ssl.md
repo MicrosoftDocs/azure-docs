@@ -4,8 +4,8 @@ description: Instructions for how to properly configure Azure Database for Maria
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 5/7/2020
+ms.topic: how-to
+ms.date: 07/08/2020
 ---
 # Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB
 Azure Database for MariaDB supports connecting your Azure Database for MariaDB server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
@@ -13,6 +13,8 @@ Azure Database for MariaDB supports connecting your Azure Database for MariaDB s
 ## Obtain SSL certificate
 Download the certificate needed to communicate over SSL with your Azure Database for MariaDB server from [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and save the certificate file to your local drive (this tutorial uses c:\ssl for example).
 **For Microsoft Internet Explorer and Microsoft Edge:** After the download has completed, rename the certificate to BaltimoreCyberTrustRoot.crt.pem.
+
+See the following links for certificates for servers in sovereign clouds: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem), and [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 
 ## Bind SSL
 

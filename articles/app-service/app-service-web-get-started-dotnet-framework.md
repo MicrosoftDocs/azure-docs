@@ -3,7 +3,7 @@ title: 'Quickstart: Create a C# ASP.NET app'
 description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET web app template from Visual Studio.
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
-ms.date: 04/21/2020
+ms.date: 08/06/2020
 ms.custom: mvc, devcenter, seodec18
 ---
 
@@ -105,7 +105,7 @@ The app name specified in the **App Service Create new** page is used as the URL
 
 1. Find the `<div class="jumbotron">` HTML tag near the top, and replace the entire element with the following code:
 
-   ```HTML
+   ```html
    <div class="jumbotron">
        <h1>ASP.NET in Azure!</h1>
        <p class="lead">This is a simple app that we've built that demonstrates how to deploy a .NET app to Azure App Service.</p>
@@ -140,3 +140,6 @@ The app name specified in the **App Service Create new** page is used as the URL
 
 > [!div class="nextstepaction"]
 > [ASP.NET with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET app](configure-language-dotnet-framework.md)

@@ -2,7 +2,7 @@
 title: Assess Hyper-V VMs for migration to Azure with Azure Migrate | Microsoft Docs
 description: Describes how to assess on-premises Hyper-V VMs for migration to Azure using Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ms.custom: mvc
 ---
 
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - [Complete](tutorial-prepare-hyper-v.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
 - Here's what you should have done in the first tutorial:
     - [Prepare Azure](tutorial-prepare-hyper-v.md#prepare-azure) to work with Azure Migrate.
-    - [Prepare Hyper-V](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) hosts and VMs assessment.
+    - [Prepare Hyper-V](tutorial-prepare-hyper-v.md#prepare-for-assessment) hosts and VMs assessment.
     - [Verify](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) what you need in order to deploy the Azure Migrate appliance for Hyper-V assessment.
 
 ## Set up an Azure Migrate project
@@ -91,12 +91,20 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  For appliance version 2.19.07.30, the generated hash should match these settings.
+3.  Verify the latest appliance versions and hash values:
 
-  **Algorithm** | **Hash value**
-  --- | ---
-  MD5 | 29a7531f32bcf69f32d964fa5ae950bc
-  SHA256 | 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+    - For the Azure public cloud:
+
+        **Scenario** | **Download** | **SHA256**
+        --- | --- | ---
+        Hyper-V (8.93 GB) | [Latest version](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+
+    - For Azure Government:
+
+        **Scenario*** | **Download** | **SHA256**
+        --- | --- | ---
+        Hyper-V (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+
 
 ### Create the appliance VM
 
@@ -117,7 +125,7 @@ Import the downloaded file, and create the VM.
 2. In **Choose Import Type**, click **Copy the virtual machine (create a new unique ID)**. Then click **Next**.
 3. In **Choose Destination**, leave the default setting. Click **Next**.
 4. In **Storage Folders**, leave the default setting. Click **Next**.
-5. In **Choose Network**, specify the virtual switch that the VM will use. The switch needs internet connectivity to send data to Azure. [Learn](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) about creating a virtual switch.
+5. In **Choose Network**, specify the virtual switch that the VM will use. The switch needs internet connectivity to send data to Azure. [Learn](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) about creating a virtual switch.
 6. In **Summary**, review the settings. Then click **Finish**.
 7. In Hyper-V Manager > **Virtual Machines**, start the VM.
 
@@ -161,10 +169,7 @@ Set up the appliance for the first time.
 
 ### Delegate credentials for SMB VHDs
 
-If you're running VHDs on SMBs, you must enable delegation of credentials from the appliance to the Hyper-V hosts. This requires the following:
-
-- You enable each host to act as a delegate for the appliance. If you followed the tutorials in order, you did this in the previous tutorial, when you prepared Hyper-V for assessment and migration. You should have either set up CredSSP for the hosts [manually](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), or by [running a script](tutorial-prepare-hyper-v.md#prepare-with-a-script) that does this.
-- Enable CredSSP delegation so that the Azure Migrate appliance can act as the client, delegating credentials to a host.
+If you're running VHDs on SMBs, you must enable delegation of credentials from the appliance to the Hyper-V hosts. To do this, you enable each host to act as a delegate for the appliance. If you followed the tutorials in order, you did this in the previous tutorial, when you prepared Hyper-V for assessment and migration. You should have either set up CredSSP for the hosts [manually](tutorial-prepare-hyper-v.md#enable-credssp-to-delegate-credentials), or by [running a script](tutorial-prepare-hyper-v.md#run-the-script) that does this.
 
 Enable on the appliance as follows:
 
@@ -173,7 +178,7 @@ Enable on the appliance as follows:
 On the appliance VM, run this command. HyperVHost1/HyperVHost2 are example host names.
 
 ```
-Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
 ```
 
 Example: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `

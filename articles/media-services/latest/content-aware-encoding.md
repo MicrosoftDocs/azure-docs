@@ -19,7 +19,7 @@ ms.custom:
 
 # Use the content-aware encoding preset to find the optimal bitrate value for a given resolution
 
-In order to prepare content for delivery by [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video needs to be encoded at multiple bit-rates (high to low). This ensures graceful degradation of quality, as the bitrate is lowered so is the resolution of the video. Such multiple bit-rate encoding makes use of a so-called encoding ladder – a table of resolutions and bitrates, see the Media Services [built-in encoding presets](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
+In order to prepare content for delivery by [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video needs to be encoded at multiple bit-rates (high to low). This ensures graceful degradation of quality, as the bitrate is lowered so is the resolution of the video. Such multiple bit-rate encoding makes use of a so-called encoding ladder – a table of resolutions and bitrates, see the Media Services [built-in encoding presets](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
 You should be aware of the content you are processing, and customize/tune the encoding ladder to the complexity of the individual video. At each resolution, there is a bitrate beyond which any increase in quality is not perceptive – the encoder operates at this optimal bitrate value. The next level of optimization is to select the resolutions based on the content – for example, a video of a PowerPoint presentation does not benefit from going below 720p. Going further, the encoder can be tasked to optimize the settings for each shot within the video. 
 
@@ -53,9 +53,10 @@ Below are the results for another category of source content, where the encoder 
 
 You can create transforms that use this preset as follows. 
 
-> [!TIP]
-> See the [Next steps](#next-steps) section for tutorials that use tranform outputs. The output asset can be delivered from Media Services streaming endpoints in protocols such as MPEG-DASH and HLS (as shown in the tutorials).
+See the [Next steps](#next-steps) section for tutorials that use tranform outputs. The output asset can be delivered from Media Services streaming endpoints in protocols such as MPEG-DASH and HLS (as shown in the tutorials).
 
+> [!NOTE]
+> Make sure to use the **ContentAwareEncoding** preset not  ContentAwareEncodingExperimental.
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -75,8 +76,6 @@ TransformOutput[] output = new TransformOutput[]
 
 > [!NOTE]
 > Encoding jobs using the `ContentAwareEncoding` preset are being billed based on the output minutes. 
-
-Make sure to use the **ContentAwareEncoding** preset not  ContentAwareEncodingExperimental.
   
 ## Next steps
 

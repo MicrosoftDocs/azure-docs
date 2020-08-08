@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, Objective-C - Speech service'
+title: 'Quickstart: Synthesize speech in Objective-C using the Speech SDK'
 titleSuffix: Azure Cognitive Services
 description: Learn how to synthesize speech in Objective-C on iOS using the Speech SDK
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 06/25/2020
 ms.author: yulili
 ---
 

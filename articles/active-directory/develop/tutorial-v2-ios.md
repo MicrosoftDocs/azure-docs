@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/30/2019
+ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40 
@@ -44,7 +44,7 @@ This tutorial is applicable to both iOS and macOS apps. Note that some steps are
 
 ## Prerequisites
 
-- XCode version 11.x or greater is required to build the app in this guide. You can download XCode from the [iTunes website](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
+- XCode version 11.x or greater is required to build the app in this guide. You can download XCode from the [Mac App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
 - Microsoft Authentication Library ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). You can use a dependency manager or add the library manually. The instructions below show you how.
 
 This tutorial will create a new project. If you want to download the completed tutorial instead, download the code:

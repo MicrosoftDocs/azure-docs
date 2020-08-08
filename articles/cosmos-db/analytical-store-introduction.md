@@ -39,7 +39,7 @@ Analytical workloads typically involve aggregations and sequential scans of sele
 
 For example, if your operational tables are in the following format:
 
-![Example operational table](./media/analytical-store-introduction/sample-operational-data-table.png)
+:::image type="content" source="./media/analytical-store-introduction/sample-operational-data-table.png" alt-text="Example operational table" border="false":::
 
 The row store persists the above data in a serialized format, per row, on the disk. This format allows for faster transactional reads, writes, and operational queries, such as, "Return information about Product1". However, as the dataset grows large and if you want to run complex analytical queries on the data it can be expensive. For example, if you want to get "the sales  trends for a product under the category named 'Equipment' across different business units and months", you need to run a complex query. Large scans on this dataset can get expensive in terms of provisioned throughput and can also impact the performance of the transactional workloads powering your real-time applications and services.
 
@@ -47,7 +47,7 @@ Analytical store, which is a column store, is better suited for such queries bec
 
 The following image shows transactional row store vs. analytical column store in Azure Cosmos DB:
 
-![Transactional row store Vs analytical column store in Azure Cosmos DB](./media/analytical-store-introduction/transactional-analytical-data-stores.png)
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Transactional row store Vs analytical column store in Azure Cosmos DB" border="false":::
 
 ### Decoupled performance for analytical workloads
 

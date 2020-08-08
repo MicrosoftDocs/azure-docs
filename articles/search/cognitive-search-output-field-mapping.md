@@ -24,7 +24,7 @@ Output Field Mappings are required for moving content from enriched documents in
 To map fields, add `outputFieldMappings` to your indexer definition as shown below:
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```

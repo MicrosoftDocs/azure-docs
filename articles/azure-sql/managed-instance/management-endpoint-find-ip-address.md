@@ -3,8 +3,8 @@ title: Discover management endpoint IP address
 titleSuffix: Azure SQL Managed Instance 
 description: Learn how to get the Azure SQL Managed Instance management endpoint public IP address and verify its built-in firewall protection
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
@@ -20,11 +20,11 @@ The Azure SQL Managed Instance virtual cluster contains a management endpoint th
 
 To determine the management IP address, do a [DNS lookup](/windows-server/administration/windows-commands/nslookup) on your SQL Managed Instance FQDN: `mi-name.zone_id.database.windows.net`. This will return a DNS entry that's like `trx.region-a.worker.vnet.database.windows.net`. You can then do a DNS lookup on this FQDN with ".vnet" removed. This will return the management IP address. 
 
-This PowerShell will do it all for you if you replace \<MI FQDN\> with the DNS entry of your SQL Managed Instance: `mi-name.zone_id.database.windows.net`:
+This PowerShell code will do it all for you if you replace \<MI FQDN\> with the DNS entry of SQL Managed Instance: `mi-name.zone_id.database.windows.net`:
   
 ``` powershell
   $MIFQDN = "<MI FQDN>"
   resolve-dnsname $MIFQDN | select -first 1  | %{ resolve-dnsname $_.NameHost.Replace(".vnet","")}
 ```
 
-For more information about SQL Managed Instances and connectivity, see [Azure SQL Managed Instance connectivity architecture](connectivity-architecture-overview.md).
+For more information about SQL Managed Instance and connectivity, see [Azure SQL Managed Instance connectivity architecture](connectivity-architecture-overview.md).

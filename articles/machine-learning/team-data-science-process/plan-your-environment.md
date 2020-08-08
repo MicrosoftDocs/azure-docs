@@ -141,12 +141,12 @@ There are many options for languages, development environments, and tools. Be aw
 
 ### What tools should you use for data analysis?
 
-* [Microsoft Azure PowerShell](/powershell/azure/overview) - a script language used to administer your Azure resources in a script language
+* [Microsoft Azure PowerShell](/powershell/azure/) - a script language used to administer your Azure resources in a script language
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)
 * [Python Tools for Visual Studio](https://aka.ms/ptvsdocs)
-* [Anaconda](https://www.continuum.io/why-anaconda)
+* [Anaconda](https://www.anaconda.com/)
 * [Jupyter notebooks](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)
 

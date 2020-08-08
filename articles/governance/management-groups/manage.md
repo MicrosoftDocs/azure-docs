@@ -76,7 +76,7 @@ To delete a management group, the following requirements must be met:
 
 1. You need write permissions on the management group ("Owner", "Contributor", or "Management Group
    Contributor"). To see what permissions you have, select the management group and then select
-   **IAM**. To learn more on RBAC Roles, see  
+   **IAM**. To learn more on Azure roles, see  
    [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).
 
 ### Delete in the portal
@@ -120,7 +120,7 @@ az account management-group delete --name 'Contoso'
 
 ## View management groups
 
-You can view any management group you have a direct or inherited RBAC role on.  
+You can view any management group you have a direct or inherited Azure role on.  
 
 ### View in the portal
 
@@ -224,7 +224,7 @@ If you're doing the move action, you need:
 
 - Management group write and Role Assignment write permissions on the child subscription or
   management group.
-  - Built-on role example **Owner**
+  - Built-in role example **Owner**
 - Management group write access on the target parent management group.
   - Built-in role example: **Owner**, **Contributor**, **Management Group Contributor**
 - Management group write access on the existing parent management group.
@@ -243,7 +243,7 @@ subscription (not inherited from the management group), you're able to move it t
 group where you're a contributor.
 
 To see what permissions you have in the Azure portal, select the management group and then select
-**IAM**. To learn more on RBAC Roles, see
+**IAM**. To learn more on Azure roles, see
 [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).
 
 ## Move subscriptions 

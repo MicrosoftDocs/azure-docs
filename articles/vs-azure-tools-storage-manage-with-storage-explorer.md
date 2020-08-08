@@ -1,6 +1,6 @@
 ---
 title: Get started with Storage Explorer | Microsoft Docs
-description: Manage Azure storage resources with Storage Explorer
+description: Start managing Azure storage resources with Storage Explorer. Download and install Azure Storage Explorer, connect to a storage account or service, and more.
 services: storage
 author: cawaMS
 
@@ -51,9 +51,9 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 Storage Explorer is also available as a *.tar.gz* download. You have to install dependencies manually. The following distributions of Linux support *.tar.gz* installation:
 
+* Ubuntu 20.04 x64
 * Ubuntu 18.04 x64
 * Ubuntu 16.04 x64
-* Ubuntu 14.04 x64
 
 The *.tar.gz* installation might work on other distributions, but only these listed ones are officially supported.
 
