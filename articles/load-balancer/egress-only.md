@@ -23,7 +23,7 @@ This configuration provides outbound NAT for an internal load balancer scenario,
 
 
 <p align="center">
-  <img src="./media/egress-only/lb-egress-only.svg" alt="Figure depicts a egress only load balancer configuration." width="500" title="Virtual Network NAT">
+  <img src="./media/egress-only/lb-egress-only.png" alt="Figure depicts a egress only load balancer configuration." width="500" title="Virtual Network NAT">
 </p>
 
 
