@@ -27,7 +27,7 @@ Private endpoint connections to some resources can only be created via the previ
 
 The following are the list of Azure resources to which outbound private endpoints can be created from Azure Cognitive Search. `groupId` listed in the table below needs to be used exactly (case-sensitive) in the API to create a shared private link resource.
 
-| Azure Resource | Group Id |
+| Azure Resource | Group ID |
 | --- | --- |
 | Azure Storage - Blob (or) ADLS Gen 2 | `blob`|
 | Azure Storage - Tables | `table`|
