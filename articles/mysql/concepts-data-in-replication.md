@@ -26,7 +26,7 @@ For migration scenarios, use the [Azure Database Migration Service](https://azur
 The [*mysql system database*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) on the master server isn't replicated. Changes to accounts and permissions on the master server aren't replicated. If you create an account on the master server and this account needs to access the replica server, manually create the same account on the replica server side. To understand what tables are contained in the system database, see the [MySQL manual](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
 ### Filtering
-To skip replicating tables from your master server, the `replicate_wild_ignore_table` parameter is supported. Optionally, update this parameter on the replica server hosted in Azure using the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).
+To skip replicating tables from your master server (hosted on-premises, in virtual machines, or a database service hosted by other cloud providers), the `replicate_wild_ignore_table` parameter is supported. Optionally, update this parameter on the replica server hosted in Azure using the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) to learn more about this parameter.
 
