@@ -27,7 +27,7 @@ Adaptive application controls are an intelligent and automated solution for defi
 
 Often, organizations have collections of stable machines that routinely run the same processes. Security Center uses machine learning to analyze the applications running on your machines and create a list of the known-safe software. Allow lists are based on your specific Azure workloads, and you can further customize the recommendations using the instructions below.
 
-When you've enabled and configured adaptive application controls, you'll get security alerts if any process runs other than the ones you've defined as safe.
+When you've enabled and configured adaptive application controls, you'll get security alerts if any application runs other than the ones you've defined as safe.
 
 
 ## What are the benefits of adaptive application controls?
@@ -42,28 +42,25 @@ By defining lists of known-safe applications, and generating alerts when anythin
 
 
 
-
 ## Availability
 
-- Release state: **General availability**
-- Pricing: **Standard tier**
-- Supported VMs: Azure and non-Azure machines running Windows and Linux
-- Required roles and permissions:
-    - **Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications
-    - **Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications
-- Clouds: 
-    - ✔ Commercial clouds
-    - ✔ National/Sovereign (US Gov, China Gov, Other Gov)
 
-
+|||
+|----|:----|
+|Release state:|**General availability**|
+|Pricing:|**Standard tier**|
+|Supported machines:|✔ Azure and non-Azure machines running Windows and Linux<br>✔ [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machines|
+|Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
+|Clouds:|✔ Commercial clouds<br>✔ National/Sovereign (US Gov, China Gov, Other Gov)|
+|||
 
 
 
 ## Enable adaptive application controls on a group of machines
 
-If Security Center has identified groups of stable machines in your subscriptions that run a similar set of processes, you'll be prompted with the following recommendation: **Adaptive application controls for defining safe applications should be enabled on your machines**.
+If Security Center has identified groups of stable machines in your subscriptions that run a similar set of applications, you'll be prompted with the following recommendation: **Adaptive application controls for defining safe applications should be enabled on your machines**.
 
-Select that recommendation, or open the adaptive application controls page to view the list of suggested known-safe processes and groups of machines.
+Select the recommendation, or open the adaptive application controls page to view the list of suggested known-safe applications and groups of machines.
 
 1. From Security Center's menu, select **Adaptive application controls**.
 
@@ -73,16 +70,21 @@ Select that recommendation, or open the adaptive application controls page to vi
         - the number of machines in the group
         - recent alerts
 
-    - **Recommended** - Groups of machines without a defined allow list of applications, but that can support this feature. We recommend that you enable adaptive application controls for these groups. 
+    - **Recommended** - Groups of machines without a defined allow list of applications, but that can support this feature. We recommend that you enable adaptive application controls for these groups.
     
+      > [!TIP]
+      > If you see a group name with the prefix "REVIEWGROUP", it contains machines with an unstable list of applications. Security Center can't see a pattern but recommends reviewing this group to see whether _you_ can manually define some adaptive application controls rules as described in [Editing a group's adaptive application controls rule](#editing-a-groups-adaptive-application-controls-rule).
+      >
+      > You can also move machines from this group to other groups as described in [Move a machine from one group to another](#move-a-machine-from-one-group-to-another).
+
+    - **No recommendation** - Machines without a defined allow list of applications, and which don't support the feature. Your machine might be in this tab for the following reasons:
+      - It's missing a Log Analytics agent
+      - The Log Analytics agent isn't sending events
+      - It's a Windows machine with a pre-existing [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker) policy enabled by either a GPO or a local security policy
+
       > [!TIP]
       > Security Center needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently enabled with standard tier, will appear under the **No recommendation** tab.
 
-    - **No recommendation** - Groups of machines without a defined allow list of applications, and which don't support the feature. Your machine might be in this tab for the following reasons:
-      - The list of applications and processes is unstable and Security Center can't see a pattern
-      - It's missing a Log Analytics agent
-      - The Log Analytics agent isn't sending events
-      - The machine has a pre-existing [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker) policy enabled by either a GPO or a local security policy
 
 1. Open the **Recommended** tab. The groups of machines with recommended allow lists appears.
 
@@ -118,7 +120,7 @@ To edit the rules for a group of machines:
 
 1. From Security Center's menu, select **Adaptive application controls**.
 
-1. From the **Recommended** tab, select the group with the rule you want to edit.
+1. From the **Configured** tab, select the group with the rule you want to edit.
 
 1. Review the various sections of the **Configure application control rules** page as described in [Enable adaptive application controls on a group of machines](#enable-adaptive-application-controls-on-a-group-of-machines).
 
