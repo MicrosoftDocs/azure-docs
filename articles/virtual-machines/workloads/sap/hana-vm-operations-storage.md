@@ -326,9 +326,10 @@ So far, the Azure premium storage solution described in this document in section
 
 Nevertheless a less costly alternative for such configurations could look like:
 
+
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data and /hana/log<br /> striped with LVM or MDADM | /hana/shared | /root volume | /usr/sap | comments |
 | --- | --- | --- | --- | --- | --- | --- | -- |	
-| DS14v2 | 112 GiB | 768 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | |
+| DS14v2 | 112 GiB | 768 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | --- |
 | E16v3 | 128 GiB | 384 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | VM type not HANA certified <br /> Will not achieve less than 1ms storage latency<sup>1</sup> |	
 | E20ds_v4 | 160 GiB | 480 MB/s | 4 x P6 | 1 x E15 | 1 x E6 | 1 x E6 | Will not achieve less than 1ms storage latency<sup>1</sup> |
 | E32v3 | 256 GiB | 768 MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | VM type not HANA certified <br /> Will not achieve less than 1ms storage latency<sup>1</sup> | 
@@ -349,6 +350,7 @@ Nevertheless a less costly alternative for such configurations could look like:
 | M416ms_v2 | 11400 GiB | 2,000 MB/s | 8 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
 
 <sup>1</sup> [Azure Write Accelerator](../../linux/how-to-enable-write-accelerator.md) can't be used with the Ev4 and Ev4 VM families. As a result of using Azure premium storage the I/O latencies will not be less than 1ms
+
 <sup>2</sup> The VM family supports [Azure Write Accelerator](../../linux/how-to-enable-write-accelerator.md), but there is a potential that the IOPS limit of Write accelerator could limit the disk configurations IOPS capabilities
 
 There are VM types listed that are not certified with SAP and as such not listed in the so called [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Feedback of customers was that those VM types were used successfully for some non-production tasks.
