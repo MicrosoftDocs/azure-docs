@@ -76,19 +76,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
+1. On the Basic SAML Configuration section, if you wish to configure the application in IDP initiated mode, perform the following steps:
 
-	a. Check **Set additional URLs**.
+	a. Make sure the Reply URL is set to: https://console.spotinst.com/auth/saml
 
-	b. In the **Relay State** textbox, type a value: `<ID>`
-
-1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
-
-	In the **Sign-on URL** text box, type the URL:
-    `https://console.spotinst.com/auth/saml`
-
-	> [!NOTE]
-	> The Relay State value is not real. You will update the Relay State value with the actual Relay State value, which is explained later in the tutorial.
+	b. In the Relay State textbox, enter your Spotinst Organization ID which you can also confirm from the SSO tab.
+	
+	c. The Sign-on URL must be empty.
 
 1. Click **Save**.
 
