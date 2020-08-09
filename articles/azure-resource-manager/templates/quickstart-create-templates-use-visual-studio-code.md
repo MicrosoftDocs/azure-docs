@@ -2,7 +2,7 @@
 title: Create template - Visual Studio Code
 description: Use Visual Studio Code and the Azure Resource Manager tools extension to work on Resource Manager templates.
 author: neilpeterson
-ms.date: 04/17/2020
+ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
 
@@ -66,7 +66,7 @@ To use the completion capabilities, remove `megaStorage`, place the cursor insid
 
 Now create and use a parameter to specify the storage account name.
 
-Place your cursor in the parameters block, add a carriage return, type `par`, and then select the `arm-param-value` snippet. This action adds a generic parameter to the template.
+Place your cursor in the parameters block, add a carriage return, type `"`, and then select the `new-parameter` snippet. This action adds a generic parameter to the template.
 
 ![Image showing a parameter being added to the ARM template](./media/quickstart-create-templates-use-visual-studio-code/9.png)
 
