@@ -184,7 +184,7 @@ When you move a machine from one group to another, the application control polic
 
 1. Open the list of  **Configured machines**.
 
-1. Open the machine's menu from three dots in the line of the row, and select **Move**. The **Move machine to a different group** pane opens.
+1. Open the machine's menu from three dots at the end of the row, and select **Move**. The **Move machine to a different group** pane opens.
 
 1. Select the destination group, and select **Move machine**.
 
