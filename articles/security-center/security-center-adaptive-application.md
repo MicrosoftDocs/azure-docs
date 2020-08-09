@@ -44,14 +44,13 @@ By defining lists of known-safe applications, and generating alerts when anythin
 
 ## Availability
 
-
-|||
+|Aspect|Details|
 |----|:----|
-|Release state:|**General availability**|
-|Pricing:|**Standard tier**|
-|Supported machines:|✔ Azure and non-Azure machines running Windows and Linux<br>✔ [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machines|
+|Release state:|General availability|
+|Pricing:|Standard tier|
+|Supported machines:|![Yes](./media/icons/yes-icon.png) Azure and non-Azure machines running Windows and Linux<br>![Yes](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) machines|
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
-|Clouds:|✔ Commercial clouds<br>✔ National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
 
