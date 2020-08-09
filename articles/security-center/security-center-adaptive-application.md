@@ -174,7 +174,7 @@ To remediate the issues:
 
    ![Recent alerts](./media/security-center-adaptive-application/recent-alerts.png)
 
-1. For further details and the list of affected machines, select an alert.
+1. For further details, and the list of affected machines, select an alert.
 
 
 
