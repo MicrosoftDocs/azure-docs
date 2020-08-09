@@ -357,6 +357,8 @@ Nevertheless a less costly alternative for such configurations could look like:
 
 There are VM types listed that are not certified with SAP and as such not listed in the so called [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Feedback of customers was that those VM types were used successfully for some non-production tasks.
 
+In the case of combining the data and log volume for SAP HANA, the disks building the striped volume should not have read cache or read/write cache enabled.
+
 
 
 ## Next steps
