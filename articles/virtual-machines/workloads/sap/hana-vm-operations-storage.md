@@ -349,7 +349,7 @@ Nevertheless a less costly alternative for such configurations could look like:
 | M416s_v2 | 5,700 GiB | 2,000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
 | M416ms_v2 | 11400 GiB | 2,000 MB/s | 8 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
 
-<sup>1</sup> [Azure Write Accelerator](../../linux/how-to-enable-write-accelerator.md) can't be used with the Ev4 and Ev4 VM families. As a result of using Azure premium storage the I/O latencies will not be less than 1ms
+<sup>1</sup> [Azure Write Accelerator](../../linux/how-to-enable-write-accelerator.md) can't be used with the Ev4 and Ev4 VM families. As a result of using Azure premium storage the I/O latency will not be less than 1ms
 
 <sup>2</sup> The VM family supports [Azure Write Accelerator](../../linux/how-to-enable-write-accelerator.md), but there is a potential that the IOPS limit of Write accelerator could limit the disk configurations IOPS capabilities
 
