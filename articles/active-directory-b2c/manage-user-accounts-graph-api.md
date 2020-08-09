@@ -118,7 +118,7 @@ Microsoft Graph API supports creating and updating a user with extension attribu
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
-## Code sample
+## Code sample: How to programmatically manage user accounts
 
 This code sample is a .NET Core console application that uses the [Microsoft Graph SDK](https://docs.microsoft.com/graph/sdks/sdks-overview) to interact with Microsoft Graph API. Its code demonstrates how to call the API to programmatically manage users in an Azure AD B2C tenant.
 You can [download the sample archive](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (*.zip), [browse the repository](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) on GitHub, or clone the repository:
