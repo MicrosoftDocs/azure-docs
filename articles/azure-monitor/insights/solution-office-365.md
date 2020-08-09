@@ -224,7 +224,7 @@ You will be prompted for credentials. Provide the credentials for your Log Analy
 
 ## Data collection
 
-It may take a few hours for data to initially be collected. Once it starts collecting, Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Azure Monitor each time a record is created. This record is available in Azure Monitor within a few minutes after being received.
+It may take a few hours for data to initially be collected. Once it starts collecting, Office 365 sends a [webhook notification](/office/office-365-management-api/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Azure Monitor each time a record is created. This record is available in Azure Monitor within a few minutes after being received.
 
 ## Using the solution
 

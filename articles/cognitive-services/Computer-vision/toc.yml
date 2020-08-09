@@ -109,12 +109,10 @@
     href: concept-recognizing-text.md
   - name: Adult content detection
     href: concept-detecting-adult-content.md
-- name: How-to guides
+- name: Containers
   items:
-  - name: Call the Computer Vision API
-    href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
-  - name: Use containers
-    items:
+  - name: Read API container
+    items: 
     - name: Install and run containers
       href: computer-vision-how-to-install-containers.md
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises
@@ -127,6 +125,10 @@
     - name: Use container instances
       href: deploy-computer-vision-on-container-instances.md
       displayName: container instances, container, containers, images
+- name: How-to guides
+  items:
+  - name: Call the Computer Vision API
+    href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
   - name: Analyze videos in real time
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Reference

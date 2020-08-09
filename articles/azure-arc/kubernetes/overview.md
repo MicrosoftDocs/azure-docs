@@ -20,9 +20,8 @@ To connect a Kubernetes cluster to Azure, the cluster administrator needs to dep
 
 Azure Arc-enabled Kubernetes supports industry-standard SSL to secure data in transit. Also, data is stored encrypted at rest in an Azure Cosmos DB database to ensure data confidentiality.
  
- > [!NOTE]
-> Azure Arc-enabled Kubernetes is in preview. We don't recommend it for production workloads. 
-
+> [!NOTE]
+> Azure Arc enabled Kubernetes is in preview. We don't recommend it for production workloads.
 
 ## Supported scenarios 
 
@@ -36,7 +35,6 @@ Azure Arc-enabled Kubernetes supports these scenarios:
 
 * Apply policies by using Azure Policy for Kubernetes. 
 
- 
 ## Supported regions 
 
 Azure Arc-enabled Kubernetes is currently supported in these regions: 

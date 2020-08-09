@@ -6,6 +6,8 @@
   href: sample-v1-code.md
 - name: Concepts
   items:
+  - name: Evolution of Microsoft identity platform
+    href: about-microsoft-identity-platform.md
   - name: Why update to v2.0
     href: azure-ad-endpoint-comparison.md
   - name: Application types

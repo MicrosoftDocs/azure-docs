@@ -86,7 +86,7 @@ The following are the changes to be aware of before upgrading a 2.x app to 3.x.
 
 #### .NET
 
-* [Synchronous server operations are disabled by default](https://docs.microsoft.com/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
+* [Synchronous server operations are disabled by default](/dotnet/core/compatibility/2.2-3.0#http-synchronous-io-disabled-in-all-servers).
 
 ### Changing version of apps in Azure
 

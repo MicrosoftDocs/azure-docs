@@ -160,7 +160,7 @@ Make sure you've completed the steps to [Prepare to monitor events](detect-motio
      * A final call to `GraphTopologyList` shows that the list is now empty.
 
 ## Interpret results 
-When you run the media graph, the results from the motion detector processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window of Visual Studio Code contain a `body` section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the media graph, the results from the motion detector processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window of Visual Studio Code contain a `body` section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the Live Video Analytics module defines the application properties and the content of the body.
 
@@ -250,7 +250,7 @@ To play the MP4 clip:
 
     ![Output](./media/quickstarts/samples-output.png) 
 
-1. Use [Secure Copy (SCP)](https://docs.microsoft.com/azure/virtual-machines/linux/copy-files-to-linux-vm-using-scp) to copy the files to your local machine. 
+1. Use [Secure Copy (SCP)](../../virtual-machines/linux/copy-files-to-linux-vm-using-scp.md) to copy the files to your local machine. 
 1. Play the files by using [VLC media player](https://www.videolan.org/vlc/) or any other MP4 player.
 
 ## Clean up resources
@@ -263,4 +263,4 @@ If you intend to try the other quickstarts, then keep the resources you created.
 * Review additional challenges for advanced users:
 
     * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products) page. Look for devices that conform with profiles G, S, or T.
-    * Use an AMD64 or x64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux). Then follow the instructions in [Deploy your first IoT Edge module to a virtual Linux device](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) to register the device with Azure IoT Hub.
+    * Use an AMD64 or x64 Linux device rather than using a Linux VM in Azure. This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge-linux.md). Then follow the instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md) to register the device with Azure IoT Hub.

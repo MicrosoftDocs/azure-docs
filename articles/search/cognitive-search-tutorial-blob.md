@@ -8,7 +8,7 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/26/2020
+ms.date: 07/15/2020
 ---
 
 # Tutorial: Use REST and AI to generate searchable content from Azure blobs

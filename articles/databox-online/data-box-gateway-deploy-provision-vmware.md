@@ -89,7 +89,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
   
 3. Upload the VMDK to the ESXi server. In the Navigator pane, select **Storage**.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
+   ![Screenshot of a page on the ESXi server site that shows the Navigator pane with the Storage option selected.](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
 4. In the right pane, under **Datastores**, select the datastore where you want to upload the VMDK. 
 

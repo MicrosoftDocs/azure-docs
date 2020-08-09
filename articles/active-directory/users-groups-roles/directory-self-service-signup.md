@@ -74,8 +74,8 @@ For more information and examples of how to use these parameters, see [Set-MsolC
 ## Next steps
 
 * [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md)
-* [How to install and configure Azure PowerShell](/powershell/azure/overview)
-* [Azure PowerShell](/powershell/azure/overview)
+* [How to install and configure Azure PowerShell](/powershell/azure/)
+* [Azure PowerShell](/powershell/azure/)
 * [Azure Cmdlet Reference](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 * [Close your work or school account in an unmanaged directory](users-close-account.md)

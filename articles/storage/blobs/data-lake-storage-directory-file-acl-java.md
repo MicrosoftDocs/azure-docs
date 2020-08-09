@@ -4,6 +4,7 @@ description: Use Azure Storage libraries for Java to manage directories and file
 author: normesta
 ms.service: storage
 ms.date: 03/20/2020
+ms.custom: devx-track-java
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
@@ -226,6 +227,8 @@ static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient
 }
 
 ```
+
+You can also get and set the ACL of the root directory of a container. To get the root directory, pass an empty string (`""`) into the **DataLakeFileSystemClient.getDirectoryClient** method.
 
 ## Upload a file to a directory
 

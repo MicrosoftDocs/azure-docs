@@ -33,11 +33,11 @@ The reasons to perform a VM recovery are many and can be attributed to scenarios
    - Mangled sshd configurations files
    - Networking configurations
 
- Many other scenarios as detailed [here](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux#common-scenarios-for-accessing-the-serial-console)
+ Many other scenarios as detailed [here](./serial-console-linux.md#common-scenarios-for-accessing-the-serial-console)
 
 Verify that you can access GRUB and the Serial console on your VMs deployed in Azure. 
 
-If you are new to Serial Console, refer to [this link](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux/).
+If you are new to Serial Console, refer to [this link](./serial-console-linux.md).
 
 > [!TIP]
 > Ensure you take backups of files before making changes
@@ -346,7 +346,7 @@ GRUB menu should appear on-screen for the configured timeout=15 without the need
 ## SuSE
 
 ## SLES 12 sp1
-Either use YaST bootloader as per the official [docs](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#grub-access-in-suse-sles)
+Either use YaST bootloader as per the official [docs](./serial-console-grub-single-user-mode.md#grub-access-in-suse-sles)
 
 Or add/change to /etc/default/grub the following parameters:
 
@@ -431,11 +431,11 @@ Alternatively you might need to access the VM in single user or emergency mode. 
 Enter the desired mode by appending the keyword **single** or **1** to the kernel boot line. 
 On RHEL systems, you can also append **rd.break**.
 
-For more information on how to access single user mode, see [this doc](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode#general-single-user-mode-access) 
+For more information on how to access single user mode, see [this doc](./serial-console-grub-single-user-mode.md#general-single-user-mode-access) 
 
 
 ![single_user_ubuntu](./media/virtual-machines-serial-console/single-user-ubuntu.png)
 
 
 ## Next steps
-Learn more about [Azure Serial Console]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+Learn more about [Azure Serial Console]( ./serial-console-linux.md)

@@ -10,7 +10,7 @@ ms.date: 07/03/2020
 
 # Secure access and data in Azure Logic Apps
 
-Azure Logic Apps relies on [Azure Storage](https://docs.microsoft.com/azure/storage/) to store and automatically [encrypt data at rest](../security/fundamentals/encryption-atrest.md). This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
+Azure Logic Apps relies on [Azure Storage](../storage/index.yml) to store and automatically [encrypt data at rest](../security/fundamentals/encryption-atrest.md). This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md).
 
 To further control access and protect sensitive data in Azure Logic Apps, you can set up additional security in these areas:
 
@@ -46,7 +46,7 @@ Here are options that can help you secure access to this trigger type:
 
 ### Generate shared access signatures (SAS)
 
-Every request endpoint on a logic app has a [Shared Access Signature (SAS)](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) in the endpoint's URL, which follows this format:
+Every request endpoint on a logic app has a [Shared Access Signature (SAS)](/rest/api/storageservices/constructing-a-service-sas) in the endpoint's URL, which follows this format:
 
 `https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`
 
@@ -81,7 +81,7 @@ To generate a new security access key at any time, use the Azure REST API or Azu
 
 #### Create expiring callback URLs
 
-If you share the endpoint URL for a request-based trigger with other parties, you can generate callback URLs that use specific keys and have expiration dates. That way, you can seamlessly roll keys or restrict access to triggering your logic app based on a specific timespan. To specify an expiration date for a URL, use the [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers), for example:
+If you share the endpoint URL for a request-based trigger with other parties, you can generate callback URLs that use specific keys and have expiration dates. That way, you can seamlessly roll keys or restrict access to triggering your logic app based on a specific timespan. To specify an expiration date for a URL, use the [Logic Apps REST API](/rest/api/logic/workflowtriggers), for example:
 
 ```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
@@ -93,7 +93,7 @@ In the body, include the `NotAfter`property by using a JSON date string. This pr
 
 #### Create URLs with primary or secondary secret key
 
-When you generate or list callback URLs for a request-based trigger, you can specify the key to use for signing the URL. To generate a URL that's signed by a specific key, use the [Logic Apps REST API](https://docs.microsoft.com/rest/api/logic/workflowtriggers), for example:
+When you generate or list callback URLs for a request-based trigger, you can specify the key to use for signing the URL. To generate a URL that's signed by a specific key, use the [Logic Apps REST API](/rest/api/logic/workflowtriggers), for example:
 
 ```http
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
@@ -105,7 +105,7 @@ In the body, include the `KeyType` property as either `Primary` or `Secondary`. 
 
 ### Enable Azure Active Directory OAuth
 
-If your logic app starts with a [Request trigger](../connectors/connectors-native-reqres.md), you can enable [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) by creating an authorization policy for inbound calls to the Request trigger. Before you enable this authentication, review these considerations:
+If your logic app starts with a [Request trigger](../connectors/connectors-native-reqres.md), you can enable [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) by creating an authorization policy for inbound calls to the Request trigger. Before you enable this authentication, review these considerations:
 
 * An inbound call to your logic app can use only one authorization scheme, either Azure AD OAuth or [Shared Access Signatures (SAS)](#sas). Only [Bearer-type](../active-directory/develop/active-directory-v2-protocols.md#tokens) authorization schemes are supported for OAuth tokens, which are supported only for the Request trigger.
 
@@ -207,9 +207,9 @@ Along with Shared Access Signature (SAS), you might want to specifically limit t
 If you want your logic app to trigger only as a nested logic app, from the **Allowed inbound IP addresses** list, select **Only other Logic Apps**. This option writes an empty array to your logic app resource. That way, only calls from the Logic Apps service (parent logic apps) can trigger the nested logic app.
 
 > [!NOTE]
-> Regardless of IP address, you can still run a logic app that has a request-based trigger by using the 
-> [Logic Apps REST API: Workflow Triggers - Run](https://docs.microsoft.com/rest/api/logic/workflowtriggers/run) 
-> request or by using API Management. However, this scenario still requires [authentication](../active-directory/develop/authentication-scenarios.md) 
+> Regardless of IP address, you can still run a logic app that has a request-based trigger by using the
+> [Logic Apps REST API: Workflow Triggers - Run](/rest/api/logic/workflowtriggers/run)
+> request or by using API Management. However, this scenario still requires [authentication](../active-directory/develop/authentication-vs-authorization.md)
 > against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
 
 #### Restrict inbound IP ranges in Azure Resource Manager template
@@ -246,7 +246,7 @@ If you [automate deployment for logic apps by using Resource Manager templates](
                   ]
                },
                "actions": {
-                  "allowedCallerIpAddresses:" : []
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}
@@ -261,13 +261,13 @@ If you [automate deployment for logic apps by using Resource Manager templates](
 
 ### Add Azure Active Directory Open Authentication or other security
 
-To add more [authentication](../active-directory/develop/authentication-scenarios.md) protocols to your logic app, consider using the [Azure API Management](../api-management/api-management-key-concepts.md) service. This service helps you expose your logic app as an API and offers rich monitoring, security, policy, and documentation for any endpoint. API Management can expose a public or private endpoint for your logic app. To authorize access to this endpoint, you can use [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), [client certificate](#client-certificate-authentication), or other security standards for authorizing access to that endpoint. When API Management receives a request, the service sends the request to your logic app, also making any necessary transformations or restrictions along the way. To let only API Management trigger your logic app, you can use your logic app's inbound IP range settings.
+To add more [authentication](../active-directory/develop/authentication-vs-authorization.md) protocols to your logic app, consider using the [Azure API Management](../api-management/api-management-key-concepts.md) service. This service helps you expose your logic app as an API and offers rich monitoring, security, policy, and documentation for any endpoint. API Management can expose a public or private endpoint for your logic app. To authorize access to this endpoint, you can use [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), [client certificate](#client-certificate-authentication), or other security standards for authorizing access to that endpoint. When API Management receives a request, the service sends the request to your logic app, also making any necessary transformations or restrictions along the way. To let only API Management trigger your logic app, you can use your logic app's inbound IP range settings.
 
 <a name="secure-operations"></a>
 
 ## Access to logic app operations
 
-You can permit only specific users or groups to run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, use [Azure Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) so that you can assign customized or built-in roles to the members in your Azure subscription:
+You can permit only specific users or groups to run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, use [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) so that you can assign customized or built-in roles to the members in your Azure subscription:
 
 * [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor): Lets you manage logic apps, but you can't change access to them.
 
@@ -307,7 +307,7 @@ You can limit access to the inputs and outputs in your logic app's run history s
 
 1. Under **Access control configuration** > **Allowed inbound IP addresses**, select **Specific IP ranges**.
 
-1. Under **IP ranges for contents**, specify the IP address ranges that can access content from inputs and outputs. 
+1. Under **IP ranges for contents**, specify the IP address ranges that can access content from inputs and outputs.
 
    A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
@@ -425,7 +425,7 @@ Here are some [considerations to review](#obfuscation-considerations) when you u
 
 * When you obscure the inputs or outputs on a trigger or action, Logic Apps doesn't send the secured data to Azure Log Analytics. Also, you can't add [tracked properties](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) to that trigger or action for monitoring.
 
-* The [Logic Apps API for handling workflow history](https://docs.microsoft.com/rest/api/logic/) doesn't return secured outputs.
+* The [Logic Apps API for handling workflow history](/rest/api/logic/) doesn't return secured outputs.
 
 * To secure outputs from an action that obscures inputs or explicitly obscures outputs, manually turn on **Secure Outputs** in that action.
 
@@ -460,9 +460,9 @@ If you deploy across different environments, consider parameterizing the values 
 For example, if you authenticate HTTP actions with [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), you can define and obscure the parameters that accept the client ID and client secret that are used for authentication. To define these parameters in your logic app, use the `parameters` section in your logic app's workflow definition and Resource Manager template for deployment. To help secure parameter values that you don't want shown when editing your logic app or viewing run history, define the parameters by using the `securestring` or `secureobject` type and use encoding as necessary. Parameters that have this type aren't returned with the resource definition and aren't accessible when viewing the resource after deployment. To access these parameter values during runtime, use the `@parameters('<parameter-name>')` expression inside your workflow definition. This expression is evaluated only at runtime and is described by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
-> If you use a parameter in a request header or body, that parameter might be visible when you view your logic app's 
-> run history and outgoing HTTP request. Make sure that you also set your content access policies accordingly. 
-> You can also use [obfuscation](#obfuscate) to hide inputs and outputs in your run history. Authorization headers 
+> If you use a parameter in a request header or body, that parameter might be visible when you view your logic app's
+> run history and outgoing HTTP request. Make sure that you also set your content access policies accordingly.
+> You can also use [obfuscation](#obfuscate) to hide inputs and outputs in your run history. Authorization headers
 > are never visible through inputs or outputs. So if a secret is used there, that secret isn't retrievable.
 
 For more information, see these sections in this topic:
@@ -613,7 +613,7 @@ This example template that has multiple secured parameter definitions that use t
          "apiVersion": "2016-06-01",
          "properties": {
             "definition": {
-               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-0601/workflowdefinition.json#",
+               "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
                "actions": {
                   "HTTP": {
                      "type": "Http",
@@ -681,7 +681,7 @@ Here are some ways that you can help secure endpoints that receive calls or requ
   * [Active Directory OAuth authentication](#azure-active-directory-oauth-authentication)
 
   * [Managed identity authentication](#managed-identity-authentication)
-  
+
   For more information, see [Add authentication to outbound calls](#add-authentication-outbound) later in this topic.
 
 * Restrict access from logic app IP addresses.
@@ -701,7 +701,7 @@ Here are some ways that you can help secure endpoints that receive calls or requ
     [Azure API Management](../api-management/api-management-key-concepts.md) provides on-premises connection options, such as site-to-site virtual private network and [ExpressRoute](../expressroute/expressroute-introduction.md) integration for secured proxy and communication to on-premises systems. If you have an API that provides access to your on-premises system, and you exposed that API by creating an [API Management service instance](../api-management/get-started-create-service-instance.md), you can call that API in your logic app's workflow by selecting the built-in API Management trigger or action in the Logic App Designer.
 
     > [!NOTE]
-    > The connector shows only those API Management services where you have permissions to view and connect, 
+    > The connector shows only those API Management services where you have permissions to view and connect,
     > but doesn't show consumption-based API Management services.
 
     1. In the Logic App Designer, enter `api management` in the search box. Choose the step based on whether you're adding a trigger or an action:<p>
@@ -729,7 +729,7 @@ Here are some ways that you can help secure endpoints that receive calls or requ
 HTTP and HTTPS endpoints support various kinds of authentication. On some triggers and actions that you use for sending outbound calls or requests to these endpoints, you can specify an authentication type. In the Logic App Designer, triggers and actions that support choosing an authentication type have an **Authentication** property. However, this property might not always appear by default. In these cases, on the trigger or action, open the **Add new parameter** list, and select **Authentication**.
 
 > [!IMPORTANT]
-> To protect sensitive information that your logic app handles, use secured parameters and encode data as necessary. 
+> To protect sensitive information that your logic app handles, use secured parameters and encode data as necessary.
 > For more information about using and securing parameters, see [Access to parameter inputs](#secure-action-parameters).
 
 This table identifies the authentication types that are available on the triggers and actions where you can select an authentication type:
@@ -817,7 +817,7 @@ For more information about securing services by using client certificate authent
 
 ### Azure Active Directory Open Authentication
 
-On Request triggers, you can use [Azure Active Directory Open Authentication](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth), for authenticating incoming calls after you [set up Azure AD authorization policies](#enable-oauth) for your logic app. For all other triggers and actions that provide the **Active Directory OAuth** authentication type for you to select, specify these property values:
+On Request triggers, you can use [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth), for authenticating incoming calls after you [set up Azure AD authorization policies](#enable-oauth) for your logic app. For all other triggers and actions that provide the **Active Directory OAuth** authentication type for you to select, specify these property values:
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
@@ -954,7 +954,7 @@ You can use Azure Logic Apps in [Azure Government](../azure-government/documenta
   * [Azure App Service plans](../app-service/overview-hosting-plans.md)
   * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
   * [Azure Dedicated Hosts for virtual machines](../virtual-machines/windows/dedicated-hosts.md)
-  * [Virtual machine isolation in Azure](../virtual-machines/windows/isolation.md)
+  * [Virtual machine isolation in Azure](../virtual-machines/isolation.md)
   * [Deploy dedicated Azure services into virtual networks](../virtual-network/virtual-network-for-azure-services.md)
 
 * To create logic apps that run on dedicated resources and can access resources protected by an Azure virtual network, you can create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
@@ -966,7 +966,7 @@ You can use Azure Logic Apps in [Azure Government](../azure-government/documenta
 For more information, see these topics:
 
 * [Isolation in the Azure Public Cloud](../security/fundamentals/isolation-choices.md)
-* [Security for highly sensitive IaaS apps in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/high-security-iaas)
+* [Security for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
 
 ## Next steps
 

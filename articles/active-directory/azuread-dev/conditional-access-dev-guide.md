@@ -16,7 +16,7 @@ ms.workload: identity
 ROBOTS: NOINDEX
 ---
 
-# Developer guidance for Azure Active Directory Conditional Access
+# Developer guidance for the Azure Active Directory Conditional Access feature
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 

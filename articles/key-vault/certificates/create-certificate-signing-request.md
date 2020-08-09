@@ -79,6 +79,24 @@ After the certificate request has been signed by the Issuer, you can bring back 
 
 Certificate request has now been successfully merged.
 
+## Adding more information to CSR
+
+If you want to add more information when creating CSR, for instance - 
+    - Country:
+    - City / Locality:
+    - State / Province:
+    - Organisation:
+    - Organisational Unit:
+You can add all that information when creating a CSR by defining that in subjectName.
+
+Example
+    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+    ```
+
+>[!Note]
+>If you are requesting a DV cert with all those details in the CSR, the CA might reject the request as CA might not be able to validate all that information in the request. If you are requesting an OV cert then it would be more appropriate to add all that information in the CSR.
+
+
 ## Troubleshoot
 
 If the certificate issued is in 'disabled' status in the Azure portal, proceed to view the **Certificate Operation** to review the error message for that certificate.

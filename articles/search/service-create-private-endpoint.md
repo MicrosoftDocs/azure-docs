@@ -82,11 +82,11 @@ In this section, you will create a new Azure Cognitive Search service with a Pri
     | Subscription | Select your subscription. |
     | Resource group | Select **myResourceGroup**. You created this in the previous section.|
     | Location | Select **West US**.|
-    | Name | Enter *myPrivateEndpoint*.  |
+    | Name | Enter *myPrivateEndpoint*.  |
     | Target sub-resource | Leave the default **searchService**. |
     | **NETWORKING** |  |
-    | Virtual network  | Select *MyVirtualNetwork* from resource group *myResourceGroup*. |
-    | Subnet | Select *mySubnet*. |
+    | Virtual network  | Select *MyVirtualNetwork* from resource group *myResourceGroup*. |
+    | Subnet | Select *mySubnet*. |
     | **PRIVATE DNS INTEGRATION** |  |
     | Integrate with private DNS zone  | Leave the default **Yes**. |
     | Private DNS zone  | Leave the default ** (New) privatelink.search.windows.net**. |
@@ -185,7 +185,7 @@ In this section, you will verify private network access to the search service an
 
 When the search service endpoint is private, some portal features are disabled. You'll be able to view and manage service level settings, but portal access to index data and various other components in the service, such as the index, indexer, and skillset definitions, is restricted for security reasons.
 
-1. In the Remote Desktop of *myVM*, open PowerShell.
+1. In the Remote Desktop of *myVM*, open PowerShell.
 
 1. Enter 'nslookup [search service name].search.windows.net'
 
@@ -203,7 +203,7 @@ When the search service endpoint is private, some portal features are disabled. 
 
 1. Completing the quickstart from the VM is your confirmation that the service is fully operational.
 
-1. Close the remote desktop connection to *myVM*. 
+1. Close the remote desktop connection to *myVM*. 
 
 1. To verify that your service is not accessible on a public endpoint, open Postman on your local workstation and attempt the first several tasks in the quickstart. If you receive an error that the remote server does not exist, you have successfully configured a private endpoint for your search service.
 

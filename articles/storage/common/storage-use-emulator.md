@@ -1,10 +1,10 @@
 ---
-title: Use the Azure storage emulator for development and testing | Microsoft Docs
+title: Use the Azure storage emulator for development and testing
 description: The Azure storage emulator provides a free local development environment for developing and testing your Azure Storage applications.
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 08/21/2019
+ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -13,6 +13,9 @@ ms.topic: how-to
 # Use the Azure storage emulator for development and testing
 
 The Microsoft Azure storage emulator is a tool that emulates the Azure Blob, Queue, and Table services for local development purposes. You can test your application against the storage services locally without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, switch to using an Azure storage account in the cloud.
+
+> [!IMPORTANT]
+> The Azure Storage Emulator is no longer being actively developed. [**Azurite**](storage-use-azurite.md) is the storage emulator platform going forward. Azurite supersedes the Azure Storage Emulator. Azurite will continue to be updated to support the latest versions of Azure Storage APIs. For more information, see [**Use the Azurite emulator for local Azure Storage development**](storage-use-azurite.md).
 
 ## Get the storage emulator
 
@@ -71,7 +74,7 @@ You can use the storage emulator command-line tool to initialize the storage emu
 
    `AzureStorageEmulator.exe init /server .`
 
-   Or, you can use the following command, which reinitializes the database to the default LocalDB instance:
+   Or, you can use the following command, which initializes the database to the default LocalDB instance:
 
    `AzureStorageEmulator.exe init /forceCreate`
 
@@ -203,7 +206,7 @@ The following differences apply to Blob storage in the emulator:
 * Incremental copy allows snapshots from overwritten blobs to be copied, which returns a failure on the service.
 * Get Page Ranges Diff doesn't work between snapshots copied using Incremental Copy Blob.
 * A Put Blob operation may succeed against a blob that exists in the storage emulator with an active lease even if the lease ID hasn't been specified in the request.
-* Append Blob operations are not supported by the emulator. Attempting an operation on an append blob returns a FeatureNotSupportedByEmulator error (HTTP status code 400 - Bad Request).
+* Append blob operations are not supported by the emulator. Attempting an operation on an append blob returns a FeatureNotSupportedByEmulator error (HTTP status code 400 - Bad Request).
 
 ### Differences for Table storage
 
@@ -297,7 +300,7 @@ There are no differences specific to Queue storage in the emulator.
 
 ### Version 4.1
 
-* The storage emulator now supports version 2015-02-21 of the storage services on Blob, Queue, and Table service endpoints. It doesn't support the new Append Blob features.
+* The storage emulator now supports version 2015-02-21 of the storage services on Blob, Queue, and Table service endpoints. It doesn't support the new append blob features.
 * The emulator now returns a meaningful error message for unsupported versions of storage services. We recommend using the latest version of the emulator. If you get a VersionNotSupportedByEmulator error (HTTP status code 400 - Bad Request), download the latest version of the emulator.
 * Fixed a bug wherein a race condition caused table entity data to be incorrect during concurrent merge operations.
 
@@ -324,3 +327,7 @@ There are no differences specific to Queue storage in the emulator.
 * Evaluate the cross-platform, community-maintained open-source storage emulator [Azurite](https://github.com/azure/azurite). 
 * [Azure Storage samples using .NET](../storage-samples-dotnet.md) contains links to several code samples you can use when developing your application.
 * You can use the [Microsoft Azure Storage Explorer](https://storageexplorer.com) to work with resources in your cloud Storage account, and in the storage emulator.
+
+## See Also
+
+* [Local Azure Storage Development with Azurite, Azure SDKs, and Azure Storage Explorer](https://blog.jongallant.com/2020/04/local-azure-storage-development-with-azurite-azuresdks-storage-explorer/)

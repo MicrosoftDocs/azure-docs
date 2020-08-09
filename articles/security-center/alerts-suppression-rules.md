@@ -19,8 +19,8 @@ This page explains how you can use alerts suppression rules to suppress false po
 - Release state: **Preview**
 - Required roles: **Security admin** and **Owner** can create/delete rules. **Security reader** and **Reader** can view rules.
 - Clouds: 
-    - ✔ Commercial clouds
-    - ✔ National/Sovereign (US Gov, China Gov, Other Gov)
+  ✔ Commercial clouds
+  ✔ National/Sovereign (US Gov, China Gov, Other Gov)
 
 
 ## What are suppression rules?

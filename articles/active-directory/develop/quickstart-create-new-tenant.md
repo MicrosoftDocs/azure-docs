@@ -31,7 +31,7 @@ There are two types of environments you can create. Deciding which you need is b
 * Work and school (Azure AD accounts) or Microsoft accounts (such as outlook.com and live.com)
 * Social and local accounts (Azure AD B2C)
 
-The quickstart is broken into two scenarios depending on the type of app you want to build. If you need more help targeting an identity type, take a look at [about Microsoft identity platform](about-microsoft-identity-platform.md)
+The quickstart is broken into two scenarios depending on the type of app you want to build.
 
 ## Work and school accounts, or personal Microsoft accounts
 

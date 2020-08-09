@@ -19,7 +19,9 @@ ms.author: iainfou
 
 Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos / NTLM authentication. You use these domain services without the need to deploy, manage, and patch domain controllers (DCs) in the cloud.
 
-A managed domain is a DNS namespace and matching directory. The managed domain integrates with your existing Azure AD tenant, which makes it possible for users to sign in using their existing credentials. You can also use existing groups and user accounts to secure access to resources, which provides a smoother lift-and-shift of on-premises resources to Azure.
+When you create an Azure AD DS managed domain, you define a unique namespace. This namespace is the domain name, such as *aaddscontoso.com*, and two domain controllers (DCs) are then deployed into your selected Azure region. This deployment of DCs is known as a replica set. The managed domain integrates with your existing Azure AD tenant, which makes it possible for users to sign in using their existing credentials. You can also use existing groups and user accounts to secure access to resources, which provides a smoother lift-and-shift of on-premises resources to Azure.
+
+You can expand a managed domain to have more than one replica set per Azure AD tenant. Replica sets can be added to any peered virtual network in any Azure region that supports Azure AD DS. Additional replica sets in different Azure regions provide geographical disaster recovery for legacy applications if an Azure region goes offline. Replica sets are currently in preview. For more information, see [Replica sets concepts and features for managed domains][concepts-replica-sets].
 
 Azure AD DS integrates with your existing Azure AD tenant. This integration lets users sign in to service and applications connected to the managed domain using their existing credentials. You can also use existing groups and user accounts to secure access to resources. These features provide a smoother lift-and-shift of on-premises resources to Azure.
 
@@ -148,3 +150,4 @@ To get started, [create a managed domain using the Azure portal][tutorial-create
 [forest-trusts]: concepts-resource-forest.md
 [administration-concepts]: administration-concepts.md
 [synchronization]: synchronization.md
+[concepts-replica-sets]: concepts-replica-sets.md

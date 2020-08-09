@@ -10,7 +10,7 @@ ms.custom: mvc, seodec18
 
 [Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](operating-system-functionality.md)). However, using a custom Windows container in App Service lets you make OS changes that your app needs, so it's easy to migrate on-premises app that requires custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), and then run it in App Service.
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
+![Shows the web app running in a Windows container.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
 ## Prerequisites
 
@@ -141,7 +141,7 @@ In the **Basics** tab, configure the settings according to the following table, 
 
 Your **Basics** tab should look like this:
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
+![Shows the Basics tab used to configure the web app.](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
 
 ### Configure Windows container
 
@@ -162,7 +162,7 @@ Click **Create** and wait for Azure to create the required resources.
 
 When the Azure operation is complete, a notification box is displayed.
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/portal-create-finished.png)
+![Shows that the Azure operation is complete.](media/app-service-web-tutorial-windows-containers-custom-fonts/portal-create-finished.png)
 
 1. Click **Go to resource**.
 
@@ -170,11 +170,11 @@ When the Azure operation is complete, a notification box is displayed.
 
 A new browser page is opened to the following page:
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-starting.png)
+![Shows the new browser page for the web app.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-starting.png)
 
 Wait a few minutes and try again, until you get the homepage with the beautiful font you expect:
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
+![Shows the homepage with the font you configured.](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
 **Congratulations!** You've migrated an ASP.NET application to Azure App Service in a Windows container.
 

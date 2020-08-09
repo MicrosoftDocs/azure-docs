@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Predict car prices with the designer'
+title: 'Tutorial: Predict car prices with the designer (preview)'
 titleSuffix: Azure Machine Learning
 description: Learn how to train, score, and deploy a machine learning model by using a drag-and-drop interface. This tutorial is part one of a two-part series on predicting automobile prices by using linear regression.
 
@@ -33,6 +33,8 @@ In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you
 >A completed version of this tutorial is available as a sample pipeline.
 >
 >To find it, go to the designer in your workspace. In the **New pipeline** section, select **Sample 1 - Regression: Automobile Price Prediction(Basic)**.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## Create a new pipeline
 

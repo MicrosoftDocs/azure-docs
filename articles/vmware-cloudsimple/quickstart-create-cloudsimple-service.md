@@ -82,4 +82,4 @@ To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, fi
 ## Next steps
 
 * [Create Private Cloud and configure environment](quickstart-create-private-cloud.md)
-* Learn more about [CloudSimple service](https://docs.microsoft.com/azure/vmware-cloudsimple/cloudsimple-service)
+* Learn more about [CloudSimple service](./cloudsimple-service.md)

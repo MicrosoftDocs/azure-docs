@@ -42,7 +42,7 @@ The HTTP contract is defined as follows:
 
 Requests from Live Video Analytics module to your module would be as follows:
 
-|||
+| Key | Value |
 |---|---|
 |POST| `https://hostname/optional-path?optional-query`|
 |Accept|application/json, */*|
@@ -68,7 +68,7 @@ Content-Length: 519222
 
 Responses from your module to Live Video Analytics module should be as follows
 
-|||
+| Key | Value |
 |---|---|
 |Status Codes|200 OK - Inference results found<br/>204 No Content - No content found by the AI<br/>400 Bad Request - Not expected<br/>500 Internal Server Error - Not expected<br/>503 Server Busy - AMS will back-off based on “Retry-After” header or based on a default amount of time in case header not preset.|
 |Content-Type|application/json|
@@ -261,7 +261,7 @@ The example below contains a single event with all the supported inference types
  
 ## Sample HTTP extension modules
 
-A few sample HTTP extension modules can be found in the [Live Video Analytics GitHub repo](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis). One of these [video analysis samples](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) shows how to use [Yolov3](https://pjreddie.com/darknet/yolo/) [ONNX](http://onnx.ai/) model to build an IoT Edge module for object detection. You can use the same approach to build a module of your own with an AI model of your choice.
+A few sample HTTP extension modules can be found in the [Live Video Analytics GitHub repo](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis). One of these [video analysis samples](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx) shows how to use the [YOLOv3](https://pjreddie.com/darknet/yolo/) [ONNX](http://onnx.ai/) model to build an IoT Edge module for object detection. Another [video analysis sample](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/yolov3-onnx-tiny) shows how to use Tiny YOLOv3, a lightweight version of the YOLOv3 ONNX model. You can use the same approach to build a module of your own with an AI model of your choice.
 
 ## Next steps
 

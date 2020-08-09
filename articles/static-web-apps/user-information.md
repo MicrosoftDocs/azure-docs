@@ -7,6 +7,8 @@ ms.service: static-web-apps
 ms.topic:  conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
+ms.custom: devx-track-javascript
+
 ---
 
 # Accessing user information in Azure Static Web Apps Preview

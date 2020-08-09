@@ -65,7 +65,7 @@ In the application's **Program** class, create variables for your resource's Azu
 Within the application directory, install the Computer Vision client library for .NET with the following command:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 5.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0-preview.1
 ```
 
 If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
@@ -206,7 +206,7 @@ The following code prints information about the type of image&mdash;whether it i
 
 ## Read printed and handwritten text
 
-Computer Vision can read visible text in an image and convert it to a character stream. The code in this section defines a method, `ExtractTextUrl`, which uses the client object to detect and extract printed or handwritten text in the image.
+Computer Vision can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR)](../../concept-recognizing-text.md#read-api) conceptual doc. The code in this section defines a method, `BatchReadFileUrl`, which uses the client object to detect and extract text in the image.
 
 Add the method call in your `Main` method.
 
@@ -214,7 +214,7 @@ Add the method call in your `Main` method.
 
 ### Set up test image
 
-In your **Program** class, save a reference the URL of the image you want to extract text from.
+In your **Program** class, save a reference to the URL of the image you want to extract text from. This snippet includes sample images for both printed and handwritten text.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readtext_url)]
 

@@ -191,3 +191,5 @@ You can create a VM from a shared image gallery and use customer-managed keys to
 ## Next steps
 
 Learn more about [server-side disk encryption](./windows/disk-encryption.md).
+
+For information about how to supply purchase plan information, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).

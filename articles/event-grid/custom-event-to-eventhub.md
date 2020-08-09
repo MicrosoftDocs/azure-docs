@@ -2,7 +2,8 @@
 title: 'Quickstart: Send custom events to Event Hubs - Event Grid, Azure CLI'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. An event hub is used for the endpoint.' 
 ms.date: 07/07/2020
-ms.topic: quickstart
+ms.topic: quickstart 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Route custom events to Azure Event Hubs with Azure CLI and Event Grid
@@ -92,8 +93,8 @@ Navigate to the event hub in the portal, and notice that Event Grid sent those t
 
 Typically, you create an application that retrieves the events from the event hub. To create an application that gets messages from an event hub, see:
 
-* [Get started receiving messages with the Event Processor Host in .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
-* [Receive events from Azure Event Hubs using Java](../event-hubs/event-hubs-java-get-started-receive-eph.md)
+* [Get started receiving messages with the Event Processor Host in .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* [Receive events from Azure Event Hubs using Java](../event-hubs/event-hubs-java-get-started-send.md)
 * [Receive events from Event Hubs using Apache Storm](../event-hubs/event-hubs-storm-getstarted-receive.md)
 
 ## Clean up resources

@@ -72,9 +72,9 @@ To illustrate the application of a cluster with outbound type using a user-defin
 
 ## Next steps
 
-See [Azure networking UDR overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+See [Azure networking UDR overview](../virtual-network/virtual-networks-udr-overview.md).
 
-See [how to create, change, or delete a route table](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
+See [how to create, change, or delete a route table](../virtual-network/manage-route-table.md).
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials

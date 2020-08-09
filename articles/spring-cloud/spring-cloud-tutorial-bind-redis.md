@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/31/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
 
 # Bind Azure Cache for Redis to your Azure Spring Cloud application 
