@@ -76,7 +76,7 @@ Select that recommendation, or open the adaptive application controls page to vi
     - **Recommended** - Groups of machines without a defined allow list of applications, but that can support this feature. We recommend that you enable adaptive application controls for these groups. 
     
       > [!TIP]
-      > Security Center needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently enabled with standard tier, will appear under the *no recommendation* tab.
+      > Security Center needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently enabled with standard tier, will appear under the **No recommendation** tab.
 
     - **No recommendation** - Groups of machines without a defined allow list of applications, and which don't support the feature. Your machine might be in this tab for the following reasons:
       - The list of applications and processes is unstable and Security Center can't see a pattern
@@ -118,7 +118,7 @@ To edit the rules for a group of machines:
 
 1. From Security Center's menu, select **Adaptive application controls**.
 
-1. From the **recommended** tab, select the group with the rule you want to edit.
+1. From the **Recommended** tab, select the group with the rule you want to edit.
 
 1. Review the various sections of the **Configure application control rules** page as described in [Enable adaptive application controls on a group of machines](#enable-adaptive-application-controls-on-a-group-of-machines).
 
