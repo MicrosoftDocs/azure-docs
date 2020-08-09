@@ -24,7 +24,7 @@ Create and open with Visual Studio Code a new file named *azuredeploy.json*. Ent
 
 Select `arm!` to create a template scoped for an Azure resource group deployment.
 
-![Image showing Azure Resource Manager scaffolding](./media/quickstart-create-templates-use-visual-studio-code/1.png)
+![Image showing Azure Resource Manager scaffolding snippets](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
 This snippet creates the basic building blocks for an ARM template.
 
