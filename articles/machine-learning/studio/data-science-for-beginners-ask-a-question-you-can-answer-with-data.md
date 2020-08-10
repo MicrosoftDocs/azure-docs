@@ -1,6 +1,5 @@
 ---
-title: Ask a question data can answer
-titleSuffix: ML Studio (classic) - Azure
+title: 'Ask a question data can answer - ML Studio (classic) - Azure'
 description: Learn how to formulate a sharp data science question in Data Science for Beginners video 3. Includes a comparison of classification and regression questions.
 services: machine-learning
 ms.service: machine-learning

@@ -7,9 +7,10 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 07/16/2020
 ms.author: tamram
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurecli
 ---
 
 # Configure object replication for block blobs (preview)
@@ -48,7 +49,7 @@ To create a replication policy in the Azure portal, follow these steps:
 
     :::image type="content" source="media/object-replication-configure/configure-replication-policy.png" alt-text="Screenshot showing replication rules in Azure portal":::
 
-1. If desired, specify one or more filters to copy only blobs that match a prefix pattern. For example, if you specify a prefix `b`, only blobs whose name begin with that letter are replicated. You can specify a virtual directory as part of the prefix.
+1. If desired, specify one or more filters to copy only blobs that match a prefix pattern. For example, if you specify a prefix `b`, only blobs whose name begin with that letter are replicated. You can specify a virtual directory as part of the prefix. The prefix string does not support wildcard characters.
 
     The following image shows filters that restrict which blobs are copied as part of a replication rule.
 
@@ -64,7 +65,7 @@ To create a replication policy in the Azure portal, follow these steps:
 
 # [PowerShell](#tab/powershell)
 
-To create a replication policy with PowerShell, first install version [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) of the Az.Storage PowerShell module. Follow these steps to install the preview module:
+To create a replication policy with PowerShell, first install version [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) or later of the Az.Storage PowerShell module. Follow these steps to install the preview module:
 
 1. Uninstall any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
 

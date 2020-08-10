@@ -4,7 +4,7 @@ description: Using Serial Console for grub in Azure virtual machines.
 services: virtual-machines-linux
 author: asinn826
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
@@ -173,7 +173,7 @@ Oracle Linux comes with GRUB enabled out of the box. To enter GRUB, reboot your 
 Follow the instructions for RHEL above to enable single user mode in Oracle Linux.
 
 ## Next steps
-* The main serial console Linux documentation page is located [here](serial-console.md).
+* The main serial console Linux documentation page is located [here](../troubleshooting/serial-console-linux.md).
 * Use Serial Console for [NMI and SysRq calls](serial-console-nmi-sysrq.md)
-* The Serial Console is also available for [Windows](../windows/serial-console.md) VMs
-* Learn more about [boot diagnostics](boot-diagnostics.md)
+* The Serial Console is also available for [Windows](../troubleshooting/serial-console-windows.md) VMs
+* Learn more about [boot diagnostics](../troubleshooting/boot-diagnostics.md)

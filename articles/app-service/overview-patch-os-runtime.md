@@ -74,7 +74,7 @@ The following table shows how to the versions of Windows and of the language run
 | Information | Where to find it | 
 |-|-|
 | Windows version | See `https://<appname>.scm.azurewebsites.net/Env.cshtml` (under System info) |
-| .NET version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
+| .NET version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br>`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"` |
 | .NET Core version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `dotnet --version` |
 | PHP version | At `https://<appname>.scm.azurewebsites.net/DebugConsole`, run the following command in the command prompt: <br> `php --version` |
 | Default Node.js version | In the [Cloud Shell](../cloud-shell/overview.md), run the following command: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |

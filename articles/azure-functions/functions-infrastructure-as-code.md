@@ -305,7 +305,7 @@ The Premium plan offers the same scaling as the Consumption plan but includes de
 
 ### Create a Premium plan
 
-A Premium plan is a special type of "serverfarm" resource. You can specify it by using either `EP1`, `EP2`, or `EP3` for the `Name` property value in the `sku` [description object](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
+A Premium plan is a special type of "serverfarm" resource. You can specify it by using either `EP1`, `EP2`, or `EP3` for the `Name` property value in the `sku` [description object](/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object).
 
 ```json
 {
@@ -512,7 +512,7 @@ Linux apps should also include a `linuxFxVersion` property under `siteConfig`. I
 }
 ```
 
-If you are [deploying a custom container image](./functions-create-function-linux-custom-image.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](/azure/app-service/containers). Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
+If you are [deploying a custom container image](./functions-create-function-linux-custom-image.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](../app-service/containers/index.yml). Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
 
 ```json
 {

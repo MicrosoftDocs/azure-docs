@@ -55,7 +55,7 @@ You should also review [account quotas and limits](limits-quotas-constraints.md)
 
 ### Streaming Endpoint
 
-The following Media Services [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) metrics are supported:
+The following Media Services [Streaming Endpoints](/rest/api/media/streamingendpoints) metrics are supported:
 
 |Metric name|Display name|Description|
 |---|---|---|

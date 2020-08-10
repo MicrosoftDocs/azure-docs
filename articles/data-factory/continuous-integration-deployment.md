@@ -44,7 +44,7 @@ Below is a sample overview of the CI/CD lifecycle in an Azure data factory that'
 
 1.  After a pull request is approved and changes are merged in the master branch, the changes get published to the development factory.
 
-1.  When the team is ready to deploy the changes to a test or UAT factory, the team goes to their Azure Pipelines release and deploys the desired version of the development factory to UAT. This deployment takes place as part of an Azure Pipelines task and uses Resource Manager template parameters to apply the appropriate configuration.
+1.  When the team is ready to deploy the changes to a test or UAT (User Acceptance Testing) factory, the team goes to their Azure Pipelines release and deploys the desired version of the development factory to UAT. This deployment takes place as part of an Azure Pipelines task and uses Resource Manager template parameters to apply the appropriate configuration.
 
 1.  After the changes have been verified in the test factory, deploy to the production factory by using the next task of the pipelines release.
 

@@ -53,6 +53,7 @@ If you select **Configure tile settings** and set a custom time range in excess 
 
 ## Next steps
 
-- [Funnels](../../azure-monitor/app/usage-funnels.md)
-- [Retention](../../azure-monitor/app/usage-retention.md)
-- [User Flows](../../azure-monitor/app/usage-flows.md)
+- [Funnels](./usage-funnels.md)
+- [Retention](./usage-retention.md)
+- [User Flows](./usage-flows.md)
+

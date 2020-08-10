@@ -3,10 +3,10 @@ title: Microsoft Business Applications Independent Software Vendor (ISV) Connect
 description: Here's how to onboard to the Business Applications ISV Connect Program.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 6/25/2020
-ms.author: dsindona
-
+ms.topic: article
+author: parthpandyaMSFT
+ms.author: parthp
+ms.date: 7/14/2020
 ---
 
 # Microsoft Business Applications Independent Software Vendor (ISV) Connect Program onboarding guide
@@ -34,7 +34,7 @@ Participation in this program requires you to review and accept the [Business Ap
 
 1.	Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 2.	Select **Settings** (gear icon) and select **Developer Settings**.
-3.	Select **Agreements**. 
+3.	Select **Agreements**.
 4.	Select the version link and view the agreement.
 5.	To agree and accept the agreement, select **Accept Agreement**.
 
@@ -65,15 +65,14 @@ The final step for enrollment in the Business Applications ISV Connect program i
 - [For Dynamics 365 for Finance and Operations](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 > [!IMPORTANT]
-> You need to recertify your apps every 6 months to keep them live on AppSource. For details, see marketplace policy [Commercial Marketplace Certification Policies](https://docs.microsoft.com/legal/marketplace/certification-policies). 
+> You need to re-certify your apps every 6 months to keep them live on AppSource. For details, see marketplace policy [Commercial Marketplace Certification Policies](https://docs.microsoft.com/legal/marketplace/certification-policies). 
 
 ## Next steps
 
 Ask your Account Manager or contact [Microsoft Partner Support](https://aka.ms/marketplacepublishersupport) for assistance with your account. For general information on the Business Applications ISV Connect Program, see:
 
-- **[Business Applications for ISVs (online article)](https://aka.ms/bizappsisvweb)**
-
-- **[Overview of the New Program for Business Applications ISVs (PDF)](https://aka.ms/bizappsisvprogram)**
-
-- **[ISV Connect Program Policies](https://aka.ms/bizappsisvpolicies)**
-
+- [Business Applications for ISVs](https://partner.microsoft.com/solutions/business-applications/isv-overview) (online article)
+- [Overview of the New Program for Business Applications ISVs](https://aka.ms/BizAppsISVProgram) (PDF)
+- [Business Applications ISV Connect Program FAQ](https://assetsprod.microsoft.com/business-applications-partner-faq.pdf) (PDF)
+- [Upcoming program for Business Applications ISVs](https://cloudblogs.microsoft.com/dynamics365/bdm/2019/04/17/upcoming-program-for-business-applications-isvs/) (blog post)
+- [ISV Connect Program Policies](https://aka.ms/bizappsisvpolicies) (PDF)

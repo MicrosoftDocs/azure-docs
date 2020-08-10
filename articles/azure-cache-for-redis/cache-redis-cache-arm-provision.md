@@ -20,7 +20,7 @@ For more information about creating templates, see [Authoring Azure Resource Man
 For the complete template, see [Azure Cache for Redis template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
 > [!NOTE]
-> Resource Manager templates for the new [Premium tier](cache-premium-tier-intro.md) are available. 
+> Resource Manager templates for the new [Premium tier](cache-overview.md#service-tiers) are available. 
 > 
 > * [Create a Premium Azure Cache for Redis with clustering](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [Create Premium Azure Cache for Redis with data persistence](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)

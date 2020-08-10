@@ -45,11 +45,7 @@ When ready, refresh the registration of the *Microsoft.ContainerService* resourc
 az provider register --namespace Microsoft.ContainerService
 ```
 
-> [!IMPORTANT]
-> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional information, please see the following support articles:
->
-> - [AKS Support Policies](support-policies.md)
-> - [Azure Support FAQ](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### Install aks-preview CLI extension
 
@@ -82,7 +78,7 @@ Create the AKS cluster with managed Azure AD integration and Azure RBAC for Kube
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
-az aks create -g MyResourceGroup -n MyManagedCluster -l westus2 --node-vm-size Standard_D2s_v3 --zones 1 --aks-custom-headers EnableUltraSSD=true
+az aks create -g MyResourceGroup -n MyManagedCluster -l westus2 --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
 ```
 
 If you want to create clusters without ultra disk support, you can do so by omitting the custom `--aks-custom-headers` parameter.
@@ -91,9 +87,8 @@ If you want to create clusters without ultra disk support, you can do so by omit
 
 You can enable ultra disks on existing clusters by adding a new node pool to your cluster that support ultra disks. Configure a new node pool to use host-based encryption by using the `--aks-custom-headers` flag.
 
-
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_DS2_v2 --zones 1 --aks-custom-headers EnableEncryptionAtHost=true
+az aks nodepool add --name ultradisk --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_L8s_v2 --zones 1 2 --node-count 2 --aks-custom-headers EnableUltraSSD=true
 ```
 
 If you want to create new node pools without support for ultra disks, you can do so by omitting the custom `--aks-custom-headers` parameter.
@@ -136,7 +131,7 @@ storageclass.storage.k8s.io/ultra-disk-sc created
 
 A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. In this case, a PVC can use one of the pre-created storage classes to create a standard or premium Azure managed disk.
 
-Create a file named `azure-ultra-disk-pvc.yaml`, and copy in the following manifest. The claim requests a disk named `ultra-disk` that is *5 GB* in size with *ReadWriteOnce* access. The *managed-premium* storage class is specified as the storage class.
+Create a file named `azure-ultra-disk-pvc.yaml`, and copy in the following manifest. The claim requests a disk named `ultra-disk` that is *1000 GB* in size with *ReadWriteOnce* access. The *ultra-disk-sc* storage class is specified as the storage class.
 
 ```yaml
 apiVersion: v1
@@ -149,7 +144,7 @@ spec:
   storageClassName: ultra-disk-sc
   resources:
     requests:
-      storage: 5Gi
+      storage: 1000Gi
 ```
 
 Create the persistent volume claim with the [kubectl apply][kubectl-apply] command and specify your *azure-ultra-disk-pvc.yaml* file:

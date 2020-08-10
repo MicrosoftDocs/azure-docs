@@ -106,7 +106,7 @@ Virtual WAN provides advanced routing enhancements. Ability to set up custom rou
 
 ### <a name="global"></a>Global VNet peering
 
-Global VNet Peering provides a mechanism to connect two VNets in different regions. In Virtual WAN, virtual network connections connect VNets to virtual hubs. The user does not need to set up global VNet peering explicitly. VNets connected to virtual hub is same region incur VNet peering charges. VNets connected to virtual hub in a different region incur Global VNet peering charges.
+Global VNet Peering provides a mechanism to connect two VNets in different regions. In Virtual WAN, virtual network connections connect VNets to virtual hubs. The user does not need to set up global VNet peering explicitly. VNets connected to virtual hub in same region incur VNet peering charges. VNets connected to virtual hub in a different region incur Global VNet peering charges.
 
 ### <a name="encryption"></a>ExpressRoute traffic encryption
 
@@ -121,10 +121,10 @@ For location information, see the [Virtual WAN partners and locations](virtual-w
 Route tables now have features for association and propagation. A pre-existing route table is a route table that does not have these features. If you have pre-existing routes in Hub Routing and would like to use the new capabilities, consider the following:
 
 * **Standard Virtual WAN Customers with pre-existing routes in virtual hub**:
-To use  new route table capabilities, please wait until week of August 3rd for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal).
+To use  new route table capabilities, please wait until week of August 17th for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them and then attempt creating new route tables (available in the Route Tables section for the hub in Azure portal).
 
 * **Basic Virtual WAN Customers with pre-existing routes in virtual hub**:
-To use the new route table capabilities, please wait until week of August 3rd for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
+To use the new route table capabilities, please wait until week of August 17th for the roll out in Azure to complete. If you have pre-existing routes in Routing section for the hub in Azure portal, you will need to first delete them, then **upgrade** your Basic Virtual WAN to Standard Virtual WAN. See [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a>FAQ
 

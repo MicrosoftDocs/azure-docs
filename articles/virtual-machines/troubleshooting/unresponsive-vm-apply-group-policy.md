@@ -22,7 +22,7 @@ This article provides steps to resolve issues where the load screen doesn't resp
 
 ## Symptoms
 
-When you're using [boot diagnostics](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) to view a screenshot of the VM, the screen is stuck loading with the message: "Applying Group Policy Local Users and Groups policy."
+When you're using [boot diagnostics](./boot-diagnostics.md) to view a screenshot of the VM, the screen is stuck loading with the message: "Applying Group Policy Local Users and Groups policy."
 
 :::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="Screenshot of Applying Group Policy Local Users and Groups policy loading (Windows Server 2012 R2).":::
 
@@ -53,7 +53,7 @@ Here’s the problematic policy:
 
 ### Step 1: Create and access a repair VM
 
-1. Use [steps 1-3 of the VM repair commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to prepare a repair VM.
+1. Use [steps 1-3 of the VM repair commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) to prepare a repair VM.
 2. Use Remote Desktop Connection to connect to the repair VM.
 
 ### Step 2: Disable the policy
@@ -135,7 +135,7 @@ To enable memory dump collection and the serial console, run this script:
 
 ### Step 4: Rebuild the VM
 
-Use [step 5 of the VM repair commands](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) to reassemble the VM.
+Use [step 5 of the VM repair commands](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) to reassemble the VM.
 
 If the issue is fixed, the policy is now disabled locally. For a permanent solution, don't use the CleanupProfiles policy on VMs. Use a different method to perform profile cleanups.
 
@@ -145,4 +145,4 @@ Don’t use this policy:
 
 ## Next steps
 
-If you have issues when you apply Windows Update, see [VM is unresponsive with "C01A001D" error when applying Windows Update](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update).
+If you have issues when you apply Windows Update, see [VM is unresponsive with "C01A001D" error when applying Windows Update](./unresponsive-vm-apply-windows-update.md).

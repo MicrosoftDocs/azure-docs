@@ -17,7 +17,7 @@ This article contains the releases notes for Azure Web Apps Extension for runtim
 ## Frequently asked questions
 
 - How to find which version of the extension I am currently on?
-    - Go to `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visit [the step by step troubleshooting guide for extension/agent based monitoring](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net#troubleshooting) for more information.
+    - Go to `https://<yoursitename>.scm.azurewebsites.net/ApplicationInsights`. Visit [the step by step troubleshooting guide for extension/agent based monitoring](./azure-web-apps.md?tabs=net#troubleshooting) for more information.
 
 - What if I'm using private extensions?
     - Uninstall private site extensions since it's no longer supported.

@@ -1,19 +1,16 @@
 ---
-title: Customize feed for Windows Virtual Desktop users - Azure
-description: How to customize feed for Windows Virtual Desktop users with PowerShell cmdlets.
-services: virtual-desktop
+title: Customize feed for Windows Virtual Desktop (classic) users - Azure
+description: How to customize feed for Windows Virtual Desktop (classic) users with PowerShell cmdlets.
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Customize feed for Windows Virtual Desktop users
+# Customize feed for Windows Virtual Desktop (classic) users
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../customize-feed-for-virtual-desktop-users.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../customize-feed-for-virtual-desktop-users.md).
 
 You can customize the feed so the RemoteApp and remote desktop resources appear in a recognizable way for your users.
 

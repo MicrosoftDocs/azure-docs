@@ -3,7 +3,7 @@
 
 # Mandatory fields.
 title: Secure Azure Computing Architecture
-description: This reference architecture for an enterprise-level DMZ architecture uses network virtual appliances and other tools. This architecture was designed to meet the Department of Defense's Secure Cloud Computing Architecture Functional Requirements. It also can be used for any organization. This reference includes two automated options that use Citrix or F5 appliances.
+description: Learn about the Secure Azure Computing Architecture (SACA). Using SACA allows U.S. DoD and civilian customers to comply with the SCCA FRD.
 author: jahender
 ms.author: jahender 
 ms.date: 4/9/2019

@@ -57,9 +57,18 @@ You can find out more about the various tiers on the [pricing page](https://azur
 A solution built on Azure Cognitive Search can incur costs in the following ways:
 
 + Cost of the service itself, running 24x7, at minimum configuration (one partition and replica)
+
 + Adding capacity (replicas or partitions)
-+ Bandwidth charges (outbound data transfer) 
-+ Add-on services such as AI enrichment (attaching Cognitive Services in skillsets that define AI processing, or using Azure storage for knowledge store) or deploying a search service in a private virtual network
+
++ Bandwidth charges (outbound data transfer)
+
++ Add-on services required for specific capabilities or features:
+
+  + AI enrichment (requires [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/))
+  + knowledge store (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + incremental enrichment (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), applies to AI enrichment)
+  + customer-managed keys and double encryption (requires [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
+  + private endpoints for a no-internet access model (requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
 
 ### Service costs
 
@@ -140,7 +149,7 @@ Capacity and the costs of running the service go hand in hand. Tiers impose limi
 
 Business requirements typically dictate the number of indexes you'll need. For example, you might need a global index for a large repository of documents. Or you might need  multiple indexes based on region, application, or business niche.
 
-To determine the size of an index, you have to [build one](search-create-index-portal.md). Its size will be based on imported data and index configuration such as whether you enable suggesters, filtering, and sorting. For more information about configuration impact on size, see [Create a basic index ](search-what-is-an-index.md).
+To determine the size of an index, you have to [build one](search-what-is-an-index.md). Its size will be based on imported data and index configuration such as whether you enable suggesters, filtering, and sorting.
 
 For full text search, the primary data structure is an [inverted index](https://en.wikipedia.org/wiki/Inverted_index) structure, which has different characteristics than source data. For an inverted index, size and complexity are determined by content, not necessarily by the amount of data that you feed into it. A large data source with high redundancy could result in a smaller index than a smaller dataset that contains highly variable content. So it's rarely possible to infer index size based on the size of the original dataset.
 
@@ -154,7 +163,7 @@ One approach for estimating capacity is to start with the Free tier. Remember th
 
 + [Create a free service](search-create-service-portal.md).
 + Prepare a small, representative dataset.
-+ [Build an initial index in the portal](search-create-index-portal.md) and note its size. Features and attributes have an impact on storage. For example, adding suggesters (search-as-you-type queries) will increase storage requirements. Using the same data set, you might try creating multiple versions of an index, with different attributes on each field, to see how storage requirements vary. For more information, see ["Storage implications" in Create a basic index](search-what-is-an-index.md#index-size).
++ [Build an initial index in the portal](search-get-started-portal.md) and note its size. Features and attributes have an impact on storage. For example, adding suggesters (search-as-you-type queries) will increase storage requirements. Using the same data set, you might try creating multiple versions of an index, with different attributes on each field, to see how storage requirements vary. For more information, see ["Storage implications" in Create a basic index](search-what-is-an-index.md#index-size).
 
 With a rough estimate in hand, you might double that amount to budget for two indexes (development and production) and then choose your tier accordingly.
 
@@ -170,7 +179,7 @@ Dedicated resources can accommodate larger sampling and processing times for mor
     + Start high, at S2 or even S3, if you know you're going to have large-scale indexing and query loads.
     + Start with Storage Optimized, at L1 or L2, if you're indexing a large amount of data and query load is relatively low, as with an internal business application.
 
-1. [Build an initial index](search-create-index-portal.md) to determine how source data translates to an index. This is the only way to estimate index size.
+1. [Build an initial index](search-what-is-an-index.md) to determine how source data translates to an index. This is the only way to estimate index size.
 
 1. [Monitor storage, service limits, query volume, and latency](search-monitor-usage.md) in the portal. The portal shows you queries per second, throttled queries, and search latency. All of these values can help you decide if you selected the right tier. 
 

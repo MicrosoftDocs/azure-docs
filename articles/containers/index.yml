@@ -42,7 +42,7 @@ conceptualContent:
     # Card
     - title: Test and develop AKS applications
       links:
-        - url: ../dev-spaces/how-dev-spaces-works-local-process-kubernetes.md
+        - url: /visualstudio/containers/overview-local-process-kubernetes
           itemType: concept
           text: How Local Process with Kubernetes works
         - url: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md

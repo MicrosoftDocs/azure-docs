@@ -6,8 +6,9 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
+
 # Prepare a Java Spring application for deployment in Azure Spring Cloud
 
 This topic shows how to prepare an existing Java Spring application for deployment to Azure Spring Cloud. If configured properly, Azure Spring Cloud provides robust services to monitor, scale, and update your Java Spring Cloud application.

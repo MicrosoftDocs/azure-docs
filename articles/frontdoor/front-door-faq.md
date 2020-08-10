@@ -154,12 +154,12 @@ For the Front Door managed certificate option, the certificates are autorotated 
 
 ### What are the current cipher suites supported by Azure Front Door?
 
-For TLS1.2 the following cipher suites are supported
+For TLS1.2 the following cipher suites are supported: 
 
-TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
-TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
 When using custom domains with TLS1.0/1.1 enabled the following cipher suites are supported:
 

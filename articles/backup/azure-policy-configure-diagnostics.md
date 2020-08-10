@@ -6,11 +6,11 @@ ms.date: 02/14/2020
 ---
 # Configure Vault Diagnostics settings at scale
 
-The reporting solution provided by Azure Backup leverages Log Analytics (LA). For the data of any given vault to be sent to LA, a [diagnostics setting](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events) needs to be created for that vault.
+The reporting solution provided by Azure Backup leverages Log Analytics (LA). For the data of any given vault to be sent to LA, a [diagnostics setting](./backup-azure-diagnostic-events.md) needs to be created for that vault.
 
 Often, adding a diagnostics setting manually per vault can be a cumbersome task. In addition, any new vault created also needs to have diagnostics settings enabled in order to be able to view reports for this vault.
 
-To simplify the creation of diagnostics settings at scale (with LA as the destination), Azure Backup provides a built-in [Azure Policy](https://docs.microsoft.com/azure/governance/policy/). This policy adds an LA diagnostics setting to all vaults in a given subscription or resource group. The following sections provide instructions on how to use this policy.
+To simplify the creation of diagnostics settings at scale (with LA as the destination), Azure Backup provides a built-in [Azure Policy](../governance/policy/index.yml). This policy adds an LA diagnostics setting to all vaults in a given subscription or resource group. The following sections provide instructions on how to use this policy.
 
 ## Supported Scenarios
 
@@ -64,7 +64,7 @@ The remediation task is applied to vaults that are non-compliant according to th
 * No diagnostics setting is present for the vault.
 * Diagnostic settings are present for the vault but neither of the settings has **all of** the Resource specific events enabled with LA as destination, and **Resource specific** selected in the toggle.
 
-So even if a user has a vault with the AzureBackupReport event enabled in AzureDiagnostics mode (which is supported by Backup Reports), the remediation task will still apply to this vault, since the Resource specific mode is the recommended way of creating diagnostics settings, [going forward](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event).
+So even if a user has a vault with the AzureBackupReport event enabled in AzureDiagnostics mode (which is supported by Backup Reports), the remediation task will still apply to this vault, since the Resource specific mode is the recommended way of creating diagnostics settings, [going forward](./backup-azure-diagnostic-events.md#legacy-event).
 
 Further, if a user has a vault with only a subset of the six Resource specific events enabled, the remediation task will apply for this vault, since Backup Reports will work as expected only if all of the six Resource specific events are enabled.
 
@@ -78,6 +78,6 @@ Further, if a user has a vault with only a subset of the six Resource specific e
 
 ## Next Steps
 
-* [Learn how to use Backup Reports](https://docs.microsoft.com/azure/backup/configure-reports)
-* [Learn more about Azure Policy](https://docs.microsoft.com/azure/governance/policy/)
-* [Use Azure Policy to auto-enable backup for all VMs in a give scope](https://docs.microsoft.com/azure/backup/backup-azure-auto-enable-backup)
+* [Learn how to use Backup Reports](./configure-reports.md)
+* [Learn more about Azure Policy](../governance/policy/index.yml)
+* [Use Azure Policy to auto-enable backup for all VMs in a give scope](./backup-azure-auto-enable-backup.md)

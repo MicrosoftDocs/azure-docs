@@ -3,7 +3,7 @@ title: Delegation and roles in entitlement management - Azure AD
 description: Learn how to delegate access governance from IT administrators to department managers and project managers so that they can manage access themselves.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/07/2019
-ms.author: ajburnle
+ms.date: 07/22/2020
+ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 

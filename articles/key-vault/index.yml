@@ -21,12 +21,12 @@ highlightedContent:
     - title: Introduction to Azure Key Vault
       itemType: overview
       url: ./general/overview.md
+    - title: Important changes to soft delete
+      itemType: overview
+      url: ./general/soft-delete-change.md
     - title: Authentication
       itemType: overview
       url: ./general/authentication.md
-    - title: Soft-delete
-      itemType: overview
-      url: ./general/overview-soft-delete.md
     - title: Basic concepts
       itemType: overview
       url: ./general/basic-concepts.md

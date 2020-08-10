@@ -5,7 +5,7 @@ author: jeffhollan
 ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-java
 ---
 
 # Create your first function with Java and Eclipse 
@@ -23,7 +23,7 @@ To develop a functions app with Java and Eclipse, you must have the following in
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 8.
 -  [Apache Maven](https://maven.apache.org), version 3.0 or above.
 -  [Eclipse](https://www.eclipse.org/downloads/packages/), with Java and Maven support.
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
+-  [Azure CLI](/cli/azure)
 
 > [!IMPORTANT] 
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
@@ -38,7 +38,7 @@ It's highly recommended to also install [Azure Functions Core Tools, version 2](
 1. Be sure to fill in values for all of the fields including `resourceGroup`, `appName`, and `appRegion` (please use a different appName other than **fabrikam-function-20170920120101928**), and eventually **Finish**.
     ![Eclipse Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
-Maven creates the project files in a new folder with a name of _artifactId_. The generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the triggering HTTP request.
+Maven creates the project files in a new folder with a name of _artifactId_. The generated code in the project is a simple [HTTP triggered](./functions-bindings-http-webhook.md) function that echoes the body of the triggering HTTP request.
 
 ## Run functions locally in the IDE
 
