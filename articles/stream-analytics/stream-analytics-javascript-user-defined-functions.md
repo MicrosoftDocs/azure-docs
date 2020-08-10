@@ -172,12 +172,10 @@ function main(input, x) {
 }
 ```
 
-**Sample query:**
+**Sample query: Pass entire record as first parameter so that it can be returned if there is an error.**
 ```SQL
 SELECT
     A.context.company AS Company,
-    -- passing the entire record for input as first parameter,
-    -- so that the entire record can be returned if there is an error.
     udf.getValue(A, A.context.value) as Value
 INTO
     output
