@@ -11,25 +11,25 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create .NET Core app
+  - name: .NET Core
     href: quickstart-dotnetcore.md
-  - name: Create .NET Framework app
+  - name: .NET Framework
     href: quickstart-dotnet-framework.md
-  - name: Create Node.js app
+  - name: Node.js
     href: quickstart-nodejs.md
-  - name: Create PHP app
+  - name: PHP
     href: quickstart-php.md
-  - name: Create Java app
+  - name: Java
     href: quickstart-java.md
-  - name: Create Python app
+  - name: Python
     href: quickstart-python.md
-  - name: Create Ruby app
+  - name: Ruby
     href: quickstart-ruby.md
-  - name: Create static HTML site
+  - name: Static HTML site
     href: quickstart-html.md
-  - name: Run custom container
+  - name: Custom container
     href: quickstart-custom-container.md
-  - name: Create multi-container app
+  - name: Multi-container app
     href: quickstart-multi-container.md
 - name: Tutorials
   items:
