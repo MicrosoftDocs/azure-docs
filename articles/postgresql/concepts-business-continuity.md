@@ -1,11 +1,11 @@
 ---
 title: Business continuity - Azure Database for PostgreSQL - Single Server
-description: This article describes business continuity (point in time restore, data center outage, geo-restore) when using Azure Database for PostgreSQL.
+description: This article describes business continuity (point in time restore, data center outage, geo-restore, replicas) when using Azure Database for PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 08/07/2020
 ---
 
 # Overview of business continuity with Azure Database for PostgreSQL - Single Server
@@ -23,14 +23,16 @@ The following table compares the ERT and RPO for the available features:
 | Point in Time Restore from backup | Any restore point within the retention period | Any restore point within the retention period | Any restore point within the retention period |
 | Geo-restore from geo-replicated backups | Not supported | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
-> [!IMPORTANT]
-> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. Use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) to help prevent accidental deletion of your server.
+You can also consider using [read replicas](concepts-read-replicas.md).
 
 ## Recover a server after a user or application error
 
 You can use the service’s backups to recover a server from various disruptive events. A user may accidentally delete some data, inadvertently drop an important table, or even drop an entire database. An application might accidentally overwrite good data with bad data due to an application defect, and so on.
 
 You can perform a **point-in-time-restore** to create a copy of your server to a known good point in time. This point in time must be within the backup retention period you have configured for your server. After the data is restored to the new server, you can either replace the original server with the newly restored server or copy the needed data from the restored server into the original server.
+
+> [!IMPORTANT]
+> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. Use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) to help prevent accidental deletion of your server.
 
 ## Recover from an Azure data center outage
 
