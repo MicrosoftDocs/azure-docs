@@ -176,5 +176,3 @@ When you click the VeraSMART tile in the Access Panel, you should be automatical
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [How to protect VeraSMART with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
