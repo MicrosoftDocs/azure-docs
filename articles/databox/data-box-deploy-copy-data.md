@@ -174,7 +174,7 @@ C:\Users>robocopy
 C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.126.76.172\devicemanagertest1_AzFile\templates /MT:32
 
     -------------------------------------------------------------------------------
-        ROBOCOPY     ::     Robust File Copy for Windows
+    ROBOCOPY     ::     Robust File Copy for Windows
     -------------------------------------------------------------------------------
 
         Started : Thursday, March 8, 2018 2:34:58 PM
