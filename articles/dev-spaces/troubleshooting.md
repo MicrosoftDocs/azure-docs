@@ -410,7 +410,7 @@ To fix this issue, install the [VS Code extension for C#](https://marketplace.vi
 
 You may see this error when running the Visual Studio Code debugger. You might not have the VS Code extension for Azure Dev Spaces installed on your development machine.
 
-To fix this issue, install the [VS Code extension for Azure Dev Spaces](get-started-netcore.md).
+To fix this issue, install the VS Code extension for Azure Dev Spaces.
 
 ### Error "Invalid 'cwd' value '/src'. The system cannot find the file specified." or "launch: program '/src/[path to project binary]' does not exist"
 
