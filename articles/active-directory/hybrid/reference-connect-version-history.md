@@ -154,15 +154,15 @@ This hotfix build fixes an issue in build 1.5.20.0 if you have cloned the **In f
 ### Release status
 12/9/2019: Release for download. Not available through auto-upgrade.
 ### New features and improvements
-- We updated Password Hash Sync for Azure AD Domain Services to properly account for padding in Kerberos hashes.  This will provide a performance improvement during password synchronization from AAD to Azure AD Domain Services.
+- We updated Password Hash Sync for Azure AD Domain Services to properly account for padding in Kerberos hashes.  This will provide a performance improvement during password synchronization from Azue AD to Azure AD Domain Services.
 - We added support for reliable sessions between the authentication agent and service bus.
 - This release enforces TLS 1.2 for communication between authentication agent and cloud services.
 - We added a DNS cache for websocket connections between authentication agent and cloud services.
 - We added the ability to target specific agent from cloud to test for agent connectivity.
 
 ### Fixed issues
-- Release 1.4.18.0 had a bug where the PowerShell cmdlet for DSSO was using the login windows credentials instead of the admin credentials provided while running ps. As a result of which it was not possible to enable DSSO in multiple forest through the AADConnect user interface. 
-- A fix was made to enable DSSO simultaneously in all forest through the AADConnect user interface
+- Release 1.4.18.0 had a bug where the PowerShell cmdlet for DSSO was using the login windows credentials instead of the admin credentials provided while running ps. As a result of which it was not possible to enable DSSO in multiple forest through the Azure AD Connect user interface. 
+- A fix was made to enable DSSO simultaneously in all forest through the Azure AD Connect user interface
 
 ## 1.4.32.0
 ### Release status
@@ -203,11 +203,11 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 
 ### New features and improvements
 - New troubleshooting tooling helps troubleshoot "user not syncing", "group not syncing" or "group member not syncing" scenarios.
-- Add support for national clouds in AAD Connect troubleshooting script 
+- Add support for national clouds in Azure AD Connect troubleshooting script 
 - Customers should be informed that the deprecated WMI endpoints for MIIS_Service have now been removed. Any WMI operations should now be done via PS cmdlets.
 - Security improvement by resetting constrained delegation on AZUREADSSOACC object
 - When adding/editing a sync rule, if there are any attributes used in the rule that are in the connector schema but not added to the connector, the attributes automatically added to the connector. The same is true for the object type the rule affects. If anything is added to the connector, the connector will be marked for full import on the next sync cycle.
-- Using an Enterprise or Domain admin as the connector account is no longer supported in new Azure AD Connect Deployments. Current AAD Connect deployments using an Enterprise or Domain admin as the connector account will not be affected by this release.
+- Using an Enterprise or Domain admin as the connector account is no longer supported in new Azure AD Connect Deployments. Current Azure AD Connect deployments using an Enterprise or Domain admin as the connector account will not be affected by this release.
 - In the Synchronization Manager a full sync is run on rule creation/edit/deletion. A popup will appear on any rule change notifying the user if full import or full sync is going to be run.
 - Added mitigation steps for password errors to 'connectors > properties > connectivity' page
 - Added a deprecation warning for the sync service manager on the connector properties page. This warning notifies the user that changes should be made through the Azure AD Connect wizard.
@@ -229,7 +229,7 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 - For Auto upgrade, if any conflicting app is running from 6 hours, kill it and continue with upgrade.
 - Limit the number of attributes a customer can select to 100 per object when selecting directory extensions. This will prevent the error from occurring during export as Azure has a maximum of 100 extension attributes per object.
 - Fixed a bug to make the AD Connectivity script more robust
-- Fixed a bug to make AADConnect install on a machine using an existing Named Pipes WCF service more robust.
+- Fixed a bug to make Azure AD Connect install on a machine using an existing Named Pipes WCF service more robust.
 - Improved diagnostics and troubleshooting around group policies that do not allow the ADSync service to start when initially installed.
 - Fixed a bug where display name for a Windows computer was written incorrectly.
 - Fix a bug where OS type for a Windows computer was written incorrectly.

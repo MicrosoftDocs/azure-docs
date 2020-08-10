@@ -175,7 +175,7 @@ Azure AD Connect Upgrade fails if SQL Always On Availability is configured for t
 
 ### Fixed issues 
 
-- Fixed a bug where the AAD Connect server would show high CPU usage after upgrading to .NET 4.7.2
+- Fixed a bug where the Azure AD Connect server would show high CPU usage after upgrading to .NET 4.7.2
 - Fixed a bug that would intermittently produce an error message for an auto-resolved SQL deadlock issue
 - Fixed several accessibility issues for the Sync Rules Editor and the Sync Service Manager  
 - Fixed a bug where Azure AD Connect can not get registry setting information
@@ -184,7 +184,7 @@ Azure AD Connect Upgrade fails if SQL Always On Availability is configured for t
 - When Group Sync Filtering page encounters an LDAP error when resolving security groups, Azure AD Connect now returns the exception with full fidelity.  The root cause for the referral exception is still unknown and will be addressed by a different bug.
 -  Fixed a bug where permissions for STK and NGC keys (ms-DS-KeyCredentialLink attribute on User/Device objects for WHfB) were not correctly set.     
 - Fixed a bug where 'Set-ADSyncRestrictedPermissions’ was not called correctly
--  Adding support for permission granting on Group Writeback in AADConnect's installation wizard
+-  Adding support for permission granting on Group Writeback in Azure ADConnect's installation wizard
 - When changing sign in method from Password Hash Sync to AD FS, Password Hash Sync was not disabled.
 - Added verification for IPv6 addresses in AD FS configuration
 - Updated the notification message to inform that an existing configuration exists.
@@ -510,9 +510,9 @@ Status: September 05 2017
 * The Initialize-ADSyncNGCKeysWriteBack cmdlet in the AD prep PowerShell module was incorrectly applying ACLs to the device registration container and would therefore only inherit existing permissions.  This was updated so that the sync service account has the correct permissions.
 
 #### New features and improvements
-* The AAD Connect Verify ADFS Login task was updated so that it verifies logins against Microsoft Online and not just token retrieval from ADFS.
-* When setting up a new ADFS farm using AAD Connect, the page asking for ADFS credentials was moved so that it now occurs before the user is asked to provide ADFS and WAP servers.  This allows AAD Connect to check that the account specified has the correct permissions.
-* During AAD Connect upgrade, we will no longer fail an upgrade if the ADFS AAD Trust fails to update.  If that happens, the user will be shown an appropriate warning message and should proceed to reset the trust via the AAD Connect additional task.
+* The Azure AD Connect Verify ADFS Login task was updated so that it verifies logins against Microsoft Online and not just token retrieval from ADFS.
+* When setting up a new ADFS farm using Azure AD Connect, the page asking for ADFS credentials was moved so that it now occurs before the user is asked to provide ADFS and WAP servers.  This allows Azure AD Connect to check that the account specified has the correct permissions.
+* During Azure AD Connect upgrade, we will no longer fail an upgrade if the ADFS Azure AD Trust fails to update.  If that happens, the user will be shown an appropriate warning message and should proceed to reset the trust via the Azure AD Connect additional task.
 
 ### Seamless Single Sign-On
 #### Fixed issues
@@ -622,7 +622,7 @@ Status: June 2017
   * If OU-based filtering is enabled, the **Sync selected domains and OUs** option is selected.
   * Otherwise, the **Sync all domains and OUs** option is selected.
 
-The issue that arises is that the **Sync all domains and OUs option** is always selected when you run the Wizard.  This occurs even if OU-based filtering was previously configured. Before saving any AAD Connect configuration changes, make sure the **Sync selected domains and OUs option is selected** and confirm that all OUs that need to synchronize are enabled again. Otherwise, OU-based filtering will be disabled.
+The issue that arises is that the **Sync all domains and OUs option** is always selected when you run the Wizard.  This occurs even if OU-based filtering was previously configured. Before saving any Azure AD Connect configuration changes, make sure the **Sync selected domains and OUs option is selected** and confirm that all OUs that need to synchronize are enabled again. Otherwise, OU-based filtering will be disabled.
 
 #### Fixed issues
 
@@ -658,26 +658,26 @@ The issue that arises is that the **Sync all domains and OUs option** is always 
 
 * The **cloudSOAExchMailbox** attribute in the Metaverse indicates whether a given user has Exchange Online mailbox or not. Its definition has been updated to include additional Exchange Online RecipientDisplayTypes as such Equipment and Conference Room mailboxes. To enable this change, the definition of the cloudSOAExchMailbox attribute, which is found under out-of-box sync rule “In from AAD – User Exchange Hybrid”, has been updated from:
 
-```
-CBool(IIF(IsNullOrEmpty([cloudMSExchRecipientDisplayType]),NULL,BitAnd([cloudMSExchRecipientDisplayType],&amp;HFF) = 0))
-```
+    ```
+    CBool(IIF(IsNullOrEmpty([cloudMSExchRecipientDisplayType]),NULL,BitAnd([cloudMSExchRecipientDisplayType],&amp;HFF) = 0))
+    ```
 
-... to the following:
+    ... to the following:
 
-```
-CBool(
-  IIF(IsPresent([cloudMSExchRecipientDisplayType]),(
-    IIF([cloudMSExchRecipientDisplayType]=0,True,(
-      IIF([cloudMSExchRecipientDisplayType]=2,True,(
-        IIF([cloudMSExchRecipientDisplayType]=7,True,(
-          IIF([cloudMSExchRecipientDisplayType]=8,True,(
-            IIF([cloudMSExchRecipientDisplayType]=10,True,(
-              IIF([cloudMSExchRecipientDisplayType]=16,True,(
-                IIF([cloudMSExchRecipientDisplayType]=17,True,(
-                  IIF([cloudMSExchRecipientDisplayType]=18,True,(
-                    IIF([cloudMSExchRecipientDisplayType]=1073741824,True,(
-                       IF([cloudMSExchRecipientDisplayType]=1073741840,True,False)))))))))))))))))))),False))
-```
+    ```
+    CBool(
+      IIF(IsPresent([cloudMSExchRecipientDisplayType]),(
+        IIF([cloudMSExchRecipientDisplayType]=0,True,(
+          IIF([cloudMSExchRecipientDisplayType]=2,True,(
+            IIF([cloudMSExchRecipientDisplayType]=7,True,(
+              IIF([cloudMSExchRecipientDisplayType]=8,True,(
+                IIF([cloudMSExchRecipientDisplayType]=10,True,(
+                  IIF([cloudMSExchRecipientDisplayType]=16,True,(
+                    IIF([cloudMSExchRecipientDisplayType]=17,True,(
+                      IIF([cloudMSExchRecipientDisplayType]=18,True,(
+                        IIF([cloudMSExchRecipientDisplayType]=1073741824,True,(
+                          IF([cloudMSExchRecipientDisplayType]=1073741840,True,False)))))))))))))))))))),False))
+    ```
 
 * Added the following set of X509Certificate2-compatible functions for creating synchronization rule expressions to handle certificate values in the userCertificate attribute:
   * CertSubject 
@@ -763,7 +763,7 @@ Azure AD Connect sync
 * Fixed an issue that causes Device writeback feature to automatically be disabled when an administrator is updating Azure AD Connect sync configuration using Azure AD Connect wizard. This issue is caused by the wizard performing a pre-requisite check for the existing Device writeback configuration in on-premises AD and the check fails. The fix is to skip the check if Device writeback is already enabled previously.
 * To configure OU filtering, you can either use the Azure AD Connect wizard or the Synchronization Service Manager. Previously, if you use the Azure AD Connect wizard to configure OU filtering, new OUs created afterwards are included for directory synchronization. If you do not want new OUs to be included, you must configure OU filtering using the Synchronization Service Manager. Now, you can achieve the same behavior using Azure AD Connect wizard.
 * Fixed an issue that causes stored procedures required by Azure AD Connect to be created under the schema of the installing admin, instead of under the dbo schema.
-* Fixed an issue that causes the TrackingId attribute returned by Azure AD to be omitted in the AAD Connect Server Event Logs. The issue occurs if Azure AD Connect receives a redirection message from Azure AD and Azure AD Connect is unable to connect to the endpoint provided. The TrackingId is used by Support Engineers to correlate with service side logs during troubleshooting.
+* Fixed an issue that causes the TrackingId attribute returned by Azure AD to be omitted in the Azure AD Connect Server Event Logs. The issue occurs if Azure AD Connect receives a redirection message from Azure AD and Azure AD Connect is unable to connect to the endpoint provided. The TrackingId is used by Support Engineers to correlate with service side logs during troubleshooting.
 * When Azure AD Connect receives LargeObject error from Azure AD, Azure AD Connect generates an event with EventID 6941 and message *“The provisioned object is too large. Trim the number of attribute values on this object.”* At the same time, Azure AD Connect also generates a misleading event with EventID 6900 and message *“Microsoft.Online.Coexistence.ProvisionRetryException: Unable to communicate with the Windows Azure Active Directory service.”* To minimize confusion, Azure AD Connect no longer generates the latter event when LargeObject error is received.
 * Fixed an issue that causes the Synchronization Service Manager to become unresponsive when trying to update the configuration for Generic LDAP connector.
 
@@ -774,8 +774,8 @@ Azure AD Connect sync
   * Updated default sync rule set to not export attributes **userCertificate** and **userSMIMECertificate** if the attributes have more than 15 values.
   * AD attributes **employeeID** and **msExchBypassModerationLink** are now included in the default sync rule set.
   * AD attribute **photo** has been removed from default sync rule set.
-  * Added **preferredDataLocation** to the Metaverse schema and AAD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so. 
-  * Added **userType** to the Metaverse schema and AAD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so.
+  * Added **preferredDataLocation** to the Metaverse schema and Azure AD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so. 
+  * Added **userType** to the Metaverse schema and Azure AD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so.
 
 * Azure AD Connect now automatically enables the use of ConsistencyGuid attribute as the Source Anchor attribute for on-premises AD objects. Further, Azure AD Connect populates the ConsistencyGuid attribute with the objectGuid attribute value if it is empty. This feature is applicable to new deployment only. To find out more about this feature, refer to article section [Azure AD Connect: Design concepts - Using ms-DS-ConsistencyGuid as sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
 * New troubleshooting cmdlet Invoke-ADSyncDiagnostics has been added to help diagnose Password Hash Synchronization related issues. For information about using the cmdlet, refer to article [Troubleshoot password hash synchronization with Azure AD Connect sync](tshoot-connect-password-hash-synchronization.md).
@@ -866,7 +866,7 @@ Pass-through Authentication
 * Fixed an issue which causes Azure AD Connect wizard to bypass validation checks on sign-in method selected when Desktop SSO feature is enabled.
 
 Password Reset
-* Fixed an issue which may cause the Azure AAD Connect server to not attempt to re-connect if the connection was killed by a firewall or proxy.
+* Fixed an issue which may cause the Azure Azure AD Connect server to not attempt to re-connect if the connection was killed by a firewall or proxy.
 
 **New features/improvements:**
 
