@@ -61,10 +61,9 @@ tablename is the name of the distributed table and shardid is the unique
 id assigned to that shard. You can connect to the worker postgres
 instances to view or run commands on individual shards.
 
-You are now ready to insert data into the distributed table and run
-queries on it. You can also learn more about the UDF used in this
-section in the `user_defined_functions`{.interpreted-text role="ref"} of
-our documentation.
+You are now ready to insert data into the distributed table and run queries on
+it. You can also learn more about the UDF used in this section in the [table
+and shard DDL](reference-hyperscale-udf.md#table-and-shard-ddl) reference.
 
 ### Reference Tables
 
@@ -122,8 +121,9 @@ one, you can upgrade it to be a recognized reference table by running
 SELECT upgrade_to_reference_table('table_name');
 ```
 
-For another example of using reference tables in a multi-tenant
-application, see `mt_ref_tables`{.interpreted-text role="ref"}.
+For another example of using reference tables in a multi-tenant application,
+see the [multi-tenant database
+tutorial](tutorial-design-database-hyperscale-multi-tenant.md).
 
 ### Distributing Coordinator Data
 
@@ -163,25 +163,19 @@ order will cause an error:
 If it\'s not possible to distribute in the correct order then drop the
 foreign keys, distribute the tables, and recreate the foreign keys.
 
-After the tables are distributed, use the
-`truncate_local_data_after_distributing_table`{.interpreted-text
-role="ref"} function to remove local data. Leftover local data in
-distributed tables is inaccessible to Hyperscale (Citus) queries, and can cause
-irrelevant constraint violations on the coordinator.
-
-When migrating data from an external database, such as from Amazon RDS
-to Hyperscale (Citus) Cloud, first create the Hyperscale (Citus) distributed tables via
-`create_distributed_table`, then copy the data into the table. Copying
-into distributed tables avoids running out of space on the coordinator
+When migrating data from an external database, such as from Amazon RDS to
+Hyperscale (Citus) Cloud, first create the Hyperscale (Citus) distributed
+tables via `create_distributed_table`, then copy the data into the table.
+Copying into distributed tables avoids running out of space on the coordinator
 node.
 
 ## Co-locating tables
 
 Co-location is the practice of dividing data tactically, keeping related
-information on the same machines to enable efficient relational
-operations, while taking advantage of the horizontal scalability for the
-whole dataset. For more information and examples see
-`colocation`{.interpreted-text role="ref"}.
+information on the same machines to enable efficient relational operations,
+while taking advantage of the horizontal scalability for the whole dataset. For
+more information and examples see
+[colocation](concepts-hyperscale-colocation.md).
 
 Tables are co-located in groups. To manually control a table\'s
 co-location group assignment use the optional `colocate_with` parameter
@@ -210,10 +204,9 @@ co-location group, specify `colocated_with => 'none'`.
 SELECT create_distributed_table('A', 'foo', colocate_with => 'none');
 ```
 
-Splitting unrelated tables into their own co-location groups will
-improve `shard rebalancing <shard_rebalancing>`{.interpreted-text
-role="ref"} performance, because shards in the same group have to be
-moved together.
+Splitting unrelated tables into their own co-location groups will improve
+[shard rebalancing](howto-hyperscale-scaling.md#rebalance-shards) performance,
+because shards in the same group have to be moved together.
 
 When tables are indeed related (for instance when they will be joined),
 it can make sense to explicitly co-locate them. The gains of appropriate
@@ -232,10 +225,10 @@ SELECT create_distributed_table('products', 'store_id', colocate_with => 'stores
 ```
 
 Information about co-location groups is stored in the
-`pg_dist_colocation <colocation_group_table>`{.interpreted-text
-role="ref"} table, while
-`pg_dist_partition <partition_table>`{.interpreted-text role="ref"}
-reveals which tables are assigned to which groups.
+[pg_dist_colocation](reference-hyperscale-metadata.md#co-location-group-table)
+table, while
+[pg_dist_partition](reference-hyperscale-metadata.md#partition-table) reveals
+which tables are assigned to which groups.
 
 ## Dropping tables
 
@@ -251,18 +244,16 @@ DROP TABLE github_events;
 
 ## Modifying tables
 
-Hyperscale (Citus) automatically propagates many kinds of DDL statements, which means
-that modifying a distributed table on the coordinator node will update
-shards on the workers too. Other DDL statements require manual
-propagation, and certain others are prohibited such as those which would
-modify a distribution column. Attempting to run DDL that is ineligible
-for automatic propagation will raise an error and leave tables on the
-coordinator node unchanged.
+Hyperscale (Citus) automatically propagates many kinds of DDL statements, which
+means that modifying a distributed table on the coordinator node will update
+shards on the workers too. Other DDL statements require manual propagation, and
+certain others are prohibited such as those which would modify a distribution
+column. Attempting to run DDL that is ineligible for automatic propagation will
+raise an error and leave tables on the coordinator node unchanged.
 
-Here is a reference of the categories of DDL statements which propagate.
-Note that automatic propagation can be enabled or disabled with a
-`configuration parameter <enable_ddl_prop>`{.interpreted-text
-role="ref"}.
+Here is a reference of the categories of DDL statements which propagate.  Note
+that automatic propagation can be enabled or disabled with a [configuration
+parameter](reference-hyperscale-guc.md#citusenable_ddl_propagation-boolean)
 
 ### Adding/Modifying Columns
 
@@ -281,12 +272,11 @@ ALTER TABLE products ADD COLUMN description text;
 ALTER TABLE products ALTER COLUMN price SET DEFAULT 7.77;
 ```
 
-Significant changes to an existing column like renaming it or changing
-its data type are fine too. However the data type of the
-`distribution column <distributed_data_modeling>`{.interpreted-text
-role="ref"} cannot be altered. This column determines how table data
-distributes through the Hyperscale (Citus) cluster, and modifying its data type would
-require moving the data.
+Significant changes to an existing column like renaming it or changing its data
+type are fine too. However the data type of the [distribution
+column](concepts-hyperscale-nodes.md#distribution-column) cannot be altered.
+This column determines how table data distributes through the Hyperscale
+(Citus) cluster, and modifying its data type would require moving the data.
 
 Attempting to do so causes an error:
 
@@ -319,10 +309,10 @@ Foreign keys may be created in these situations:
 
 -   between two local (non-distributed) tables,
 -   between two reference tables,
--   between two `colocated <colocation>`{.interpreted-text role="ref"}
-    distributed tables when the key includes the distribution column, or
--   as a distributed table referencing a
-    `reference table <reference_tables>`{.interpreted-text role="ref"}
+-   between two [colocated](concepts-hyperscale-colocation.md) distributed
+    tables when the key includes the distribution column, or
+-   as a distributed table referencing a [reference
+    table](concepts-hyperscale-nodes.md#type-2-reference-tables)
 
 Foreign keys from reference tables to distributed tables are not
 supported.
@@ -331,7 +321,6 @@ supported.
 >
 > Primary keys and uniqueness constraints must include the distribution
 > column. Adding them to a non-distribution column will generate an error
-> (see `non_distribution_uniqueness`{.interpreted-text role="ref"}).
 
 This example shows how to create primary and foreign keys on distributed
 tables:
@@ -387,13 +376,13 @@ ALTER TABLE ads ALTER COLUMN image_url SET NOT NULL;
 
 ### Using NOT VALID Constraints
 
-In some situations it can be useful to enforce constraints for new rows,
-while allowing existing non-conforming rows to remain unchanged. Hyperscale (Citus)
+In some situations it can be useful to enforce constraints for new rows, while
+allowing existing non-conforming rows to remain unchanged. Hyperscale (Citus)
 supports this feature for CHECK constraints and foreign keys, using
 PostgreSQL\'s \"NOT VALID\" constraint designation.
 
 For example, consider an application which stores user profiles in a
-`reference table <reference_tables>`{.interpreted-text role="ref"}.
+[reference table](concepts-hyperscale-nodes.md#type-2-reference-tables).
 
 ```postgres
 -- we're using the "text" column type here, but a real application
@@ -478,9 +467,3 @@ method is useful for adding new indexes in a production environment.
 
 CREATE INDEX CONCURRENTLY clicked_at_idx ON clicks USING BRIN (clicked_at);
 ```
-
-### Manual Modification
-
-Currently other DDL commands are not auto-propagated, however you can
-propagate the changes manually. See `manual_prop`{.interpreted-text
-role="ref"}.
