@@ -77,7 +77,7 @@ To follow these procedures, you need an Azure Spring Cloud service that is alrea
 
 1. Build and deploy again for your Azure Spring Cloud service to reflect these changes.
 
-## Modify the sample rate
+### Modify the sample rate
 
 You can change the rate at which your telemetry is collected by modifying the sample rate. For example, if you want to sample half as often, open your application.properties file, and change the following line:
 
