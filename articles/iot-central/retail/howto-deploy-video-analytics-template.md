@@ -13,6 +13,10 @@ ms.date: 07/31/2020
 
 For an overview of the key *video analytics - object and motion detection* application components, see [object and motion detection video analytics application architecture](architecture-video-analytics.md).
 
+## Deploy the application
+
+Complete the following steps to deploy an IoT Central application using the video analytics application template:
+
 1. Complete the [Create a video analytics application in Azure IoT Central](tutorial-video-analytics-create-app.md) tutorial to:
     - Create an Azure Media Services account.
     - Create the IoT Central application from the video analytics - object and motion detection application template.
