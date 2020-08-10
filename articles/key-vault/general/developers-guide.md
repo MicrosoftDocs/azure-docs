@@ -32,16 +32,37 @@ For more information on managed identities for Azure resources, see [the managed
 
 Before working with keys, secrets or certificates in your key vault, you'll create and manage your key vault through CLI, PowerShell, Resource Manager Templates or REST, as described in the following articles:
 
-- [Create and manage Key Vaults with CLI](../secrets/quick-create-cli.md)
-- [Create and manage Key Vaults with PowerShell](../secrets/quick-create-powershell.md)
-- [Create and manage Key Vaults with the Azure portal](../secrets/quick-create-portal.md)
-- [Create and manage Key Vaults with Python](../secrets/quick-create-python.md)
-- [Create and manage Key Vaults with Java](../secrets/quick-create-java.md)
-- [Create and manage Key Vaults with Node.js](../secrets/quick-create-node.md)
-- [Create and manage Key Vaults with .NET (v4 SDK)](../secrets/quick-create-net.md)
-- [Create a key vault and add a secret via an Azure Resource Manager template](../secrets/quick-create-template.md)
-- [Create and manage Key Vaults with REST](/rest/api/keyvault/)
+- [Create and manage Key Vaults with CLI](quick-create-cli.md)
+- [Create and manage Key Vaults with PowerShell](quick-create-powershell.md)
+- [Create and manage Key Vaults with the Azure portal](quick-create-portal.md)
+- [Create and manage Key Vaults with REST](/rest/api/keyvault/vaults/createorupdate)
 
+### Set and retrieve secrets
+
+- [Set and retrieve a secret with CLI](../secrets/quick-create-cli.md)
+- [Set and retrieve a secret with PowerShell](../secrets/quick-create-powershell.md)
+- [Set and retrieve a secret with the Azure portal](../secrets/quick-create-portal.md)
+- [Secrets operations with REST](/rest/api/keyvault/#secret-operations)
+- [Set and retrieve a secret with Python](../secrets/quick-create-python.md)
+- [Set and retrieve a secret with Java](../secrets/quick-create-java.md)
+- [Set and retrieve a secret with Node.js](../secrets/quick-create-node.md)
+- [Set and retrieve a secret with .NET (v4 SDK)](../secrets/quick-create-net.md)
+- [Create a key vault and add a secret via an Azure Resource Manager template](../secrets/quick-create-template.md)
+
+### Set and retrieve keys
+
+- [Set and retrieve a key with CLI](../keys/quick-create-cli.md)
+- [Set and retrieve a key with PowerShell](../keys/quick-create-powershell.md)
+- [Set and retrieve a key with the Azure portal](../keys/quick-create-portal.md)
+- [Keys operations with REST](/rest/api/keyvault/#key-operations)
+- [Set and retrieve a key with Python](../secrets/quick-create-python.md)
+
+### Set and retrieve certificates
+- [Set and retrieve a certificate with CLI](../certificates/quick-create-cli.md)
+- [Set and retrieve a certificate with PowerShell](../certificates/quick-create-powershell.md)
+- [Set and retrieve a certificate with the Azure portal](../certificates/quick-create-portal.md)
+- [Keys operations with REST](/rest/api/keyvault/#certificate-operations)
+- [Set and retrieve a certificate with Python](../certificates/quick-create-python.md)
 
 ## Coding with Key Vault
 
@@ -58,8 +79,6 @@ All of your Key Vault resources are accessible through the REST interface; vault
 #### .NET
 
 [.NET API reference for Key Vault](/dotnet/api/overview/azure/key-vault?view=azure-dotnet).
-
-For more information on the 2.x version of the .NET SDK, see the [Release notes](dotnet2api-release-notes.md).
 
 #### Java
 
@@ -88,7 +107,6 @@ In Node.js, the Key Vault management API and the Key Vault object API are separa
 For complete examples using Key Vault with your applications, see:
 
 - [Azure Key Vault code samples](https://azure.microsoft.com/resources/samples/?service=key-vault) - Code Samples for Azure Key Vault. 
-- [Use Azure Key Vault from a Web Application](../secrets/quick-create-net.md) - tutorial to help you learn how to use Azure Key Vault from a web application in Azure. 
 
 ## How-tos
 
@@ -118,7 +136,6 @@ These articles are about other scenarios and services that use or integrate with
 
 - [Key Vault soft-delete behavior](soft-delete-overview.md)) describes a feature that allows recovery of deleted objects, whether the deletion was accidental or intentional.
 - [Key Vault client throttling](overview-throttling.md) orients you to the basic concepts of throttling and offers an approach for your app.
-- [Key Vault storage account keys overview](../secrets/overview-storage-keys.md)) describes the Key Vault integration Azure Storage Accounts keys.
 - [Key Vault security worlds](overview-security-worlds.md) describes the relationships between regions and security areas.
 
 ## Social

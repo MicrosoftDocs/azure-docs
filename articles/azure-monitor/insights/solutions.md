@@ -188,7 +188,6 @@ az monitor log-analytics solution delete --name
 
 ## Next steps
 
-* Get a [list of monitoring solutions from Microsoft](/azure/azure-monitor/monitor-reference).
+* Get a [list of monitoring solutions from Microsoft](../monitor-reference.md).
 * Learn how to [create queries](../log-query/log-query-overview.md) to analyze data collected by monitoring solutions.
 * See all [Azure CLI commands for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
-

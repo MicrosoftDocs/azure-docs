@@ -131,7 +131,7 @@ In certain circumstances, modifying, disabling, or enabling an existing job can 
 
 ### Permissions on resource group not applied to SQL Managed Instance
 
-When the SQL Managed Instance Contributor RBAC role is applied to a resource group (RG), it's not applied to SQL Managed Instance and has no effect.
+When the SQL Managed Instance Contributor Azure role is applied to a resource group (RG), it's not applied to SQL Managed Instance and has no effect.
 
 **Workaround**: Set up a SQL Managed Instance Contributor role for users at the subscription level.
 
