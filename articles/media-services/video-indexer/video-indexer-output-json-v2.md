@@ -97,7 +97,7 @@ This section shows the summary of the insights.
 |duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.|
 |thumbnailVideoId|The ID of the video from which the thumbnail was taken.
 |thumbnailId|The video's thumbnail ID. To get the actual thumbnail, call [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) and pass it thumbnailVideoId and  thumbnailId.|
-|faces/animatedCharacters|May contain zero or more faces. For more detailed information, see [faces](#faces-animatedCharacters).|
+|faces/animatedCharacters|May contain zero or more faces. For more detailed information, see [faces/animatedCharacters](#facesanimatedcharacters).|
 |keywords|May contain zero or more keywords. For more detailed information, see [keywords](#keywords).|
 |sentiments|May contain zero or more sentiments. For more detailed information, see [sentiments](#sentiments).|
 |audioEffects| May contain zero or more audioEffects. For more detailed information, see [audioEffects](#audioeffects).|
@@ -173,7 +173,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |ocr|The [OCR](#ocr) insight.|
 |keywords|The [keywords](#keywords) insight.|
 |blocks|May contain one or more [blocks](#blocks)|
-|faces|The [faces](#faces) insight.|
+|faces/animatedCharacters|The [faces/animatedCharacters](#facesanimatedCharacters) insight.|
 |labels|The [labels](#labels) insight.|
 |shots|The [shots](#shots) insight.|
 |brands|The [brands](#brands) insight.|
@@ -320,7 +320,7 @@ Example:
 
 `animatedCharacters` element replaces `faces` in case the video was indexed with an animated characters model. This is done using a custom model in Custom Vision, Video Indexer runs it on keyframes.
 
-If faces and not animated characters are present, Video Indexer uses Face API on all the video’s frames to detect faces and celebrities.
+If faces (not animated characters) are present, Video Indexer uses Face API on all the video’s frames to detect faces and celebrities.
 
 |Name|Description|
 |---|---|
