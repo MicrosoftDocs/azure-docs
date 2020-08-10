@@ -139,21 +139,20 @@ After the device client sample starts, use the Azure IoT explorer tool to verify
 
 This sample implements an IoT Plug and Play temperature controller device. This sample implements a model with [multiple components](concepts-components.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
-### Helper functions
+### IoT Plug and Play helper functions
 
-For this sample, the code use some helpers function from the */common* folder:
+For this sample, the code use some helper functions from the */common* folder:
 
-*pnp_device_client_helpers* contains the connect method for IoT Plug and Play with `model-id` as a parameter: `PnPHelper_CreateDeviceClientHandle`.
+*pnp_device_client_ll* contains the connect method for IoT Plug and Play with the `model-id` included as a parameter: `PnP_CreateDeviceClientLLHandle`.
 
-*pnp_protocol_helpers*: contains the IoT Plug and Play helper functions:
+*pnp_protocol*: contains the IoT Plug and Play helper functions:
 
-- `PnPHelperPropertyCallbackFunction`
-- `PnPHelper_CreateReportedProperty`
-- `PnPHelper_CreateReportedPropertyWithStatus`
-- `PnPHelper_ParseCommandName`
-- `PnPHelper_CreateTelemetryMessageHandle`
-- `PnPHelper_ProcessTwinData`
-- `PnPHelper_CopyPayloadToString`
+- `PnP_CreateReportedProperty`
+- `PnP_CreateReportedPropertyWithStatus`
+- `PnP_ParseCommandName`
+- `PnP_CreateTelemetryMessageHandle`
+- `PnP_ProcessTwinData`
+- `PnP_CopyPayloadToString`
 
 These helper functions are generic enough to use in your own project. This sample uses them in the three files that correspond to each component in the model:
 
@@ -164,7 +163,7 @@ These helper functions are generic enough to use in your own project. This sampl
 For example, in the *pnp_deviceinfo_component* find, the `SendReportedPropertyForDeviceInformation` function uses one of the helper functions:
 
 ```c
- if ((jsonToSend = PnPHelper_CreateReportedProperty(componentName, propertyName, propertyValue)) == NULL)
+if ((jsonToSend = PnP_CreateReportedProperty(componentName, propertyName, propertyValue)) == NULL)
 ```
 
 Each component in the sample follows this pattern.
@@ -177,31 +176,34 @@ The `main` function initializes the connection and sends the model ID:
 deviceClient = CreateDeviceClientAndAllocateComponents()
 ```
 
-The code uses `PnPHelper_CreateDeviceClientHandle` to connect to the IoT hub and sets `modelId` as an option:
+The code uses `PnP_CreateDeviceClientLLHandle` to connect to the IoT hub, set `modelId` as an option, and set up the device method and device twin callback handlers:
 
 ```c
-deviceHandle = IoTHubDeviceClient_CreateFromConnectionString(connectionString, MQTT_Protocol)
+g_pnpDeviceConfiguration.deviceMethodCallback = PnP_TempControlComponent_DeviceMethodCallback;
+g_pnpDeviceConfiguration.deviceTwinCallback = PnP_TempControlComponent_DeviceTwinCallback;
+g_pnpDeviceConfiguration.modelId = g_temperatureControllerModelId;
+
 ...
-iothubResult = IoTHubDeviceClient_SetOption(deviceHandle, OPTION_MODEL_ID, modelId)
+
+deviceClient = PnP_CreateDeviceClientLLHandle(&g_pnpDeviceConfiguration)
 ```
 
 When the device sends a model ID, it becomes an IoT Plug and Play device.
 
-After connecting, the `PnPHelper_CreateDeviceClientHandle` function also registers the handlers:
+With the callback handlers in place, the device reacts to twin updates and direct method calls:
 
-```c
-    iothubResult = IoTHubDeviceClient_SetDeviceMethodCallback(deviceHandle, deviceMethodCallback, NULL)
-...
-    iothubResult = IoTHubDeviceClient_SetDeviceTwinCallback(deviceHandle, deviceTwinCallback, (void*)deviceHandle)
-```
+- For the device twin callback, the `PnP_TempControlComponent_DeviceTwinCallback` calls the `PnP_ProcessTwinData` function to process the data. `PnP_ProcessTwinData` uses the *visitor pattern* to parse the JSON and then visit each property, calling `PnP_TempControlComponent_ApplicationPropertyCallback` on each element.
 
-With these handlers in place the device now can react to twin updates and direct method calls:
-
-- For the device twin callback, the code uses the `PnP_TempControlComponent_DeviceTwinCallback` and calls `PnPHelper_ProcessTwinData` to process the data.  `PnPHelper_ProcessTwinData` uses the *visitor pattern* to parse the JSON and then visit each property, calling `PnP_TempControlComponent_ApplicationPropertyCallback` on each element.
-
-- For commands the `PnP_TempControlComponent_DeviceMethodCallback` function filters on the name of the component:
+- For the commands callback, the `PnP_TempControlComponent_DeviceMethodCallback` function uses the helper function to parse the command and component names:
 
     ```c
+    PnP_ParseCommandName(methodName, &componentName, &componentNameSize, &pnpCommandName);
+    ```
+
+    The `PnP_TempControlComponent_DeviceMethodCallback` function then calls the command on the component:
+
+    ```c
+    LogInfo("Received PnP command for component=%.*s, command=%s", (int)componentNameSize, componentName, pnpCommandName);
     if (strncmp((const char*)componentName, g_thermostatComponent1Name, g_thermostatComponent1Size) == 0)
     {
         result = PnP_ThermostatComponent_ProcessCommand(g_thermostatHandle1, pnpCommandName, rootValue, response, responseSize);
@@ -234,16 +236,15 @@ while (true)
     PnP_TempControlComponent_SendWorkingSet(deviceClient);
     PnP_ThermostatComponent_SendTelemetry(g_thermostatHandle1, deviceClient);
     PnP_ThermostatComponent_SendTelemetry(g_thermostatHandle2, deviceClient);
-    ThreadAPI_Sleep(g_sleepBetweenTelemetrySends);
 }
 ```
 
-The `PnP_ThermostatComponent_SendTelemetry` function shows you how to use the `PNP_THERMOSTAT_COMPONENT`struct. The sample uses this struct to store information about the two thermostats in the temperature controller. The code uses the `PnPHelper_CreateTelemetryMessageHandle` function to prepare the message and send it:
+The `PnP_ThermostatComponent_SendTelemetry` function shows you how to use the `PNP_THERMOSTAT_COMPONENT` struct. The sample uses this struct to store information about the two thermostats in the temperature controller. The code uses the `PnP_CreateTelemetryMessageHandle` function to prepare the message and send it:
 
 ```c
-messageHandle = PnPHelper_CreateTelemetryMessageHandle(pnpThermostatComponent->componentName, temperatureStringBuffer)
+messageHandle = PnP_CreateTelemetryMessageHandle(pnpThermostatComponent->componentName, temperatureStringBuffer)
 ...
-iothubResult = IoTHubDeviceClient_SendEventAsync(deviceClient, messageHandle, NULL, NULL)
+iothubResult = IoTHubDeviceClient_LL_SendEventAsync(deviceClientLL, messageHandle, NULL, NULL)
 ```
 
 The `main` function finally destroys the different components and closes the connection to the hub.
