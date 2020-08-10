@@ -30,7 +30,7 @@ Before you begin, make sure that you're signed into Visual Studio. Sign in with 
    The Connected Service page appears with services you can add to your project.
 1. In the menu of available services, choose **Azure Key Vault** and click **Next**.
 
-   ![Choose "Azure Key Vault"](../media/vs-key-vault-add-connected-service/keyvaultconnectedservice.png)
+   ![Choose "Azure Key Vault"](../media/vs-key-vault-add-connected-service/key-vault-connected-service.png)
 
 1. Select the subscription you want to use, and then choose a existing Key Vault and click **Finish**. 
 
