@@ -55,7 +55,7 @@
     - name: Manage custom models
       href: how-to-manage-model.md
     - name: Parse and validate models
-      href: how-to-use-parser.md
+      href: how-to-parse-models.md
     - name: Add tags 
       href: how-to-use-tags.md
   - name: Use live execution environment

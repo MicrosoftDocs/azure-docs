@@ -1,6 +1,6 @@
 ---
 title: 'Azure VPN Gateway: configuration settings'
-description: Learn about the configuration of a VPN gateway connection in Azure, which relies on multiple resources, each of which contains configurable settings.
+description: Learn about VPN Gateway resources and settings for a virtual network created in the Resource Manager deployment model.
 services: vpn-gateway
 author: cherylmc
 
