@@ -43,6 +43,9 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
 
       ![Default backup policy](./media/backup-during-vm-creation/daily-policy.png)
 
+>[!NOTE]
+>[SSE and PMK are the default encryption methods](backup-encryption.md#backup-of-azure-vms-with-disks-encrypted-using-platform-managed-keys) for Azure VMs. Azure Backup supports backup and restore of these Azure VMs.
+
 ## Azure Backup resource group for Virtual Machines
 
 The Backup service creates a separate resource group (RG), different than the resource group of the VM to store the restore point collection (RPC). The RPC houses the instant recovery points of managed VMs. The default naming format of the resource group created by the Backup service is: `AzureBackupRG_<Geo>_<number>`. For example: *AzureBackupRG_northeurope_1*. You now can customize the Resource group name created by Azure Backup.
