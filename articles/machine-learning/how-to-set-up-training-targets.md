@@ -193,7 +193,7 @@ Use any of these ways to specify a managed identity for a compute cluster:
     # create a cluster with a system-managed identity
     az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '[system]'
 
-* Using the CLI, execute the following commands to assign a managed identity after cluster creation:
+* Using the CLI, execute the following commands to assign a managed identity on an existing cluster:
     
     ```azurecli
     # add a user-assigned managed identity
