@@ -82,6 +82,8 @@ See the following table to learn more about supported series and restrictions.
 | Dv2 | None |  
 | DSv2 | None |  
 | FSv2 | None |  
+| HBv2 | Requires approval |  
+| HCS | Requires approval |  
 | M | Requires approval |
 | NC | None |    
 | NCsv2 | Requires approval |
