@@ -40,16 +40,18 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + A new method `run.get_detailed_status()` now shows the detailed explanation of current run status. It is currently only showing explanation for `Queued` status.
     + Add image_name and image_labal parameters to Model.package() to enable renaming the built package image.
     + Added support for specifying pip options (e.g. --extra-index-url) in pip requirements file.
-    + * Enable registering credential-less ADLS Gen2 datastore * Improved error message when trying to download or mount an incorrect dataset type
+    + Enable registering credential-less ADLS Gen2 datastore.
+    + Improved error message when trying to download or mount an incorrect dataset type
     + Change the sdk and cli to accept subscriptionId, resourceGroup, workspaceName, peConnectionName as parameters instead of ArmResourceId when deleting private endpoint connection
     + Experimental Decorator shows class name for easier identification.
-    + * Descriptions for the Assets inside of Models are no longer automatically generated based on a Run.
+    + Descriptions for the Assets inside of Models are no longer automatically generated based on a Run.
   + **azureml-datadrift**
     + Update timeseries dataset filter sample notebook with more examples of partition_timestamp that provides filter optimization.
   + **azureml-dataprep**
-    + * Enable registering credential-less ADLS Gen2 datastore * Improved error message when trying to download or mount an incorrect dataset type
+    + Enable registering credential-less ADLS Gen2 datastore.
+    + Improved error message when trying to download or mount an incorrect dataset type.
   + **azureml-pipeline-core**
-    + Fixed bug when deserializing pipeline graph which contains registered datasets
+    + Fixed bug when deserializing pipeline graph which contains registered datasets.
   + **azureml-pipeline-steps**
     + RScriptStep supports RSection from azureml.core.environment.
     + Removed the passthru_automl_config parameter from the `AutoMLStep` public API and converted it to an internal only parameter.
