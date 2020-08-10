@@ -27,7 +27,6 @@ In this tutorial, you'll learn how to integrate Darwinbox with Azure Active Dire
 * Control in Azure AD who has access to Darwinbox.
 * Enable your users to be automatically signed-in to Darwinbox with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
@@ -36,9 +35,10 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Darwinbox single sign-on (SSO) enabled subscription.
-
 > [!NOTE]
+
 > This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 
 ## Scenario description
 
@@ -143,6 +143,28 @@ In this section, you create a user called B.Simon in Darwinbox. Work with [Darw
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Darwinbox tile in the Access Panel, you should be automatically signed in to the Darwinbox for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## Test SSO for Darwinbox (Mobile)
+
+1. Open Darwinbox mobile application. Click on **Enter Organization URL** now enter your organization URL in the textbox and click on Arrow button.
+
+    ![Darwinbox mobile app](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+
+1. If you have muliple domain, then click on your domain.
+
+    ![Darwinbox mobile app](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+
+1. Enter your Azure AD email into the Darwinbox application and click **Next**.
+
+    ![Darwinbox mobile app](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+
+1. Enter your Azure AD password into the Darwinbox application and click **Sign in**.
+
+    ![Darwinbox mobile app](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+
+1. Finally after successful sign in, the application homepage will be displayed.
+
+    ![Darwinbox mobile app](media/darwinbox-tutorial/DarwinboxMobile05.jpg)
 
 ## Additional resources
 
