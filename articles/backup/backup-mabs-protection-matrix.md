@@ -19,6 +19,9 @@ Use the following matrix for MABS v3 UR1:
 
 * Protection and recovery – List the detailed information about the workloads such as supported storage container or supported deployment.
 
+>[!NOTE]
+>Support for the 32-bit protection agent is deprecated with MABS v3 UR1. See [32-Bit protection agent deprecation](backup-mabs-whats-new-mabs.md#32-bit-protection-agent-deprecation).
+
 ## Protection support matrix
 
 The following sections details the protection support matrix for MABS:
