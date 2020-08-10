@@ -142,7 +142,7 @@ The following major changes are introduced in compatibility level 1.1:
 
 **1.0 level:** The JSON parser would automatically convert string values with date/time/zone information to DATETIME type at ingress so the value immediately loses its original formatting and timezone information. Since this is done at ingress, even if that field was not used in the query, it is converted into UTC DateTime.
 
-**1.1 level:** There is no more automatic conversion of string values with date/time/zone information to DATETIME type. As a result, timezone information and original formatting are kept. However if this NVARCHAR(MAX) field is used in the query as part of a DATETIME expression (DATEADD function for example) the it will still be converted to DATETIME type to perform computation and will lose original form.
+**1.1 level:** There is no automatic conversion of string values with date/time/zone information to DATETIME type. As a result, timezone information and original formatting are kept. However if the NVARCHAR(MAX) field is used in the query as part of a DATETIME expression (DATEADD function, for example) then it will be converted to DATETIME type to perform thecomputation and it loses its original form.
 
 ## Next steps
 
