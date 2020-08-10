@@ -23,9 +23,9 @@ Learn about the benefits of Azure Security Center's adaptive application control
 
 ## What are Security Center's adaptive application controls?
 
-Adaptive application controls are an intelligent and automated solution for defining which applications should run on your machines. 
+Adaptive application controls are an intelligent and automated solution for defining allow lists of known-safe applications for your machines. 
 
-Often, organizations have collections of stable machines that routinely run the same processes. Security Center uses machine learning to analyze the applications running on your machines and create a list of the known-safe software. Allow lists are based on your specific Azure workloads, and you can further customize the recommendations using the instructions below.
+Often, organizations have collections of machines that routinely run the same processes. Security Center uses machine learning to analyze the applications running on your machines and create a list of the known-safe software. Allow lists are based on your specific Azure workloads, and you can further customize the recommendations using the instructions below.
 
 When you've enabled and configured adaptive application controls, you'll get security alerts if any application runs other than the ones you've defined as safe.
 
@@ -57,7 +57,7 @@ By defining lists of known-safe applications, and generating alerts when anythin
 
 ## Enable adaptive application controls on a group of machines
 
-If Security Center has identified groups of stable machines in your subscriptions that run a similar set of applications, you'll be prompted with the following recommendation: **Adaptive application controls for defining safe applications should be enabled on your machines**.
+If Security Center has identified groups of machines in your subscriptions that consistently run a similar set of applications, you'll be prompted with the following recommendation: **Adaptive application controls for defining safe applications should be enabled on your machines**.
 
 Select the recommendation, or open the adaptive application controls page to view the list of suggested known-safe applications and groups of machines.
 
@@ -69,10 +69,10 @@ Select the recommendation, or open the adaptive application controls page to vie
         - the number of machines in the group
         - recent alerts
 
-    - **Recommended** - Groups of machines without a defined allow list of applications, but that can support this feature. We recommend that you enable adaptive application controls for these groups.
+    - **Recommended** - Groups of machines that consistently run the same applications, and don't have an allow list configured. We recommend that you enable adaptive application controls for these groups.
     
       > [!TIP]
-      > If you see a group name with the prefix "REVIEWGROUP", it contains machines with an unstable list of applications. Security Center can't see a pattern but recommends reviewing this group to see whether _you_ can manually define some adaptive application controls rules as described in [Editing a group's adaptive application controls rule](#editing-a-groups-adaptive-application-controls-rule).
+      > If you see a group name with the prefix "REVIEWGROUP", it contains machines with a a partially consistent list of applications. Security Center can't see a pattern but recommends reviewing this group to see whether _you_ can manually define some adaptive application controls rules as described in [Editing a group's adaptive application controls rule](#editing-a-groups-adaptive-application-controls-rule).
       >
       > You can also move machines from this group to other groups as described in [Move a machine from one group to another](#move-a-machine-from-one-group-to-another).
 
@@ -148,7 +148,7 @@ To edit the rules for a group of machines:
 
 ## Responding to the "Allowlist rules in your adaptive application control policy should be updated" recommendation
 
-This recommendation appears when Security Center's machine learning identifies potentially legitimate behavior that hasn't previously been allowed. The recommendation prompts you to add new rules to the existing policy to reduce the number of false positive alerts.
+You'll see this recommendation when Security Center's machine learning identifies potentially legitimate behavior that hasn't previously been allowed. The recommendation suggests new rules for your existing definitions to reduce the number of false positive alerts.
 
 To remediate the issues:
 
@@ -210,13 +210,9 @@ Some of the functions that are available from the REST API:
 * **Put** configures your rule (use the JSON you retrieved with **Get** as the body for this request).
  
    > [!IMPORTANT]
-   > The **Put** function expects fewer parameters than the JSON contains. Remove the following properties before using the JSON in the Put **request**: recommendationStatus , configurationStatus, issues, location, sourceSystem.
-
-
-
-
-
-
+   > The **Put** function expects fewer parameters than the JSON returned by the Get command contains.
+   >
+   > Remove the following properties before using the JSON in the Put request: recommendationStatus, configurationStatus, issues, location, and sourceSystem.
 
 
 
