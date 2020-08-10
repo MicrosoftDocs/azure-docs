@@ -44,6 +44,8 @@ Since communication to the workspace is only allowed from the virtual network, a
 
 > [!IMPORTANT]
 > The private endpoint does not effect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal.
+>
+> The private endpoint prevents access to the workspace from outside the virtual network.
 
 Some combinations of resources with a private endpoint require an Enterprise edition workspace. Use the following table to understand what scenarios require Enterprise edition:
 
@@ -75,6 +77,8 @@ __Requirements__
 * The virtual network that you use with the private endpoint must have network policies disabled. For more information, see [Disable network policies for a private endpoint](/azure/private-link/disable-private-endpoint-network-policy).
 
 __Limitations__
+
+* You can't connect to the workspace over the public internet, only from inside the virtual network.
 
 * If multiple workspaces are created using private endpoints, and they use the same private DNS zone, only the first workspace is added to the __virtual network links__ of the private DNS zone.
 
@@ -338,8 +342,8 @@ __Configuration__
 
     1. Deny outbound internet connection by using the NSG rules.
     1. For a __compute instance__ or a __compute cluster__, limit outbound traffic to the following items:
-        - Azure Storage, by using __Service Tag__ of __Storage__.
-        - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry__.
+        - Azure Storage, by using __Service Tag__ of __Storage.RegionName__. Where `{RegionName}` is the name of an Azure region.
+        - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry.RegionName__. Where `{RegionName}` is the name of an Azure region.
         - Azure Machine Learning, by using __Service Tag__ of __AzureMachineLearning__
         - Azure Resource Manager, by using __Service Tag__ of __AzureResourceManager__
         - Azure Active Directory, by using __Service Tag__ of __AzureActiveDirectory__
