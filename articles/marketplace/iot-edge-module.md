@@ -1,12 +1,12 @@
 ---
 title: Azure Marketplace IoT Edge module offers 
 description: Learn about publishing IoT Edge module offers in Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/15/2020
-ms.author: dsindona
 ---
 
 # IoT Edge modules

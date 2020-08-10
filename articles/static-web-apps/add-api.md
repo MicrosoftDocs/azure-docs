@@ -7,6 +7,7 @@ ms.service: static-web-apps
 ms.topic:  how-to
 ms.date: 05/29/2020
 ms.author: wachegha
+ms.custom: devx-track-javascript
 ---
 
 # Add an API to Azure Static Web Apps Preview with Azure Functions
@@ -67,20 +68,20 @@ Visual Studio Code generates an Azure Functions project with an HTTP triggered f
 
 Your app now has a project structure similar to the following example.
 
-    ```files
-    ├── api
-    │   ├── GetMessage
-    │   │   ├── function.json
-    │   │   ├── index.js
-    │   │   └── sample.dat
-    │   ├── host.json
-    │   ├── local.settings.json
-    │   ├── package.json
-    │   └── proxies.json
-    ├── index.html
-    ├── readme.md
-    └── styles.css
-    ```
+```files
+├── api
+│   ├── GetMessage
+│   │   ├── function.json
+│   │   ├── index.js
+│   │   └── sample.dat
+│   ├── host.json
+│   ├── local.settings.json
+│   ├── package.json
+│   └── proxies.json
+├── index.html
+├── readme.md
+└── styles.css
+```
 
 Next, you'll change the `GetMessage` function to return a message to the front-end.
 
@@ -128,7 +129,7 @@ With the above settings, the API endpoint is:
 
 ## Run the API locally
 
-Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local) to let you run this project on your local development computer before you publish to Azure.
+Visual Studio Code integrates with [Azure Functions Core Tools](../azure-functions/functions-run-local.md) to let you run this project on your local development computer before you publish to Azure.
 
 > [!TIP]
 > Make sure you have all the resources listed in the [prerequisites](#prerequisites) section installed before proceeding.

@@ -51,6 +51,9 @@
   items:
   - name: Security
     items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
   - name: Batch service workflow and resources
@@ -279,7 +282,7 @@
   - name: Batch Shipyard
     href: https://github.com/Azure/batch-shipyard
   - name: Blog
-    href: https://blogs.technet.microsoft.com/windowshpc/
+    href: /archive/blogs/windowshpc/
   - name: HPC on Azure
     href: /azure/architecture/topics/high-performance-computing/
   - name: Pricing

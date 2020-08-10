@@ -108,7 +108,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+    *Data factory name “ADFTutorialDataFactory” is not available.*
 3. Select **V2** for the **version**.
 4. Select your Azure **subscription** in which you want to create the data factory.
 5. For the **Resource Group**, do one of the following steps:
@@ -273,12 +273,12 @@ In this step, you create a pipeline, which first checks the number of changed re
    2. Select **Query** for **Use Query**.
    3. Enter the following for **Query**.
 
-    ```sql
-    DECLARE @from_lsn binary(10), @to_lsn binary(10); 
-    SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers'); 
-    SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal', GETDATE());
-    SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
-    ```
+      ```sql
+      DECLARE @from_lsn binary(10), @to_lsn binary(10); 
+      SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers'); 
+      SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal', GETDATE());
+      SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
+      ```
 
    ![Copy Activity - source settings](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-settings.png)
 

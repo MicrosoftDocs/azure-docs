@@ -66,6 +66,8 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-samples.md
+  - name: Terraform
+    href: samples-terraform.md
 - name: Concepts
   items:
   - name: App Service plans
@@ -84,6 +86,9 @@
       href: overview-patch-os-runtime.md
     - name: Built-in security controls
       href: app-service-security-controls.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Security overview
       href: overview-security.md
   - name: Networking features
@@ -176,6 +181,8 @@
         href: configure-authentication-provider-microsoft.md
       - name: Authenticate with Twitter
         href: configure-authentication-provider-twitter.md
+      - name: Authenticate with an OpenID Connect provider (Preview)
+        href: configure-authentication-provider-openid-connect.md
     - name: Advanced auth
       href: app-service-authentication-how-to.md
     - name: Restrict access

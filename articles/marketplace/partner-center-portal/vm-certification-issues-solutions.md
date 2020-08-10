@@ -1,11 +1,11 @@
 ---
 title: Virtual machine certification - issues and solutions 
 description: This article explains common error messages for VM images. It also discusses related solutions
-author: v-miegge 
-ms.author: v-krmall
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 06/16/2020
 ---
 

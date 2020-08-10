@@ -3,7 +3,7 @@ title: "Quickstart: Create a C# ASP.NET Core app"
 description: Learn how to run web apps in Azure App Service by deploying the default C# ASP.NET Core web app template from Visual Studio.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 04/22/2020
+ms.date: 08/06/2020
 ms.custom: mvc, devcenter, vs-azure, seodec18
 ---
 
@@ -148,3 +148,8 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 
 > [!div class="nextstepaction"]
 > [Configure ASP.NET Core app](configure-language-dotnetcore.md)
+
+Want to optimize and save on your cloud spending?
+
+> [!div class="nextstepaction"]
+> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

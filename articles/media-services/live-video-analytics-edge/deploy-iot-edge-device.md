@@ -13,13 +13,13 @@ This article lists the steps that will help you deploy Live Video Analytics on y
 ## Prerequisites
 
 * A Linux machine that meets the HW/SW constraints for Live Video Analytics
-* Azure subscription to which you have [owner privileges](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
-* [Create and setup IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal)
-* [Register IoT Edge device](https://docs.microsoft.com/azure/iot-edge/how-to-register-device)
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
+* Azure subscription to which you have [owner privileges](../../role-based-access-control/built-in-roles.md#owner)
+* [Create and setup IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
+* [Register IoT Edge device](../../iot-edge/how-to-register-device.md)
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Create an Azure Media Services account](../latest/create-account-howto.md)
     * Use one of these regions: East US 2, Central US, North Central US, Japan East, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
-    * It is recommended that you use General-purpose v2 (GPv2) Storage accounts.
+    * It is recommended that you use General-purpose v2 (GPv2) Storage accounts
 
 ## Configuring Azure resources for using Live Video Analytics
 
@@ -29,7 +29,7 @@ See [Create custom Azure Resource Manager role](create-custom-azure-resource-man
 
 ### Set up a premium streaming endpoint
 
-If you intend to use Live Video Analytics to record video to the cloud, and subsequently play it back, then you should be updating your Media Service to use a [premium streaming endpoint](../latest/streaming-endpoint-concept.md#types).  
+If you intend to use Live Video Analytics to record video continuously to the cloud, and subsequently use [query APIs](playback-recordings-how-to.md#query-api) before playing it back, then we recommend updating your Media Service to use a [premium streaming endpoint](../latest/streaming-endpoint-concept.md#types).  
 
 This is an optional step. You can use this Azure CLI command to do so:
 
@@ -220,7 +220,7 @@ After you create the deployment, you return to the IoT Edge page of your IoT hub
 2.	In the device details, verify that the blob storage module is listed as both **Specified in deployment and Reported by device**.
 
 It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
-Status code: 200 –OK means that [the IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime) is healthy and is operating fine.
+Status code: 200 –OK means that [the IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) is healthy and is operating fine.
 
 ![Status](./media/deploy-iot-edge-device/status.png)
 

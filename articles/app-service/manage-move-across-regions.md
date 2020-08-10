@@ -9,7 +9,7 @@ ms.custom: subject-moving-resources
 #Customer intent: As an Azure service administrator, I want to move my App Service resources to another Azure region.
 ---
 
-# Move an App Service app to another region
+# Move an App Service resource to another region
 
 This article describes how to move App Service resources to a different Azure region. You might move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 

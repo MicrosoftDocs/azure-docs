@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 04/24/2020
+ms.date: 07/13/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -23,6 +23,11 @@ With Azure Active Directory (Azure AD) self-service password reset (SSPR), users
 
 Password writeback can be used to synchronize password changes in Azure AD back to your on-premises AD DS environment. Azure AD Connect provides a secure mechanism to send these password changes back to an existing on-premises directory from Azure AD.
 
+> [!IMPORTANT]
+> This tutorial shows an administrator how to enable self-service password reset back to an on-premises environment. If you're an end user already registered for self-service password reset and need to get back into your account, go to https://aka.ms/sspr.
+>
+> If your IT team hasn't enabled the ability to reset your own password, reach out to your helpdesk for additional assistance.
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -34,7 +39,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need the following resources and privileges:
 
-* A working Azure AD tenant with at least an Azure AD Premium P1 or P2 trial license enabled.
+* A working Azure AD tenant with at least an Azure AD Premium P1 or trial license enabled.
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * For more information, see [Licensing requirements for Azure AD SSPR](concept-sspr-licensing.md).
 * An account with *global administrator* privileges.
@@ -42,7 +47,7 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [complete the previous tutorial to enable Azure AD SSPR](tutorial-enable-sspr.md).
 * An existing on-premises AD DS environment configured with a current version of Azure AD Connect.
     * If needed, configure Azure AD Connect using the [Express](../hybrid/how-to-connect-install-express.md) or [Custom](../hybrid/how-to-connect-install-custom.md) settings.
-    * To use Password Writeback, your Domain Controllers must be Windows Server 2008 R2 or later.
+    * To use password writeback, your Domain Controllers must be Windows Server 2012 or later.
 
 ## Configure account permissions for Azure AD Connect
 
@@ -53,11 +58,9 @@ To correctly work with SSPR writeback, the account specified in Azure AD Connect
 * **Reset password**
 * **Write permissions** on `lockoutTime`
 * **Write permissions** on `pwdLastSet`
-* **Extended rights** for "Unexpire Password" on either:
-   * The root object of *each domain* in that forest
-   * The user organizational units (OUs) you want to be in scope for SSPR
+* **Extended rights** for "Unexpire Password" on the root object of *each domain* in that forest, if not already set.
 
-If don't assign these permissions, writeback appears to be configured correctly, but users encounter errors when they manage their on-premises passwords from the cloud. Permissions must be applied to **This object and all descendant objects** for "Unexpire Password" to appear.  
+If you don't assign these permissions, writeback may appear to be configured correctly, but users encounter errors when they manage their on-premises passwords from the cloud. Permissions must be applied to **This object and all descendant objects** for "Unexpire Password" to appear.  
 
 > [!TIP]
 >
@@ -73,11 +76,11 @@ To set up the appropriate permissions for password writeback to occur, complete 
 1. In the **Applies to** drop-down list, select **Descendant User objects**.
 1. Under *Permissions*, select the box for the following option:
     * **Reset password**
-1. Under *Properties*, select the boxes for the following options. You need to scroll through the list to find these options, which may already be set by default:
+1. Under *Properties*, select the boxes for the following options. Scroll through the list to find these options, which may already be set by default:
     * **Write lockoutTime**
     * **Write pwdLastSet**
 
-    [![](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png "Set the appropriate permissions in Active Users and Computers for the account that is used by Azure AD Connect")](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
+    [ ![Set the appropriate permissions in Active Users and Computers for the account that is used by Azure AD Connect](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png) ](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
 
 1. When ready, select **Apply / OK** to apply the changes and exit any open dialog boxes.
 
@@ -88,13 +91,13 @@ Password policies in the on-premises AD DS environment may prevent password rese
 If you update the group policy, wait for the updated policy to replicate, or use the `gpupdate /force` command.
 
 > [!Note]
-> In order for passwords to be changed immediately, password writeback must be set to 0. However, if users adhere to the on-premises policies, and the *Minimum password age* is set to a value greater than zero, password writeback will still work after the on-premises policies are evaluated. 
+> For passwords to be changed immediately, password writeback must be set to 0. However, if users adhere to the on-premises policies, and the *Minimum password age* is set to a value greater than zero, password writeback still works after the on-premises policies are evaluated.
 
 ## Enable password writeback in Azure AD Connect
 
 One of the configuration options in Azure AD Connect is for password writeback. When this option is enabled, password change events cause Azure AD Connect to synchronize the updated credentials back to the on-premises AD DS environment.
 
-To enable self-service password reset writeback, first enable the writeback option in Azure AD Connect. From your Azure AD Connect server, complete the following steps:
+To enable SSPR writeback, first enable the writeback option in Azure AD Connect. From your Azure AD Connect server, complete the following steps:
 
 1. Sign in to your Azure AD Connect server and start the **Azure AD Connect** configuration wizard.
 1. On the **Welcome** page, select **Configure**.

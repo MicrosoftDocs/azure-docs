@@ -18,7 +18,7 @@ ms.custom: contperfq4
 ---
 # Configure Azure Multi-Factor Authentication settings
 
-To customize the end-user experience for Azure Multi-Factor Authentication, you can configure options for settings like the account lockout thresholds or fraud alerts and notifications. Some settings are directly in the Azure portal for Azure Active Directory (Azure AD), and some in a separate Azure Multi-Factor Authentication portal.]
+To customize the end-user experience for Azure Multi-Factor Authentication, you can configure options for settings like the account lockout thresholds or fraud alerts and notifications. Some settings are directly in the Azure portal for Azure Active Directory (Azure AD), and some in a separate Azure Multi-Factor Authentication portal.
 
 The following Azure Multi-Factor Authentication settings are available in the Azure portal:
 

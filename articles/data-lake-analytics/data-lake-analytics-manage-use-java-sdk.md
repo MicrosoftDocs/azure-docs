@@ -3,14 +3,13 @@ title: Manage Azure Data Lake Analytics using Azure Java SDK
 description: This article describes how to use the Azure Java SDK to write apps that manage Data Lake Analytics jobs, data sources, & users.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2019
+ms.custom: devx-track-java
 ---
+
 # Manage Azure Data Lake Analytics using a Java app
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 

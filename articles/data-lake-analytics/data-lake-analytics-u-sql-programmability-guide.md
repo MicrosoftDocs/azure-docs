@@ -3,12 +3,9 @@ title: U-SQL programmability guide for Azure Data Lake
 description: Learn about the set of services in Azure Data Lake Analytics that enable you to create a cloud-based big data platform.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/30/2017
 ---
 
@@ -123,7 +120,7 @@ Consult the [assembly registration instructions](https://blogs.msdn.microsoft.co
 
 
 ### Use assembly versioning
-Currently, U-SQL uses the .NET Framework version 4.5. So ensure that your own assemblies are compatible with that version of the runtime.
+Currently, U-SQL uses the .NET Framework version 4.7.2. So ensure that your own assemblies are compatible with that version of the runtime.
 
 As mentioned earlier, U-SQL runs code in a 64-bit (x64) format. So make sure that your code is compiled to run on x64. Otherwise you get the incorrect format error shown earlier.
 
@@ -785,11 +782,7 @@ namespace USQL_Programmability
             }
 
             return new FiscalPeriod(FiscalQuarter, FiscalMonth);
-        }
-
-
-
-        [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
+        }        [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
         public struct FiscalPeriod
         {
             public int Quarter { get; private set; }

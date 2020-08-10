@@ -25,6 +25,11 @@
     href: extension-resource-types.md
   - name: Resource instance limit
     href: resources-without-resource-group-limit.md
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
 - name: How to
   items:
   - name: Move - resource groups/subscriptions
@@ -80,7 +85,7 @@
       - name: Azure Storage
         href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
       - name: Azure SQL
-        href: ../../sql-database/sql-database-move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+        href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
       - name: Logic apps
         href: ../../logic-apps/move-logic-app-resources.md?toc=/azure/azure-resource-manager/management/toc.json
       - name: Maintenance Control configuration
@@ -92,7 +97,13 @@
       - name: Site Recovery (Recovery Services vaults)
         href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
       - name: Virtual network
-        href: ../../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/management/toc.json    
+        href: ../../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/management/toc.json  
+      - name: Azure Database for PostgreSQL Server
+        href: ../../postgresql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json 
+      - name: Azure Database for MariaDB Server
+        href: ../../mariadb/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json 
+      - name: Azure Database for MySQL Server
+        href: ../../mysql/howto-move-regions-portal.md?toc=/azure/azure-resource-manager/management/toc.json  
   - name: Tags
     items:
     - name: Decision guide

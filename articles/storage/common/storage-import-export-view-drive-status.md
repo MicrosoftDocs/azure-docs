@@ -1,6 +1,6 @@
 ---
 title: View status of Azure Import/Export jobs | Microsoft Docs
-description: Learn how to view the status of Import/Export jobs and the drives used.
+description: Learn how to view the status of Azure Import/Export jobs and the drives used. Understand the factors that affect how long it takes to process a job.
 author: alkohli
 services: storage
 ms.service: storage
@@ -68,7 +68,7 @@ The amount of time it takes to process an import/export job varies based on a nu
 -  Number of disks in a job. 
 
 Import/Export service does not have an SLA but the service strives to complete the copy in 7 to 10 days after the disks are received. 
-In addition to the status posted on Azure Portal, REST APIs can be used to track the job progress. The percent complete parameter in the [List Jobs](/previous-versions/azure/dn529083(v=azure.100)) operation API call provides the percentage copy progress.
+In addition to the status posted on Azure portal, REST APIs can be used to track the job progress. The percent complete parameter in the [List Jobs](/previous-versions/azure/dn529083(v=azure.100)) operation API call provides the percentage copy progress.
 
 
 ## Next steps

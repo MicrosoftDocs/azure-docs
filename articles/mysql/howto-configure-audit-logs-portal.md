@@ -4,7 +4,7 @@ description: This article describes how to configure and access the audit logs i
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 6/24/2020
 ---
 

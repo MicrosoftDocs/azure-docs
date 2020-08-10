@@ -1,13 +1,8 @@
 ---
 title: Configure IP firewall for Azure Event Grid topics or domains (Preview)
 description: This article describes how to configure firewall settings for Event Grid topics or domains. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Configure IP firewall for Azure Event Grid topics or domains (Preview)

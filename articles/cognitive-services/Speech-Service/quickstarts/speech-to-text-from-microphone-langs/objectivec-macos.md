@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Recognize speech from a microphone, Objective-C - Speech service'
+title: 'Quickstart: Recognize speech, Objective-C - Speech service (macOS)'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in Objective-C on macOS by using the Speech SDK
+description: Learn how to create an app to recognize speech in Objective-C for a macOS computer using the Cognitive Services Speech SDK.
 services: cognitive-services
 author: chlandsi
 manager: nitinme

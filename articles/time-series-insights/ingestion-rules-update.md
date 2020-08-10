@@ -1,5 +1,5 @@
 ---
-title: 'Upcoming changes to the ingestion and flattening rules in Azure Time Series Insights | Microsoft Docs'
+title: 'Upcoming changes to the ingestion and flattening rules in Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Ingestion rule changes
 ms.service: time-series-insights
 services: time-series-insights
@@ -14,9 +14,9 @@ ms.custom: lyhughes
 
 # Upcoming changes to the JSON flattening and escaping rules for new environments
 
-These changes will be applied to *new* Azure Time Series Insights pay-as-you-go (PAYG) environments only. These changes do not apply to Standard (S) SKU environments.
+**These changes will be applied to *newly created* Azure Time Series Insights Gen2 environments only. These changes do not apply to Gen1 environments.**
 
-Your Azure Time Series Insights environment dynamically creates your storage columns, following a particular set of naming conventions. When an event is ingested, a set of rules is applied to the JSON payload and property names. Changes to how JSON data is flattened and stored will go into effect for new Azure Time Series Insights pay-as-you-go environments in July 2020. This change impacts you in the following cases:
+Your Azure Time Series Insights Gen2 environment dynamically creates your storage columns, following a particular set of naming conventions. When an event is ingested, a set of rules is applied to the JSON payload and property names. Changes to how JSON data is flattened and stored will go into effect for new Azure Time Series Insights Gen2 environments in July 2020. This change impacts you in the following cases:
 
 * If your JSON payload contains nested objects
 *  If your JSON payload contains arrays
@@ -40,15 +40,16 @@ Arrays of objects are always flattened, producing multiple events | If the objec
 
  #### If your payload contains nested JSON or special characters and you automate authoring [Time Series Model](.\time-series-insights-update-tsm.md) variable expressions
 
-*  Update your client code executing [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriestypes/executebatch#typesbatchput) to match the new ingestion rules. For example, a previous [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) of `"value": {"tsx": "$event.series_value.Double"}` should be updated to one of the below options:
+*  Update your client code executing [TypesBatchPut](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput) to match the new ingestion rules. For example, a previous [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) of `"value": {"tsx": "$event.series_value.Double"}` should be updated to one of the below options:
     * `"value": {"tsx": "$event.series.value.Double"}`
     * `"value": {"tsx": "$event['series']['value'].Double"}`
 
 
-
 ## Next steps
 
-- Read [Adding Support for Long Data Type](./time-series-insights-long-data-type.md).
+- Read [Azure Time Series Insights Gen2 storage and ingress](./time-series-insights-update-storage-ingress.md).
 
-- Read [Azure Time Series Insights Preview storage and ingress](./time-series-insights-update-storage-ingress.md).
+- Read more about how to query your data using [Time Series Query APIs](./concepts-query-overview.md).
+
+- Read more about the [new Time Series Expression syntax](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 

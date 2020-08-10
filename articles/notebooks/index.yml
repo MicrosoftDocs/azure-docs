@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Notebooks Preview Documentation
-summary: Azure Notebooks Preview is a free hosted service to develop and run Jupyter notebooks in the cloud with no installation. Jupyter (formerly IPython) is an open-source project that lets you easily combine markdown text, executable code (Python, R, and F#), persistent data, graphics, and visualizations onto a single, sharable canvas called a notebook.
+summary: On October 9, 2020 the Azure Notebooks public preview site will be retired and replaced with integrated services from Visual Studio, Azure, and GitHub. Learn about your options and Microsoft's other notebook experiences at https://notebooks.azure.com/Content/alternatives.html.
 metadata:
   title: Azure Notebooks Preview Documentation
   description: Learn how to create, run, and share Jupyter notebooks through the hosted Azure Notebooks Preview service.

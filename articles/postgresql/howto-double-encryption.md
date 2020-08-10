@@ -4,7 +4,7 @@ description: Learn how to set up and manage Infrastructure double encryption for
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/30/2020
 ---
 

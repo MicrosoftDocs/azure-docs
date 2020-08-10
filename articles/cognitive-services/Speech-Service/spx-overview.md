@@ -9,7 +9,8 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.author: trbye
+ms.author: trbye 
+ms.custom: devx-track-azurecli
 ---
 
 # What is the Speech CLI?

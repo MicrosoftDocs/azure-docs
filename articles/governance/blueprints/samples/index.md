@@ -11,7 +11,7 @@ quality and ready to deploy today to assist you in meeting your various complian
 
 ## Standards-based blueprint samples
 
-|  |  |
+| Sample | Description |
 |---------|---------|
 | [Australian Government ISM PROTECTED](./ism-protected/control-mapping.md) | Provides guardrails for compliance to Australian Government ISM PROTECTED. |
 | [Azure Security Benchmark](./azure-security-benchmark.md) | Provides guardrails for compliance to [Azure Security Benchmark](../../../security/benchmarks/overview.md). |

@@ -9,7 +9,7 @@ ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/02/2020
+ms.date: 07/11/2020
 ---
 
 # How to index Cosmos DB data using an indexer in Azure Cognitive Search 
@@ -152,6 +152,8 @@ A **data source** specifies the data to index, credentials, and policies for ide
 
 To create a data source, formulate a POST request:
 
+```http
+
     POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -168,6 +170,7 @@ To create a data source, formulate a POST request:
             "highWaterMarkColumnName": "_ts"
         }
     }
+```
 
 The body of the request contains the data source definition, which should include the following fields:
 
@@ -188,6 +191,7 @@ You can specify a SQL query to flatten nested properties or arrays, project JSON
 
 Example document:
 
+```http
     {
         "userId": 10001,
         "contact": {
@@ -197,30 +201,37 @@ Example document:
         "company": "microsoft",
         "tags": ["azure", "cosmosdb", "search"]
     }
+```
 
 Filter query:
 
-    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark ORDER BY c._ts
+```sql
+SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark ORDER BY c._ts
+```
 
 Flattening query:
 
-    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
-    
-    
+```sql
+SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
+
 Projection query:
 
-    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
-
+```sql
+SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
 
 Array flattening query:
 
-    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
-
+```sql
+SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
+```
 
 ### 3 - Create a target search index 
 
 [Create a target Azure Cognitive Search index](/rest/api/searchservice/create-index) if you don’t have one already. The following example creates an index with an ID and description field:
 
+```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -241,6 +252,7 @@ Array flattening query:
          "suggestions": true
        }]
      }
+```
 
 Ensure that the schema of your target index is compatible with the schema of the source JSON documents or the output of your custom query projection.
 
@@ -265,6 +277,7 @@ Ensure that the schema of your target index is compatible with the schema of the
 
 Once the index and data source have been created, you're ready to create the indexer:
 
+```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
@@ -275,6 +288,7 @@ Once the index and data source have been created, you're ready to create the ind
       "targetIndexName" : "mysearchindex",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 This indexer runs every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.   
 
@@ -297,10 +311,12 @@ The generally available .NET SDK has full parity with the generally available RE
 
 The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB, which is specified as follows:
 
+```http
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
         "highWaterMarkColumnName" : "_ts"
     }
+```
 
 Using this policy is highly recommended to ensure good indexer performance. 
 
@@ -316,11 +332,13 @@ To enable incremental progress when using a custom query, ensure that your query
 
 In some cases, even if your query contains an `ORDER BY [collection alias]._ts` clause, Azure Cognitive Search may not infer that the query is ordered by the `_ts`. You can tell Azure Cognitive Search that results are ordered by using the `assumeOrderByHighWaterMarkColumn` configuration property. To specify this hint, create or update your indexer as follows: 
 
+```http
 	{
      ... other indexer definition properties
      "parameters" : {
             "configuration" : { "assumeOrderByHighWaterMarkColumn" : true } }
     } 
+```
 
 <a name="DataDeletionDetectionPolicy"></a>
 
@@ -328,16 +346,19 @@ In some cases, even if your query contains an `ORDER BY [collection alias]._ts` 
 
 When rows are deleted from the collection, you normally want to delete those rows from the search index as well. The purpose of a data deletion detection policy is to efficiently identify deleted data items. Currently, the only supported policy is the `Soft Delete` policy (deletion is marked with a flag of some sort), which is specified as follows:
 
+```http
     {
         "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
         "softDeleteColumnName" : "the property that specifies whether a document was deleted",
         "softDeleteMarkerValue" : "the value that identifies a document as deleted"
     }
+```
 
 If you are using a custom query, make sure that the property referenced by `softDeleteColumnName` is projected by the query.
 
 The following example creates a data source with a soft-deletion policy:
 
+```http
 	POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
@@ -359,6 +380,7 @@ The following example creates a data source with a soft-deletion policy:
             "softDeleteMarkerValue": "true"
         }
     }
+```
 
 ## <a name="NextSteps"></a>Next steps
 

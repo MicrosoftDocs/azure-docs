@@ -8,9 +8,9 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
-ms.custom: contperfq4
-ms.date: 03/31/2020
+ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4
+ms.date: 08/06/2020
 
 ---
 # Known issues and troubleshooting in Azure Machine Learning
@@ -91,6 +91,22 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
     ```bash
     automl_setup
     ```
+    
+* **KeyError: 'brand' when running AutoML on local compute or Azure Databricks cluster**
+
+    If a new environment was created after June 10, 2020, by using SDK 1.7.0 or earlier, training might fail with this error due to an update in the py-cpuinfo package. (Environments created on or before June 10, 2020, are unaffected, as are experiments run on remote compute because cached training images are used.) To work around this issue, take either of the following two steps:
+    
+    * Update the SDK version to 1.8.0 or later (this also downgrades py-cpuinfo to 5.0.0):
+    
+      ```bash
+      pip install --upgrade azureml-sdk[automl]
+      ```
+    
+    * Downgrade the installed version of py-cpuinfo to 5.0.0:
+    
+      ```bash
+      pip install py-cpuinfo==5.0.0
+      ```
   
 * **Error message: Cannot uninstall 'PyYAML'**
 
@@ -110,7 +126,7 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
 
     Alternatively, you can use init scripts if you keep facing install issues with Python libraries. This approach isn't officially supported. For more information, see [Cluster-scoped init scripts](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-* **Databricks import error: cannot import name 'Timedelta' from 'pandas._libs.tslibs'**: If you see this error when you use automated machine learning, run the two following lines in your notebook:
+* **Databricks import error: cannot import name `Timedelta` from `pandas._libs.tslibs`**: If you see this error when you use automated machine learning, run the two following lines in your notebook:
     ```
     %sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
     %sh /databricks/python/bin/pip install pandas==0.23.4
@@ -141,6 +157,12 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
 > Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
 
 * **Azure portal**: If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal **Overview** page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
+
+* **Supported browsers in Azure Machine Learning studio web portal**: We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
+  * Microsoft Edge (The new Microsoft Edge, latest version. Not Microsoft Edge legacy)
+  * Safari (latest version, Mac only)
+  * Chrome (latest version)
+  * Firefox (latest version)
 
 ## Set up your environment
 
@@ -176,7 +198,27 @@ If you are using file share for other workloads, such as data transfer, the re
 |When reviewing images, newly labeled images are not shown.     |   To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.      |
 |Pressing Esc key while labeling for object detection creates a zero size label on the top-left corner. Submitting labels in this state fails.     |   Delete the label by clicking on the cross mark next to it.  |
 
-### Data drift monitors
+### <a name="data-drift"></a> Data drift monitors
+
+Limitations and known issues for data drift monitors:
+
+* The time range when analyzing historical data is limited to 31 intervals of the monitor's frequency setting. 
+* Limitation of 200 features, unless a feature list is not specified (all features used).
+* Compute size must be large enough to handle the data.
+* Ensure your dataset has data within the start and end date for a given monitor run.
+* Dataset monitors will only work on datasets that contain 50 rows or more.
+* Columns, or features, in the dataset are classified as categorical or numeric based on the conditions in the following table. If the feature does not meet these conditions - for instance, a column of type string with >100 unique values - the feature is dropped from our data drift algorithm, but is still profiled. 
+
+    | Feature type | Data type | Condition | Limitations | 
+    | ------------ | --------- | --------- | ----------- |
+    | Categorical | string, bool, int, float | The number of unique values in the feature is less than 100 and less than 5% of the number of rows. | Null is treated as its own category. | 
+    | Numerical | int, float | The values in the feature are of a numerical data type and do not meet the condition for a categorical feature. | Feature dropped if >15% of values are null. | 
+
+* When you have [created a data drift monitor](how-to-monitor-datasets.md) but cannot see data on the **Dataset monitors** page in Azure Machine Learning studio, try the following.
+
+    1. Check if you have selected the right date range at the top of the page.  
+    1. On the **Dataset Monitors** tab, select the experiment link to check run status.  This link is on the far right of the table.
+    1. If run completed successfully, check driver logs to see how many metrics has been generated or if there's any warning messages.  Find driver logs in the **Output + logs** tab after you click on an experiment.
 
 * If the SDK `backfill()` function does not generate the expected output, it may be due to an authentication issue.  When you create the compute to pass into this function, do not use `Run.get_context().experiment.workspace.compute_targets`.  Instead, use [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) such as the following to create the compute that you pass into that `backfill()` function: 
 
@@ -192,9 +234,16 @@ If you are using file share for other workloads, such as data transfer, the re
 
 ## Azure Machine Learning designer
 
-Known issues:
+* **Long compute preparation time:**
 
-* **Long compute preparation time**: It may be a few minutes or even longer when you first connect to or create a compute target. 
+It may be a few minutes or even longer when you first connect to or create a compute target. 
+
+From the Model Data Collector, it can take up to (but usually less than) 10 minutes for data to arrive in your blob storage account. Wait 10 minutes to ensure cells below will run.
+
+```python
+import time
+time.sleep(600)
+```
 
 ## Train models
 
@@ -230,7 +279,7 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
 
 ## Automated machine learning
 
-* **TensorFlow**: As of version 1.5.0 of the SDK, automated machine learning does not install tensorflow models by default. To install tensorflow and use it with your automated ML experiments, install tensorflow==1.12.0 via CondaDependecies. 
+* **TensorFlow**: As of version 1.5.0 of the SDK, automated machine learning does not install TensorFlow models by default. To install TensorFlow and use it with your automated ML experiments, install tensorflow==1.12.0 via CondaDependecies. 
  
    ```python
    from azureml.core.runconfig import RunConfiguration
@@ -316,6 +365,12 @@ If you perform a management operation on a compute target from a remote job, you
 
 For example, you will receive an error if you try to create or attach a compute target from an ML Pipeline that is submitted for remote execution.
 
+## Missing user interface items in studio
+
+Azure role-based access control can be used to restrict actions that you can perform with Azure Machine Learning. These restrictions can prevent user interface items from showing in the Azure Machine Learning studio. For example, if you are assigned a role that cannot create a compute instance, the option to create a compute instance will not appear in the studio.
+
+For more information, see [Manage users and roles](how-to-assign-roles.md).
+
 ## Next steps
 
 See more troubleshooting articles for Azure Machine Learning:
@@ -323,5 +378,5 @@ See more troubleshooting articles for Azure Machine Learning:
 * [Docker deployment troubleshooting with Azure Machine Learning](how-to-troubleshoot-deployment.md)
 * [Debug machine learning pipelines](how-to-debug-pipelines.md)
 * [Debug the ParallelRunStep class from the Azure Machine Learning SDK](how-to-debug-parallel-run-step.md)
-* [Interactive debugging of a machine learning compute instance with VS Code](how-to-set-up-vs-code-remote.md)
+* [Interactive debugging of a machine learning compute instance with VS Code](how-to-debug-visual-studio-code.md)
 * [Use Application Insights to debug machine learning pipelines](how-to-debug-pipelines-application-insights.md)

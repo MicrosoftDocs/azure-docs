@@ -1,13 +1,8 @@
 ---
 title: Set alerts for Azure Event Grid metrics and activity log operations
 description: This article describes how to create alerts on Azure Event Grid metrics and activity log operations. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Set alerts on Azure Event Grid metrics and activity logs

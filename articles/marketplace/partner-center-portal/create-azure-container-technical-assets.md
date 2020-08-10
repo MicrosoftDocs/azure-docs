@@ -1,11 +1,11 @@
 ---
 title: Technical concepts for Azure container offers - Microsoft commercial marketplace
 description: Technical resource and guidelines to help you configure a container offer on Azure Marketplace.
-author: anbene
-ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/09/2020
 ---
 

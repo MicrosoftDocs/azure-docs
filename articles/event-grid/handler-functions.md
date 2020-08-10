@@ -1,13 +1,8 @@
 ---
 title: Azure function as an event handler for Azure Event Grid events
 description: Describes how you can use Azure functions as event handlers for Event Grid events. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Azure function as an event handler for Event Grid events

@@ -1,11 +1,11 @@
 ---
-title: Azure Firewall FQDN filtering in network rules (preview)
+title: Azure Firewall Manager filtering in network rules (preview)
 description: How to use FQDN filtering in network rules
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 07/30/2020
 ms.author: victorh
 ---
 
@@ -16,13 +16,16 @@ ms.author: victorh
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-A fully qualified domain name (FQDN) represents a domain name of a host. A domain name is associated with a single or multiple IP addresses. You can allow or block FQDNs and FQDN tags in application rules. Using custom DNS and DNS proxy settings, you can also use FQDN filtering in network rules.
+A fully qualified domain name (FQDN) represents a domain name of a host or IP address(es). You can use FQDNs in network rules based on DNS resolution in Azure Firewall and Firewall policy. This capability allows you to filter outbound traffic with any TCP/UDP protocol (including NTP, SSH, RDP, and more). You must enable DNS Proxy to use FQDNs in your network rules. For more information see [Azure Firewall policy DNS settings (preview)](dns-settings.md).
 
 ## How it works
 
-Azure Firewall translates the FQDN to an IP address(es) using its DNS settings and does rule processing based on Azure DNS or a custom DNS configuration.
+Once you define which DNS server your organization needs (Azure DNS or your own custom DNS), Azure Firewall translates the FQDN to an IP address(es) based on the selected DNS server. This translation happens for both application and network rule processing.
 
-To use FQDNs in network rules, you should enable DNS proxy. If you don't enable DNS proxy, reliable rule processing is at risk. When it is enabled, DNS traffic is directed to Azure Firewall, where you can configure your custom DNS server. Then the firewall and clients use the same configured DNS server. If DNS proxy is not enabled, Azure Firewall may produce a different response because the client and firewall may use different servers for name resolution. FQDN filtering in network rules may be faulty or inconsistent if the client and firewall receive different DNS responses.
+What’s the difference between using domain names in application rules compared to that of network rules? 
+
+- FQDN filtering in application rules for HTTP/S and MSSQL is based on an application level transparent proxy and the SNI header. As such, it can discern between two FQDNs that are resolved to the same IP address. This is not the case with FQDN filtering in network rules. Always use application rules when possible.
+- In application rules, you can use HTTP/S and MSSQL as your selected protocols. In network rules, you can use any TCP/UDP protocol with your destination FQDNs.
 
 ## Next steps
 
