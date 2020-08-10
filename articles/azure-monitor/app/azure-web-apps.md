@@ -2,7 +2,8 @@
 title: Monitor Azure app services performance | Microsoft Docs
 description: Application performance monitoring for Azure app services. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 08/06/2020
+ms.custom: devx-track-javascript
 ---
 
 # Monitor Azure App Service performance
@@ -391,6 +392,12 @@ This is due to the APPINSIGHTS_JAVASCRIPT_ENABLED application setting being set 
 
 For the latest information on the Application Insights agent/extension, check out the [release notes](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
+### Default website deployed with web apps does not support automatic client-side monitoring
+
+When you create a web app with the `ASP.NET` or `.NET Core` runtimes in Azure App Services it deploys a single static HTML page as a starter website. The static webpage also loads a .NET managed web part in IIS. This allows for testing codeless server-side monitoring, but does not support automatic client-side monitoring.
+
+If you wish to test out codeless server and client-side monitoring for ASP.NET or ASP.NET Core in a Azure App Services web app we recommend following the official guides for [creating a ASP.NET Core web app](../../app-service/app-service-web-get-started-dotnet.md) and [creating an ASP.NET Framework web app](../../app-service/app-service-web-get-started-dotnet-framework.md) and then use the instructions in the current article to enable monitoring.
+
 ### PHP and WordPress are not supported
 
 PHP and WordPress sites are not supported. There is currently no officially supported SDK/agent for server-side monitoring of these workloads. However, manually instrumenting client-side transactions on a PHP or WordPress site by adding the client-side javascript to your web pages can be accomplished by using the [JavaScript SDK](./javascript.md).
@@ -400,10 +407,11 @@ PHP and WordPress sites are not supported. There is currently no officially supp
 When codeless monitoring is being used, only the connection string is required. However, we still recommend setting the instrumentation key to preserve backwards compatibility with older versions of the SDK when manual instrumentation is being performed.
 
 ## Next steps
-* [Run the profiler on your live app](../app/profiler.md).
+* [Run the profiler on your live app](./profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitor Azure Functions with Application Insights
 * [Enable Azure diagnostics](../platform/diagnostics-extension-to-application-insights.md) to be sent to Application Insights.
 * [Monitor service health metrics](../platform/data-platform.md) to make sure your service is available and responsive.
 * [Receive alert notifications](../platform/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
 * Use [Application Insights for JavaScript apps and web pages](javascript.md) to get client telemetry from the browsers that visit a web page.
 * [Set up Availability web tests](monitor-web-app-availability.md) to be alerted if your site is down.
+

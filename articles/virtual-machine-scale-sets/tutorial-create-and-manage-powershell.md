@@ -62,6 +62,9 @@ New-AzVmss `
 
 It takes a few minutes to create and configure all the scale set resources and VM instances.
 
+> [!IMPORTANT]
+> If you are unable to connect to your scale set, you may need to create a Network Security Group by adding the *[-SecurityGroupName "mySecurityGroup"](/powershell/module/az.compute/new-azvmss)* parameter.
+
 
 ## View the VM instances in a scale set
 To view a list of VM instances in a scale set, use [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) as follows:

@@ -3,7 +3,6 @@ title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
 author: davidsmatlak
-ms.author: v-dasmat
 ms.date: 06/04/2020
 ---
 
@@ -371,7 +370,15 @@ For more information on Azure Files limits, see [Azure Files scalability and per
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
-For more information, see [Virtual machine sizes](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information, see [Virtual machine sizes](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+#### Disk encryption sets
+
+There's a limitation of 50 disk encryption sets per region, per subscription. For more
+information, see the encryption documentation for
+[Linux](../../virtual-machines/linux/disk-encryption.md#restrictions) or
+[Windows](../../virtual-machines/windows/disk-encryption.md#restrictions) virtual machines. If you
+need to increase the quota, contact Azure support.
 
 ### Managed virtual machine disks
 
@@ -418,6 +425,6 @@ There are limits, per subscription, for deploying resources using Shared Image G
 ## See also
 
 * [Understand Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-* [Virtual machine and cloud service sizes for Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Virtual machine and cloud service sizes for Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Sizes for Azure Cloud Services](../../cloud-services/cloud-services-sizes-specs.md)
 * [Naming rules and restrictions for Azure resources](resource-name-rules.md)

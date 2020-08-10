@@ -1,7 +1,7 @@
 ---
 title: Design Policy as Code workflows
 description: Learn to design workflows to deploy your Azure Policy definitions as code and automatically validate resources.
-ms.date: 05/20/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
 ---
 # Design Policy as Code workflows
@@ -18,14 +18,34 @@ in the cloud are:
   end users.
 
 Policy as Code is the combination of these ideas. Essentially, keep your policy definitions in
-source control and whenever a change is made, test, and validate that change. However, that shouldn't
-be the extent of policies involvement with Infrastructure as Code or DevOps.
+source control and whenever a change is made, test, and validate that change. However, that
+shouldn't be the extent of policies involvement with Infrastructure as Code or DevOps.
 
 The validation step should also be a component of other continuous integration or continuous
 deployment workflows. Examples include deploying an application environment or virtual
 infrastructure. By making Azure Policy validation an early component of the build and deployment
 process the application and operations teams discover if their changes are non-compliant, long
 before it's too late and they're attempting to deploy in production.
+
+## Definitions and foundational information
+
+Before getting into the details of Policy as Code workflow, review the following definitions and
+examples:
+
+- [Policy definition](./definition-structure.md)
+- [Initiative definition](./initiative-definition-structure.md)
+
+The file names align to portions of either the policy or initiative definition:
+- `policy(set).json` - The entire definition
+- `policy(set).parameters.json` - The `properties.parameters` portion of the definition
+- `policy.rules.json` - The `properties.policyRule` portion of the definition
+- `policyset.definitions.json` - The `properties.policyDefinitions` portion of the definition
+
+Examples of these file formats are available in the
+[Azure Policy GitHub Repo](https://github.com/Azure/azure-policy/):
+
+- Policy definition: [Add a tag to resources](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
+- Initiative definition: [Billing Tags](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
 
 ## Workflow overview
 

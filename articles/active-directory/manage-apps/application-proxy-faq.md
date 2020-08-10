@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ---
@@ -27,6 +27,9 @@ This page answers frequently asked questions about Azure Active Directory (Azure
 
 To use Azure AD Application Proxy, you must have an Azure AD Premium P1 or P2 license. For more information about licensing, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
 
+### What happens to Azure AD Application Proxy in my tenant, if my license expires?
+If your license expires, Application Proxy will automatically be disabled. Your application information will be saved for up to one year.
+
 ### Why is the "Enable Application Proxy button grayed out?
 
 Make sure you have at least an Azure AD Premium P1 or P2 license and an Azure AD Application Proxy Connector installed. After you successfully install your first connector, the Azure AD Application Proxy service will be enabled automatically.
@@ -40,6 +43,10 @@ No, this scenario isn't supported. The default settings are:
 - Microsoft AAD Application Proxy Connector - WAPCSvc - Network Service
 - Microsoft AAD Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
 
+### Can a guest user with the Global Administrator or the Application Administrator role register the connector for the (guest) tenant?
+
+No, currently, this isn't possible. The registration attempt is always made on the user's home tenant.
+
 ### My back-end application is hosted on multiple web servers and requires user session persistence (stickiness). How can I achieve session persistence? 
 
 For recommendations, see [High availability and load balancing of your Application Proxy connectors and applications](application-proxy-high-availability-load-balancing.md).
@@ -47,6 +54,9 @@ For recommendations, see [High availability and load balancing of your Applicati
 ### Is TLS termination (TLS/HTTPS inspection or acceleration) on traffic from the connector servers to Azure supported?
 
 The Application Proxy Connector performs certificate-based authentication to Azure. TLS Termination (TLS/HTTPS inspection or acceleration) breaks this authentication method and isn't supported. Traffic from the connector to Azure must bypass any devices that are performing TLS Termination.  
+
+### Is TLS 1.2 required for all connections?
+Yes. To provide the best-in-class encryption to our customers, the Application Proxy service limits access to only TLS 1.2 protocols. These changes were gradually rolled out and effective since August 31, 2019. Make sure that all your client-server and browser-server combinations are updated to use TLS 1.2 to maintain connection to Application Proxy service. These include clients your users are using to access applications published through Application Proxy. See Preparing for [TLS 1.2 in Office 365](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365) for useful references and resources.
 
 ### Can I place a forward proxy device between the connector server(s) and the back-end application server?
 Yes, this scenario is supported starting from the connector version 1.5.1526.0. See [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md).
@@ -88,6 +98,9 @@ From the Application Registrations page, you can change the homepage URL to the 
 
 No, there's no IIS requirement for applications that are published. You can publish web applications running on servers other than Windows Server. However, you might not be able to use pre-authentication with a non-Windows Server, depending on if the web server supports Negotiate (Kerberos authentication). IIS isn't required on the server where the connector is installed.
 
+### Can I configure Application Proxy to add the HSTS header?
+Application Proxy does not automatically add the HTTP Strict-Transport-Security header to HTTPS responses, but it will maintain the header if it is in the original response sent by the published application. Proving a setting to enable this functionality is on the roadmap. If you are interested in a preview that enables adding this to responses, reach out to aadapfeedback@microsoft.com for details.
+
 ## Integrated Windows Authentication
 
 ### When should I use the PrincipalsAllowedToDelegateToAccount method when setting up Kerberos Constrained Delegation (KCD)?
@@ -128,7 +141,7 @@ Yes, it’s expected. The pre-authentication scenario requires an ActiveX contro
 
 ### Is the Remote Desktop Web Client (HTML5) supported?
 
-No, this scenario isn't currently supported. Follow our [UserVoice](https://aka.ms/aadapuservoice) feedback forum for updates on this feature.
+Yes, this scenario is currently in public preview. Refer to [Publish Remote Desktop with Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md).
 
 ### After I configured the pre-authentication scenario, I realized that the user has to authenticate twice: first on the Azure AD sign-in form, and then on the RDWeb sign-in form. Is this expected? How can I reduce this to one sign-in?
 

@@ -90,7 +90,7 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
    > They are decrypted only when a user requests to view that data. 
    > You can [hide inputs and outputs in run history](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) 
    > or control user access to this information by using 
-   > [Azure Role-Based Access Control (RBAC)](../role-based-access-control/overview.md).
+   > [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 <a name="review-trigger-history"></a>
 

@@ -24,6 +24,11 @@ Follow these steps to install the Speech CLI on Windows:
 In the command prompt, change directory to this location, and then type `spx` to see help for the Speech CLI.
 
 > [!NOTE]
+> On Windows, the Speech CLI can only show fonts available to the command prompt on the local computer.
+> [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701) supports all fonts produced interactively by the Speech CLI.
+> If you output to a file, a text editor like Notepad or a web browser like Microsoft Edge can also show all fonts.
+
+> [!NOTE]
 > Powershell does not check the local directory when looking for a command. In Powershell, change directory to the location of `spx` and call the tool by entering `.\spx`.
 > If you add this directory to your path, Powershell and the Windows command prompt will find `spx` from any directory without including the `.\` prefix.
 

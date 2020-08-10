@@ -42,8 +42,8 @@ Prepare Virtual Machine Manager as follows:
 
 Make sure you have Azure PowerShell ready to go:
 
-- If you already use PowerShell, upgrade to version 0.8.10 or later. [Learn more](/powershell/azureps-cmdlets-docs) about how to set up PowerShell.
-- After you set up and configure PowerShell, review the [service cmdlets](/powershell/azure/overview).
+- If you already use PowerShell, upgrade to version 0.8.10 or later. [Learn more](/powershell/azure/) about how to set up PowerShell.
+- After you set up and configure PowerShell, review the [service cmdlets](/powershell/azure/).
 - To learn more about how to use parameter values, inputs, and outputs in PowerShell, read the [Get started](/powershell/azure/get-started-azureps) guide.
 
 ## Set up a subscription

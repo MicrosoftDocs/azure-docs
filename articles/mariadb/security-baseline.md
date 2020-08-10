@@ -302,7 +302,7 @@ How to onboard Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickst
 
 Understand access management for MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-security#access-management
 
-Understand built-in RBAC roles for Azure Subscriptions: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
+Understand Azure built-in roles for Azure Subscriptions: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
 
 
 **Azure Security Center monitoring**: Yes

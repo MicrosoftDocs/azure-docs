@@ -5,7 +5,8 @@ documentationcenter: .net
 author: spelluru
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.author: spelluru
+ms.author: spelluru 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure Service Bus to Event Grid integration overview

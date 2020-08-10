@@ -5,6 +5,7 @@ author: PavanKunapareddyMSFT
 
 ms.topic: conceptual
 ms.date: 06/30/2017
+ms.custom: devx-track-java
 ms.author: pakunapa
 ---
 # Secure service remoting communications in a Java service

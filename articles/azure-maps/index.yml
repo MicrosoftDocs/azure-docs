@@ -8,8 +8,8 @@ metadata:
   description: Learn about Azure Maps and how to use it to provide geospatial services to your web or mobile application.
   ms.service: azure-maps
   ms.topic: landing-page
-  author: philmea
-  ms.author: philmea
+  author: anastasia-ms
+  ms.author: v-stharr
   ms.date: 1/15/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -80,6 +80,8 @@ landingContent:
             url: drawing-error-visualizer.md
           - text: Use the indoor map module
             url: how-to-use-indoor-module.md
+          - text: Use Azure Digital Twins to update indoor map
+            url: https://docs.microsoft.com/azure/digital-twins/how-to-integrate-maps
       - linkListType: reference
         links:
           - text: Conversion service

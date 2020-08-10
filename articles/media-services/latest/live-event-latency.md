@@ -19,9 +19,9 @@ ms.author: juliako
 
 # Live Event low latency settings
 
-This article shows how to set low latency on a [Live Event](https://docs.microsoft.com/rest/api/media/liveevents). It also discusses typical results that you see when using the low latency settings in various players. The results vary based on CDN and network latency.
+This article shows how to set low latency on a [Live Event](/rest/api/media/liveevents). It also discusses typical results that you see when using the low latency settings in various players. The results vary based on CDN and network latency.
 
-To use the new **LowLatency** feature, you set the **StreamOptionsFlag** to **LowLatency** on the **LiveEvent**. When creating [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) for HLS playback, set [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) to 1. Once the stream is up and running, you can use the [Azure Media Player](https://ampdemo.azureedge.net/) (AMP demo page), and set the playback options to use the "Low Latency Heuristics Profile".
+To use the new **LowLatency** feature, you set the **StreamOptionsFlag** to **LowLatency** on the **LiveEvent**. When creating [LiveOutput](/rest/api/media/liveoutputs) for HLS playback, set [LiveOutput.Hls.fragmentsPerTsSegment](/rest/api/media/liveoutputs/create#hls) to 1. Once the stream is up and running, you can use the [Azure Media Player](https://ampdemo.azureedge.net/) (AMP demo page), and set the playback options to use the "Low Latency Heuristics Profile".
 
 > [!NOTE]
 > Currently, the LowLatency HeuristicProfile in Azure Media Player is designed for playing back streams in MPEG-DASH protocol, with either CSF or CMAF format (for example, `format=mdp-time-csf` or `format=mdp-time-cmaf`). 
@@ -76,4 +76,3 @@ The following tables show typical results for latency (when the LowLatency flag 
 
 - [Live streaming overview](live-streaming-overview.md)
 - [Live streaming tutorial](stream-live-tutorial-with-api.md)
-

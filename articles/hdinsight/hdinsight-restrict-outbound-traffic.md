@@ -70,7 +70,7 @@ Create an application rule collection that allows the cluster to send and receiv
 
     **Target FQDNs section**
 
-    | Name | Source addresses | `Protocol:Port` | Target FQDNS | Notes |
+    | Name | Source addresses | Protocol:Port | Target FQDNS | Notes |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Allows Windows login activity |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Allows Windows login activity |

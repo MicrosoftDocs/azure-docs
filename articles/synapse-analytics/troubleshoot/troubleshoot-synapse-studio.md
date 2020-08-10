@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Synapse Studio (preview) 
+title: Troubleshoot Synapse Studio (preview) 
 description: Troubleshoot Azure Synapse Studio
 author: julieMSFT 
 ms.service: synapse-analytics 
