@@ -310,7 +310,7 @@ If there is a build failure, the DevOps task does not delete the staging resourc
 
 You will see an error in the DevOps log for the VM Image Builder task, and see the customization.log location. For example:
 
-:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Example DevOps task error that shows failure waiting on packerizer.":::
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Example DevOps task error that shows a failure.":::
 
 For more information on troubleshooting, see [Troubleshoot Azure Image Builder Service](image-builder-troubleshoot.md). 
 

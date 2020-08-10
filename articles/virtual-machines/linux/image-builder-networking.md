@@ -75,7 +75,7 @@ Private Link service requires an IP from the given VNET and subnet. Currently, A
     * [PowerShell example](../windows/image-builder-vnet.md#disable-private-service-policy-on-subnet)
 3. Allow Azure Image Builder to create an ALB and add VMs to the VNET
     * [AZ CLI Example](image-builder-permissions-cli.md#existing-vnet-azure-role-example)
-    * [PowerShell example](image-builder-permissions-powershell.md#allow-image-builder-to-customize-images-on-your-existing-vnets)
+    * [PowerShell example](image-builder-permissions-powershell.md#permission-to-customize-images-on-your-vnets)
 4. Allow Azure Image Builder to read/write source images and create images
     * [AZ CLI example](image-builder-permissions-cli.md#custom-image-azure-role-example)
     * [PowerShell example](image-builder-permissions-powershell.md#custom-image-azure-role-example)
