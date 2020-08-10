@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring 
-ms.subservice: logs
 ---
 
 # Azure Cosmos DB monitoring data reference
