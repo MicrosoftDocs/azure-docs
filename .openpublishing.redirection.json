@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/windows/infrastructure-example.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/infrastructure-example",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/infrastructure-example.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/infrastructure-example",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/digital-twins/how-to-use-parser.md",
       "redirect_url": "/azure/digital-twins/how-to-parse-models",
       "redirect_document_id": false
@@ -26491,6 +26501,16 @@
     {
       "source_path": "articles/storage/blobs/storage-blob-soft-delete.md",
       "redirect_url": "/azure/storage/blobs/soft-delete-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/soft-delete-overview.md",
+      "redirect_url": "/azure/storage/blobs/soft-delete-blob-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/soft-delete-enable.md",
+      "redirect_url": "/azure/storage/blobs/soft-delete-blob-enable",
       "redirect_document_id": true
     },
     {
@@ -55409,6 +55429,26 @@
       "source_path": "articles/active-directory/b2b/what-is-b2b.md",
       "redirect_url": "/azure/active-directory/external-identities/what-is-b2b",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-nodejs-get-text-to-speech-voice.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/text-to-speech-basics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-nodejs-text-to-speech.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/text-to-speech-basics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-python-text-to-speech.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/text-to-speech-basics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-python-get-text-to-speech-voices.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/text-to-speech-basics",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/aks/windows-node-limitations.md",
