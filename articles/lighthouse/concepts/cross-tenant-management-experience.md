@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 07/31/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
 ---
 
@@ -28,7 +28,9 @@ Azure Lighthouse allows greater flexibility to manage resources for multiple cus
 
 You can perform management tasks on delegated resources either directly in the portal or by using APIs and management tools (such as Azure CLI and Azure PowerShell). All existing APIs can be used when working with delegated resources, as long as the functionality is supported for cross-tenant management and the user has the appropriate permissions.
 
-Azure CLI commands such as [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) show the **homeTenantId** and **managedByTenants** attributes for each subscription, allowing you to identify whether a returned subscription belongs to your service provider tenant or to a managed customer tenant.
+The Azure PowerShell [Get-AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription) shows the `HomeTenantId` and `ManagedByTenantIds` attributes for each subscription, allowing you to identify whether a returned subscription belongs to a managed customer tenant or to your managing tenant.
+
+Similarly, Azure CLI commands such as [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) show the `homeTenantId` and `managedByTenants` attributes.
 
 > [!TIP]
 > If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
