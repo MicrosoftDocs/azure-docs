@@ -17,7 +17,7 @@ Boot diagnostics is a debugging feature for Azure virtual machines (VM) that all
 By default, boot diagnostics is enabled for all VMs created using the Azure portal and utilizes a managed storage account. By using a managed storage account users gain a significant improvement in VM deployment time. For this reason, we recommend customers use boot diagnostics with a managed storage account for all VMs.
 
 > [!NOTE]
-> Azure customers will not be charged for storage when opting to use boot diagnostics with a managed storage account until November 2020. 
+> Azure customers will not be charged storage costs for boot diagnostics associated with a managed storage account through October 2020.  
 
 An alternative boot diagnostics experience is to use a custom storage account. A user can either create a new storage account or use an existing one. For more information on custom storage accounts, see [storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
