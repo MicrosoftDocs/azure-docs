@@ -93,7 +93,7 @@
   - name: Resource Manager templates
     href: template-samples.md
   - name: Code samples
-    href: https://docs.microsoft.com/samples/browse/?term=Event%20Grid
+    href: /samples/browse/?term=Event+Grid
   - name: Azure Policy built-ins
     href: ./policy-samples.md
 - name: Concepts

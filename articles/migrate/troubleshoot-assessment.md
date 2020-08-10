@@ -61,6 +61,9 @@ In the case of VMware and Hyper-V VMs, Server Assessment marks Linux VMs as "Con
 
 This gap can be addressed by enabling [application discovery](./how-to-discover-applications.md) on the VMware VMs. Server Assessment uses the operating system detected from the VM using the guest credentials provided. This operating system data identifies the right OS information in the case of both Windows and Linux VMs.
 
+## Operating system version not available
+
+For physical servers, the operating system minor version information should be available. If not available, contact Microsoft Support. For VMware machines, Server Assessment uses the operating system information specified for the VM in vCenter Server. However, vCenter Server doesn't provide the minor version for operating systems. To discover the minor version, you need to set up [application discovery](./how-to-discover-applications.md). For Hyper-V VMs, operating system minor version discovery is not supported. 
 
 ## Azure SKUs bigger than on-premises in an Azure VM assessment
 
