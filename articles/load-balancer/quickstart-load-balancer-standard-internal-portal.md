@@ -504,9 +504,10 @@ These VMs are added to the backend pool of the load balancer that was created ea
 5. Select the **Management** tab, or select **Next** > **Management**.
 
 6. In the **Management** tab, select or enter:
+    
     | Setting | Value |
     |-|-|
-    | **Monitoring** | |
+    | **Monitoring** |  |
     | Boot diagnostics | Select **Off** |
 
 7. Select **Review + create**. 
