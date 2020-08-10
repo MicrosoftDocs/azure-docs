@@ -20,7 +20,7 @@ This article illustrates an example use of [Private Endpoint](https://docs.micro
 - Create the frontend web app with specific app settings to consume the private DNS zone, [more details](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones)
 - Connect the frontend web app to the integration subnet
 - Create the backend web app
-- Create the DNS private zone with the name of the privatelink zone for web app privatelink.azurewebsites.net
+- Create the DNS private zone with the name of the private link zone for web app privatelink.azurewebsites.net
 - Link this zone to the VNet
 - Create the private endpoint for the backend web app in the endpoint subnet, and register the DNS names in the previously created DNS private zone
 
@@ -31,7 +31,7 @@ Browse to the [Azure portal](https://docs.microsoft.com/azure/developer/terrafor
 
 # The complete terraform file
 
-To use this file you must change the name property for frontwebapp and backwebapp resources (webapp name must be unique DNS name worlwide). 
+To use this file you must change the name property for frontwebapp and backwebapp resources (webapp name must be unique DNS name worldwide). 
 
 ```hcl
 provider "azurerm" {
