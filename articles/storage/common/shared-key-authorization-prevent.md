@@ -7,12 +7,22 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 08/10/2020
 ms.author: tamram
 ms.reviewer: fryu
 ---
 
-# Prevent authorization of requests to an Azure Storage account with Shared Key (preview)
+# Prevent Shared Key authorization for an Azure Storage account (preview)
+
+Every request for data in an Azure Storage account must be authorized, with the exception of anonymous requests when public access is permitted for a container. Requests can be authorized with either Azure Active Directory (Azure AD) or Shared Key authorization. Microsoft recommends using Azure AD to authorize requests for superior security and ease of use. To require that clients use Azure AD to authorize all requests to a storage account, you can disallow access to the storage account via Shared Key.
+
+With Azure AD, you can use role-based access control to grant permissions to a user, group or application. Authorizing users or applications using an OAuth 2.0 token returned by Azure AD provides superior security and ease of use over Shared Key authorization and shared access signatures. There is no need to store the account access key with your code and configuration and risk potential security vulnerabilities.
+
+It’s recommended to transition from key authentication to Azure AD to access your storage accounts for better security and protection on your data. Azure Storage also introduces a new feature to restrict the use of storage account key and shared access signature. A new property allowSharedKeyAccess is added in storage account property. When allowSharedKeyAccess is set to false, all requests authenticated with storage account key or shared access signature will be rejected.
+This article introduces a DRAG (Detection-Remediation-Audit-Governance) framework to address restricting key authentication continuously.
+
+
+
 
 ...
 
