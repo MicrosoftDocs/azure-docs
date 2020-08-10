@@ -6,10 +6,10 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 8/6/2020
+ms.date: 8/10/2020
 ---
 
-# Create and modify distributed tables (DDL)
+# Distribute and modify tables
 
 ## Distributing tables
 
