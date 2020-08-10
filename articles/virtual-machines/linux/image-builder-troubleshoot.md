@@ -28,7 +28,8 @@ az image builder show --name $imageTemplateName  --resource-group $imageResource
 ```azurepowershell-interactive
 Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGroupName <imageTemplateResourceGroup> | Select-Object ProvisioningState, ProvisioningErrorMessage
 ```
-> Note! For PowerShell, you will need to install the [Azure Image Builder PowerShell Modules](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-powershell#prerequisites)
+> [!NOTE]
+> For PowerShell, you will need to install the [Azure Image Builder PowerShell Modules](../windows/image-builder-powershell.md#prerequisites).
 
 The following sections include problem resolution guidance for common image template submission errors.
 
