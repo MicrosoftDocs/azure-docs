@@ -7,7 +7,7 @@ ms.date: 08/06/2020
 
 # Create resources at the tenant level
 
-As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [role-based access controls](../../role-based-access-control/overview.md) across your Azure AD tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
+As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) across your Azure AD tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
 
 ## Supported resources
 
@@ -246,5 +246,5 @@ The [following template](https://github.com/Azure/azure-quickstart-templates/tre
 
 ## Next steps
 
-* To learn about assigning roles, see [Manage access to Azure resources using RBAC and Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
+* To learn about assigning roles, see [Add Azure role assignments using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 * You can also deploy templates at [subscription level](deploy-to-subscription.md) or [management group level](deploy-to-management-group.md).

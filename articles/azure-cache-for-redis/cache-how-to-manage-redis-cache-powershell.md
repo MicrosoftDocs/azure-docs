@@ -651,7 +651,7 @@ In the following example, the cache named `myCache` is removed.
 You can import data into an Azure Cache for Redis instance using the `Import-AzRedisCache` cmdlet.
 
 > [!IMPORTANT]
-> Import/Export is only available for [premium tier](cache-premium-tier-intro.md) caches. For more information about Import/Export, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
+> Import/Export is only available for [Premium tier](cache-overview.md#service-tiers) caches. For more information about Import/Export, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -715,7 +715,7 @@ The following command imports data from the blob specified by the SAS uri into A
 You can export data from an Azure Cache for Redis instance using the `Export-AzRedisCache` cmdlet.
 
 > [!IMPORTANT]
-> Import/Export is only available for [premium tier](cache-premium-tier-intro.md) caches. For more information about Import/Export, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
+> Import/Export is only available for [Premium tier](cache-overview.md#service-tiers) caches. For more information about Import/Export, see [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -780,7 +780,7 @@ The following command exports data from an Azure Cache for Redis instance into t
 You can reboot your Azure Cache for Redis instance using the `Reset-AzRedisCache` cmdlet.
 
 > [!IMPORTANT]
-> Reboot is only available for [premium tier](cache-premium-tier-intro.md) caches. For more information about rebooting your cache, see [Cache administration - reboot](cache-administration.md#reboot).
+> Reboot is only available for [Premium tier](cache-overview.md#service-tiers) caches. For more information about rebooting your cache, see [Cache administration - reboot](cache-administration.md#reboot).
 > 
 > 
 
