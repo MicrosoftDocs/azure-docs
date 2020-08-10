@@ -142,7 +142,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![user role](./media/github-tutorial/user-role.png)
 
-> ![NOTE]
+> [!NOTE]
 > The Default role assigned to the selected user will be USER in Azure AD if any custom roles are not added and the **Select a Role** option will be disabled. Once the custom roles are configured, this option will be enabled and the appropriate role can be selcted.
 
 1. In the **Add Assignment** dialog, click the **Assign** button.
