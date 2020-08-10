@@ -178,7 +178,7 @@ To set up a managed identity in the portal, you first create an application and 
     You can now access Key Vault references just like any other App Configuration key. The config provider will use the `KeyVaultClient` that you configured to authenticate to Key Vault and retrieve the value.
 
 > [!NOTE]
-> `ManagedIdentityCredential` only supports managed identity authentication. It doesn't work in local environments. If you want to run the code locally, consider using `DefaultAzureCredential`, which supports service principal authentication as well. Check the [link](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential) for details.
+> `ManagedIdentityCredential` only supports managed identity authentication. It doesn't work in local environments. If you want to run the code locally, consider using `DefaultAzureCredential`, which supports service principal authentication as well. Check the [link](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) for details.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
