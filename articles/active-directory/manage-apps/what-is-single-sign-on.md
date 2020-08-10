@@ -22,6 +22,10 @@ If you're an end user, you likely don't care much about SSO details. You just wa
  
 If you're an administrator, or IT professional, then read on to learn more about how SSO is implemented in Azure.
 
+## Single sign-on basics
+Single sign-on provides a giant leap forward in how users sign in and use applications. Single sign-on based authentication systems are often called "modern authentication". To understand what makes single sign-on possible, check out this video.
+> [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
+
 
 ## Choosing a single sign-on method
 
