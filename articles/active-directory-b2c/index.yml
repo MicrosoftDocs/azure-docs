@@ -26,11 +26,11 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure AD B2C overview
+          - text: What is Azure AD B2C?
             url: overview.md
           - text: Compare solutions for External Identities
             url: https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c
-          - text: Get started
+          - text: Get started with Azure AD B2C
             url: tutorial-create-tenant.md
           - text: Technical and feature overview
             url: technical-overview.md
@@ -42,17 +42,19 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Authentication and authorization
+          - text: Basics of authentication and authorization
             url: https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization
-          - text: Tokens
+          - text: About tokens
             url: https://docs.microsoft.com/azure/active-directory/develop/security-tokens
-          - text: Protocols
+          - text: About protocols
             url: https://docs.microsoft.com/azure/active-directory/develop/v2-app-types
           - text: Authentication library
             url: https://docs.microsoft.com/azure/active-directory/develop/msal-overview
-          - text: HTML, CSS, and JavaScript
+          - text: 'Build a web site: HTML, CSS, and JavaScript'
             url: https://docs.microsoft.com/learn/modules/build-simple-website/
-          - text: 'Video: Authentication fundamentals'
+      - linkListType: video
+        links:
+          - text: Authentication fundamentals
             url: https://www.youtube.com/watch?v=fbSVgC8nGz4
 
   # Card
@@ -64,9 +66,9 @@ landingContent:
             url: user-flow-overview.md
           - text: 'Add social and work identities: OIDC/OAuth2/SAML'
             url: tutorial-add-identity-providers.md
-          - text: Single sign-on (SSO)
+          - text: Enable single sign-on (SSO)
             url: session-overview.md
-          - text: UI/IX customization
+          - text: Customize your UI/UX
             url: customize-ui-overview.md
           - text: Add your own business logic
             url: custom-policy-rest-api-intro.md
@@ -80,7 +82,7 @@ landingContent:
         links:
           - text: 'Quickstart: Web app'
             url: quickstart-web-app-dotnet.md
-          - text: Native mobile app
+          - text: Native/mobile app
             url: code-samples.md#mobile-and-desktop-apps
           - text: Single-page app
             url: code-samples.md#single-page-apps
@@ -96,28 +98,20 @@ landingContent:
             url: code-samples.md#web-apps-and-apis
           - text: Secure API Management API
             url: secure-api-management.md?tabs=app-reg-ga
-          - text: Role-based access (future)
-            url: overview.md
-          - text: Groups (future)
-            url: overview.md
 
   # Card
-  - title: Security privacy and compliance
+  - title: Security, privacy, and compliance
     linkLists:
       - linkListType: concept
         links:
-          - text: Identity Protection (future)
-            url: overview.md
-          - text: Threat management
+          - text: Manage threats
             url: threat-management.md
-          - text: Data residency
+          - text: Learn where user data is stored
             url: data-residency.md
           - text: Regulations
             url: overview.md
-          - text: Terms of use
+          - text: Manage user access and terms of use
             url: manage-user-access.md
-          - text: SIEM Azure Sentinel integration/Azure security center and security center (future)
-            url: overview.md
 
   # Card
   - title: Operations
@@ -128,7 +122,7 @@ landingContent:
             url: deploy-custom-policies-devops.md
           - text: Monitoring
             url: azure-monitor.md
-          - text: Role-based access for admin
+          - text: Role-based access for admins
             url: overview.md
           - text: User management
             url: manage-user-accounts-graph-api.md
@@ -164,13 +158,13 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure Monitor
+          - text: 'Azure Monitor: Retain and analyze your logs'
             url: azure-monitor.md
-          - text: Azure DevOps
+          - text: 'Azure DevOps Services: Build your CI/CD pipeline'
             url: deploy-custom-policies-devops.md
-          - text: App Insights
+          - text: 'Application Insights: Troubleshoot and get your user insights'
             url: troubleshoot-with-application-insights.md
-          - text: Partner integrations
+          - text: Integrate with our technology partners
             url: partner-gallery.md
 
 
