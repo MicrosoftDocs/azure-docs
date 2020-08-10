@@ -335,9 +335,7 @@ Only for Silver and higher durability clusters, update the cluster resource in t
 10. Remove all other resources related to the original node type from the ARM template. See [Service Fabric - New Node Type Cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) for a template with all of these original resources removed.
 
 11. Deploy the modified Azure Resource Manager template. ** This step will take a while, usually up to two hours. This upgrade will change settings to the InfrastructureService, therefore a node restart is needed. In the this case forceRestart is ignored. The parameter upgradeReplicaSetCheckTimeout specifies the maximum time that Service Fabric waits for a partition to be in a safe state, if not already in a safe state. Once safety checks pass for all partitions on a node, Service Fabric proceeds with the upgrade on that node. The value for the parameter upgradeTimeout can be reduced to 6 hours, but for maximal safety 12 hours should be used.
-Then validate that:
-
-* Service Fabric Resource in portal shows ready.
+Then validate that the Service Fabric resource in Portal shows as ready. 
 
 ```powershell
 # deploy the updated template files to the existing resource group
