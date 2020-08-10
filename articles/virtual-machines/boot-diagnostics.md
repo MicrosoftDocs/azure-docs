@@ -23,7 +23,7 @@ An alternative boot diagnostics experience is to use a custom storage account. A
 
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-portal.png" alt-text="Screenshot to show how to enable boot diagnostics":::
 
-## Boot diagnostics View
+## Boot diagnostics view
 Located in the virtual machine blade, the boot diagnostics option is under the *Support and Troubleshooting* section in the Azure portal. Selecting boot diagnostics will display a screenshot and serial log information. The serial log contains kernel messaging and the screenshot is a snapshot of your VMs current state. Based on if the VM is running Windows or Linux determines what the expected screenshot would look like. For Windows, users will see a desktop background and for Linux, users will see a login prompt.
 
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-linux.png" alt-text="Screenshot of Linux boot diagnostics":::
@@ -35,6 +35,6 @@ Located in the virtual machine blade, the boot diagnostics option is under the *
 - Boot diagnostics does not support premium storage accounts, if a premium storage account is used for boot diagnostics users will receive an `StorageAccountTypeNotSupported` error when starting the VM. 
 - Azure Serial Console does not currently support a managed storage account for boot diagnostics.
 
-## Next Steps
+## Next steps
 
 Learn more about the [Azure Serial Console](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview) and how to use boot diagnostics to [troubleshoot virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics).
