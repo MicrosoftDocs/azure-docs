@@ -49,7 +49,7 @@ Azure AD provides several integration paths to enable automatic user provisionin
 
 * The [Azure AD Provisioning Service](../app-provisioning/user-provisioning.md) manages the provisioning and deprovisioning of users from Azure AD to your application (outbound provisioning) and from your application to Azure AD (inbound provisioning). The service connects to the System for Cross-Domain Identity Management (SCIM) user management API endpoints provided by your application.
 
-* When using the [Microsoft Graph](https://docs.microsoft.com/graph/), your application manages inbound and outbound provisioning of users and groups from Azure AD to your application by querying the Microsoft Graph API.
+* When using the [Microsoft Graph](/graph/), your application manages inbound and outbound provisioning of users and groups from Azure AD to your application by querying the Microsoft Graph API.
 
 * The Security Assertion Markup Language Just in Time (SAML JIT) user provisioning can be enabled if your application is using SAML for federation. It uses claims information sent in the SAML token to provision users.
 
@@ -84,7 +84,7 @@ For more information on how the Azure AD Provisioning Service users SCIM, see:
 
 ## Microsoft Graph for Provisioning
 
-When you use Microsoft Graph for provisioning, you have access to all the rich user data available in Graph. In addition to the details of users and groups, you can also fetch additional information like the user’s roles, manager and direct reports, owned and registered devices, and hundreds of other data pieces available in the [Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0). 
+When you use Microsoft Graph for provisioning, you have access to all the rich user data available in Graph. In addition to the details of users and groups, you can also fetch additional information like the user’s roles, manager and direct reports, owned and registered devices, and hundreds of other data pieces available in the [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
 
 More than 15 million organizations, and 90% of fortune 500 companies use Azure AD while subscribing to Microsoft cloud services like Office 365, Microsoft Azure, Enterprise Mobility Suite, or Microsoft 365. You can use Microsoft Graph to integrate your app with administrative workflows, such as employee onboarding (and termination), profile maintenance, and more. 
 
@@ -92,9 +92,9 @@ Learn more about using Microsoft Graph for provisioning:
 
 * [Microsoft Graph Home page](https://developer.microsoft.com/graph)
 
-* [Overview of Microsoft Graph](https://docs.microsoft.com/graph/overview)
+* [Overview of Microsoft Graph](/graph/overview)
 
-* [Microsoft Graph Auth Overview](https://docs.microsoft.com/graph/auth/)
+* [Microsoft Graph Auth Overview](/graph/auth/)
 
 * [Getting started with Microsoft Graph](https://developer.microsoft.com/graph/get-started)
 
