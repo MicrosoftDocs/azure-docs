@@ -10,7 +10,7 @@ ms.date: 08/07/2020
 
 # Azure Stream Analytics data errors
 
-Data errors are errors that occur while processing the data.  These errors most often occur during data de-serialization, serialization, and write operations.  When data errors occur, Stream Analytics writes detailed information and example events to the resource logs. Please enable diagnostic logs in your job to get these additional details. In some cases, summary of this information is also provided through portal notifications.
+Data errors are errors that occur while processing the data.  These errors most often occur during data de-serialization, serialization, and write operations.  When data errors occur, Stream Analytics writes detailed information and example events to the resource logs. Enable diagnostic logs in your job to get these additional details. In some cases, a summary of this information is also provided through portal notifications.
 
 This article outlines the different error types, causes, and resource log details for input and output data errors.
 
