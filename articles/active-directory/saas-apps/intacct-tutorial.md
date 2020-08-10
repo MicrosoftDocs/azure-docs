@@ -226,5 +226,3 @@ When you click the Sage Intacct tile in the Access Panel, you should be automati
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [How to protect WireWheel with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
