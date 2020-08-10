@@ -11,7 +11,7 @@ author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 08/03/2020
+ms.date: 08/10/2020
 ---
 
 # Execute SSIS packages in Azure from SSDT
@@ -104,7 +104,7 @@ Once you're sure that some potential cloud compatibility issues aren't applicabl
 
    ![Assessment rule suppression settings](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-assessment-rule-suppression-settings.png)
 
--  Alternatively, right-click on your project node in the Solution Explorer window of SSDT to pop up a menu, select the **Azure-Enabled Settings** item in **SSIS in Azure Data Factory** submenu to pop up a window containing your project property pages, select the **Suppressed Assessment Rule IDs** row in **Azure-Enabled Settings** section, and finally select its ellipsis (**...**) button to pop up the **Assessment Rule Suppression Settings** window, where you can select the assessment rules to suppress.
+-  Alternatively, right-click on your project node in the Solution Explorer window of SSDT to pop up a menu, select the **Azure-Enabled Settings** item in **SSIS in Azure Data Factory** submenu to pop up a window containing your project property pages, select the **Suppressed Assessment Rule IDs** property in **Azure-Enabled Settings** section, and finally select its ellipsis (**...**) button to pop up the **Assessment Rule Suppression Settings** window, where you can select the assessment rules to suppress.
 
    ![Azure-enabled settings](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-azure-enabled-setting.png)
 
@@ -120,7 +120,7 @@ Before executing your packages in Azure, you can configure your Azure-enabled se
 
    ![Azure-enabled settings](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-azure-enabled-setting.png)
 
-2. Select the **Enable Windows Authentication** row in **Azure-Enabled Settings** section and then select **True** in its dropdown menu. Next, select the **Windows Authentication Credentials** row and then select its ellipsis (**...**) button to pop up the **Windows Authentication Credentials** window, where you can enter your credentials.
+2. Select the **Enable Windows Authentication** property in **Azure-Enabled Settings** section and then select **True** in its dropdown menu. Next, select the **Windows Authentication Credentials** property and then select its ellipsis (**...**) button to pop up the **Windows Authentication Credentials** window, where you can enter your credentials.
 
    ![Enable Windows authentication](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-windows-authentication-open.png)
 
