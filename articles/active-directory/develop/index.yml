@@ -5,9 +5,9 @@ summary: The Microsoft identity platform is an authentication service, open-sour
 
 metadata:
    ms.topic: landing-page
-   ms.date: 07/13/2020
-   author: CelesteDG
-   ms.author: celested
+   ms.date: 08/11/2020
+   author: mmacy
+   ms.author: marsma
    ms.service: active-directory
    ms.subservice: develop
    ms.workload: identity
@@ -118,3 +118,13 @@ landingContent:
             url: ../managed-identities-azure-resources/overview.md
           - text: Managed identities and Azure VMs
             url: ../managed-identities-azure-resources/how-managed-identities-work-vm.md
+  - title: What's new
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: Handle errors & exceptions - Android
+            url: msal-android-handling-exceptions.md
+          - text: Directory schema extension attributes in claims
+            url: active-directory-schema-extensions.md
+          - text: MSAL.js 2.0 auth code + PKCE & CORS
+            url: quickstart-v2-javascript-auth-code.md
