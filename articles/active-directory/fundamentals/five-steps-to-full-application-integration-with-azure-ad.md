@@ -22,7 +22,7 @@ This guide explains how to integrate all your applications with Azure AD. In eac
 
 Other resources on this topic, including in-depth business process whitepapers, that can be found on our [Resources for migrating applications to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/migration-resources) page.
 
-## Use Azure AD for new applications
+## 1. Use Azure AD for new applications
 
 First, focus on newly acquired applications. When your business starts using a new application, [add it to your Azure AD tenant](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal) right away. Set up a company policy so that adding new apps to Azure AD is the standard practice in your organization. This is minimally disruptive to existing business processes and allows you to investigate and prove the value you get from integrating apps without changing the way that people do business in your environment today.
 
@@ -38,7 +38,7 @@ In addition you can [integrate applications not in the gallery](https://docs.mic
 
 Finally, you can also integrate the apps you develop in-house. This is covered in step five of this guide.
 
-## Determine existing application usage and prioritize work
+## 2. Determine existing application usage and prioritize work
 
 Next, discover the applications employees are frequently using, and prioritize your work for integrating them with Azure AD.
 
@@ -55,7 +55,7 @@ Once you have discovered your existing landscape, you will want to [create a pla
 
 You will see the largest benefits and cost savings once all your apps are integrated and you no longer rely on multiple identity solutions. However, you will experience easier identity management and increased security as you move stepwise towards this goal. You want to use this time to prioritize your work and decide what makes sense for your situation.
 
-## Integrate apps that rely on other identity providers
+## 3. Integrate apps that rely on other identity providers
 
 During your discovery process, you may have found applications that are untracked by the IT department, which leave your data and resources vulnerable. You may also have applications that use alternative identity solutions, including Active Directory Federation Services (ADFS) or other identity providers. Consider how you can consolidate your identity and access management to save money and increase security. Reducing the number of identity solutions you have will:
 
@@ -80,7 +80,7 @@ Once Azure AD becomes the central identity provider, you may be able to switch f
 
 You can also migrate apps that use a different cloud-based identity provider to Azure AD. Your organization may have multiple Identity Access Management (IAM) solutions in place. Migrating to one Azure AD infrastructure is an opportunity to reduce dependencies on IAM licenses (on-premises or in the cloud) and infrastructure costs. In cases where you may have already paid for Azure AD via M365 licenses, there is no reason to pay the added cost of another IAM solution.
 
-## Integrate on-premises applications
+## 4. Integrate on-premises applications
 
 Traditionally, applications were kept secure by allowing access only while connected to the corporate network. However, in an increasingly connected world we want to allow access to apps for customers, partners, and/or employees, regardless of where they are in the world. [Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-proxy) (AppProxy) is a feature of Azure AD that connects your existing on-premises apps to Azure AD and does not require that you maintain edge servers or other additional infrastructure to do so.
 
@@ -95,7 +95,7 @@ In addition, you can integrate application delivery controllers like F5 Big-IP A
 - [F5 Big-IP APM](https://docs.microsoft.com/azure/active-directory/saas-apps/headerf5-tutorial)
 - [Zscaler Private Access (ZPA)](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial)
 
-## Integrate apps your developers build
+## 5. Integrate apps your developers build
 
 For apps that are built within your company, your developers can use the [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/) to implement authentication and authorization. Applications integrated with the platform with be [registered with Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) and managed just like any other app in your portfolio.
 
