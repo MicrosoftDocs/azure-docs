@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/09/2020
 ---
 # Azure HDInsight release notes
 
@@ -17,9 +17,9 @@ This article provides information about the **most recent** Azure HDInsight rele
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 
-## Release date: 07/30/2020
+## Release date: 08/09/2020
 
-This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies only for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
 
 ## New features
 ### Support for SparkCruise
@@ -58,6 +58,11 @@ Below JIRAs are back ported for Hive:
 * [HIVE-22121](https://issues.apache.org/jira/browse/HIVE-22121)
 * [HIVE-22136](https://issues.apache.org/jira/browse/HIVE-22136)
 * [HIVE-18786](https://issues.apache.org/jira/browse/HIVE-18786)
+
+Below JIRAs are back ported for HBase:
+* [HBASE-21458](https://issues.apache.org/jira/browse/HBASE-21458)
+* [HBASE-24208](https://issues.apache.org/jira/browse/HBASE-24208)
+* [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
 
 ## Component version change
 No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).

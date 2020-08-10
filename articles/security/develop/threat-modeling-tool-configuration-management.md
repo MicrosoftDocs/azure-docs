@@ -1,7 +1,7 @@
 ---
 title: Configuration management for the Microsoft Threat Modeling Tool 
 titleSuffix: Azure
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: Learn about configuration management for the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 documentationcenter: na
 author: jegeib

@@ -505,3 +505,12 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
+- id: aml-control-methods
+  # Owner: gopalv
+  title: Azure Machine Learning control plane
+  prompt: Choose an Azure Machine Learning control plane interface
+  pivots:
+  - id: py-sdk
+    title: Python SDK
+  - id: cli
+    title: Azure CLI
