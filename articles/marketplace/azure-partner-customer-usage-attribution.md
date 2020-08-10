@@ -1,5 +1,5 @@
 ---
-title: Commercial Marketplace partner and customer usage attribution
+title: Commercial marketplace partner and customer usage attribution
 description: Get an overview of tracking customer usage for Azure Marketplace solutions.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -10,7 +10,7 @@ ms.date: 04/14/2020
 ms.custom: devx-track-terraform
 ---
 
-# Commercial Marketplace partner and customer usage attribution
+# Commercial marketplace partner and customer usage attribution
 
 Customer usage attribution is a method to associate Azure resources running in customer subscriptions, deployed to run your solution, with you as a partner. Forming these associations in internal Microsoft systems brings greater visibility to the Azure footprint running your software. When you adopt this tracking capability, you align with Microsoft sales teams and gain credit for Microsoft partner programs.
 
@@ -40,7 +40,7 @@ A GUID is a unique reference identifier that has 32 hexadecimal digits. To creat
 
 We recommend you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split.
 
-If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register two distinct GUIDS:
+If you deploy a product by using a template and it is available on both Azure Marketplace and on GitHub, you can create and register two distinct GUIDS:
 
 - Product A in Azure Marketplace
 - Product A on GitHub
@@ -56,7 +56,7 @@ The GUIDs must be registered in Partner Center to enable customer usage attribut
 After you add a GUID to your template or in the user agent, and register the GUID in Partner Center, future deployments are tracked.
 
 > [!NOTE]
-> If you are publishing your [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) offer to the Azure Marketplace through Partner Center, any new GUID used inside your template will be automatically registered to your Partner Center profile when the template is uploaded.  
+> If you are publishing your [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) offer to Azure Marketplace through Partner Center, any new GUID used inside your template will be automatically registered to your Partner Center profile when the template is uploaded.  
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 
@@ -77,13 +77,13 @@ After you add a GUID to your template or in the user agent, and register the GUI
 1. Select **Save**.
 
 ## Use Resource Manager templates
-Many partner solutions are deployed using Azure Resource Manager templates. If you have a Resource Manager template that's available in the Azure Marketplace, on GitHub, or as a Quickstart, the process to modify your template to enable customer usage attribution is straight forward.
+Many partner solutions are deployed using Azure Resource Manager templates. If you have a Resource Manager template that's available in Azure Marketplace, on GitHub, or as a Quickstart, the process to modify your template to enable customer usage attribution is straight forward.
 
 > [!NOTE]
 > For more information on creating and publishing Solution Templates, see
 > * [Create and deploy your first Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 >* [Azure Application offer](./partner-center-portal/create-new-azure-apps-offer.md).
->* Video: [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+>* Video: [Building Solution Templates, and Managed Applications for Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
 To add a globally unique identifier (GUID), you make a single modification to the main template file:
@@ -264,7 +264,7 @@ If you need assistance for Marketplace Onboarding and/or customer usage attribut
 1. Choose the **Category** for your issue:
 
    - For usage association issues, select **Other**.
-   - For access issues with the Azure Marketplace, select **Access Problem**.
+   - For access issues with Azure Marketplace, select **Access Problem**.
 
      ![Choose the issue category](media/marketplace-publishers-guide/lu-article-incident.png)
 
