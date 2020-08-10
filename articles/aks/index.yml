@@ -61,7 +61,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Use Local Process with Kubernetes with Visual Studio Code (preview)
-            url: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+            url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
           - text: Use Local Process with Kubernetes with Visual Studio (preview)
             url: /visualstudio/containers/local-process-kubernetes
 

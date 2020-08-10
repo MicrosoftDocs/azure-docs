@@ -13,7 +13,7 @@ ms.author: rogarana
 
 Before you begin this article, make sure you complete the previous article, [configure directory and file level permissions over SMB](storage-files-identity-ad-ds-configure-permissions.md).
 
-The process described in this article verifies that your file share and access permissions are set up correctly and that you can access an Azure File share from a domain-joined VM. Share-level RBAC role assignment can take some time to take effect. 
+The process described in this article verifies that your file share and access permissions are set up correctly and that you can access an Azure File share from a domain-joined VM. Share-level Azure role assignment can take some time to take effect. 
 
 Sign in to the client by using the credentials that you granted permissions to, as shown in the following image.
 

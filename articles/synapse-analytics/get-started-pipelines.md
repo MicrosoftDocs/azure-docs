@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Get started orchestrate activities with pipelines' 
+title: 'Tutorial: Get started orchestrate with pipelines' 
 description: In this tutorial, you'll learn how orchestrate pipelines and activities using Synapse Studio.
 services: synapse-analytics
 author: saveenr
@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 07/20/2020 
 ---
 
-# Orchestrate activities with pipelines
+# Orchestrate with pipelines
 
 In this tutorial, you'll learn how orchestrate pipelines and activities using Synapse Studio. 
 
@@ -34,4 +34,5 @@ You can orchestrate a wide variety of tasks in Azure Synapse.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Visualize data with Power BI](get-started-visualize-powerbi.md
+> [Visualize data with Power BI](get-started-visualize-power-bi.md)
+                                 

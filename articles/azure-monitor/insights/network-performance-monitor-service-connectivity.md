@@ -129,4 +129,5 @@ For US Government Virginia region, only DOD URLs are built-in NPM. Customers usi
 | MS Teams | gov.teams.microsoft.us | 
 
 ## Next steps
-[Search logs](../../azure-monitor/log-query/log-query-overview.md) to view detailed network performance data records.
+[Search logs](../log-query/log-query-overview.md) to view detailed network performance data records.
+

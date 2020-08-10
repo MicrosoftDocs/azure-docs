@@ -2,9 +2,7 @@
 title: Resolve data-skew - Azure Data Lake Tools for Visual Studio
 description: Troubleshooting potential solutions for data-skew problems by using Azure Data Lake Tools for Visual Studio.
 services: data-lake-analytics
-author: yanancai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 12/16/2016

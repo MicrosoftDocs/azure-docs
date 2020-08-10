@@ -10,6 +10,7 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 06/30/2020
 ms.author: aahi
+ms.custom: devx-track-javascript
 ---
 
 # Quickstart: Recognize digital ink with the Ink Recognizer REST API and JavaScript

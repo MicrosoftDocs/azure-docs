@@ -19,7 +19,7 @@ ms.author: memildin
 
 To ensure the right people in your organization are notified about security alerts in your environment, enter their email addresses in the **Email notifications** settings page.
 
-When setting up your notifications, you can configure the emails to be sent to specific individuals or to anyone with a specific RBAC role for a subscription. 
+When setting up your notifications, you can configure the emails to be sent to specific individuals or to anyone with a specific Azure role for a subscription. 
 
 To avoid alert fatigue, Security Center limits the volume of outgoing mails. For each subscription, Security Center sends:
 
@@ -29,17 +29,20 @@ To avoid alert fatigue, Security Center limits the volume of outgoing mails. For
 
 ## Availability
 
-- Release state: **Generally Available**
-- Required roles: **Security Admin** or **Subscription Owner** 
-- Clouds: 
-  ✔ Commercial clouds
-  ✔ US Gov (partial)
-  ✘ National/Sovereign (China Gov, Other Gov)
+|Aspect|Details|
+|----|:----|
+|Release state:|Generally Available|
+|Pricing:|Free tier|
+|Required roles and permissions:|**Security Admin**<br>**Subscription Owner** |
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov (partial)<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|||
+
+
 
 
 ## Set up email notifications for alerts <a name="email"></a>
 
-You can send email notifications to individuals or to all users with specific RBAC roles.
+You can send email notifications to individuals or to all users with specific Azure roles.
 
 1. From Security Center's **Pricing & settings** area, the relevant subscription, and select **Email notifications**.
 

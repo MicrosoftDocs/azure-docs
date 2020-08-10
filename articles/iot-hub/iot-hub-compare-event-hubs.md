@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.custom:  [amqp, mqtt]
+ms.custom:  [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']
 ---
 
 # Connecting IoT Devices to Azure: IoT Hub and Event Hubs

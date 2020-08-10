@@ -9,7 +9,7 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.custom: seo-javascript-october2019, tracking-python
+ms.custom: seo-javascript-october2019, devx-track-python
 ---
 
 # How to use Azure Queue storage v2.1 from Python

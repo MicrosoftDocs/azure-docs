@@ -113,9 +113,6 @@ On the **Configuration** tab, you'll connect the frontend and backend pools you 
    - **Listener type**: Multiple sites
    - **Host name**: **www.contoso.com**
 
->[!NOTE]
-> With Application Gateway or WAF v2 SKU, you can also configure up to 5 host names per listener and you can use wildcard characters in the host name. See [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener-preview) for more information. In Azure portal, you can define them in separate text boxes in the host name field.
-
    Accept the default values for the other settings on the **Listener** tab, then select the **Backend targets** tab to configure the rest of the routing rule.
 
    :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Create routing rule":::

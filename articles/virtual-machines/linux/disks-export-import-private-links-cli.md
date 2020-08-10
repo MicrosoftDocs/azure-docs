@@ -26,17 +26,13 @@ You can set the NetworkAccessPolicy property to `DenyAll` to prevent anybody fro
 
 [!INCLUDE [virtual-machines-disks-private-links-regions](../../../includes/virtual-machines-disks-private-links-regions.md)]
 
-## Prerequisites
-
-To use private endpoints for exporting and importing managed disks, you must get the feature enabled on your subscription. Send an email to mdprivatelinks@microsoft .com with your subscription Ids to get the feature enabled for your subscriptions.
-
 ## Log in into your subscription and set your variables
 
 ```azurecli-interactive
 
 subscriptionId=yourSubscriptionId
 resourceGroupName=yourResourceGroupName
-region=CentralUSEUAP
+region=northcentralus
 diskAccessName=yourDiskAccessForPrivateLinks
 vnetName=yourVNETForPrivateLinks
 subnetName=yourSubnetForPrivateLinks
@@ -58,7 +54,7 @@ az account set --subscription $subscriptionId
 ## Create a disk access using Azure CLI
 ```azurecli-interactive
 az group deployment create -g $resourceGroupName \
---template-uri "https://raw.githubusercontent.com/ramankumarlive/manageddisksprivatelinks/master/CreateDiskAccess.json" \
+--template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateDiskAccess.json" \
 --parameters "region=$region" "diskAccessName=$diskAccessName"
 
 diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
@@ -117,13 +113,43 @@ az network private-endpoint dns-zone-group create \
    --private-dns-zone "privatelink.blob.core.windows.net" \
    --zone-name disks
 ```
+
+## Create a disk protected with Private Links
+  ```cli
+    resourceGroupName=yourResourceGroupName
+    region=northcentralus
+    diskAccessName=yourDiskAccessName
+    diskName=yourDiskName
+    diskSkuName=Standard_LRS
+    diskSizeGB=128
+
+    diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
+
+    az group deployment create -g $resourceGroupName \
+       --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateDisksWithExportViaPrivateLink.json" \
+       --parameters "diskName=$diskName" \
+       "diskSkuName=$diskSkuName" \
+       "diskSizeGB=$diskSizeGB" \
+       "diskAccessId=$diskAccessId" \
+       "region=$region" \
+       "networkAccessPolicy=AllowPrivate"
+```
+
 ## Create a snapshot of a disk protected with Private Links
    ```cli
-   diskId=$(az disk show -n $sourceDiskName -g $resourceGroupName --query [id] -o tsv)
+    resourceGroupName=yourResourceGroupName
+    region=northcentralus
+    diskAccessName=yourDiskAccessName
+    sourceDiskName=yourSourceDiskForSnapshot
+    snapshotNameSecuredWithPL=yourSnapshotName
+
+    diskId=$(az disk show -n $sourceDiskName -g $resourceGroupName --query [id] -o tsv)
    
-   az group deployment create -g $resourceGroupName \
-      --template-uri "https://raw.githubusercontent.com/ramankumarlive/manageddisksprivatelinks/master/CreateSnapshotWithExportViaPrivateLink.json" \
-      --parameters "snapshotNameSecuredWithPL=$snapshotNameSecuredWithPL" \
+    diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
+   
+    az group deployment create -g $resourceGroupName \
+      --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateSnapshotWithExportViaPrivateLink.json" \
+      --parameters "snapshotName=$snapshotNameSecuredWithPL" \
       "sourceResourceId=$diskId" \
       "diskAccessId=$diskAccessId" \
       "region=$region" \
@@ -133,4 +159,4 @@ az network private-endpoint dns-zone-group create \
 ## Next steps
 
 - [FAQ on Private Links](faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Export/Copy managed snapshots as VHD to a storage account in different region with PowerShell](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)
+- [Export/Copy managed snapshots as VHD to a storage account in different region with CLI](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md)

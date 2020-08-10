@@ -28,7 +28,7 @@ For a detailed tutorial on writing log queries, see [Get started with log querie
 ## Open Log Analytics
 To use Log Analytics, you need to be signed in to an Azure account. If you don't have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-To complete most of the steps in this tutorial, you can use [this demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data. With the demo environment, you won't be able to save queries or pin results to a dashboard.
+To complete most of the steps in this tutorial, you can use [this demo environment](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), which includes plenty of sample data. With the demo environment, you won't be able to save queries or pin results to a dashboard.
 
 You can also use your own environment, if you're using Azure Monitor to collect log data on at least one Azure resource. To open a Log Analytics workspace, in your Azure Monitor left navigation, select **Logs**. 
 
@@ -198,6 +198,8 @@ To load a saved query, select **Query explorer** at upper right. The **Query exp
 
 ### Export and share queries
 To export a query, select **Export** on the top bar, and then select **Export to CSV - all columns**, **Export to CSV - displayed columns**, or **Export to Power BI (M query)** from the dropdown list.
+
+The following video shows you how to integrate Log Analytics with Excel.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Asme]
 

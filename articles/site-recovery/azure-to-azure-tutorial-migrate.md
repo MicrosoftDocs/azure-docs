@@ -77,8 +77,9 @@ The following steps shows how to prepare the virtual machine for the move using 
 
 ### Create the vault in any region, except the source region
 
-1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
-1. Select **Create a resource** > **Management Tools** > **Backup and Site Recovery**.
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. In search, type Recovery Services > click Recovery Services vaults
+1. In Recovery Services vaults menu, click +Add.
 1. In **Name**, specify the friendly name **ContosoVMVault**. If you have more than one subscription, select the appropriate one.
 1. Create the resource group **ContosoRG**.
 1. Specify an Azure region. To check supported regions, see geographic availability in [Azure Site Recovery pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
