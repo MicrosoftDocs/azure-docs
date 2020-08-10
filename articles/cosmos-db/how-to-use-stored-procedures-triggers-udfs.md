@@ -201,7 +201,10 @@ sproc_definition = {
     'id': 'spCreateToDoItems',
     'serverScript': file_contents,
 }
-sproc = client.CreateStoredProcedure(container_link, sproc_definition)
+client = CosmosClient(url, key)
+database = client.get_database_client(database_name)
+container = database.get_container_client(container_name)
+sproc = container.create_stored_procedure(container_link, sproc_definition)
 ```
 
 The following code shows how to call a stored procedure by using the Python SDK
@@ -214,7 +217,7 @@ new_item = [{
     'description':'Pick up strawberries',
     'isComplete': False
 }]
-client.ExecuteStoredProcedure(sproc_link, new_item, {'partitionKey': 'Personal'}
+container.execute_stored_procedure(sproc_link, new_item, {'partitionKey': 'Personal'}
 ```
 
 ## <a id="pre-triggers"></a>How to run pre-triggers
@@ -362,7 +365,10 @@ trigger_definition = {
     'triggerType': documents.TriggerType.Pre,
     'triggerOperation': documents.TriggerOperation.Create
 }
-trigger = client.CreateTrigger(container_link, trigger_definition)
+client = CosmosClient(url, key)
+database = client.get_database_client(database_name)
+container = database.get_container_client(container_name)
+trigger = container.create_trigger(container_link, trigger_definition)
 ```
 
 The following code shows how to call a pre-trigger using the Python SDK:
@@ -371,8 +377,8 @@ The following code shows how to call a pre-trigger using the Python SDK:
 container_link = 'dbs/myDatabase/colls/myContainer'
 item = {'category': 'Personal', 'name': 'Groceries',
         'description': 'Pick up strawberries', 'isComplete': False}
-client.CreateItem(container_link, item, {
-                  'preTriggerInclude': 'trgPreValidateToDoItemTimestamp'})
+container.create_item(container_link, item, {
+                  'pre_trigger_include': 'trgPreValidateToDoItemTimestamp'})
 ```
 
 ## <a id="post-triggers"></a>How to run post-triggers
@@ -509,7 +515,10 @@ trigger_definition = {
     'triggerType': documents.TriggerType.Post,
     'triggerOperation': documents.TriggerOperation.Create
 }
-trigger = client.CreateTrigger(container_link, trigger_definition)
+client = CosmosClient(url, key)
+database = client.get_database_client(database_name)
+container = database.get_container_client(container_name)
+trigger = container.create_trigger(container_link, trigger_definition)
 ```
 
 The following code shows how to call a post-trigger using the Python SDK:
@@ -518,8 +527,8 @@ The following code shows how to call a post-trigger using the Python SDK:
 container_link = 'dbs/myDatabase/colls/myContainer'
 item = {'name': 'artist_profile_1023', 'artist': 'The Band',
         'albums': ['Hellujah', 'Rotators', 'Spinning Top']}
-client.CreateItem(container_link, item, {
-                  'postTriggerInclude': 'trgPostUpdateMetadata'})
+container.create_item(container_link, item, {
+                  'post_trigger_include': 'trgPostUpdateMetadata'})
 ```
 
 ## <a id="udfs"></a>How to work with user-defined functions
@@ -651,14 +660,17 @@ udf_definition = {
     'id': 'Tax',
     'serverScript': file_contents,
 }
-udf = client.CreateUserDefinedFunction(container_link, udf_definition)
+client = CosmosClient(url, key)
+database = client.get_database_client(database_name)
+container = database.get_container_client(container_name)
+udf = container.create_user_defined_function(container_link, udf_definition)
 ```
 
 The following code shows how to call a user-defined function using the Python SDK:
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
-results = list(client.QueryItems(
+results = list(container.query_items(
     container_link, 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
 ```
 

@@ -3,10 +3,10 @@ title: Create a Managed Service offer in Microsoft commercial marketplace
 description: How to create a new Managed Service offer for listing in Azure Marketplace using the Commercial Marketplace portal in Partner Center. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.date: 07/07/2020
+ms.date: 08/07/2020
 ---
 
 # Create a Managed Service offer
@@ -125,6 +125,8 @@ If you have support websites for **Azure Global Customers** and/or **Azure Gover
 
 In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
@@ -137,14 +139,9 @@ Provide your offer's logo in four pixel sizes:
 - **Large** (216 x 216)
 - **Wide** (255 x 115)
 
-Follow these guidelines for your logos:
+These logos are used in different places in the Azure Marketplace:
 
-- The Azure design has a simple color palette. Limit the number of primary and secondary colors on your logo.
-- The theme colors of the portal are white and black. Don't use these colors as the background color for your logo. Use a color that makes your logo prominent in the portal. We recommend simple primary colors.
-- If you use a transparent background, make sure that the logo and text aren't white, black, or blue.
-- The look and feel of your logo should be flat and avoid gradients. Don't use a gradient background on the logo.
-- Don't place text on the logo, not even your company or brand name.
-- Make sure the logo isn't stretched.
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### Screenshots
 
