@@ -8,7 +8,7 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: msangapu
-ms.custom: mvc, seodec18, tracking-python
+ms.custom: mvc, seodec18, devx-track-python
 ---
 
 # Tutorial: Run a custom Docker image in App Service

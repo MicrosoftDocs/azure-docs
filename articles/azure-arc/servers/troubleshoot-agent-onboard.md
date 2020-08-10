@@ -85,7 +85,7 @@ The following table lists some of the known errors and suggestions on how to tro
 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for additional support:
 
-* Get answers from Azure experts through [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-arc.html).
+* Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
 
 * Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 

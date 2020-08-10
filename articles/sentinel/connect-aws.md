@@ -19,7 +19,7 @@ ms.author: yelevin
 
 # Connect Azure Sentinel to AWS CloudTrail
 
-Use the AWS connector to stream all your AWS CloudTrail events into Azure Sentinel. This connection process delegates access for Azure Sentinel to your AWS resource logs, creating a trust relationship between AWS CloudTrail and
+Use the AWS connector to stream your AWS CloudTrail management events into Azure Sentinel. This connection process delegates access for Azure Sentinel to your AWS resource logs, creating a trust relationship between AWS CloudTrail and
 Azure Sentinel. This is accomplished on AWS by creating a role that gives permission to Azure Sentinel to access your AWS logs.
 
 > [!NOTE]
@@ -30,7 +30,7 @@ Azure Sentinel. This is accomplished on AWS by creating a role that gives permis
 You must have write permission on the Azure Sentinel workspace.
 
 > [!NOTE]
-> Azure Sentinel collects CloudTrail events from all regions. It is recommended that you do not stream events from one region to another.
+> Azure Sentinel collects CloudTrail management events from all regions. It is recommended that you do not stream events from one region to another.
 
 ## Connect AWS 
 

@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 08/04/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
@@ -223,7 +223,7 @@ First, add a new profile parameter. The profile parameter prevents connections b
 
 To modify the SAP profile of the ASCS/SCS instance:
 
-1. Add this profile parameter to the SAP ASCS/SCS instance profile:
+1. Add this profile parameter to the SAP ASCS/SCS instance profile, if using ENSA1.
 
    ```
    enque/encni/set_so_keepalive = true
@@ -235,6 +235,8 @@ To modify the SAP profile of the ASCS/SCS instance:
    For example, to the SAP SCS instance profile and corresponding path:
 
    `<ShareDisk>:\usr\sap\PR1\SYS\profile\PR1_SCS01_pr1-ascs-sap`
+   
+   For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736).   
 
 2. To apply the changes, restart the SAP ASCS/SCS instance.
 
