@@ -12,7 +12,7 @@ ms.workload: web
 
 # Create two web apps connected securely with Private Endpoint and VNet integration
 
-This article illustrates an example use of [Private Endpoint](https://docs.microsoft.com/azure/app-service/networking/private-endpoint) and regional [VNet integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) to connect two web apps (frontend and backend) securely following these steps :
+This article illustrates an example use of [Private Endpoint](https://docs.microsoft.com/azure/app-service/networking/private-endpoint) and regional [VNet integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) to connect two web apps (frontend and backend) securely following these steps:
 - Deploy a VNet
 - Create the first subnet for the integration
 - Create the second subnet for the private endpoint, you have to set a specific parameter to disable network policies
@@ -28,7 +28,7 @@ This article illustrates an example use of [Private Endpoint](https://docs.micro
 
 Browse to the [Azure portal](https://docs.microsoft.com/azure/developer/terraform/) to learn how to use terraform with Azure.
 
-##The complete terraform file
+## The complete terraform file
 
 To use this file you must change the name property for frontwebapp and backwebapp resources (webapp name must be unique DNS name worldwide). 
 
