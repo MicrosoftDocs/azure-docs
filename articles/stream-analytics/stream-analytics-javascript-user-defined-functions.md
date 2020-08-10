@@ -154,7 +154,7 @@ FROM
 
 ### Use try/catch for error handling
 
-If the input data can have malformed fields that are passed to a JavaScript UDF, using a try/catch block can be useful for identifying the problem.
+Try/catch blocks can help you identify problems with malformed input data that are passed into a JavaScript UDF.
 
 **JavaScript user-defined function definition:**
 
