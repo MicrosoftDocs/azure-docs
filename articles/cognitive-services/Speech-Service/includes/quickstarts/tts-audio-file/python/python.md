@@ -13,22 +13,18 @@ ms.author: trbye
 * The Python Speech SDK package is available for these operating systems:
     * Windows: x64 and x86.
     * Mac: macOS X version 10.12 or later.
-    * Linux: Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8 on x64.
+    * Linux; see the list of [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md).
 * On Linux, run these commands to install the required packages:
 
-# [Ubuntu](#tab/ubuntu)
+# [Ubuntu/Debian](#tab/ubuntu-debian)
 
 ```Bash
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2
 ```
 
-# [Debian 9](#tab/debian)
-
-```Bash
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.2 libasound2
-```
+> [!NOTE]
+> If libssl1.0.0 is not available, install libssl1.0.x (where x is greater than 0) or libssl1.1 instead.
 
 # [RHEL/CentOS](#tab/rhel-centos)
 
