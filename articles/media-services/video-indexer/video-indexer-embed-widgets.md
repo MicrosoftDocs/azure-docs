@@ -103,7 +103,7 @@ The Cognitive Insights widget can interact with a video on your app. This sectio
 When you edit the transcripts, the following flow occurs:
 
 1. You edit the transcript in the timeline.
-1. Video Indexer gets these updates and saves them in the [from transcript edits](ustomize-language-model-with-website.md#customize-language-models-by-correcting-transcripts) in the language model.
+1. Video Indexer gets these updates and saves them in the [from transcript edits](customize-language-model-with-website.md#customize-language-models-by-correcting-transcripts) in the language model.
 1. The captions are updated:
 
     * If you are using Video Indexer's player widget - it’s automatically updated.
