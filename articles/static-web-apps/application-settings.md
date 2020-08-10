@@ -47,12 +47,14 @@ For information about how to use environment variables with your JavaScript fram
 - [React](https://create-react-app.dev/docs/adding-custom-environment-variables/)
 - [Svelte](https://linguinecode.com/post/how-to-add-environment-variables-to-your-svelte-js-app)
 - [Vue](https://cli.vuejs.org/guide/mode-and-env.html)
+- [Nuxt.js](https://nuxtjs.org/api/configuration-env/)
 
 ### Static site generators
 
 - [Gatsby](https://www.gatsbyjs.org/docs/environment-variables/)
 - [Hugo](https://gohugo.io/getting-started/configuration/)
 - [Jekyll](https://jekyllrb.com/docs/configuration/environments/)
+- [Hexo](https://hexo.io/docs/configuration)
 
 ## About API App settings
 
