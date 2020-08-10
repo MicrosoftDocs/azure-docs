@@ -52,7 +52,7 @@ After your subscription is canceled, Microsoft waits 30 - 90 days before permane
 
 ## Delete free trial subscription
 
-If you have a free trial subscription, you don't have to wait 30 days for the subscription to automatically delete. You can delete your subscription *three days* after you cancel it. The **Delete subcription** option isn't available until three days after you cancel your subscription.
+If you have a free trial subscription, you don't have to wait 30 days for the subscription to automatically delete. You can delete your subscription *three days* after you cancel it. The **Delete subscription** option isn't available until three days after you cancel your subscription.
 
 1. Wait three days after the date you canceled the subscription.
 1. Select your subscription on the [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) page in the Azure portal.
