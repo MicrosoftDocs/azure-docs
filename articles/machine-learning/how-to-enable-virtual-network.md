@@ -536,6 +536,9 @@ __Configuration__
 
     1. To attach the cluster, use the information in the [Deploy to Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md#attach-an-existing-aks-cluster) article.
 
+    > [!TIP]
+    > When using this configuration, and restricting outbound communication from the AKS cluster, you do not need to allow communication on ports __1194__ or __9000__. For other ports that should be allowed, refer to the guidance in the [Control egress traffic for cluster nodes in Azure Kubernetes Service](/azure/aks/limit-egress-traffic) article.
+
 ## Use Azure Container Instances (ACI)
 
 __Requirements__
