@@ -33,6 +33,8 @@ Since memory usage changes over time, the calculation is essentially the integra
 > [!NOTE]
 > While CPU usage isn't directly considered in execution cost, it can have an impact on the cost when it affects the execution time of the function.
 
+An HTTP request is not counted as an execution if an error is returned before the function code begins to execute. This means that 401s resulting from API key validation or the App Service Authentication / Authorization feature will not incur a charge. However, 401s returned from function code will still be counted. Similarly, 5xx status codes are not counted when they occur prior to a function starting to handle the request. However, once the function has begun, a 5xx returned by function code or the underlying platform will still be counted as an execution.
+
 ## Other related costs
 
 When estimating the overall cost of running your functions in any plan, remember that the Functions runtime uses several other Azure services, which are each billed separately. When calculating pricing for function apps, any triggers and bindings you have that integrate with other Azure services require you to create and pay for those additional services. 
