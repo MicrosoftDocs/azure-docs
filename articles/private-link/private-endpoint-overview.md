@@ -62,7 +62,7 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
 |**Azure IoT Hub** | Microsoft.Devices/IotHubs    | iotHub |
 |**Azure Key Vault** | Microsoft.KeyVault/vaults    | vault |
-|**Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters    | managedCluster |
+|**Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters    | management |
 |**Azure Search** | Microsoft.Search/searchService| searchService|  
 |**Azure Container Registry** | Microsoft.ContainerRegistry/registries    | registry |
 |**Azure App Configuration** | Microsoft.Appconfiguration/configurationStores    | configurationStores |

@@ -4,7 +4,7 @@ description: Create an Azure Blockchain Service member for a blockchain consorti
 ms.date: 07/23/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli
 #Customer intent: As a network operator, I want use Azure Blockchain Service so that I can create a blockchain member on Azure
 ---
 

@@ -9,13 +9,13 @@ ms.author: keferna
 ms.date: 07/22/2020
 ---
 
-# Common questions about Microsoft commercial marketplace
+# Common questions about the Microsoft commercial marketplace
 
 This article answers commonly asked questions about the commercial marketplace.
 
 ## General
 
-### What is Microsoft commercial marketplace?
+### What is the Microsoft commercial marketplace?
 
 The commercial marketplace connects business and government agencies with solutions built by our partners. Our partners create and manage offers in Partner Center, and customers can discover and buy solutions through in-product experiences, such as Microsoft AppSource, Azure Marketplace, resellers in the Cloud Solution Provider program, and our sales teams via the co-sell program.
 
@@ -55,7 +55,7 @@ The ways that customers can use your commercial marketplace offer depend on how 
 
 - For solutions that you provide automatically, whether they're paid, bring-your-own-license (BYOL), or free, customers are urged to *Get It Now*.
 - Offers that support a test drive (demo) request the customer to *Test Drive*. 
-- Software as a service (SaaS) offers that provide a trial outside our commercial marketplace say *Free Trial*.
+- Software as a service (SaaS) offers that provide a trial outside the commercial marketplace say *Free Trial*.
 - Simple listings allow the customer to request *Contact Me*.
 
 ### How do I create offers for the commercial marketplace?
@@ -72,7 +72,7 @@ You can also [join our active community forum](https://www.microsoftpartnercommu
 
 ### What analytics are available to my organization from the commercial marketplace?
 
-We provide reporting on your offers within our commercial marketplace. To access data on customers, orders, store engagement, and more, go to [Analytics for the commercial marketplace in Partner Center](partner-center-portal/analytics.md).
+We provide reporting on your offers within the commercial marketplace. To access data on customers, orders, store engagement, and more, go to [Analytics for the commercial marketplace in Partner Center](partner-center-portal/analytics.md).
 
 ### What is Microsoft's relationship with my customers?
 
@@ -119,7 +119,7 @@ To complete a purchase at a very low price, we suggest publishing a private plan
 
 ### What are leads from the commercial marketplace and what should I do with them?
 
-As customers use your offers on the Microsoft AppSource and Azure Marketplace storefronts, information is captured. After customers have demonstrated enough interest, a lead is created and an opportunity is sent to the system of your choice. Publishers who are successful with our commercial marketplace often pursue leads, develop relationships, and turn interest into deals.
+As customers use your offers on the Microsoft AppSource and Azure Marketplace storefronts, information is captured. After customers have demonstrated enough interest, a lead is created and an opportunity is sent to the system of your choice. Publishers who are successful with the commercial marketplace often pursue leads, develop relationships, and turn interest into deals.
 
 For more information, see [Customer leads from your marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
@@ -280,7 +280,7 @@ For more information, see [Payment thresholds, methods, and time frames](partner
 
 ### In what countries/regions are taxes managed on my behalf?
 
-Customers can find solutions from our commercial marketplace around the world, and we manage taxes in many locations. 
+Customers can find solutions from the commercial marketplace around the world, and we manage taxes in many locations. 
 
 To review the full list of locations, go to [Tax details for commercial marketplace publishers](partner-center-portal/tax-details-paid-transactions.md).
 

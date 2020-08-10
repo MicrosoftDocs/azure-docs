@@ -54,7 +54,7 @@ You can sign a SAS in one of two ways:
 
 - With a *user delegation key* that was created using Azure Active Directory (Azure AD) credentials. A user delegation SAS is signed with the user delegation key.
 
-    To get the user delegation key and create the SAS, an Azure AD security principal must be assigned a role-based access control (RBAC) role that includes the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. For detailed information about RBAC roles with permissions to get the user delegation key, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
+    To get the user delegation key and create the SAS, an Azure AD security principal must be assigned an Azure role that includes the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. For detailed information about Azure roles with permissions to get the user delegation key, see [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
 - With the storage account key. Both a service SAS and an account SAS are signed with the storage account key. To create a SAS that is signed with the account key, an application must have access to the account key.
 

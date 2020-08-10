@@ -5,7 +5,7 @@ description: Auto-failover groups allow you to manage replication and automatic 
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: high-availability
-ms.custom: sqldbrb=2
+ms.custom: sqldbrb=2, devx-track-azurecli
 ms.devlang: 
 ms.topic: conceptual
 author: anosov1960
@@ -130,7 +130,7 @@ To achieve real business continuity, adding database redundancy between datacent
   
 ## Permissions
 
-Permissions for a failover group are managed via [role-based access control (RBAC)](../../role-based-access-control/overview.md). The [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role has all the necessary permissions to manage failover groups.
+Permissions for a failover group are managed via [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). The [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role has all the necessary permissions to manage failover groups.
 
 ### Create failover group
 

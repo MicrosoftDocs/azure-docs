@@ -142,7 +142,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -
 ```
 
 On the Windows Server or Windows client machine, run the [Start-OBRegistration](/powershell/module/msonlinebackup/start-obregistration) cmdlet to register the machine with the vault.
-This, and other cmdlets used for backup, are from the MSONLINE module, which the Mars AgentInstaller added as part of the installation process.
+This, and other cmdlets used for backup, are from the MSONLINE module, which the MARS AgentInstaller added as part of the installation process.
 
 The Agent installer doesn't update the $Env:PSModulePath variable. This means module auto-load fails. To resolve this, you can do the following:
 
