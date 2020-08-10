@@ -163,7 +163,6 @@
             - name: Use virtual networks
               displayName: vnet, blob, private endpoint, private link
               href: how-to-enable-virtual-network.md
-              href: how-to-configure-private-link.md
             - name: Secure web services with TLS
               displayName: ssl
               href: how-to-secure-web-service.md
