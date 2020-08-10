@@ -55476,7 +55476,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/swift-macos.md.md",
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/swift-macos.md",
       "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/text-to-speech",
       "redirect_document_id": false
     },
