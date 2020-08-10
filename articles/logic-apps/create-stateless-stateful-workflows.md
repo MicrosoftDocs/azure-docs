@@ -3,13 +3,17 @@ title: Create stateful and stateless workflows with Visual Studio Code
 description: Create stateful and stateless workflows by using Azure Logic Apps and Visual Studio Code
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, logicappspm
+ms.reviewer: vikanand, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ---
 
-# Create stateful and stateless workflows by using Azure Logic Apps and Visual Studio Code
+# Create stateful and stateless workflows by using Azure Logic Apps and Visual Studio Code - Public Preview
 
+With Visual Studio Code and the preview extension [Azure Functions for Visual Studio Code], you can build stateful or stateless workflow apps that are powered by [Azure Functions](../azure-functions/functions-overview.md). You can deploy these workflow apps to multiple hosting environments, such as Azure App Service, Azure Function apps, or as a Docker container that runs anywhere that you want. This extension brings many Azure Logic Apps capabilities in the cloud to your local development experience and provides additional capabilities, for example:
+
+
+<a name="stateful-stateless"></a>
 
 ## What are stateful and stateless?
 
@@ -19,7 +23,7 @@ ms.date: 09/22/2020
 
 * *Stateless*
 
-  These workflows only save the input and output for each action in memory, rather than in external storage. Stateless workflows offer faster performance with decreased response times, high throughput, and decreased running costs due to not persisting data. However, if interruptions, such as outages, happen, in-progress runs aren't automatically restored, so the caller needs to manually resubmit the interrupted runs. Create stateless workflows when you don't need to preserve or reference data from previous events.
+  These workflows only save the input and output for each action in memory, rather than in external storage. Stateless workflows offer faster performance with shorter response times, higher throughput, and reduced running costs because data isn't saved. However, if interruptions, such as outages, happen, in-progress runs aren't automatically restored, so the caller needs to manually resubmit the interrupted runs. Create stateless workflows when you don't need to preserve or reference data from previous events.
 
   > [!TIP]
   > For easier debugging or if necessary, you can enable run history capability for stateless workflows.
@@ -36,7 +40,7 @@ ms.date: 09/22/2020
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which enables F5 functionality to run your workflow
 
-  * Azure Functions Core Tools 3.0.2569. If you have an earlier installation, uninstall that version first, or make sure that the PATH environment variable points at the appropriate version specified here after you download and install the tools:
+  * [Azure Functions Core Tools](../azure-functions/functions-run-local.md) 3.0.2569. If you have an earlier installation, uninstall that version first, or make sure that the PATH environment variable points at the appropriate version specified here after you download and install the core tools:
 
     * [Win x64 (MSI)](https://functionscdn.azureedge.net/public/3.0.2569/func-cli-3.0.2569-x64.msi)
 
@@ -51,7 +55,7 @@ ms.date: 09/22/2020
 
   * [Azure Functions for Visual Studio Code 0.22.1-alpha (ZIP)](https://workflowscdn.azureedge.net/2020-05-preview/VsExtension/LogicAppsVSCodeExtension-0.22.1-alpha.zip)
 
-    This public preview extension provides the capability for you to create stateless and stateful workflow apps and replaces any currently installed Azure Functions extension but preserves the capability to author Azure Functions.
+    This public preview extension provides the capability for you to create stateless and stateful workflow apps and replaces any currently installed Azure Functions extension but preserves the capability to author Azure Functions. For other information about the Azure Functions extension for Visual Studio Code.
 
     1. Download the ZIP file to your local computer and extract file.
 
@@ -59,7 +63,9 @@ ms.date: 09/22/2020
 
        ![Screenshot that shows Visual Studio extension menu with selected ellipsis button and Install from VSIX menu command](./media/create-stateless-stateful-workflows/install-from-vsix.png)
 
-After you install all the requirements, disable automatic extension updates for Visual Studio Code so that the preview extension isn't overwritten by the public extension when you restart Visual Studio Code.
+## Set up development environment
+
+After you install all the extensions, disable automatic extension updates for Visual Studio Code so that the preview extension isn't overwritten by the public extension when you restart Visual Studio Code.
 
 1. In Visual Studio Code, on the **File** menu, select **Preferences** > **Settings**.
 
@@ -68,8 +74,6 @@ After you install all the requirements, disable automatic extension updates for 
 1. Under **Auto Update**, clear **When enabled, automatically installs updates for extensions. The updates are fetched from a Microsoft online service**.
 
    ![Screenshot that shows Visual Studio extension settings with cleared checkbox for auto update](./media/create-stateless-stateful-workflows/disable-extension-auto-update.png)
-
-## Set up environment
 
 1. To make sure that all the extensions are correctly installed, reload or restart Visual Studio Code.
 
@@ -99,7 +103,7 @@ After you install all the requirements, disable automatic extension updates for 
 
    ![Screenshot that shows Azure pane and selected link for Azure sign in](./media/create-stateless-stateful-workflows/sign-in-azure-subscription.png)
 
-   After you sign in, the Azure pane shows the Azure subscriptions that are associated with your account. However, if the Azure pane doesn't show the subscriptions that you expect, or you want to view only specific subscriptions, follow these steps:
+   After you sign in, the Azure pane shows your account's Azure subscriptions. If the expected subscriptions don't appear, or you want to view only specific subscriptions, follow these steps:
 
    1. Move your pointer over the first subscription in the list so that the **Select subscriptions** filter icon appears. Select the filter icon.
 
@@ -110,7 +114,9 @@ After you install all the requirements, disable automatic extension updates for 
    > [!TIP]
    > Later, if Visual Studio Code signs you out from Azure, you're prompted to sign back in when necessary.
 
-## Create workflow app project
+## Create Functions project
+
+Before you create your workflow, create an Azure Functions project for deploying and managing your workflow app using Visual Studio Code.
 
 1. Before you start, make sure that you close any open folders or files in Visual Studio Code.
 
@@ -126,7 +132,7 @@ After you install all the requirements, disable automatic extension updates for 
 
    ![Screenshot that shows a languages list with C# selected](./media/create-stateless-stateful-workflows/select-language-for-project.png)
 
-1. From the templates list that appears, select **Skip for now**.
+1. From the templates list that appears, select **Skip for now**, which creates a function project without creating a function.
 
    <!--
    ![Screenshot that shows a templates list with "Skip for now" selected](./media/create-stateless-stateful-workflows/select-project-template.png)
