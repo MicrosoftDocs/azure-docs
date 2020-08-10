@@ -630,7 +630,7 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
 
 3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myTestVM** that is located in the **myResourceGroupLB** resource group.
 
-4. On the **Overview** page, select **Connect** , then **Bastion**.
+4. On the **Overview** page, select **Connect, then **Bastion**.
 
 6. Enter the username and password entered during VM creation.
 
