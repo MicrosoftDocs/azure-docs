@@ -80,7 +80,7 @@ The following scenarios are not supported for staged rollout:
 
 - When you first add a security group for staged rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
-- While users are in Staged Rollout, password expiration policy is set to 90 days with no option to customize it. 
+- While users are in Staged Rollout, when EnforceCloudPasswordPolicyForPasswordSyncedUsers is enabled, password expiration policy is set to 90 days with no option to customize it. 
 
 
 ## Get started with staged rollout
