@@ -8899,6 +8899,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/install-update-binding-extensions-manual.md",
+      "redirect_url": "/azure/azure-functions/functions-bindings-register",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-functions/functions-how-to-use-sendgrid.md",
       "redirect_url": "/azure/azure-functions/functions-bindings-sendgrid",
       "redirect_document_id": false

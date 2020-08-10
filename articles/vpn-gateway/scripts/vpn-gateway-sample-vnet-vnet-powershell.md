@@ -1,6 +1,6 @@
 ---
 title: 'Azure PowerShell script sample - Configure a vnet-to-vnet VPN | Microsoft Docs'
-description: This PowerShell script connects two Azure virtual networks by using the VNet-to-VNet connection type. Learn about all the cmdlets in the script.
+description: Learn how to use a PowerShell script to configure a site-to-site VNet-to-VNet VPN gateway connection.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: kumudD

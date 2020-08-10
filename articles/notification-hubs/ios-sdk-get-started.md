@@ -100,6 +100,9 @@ Apple, and also register for push notifications.
 
 ## Create a certificate for Notification Hubs
 
+> [!NOTE]
+> Due to the releases of iOS 13 you can only receive silent notifications using token based authentication.If you are using certificate-based authentication for your APNS credentials, you must switch to using token-based authentication.
+
 A certificate is required to enable the notification hub to work with **APNS**. This can be done in one of two ways:
 
 - Create a **.p12** file that can be uploaded directly to Notification Hubs.

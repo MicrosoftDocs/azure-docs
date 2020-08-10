@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure File Sync | Microsoft Docs
-description: Troubleshoot common issues with Azure File Sync.
+description: Troubleshoot common issues in a deployment on Azure File Sync, which you can use to transform Windows Server into a quick cache of your Azure file share.
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
