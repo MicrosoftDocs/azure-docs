@@ -14,7 +14,7 @@ ms.author: nichola
 
 # Five steps for integrating all your apps with Azure AD
 
-Azure Active Directory (Azure AD) is Microsoft's cloud-based identity and access management service. Azure AD provides secure authentication and authorization solutions so that customers, partners, and employees can access the applications they need. With Azure AD, [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview), [multi-factor authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks), [single-sign on](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso), and [automatic user provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) make identity and access management easy and secure.
+Azure Active Directory (Azure AD) is the Microsoft cloud-based identity and access management service. Azure AD provides secure authentication and authorization solutions so that customers, partners, and employees can access the applications they need. With Azure AD, [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview), [multi-factor authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks), [single-sign on](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso), and [automatic user provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning) make identity and access management easy and secure.
 
 If your company has a Microsoft 365 subscription, you likely [already use](https://docs.microsoft.com/office365/enterprise/about-office-365-identity) Azure AD. However, Azure AD can be used for all your applications, and by [centralizing your application management](https://docs.microsoft.com/azure/active-directory/manage-apps/common-scenarios) you can use the same identity management features, tools, and policies across your entire app portfolio. Doing so will provide a unified solution that improves security, reduces costs, increases productivity, and enables you to ensure compliance. And you will get remote access to on-premises apps.
 
@@ -59,24 +59,24 @@ You will see the largest benefits and cost savings once all your apps are integr
 
 During your discovery process, you may have found applications that are untracked by the IT department, which leave your data and resources vulnerable. You may also have applications that use alternative identity solutions, including Active Directory Federation Services (ADFS) or other identity providers. Consider how you can consolidate your identity and access management to save money and increase security. Reducing the number of identity solutions you have will:
 
-1. Save you money by eliminating the need for on-premises user provisioning and authentication as well as licensing fees paid to other cloud identity providers for the same service.
-2. Reduce the administrative overhead and enable tighter security with fewer redundancies in your identity and access management process.
-3. Enable employees to get secure single sign-on access to ALL the applications they need via the [MyApps portal](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-collections).
-4. Improve the intelligence of Azure AD&#39;s [identity protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) related services like conditional access by increasing the amount of data it gets from your app usage, and extend its benefits to the newly added apps.
+- Save you money by eliminating the need for on-premises user provisioning and authentication as well as licensing fees paid to other cloud identity providers for the same service.
+- Reduce the administrative overhead and enable tighter security with fewer redundancies in your identity and access management process.
+- Enable employees to get secure single sign-on access to ALL the applications they need via the [MyApps portal](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-collections).
+- Improve the intelligence of Azure AD&#39;s [identity protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection) related services like conditional access by increasing the amount of data it gets from your app usage, and extend its benefits to the newly added apps.
 
 We have published guidance for managing the business process of integrating apps with Azure AD, including a [poster](https://aka.ms/AppOnePager) and [presentation](https://aka.ms/AppGuideline) you can use to make business and application owners aware and interested. You can modify those samples with your own branding and publish them to your organization through your company portal, newsletter, or other medium as you go about completing this process.
 
 A good place to start is by evaluating your use of Active Directory Federation Services (ADFS). Many organizations use ADFS for authentication with SaaS apps, custom Line-of-Business apps, and Office 365 and Azure AD-based apps:
 
-![Diagram shows on-premises apps, line of buisness apps, SaaS apps, and, via Azure AD, Office 365 all connecting with dotted lines into Active Directory and AD FS.](\media\five-steps-to-full-application-integration-with-AAD\ADFSIntegration1.png)
+![Diagram shows on-premises apps, line of business apps, SaaS apps, and, via Azure AD, Office 365 all connecting with dotted lines into Active Directory and AD FS.](\media\five-steps-to-full-application-integration-with-AAD\ADFSIntegration1.png)
 
 You can upgrade this configuration by [replacing ADFS with Azure AD as the center](https://docs.microsoft.com/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure) of your identity management solution. Doing so enables sign-on for every app your employees want to access, and makes it easy for employees to find any business application they need via the [MyApps portal](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access), in addition to the other benefits mentioned above.
 
-![Diagram shows on-premises apps via Active Directory and AD FS, line of buisness apps, SaaS apps, and Office 365 all connecting with dotted lines into Azure Active Directory.](\media\five-steps-to-full-application-integration-with-AAD\ADFSIntegration2.png)
+![Diagram shows on-premises apps via Active Directory and AD FS, line of business apps, SaaS apps, and Office 365 all connecting with dotted lines into Azure Active Directory.](\media\five-steps-to-full-application-integration-with-AAD\ADFSIntegration2.png)
 
 Once Azure AD becomes the central identity provider, you may be able to switch from ADFS completely, rather than using a federated solution. Apps that previously used ADFS for authentication can now use Azure AD alone.
 
-![Diagram shows on-premises, line of buisness apps, SaaS apps, and Office 365 all connecting with dotted lines into Azure Active Directory. Active Directory and AD FS is not present.](\media\five-steps-to-full-application-integration-with-AAD\ADFSIntegration3.png)
+![Diagram shows on-premises, line of business apps, SaaS apps, and Office 365 all connecting with dotted lines into Azure Active Directory. Active Directory and AD FS is not present.](\media\five-steps-to-full-application-integration-with-AAD\ADFSIntegration3.png)
 
 You can also migrate apps that use a different cloud-based identity provider to Azure AD. Your organization may have multiple Identity Access Management (IAM) solutions in place. Migrating to one Azure AD infrastructure is an opportunity to reduce dependencies on IAM licenses (on-premises or in the cloud) and infrastructure costs. In cases where you may have already paid for Azure AD via M365 licenses, there is no reason to pay the added cost of another IAM solution.
 
