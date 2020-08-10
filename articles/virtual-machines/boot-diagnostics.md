@@ -21,7 +21,7 @@ Located in the virtual machine blade, the boot diagnostics option is under the *
 
 
 ## Limitations
-- Boot diagnostics is only available for Azure Resource Manager (ARM) VMs. 
+- Boot diagnostics is only available for Azure Resource Manager VMs. 
 - Boot diagnostics does not support premium storage accounts, if a premium storage account is used for boot diagnostics users will receive an `StorageAccountTypeNotSupported` error when starting the VM. 
 
 ## Next steps
