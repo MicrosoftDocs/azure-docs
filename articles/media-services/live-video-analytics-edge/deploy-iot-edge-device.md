@@ -186,8 +186,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
-   [!Note]
-   The twin property **allowUnsecuredEndpoints** is set as true for the purpose of the tutorials and the quickstarts.   
+   > [!Note]
+   > The twin property **allowUnsecuredEndpoints** is set as true for the purpose of the tutorials and the quickstarts.   
    You should set this property to **false** when running in production environment. This will ensure that the application will block all unsecured endpoints and in order to run the graph topologies, valid connection credentials will be needed.  
    
     Select Add to add the module twin properties.
