@@ -19,7 +19,7 @@ After you create one or more key vaults, you'll likely want to monitor how and w
 ### How can I monitor vault availability, service latency periods or other performance metrics for key vault?
 As you start to scale your service the number of requests sent to your key vault will rise. This has a potential to increase the latency of your requests and in extreme cases, cause your requests to be throttled which will impact the performance of your service. You can monitor key vault performance metrics and get alerted for specific thresholds, for step-by-step guide to configure monitoring, [read more](https://docs.microsoft.com/azure/key-vault/general/alert).
 
-### How can I assign custom access control per key vault object? 
+### How can I assign access control per key vault object? 
 Per-secret/key/certificate access control feature’s availability will be notified here, [read more](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/.32213176-per-secret-key-certificate-access-control)
 
 ### How can I provide key vault authenticate using access control policy?
