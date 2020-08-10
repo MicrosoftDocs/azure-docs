@@ -1,9 +1,9 @@
 ---
 title: Azure Image Builder Service networking options
 description: Understand the networking options when deploying Azure VM Image Builder Service
-author: cynthn
+author: danielsollondon
 ms.author: danis
-ms.date: 05/14/2020
+ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -80,3 +80,8 @@ Private Link service requires an IP from the given VNET and subnet. Currently, A
     * [AZ CLI example](image-builder-permissions-cli.md#custom-image-azure-role-example)
     * [PowerShell example](image-builder-permissions-powershell.md#custom-image-azure-role-example)
 5. Ensure you are using VNET in the same region as the Azure Image Builder Service region.
+
+
+## Next steps
+
+For more information, see [Azure Image Builder overview](image-builder-overview.md).

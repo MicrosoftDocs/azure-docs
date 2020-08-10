@@ -1,9 +1,9 @@
 ---
 title: Azure Image Builder Service DevOps Task
 description: Azure DevOps task to inject build artifacts into a VM image so you can install and configure your application and OS.
-author: cynthn
+author: danielsollondon
 ms.author: danis
-ms.date: 08/07/2020
+ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -125,7 +125,7 @@ Currently the DevOps task does not have support for rebooting Windows builds, if
 
 The task is designed to be able to inject DevOps Build release artifacts into the image. To make this work, you need to set up a build pipeline. In the setup of the release pipeline, you must add the repo of the build artifacts.
 
-![Selecting add an artifact in the release pipeline](./media/image-builder-devops-task/add-artifact.png)
+:::image type="content" source="./media/image-builder-devops-task/add-artifact.png" alt-text="Selecting add an artifact in the release pipeline.":::
 
 Select the **Build Path** button to choose the build folder you want to be placed on the image. The Image Builder task copies all files and directories within it. When the image is being created, Image Builder deploys the files and directories into different paths, depending on OS.
 
@@ -135,7 +135,8 @@ Select the **Build Path** button to choose the build folder you want to be place
 
 The following example explains how this works:
 
-![A directory structure showing hierarchy](./media/image-builder-devops-task/build-artifacts.png)
+:::image type="content" source="./media/image-builder-devops-task/build-artifacts.png" alt-text="A directory structure showing hierarchy.":::
+
 
 * Windows - Files exist in `C:\`. A directory named `buildArtifacts` is created which includes the `webapp` directory.
 
@@ -212,6 +213,7 @@ There are 3 distribute types supported.
     ```bash
     /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>
     ```
+
 * Locations
 
 #### Azure Shared Image Gallery
@@ -222,6 +224,7 @@ The Shared Image Gallery **must** already exist.
     ```bash
     /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<imageDefName>
     ```
+
 * Regions: list of regions, comma separated. For example, westus, eastus, centralus
 
 #### VHD
@@ -307,7 +310,7 @@ If there is a build failure, the DevOps task does not delete the staging resourc
 
 You will see an error in the DevOps log for the VM Image Builder task, and see the customization.log location. For example:
 
-![Example DevOps task error that shows failure waiting on packerizer](./media/image-builder-devops-task/devops-task-error.png)
+:::image type="content" source="./media/image-builder-devops-task/devops-task-error.png" alt-text="Example DevOps task error that shows failure waiting on packerizer.":::
 
 For more information on troubleshooting, see [Troubleshoot Azure Image Builder Service](image-builder-troubleshoot.md). 
 
@@ -320,5 +323,12 @@ Source for image:  { type: 'SharedImageVersion',
 ...
 template name:  t_1556938436xxx
 ...
+
 ```
+
 The Image Template resource artifact is in the resource group specified initially in the task. When you're done troubleshooting delete the artifact. If deleting using the Azure portal, within the resource group, select **Show Hidden Types**, to view the artifact.
+
+
+## Next steps
+
+For more information, see [Azure Image Builder overview](image-builder-overview.md).

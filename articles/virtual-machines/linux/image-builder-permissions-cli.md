@@ -73,7 +73,7 @@ Microsoft.Compute/galleries/images/versions/read
 Microsoft.Compute/galleries/images/versions/write
 ```
 
-## Allow Image Builder to customize existing custom images
+## Permission to customize existing images
 
 For Azure Image Builder to build images from source custom images (Managed Images / Shared Image Gallery), the Azure Image Builder service must be allowed to read the images into these resource groups. To grant the required permissions, you need to create a user-assigned managed identity and grant it rights on the resource group where the image is located.
 
@@ -91,7 +91,7 @@ Microsoft.Compute/galleries/images/read
 Microsoft.Compute/galleries/images/versions/read
 ```
 
-## Allow Image Builder to customize images on your existing VNETs
+## Permission to customize images on your VNETs
 
 Azure Image Builder has the capability to deploy and use an existing VNET in your subscription, thus allowing customizations access to connected resources.
 
@@ -129,7 +129,7 @@ identityName="aibIdentity"
 # Use *cURL* to download the a sample JSON description 
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
-# Create a unique role name to avoid clashes in the same AAD Domain
+# Create a unique role name to avoid clashes in the same Azure Active Directory domain
 imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
 
 # Update the JSON definition using stream editor
@@ -170,7 +170,7 @@ identityName="aibIdentity"
 # Use *cURL* to download the a sample JSON description 
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
 
-# Create a unique role name to avoid clashes in the same AAD Domain
+# Create a unique role name to avoid clashes in the same domain
 netRoleDefName="Azure Image Builder Network Def"$(date +'%s')
 
 # Update the JSON definition using stream editor
@@ -231,3 +231,7 @@ Replace the following placeholder settings:
 | \<Subscription ID\> | Azure subscription |
 
 For more information using a user-assigned managed identity, see the [Create a Custom Image that will use an Azure User-Assigned Managed Identity to seemlessly access files Azure Storage](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage). The quickstart walks through how to create and configure the user-assigned managed identity to access a storage account.
+
+## Next steps
+
+For more information, see [Azure Image Builder overview](image-builder-overview.md).

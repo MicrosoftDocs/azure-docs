@@ -14,8 +14,8 @@ ms.subservice: imaging
 This article helps you troubleshoot and resolve common issues you may encounter when using Azure Image Builder Service.
 
 AIB failures can happen in 2 areas:
-1. Image Template submission
-2. Image Build
+- Image Template submission
+- Image Build
 
 ## Troubleshoot image template submission errors
 
@@ -70,9 +70,9 @@ In most cases, the resource deployment failure error occurs due to missing permi
 #### Solution
 
 Depending on your scenario, Azure Image Builder may need permissions to:
-* Source image or Shared Image Gallery resource group
-* Distribution image or Shared Image Gallery resource
-* The storage account, container, or blob that the File customizer is accessing. 
+- Source image or Shared Image Gallery resource group
+- Distribution image or Shared Image Gallery resource
+- The storage account, container, or blob that the File customizer is accessing. 
 
 For more information on configuring permissions, see [Configure Azure Image Builder Service permissions using Azure CLI](image-builder-permissions-cli.md) or [Configure Azure Image Builder Service permissions using PowerShell](image-builder-permissions-powershell.md)
 
@@ -214,9 +214,9 @@ The customization.log includes the following stages:
     PACKER ERR 2020/02/04 02:04:23 packer: 2020/02/04 02:04:23 Azure request method="DELETE" request="https://management.azure.com/subscriptions/<subId>/resourceGroups/IT_aibDevOpsImg_t_vvvvvvv_yyyyyy-de5f-4f7c-92f2-xxxxxxxx/providers/Microsoft.Network/networkInterfaces/pkrnijamvpo08eo?[REDACTED]" body=""
     ```
 ## Tips for troubleshooting script/inline customization
-1. Test the code before supplying it to Image Builder
-2. Ensure Azure Policy's and Firewalls allow connectivity to remote resources.
-3. Output comments to the console, such as using `Write-Host` or `echo`, this will allow you to search the customization.log.
+- Test the code before supplying it to Image Builder
+- Ensure Azure Policy's and Firewalls allow connectivity to remote resources.
+- Output comments to the console, such as using `Write-Host` or `echo`, this will allow you to search the customization.log.
 
 ## Troubleshoot common build errors
 
@@ -632,3 +632,7 @@ Product: Virtual Machine Running Windows
 Support Topic: Management
 Support Subtopic: Issues with Azure Image Builder
 ```
+
+## Next steps
+
+For more information, see [Azure Image Builder overview](image-builder-overview.md).

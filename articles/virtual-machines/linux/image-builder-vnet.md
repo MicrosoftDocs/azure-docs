@@ -1,9 +1,9 @@
 ---
 title: Use Azure Image Builder for Linux VMs allowing access to an existing Azure VNET (preview)
 description: Create Linux VM images with Azure Image Builder allowing access to an existing Azure VNET
-author: cynthn
-ms.author: cynthn
-ms.date: 05/28/2020
+author: danielsollondon
+ms.author: danis
+ms.date: 08/10/2020
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -157,7 +157,7 @@ sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
 
 ```
 
-## Create a user-assigned identity and set permissions on the resource group
+## Set permissions on the resource group
 
 Image Builder will use the [user-identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) provided to inject the image into the Azure Shared Image Gallery (SIG). In this example, you will create an Azure role definition that has the granular actions to perform distributing the image to the SIG. The role definition will then be assigned to the user-identity.
 
@@ -175,7 +175,7 @@ imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/p
 # update the template
 sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" existingVNETLinux.json
 
-# make role name unique, to avoid clashes in the same AAD Domain
+# make role name unique, to avoid clashes in the same Azure Active Directory domain
 imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
 netRoleDefName="Azure Image Builder Network Def"$(date +'%s')
 

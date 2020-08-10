@@ -1,7 +1,7 @@
 ---
 title: Configure Azure Image Builder Service permissions using PowerShell
 description: Configure requirements for Azure VM Image Builder Service including permissions and privileges using PowerShell
-author: cynthn
+author: danielsollondon
 ms.author: danis
 ms.date: 05/06/2020
 ms.topic: article
@@ -76,7 +76,7 @@ Microsoft.Compute/galleries/images/versions/read
 Microsoft.Compute/galleries/images/versions/write
 ```
 
-## Allow Image Builder to customize existing custom images
+## Permission to customize existing images
 
 For Azure Image Builder to build images from source custom images (Managed Images / Shared Image Gallery), the Azure Image Builder service must be allowed to read the images into these resource groups. To grant the required permissions, you need to create a user-assigned managed identity and grant it rights on the resource group where the image is located.
 
@@ -94,7 +94,7 @@ Microsoft.Compute/galleries/images/read
 Microsoft.Compute/galleries/images/versions/read
 ```
 
-## Allow Image Builder to customize images on your existing VNETs
+## Permission to customize images on your VNETs
 
 Azure Image Builder has the capability to deploy and use an existing VNET in your subscription, thus allowing customizations access to connected resources.
 
@@ -134,7 +134,7 @@ $role_definition="aibRoleImageCreation.json"
 
 Invoke-WebRequest -Uri $sample_uri -Outfile $role_definition -UseBasicParsing
 
-# Create a unique role name to avoid clashes in the same AAD Domain
+# Create a unique role name to avoid clashes in the same Azure Active Directory domain
 $timeInt=$(get-date -UFormat "%s")
 $imageRoleDefName="Azure Image Builder Image Def"+$timeInt
 
@@ -182,7 +182,7 @@ $role_definition="aibRoleNetworking.json"
 
 Invoke-WebRequest -Uri $sample_uri -Outfile $role_definition -UseBasicParsing
 
-# Create a unique role name to avoid clashes in the same AAD Domain
+# Create a unique role name to avoid clashes in the same AAD domain
 $timeInt=$(get-date -UFormat "%s")
 $networkRoleDefName="Azure Image Builder Network Def"+$timeInt
 
@@ -191,14 +191,14 @@ $networkRoleDefName="Azure Image Builder Network Def"+$timeInt
 ((Get-Content -path $role_definition -Raw) -replace '<vnetRgName>', $res_group) | Set-Content -Path $role_definition
 ((Get-Content -path $role_definition -Raw) -replace 'Azure Image Builder Service Networking Role',$networkRoleDefName) | Set-Content -Path $role_definition
 
-# Create a custom role from the aibRoleNetworking.json description file.
+# Create a custom role from the aibRoleNetworking.json description file
 New-AzRoleDefinition -InputFile $role_definition
 
 # Get the user-identity properties
 $identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
 $identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
 
-# Grant the custom role to the user-assigned managed identity for Azure Image Builder.
+# Assign the custom role to the user-assigned managed identity for Azure Image Builder
 $parameters = @{
     ObjectId = $identityNamePrincipalId
     RoleDefinitionName = $networkRoleDefName
@@ -207,3 +207,7 @@ $parameters = @{
 
 New-AzRoleAssignment @parameters
 ```
+
+## Next steps
+
+For more information, see [Azure Image Builder overview](image-builder-overview.md).
