@@ -1,10 +1,7 @@
 ---
 title: Windows Virtual Desktop environment - Azure
 description: Learn about the basic elements of a Windows Virtual Desktop environment, like host pools and app groups.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
@@ -44,7 +41,7 @@ To publish resources to users, you must assign them to app groups. When assignin
 
 ## Workspaces
 
-A workspace is a logical grouping of application groups in Windows Virtual Desktop. Each Windows Virtual Desktop application group must be associated with a workspace for users to see the remote apps and desktops published to them.  
+A workspace is a logical grouping of application groups in Windows Virtual Desktop. Each Windows Virtual Desktop application group must be associated with a workspace for users to see the remote apps and desktops published to them.
 
 ## End users
 
