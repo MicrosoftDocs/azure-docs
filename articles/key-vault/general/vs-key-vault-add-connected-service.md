@@ -87,28 +87,27 @@ You can set up the configuration so that the web.config file has a dummy value i
 1. Open your web.config file, and write the following code:
     1. Add `configSections` and `configBuilders`:
         ```xml
-            <configSections>
-              <section
-                   name="configBuilders"
-                   type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-                   restartOnExternalChanges="false"
-                   requirePermission="false" />
-            </configSections>
-            <configBuilders>
-              <builders>
-                <add
-                     name="AzureKeyVault"
-                     vaultName="vaultname"
-                     type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=1.0.0.0, Culture=neutral"
-                     vaultUri="https://vaultname.vault.azure.net" />
-              </builders>
-            </configBuilders>
+         <configSections>
+            <section
+                name="configBuilders"
+                type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+                restartOnExternalChanges="false"
+                requirePermission="false" />
+         </configSections>
+         <configBuilders>
+            <builders>
+            <add
+                    name="AzureKeyVault"
+                    vaultName="vaultname"
+                    type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=1.0.0.0, Culture=neutral"
+                    vaultUri="https://vaultname.vault.azure.net" />
+            </builders>
+         </configBuilders>
         ```
-    1.   Find the appSettings tag, add an attribute `configBuilders="AzureKeyVault"`, and add a line:
-
-       ```xml
-          <add key="<secretNameInYourKeyVault>" value="dummy"/>
-       ```
+    1. Find the appSettings tag, add an attribute `configBuilders="AzureKeyVault"`, and add a line:
+        ```xml
+         <add key="<secretNameInYourKeyVault>" value="dummy"/>
+        ```
 
 1. Edit the `About` method in *HomeController.cs*, to display the value for confirmation.
 
