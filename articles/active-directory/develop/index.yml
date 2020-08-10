@@ -118,7 +118,7 @@ landingContent:
             url: ../managed-identities-azure-resources/overview.md
           - text: Managed identities and Azure VMs
             url: ../managed-identities-azure-resources/how-managed-identities-work-vm.md
-  - title: What's new
+  - title: New in docs
     linkLists:
       - linkListType: whats-new
         links:
