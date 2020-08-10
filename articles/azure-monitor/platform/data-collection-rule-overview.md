@@ -34,14 +34,14 @@ The following diagram shows the components of a data collection rule and their r
 [![Diagram of DCR](media/data-collection-rule/dcr-components.png)](media/data-collection-rule/dcr-components.png#lightbox)
 
 ### Data source types
-Each data source has a data source type. Each type defines a unique set of properties that must be specified for each data source. The data source types currently available are shown the following table. Follow the link for the set of properties that must be defined for each.
+Each data source has a data source type. Each type defines a unique set of properties that must be specified for each data source. The data source types currently available are shown the following table.
 
 | Data source type | Description | 
 |:---|:---|
-| [extension](https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/datacollectionrules/datacollectionrules_create?view=azure-rest-preview&branch=openapiHub_production_ad39a35d2f16#extensiondatasource) | VM extension-based data source |
-| [performanceCounters](https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/datacollectionrules/datacollectionrules_create?view=azure-rest-preview&branch=openapiHub_production_ad39a35d2f16#perfcounterdatasource) | Performance counters for both Windows and Linux |
-| [syslog](https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/datacollectionrules/datacollectionrules_create?view=azure-rest-preview&branch=openapiHub_production_ad39a35d2f16#syslogdatasource) | Syslog events on Linux virtual machine |
-| [windowsEventLogs](https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/datacollectionrules/datacollectionrules_create?view=azure-rest-preview&branch=openapiHub_production_ad39a35d2f16#syslogdatasource) | Windows event log |
+| extension | VM extension-based data source |
+| performanceCounters | Performance counters for both Windows and Linux |
+| syslog | Syslog events on Linux virtual machine |
+| windowsEventLogs | Windows event log |
 
 
 ## Limits
