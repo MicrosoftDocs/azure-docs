@@ -18,9 +18,9 @@ ms.collection: M365-identity-device-management
 
 Single sign-on means a user doesn't have to sign in to every application they use. The user logs in once and that credential is used for other apps too.
 
-If you're an end user, you likely don't care much about SSO details. You just want to use the apps that make you productive without having to type your password so much. You can find your apps at https://myapps.microsoft.com.
+If you're an end user, you likely don't care much about SSO details. You just want to use the apps that make you productive without having to type your password so much. You can find your apps at: https://myapps.microsoft.com.
  
-If you're an administrator, or IT professional, looking to learn more about how SSO is implemented in Azure, then read on.
+If you're an administrator, or IT professional, then read on to learn more about how SSO is implemented in Azure.
 
 
 ## Choosing a single sign-on method
