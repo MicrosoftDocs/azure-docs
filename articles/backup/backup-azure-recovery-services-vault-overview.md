@@ -31,7 +31,7 @@ A Recovery Services vault is an entity that stores the backups and recovery poin
 ### Additional resources
 
 - [Vault supported and unsupported scenarios](backup-support-matrix.md#vault-support)
-- [Vault frequently asked questions](backup/backup-azure-backup-faq.md)
+- [Vault frequently asked questions](backup-azure-backup-faq.md)
 
 ## Azure Advisor
 
