@@ -36,6 +36,8 @@ Alerts allow you to define a condition to monitor for and an action to take when
 
     For example, to alert when a runbook returns a _Failed_ status, in addition to specifying the runbook name, for the **Status** dimension add the custom dimension value **Failed**.
 
+    :::image type="content" source="./media/automation-alert-metric/specify-dimension-custom-value.png" alt-text="Specify custom dimension value" border="false":::
+
 3. Under **Alert logic**, define the condition and threshold for your alert. A preview of your condition defined is shown underneath.
 
 4. Under **Evaluated based on**, select the timespan for the query and how often you want that query to run. For example, if you choose **Over the last 5 minutes** for **Period**, and **Every 1 Minute** for **Frequency**, the alert looks for the number of runbooks that met your criteria over the past 5 minutes. This query is run every minute, and once the alert criteria you defined is no longer found in a 5-minute window, the alert resolves itself. When finished, click **Done**.
