@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Darwinbox | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Darwinbox.
 services: active-directory
@@ -82,14 +82,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.darwinbox.in/`
+   1. In the **Sign on URL** text box, type a URL using the following pattern:
+      `https://<SUBDOMAIN>.darwinbox.in/`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.darwinbox.in/adfs/module.php/saml/sp/metadata.php/<CUSTOMID>`
+   1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+      `https://<SUBDOMAIN>.darwinbox.in/adfs/module.php/saml/sp/metadata.php/<CUSTOMID>`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Darwinbox Client support team](https://darwinbox.com/contact-us.php) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+      > [!NOTE]
+      > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Darwinbox Client support team](https://darwinbox.com/contact-us.php) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -149,7 +149,7 @@ When you click the Darwinbox tile in the Access Panel, you should be automatical
 
     ![Darwinbox mobile app](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
 
-1. If you have muliple domain, then click on your domain.
+1. If you have multiple domain, then click on your domain.
 
     ![Darwinbox mobile app](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
 
