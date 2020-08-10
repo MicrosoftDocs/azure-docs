@@ -132,4 +132,4 @@ In this tutorial, you enabled Azure Multi-Factor Authentication using Conditiona
 > * Test the MFA process as a user
 
 > [!div class="nextstepaction"]
-> [Enable password writeback for self-service password reset (SSPR)](tutorial-enable-writeback.md)
+> [Enable password writeback for self-service password reset (SSPR)](./tutorial-enable-sspr-writeback.md)
