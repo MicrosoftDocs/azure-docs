@@ -45,7 +45,7 @@ Use the flags below in the tenant URL of your application in order to change the
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM flags to later behavior.":::
 
-* Use the following URL to update PATCH behavior and ensure SCIM compliance. This behavior is currently only available when using the floag, but will becom the default behavior over the next few months.
+* Use the following URL to update PATCH behavior and ensure SCIM compliance. This behavior is currently only available when using the flag, but will become the default behavior over the next few months.
   * **URL (SCIM Compliant):** AzureAdScimPatch062020
   * **SCIM RFC references:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2
