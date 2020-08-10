@@ -1,10 +1,7 @@
 ---
 title: What is Windows Virtual Desktop? - Azure
 description: An overview of Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
