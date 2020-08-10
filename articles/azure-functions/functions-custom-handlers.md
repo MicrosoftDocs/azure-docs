@@ -533,7 +533,7 @@ Refer to the [custom handler samples GitHub repo](https://github.com/Azure-Sampl
 
 ### Trace logging
 
-If your custom handler process fails to start up or if it has problems communicating with the Functions host, you can increase the function app's log level to `Trace` to see more diagnostic or error messages from the host.
+If your custom handler process fails to start up or if it has problems communicating with the Functions host, you can increase the function app's log level to `Trace` to see more diagnostic messages from the host.
 
 To change the function app's default log level, configure the `logLevel` setting in the `logging` section of *host.json*.
 
