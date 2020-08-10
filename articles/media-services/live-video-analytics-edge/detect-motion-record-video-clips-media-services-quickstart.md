@@ -24,7 +24,7 @@ This article builds on top of the [Getting Started quickstart](get-started-detec
 
 As part of the steps above to set up the Azure resources, a (short) video of a parking lot will be copied to the Linux VM in Azure being used as the IoT Edge device. This video file will be used to simulate a live stream for this tutorial.
 
-You can use an application like [VLC Player](https://www.videolan.org/vlc/), launch it, hit `Ctrl+N`, and paste [this](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) link to the parking lot video to start playback. At about the 5-second mark, a white car moves through the parking lot.
+You can use an application like [VLC Player](https://www.videolan.org/vlc/), launch it, hit `Ctrl+N`, and paste [the parking lot video sample](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) link to start playback. At about the 5-second mark, a white car moves through the parking lot.
 
 When you complete the steps below, you will have used Live Video Analytics on IoT Edge to detect that motion of the car, and record a video clip starting at around that 5-second mark. The diagram below is the visual representation of the overall flow.
 
@@ -41,26 +41,26 @@ This step enumerates all the [graph topologies](media-graph-concept.md#media-gra
 1. You will see an edit box pop in the top-middle of Visual Studio Code window. Enter "GraphTopologyList" in the edit box and press enter.
 1. Next, copy, and paste the below JSON payload in the edit box and press enter.
     
-    ```
-    {
-        "@apiVersion" : "1.0"
-    }
-    ```
+```
+{
+    "@apiVersion" : "1.0"
+}
+```
 
-    Within a few seconds, you will see the OUTPUT window in Visual Studio Code popup with the following response
+Within a few seconds, you will see the OUTPUT window in Visual Studio Code popup with the following response
     
-    ```
-    [DirectMethod] Invoking Direct Method [GraphTopologyList] to [lva-sample-device/lvaEdge] ...
-    [DirectMethod] Response from [lva-sample-device/lvaEdge]:
-    {
-      "status": 200,
-      "payload": {
-        "value": []
-      }
-    }
-    ```
+```
+[DirectMethod] Invoking Direct Method [GraphTopologyList] to [lva-sample-device/lvaEdge] ...
+[DirectMethod] Response from [lva-sample-device/lvaEdge]:
+{
+  "status": 200,
+  "payload": {
+    "value": []
+  }
+}
+```
     
-    The above response is expected as no graph topologies have been created.
+The above response is expected as no graph topologies have been created.
 
 ### Invoke GraphTopologySet
 
@@ -526,13 +526,13 @@ The media graph you created uses the motion detection processor node to detect m
     
     Within seconds, you will see the following messages in the OUTPUT window:
 
-    ```
-    [IoTHubMonitor] Start monitoring message arrived in built-in endpoint for all devices ...
-    [IoTHubMonitor] Created partition receiver [0] for consumerGroup [$Default]
-    [IoTHubMonitor] Created partition receiver [1] for consumerGroup [$Default]
-    [IoTHubMonitor] Created partition receiver [2] for consumerGroup [$Default]
-    [IoTHubMonitor] Created partition receiver [3] for consumerGroup [$Default]
-    ```
+```
+[IoTHubMonitor] Start monitoring message arrived in built-in endpoint for all devices ...
+[IoTHubMonitor] Created partition receiver [0] for consumerGroup [$Default]
+[IoTHubMonitor] Created partition receiver [1] for consumerGroup [$Default]
+[IoTHubMonitor] Created partition receiver [2] for consumerGroup [$Default]
+[IoTHubMonitor] Created partition receiver [3] for consumerGroup [$Default]
+```
 
 ### Invoke GraphInstanceActivate
 

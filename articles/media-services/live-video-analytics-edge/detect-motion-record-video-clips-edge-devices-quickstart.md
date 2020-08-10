@@ -93,12 +93,12 @@ In the [Generate and deploy the IoT Edge deployment manifest](detect-motion-emit
 > [!NOTE]
 > If you are using your own edge device instead of the one provisioned by our setup script, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:  
 
-    ```
-    mkdir /home/lvaadmin/samples
-    mkdir /home/lvaadmin/samples/input    
-    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
-    chown -R lvaadmin /home/lvaadmin/samples/  
-    ```
+```
+mkdir /home/lvaadmin/samples
+mkdir /home/lvaadmin/samples/input    
+curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+chown -R lvaadmin /home/lvaadmin/samples/  
+```
 
 ## Review - Prepare for monitoring events
 Make sure you've completed the steps to [Prepare to monitor events](detect-motion-emit-events-quickstart.md#prepare-to-monitor-events).
@@ -110,54 +110,55 @@ Make sure you've completed the steps to [Prepare to monitor events](detect-motio
 1. Start a debugging session by selecting the F5 key. The **TERMINAL** window prints some messages.
 1. The *operations.json* code calls the direct methods `GraphTopologyList` and `GraphInstanceList`. If you cleaned up resources after previous quickstarts, then this process will return empty lists and then pause. Select the Enter key.
 
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-      "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-      "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
+```
+--------------------------------------------------------------------------
+Executing operation GraphTopologyList
+-----------------------  Request: GraphTopologyList  --------------------------------------------------
+{
+  "@apiVersion": "1.0"
+}
+---------------  Response: GraphTopologyList - Status: 200  ---------------
+{
+  "value": []
+}
+--------------------------------------------------------------------------
+Executing operation WaitForInput
+Press Enter to continue
+```
 
-    The **TERMINAL** window shows the next set of direct method calls:
+  The **TERMINAL** window shows the next set of direct method calls:  
+  * A call to `GraphTopologySet` that uses the `topologyUrl` 
+  * A call to `GraphInstanceSet` that uses the following body:
 
-     * A call to `GraphTopologySet` that uses the `topologyUrl` 
-     * A call to `GraphInstanceSet` that uses the following body:
+```
+{
+  "@apiVersion": "1.0",
+  "name": "Sample-Graph",
+  "properties": {
+    "topologyName": "EVRToFilesOnMotionDetection",
+    "description": "Sample graph description",
+    "parameters": [
+      {
+        "name": "rtspUrl",
+        "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+      },
+      {
+        "name": "rtspUserName",
+        "value": "testuser"
+      },
+      {
+        "name": "rtspPassword",
+        "value": "testpassword"
+      }
+    ]
+  }
+}
+```
 
-         ```
-         {
-           "@apiVersion": "1.0",
-           "name": "Sample-Graph",
-           "properties": {
-             "topologyName": "EVRToFilesOnMotionDetection",
-             "description": "Sample graph description",
-             "parameters": [
-               {
-                 "name": "rtspUrl",
-                 "value": "rtsp://rtspsim:554/media/lots_015.mkv"
-               },
-               {
-                 "name": "rtspUserName",
-                 "value": "testuser"
-               },
-               {
-                 "name": "rtspPassword",
-                 "value": "testpassword"
-               }
-             ]
-           }
-         }
-         ```
-     * A call to `GraphInstanceActivate` that starts the graph instance and the flow of video
-     * A second call to `GraphInstanceList` that shows that the graph instance is in the running state
-1. The output in the **TERMINAL** window pauses at `Press Enter to continue`. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods that you invoked.
+  * A call to `GraphInstanceActivate` that starts the graph instance and the flow of video
+  * A second call to `GraphInstanceList` that shows that the graph instance is in the running state  
+
+3. The output in the **TERMINAL** window pauses at `Press Enter to continue`. Don't select Enter yet. Scroll up to see the JSON response payloads for the direct methods that you invoked.
 1. Switch to the **OUTPUT** window in Visual Studio Code. You see the messages that the Live Video Analytics on IoT Edge module is sending to the IoT hub. The following section of this quickstart discusses these messages.
 
 1. The media graph continues to run and print results. The RTSP simulator keeps looping the source video. To stop the media graph, return to the **TERMINAL** window and select Enter. 
