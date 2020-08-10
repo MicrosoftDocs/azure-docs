@@ -66,6 +66,8 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-samples.md
+  - name: Terraform
+    href: samples-terraform.md
 - name: Concepts
   items:
   - name: App Service plans
