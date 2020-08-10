@@ -27,12 +27,12 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-automl-core**
     + AutoML raises a new error code from dataprep when content is modified while being read.
   + **azureml-automl-runtime**
-    + Alert user of data containing missing value but featurization is turned off.
-    + Fix child run failures when data contains nan and featurization is turned off.
+    + Added alerts for the user when data contains missing values but featurization is turned off.
+    + Fixed child run failures when data contains nan and featurization is turned off.
     + AutoML raises a new error code from dataprep when content is modified while being read.
     + Updated normalization for forecasting metrics to occur by grain.
     + Improved calculation of forecast quantiles when lookback features are disabled.
-    + fix bool sparse matrix handling when computing explanations after AutoML
+    + Fixed bool sparse matrix handling when computing explanations after AutoML
   + **azureml-core**
     + A new method `run.get_detailed_status()` now shows the detailed explanation of current run status. It is currently only showing explanation for `Queued` status.
     + Add image_name and image_labal parameters to Model.package() to enable renaming the built package image.
@@ -55,11 +55,11 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-automl-client**
     + Removed local asynchronous, managed environment runs from AutoML. All local runs will run in the environment the run was launched from.
     + Fixed snapshot issues when submitting AutoML runs with no user-provided scripts.
-    + Fix child run failures when data contains nan and featurization is turned off.
+    + Fixed child run failures when data contains nan and featurization is turned off.
   + **azureml-train-automl-runtime**
     + AutoML raises a new error code from dataprep when content is modified while being read.
     + Fixed snapshot issues when submitting AutoML runs with no user-provided scripts.
-    + Fix child run failures when data contains nan and featurization is turned off.
+    + Fixed child run failures when data contains nan and featurization is turned off.
   + **azureml-train-core**
     + Added support for specifying pip options (e.g. --extra-index-url) in pip requirements file.
 
