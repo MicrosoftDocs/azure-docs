@@ -1,13 +1,13 @@
 ---
 title: Monitor Azure Automation runbooks with metric alerts
-description: This article tells how to monitor runbooks based on metrics.
+description: This article describes how to setup a metric alert based on runbook completion status.
 services: automation
 ms.date: 08/10/2020
 ms.topic: article
 ---
 # Monitor runbooks with metric alerts
 
-In this article, you learn how to create [metric alerts](../azure-monitor/platform/alerts-metric-overview.md) based on the completion status of runbooks.
+In this article, you learn how to create a [metric alert](../azure-monitor/platform/alerts-metric-overview.md) based on runbook completion status.
 
 ## Sign in to Azure
 
