@@ -76,12 +76,10 @@ landingContent:
   # Card
   - title: Add sign-in to your app
     linkLists:
-      - linkListType: get-started
+      - linkListType: sample
         links:
           - text: 'Quickstart: Web app'
             url: quickstart-web-app-dotnet.md
-          - text: 'Tutorial: Enable enterprise and social login'
-            url: tutorial-add-identity-providers.md
           - text: Native mobile app
             url: code-samples.md#mobile-and-desktop-apps
           - text: Single-page app
