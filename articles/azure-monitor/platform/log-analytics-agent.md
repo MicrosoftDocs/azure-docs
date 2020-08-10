@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/04/2020
+ms.date: 08/06/2020
 
 ---
 
@@ -80,6 +80,88 @@ There are multiple methods to install the Log Analytics agent and connect your m
 
 
 
+The following versions of the Windows operating system are officially supported for the Windows agent:
+
+* Windows Server 2019
+* Windows Server 2016, version 1709 and 1803
+* Windows Server 2012, 2012 R2
+* Windows Server 2008 SP2 (x64), 2008 R2
+* Windows 10 Enterprise (including multi-session) and Pro
+* Windows 8 Enterprise and Pro 
+* Windows 7 SP1
+
+>[!NOTE]
+>While the Log Analytics agent for Windows was designed to support server monitoring scenarios, we realize you may run Windows client to support workloads configured and optimized for the server operating system. The agent does support Windows client, however our monitoring solutions don't focus on client monitoring scenarios unless explicitly stated.
+
+## Supported Linux operating systems
+
+This section provides details about the supported Linux distributions.
+
+Starting with versions released after August 2018, we are making the following changes to our support model:  
+
+* Only the server versions are supported, not client.  
+* Focus support on any of the [Azure Linux Endorsed distros](../../virtual-machines/linux/endorsed-distros.md). Note that there may be some delay between a new distro/version being Azure Linux Endorsed and it being supported for the Log Analytics Linux agent.
+* All minor releases are supported for each major version listed.
+* Versions that have passed their manufacturer's end-of-support date are not supported.  
+* New versions of AMI are not supported.  
+* Only versions that run SSL 1.x by default are supported.
+
+>[!NOTE]
+>If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
+
+
+### Python 2 requirement
+ The Log Analytics agent requires Python 2. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+The python2 executable must be aliased to *python* using the following procedure:
+
+1. Run the following command to view any current python alias, if one exists. If it does, then take note of the priority for the next step.
+ 
+    ```
+    sudo update-alternatives ––display python
+    ```
+
+2. Run the following command. Replace *\<priority\>* with a number greater than any existing link's priority, or 1 if no links currently exist.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 <priority>
+    ```
+
+### Supported distros
+
+The following versions of the Linux operating system are officially supported for the Linux agent:
+
+* Amazon Linux 2017.09 (x64)
+* CentOS Linux 6 (x64) and 7 (x64)  
+* Oracle Linux 6 and 7 (x64) 
+* Red Hat Enterprise Linux Server 6 (x64), 7 (x64), and 8 (x64)
+* Debian GNU/Linux 8 and 9 (x64)
+* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x64), and 18.04 LTS (x64)
+* SUSE Linux Enterprise Server 12 (x64) and 15 (x64)
+
+>[!NOTE]
+>OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit) and OpenSSL earlier than 1.x is not supported on any platform.
+>
+
+### Agent prerequisites
+
+The following table highlights the packages required for supported Linux distros that the agent will be installed on.
+
+|Required package |Description |Minimum version |
+|-----------------|------------|----------------|
+|Glibc |    GNU C Library | 2.5-12 
+|Openssl    | OpenSSL Libraries | 1.0.x or 1.1.x |
+|Curl | cURL web client | 7.15.5 |
+|Python | | 2.6+ or 3.3+
+|Python-ctypes | | 
+|PAM | Pluggable Authentication Modules | | 
+
+>[!NOTE]
+>Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog.
 
 ## TLS 1.2 protocol
 
@@ -105,7 +187,7 @@ The following table lists the proxy and firewall configuration information that'
 |*.blob.core.windows.net |Port 443 |Outbound|Yes |
 |*.azure-automation.net |Port 443 |Outbound|Yes |
 
-For firewall information required for Azure Government, see [Azure Government management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). 
+For firewall information required for Azure Government, see [Azure Government management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 
 If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 

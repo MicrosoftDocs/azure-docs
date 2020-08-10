@@ -12,7 +12,7 @@ Azure Event Grid is an eventing service for the cloud. Azure Relay Hybrid Connec
 
 ## Prerequisites
 
-This article assumes you already have a hybrid connection and a listener application. To get started with hybrid connections, see [Get started with Relay Hybrid Connections - .NET](/azure/azure-relay/relay-hybrid-connections-dotnet-get-started) or [Get started with Relay Hybrid Connections - Node](/azure/azure-relay/relay-hybrid-connections-node-get-started).
+This article assumes you already have a hybrid connection and a listener application. To get started with hybrid connections, see [Get started with Relay Hybrid Connections - .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) or [Get started with Relay Hybrid Connections - Node](../azure-relay/relay-hybrid-connections-node-get-started.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
