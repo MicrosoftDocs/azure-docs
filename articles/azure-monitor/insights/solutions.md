@@ -13,12 +13,6 @@ ms.date: 08/07/2020
 
 Monitoring solutions in Azure Monitor provide analysis of the operation of a particular Azure application or service. This article provides a brief overview of monitoring solutions in Azure and details on using and installing them. You can add monitoring solutions to Azure Monitor for any applications and services that you use. They're typically available at no cost but collect data that could invoke usage charges.
 
-> [!NOTE]
-> 
-
-## Cost
-There is no cost for monitoring solutions, but 
-
 ## Use monitoring solutions
 
 The solutions **Overview** page in Azure Monitor displays a tile for each solution installed in a Log Analytics workspace. To open this page 
