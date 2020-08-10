@@ -1,11 +1,11 @@
 ---
 title: Quickstart - Create registry in portal
-description: Quickly learn to create a private Docker registry in Azure Container Registry with the Azure portal.
+description: Quickly learn to create a private Azure container registry using the Azure portal.
 ms.topic: quickstart
-ms.date: 06/11/2020
+ms.date: 08/04/2020
 ms.custom: "seodec18, mvc"
 ---
-# Quickstart: Create a private container registry using the Azure portal
+# Quickstart: Create an Azure container registry using the Azure portal
 
 An Azure container registry is a private Docker registry in Azure where you can store and manage private Docker container images and related artifacts. In this quickstart, you create a container registry with the Azure portal. Then, use Docker commands to push a container image into the registry, and finally pull and run the image from your registry.
 
@@ -35,14 +35,20 @@ When the **Deployment succeeded** message appears, select the container registry
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Container registry Overview in the portal":::
 
-Take note of the value of the **Login server**. You use this value in the following steps when you push and pull images with Docker.
+Take note of the registry name and the value of the **Login server**. You use these values in the following steps when you push and pull images with Docker.
 
 ## Log in to registry
 
-Before pushing and pulling container images, you must log in to the registry instance. [Sign into the Azure CLI][get-started-with-azure-cli] on your local machine, then run the [az acr login][az-acr-login] command. (Specify only the registry name when logging in with the Azure CLI. Don't include the 'azurecr.io' suffix.)
+Before pushing and pulling container images, you must log in to the registry instance. [Sign into the Azure CLI][get-started-with-azure-cli] on your local machine, then run the [az acr login][az-acr-login] command. (Specify only the registry name when logging in with the Azure CLI. Don't include the 'azurecr.io' domain suffix.)
 
 ```azurecli
 az acr login --name <registry-name>
+```
+
+Example:
+
+```azurecli
+az acr login --name mycontainerregistry
 ```
 
 The command returns `Login Succeeded` once completed. 
