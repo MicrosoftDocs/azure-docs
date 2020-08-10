@@ -349,7 +349,7 @@
         href: howto-hyperscale-manage-firewall-using-portal.md
     - name: Distributed data
       items:
-      - name: Creating and modifying
+      - name: Distribute and modify tables
         href: howto-hyperscale-dist-modify.md
     - name: High availability
       href: howto-hyperscale-high-availability.md
