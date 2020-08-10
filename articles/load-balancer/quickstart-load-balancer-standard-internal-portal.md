@@ -633,7 +633,7 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
 
 3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myTestVM** that is located in the **myResourceGroupLB** resource group.
 
-4. On the **Overview** page, select **Connect, then **Bastion**.
+4. On the **Overview** page, select **Connect**, then **Bastion**.
 
 6. Enter the username and password entered during VM creation.
 
@@ -659,5 +659,5 @@ In this quickstart, you:
 
 To learn more about Azure Load Balancer, continue to [What is Azure Load Balancer?](load-balancer-overview.md) and [Load Balancer frequently asked questions](load-balancer-faqs.md).
 
-Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
-Learn more about [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview).
+* Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
+* Learn more about [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview).
