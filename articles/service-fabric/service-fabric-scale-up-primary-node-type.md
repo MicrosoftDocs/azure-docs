@@ -6,7 +6,7 @@ ms.topic: article
 ms.date: 08/06/2020
 ms.author: pepogors
 ---
-# Scale up a Service Fabric cluster primary node type
+# Scale up a Service Fabric cluster primary node type by adding a Node Type
 This article describes how to scale up a Service Fabric cluster primary node type by adding an additional node type to the cluster. A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that's part of a cluster is called a node. Virtual machine scale sets are an Azure compute resource that you use to deploy and manage a collection of virtual machines as a set. Every node type that is defined in an Azure cluster is [set up as a separate scale set](service-fabric-cluster-nodetypes.md). Each node type can then be managed separately.
 
 The sample templates in the following tutorial can be found here: [Service Fabric primary node type scaling samples](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Primary-NodeType-Scaling-Sample)
@@ -57,9 +57,6 @@ New-AzResourceGroupDeployment `
 ### Add a new primary node type to the cluster
 > [!Note]
 > The resources created in the following steps will become the new primary node type in your cluster once the scaling operation is complete. Ensure that you use names that are unique from the initial Subnet, Public IP, Load Balancer, Virtual Machine Scale Set, and Node Type. 
-
-> [!Note]
-> If you are already using a Standard SKU Public IP, and Standard SKU LB you may not have to create new networking resources. 
 
 You can find a template with all of the following steps completed here: [Service Fabric - New Node Type Cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-2.json). The following steps contain partial resource snippets that highlight the changes in the new resources.  
 
@@ -157,7 +154,40 @@ The Service Fabric cluster will now have two node types when the deployment is c
 ### Remove the existing node type 
 Once the resources have finished deploying, you can begin to disable the nodes in the original primary node type. As the nodes are disabled, the system services will migrate to the new primary node type that had been deployed in the step above.
 
-1. Disable the nodes in node type 0. 
+1. Set the primary node type property in the Service Fabric cluster resource to false. 
+```json
+{
+    "name": "[variables('vmNodeType0Name')]",
+    "applicationPorts": {
+        "endPort": "[variables('nt0applicationEndPort')]",
+        "startPort": "[variables('nt0applicationStartPort')]"
+    },
+    "clientConnectionEndpointPort": "[variables('nt0fabricTcpGatewayPort')]",
+    "durabilityLevel": "Bronze",
+    "ephemeralPorts": {
+        "endPort": "[variables('nt0ephemeralEndPort')]",
+        "startPort": "[variables('nt0ephemeralStartPort')]"
+    },
+    "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
+    "isPrimary": false,
+    "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
+    "vmInstanceCount": "[parameters('nt0InstanceCount')]"
+}
+```
+2. Deploy the template with the updated isPrimary property on the original node type. You can find a template with the primary flag set to false on the original node type here: [Service Fabric - Primary Node Type False](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-3.json).
+
+```powershell
+# deploy the updated template files to the existing resource group
+$templateFilePath = "C:\AzureDeploy-3.json"
+$parameterFilePath = "C:\AzureDeploy.Parameters.json"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile $templateFilePath `
+    -TemplateParameterFile $parameterFilePath `
+```
+
+3. Disable the nodes in node type 0. 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterConnectionEndpoint `
     -KeepAliveIntervalInSec 10 `
@@ -191,7 +221,7 @@ foreach($node in $nodes)
 > [!Note]
 > This step may take a while to complete. 
 
-2. Stop data on node type 0. 
+4. Stop data on node type 0. 
 ```powershell
 foreach($node in $nodes)
 {
@@ -203,62 +233,18 @@ foreach($node in $nodes)
   }
 }
 ```
-3. Deallocate nodes in the original Virtual Machine Scale Set 
+5. Deallocate nodes in the original Virtual Machine Scale Set 
 ```powershell
 $scaleSetName="nt1vm"
 $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
 
 Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
 ```
+> [!Note]
+> Steps 6 and 7 are optional if you are already using a Standard SKU Public IP, and Standard SKU load balancer. In this case you could have multiple virtual machine scale sets/node types under the same load balancer. 
 
-4. Remove node state from node type 0.
-```powershell
-foreach($node in $nodes)
-{
-  if ($node.NodeType -eq $nodeType)
-  {
-    $node.NodeName
+6. You can now delete the original IP, and Load Balancer resources. In this step you will also update the DNS name. 
 
-    Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
-  }
-}
-```
-5. Set the primary node type property in the Service Fabric cluster resource to false. 
-
-```json
-{
-    "name": "[variables('vmNodeType0Name')]",
-    "applicationPorts": {
-        "endPort": "[variables('nt0applicationEndPort')]",
-        "startPort": "[variables('nt0applicationStartPort')]"
-    },
-    "clientConnectionEndpointPort": "[variables('nt0fabricTcpGatewayPort')]",
-    "durabilityLevel": "Bronze",
-    "ephemeralPorts": {
-        "endPort": "[variables('nt0ephemeralEndPort')]",
-        "startPort": "[variables('nt0ephemeralStartPort')]"
-    },
-    "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
-    "isPrimary": false,
-    "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
-    "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-}
-```
-
-5. Deploy the template with the updated isPrimary property on the original node type. You can find a template with the primary flag set to false on the original node type here: [Service Fabric - Primary Node Type False](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-3.json).
-
-```powershell
-# deploy the updated template files to the existing resource group
-$templateFilePath = "C:\AzureDeploy-3.json"
-$parameterFilePath = "C:\AzureDeploy.Parameters.json"
-
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateFile $templateFilePath `
-    -TemplateParameterFile $parameterFilePath `
-```
-
-7. You can now delete the original IP, and Load Balancer resources. In this step you will also update the DNS name. 
 ```powershell
 $lbname="LB-cluster-name-nt1vm"
 $lbResourceType="Microsoft.Network/loadBalancers"
@@ -278,11 +264,24 @@ $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzPublicIpAddress -PublicIpAddress $PublicIP
 ``` 
-6. Update the management endpoint on the cluster to reference the new IP. 
+
+7. Update the management endpoint on the cluster to reference the new IP. 
 ```json
   "managementEndpoint": "[concat('https://',reference(concat(variables('lbIPName'),'-',variables('vmNodeType1Name'))).dnsSettings.fqdn,':',variables('nt0fabricHttpGatewayPort'))]",
 ```
-7. Remove the original node type reference from the Service Fabric resource in the ARM template. 
+8. Remove node state from node type 0.
+```powershell
+foreach($node in $nodes)
+{
+  if ($node.NodeType -eq $nodeType)
+  {
+    $node.NodeName
+
+    Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
+  }
+}
+```
+9. Remove the original node type reference from the Service Fabric resource in the ARM template. 
 ```json
 "name": "[variables('vmNodeType0Name')]",
 "applicationPorts": {
@@ -333,13 +332,10 @@ Only for Silver and higher durability clusters, update the cluster resource in t
  } 
 }
 ```
+10. Remove all other resources related to the original node type from the ARM template. See [Service Fabric - New Node Type Cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) for a template with all of these original resources removed.
 
-8. Remove all other resources related to the original node type from the ARM template. See [Service Fabric - New Node Type Cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) for a template with all of these original resources removed.
-
-9. Deploy the modified Azure Resource Manager template. ** This step will take a while, usually up to two hours. This upgrade will change settings to the InfrastructureService, therefore a node restart is needed. In the this case forceRestart is ignored. The parameter upgradeReplicaSetCheckTimeout specifies the maximum time that Service Fabric waits for a partition to be in a safe state, if not already in a safe state. Once safety checks pass for all partitions on a node, Service Fabric proceeds with the upgrade on that node. The value for the parameter upgradeTimeout can be reduced to 6 hours, but for maximal safety 12 hours should be used.
-Then validate that:
-
-* Service Fabric Resource in portal shows ready.
+11. Deploy the modified Azure Resource Manager template. ** This step will take a while, usually up to two hours. This upgrade will change settings to the InfrastructureService, therefore a node restart is needed. In the this case forceRestart is ignored. The parameter upgradeReplicaSetCheckTimeout specifies the maximum time that Service Fabric waits for a partition to be in a safe state, if not already in a safe state. Once safety checks pass for all partitions on a node, Service Fabric proceeds with the upgrade on that node. The value for the parameter upgradeTimeout can be reduced to 6 hours, but for maximal safety 12 hours should be used.
+Then validate that the Service Fabric resource in Portal shows as ready. 
 
 ```powershell
 # deploy the updated template files to the existing resource group
