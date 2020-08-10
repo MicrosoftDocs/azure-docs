@@ -27,7 +27,7 @@ If you're an administrator, or IT professional, then read on to learn more about
 
 Single sign-on provides a giant leap forward in how users sign in and use applications. Single sign-on based authentication systems are often called "modern authentication". To understand what makes single sign-on possible, check out this video.
 
- > [!VIDEO https://www.youtube.com/watch?v=fbSVgC8nGz4&list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy&index=1]
+ > [!VIDEO https://www.youtube.com/watch?v=fbSVgC8nGz4]
 
 - **With single sign-on**, users sign in once with one account to access domain-joined devices, company resources, software as a service (SaaS) applications, and web applications. After signing in, the user can launch applications from the Office 365 portal or the Azure AD MyApps access panel. Administrators can centralize user account management, and automatically add or remove user access to applications based on group membership.
 
