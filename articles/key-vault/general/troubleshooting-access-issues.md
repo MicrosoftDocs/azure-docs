@@ -23,7 +23,7 @@ As you start to scale your service the number of requests sent to your key vault
 Per-secret/key/certificate access control feature’s availability will be notified here, [read more](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/.32213176-per-secret-key-certificate-access-control)
 
 ### How can I provide key vault authenticate using access control policy?
-The simplest way to authenticate a cloud-based application to Key Vault is with a managed identity; see [use an App Service managed identity to access Azure Key Vault]( https://docs.microsoft.com/en-us/azure/key-vault/general/managed-identity) for details.
+The simplest way to authenticate a cloud-based application to Key Vault is with a managed identity; see [use an App Service managed identity to access Azure Key Vault]( https://docs.microsoft.com/azure/key-vault/general/managed-identity) for details.
 If you are creating an on-prem application, doing local development, or otherwise unable to use a managed identity, you can instead register a service principal manually and provide access to your key vault using an access control policy, [read more](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps).
 
 
