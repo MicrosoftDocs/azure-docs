@@ -121,7 +121,7 @@ To edit the rules for a group of machines:
 
 1. From the **Configured** tab, select the group with the rule you want to edit.
 
-1. Review the various sections of the **Configure application control rules** page as described in [Enable adaptive application controls on a group of machines](#enable-adaptive-application-controls-on-a-group-of-machines).
+1. Review the various sections of the **Configure application control rules** page as described in [Enable adaptive application controls on a group of machines](#enable-application-controls-on-a-group-of-machines).
 
 1. Optionally, add one or more custom rules:
 
@@ -156,7 +156,7 @@ To remediate the issues:
 
 1. Select the group with the rule you want to edit.
 
-1. Review the various sections of the **Configure application control rules** page as described in [Enable adaptive application controls on a group of machines](#enable-adaptive-application-controls-on-a-group-of-machines).
+1. Review the various sections of the **Configure application control rules** page as described in [Enable adaptive application controls on a group of machines](#enable-application-controls-on-a-group-of-machines).
 
 1. To apply the changes, select **Audit**.
 
