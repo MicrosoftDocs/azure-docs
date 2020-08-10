@@ -106,7 +106,7 @@ Password-based single sign-on is supported for any cloud-based application that 
 - Chrome on Windows 7 or later, and on macOS X or later
 - Firefox 26.0 or later on Windows XP SP2 or later, and on macOS X 10.6 or later
 
-To configure an cloud application for password-based single sign-on, see [Configure password single sign-on](configure-password-single-sign-on-non-gallery-applications.md).
+To configure a cloud application for password-based single sign-on, see [Configure password single sign-on](configure-password-single-sign-on-non-gallery-applications.md).
 
 To configure an on-premises application for single sign-on through Application Proxy, see [Password vaulting for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-password-vaulting.md)
 
