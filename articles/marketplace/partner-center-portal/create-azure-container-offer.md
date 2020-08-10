@@ -186,20 +186,23 @@ To learn more about creating offer listings, see [Offer listing best practices](
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
-Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) and a **Medium** (90 x 90 pixels) size logo. You can optionally replace these with different images.
-
-All three logo sizes are required for use in different places in the listing:
+ Provide PNG files of your offer's logo in each of the following four pixel sizes:
 
 - **Small** (48 x 48)
-- **Medium** (90 x 90)
-- **Large** (between 216 x 216 and 350 x 350)
+- **Medium** (90 X 90)
+- **Large** (216 x 216)
+- **Wide** (255 X 115)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+All four logos are required and are used in different places in the marketplace listing.
+
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### Screenshots (optional)
 

@@ -1,6 +1,6 @@
 ---
 title: 'Tune performance: Spark, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: Azure Data Lake Storage Gen2 Spark Performance Tuning Guidelines
+description: Understand guidelines for tuning the performance of Spark with Azure HDInsight and Azure Data Lake Storage Gen2.
 services: storage
 author: normesta
 

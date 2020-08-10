@@ -55,7 +55,7 @@ Real-time transcription and translation can help make conversations accessible f
 You can also provide captions for presentations and lectures both on-screen and on the audience members' own devices. After the audience joins with the conversation code, they can see the transcript in their preferred language, on their own device.
 
 > [!NOTE]
-> To see an example, check out [Presentation Translator](https://www.microsoft.com/translator/apps/presentation-translator/), a PowerPoint add-in which uses the multi-device conversation service. You can download it [here](https://www.microsoft.com/download/details.aspx?id=55024).
+> To see an example, check out [Presentation Translator](https://www.microsoft.com/translator/apps/presentation-translator/), a PowerPoint add-in which uses the multi-device conversation service. You can download it [here](https://download.cnet.com/s/powerpoint-add-in/).
 
 ## How it works
 

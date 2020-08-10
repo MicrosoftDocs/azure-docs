@@ -64,7 +64,7 @@ config.setProperty("SPEECH-ObjectCountWarnThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountWarnThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountWarnThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -126,7 +126,7 @@ config.setProperty("SPEECH-ObjectCountErrorThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountErrorThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -144,5 +144,4 @@ speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000"
 
 ## Next steps
 
-* [Get your Speech service trial subscription](get-started.md)
-* [Learn how to recognize speech using a microphone](quickstarts/speech-to-text-from-microphone.md)
+* [Learn more about the Speech SDK](speech-sdk.md)
