@@ -639,7 +639,7 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
 
 7. Open **Internet Explorer** on **myTestVM**.
 
-8. Enter the IP address from the previous step it into the address bar of the browser. The default page of IIS Web server is displayed on the browser.
+8. Enter the IP address from the previous step into the address bar of the browser. The default page of IIS Web server is displayed on the browser.
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Create a standard internal load balancer" border="true":::
    
