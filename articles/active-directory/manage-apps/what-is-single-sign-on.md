@@ -201,10 +201,5 @@ Since this scenario is offered through a partnership between Azure AD and PingAc
 
 For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
-## Related articles
+## Next steps
 * [Quickstart Series on Application Management](view-applications-portal.md)
-* [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Configuring password-based single sign on](configure-password-single-sign-on-non-gallery-applications.md)
-* [Configuring linked sign-on](configure-linked-sign-on.md)
-* [Introduction to Managing Access to applications](what-is-access-management.md)
-* Download link: [Single sign-on deployment plan](https://aka.ms/SSODeploymentPlan).
