@@ -1,14 +1,14 @@
 ---
-title: Use Managed Identities to access App Configuration
+title: Use managed identities to access App Configuration
 titleSuffix: Azure App Configuration
-description: Authenticate to Azure App Configuration using Azure managed identities
+description: Authenticate to Azure App Configuration using managed identities
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 2/25/2020
 ---
-# Use Managed Identities to access App Configuration
+# Use managed identities to access App Configuration
 
 Azure Active Directory [managed identities](../active-directory/managed-identities-azure-resources/overview.md) simplify secrets management for your cloud application. With a managed identity, your code can use the service principal created for the Azure service it runs on. You use a managed identity instead of a separate credential stored in Azure Key Vault or a local connection string.
 
@@ -178,7 +178,7 @@ To set up a managed identity in the portal, you first create an application and 
     You can now access Key Vault references just like any other App Configuration key. The config provider will use the `KeyVaultClient` that you configured to authenticate to Key Vault and retrieve the value.
 
 > [!NOTE]
-> `ManagedIdentityCredential` only supports managed identity authentication. It doesn't work in local environment. If you want to run the code locally, consider using `DefaultAzureCredential`, which supports service principal authentication as well. Check the [link](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/README.md) for details.
+> `ManagedIdentityCredential` only supports managed identity authentication. It doesn't work in local environments. If you want to run the code locally, consider using `DefaultAzureCredential`, which supports service principal authentication as well. Check the [link](https://docs.microsoft.com/en-us/dotnet/api/azure.identity.defaultazurecredential) for details.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 

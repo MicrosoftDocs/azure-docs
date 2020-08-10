@@ -111,7 +111,7 @@
       href: howto-app-configuration-event.md
     - name: Backup configuration store automatically
       href: howto-backup-config-store.md
-    - name: Use Managed Identities to access App Configuration
+    - name: Use managed identities to access App Configuration
       href: howto-integrate-azure-managed-service-identity.md
 - name: Reference
   items:
