@@ -526,7 +526,7 @@ groups:
     title: Scala
   - id: programming-language-python
     title: Python
-    id: programming-language-sparksql
+  - id: programming-language-sparksql
     title: SQL
 - id: aml-control-methods
   # Owner: gopalv
