@@ -66,7 +66,7 @@ Alternatively, add each package using [NuGet 2.12+](https://www.nuget.org/). For
 
 ## C# sample code
 
-[!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-preview-sample/DataPlaneClientSampleApp/Program.cs)]
+[!code-csharp[csharpquery-example](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample)]
 
 > [!NOTE]
 > * The code sample can be executed without altering the default environment variables.
