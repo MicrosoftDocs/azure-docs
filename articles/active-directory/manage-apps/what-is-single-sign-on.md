@@ -28,7 +28,7 @@ If you're an administrator, or IT professional, then read on to learn more about
 - **With single sign-on**, users sign in once with one account to access domain-joined devices, company resources, software as a service (SaaS) applications, and web applications. After signing in, the user can launch applications from the Office 365 portal or the Azure AD MyApps access panel. Administrators can centralize user account management, and automatically add or remove user access to applications based on group membership.
 
 - **Without single sign-on**, users must remember application-specific passwords and sign in to each application. IT staff needs to create and update user accounts for each application such as Office 365, Box, and Salesforce. Users need to remember their passwords, plus spend the time to sign in to each application.
-- 
+
 There are several ways to configure an application for single sign-on. Choosing a single sign-on method depends on how the application is configured for authentication.
 
 - Cloud applications can use OpenID Connect, OAuth, SAML, password-based, linked, or disabled methods for single sign-on. 
