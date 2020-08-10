@@ -24,7 +24,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **Bug fixes and improvements**
   + **azure-cli-ml**
     + Add image_name and image_labal parameters to Model.package() to enable renaming the built package image.
-    + N/A
   + **azureml-automl-core**
     + AutoML raises a new error code from dataprep when content is modified while being read.
   + **azureml-automl-runtime**
@@ -34,8 +33,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Updated normalization for forecasting metrics to occur by grain.
     + Improved calculation of forecast quantiles when lookback features are disabled.
     + fix bool sparse matrix handling when computing explanations after AutoML
-  + **azureml-cli-common**
-    + N/A
   + **azureml-core**
     + A new method `run.get_detailed_status()` now shows the detailed explanation of current run status. It is currently only showing explanation for `Queued` status.
     + Add image_name and image_labal parameters to Model.package() to enable renaming the built package image.
