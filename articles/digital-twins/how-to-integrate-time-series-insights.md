@@ -21,6 +21,12 @@ In this article, you'll learn how to integrate Azure Digital Twins with [Azure T
 
 The solution described in this article will allow you to gather and analyze historical data about your IoT solution. Azure Digital Twins is a great fit for feeding data into Time Series Insights, as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights. 
 
+## Prerequisites
+
+Before you can set up a relationship with Time Series Insights, you need to have an **Azure Digital Twins instance**. This instance should be set up with the ability to update digital twin information based on data, as you'll need to update twin information a few times to see that data tracked in Time Series Insights. 
+
+If you do not have this set up already, you can create it by following the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md). The tutorial will walk you through setting up an Azure Digital Twins instance that works with a virtual IoT device to trigger digital twin updates.
+
 ## Solution architecture
 
 You will be attaching Time Series Insights to Azure Digital Twins through the path below.
@@ -32,12 +38,6 @@ You will be attaching Time Series Insights to Azure Digital Twins through the pa
     :::column:::
     :::column-end:::
 :::row-end:::
-
-## Prerequisites
-
-Before you can set up a relationship with Time Series Insights, you need to have an **Azure Digital Twins instance**. This instance should be set up with the ability to update digital twin information based on data, as you'll need to update twin information a few times to see that data tracked in Time Series Insights. 
-
-If you do not have this set up already, you can create it by following the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md). The tutorial will walk you through setting up an Azure Digital Twins instance that works with a virtual IoT device to trigger digital twin updates.
 
 ## Create a route and filter to twin update notifications
 

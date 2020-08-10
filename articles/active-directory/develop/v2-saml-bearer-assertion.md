@@ -10,8 +10,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.author: ryanwi
-ms.reviewer: hirsin
+ms.author: kenwith
+ms.reviewer: paulgarn
 ms.custom: aaddev
 ---
 

@@ -9,6 +9,7 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
+ms.custom: devx-track-java
 ---
 
 # Troubleshoot issues when you use the Azure Cosmos DB Async Java SDK v2 with SQL API accounts

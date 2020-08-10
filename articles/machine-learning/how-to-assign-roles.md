@@ -5,12 +5,12 @@ description: Learn how to access to an Azure Machine Learning workspace using ro
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
-ms.custom: seodec18
+ms.custom: how-to, seodec18
 
 ---
 
@@ -18,7 +18,7 @@ ms.custom: seodec18
 # Manage access to an Azure Machine Learning workspace
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to manage access to an Azure Machine Learning workspace. [Role-based access control (RBAC)](/azure/role-based-access-control/overview) is used to manage access to Azure resources. Users in your Azure Active Directory are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles.
+In this article, you learn how to manage access to an Azure Machine Learning workspace. [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) is used to manage access to Azure resources. Users in your Azure Active Directory are assigned specific roles, which grant access to resources. Azure provides both built-in roles and the ability to create custom roles.
 
 ## Default roles
 
@@ -63,7 +63,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## Azure Machine Learning operations
 
-Azure Machine Learning built-in actions for many operations and tasks. For a complete list, see [Azure resource providers operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Azure Machine Learning built-in actions for many operations and tasks. For a complete list, see [Azure resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## Create custom role
 
@@ -322,6 +322,7 @@ Yes here are some common scenarios with custom proposed role definitions that yo
     }
     ```
 
+<a name="labeler"></a>
 * __Labeler Custom__: Allows you to define a role scoped only to labeling data:
 
     `labeler_custom_role.json` :
@@ -365,7 +366,7 @@ They can also be found in the list of [Resource provider operations](/azure/role
 
 ### Q. What are some common gotchas when using Azure RBAC?
 
-Here are a few things to be aware of while you use Azure Role Based Access Controls:
+Here are a few things to be aware of while you use Azure role-based access control (Azure RBAC):
 
 - When you create a resource in Azure, say a workspace, you are not directly the owner of the workspace. Your role gets inherited from the highest scope role that you are authorized against in that subscription. As an example if you are a Network Administrator, and had the permissions to create a Machine Learning workspace, you would be assigned the Network Administrator role against that workspace, and not the Owner role.
 - When there are two role assignments to the same AAD user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
@@ -378,9 +379,9 @@ Here are a few things to be aware of while you use Azure Role Based Access Contr
 To assign a user assigned identity on Amlcompute clusters, one has to have write permissions to create compute and have [Managed Identity Operator Role](/azure/role-based-access-control/built-in-roles#managed-identity-operator). For more information on RBAC with Managed Identities, read [How to manage user assigned identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
-### Q. Do we support role-based access controls on the Studio portal?
+### Q. Do we support role-based access control on the Studio portal?
 
-Azure Machine Learning Studio supports role-based access controls. 
+Azure Machine Learning Studio supports Azure role-based access control (Azure RBAC). 
 
 > [!IMPORTANT]
 > Once you have assigned a custom role with specific permissions to a data scientist in your workspace, corresponding actions (such as adding a compute button) are automatically hidden from the users. Hiding these items prevents any confusion from seeing controls that return an Unauthorized Access notification from the service when used.

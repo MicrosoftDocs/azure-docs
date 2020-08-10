@@ -24,7 +24,7 @@ management group:
 
 These operations only allow a user to read and update the hierarchy settings. The operations don't
 provide any other access to the management group hierarchy or resources in the hierarchy. Both of
-these operations are available in the built-in RBAC role **Hierarchy Settings Administrator**.
+these operations are available in the Azure built-in role **Hierarchy Settings Administrator**.
 
 ## Setting - Default management group
 
@@ -38,7 +38,7 @@ both use cases.
 
 By allowing the default management group for new subscriptions to be defined, organization-wide
 governance constructs can be applied at the root management group, and a separate management group
-with policy assignments or RBAC assignments more suited to a new subscription can be defined.
+with policy assignments or Azure role assignments more suited to a new subscription can be defined.
 
 To configure this setting, the [Hierarchy Settings](/rest/api/resources/hierarchysettings) REST API
 endpoint is called. To do so, use the following REST API URI and body format. Replace `{rootMgID}`

@@ -4,8 +4,9 @@ description: Learn how to use Service Bus topics and subscriptions in Azure from
 author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 08/09/2020
 ms.author: spelluru
+ms.custom: devx-track-javascript
 ---
 
 # Quickstart: How to Use Service Bus topics and subscriptions with Node.js and the azure-sb package
@@ -298,7 +299,7 @@ var message = {
     }
 }
 
-for (i = 0;i < 5;i++) {
+for (var i = 0; i < 5; i++) {
     message.customProperties.messagenumber=i;
     message.body='This is Message #'+i;
     serviceBusService.sendTopicMessage(topic, message, function(error) {

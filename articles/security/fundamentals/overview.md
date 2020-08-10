@@ -1,6 +1,6 @@
 ---
 title: Introduction to Azure security | Microsoft Docs
-description: Learn about Azure Security, its services, and how it works.
+description: Introduce yourself to Azure Security, its various services, and how it works by reading this overview.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -139,7 +139,7 @@ In Application Diagnostics, you can view events grouped in these ways:
 The section provides additional information regarding key features in Azure storage security and summary information about these capabilities.
 
 ### Role-Based Access Control (RBAC)
-You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce Security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../../role-based-access-control/built-in-roles.md), such as Storage Account Contributor, to assign privileges to users. Access to the storage keys for a storage account using the [Azure Resource Manager](../../storage/blobs/security-recommendations.md) model can be controlled through Role-Based Access Control (RBAC).
+You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce Security policies for data access. These access rights are granted by assigning the appropriate Azure role to groups and applications at a certain scope. You can use [Azure built-in roles](../../role-based-access-control/built-in-roles.md), such as Storage Account Contributor, to assign privileges to users. Access to the storage keys for a storage account using the [Azure Resource Manager](../../storage/blobs/security-recommendations.md) model can be controlled through Role-Based Access Control (RBAC).
 
 ### Shared Access Signature
 A [shared access signature (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) provides delegated access to resources in your storage account. The SAS means that you can grant a client limited permissions to objects in your storage account for a specified period and with a specified set of permissions. You can grant these limited permissions without having to share your account access keys.
@@ -333,7 +333,7 @@ Microsoft uses multiple security practices and technologies across its products 
 
 -	[Token-based authentication](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/) enables authentication via Azure Active Directory.
 
--	[Role-based access control (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) enables you to grant access based on the user’s assigned role, making it easy to give users only the amount of access they need to perform their job duties. You can customize RBAC per your organization’s business model and risk tolerance.
+-	[Azure role-based access control (Azure RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/) enables you to grant access based on the user’s assigned role, making it easy to give users only the amount of access they need to perform their job duties. You can customize RBAC per your organization’s business model and risk tolerance.
 
 -	[Integrated identity management (hybrid identity)](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/) enables you to maintain control of users’ access across internal datacenters and cloud platforms, creating a single user identity for authentication and authorization to all resources.
 

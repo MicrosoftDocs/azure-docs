@@ -37,7 +37,7 @@ The following table summarizes the single sign-on methods, and links to more det
 
 | Single sign-on method | Application types | When to use |
 | :------ | :------- | :----- |
-| [OpenID Connect and OAuth](#openid-connect-and-oauth) | cloud only | Use OpenID Connect and OAuth when developing a new application. This protocol simplifies application configuration, has easy-to-use SDKs, and enables your application to use MS Graph.
+| [OpenID Connect and OAuth](#openid-connect-and-oauth) | cloud and on-premises | Use OpenID Connect and OAuth when developing a new application. This protocol simplifies application configuration, has easy-to-use SDKs, and enables your application to use MS Graph.
 | [SAML](#saml-sso) | cloud and on-premises | Choose SAML whenever possible for existing applications that do not use OpenID Connect or OAuth. SAML works for applications that authenticate using one of the SAML protocols.|
 | [Password-based](#password-based-sso) | cloud and on-premises | Choose password-based when the application authenticates with username and password. Password-based single sign-on enables secure application password storage and replay using a web browser extension or mobile app. This method uses the existing sign-in process provided by the application, but enables an administrator to manage the passwords. |
 | [Linked](#linked-sign-on) | cloud and on-premises | Choose linked sign-on when the application is configured for single sign-on in another identity provider service. This option doesn't add single sign-on to the application. However, the application might already have single sign-on implemented using another service such as Active Directory Federation Services.|
@@ -66,9 +66,9 @@ SAML-based single sign-on is supported for applications that use any of these pr
 - SAML 2.0
 - WS-Federation
 
-To configure a SaaS application for SAML-based single sign-on, see [Configure SAML-based single sign-on](configure-single-sign-on-non-gallery-applications.md). Also, many Software as a Service (SaaS) applications have an [application-specific tutorial](../saas-apps/tutorial-list.md) that step you through the configuration for SAML-based single sign-on.
+To configure a SaaS application for SAML-based single sign-on, see [Configure SAML-based single sign-on](configure-saml-single-sign-on.md). Also, many Software as a Service (SaaS) applications have an [application-specific tutorial](../saas-apps/tutorial-list.md) that step you through the configuration for SAML-based single sign-on.
 
-To configure an application for WS-Federation, follow the same guidance to configure application for SAML-based single sign-on, see [Configure SAML-based single sign-on](configure-single-sign-on-non-gallery-applications.md). In the step to configure the application to use Azure AD, you will need to replace the Azure AD login URL for the WS-Federation end-point `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
+To configure an application for WS-Federation, follow the same guidance to configure application for SAML-based single sign-on. In the step to configure the application to use Azure AD, you will need to replace the Azure AD login URL for the WS-Federation end-point `https://login.microsoftonline.com/<tenant-ID>/wsfed`.
 
 To configure an on-premises application for SAML-based single sign-on, see [SAML single-sign-on for on-premises applications with Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 
@@ -193,8 +193,8 @@ Since this scenario is offered through a partnership between Azure AD and PingAc
 For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
 ## Related articles
+* [Quickstart Series on Application Management](view-applications-portal.md)
 * [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Configuring SAML-based single sign-on](configure-single-sign-on-non-gallery-applications.md)
 * [Configuring password-based single sign on](configure-password-single-sign-on-non-gallery-applications.md)
 * [Configuring linked sign-on](configure-linked-sign-on.md)
 * [Introduction to Managing Access to applications](what-is-access-management.md)

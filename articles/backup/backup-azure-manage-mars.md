@@ -106,7 +106,7 @@ There are two ways to stop protecting Files and Folders backup:
 1. In **Pause Scheduled Backup**, review the information and click **Finish**.
 
     ![Modify or stop a scheduled backup.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. In **Modify backup process**, check your schedule backup pause is in success status and click **close** to finish.
+1. In **Modify backup progress**, check your schedule backup pause is in success status and click **close** to finish.
 
 ### Stop protection and delete backup data
 

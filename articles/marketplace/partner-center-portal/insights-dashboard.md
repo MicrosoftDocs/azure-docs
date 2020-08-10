@@ -5,6 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/22/2019
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Marketplace Insights dashboard in Partner Center

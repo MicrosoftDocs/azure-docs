@@ -124,7 +124,7 @@ You can refer to the following sample code to [access to the registered datasets
   print("R script run.")
   run = get_current_run()
   ws = run$experiment$workspace
-  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "simple-csv")
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
   dataframe2 <- dataset$to_pandas_dataframe()
   # Return datasets as a Named List
   return(list(dataset1=dataframe1, dataset2=dataframe2))

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 11/21/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-java
 #Customer intent: As an application developer, I want to learn about AD FS support in MSAL for Java so I can decide if this platform meets my application development needs and requirements.
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Pay your bill for Microsoft Azure | Microsoft Docs
-description: Describes how to pay an invoice in the Azure portal
+description: Learn how to pay an invoice in the Azure portal. You must be a billing profile owner, contributor, or invoice manager to pay in the portal.
 keywords: billing, past due, balance, pay now,
 author: banders
 ms.reviewer: judupont

@@ -5,11 +5,11 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 07/27/2020
 ms.author: jgao
 
 ---
-# Configure development environment for deployment scripts in templates
+# Configure development environment for deployment scripts in templates (Preview)
 
 Learn how to create a development environment for developing and testing deployment scripts with a deployment script image. You can either create [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/). Both are covered in this article.
 
