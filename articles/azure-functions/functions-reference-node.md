@@ -15,7 +15,7 @@ As an Express.js, Node.js, or JavaScript developer, if you are new to Azure Func
 
 | Getting started | Concepts| Guided learning |
 | -- | -- | -- | 
-| <ul><li>[Node.js function using Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript)</li><li>[Node.js function with terminal/command prompt](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-javascript)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[TypeScript functions](#typescript)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/learn/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js function using Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[Node.js function with terminal/command prompt](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[TypeScript functions](#typescript)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/learn/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## JavaScript function basics
 

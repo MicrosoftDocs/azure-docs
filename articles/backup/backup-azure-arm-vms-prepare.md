@@ -45,7 +45,7 @@ Modify the storage replication type as follows:
 1. In the new vault, select **Properties** in the **Settings** section.
 2. In **Properties**, under **Backup Configuration**, select **Update**.
 3. Select the storage replication type, and select **Save**.
-s
+
       ![Set the storage configuration for new vault](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
 > [!NOTE]
@@ -161,13 +161,6 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 --- | ---
 **Windows** | 1. [Download and install](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) the agent MSI file.<br/><br/> 2. Install with admin permissions on the machine.<br/><br/> 3. Verify the installation. In *C:\WindowsAzure\Packages* on the VM, right-click **WaAppAgent.exe** > **Properties**. On the **Details** tab, **Product Version** should be 2.6.1198.718 or higher.<br/><br/> If you're updating the agent, make sure that no backup operations are running, and [reinstall the agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Install by using an RPM or a DEB package from your distribution's package repository. This is the preferred method for installing and upgrading the Azure Linux agent. All the [endorsed distribution providers](../virtual-machines/linux/endorsed-distros.md) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there.<br/><br/> If you're updating the agent, make sure no backup operations are running, and update the binaries.
-
->[!NOTE]
-> **Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution.**
->
->Today, Azure Backup supports backing up all the disks (Operating System and data) in a VM together using the Virtual Machine backup solution. With exclude-disk functionality, you get an option to backup one or a few from the many data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains data of the disks included in the backup operation, which further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to restore both from the snapshot and the vault.
->
->To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
 
 ## Next steps
 

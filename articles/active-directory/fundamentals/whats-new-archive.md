@@ -2,7 +2,7 @@
 title: Archive for What's new in Azure Active Directory? | Microsoft Docs
 description: The What's new release notes in the Overview section of this content set contains 6 months of activity. After 6 months, the items are removed from the main article and put into this archive article.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
@@ -1222,7 +1222,7 @@ For more information about how to better secure your organization by using autom
 
 We've updated the Azure AD provisioning experience to include a new progress bar that shows you how far you are in the user provisioning process. This updated experience also provides information about the number of users provisioned during the current cycle, as well as how many users have been provisioned to date.
 
-For more information, see [Check the status of user provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
+For more information, see [Check the status of user provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user).
 
 ---
 

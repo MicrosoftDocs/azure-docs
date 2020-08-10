@@ -92,7 +92,7 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 {
 "principalId":"<Object Id of Group>",
 "roleDefinitionId":"<ID of role definition>",
-"resourceScope":"/"
+"directoryScopeId":"/"
 }
 ```
 ## Next steps
