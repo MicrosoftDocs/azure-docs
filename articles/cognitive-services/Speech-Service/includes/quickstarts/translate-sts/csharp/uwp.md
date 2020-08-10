@@ -9,7 +9,6 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.author: jhakulin
-ms.author: erhopf
 ms.topic: include
 ---
 
