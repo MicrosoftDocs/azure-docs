@@ -24,7 +24,6 @@ This article describes the workflow automation feature of Azure Security Center.
 
 ## Availability
 
-
 |Aspect|Details|
 |----|:----|
 |Release state:|Generally Available|
