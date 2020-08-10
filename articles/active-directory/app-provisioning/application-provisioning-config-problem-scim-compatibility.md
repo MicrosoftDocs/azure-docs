@@ -50,7 +50,6 @@ Use the flags below in the tenant URL of your application in order to change the
   * **SCIM RFC references:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2
   * **Behavior:**
-    * Compliant group membership removals:
   ```json
    PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
    {
@@ -64,40 +63,6 @@ Use the flags below in the tenant URL of your application in order to change the
         }
     ]
    }
-
-
-
-    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
-    {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-    ],
-    "Operations": [
-        {
-            "op": "replace",
-            "path": "active",
-            "value": false
-        }
-    ]
-    }
-
- 
-
-    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
-    {
-    "schemas": [
-        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
-    ],
-    "Operations": [
-        {
-            "op": "add",
-            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department",
-            "value": "Tech Infrastructure"
-        }
-    ]
-    }
-
- 
 
     PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
     {
@@ -115,9 +80,7 @@ Use the flags below in the tenant URL of your application in order to change the
             ]
         }
     ]
-    }
-
- 
+    } 
 
     PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
     {
@@ -144,7 +107,34 @@ Use the flags below in the tenant URL of your application in order to change the
         }
     ]
     }
-   
+
+    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path": "active",
+            "value": false
+        }
+    ]
+    }
+
+    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "add",
+            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department",
+            "value": "Tech Infrastructure"
+        }
+    ]
+    }
    
   ```
 
