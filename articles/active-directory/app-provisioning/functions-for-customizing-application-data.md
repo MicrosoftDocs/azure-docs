@@ -29,6 +29,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
   2. String constants, which must be enclosed in double quotes. For example: "United States"
   3. Other Functions. For example: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
 * For string constants, if you need a backslash ( \ ) or quotation mark ( " ) in the string, it must be escaped with the backslash ( \ ) symbol. For example: "Company name: \\"Contoso\\""
+* The syntax is case-sensitive, which must be considered while typing them as strings in a function vs copy pasting them directly from here. 
 
 ## List of Functions
 

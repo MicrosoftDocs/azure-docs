@@ -147,8 +147,8 @@ Before you start, make sure you understand the [network considerations and recom
 
 1. Create the hybrid connectivity to your on-premises network to Azure using an Azure VPN or Azure ExpressRoute connection. The hybrid network configuration is beyond the scope of this documentation, and may already exist in your environment. For details on specific scenarios, see the following articles:
 
-    * [Azure Site-to-Site VPN](/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Azure ExpressRoute Overview](/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Azure Site-to-Site VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Azure ExpressRoute Overview](/azure/expressroute/expressroute-introduction).
 
     > [!IMPORTANT]
     > If you create the connection directly to your managed domain's virtual network, use a separate gateway subnet. Don't create the gateway in the managed domain's subnet.

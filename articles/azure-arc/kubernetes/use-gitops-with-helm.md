@@ -152,7 +152,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 ## Validate Application
 
-Run the following command and navigate to [localhost:3000](http://localhost:3000) on your browser to verify that application is running.
+Run the following command and navigate to `localhost:3000` on your browser to verify that application is running.
 
 ```bash
 kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo-vote-front 3000:80
