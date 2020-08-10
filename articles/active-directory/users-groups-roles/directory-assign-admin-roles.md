@@ -540,11 +540,11 @@ Can create and manage all aspects of app registrations and enterprise apps.
 | microsoft.directory/appRoleAssignments/update | Update appRoleAssignments in Azure Active Directory. |
 | microsoft.directory/appRoleAssignments/delete | Delete appRoleAssignments in Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Read all properties (including privileged properties) on auditLogs in Azure Active Directory. |
-| microsoft.directory/connectorGroups/everything/read | Read application proxy connector group properties in Azure Active Directory. |
-| microsoft.directory/connectorGroups/everything/update | Update all application proxy connector group properties in Azure Active Directory. |
+| microsoft.directory/connectorGroups/allProperties/read | Read application proxy connector group properties in Azure Active Directory. |
+| microsoft.directory/connectorGroups/allProperties/update | Update all application proxy connector group properties in Azure Active Directory. |
 | microsoft.directory/connectorGroups/create | Create application proxy connector groups in Azure Active Directory. |
 | microsoft.directory/connectorGroups/delete | Delete application proxy connector groups in Azure Active Directory. |
-| microsoft.directory/connectors/everything/read | Read all application proxy connector properties in Azure Active Directory. |
+| microsoft.directory/connectors/allProperties/read | Read all application proxy connector properties in Azure Active Directory. |
 | microsoft.directory/connectors/create | Create application proxy connectors in Azure Active Directory. |
 | microsoft.directory/policies/applicationConfiguration/basic/read | Read policies.applicationConfiguration property in Azure Active Directory. |
 | microsoft.directory/policies/applicationConfiguration/basic/update | Update policies.applicationConfiguration property in Azure Active Directory. |
