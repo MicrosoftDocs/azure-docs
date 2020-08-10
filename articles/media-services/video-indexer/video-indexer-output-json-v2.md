@@ -173,7 +173,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |ocr|The [OCR](#ocr) insight.|
 |keywords|The [keywords](#keywords) insight.|
 |blocks|May contain one or more [blocks](#blocks)|
-|faces/animatedCharacters|The [faces/animatedCharacters](#facesanimatedCharacters) insight.|
+|faces/animatedCharacters|The [faces/animatedCharacters](#facesanimatedcharacters) insight.|
 |labels|The [labels](#labels) insight.|
 |shots|The [shots](#shots) insight.|
 |brands|The [brands](#brands) insight.|
