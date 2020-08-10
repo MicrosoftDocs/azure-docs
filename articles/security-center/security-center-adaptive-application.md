@@ -55,7 +55,7 @@ By defining lists of known-safe applications, and generating alerts when anythin
 
 
 
-## Enable adaptive application controls on a group of machines
+## Enable application controls on a group of machines
 
 If Security Center has identified groups of machines in your subscriptions that consistently run a similar set of applications, you'll be prompted with the following recommendation: **Adaptive application controls for defining safe applications should be enabled on your machines**.
 
@@ -195,7 +195,7 @@ When you move a machine from one group to another, the application control polic
 
 
 
-## Managing your adaptive application controls via the REST API 
+## Managing application controls via the REST API 
 
 To manage your adaptive application controls programatically, use our REST API. 
 
