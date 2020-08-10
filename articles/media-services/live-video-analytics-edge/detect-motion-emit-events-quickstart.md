@@ -86,10 +86,10 @@ You'll need these files when you set up your development environment in Visual S
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
     INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    OUTPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"
+    OUTPUT_VIDEO_FOLDER_ON_DEVICE="/var/media"
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
-    CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
+    CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry password>"      
     ```
 
 ## Examine the sample files
@@ -136,6 +136,15 @@ Follow these steps to generate the manifest from the template file and then depl
 
 The RTSP simulator module simulates a live video stream by using a video file that was copied to your edge device when you ran the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
 
+> [!NOTE]
+> If you are using your own edge device instead of the one provisioned by our setup script, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:  
+
+    ```
+    mkdir /home/lvaadmin/samples      
+    mkdir /home/lvaadmin/samples/input    
+    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+    chown -R lvaadmin /home/lvaadmin/samples/  
+    ```
 At this stage, the modules are deployed but no media graphs are active.
 
 ## Prepare to monitor events

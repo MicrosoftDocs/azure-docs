@@ -85,11 +85,20 @@ As part of the prerequisites for this quickstart, you downloaded the sample code
 
 In the [Generate and deploy the IoT Edge deployment manifest](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest) step, in Visual Studio Code, expand the **lva-sample-device** node under **AZURE IOT HUB** (in the lower-left section). You should see the following modules deployed:
 
-* The Live Video Analytics module, named **lvaEdge**
-* The **rtspsim** module, which simulates an RTSP server that acts as the source of a live video feed
+* The Live Video Analytics module, named `lvaEdge`
+* The `rtspsim` module, which simulates an RTSP server that acts as the source of a live video feed
 
   ![Modules](./media/quickstarts/lva-sample-device-node.png)
 
+> [!NOTE]
+> If you are using your own edge device instead of the one provisioned by our setup script, go to your edge device and run the following commands with **admin rights**, to pull and store the sample video file used for this quickstart:  
+
+    ```
+    mkdir /home/lvaadmin/samples
+    mkdir /home/lvaadmin/samples/input    
+    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+    chown -R lvaadmin /home/lvaadmin/samples/  
+    ```
 
 ## Review - Prepare for monitoring events
 Make sure you've completed the steps to [Prepare to monitor events](detect-motion-emit-events-quickstart.md#prepare-to-monitor-events).
@@ -235,7 +244,7 @@ The two events are typically emitted within seconds of each other.
 
 ## Play the MP4 clip
 
-The MP4 files are written to a directory on the edge device that you configured in the *.env* file by using the OUTPUT_VIDEO_FOLDER_ON_DEVICE key. If you used the default value, then the results should be in the */home/lvaadmin/samples/output/* folder.
+The MP4 files are written to a directory on the edge device that you configured in the *.env* file by using the OUTPUT_VIDEO_FOLDER_ON_DEVICE key. If you used the default value, then the results should be in the */var/media/* folder.
 
 To play the MP4 clip:
 
@@ -246,7 +255,7 @@ To play the MP4 clip:
     ![VM](./media/quickstarts/virtual-machine.png)
 
 1. Sign in by using the credentials that were generated when you [set up your Azure resources](detect-motion-emit-events-quickstart.md#set-up-azure-resources). 
-1. At the command prompt, go to the relevant directory. The default location is */home/lvaadmin/samples/output*. You should see the MP4 files in the directory.
+1. At the command prompt, go to the relevant directory. The default location is */var/media*. You should see the MP4 files in the directory.
 
     ![Output](./media/quickstarts/samples-output.png) 
 
