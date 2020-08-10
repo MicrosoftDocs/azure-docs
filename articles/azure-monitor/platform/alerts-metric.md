@@ -83,7 +83,7 @@ You can view and manage metric alert rules using the Manage Rules blade under Al
 6. Click **Done** to save your edits.
 
 
-## View and manage using Azure CLI
+## With Azure CLI
 
 The previous sections described how to create, view, and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Quickest way to start using Azure CLI is through [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). For this article, we will use Cloud Shell.
 
@@ -129,7 +129,7 @@ The previous sections described how to create, view, and manage metric alert rul
     az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
 
-## View and manage using PowerShell
+## With PowerShell
 
 Metric alert rules have dedicated PowerShell cmdlets available:
 
