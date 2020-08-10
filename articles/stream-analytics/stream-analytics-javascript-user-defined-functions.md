@@ -152,7 +152,7 @@ FROM
     input
 ```
 
-### Using try/catch for error handling
+### Use try/catch for error handling
 
 If the input data can have malformed fields that are passed to a JavaScript UDF, using a try/catch block can be useful for identifying the problem.
 
