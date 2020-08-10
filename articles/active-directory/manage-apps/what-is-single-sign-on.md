@@ -20,7 +20,7 @@ Single sign-on means a user doesn't have to sign in to every application they us
 
 You can think of SSO as removing the constant stream of sign-on requests. In other words, say goodbye to the annoying username and password dialogs that have haunted you in the past! 
 
-If you're an end user, you likely don't care much about SSO details. You probably just want to use the apps that make you productive without having to sign in so much. To check out the apps that have been set up for you in your organization, see https://myapplications.microsoft.com.
+If you're an end user, you likely don't care much about SSO details. You probably just want to use the apps that make you productive without having to sign in so much. To check out the apps that have been set up for you in your organization, see https://myapplications.microsoft.com. You will find your Office and Microsoft 365 apps in the launcher at the top left of the screen.
  
 If you're an administrator, or IT professional, looking to learn more about how SSO is implemented in Azure, then read on.
 
