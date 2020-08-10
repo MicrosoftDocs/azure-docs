@@ -7,7 +7,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: seo-python-october2019, tracking-python
+ms.custom: seo-python-october2019, devx-track-python
 ---
 
 # Quickstart: Use Azure Service Bus queues with Python

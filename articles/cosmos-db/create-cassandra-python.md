@@ -8,7 +8,7 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.custom: tracking-python
+ms.custom: devx-track-python
 
 ---
 # Quickstart: Build a Cassandra app with Python SDK and Azure Cosmos DB

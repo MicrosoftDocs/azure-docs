@@ -28,11 +28,9 @@ To learn more about the Blob Index, see [Manage and find data on Azure Blob Stor
 # [.NET](#tab/net)
 As Blob Index is in public preview, the .NET storage package is released in the preview NuGet feed. This library is subject to change between now and when it becomes official. 
 
-1. In Visual Studio, add the URL `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` to your NuGet package sources. 
+1. Set up your Visual Studio project to get started with the Azure Blob storage client library v12 for .NET. To learn more, see [.NET Quickstart](storage-quickstart-blobs-dotnet.md)
 
-   To learn how, see [package sources](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
-
-2. In the NuGet Package Manager, Find the **Azure.Storage.Blobs** package, and install version **12.5.0-dev.20200422.2** to your project. You can also run the command ```Install-Package Azure.Storage.Blobs -Version 12.5.0-dev.20200422.2```
+2. In the NuGet Package Manager, Find the **Azure.Storage.Blobs** package, and install version **12.5.0-preview.6** or newer to your project. You can also run the command ```Install-Package Azure.Storage.Blobs -Version 12.5.0-preview.6```
 
    To learn how, see [Find and install a package](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
