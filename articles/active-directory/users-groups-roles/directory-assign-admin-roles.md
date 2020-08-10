@@ -1421,7 +1421,6 @@ Can manage Office apps' cloud services, including policy and settings management
 | microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
-| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 | microsoft.office365.userCommunication/allEntities/allTasks | Read and update What's New messages visibility. |
 | microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
 
