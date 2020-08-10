@@ -34,9 +34,9 @@ You can use the conversion mapping JSON copies for editing and archiving outside
 |Account does not exist.|API|Attempting to add an Azure IoT Connector for FHIR and the Azure API for FHIR resource doesn't exist.|Create the Azure API for FHIR resource and then reattempt the operation.|
 |Azure API for FHIR resource FHIR version is not supported for IoT Connector.|API|Attempting to use an Azure IoT Connector for FHIR with an incompatible version of the Azure API for FHIR resource.|Create a new Azure API for FHIR resource (version R4) or use an existing Azure API for FHIR resource (version R4).
 
-##  Why is my Azure IoT Connector for FHIR (preview) data not showing up in Azure API for FHIR
+##  Why is my Azure IoT Connector for FHIR (preview) data not showing up in Azure API for FHIR?
 
-|Potential Issues  |Fixes            |
+|Potential issues  |Fixes            |
 |------------------|-----------------|
 |Data is still being processed.|Data is egressed to the Azure API for FHIR in batches (every ~15 minutes).  It’s possible the data is still being processed and additional time is needed for the data to be persisted in the Azure API for FHIR.|
 |Device conversion mapping JSON hasn't been configured.|Configure and save conforming device conversion mapping JSON.|
