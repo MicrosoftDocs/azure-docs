@@ -23,6 +23,7 @@ This feature is helpful in scenarios in which Azure Event Hubs should be only ac
 > The following Microsoft services are required to be on a virtual network
 > - Azure Web Apps
 > - Azure Functions
+> - Azure Monitor (diagnostic setting)
 
 
 ## IP firewall rules
@@ -153,6 +154,6 @@ For constraining access to Event Hubs to Azure virtual networks, see the followi
 
 <!-- Links -->
 
-[express-route]:  /azure/expressroute/expressroute-faqs#supported-services
+[express-route]:  ../expressroute/expressroute-faqs.md#supported-services
 [lnk-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 [lnk-vnet]: event-hubs-service-endpoints.md

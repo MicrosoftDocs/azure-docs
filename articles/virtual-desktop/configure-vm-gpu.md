@@ -1,10 +1,7 @@
 ---
 title: Configure GPU for Windows Virtual Desktop - Azure
 description: How to enable GPU-accelerated rendering and encoding in Windows Virtual Desktop.
-services: virtual-desktop
 author: gundarev
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
@@ -54,7 +51,7 @@ By default, apps and desktops running in multi-session configurations are render
 ## Configure GPU-accelerated frame encoding
 
 Remote Desktop encodes all graphics rendered by apps and desktops (whether rendered with GPU or with CPU) for transmission to Remote Desktop clients. When part of the screen is frequently updated, this part of the screen is encoded with a video codec (H.264/AVC). By default, Remote Desktop does not leverage available GPUs for this encoding. Configure Group Policy for the session host to enable GPU-accelerated frame encoding. Continuing the steps above:
- 
+
 >[!NOTE]
 >GPU-accelerated frame encoding is not available in NVv4-series VMs.
 
