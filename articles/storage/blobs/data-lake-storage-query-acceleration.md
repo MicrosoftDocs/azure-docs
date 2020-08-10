@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage query acceleration
-description: Query acceleration is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that is required for a processing operation.
+description: Query acceleration enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that is required for a processing operation.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
@@ -12,7 +12,7 @@ ms.subservice: data-lake-storage-gen2
 
 # Azure Data Lake Storage query acceleration
 
-Query acceleration is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. This reduces the time and processing power that is required to gain critical insights into stored data.
+Query acceleration enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. This reduces the time and processing power that is required to gain critical insights into stored data.
 
 ## Overview
 

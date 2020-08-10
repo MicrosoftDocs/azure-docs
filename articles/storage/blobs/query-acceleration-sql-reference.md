@@ -72,7 +72,28 @@ In CSV-formatted data, fields may also be referenced by ordinal, prefixed with a
 
 The following standard SQL operators are supported:
 
-``=``, ``!=``, ``<>``, ``<``, ``<=``, ``>``, ``>=``, ``+``, ``-``, ``/``, ``*``, ``%``, ``AND``, ``OR``, ``NOT``, ``CAST``, ``BETWEEN``, ``IN``, ``NULLIF``, ``COALESCE``
+|Operator|Description|
+|--|--|
+|[=](https://docs.microsoft.com/sql/t-sql/language-elements/equals-transact-sql)    |Compares the equality of two expressions (a comparison operator).|
+|[!=](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |Tests whether one expression is not equal to another expression (a comparison operator).|
+|[<>](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |Compares two expressions for not equal to (a comparison operator).|
+|[<](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-transact-sql)    |Compares two expressions for lesser than (a comparison operator).|
+|[<=](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |Compares two expressions for lesser than or equal (a comparison operator).|
+|[>](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-transact-sql)    |Compares two expressions for greater than (a comparison operator). |
+|[>=](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |Compares two expressions for greater than or equal (a comparison operator).|
+|[+](https://docs.microsoft.com/sql/t-sql/language-elements/add-transact-sql)    |Adds two numbers. This addition arithmetic operator can also add a number, in days, to a date.|
+|[-](https://docs.microsoft.com/sql/t-sql/language-elements/subtract-transact-sql)    |Subtracts two numbers (an arithmetic subtraction operator). |
+|[/](https://docs.microsoft.com/sql/t-sql/language-elements/divide-transact-sql)    |Divides one number by another (an arithmetic division operator).|
+|[*](https://docs.microsoft.com/sql/t-sql/language-elements/multiply-transact-sql)    |Multiplies two expressions (an arithmetic multiplication operator).|
+|[%](https://docs.microsoft.com/sql/t-sql/language-elements/modulo-transact-sql)    |Returns the remainder of one number divided by another.|
+|[AND](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Performs a bitwise logical AND operation between two integer values.|
+|[OR](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Performs a bitwise logical OR operation between two specified integer values as translated to binary expressions within Transact-SQL statements.|
+|[NOT](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Negates a Boolean input.|
+|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Converts an expression of one data type to another.|
+|[BETWEEN](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |Specifies a range to test.|
+|[IN](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |Determines whether a specified value matches any value in a subquery or a list.|
+|[NULLIF](https://docs.microsoft.com/sql/t-sql/language-elements/nullif-transact-sql)    |Returns a null value if the two specified expressions are equal.|
+|[COALESCE](https://docs.microsoft.com/sql/t-sql/language-elements/coalesce-transact-sql)    |Evaluates the arguments in order and returns the current value of the first expression that initially doesn't evaluate to NULL.|
 
 If data types on the left and right of an operator are different, then automatic conversion will be performed according to the rules specified here: [Data type precedence (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
 
@@ -88,7 +109,16 @@ The query acceleration SQL language supports only a tiny subset of the data type
 
 The query acceleration SQL language supports the following standard SQL string functions:
 
-``CHAR_LENGTH``, ``CHARACTER_LENGTH``, ``LOWER``, ``UPPER``, ``SUBSTRING``, ``TRIM``, ``LEADING``, ``TRAILING``.
+|Function|Description|
+|--|--|
+|CHAR_LENGTH    | Returns the length in characters of the string expression, if the string expression is of a character data type; otherwise, returns the length in bytes of the string expression (the smallest integer not less than the number of bits divided by 8). (This function is the same as the CHARACTER_LENGTH function.)|
+|CHARACTER_LENGTH    |Returns the length in characters of the string expression, if the string expression is of a character data type; otherwise, returns the length in bytes of the string expression (the smallest integer not less than the number of bits divided by 8). (This function is the same as the CHAR_LENGTH function|
+|[LOWER](https://docs.microsoft.com/sql/t-sql/functions/lower-transact-sql)    |Returns a character expression after converting uppercase character data to lowercase.|
+|[UPPER](https://docs.microsoft.com/sql/t-sql/functions/upper-transact-sql)    |Returns a character expression with lowercase character data converted to uppercase.|
+|[SUBSTRING](https://docs.microsoft.com/sql/t-sql/functions/substring-transact-sql)    |Returns part of a character, binary, text, or image expression in SQL Server.|
+|[TRIM](https://docs.microsoft.com/sql/t-sql/functions/trim-transact-sql)    |Removes the space character char(32) or other specified characters from the start and end of a string.|
+|LEADING    |Description|
+|TRAILING    |Description|
 
 Here's a few examples:
 
@@ -115,7 +145,7 @@ The query acceleration SQL language supports year, month, day, hour, minute, sec
 
 Examples:
 
-```sql
+``sql
 DATE_ADD(datepart, quantity, timestamp)
 DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
 ```

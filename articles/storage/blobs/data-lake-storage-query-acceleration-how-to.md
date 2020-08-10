@@ -14,13 +14,13 @@ ms.reviewer: jamsbak
 
 This article shows you how to use query acceleration to retrieve a subset of data from your storage account. 
 
-Query acceleration is a new capability for Azure Data Lake Storage that enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. To learn more, see [Azure Data Lake Storage Query Acceleration](data-lake-storage-query-acceleration.md).
+Query acceleration enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that they require to perform a given operation. To learn more, see [Azure Data Lake Storage Query Acceleration](data-lake-storage-query-acceleration.md).
 
 ## Prerequisites
 
 - To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- A **general-purpose v2** storage account that has the **Hierarchical namespace** feature enabled. see [Create a storage account](../common/storage-quickstart-create-account.md).
+- A **general-purpose v2** storage account. see [Create a storage account](../common/storage-quickstart-create-account.md).
 
 Choose a tab to view any SDK-specific prerequisites.
 
@@ -39,7 +39,7 @@ The [.NET SDK](https://dotnet.microsoft.com/download)
   
 ### [Python](#tab/python)
 
-There are no additional prerequisites required to use the Python SDK.
+[Python](https://www.python.org/downloads/) 3.8 or greater.
 
 ### [Node.js](#tab/nodejs)
 
@@ -58,10 +58,16 @@ There are no additional prerequisites required to use the Node.js SDK.
    cd myProject
    ```
 
-2. Install the Azure Blob storage client library for .NET package by using the `dotnet add package` command.
+2. Install the `12.5.0-preview.6` version of the Azure Blob storage client library for .NET package by using the `dotnet add package` command. 
 
    ```console
-   dotnet add package Azure.Storage.Blobs
+   dotnet add package Azure.Storage.Blobs -v 12.5.0-preview.6
+   ```
+
+3. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library. To use that library, use the following command.
+
+   ```console
+   dotnet add package CsvHelper
    ```
 
 ### [Java](#tab/java)
