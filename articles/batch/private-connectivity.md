@@ -2,7 +2,8 @@
 title: Use private endpoints with Azure Batch accounts
 description: Learn how to connect privately to an Azure Batch account by using private endpoints. 
 ms.topic: how-to
-ms.date: 06/12/2020
+ms.date: 08/07/2020
+ms.custom: references_regions
 ---
 
 # Use private endpoints with Azure Batch accounts
@@ -11,16 +12,11 @@ By default, [Azure Batch accounts](accounts.md) have a public endpoint and are p
 
 By using [Azure Private Link](../private-link/private-link-overview.md), you can connect to an Azure Batch account via a [private endpoint](../private-link/private-endpoint-overview.md). The private endpoint is a set of private IP addresses in a subnet within your virtual network. You can then limit access to an Azure Batch account over private IP addresses.
 
-Private Link allows users to access an Azure Batch account from within the virtual network or from any peered virtual network. Resources mapped to Private Link are also accessible on-premises over private peering through VPN or [Azure ExpressRoute](../expressroute/expressroute-introduction.md).
+Private Link allows users to access an Azure Batch account from within the virtual network or from any peered virtual network. Resources mapped to Private Link are also accessible on-premises over private peering through VPN or [Azure ExpressRoute](../expressroute/expressroute-introduction.md). You can connect to an Azure Batch account configured with Private Link by using the [automatic or manual approval method](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
-You can connect to an Azure Batch account configured with Private Link by using the [automatic or manual approval method](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
+Support for private connectivity in Azure Batch is currently available in the following Azure regions: West Central US, West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona, East Asia, France, and UK South.
 
 This article describes the steps to create a private Batch account and access it using a private endpoint.
-
-> [!IMPORTANT]
-> Support for private connectivity in Azure Batch is currently in public preview for the West Central US, West US 2, East US, South Central US, US Gov Virginia, and US Gov Arizona regions.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Azure portal
 

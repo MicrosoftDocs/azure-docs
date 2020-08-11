@@ -15,7 +15,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
-ms.author: memccror
+ms.author: memccror 
+ms.custom: devx-track-azurecli
 
 ---
 # How to tag a Linux virtual machine in Azure

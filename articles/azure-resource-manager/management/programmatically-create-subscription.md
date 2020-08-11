@@ -5,7 +5,8 @@ author: anuragdalmia
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.reviewer: andalmia
-ms.author: banders
+ms.author: banders 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Programmatically create Azure subscriptions (preview)
@@ -151,7 +152,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | `offerType`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
 
-In the response, as part of the header `Location`, you get back a url that you can query for status on the subscription creation operation. When the subscription creation is finished, a GET on `Location` url will return a `subscriptionLink` object, which has the subscription ID. For more details, refer [Subscription API documentation](https://docs.microsoft.com/rest/api/subscription/)
+In the response, as part of the header `Location`, you get back a url that you can query for status on the subscription creation operation. When the subscription creation is finished, a GET on `Location` url will return a `subscriptionLink` object, which has the subscription ID. For more details, refer [Subscription API documentation](/rest/api/subscription/)
 
 ### [PowerShell](#tab/azure-powershell)
 

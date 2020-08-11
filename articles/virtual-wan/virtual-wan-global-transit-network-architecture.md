@@ -131,6 +131,9 @@ The Azure Virtual WAN hubs interconnect all the networking end points across the
 
 **Figure 5: Secured virtual hub with Azure Firewall**
 
+> [!NOTE]
+> Inter-hub with firewall is currently not supported. Traffic between hubs will move directly bypassing the Azure Firewall in each hub.
+
 Azure Firewall to the virtual WAN supports the following global secured transit connectivity paths. The letters in parentheses map to Figure 5.
 
 * VNet-to-VNet secure transit (e)

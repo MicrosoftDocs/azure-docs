@@ -32,6 +32,9 @@ Regardless of the authentication type used, role-based access control (RBAC) is 
 
 ## Interactive authentication
 
+> [!IMPORTANT]
+> Interactive authentication uses your browser, and requires cookies (including 3rd party cookies). If you have disabled cookies, you may receive an error such as "we couldn't sign you in." This error may also occur if you have enabled [Azure multi-factor authentication](/azure/active-directory/authentication/concept-mfa-howitworks).
+
 Most examples in the documentation and samples use interactive authentication. For example, when using the SDK there are two function calls that will automatically prompt you with a UI-based authentication flow:
 
 * Calling the `from_config()` function will issue the prompt.
@@ -62,7 +65,7 @@ Most examples in the documentation and samples use interactive authentication. F
 
 ## Service principal authentication
 
-To use service principal (SP) authentication, you must first create the SP and grant it access to your workspace. As mentioned earlier, Azure role-based access control (RBAC) is used to control access, so you must also decide what access to grant the SP.
+To use service principal (SP) authentication, you must first create the SP and grant it access to your workspace. As mentioned earlier, Azure role-based access control (Azure RBAC) is used to control access, so you must also decide what access to grant the SP.
 
 > [!IMPORTANT]
 > When using a service principal, grant it the __minimum access required for the task__ it is used for. For example, you would not grant a service principal owner or contributor access if all it is used for is reading the access token for a web deployment.

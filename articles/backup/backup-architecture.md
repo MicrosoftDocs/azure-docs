@@ -37,7 +37,7 @@ Recovery Services vaults have the following features:
 - Vaults make it easy to organize your backup data, while minimizing management overhead.
 - In each Azure subscription, you can create up to 500 vaults.
 - You can monitor backed-up items in a vault, including Azure VMs and on-premises machines.
-- You can manage vault access with Azure [role-based access control (RBAC)](../role-based-access-control/role-assignments-portal.md).
+- You can manage vault access with [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
 - You specify how data in the vault is replicated for redundancy:
   - **Locally redundant storage (LRS)**: To protect against failure in a datacenter, you can use LRS. LRS replicates data to a storage scale unit. [Learn more](../storage/common/storage-redundancy.md).
   - **Geo-redundant storage (GRS)**: To protect against region-wide outages, you can use GRS. GRS replicates your data to a secondary region. [Learn more](../storage/common/storage-redundancy.md).
@@ -115,16 +115,15 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 - When a vault is created, a "DefaultPolicy" is also created and can be used to back up resources.
 - Any changes made to the retention period of a backup policy will be applied retroactively to all the older recovery points aside from the new ones.
 
-### Additional reference 
+### Additional reference
 
--	Azure VM machine: How to [create](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) and [modify](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) policy? 
--	SQL Server database in Azure VM machine: How to [create](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) and [modify](./manage-monitor-sql-database-backup.md#modify-policy) policy? 
--	Azure File share: How to [create](./backup-afs.md#discover-file-shares-and-configure-backup) and [modify](./manage-afs-backup.md#modify-policy) policy? 
--	SAP HANA: How to [create](./backup-azure-sap-hana-database.md#create-a-backup-policy) and [modify](./sap-hana-db-manage.md#change-policy) policy? 
--	MARS: How to [create](./backup-windows-with-mars-agent.md#create-a-backup-policy) and [modify](./backup-azure-manage-mars.md#modify-a-backup-policy) policy? 
--	[Are there any limitations on scheduling backup based on the type of workload?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- Azure VM machine: How to [create](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) and [modify](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) policy.
+- SQL Server database in Azure VM machine: How to [create](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) and [modify](./manage-monitor-sql-database-backup.md#modify-policy) policy.
+- Azure File share: How to [create](./backup-afs.md) and [modify](./manage-afs-backup.md#modify-policy) policy.
+- SAP HANA: How to [create](./backup-azure-sap-hana-database.md#create-a-backup-policy) and [modify](./sap-hana-db-manage.md#change-policy) policy.
+- MARS: How to [create](./backup-windows-with-mars-agent.md#create-a-backup-policy) and [modify](./backup-azure-manage-mars.md#modify-a-backup-policy) policy.
+- [Are there any limitations on scheduling backup based on the type of workload?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
 - [What happens to the existing recovery points if I change the retention policy?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
-
 
 ## Architecture: Built-in Azure VM Backup
 

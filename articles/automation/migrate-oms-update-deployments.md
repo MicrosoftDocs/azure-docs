@@ -13,7 +13,7 @@ The Operations Management Suite (OMS) portal is being [deprecated](../azure-moni
 ## Key information
 
 * Existing deployments will continue to work. Once you have recreated the deployment in Azure, you can delete your old deployment.
-* All existing features that you had in OMS are available in Azure. To learn more about Update Management, see [Update Management overview](automation-update-management.md).
+* All existing features that you had in OMS are available in Azure. To learn more about Update Management, see [Update Management overview](update-management/update-mgmt-overview.md).
 
 ## Access the Azure portal
 
@@ -68,4 +68,4 @@ To use this existing saved search, follow these steps:
 
 ## Next steps
 
-To learn more about Update Management in Azure Automation, see [Update Management overview](automation-update-management.md).
+To learn more about Update Management in Azure Automation, see [Update Management overview](update-management/update-mgmt-overview.md).

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 08/5/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
@@ -56,10 +56,10 @@ Register both the middle-tier service and the client application in Azure AD.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 1. Set the redirect URI to the base URL.
 1. Select **Register** to create the application.
-1. Generate a client secret before exiting the Azure portal.
 1. In the Azure portal, choose your application and select **Certificates & secrets**.
 1. Select **New client secret** and add a secret with a duration of either one year or two years.
 1. When you save this page, the Azure portal displays the secret value. Copy and save the secret value in a safe location.
+1. Create a scope on your application in the **Expose an API** page for your app, and clicking "Add a scope".  The Portal may require you to create an application ID URI as well. 
 
 > [!IMPORTANT]
 > You need the secret to configure the application settings in your implementation. This secret value is not displayed again, and it isn't retrievable by any other means. Record it as soon as it is visible in the Azure portal.
@@ -76,7 +76,7 @@ Register both the middle-tier service and the client application in Azure AD.
 1. Select **Register** to create the application.
 1. Configure permissions for your application. In **API permissions**, select **Add a permission** and then **My APIs**.
 1. Type the name of the middle-tier service in the text field.
-1. Choose **Select Permissions** and then select **Access \<service name>**.
+1. Choose **Select Permissions** and then select the scope you created in the last step of registering the middle-tier.
 
 ### Configure known client applications
 

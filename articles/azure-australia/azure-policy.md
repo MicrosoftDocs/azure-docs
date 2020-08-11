@@ -5,7 +5,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # Security compliance with Azure Policy and Azure Blueprints
@@ -27,7 +27,7 @@ This library of built-in Azure Polices enable an organisation to quickly enforce
 * Monitoring virtual machines for missing system updates
 * Auditing accounts with elevated permissions for multi-factor authentication
 * Identifying unencrypted SQL Databases
-* Monitoring the use of custom Azure role-based access control (RBAC)
+* Monitoring the use of custom Azure role-based access control (Azure RBAC)
 * Restricting the Azure regions that resources can be created in
 
 If governance or regulatory controls are not met by a built-in Azure Policy definition, a custom definition can be created and assigned. All Azure Policy definitions are defined in JSON and follow a standard [definition structure](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure). Existing Azure Policy definitions can also be duplicated and used to form the basis of a custom Policy definition.

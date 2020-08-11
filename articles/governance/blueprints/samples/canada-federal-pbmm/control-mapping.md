@@ -1,7 +1,7 @@
 ---
 title: Canada Federal PBMM blueprint sample controls
 description: Control mapping of the Canada Federal PBMM blueprint samples. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 05/08/2020
+ms.date: 07/31/2020
 ms.topic: sample
 ---
 # Control mapping of the Canada Federal PBMM blueprint sample
@@ -54,8 +54,7 @@ appropriate action to ensure account management requirements are met.
 
 ## AC-2 (7) Account Management | Role-Based Schemes
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md) to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint also assigns [Azure Policy](../../../policy/overview.md)
 definitions to audit use of Azure Active Directory authentication for SQL Servers and Service
 Fabric. Using Azure Active Directory authentication enables simplified permission management and
@@ -98,8 +97,8 @@ separation of duties.
 
 ## AC-6 Least Privilege
 
-Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
-(RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
+Azure implements [Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
+to help you manage who has access to resources in Azure. Using the Azure portal, you can
 review who has access to Azure resources and their permissions. This blueprint assigns [Azure Policy](../../../policy/overview.md)
 definitions to audit accounts that should be prioritized for review. Reviewing these account
 indicators can help you ensure least privilege controls are implemented.
@@ -171,8 +170,8 @@ reporting and analysis. This blueprint helps you ensure events are logged by ass
 definitions that audit and enforce deployment of the Log Analytics agent on Azure virtual machines.
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics Workspace for VM - Report Mismatch
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
@@ -186,8 +185,9 @@ to provide insight into operations that are performed within Azure resources. Ad
 and Advanced Data Security are configured on SQL servers.
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
+- Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics Workspace for VM - Report 
+
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 - Audit diagnostic setting
@@ -250,10 +250,10 @@ configuration of the password encryption type for Windows virtual machines. Moni
 indicators helps you ensure that system authenticators comply with your organization's
 identification and authentication policy.
 
-- \[Preview\]: Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
-- \[Preview\]: Show audit results from  Linux VMs that have accounts without passwords
-- \[Preview\]: Deploy requirements to audit Linux VMs that do not have the passwd file permissions set to 0644
-- \[Preview\]: Deploy requirements to audit Linux VMs that have accounts without passwords
+- Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
+- Show audit results from  Linux VMs that have accounts without passwords
+- Deploy requirements to audit Linux VMs that do not have the passwd file permissions set to 0644
+- Deploy requirements to audit Linux VMs that have accounts without passwords
 
 ## IA-5 (1) Authenticator Management | Password-Based Authentication
 
@@ -263,16 +263,16 @@ password requirements. Awareness of virtual machines in violation of the passwor
 helps you take corrective actions to ensure passwords for all virtual machine user accounts comply
 with your organization's password policy.
 
-- \[Preview\]: Show audit results from Windows VMs that allow re-use of the previous 24 passwords
-- \[Preview\]: Show audit results from Windows VMs that do not have a maximum password age of 70 days
-- \[Preview\]: Show audit results from Windows VMs that do not have a minimum password age of 1 day
-- \[Preview\]: Show audit results from Windows VMs that do not have the password complexity setting enabled
-- \[Preview\]: Show audit results from Windows VMs that do not restrict the minimum password length to 14 characters
-- \[Preview\]: Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
-- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
-- \[Preview\]: Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
-- \[Preview\]: Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
-- \[Preview\]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
+- Show audit results from Windows VMs that allow re-use of the previous 24 passwords
+- Show audit results from Windows VMs that do not have a maximum password age of 70 days
+- Show audit results from Windows VMs that do not have a minimum password age of 1 day
+- Show audit results from Windows VMs that do not have the password complexity setting enabled
+- Show audit results from Windows VMs that do not restrict the minimum password length to 14 characters
+- Deploy requirements to audit Windows VMs that allow re-use of the previous 24 passwords
+- Deploy requirements to audit Windows VMs that do not have a maximum password age of 70 days
+- Deploy requirements to audit Windows VMs that do not have a minimum password age of 1 day
+- Deploy requirements to audit Windows VMs that do not have the password complexity setting enabled
+- Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
 
 ## IA-8 (100) Identification and Authentication (Non-Organizational Users) | Identity and Credential Assurance Levels
 
@@ -433,7 +433,7 @@ resources. These capabilities can help you detect anomalous behavior and indicat
 you can take appropriate action.
 
 - \[Preview\]: Audit Log Analytics Agent Deployment - VM Image (OS) unlisted
-- \[Preview\]: Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
+- Audit Log Analytics Agent Deployment in VMSS - VM Image (OS) unlisted
 - \[Preview\]: Audit Log Analytics Workspace for VM - Report Mismatch
 - \[Preview\]: Deploy Log Analytics Agent for Linux VMs
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
