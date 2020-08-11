@@ -11,19 +11,21 @@ metadata:
    ms.workload: identity
    ms.topic: landing-page
    ms.date: 10/10/2019
-   author: msmimart
-   ms.author: mimart
+   author: kenwith
+   ms.author: kenwith
    manager: celested
 
 landingContent:
   - title: About application management
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Quickstart Series
+            url: view-applications-portal.md
       - linkListType: overview
         links:
           - text: What is application management?
             url: what-is-application-management.md
-          - text: SaaS apps tutorials
-            url: /azure/active-directory/saas-apps/
   - title: Manage cloud apps and single sign-on
     linkLists:
       - linkListType: concept
@@ -32,10 +34,6 @@ landingContent:
             url: what-is-single-sign-on.md
           - text: End-user experiences
             url: end-user-experiences.md
-      - linkListType: quickstart
-        links:
-          - text: Add a gallery app
-            url: add-application-portal.md
       - linkListType: how-to-guide
         links:
           - text: Add a non-gallery app
