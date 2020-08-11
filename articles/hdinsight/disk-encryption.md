@@ -18,11 +18,13 @@ This document doesn't address data stored in your Azure Storage account. Your cl
 
 There are three main managed disk roles in Azure: the data disk, the OS disk, and the temporary disk. For more information about different types of managed disks, see [Introduction to Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview). 
 
-Managed disks offer two different kinds of encryption. The first is Server Side Encryption (SSE), which is performed by the storage service. Temporary disks, on the other hand, are not encrypted by server-side encryption unless you enable encryption at host.
+HDInsight supports multiple types of encryption in two different layers:
 
-All managed disks in HDInsight are protected with Azure Storage Service Encryption (SSE) using platform-managed keys (PMK). That means that these disks are encrypted using Microsoft-managed keys. This is referred to as layer 1 encryption at rest.
+- Server Side Encryption (SSE) - SSE is performed by the storage service. In HDInsight, SSE is used to encrypt OS disks and data disks. It is enabled by default. SSE is a layer 1 encryption service.
+- Encryption at host using platform-managed key - Similar to SSE, this type of encryption is performed by the storage service. However, it is only for temporary disks and is not enabled by default. Encryption at host is also a layer 1 encryption service.
+- Encryption at rest using customer managed key - This type of encryption can be used on OS, data and temporary disks. It is not enabled by default and requires the customer to provide their own key through Azure key vault. Encryption at rest is a layer 2 encryption service.
 
-Azure HDInsight also supports an additional layer of encryption for data disks and temporary disks (not OS disks) attached to the virtual machines in the cluster. This second layer of encryption uses customer-managed keys (CMK). If you enable customer-managed keys for HDInsight, you provide the encryption keys for HDInsight to use and manage those keys using Azure Key Vault. This is referred to as layer 2 encryption at rest. 
+These types are summarized in the following table.
 
 |Cluster type |OS Disk (Managed disk) |Data disk (Managed disk) |Temp data disk (Local SSD) |
 |---|---|---|---|
@@ -33,7 +35,7 @@ Azure HDInsight also supports an additional layer of encryption for data disks a
 
 :::image type="content" source="media/disk-encryption/encryption-at-host.png" alt-text="Enable encryption at host.":::
 
-This option enables [encryption at host](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-based-encryption-portal) for HDInsight VMs temp data disks using PMK. Encryption at host is only [supported on certain VM SKUs]((https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-based-encryption-portal) and HDInsight supports the [following node configuration and SKUs](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-supported-node-configuration). 
+This option enables [encryption at host](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-based-encryption-portal) for HDInsight VMs temp data disks using PMK. Encryption at host is only [supported on certain VM SKUs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-based-encryption-portal) and HDInsight supports the [following node configuration and SKUs](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-supported-node-configuration). 
 
 To understand the right VM size for your HDInsight cluster see [this document](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-selecting-vm-size). The default VM SKU for Zookeeper node when encryption at host is enabled will be DS2V2.
 
