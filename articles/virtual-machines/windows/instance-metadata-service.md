@@ -51,112 +51,97 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.
 
 ```json
 {
-  "compute": {
-    "azEnvironment": "AzurePublicCloud",
-    "customData": "",
-    "location": "centralus",
-    "name": "negasonic",
-    "offer": "lampstack",
-    "osType": "Linux",
-    "placementGroupId": "",
-    "plan": {
-        "name": "5-6",
-        "product": "lampstack",
-        "publisher": "bitnami"
-    },
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
-    "provider": "Microsoft.Compute",
-    "publicKeys": [],
-    "publisher": "bitnami",
-    "resourceGroupName": "myrg",
-    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "5-6",
-    "storageProfile": {
-        "dataDisks": [
-          {
-            "caching": "None",
-            "createOption": "Empty",
-            "diskSizeGB": "1024",
-            "image": {
-              "uri": ""
-            },
-            "lun": "0",
-            "managedDisk": {
-              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
-            },
-            "name": "exampledatadiskname",
-            "vhd": {
-              "uri": ""
-            },
-            "writeAcceleratorEnabled": "false"
-          }
-        ],
-        "imageReference": {
-          "id": "",
-          "offer": "UbuntuServer",
-          "publisher": "Canonical",
-          "sku": "16.04.0-LTS",
-          "version": "latest"
-        },
-        "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage",
-          "diskSizeGB": "30",
-          "diffDiskSettings": {
-            "option": "Local"
-          },
-          "encryptionSettings": {
-            "enabled": "false"
-          },
-          "image": {
-            "uri": ""
-          },
-          "managedDisk": {
-            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-            "storageAccountType": "Standard_LRS"
-          },
-          "name": "exampleosdiskname",
-          "osType": "Linux",
-          "vhd": {
-            "uri": ""
-          },
-          "writeAcceleratorEnabled": "false"
-        }
-    },
-    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "Department:IT;Environment:Prod;Role:WorkerRole",
-    "version": "7.1.1902271506",
-    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmScaleSetName": "",
-    "vmSize": "Standard_A1_v2",
-    "zone": "1"
-  },
-  "network": {
-    "interface": [
-      {
-        "ipv4": {
-          "ipAddress": [
-            {
-              "privateIpAddress": "10.1.2.5",
-              "publicIpAddress": "X.X.X.X"
-            }
-          ],
-          "subnet": [
-            {
-              "address": "10.1.2.0",
-              "prefix": "24"
-            }
-          ]
-        },
-        "ipv6": {
-          "ipAddress": []
-        },
-        "macAddress": "000D3A36DDED"
-      }
-    ]
-  }
+	"compute": {
+		"azEnvironment": "AZUREPUBLICCLOUD",
+		"isHostCompatibilityLayerVm": "true",
+		"location": "westus",
+		"name": "examplevmname",
+		"offer": "Windows",
+		"osType": "linux",
+		"placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+		"plan": {
+			"name": "planName",
+			"product": "planProduct",
+			"publisher": "planPublisher"
+		},
+		"platformFaultDomain": "36",
+		"platformUpdateDomain": "42",
+		"publicKeys": [{
+				"keyData": "ssh-rsa 0",
+				"path": "/home/user/.ssh/authorized_keys0"
+			},
+			{
+				"keyData": "ssh-rsa 1",
+				"path": "/home/user/.ssh/authorized_keys1"
+			}
+		],
+		"publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+		"resourceGroupName": "macikgo-test-may-23",
+		"resourceId": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+		"securityProfile": {
+			"secureBootEnabled": "true",
+			"virtualTpmEnabled": "false"
+		},
+		"sku": "Windows-Server-2012-R2-Datacenter",
+		"storageProfile": {
+			"dataDisks": [{
+				"caching": "None",
+				"createOption": "Empty",
+				"diskSizeGB": "1024",
+				"image": {
+					"uri": ""
+				},
+				"lun": "0",
+				"managedDisk": {
+					"id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+					"storageAccountType": "Standard_LRS"
+				},
+				"name": "exampledatadiskname",
+				"vhd": {
+					"uri": ""
+				},
+				"writeAcceleratorEnabled": "false"
+			}],
+			"imageReference": {
+				"id": "",
+				"offer": "UbuntuServer",
+				"publisher": "Canonical",
+				"sku": "16.04.0-LTS",
+				"version": "latest"
+			},
+			"osDisk": {
+				"caching": "ReadWrite",
+				"createOption": "FromImage",
+				"diskSizeGB": "30",
+				"diffDiskSettings": {
+					"option": "Local"
+				},
+				"encryptionSettings": {
+					"enabled": "false"
+				},
+				"image": {
+					"uri": ""
+				},
+				"managedDisk": {
+					"id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+					"storageAccountType": "Standard_LRS"
+				},
+				"name": "exampleosdiskname",
+				"osType": "Linux",
+				"vhd": {
+					"uri": ""
+				},
+				"writeAcceleratorEnabled": "false"
+			}
+		},
+		"subscriptionId": "8d10da13-8125-4ba9-a717-bf7490507b3d",
+		"tags": "baz:bash;foo:bar",
+		"version": "15.05.22",
+		"vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+		"vmScaleSetName": "crpteste9vflji9",
+		"vmSize": "Standard_A3",
+		"zone": ""
+	}
 }
 ```
 
