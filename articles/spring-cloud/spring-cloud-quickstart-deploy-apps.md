@@ -15,7 +15,7 @@ This document illustrates deployment of microservice applications to Azure Sprin
 * Maven
 * Intellij
 
-Before deployment using Azure CLI or Maven, complete the previous examples to [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).
+Before deployment using Azure CLI or Maven, complete the examples that [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).
 
 ## Azure CLI deployment
 To use the CLI method of deployment, Install the Azure Spring Cloud extension for the Azure CLI using the following command.
@@ -81,6 +81,7 @@ az spring-cloud app show --name gateway --query properties.url
 ```
 
 3. Navigate to the URL provided by the previous command to run the PiggyMetrics application.
+
     ![Screenshot of PiggyMetrics running](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
 You can also navigate the Azure portal to find the URL. 
@@ -97,7 +98,7 @@ You can also navigate the Azure portal to find the URL.
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
 ## Maven deployment
-To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.apache.org/download.cgi).  Before deployment, complete the procedures in previous examples to provision an instance of Azure Spring Cloud and set up the config server.
+To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.apache.org/download.cgi).  Before deployment, complete the examples that [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).
 
 ### Clone and build the sample application repository
 
@@ -165,7 +166,7 @@ You can add the Azure Toolkit for IntelliJ IDEA 3.35.0 from the IntelliJ **Plugi
 1. Click **Restart IDE**.
 
 ### Deployment procedures
-The following procedures deploy the Piggymetrics application using the IntelliJ IDEA.
+The following procedures deploy the Piggymetrics application using the IntelliJ IDEA.  Before deployment, complete the examples to [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).
 
 * Open gs-spring-boot project
 * Deploy to Azure Spring Cloud
@@ -190,7 +191,7 @@ In order to deploy to Azure you must sign-in with your Azure account, and choose
 1. Accept the name for app in the **Name** field. **Name** refers to the configuration, not app name. Users don't usually need to change it.
 1. In the **Artifact** textbox, select *com.piggymetrics:gateway:1.0-SNAPSHOT*.
 1. In the **Subscription** textbox, verify your subscription.
-1. In the **Spring Cloud** textbox, select the subscription you created in [previous exercises](https://review.docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
+1. In the **Spring Cloud** textbox, select the instance of Azure Spring Cloud that you created in [Provision Azure Spring Cloud instance](https://review.docs.microsoft.com/en-us/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
 1. In the **App:** textbox, select **Create app...**.
 1. Enter *gateway*, then click **OK**.
 
