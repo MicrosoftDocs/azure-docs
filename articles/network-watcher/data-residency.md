@@ -17,8 +17,8 @@ ms.author: damendo
 
 ---
 
-# Data residency for the Network Watcher service
-The Network Watcher service does not store customer data except for the Connection Monitor (Preview) service.
+# Data residency for the Azure Network Watcher
+Azure Network Watcher  does not store customer data except for the Connection Monitor (Preview) service.
 
 
 ## Connection Monitor (preview) data residency
@@ -33,3 +33,7 @@ In Azure, the feature to enable storing customer data in a single region is curr
 Customers have the option of storing end-user IP addresses with their Network Watcher (NW) instance so that NW can monitor reachability, latency, and network topology changes related to the end-user IP addresses. These end-user IP addresses may be classified as Customer Data. As of July 15, 2020, NW stored this data in a single region (Customer Data is no longer being replicated to HK). This data is no longer being replicated to HK. This Customer Data is and was encrypted at rest.
 
 If this Customer Data were to be accessible by a third party, that would allow the third party to know the IP address but would not grant the third party access to the machine/device associated with the IP address. NW believes that no third parties accessed this Customer Data in HK.
+
+## Next Steps
+
+* Read an overview of [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
