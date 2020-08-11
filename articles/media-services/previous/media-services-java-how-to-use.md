@@ -15,8 +15,9 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
-
+ms.custom: devx-track-java
 ---
+
 # Get started with the Java client SDK for Azure Media Services  
 
 > [!NOTE]

@@ -75,7 +75,7 @@ No. Azure Migrate supports migration only to managed disks (Standard HDD, Premiu
 
 ## How many VMs can I replicate at one time by using agentless migration?
 
-Currently, you can migrate 100 VMs per instance of vCenter Server simultaneously. Migrate in batches of 10 VMs.
+Currently, you can migrate 300 VMs per instance of vCenter Server simultaneously. Migrate in batches of 10 VMs.
 
 ## How do I throttle replication in using Azure Migrate appliance for agentless VMware replication?  
 

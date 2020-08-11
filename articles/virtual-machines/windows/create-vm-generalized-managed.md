@@ -4,7 +4,7 @@ description: Create a Windows virtual machine from a generalized managed image u
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/17/2018
 ms.author: cynthn
 

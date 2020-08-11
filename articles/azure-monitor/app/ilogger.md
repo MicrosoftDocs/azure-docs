@@ -214,7 +214,7 @@ You can still use the old provider. (It will be removed only in a major version 
 ## Console application
 
 > [!NOTE]
-> There is a new Application Insights SDK called [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) which can used to enable Application Insights (ILogger and other Application Insights telemetry) for any Console Applications. It is recommended to use this package and associated instructions from [here](../../azure-monitor/app/worker-service.md).
+> There is a new Application Insights SDK called [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) which can used to enable Application Insights (ILogger and other Application Insights telemetry) for any Console Applications. It is recommended to use this package and associated instructions from [here](./worker-service.md).
 
 The following code shows a sample console application that's configured to send ILogger traces to Application Insights.
 
@@ -390,7 +390,7 @@ If you experience double logging when you debug from Visual Studio, set `EnableD
 
 ### I updated to [Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.1, and logs from ILogger are captured automatically. How do I turn off this feature completely?
 
-See the [Control logging level](../../azure-monitor/app/ilogger.md#control-logging-level) section to see how to filter logs in general. To turn-off ApplicationInsightsLoggerProvider, use `LogLevel.None`:
+See the [Control logging level](#control-logging-level) section to see how to filter logs in general. To turn-off ApplicationInsightsLoggerProvider, use `LogLevel.None`:
 
 **In code:**
 
@@ -497,4 +497,5 @@ This code is required only when you use a standalone logging provider. For regul
 Learn more about:
 
 * [Logging in ASP.NET Core](/aspnet/core/fundamentals/logging)
-* [.NET trace logs in Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
+* [.NET trace logs in Application Insights](./asp-net-trace-logs.md)
+

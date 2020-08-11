@@ -63,7 +63,7 @@ The Data Box service is protected by the following features.
 
 - Access to the Data Box service requires that your organization has an Azure subscription that includes Data Box. Your subscription governs the features that you can access in the Azure portal.
 - Because the Data Box service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](https://www.microsoft.com/TrustCenter/Security/default.aspx).
-- Access to the Data Box order can be controlled via the use of Role-based Access Control (RBAC) roles. For more information, see [Set up access control for Data Box order](data-box-logs.md#set-up-access-control-on-the-order)
+- Access to the Data Box order can be controlled via the use of Azure roles. For more information, see [Set up access control for Data Box order](data-box-logs.md#set-up-access-control-on-the-order)
 - The Data Box service stores unlock password that is used to unlock the device in the service.
 - The Data box service stores order details and status in the service. This information is deleted when the order is deleted.
 

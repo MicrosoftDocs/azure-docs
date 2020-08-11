@@ -85,6 +85,12 @@ By default, users can't create app passwords. The app passwords feature must be 
 5. On the **Service Settings** page, select the **Allow users to create app passwords to sign in to non-browser apps** option.
 
     ![Screenshot of the Azure portal that shows the service settings for multi-factor authentication to allow the user of app passwords](media/concept-authentication-methods/app-password-authentication-method.png)
+    
+> [!NOTE]
+>
+> When you disable the ability for users to create app passwords, existing app passwords continue to work. However, users can't manage or delete those existing app passwords once you disable this ability.
+>
+> When you disable the ability to create app passwords, it's also recommended to [create a Conditional Access policy to disable the use of legacy authentication](../conditional-access/block-legacy-authentication.md). This approach prevents existing app passwords from working, and forces the use of modern authentication methods.
 
 ## Create an app password
 

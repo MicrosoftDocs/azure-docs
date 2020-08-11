@@ -794,7 +794,7 @@ resource.
 When streaming the Azure Activity log to a storage account or event hub, the data follows the [resource log schema](./resource-logs-schema.md). The table below provides a mapping of properties from the above schemas to the resource logs schema.
 
 > [!IMPORTANT]
-> The format of Activity log data written to a storage account changed to JSON Lines on Nov. 1st, 2018. See [Prepare for format change to Azure Monitor resource logs archived to a storage account](./resource-logs-append-blobs.md) for details on this format change.
+> The format of Activity log data written to a storage account changed to JSON Lines on Nov. 1st, 2018. See [Prepare for format change to Azure Monitor resource logs archived to a storage account](./resource-logs-blob-format.md) for details on this format change.
 
 
 | Resource logs schema property | Activity Log REST API schema property | Notes |

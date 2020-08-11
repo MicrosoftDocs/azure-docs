@@ -9,7 +9,7 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
-
+ms.custom: devx-track-javascript
 ---
 # Build and deploy a Node.js application to an Azure Cloud Service
 
@@ -177,7 +177,7 @@ For more information, see the [Node.js Developer Center].
 <!-- URL List -->
 
 [Azure Websites, Cloud Services and Virtual Machines comparison]: /azure/architecture/guide/technology-choices/compute-decision-tree
-[using a lightweight web app]: ../app-service/app-service-web-get-started-nodejs.md
+[using a lightweight web app]: ../app-service/quickstart-nodejs.md
 [Azure Powershell]: /powershell/azure/
 [Azure SDK for .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [Connect PowerShell]: /powershell/azure/
