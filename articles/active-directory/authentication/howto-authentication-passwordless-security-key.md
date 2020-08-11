@@ -27,7 +27,7 @@ This document focuses on enabling security key based passwordless authentication
 ## Requirements
 
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
-- [Combined security information registration preview](concept-registration-mfa-sspr-combined.md)
+- Enable [Combined security information registration preview](concept-registration-mfa-sspr-combined.md)
 - Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN requires Windows 10 version 1809 or higher**
 
