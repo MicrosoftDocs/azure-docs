@@ -144,8 +144,10 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## Next steps
 
+Learn more about how Azure Dev Spaces works.
+
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](multi-service-netcore-visualstudio.md)
+> [How Azure Dev Spaces works](how-dev-spaces-works.md)
 
 [ingress-update]: how-dev-spaces-works-up.md#how-running-your-code-is-configured
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
