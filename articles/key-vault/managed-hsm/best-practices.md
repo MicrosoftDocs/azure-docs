@@ -18,14 +18,12 @@ ms.author: ambapat
 ## Control Access to your Managed HSM
 
 Managed HSM is a cloud service that safeguards encryption keys. As these keys are sensitive and business critical, make sure to secure access to your HSM pools by allowing only authorized applications and users. This [article](accerss-control.md) provides an overview of the access model. It explains authentication and authorization, and role-based access control.
-
-Suggestions for high-availability:
-- To ensure best high-availability and zone-resiliency, choose Azure regions where [Availability Zones](../../../azure/availability-zones/az-overview) are supported. These regions appear as "Recommended regions" in the Azure portal.
-
-Suggestions while controlling access to your vault are as follows:
 - Lock down access to your management groups, subscriptions, resource groups and Managed HSMs - Use Azure RBAC to control access to your management groups, subscriptions, and resource groups
 - Create per key role assignments using [Managed HSM local RBAC](access-control.md##Data-plane%20and%20Managed%20HSM%20local%20RBAC)
 - Use least privilege access principal to assign roles
+
+## Choose regions that support availability zones
+- To ensure best high-availability and zone-resiliency, choose Azure regions where [Availability Zones](../../../azure/availability-zones/az-overview) are supported. These regions appear as "Recommended regions" in the Azure portal.
 
 ## Backup
 
