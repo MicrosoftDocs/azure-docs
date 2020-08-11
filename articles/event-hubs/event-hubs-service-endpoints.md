@@ -24,7 +24,7 @@ The result is a private and isolated relationship between the workloads bound to
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
 >
-> As an exception, you can allow access to Event Hubs resources from certain trusted services even when virtual networks are enabled. For a list of trusted services, see [Trusted services](#trusted-services).
+> As an exception, you can allow access to Event Hubs resources from certain trusted services even when virtual networks are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
 
 ## Advanced security scenarios enabled by VNet integration 
 

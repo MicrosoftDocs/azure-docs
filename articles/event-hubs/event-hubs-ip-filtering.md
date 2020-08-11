@@ -19,7 +19,7 @@ This feature is helpful in scenarios in which Azure Event Hubs should be only ac
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
 >
-> As an exception, you can allow access to Event Hubs resources from certain trusted services even when the IP filtering is enabled. For a list of trusted services, see [Trusted services](#trusted-services).
+> As an exception, you can allow access to Event Hubs resources from certain trusted services even when the IP filtering is enabled. For a list of trusted services, see [Trusted Microsoft services](#trusted-microsoft-services).
 
 ## IP firewall rules
 The IP firewall rules are applied at the Event Hubs namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
