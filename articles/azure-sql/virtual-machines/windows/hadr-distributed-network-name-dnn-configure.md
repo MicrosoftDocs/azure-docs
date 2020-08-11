@@ -171,7 +171,7 @@ Get-ClusterResource "virtual IP address" | Set-ClusterParameter
 
 In this command, "virtual IP address" is the name of the clustered VIP address resource, and "169.254.1.1" is the APIPA address chosen for the VIP address. Choose the address that best suits your business. Set `OverrideAddressMatch=1` to allow the IP address to be on any network, including the APIPA address space. 
 
-### Dedicated network adapater
+### Dedicated network adapter
 
 Alternatively, configure a network adapter in Azure to reserve the IP address used by the virtual IP address resource. However, this consumes the address in the subnet address space, and there is the additional overhead of ensuring the network adapter is not used for any other purpose.
 
