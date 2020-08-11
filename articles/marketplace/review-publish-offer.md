@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 07/05/2020
+ms.date: 08/12/2020
 ---
 
 # Review and publish an offer to commercial marketplace
@@ -17,9 +17,9 @@ This article shows you how to use Partner Center to submit your offer to preview
 ## Go to your offer in commercial marketplace
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
-1. On the **Overview** tab, under **Offers**, one of the following status indicators is displayed in the **Status** column for each offer.
- 
+2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+3. On the **Overview** tab, under **Offers**, one of the following status indicators is displayed in the **Status** column for each offer.
+
     | Status | Description |
     | ------------ | ------------- |
     | Draft | Offer has been created but it isn't being published. |
@@ -37,9 +37,11 @@ This article shows you how to use Partner Center to submit your offer to preview
 
 1. To submit your offer to preview, select **Review and publish** at the upper-right corner of the portal. The **Review and publish** page appears.
 1. Make sure that the **Status** column for each page says **Complete**. The three possible statuses are as follows:
+
    - **Not started** – The page is incomplete.
    - **Incomplete** – The page is missing required information or has errors that need to be fixed. You'll need to go back to the page and update it.
    - **Complete** – The page is complete. All required data has been provided and there are no errors.
+
 1. If any of the pages have a status other than **Complete**, in the **Page** column, select the page name, correct the issue, save the page, and then select **Review and publish** again to return to this page.
 1. After all the pages are complete, in the **Notes for certification** box, provide testing instructions to the certification team to ensure that your app is tested correctly. Provide any supplementary notes helpful for understanding your app.
 1. To submit the offer for publishing, select **Publish**. The **Offer overview** page appears and shows the publishing status.
@@ -48,7 +50,7 @@ This article shows you how to use Partner Center to submit your offer to preview
 
 After you select **Publish**, the validation and publishing processes proceed in order. The most common publishing process is shown in this table:
 
-| Phase | What happens | 
+| Phase | What happens |
 | ------------ | ------------- | ------------- |
 | Automated validation | We process a set of automated validations. |
 | Certification | We conduct manual validations. |
@@ -59,34 +61,38 @@ After you select **Publish**, the validation and publishing processes proceed in
 
 ## Automated validation phase
 
-The first step in the publishing process is a set of automated validations. Each validation step corresponds to a feature you chose when you created the offer. Each validation check must be completed before the offer can advance to the next step in the publishing process.
+The first step in the publishing process is a set of automated validations. Each validation step corresponds to a feature you chose when you created the offer. Each validation check must be complete before the offer can advance to the next step in the publishing process.
 
-- **Offer purchase flow setup (<10 min)**
+- **Offer purchase flow setup** (<10 min)
 
-   In this step, we ensure that your offer can be fulfilled when purchased by customers through the Azure portal. This step is only applicable for offers being sold through Microsoft.
-- **Test drive data validation (~5 min)**
+   We ensure your offer can be fulfilled when purchased by customers through the Azure portal. This step is only applicable for offers being sold through Microsoft.
 
-   In this step, we validate the data you provided on the Technical configuration page of the offer. Test drive functionality is tested and approved. This step is only applicable for offers with a test drive enabled.
+- **Test drive data validation** (~5 min)
 
-- **Test drive provisioning (~30 min)**
+   We validate the data you provided on the Technical configuration page of the offer. We test and approve test drive functionality. This step is only applicable for offers with a test drive enabled.
 
-    In this step, after validating the data and functionality of your test drive in the previous step, we deploy and replicate instances of your test drive so that they are ready for customer use. This step is only applicable for offers with a test drive enabled.
+- **Test drive provisioning** (~30 min)
 
-- **Lead management validation and registration (<15 min)**
+    After validating the data and functionality of your test drive in the previous step, we deploy and replicate instances of your test drive so they are ready for customer use. This step is only applicable for offers with a test drive enabled.
 
-    In this step, we confirm that your lead management system can receive customer leads based on the details you provided on the **Offer setup** page. This step is only applicable for offers with lead management enabled.
+- **Lead management validation and registration** (<15 min)
+
+    We confirm that your lead management system can receive customer leads based on the details you provided on the **Offer setup** page. This step is only applicable for offers with lead management enabled.
 
 ## Certification phase
 
 Offers submitted to the commercial marketplace must be certified before being published. Offers undergo rigorous testing, some automated and others manual. To learn more, see [commercial marketplace certification policies](https://aka.ms/commercial-marketplace-certification-policies).
 
 ### Types of validation that take place during certification
+
 There are three levels of validation included in the certification process for each submitted offer.
+
 - Publisher business eligibility
 - Content validation
 - Technical validation
 
 #### Publisher business eligibility
+
 Each offer type checks a set of required base eligibility criteria. This criteria may include publisher MPN status, competencies held, competency levels, and so on.
 
 #### Content validation
@@ -101,6 +107,7 @@ The information entered when you created your offer is checked for quality and r
 Learn more regarding the content validation criteria by reading the [general listing policies](https://aka.ms/commercial-marketplace-certification-policies#100-general).
 
 #### Technical validation
+
 During technical validation, the offer (package or binary) undergoes the following checks.
 
 - Scanned for malware
@@ -131,49 +138,49 @@ The following screenshot shows the **Offer overview** page for a SaaS offer. The
 
 ![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](./partner-center-portal/media/publish-status-publisher-signoff.png)
 
-**To preview your offer and sign off**
+### To preview your offer and sign off
 
 1. On the **Offer overview** page, to preview your offer, select the link under the **Go live** button.
-1. 
+
    > [!NOTE]
    > There will be a link for either AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
 
 1. If you want to make changes after previewing the offer, you can edit and resubmit to publish a new preview. For more information, see [Update an existing offer in the commercial marketplace](./partner-center-portal/update-existing-offer.md).
 
 1. After you approve your preview, to publish your offer live to the commercial marketplace, select **Go live**.
-1. 
+
    > [!TIP]
    > If your offer is already live and available to the public in the marketplace, any updates you make won't go live until you select **Go live**.
 
 ## Publish phase
 
-Now that you’ve chosen to go live with your offer, making it available in the commercial marketplace, there are a series of final validation checks that we do to ensure that the live offer is configured just like the preview version of the offer.
+Now that you’ve chosen to go live with your offer, which makes it available in the commercial marketplace, we perform a series of final validation checks to ensure the live offer is configured just like the preview version of the offer.
 
-- **Offer purchase flow setup (>10 min)**
+- **Offer purchase flow setup** (>10 min)
 
-    In this step, we ensure that your offer can be fulfilled when purchased by customers through the Azure portal. This step is only applicable for offers being sold through Microsoft.
+    We ensure your offer can be fulfilled when purchased by customers through the Azure portal. This step is only applicable for offers being sold through Microsoft.
 
-- **Test drive data validation (~5 min)**
+- **Test drive data validation** (~5 min)
 
-    In this step, we validate the data you provided on the Technical configuration page of the offer. Test drive functionality is tested and approved. This step is only applicable for offers with a test drive enabled.
+    We validate the data you provided on the Technical configuration page of the offer. We test and approve test drive functionality. This step is only applicable for offers with a test drive enabled.
 
-- **Test drive provisioning (~30 min)**
+- **Test drive provisioning** (~30 min)
 
-    In this step, we deploy and replicate instances of your test drive so that they are ready for customer use. This step is only applicable for offers with a test drive enabled.
+    We deploy and replicate instances of your test drive so they are ready for customer use. This step is only applicable for offers with a test drive enabled.
 
-- **Lead management validation and registration (>15 min)**
+- **Lead management validation and registration** (>15 min)
 
-    In this step, we confirm that your lead management system can receive customer leads based on the details provided on the **Offer setup** page of the offer. This step is only applicable for offers with lead management enabled.
+    We confirm that your lead management system can receive customer leads based on the details provided on your **Offer setup** page. This step is only applicable for offers with lead management enabled.
 
 - **Final publish (>30 minutes)**
 
-    In this step, we ensure that your offer becomes publicly available in the marketplace.
+    We ensure your offer becomes publicly available in the marketplace.
 
-After these validation checks have completed, your offer will be live in the marketplace.
+After these validation checks are complete, your offer will be live in the marketplace.
 
 ### Reporting usage of preview and other internal usage
 
-To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. To prevent being charged the agency fee and receiving a reduced payout, first notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process the charge.
+To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge.
 
 ## Next step
 
