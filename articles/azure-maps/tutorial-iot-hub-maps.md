@@ -1,9 +1,9 @@
 ---
-title: 'Tutorial: Implement IoT spatial analytics | Microsoft Azure Maps'
+title: 'Tutorial: Implement IoT spatial analytics with Microsoft Azure Maps'
 description: Integrate IoT Hub with Microsoft Azure Maps service APIs.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/12/2019
+ms.date: 08/11/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -21,19 +21,18 @@ In this tutorial you will:
 
 > [!div class="checklist"]
 > * Create an IoT Hub.
-> * Upload geofence area in the Azure Maps, Data service using the Data Upload API.
+> * Upload a geofence area to the Azure Maps Data service using the Data Upload API.
 > * Create a function in Azure Functions, implementing business logic based on Azure Maps spatial analytics.
 > * Subscribe to IoT device telemetry events from the Azure function via Event Grid.
 > * Filter the telemetry events using IoT Hub message routing.
 > * Create a storage account to store relevant event data.
 > * Simulate an in-vehicle IoT device.
-    
 
 ## Use case
 
-This solution demonstrates a scenario where a car rental company plans to monitor and log events for its rental cars. Car rental companies usually rent cars to a specific geographic region. They need to track the cars whereabouts while they are rented. Instances of a car leaving the chosen geographic region must be logged. Logging data ensures policies, fees, and other business aspects would be handled properly.
+This solution demonstrates a scenario where a car rental company plans to monitor and log events for its rental cars. Car rental companies usually track car locations within a specific geographic region. Instances of a car leaving the chosen geographic region must be logged. Data logging ensures that policies, fees, and other business aspects are taken into account.
 
-In our use case, the rental cars are equipped with IoT devices that regularly send telemetry data to Azure IoT Hub. The telemetry includes the current location and indicates whether the car's engine is running. The device location schema adheres to the IoT [Plug and Play schema for geospatial data](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/schemas/geospatial.md). The rental car's device telemetry schema looks like:
+In our use case, the rental cars are equipped with IoT devices that regularly send telemetry data to Azure IoT Hub. The telemetry includes the current location and indicates whether the car's engine is running. The device location schema adheres to the IoT [Plug and Play schema for geospatial data](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/schemas/geospatial.md). The rental car's device telemetry schema looks like the following JSON code:
 
 ```JSON
 {
@@ -50,17 +49,17 @@ In our use case, the rental cars are equipped with IoT devices that regularly se
             "iothub-enqueuedtime": "2019-06-18T00:17:20.608Z",
             "iothub-message-source": "Telemetry"
         },
-        "body": { 
-            "location": { 
+        "body": {
+            "location": {
                 "type": "Point",
                 "coordinates": [ -77.025988698005662, 38.9015330523316 ]
-            } 
-        } 
+            }
+        }
     }
 }
 ```
 
-Let's use in-vehicle device telemetry to accomplish our goal. We want to execute geofencing rules. And, we want to respond whenever we receive an event indicating the car has moved. To do so, we'll subscribe to the device telemetry events from IoT Hub via Event Grid. 
+We'll use in-vehicle device telemetry to to track the movement and location of rental cars. We want to execute geofencing rules. And, we want to respond whenever we receive an event indicating the car has moved. To do so, we'll subscribe to the device telemetry events from IoT Hub via Event Grid.
 
 There are several ways to subscribe to Event Grid, in this tutorial we use Azure Functions. Azure Functions reacts to events published in the Event Grid. It also implements car rental business logic, which is based on Azure Maps spatial analytics. 
 
@@ -68,19 +67,13 @@ Code inside Azure function checks whether the vehicle has left the geofence. If 
 
 The event circumstances can be helpful to the car rental company and the rental customer. The following diagram gives you a high-level overview of the system.
 
- 
-  <center>
-
   ![System overview](./media/tutorial-iot-hub-maps/system-diagram.png)
-  
-  </center>
 
-The following figure represents the geofence area highlighted in blue. The rental vehicle's route is indicated by a green line.
+The following figure highlights the geofence area in blue. The rental car's route is indicated by a green line.
 
   ![Geofence route](./media/tutorial-iot-hub-maps/geofence-route.png)
 
-
-## Prerequisites 
+## Prerequisites
 
 ### Create a resource group
 
@@ -89,12 +82,12 @@ To complete the steps in this tutorial, you first need to create a resource grou
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Select **Resource groups**.
-    
+ 
    ![Resource groups](./media/tutorial-iot-hub-maps/resource-group.png)
 
 3. Under **Resource groups**, select **Add**.
-    
-   ![Add resource group](./media/tutorial-iot-hub-maps/add-resource-group.png) 
+
+   ![Add resource group](./media/tutorial-iot-hub-maps/add-resource-group.png)
 
 4. Enter the following property values:
     * **Subscription:** Select your Azure subscription.
@@ -105,11 +98,9 @@ To complete the steps in this tutorial, you first need to create a resource grou
 
     Select **Review + create**, and then select **Create** on the next page.
 
-### Create an Azure Maps account 
+### Create an Azure Maps account
 
 To implement business logic based on Azure Maps spatial analytics, we need to create an Azure Maps account in the resource group we created. Follow instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) to create an Azure Maps account subscription with S1 pricing tier. Follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to obtain your primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
-
-
 
 ### Create a storage account
 
