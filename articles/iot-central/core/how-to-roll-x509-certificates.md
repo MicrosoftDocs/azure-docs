@@ -30,7 +30,7 @@ To update a group enrollment in response to a security breach, you should use th
 
 2. Click **Enrollment Groups**, and click the group name in the list.
 
-    ![Device Connection](./media/how-to-roll-x509-certificates/deviceconnection.png)
+    ![Device Connection](./media/how-to-roll-x509-certificates/device-connection.png)
 
 
 3. For certificate update, click **Manage primary** or **Manage Secondary**.
@@ -52,12 +52,12 @@ If you are rolling certificates to handle certificate expirations, use the follo
 
 2. Click **Enrollment Groups**, and click the group name in the list.
 
-    ![Device Connection](./media/how-to-roll-x509-certificates/deviceconnection.png)
+    ![Device Connection](./media/how-to-roll-x509-certificates/device-connection.png)
 
 
 3. For certificate update, click **Manage Primary**.
 
-    ![Device Connection](./media/how-to-roll-x509-certificates/managecerts.png)
+    ![Device Connection](./media/how-to-roll-x509-certificates/manage-certs.png)
 
 4. Add and verify root X.509 certificate in the enrollment group.
 
@@ -76,7 +76,7 @@ If you're rolling certificates in response to a security breach, use the followi
 
 3. Select **Certificates (X.509)** as mechanism.
 
-    ![Manage individual enrollments](./media/how-to-roll-x509-certificates/certificateupdate.png)
+    ![Manage individual enrollments](./media/how-to-roll-x509-certificates/certificate-update.png)
 
 4. For certificate update, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save**.
 
@@ -96,7 +96,7 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 
 3. Select **Certificates (X.509)** as mechanism.
 
-    ![Manage individual enrollments](./media/how-to-roll-x509-certificates/certificateupdate.png)
+    ![Manage individual enrollments](./media/how-to-roll-x509-certificates/certificate-update.png)
 
 4. For secondary certificate update, click the folder icon to select the new certificate to be uploaded for the enrollment entry. Click **Save**.
 
