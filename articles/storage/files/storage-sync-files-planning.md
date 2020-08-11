@@ -1,6 +1,6 @@
 ---
 title: Planning for an Azure File Sync deployment | Microsoft Docs
-description: Learn what to consider when planning for an Azure Files deployment.
+description: Plan for a deployment with Azure File Sync, a service that allows you to cache a number of Azure file shares on an on-premises Windows Server or cloud VM.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
