@@ -3,7 +3,7 @@ title: Windows Virtual Desktop FAQ - Azure
 description: Frequently asked questions and best practices for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/08/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
 ---
