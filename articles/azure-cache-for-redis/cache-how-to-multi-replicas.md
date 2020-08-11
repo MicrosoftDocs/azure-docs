@@ -9,7 +9,7 @@ ms.date: 08/11/2020
 ---
 
 # Add replicas to Azure Cache for Redis (Preview)
-Azure Cache for Redis Standard and Premium tiers offer redundancy by hosting caches on two dedicated VM's in a primary-replica configuration. When the primary VM becomes unavailable, the replica detects that and takes over as the new primary automatically. You can now increase the number of replicas in a Premium cache up to three, allowing you a total of four VMs backing a cache. This gives you higher resilience than what a single replica can provide.
+Azure Cache for Redis Standard and Premium tiers offer redundancy by hosting each cache on two dedicated virtual machines (VMs). These VMs are configured as primary and replica. When the primary VM becomes unavailable, the replica detects that and takes over as the new primary automatically. You can now increase the number of replicas in a Premium cache up to three, allowing you a total of four VMs backing a cache. Having multiple replicas gives you higher resilience than what a single replica can provide.
 
 In this article, you'll learn how to set up an Azure Cache with additional replicas using the Azure portal.
 
