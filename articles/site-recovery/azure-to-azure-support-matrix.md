@@ -158,7 +158,9 @@ SUSE Linux Enterprise Server 15 and 15 SP1 | 9.32 | By default, all [stock SUSE 
 
 * File systems: ext3, ext4, XFS, BTRFS
 * Volume manager: LVM2
-* Multipath software: Device Mapper
+
+> [!NOTE]
+> Multipath software is not supported. 
 
 
 ## Replicated machines - compute settings

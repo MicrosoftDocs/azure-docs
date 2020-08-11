@@ -320,3 +320,5 @@ The following links present troubleshooting scenarios. You may want to create a 
 [SSO access](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 [Application SSO Tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+
+[Whitepaper Download - Single sign-on deployment plan](https://aka.ms/SSODeploymentPlan)
