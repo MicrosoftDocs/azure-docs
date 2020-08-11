@@ -15,8 +15,8 @@ ms.author: mbaldwin
 # Azure Key Vault REST API overview
 Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data. Key Vault resource provider supports two types of containers: vaults and managed HSM pools.
 
-## DNS Suffixes for base URL
- The table below shows the base URL DNS suffix used by the data-plane endpoint for vaults and Managed HSM pools in various cloud environments.
+## DNS suffixes for base URL
+ The table below shows the base URL DNS suffix used by the data-plane endpoint for vaults and managed HSM pools in various cloud environments.
 
 Cloud environment | DNS suffix for vaults | DNS suffix for managed HSM pools
 ---|---|---
