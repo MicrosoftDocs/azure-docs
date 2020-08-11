@@ -65,7 +65,7 @@ By default, all newly created Conditional Access policies will apply to all clie
 > The behavior of the client apps condition was updated in August 2020. If you have existing Conditional Access policies, they will remain unchanged. However, if you click on an existing policy, the configure toggle has been removed and the client apps the policy applies to are selected.
 
 > [!IMPORTANT]
-> Sign-ins from legacy authentication clients don’t support MFA and don’t pass device state information to Azure AD, so they will be blocked by Conditional Access grant controls, like requiring MFA or compliant devices. If you have accounts which must use legacy authentication, you either exclude those accounts from the policy, or configure the policy to only apply to modern authentication clients.
+> Sign-ins from legacy authentication clients don’t support MFA and don’t pass device state information to Azure AD, so they will be blocked by Conditional Access grant controls, like requiring MFA or compliant devices. If you have accounts which must use legacy authentication, you must either exclude those accounts from the policy, or configure the policy to only apply to modern authentication clients.
 
 The **Configure** toggle when set to **Yes** applies to checked items, when set to **No** it applies to all client apps, including modern and legacy authentication clients. This toggle does not appear in policies created before August 2020.
 
