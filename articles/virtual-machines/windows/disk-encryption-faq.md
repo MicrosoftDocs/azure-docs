@@ -4,7 +4,7 @@ description: This article provides answers to frequently asked questions about M
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
@@ -16,7 +16,7 @@ This article provides answers to frequently asked questions (FAQ) about Azure Di
 
 ## What is Azure Disk Encryption for Windows VMs?
 
-Azure Disk Encryption for Windows VMs uses the Bitlocker feature of Windows to provide full disk encryption of the OS disk and data disks. Additionally, it provides encryption of the ephemeral resource disk when the [VolumeType parameter is All](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  The content flows encrypted from the VM to the Storage backend. Thereby, providing end-to-end encryption with a customer-managed key.
+Azure Disk Encryption for Windows VMs uses the BitLocker feature of Windows to provide full disk encryption of the OS disk and data disks. Additionally, it provides encryption of the temporary disk when the [VolumeType parameter is All](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  The content flows encrypted from the VM to the Storage backend. Thereby, providing end-to-end encryption with a customer-managed key.
  
 See [Supported VMs and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems).
  
@@ -44,8 +44,6 @@ The [Azure Disk Encryption overview](disk-encryption-overview.md) article lists 
 
 You can encrypt both boot and data volumes, but you can't encrypt the data without first encrypting the OS volume.
 
-After you've encrypted the OS volume, disabling encryption on the OS volume isn't supported.
-
 ## Can I encrypt an unmounted volume with Azure Disk Encryption?
 
 No, Azure Disk Encryption only encrypts mounted volumes.
@@ -56,7 +54,7 @@ Storage server-side encryption encrypts Azure managed disks in Azure Storage. Ma
  
 ## How is Azure Disk Encryption different from Storage server-side encryption with customer-managed key and when should I use each solution?
 
-Azure Disk Encryption provides end-to-end encryption for the OS disk, data disks, and the ephemeral resource disk with a customer-managed key.
+Azure Disk Encryption provides end-to-end encryption for the OS disk, data disks, and the temporary disk with a customer-managed key.
 
 - If your requirements include encrypting all of the above and end-to-end encryption, use Azure Disk Encryption. 
 - If your requirements include encrypting only data at rest with customer-managed key, then use [Server-side encryption with customer-managed keys](disk-encryption.md). You cannot encrypt a disk with both Azure Disk Encryption and Storage server-side encryption with customer managed keys.
@@ -125,20 +123,17 @@ Azure Disk Encryption selects the encryption method in BitLocker based on the ve
 
 To determine Windows OS version, run the 'winver' tool in your virtual machine.
 
-## If I use EncryptFormatAll and specify all volume types, will it erase the data on the data drives that we already encrypted?
-No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. 
-
 ## Can I backup and restore an encrypted VM? 
 
 Azure Backup provides a mechanism to backup and restore encrypted VM's within the same subscription and region.  For instructions, please see [Back up and restore encrypted virtual machines with Azure Backup](../../backup/backup-azure-vms-encryption.md).  Restoring an encrypted VM to a different region is not currently supported.  
 
 ## Where can I go to ask questions or provide feedback?
 
-You can ask questions or provide feedback on the [Azure Disk Encryption forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
+You can ask questions or provide feedback on the [Microsoft Q&A question page for Azure Disk Encryption](/answers/topics/azure-disk-encryption.html).
 
 ## Next steps
 In this document, you learned more about the most frequent questions related to Azure Disk Encryption. For more information about this service, see the following articles:
 
 - [Azure Disk Encryption Overview](disk-encryption-overview.md)
-- [Apply disk encryption in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
+- [Apply disk encryption in Azure Security Center](../../security-center/security-center-virtual-machine-protection.md)
 - [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md)

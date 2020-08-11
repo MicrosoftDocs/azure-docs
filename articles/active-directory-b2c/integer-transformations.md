@@ -31,7 +31,7 @@ Converts a long data type into a string data type.
 
 In this example, the `numericUserId` claim with a value type of long is converted to a `UserId` claim with a value type of string.
 
-```XML
+```xml
 <ClaimsTransformation Id="CreateUserId" TransformationMethod="ConvertNumberToStringClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="numericUserId" TransformationClaimType="inputClaim" />

@@ -1,6 +1,6 @@
 ---
 title: Add a line layer to a map | Microsoft Azure Maps
-description: In this article, you will learn how to add a line layer to a map using the Microsoft Azure Maps Web SDK.
+description: Learn how to add lines to maps. See examples that use the Azure Maps Web SDK to add line layers to maps and to customize lines with symbols and color gradients.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: 
-ms.custom: codepen
+ms.custom: codepen, devx-track-javascript
 ---
 
 # Add a line layer to the map

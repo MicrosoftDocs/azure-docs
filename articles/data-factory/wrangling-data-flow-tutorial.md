@@ -11,7 +11,10 @@ ms.date: 11/01/2019
 
 # Prepare data with wrangling data flow
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+> [!NOTE]
+> Wrangling data flow is currently avilable in public preview
 
 ## Create a wrangling data flow
 

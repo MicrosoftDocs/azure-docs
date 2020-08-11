@@ -55,25 +55,19 @@ Azure Security Center provides health assessments of [supported](security-center
 
 * Security Center recommends you **"Resolve endpoint protection health issues on your machines"** when **Get-MprotComputerStatus** runs and any of the following occurs:
 
-    * At least one of the following properties is false:
+  * At least one of the following properties is false:
 
-            **AMServiceEnabled**
+    * **AMServiceEnabled**
+    * **AntispywareEnabled**
+    * **RealTimeProtectionEnabled**
+    * **BehaviorMonitorEnabled**
+    * **IoavProtectionEnabled**
+    * **OnAccessProtectionEnabled**
 
-            **AntispywareEnabled**
-    
-            **RealTimeProtectionEnabled**
-    
-            **BehaviorMonitorEnabled**
-    
-            **IoavProtectionEnabled**
-    
-            **OnAccessProtectionEnabled**
-          
-    * If one or both of the following Signature Updates is greater or equal to 7. 
+  * If one or both of the following Signature Updates is greater or equal to 7. 
 
-            **AntispywareSignatureAge**
-    
-            **AntivirusSignatureAge**
+    * **AntispywareSignatureAge**
+    * **AntivirusSignatureAge**
 
 ## Trend Micro
 

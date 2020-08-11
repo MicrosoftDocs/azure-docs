@@ -1,30 +1,18 @@
 ---
 title: Azure Service Bus message sessions | Microsoft Docs
 description: This article explains how to use sessions to enable joint and ordered handling of unbounded sequences of related messages.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Message sessions
-Microsoft Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in first in, first out (FIFO) and request-response patterns. This article shows how to use sessions to implement these patterns when using Service Bus. 
-
-## First-in, first out (FIFO) pattern
-To realize a FIFO guarantee in Service Bus, use sessions. Service Bus isn't prescriptive about the nature of the relationship between the messages, and also doesn't define a particular model for determining where a message sequence starts or ends.
+Microsoft Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. Sessions can be used in **first in, first out (FIFO)** and **request-response** patterns. This article shows how to use sessions to implement these patterns when using Service Bus. 
 
 > [!NOTE]
 > The basic tier of Service Bus doesn't support sessions. The standard and premium tiers support sessions. For differences between these tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
+
+## First-in, first out (FIFO) pattern
+To realize a FIFO guarantee in Service Bus, use sessions. Service Bus isn't prescriptive about the nature of the relationship between the messages, and also doesn't define a particular model for determining where a message sequence starts or ends.
 
 Any sender can create a session when submitting messages into a topic or queue by setting the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) property to some application-defined identifier that is unique to the session. At the AMQP 1.0 protocol level, this value maps to the *group-id* property.
 
@@ -38,7 +26,7 @@ The session feature in Service Bus enables a specific receive operation, in the 
 
 In the portal, set the flag with the following check box:
 
-![][2]
+![Screenshot of the Create queue dialog box with the Enable sessions option selected and outlined in red.][2]
 
 > [!NOTE]
 > When Sessions are enabled on a queue or a subscription, the client applications can ***no longer*** send/receive regular messages. All messages must be sent as part of a session (by setting the session id) and received by receiving the session.
@@ -49,7 +37,7 @@ The APIs for sessions exist on queue and subscription clients. There's an impera
 
 Sessions provide concurrent de-multiplexing of interleaved message streams while preserving and guaranteeing ordered delivery.
 
-![][1]
+![A diagram showing how the Sessions feature preserves ordered delivery.][1]
 
 A [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) receiver is created by the client accepting a session. The client calls [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) or [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) in C#. In the reactive callback model, it registers a session handler.
 
@@ -92,7 +80,7 @@ The definition of delivery count per message in the context of sessions varies s
 ## Request-response pattern
 The [request-reply pattern](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) is a well-established integration pattern that enables the sender application to send a request and provides a way for the receiver to correctly send a response back to the sender application. This pattern typically needs a short-lived queue or topic for the application to send responses to. In this scenario, sessions provide a simple alternative solution with comparable semantics. 
 
-Multiple applications can send their requests to a single request queue, with a specific header parameter set to uniquely identify the sender application. The receiver application can process the requests coming in the queue and send replies on a sessions enabled queue, setting the session ID to the unique identifier the sender had sent on the request message. The application that sent the request can then receive messages on a specific session ID and correctly process the replies.
+Multiple applications can send their requests to a single request queue, with a specific header parameter set to uniquely identify the sender application. The receiver application can process the requests coming in the queue and send replies on the session enabled queue, setting the session ID to the unique identifier the sender had sent on the request message. The application that sent the request can then receive messages on the specific session ID and correctly process the replies.
 
 > [!NOTE]
 > The application that sends the initial requests should know about the session ID and use `SessionClient.AcceptMessageSession(SessionID)` to lock the session on which it's expecting the response. It's a good idea to use a GUID that uniquely identifies the instance of the application as a session id. There should be no session handler or `AcceptMessageSession(timeout)` on the queue to ensure that responses are available to be locked and processed by specific receivers.

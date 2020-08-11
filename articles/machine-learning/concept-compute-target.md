@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/30/2020
+ms.date: 07/27/2020
 # As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -44,25 +44,27 @@ Learn [where and how to deploy your model to a compute target](how-to-deploy-and
 
 A managed compute resource is created and managed by Azure Machine Learning. This compute is optimized for machine learning workloads. Azure Machine Learning compute clusters and [compute instances](concept-compute-instance.md) are the only managed computes. Additional managed compute resources may be added in the future.
 
-You can create Azure Machine Learning compute instances (preview) or compute clusters from:
+You can create Azure Machine Learning compute instances or compute clusters from:
 * Azure Machine Learning studio
 * Azure portal
 * Python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) and [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) classes
-* [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
-* Resource Manager template
-
-You can also create compute clusters using the [machine learning extension for the Azure CLI](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
+* [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (preview)
+* Resource Manager template. For an example template, see the [create Azure Machine Learning compute template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
+* Machine learning [extension for the Azure CLI](reference-azure-machine-learning-cli.md#resource-management).  
 
 When created these compute resources are automatically part of your workspace, unlike other kinds of compute targets.
 
-### Compute clusters
 
-You can use Azure Machine Learning compute clusters for training and for batch inferencing (preview).  With this compute resource, you have:
+|Capability  |Compute cluster  |Compute instance  |
+|---------|---------|---------|
+|Single- or multi-node cluster     |    **&check;**       |         |
+|Autoscales each time you submit a run     |     **&check;**      |         |
+|Automatic cluster management and job scheduling     |   **&check;**        |     **&check;**      |
+|Support for both CPU and GPU resources     |  **&check;**         |    **&check;**       |
 
-* Single- or multi-node cluster
-* Autoscaling each time you submit a run 
-* Automatic cluster management and job scheduling 
-* Support for both CPU and GPU resources
+
+> [!NOTE]
+> When a compute cluster is idle, it autoscales to 0 nodes, so you don't pay when it's not in use.  A compute *instance*, however, is always on and does not autoscale.  You should [stop the compute instance](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) when you are not using it to avoid extra cost.
 
 ### Supported VM series and sizes
 

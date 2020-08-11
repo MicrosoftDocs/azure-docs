@@ -1,19 +1,15 @@
 ---
-title: Use the Azure CLI to get started with Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Use the Azure CLI to create a Data Lake Storage Gen1 account and perform basic operations
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
+title: Manage Azure Data Lake Storage Gen1 account - Azure CLI
+description: Use the Azure CLI to create a Data Lake Storage Gen1 account and perform basic operations.
 
+author: twooley
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 
 ---
-# Get started with Azure Data Lake Store using Azure CLI
+# Get started with Azure Data Lake Storage Gen1 using the Azure CLI
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
@@ -110,23 +106,25 @@ az dls fs list --account mydatalakestoragegen1 --path /mynewfolder
 
 The output of this should be similar to the following:
 
-	[
-		{
-			"accessTime": 1491323529542,
-			"aclBit": false,
-			"blockSize": 268435456,
-			"group": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
-			"length": 1589881,
-			"modificationTime": 1491323531638,
-			"msExpirationTime": 0,
-			"name": "mynewfolder/vehicle1_09142014.csv",
-			"owner": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
-			"pathSuffix": "vehicle1_09142014.csv",
-			"permission": "770",
-			"replication": 1,
-			"type": "FILE"
-		}
-	]
+```output
+[
+	{
+		"accessTime": 1491323529542,
+		"aclBit": false,
+		"blockSize": 268435456,
+		"group": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
+		"length": 1589881,
+		"modificationTime": 1491323531638,
+		"msExpirationTime": 0,
+		"name": "mynewfolder/vehicle1_09142014.csv",
+		"owner": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
+		"pathSuffix": "vehicle1_09142014.csv",
+		"permission": "770",
+		"replication": 1,
+		"type": "FILE"
+	}
+]
+```
 
 ## Rename, download, and delete data from a Data Lake Storage Gen1 account 
 
@@ -183,17 +181,19 @@ In this section you learn about how to manage ACLs and permissions using the Azu
 
 	The output should be similar to the following:
 
-		{
-			"entries": [
-			"user::rwx",
-			"group::rwx",
-			"other::---"
-		  ],
-		  "group": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
-		  "owner": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
-		  "permission": "770",
-		  "stickyBit": false
-		}
+    ```output
+	{
+		"entries": [
+		"user::rwx",
+		"group::rwx",
+		"other::---"
+		],
+		"group": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
+		"owner": "1808bd5f-62af-45f4-89d8-03c5e81bac20",
+		"permission": "770",
+		"stickyBit": false
+	}
+    ```
 
 * **To set an entry for an ACL**, use the following command:
 

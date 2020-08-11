@@ -1,40 +1,40 @@
 ---
-title: 'Quickstart: Create an Apache Spark notebook'
+title: 'Quickstart: Create an Apache Spark for Azure Synapse Analytics notebook'
 description: This quickstart shows how to use the web tools to create an Apache Spark pool (preview) in Azure Synapse Analytics, and run a Spark SQL query.
 services: synapse-analytics
 author: euangMS
 ms.author: euang 
 ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
-ms.subservice: 
+ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
 ---
 
-# Quickstart: Create an Apache Spark pool (preview) in Azure Synapse Analytics using web tools
+# Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools
 
 In this quickstart, you learn how to create an Apache Spark pool (preview) in Azure Synapse using web tools. You then learn to connect to the Apache Spark pool and run Spark SQL queries against files and tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark in Azure Synapse, see [Overview: Apache Spark on Azure Synapse](./spark/apache-spark-overview.md).
 
 > [!IMPORTANT]
 > Billing for Spark instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Spark instance after you have finished using it, or set a short timeout. For more information, see the **Clean up resources** section of this article.
 
-If you don't have an Azure subscription, [create a free account before you begin](https:/azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https:/azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [Synapse Analytics workspace](quickstart-create-workspace.md)
-- [Apache Spark pool](quickstart-create-apache-spark-pool.md)
+- [Apache Spark pool](quickstart-create-apache-spark-pool-studio.md)
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https:/portal.azure.com/)
+Sign in to the [Azure portal](https://portal.azure.com/).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create a notebook
 
-A notebook is an interactive environment that supports various programming languages. The notebook allows you to interact with your data, combine code with markdown, text and perform simple visualizations.
+A notebook is an interactive environment that supports various programming languages. The notebook allows you to interact with your data, combine code with markdown, text, and perform simple visualizations.
 
 1. From the Azure portal view for the Azure Synapse workspace you want to use, select **Launch Synapse Studio**.
 2. Once Synapse Studio has launched, select **Develop**. Then, hover over the **Notebooks** entry. Select the ellipsis (**...**).
@@ -43,7 +43,7 @@ A notebook is an interactive environment that supports various programming langu
 
 4. In the **Properties** window, provide a name for the notebook.
 5. On the toolbar, click **Publish**.
-6. If there is only one Apache Spark pool in your workspace, then it is selected by default. Use the drop-down to select the correct Apache Spark pool if none is selected.
+6. If there is only one Apache Spark pool in your workspace, then it's selected by default. Use the drop-down to select the correct Apache Spark pool if none is selected.
 7. Click **Add code**. The default language is `Pyspark`. You are going to use a mix of Pyspark and Spark SQL, so the default choice is fine.
 8. Next you create a simple Spark DataFrame object to manipulate. In this case, you create it from code. There are three rows and three columns:
 
@@ -61,7 +61,7 @@ A notebook is an interactive environment that supports various programming langu
 
    ![Create data frame object](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png "Output from the Spark job ")
 
-10. If the Apache Spark pool instance is not already running, it is automatically started. You can see the status of the Apache Spark pool instance below the cell you are running and also on the status panel at the bottom of the notebook. Depending on the size of pool, starting should take 2-5 minutes. Once the code has finished running, information below the cell displays showing how long it took to run and its execution. In the output cell, you see the output.
+10. If the Apache Spark pool instance isn't already running, it is automatically started. You can see the Apache Spark pool instance status below the cell you are running and also on the status panel at the bottom of the notebook. Depending on the size of pool, starting should take 2-5 minutes. Once the code has finished running, information below the cell displays showing how long it took to run and its execution. In the output cell, you see the output.
 
     ![Output from executing a cell](./media/quickstart-apache-spark-notebook/run-cell-with-output.png "Output from the Spark job ")
 
@@ -74,7 +74,7 @@ A notebook is an interactive environment that supports various programming langu
      demo_df.write.parquet('abfss://<<TheNameOfAStorageAccountFileSystem>>@<<TheNameOfAStorageAccount>>.dfs.core.windows.net/demodata/demo_df', mode='overwrite')
     ```
 
-    If you use the storage explorer, it is possible to see the impact of the two different ways of writing a file used above. When no file system is specified then the default is used, in this case `default>user>trusted-service-user>demo_df`. The data is saved to the location of the specified file system.
+    If you use the storage explorer, it's possible to see the impact of the two different ways of writing a file used above. When no file system is specified then the default is used, in this case `default>user>trusted-service-user>demo_df`. The data is saved to the location of the specified file system.
 
     Notice in both the "csv" and "parquet" formats, write operations a directory is created with many partitioned files.
 
@@ -84,7 +84,7 @@ A notebook is an interactive environment that supports various programming langu
 
 ## Run Spark SQL statements
 
-SQL (Structured Query Language) is the most common and widely used language for querying and defining data. Spark SQL functions as an extension to Apache Spark for processing structured data, using the familiar SQL syntax.
+Structured Query Language (SQL) is the most common and widely used language for querying and defining data. Spark SQL functions as an extension to Apache Spark for processing structured data, using the familiar SQL syntax.
 
 1. Paste the following code in an empty cell, and then run the code. The command lists the tables on the pool.
 
@@ -104,11 +104,11 @@ SQL (Structured Query Language) is the most common and widely used language for 
 
     The code produces two output cells, one that contains data results the other, which shows the job view.
 
-    By default the results view shows a grid, but there is a view switcher underneath the grid that allows the view to switch between grid and graph views.
+    By default the results view shows a grid. But, there is a view switcher underneath the grid that allows the view to switch between grid and graph views.
 
     ![Query output in Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query.png "Query output in Azure Synapse Spark")
 
-3. In the **View** switcher, select **Chart**
+3. In the **View** switcher, select **Chart**.
 4. Select the **View options** icon from the far right-hand side.
 5. In the **Chart type** field, select "bar chart".
 6. In the X-axis column field, select "state".
@@ -128,13 +128,15 @@ SQL (Structured Query Language) is the most common and widely used language for 
 
 ## Clean up resources
 
-Azure Synapse saves your data in Azure Data Lake Storage. You can safely let a Spark instance shut down when it is not in use. You are charged for an Azure Synapse Apache Spark pool as long as it is running, even when it is not in use. Since the charges for the pool are many times more than the charges for storage, it makes economic sense to let Spark instances shut down when they are not in use.
+Azure Synapse saves your data in Azure Data Lake Storage. You can safely let a Spark instance shut down when it is not in use. You are charged for an Azure Synapse Apache Spark pool as long as it is running, even when it is not in use. 
+
+Since the charges for the pool are many times more than the charges for storage, it makes economic sense to let Spark instances shut down when they are not in use.
 
 To ensure the Spark instance is shut down, end any connected sessions(notebooks). The pool shuts down when the **idle time** specified in the Apache Spark pool is reached. You can also select **end session** from the status bar at the bottom of the notebook.
 
 ## Next steps
 
-In this quickstart, you learned how to create a Azure Synapse Apache Spark pool and run a basic Spark SQL query.
+In this quickstart, you learned how to create an Azure Synapse Apache Spark pool and run a basic Spark SQL query.
 
 - [Azure Synapse Analytics](overview-what-is.md)
 - [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

@@ -6,6 +6,7 @@ ms.topic: quickstart
 description: "This quickstart shows you how to use Azure Dev Spaces and the command line to develop an application with an existing Helm chart on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
+ms.custom: devx-track-javascript
 ---
 # Quickstart: Develop an application with an existing Helm chart on Kubernetes - Azure Dev Spaces
 In this guide, you will learn how to:
@@ -90,7 +91,7 @@ Press Ctrl+C to detach
 ...
 ```
 
-You can see the service running by opening the public URL, which is displayed in the output from the `azds up` command. In this example, the public URL is *http://dev.service.1234567890abcdef1234.eus.azds.io/*.
+You can see the service running by opening the public URL, which is displayed in the output from the `azds up` command. In this example, the public URL is `http://dev.service.1234567890abcdef1234.eus.azds.io/`.
 
 > [!NOTE]
 > When you navigate to your service while running `azds up`, the HTTP request traces are also displayed in the output of the `azds up` command. These traces can help you troubleshoot and debug your service. You can disable these traces using `--disable-http-traces` when running `azds up`.

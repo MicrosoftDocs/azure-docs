@@ -4,8 +4,9 @@ description: This article describes how you can restart an Azure Database for My
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 4/28/2020
+ms.topic: how-to
+ms.date: 4/28/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Restart Azure Database for MySQL server using PowerShell
@@ -46,3 +47,8 @@ Restart the server with the following command:
 ```azurepowershell-interactive
 Restart-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create an Azure Database for MySQL server using PowerShell](quickstart-create-mysql-server-database-using-azure-powershell.md)

@@ -1,31 +1,31 @@
 ---
-title: Using SQL on-demand (preview)
-description: In this quickstart, you will see and learn how easy is to query various types of files using SQL on-demand (preview).
+title: 'Quickstart: Use SQL on-demand'
+description: In this quickstart, you'll see and learn how easy is to query various types of files using SQL on-demand (preview).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Using SQL on-demand
+# Quickstart: Use SQL on-demand
 
-Synapse SQL on-demand  (preview) is a serverless query service that enables you to run the SQL queries on your files placed in Azure Storage. In this quickstart, you will learn how to query various types of files using SQL on-demand.
+Synapse SQL on-demand  (preview) is a serverless query service that enables you to run SQL queries on files placed in Azure Storage. In this quickstart, you'll learn how to query various types of files using SQL on-demand. Supported formats are listed in [OPENROWSET](sql/develop-openrowset.md).
 
-The following file types are supported: JSON, CSV, Apache Parquet
+This quickstart shows querying: CSV, Apache Parquet, and JSON files.
 
 ## Prerequisites
 
 Choose a SQL client to issue queries:
 
-- [Azure Synapse Studio](quickstart-synapse-studio.md) is a web tool that you can use to browse files in storage and create SQL query.
+- [Azure Synapse Studio](quickstart-synapse-studio.md) is a web tool that you can use to browse files in storage and create SQL queries.
 - [Azure Data Studio](sql/get-started-azure-data-studio.md) is a client tool that enables you to run SQL queries and notebooks on your On-demand database.
 - [SQL Server Management Studio](sql/get-started-ssms.md) is a client tool that enables you to run SQL queries on your On-demand database.
 
-Parameters for quickstart:
+Parameters for this quickstart:
 
 | Parameter                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
@@ -36,19 +36,18 @@ Parameters for quickstart:
 
 ## First-time setup
 
-Prior to using samples:
+Before using the samples:
 
 - Create database for your views (in case you want to use views)
 - Create credentials to be used by SQL on-demand to access files in storage
 
 ### Create database
 
-Create your own database for demo purposes. This is the database in which you create your views. Use this database in the sample queries in this article.
+Create your own database for demo purposes. You'll use this database to create your views and for the sample queries in this article.
 
 > [!NOTE]
 > The databases are used only for view metadata, not for actual data.
->
-> Write down database name you use for use later in the Quickstart.
+>Write down database name you use for use later in the Quickstart.
 
 Use the following query, changing `mydbname` to a name of your choice:
 
@@ -56,49 +55,41 @@ Use the following query, changing `mydbname` to a name of your choice:
 CREATE DATABASE mydbname
 ```
 
-### Create credentials
+### Create data source
 
-To run queries using SQL on-demand, create credentials for SQL on-demand to use to access files in storage.
-
-> [!NOTE]
-> In order to successfully run samples in this section you have to use SAS token.
->
-> To start using SAS tokens you have to drop the UserIdentity which is explained in the following [article](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
->
-> SQL on-demand by default always uses AAD pass-through.
-
-For more information on how to manage storage access control, check this [link](sql/develop-storage-files-storage-access-control.md).
-
-Execute following code snippet to create credential used in samples in this section:
+To run queries using SQL on-demand, create data source that SQL on-demand can use use to access files in storage.
+Execute the following code snippet to create data source used in samples in this section:
 
 ```sql
--- create credentials for containers in our demo storage account
-IF EXISTS
-   (SELECT * FROM sys.credentials
-   WHERE name = 'https://sqlondemandstorage.blob.core.windows.net')
-   DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
-GO
+-- create master key that will protect the credentials:
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = <enter very strong password here>
 
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net]
+-- create credentials for containers in our demo storage account
+CREATE DATABASE SCOPED CREDENTIAL sqlondemand
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  
 SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
 GO
+CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
+    LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
+    CREDENTIAL = sqlondemand
+);
 ```
 
-## Querying CSV files
+## Query CSV files
 
 The following image is a preview of the file to be queried:
 
 ![First 10 rows of the CSV file without header, Windows style new line.](./sql/media/query-single-csv-file/population.png)
 
-The following query shows how to read a CSV file that does not contain a header row, with Windows-style new line, and comma-delimited columns:
+The following query shows how to read a CSV file that doesn't contain a header row, with Windows-style new line, and comma-delimited columns:
 
 ```sql
 SELECT TOP 10 *
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/*.csv'
-    , FORMAT = 'CSV'
+      BULK 'csv/population/*.csv',
+      DATA_SOURCE = 'SqlOnDemandDemo',
+      FORMAT = 'CSV', PARSER_VERSION = '2.0'
   )
 WITH
   (
@@ -114,25 +105,26 @@ WHERE
 You can specify schema at query compilation time.
 For more examples, see how to [query CSV file](sql/query-single-csv-file.md).
 
-## Querying parquet files
+## Query Parquet files
 
 The following sample shows the automatic schema inference capabilities for querying Parquet files. It returns the number of rows in September of 2017 without specifying schema.
 
 > [!NOTE]
-> You do not have to specify columns in `OPENROWSET WITH` clause when reading Parquet files. In that case, SQL on-demand utilizes metadata in the Parquet file and bind columns by name.
+> You do not have to specify columns in `OPENROWSET WITH` clause when reading Parquet files. In that case, SQL on-demand utilizes metadata in the Parquet file and binds columns by name.
 
 ```sql
 SELECT COUNT_BIG(*)
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet'
-    , FORMAT='PARQUET'
+      BULK 'parquet/taxi/year=2017/month=9/*.parquet',
+      DATA_SOURCE = 'SqlOnDemandDemo',
+      FORMAT='PARQUET'
   ) AS nyc
 ```
 
-Find more information about [querying parquet files](sql/query-parquet-files.md)].
+Find more information about [querying parquet files](sql/query-parquet-files.md).
 
-## Querying JSON files
+## Query JSON files
 
 ### JSON sample file
 
@@ -154,9 +146,9 @@ Files are stored in *json* container, folder *books*, and contain single book en
 }
 ```
 
-### Querying JSON files
+### Query JSON files
 
-Following query shows how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve scalar values (title, publisher) from a book with the title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
+The following query shows how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve scalar values (title, publisher) from a book with the title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
 ```sql
 SELECT
@@ -165,7 +157,8 @@ SELECT
   , jsonContent
 FROM OPENROWSET
   (
-      BULK 'https://sqlondemandstorage.blob.core.windows.net/json/books/*.json'
+      BULK 'json/books/*.json',
+      DATA_SOURCE = 'SqlOnDemandDemo'
     , FORMAT='CSV'
     , FIELDTERMINATOR ='0x0b'
     , FIELDQUOTE = '0x0b'
@@ -178,11 +171,11 @@ WHERE
 ```
 
 > [!IMPORTANT]
-> We are reading the entire JSON file as single row/column so FIELDTERMINATOR, FIELDQUOTE, and ROWTERMINATOR are set to 0x0b because we do not expect to find it in the file.
+> We are reading the entire JSON file as single row/column. So, FIELDTERMINATOR, FIELDQUOTE, and ROWTERMINATOR are set to 0x0b because we do not expect to find it in the file.
 
 ## Next steps
 
-Now you are ready to start with following Quickstart articles:
+You're now ready to continue on with the following articles:
 
 - [Query single CSV file](sql/query-single-csv-file.md)
 - [Query folders and multiple CSV files](sql/query-folders-multiple-csv-files.md)
@@ -193,7 +186,4 @@ Now you are ready to start with following Quickstart articles:
 - [Creating and using views](sql/create-use-views.md)
 - [Creating and using external tables](sql/create-use-external-tables.md)
 - [Persist query result to Azure storage](sql/create-external-table-as-select.md)
-
-Advance to the next article to learn how to query single CSV file.
-> [!div class="nextstepaction"]
-> [Query single CSV file](sql/query-single-csv-file.md)
+- [Query single CSV file](sql/query-single-csv-file.md)

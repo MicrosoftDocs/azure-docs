@@ -1,24 +1,24 @@
 ---
-title: On-premises SQL Server
-titleSuffix: ML Studio (classic) - Azure
-description: Use data from an on-premises SQL Server database to perform advanced analytics with Azure Machine Learning Studio (classic).
+title: 'ML Studio (classic): On-premises SQL Server - Azure'
+description: Use data from a SQL Server database to perform advanced analytics with Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
 ---
-# Perform analytics with Azure Machine Learning Studio (classic) using an on-premises SQL Server database
+# Perform analytics with Azure Machine Learning Studio (classic) using a SQL Server database
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
-Often enterprises that work with on-premises data would like to take advantage of the scale and agility of the cloud for their machine learning workloads. But they don't want to disrupt their current business processes and workflows by moving their on-premises data to the cloud. Azure Machine Learning Studio (classic) now supports reading your data from an on-premises SQL Server database and then training and scoring a model with this data. You no longer have to manually copy and sync the data between the cloud and your on-premises server. Instead, the **Import Data** module in Azure Machine Learning Studio (classic) can now read directly from your on-premises SQL Server database for your training and scoring jobs.
 
-This article provides an overview of how to ingress on-premises SQL server data into Azure Machine Learning Studio (classic). It assumes that you're familiar with Studio (classic) concepts like workspaces, modules, datasets, experiments, *etc.*.
+Often enterprises that work with on-premises data would like to take advantage of the scale and agility of the cloud for their machine learning workloads. But they don't want to disrupt their current business processes and workflows by moving their on-premises data to the cloud. Azure Machine Learning Studio (classic) now supports reading your data from a SQL Server database and then training and scoring a model with this data. You no longer have to manually copy and sync the data between the cloud and your on-premises server. Instead, the **Import Data** module in Azure Machine Learning Studio (classic) can now read directly from your SQL Server database for your training and scoring jobs.
+
+This article provides an overview of how to ingress SQL Server data into Azure Machine Learning Studio (classic). It assumes that you're familiar with Studio (classic) concepts like workspaces, modules, datasets, experiments, *etc.*.
 
 > [!NOTE]
 > This feature is not available for free workspaces. For more
@@ -33,7 +33,7 @@ This article provides an overview of how to ingress on-premises SQL server data 
 
 
 ## Install the Data Factory Self-hosted Integration Runtime
-To access an on-premises SQL Server database in Azure Machine Learning Studio (classic), you need
+To access a SQL Server database in Azure Machine Learning Studio (classic), you need
 to download and install the Data Factory Self-hosted Integration Runtime, formerly known as the Data Management Gateway. When you configure the connection in Machine Learning Studio (classic), you have the opportunity to download and install the Integration Runtime (IR) using the **Download and register data
 gateway** dialog described below.
 
@@ -66,10 +66,10 @@ Consider the following when setting up and using a Data Factory Self-hosted Inte
 
 You can find detailed information on installation prerequisites, installation steps, and troubleshooting tips in the article [Integration Runtime in Data Factory](../../data-factory/concepts-integration-runtime.md).
 
-## <span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Ingress data from your on-premises SQL Server database into Azure Machine Learning
+## <span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Ingress data from your SQL Server database into Azure Machine Learning
 In this walkthrough, you will set up an Azure Data Factory Integration Runtime in an Azure
-Machine Learning workspace, configure it, and then read data from an
-on-premises SQL Server database.
+Machine Learning workspace, configure it, and then read data from a
+SQL Server database.
 
 > [!TIP]
 > Before you start, disable your browser's pop-up blocker for
@@ -83,7 +83,7 @@ on-premises SQL Server database.
 
 ### Step 1: Create a gateway
 The first step is to create and set up the gateway to access your
-on-premises SQL database.
+SQL database.
 
 1. Log in to [Azure Machine Learning
     Studio (classic)](https://studio.azureml.net/Home/) and select the workspace
@@ -179,7 +179,7 @@ only one gateway can be installed on a single computer. For more information, se
 
 ### Step 2: Use the gateway to read data from an on-premises data source
 After you set up the gateway, you can add an **Import Data** module to
-an experiment that inputs the data from the on-premises SQL Server database.
+an experiment that inputs the data from the SQL Server database.
 
 1. In Machine Learning Studio (classic), select the **EXPERIMENTS** tab, click
    **+NEW** in the lower-left corner, and select **Blank Experiment**
@@ -202,7 +202,7 @@ an experiment that inputs the data from the on-premises SQL Server database.
 7. Click **Enter values** under **User name and password** and enter
    your database credentials. You can use Windows Integrated
    Authentication or SQL Server Authentication depending upon how your
-   on-premises SQL Server is configured.
+   SQL Server is configured.
 
    ![Enter database credentials](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)
 
@@ -217,10 +217,10 @@ Data** module and selecting **Visualize**.
 
 Once you finish developing your experiment, you can deploy and
 operationalize your model. Using the Batch Execution Service, data from
-the on-premises SQL Server database configured in the **Import Data** module will
+the SQL Server database configured in the **Import Data** module will
 be read and used for scoring. While you can use the Request Response
 Service for scoring on-premises data, Microsoft recommends using the
 [Excel Add-in](excel-add-in-for-web-services.md)
-instead. Currently, writing to an on-premises SQL Server database through
+instead. Currently, writing to a SQL Server database through
 **Export Data** is not supported either in your experiments or published
 web services.

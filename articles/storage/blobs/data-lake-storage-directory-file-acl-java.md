@@ -4,8 +4,9 @@ description: Use Azure Storage libraries for Java to manage directories and file
 author: normesta
 ms.service: storage
 ms.date: 03/20/2020
+ms.custom: devx-track-java
 ms.author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ---
@@ -100,11 +101,11 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 > For more examples, see the [Azure identity client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) documentation.
 
 
-## Create a file system
+## Create a container
 
-A file system acts as a container for your files. You can create one by calling the **DataLakeServiceClient.createFileSystem** method.
+A container acts as a file system for your files. You can create one by calling the **DataLakeServiceClient.createFileSystem** method.
 
-This example creates a file system named `my-file-system`. 
+This example creates a container named `my-file-system`. 
 
 ```java
 static public DataLakeFileSystemClient CreateFileSystem
@@ -118,7 +119,7 @@ static public DataLakeFileSystemClient CreateFileSystem
 
 Create a directory reference by calling the **DataLakeFileSystemClient.createDirectory** method.
 
-This example adds a directory named `my-directory` to a file system, and then adds a sub-directory named `my-subdirectory`. 
+This example adds a directory named `my-directory` to a container, and then adds a sub-directory named `my-subdirectory`. 
 
 ```java
 static public DataLakeDirectoryClient CreateDirectory
@@ -226,6 +227,8 @@ static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient
 }
 
 ```
+
+You can also get and set the ACL of the root directory of a container. To get the root directory, pass an empty string (`""`) into the **DataLakeFileSystemClient.getDirectoryClient** method.
 
 ## Upload a file to a directory
 

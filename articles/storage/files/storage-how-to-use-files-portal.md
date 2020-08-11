@@ -1,6 +1,6 @@
 ---
 title: Quickstart for managing Azure file shares with Azure portal
-description: Use this quickstart to learn to use the Azure portal to manage Azure Files.
+description: See how to create and manage Azure file shares in the Azure portal. Create a storage account, create an Azure file share, and use your Azure file share.
 author: roygara
 ms.service: storage
 ms.topic: quickstart

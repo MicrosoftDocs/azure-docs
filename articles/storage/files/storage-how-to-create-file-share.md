@@ -4,10 +4,11 @@ titleSuffix: Azure Files
 description: How to create an Azure file share by using the Azure portal, PowerShell, or the Azure CLI.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 2/22/2020
 ms.author: rogarana
-ms.subservice: files
+ms.subservice: files 
+ms.custom: devx-track-azurecli
 ---
 
 # Create an Azure file share

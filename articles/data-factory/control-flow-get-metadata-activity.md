@@ -13,7 +13,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 07/24/2020
 ms.author: jingwang
 
 ---
@@ -58,13 +58,14 @@ The Get Metadata activity takes a dataset as an input and returns metadata infor
 - For Azure Blob storage, `lastModified` applies to the container and the blob but not to the virtual folder.
 - `lastModified` filter currently applies to filter child items but not the specified folder/file itself.
 - Wildcard filter on folders/files is not supported for Get Metadata activity.
+- `structure` and `columnCount` are not supported when getting metadata from Binary, JSON or XML files.
 
 **Relational database**
 
 | Connector/Metadata | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
-| [Azure SQL Database managed instance](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
+| [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) | √ | √ | √ |
 | [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 

@@ -1,17 +1,17 @@
 ---
-title: Configure lead management in Marketo | Azure Marketplace
-description: Configure lead management for Marketo for Azure Marketplace customers.
-author: qianw211 
-ms.author: dsindona
+title: Lead management in Marketo - Microsoft commercial marketplace
+description: Learn how to use a Marketo CRM system to manage leads from Microsoft AppSource and Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
 ---
 
-# Configure lead management in Marketo
+# Use Marketo to manage commercial marketplace leads
 
-This article describes how to set up your Marketo CRM system to process sales leads from your commercial marketplace offer.
+This article describes how to set up your Marketo CRM system to process sales leads from your offers in Microsoft AppSource and Azure Marketplace.
 
 ## Set up your Marketo CRM system
 
@@ -62,11 +62,13 @@ This article describes how to set up your Marketo CRM system to process sales le
 
 When you're ready to configure the lead management information for your offer in the publishing portal, follow these steps. 
 
-1. Go to the **Offer setup** page for your offer.
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
-1. Select **Connect** under the **Lead management** section. 
+1. Select your offer, and go to the **Offer setup** tab.
 
-    ![Lead management section Connect button](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
+1. Under the **Customer leads** section, select **Connect**.
+
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png" alt-text="Customer leads":::
 
 1. On the **Connection details** pop-up window, select **Marketo** for the **Lead destination**.
 
@@ -81,6 +83,6 @@ When you're ready to configure the lead management information for your offer in
 
 1. Select **OK**.
 
-   To make sure you've successfully connected to a lead destination, select the **Validate** button. If successful, you'll have a test lead in the lead destination.
+   To make sure you've successfully connected to a lead destination, select **Validate**. If successful, you'll have a test lead in the lead destination.
 
    ![Connection details pop-up window](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

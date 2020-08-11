@@ -7,7 +7,7 @@ ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Quickstart: Create an Azure Database for MySQL server using PowerShell
@@ -164,7 +164,7 @@ Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 ```Output
 FullyQualifiedDomainName                    AdministratorLogin
 ------------------------                    ------------------
-mrdemoserver.mysql.database.azure.com       myadmin
+mydemoserver.mysql.database.azure.com       myadmin
 ```
 
 ## Connect to the server using the mysql command-line tool
@@ -273,3 +273,8 @@ To delete only the server created in this quickstart without deleting the resour
 ```azurepowershell-interactive
 Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Design an Azure Database for MySQL using PowerShell](tutorial-design-database-using-powershell.md)

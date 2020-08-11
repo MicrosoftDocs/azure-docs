@@ -15,9 +15,9 @@ Custom handlers are lightweight web servers that receive events from the Functio
 
 Custom handlers are best suited for situations where you want to:
 
-- Implement a Functions app in a language beyond the officially supported languages
-- Implement a Functions app in a language version or runtime not supported by default
-- Have granular control over the app execution environment
+- Implement a function app in a language that's not officially supported.
+- Implement a function app in a language version or runtime not supported by default.
+- Provide more granular control over the function app execution environment.
 
 With custom handlers, all [triggers and input and output bindings](./functions-triggers-bindings.md) are supported via [extension bundles](./functions-bindings-register.md).
 
@@ -442,9 +442,14 @@ This example is for Node.js, so you may have to alter this example for other lan
 
 A custom handler can be deployed to nearly every Azure Functions hosting option (see [restrictions](#restrictions)). If your handler requires custom dependencies (such as a language runtime), you may need to use a [custom container](./functions-create-function-linux-custom-image.md).
 
+To deploy a custom handler app using Azure Functions Core Tools, run the following command.
+
+```bash
+func azure functionapp publish $functionAppName --no-build --force
+```
+
 ## Restrictions
 
-- Custom handlers are not supported in Linux consumption plans.
 - The web server needs to start within 60 seconds.
 
 ## Samples

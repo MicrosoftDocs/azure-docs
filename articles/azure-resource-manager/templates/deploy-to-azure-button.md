@@ -2,11 +2,11 @@
 title: Deploy to Azure button
 description: Use button to deploy Azure Resource Manager templates from a GitHub repository.
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 07/20/2020
 ---
 # Use a deployment button to deploy templates from GitHub repository
 
-This article describes how to use the **Deploy to Azure** button to deploy templates from a GitHub repository. You can add the button directly to the README.md file in your GitHub repository or to a web page that references the repository.
+This article describes how to use the **Deploy to Azure** button to deploy templates from a GitHub repository. You can add the button directly to the README.md file in your GitHub repository or to a web page that references the repository. This method only supports resource group level deployment.
 
 ## Use common image
 
@@ -22,7 +22,11 @@ The image appears as:
 
 ## Create URL for deploying template
 
-To create the URL for your template, start with the raw URL to the template in your repo:
+To create the URL for your template, start with the raw URL to the template in your repo. To see the raw URL, select **Raw**.
+
+:::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="select Raw":::
+
+The format of the URL is:
 
 ```html
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json

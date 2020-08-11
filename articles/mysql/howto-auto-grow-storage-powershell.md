@@ -4,10 +4,11 @@ description: This article describes how you can enable auto grow storage using P
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 4/28/2020
+ms.topic: how-to
+ms.date: 4/28/2020 
+ms.custom: devx-track-azurepowershell
 ---
-# Auto grow storage in Azure Database for MySQL storage using PowerShell
+# Auto grow storage in Azure Database for MySQL server using PowerShell
 
 This article describes how you can configure an Azure Database for MySQL server storage to grow
 without impacting the workload.
@@ -57,4 +58,5 @@ New-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -Sku GP_
 
 ## Next steps
 
-Learn about [how to create alerts on metrics](howto-alert-on-metric.md).
+> [!div class="nextstepaction"]
+> [How to create and manage read replicas in Azure Database for MySQL using PowerShell](howto-read-replicas-powershell.md).

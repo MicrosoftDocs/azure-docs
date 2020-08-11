@@ -56,6 +56,8 @@
     href: concepts/text-offsets.md
   - name: Data limits
     href: concepts/data-limits.md
+  - name: Model versioning
+    href: concepts/model-versioning.md
 - name: How-to guides
   items:
    - name: Call the Text Analytics API
@@ -68,6 +70,8 @@
      href: How-tos/text-analytics-how-to-keyword-extraction.md
    - name: Named entity recognition
      href: How-tos/text-analytics-how-to-entity-linking.md
+   - name: Text Analytics for health
+     href: How-tos/text-analytics-for-health.md
    - name: Use containers
      items:
       - name: Install and run containers
@@ -78,6 +82,8 @@
         href: how-tos/text-analytics-how-to-use-container-instances.md
       - name: Use kubernetes service (AKS)
         href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+   - name: Migrate to version 3 of the API
+     href: migration-guide.md
 - name: Reference
   items:
   - name: CLI reference
@@ -86,13 +92,13 @@
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Text Analytics API
     items:
-      - name: v3.0-preview
-        href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1
+      - name: v3.0
+        href: https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0
       - name: v2
         href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1
   - name: SDKs
     items:
-    - name: v3.0-preview
+    - name: v3.0
       items:
         - name: .NET
           href: https://aka.ms/azsdk-net-textanalytics-ref-docs

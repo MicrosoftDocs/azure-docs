@@ -1,20 +1,8 @@
 ---
 title: Azure Service Bus - suspend messaging entities
 description: This article explains how to temporarily suspend and reactivate Azure Service Bus message entities (queues, topics, and subscriptions).
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Suspend and reactivate messaging entities (disable)
@@ -27,7 +15,7 @@ A suspension or reactivation can be performed either by the user or by the syste
 
 In the portal, the **Properties** section for the respective entity enables changing the state; the following screenshot shows the toggle for a queue:
 
-![][1]
+![Screenshot of the Service Bus feature with the Properties setting highlighted and the Queue state option set to Active and outlined in red.][1]
 
 The portal only permits completely disabling queues. You can also disable the send and receive operations separately using the Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs in the .NET Framework SDK, or with an Azure Resource Manager template through Azure CLI or Azure PowerShell.
 

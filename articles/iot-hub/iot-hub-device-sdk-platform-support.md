@@ -119,7 +119,7 @@ If you're not able to use one of the IoT Hub device SDKs, you can connect direct
 
 ## Support and other resources
 
-If you experience problems while using the Azure IoT device SDKs, there are several ways to seek support. You can try one of the following channels:
+If you experience problems while using the Azure IoT device SDKs, there are several ways to seek support summarized below. For full information on all of your support options, please see [Azure IoT Support and Help Options](https://aka.ms/iothelp). 
 
 **Reporting bugs** – Bugs in the device SDKs can be reported on the issues page of the relevant GitHub project. Fixes rapidly make their way from the project in to product updates.
 
@@ -132,6 +132,8 @@ If you experience problems while using the Azure IoT device SDKs, there are seve
 * [Azure IoT Hub Node.js SDK issues](https://github.com/Azure/azure-iot-sdk-node/issues)
 
 * [Azure IoT Hub Python SDK issues](https://github.com/Azure/azure-iot-sdk-python/issues)
+
+**Technical Questions** – You can ask technical questions on both [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) using the tag *azure-iot-sdk*.
 
 **Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a new support request directly from the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 

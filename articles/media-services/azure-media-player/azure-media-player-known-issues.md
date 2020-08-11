@@ -5,7 +5,7 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 05/11/2020
 ---
 
 # Known Issues #
@@ -36,14 +36,16 @@ The current release has the following known issues:
 
 - Ads may have issues being inserted (on demand or live) when an ad-blocker is installed in the browser
 - Mobile devices may have issues playing back ads.
+- MP4 Midroll ads aren't currently supported by Azure Media Player.
 
 ## AzureHtml5JS ##
 
 - In the DVR window of Live content, when content finishes the timeline will continue to grow until seeking to the area or reaching the end of the presentation.
 - Live presentations in Firefox with MSE enabled has some issues
-- Assets that are audio or video only won't play back via the AzureHtml5JS tech.
-  - If you'd like to play back assets without audio or video, you can do so by inserting blank audio or video using the [Azure Media Services Explorer tool](https://aka.ms/amse)
-    - Instructions on how to insert silent audio can be found [here](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
+
+- Assets that are audio only will not play back via the AzureHtml5JS tech.
+  - If you’d like to play back assets without audio, you can do so by inserting blank audio using the [Azure Media Services Explorer tool](https://aka.ms/amse)
+  - Instructions on how to insert silent audio can be found [here](../previous/media-services-advanced-encoding-with-mes.md#silent_audio)
 
 ## Flash ##
 
@@ -86,7 +88,7 @@ The current release has the following known issues:
 ## Apple ##
 
 - Safari on Mac often enables Power Saver mode by default with the setting "Stop plug-ins to save power", which blocks plugins like Flash and Silverlight when they believe it is not in favor to the user. This block does not block the plugin's existent, only capabilities. Given the default techOrder, this may cause issues when attempting to play back
-  - Mitigation 1: If the video player is 'front and center' (within a 3000 x 3000 pixel boundary starting at the top left corner of the document), it should still play.
+  - Mitigation 1: If the video player is 'front and center' (within a 3000 x 3000 pixel boundary starting at the top-left corner of the document), it should still play.
   - Mitigation 2: Change the techOrder for Safari to be ["azureHtml5JS", "html5"]. This mitigation has implication of not getting all the features that are available in the FlashSS tech.
 - PlayReady content via Silverlight may have issues playing back in Safari.
 - AES and restricted token content does not play back using iOS and older Android devices.

@@ -4,10 +4,10 @@ description: This quickstart provides a Java code sample you can use to connect 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
+ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, devx-track-java
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 3/18/2020
+ms.date: 5/26/2020
 ---
 
 # Quickstart: Use Java to connect to and query data in Azure Database for MySQL
@@ -21,6 +21,9 @@ This topic assumes that you're familiar with developing using Java, but you're n
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - An Azure Database for MySQL server. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 - Azure Database for MySQL connection security is configured with the firewall opened and SSL connection settings configured for your application.
+
+> [!IMPORTANT] 
+> Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./howto-manage-firewall-using-portal.md) or [Azure CLI](./howto-manage-firewall-using-cli.md)
 
 ## Obtain the MariaDB connector
 

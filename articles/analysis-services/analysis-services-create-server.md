@@ -4,7 +4,7 @@ description: Learn how to quickly create an Azure Analysis Services server insta
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to create an Azure Analysis Services server by using the Azure portal.

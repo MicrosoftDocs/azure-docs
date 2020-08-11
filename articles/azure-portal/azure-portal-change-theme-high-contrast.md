@@ -6,7 +6,7 @@ keywords:
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/20/2019
-ms.topic: conceptual
+ms.topic: how-to
 
 ms.service: azure-portal
 ms.custom: accessibility

@@ -68,7 +68,7 @@ More information can be found in the article, [How To: Investigate risk](howto-i
 
 ## Exporting risk data
 
-Data from Identity Protection can be exported to other tools for archive and further investigation and corelation. The Microsoft Graph based APIs allow organizations to collect this data for further processing in a tool such as their SIEM. Information about how to access the Identity Protection API can be found in the article, [Get started with Azure Active Directory Identity Protection and Microsoft Graph](howto-identity-protection-graph-api.md)
+Data from Identity Protection can be exported to other tools for archive and further investigation and correlation. The Microsoft Graph based APIs allow organizations to collect this data for further processing in a tool such as their SIEM. Information about how to access the Identity Protection API can be found in the article, [Get started with Azure Active Directory Identity Protection and Microsoft Graph](howto-identity-protection-graph-api.md)
 
 Information about integrating Identity Protection information with Azure Sentinel can be found in the article, [Connect data from Azure AD Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md).
 
@@ -83,13 +83,15 @@ Identity Protection requires users be a Security Reader, Security Operator, Secu
 | Security operator | View all Identity Protection reports and Overview blade <br><br> Dismiss user risk, confirm safe sign-in, confirm compromise | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts |
 | Security reader | View all Identity Protection reports and Overview blade | Configure or change policies <br><br> Reset password for a user <br><br> Configure alerts <br><br> Give feedback on detections |
 
+Currently, the security operator role cannot access the Risky sign-ins report.
+
 Conditional Access administrators can also create policies that factor in sign-in risk as a condition, find more information in the article [Conditional Access: Conditions](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
 
 ## License requirements
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Capability | Details | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
+| Capability | Details | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Free / Office 365 Apps |
 | --- | --- | --- | --- | --- |
 | Risk policies | User risk policy (via Identity Protection) | Yes | No | No |
 | Risk policies | Sign-in risk policy (via Identity Protection or Conditional Access) | Yes | No | No |

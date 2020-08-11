@@ -53,11 +53,11 @@ Automatic collection of Performance Counters only work Windows machines.
 
 ## Live Metrics & Secure Control Channel
 
-The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key. See [Secure the control channel](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel) for instructions.
+The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key. See [Secure the control channel](./live-stream.md#secure-the-control-channel) for instructions.
 
 ## Sampling
 
-Azure Functions enables Sampling by default in their configuration. For more information, see [Configure Sampling](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
+Azure Functions enables Sampling by default in their configuration. For more information, see [Configure Sampling](../../azure-functions/functions-monitoring.md#configure-sampling).
 
 If your project takes a dependency on the Application Insights SDK to do manual telemetry tracking, you may experience strange behavior if your sampling configuration is different than the Functions' sampling configuration. 
 

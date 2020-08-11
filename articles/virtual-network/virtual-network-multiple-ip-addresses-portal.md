@@ -8,7 +8,7 @@ manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
@@ -25,7 +25,7 @@ ms.author: allensu
 
 ## <a name = "create"></a>Create a VM with multiple IP addresses
 
-If you want to create a VM with multiple IP addresses, or a static private IP address, you must create it using PowerShell or the Azure CLI. To learn how, click the PowerShell or CLI options at the top of this article. You can create a VM with a single dynamic private IP address and (optionally) a single public IP address. Use the portal by following the steps in the [Create a Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) or [Create a Linux VM](../virtual-machines/linux/quick-create-portal.md) articles. After you create the VM, you can change the IP address type from dynamic to static and add additional IP addresses using the portal by following steps in the [Add IP addresses to a VM](#add) section of this article.
+If you want to create a VM with multiple IP addresses, or a static private IP address, you must create it using PowerShell or the Azure CLI. To learn how, click the PowerShell or CLI options at the top of this article. You can create a VM with a single dynamic private IP address and (optionally) a single public IP address. Use the portal by following the steps in the [Create a Windows VM](../virtual-machines/windows/quick-create-portal.md) or [Create a Linux VM](../virtual-machines/linux/quick-create-portal.md) articles. After you create the VM, you can change the IP address type from dynamic to static and add additional IP addresses using the portal by following steps in the [Add IP addresses to a VM](#add) section of this article.
 
 ## <a name="add"></a>Add IP addresses to a VM
 
@@ -43,12 +43,12 @@ You can add private and public IP addresses to an Azure network interface by com
 
 5. In the pane that appears for the NIC you selected, click **IP configurations**. Click **Add**, complete the steps in one of sections that follow, based on the type of IP address you want to add, and then click **OK**. 
 
-### **Add a private IP address**
+### Add a private IP address
 
 Complete the following steps to add a new private IP address:
 
-1. Complete the steps in the [Core steps](#coreadd) section of this article.
-2. Click **Add**. In the **Add IP configuration** pane that appears, create an IP configuration named *IPConfig-4* with *10.0.0.7* as a *Static* private IP address, then click **OK**.
+1. Complete the steps in the [Core steps](#coreadd) section of this article and ensure you are on the **IP configurations** section of the VM Network Interface.  Review the subnet shown as default (such as 10.0.0.0/24).
+2. Click **Add**. In the **Add IP configuration** pane that appears, create an IP configuration named *IPConfig-4* with a new *Static* private IP address by picking a new number for the final octet, then click **OK**.  (For the 10.0.0.0/24 subnet, an example IP would be *10.0.0.7*.)
 
 	> [!NOTE]
 	> When adding a static IP address, you must specify an unused, valid address on the subnet the NIC is connected to. If the address you select is not available, the portal displays an X for the IP address and you must select a different one.

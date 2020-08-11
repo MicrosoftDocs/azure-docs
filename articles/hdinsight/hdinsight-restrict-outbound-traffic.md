@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
 ---
@@ -70,7 +70,7 @@ Create an application rule collection that allows the cluster to send and receiv
 
     **Target FQDNs section**
 
-    | Name | Source addresses | `Protocol:Port` | Target FQDNS | Notes |
+    | Name | Source addresses | Protocol:Port | Target FQDNS | Notes |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Allows Windows login activity |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Allows Windows login activity |
@@ -110,7 +110,8 @@ Create the network rules to correctly configure your HDInsight cluster.
     | Name | Protocol | Source Addresses | Service Tags | Destination Ports | Notes |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic. Unless you configured Service Endpoints for SQL Server on the HDInsight subnet, which will bypass the firewall. |
-
+    | Rule_8 | TCP | * | Azure Monitor | * | (optional) Customers who plan to use auto scale feature should add this rule. |
+    
    ![Title: Enter application rule collection](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
 1. Select **Add**.
@@ -183,61 +184,7 @@ After having the firewall set up successfully, you can use the internal endpoint
 
 To use the public endpoint (`https://CLUSTERNAME.azurehdinsight.net`) or ssh endpoint (`CLUSTERNAME-ssh.azurehdinsight.net`), make sure you have the right routes in the route table and NSG rules to avoid the asymmetric routing issue explained [here](../firewall/integrate-lb.md). Specifically in this case, you need to allow the client IP address in the Inbound NSG rules and also add it to the user-defined route table with the next hop set as `internet`. If the routing isn't set up correctly, you'll see a timeout error.
 
-## Configure another network virtual appliance
-
-> [!Important]
-> The following information is **only** required if you wish to configure a network virtual appliance (NVA) other than Azure Firewall.
-
-The previous instructions help you configure Azure Firewall for restricting outbound traffic from your HDInsight cluster. Azure Firewall is automatically configured to allow traffic for many of the common important scenarios. Using another network virtual appliance will require you to configure a number of additional features. Keep the following factors in mind as you configure your network virtual appliance:
-
-* Service Endpoint capable services should be configured with service endpoints.
-* IP Address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic).
-* FQDN HTTP/HTTPS endpoints can be placed in your NVA device.
-* Wildcard HTTP/HTTPS endpoints are dependencies that can vary based on a number of qualifiers.
-* Assign the route table that you create to your HDInsight subnet.
-
-### Service endpoint capable dependencies
-
-| **Endpoint** |
-|---|
-| Azure SQL |
-| Azure Storage |
-| Azure Active Directory |
-
-#### IP address dependencies
-
-| **Endpoint** | **Details** |
-|---|---|
-| \*:123 | NTP clock check. Traffic is checked at multiple endpoints on port 123 |
-| IPs published [here](hdinsight-management-ip-addresses.md) | These IPs are HDInsight service |
-| AAD-DS private IPs for ESP clusters |
-| \*:16800 for KMS Windows Activation |
-| \*12000 for Log Analytics |
-
-#### FQDN HTTP/HTTPS dependencies
-
-> [!Important]
-> The list below only gives a few of the most important FQDNs. You can get additional FQDNs (mostly Azure Storage and Azure Service Bus) for configuring your NVA [in this file](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
-
-| **Endpoint**                                                          |
-|---|
-| azure.archive.ubuntu.com:80                                           |
-| security.ubuntu.com:80                                                |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-| wawsinfraprodbay063.blob.core.windows.net:443                         |
-| registry-1.docker.io:443                                              |
-| auth.docker.io:443                                                    |
-| production.cloudflare.docker.com:443                                  |
-| download.docker.com:443                                               |
-| us.archive.ubuntu.com:80                                              |
-| download.mono-project.com:80                                          |
-| packages.treasuredata.com:80                                          |
-| security.ubuntu.com:80                                                |
-| azure.archive.ubuntu.com:80                                           |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-
 ## Next steps
 
 * [Azure HDInsight virtual network architecture](hdinsight-virtual-network-architecture.md)
+* [Configure network virtual appliance](./network-virtual-appliance.md)

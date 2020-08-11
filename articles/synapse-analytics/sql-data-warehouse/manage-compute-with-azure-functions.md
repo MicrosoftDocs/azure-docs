@@ -6,7 +6,7 @@ author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
@@ -24,7 +24,7 @@ In order to use Azure Function App with SQL pool, you must create a [Service Pri
 To deploy the template, you need the following information:
 
 - Name of the resource group your SQL pool instance is in
-- Name of the logical server your SQL pool instance is in
+- Name of the server your SQL pool instance is in
 - Name of your SQL pool instance
 - Tenant ID (Directory ID) of your Azure Active Directory
 - Subscription ID
@@ -33,9 +33,7 @@ To deploy the template, you need the following information:
 
 Once you have the preceding information, deploy this template:
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json" target="_blank">
-<img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+[![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json)
 
 Once you've deployed the template, you should find three new resources: a free Azure App Service Plan, a consumption-based Function App plan, and a storage account that handles the logging and the operations queue. Continue reading the other sections to see how to modify the deployed functions to fit your need.
 
@@ -96,7 +94,7 @@ Currently, there are only two scaling functions included within the template. Wi
 
    ![Create new function](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. From Language, select *Javascript*, then select *TimerTrigger*.
+2. From Language, select *JavaScript*, then select *TimerTrigger*.
 
    ![Create new function](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -110,7 +108,7 @@ Currently, there are only two scaling functions included within the template. Wi
 
 5. Set your operation variable to the desired behavior as follows:
 
-   ```javascript
+   ```JavaScript
    // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
