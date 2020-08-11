@@ -568,7 +568,7 @@
         "articles/governance/management-groups/**/*.md": "governance",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
         "articles/advisor/**/*.md": "advisor",
-        "articles/azure-arc/servers/**/*.md": "azure-arc",
+        "articles/azure-arc/**/*.md": "azure-arc",
         "articles/azure-functions/**/*.md": "azure-functions",
         "articles/azure-monitor/**/*.md": "azure-monitor",
         "articles/azure-relay/*.md": "service-bus-relay",
