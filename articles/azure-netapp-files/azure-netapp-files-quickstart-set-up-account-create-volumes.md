@@ -162,14 +162,15 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
 
 3. Click **+ Add pools**. 
 
-    ![Click Add pools](../media/azure-netapp-files/azure-netapp-files-click-add-pools.png)  
+    ![Click Add pools](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)  
 
 4. Provide information for the capacity pool: 
-    1. Enter **mypool1** as the pool name.
-    2. Select **Premium** for the service level. 
-    3. Specify **4 (TiB)** as the pool size. 
+    * Enter **mypool1** as the pool name.
+    * Select **Premium** for the service level. 
+    * Specify **4 (TiB)** as the pool size. 
+    * Use the **Auto** QoS type.
 
-5. Click **OK**.
+5. Click **Create**.
 
 # [PowerShell](#tab/azure-powershell)
 

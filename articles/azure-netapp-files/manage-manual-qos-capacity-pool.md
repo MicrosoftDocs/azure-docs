@@ -43,7 +43,7 @@ The manual QoS type feature is currently in preview. If you are using this featu
 
 To create a new capacity pool that uses the manual QoS type, follow steps in [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md). During the capacity pool setup, you would select the **Manual QoS** type.  
 
-## Change a capacity pool to use manual QoS
+## <a name="change-to-qos"></a>Change a capacity pool to use manual QoS
 
 You can change a capacity pool that currently uses the auto QoS type to use the manual QoS type.  
 
