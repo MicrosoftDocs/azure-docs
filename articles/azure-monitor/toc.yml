@@ -352,7 +352,7 @@
         href: platform/azure-monitor-agent-overview.md
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
-        href: platform/data-collection-rule-ama.md
+        href: platform/data-collection-rule-azure-monitor-agent.md
     - name: Azure Diagnostics extension
       items:
       - name: Overview

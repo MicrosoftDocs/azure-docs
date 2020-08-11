@@ -37,7 +37,7 @@ Click **Add** to create a new rule and set of associations. Provide a **Rule nam
 
 In the **Virtual machines** tab, add virtual machines that should have the Data Collection Rule applied. The Azure Monitor Agent will be installed on virtual machines that don't already have it installed.
 
-[![Data Collection Rule virtual machines](media/azure-monitor-agent/data-collection-rule-vms.png)](media/azure-monitor-agent/data-collection-rule-vms.png#lightbox)
+[![Data Collection Rule virtual machines](media/azure-monitor-agent/data-collection-rule-virtual-machines.png)](media/azure-monitor-agent/data-collection-rule-virtual-machines.png#lightbox)
 
 On the **Collect and deliver** tab, click **Add data source** to add a data source and destination set. Select a **Data source type**, and the corresponding details to select will be displayed. For performance counters, you can select from a predefined set of objects and their sampling rate. For events, you can select from a set of logs or facilities and the severity level. 
 
