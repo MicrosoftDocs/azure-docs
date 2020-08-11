@@ -131,8 +131,6 @@
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
   - name: Analyze videos in real time
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
-  - name: Upgrade to v3.0 from 2.0 or 2.1
-    href: Vision-API-How-to-Topics/upgrade-API-version.md
 - name: Reference
   items: 
   - name: Azure CLI
@@ -187,3 +185,5 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Upgrade to v3.0 from 2.0 or 2.1
+    href: upgrade-API-version.md
