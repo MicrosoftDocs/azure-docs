@@ -37,7 +37,7 @@ Use this tutorial to help you get started with Managed HSM logging. You'll creat
 To complete this tutorial, you must have the following:
 
 * An existing Managed HSM that you have been using.  
-* Azure PowerShell, minimum version of 1.0.0. To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/overview). If you have already installed Azure PowerShell and don't know the version, from the Azure PowerShell console, enter `$PSVersionTable.PSVersion`.  
+* Azure CLI . To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/overview). If you have already installed Azure PowerShell and don't know the version, from the Azure PowerShell console, enter `$PSVersionTable.PSVersion`.  
 * Sufficient storage on Azure for your Managed HSM logs.
 
 ## <a id="connect"></a>Connect to your Managed HSM subscription

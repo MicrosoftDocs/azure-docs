@@ -42,7 +42,7 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 - Generate (or import using [BYOK](hsm-protected-keys-byok.md)) keys and use them to [encrypt your data at rest in Azure services](../../security/fundamentals/encryption-atrest.md), [Service encryption with customer key for Office 365](/microsoft-365/compliance/customer-key-overview), [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) and other Microsoft cloud services.
 
 ### Uses same API and management interfaces as Key Vault
-- Easily migrate your existing applications  from Key Vault (a multi-tenant) to Managed HSM
+- Easily migrate your existing applications that use a vault (a multi-tenant) to use managed HSM pools
 - Use same application development and deployment patterns for all your applications irrespective of which key management solution it uses
 
 ### Import keys from your on-premise HSMs
