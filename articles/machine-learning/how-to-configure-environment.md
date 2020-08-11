@@ -10,7 +10,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
-ms.custom: how-to, tracking-python
+ms.custom: how-to, devx-track-python
 ---
 
 # Configure a development environment for Azure Machine Learning

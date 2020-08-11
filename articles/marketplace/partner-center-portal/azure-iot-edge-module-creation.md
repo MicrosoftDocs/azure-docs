@@ -3,10 +3,10 @@ title: Create an Azure IoT Edge module offer with Partner Center in Azure Market
 description: Learn how to create, configure, and publish an IoT Edge module offer in Azure Marketplace using Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 07/22/2020
+ms.date: 08/07/2020
 ---
 
 # Create an IoT Edge module offer
@@ -189,20 +189,23 @@ To learn more about creating offer listings, see [Offer listing best practices](
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
+[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
-Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) and a **Medium** (90 x 90 pixels) size logo. You can optionally replace these with different images.
+Provide PNG files of your offer's logo in each of the following four pixel sizes:
 
-All three logo sizes are required for use in different places in the listing:
+- **Small (48 x 48)**
+- **Medium (90 x 90)**
+- **Large (216 x 216)**
+- **Wide (255 x 115)**
 
-- **Small** (48 x 48)
-- **Medium** (90 x 90)
-- **Large** (between 216 x 216 and 350 x 350)
+All four logos are required and are used in different places in the marketplace listing.
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### Screenshots (optional)
 
@@ -441,14 +444,14 @@ For example, if module ContosoModule listens for inputs on ContosoInput and outp
 - Name #2: FromContosoModuleToCloud
 - Value #2: FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**Default module twin desired properties**. A module twin is a JSON document in the IoT Hub that stores the state information for a module instance, including desired properties. Desired properties are used along with reported properties to synchronize module configuration or conditions. The solution backend can set desired properties and the module can read them. The module can also receive change notifications in the desired properties. Desired properties are created using up to five name/value pairs and each default value must be less than 512 characters. You can define up to five name/value twin desired properties. Values of twin desired properties must be valid JSON, non-escaped, without arrays with a maximum nested hierarchy of four levels. In a scenario where a parameter required for a default value doesn't make sense (for example, the IP address of a customer's server), you can add a parameter as the default value. To learn more about twin desired properties, see [Define or update desired properties](../../iot-edge/module-composition.md#define-or-update-desired-properties)).
+**Default module twin desired properties**. A module twin is a JSON document in the IoT Hub that stores the state information for a module instance, including desired properties. Desired properties are used along with reported properties to synchronize module configuration or conditions. The solution backend can set desired properties and the module can read them. The module can also receive change notifications in the desired properties. Desired properties are created using up to five name/value pairs and each default value must be fewer than 512 characters. You can define up to five name/value twin desired properties. Values of twin desired properties must be valid JSON, non-escaped, without arrays with a maximum nested hierarchy of four levels. In a scenario where a parameter required for a default value doesn't make sense (for example, the IP address of a customer's server), you can add a parameter as the default value. To learn more about twin desired properties, see [Define or update desired properties](../../iot-edge/module-composition.md#define-or-update-desired-properties)).
 
 For example, if a module supports a dynamically configurable refresh rate using twin desired properties, it makes sense to define the following default twin desired property:
 
 - Name #1: RefreshRate
 - Value #1: 60
 
-**Default environment variables**. Environment variables provide supplemental information to a module that's helping the configuration process. Environment variables are created using name/value pairs. Each default environment variable name and value must be less than 512 characters, and you can define up to five. When a parameter required for a default value doesn't make sense (for example, the IP address of a customer's server), you can add a parameter as the default value.
+**Default environment variables**. Environment variables provide supplemental information to a module that's helping the configuration process. Environment variables are created using name/value pairs. Each default environment variable name and value must be fewer than 512 characters, and you can define up to five. When a parameter required for a default value doesn't make sense (for example, the IP address of a customer's server), you can add a parameter as the default value.
 
 For example, if a module requires to accept terms of use before being started, you can define the following environment variable:
 
