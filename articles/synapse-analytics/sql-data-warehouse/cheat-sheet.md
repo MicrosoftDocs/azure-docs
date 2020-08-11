@@ -104,7 +104,7 @@ For a large batch of updates in your historical data, consider using a [CTAS](sq
 
 ## Maintain statistics
 
-It's important to update statistics as *significant* changes happen to your data. This helps optimize your query plans. If you find that it takes too long to maintain all of your statistics, be more selective about which columns have statistics.
+It's important to update statistics as *significant* changes happen to your data. See [update statistics](sql-data-warehouse-tables-statistics#update-statistics) to determine if *significant* changes have occurred. Updated statistics optimize your query plans. If you find that it takes too long to maintain all of your statistics, be more selective about which columns have statistics.
 
 You can also define the frequency of the updates. For example, you might want to update date columns, where new values might be added, on a daily basis. You gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
