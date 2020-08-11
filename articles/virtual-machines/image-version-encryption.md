@@ -3,9 +3,10 @@ title: Preview - Create an image version encrypted with your own keys
 description: Create a an image version in a Shared Image Gallery, using customer-managed encryption keys.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 08/11/2020
 ms.author: cynthn
 ---
 
@@ -183,15 +184,15 @@ You can create a VM from a shared image gallery and use customer-managed keys to
 
 ## Portal
 
-When you create your image version in the portal, you can use the **Encryption** tab to enter the information about your storage encryption sets.
+When you create your image version in the portal, you can use the **Encryption** tab to enter apply your storage encryption sets.
 
 1. In the **Create an image version** page, select the **Encryption** tab.
-2. In **Encryption type**, select **Encryption at-rest with a customer-managed key**. 
+2. In **Encryption type**, select **Encryption at-rest with a customer-managed key** or **Double encryption with platform-managed and customer-managed keys**. 
 3. For each disk in the image, select the **Disk encryption set** to use from the drop-down. 
 
 ### Create the VM
 
-You can create a VM from a shared image gallery and use customer-managed keys to encrypt the disks. When you create the VM in the portal, on the **Disks** tab, select **Encryption at-rest with customer-managed keys** for the **Encryption type**. You can then select the encryption set from the drop-down.
+You can create a VM from an image version and use customer-managed keys to encrypt the disks. When you create the VM in the portal, on the **Disks** tab, select **Encryption at-rest with customer-managed keys** or **Double encryption with platform-managed and customer-managed keys** for the **Encryption type**. You can then select the encryption set from the drop-down.
 
 ## Next steps
 
