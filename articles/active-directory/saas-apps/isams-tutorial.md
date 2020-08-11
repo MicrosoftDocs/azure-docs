@@ -172,7 +172,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     ![Test User](./media/isams-tutorial/modify-user-properties.png)
 
 
-3. In the resulting popup window, select the **Account Details** tab, and change the **Authorisation** to that of your newly created Identity Provider.
+3. In the resulting popup window, select the **Account Details** tab, and change the **Authorization** to that of your newly created Identity Provider.
 
     ![Test User](./media/isams-tutorial/account-details.png)
 
@@ -195,6 +195,3 @@ When you click the iSAMS tile in the Access Panel, you should be automatically s
 - [Try iSAMS with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [How to protect iSAMS with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
