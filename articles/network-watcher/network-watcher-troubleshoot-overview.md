@@ -77,7 +77,7 @@ The following tables show the different fault types (id under results from the p
 
 The following table lists which gateways and connections are supported with Network Watcher troubleshooting:
 
-|  |  |
+| Gateway or connection | Supported  |
 |---------|---------|
 |**Gateway types**   |         |
 |VPN      | Supported        |

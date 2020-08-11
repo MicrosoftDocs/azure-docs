@@ -33,7 +33,7 @@ The **Update-AutomationAzureModulesForAccount** runbook supports updating the Az
 
 ## Use update runbook code as a regular PowerShell script
 
-You can use the runbook code as a regular PowerShell script instead of a runbook. To do this, sign in to Azure using the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) cmdlet first, then pass `-Login $false` to the script.
+You can use the runbook code as a regular PowerShell script instead of a runbook. To do this, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) cmdlet first, then pass `-Login $false` to the script.
 
 ## Use the update runbook on sovereign clouds
 

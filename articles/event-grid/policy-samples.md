@@ -1,13 +1,11 @@
 ---
 title: Built-in policy definitions for Azure Event Grid
 description: Lists Azure Policy built-in policy definitions for Azure Event Grid. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 06/23/2020
-author: spelluru
-ms.author: spelluru
+ms.date: 07/10/2020
 ms.topic: sample
-ms.service: event-grid
 ms.custom: subject-policy-samples
 ---
+
 # Azure Policy built-in definitions for Azure Event Grid
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy

@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/3/2020
+ms.date: 7/20/2020
 ---
 # Supported Azure Database for MariaDB server versions
 
@@ -20,15 +20,15 @@ Azure Database for MariaDB currently supports the following version:
 
 ## MariaDB Version 10.2
 
-Patch version: 10.2.31
+Patch version: 10.2.32
 
-Refer to the [MariaDB documentation](https://mariadb.com/kb/en/mariadb-10231-release-notes/) to learn more about improvements and fixes in this version.
+Refer to the [MariaDB documentation](https://mariadb.com/kb/en/mariadb-10232-release-notes/) to learn more about improvements and fixes in this version.
 
 ## MariaDB Version 10.3
 
-Patch version: 10.3.22
+Patch version: 10.3.23
 
-Refer to the [MariaDB documentation](https://mariadb.com/kb/en/mariadb-10322-release-notes/) to learn more about improvements and fixes in this version.
+Refer to the [MariaDB documentation](https://mariadb.com/kb/en/mariadb-10323-release-notes/) to learn more about improvements and fixes in this version.
 
 ## Managing updates and upgrades
 The service automatically manages upgrades for patch updates. For example, 10.2.21 to 10.2.23.  

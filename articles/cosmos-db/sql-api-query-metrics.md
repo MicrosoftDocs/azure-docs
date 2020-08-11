@@ -126,7 +126,7 @@ The key response headers returned from the query include the following:
 | `x-ms-documentdb-query-metrics` | The query statistics for the execution. This is a delimited string containing statistics of time spent in the various phases of query execution. Returned if `x-ms-documentdb-populatequerymetrics` is set to `True`. | 
 | `x-ms-request-charge` | The number of [request units](request-units.md) consumed by the query. | 
 
-For details on the REST API request headers and options, see [Querying resources using the REST API](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
+For details on the REST API request headers and options, see [Querying resources using the REST API](/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
 
 ## Best practices for query performance
 The following are the most common factors that impact Azure Cosmos DB query performance. We dig deeper into each of these topics in this article.

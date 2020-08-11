@@ -1,6 +1,6 @@
 ---
 title: Cross-tenant analytics using extracted data
-description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Databases in a single tenant app."
+description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL databases in a single tenant app."
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario

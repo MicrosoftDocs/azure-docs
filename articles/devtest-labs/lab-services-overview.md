@@ -1,22 +1,11 @@
 ---
-title: About Azure Lab Services | Microsoft Docs
-description: Learn how Lab Services can make it easy to create, manage, and secure labs with virtual machines that can be used by developers, testers, educators, students, and others. 
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Lab Services vs. Azure DevTest Labs
+description: Compare Azure DevTest Labs and Azure Lab Services.  
 ms.topic: overview
-ms.date: 02/03/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
-# An introduction to Azure Lab Services
+
+# Compare Azure DevTest Labs and Azure Lab Services
 There are two services on Azure that allows you to set up lab environments in the cloud. 
 
 - **Azure DevTest Labs** - This service enables you to quickly set up an environment for your team (for example: development environment, or test environment in the cloud). A lab owner creates a lab, provisions Windows, or Linux virtual machines, installs the necessary software and tools, and makes them available to lab users. Lab users connect to virtual machines (VMs) in the lab, and use them for their day-to-day work, short-term projects. Once users start utilizing resources in the lab, a lab admin can analyze cost and usage across multiple labs, and set overarching policies to optimize your organization or team's costs.

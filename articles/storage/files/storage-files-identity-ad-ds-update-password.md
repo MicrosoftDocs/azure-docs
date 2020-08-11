@@ -4,7 +4,7 @@ description: Learn how to update the password of the Active Directory Domain Ser
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
 ---

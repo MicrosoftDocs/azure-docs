@@ -29,15 +29,14 @@ This article assumes that you are familiar with the [Introduction to device mana
 
 To plan your Azure AD join implementation, you should familiarize yourself with:
 
-|   |   |
-|---|---|
-|![Check][1]|Review your scenarios|
-|![Check][1]|Review your identity infrastructure|
-|![Check][1]|Assess your device management|
-|![Check][1]|Understand considerations for applications and resources|
-|![Check][1]|Understand your provisioning options|
-|![Check][1]|Configure enterprise state roaming|
-|![Check][1]|Configure Conditional Access|
+> [!div class="checklist"]
+> - Review your scenarios
+> - Review your identity infrastructure
+> - Assess your device management
+> - Understand considerations for applications and resources
+> - Understand your provisioning options
+> - Configure enterprise state roaming
+> - Configure Conditional Access
 
 ## Review your scenarios 
 
@@ -196,7 +195,7 @@ You can provision Azure AD join using the following approaches:
  
 Here’s a comparison of these three approaches 
  
-|   | Self-service setup | Windows Autopilot | Bulk enrollment |
+| Element | Self-service setup | Windows Autopilot | Bulk enrollment |
 | --- | --- | --- | --- |
 | Require user interaction to set up | Yes | Yes | No |
 | Require IT effort | No | Yes | Yes |

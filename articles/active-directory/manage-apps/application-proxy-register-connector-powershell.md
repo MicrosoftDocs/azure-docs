@@ -33,13 +33,18 @@ For the [Application Proxy connector](application-proxy-connectors.md) to work, 
 
 There are two steps for an unattended installation. First, install the connector. Second, register the connector with Azure AD.
 
+> [!IMPORTANT]
+> If you are installing the connector for Azure Government cloud review the [pre-requisites](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) and [installation steps](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). This requires enabling access to a different set of URLs and an additional parameter to run the installation.
+
 ## Install the connector
 Use the following steps to install the connector without registering it:
 
 1. Open a command prompt.
 2. Run the following command, in which the /q means quiet installation. A quiet installation doesn't prompt you to accept the End-User License Agreement.
 
-        AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
+   ```
+   AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
+   ```
 
 ## Register the connector with Azure AD
 There are two methods you can use to register the connector:
@@ -50,139 +55,151 @@ There are two methods you can use to register the connector:
 ### Register the connector using a Windows PowerShell credential object
 1. Create a Windows PowerShell Credentials object `$cred` that contains an administrative username and password for your directory. Run the following command, replacing *\<username\>* and *\<password\>*:
 
-        $User = "<username>"
-        $PlainPassword = '<password>'
-        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
-        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+   ```powershell
+   $User = "<username>"
+   $PlainPassword = '<password>'
+   $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+   $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+   ```
 2. Go to **C:\Program Files\Microsoft AAD App Proxy Connector** and run the following script using the `$cred` object that you created:
 
-        .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature ApplicationProxy
+   ```powershell
+   .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature ApplicationProxy
+   ```
 
 ### Register the connector using a token created offline
 1. Create an offline token using the AuthenticationContext class using the values in this code snippet or PowerShell cmdlets below:
 
-    **Using C#:**
+   **Using C#:**
 
-        using System;
-        using System.Linq;
-        using System.Collections.Generic;
-        using Microsoft.Identity.Client;
+   ```csharp
+   using System;
+   using System.Linq;
+   using System.Collections.Generic;
+   using Microsoft.Identity.Client;
 
-        class Program
-        {
-        #region constants
-        /// <summary>
-        /// The AAD authentication endpoint uri
-        /// </summary>
-        static readonly string AadAuthenticationEndpoint = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
+   class Program
+   {
+   #region constants
+   /// <summary>
+   /// The AAD authentication endpoint uri
+   /// </summary>
+   static readonly string AadAuthenticationEndpoint = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
 
-        /// <summary>
-        /// The application ID of the connector in AAD
-        /// </summary>
-        static readonly string ConnectorAppId = "55747057-9b5d-4bd4-b387-abf52a8bd489";
+   /// <summary>
+   /// The application ID of the connector in AAD
+   /// </summary>
+   static readonly string ConnectorAppId = "55747057-9b5d-4bd4-b387-abf52a8bd489";
  
-        /// <summary>
-        /// The AppIdUri of the registration service in AAD
-        /// </summary>
-        static readonly string RegistrationServiceAppIdUri = "https://proxy.cloudwebappproxy.net/registerapp/user_impersonation";
+   /// <summary>
+   /// The AppIdUri of the registration service in AAD
+   /// </summary>
+   static readonly string RegistrationServiceAppIdUri = "https://proxy.cloudwebappproxy.net/registerapp/user_impersonation";
 
-        #endregion
+   #endregion
 
-        #region private members
-        private string token;
-        private string tenantID;
-        #endregion
+   #region private members
+   private string token;
+   private string tenantID;
+   #endregion
 
-        public void GetAuthenticationToken()
-        {
+   public void GetAuthenticationToken()
+   {
     
-        IPublicClientApplication clientApp = PublicClientApplicationBuilder
-           .Create(ConnectorAppId)
-           .WithDefaultRedirectUri() // will automatically use the default Uri for native app
-           .WithAuthority(AadAuthenticationEndpoint)
-           .Build();
+   IPublicClientApplication clientApp = PublicClientApplicationBuilder
+      .Create(ConnectorAppId)
+      .WithDefaultRedirectUri() // will automatically use the default Uri for native app
+      .WithAuthority(AadAuthenticationEndpoint)
+      .Build();
 
-        AuthenticationResult authResult = null;
+      AuthenticationResult authResult = null;
             
-        IAccount account = null;
+      IAccount account = null;
 
-        IEnumerable<string> scopes = new string[] { RegistrationServiceAppIdUri };
+      IEnumerable<string> scopes = new string[] { RegistrationServiceAppIdUri };
 
-        try
-         {
-          authResult = await clientApp.AcquireTokenSilent(scopes, account).ExecuteAsync();
-         }
-          catch (MsalUiRequiredException ex)
-         {
-          authResult = await clientApp.AcquireTokenInteractive(scopes).ExecuteAsync();
-         }
+      try
+      {
+       authResult = await clientApp.AcquireTokenSilent(scopes, account).ExecuteAsync();
+      }
+       catch (MsalUiRequiredException ex)
+      {
+       authResult = await clientApp.AcquireTokenInteractive(scopes).ExecuteAsync();
+      }
 
 
-        if (authResult == null || string.IsNullOrEmpty(authResult.AccessToken) || string.IsNullOrEmpty(authResult.TenantId))
-        {
-         Trace.TraceError("Authentication result, token or tenant id returned are null");
-         throw new InvalidOperationException("Authentication result, token or tenant id returned are null");
-        }
+      if (authResult == null || string.IsNullOrEmpty(authResult.AccessToken) || string.IsNullOrEmpty(authResult.TenantId))
+      {
+       Trace.TraceError("Authentication result, token or tenant id returned are null");
+       throw new InvalidOperationException("Authentication result, token or tenant id returned are null");
+      }
 
-        token = authResult.AccessToken;
-        tenantID = authResult.TenantId;
-        }
+      token = authResult.AccessToken;
+      tenantID = authResult.TenantId;
+      }
+      ```
 
-    **Using PowerShell:**
+   **Using PowerShell:**
 
-        # Load MSAL (Tested with version 4.7.1) 
+   ```powershell
+   # Load MSAL (Tested with version 4.7.1) 
 
-        Add-Type -Path "..\MSAL\Microsoft.Identity.Client.dll" 
+   Add-Type -Path "..\MSAL\Microsoft.Identity.Client.dll" 
         
-        # The AAD authentication endpoint uri
+   # The AAD authentication endpoint uri
         
-        $authority = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+   $authority = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
 
-        #The application ID of the connector in AAD
+   #The application ID of the connector in AAD
 
-        $connectorAppId = "55747057-9b5d-4bd4-b387-abf52a8bd489";
+   $connectorAppId = "55747057-9b5d-4bd4-b387-abf52a8bd489";
 
-        #The AppIdUri of the registration service in AAD
-        $registrationServiceAppIdUri = "https://proxy.cloudwebappproxy.net/registerapp/user_impersonation"
+   #The AppIdUri of the registration service in AAD
+   $registrationServiceAppIdUri = "https://proxy.cloudwebappproxy.net/registerapp/user_impersonation"
 
-        # Define the resources and scopes you want to call 
+   # Define the resources and scopes you want to call 
 
-        $scopes = New-Object System.Collections.ObjectModel.Collection["string"] 
+   $scopes = New-Object System.Collections.ObjectModel.Collection["string"] 
 
-        $scopes.Add($registrationServiceAppIdUri)
+   $scopes.Add($registrationServiceAppIdUri)
 
-        $app = [Microsoft.Identity.Client.PublicClientApplicationBuilder]::Create($connectorAppId).WithAuthority($authority).WithDefaultRedirectUri().Build()
+   $app = [Microsoft.Identity.Client.PublicClientApplicationBuilder]::Create($connectorAppId).WithAuthority($authority).WithDefaultRedirectUri().Build()
 
-        [Microsoft.Identity.Client.IAccount] $account = $null
+   [Microsoft.Identity.Client.IAccount] $account = $null
 
-        # Acquiring the token 
+   # Acquiring the token 
 
-        $authResult = $null
+   $authResult = $null
 
-        $authResult = $app.AcquireTokenInteractive($scopes).WithAccount($account).ExecuteAsync().ConfigureAwait($false).GetAwaiter().GetResult()
+   $authResult = $app.AcquireTokenInteractive($scopes).WithAccount($account).ExecuteAsync().ConfigureAwait($false).GetAwaiter().GetResult()
 
-        # Check AuthN result
-        If (($authResult) -and ($authResult.AccessToken) -and ($authResult.TenantId)) {
+   # Check AuthN result
+   If (($authResult) -and ($authResult.AccessToken) -and ($authResult.TenantId)) {
         
-         $token = $authResult.AccessToken
-         $tenantId = $authResult.TenantId
+   $token = $authResult.AccessToken
+   $tenantId = $authResult.TenantId
 
-         Write-Output "Success: Authentication result returned."
+   Write-Output "Success: Authentication result returned."
         
-        }
-        Else {
+   }
+   Else {
          
-         Write-Output "Error: Authentication result, token or tenant id returned with null."
+   Write-Output "Error: Authentication result, token or tenant id returned with null."
         
-        } 
+   } 
+   ```
 
 2. Once you have the token, create a SecureString using the token:
 
-   `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
+   ```powershell
+   $SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force
+   ```
 
 3. Run the following Windows PowerShell command, replacing \<tenant GUID\> with your directory ID:
 
-   `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
+   ```powershell
+   .\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy
+   ```
 
 ## Next steps
 * [Publish applications using your own domain name](application-proxy-configure-custom-domain.md)

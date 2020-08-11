@@ -4,7 +4,7 @@ description: Learn how to manage an Azure Database for PostgreSQL server from th
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/20/2019
 ---
 

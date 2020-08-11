@@ -21,6 +21,9 @@ This article explains how IoT Edge certificates can work in production, developm
 
 Usually, manufacturers aren't the end users of an IoT Edge device. Sometimes the only relationship between the two is when the end user, or operator, purchases a generic device made by the manufacturer. Other times, the manufacturer works under contract to build a custom device for the operator. The IoT Edge certificate design attempts to take both scenarios into account.
 
+> [!NOTE]
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2050. This limitation applies to the device CA certificate, any certificates in the trust bundle, and the device ID certificates used for X.509 provisioning methods.
+
 The following figure illustrates IoT Edge's usage of certificates. There may be zero, one, or many intermediate signing certificates between the root CA certificate and the device CA certificate, depending on the number of entities involved. Here we show one case.
 
 ![Diagram of typical certificate relationships](./media/iot-edge-certs/edgeCerts-general.png)

@@ -10,9 +10,9 @@ ms.custom: mvc,subject-armqs
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
-# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using an Azure Resource Manager template
+# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using an ARM template
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you deploy an AKS cluster using an Azure Resource Manager template. A multi-container application that includes a web front end and a Redis instance is run in the cluster.
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you deploy an AKS cluster using an Azure Resource Manager template (ARM template). A multi-container application that includes a web front end and a Redis instance is run in the cluster.
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
@@ -20,7 +20,9 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -28,7 +30,9 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 ## Prerequisites
 
-To create an AKS cluster using a Resource Manager template, you provide an SSH public key and Azure Active Directory service principal.  Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for permissions. If you need either of these resources, see the following section; otherwise skip to the [Create an AKS cluster](#create-an-aks-cluster) section.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+To create an AKS cluster using a Resource Manager template, you provide an SSH public key and Azure Active Directory service principal. Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for permissions. If you need either of these resources, see the following section; otherwise skip to the [Review the template](#review-the-template) section.
 
 ### Create an SSH key pair
 
@@ -66,9 +70,7 @@ The output is similar to the following example:
 
 Make a note of the *appId* and *password*. These values are used in the following steps.
 
-## Create an AKS cluster
-
-### Review the template
+## Review the template
 
 The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-aks/).
 
@@ -76,7 +78,7 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 
 For more AKS samples, see the [AKS quickstart templates][aks-quickstart-templates] site.
 
-### Deploy the template
+## Deploy the template
 
 1. Select the following image to sign in to Azure and open a template.
 
@@ -301,7 +303,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[azure-dev-spaces]: ../dev-spaces/index.yml
 [aks-quickstart-templates]: https://azure.microsoft.com/resources/templates/?term=Azure+Kubernetes+Service
 
 <!-- LINKS - internal -->

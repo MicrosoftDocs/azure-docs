@@ -9,17 +9,36 @@ ms.subservice:
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 06/05/2020
+ms.date: 07/27/2020
 ---
 # Azure SQL Edge release notes 
 
 This article describes what is new and what has changed with every new build of Azure SQL Edge.
 
+## CTP 2.2
+### SQL Engine build number - 15.0.2000.1546
+### Fixes
+1. Support for non-root containers 
+2. Support for Usage and Diagnostic data collection 
+3. T-SQL Streaming updates
+   - Support for Unicode characters for stream object names
+   - Process cleanup improvements
+   - Logging and diagnostics improvements
+4. Performance improvement for data ingestion
+
+## CTP 2.1 
+### SQL Engine build number - 15.0.2000.1545
+### Fixes
+1. Fix the PREDICT with ONNX models to handle CPUID issue in ARM 
+2. Fix to improve the handling of failure path in startup of TSQL streaming 
+3. Fix the incorrect value of watermark delay in job metrics when there is no data. 
+4. Fix the issue with output adapter when adapter has variable schema between batches.  
+
 ## CTP 2.0 
 ### SQL Engine build number - 15.0.2000.1401
 ### What's new?
 1. 	Product name updated to 'Azure SQL Edge'
-2.  Date_bucket function
+1.  Date_bucket function
 
     i. 	Support for Date, Time, DateTime type
 3.	PREDICT with ONNX

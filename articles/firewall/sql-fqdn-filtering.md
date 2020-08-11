@@ -4,7 +4,7 @@ description: In this article, you learn how to configure SQL FQDNs in Azure Fire
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
 ---

@@ -313,7 +313,7 @@ The following articles cover common scenarios that can also be used to create tr
 * [Problem displaying app page](application-proxy-page-appearance-broken-problem.md)
 * [Application load is too long](application-proxy-page-load-speed-problem.md)
 * [Links on application page not working](application-proxy-page-links-broken-problem.md)
-* [What ports to open for my app](application-proxy-connectivity-ports-how-to.md)
+* [What ports to open for my app](application-proxy-add-on-premises-application.md)
 * [No working connector in a connector group for my app](application-proxy-connectivity-no-working-connector.md)
 * [Configure in admin portal](application-proxy-config-how-to.md)
 * [Configure single sign-on to my app](application-proxy-config-sso-how-to.md)

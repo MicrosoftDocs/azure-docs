@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	1. In the **Identifier (Entity ID)** text box, type a URL using one of the following patterns:
 	
-	   | | |
+	   | URL | Region |
 	   |-|-|
 	   | `https://www.amazon.com`| North America |
 	   | `https://www.amazon.co.jp`| East Asia |
@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	1. In the **Reply URL** text box, type a URL using one of the following patterns:
 	
-	   | | |
+	   | URL | Region |
 	   |-|-|
 	   | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| North America |
 	   | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`| East Asia |

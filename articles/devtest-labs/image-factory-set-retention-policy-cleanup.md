@@ -1,19 +1,8 @@
 ---
 title: Set up retention policy in Azure DevTest Labs | Microsoft Docs
 description: Learn how to configure a retention policy, clean up the factory, and retire old images from DevTest Labs. 
-services: devtest-lab, lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Set up retention policy in Azure DevTest Labs

@@ -4,7 +4,7 @@ description: Learn how to create import and export jobs in the Azure portal for 
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common

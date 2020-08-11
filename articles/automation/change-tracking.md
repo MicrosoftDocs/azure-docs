@@ -44,11 +44,11 @@ Change Tracking and Inventory currently is experiencing the following issues:
 
 - Hotfix updates aren't collected on Windows Server 2016 Core RS3 machines.
 
-- Linux daemons might show a changed state even though no change has occurred. This issue arises because of the way the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) log is captured.
+- Linux daemons might show a changed state even though no change has occurred. This issue arises because of the way the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) log is captured.
 
 ## Supported operating systems
 
-Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. The official operating system versions are Windows Server 2008 SP1 or later and Windows 7 SP1 or later. The feature is also supported on a number of Linux operating systems. For operating systems supporting Log Analytics, see [Log Analytics agent overview](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. The official operating system versions are Windows Server 2008 SP1 or later and Windows 7 SP1 or later. The feature is also supported on a number of Linux operating systems. For operating systems supporting Log Analytics, see [Log Analytics agent overview](../azure-monitor/platform/log-analytics-agent.md).
 
 To understand client requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -86,7 +86,7 @@ You can add, modify, or remove each change. The example below shows a change in 
 
 ## FIM support in Azure Security Center
 
-Change Tracking and Inventory makes use of [Azure Security Center File Integrity Monitoring (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). While FIM monitors files and registries only, the full Change Tracking and Inventory feature also includes tracking for:
+Change Tracking and Inventory makes use of [Azure Security Center File Integrity Monitoring (FIM)](../security-center/security-center-file-integrity-monitoring.md). While FIM monitors files and registries only, the full Change Tracking and Inventory feature also includes tracking for:
 
 - Software changes
 - Microsoft services
@@ -101,7 +101,7 @@ For tracking changes in files on both Windows and Linux, Change Tracking and Inv
 
 ## Tracking of file content changes
 
-Change Tracking and Inventory allows you to view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](../storage/common/storage-create-storage-account.md). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side. 
+Change Tracking and Inventory allows you to view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](../storage/common/storage-account-create.md). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side. 
 
 ![View changes in a file](./media/change-tracking/view-file-changes.png)
 
@@ -166,7 +166,7 @@ The following table shows the tracked item limits per machine for Change Trackin
 |Services|250|
 |Daemons|250|
 
-The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month, depending on your environment. With the Usage and Estimated Costs feature of the Log Analytics workspace, you can view the data ingested by Change Tracking and Inventory in a usage chart. Use this data view to evaluate your data usage and determine how it affects your bill. See [Understand your usage and estimate costs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
+The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40 MB per month, depending on your environment. With the Usage and Estimated Costs feature of the Log Analytics workspace, you can view the data ingested by Change Tracking and Inventory in a usage chart. Use this data view to evaluate your data usage and determine how it affects your bill. See [Understand your usage and estimate costs](../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### Microsoft service data
 
@@ -198,7 +198,7 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 
 - To enable the feature from an Automation account, see [Enable Change Tracking and Inventory from an Automation account](automation-enable-changes-from-auto-acct.md).
 
-- To enable the feature by browsing the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](automation-onboard-solutions-from-browse.md).
+- To enable the feature by browsing the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](automation-enable-changes-from-browse.md).
 
 - To enable the feature from a runbook, see [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md).
 

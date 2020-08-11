@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: erhopf
 ---
 
@@ -19,7 +19,7 @@ Tenant Model (Custom Speech with Office 365 data) is an opt-in service for Offic
 > [!IMPORTANT]
 > If your organization enrolls by using the Tenant Model service, Speech Service may access your organization’s language model. The model is generated from Office 365 public group emails and documents, which can be seen by anyone in your organization. Your organization's Office 365 admin can turn on or turn off the use of the organization-wide language model from the Office 365 admin portal.
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Enroll in the Tenant Model by using the Microsoft 365 admin center

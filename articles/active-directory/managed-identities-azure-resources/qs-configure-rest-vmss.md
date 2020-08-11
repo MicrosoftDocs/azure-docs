@@ -10,7 +10,7 @@ editor:
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
@@ -33,7 +33,7 @@ In this article, using CURL to make calls to the Azure Resource Manager REST end
 
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md). **Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types)**.
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
-- To perform the management operations in this article, your account needs the following Azure role based access control assignments:
+- To perform the management operations in this article, your account needs the following Azure role assignments:
 
     > [!NOTE]
     > No additional Azure AD directory role assignments required.

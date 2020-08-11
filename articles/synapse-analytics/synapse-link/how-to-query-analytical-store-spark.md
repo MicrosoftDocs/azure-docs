@@ -1,6 +1,6 @@
 ---
 
-title: Query Azure Cosmos DB Analytical Store (preview) with Apache Spark for Azure Synapse Analytics
+title: Query Azure Cosmos DB Analytical Store (preview) with Apache Spark
 description: How to query Azure Cosmos DB analytical with Apache Spark for Azure Synapse Analytics
 services: synapse-analytics 
 author: ArnoMicrosoft

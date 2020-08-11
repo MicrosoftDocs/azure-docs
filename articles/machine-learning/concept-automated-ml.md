@@ -14,7 +14,7 @@ ms.date: 04/22/2020
 
 # What is automated machine learning (AutoML)?
 
-Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. Automated ML is based on a breakthrough from our [Microsoft Research division](https://arxiv.org/abs/1705.05355).
+Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. Automated ML is based on a breakthrough from our [Microsoft Research division](https://www.microsoft.com/research/project/automl/).
 
 Traditional machine learning model development is resource-intensive, requiring significant domain knowledge and time to produce and compare dozens of models. With automated machine learning, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
@@ -135,7 +135,7 @@ Enable this setting with:
 
 + Azure Machine Learning studio: Enable **Automatic featurization** in the **View additional configuration** section [with these steps](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-+ Python SDK: Specify `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` in your [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object. Learn more about [enabling featurization]((how-to-configure-auto-features.md). 
++ Python SDK: Specify `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` in your [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object. Learn more about [enabling featurization](how-to-configure-auto-features.md). 
 
 ## <a name="ensemble"></a> Ensemble models
 
@@ -219,21 +219,21 @@ The following settings allow you to configure your automated ML experiment.
 
 | |The Python SDK|The studio web experience|
 ----|:----:|:----:
-Split data into train/validation sets| ✓|✓
-Supports ML tasks: classification, regression, and forecasting| ✓| ✓
-Optimizes based on primary metric| ✓| ✓
-Supports AML compute as compute target | ✓|✓
-Configure forecast horizon, target lags & rolling window|✓|✓
-Set exit criteria |✓|✓ 
-Set concurrent iterations| ✓|✓
-Drop columns| ✓|✓
-Block algorithms|✓|✓
-Cross validation |✓|✓
-Supports training on Azure Databricks clusters| ✓|
-View engineered feature names|✓|
-Featurization summary| ✓|
-Featurization for holidays|✓|
-Log file verbosity levels| ✓|
+|**Split data into train/validation sets**| ✓|✓
+|**Supports ML tasks: classification, regression, and forecasting**| ✓| ✓
+|**Optimizes based on primary metric**| ✓| ✓
+|**Supports AML compute as compute target** | ✓|✓
+|**Configure forecast horizon, target lags & rolling window**|✓|✓
+|**Set exit criteria** |✓|✓ 
+|**Set concurrent iterations**| ✓|✓
+|**Drop columns**| ✓|✓
+|**Block algorithms**|✓|✓
+|**Cross validation** |✓|✓
+|**Supports training on Azure Databricks clusters**| ✓|
+|**View engineered feature names**|✓|
+|**Featurization summary**| ✓|
+|**Featurization for holidays**|✓|
+|**Log file verbosity levels**| ✓|
 
 ### Model settings
 
@@ -241,11 +241,11 @@ These settings can be applied to the best model as a result of your automated ML
 
 | |The Python SDK|The studio web experience|
 |----|:----:|:----:|
-|Best model registration, deployment, explainability| ✓|✓|
-|Enable voting ensemble & stack ensemble models| ✓|✓|
-|Show best model based on non-primary metric|✓||
-|Enable/disable ONNX model compatibility|✓||
-|Test the model | ✓| |
+|**Best model registration, deployment, explainability**| ✓|✓|
+|**Enable voting ensemble & stack ensemble models**| ✓|✓|
+|**Show best model based on non-primary metric**|✓||
+|**Enable/disable ONNX model compatibility**|✓||
+|**Test the model** | ✓| |
 
 ### Run control settings
 
@@ -253,10 +253,10 @@ These settings allow you to review and control your experiment runs and its chil
 
 | |The Python SDK|The studio web experience|
 |----|:----:|:----:|
-|Run summary table| ✓|✓|
-|Cancel runs & child runs| ✓|✓|
-|Get guardrails| ✓|✓|
-|Pause & resume runs| ✓| |
+|**Run summary table**| ✓|✓|
+|**Cancel runs & child runs**| ✓|✓|
+|**Get guardrails**| ✓|✓|
+|**Pause & resume runs**| ✓| |
 
 <a name="use-with-onnx"></a>
 
@@ -288,7 +288,7 @@ How to articles provide additional detail into what functionality AutoML offers.
 
 ### Jupyter notebook samples 
 
-Review detailed code examples and use cases in the [Github notebook repository for automated machine learning samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
 
 ### Python SDK reference 
 

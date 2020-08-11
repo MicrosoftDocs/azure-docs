@@ -160,7 +160,7 @@ If you remove the Microsoft Monitoring Extension, Security Center is not able to
 
 You can turn off automatic provisioning for your subscriptions in the security policy but this is not recommended. Turning off automatic provisioning limits Security Center recommendations and alerts. To disable automatic provisioning:
 
-1. If your subscription is configured for the Standard tier, open the security policy for that subscription and select the **Free** tier.
+1. If your subscription is configured for the standard tier, open the security policy for that subscription and select the **Free** tier.
 
    ![Pricing tier][1]
 

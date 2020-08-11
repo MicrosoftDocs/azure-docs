@@ -30,7 +30,7 @@ Version 9 of the Azure Search .NET SDK contains many changes from earlier versio
 <a name="WhatsNew"></a>
 
 ## What's new in version 9
-Version 9 of the Azure Search .NET SDK targets the latest generally available version of the Azure Search REST API, specifically 2019-05-06. This makes it possible to use new features of Azure Search from a .NET application, including the following:
+Version 9 of the Azure Search .NET SDK targets 2019-05-06 version of Azure Search REST API, with the following features:
 
 * [AI enrichment](cognitive-search-concept-intro.md) is the ability to extract text from images, blobs, and other unstructured data sources - enriching the content to make it more searchable in an Azure Search index.
 * Support for [complex types](search-howto-complex-data-types.md) allows you to model almost any nested JSON structure in an Azure Search index.

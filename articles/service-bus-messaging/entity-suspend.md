@@ -15,7 +15,7 @@ A suspension or reactivation can be performed either by the user or by the syste
 
 In the portal, the **Properties** section for the respective entity enables changing the state; the following screenshot shows the toggle for a queue:
 
-![][1]
+![Screenshot of the Service Bus feature with the Properties setting highlighted and the Queue state option set to Active and outlined in red.][1]
 
 The portal only permits completely disabling queues. You can also disable the send and receive operations separately using the Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs in the .NET Framework SDK, or with an Azure Resource Manager template through Azure CLI or Azure PowerShell.
 

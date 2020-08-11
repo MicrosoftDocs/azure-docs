@@ -3,7 +3,7 @@ title: Configuring DNS forwarding for Azure Files | Microsoft Docs
 description: An overview of networking options for Azure Files.
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files

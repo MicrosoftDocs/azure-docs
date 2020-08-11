@@ -17,10 +17,8 @@ ms.date: 05/19/2020
 In this article, you will use the Azure portal to access Debug sessions to repair issues with the provided skillset. The skillset has some errors which need to be addressed. This tutorial will take you through a debug session to identify and resolve issues with skill inputs and outputs.
 
 > [!Important]
-> Debug sessions support for Azure Cognitive Search is available [upon request](https://aka.ms/DebugSessions) as a limited-access preview. Preview features are provided without a service level agreement, and are not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Debug sessions is a preview feature provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Once you are granted access to the preview, you'll be able to access and use Debug sessions for your service using the Azure portal.
->   
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -72,7 +70,7 @@ In this section, Postman and a provided collection are used to create the search
 1. Under **Files** > **New**, select the collection to import.
 1. After the collection is imported, expand the actions list (...).
 1. Click **Edit**.
-1. Enter the name of your searchService (for example, if the endpoint is https://mydemo.search.windows.net, then the service name is "mydemo").
+1. Enter the name of your searchService (for example, if the endpoint is `https://mydemo.search.windows.net`, then the service name is "`mydemo`").
 1. Enter the apiKey with either the primary or secondary key of your search service.
 1. Enter the storageConnectionString from the keys page of your Azure Storage account.
 1. Enter the containerName for the container you created in the storage account.

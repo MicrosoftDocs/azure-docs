@@ -1,12 +1,12 @@
 ---
 title: Create a stored access policy with .NET
 titleSuffix: Azure Storage
-description: Learn how to create a stored access policy using the .NET client library.
+description: Use Azure Storage and .NET to create a stored access policy. Exercise additional levels of control over service-level shared access signatures on the server.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tamram
 ms.reviewer: ozgun

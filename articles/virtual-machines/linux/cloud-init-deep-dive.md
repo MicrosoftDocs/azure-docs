@@ -5,7 +5,7 @@ author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ---
@@ -21,9 +21,9 @@ Configuring a VM to run on a platform, means cloud-init needs to apply multiple 
 
 Some configurations are already baked into Azure Marketplace images that come with cloud-init, such as:
 
-* cloud data source - cloud-init contains code that can interact with cloud platforms, these are called 'data sources'. When a VM is created from a cloud-init image in [Azure](https://cloudinit.readthedocs.io/en/latest/topics/datasources/azure.html#azure), cloud-init loads the Azure Data Source, which will interact with the Azure metadata endpoints to get the VM specific configuration.
-* Image config (/etc/cloud)
-* Runtime config (/run/cloud-init), like `/etc/cloud/cloud.cfg`, `/etc/cloud/cloud.cfg.d/*.cfg`. An example of where this is used in Azure, it is common for the Linux OS images with cloud-init to have an Azure datasource directive, that tells cloud-init what datasource it should use, this saves cloud-init time:
+1. **Cloud data source** - cloud-init contains code that can interact with cloud platforms, these are called 'datasources'. When a VM is created from a cloud-init image in [Azure](https://cloudinit.readthedocs.io/en/latest/topics/datasources/azure.html#azure), cloud-init loads the Azure datasource, which will interact with the Azure metadata endpoints to get the VM specific configuration.
+2. **Runtime config** (/run/cloud-init)
+3. **Image config** (/etc/cloud), like `/etc/cloud/cloud.cfg`, `/etc/cloud/cloud.cfg.d/*.cfg`. An example of where this is used in Azure, it is common for the Linux OS images with cloud-init to have an Azure datasource directive, that tells cloud-init what datasource it should use, this saves cloud-init time:
 
    ```bash
    /etc/cloud/cloud.cfg.d# cat 90_dpkg.cfg
@@ -36,26 +36,28 @@ Some configurations are already baked into Azure Marketplace images that come wi
 
 When provisioning with cloud-init, there are 5 stages of boot, which process configuration, and shown in the logs.
 
-1. [Generator Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#generator): The cloud-init systemd generator starts, and determines that cloud-init should be included in the boot goals, and if so, it enables cloud-init. For example, if you wish to disable cloud-init, you can create this file `/etc/cloud/cloud-init.disabled`.
+1. [Generator Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#generator): The cloud-init systemd generator starts, and determines that cloud-init should be included in the boot goals, and if so, it enables cloud-init. 
 
 2. [Cloud-init Local Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#local): Here cloud-init will look for the local "Azure" datasource, which will enable cloud-init to interface with Azure, and apply a networking configuration, including fallback.
 
 3. [Cloud-init init Stage (Network)](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#network): Networking should be online, and the NIC and route table information should be generated. At this stage, the modules listed in `cloud_init_modules` in /etc/cloud/cloud.cfg will be run. The VM in Azure will be mounted, the ephemeral disk is formatted, the hostname is set, along with other tasks.
 
-   These are some of the cloud_init_modules:
-   - `migrator`
-   - `seed_random`
-   - `bootcmd`
-   - `write-files`
-   - `growpart`
-   - `resizefs`
-   - `disk_setup`
-   - `mounts`
-   - `set_hostname`
-   - `update_hostname`
-   - `ssh`
-
-
+   These are some of the `cloud_init_modules`:
+   
+   ```bash
+   - migrator
+   - seed_random
+   - bootcmd
+   - write-files
+   - growpart
+   - resizefs
+   - disk_setup
+   - mounts
+   - set_hostname
+   - update_hostname
+   - ssh
+   ```
+   
    After this stage, cloud-init will signal to the Azure platform that the VM has been provisioned successfully. Some modules may have failed, not all module failures will result in a provisioning failure.
 
 4. [Cloud-init Config Stage](https://cloudinit.readthedocs.io/en/latest/topics/boot.html#config): At this stage, the modules in `cloud_config_modules` defined and listed in /etc/cloud/cloud.cfg will be run.

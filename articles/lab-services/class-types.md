@@ -1,21 +1,10 @@
 ---
 title: Example class types on Azure Lab Services | Microsoft Docs
 description: Provides some types of classes for which you can set up labs using Azure Lab Services. 
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Class types overview - Azure Lab Services
 
 Azure Lab Services enables you to quickly set up classroom lab environments in the cloud. Articles in this section provide guidance on how to set up several types of classroom labs using Azure Lab Services.
@@ -51,11 +40,6 @@ For detailed information on how to set up this type of lab, see [Set up a lab to
 You can set up a template machine in Azure Lab Services with the tools needed to teach students how to use [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io). Jupyter Notebooks is an open-source project that lets you easily combine rich text and executable [Python](https://www.python.org/) source code on a single canvas called a notebook. Running a notebook results in a linear record of inputs and outputs.  Those outputs can include text, tables of information, scatter plots, and more.
 
 For detailed information on how to set up this type of lab, see [Set up a lab to teach data science with Python and Jupyter Notebooks](class-type-jupyter-notebook.md).
-
-## Mobile app development with Android Studio
-You can set up a lab in Azure Lab Services to teach an introductory mobile application development class. This class focuses on Android mobile applications that can be published to the [Google Play Store](https://play.google.com/store/apps).  Students learn how to use [Android Studio](https://developer.android.com/studio) to build applications.  [Visual Studio Emulator for Android](https://visualstudio.microsoft.com/vs/msft-android-emulator/) is used to test the application locally.
-
-For detailed information on how to set up this type of lab, see [Set up a lab to teach mobile application development with Android Studio](class-type-mobile-dev-android-studio.md).
 
 ## Big data analytics
 You can set up a GPU lab to teach a big data analytics class. With this type of class, students learn how to handle large volumes of data, and apply machine and statistical learning algorithms to derive data insights. A key objective for students is to learn to use data analytics tools, such as Apache Hadoop's open-source software package which provides tools for storing, managing, and processing big data. 

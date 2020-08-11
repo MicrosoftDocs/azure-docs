@@ -249,9 +249,11 @@ properties](#parameter-properties).
 ### strongType
 
 Within the `metadata` property, you can use **strongType** to provide a multi-select list of options
-within the Azure portal. **strongType** can be a supported _resource type_ or an allowed
-value. To determine if a _resource type_ is valid for **strongType**, use
-[Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider).
+within the Azure portal. **strongType** can be a supported _resource type_ or an allowed value. To
+determine if a _resource type_ is valid for **strongType**, use
+[Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). The format for a
+_resource type_ **strongType** is `<Resource Provider>/<Resource Type>`. For example,
+`Microsoft.Network/virtualNetworks/subnets`.
 
 Some _resource types_ not returned by **Get-AzResourceProvider** are supported. Those are:
 
@@ -639,38 +641,7 @@ Example 4: Check that all object array members meet the condition expression
 }
 ```
 
-Example 5: Check that all string array members meet the condition expression
-
-```json
-{
-    "count": {
-        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
-        "where": {
-            "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
-            "like": "*@contoso.com"
-        }
-    },
-    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
-}
-```
-
-Example 6: Use **field** inside **value** to check that all array members meet the condition
-expression
-
-```json
-{
-    "count": {
-        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
-        "where": {
-            "value": "[last(split(first(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]')), '@'))]",
-            "equals": "contoso.com"
-        }
-    },
-    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
-}
-```
-
-Example 7: Check that at least one array member matches multiple properties in the condition
+Example 5: Check that at least one array member matches multiple properties in the condition
 expression
 
 ```json
@@ -739,9 +710,9 @@ use within a policy rule, except the following functions and user-defined functi
 > the template deployment in a **deployIfNotExists** policy definition.
 
 The following function is available to use in a policy rule, but differs from use in an Azure
-Resource Manager template:
+Resource Manager template (ARM template):
 
-- `utcNow()` - Unlike a Resource Manager template, this property can be used outside _defaultValue_.
+- `utcNow()` - Unlike an ARM template, this property can be used outside _defaultValue_.
   - Returns a string that is set to the current date and time in Universal ISO 8601 DateTime format
     'yyyy-MM-ddTHH:mm:ss.fffffffZ'
 

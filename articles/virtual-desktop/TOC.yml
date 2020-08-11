@@ -1,4 +1,4 @@
-- name: Windows Virtual Desktop Spring 2020 Release
+- name: Windows Virtual Desktop
   href: index.yml
 - name: Overview
   items:
@@ -6,7 +6,7 @@
     href: overview.md
   - name: What's new?
     href: whats-new.md
-  - name: Fall 2019 Release documentation
+  - name: Windows Virtual Desktop (classic) documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutorials
   items:
@@ -23,7 +23,7 @@
   - name: Connect to Windows Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
-        href: connect-windows-7-and-10.md
+        href: connect-windows-7-10.md
       - name: Connect with the web client
         href: connect-web.md
       - name: Connect with the Android client
@@ -38,12 +38,16 @@
     items:
       - name: PowerShell
         href: create-host-pools-powershell.md
+      - name: Deploy a Windows 7 virtual machine
+        href: deploy-windows-7-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
       - name: Expand an existing host pool
         href: expand-existing-host-pool.md
       - name: Manage app groups with PowerShell
         href: manage-app-groups-powershell.md
+  - name: Delete a host pool
+    href: delete-host-pool.md
   - name: Create a profile container
     items:
       - name: Use a VM-based file share
@@ -70,6 +74,8 @@
         href: set-up-customize-master-image.md
       - name: Install Office on a master VHD image
         href: install-office-on-wvd-master-image.md
+  - name: Scale session hosts automatically
+    href: set-up-scaling-script.md
   - name: Customize feed
     href: customize-feed-for-virtual-desktop-users.md
   - name: Use service diagnostics
@@ -90,6 +96,8 @@
     href: language-packs.md
 - name: Concepts
   items:
+  - name: Safe URL list
+    href: safe-url-list.md
   - name: Windows Virtual Desktop environment
     href: environment-setup.md
   - name: Determine user connection latency
@@ -104,6 +112,8 @@
     href: store-fslogix-profile.md
   - name: Partner integrations
     href: partners.md
+  - name: Windows Virtual Desktop FAQ
+    href: faq.md
   - name: Windows 10 Enterprise multi-session FAQ
     href: windows-10-multisession-faq.md
   - name: Data locations
@@ -142,6 +152,8 @@
   items:
   - name: PowerShell
     href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
+  - name: REST API reference
+    href: /rest/api/desktopvirtualization/
   - name: Experience estimator
     href: https://azure.microsoft.com/services/virtual-desktop/assessment/
   - name: Pricing calculator

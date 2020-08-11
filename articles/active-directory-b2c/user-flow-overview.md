@@ -1,5 +1,6 @@
 ---
 title: User flows in Azure Active Directory B2C | Microsoft Docs
+titleSuffix: Azure AD B2C
 description: Learn more about the extensible policy framework of Azure Active Directory B2C and how to create various user flows.
 services: active-directory-b2c
 author: msmimart
@@ -8,18 +9,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 07/30/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
 
 # User flows in Azure Active Directory B2C
 
-The extensible policy framework of Azure Active Directory B2C (Azure AD B2C) is the core strength of the service. Policies fully describe identity experiences such as sign-up, sign-in, or profile editing. To help you set up the most common identity tasks, the Azure AD B2C portal includes predefined, configurable policies called **user flows**.
-
-## What are user flows?
-
-A user flow enables you to control behaviors in your applications by configuring the following settings:
+To help you set up the most common identity tasks for your applications, the Azure AD B2C portal includes predefined, configurable policies called **user flows**. A user flow lets you determine how users interact with your application when they do things like sign in, sign up, edit a profile, or reset a password. With user flows, you can control the following capabilities:
 
 - Account types used for sign-in, such as social accounts like a Facebook or local accounts
 - Attributes to be collected from the consumer, such as first name, postal code, and shoe size
@@ -57,13 +55,21 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## User flow versions
 
-In the Azure portal, new [versions of user flows](user-flow-versions.md) are being added all the time. When you get started with Azure AD B2C, tested user flows are recommended for you to use. When you create a new user flow, you choose the user flow that you need from the **Recommended** tab.
+Azure AD B2C includes several types of user flows:
 
-The following user flows are currently recommended:
-
-- **Sign up and sign in** - Handles both of the sign-up and sign-in experiences with a single configuration. Users are led down the right path depending on the context. It's recommended that you use this user flow over a **sign-up** user flow or a **sign-in** user flow.
+- **Sign up and sign in** - Handles both of the sign-up and sign-in experiences with a single configuration. Users are led down the right path depending on the context. Also included are separate **sign-up** or **sign-in** user flows. But we generally recommend the combined sign up and sign in user flow.
 - **Profile editing** - Enables users to edit their profile information.
 - **Password reset** - Enables you to configure whether and how users can reset their password.
+
+Most user flow types have both a **Recommended** version and a **Standard** version. For details, see [user flow versions](user-flow-versions.md).
+
+> [!IMPORTANT]
+> If you've worked with user flows in Azure AD B2C before, you'll notice that we've changed the way we reference user flow versions. Previously, we offered V1 (production-ready) versions, and V1.1 and V2 (preview) versions. Now, we've consolidated user flows into two versions:
+>
+>- **Recommended** user flows are the new preview versions of user flows. They're thoroughly tested and combine all the features of the legacy **V2** and **V1.1** versions. Going forward, the new recommended user flows will be maintained and updated. Once you move to these new recommended user flows, you'll have access to new features as they're released.
+>- **Standard** user flows, previously known as **V1**, are generally available, production-ready user flows. If your user flows are mission-critical and depend on highly stable versions, you can continue to use standard user flows, realizing that these versions won't be maintained and updated.
+>
+>All legacy preview user flows (V1.1 and V2) are on a path to deprecation by **August 1, 2021**. Wherever possible, we highly recommend that you [switch to the new **Recommended** user flows](user-flow-versions.md#how-to-switch-to-a-new-recommended-user-flow) as soon as possible so you can always take advantage of the latest features and updates.
 
 ## Linking user flows
 

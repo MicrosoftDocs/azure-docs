@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ---
@@ -16,7 +16,7 @@ ms.reviewer: cynthn
 
 Microsoft Azure provides provisioning agents for Linux VMs in the form of the [walinuxagent](https://github.com/Azure/WALinuxAgent) or [cloud-init](https://github.com/canonical/cloud-init) (recommended). But there could be a scenario when you don't want to use either of these applications for your provisioning agent, such as:
 
-- Your Linux distro/version does not support cloud-init.
+- Your Linux distro/version does not support cloud-init/Linux Agent.
 - You require specific VM properties to be set, such as hostname.
 
 > [!NOTE] 
@@ -66,7 +66,7 @@ $ az vm create \
 Once the VM is provisioning, you can SSH into it and remove the Linux Agent:
 
 ```bash
-$ sudo apt remove -y waagent
+$ sudo apt purge -y waagent
 $ sudo rm -rf /var/lib/waagent /etc/waagent.conf /var/log/waagent.log
 ```
 

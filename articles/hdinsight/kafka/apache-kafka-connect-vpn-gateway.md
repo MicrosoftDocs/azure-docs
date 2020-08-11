@@ -5,8 +5,8 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive, tracking-python
+ms.topic: how-to
+ms.custom: hdinsightactive, devx-track-python
 ms.date: 03/04/2020
 ---
 

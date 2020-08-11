@@ -3,8 +3,8 @@ title: Create an Oracle database in an Azure VM | Microsoft Docs
 description: Quickly get an Oracle Database 12c database up and running in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: BorisB2015
-manager: gwallace
+author: rgardler
+manager: 
 editor: 
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: borisb
+ms.author: rogardle
 ---
 
 # Create an Oracle Database in an Azure VM
@@ -322,6 +322,6 @@ az group delete --name myResourceGroup
 
 ## Next steps
 
-Learn about other [Oracle solutions on Azure](oracle-considerations.md). 
+Learn about other [Oracle solutions on Azure](./oracle-overview.md). 
 
 Try the [Installing and Configuring Oracle Automated Storage Management](configure-oracle-asm.md) tutorial.
