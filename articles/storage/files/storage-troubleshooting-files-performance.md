@@ -178,22 +178,27 @@ Higher than expected latency accessing Azure Files for IO intensive workloads.
 6. On the **Configure signal logic** blade, click the **Dimension name** drop-down and select **Response type**.
 7. Click the **Dimension values** drop-down and select **SuccessWithThrottling** (for SMB) or **ClientThrottlingError** (for REST).
 
-> [!NOTE]
-> If the SuccessWithThrottling or ClientThrottlingError dimension value is not listed, this means the resource has not been throttled. To add the dimension value, click **Add custom value** beside the **Dimension values** drop-down, type **SuccessWithThrottling** or **ClientThrottlingError**, click **OK** and then repeat step #7.
+  > [!NOTE]
+  > If the SuccessWithThrottling or ClientThrottlingError dimension value is not listed, this means the resource has not been throttled. To add the dimension value, click **Add  custom value** beside the **Dimension values** drop-down, type **SuccessWithThrottling** or **ClientThrottlingError**, click **OK** and then repeat step #7.
 
 8. Click the **Dimension name** drop-down and select **File Share**.
 9. Click the **Dimension values** drop-down and select the file share(s) that you want to alert on.
 
-> [!NOTE]
-> If the file share is a standard file share, select **All current and future values**. The dimension values drop-down will not list the file share(s) because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
+  > [!NOTE]
+  > If the file share is a standard file share, select **All current and future values**. The dimension values drop-down will not list the file share(s) because per-share metrics are not available for standard file shares. Throttling alerts for standard file shares will be triggered if any file share within the storage account is throttled and the alert will not identify which file share was throttled. Since per-share metrics are not available for standard file shares, the recommendation is to have one file share per storage account.
 
 10. Define the **alert parameters** (threshold value, operator, aggregation granularity and frequency of evaluation) and click **Done**.
 
-> [!TIP]
-> If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
+  > [!TIP]
+  > If you are using a static threshold, the metric chart can help determine a reasonable threshold value if the file share is currently being throttled. If you are using a dynamic threshold, the metric chart will display the calculated thresholds based on recent data.
 
 11. Click **Select action group** to add an **action group** (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 12. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
 13. Click **Create alert rule** to create the alert.
 
 To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+## See also
+* [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [Troubleshoot Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [Frequently asked questions (FAQ) about Azure Files](storage-files-faq.md)

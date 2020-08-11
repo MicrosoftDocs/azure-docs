@@ -1,12 +1,9 @@
 ---
 title: Windows Virtual Desktop safe URL list - Azure
 description: A list of URLs you should unblock to ensure your Windows Virtual Desktop deployment works as intended.
-services: virtual-desktop
-author: heidilohr
-
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -74,4 +71,6 @@ Any Remote Desktop clients you use must have access to the following URLs:
 |query.prod.cms.rt.microsoft.com|443|Client updates|Windows Desktop|
 
 >[!IMPORTANT]
->Opening these URLs is essential for a reliable client experience. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to the client sites and resources, and don't include URLs for other services like Azure Active Directory.
+>Opening these URLs is essential for a reliable client experience. Blocking access to these URLs is unsupported and will affect service functionality.
+>
+>These URLs only correspond to client sites and resources. This list doesn't include URLs for other services like Azure Active Directory. Azure Active Directory URLs can be found under ID 56 on the [Office 365 URLs and IP address ranges](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).

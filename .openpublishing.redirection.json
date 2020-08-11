@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/windows/infrastructure-example.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/infrastructure-example",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/infrastructure-example.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/infrastructure-example",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/digital-twins/how-to-use-parser.md",
       "redirect_url": "/azure/digital-twins/how-to-parse-models",
       "redirect_document_id": false
@@ -891,6 +901,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-configure-private-link.md",
+      "redirect_url": "/azure/machine-learning/how-to-enable-virtual-network",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/how-to-monitor-data-drift.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
       "redirect_document_id": false
@@ -1034,6 +1049,11 @@
       "source_path": "articles/machine-learning/service/ui-quickstart-run-experiment.md",
       "redirect_url": "tutorial-designer-automobile-price-train-score",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-debug-pipelines-application-insights.md",
+      "redirect_url" : "/azure/machine-learning/how-to-log-pipelines-application-insights",
+      "redirect_document_id" : false
     },
     {
       "source_path": "articles/batch-ai/cli-samples.md",
@@ -4311,6 +4331,11 @@
       "source_path": "articles/iot-edge/how-to-deploy-monitor-vscode.md",
       "redirect_url": "/azure/iot-edge/how-to-deploy-vscode-at-scale",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-devops-plugins.md",
+      "redirect_url": "/azure/iot-edge/how-to-ci-cd",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
@@ -7785,28 +7810,43 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service/containers/configure-language-ruby.md",
+      "redirect_url": "/azure/app-service/configure-language-ruby",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service/containers/app-service-linux-java.md",
-      "redirect_url": "/azure/app-service/containers/configure-language-java",
+      "redirect_url": "/azure/app-service/configure-language-java?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/containers/app-service-java-enterprise.md",
-      "redirect_url": "/azure/app-service/containers/configure-language-java",
+      "redirect_url": "/azure/app-service/configure-language-java?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/containers/how-to-java-apm-monitoring.md",
-      "redirect_url": "/azure/app-service/containers/configure-language-java",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/app-service/containers/quickstart-docker-go.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-docker",
+      "redirect_url": "/azure/app-service/configure-language-java?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/containers/tutorial-ruby-mysql-app.md",
-      "redirect_url": "/azure/app-service/containers/tutorial-ruby-postgres-app",
+      "redirect_url": "/azure/app-service/tutorial-ruby-postgres-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/tutorial-ruby-postgres-app.md",
+      "redirect_url": "/azure/app-service/tutorial-ruby-postgres-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/tutorial-multi-container-app.md",
+      "redirect_url": "/azure/app-service/tutorial-multi-container-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-get-started-windows-containers",
+      "redirect_url": "/azure/app-service/quickstart-custom-container",
       "redirect_document_id": false
     },
     {
@@ -8899,6 +8939,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/install-update-binding-extensions-manual.md",
+      "redirect_url": "/azure/azure-functions/functions-bindings-register",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-functions/functions-how-to-use-sendgrid.md",
       "redirect_url": "/azure/azure-functions/functions-bindings-sendgrid",
       "redirect_document_id": false
@@ -9285,7 +9330,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-get-started-python-cli-nodejs.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-python",
+      "redirect_url": "/azure/app-service/quickstart-python",
       "redirect_document_id": false
     },
     {
@@ -9305,7 +9350,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-nodejs-sails-cli-nodejs.md",
-      "redirect_url": "/azure/app-service/containers/tutorial-nodejs-mongodb-app",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app",
       "redirect_document_id": false
     },
     {
@@ -9365,57 +9410,92 @@
     },
     {
       "source_path": "articles/app-service/app-service-linux-readme.md",
-      "redirect_url": "/azure/app-service/containers/app-service-linux-intro",
+      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/app-service-linux-ci-cd.md",
-      "redirect_url": "/azure/app-service/containers/app-service-linux-ci-cd",
+      "redirect_url": "/azure/app-service/deploy-ci-cd-custom-container",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/app-service-linux-ci-cd.md",
+      "redirect_url": "/azure/app-service/deploy-ci-cd-custom-container",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/app-service-linux-cli.md",
-      "redirect_url": "/azure/app-service/containers/app-service-linux-cli",
+      "redirect_url": "/azure/app-service/configure-custom-container",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/app-service-linux-cli.md",
+      "redirect_url": "/azure/app-service/configure-custom-container?pivots=platform-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/configure-custom-container.md",
+      "redirect_url": "/azure/app-service/configure-custom-container?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/app-service-linux-faq.md",
-      "redirect_url": "/azure/app-service/containers/app-service-linux-faq",
+      "redirect_url": "/azure/app-service/faq-app-service-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/app-service-linux-faq.md",
+      "redirect_url": "/azure/app-service/faq-app-service-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/app-service-linux-intro.md",
-      "redirect_url": "/azure/app-service/containers/app-service-linux-intro",
+      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/app-service-linux-intro.md",
+      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/app-service-linux-ssh-support.md",
-      "redirect_url": "/azure/app-service/containers/app-service-linux-ssh-support",
+      "redirect_url": "/azure/app-service/configure-linux-open-ssh-session",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/app-service-linux-ssh-support.md",
+      "redirect_url": "/azure/app-service/configure-linux-open-ssh-session",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/app-service-linux-using-ruby.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-ruby",
+      "redirect_url": "/azure/app-service/quickstart-ruby",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/app-service-linux-ruby-get-started.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-ruby",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/app-service-web/app-service-linux-using-dotnetcore.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-dotnetcore",
+      "redirect_url": "/azure/app-service/quickstart-ruby",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md",
-      "redirect_url": "/azure/app-service/containers/tutorial-python-postgresql-app",
+      "redirect_url": "/azure/app-service/tutorial-python-postgresql-app",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/containers/tutorial-docker-python-postgresql-app.md",
-      "redirect_url": "/azure/app-service/containers/tutorial-python-postgresql-app",
+      "redirect_url": "/azure/app-service/tutorial-python-postgresql-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/tutorial-python-postgresql-app.md",
+      "redirect_url": "/azure/app-service/tutorial-python-postgresql-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/tutorial-troubleshoot-monitor.md",
+      "redirect_url": "/azure/app-service/tutorial-troubleshoot-monitor",
       "redirect_document_id": false
     },
     {
@@ -9505,7 +9585,7 @@
     },
     {
       "source_path": "articles/app-service-web/storage-nodejs-use-table-storage-web-site.md",
-      "redirect_url": "/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app",
       "redirect_document_id": false
     },
     {
@@ -9575,37 +9655,37 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-python-create-deploy-bottle-app.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-python",
+      "redirect_url": "/azure/app-service/quickstart-python",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/web-sites-python-create-deploy-django-app.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-python",
+      "redirect_url": "/azure/app-service/quickstart-python",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/web-sites-python-create-deploy-flask-app.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-python",
+      "redirect_url": "/azure/app-service/quickstart-python",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/web-sites-python-ptvs-bottle-table-storage.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-python",
+      "redirect_url": "/azure/app-service/quickstart-python",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/web-sites-python-ptvs-django-mysql.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-python",
+      "redirect_url": "/azure/app-service/quickstart-python",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/web-sites-python-ptvs-django-sql.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-python",
+      "redirect_url": "/azure/app-service/quickstart-python",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/web-sites-python-ptvs-flask-table-storage.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-python",
+      "redirect_url": "/azure/app-service/quickstart-python",
       "redirect_document_id": false
     },
     {
@@ -9914,11 +9994,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/app-service-web/app-service-web-get-started-python.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-python",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md",
       "redirect_url": "/azure/app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase",
       "redirect_document_id": false
@@ -9999,23 +10074,73 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service/app-service-web-tutorial-auth-aad.md",
+      "redirect_url": "/azure/app-service/tutorial-auth-aad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/tutorial-auth-aad.md",
+      "redirect_url": "/azure/app-service/tutorial-auth-aad?pivots=platform-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/deploy-container-github-action.md",
+      "redirect_url": "/azure/app-service/deploy-container-github-action",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service-web/app-service-web-tutorial-dotnet-sqldatabase.md",
       "redirect_url": "/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase",
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service/app-service-web-tutorial-dotnetcore-sqldatabase.md",
+      "redirect_url": "/azure/app-service/tutorial-dotnetcore-sqldb-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/tutorial-dotnetcore-sqldb-app.md",
+      "redirect_url": "/azure/app-service/tutorial-dotnetcore-sqldb-app?pivots=platform-linux",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service-web/app-service-web-tutorial-java-mysql.md",
-      "redirect_url": "/azure/app-service/containers/tutorial-java-spring-cosmosdb",
+      "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/tutorial-java-spring-cosmosdb.md",
+      "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/app-service-web-tutorial-nodejs-mongodb-app.md",
-      "redirect_url": "/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-tutorial-nodejs-mongodb-app.md",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/tutorial-nodejs-mongodb-app.md",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/app-service-web-tutorial-php-mysql.md",
-      "redirect_url": "/azure/app-service/app-service-web-tutorial-php-mysql",
+      "redirect_url": "/azure/app-service/tutorial-php-mysql-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-tutorial-php-mysql.md",
+      "redirect_url": "/azure/app-service/tutorial-php-mysql-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/tutorial-php-mysql-app.md",
+      "redirect_url": "/azure/app-service/tutorial-php-mysql-app?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -10595,7 +10720,7 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-nodejs-debug.md",
-      "redirect_url": "/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app",
       "redirect_document_id": false
     },
     {
@@ -10606,6 +10731,11 @@
     {
       "source_path": "articles/app-service/web-sites-php-configure.md",
       "redirect_url": "/azure/app-service/configure-language-php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/configure-language-php.md",
+      "redirect_url": "/azure/app-service/configure-language-php?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -10714,13 +10844,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/app-service/app-service-web-get-started-python.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-python",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/app-service/app-service-web-tutorial-python-postgresql.md",
-      "redirect_url": "/azure/app-service/containers/tutorial-python-postgresql-app",
+      "redirect_url": "/azure/app-service/tutorial-python-postgresql-app",
       "redirect_document_id": false
     },
     {
@@ -10784,6 +10909,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service/app-service-web-tutorial-windows-containers-custom-fonts.md",
+      "redirect_url": "/azure/app-service/tutorial-custom-container",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/tutorial-custom-docker-image.md",
+      "redirect_url": "/azure/app-service/tutorial-custom-container?pivots=platform-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/configure-language-java.md",
+      "redirect_url": "/azure/app-service/configure-language-java?pivots=platform-linux",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service-web/app-service-agile-software-development.md",
       "redirect_url": "/azure/app-service/deploy-continuous-deployment",
       "redirect_document_id": false
@@ -10825,7 +10965,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-nodejs-sails.md",
-      "redirect_url": "/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app",
       "redirect_document_id": false
     },
     {
@@ -13615,7 +13755,7 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-dotnet-store-data-mongodb-vm.md",
-      "redirect_url": "/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app",
+      "redirect_url": "/azure/app-service/tutorial-nodejs-mongodb-app",
       "redirect_document_id": false
     },
     {
@@ -13625,12 +13765,32 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-python-configure.md",
-      "redirect_url": "/azure/app-service/containers/how-to-configure-python",
+      "redirect_url": "/azure/app-service/configure-language-python",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service/web-sites-python-configure.md",
-      "redirect_url": "/azure/app-service/containers/how-to-configure-python",
+      "redirect_url": "/azure/app-service/configure-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/how-to-configure-python.md",
+      "redirect_url": "/azure/app-service/configure-language-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/configure-language-dotnetcore.md",
+      "redirect_url": "/azure/app-service/configure-language-dotnetcore?pivots=platform-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/configure-language-nodejs.md",
+      "redirect_url": "/azure/app-service/configure-language-nodejs?pivots=platform-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/index.yml",
+      "redirect_url": "/azure/app-service/",
       "redirect_document_id": false
     },
     {
@@ -26489,6 +26649,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/blobs/soft-delete-overview.md",
+      "redirect_url": "/azure/storage/blobs/soft-delete-blob-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/soft-delete-enable.md",
+      "redirect_url": "/azure/storage/blobs/soft-delete-blob-enable",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-blob-storage-tiers.md",
       "redirect_url": "/azure/storage/blobs/storage-blob-storage-tiers",
       "redirect_document_id": true
@@ -27440,7 +27610,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-linux-how-to-create-web-app.md",
-      "redirect_url": "/azure/app-service/containers/app-service-linux-intro",
+      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
       "redirect_document_id": false
     },
     {
@@ -27869,25 +28039,135 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/app-service-web/app-service-linux-using-nodejs-pm2.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-nodejs",
+      "source_path": "articles/app-service-web/app-service-web-get-started-python.md",
+      "redirect_url": "/azure/app-service/quickstart-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-python.md",
+      "redirect_url": "/azure/app-service/quickstart-python",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/app-service-linux-choose-deployment-type.md",
-      "redirect_url": "/azure/app-service/containers/choose-deployment-type",
+      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/choose-deployment-type.md",
+      "redirect_url": "/azure/app-service/overview#app-service-on-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/app-service-linux-using-custom-docker-image.md",
-      "redirect_url": "/azure/app-service/containers/tutorial-custom-docker-image",
+      "redirect_url": "/azure/app-service/containers/tutorial-custom-container?pivots=platform-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service-web/app-service-linux-using-dotnetcore.md",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-dotnet",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/app-service/containers/quickstart-dotnetcore.md",
+      "redirect_url": "/azure/app-service/quickstart-dotnetcore?pivots=platform-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-dotnet-framework.md",
+      "redirect_url": "/azure/app-service/quickstart-dotnet-framework",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-nodejs.md",
+      "redirect_url": "/azure/app-service/quickstart-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/quickstart-nodejs.md",
+      "redirect_url": "/azure/app-service/quickstart-nodejs?pivots=platform-linux",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/app-service-web/app-service-linux-using-nodejs-pm2.md",
+      "redirect_url": "/azure/app-service/quickstart-nodejs?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/app-service-web/app-service-linux-get-started-node.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-nodejs",
+      "redirect_url": "/azure/app-service/quickstart-nodejs?pivots=platform-linux",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-php.md",
+      "redirect_url": "/azure/app-service/quickstart-php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/quickstart-php.md",
+      "redirect_url": "/azure/app-service/quickstart-php?pivots=platform-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-java.md",
+      "redirect_url": "/azure/app-service/quickstart-java",
+      "redirect_document_id": false
+    },       
+    {
+      "source_path": "articles/app-service/containers/quickstart-java.md",
+      "redirect_url": "/azure/app-service/quickstart-java?pivots=platform-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-html.md",
+      "redirect_url": "/azure/app-service/quickstart-html",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/app-service/containers/quickstart-custom-docker-image.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/quickstart-go.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
+      "redirect_document_id": false
+    },        
+    {
+      "source_path": "articles/app-service/containers/quickstart-docker-go.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/quickstart-docker.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container?pivots=platform-linux",
+      "redirect_document_id": false
+    },        
+    {
+      "source_path": "articles/app-service/app-service-web-get-started-windows-container.md",
+      "redirect_url": "/azure/app-service/quickstart-custom-container",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/containers/quickstart-multi-container.md",
+      "redirect_url": "/azure/app-service/quickstart-multi-container",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/app-service/containers/quickstart-ruby.md",
+      "redirect_url": "/azure/app-service/quickstart-ruby",
+      "redirect_document_id": false
+    },   
+    {
+      "source_path": "articles/app-service/containers/quickstart-python.md",
+      "redirect_url": "/azure/app-service/quickstart-python",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-create-group.md",
       "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-getting-started",
@@ -31819,16 +32099,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/app-service/containers/quickstart-custom-docker-image.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-docker-go",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/app-service/containers/quickstart-go.md",
-      "redirect_url": "/azure/app-service/containers/quickstart-docker-go",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/active-directory/active-directory-conditional-access-unlicensed-usage-report.md",
       "redirect_url": "/azure/active-directory/active-directory-reporting-azure-portal",
       "redirect_document_id": false
@@ -35285,7 +35555,7 @@
     },
     {
       "source_path": "articles/nodejs-specify-node-version-azure-apps.md",
-      "redirect_url": "/azure/app-service/containers/app-service-linux-intro",
+      "redirect_url": "/azure/app-service/overview",
       "redirect_document_id": false
     },
     {
@@ -42140,7 +42410,7 @@
     },
     {
       "source_path": "articles/app-service/app-service-web-tutorial-java-mysql.md",
-      "redirect_url": "/azure/app-service/containers/tutorial-java-spring-cosmosdb",
+      "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
       "redirect_document_id": false
     },
     {
@@ -45939,6 +46209,11 @@
     },
     {
       "source_path": "articles/iot-central/howto-connect-devkit.md",
+      "redirect_url": "/azure/iot-central/core/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-connect-devkit.md",
       "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
     },
@@ -49773,7 +50048,7 @@
     },
     {
       "source_path": "articles/service-bus-messaging/migrate-java-apps-wild-fly.md",
-      "redirect_url": "/azure/app-service/containers/configure-language-java#use-service-bus-as-a-message-broker",
+      "redirect_url": "/azure/app-service/configure-language-java#use-service-bus-as-a-message-broker",
       "redirect_document_id": false
     },
     {
@@ -50858,7 +51133,7 @@
     },
     {
       "source_path": "articles/app-service/containers/tutorial-java-enterprise-postgresql-app.md",
-      "redirect_url": "/azure/app-service/containers/configure-language-java",
+      "redirect_url": "/azure/app-service/configure-language-java?pivots=platform-linux",
       "redirect_document_id": false
     },
     {
@@ -55126,6 +55401,66 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/dev-spaces/get-started-java.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/get-started-netcore.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/get-started-nodejs.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/multi-service-java.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/multi-service-netcore-visualstudio.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/multi-service-netcore.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/multi-service-nodejs.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/team-development-java.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/team-development-netcore.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/team-development-netcore-visualstudio.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/team-development-nodejs.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/how-to/share-dev-spaces.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/insights/azure-key-vault.md",
       "redirect_url": "/azure/azure-monitor/insights/key-vault-insights-overview",
       "redirect_document_id": false
@@ -55404,6 +55739,66 @@
       "source_path": "articles/active-directory/b2b/what-is-b2b.md",
       "redirect_url": "/azure/active-directory/external-identities/what-is-b2b",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-nodejs-get-text-to-speech-voice.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/text-to-speech-basics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-nodejs-text-to-speech.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/text-to-speech-basics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-python-text-to-speech.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/text-to-speech-basics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstart-python-get-text-to-speech-voices.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/text-to-speech-basics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios/from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-macos.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos/from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/swift-macos.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/swift-ios.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/swift-ios.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios/text-to-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/swift-macos.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/text-to-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/objectivec-ios.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios/text-to-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/objectivec-macos.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos/text-to-speech",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/aks/windows-node-limitations.md",

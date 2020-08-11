@@ -13,9 +13,9 @@ This feature is helpful in scenarios in which Azure Event Hubs should be only ac
 >[!WARNING]
 > Enabling IP filtering can prevent other Azure services from interacting with Event Hubs.
 >
-> Trusted Microsoft services are not supported when Virtual Networks are implemented.
+> Trusted Microsoft services are not supported when IP filtering are implemented.
 >
-> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
+> Common Azure scenarios that don't work with IP filtering (note that the list is **NOT** exhaustive) -
 > - Azure Stream Analytics
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer

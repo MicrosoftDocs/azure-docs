@@ -41,6 +41,8 @@ landingContent:
             url: ./assign-policy-azurecli.md
           - text: Assign a policy (Azure PowerShell)
             url: ./assign-policy-powershell.md
+          - text: Assign a policy (REST)
+            url: ./assign-policy-rest-api.md
           - text: Assign a policy (ARM template)
             url: ./assign-policy-template.md
       - linkListType: tutorial
