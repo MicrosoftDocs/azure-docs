@@ -1,6 +1,6 @@
 ---
 title: Reviewing Azure Import/Export job status - v1 | Microsoft Docs
-description: Learn how to use the log files created when the import or export job was run to see the status of the Import/Export job.
+description: Learn how to use the log files created by the import or export job to see the status of the job.
 author: twooley
 services: storage
 ms.service: storage
@@ -11,7 +11,7 @@ ms.subservice: common
 ---
 
 # Reviewing Azure Import/Export job status with copy log files
-When the Microsoft Azure Import/Export service processes drives associated with an import or export job, it writes copy log files to the storage account to or from which you are importing or exporting blobs. The log file contains detailed status about each file that was imported or exported. The URL to each copy log file is returned when you query the status of a completed job; see [Get Job](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get) for more information.  
+When the Microsoft Azure Import/Export service processes the drives that are associated with an import or export job, it writes copy log files to the storage account you used to import or export blobs. The log file contains detailed status about each file that was imported or exported. The service returns the URL for each copy log file when you query the status of a completed job. For more information, see [Get Job](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get).  
 
 ## Example URLs
 
