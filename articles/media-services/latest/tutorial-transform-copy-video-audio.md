@@ -1,7 +1,7 @@
 ---
-title: Copy Video and Audio files with Azure Media Services working title
+title: Copy video and audio files with REST
 titleSuffix: Azure Media Services
-description: Learn how to copy videos and audio using Azure Media Services.
+description: Learn how to copy videos and audio using Azure Media Services and REST.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -11,12 +11,12 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
-ms.date: 07/09/2020
+ms.date: 08/11/2020
 ms.author: inhenkel
 
 ---
 
-# Tutorial: Copy video and audio files working title
+# Tutorial: Copy video and audio files with REST
 
 This tutorial shows you how to copy video and audio files using the `copyAllBitrateNonInterleaved` preset that is part of the `BuiltInStandardEncoderPreset`. It uses a combination of REST and JSON as well as the Azure Media Services CLI.  You can also use [Postman](media-rest-apis-with-postman.md).
 
