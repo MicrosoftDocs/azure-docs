@@ -579,10 +579,10 @@ number of shards on each. The constant cost strategy is called
 
 The default strategy is appropriate under these circumstances:
 
-1.  The shards are roughly the same size
-2.  The shards get roughly the same amount of traffic
-3.  Worker nodes are all the same size/type
-4.  Shards haven't been pinned to particular workers
+*  The shards are roughly the same size
+*  The shards get roughly the same amount of traffic
+*  Worker nodes are all the same size/type
+*  Shards haven't been pinned to particular workers
 
 If any of these assumptions don't hold, then the default rebalancing
 can result in a bad plan. In this case you may customize the strategy,
