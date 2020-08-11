@@ -45968,6 +45968,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/core/howto-connect-devkit.md",
+      "redirect_url": "/azure/iot-central/core/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/howto-connect-devkit-pnp.md",
       "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
