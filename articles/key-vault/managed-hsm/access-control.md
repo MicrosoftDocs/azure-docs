@@ -9,7 +9,7 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 09/15/2020
 ms.author: ambapat
 # Customer intent: As an HSM pool administrator, I want to set access policies and configure the Managed HSM, so that I can ensure it's secure and auditors can properly monitor all activities for this Managed HSM pool.
 ---
@@ -83,7 +83,7 @@ You grant a security principal access to execute specific key operations by assi
 
 ## Example
 
-In this example, we're developing an application that uses Azure Storage account to store data and an RSA 2,048-bit key for sign operations. Our application runs in an Azure virtual machine (VM) with a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). The Storage account is configured to [encrypt data at rest with customer-managed key](../../storage/common/encryption-customer-managed-keys). Both the RSA key used for signing and the master key used to encryption storage account data are stored in our managed HSM pool.
+In this example, we're developing an application that uses Azure Storage account to store data and an RSA 2,048-bit key for sign operations. Our application runs in an Azure virtual machine (VM) with a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). The Storage account is configured to [encrypt data at rest with customer-managed key](../../storage/common/encryption-customer-managed-keys.md). Both the RSA key used for signing and the master key used to encryption storage account data are stored in our managed HSM pool.
 
 We have identified following roles who manage, deploy, and audit our application:
 - **Security team**: IT staff from the office of the CSO (Chief Security Officer) or similar contributors. The security team is responsible for the proper safekeeping of secrets. The secrets can include TLS/SSL certificates, RSA keys for signing, connection strings, and storage account keys.
@@ -177,7 +177,7 @@ Our example describes a simple scenario. Real-life scenarios can be more complex
 
 ## Resources
 
-* [Azure RBAC documentation](../../role-based-access-control/)
+* [Azure RBAC documentation](../../role-based-access-control/overview.md)
 * [Azure RBAC: Built-in roles](../../role-based-access-control/built-in-roles.md)
 * [Manage Azure RBAC with Azure CLI](../../role-based-access-control/role-assignments-cli.md)
 
