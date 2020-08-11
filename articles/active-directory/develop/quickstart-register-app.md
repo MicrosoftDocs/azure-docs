@@ -47,7 +47,7 @@ Your app is integrated with the Microsoft identity platform by registering it wi
     * For web applications, provide the base URL of your app. For example, `https://localhost:31544` might be the URL for a web app running on your local machine. Users would use this URL to sign in to a web client application.
     * For public client applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, such as `myapp://auth`.
 
-    For examples for web applications or native applications, see the quickstarts in [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop).
+    For examples for web applications or native applications, see the quickstarts in [Microsoft identity platform](./index.yml).
 
 1. When finished, select **Register**.
 
@@ -67,7 +67,7 @@ Azure AD assigns a unique application, or client, ID to your app. The portal ope
 
 * To manage supported accounts, see [Quickstart: Modify the accounts supported by an application](quickstart-modify-supported-accounts.md).
 
-* To build an app and add functionality, see the quickstarts in [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop).
+* To build an app and add functionality, see the quickstarts in [Microsoft identity platform](./index.yml).
 
 * To learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
 
