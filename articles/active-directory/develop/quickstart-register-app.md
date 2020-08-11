@@ -89,9 +89,7 @@ To configure application settings based on the platform or device you're targeti
 
 ### Redirect URI restrictions
 
-Active Directory Federation Services (AD FS) and Azure AD B2C redirect URIs must include a port number. For example, `http://127.0.0.1:1234`.
-
-For a full list of restrictions and limitations, see [Redirect URI/reply URL restrictions and limitations](reply-url.md).
+There are certain restrictions on the format of the redirect URIs you add to an app registration. For details on these restrictions, see [Redirect URI (reply URL) restrictions and limitations](reply-url.md).
 
 ## Add credentials
 
