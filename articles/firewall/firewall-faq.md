@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 08/10/2020
 ms.author: victorh
 ---
 
@@ -131,6 +131,8 @@ Yes. The firewall, VNet, and the public IP address all must be in the same resou
 No. NAT rules implicitly add a corresponding network rule to allow the translated traffic. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
 
 ## How do wildcards work in an application rule target FQDN?
+
+Wildcards currently can only be used on the left side of the FQDN. For example, ***.contoso.com** and ***contoso.com**.
 
 If you configure ***.contoso.com**, it allows *anyvalue*.contoso.com, but not contoso.com (the domain apex). If you want to allow the domain apex, you must explicitly configure it as a target FQDN.
 

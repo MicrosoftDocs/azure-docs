@@ -1,6 +1,6 @@
 ---
 title: How to use named values in Azure API Management policies
-description: Learn how to use named values in Azure API Management policies.
+description: Learn how to use named values in Azure API Management policies. Named values can contain literal strings and policy expressions.
 services: api-management
 documentationcenter: ''
 author: vladvino
