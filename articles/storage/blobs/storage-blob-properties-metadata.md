@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 08/09/2019
+ms.date: 08/11/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -35,6 +35,14 @@ Retrieving metadata and property values for a Blob storage resource is a two-ste
 
 The following code example sets the `ContentType` and `ContentLanguage` system properties on a blob.
 
+# [.NET v12](#tab/dotnet)
+
+Properties are read-only in the v12 client library.
+
+<!-- :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/.cs" id="Snippet_"::: -->
+
+# [.NET v11](#tab/dotnet11)
+
 ```csharp
 public static async Task SetBlobPropertiesAsync(CloudBlob blob)
 {
@@ -60,8 +68,15 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
     }
 }
 ```
+---
 
 To retrieve blob properties, call the `FetchAttributes` or `FetchAttributesAsync` method on your blob to populate the `Properties` property. The following code example gets a blob's system properties and displays some of the values:
+
+# [.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobProperties":::
+
+# [.NET v11](#tab/dotnet11)
 
 ```csharp
 private static async Task GetBlobPropertiesAsync(CloudBlob blob)
@@ -87,6 +102,7 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
     }
 }
 ```
+---
 
 ## Set and retrieve metadata
 
@@ -100,6 +116,12 @@ Metadata name/value pairs are valid HTTP headers and should adhere to all restri
 The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names maintain the case used when they were created, but are case-insensitive when set or read. If two or more metadata headers using the same name are submitted for a resource, Azure Blob storage returns HTTP error code 400 (Bad Request).
 
 The following code example sets metadata on a blob. One value is set using the collection's `Add` method. The other value is set using implicit key/value syntax.
+
+# [.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_AddBlobMetadata":::
+
+# [.NET v11](#tab/dotnet11)
 
 ```csharp
 public static async Task AddBlobMetadataAsync(CloudBlob blob)
@@ -125,6 +147,17 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
     }
 }
 ```
+---
+
+The following code example reads metadata on a blob.
+
+# [.NET v12](#tab/dotnet)
+
+To retrieve metadata, call the `GetProperties` or `GetPropertiesAsync` method on your blob or container to populate the `Metadata` collection, then read the values, as shown in the example below.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
+
+# [.NET v11](#tab/dotnet11)
 
 To retrieve metadata, call the `FetchAttributes` or `FetchAttributesAsync` method on your blob or container to populate the `Metadata` collection, then read the values, as shown in the example below.
 
@@ -156,6 +189,7 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
     }
 }
 ```
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
