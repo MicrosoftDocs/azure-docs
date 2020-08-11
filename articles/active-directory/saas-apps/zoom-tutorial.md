@@ -142,13 +142,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click the **Single Sign-On** tab.
 
-    ![Single sign-on tab](./media/zoom-tutorial/ic784700.png "Single sign-on")
+    ![Single sign-on tab](./media/zoom-tutorial/zoom-sso1.png "Single sign-on")
 
 3. Click the **Security Control** tab, and then go to the **Single Sign-On** settings.
 
 4. In the Single Sign-On section, perform the following steps:
 
-    ![Single sign-on section](./media/zoom-tutorial/ic784701.png "Single sign-on")
+    ![Single sign-on section](./media/zoom-tutorial/zoom-sso2.png "Single sign-on")
 
     a. In the **Sign-in page URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
