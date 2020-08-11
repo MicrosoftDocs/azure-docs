@@ -41,7 +41,7 @@ If you can't open other websites while you're connected to the web client, there
 
 ### Nslookup can't resolve the name
 
-If Nslookup can't resolve the name, then there might be network connection problems or a network outage. We recommend you contact network support.
+If nslookup can't resolve the name, then there might be network connection problems or a network outage. We recommend you contact network support.
 
 ### Your client can't connect but other clients on your network can connect
 
