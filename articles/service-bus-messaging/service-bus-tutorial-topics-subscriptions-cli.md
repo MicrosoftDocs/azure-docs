@@ -32,7 +32,7 @@ If you don't have an Azure subscription, you can create a [free account][] befor
 To develop a Service Bus app with Java, you must have the following installed:
 
 - [Java Development Kit](https://aka.ms/azure-jdks), latest version.
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure CLI](/cli/azure)
 - [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

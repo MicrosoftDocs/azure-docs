@@ -27,7 +27,7 @@ Learn how to create a PostgreSQL database using:
 Learn how to:
 
 - Design a Database: [Azure portal](/azure/postgresql/tutorial-design-database-using-azure-portal) |  [Azure CLI](/azure/postgresql/tutorial-design-database-using-azure-cli)
-- [Build a Web App using Python and the CLI](/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json)
+- [Build a Web App using Python and the CLI](/azure/app-service/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json)
 
 ## Samples 
 
