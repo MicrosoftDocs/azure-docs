@@ -10,7 +10,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/21/2020
+ms.date: 8/11/2020
 ms.author: yohaddad
 ---
 
@@ -19,7 +19,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 ## July 2020 Guest OS
 >[!NOTE]
->The July Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the April Guest OS. This list is subject to change.
+>The July Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the July Guest OS. This list is subject to change.
 
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -71,24 +71,22 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 
 ## June 2020 Guest OS
->[!NOTE]
->The June Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the April Guest OS. This list is subject to change.
 
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  2.99, 3.86, 4.79  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561616]  |  Latest Cumulative Update(LCU)  |  5.44  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561608]  |  Latest Cumulative Update(LCU)  |  6.20  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562030]  |  Servicing Stack update  |  2.99  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561643]  |  Monthly Rollup  |  2.99  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562252]  |  Servicing Stack update  |  3.86  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561612]  |  Monthly Rollup  |  3.86  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561600]  |  Flash  |  3.86, 4.79, 5.44, 6.20  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562253]  |  Servicing Stack update  |  4.79  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561666]  |  Monthly Rollup  |  4.79  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562561]  |  Servicing Stack update  |  5.44  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562562]  |  Servicing Stack update  |  6.20  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  [2.99], [3.86], [4.79]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561616]  |  Latest Cumulative Update(LCU)  |  [5.44]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561608]  |  Latest Cumulative Update(LCU)  |  [6.20]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562030]  |  Servicing Stack update  |  [2.99]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561643]  |  Monthly Rollup  |  [2.99]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562252]  |  Servicing Stack update  |  [3.86]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561612]  |  Monthly Rollup  |  [3.86]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561600]  |  Flash  |  [3.86], [4.79], [5.44], [6.20]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562253]  |  Servicing Stack update  |  [4.79]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561666]  |  Monthly Rollup  |  [4.79]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562561]  |  Servicing Stack update  |  [5.44]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562562]  |  Servicing Stack update  |  [6.20]  |  Jun 9, 2020  |
 
 
 
@@ -104,6 +102,11 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4561666]: https://support.microsoft.com/kb/4561666
 [4562561]: https://support.microsoft.com/kb/4562561
 [4562562]: https://support.microsoft.com/kb/4562562
+[2.99]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.86]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.79]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.44]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.20]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## May 2020 Guest OS
