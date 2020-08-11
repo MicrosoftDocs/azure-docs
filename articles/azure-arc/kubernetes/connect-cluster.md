@@ -178,7 +178,7 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Arc enable
     az -v
     ```
 
-  You need `connectedk8s` extension version >= 0.2.3 to setup agents with outbound proxy. If you have version < 0.2.3 on your machine, follow the [update steps](#before-you-begin) to get the latest version of extension on your machine.
+    You need `connectedk8s` extension version >= 0.2.3 to setup agents with outbound proxy. If you have version < 0.2.3 on your machine, follow the [update steps](#before-you-begin) to get the latest version of extension on your machine.
 
 2. Set the environment variables needed for Azure CLI:
 
