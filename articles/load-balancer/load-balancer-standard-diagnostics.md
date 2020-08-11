@@ -247,13 +247,14 @@ To view the health of your public Standard Load Balancer resources:
 
    *Figure: Load Balancer resource health view*
  
-The various resource health statuses and their descriptions are listed in the following table: 
+Generic resource health status description are available in the [RHC documentation](https://docs.microsoft.com/azure/service-health/resource-health-overview). For specific statuses for the Azure Load Balancer are listed in the below table: 
 
 | Resource health status | Description |
 | --- | --- |
 | Available | Your standard load balancer resource is healthy and available. |
-| Unavailable | Your standard load balancer resource is not healthy. Diagnose the health by selecting **Azure Monitor** > **Metrics**.<br>(*Unavailable* status might also mean that the resource is not connected with your standard load balancer.) |
-| Unknown | Resource health status for your standard load balancer resource has not been updated yet.<br>(*Unknown* status might also mean that the resource is not connected with your standard load balancer.)  |
+| Degraded | Your standard load balancer has platform or user initiated events impacting performance. The Datapath Availability metric has reported less than 90% but greater than 25% health for at least two minutes. You will experience moderate to severe performance impact. [Follow the troubleshooting Data Path availability guide] to determine whether there are user initiated events causing this.
+| Unavailable | Your standard load balancer resource is not healthy. The Datapath Availability metric has reported less the 25% health for at least two minutes. You will experience significant performance impact or lack of availability for inbound connectivity. There may be user or platform events causing unavailability. [Follow the troubleshooting Data Path availability guide] to determine whether there are user initiated events causing this. |
+| Unknown | Resource health status for your standard load balancer resource has not been updated yet or has not received Data Path availability information for the last 10 minutes. This should be transient and will reflect correct status as soon as data is recieved. |
 
 ## Next steps
 
