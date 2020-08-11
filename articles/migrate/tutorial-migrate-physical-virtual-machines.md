@@ -99,10 +99,13 @@ Azure Migrate:Server Migration uses a replication appliance to replicate machine
 
 Prepare for appliance deployment as follows:
 
-- You prepare a machine to host the replication appliance. [Review](migrate-replication-appliance.md#appliance-requirements) the machine requirements. The appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate discovery and assessment appliance you may have installed before. 
+- You prepare a machine to host the replication appliance. [Review](migrate-replication-appliance.md#appliance-requirements) the machine requirements.
 - The replication appliance uses MySQL. Review the [options](migrate-replication-appliance.md#mysql-installation) for installing MySQL on the appliance.
 - Review the Azure URLs required for the replication appliance to access [public](migrate-replication-appliance.md#url-access) and [government](migrate-replication-appliance.md#azure-government-url-access) clouds.
 - Review [port] (migrate-replication-appliance.md#port-access) access requirements for the replication appliance.
+
+> [!NOTE]
+> The replication appliance shouldn't be installed on a source machine that you want to replicate or on the Azure Migrate discovery and assessment appliance you may have installed before.
 
 ## Add the Server Migration tool
 
