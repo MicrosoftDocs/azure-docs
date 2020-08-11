@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 07/29/2020
+ms.date: 08/10/2020
 ---
 
 # Functions in the Hyperscale (Citus) SQL API
@@ -15,6 +15,11 @@ This section contains reference information for the user-defined functions
 provided by Hyperscale (Citus). These functions help in providing additional
 distributed functionality to Hyperscale (Citus) other than the standard SQL
 commands.
+
+> [!NOTE]
+>
+> Some of these functions may not be available on Hyperscale server groups that
+> are running earlier versions of the Citus Engine.
 
 ## Table and Shard DDL
 

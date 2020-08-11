@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 07/17/2020
+ms.date: 08/10/2020
 ---
 
 # System tables and views
@@ -21,6 +21,11 @@ these shards.
 In this section, we describe each of these metadata tables and
 their schema. You can view and query these tables using SQL after logging into
 the coordinator node.
+
+> [!NOTE]
+>
+> Some of these tables may not be available on Hyperscale server groups that
+> are running earlier versions of the Citus Engine.
 
 ### Partition table
 
