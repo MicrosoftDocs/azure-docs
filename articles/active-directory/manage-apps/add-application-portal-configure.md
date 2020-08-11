@@ -44,16 +44,10 @@ To edit the application properties:
     - **User assignment required?** determines whether users who aren't assigned to the application can sign in.
     - **Visible to users?** determines whether users assigned to an app can see it in the [access panel](https://myapps.microsoft.com) and Office 365 app launcher. (See the waffle menu in the upper-left corner of an Office 365 or Microsoft 365 website.)
     
-    The three options can be toggled independently of each other.
+    > [!TIP]
+    > Assigning users happens on the **Provision** section of navigation.
 
-    Here are some tips:
-    If Enabled for users to sign in? is set to No then assigned and unassigned users will not see the app in their Microsoft 365 app launcher and will not be able to sign in.
-
-    If Visible to users? is set to No you can still allow users won't be able to see the app in their Microsoft 365 app launcher.
-
-    Assigning users happens on the **Provision** section of navigation.
-
-    Here is a table that might help:
+    The three options can be toggled independently of each other and the resulting behavior is not always obvious. Here is a table that might help:
     
     | Enabled for users to sign in? | User assignment required? | Visible to users? | Behavior for users who have either been assigned to the app or not. |
     |---|---|---|---|
