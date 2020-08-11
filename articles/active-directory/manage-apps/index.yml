@@ -18,14 +18,14 @@ metadata:
 landingContent:
   - title: About application management
     linkLists:
+          - linkListType: overview
+        links:
+          - text: What is application management?
+            url: what-is-application-management.md
       - linkListType: quickstart
         links:
           - text: Quickstart Series
             url: view-applications-portal.md
-      - linkListType: overview
-        links:
-          - text: What is application management?
-            url: what-is-application-management.md
   - title: Manage cloud apps and single sign-on
     linkLists:
       - linkListType: concept
