@@ -30,15 +30,17 @@ The workflow is similar no matter where you deploy your model:
 For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
 
 
- 
-::: zone pivot="cli"
-[!INCLUDE [CLI quickstart](../../includes/machine-learning-how-to-deploy-and-where-cli.md)]
-::: zone-end
-
 ::: zone pivot="py-sdk"
+
 [!INCLUDE [SDK quickstart](../../includes/machine-learning-how-to-deploy-and-where-sdk.md)]
+
 ::: zone-end
 
+::: zone pivot="cli"
+
+[!INCLUDE [CLI quickstart](../../includes/machine-learning-how-to-deploy-and-where-cli.md)]
+
+::: zone-end
 
 ### Understanding service state
 
