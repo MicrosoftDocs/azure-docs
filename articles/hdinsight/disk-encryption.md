@@ -1,6 +1,7 @@
 ---
-title: Encryption at rest for Azure HDInsight
-description: This article describes how to use your own encryption key from Azure Key Vault to encrypt data stored on managed disks in Azure HDInsight clusters.
+title: Double encryption for data at rest
+titleSuffix: Azure HDInsight
+description: This article describes the two layers of encryption available for data at rest on Azure HDInsight clusters.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
@@ -8,7 +9,7 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
 ---
-# Azure HDInsight data encryption at rest
+# Azure HDInsight double encryption for data at rest
 
 This article discusses methods for encryption of data at rest in Azure HDInsight clusters. Data encryption at rest refers to encryption on managed disks (data disks, OS disks and temporary disks) attached to HDInsight cluster virtual machines. 
 
@@ -32,6 +33,8 @@ These types are summarized in the following table.
 |All other clusters (Spark, Interactive, Hadoop, HBase without Accelerated writes)|Layer1: [SSE Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) by default|N/A|Layer1: Optional Encryption at host using PMK, Layer2: Optional encryption at rest using CMK|
 
 ## Encryption at host using platform-managed keys
+
+Encryption at host can be enabled during cluster creation in the Azure portal.
 
 :::image type="content" source="media/disk-encryption/encryption-at-host.png" alt-text="Enable encryption at host.":::
 
