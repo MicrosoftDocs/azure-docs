@@ -25,15 +25,15 @@ This Quickstart shows you how to deploy the standalone node of WildFly on a Cent
 
 ## Use case
 
-WildFly is ideal for development and testing of enterprise Java applications on Azure. List of technologies available in WildFly 18 server configuration profiles are available in the [WildFly Getting Started Guide](https://docs.wildfly.org/18/Getting_Started_Guide.html#getting-started-with-wildfly).
+WildFly is ideal for development and testing of enterprise Java applications on Azure. A list of technologies available in WildFly 18 server configuration profiles can be found in the [WildFly Getting Started Guide](https://docs.wildfly.org/18/Getting_Started_Guide.html#getting-started-with-wildfly).
 
-You can use WildFly in either Standalone mode or Cluster mode per your use case. You can ensure high availability of critical Jakarta EE applications by WildFly on a cluster of nodes. Make a small number of application configuration changes, and then deploy the application in the cluster. To learn more about WildFly, please check the [WildFly High Availability Guide](https://docs.wildfly.org/18/High_Availability_Guide.html).
+You can use WildFly in either Standalone mode or Cluster mode depending on your use case. You can ensure high availability of critical Jakarta EE applications by deploying WildFly on a cluster of nodes. Make a small number of application configuration changes, and then deploy the application in the cluster. To learn more about WildFly, please check the [WildFly High Availability Guide](https://docs.wildfly.org/18/High_Availability_Guide.html).
 
 ## Configuration choice
 
-WildFly can be booted in **Standalone Server** mode - A standalone server instance is an independent process, much like a JBoss Application Server (AS) 3, 4, 5, or 6 instance. Standalone instances can be launched via the standalone.sh or standalone.bat launch scripts. If more than one standalone instance is launched and multi-server management is desired, it is the user’s responsibility to coordinate management across the servers.
+WildFly can be started in **Standalone Server** mode - A standalone server instance is an independent process, much like a JBoss Application Server (AS) 3, 4, 5, or 6 instance. Standalone instances can be launched via the standalone.sh or standalone.bat launch scripts. If more than one standalone instance is launched and multi-server management is desired, it is the user’s responsibility to coordinate management across the servers.
 
-You can also start WildFly instance with alternate configuration by using configuration files available in configuration folder.
+You can also start WildFly instances with alternate configurations by using configuration files available in the configuration folder.
 
 Following are the Standalone Server Configuration files:
 
@@ -47,7 +47,7 @@ Following are the Standalone Server Configuration files:
 
 To start your standalone WildFly server with another provided configuration, use the --server-config argument with the server-config file.
 
-For example, to use the Jakarta EE Platform 8 with clustering capabilities use the following command:
+For example, to use the Jakarta EE Platform 8 with clustering capabilities run the following command:
 
 `./standalone.sh --server-config=standalone-full-ha.xml`
 
@@ -55,7 +55,7 @@ To learn more about the configurations, check the [WildFly Getting Started Guide
 
 ## Licensing, Support and subscription notes
 
-Azure CentOS 8 image is a Pay-As-You-Go (PAYG) VM image and does not require the user to obtain a license. The VM will be licensed automatically after the instance is launched for the first time and the user will be charged hourly rate in addition to Microsoft's Linux VM rates. Click [Linux VM Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#linux) for details. WildFly is free to download and use and does not require a Red Hat Subscription or any License.
+The Azure CentOS 8 image is a Pay-As-You-Go (PAYG) VM image and does not require you to obtain a license. The VM will be licensed automatically after the instance is launched for the first time and you will be charged an hourly rate in addition to Microsoft's Linux VM rates. Click [Linux VM Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#linux) for details. WildFly is free to download and use, and does not require a Red Hat Subscription or any License.
 
 ## How to consume
 
@@ -87,7 +87,7 @@ You can deploy the template in the following three ways:
 
 ## Next steps
 
-For production environment, check out the Red Hat JBoss EAP Azure Quickstart ARM templates:
+For production environments, check out the Red Hat JBoss EAP Azure Quickstart ARM templates:
 
 Stand-alone RHEL virtual machine with sample application:
 
