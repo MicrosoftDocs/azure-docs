@@ -1,10 +1,7 @@
 ---
 title: Windows Virtual Desktop FAQ - Azure
 description: Frequently asked questions and best practices for Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: helohr
@@ -20,7 +17,7 @@ If you want to create host pools and other objects, you must be assigned the Con
 
 You must be assigned the User Access Admin role on an app group to publish app groups to users or user groups.
 
-To restrict an admin to only manage user sessions, such as sending messages to users, signing out users, and so on, you can create custom roles. For example: 
+To restrict an admin to only manage user sessions, such as sending messages to users, signing out users, and so on, you can create custom roles. For example:
 
 ```powershell
 "actions": [
@@ -111,7 +108,7 @@ Once you create a host pool, you can't change its type. However, you can move an
 
 Limitations or quotas in FSLogix depend on the storage fabric used to store user profile VHD(X) files.
 
-The following table gives an example of how any resources an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile. 
+The following table gives an example of how any resources an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile.
 
 | Resource | Requirement |
 |---|---|

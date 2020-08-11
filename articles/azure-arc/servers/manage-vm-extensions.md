@@ -3,10 +3,6 @@ title: VM extension management with Azure Arc for servers
 description: Azure Arc for servers (preview) can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ---
 
 # Virtual machine extension management with Azure Arc for servers (preview)

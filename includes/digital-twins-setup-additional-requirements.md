@@ -7,10 +7,10 @@ ms.date: 7/22/2020
 ms.author: baanders
 ---
 
-It's possible that your organization requires additional actions from subscription Owners to successfully set up an app registration (and thus, to finish setting up a usable Azure Digital Twins instance). The steps required may vary depending on your organization's specific settings.
+It's possible that your organization requires additional actions from subscription Owners/administrators to successfully set up an app registration (and thus, to finish setting up a usable Azure Digital Twins instance). The steps required may vary depending on your organization's specific settings.
 
-Here are some common potential activities that an Owner may need to perform. These and other operations can be performed from the [*Azure AD App registrations*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
-* Grant admin consent for the app registration. Your organization may have *Admin Consent Required* globally turned on in Azure AD for all app registrations within your subscription. If so, the Owner will need to select this button for your company on the app registration's *API permissions* page for the app registration to be valid:
+Here are some common potential activities that an Owner/administrator may need to perform. These and other operations can be performed from the [*Azure AD App registrations*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
+* Grant admin consent for the app registration. Your organization may have *Admin Consent Required* globally turned on in Azure AD for all app registrations within your subscription. If so, the Owner/administrator will need to select this button for your company on the app registration's *API permissions* page for the app registration to be valid:
 
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/grant-admin-consent.png" alt-text="Portal view of the 'Grant admin consent' button under API permissions":::
   - If consent was granted successfully, the entry for Azure Digital Twins should then show a *Status* value of _Granted for **(your company)**_
