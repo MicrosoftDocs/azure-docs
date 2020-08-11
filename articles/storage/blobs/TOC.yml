@@ -158,8 +158,10 @@
       items:
       - name: Versioning
         href: versioning-overview.md
-      - name: Soft delete
-        href: soft-delete-overview.md
+      - name: Soft delete for blobs
+        href: soft-delete-blob-overview.md
+      - name: Soft delete for containers
+        href: soft-delete-container-overview.md
       - name: Snapshots
         href: snapshots-overview.md
       - name: Change feed
@@ -423,8 +425,10 @@
       items:
       - name: Enable blob versioning
         href: versioning-enable.md
-      - name: Enable soft delete
-        href: soft-delete-enable.md
+      - name: Enable soft delete for blobs
+        href: soft-delete-blob-enable.md
+      - name: Enable soft delete for containers
+        href: soft-delete-container-enable.md
       - name: Create snapshots (.NET)
         href: snapshots-manage-dotnet.md
       - name: Process change feed logs
