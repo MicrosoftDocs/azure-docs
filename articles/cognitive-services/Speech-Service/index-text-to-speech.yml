@@ -34,8 +34,6 @@ landingContent:
           url: speech-synthesis-markup.md
         - text: Synthesize large text samples with the Long Audio API
           url: long-audio-api.md
-        - text: Get a list of voices with REST (Python)
-          url: quickstart-python-get-text-to-speech-voices.md
     - linkListType: concept
       links:
         - text: Get started with Custom Voice
