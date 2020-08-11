@@ -41,7 +41,7 @@ If you can't open other websites while you're connected to the web client, there
 
 ### Nslookup can't resolve the name
 
-This is usually caused by network connection problems or a network outage. We recommend you contact network support.
+If Nslookup can't resolve the name, then there might be network connection problems or a network outage. We recommend you contact network support.
 
 ### Your client can't connect but other clients on your network can connect
 
@@ -58,7 +58,7 @@ First, check the Azure Active Directory account you're using. If you've already 
 
 If you're using Windows Virtual Desktop (classic), use the web client link in [this article](./virtual-desktop-fall-2019/connect-web-2019.md) to connect to your resources.
 
-If that doesn't work, make sure the app group you're assigned to is associated with a workspace.
+If that doesn't work, make sure your app group is associated with a workspace.
 
 ## Web client stops responding or disconnects
 
