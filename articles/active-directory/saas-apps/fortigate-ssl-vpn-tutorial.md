@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/11/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -142,7 +142,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure FortiGate SSL VPN SSO
 
-To configure single sign-on on **FortiGate SSL VPN** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [FortiGate SSL VPN support team](mailto:tac_amer@fortinet.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **FortiGate SSL VPN** side, please follow the [document](https://docs.fortinet.com/document/fortigate/6.4.0/new-features/558169/saml-sp-for-vpn-authentication).
 
 ### Create FortiGate SSL VPN test user
 
@@ -165,5 +165,3 @@ When you click the FortiGate SSL VPN tile in the Access Panel, you should be aut
 - [Try FortiGate SSL VPN with Azure AD](https://aad.portal.azure.com/)
 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [How to protect FortiGate SSL VPN with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
