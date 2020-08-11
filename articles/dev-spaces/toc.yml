@@ -25,7 +25,7 @@
       href: quickstart-existing-helm-chart.md
   - name: Tutorials
     items:
-    - name: Get started with Visaul Studio
+    - name: Get started with Visual Studio
       href: get-started-netcore-visualstudio.md
   - name: Concepts
     items:
