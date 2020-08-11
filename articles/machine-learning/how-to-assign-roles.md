@@ -375,9 +375,10 @@ Here are a few things to be aware of while you use Azure role-based access contr
 - To deploy your compute resources inside a VNet, you need to explicitly have permissions for the following actions:
     - "Microsoft.Network/virtualNetworks/join/action" on the VNet resource.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
-- It can sometimes take upto 1 hour for your new role assignments to take effect over cached permissions across the stack.
+    
+    For more information on RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking).
 
-For more information on RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking).
+- It can sometimes take upto 1 hour for your new role assignments to take effect over cached permissions across the stack.
 
 ### Q. What permissions do I need to use a user-assigned managed identity with my Amlcompute clusters?
 
