@@ -11,7 +11,7 @@ ms.date: 08/11/2020
 
 # Quickstart: WildFly on CentOS 8
 
-This Quickstart shows you how to deploy the standalone node of WildFly of CentOS 8 VM. This is ideal for development and testing of enterprise Java applications on Azure.
+This Quickstart shows you how to deploy the standalone node of WildFly on a CentOS 8 VM. This ARM template is ideal for development and testing of enterprise Java applications on Azure.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ This Quickstart shows you how to deploy the standalone node of WildFly of CentOS
 
 WildFly is ideal for development and testing of enterprise Java applications on Azure. List of technologies available in WildFly 18 server configuration profiles are available in the [WildFly Getting Started Guide](https://docs.wildfly.org/18/Getting_Started_Guide.html#getting-started-with-wildfly).
 
-You can use WildFly in either Standalone mode or Cluster mode per your use case. You can ensure high availability of critical Jakarta EE applications by WildFly on a cluster of nodes. Make a small number of application configuration changes, and then deploy the application in the cluster. To learn more about this please check the [WildFly High Availability Guide](https://docs.wildfly.org/18/High_Availability_Guide.html).
+You can use WildFly in either Standalone mode or Cluster mode per your use case. You can ensure high availability of critical Jakarta EE applications by WildFly on a cluster of nodes. Make a small number of application configuration changes, and then deploy the application in the cluster. To learn more about WildFly, please check the [WildFly High Availability Guide](https://docs.wildfly.org/18/High_Availability_Guide.html).
 
 ## Configuration choice
 
@@ -31,7 +31,7 @@ You can also start WildFly instance with alternate configuration by using config
 
 Following are the Standalone Server Configuration files:
 
-- standalone.xml (default) - This is the default file used for starting the WildFly instance. It contains Jakarta web profile certified configuration with the required technologies.
+- standalone.xml (default) - The standalone.xml file is the default file used for starting the WildFly instance. It contains Jakarta web profile certified configuration with the required technologies.
    
 - standalone-ha.xml - Jakarta EE Web Profile 8 certified configuration with high availability (targeted at web applications).
    
@@ -45,33 +45,33 @@ For example, to use the Jakarta EE Platform 8 with clustering capabilities use t
 
 `./standalone.sh --server-config=standalone-full-ha.xml`
 
-To learn more about the configurations check the [WildFly Getting Started Guide](https://docs.wildfly.org/18/Getting_Started_Guide.html#wildfly-10-configurations).
+To learn more about the configurations, check the [WildFly Getting Started Guide](https://docs.wildfly.org/18/Getting_Started_Guide.html#wildfly-10-configurations).
 
-## Licensing, support, Support and subscription notes
+## Licensing, Support and subscription notes
 
 Azure CentOS 8 image is a Pay-As-You-Go (PAYG) VM image and does not require the user to obtain a license. The VM will be licensed automatically after the instance is launched for the first time and the user will be charged hourly rate in addition to Microsoft's Linux VM rates. Click [Linux VM Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#linux) for details. WildFly is free to download and use and does not require a Red Hat Subscription or any License.
 
 ## How to consume
 
-You can deploy the template in the following 3 ways :
+You can deploy the template in the following three ways:
 
-- Use PowerShell - Deploy the template by running the following commands: (Check out [Azure Powershell](https://docs.microsoft.com/en-us/powershell/azure/?view=azps-2.8.0) for information on installing and configuring Azure PowerShell).
+- Use PowerShell - Deploy the template by running the following commands: (Check out [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-2.8.0) for information on installing and configuring Azure PowerShell).
 
     `New-AzResourceGroup -Name <resource-group-name> -Location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment`
 
     `New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/SpektraSystems/redhat-mw-cloud-quickstart/master/wildfly-standalone-centos8/azuredeploy.json`
     
-- Use Azure CLI - Deploy the template by running the following commands: (Check out [Azure Cross-Platform Command Line](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) for details on installing and configuring the Azure Cross-Platform Command-Line Interface).
+- Use Azure CLI - Deploy the template by running the following commands: (Check out [Azure Cross-Platform Command Line](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) for details on installing and configuring the Azure Cross-Platform Command-Line Interface).
 
     `az group create --name <resource-group-name> --location <resource-group-location> #use this command when you need to create a new Resource Group for your deployment`
 
     `az group deployment create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/SpektraSystems/redhat-mw-cloud-quickstart/master/wildfly-standalone-centos8/azuredeploy.json`
 
-- Use Azure Portal - Deploy the template by clicking <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FSpektraSystems%2Fredhat-mw-cloud-quickstart%2Fmaster%2Fwildfly-standalone-centos8%2Fazuredeploy.json" target="_blank">here</a> and log into your Azure portal.
+- Use Azure portal - Deploy the template by clicking <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FSpektraSystems%2Fredhat-mw-cloud-quickstart%2Fmaster%2Fwildfly-standalone-centos8%2Fazuredeploy.json" target="_blank">here</a> and log into your Azure portal.
 
 ## ARM template
 
-<a href="https://github.com/SpektraSystems/redhat-mw-cloud-quickstart/tree/master/wildfly-standalone-centos8" target="_blank"> WildFly 18 on CentOS 8 (stand-alone VM)</a> - This is a Quickstart template that creates a standalone node of WildFly 18.0.1.Final on CentOS 8 VM in your Resource Group (RG) which includes a Private IP for the VM, Virtual Network and Diagnostics Storage Account. It also deploys a sample Java application named JBoss-EAP on Azure on WildFly.
+<a href="https://github.com/SpektraSystems/redhat-mw-cloud-quickstart/tree/master/wildfly-standalone-centos8" target="_blank"> WildFly 18 on CentOS 8 (stand-alone VM)</a> -  A quickstart template that creates a standalone node of WildFly 18.0.1.Final on a CentOS 8 VM in your Resource Group (RG) which includes a Private IP for the VM, Virtual Network, and Diagnostics Storage Account. It also deploys a sample Java application named JBoss-EAP on Azure on WildFly.
 
 ## Resource Links:
 
@@ -95,7 +95,7 @@ Clustered RHEL virtual machines with sample application:
 * <a href="https://github.com/SpektraSystems/redhat-mw-cloud-quickstart/tree/master/jboss-eap-clustered-multivm-rhel8" target="_blank">JBoss EAP 7.2 on RHEL 8.0 (clustered VMs)</a>
 * <a href="https://github.com/SpektraSystems/redhat-mw-cloud-quickstart/tree/master/jboss-eap73-clustered-multivm-rhel8" target="_blank">JBoss EAP 7.3 on RHEL 8.0 (clustered VMs)</a>
 
-Clustered RHEL virtual machine scale set with sample application:
+Clustered RHEL virtual machine scale set (VMSS) with sample application:
 
 * <a href="https://github.com/SpektraSystems/redhat-mw-cloud-quickstart/tree/master/jboss-eap-clustered-vmss-rhel7" target="_blank">JBoss EAP 7.2 on RHEL 7.7 (clustered VMSS)</a>
 * <a href="https://github.com/SpektraSystems/redhat-mw-cloud-quickstart/tree/master/jboss-eap-clustered-vmss-rhel8"  target="_blank">JBoss EAP 7.2 on RHEL 8.0 (clustered VMSS)</a>
