@@ -157,7 +157,7 @@ If your metrics indicate risk of [outbound flow](https://aka.ms/lboutbound) fail
 To view SNAT port usage and allocation:
 1. Set the time aggregation of the graph to 1 minute to ensure desired data is displayed.
 1. Select **SNAT Usage** and/or **SNAT Allocation** as the metric type and **Average** as the aggregation
-    * By default this is the average number of SNAT ports allocated to or used by each backend VM or VMSS, corresponding to all frontend public IPs mapped to the Load Balancer, aggregated over TCP and UDP.
+    * By default these metrics are the average number of SNAT ports allocated to or used by each backend VM or VMSS, corresponding to all frontend public IPs mapped to the Load Balancer, aggregated over TCP and UDP.
     * To view total SNAT ports used by or allocated for the load balancer use metric aggregation **Sum**
 1. Filter to a specific **Protocol Type**, a set of **Backend IPs**, and/or **Frontend IPs**.
 1. To monitor health per backend or frontend instance, apply splitting. 
@@ -254,7 +254,7 @@ Generic resource health status description are available in the [RHC documentati
 | Available | Your standard load balancer resource is healthy and available. |
 | Degraded | Your standard load balancer has platform or user initiated events impacting performance. The Datapath Availability metric has reported less than 90% but greater than 25% health for at least two minutes. You will experience moderate to severe performance impact. [Follow the troubleshooting Data Path availability guide] to determine whether there are user initiated events causing impacting your availability.
 | Unavailable | Your standard load balancer resource is not healthy. The Datapath Availability metric has reported less the 25% health for at least two minutes. You will experience significant performance impact or lack of availability for inbound connectivity. There may be user or platform events causing unavailability. [Follow the troubleshooting Data Path availability guide] to determine whether there are user initiated events impacting your availability. |
-| Unknown | Resource health status for your standard load balancer resource has not been updated yet or has not received Data Path availability information for the last 10 minutes. This should be transient and will reflect correct status as soon as data is received. |
+| Unknown | Resource health status for your standard load balancer resource has not been updated yet or has not received Data Path availability information for the last 10 minutes. This state should be transient and will reflect correct status as soon as data is received. |
 
 ## Next steps
 
