@@ -11,6 +11,10 @@ ms.date: 08/10/2020
 
 # System tables and views
 
+Hyperscale (Citus) creates and maintains special tables that contain
+information about distributed data in the server group. The coordinator node
+consults these tables when planning how to run queries across the worker nodes.
+
 ## Coordinator Metadata
 
 Hyperscale (Citus) divides each distributed table into multiple logical shards
@@ -18,9 +22,9 @@ based on the distribution column. The coordinator then maintains metadata
 tables to track statistics and information about the health and location of
 these shards.
 
-In this section, we describe each of these metadata tables and
-their schema. You can view and query these tables using SQL after logging into
-the coordinator node.
+In this section, we describe each of these metadata tables and their schema.
+You can view and query these tables using SQL after logging into the
+coordinator node.
 
 > [!NOTE]
 >
