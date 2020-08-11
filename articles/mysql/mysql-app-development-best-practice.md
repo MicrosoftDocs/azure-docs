@@ -32,10 +32,10 @@ Managing database connections can have a significant impact on the performance o
 
 You can use a connection pooler like [ProxySQL](https://proxysql.com/) to efficiently manage connections. Using a connection pooler can decrease idle connections and reuse existing connections will help avoid this. See [How to setup ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/connecting-efficiently-to-azure-database-for-mysql-with-proxysql/ba-p/1279842) to learn more. 
 
-## Retry logic to handle transient errors
+### Retry logic to handle transient errors
 There could be [transient errors](https://docs.microsoft.com/en-us/azure/mysql/concepts-connectivity#handling-transient-errors) when you see connections being dropped or lost intermittently. Typically in such situations, the server is up and running after one to two retry in 5-10 seconds. A good pattern to follow with rety is to wait for 5 seconds before your first retry and then follow each retry by increasing the wait gradually upto 60 seconds. You must set a max number of retries at which point your application considers the operation failed so you can then further investigate. See [how to troubleshoot connection errors](https://docs.microsoft.com/en-us/azure/mysql/howto-troubleshoot-common-connection-issues) to learn more. 
 
-## Enable read replication to mitigate failovers
+### Enable read replication to mitigate failovers
 You can use [Data-in replication](https://docs.microsoft.com/en-us/azure/mysql/howto-data-in-replication) for failover scenarios. When using read replicas, there is no automated failover between master and replica servers. Since replication is asynchronous, there is lag between the master and the replica. The amount of lag can be influenced by a number of factors like how heavy the workload running on the master server is and the latency between data centers. In most cases, replica lag ranges between a few seconds to a couple minutes.
 
 ## Database Deployment 
