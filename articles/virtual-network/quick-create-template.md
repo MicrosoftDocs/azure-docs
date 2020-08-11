@@ -22,7 +22,7 @@ You can also complete this quickstart using the [Azure portal](quick-create-port
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a virtual network
 
@@ -47,8 +47,8 @@ Deploy Resource Manager template to Azure:
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-virtual-network-2vms-create%2Fazuredeploy.json)
 
 2. In the portal, on the **Create a Virtual Network with two Subnets** page, type or select the following values:
-   - **Resource group**: Select **Create new**, type a name for the resource group, and select **OK**. 
-   - **Virtual Network Name**: Type a name for the new VNet.
+   - **Resource group**: Select **Create new**, type a name for the resource group, and select **OK**.
+   - **Virtual Network Name**: Type a name for the new virtual network.
 3. Select **Review + create**, and then select **Create**.
 
 ## Review deployed resources
