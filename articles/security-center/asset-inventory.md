@@ -56,6 +56,8 @@ The inventory page provides the following tools:
 
     ![Filtering to production resources that aren't monitored](./media/asset-inventory/filtering-to-prod-unmonitored.gif)
 
+    As soon as you've applied filters, the metrics are updated to relate to the query results. 
+
 - **Export options** - Inventory provides the option to export the results of your selected filter options to a CSV file. In addition, you can export the query itself to Azure Resource Graph Explorer to further refine, save, or modify the KQL query.
 
     ![Inventory's export options](./media/asset-inventory/inventory-export-options.png)
@@ -86,20 +88,21 @@ The inventory page provides the following tools:
 
 1. To use the **Security findings contain** filter, enter free text from the ID, security check, or CVE name of a vulnerability finding to filter to the affected resources:
 
-    ![Inventory's filters](./media/asset-inventory/security-findings-contain-elements.png)
+    !["Security findings contain" filter](./media/asset-inventory/security-findings-contain-elements.png)
 
 1. To further examine the results of your query, select the resources that interest you.
 
 1. Optionally, select **View in resource graph explorer** to open the query in Resource Graph Explorer.
 
-    ![Inventory's filters](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
+    ![Inventory query in ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
 
 
 ## Next steps
 
-This article described the suppression rules in Azure Security Center that automatically dismiss unwanted alerts.
+This article described the asset inventory page of Azure Security Center.
 
-For more information on security alerts in Azure Security Center, see the following pages:
+For more information on related tools, see the following pages:
 
-- [Security alerts and the intent kill chain](alerts-reference.md) - A reference guide for the security alerts you might see in Azure Security Center's Threat Protection module.
-- [Threat protection in Azure Security Center](threat-protection.md) - A description of the many aspects of your environment monitored by Azure Security Center's Threat Protection module.
+- [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/)
+
+- [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
