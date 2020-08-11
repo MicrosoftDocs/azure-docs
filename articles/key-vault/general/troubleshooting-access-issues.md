@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting key vault access policy issues
-description: Troubleshooting key vault access policy issues
+title: Troubleshooting Azure key vault access policy issues
+description: Troubleshooting Azure key vault access policy issues
 author: sebansal
 ms.author: sebansal
 ms.date: 08/10/2020
@@ -9,7 +9,7 @@ ms.subservice: general
 ms.topic: tutorial
 
 ---
-# Troubleshooting key vault access policy issues
+# Troubleshooting Azure key vault access policy issues
 
 ## Frequently asked questions
 
@@ -33,9 +33,9 @@ Give the AD group permissions to your key vault using the Azure CLI az keyvault 
 The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to login and will fail with insufficient rights to access the subscription. Azure AD Groups with Managed Identities may require up to 8hr to refresh token and become effective.
 
 ### Recommended troubleshooting Steps for following error types
-* HTTP 401: Unauthenticated Request - [Troublehooting steps](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes#http-401-unauthenticated-request)
-* HTTP 403: Insufficient Permissions - [Troublehooting steps](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes#http-403-insufficient-permissions)
-* HTTP 429: Too Many Requests - [Troublehooting steps](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes#http-429-too-many-requests)
+* HTTP 401: Unauthenticated Request - [Troubleshooting steps](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes#http-401-unauthenticated-request)
+* HTTP 403: Insufficient Permissions - [Troubleshooting steps](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes#http-403-insufficient-permissions)
+* HTTP 429: Too Many Requests - [Troubleshooting steps](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes#http-429-too-many-requests)
 * Check if you have delete access permission to key vault: [Key Vault Access Policies](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps)
 * If you have problem with authenticate to key vault in code, use [Authentication SDK](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html)
 
