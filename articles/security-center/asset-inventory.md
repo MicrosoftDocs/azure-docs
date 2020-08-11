@@ -17,7 +17,7 @@ The asset inventory page of Azure Security Center provides a single page for ful
 - Which of my subscriptions are on Security Center's standard tier?
 - Which of my machines with the tag 'Production' are missing the Log Analytics agent?
 - How many of my machines are tagged with a specific tag?
-- How many resources in a specific resource group have high severity security alerts​?
+- How many resources in a specific resource group have active security alerts​ or findings from a vulnerability assessment service?
 
 The asset management possibilities for this tool are substantial and continue to grow. 
 
@@ -44,6 +44,12 @@ ARG is designed to provide efficient resource exploration with the ability to qu
 
 The inventory page provides the following tools:
 
+- **Metrics** - Before you define any filters, a prominent strip of values at the top of the inventory view shows:
+
+    - **Total resources**: The total number of resources connected to Security Center
+    - **Unhealthy resources**: Resources with active security recommendations
+    - **Unmonitored resources**: Resources with agent monitoring issues - they have the Log Analytics agent deployed, but the agent isn't sending data or has other health issues.
+
 - **Filters** - The multiple filters at the top of the page provide a way to quickly refine the list of resources according to the question you're trying to answer. For example, if you wanted to answer the question *Which of my machines with the tag 'Production' are missing the Log Analytics agent?* you could combine the **Agent monitoring** filter with the **Tags** filter as shown in the following clip:
 
     ![Filtering to production resources that aren't monitored](./media/asset-inventory/filtering-to-prod-unmonitored.gif)
@@ -57,7 +63,7 @@ The inventory page provides the following tools:
 
 - **Asset management options** - Inventory lets you perform complex discovery queries. When you've found the resources that match your queries, inventory provides shortcuts for operations such as:
 
-    - Upgrade a subscription from free to standard tier - open the context menu on a subscription to upgrade 
+    - Upgrade a subscription from free to standard tier - open the context menu (right click) on a subscription to upgrade 
     - Assign tags to the filtered resources - select the checkboxes alongside the resources you want to tag
     - Onboard new servers to Security Center - use the **Add non-Azure servers** toolbar button
 
@@ -76,8 +82,15 @@ The inventory page provides the following tools:
 
     By default, the resources are sorted by the number of active security recommendations.
 
+1. To use the **Security findings contain** filter, enter free text from the ID, security check, or CVE name of a vulnerability finding to filter to the affected resources:
+
+    ![Inventory's filters](./media/asset-inventory/security-findings-contain-elements.png)
+
 1. To further examine the results of your query, select the resources that interest you.
 
+1. Optionally, select **View in resource graph explorer** to open the query in Resource Graph Explorer.
+
+    ![Inventory's filters](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
 
 
 ## Next steps
