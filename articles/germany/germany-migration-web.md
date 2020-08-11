@@ -70,7 +70,7 @@ Migrating apps that you created by using the Web Apps feature of Azure App Servi
 
 For more information:
 
-- Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb).
+- Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/tutorial-dotnetcore-sqldb-app).
 - Get information about how to [export Azure Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md).
 - Review the [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
 - Review the [App Service overview](../app-service/overview.md).
