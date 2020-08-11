@@ -1,11 +1,6 @@
 ---
 title: Connect hybrid machines to Azure from the Azure portal
 description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc for servers (preview) from the Azure portal.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/07/2020
 ms.topic: conceptual
 ms.custom: references_regions
