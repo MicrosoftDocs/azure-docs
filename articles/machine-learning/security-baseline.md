@@ -4,7 +4,7 @@ description: The Machine Learning Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: machine-learning
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -28,9 +28,9 @@ The Azure Security Baseline for the Machine Learning Service contains recommenda
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32525.).
 
-**Guidance**: Azure Machine Learning relies on other Azure services for compute resources. Compute resources (compute targets) are used to train and deploy models. You can create these compute targets in a virtual network. For example, you can use Azure Data Science Virtual Machine to train a model and then deploy the model to AKS. You can secure your machine learning lifecycles by isolating Azure Machine Learning training and inference jobs within an Azure virtual network.
+**Guidance**: Azure Machine Learning relies on other Azure services for compute resources. Compute resources (compute targets) are used to train and deploy models. You can create these compute targets in a virtual network. For example, you can use Azure Virtual Machine Learning compute instance to train a model and then deploy the model to Azure Kubernetes Service (AKS). You can secure your machine learning lifecycles by isolating Azure Machine Learning training and inference jobs within an Azure virtual network.
 
-Azure Private Link enables you to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. Private Link helps reduce the risk of data exfiltration. &lt;--- private link is stil in preview for Machine Learning? confirm with owners ---&gt;
+Azure Private Link enables you to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. Private Link helps reduce the risk of data exfiltration. 
 
 Azure Firewall can be used to control access to your Azure Machine Learning workspace and the public internet.
 
@@ -68,11 +68,15 @@ Enable network security group flow logs and send the logs to an Azure Storage ac
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32527.).
 
-**Guidance**: Not applicable; this recommendation is intended for web applications running on Azure App Service or compute resources.
+**Guidance**: You can enable HTTPS to secure communication with web services deployed by Azure Machine Learning. Web services are deployed on Azure Kubernetes Services (AKS) or Azure Container Instances (ACI) and secure the data submitted by clients. You can use also use private IP with AKS to restrict scoring, so that only clients behind a virtual network can access the web service.
+
+- [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
+
+- [Network isolation during training &amp; inference with private virtual networks](how-to-enable-virtual-network.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
-**Responsibility**: Not Applicable
+**Responsibility**: Customer
 
 ### 1.4: Deny communications with known malicious IP addresses
 
@@ -418,11 +422,13 @@ You can also enable a just-in-time access to administrative accounts byusing Azu
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32549.).
 
-**Guidance**: &lt;--- Machine Learning is integrated with Azure Active Directory, but no information available on SSO support because SSO needs to be implemented, also not clear how SSO is appllied in Machine Learning scenarios, needs service team to confirm ---&gt;
+**Guidance**: Machine Learning is integrated with Azure Active Directory, use Azure Active Directory SSO instead of configuring individual stand-alone credentials per-service. Use Azure Security Center identity and access recommendations.  
+
+- [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
-**Responsibility**: <--- ? --->
+**Responsibility**: Customer
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
@@ -560,11 +566,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32558.).
 
-**Guidance**: &lt;--- Currently not available; Customer Lockbox not yet supported for Azure Database for Machine Learning, need confirmation from service owner ---&gt;
+**Guidance**: Not applicable; Azure Machine Learning service doesn’t support customer lockbox.
 
 **Azure Security Center monitoring**: Not Applicable
 
-**Responsibility**: <--- ? --->
+**Responsibility**: Not Applicable
 
 ## Data protection
 
@@ -1295,8 +1301,6 @@ Azure Machine Learning has varying support across different compute resources an
 
 - [How to recover files from Azure Virtual Machine backup](../backup/backup-azure-restore-files-from-vm.md)
 
-&lt;--- Are there data stores managed by Machine Learning platform service that needs to be mentioned here? No searchable info is available about this topic. ---&gt;
-
 **Azure Security Center monitoring**: Not Applicable
 
 **Responsibility**: Customer
@@ -1313,8 +1317,6 @@ and retention periods. Backup customer-managed keys in Azure Key Vault.
 
 - [How to recover files from Azure Virtual Machine backup](../backup/backup-azure-restore-files-from-vm.md)
 - [How to restore Key Vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
-
-&lt;--- Are there data stores managed by Machine Learning platform service that needs to be mentioned here? No searchable info is available about this topic. ---&gt;
 
 **Azure Security Center monitoring**: Not Applicable
 
