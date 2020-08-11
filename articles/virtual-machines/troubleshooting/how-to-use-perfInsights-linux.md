@@ -110,7 +110,8 @@ Information about the Linux virtual machine, operating system, block devices, hi
 - [Azure virtual machine instance metadata](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 >[!Note]
->[`*`] PCI information is not yet collected on Debian and SLES distributions
+>[`*`] PCI information is not yet collected on Debian and SLES distributions.
+> 
 >[`**`] /var/log/sysstat or /var/log/sa contains the System Activity Report (SAR) files that are collected by the sysstat package. If the sysstat package is not installed on the VM, the PerfInsights tool provides a recommendation to install it.
 
 ## Run the PerfInsights Linux on your VM
