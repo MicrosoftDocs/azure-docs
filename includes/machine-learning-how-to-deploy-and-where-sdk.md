@@ -205,4 +205,3 @@ To delete a deployed web service, use `service.delete()`.
 To delete a registered model, use `model.delete()`.
 
 For more information, see the documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
-
