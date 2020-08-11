@@ -99,7 +99,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
     This operation returns a series of key/value pairs:
 
-    ```azurecli
+    ```json
     {
     "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
     "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
@@ -159,7 +159,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 1. Create an environment variable called **APP_CONFIGURATION_ENDPOINT**. Set its value to the endpoint of your App Configuration store. You can find the endpoint on the **Access Keys** blade in the Azure portal. Restart the command prompt to allow the change to take effect. 
 
 
-1. Open *bootstrap.properties* in the *resources* folder. Update this file to use the **App Configuration endpoint**. Remove any references to a connection string in this file. 
+1. Open *bootstrap.properties* in the *resources* folder. Update this file to use the **APP_CONFIGURATION_ENDPOINT** value. Remove any references to a connection string in this file. 
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
