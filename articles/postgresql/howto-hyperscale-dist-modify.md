@@ -218,7 +218,7 @@ SELECT create_distributed_table('products', 'store_id', colocate_with => 'stores
 ```
 
 Information about colocation groups is stored in the
-[pg_dist_colocation](reference-hyperscale-metadata.md#co-location-group-table)
+[pg_dist_colocation](reference-hyperscale-metadata.md#colocation-group-table)
 table, while
 [pg_dist_partition](reference-hyperscale-metadata.md#partition-table) reveals
 which tables are assigned to which groups.
