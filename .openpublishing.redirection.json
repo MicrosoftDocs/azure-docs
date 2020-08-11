@@ -45968,6 +45968,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/core/howto-connect-devkit.md",
+      "redirect_url": "/azure/iot-central/core/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/howto-connect-devkit-pnp.md",
       "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
@@ -55448,6 +55453,46 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/quickstart-python-get-text-to-speech-voices.md",
       "redirect_url": "/azure/cognitive-services/speech-service/text-to-speech-basics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios/from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-macos.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos/from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/swift-macos.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/swift-ios.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/from-microphone",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/swift-ios.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios/text-to-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/swift-macos.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/text-to-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/objectivec-ios.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/ios/text-to-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/objectivec-macos.md",
+      "redirect_url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec/macos/text-to-speech",
       "redirect_document_id": false
     },
     {
