@@ -24,11 +24,7 @@ You can also complete this quickstart using the [Azure portal](quick-create-port
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Create a virtual network
-
-This template creates a simple setup with two VMs that are deployed in a virtual network with a single subnet so that you securely communicate between them and connect to VMs from the internet.
-
-### Review the template
+## Review the template
 
 The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vnet-two-subnets/azuredeploy.json)
 
@@ -38,7 +34,7 @@ The following Azure resources have been defined in the template:
 - [**Microsoft.Network/virtualNetworks**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks): create an Azure virtual network.
 -  [**Microsoft.Network/virtualNetworks/subnets**](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks/subnets) - create a subnet.
 
-### Deploy the template
+## Deploy the template
 
 Deploy Resource Manager template to Azure:
 
