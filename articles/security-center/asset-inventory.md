@@ -33,30 +33,21 @@ The asset management possibilities for this tool are substantial and continue to
 |||
 
 
-## How does asset inventory work?
-
-Asset inventory utilizes [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/), the Azure service that stores all of ASC's security posture data.
-
-ARG is designed to provide efficient resource exploration with the ability to query at scale across multiple subscriptions. 
-
-Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/), asset inventory can quickly produce deep insights by cross-referencing ASC data with other resource properties.
-
-
 ## What are the key features of asset inventory?
 
 The inventory page provides the following tools:
 
-- **Metrics** - Before you define any filters, a prominent strip of values at the top of the inventory view shows:
+- **Summaries** - Before you define any filters, a prominent strip of values at the top of the inventory view shows:
 
     - **Total resources**: The total number of resources connected to Security Center
-    - **Unhealthy resources**: Resources with active security recommendations
+    - **Unhealthy resources**: Resources with active security recommendations. [Learn more about security recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
     - **Unmonitored resources**: Resources with agent monitoring issues - they have the Log Analytics agent deployed, but the agent isn't sending data or has other health issues.
 
 - **Filters** - The multiple filters at the top of the page provide a way to quickly refine the list of resources according to the question you're trying to answer. For example, if you wanted to answer the question *Which of my machines with the tag 'Production' are missing the Log Analytics agent?* you could combine the **Agent monitoring** filter with the **Tags** filter as shown in the following clip:
 
     ![Filtering to production resources that aren't monitored](./media/asset-inventory/filtering-to-prod-unmonitored.gif)
 
-    As soon as you've applied filters, the metrics are updated to relate to the query results. 
+    As soon as you've applied filters, the summary values are updated to relate to the query results. 
 
 - **Export options** - Inventory provides the option to export the results of your selected filter options to a CSV file. In addition, you can export the query itself to Azure Resource Graph Explorer to further refine, save, or modify the KQL query.
 
@@ -71,7 +62,14 @@ The inventory page provides the following tools:
     - Assign tags to the filtered resources - select the checkboxes alongside the resources you want to tag
     - Onboard new servers to Security Center - use the **Add non-Azure servers** toolbar button
 
-- **Page refresh** - If you've defined some filters and left the page open, Security Center won't update the results automatically. Any changes to resources won't impact the displayed results unless manually reload the page or select **Refresh**.
+
+## How does asset inventory work?
+
+Asset inventory utilizes [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/), an Azure service that provides the ability to query Security Center's security posture data across multiple subscriptions.
+
+ARG is designed to provide efficient resource exploration with the ability to query at scale.
+
+Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/), asset inventory can quickly produce deep insights by cross-referencing ASC data with other resource properties.
 
 
 ## How to use asset inventory
@@ -95,6 +93,9 @@ The inventory page provides the following tools:
 1. Optionally, select **View in resource graph explorer** to open the query in Resource Graph Explorer.
 
     ![Inventory query in ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
+
+1. If you've defined some filters and left the page open, Security Center won't update the results automatically. Any changes to resources won't impact the displayed results unless you manually reload the page or select **Refresh**.
+
 
 
 ## Next steps
