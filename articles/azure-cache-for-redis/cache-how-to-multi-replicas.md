@@ -9,9 +9,9 @@ ms.date: 08/11/2020
 ---
 
 # Add replicas to Azure Cache for Redis (Preview)
-Azure Cache for Redis Standard and Premium tiers offer redundancy by hosting each cache on two dedicated virtual machines (VMs). These VMs are configured as primary and replica. When the primary VM becomes unavailable, the replica detects that and takes over as the new primary automatically. You can now increase the number of replicas in a Premium cache up to three, allowing you a total of four VMs backing a cache. Having multiple replicas gives you higher resilience than what a single replica can provide.
+Azure Cache for Redis Standard and Premium tiers offer redundancy by hosting each cache on two dedicated virtual machines (VMs). These VMs are configured as primary and replica. When the primary VM becomes unavailable, the replica detects that and takes over as the new primary automatically. You can now increase the number of replicas in a Premium cache up to three, giving you a total of four VMs backing a cache. Having multiple replicas results in higher resilience than what a single replica can provide.
 
-In this article, you'll learn how to set up an Azure Cache with additional replicas using the Azure portal.
+In this article, you'll learn how to set up an Azure Cache instance with additional replicas using the Azure portal.
 
 > [!IMPORTANT]
 > This preview is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
@@ -47,7 +47,7 @@ In this article, you'll learn how to set up an Azure Cache with additional repli
     :::image type="content" source="media/cache-how-to-premium-clustering/redis-clustering-disabled.png" alt-text="Configure Redis cluster.":::
 
     > [!NOTE]
-    > Multi-replica support is available for non-clustered caches currently.
+    > Multi-replica support only works with non-clustered caches currently.
     >
 
 1. Click **Create**. 
