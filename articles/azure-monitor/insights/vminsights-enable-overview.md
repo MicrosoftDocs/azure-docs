@@ -74,26 +74,10 @@ If you don't have a Log Analytics workspace, you can create one by using one of 
 
 ## Supported operating systems
 
-The following table lists the Windows and Linux operating systems that Azure Monitor for VMs supports. Later in this section, you'll find a full list that details the major and minor Linux OS release and supported kernel versions.
+Azure Monitor for VMs supports any operating system that supports the Log Analytics agent and Dependency agent. See [Supported operating systems](agents-overview.md#supported-operating-systems) for a complete list.
 
-|OS version |Performance |Maps |
-|-----------|------------|-----|
-|Windows Server 2019 | X | X |
-|Windows Server 2016 1803 | X | X |
-|Windows Server 2016 | X | X |
-|Windows Server 2012 R2 | X | X |
-|Windows Server 2012 | X | X |
-|Windows Server 2008 R2 | X | X|
-|Windows 10 1803 | X | X |
-|Windows 8.1 | X | X |
-|Windows 8 | X | X |
-|Windows 7 SP1 | X | X |
-|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
-|Ubuntu 18.04, 16.04 | X | X |
-|CentOS Linux 7, 6 | X | X |
-|SUSE Linux Enterprise Server (SLES) 12 | X | X |
-|Debian 9.4, 8 | X<sup>1</sup> | |
 
+### Linux considerations and 
 <sup>1</sup> The Performance feature of Azure Monitor for VMs is available only from Azure Monitor. It isn't available directly from the left pane of the Azure VM.
 
 >[!NOTE]
@@ -104,49 +88,7 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 > - CentOSPlus kernel is supported.
 > - The Linux kernel must be patched for the Spectre vulnerability. Please consult your Linux distribution vendor for more details.
 
-#### Red Hat Linux 7
 
-| OS version | Kernel version |
-|:--|:--|
-| 7.6 | 3.10.0-957 |
-| 7.5 | 3.10.0-862 |
-| 7.4 | 3.10.0-693 |
-
-#### Red Hat Linux 6
-
-| OS version | Kernel version |
-|:--|:--|
-| 6.10 | 2.6.32-754 |
-| 6.9 | 2.6.32-696 |
-
-#### CentOSPlus
-
-| OS version | Kernel version |
-|:--|:--|
-| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
-| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-
-#### Ubuntu Server
-
-| OS version | Kernel version |
-|:--|:--|
-| 18.04 | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
-| 16.04.3 | 4.15.* |
-| 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-
-#### SUSE Linux 12 Enterprise Server
-
-| OS version | Kernel version |
-|:--|:--|
-|12 SP4 | 4.12.* (includes Azure-tuned kernel) |
-|12 SP3 | 4.4.* |
-|12 SP2 | 4.4.* |
-
-#### Debian 
-
-| OS version | Kernel version |
-|:--|:--|
-| 9 | 4.9 | 
 
 ## Supported Azure Arc machines
 Azure Monitor for VMs is available for Azure Arc enabled servers in regions where the Arc extension service is available. You must be running version 0.9 or above of the Arc Agent.
