@@ -150,13 +150,13 @@ To get SNAT connection statistics:
 #### How do I check my SNAT port usage and allocation?
 <details>
   <summary>Expand</summary>
-The SNAT Usage metric indicates how many unique flows are established between an internet source and a backend VM or virtual machine scale set that is behind a load balancer and does not have a public IP address. By comparing this with the SNAT Allocation metric, you can determine if your service is experiencing or at risk of SNAT exhaustion and resulting outbound flow failure. 
+The Used SNAT Ports metric tracks how many SNAT ports are being consumed to maintain outbound flows. This indicates how many unique flows are established between an internet source and a backend VM or virtual machine scale set that is behind a load balancer and does not have a public IP address. By comparing the number of SNAT ports you are using with the Allocated SNAT Ports metric, you can determine if your service is experiencing or at risk of SNAT exhaustion and resulting outbound flow failure. 
 
 If your metrics indicate risk of [outbound flow](https://aka.ms/lboutbound) failure, reference the article and take steps to mitigate this to ensure service health.
 
 To view SNAT port usage and allocation:
 1. Set the time aggregation of the graph to 1 minute to ensure desired data is displayed.
-1. Select **SNAT Usage** and/or **SNAT Allocation** as the metric type and **Average** as the aggregation
+1. Select **Used SNAT Ports** and/or **Allocated SNAT Ports** as the metric type and **Average** as the aggregation
     * By default these metrics are the average number of SNAT ports allocated to or used by each backend VM or VMSS, corresponding to all frontend public IPs mapped to the Load Balancer, aggregated over TCP and UDP.
     * To view total SNAT ports used by or allocated for the load balancer use metric aggregation **Sum**
 1. Filter to a specific **Protocol Type**, a set of **Backend IPs**, and/or **Frontend IPs**.
