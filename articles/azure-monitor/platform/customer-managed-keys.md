@@ -188,8 +188,8 @@ Create or use an Azure Key Vault that you already have to generate, or import a 
 
 These settings can be updated via CLI and PowerShell:
 
-- [Soft Delete](../../key-vault/general/overview-soft-delete.md)
-- [Purge protection](../../key-vault/general/overview-soft-delete.md#purge-protection) guards against force deletion of the secret / vault even after soft delete
+- [Soft Delete](../../key-vault/general/soft-delete-overview.md)
+- [Purge protection](../../key-vault/general/soft-delete-overview.md#purge-protection) guards against force deletion of the secret / vault even after soft delete
 
 ### Create *Cluster* resource
 
@@ -711,8 +711,8 @@ After the configuration, any new alert query will be saved in your storage.
     data ingested before and after the CMK configuration seamlessly.
 
 - The Azure Key Vault must be configured as recoverable. These properties aren't enabled by default and should be configured using CLI or PowerShell:<br>
-  - [Soft Delete](../../key-vault/general/overview-soft-delete.md)
-  - [Purge protection](../../key-vault/general/overview-soft-delete.md#purge-protection) should be turned on to guard against force deletion of the secret / vault even after soft delete.
+  - [Soft Delete](../../key-vault/general/soft-delete-overview.md)
+  - [Purge protection](../../key-vault/general/soft-delete-overview.md#purge-protection) should be turned on to guard against force deletion of the secret / vault even after soft delete.
 
 - *Cluster* resource move to another resource group or subscription
     isn't supported currently.
@@ -771,7 +771,7 @@ After the configuration, any new alert query will be saved in your storage.
   -  400 -- Cluster is in deleting state. Async operation is in progress . Cluster must complete its operation before any update operation is performed.
   -  400 -- KeyVaultProperties is not empty but has a bad format. See [key identifier update](#update-cluster-resource-with-key-identifier-details).
   -  400 -- Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn’t exist. Verify that you [set key and access policy](#grant-key-vault-permissions) in Key Vault.
-  -  400 -- Key is not recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](../../key-vault/general/overview-soft-delete.md)
+  -  400 -- Key is not recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](../../key-vault/general/soft-delete-overview.md)
   -  400 -- Operation cannot be executed now. Wait for the Async operation to complete and try again.
   -  400 -- Cluster is in deleting state. Wait for the Async operation to complete and try again.
 

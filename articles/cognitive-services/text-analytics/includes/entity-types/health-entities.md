@@ -6,13 +6,13 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 06/15/2020
+ms.date: 07/28/2020
 ms.author: aahi
 ---
 
 ## Health entity categories:
 
-The following entity categories are returned by [Text Analytics for Health](../../how-tos/text-analytics-for-health.md).  Please note that only English text is supported in this container preview and only a single model-version is provided in each container image.
+The following entity categories are returned by [Text Analytics for health](../../how-tos/text-analytics-for-health.md).  Please note that only English text is supported in this container preview and only a single model-version is provided in each container image.
 
 ### Named Entity Recognition
 

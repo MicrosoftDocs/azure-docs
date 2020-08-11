@@ -1,6 +1,6 @@
 ---
 title: Use the Azure portal to troubleshoot Azure Stack Edge | Microsoft Docs 
-description: Describes how to troubleshoot Azure Stack Edge issues.
+description: Learn how to troubleshoot issues on your Azure Stack Edge. You can run diagnostics, collect information for Support, and use logs to troubleshoot.
 services: databox
 author: alkohli
 

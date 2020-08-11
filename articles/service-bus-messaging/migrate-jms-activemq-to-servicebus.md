@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
-
+ms.custom: devx-track-java
 ---
 
 # Migrate existing Java Message Service (JMS) 2.0 applications from Apache ActiveMQ to Azure Service Bus
@@ -268,7 +268,7 @@ Now that you have modified the application to start sending and receiving messag
 
 ## Next steps
 
-Use the [Spring Boot Starter for Azure Service Bus JMS](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) for seamless integration with Service Bus.
+Use the [Spring Boot Starter for Azure Service Bus JMS](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) for seamless integration with Service Bus.
 
 To learn more about Service Bus messaging and JMS, see:
 

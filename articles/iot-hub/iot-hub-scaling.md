@@ -8,7 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.custom: [amqp, mqtt]
+ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: Operations']
 ---
 # Choose the right IoT Hub tier for your solution
 

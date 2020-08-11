@@ -1,12 +1,14 @@
 ---
-title: Automate tasks with Visual Studio Code
-description: Create or edit logic app underlying JSON definitions by using Visual Studio Code (VS Code)
+title: Automate tasks and workflows with Visual Studio Code
+description: Create or edit logic app workflow definitions by using Visual Studio Code (VS Code)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, deli, logicappspm
+ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/25/2019
+
+# Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio Code
 ---
 
 # Quickstart: Create and manage logic app workflow definitions by using Visual Studio Code
@@ -45,9 +47,9 @@ Before you start, make sure that you have these items:
 
     For more information, see [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery). To contribute to this extension's open-source version, visit the [Azure Logic Apps extension for Visual Studio Code on GitHub](https://github.com/Microsoft/vscode-azurelogicapps).
 
-<a name="sign-in-azure"></a>
+<a name="access-azure"></a>
 
-## Sign in to Azure
+## Access Azure from Visual Studio
 
 1. Open Visual Studio Code. On the Visual Studio Code toolbar, select the Azure icon.
 
@@ -94,7 +96,7 @@ Before you start, make sure that you have these items:
 
 ## Create new logic app
 
-1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#sign-in-azure).
+1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#access-azure).
 
 1. In Visual Studio code, under **Logic Apps**, open your subscription's shortcut menu, and select **Create Logic App**.
 
@@ -226,7 +228,7 @@ To review your logic app in Azure portal, follow these steps:
 
 In Visual Studio Code, if you edit a published logic app and save your changes, you *overwrite* your already deployed app. To avoid breaking your logic app in production and minimize disruption, deactivate your logic app first. You can then reactive your logic app after you've confirmed that your logic app still works.
 
-1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#sign-in-azure).
+1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#access-azure).
 
 1. In the Azure window, under **Logic Apps**, expand your Azure subscription so that you can view all the logic apps in that subscription.
 
@@ -249,7 +251,7 @@ In Visual Studio Code, you can open and edit the workflow definition for an alre
 > avoid the risk in breaking that logic app and minimize disruption by 
 > [disabling your logic app first](#disable-enable-logic-app).
 
-1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#sign-in-azure).
+1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#access-azure).
 
 1. In the Azure window, under **Logic Apps**, expand your Azure subscription, and select the logic app you want.
 

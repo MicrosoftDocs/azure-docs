@@ -86,9 +86,17 @@ RHEL-SAP-HA   | 7.4          | LVM    | Linux Agent | RHEL 7.4 for SAP with HA a
 rhel-byos     |rhel-lvm74| LVM    | Linux Agent | RHEL 7.4 BYOS images, not attached to any source of updates, will not charge a RHEL premium.
 |             |rhel-lvm75| LVM    | Linux Agent | RHEL 7.5 BYOS images, not attached to any source of updates, will not charge a RHEL premium.
 |             |rhel-lvm76| LVM    | Linux Agent | RHEL 7.6 BYOS images, not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm76-gen2| LVM    | Linux Agent | RHEL 7.6 Generation 2 BYOS images, not attached to any source of updates, will not charge a RHEL premium.
 |             |rhel-lvm77| LVM    | Linux Agent | RHEL 7.7 BYOS images, not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm77-gen2| LVM    | Linux Agent | RHEL 7.7 Generation 2 BYOS images, not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm78| LVM    | Linux Agent | RHEL 7.8 BYOS images, not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm78-gen2| LVM    | Linux Agent | RHEL 7.8 Generation 2 BYOS images, not attached to any source of updates, will not charge a RHEL premium.
 |             |rhel-lvm8 | LVM    | Linux Agent | RHEL 8.0 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm8-gen2 | LVM    | Linux Agent | RHEL 8.0 Generation 2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
 |             |rhel-lvm81 | LVM    | Linux Agent | RHEL 8.1 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm81-gen2 | LVM    | Linux Agent | RHEL 8.1 Generation 2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm82 | LVM    | Linux Agent | RHEL 8.2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
+|             |rhel-lvm82-gen2 | LVM    | Linux Agent | RHEL 8.2 Generation 2 BYOS images , not attached to any source of updates, will not charge a RHEL premium.
 
 > [!NOTE]
 > The RHEL-SAP-HANA product offering is considered end of life by Red Hat. Existing deployments will continue to work normally, but Red Hat recommends that customers migrate from the RHEL-SAP-HANA images to the RHEL-SAP-HA images which includes the SAP HANA repositories as well as the HA add-on. More details about Red Hat's SAP cloud offerings are available [here](https://access.redhat.com/articles/3751271).

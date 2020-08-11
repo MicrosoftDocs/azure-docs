@@ -4,7 +4,7 @@ description: Specifications for the Av2-series VMs.
 author: migerdes
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
 ---
@@ -23,7 +23,6 @@ Live Migration: Supported
 
 Memory Preserving Updates: Supported
 
-Pricing Calculator and Region Availability Information : <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Pricing Calculator</a>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max data disks/throughput: IOPS | Max NICs | Expected network bandwidth (Mbps)
 |---|---|---|---|---|---|---|---|
@@ -46,9 +45,9 @@ Pricing Calculator and Region Availability Information : <a href="https://azure.
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 
-Pricing Calculator and Region Availability Information : <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Pricing Calculator</a>
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/">Disk Types</a>
+More information on Disks Types : [Disk Types](./linux/disks-types.md#ultra-disk)
 
 ## Next steps
 

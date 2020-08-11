@@ -26,12 +26,14 @@ landingContent:
         links:
           - text: What is Azure Key Vault?
             url: overview.md
+          - text: Important news about soft-delete 
+            url: soft-delete-change.md
       - linkListType: concept
         links:
           - text: Basic concepts
             url: basic-concepts.md
           - text: Soft-delete
-            url: overview-soft-delete.md
+            url: soft-delete-overview.md
           - text: Throttling
             url: overview-throttling.md
 

@@ -89,6 +89,14 @@ New Supported Version List
 1.17.*9*, 1.17.*8*, 1.16.*11*, 1.16.*10*
 ```
 
+### Supported `kubectl` versions
+
+You can use one minor version older or newer of `kubectl` relative to your *kube-apiserver* version, which is consistent with the [Kubernetes support policy for kubectl](https://kubernetes.io/docs/setup/release/version-skew-policy/#kubectl).
+
+For example, if your *kube-apiserver* is at *1.17*, then you can use versions *1.16* to *1.18* of `kubectl` with that *kube-apiserver*.
+
+To install or update your version of `kubectl`, run `az aks install-cli`.
+
 ## Release and deprecation process
 
 You can reference upcoming version releases and deprecations on the [AKS Kubernetes Release Calendar](#aks-kubernetes-release-calendar).
@@ -119,7 +127,6 @@ To find out what versions are currently available for your subscription and regi
 ```azurecli-interactive
 az aks get-versions --location eastus --output table
 ```
-
 
 ## AKS Kubernetes Release Calendar
 

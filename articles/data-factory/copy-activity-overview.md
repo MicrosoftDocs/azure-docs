@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 08/03/2020
 ms.author: jingwang
 
 ---
@@ -249,9 +249,6 @@ This feature is supported when copying data from any source into the following s
 - [SQL Server](connector-sql-server.md)
 
 ![Create sink tables](media/copy-activity-overview/create-sink-table.png)
-
-> [!NOTE]
-> Currently auto table creation is not supported when [staged copy](copy-activity-performance-features.md#staged-copy) is enabled.
 
 ## Fault tolerance
 

@@ -188,6 +188,7 @@ This Azure Resource Manager template demonstrates configuring a Failure Anomalie
 
 Learn more about automatically detecting:
 
-- [Failure anomalies](../../azure-monitor/app/proactive-failure-diagnostics.md)
-- [Memory Leaks](../../azure-monitor/app/proactive-potential-memory-leak.md)
-- [Performance anomalies](../../azure-monitor/app/proactive-performance-diagnostics.md)
+- [Failure anomalies](./proactive-failure-diagnostics.md)
+- [Memory Leaks](./proactive-potential-memory-leak.md)
+- [Performance anomalies](./proactive-performance-diagnostics.md)
+
