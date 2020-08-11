@@ -145,7 +145,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 1. Copy the URL of the HTTP trigger from the **Output** panel. The URL that calls your HTTP-triggered function should be in the following format:
 
-        https://<functionappname>.azurewebsites.net/api/HelloOrchestration_HttpStart
+    `https://<functionappname>.azurewebsites.net/api/HelloOrchestration_HttpStart`
 
 1. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 
@@ -274,7 +274,7 @@ You must have a function app in your Azure subscription before you can publish y
 
     The URL that calls your durable function HTTP trigger should be in the following format:
 
-        https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>_HttpStart
+    `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>_HttpStart`
 
 2. Paste this new URL for the HTTP request into your browser's address bar. You should get the same status response as before when using the published app.
 
