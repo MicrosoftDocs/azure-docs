@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 07/22/2020
+ms.date: 08/11/2020
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Stack Edge issues
@@ -26,7 +26,7 @@ In this article, you learn how to:
 
 To diagnose and troubleshoot any device errors, you can run the diagnostics tests. Do the following steps in the local web UI of your device to run diagnostic tests.
 
-1. In the local web UI, go to **Troubleshooting > Diagnostic tests**. Select the test you want to run and click **Run test**. This runs the tests to diagnose any possible issues with your network, device, web proxy, time, or cloud settings. You are notified that the device is running tests.
+1. In the local web UI, go to **Troubleshooting > Diagnostic tests**. Select the test you want to run and select **Run test**. This runs the tests to diagnose any possible issues with your network, device, web proxy, time, or cloud settings. You're notified that the device is running tests.
 
     ![Select tests](media/azure-stack-edge-troubleshoot/run-diag-1.png)
 
@@ -34,7 +34,7 @@ To diagnose and troubleshoot any device errors, you can run the diagnostics test
 
     ![Review test results](media/azure-stack-edge-troubleshoot/run-diag-2.png)
 
-    If a test fails, then a URL for recommended action is presented. You can click the URL to view the recommended action.
+    If a test fails, then a URL for recommended action is presented. Select the URL to view the recommended action.
 
     ![Review warnings for failed tests](media/azure-stack-edge-troubleshoot/run-diag-3.png)
 
@@ -44,11 +44,11 @@ A log package is composed of all the relevant logs that can help Microsoft Suppo
 
 Do the following steps to collect a Support package.
 
-1. In the local web UI, go to **Troubleshooting > Support**. Click **Create support package**. The system starts collecting support package. The package collection may take several minutes.
+1. In the local web UI, go to **Troubleshooting > Support**. Select **Create support package**. The system starts collecting support package. The package collection may take several minutes.
 
     ![Click add user](media/azure-stack-edge-troubleshoot/collect-logs-1.png)
 
-2. After the Support package is created, click **Download Support package**. A zipped package is downloaded on the path you chose. You can unzip the package and the view the system log files.
+2. After the Support package is created, select **Download Support package**. A zipped package is downloaded on the path you chose. You can unzip the package and the view the system log files.
 
     ![Click add user](media/azure-stack-edge-troubleshoot/collect-logs-2.png)
 
@@ -56,11 +56,11 @@ Do the following steps to collect a Support package.
 
 Any errors experienced during the upload and refresh processes are included in the respective error files.
 
-1. To view the error files, go to your share and click the share to view the contents. 
+1. To view the error files, go to your share and select it to view the contents. 
 
       ![Connect to and view share contents](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Click the _Microsoft Azure Stack Edge folder_. This folder has two subfolders:
+2. Select the _Microsoft Azure Stack Edge folder_. This folder has two subfolders:
 
     * Upload folder that has log files for upload errors.
     * Refresh folder for errors during refresh.
@@ -73,7 +73,7 @@ Any errors experienced during the upload and refresh processes are included in t
     <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
     ```
 
-3. When you see an error in this file (highlighted in the sample), note down the error code, in this case it is 16001. Look up the description of this error code against the following error reference.
+3. When you see an error in this file (highlighted in the sample), note down the error code, in this case it's 16001. Look up the description of this error code against the following error reference.
 
     [!INCLUDE [data-box-edge-edge-upload-error-reference](../../includes/data-box-edge-gateway-upload-error-reference.md)]
 
