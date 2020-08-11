@@ -69,7 +69,7 @@ You can add and modify redirect URIs for your registered applications by configu
 
 ### Configure platform settings
 
-Settings for each application type, including redirect URIs, are configured in **Platform configurations** in the Azure portal. Some platforms, like **Web** and **Single-page applications**, require you to manually specify a redirect URI. For other platforms like mobile and desktop, you can select from redirect URIs generated for you when you configure other settings for the platform.
+Settings for each application type, including redirect URIs, are configured in **Platform configurations** in the Azure portal. Some platforms, like **Web** and **Single-page applications**, require you to manually specify a redirect URI. For other platforms like mobile and desktop, you can select from redirect URIs generated for you when you configure their other settings.
 
 To configure application settings based on the platform or device you're targeting:
 
@@ -81,11 +81,11 @@ To configure application settings based on the platform or device you're targeti
 
     | Platform | Configuration settings |
     | -------- | ---------------------- |
-    | **Web** | Enter the **Redirect URI** for your application.<br/><br/>A redirect URI is the location to which the Microsoft identity platform redirects a user's client and sends security tokens after authentication. |
-    | **Single-page application** | Enter the **Redirect URI** for your application.<br/><br/>A redirect URI is the location to which the Microsoft identity platform redirects a user's client and sends security tokens after authentication. |
-    | **iOS / macOS** | Enter the app **Bundle ID**, which you can find in XCode in *Info.plist* or Build Settings. Adding the bundle ID automatically creates a redirect URI for the application. |
-    | **Android** | Provide the app **Package name**, which you can find in the *AndroidManifest.xml* file.<br/><br/>Generate and enter the **Signature hash**. Adding the signature hash automatically creates a redirect URI for the application. |
-    | **Mobile and desktop applications** | (Optional) Select one of the **Suggested redirect URIs** if you're building apps for desktop and devices.<br/><br/>(Optional) Enter a **Custom redirect URI**, the location to which the Microsoft identity platform redirects a user's client and sends security tokens after authentication. |
+    | **Web** | Enter a **Redirect URI** for your app, the location where Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Select this option for standard web apps or a web API that backs another application. |
+    | **Single-page application** | Enter a **Redirect URI** for your app, the location where Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Select this option if you're building a client-side web app in JavaScript or with a framework like Angular, Vue.js, React.js, or Blazor WebAssembly. |
+    | **iOS / macOS** | Enter the app **Bundle ID**, found in XCode in *Info.plist* or Build Settings.<br/><br/>A redirect URI is generated for you when you specify a Bundle ID. |
+    | **Android** | Enter the app **Package name**, which you can find in the *AndroidManifest.xml* file, and generate and enter the **Signature hash**.<br/><br/>A redirect URI is generated for you when you specify these settings. |
+    | **Mobile and desktop applications** | Select one of the **Suggested redirect URIs** or specify a **Custom redirect URI**.<br/><br/>For desktop applications, we recommend this suggested redirect URI:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`. |
 
 ### Redirect URI restrictions
 
