@@ -32,13 +32,13 @@ Azure Container Instances also supports executing a command in a running contain
 
 ## Compliant deployments
 
-#### Hypervisor-level security
+### Hypervisor-level security
 
 Historically, containers have offered application dependency isolation and resource governance but have not been considered sufficiently hardened for hostile multi-tenant usage. Azure Container Instances guarantees your application is as isolated in a container as it would be in a VM.
 
 ### Customer data
 
-In order to meet compliance requirements, the ACI service stores the minimum customer data required to ensure your container groups are running as expected. Storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo. Please get in touch with Azure Support to learn more.
+The ACI service stores the minimum customer data required to ensure your container groups are running as expected. Storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in [Geo](https://azure.microsoft.com/global-infrastructure/geographies/). Please get in touch with Azure Support to learn more.
 
 ## Custom sizes
 
