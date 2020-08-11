@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 08/10/2020
 ms.author: b-juche
 ---
 # Cost model for Azure NetApp Files 
@@ -56,6 +56,7 @@ You can manually increase or decrease the pool size. However, the following cons
 * A 1-TiB increment after the initial 4-TiB minimum purchase
 * A one-hour minimum billing increment
 * The provisioned pool size may not be decreased to less than the total used capacity in the pool.
+* For capacity pools with manual QoS, the pool size can only be decreased if the size and service level provide more throughput than the actual assigned throughput of all volumes.
 
 ## Behavior of maximum-size pool overage   
 
