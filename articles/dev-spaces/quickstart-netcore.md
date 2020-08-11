@@ -163,10 +163,10 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## Next steps
 
-Learn how Azure Dev Spaces helps you develop more complex applications across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces. 
+Learn more about how Azure Dev Spaces works.
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](multi-service-netcore.md)
+> [How Azure Dev Spaces works](how-dev-spaces-works.md)
 
 
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
