@@ -48,11 +48,11 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create PostgreSQL instance
-            url: create-postgres-instances.md
+            url: create-postgresql-instances.md
           - text: Extend single node to hyperscale
-            url: postgres_extend_singlenode-to-hyperscale.md
+            url: postgresql-extend-single-node-to-hyperscale.md
           - text: Restore sample database
-            url: restore-adventureworks-sample-db-to-pg.md
+            url: restore-adventureworks-sample-db-to-postgresql.md
 
   # Card (optional)
   - title: Do with SQL Managed Instance
@@ -60,7 +60,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create Managed instance
-            url: create-sqlmiaa-instance.md
+            url: create-sql-managed-instance.md
           - text: Migrate to Managed Instance
             url: migrate-to-managed-instance-azure-arc.md
           - text: Restore sample database

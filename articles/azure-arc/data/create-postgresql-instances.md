@@ -192,4 +192,4 @@ psql postgresql://postgres:PASSWORD@10.0.0.4:30655
 ## Next Steps
 
 - [Register your instance with Azure and upload metrics and logs about your instance](upload-metrics-and-logs-to-azure-monitor.md)
-- [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgres-hyperscale.md)
+- [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale.md)

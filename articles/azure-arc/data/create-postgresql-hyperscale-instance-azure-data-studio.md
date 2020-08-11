@@ -143,4 +143,4 @@ Once connected, you can utilize the full functionality of PostgreSQL Hyperscale,
 
 ## Next Steps
 
-Try to [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgres-hyperscale.md).
+Try to [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale.md).

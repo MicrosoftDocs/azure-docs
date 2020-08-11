@@ -11,13 +11,13 @@
     - name: Create data controller
       href: create-data-controller.md
     - name: Create SQL Managed Instance
-      href: create-sqlmiaa-instance.md
+      href: create-sql-managed-instance.md
     - name: Create PostgreSQL Instance
-      href: create-postgres-instances.md
+      href: create-postgresql-instances.md
     - name: Extend Postgres SingleNode
-      href: postgres_extend_singlenode-to-hyperscale.md
+      href: postgresql-extend-singlenode-to-hyperscale.md
     - name: Scale out Postgres to hyper Scale
-      href: scale-out-postgres-hyperscale.md
+      href: scale-out-postgresql-hyperscale.md
 - name: Concepts
   items:
     - name: Connectivity modes and requirements
@@ -35,13 +35,13 @@
         - name: Inventory SQL instances
           href: view-inventory-sql-instances.md
         - name: Get data controller username & password
-          href: retrieve-the-username-password-for-the-arc-datacontroller.md
+          href: retrieve-the-username-password-for-data-controller.md
         - name: Create data controller (portal)
           href: create-data-controller-resource-in-azure-portal.md
         - name: Create data controller (Azure Data Studio)
-          href: create-data-controller-using-ads.md
+          href: create-data-controller-using-azure-data-studio.md
         - name: Monitor with dashboards (Azure Data Studio)
-          href: ads-dashboards.md
+          href: azure-data-studio-dashboards.md
         - name: View billing data (Azure)
           href: view-billing-data-in-azure.md
         - name: View data controller (portal)
@@ -57,27 +57,27 @@
     - name: Postgres
       items:
         - name: Back up Postgres Hyperscale
-          href: backup-restore-pghsaa.md
+          href: backup-restore-postgresql-hyperscale.md
         - name: Use Postgres extensions
-          href: using-postgres-extensions.md
+          href: using-postgresql-extensions.md
         - name: Create PostgreSQL instance (Azure Data Studio)
-          href: create-pghsaa-instance-using-ads.md
+          href: create-postgresql-hyperscale-instance-using-azure-data-studio.md
         - name: Scale  PostgreSQL instance (CLI)
-          href: scale-up-down-pghsaa-instance-using-cli.md
+          href: scale-up-down-postgresql-hyperscale-instance-using-cli.md
         - name: Manage roles in PostgreSQL (CLI)
-          href: manage-roles-in-pghsaa-with-cli.md
+          href: manage-roles-in-postgresql-hyperscale-with-cli.md
         - name: Migrate a Postgres database to Arc
-          href: migrate-postgres-db-into-arc.md
+          href: migrate-postgresql-db-into-arc.md
         - name: Restore AdventureWorks to Postgres
           href: restore-adventureworks-sample-db-to-pg.md
         - name: Manage Postgres (Azure Data Studio)
-          href: manage-postgres-with-azuredatastudio.md
+          href: manage-postgresql-with-azuredatastudio.md
         - name: Delete Postgres
-          href: delete-postgres-instance.md
+          href: delete-postgresql-instance.md
     - name: SQL Managed Instance
       items:
         - name: Create SQL Managed Instance (Azure Data Studio)
-          href: create-sqlmiaa-instance-using-ads.md
+          href: create-sql-managed-instance-using-azure-data-studio.md
         - name: Migrate to SQL Managed Instance (Azure Arc)
           href: migrate-to-managed-instance-azure-arc.md
         - name: Restore AdventureWorks

@@ -251,4 +251,4 @@ kubectl describe po/control-2g7bl -n arc
 
 ## Next steps
 
-Now try to [deploy a SQL Database managed instance](create-sqlmiaa-instance.md)
+Now try to [deploy a SQL Database managed instance](create-sql-managed-instance.md)
