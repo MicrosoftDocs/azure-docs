@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 You can review the template by selecting the **Visualize** link as follows:
 
-[![Visualize](../media/template-deployments/template-visualize-button.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
+[![Visualize](../media/template-deployments/template-visualize-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
 The template defines two resources:
 
@@ -52,54 +52,6 @@ The template defines two resources:
    * **Tag Values**: Accept the default. 
    * **Review and Create**: Select.
    * **Create**: Select.
-
-## Review deployed resources
-
-You can either use the Azure portal to check the deployed resources, or use Azure CLI or Azure PowerShell script to list the deployed resources.
-
-###NEED NEW SCRIPTING?####
-
-# [CLI](#tab/CLI)
-
-```azurecli-interactive
-echo "Enter the resource group where your Synapse SQL pool exists:" &&
-read resourcegroupName &&
-az resource list --resource-group $resourcegroupName 
-```
-
-# [PowerShell](#tab/PowerShell)
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the resource group name where your SQL pool account exists"
-(Get-AzResource -ResourceType "Microsoft.Sql/servers/databases" -ResourceGroupName $resourceGroupName).Name
- Write-Host "Press [ENTER] to continue..."
-```
-
----
-####NEED NEW SCRIPTING?####
-
-## Clean up resources
-
-When no longer needed, delete the resource group by using Azure CLI or Azure PowerShell:
-
-# [CLI](#tab/CLI)
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
-```
-
-# [PowerShell](#tab/PowerShell)
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-Remove-AzResourceGroup -Name $resourceGroupName
-Write-Host "Press [ENTER] to continue..."
-```
-
----
 
 ## Next steps
 
