@@ -24,8 +24,8 @@ the coordinator node.
 
 > [!NOTE]
 >
-> Some of these tables may not be available on Hyperscale server groups that
-> are running earlier versions of the Citus Engine.
+> Hyperscale server groups running older versions of the Citus Engine may not
+> offer all the tables listed below.
 
 ### Partition table
 

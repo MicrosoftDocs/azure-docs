@@ -25,8 +25,8 @@ group.
 
 > [!NOTE]
 >
-> Some of these parameters may not be available on Hyperscale server groups
-> that are running earlier versions of the Citus Engine.
+> Hyperscale server groups running older versions of the Citus Engine may not
+> offer all the parameters listed below.
 
 ## General configuration
 
