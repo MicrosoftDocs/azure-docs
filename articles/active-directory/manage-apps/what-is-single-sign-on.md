@@ -1,6 +1,6 @@
 ---
 title: What is Azure single sign-on (SSO)?
-description: Learn how to choose a single sign-on method when configuring applications in Azure Active Directory (Azure AD). Use single sign-on so users don't need to remember passwords for every application, and to simplify the administration of account management.
+description: Learn how single sign-on (SSO) works with Azure Active Directory. Use SSO so users don't need to remember passwords for every application. Also use SSO to simplify the administration of account management.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -16,13 +16,22 @@ ms.collection: M365-identity-device-management
 
 # What is single sign-on (SSO)?
 
-Single sign-on (SSO) adds security and convenience when users sign-on to applications in Azure Active Directory (Azure AD). This article describes the single sign-on methods, and helps you choose the most appropriate SSO method when configuring your applications.
+Single sign-on means a user doesn't have to sign in to every application they use. The user logs in once and that credential is used for other apps too.
+
+If you're an end user, you likely don't care much about SSO details. You just want to use the apps that make you productive without having to type your password so much. You can find your apps at: https://myapps.microsoft.com.
+ 
+If you're an administrator, or IT professional, then read on to learn more about how SSO is implemented in Azure.
+
+## Single sign-on basics
+Single sign-on provides a giant leap forward in how users sign in and use applications. Single sign-on based authentication systems are often called "modern authentication". To understand what makes single sign-on possible, check out this video.
+> [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
+
+
+## Choosing a single sign-on method
 
 - **With single sign-on**, users sign in once with one account to access domain-joined devices, company resources, software as a service (SaaS) applications, and web applications. After signing in, the user can launch applications from the Office 365 portal or the Azure AD MyApps access panel. Administrators can centralize user account management, and automatically add or remove user access to applications based on group membership.
 
 - **Without single sign-on**, users must remember application-specific passwords and sign in to each application. IT staff needs to create and update user accounts for each application such as Office 365, Box, and Salesforce. Users need to remember their passwords, plus spend the time to sign in to each application.
-
-## Choosing a single sign-on method
 
 There are several ways to configure an application for single sign-on. Choosing a single sign-on method depends on how the application is configured for authentication.
 
@@ -100,7 +109,7 @@ Password-based single sign-on is supported for any cloud-based application that 
 - Chrome on Windows 7 or later, and on macOS X or later
 - Firefox 26.0 or later on Windows XP SP2 or later, and on macOS X 10.6 or later
 
-To configure an cloud application for password-based single sign-on, see [Configure password single sign-on](configure-password-single-sign-on-non-gallery-applications.md).
+To configure a cloud application for password-based single sign-on, see [Configure password single sign-on](configure-password-single-sign-on-non-gallery-applications.md).
 
 To configure an on-premises application for single sign-on through Application Proxy, see [Password vaulting for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-password-vaulting.md)
 
@@ -192,10 +201,5 @@ Since this scenario is offered through a partnership between Azure AD and PingAc
 
 For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
-## Related articles
+## Next steps
 * [Quickstart Series on Application Management](view-applications-portal.md)
-* [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Configuring password-based single sign on](configure-password-single-sign-on-non-gallery-applications.md)
-* [Configuring linked sign-on](configure-linked-sign-on.md)
-* [Introduction to Managing Access to applications](what-is-access-management.md)
-* Download link: [Single sign-on deployment plan](https://aka.ms/SSODeploymentPlan).

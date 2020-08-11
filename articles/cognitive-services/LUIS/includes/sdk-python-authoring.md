@@ -107,6 +107,10 @@ Creation methods for entities are part of the [ModelOperations](https://docs.mic
 
 ## Add example utterance to intent
 
+Define a helper function for creating the utterance data structure
+
+[!code-python[Create Utterance](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/application_quickstart.py?name=createUtterance)]
+
 In order to determine an utterance's intention and extract entities, the app needs examples of utterances. The examples need to target a specific, single intent and should mark all custom entities. Prebuilt entities do not need to be marked.
 
 Add example utterances by creating a list of [ExampleLabelObject](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.models.examplelabelobject?view=azure-python) objects, one object for each example utterance. Each example should mark all entities with a dictionary of name/value pairs of entity name and entity value. The entity value should be exactly as it appears in the text of the example utterance.
