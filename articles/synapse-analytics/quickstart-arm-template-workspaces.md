@@ -10,7 +10,7 @@ ms.author: jrasnick
 ms.date: 08/07/2020
 ---
 
-# Quickstart: Create an Azure Synapse workspace by using an ARM template
+# Quickstart: Create an Azure Synapse workspace using a deployment template
 
 This Azure Resource Manager template (ARM template) will create an Azure Synapse workspace with underlying Data Lake Storage. The Azure Synapse workspace is a securable collaboration boundary for analytics processes in Azure Synapse Analytics.
 
@@ -20,27 +20,20 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
-###DOES THIS LINK DEPLOY THE TEMPLATE ACCURATELY?###
-
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/201-sql-data-warehouse-transparent-encryption-create/).
+You can review the template by selecting the **Visualize** link as follows:
 
-###REPLACEMENT LINK FOR THE ONE ABOVE?####
+[![Visualize](../../media/template-deployments/template-visualize-button.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
-:::code language="json" source="https://github.com/Azure-Samples/Synapse/blob/master/Manage/DeployWorkspace/workspace/azuredeploy.json" highlight="57-97":::
+The template defines two resources:
 
-###INCORRECT LINK? SHOULDN'T THIS LINK BACK TO THE ARM TEMPLATES SUCH AS: ~/quickstart-templates/201-sql-data-warehouse-transparent-encryption-create/azuredeploy.json###
-
-The template defines one resource:
-
-- [Microsoft.Synapse/workspaces](/azure/templates/microsoft.sql/servers)
-- 
-- ###NEW LINK?####
+- Storage account
+- Workspace
 
 ## Deploy the template
 
@@ -48,21 +41,15 @@ The template defines one resource:
    
    [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
-###IS THIS LINK TAKING THE USER TO THE CORRECT PAGE?###
-
 1. Enter or update the following values:
 
    * **Subscription**: Select an Azure subscription.
    * **Resource group**: Select **Create new** and enter a unique name for the resource group and select **OK**. A new resource group will facilitate resource clean up.
    * **Region**: Select a region.  For example, **Central US**.
    * **Name**: Enter a name for your workspace.
-   * **Data Lake Storage Account Name**: Enter the Data Lake Storage account you'll use for your workspace.
    * **SQL Administrator login**: Enter the administrator username for the SQL Server.
    * **SQL Administrator password**: Enter the administrator password for the SQL Server.
    * **Tag Values**: Accept the default. 
-   * **Storage Subscription ID**: Accept the default.
-   * **Storage Resource Group Name**: Accept the default location of the resource group.
-   * **Storage Location** Accept the default location.
    * **Review and Create**: Select.
    * **Create**: Select.
 
