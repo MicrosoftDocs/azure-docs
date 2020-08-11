@@ -3,7 +3,7 @@ title: Create Windows Virtual Desktop host pool PowerShell - Azure
 description: How to create a host pool in Windows Virtual Desktop with PowerShell cmdlets.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -116,12 +116,12 @@ To register the Windows Virtual Desktop agents, do the following on each virtual
 You'll need to update the agent if you're in one of the following situations:
 
 - You want to migrate a previously registered session to a new host pool
-- The agent bits aren't showing up in the host pool after an update
+- The session host doesn't appear in your host pool after an update
 
 To update the agent:
 
 1. Sign in to the VM as an administrator.
-2. Go to **Services**, then stop and stop the **Rdagent** and **Remote Desktop Agent Loader** processes.
+2. Go to **Services**, then stop the **Rdagent** and **Remote Desktop Agent Loader** processes.
 3. Next, find the agent and bootloader MSIs. They'll either be located in the **C:\DeployAgent** folder or whichever location you saved it to when you installed it.
 4. Find the following files and uninstall them:
      
