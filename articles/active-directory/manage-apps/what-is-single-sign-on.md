@@ -22,6 +22,10 @@ If you're an end user, you likely don't care much about SSO details. You just wa
  
 If you're an administrator, or IT professional, then read on to learn more about how SSO is implemented in Azure.
 
+## Single sign-on basics
+Single sign-on provides a giant leap forward in how users sign in and use applications. Single sign-on based authentication systems are often called "modern authentication". To understand what makes single sign-on possible, check out this video.
+> [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
+
 
 ## Choosing a single sign-on method
 
@@ -197,10 +201,5 @@ Since this scenario is offered through a partnership between Azure AD and PingAc
 
 For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
-## Related articles
+## Next steps
 * [Quickstart Series on Application Management](view-applications-portal.md)
-* [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Configuring password-based single sign on](configure-password-single-sign-on-non-gallery-applications.md)
-* [Configuring linked sign-on](configure-linked-sign-on.md)
-* [Introduction to Managing Access to applications](what-is-access-management.md)
-* Download link: [Single sign-on deployment plan](https://aka.ms/SSODeploymentPlan).
