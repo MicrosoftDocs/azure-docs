@@ -41,21 +41,15 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 ## Deploy Azure SQL managed instance on Azure Arc
 
 - Click on the three dots on the top left to create a new instance
-![alt text](/assets/newdeployement.png)
 
 - Select Azure SQL managed instance - Azure Arc and hit select
   > **Note:** You may be prompted to install the azdata CLI here if it is not currently installed.  **DO NOT** install azdata from Azure Data Studio!  It will install the wrong version currently.  Instead you should [install azdata by following these instructions](/scenarios/install-client-tools.md).
 
-![alt text](/assets/selectsql.png)
-
 - Fill in the required input fields and hit deploy
-![alt text](/assets/sqlinput.png)
 
 - You should see that the deployment has started
-![alt text](/assets/monitorprogress.png)
 
 - In a few minutes your deployment should successfully complete
-![alt text](/assets/successfuldeployement.png)
 
 ## View instance on Azure Arc
 

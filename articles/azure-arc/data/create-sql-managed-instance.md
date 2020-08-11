@@ -32,7 +32,10 @@ Namespace: arc
 Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
 ```
 
-Log in to your Azure account. **Note**: Logging into Azure is optional at this point. If you wish to use Azure attached capabilities such as Azure monitor and Azure Log Analytics, log in with your Azure account, else you can skip it.
+Log in to your Azure account.
+
+> [!NOTE]
+> Logging into Azure is optional at this point. If you wish to use Azure attached capabilities such as Azure monitor and Azure Log Analytics, log in with your Azure account, else you can skip it.
 
 ```terminal
 az login

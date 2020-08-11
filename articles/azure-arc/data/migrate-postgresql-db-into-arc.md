@@ -47,7 +47,7 @@ Consider the following setup:
 
 
 
-#### Step 1: take a backup of the source database on prem
+#### Step 1: take a backup of the source database on-premises
 ![Screenshot of source backup action.](/assets/Migrate_PG_SingleNode_Source_Backup.jpg)
 
 Configure it:
@@ -97,7 +97,7 @@ The restore is successful.
 You could use two ways to do this:
 
 **From pgAdmin:**  
-Expand the Postgres instance hosted in your Arc setup. You will see the table in the database that we have just restored and when you select the data it shows the same row as that it has in the on prem instance:
+Expand the Postgres instance hosted in your Arc setup. You will see the table in the database that we have just restored and when you select the data it shows the same row as that it has in the on-premises instance:
 ![Screenshot of detination DB restore verification.](/assets/Migrate_PG_SingleNode_Destination_DBRestoreVerif.jpg)
 
 
@@ -131,7 +131,7 @@ Type "help" for help.
 RESTORED_MyOnPremPostgresDB=#   
 ```
 
-Select the table and you'll see the data coming from the on prem Postgres instance:
+Select the table and you'll see the data coming from the on-premises Postgres instance:
 ```terminal
 RESTORED_MyOnPremPostgresDB=# select * from t1;
  col1 |    col2
@@ -141,4 +141,4 @@ RESTORED_MyOnPremPostgresDB=# select * from t1;
 ```
 
 ## Notes
-It is not possible today to "onboard into Azure Arc" an existing Postgres setup that would running on prem or in any other cloud. In other words it is not possible to install some sort of "Azure Arc agent" on your existing Postgres setup to make it a Postgres setup enabled by Azure Arc. Instead, you need to deploy a new Postgres instance and transfer data into it. You may use the technique shown above to do this or you may use any ETL tool of your choice.
+It is not possible today to "onboard into Azure Arc" an existing Postgres setup that would running on-premises or in any other cloud. In other words it is not possible to install some sort of "Azure Arc agent" on your existing Postgres setup to make it a Postgres setup enabled by Azure Arc. Instead, you need to deploy a new Postgres instance and transfer data into it. You may use the technique shown above to do this or you may use any ETL tool of your choice.

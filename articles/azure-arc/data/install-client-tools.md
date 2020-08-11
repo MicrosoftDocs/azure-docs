@@ -24,7 +24,7 @@ This document walks you through the steps for installing azdata, kubectl, Azure 
 - Azure Data Studio is a GUI tool for DBAs, data engineers, data scientists, and data developers.
 - psql  is the standard PostgreSQL client/command line application.
 
-## Step 1: Install azdata
+## Install azdata
 
 ### Choose the steps for the Operating System you are using
 
@@ -120,7 +120,7 @@ dpkg -i azdata-cli_20.1.0-1~bionic_all.deb
 apt-get -f install
 ```
 
-##### xenial - Ubuntu 16.04
+##### Xenial - Ubuntu 16.04
 
 ```terminal
 apt-get update
@@ -170,26 +170,26 @@ curl -SL https://private-repo.microsoft.com/python/azure-arc-data/private-previe
 yum localinstall azdata-cli-20.1.0-1.el7.x86_64.rpm -y
 ```
 
-## Step 2: Verify azdata is installed
+## Verify azdata is installed
 
 ```terminal
 azdata
 azdata --version
 ```
 
-> The version of azdata for the July release is 20.1.0.   Note that this is NOT the same as the 20.1.0 version of azdata that was released publicly for SQL Server big data clusters earlier in July.  We will converge on a single version of azdata, but for now please ensure you install azdata using the hyperlinks/instructions provided above.
+> [!NOTE]
+>The version of azdata for this release is 20.1.0.
 
-## Step 3: Install kubectl
+## Install kubectl
 
--------
 Once you have installed azdata, you need to install kubectl and make sure the current config points to your existing Kubernetes cluster.
 
-Go here to install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
+Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
 
 > [!NOTE]
 >  If you are using OpenShift you will also want to have the oc CLI tool installed.
 
-## Step 5: Install Azure CLI
+## Install Azure CLI
 
 -------
 Follow these steps to [install the Azure CLI](/azure/install-azure-cli?view=azure-cli-latest) on your client machine
@@ -201,15 +201,15 @@ az cloud set --name AzureCloud
 az login
 ```
 
-## Step 6: Create a Kubernetes config file if you do not already have one
+## Create a Kubernetes config file if you do not already have one
 
 -------
 
 You may already have a Kubernetes config file if you have been using an existing Kubernetes cluster.  If you do not already have one you can create a new one.  Consult the documentation for your Kubernetes distribution or service to learn how to get the Kubernetes config file to authenticate to your cluster.
 
-If you are using AKS, you can use 'az aks get-credentials' command .
+If you are using AKS, you can use `az aks get-credentials` command .
 
-If you are using EKS, you can use 'aws eks update-kubeconfig' command .
+If you are using EKS, you can use `aws eks update-kubeconfig` command .
 
 If you are using OpenShift you can install the oc CLI by following these commands.
 
@@ -222,7 +222,7 @@ mv oc /usr/local/bin
 oc status
 ```
 
-## Step 7: Verify your connection to Kubernetes
+## Verify your connection to Kubernetes
 
 -------
 
@@ -231,7 +231,7 @@ kubectl version
 kubectl get pods -A
 ```
 
-## Step 8: Install Azure Data Studio and Arc extension and log into Azure
+## Install Azure Data Studio and Arc extension and log into Azure
 
 ### Install Azure Data Studio (Insiders)
 
@@ -249,7 +249,6 @@ To prevent conflicts, first uninstall the **Azure Arc deployment** extension if 
 ### Download and Install the Azure Arc extension to Azure Data Studio
 
 - Launch Azure Data Studio
-![alt text](/assets/adslaunch.png)
 - Download the [Azure Arc Extension VSIX](https://sqlopsextensions.blob.core.windows.net/extensions/arc/arc-0.1.0.vsix)
 - File -> Install Extension from VSIX Package
 - Select the VSIX you just downloaded and wait for it to finish
@@ -257,16 +256,12 @@ To prevent conflicts, first uninstall the **Azure Arc deployment** extension if 
 
 ### Login in with your Azure account
 
-- Add Azure account
-![alt text](/assets/addazure.png)
-- Click on add an account
-![alt text](/assets/addaccount.png)
-- Choose Azure account
-![alt text](/assets/chooseaccount.png)
-- Verify that your Azure account was added successfully
-![alt text](/assets/verify.png)
+1. Add Azure account
+1. Click on add an account
+1. Choose Azure account
+1. Verify that your Azure account was added successfully
 
-## Step 9: Install psql (optional)
+## Install psql (optional)
 
 If you are deploying Azure Database for Postgres instances to your Arc setup you may want to install psql, the standard client/command line application for PostgreSQL.
 To do so, if your client machine is running the Ubuntu operating system (for example if you are using the sample environment described in Readme.md) run the following command:

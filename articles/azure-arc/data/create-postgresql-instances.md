@@ -47,7 +47,7 @@ You may now implement the next step explained in the next section _"For all user
 
 ## Create an Azure Database for PostgreSQL Hyperscale server group
 
-To create a Azure Database for PostgreSQL Hyperscale server group on Azure Arc, use the following command:
+To create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc, use the following command:
 
 ```terminal
 azdata arc postgres server create -n <name> --workers 2 --external-endpoint --storage-class-data <storage class name> --storage-class-logs <storage class name>
@@ -97,7 +97,7 @@ local-storage (default)    kubernetes.io/no-provisioner       4d18h
 
 
 
-## Create a Azure Database for PostgreSQL instance single node (not Hyperscale)
+## Create an Azure Database for PostgreSQL instance single node (not Hyperscale)
 
 To deploy a single node instance of Postgres , i.e. a standard Postgres instance without the Citus extension enabled, run the same command as to deploy an Hyperscale server group but do not specify the --workers parameter. For example:
 

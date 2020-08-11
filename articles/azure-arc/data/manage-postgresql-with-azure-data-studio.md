@@ -51,7 +51,7 @@ Your Arc Data Controller node is now showing up. Expand it and it shows the list
 
 ## Manage your Postgres instances
 
-Right click on the Postgres instance you want to manage and click [Manage]
+Right-click on the Postgres instance you want to manage and click [Manage]
 ![Screenshot of Azure Data Controllers [Manage] contextual menu.](/assets/ADS_Jul2020_Controller_Postgres_Manage.jpg)
 
 This opens the Postgres Dashboard view:

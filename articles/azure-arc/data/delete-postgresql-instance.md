@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Scenario: Delete a PostgreSQL instance
 
-This document describes the steps to delete an Azure PostgreSQL instance from your Azure Arc setup, whether that instance is a single node instance or an Hyperscale server group.
+This document describes the steps to delete an Azure PostgreSQL instance from your Azure Arc setup, whether that instance is a single node instance or a Hyperscale server group.
 
 ## Delete the instance
 
@@ -70,7 +70,8 @@ logs-postgres01-3   Bound    pvc-f9e4cb98-c943-45b0-aa07-dd5cff7ea585   5Gi     
 
 If you do not reclaim these PVCs you will eventually end up with errors as your Kubernetes cluster will think it is running out of disk space.
 
->**Note:** Some of these errors may include being unable to login to your cluster with azdata as the pods may be evicted from the Kubernetes cluster (normal Kubernetes behavior).
+>[!NOTE] 
+> Some of these errors may include being unable to login to your cluster with azdata as the pods may be evicted from the Kubernetes cluster (normal Kubernetes behavior).
 
 You may see messages similar to the one below in the logs:  
     Annotations:    microsoft.com/ignore-pod-health: true  
@@ -78,12 +79,13 @@ You may see messages similar to the one below in the logs:
     Reason:         Evicted  
     Message:        The node was low on resource: ephemeral-storage. Container controller was using 16372Ki, which exceeds its request of 0.  
 
-So, to reclaim the PVCs, run the following command for each pvc
+So, to reclaim the PVCs, run the following command for each PVC
 
 ```terminal
 kubectl delete pvc -n <name of pvc>
 ```
 
->**Note:** Deleting an instance and/or its PVCs does not delete the database file on the persistent volumes. This is by design.
+> [!NOTE]
+> Deleting an instance and/or its PVCs does not delete the database file on the persistent volumes. This is by design.
 
 The intention is to help the user access the database files in case the deletion of instance was accidental.

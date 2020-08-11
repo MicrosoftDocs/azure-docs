@@ -40,6 +40,6 @@ default         postgres02-2                           3/3     Running   0      
 
 ## Next
 
-You now need to adjust the definition of your tables to distribute them across the new nodes. For further considerations about scaling out a Azure Database for Postgres Hyperscale server group please the [Scale out Postgres Hyperscale](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/blob/jul-2020/scenarios/008-scale-out-Postgres-Hyperscale.md) scenario.
+You now need to adjust the definition of your tables to distribute them across the new nodes. For further considerations about scaling out an Azure Database for Postgres Hyperscale server group please the [Scale out Postgres Hyperscale](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/blob/jul-2020/scenarios/008-scale-out-Postgres-Hyperscale.md) scenario.
 
 >**Note:** It is not yet possible to scale back from an Azure Database for Postgres Hyperscale server group to an Azure Database for Postgres single node. If you need to do so, you need extract your data, drop the server group, deploy a single node instance and import the data. If you need to scale back before you have distributed the data on multiple nodes, you can backup the database and restore it once you have deployed the single node instance.

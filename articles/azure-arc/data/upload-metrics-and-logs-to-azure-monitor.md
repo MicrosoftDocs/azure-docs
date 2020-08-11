@@ -26,14 +26,14 @@ The first item is required to upload metrics and the second one is required to u
 
 Follow these commands to create your metrics upload service principal and assign it to the 'Monitoring Metrics Publisher' and 'Contributor' roles so that the service principal can upload metrics and perform create and upload operations.
 
-## Step 1: Create a service principal and assign it to required roles
+## Create service principal and assign roles
 
 Follow these commands to create your metrics upload service principal and assign it to the 'Monitoring Metrics Publisher' role:
 
 To create a service principal, run this command:
 
 > [!NOTE]
->  Creating a service principal requires [certain permissions in Azure](/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+> Creating a service principal requires [certain permissions in Azure](/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
 ```terminal
 az ad sp create-for-rbac --name <a name you choose>
@@ -99,11 +99,12 @@ Example output:
 }
 ```
 
-## Step 2: Create a Log Analytics Workspace and assign ID and shared key to environment variables
+## Create a log analytics workspace
 
 Next, execute these commands to create a Log Analytics Workspace and set the access information into environment variables.
 
-> **Note**: Skip this step if you already have a workspace.
+> [!NOTE]
+> Skip this step if you already have a workspace.
 
 ```terminal
 az monitor log-analytics workspace create -g <resource group name> -n <some name you choose>
@@ -118,12 +119,12 @@ Example output:
 {
   "customerId": "d6abb435-2626-4df1-b887-445fe44a4123",
   "eTag": null,
-  "id": "/subscriptions/182c901a-129a-4f5d-86e4-cc6b29459123/resourcegroups/twright-arc-demo/providers/microsoft.operationalinsights/workspaces/twright-logworkspace",
+  "id": "/subscriptions/182c901a-129a-4f5d-86e4-cc6b29459123/resourcegroups/user-arc-demo/providers/microsoft.operationalinsights/workspaces/user-logworkspace",
   "location": "eastus",
-  "name": "twright-logworkspace",
+  "name": "user-logworkspace",
   "portalUrl": null,
   "provisioningState": "Succeeded",
-  "resourceGroup": "twright-arc-demo",
+  "resourceGroup": "user-arc-demo",
   "retentionInDays": 30,
   "sku": {
     "lastSkuUpdate": "Thu, 30 Jul 2020 22:37:53 GMT",
@@ -135,6 +136,8 @@ Example output:
   "type": "Microsoft.OperationalInsights/workspaces"
 }
 ```
+
+## Assign ID and shared key to environment variables
 
 Save the customerId (workspace ID) as an environment variable to be used later:
 
@@ -178,7 +181,7 @@ export WORKSPACE_SHARED_KEY='JXzQp1RcGgjXFCDS3v0sXoxPvbgCoGaIv35lf11Km2WbdGFvLXq
 
 ```
 
-## Step 3: Set final environment variables and check to be sure they are all set
+## Set final environment variables and confirm
 
 Set the SPN authority URL in an environment variable:
 
@@ -210,7 +213,7 @@ echo $SPN_CLIENT_SECRET
 echo $SPN_AUTHORITY
 ```
 
-## Step 4: Upload metrics to Azure Monitor
+## Upload metrics to Azure Monitor
 
 To upload metrics for your Azure SQL managed instances and Azure Database for PostgreSQL Hyperscale server groups run, the following CLI commands:
 
@@ -226,34 +229,25 @@ This will upload metrics to Azure monitor:
 azdata arc dc upload --path metrics.json
 ```
 
-## Step 5: View the metrics in the Portal
+## View the metrics in the Portal
 
 Once your metrics are uploaded you should be able to visualize them from the Azure portal.
 
 To view your metrics in the portal, use this special link to open the portal: <https://aka.ms/arcdata>
 Then, search for your database instance by name in the search bar:
 
-![alt text](/assets/monitoringsearch.png)
-
 You can view CPU utilization on the Overview page or if you want more detailed metrics you can click on metrics from the left navivation panel
-
-![alt text](/assets/monitoringmetrics.png)
 
 Choose sql server as the metric namespace:
 
-![alt text](/assets/monitoringnamespace.png)
-
 Select the metric you want to visualize (you can also select multiple):
-
-![alt text](/assets/monitoringCPU.png)
 
 Change the frequency to last 30 minutes:
 
-![alt text](/assets/Monitoringfrequency.png)
+> [!NOTE]
+> You can only upload metrics only for the last 30 minutes. Azure Monitor rejects metrics older than 30 minutes.
 
-> **Note: Currently, you can only upload metrics only for the last 30 minutes. Azure Monitor will reject metrics older than 30 minutes.**
-
-## Step 6: Upload logs to Azure Monitor
+## Upload logs to Azure Monitor
 
  To upload logs for your Azure SQL managed instances and Azure Database for PostgreSQL Hyperscale server groups run the following CLI commands-
 
@@ -263,25 +257,25 @@ This will export all logs to the specified file:
 azdata arc dc export -t logs -path logs.json
 ```
 
-This will upload logs to a Azure monitor log analytics workspace:
+This will upload logs to an Azure monitor log analytics workspace:
 
 ```terminal
 azdata arc dc upload --path logs.json
 ```
 
-## Step 7: View your logs in Azure Portal
+## View your logs in Azure portal
 
 Once your logs are uploaded, you should be able to query them using the log query explorer as follows:
 
-1) Open the Azure Portal and then search for your workspace by name in the search bar at the top and then select it
-2) Click Logs in the left panel
-3) Click Get Started (or click the links on the Getting Started page to learn more about Log Analytics if you are new to it)
-4) Follow the tutorial to learn more about Log Analytics if is is your first time
-5) Expand Custom Logs at the bottom of the list of tables and you will see a table called 'sql_instance_logs_CL'.
-6) Click the 'eye' icon next to the table name
-7) Click the 'View in query editor' button
-8) You'll now have a query in the query editor which will show the most recent 10 events in the log
-9) From here, you can experiment with querying the logs using the query editor, set alerts, etc.
+1. Open the Azure portal and then search for your workspace by name in the search bar at the top and then select it
+2. Click Logs in the left panel
+3. Click Get Started (or click the links on the Getting Started page to learn more about Log Analytics if you are new to it)
+4. Follow the tutorial to learn more about Log Analytics if is is your first time
+5. Expand Custom Logs at the bottom of the list of tables and you will see a table called 'sql_instance_logs_CL'.
+6. Click the 'eye' icon next to the table name
+7. Click the 'View in query editor' button
+8. You'll now have a query in the query editor which will show the most recent 10 events in the log
+9. From here, you can experiment with querying the logs using the query editor, set alerts, etc.
 
 ## Automating metrics and logs uploads (optional)
 

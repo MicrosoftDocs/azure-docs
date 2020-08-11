@@ -40,20 +40,15 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 ## Deploy Azure Database for PostgreSQL Hyperscale server group on Azure Arc
 
-- Click on the three dots on the top left to create a new instance
-![alt text](/assets/newdeployement.png)
+1. Click on the three dots on the top left to create a new instance
 
-- Select PostgreSQL server groups - Azure Arc and hit select
+1. Select PostgreSQL server groups - Azure Arc and hit select
   
-![alt text](/assets/selectpostgres.png)
+1. Fill in the required input fields and hit deploy
 
-- Fill in the required input fields and hit deploy
+1. You should see that the deployment has started
 
-- You should see that the deployment has started
-![alt text](/assets/postgresmonitoring.png)
-
-- In a few minutes your deployment should successfully complete
-![alt text](/assets/pguccessfuldeployement.png)
+1. In a few minutes your deployment should successfully complete
 
 ## View PostgreSQL Hyperscale server groups on Azure Arc
 

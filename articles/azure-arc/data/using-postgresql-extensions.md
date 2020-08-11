@@ -33,7 +33,10 @@ azdata postgres server create -n <name of your postgresql server group> -ns <nam
 azdata postgres server create -n pg2 -ns arc -w 2 --extensions postgis
 ```
 
-Now, let's go through a PostGIS example. We'll start by getting some [sample data](http://duspviz.mit.edu/tutorials/intro-postgis/) from the MIT’s Department of Urban Studies & Planning. Note you may need to run `apt-get install unzip` to install unzip when using the VM for testing.
+Now, let's go through a PostGIS example. We'll start by getting some [sample data](http://duspviz.mit.edu/tutorials/intro-postgis/) from the MIT’s Department of Urban Studies & Planning. 
+
+> [!NOTE]
+> You may need to run `apt-get install unzip` to install unzip when using the VM for testing.
 
 ```terminal
 wget http://duspviz.mit.edu/_assets/data/intro-postgis-datasets.zip
@@ -46,7 +49,8 @@ Let's connect to our database, and create the PostGIS extension:
 CREATE EXTENSION postgis;
 ```
 
->**Note:** If you would like to use one of the extensions in the postgis package (for example postgis_raster, postgis_topology, postgis_sfcgal, fuzzystrmatch...) you need to first create the postgis extension and then create the other extension. For instance: CREATE EXTENSION postgis; CREATE EXTENSION postgis_raster;
+> [!NOTE]
+> If you would like to use one of the extensions in the postgis package (for example postgis_raster, postgis_topology, postgis_sfcgal, fuzzystrmatch...) you need to first create the postgis extension and then create the other extension. For instance: CREATE EXTENSION postgis; CREATE EXTENSION postgis_raster;
 
 And create the schema:
 
@@ -97,7 +101,8 @@ Let's enable `pg_cron` on our PostgreSQL server group, in addition to PostGIS:
 azdata postgres server update -n pg2 -ns arc --extensions postgis,pg_cron
 ```
 
-Note that this will restart the nodes and install the additional extensions, which may take 2 - 3 minutes.
+> [!NOTE]
+> This will restart the nodes and install the additional extensions, which may take 2 - 3 minutes.
 
 We can now connect again, and create the `pg_cron` extension:
 
@@ -181,7 +186,7 @@ to list the extensions created in your Postgres instance.
 
 TimescaleDB is an open-source database designed to make SQL scalable for time-series data. For further details see the documentation of the timescaledb extension [here](https://github.com/timescale/timescaledb).
 
-The timescaledb extension is installed in your Arc system. To preload it, run the below command. Note that this command restarts your Postgres server so you should make sure to run it when you can take this short downtime:
+The timescaledb extension is installed in your Arc system. To preload it, run the below command. This command restarts your Postgres server so you should make sure to run it when you can take this short downtime:
 
 ```terminal
 azdata postgres server update -n <insert your Postgres server name> --extensions timescaledb

@@ -15,7 +15,8 @@ ms.topic: how-to
 
 These instructions utilize the PostgreSQL server group that was [provisioned in an earlier guide](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/blob/ctp2.0/scenarios/004-create-pghsaa-instance.md).
 
->**NOTE:** It is not yet possible to scale back in, i.e. reduce the number of worker nodes. If you need to do so, you need to extract the data, drop the server group, create a new server group with less worker nodes and then import the data.
+>[!NOTE]
+> It is not yet possible to scale back in, i.e. reduce the number of worker nodes. If you need to do so, you need to extract the data, drop the server group, create a new server group with less worker nodes and then import the data.
 
 ## Load test data
 
@@ -42,7 +43,7 @@ Metrics Dashboard     https://52.152.248.25:30777/grafana/d/postgres-metrics?var
 
 Now, connect to the Postgres instance using Azure Data Studio.
 
-Open a new query window abd run the following query to verify that we currently have two or more Hyperscale worker nodes, each corresponding to a Kubernetes pod:
+Open a new query window and run the following query to verify that we currently have two or more Hyperscale worker nodes, each corresponding to a Kubernetes pod:
 
 ```sql
 SELECT * FROM pg_dist_node;
