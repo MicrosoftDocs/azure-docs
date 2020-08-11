@@ -42,7 +42,7 @@ In this article, you'll learn how to set up an Azure Cache with additional repli
     | **Pricing tier** | Drop down and select a [Premium tier](https://azure.microsoft.com/pricing/details/cache/) cache. |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
     | **Replica count** | Slide to choose the number of replicas. | Default is 1. |
    
-1. After you select a Premium tier cache, you'll be asked whether to enable Redis clustering or not. Leave *Clustering* as **Disabled**. 
+1. After you select a Premium tier cache, you'll be asked whether to enable Redis clustering or not. Leave **Clustering** as *Disabled*. 
    
     :::image type="content" source="media/cache-how-to-premium-clustering/redis-clustering-disabled.png" alt-text="Configure Redis cluster.":::
 
