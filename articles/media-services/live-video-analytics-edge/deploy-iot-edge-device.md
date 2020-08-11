@@ -81,8 +81,8 @@ The Live Video Analytics on IoT Edge exposes module twin properties that are doc
 
 ### Deploy using the Azure portal
 
-The Azure portal guides you through creating a deployment manifest and pushing the deployment to an IoT Edge device.
-Select your device
+The Azure portal guides you through creating a deployment manifest and pushing the deployment to an IoT Edge device.  
+#### Select your device and set modules
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/) and navigate to your IoT hub.
 1. Select **IoT Edge** from the menu.
@@ -107,23 +107,13 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     > [!TIP]
     > Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and **Module Twin Settings** tabs as described in this procedure.
     
-    > [!IMPORTANT]
+    > [!WARNING]
     > Azure IoT Edge is case-sensitive when you make calls to modules. Make note of the exact string you use as the module name.`
 
 1. Open the **Environment Variables** tab.
    
-   Copy and paste the following JSON into the box, to provide the user ID and the group ID to be used to save the application data and the video outputs.
-    ```   
-   {
-        "LOCAL_USER_ID": 
-        {
-            "value": "1010"
-        },
-        "LOCAL_GROUP_ID": {
-            "value": "1010"
-        }
-    }
-     ``` 
+   Add the following values in the input boxes that you see
+   ![Environment Variables](./media/deploy-iot-edge-device/environment-variables.png) 
 
 1. Open the **Container Create Options** tab.
 
@@ -196,8 +186,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
-   [!Note]
-   The twin property **allowUnsecuredEndpoints** is set as true for the purpose of the tutorials and the quickstarts.   
+   > [!Note]
+   > The twin property **allowUnsecuredEndpoints** is set as true for the purpose of the tutorials and the quickstarts.   
    You should set this property to **false** when running in production environment. This will ensure that the application will block all unsecured endpoints and in order to run the graph topologies, valid connection credentials will be needed.  
    
     Select Add to add the module twin properties.
@@ -253,5 +243,7 @@ Next, lets test the sample by invoking a direct method. Read [direct methods for
     ![The status 200 message](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## Next steps
+Try [Quickstart: Get started - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
-[Quickstart: Get started - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
+> [!TIP]
+> In the command, you will run next, use your `device-id` instead of the default `lva-sample-device`.
