@@ -44,7 +44,7 @@ All other TCP traffic that is not HTTP passes through the Ingress controller and
 
 ## Sharing a dev space
 
-When working with a team, you can [share a dev space across an entire team](how-to/share-dev-spaces.md) and create derived dev spaces. A dev space can be used by anyone with contributor access to the dev space's resource group.
+When working with a team, you can share a dev space across an entire team and create derived dev spaces. A dev space can be used by anyone with contributor access to the dev space's resource group.
 
 You can also create a new dev space that is derived from another dev space. When you create a derived dev space, the *azds.io/parent-space=PARENT-SPACE-NAME* label is added to the derived dev space's namespace. Also, all applications from the parent dev space are shared with the derived dev space. If you deploy an updated version of an application to the derived dev space, it will only exist in the derived dev space and the parent dev space will remain unaffected. You can have a maximum of three levels of derived dev spaces or *grandparent* spaces.
 
