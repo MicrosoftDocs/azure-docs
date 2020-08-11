@@ -87,7 +87,7 @@ az provider show -n Microsoft.Kubernetes -o table
 az provider show -n Microsoft.KubernetesConfiguration -o table
 ```
 
-## Create a Resource Group
+## Create a resource group
 
 Use a resource group to store metadata for your cluster.
 
