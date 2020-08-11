@@ -5,7 +5,7 @@ author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/10/2019
+ms.date: 07/30/2020
 ---
 # Tutorial: Share data using Azure Data Share  
 

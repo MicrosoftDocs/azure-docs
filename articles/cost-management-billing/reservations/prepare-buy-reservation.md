@@ -4,7 +4,7 @@ description: Learn about important points to help you buy an Azure reservation.
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
 ---

@@ -51,6 +51,8 @@
     items:
     - name: View reservations and utilization
       href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: View reservations as a CSP
+      href: how-to-view-csp-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Manage reservations
       href: manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Change optimize setting
@@ -69,7 +71,7 @@
       href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Concepts
   items:
-  - name: How reservation recommendations are created
+  - name: Reservation recommendations
     href: reserved-instance-purchase-recommendations.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: How discount is applied
     items:
@@ -118,9 +120,9 @@
   - name: Reservations REST API
     href: reservation-apis.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: Reservations - Azure PowerShell
-    href: /powershell/module/azurerm.reservations
+    href: /powershell/module/az.reservations
   - name: Reservations - CLI
-    href: /cli/azure/reservations/reservation
+    href: /cli/azure/reservations
   - name: Cost Management - Consumption Usage Details REST API
     href: /rest/api/consumption/usagedetails
   - name: Cost Management - Consumption Reservations Details REST API

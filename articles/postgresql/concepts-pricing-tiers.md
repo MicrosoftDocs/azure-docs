@@ -80,7 +80,7 @@ For example, if you have provisioned 1000 GB of storage, and the actual utilizat
 
 Remember that storage can only be scaled up, not down.
 
-## Backup Storage
+## Backup storage
 
 Azure Database for PostgreSQL provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any backup storage you use in excess of this amount is charged in GB per month. For example, if you provision a server with 250 GB of storage, you’ll have 250 GB of additional storage available for server backups at no charge. Storage for backups in excess of the 250 GB is charged as per the [pricing model](https://azure.microsoft.com/pricing/details/postgresql/). To understand factors influencing backup storage usage, monitoring and controlling backup storage cost, you can refer to the [backup documentation](concepts-backup.md).
 

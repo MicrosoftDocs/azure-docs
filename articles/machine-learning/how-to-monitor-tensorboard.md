@@ -5,10 +5,11 @@ description: Launch TensorBoard to visualize experiment run histories, and ident
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 author: maxluk
 ms.author: maxluk
 ms.date: 02/27/2020
+ms.topic: conceptual
+ms.custom: how-to
 ---
 
 # Visualize experiment runs and metrics with TensorBoard and Azure Machine Learning

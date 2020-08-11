@@ -116,7 +116,7 @@ app('Contoso-app5').requests
 
 
 
-You can now [use this function](../../azure-monitor/log-query/functions.md#use-a-function) in a cross-resource query like the following. The function alias _applicationsScoping_ returns the union of the requests table from all the defined applications. The query then filters for failed requests and visualizes the trends by application. The _parse_ operator is optional in this example. It extracts the application name from _SourceApp_ property.
+You can now [use this function](./functions.md#use-a-function) in a cross-resource query like the following. The function alias _applicationsScoping_ returns the union of the requests table from all the defined applications. The query then filters for failed requests and visualizes the trends by application. The _parse_ operator is optional in this example. It extracts the application name from _SourceApp_ property.
 
 ```Kusto
 applicationsScoping 
@@ -137,3 +137,4 @@ applicationsScoping
 
 - Review [Analyze log data in Azure Monitor](log-query-overview.md) for an overview of log queries and how Azure Monitor log data is structured.
 - Review [Azure Monitor log queries](query-language.md) to view all of the resources for Azure Monitor log queries.
+
