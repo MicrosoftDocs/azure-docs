@@ -71,6 +71,19 @@ Azure AD Password Protection has a critical dependency on the encryption and dec
 
    Microsoft is investigating a fix for this issue but no ETA is available yet. In the meantime, there is no workaround for this issue other than to not run a mix of these incompatible operating systems in your Active Directory domain(s). In other words, you should run only Windows Server 2012 and Windows Server 2012 R2 domain controllers, OR you should only run Windows Server 2016 and above domain controllers.
 
+## DC agent thinks the forest has not been registered
+
+The symptom of this issue is 30016 events getting logged in the DC Agent\Admin channel that says in part:
+
+```text
+The forest has not been registered with Azure. Password policies cannot be downloaded from Azure unless this is corrected.
+```
+
+There are two possible causes for this issue.
+
+1. The forest has indeed not been registered. To resolve this, please run the Register-AzureADPasswordProtectionForest command as described in the [deployment requirements](howto-password-ban-bad-on-premises-deploy.md).
+1. The forest has been registered, but the DC agent is unable to decrypt the forest registration data. This case has the same root cause as issue #2 listed above under [DC agent is unable to encrypt or decrypt password policy files](howto-password-ban-bad-on-premises-troubleshoot.md#dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files). One way to confirm this is the problem is that you will see this error only on DC agents running on Windows Server 2012 or Windows Server 2012R2 domain controllers, while DC agents running on Windows Server 2016 and later domain controllers are fine. The workaround is the same: upgrade all domain controllers to Windows Server 2016 or later.
+
 ## Weak passwords are being accepted but should not be
 
 This problem may have several causes.
