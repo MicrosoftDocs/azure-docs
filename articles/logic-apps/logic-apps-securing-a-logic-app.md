@@ -105,7 +105,7 @@ In the body, include the `KeyType` property as either `Primary` or `Secondary`. 
 
 ### Enable Azure Active Directory OAuth
 
-If your logic app starts with a [Request trigger](../connectors/connectors-native-reqres.md), you can enable [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) by defining an authorization policy for inbound calls to the Request trigger. Before you enable this authentication, review these considerations:
+If your logic app starts with a [Request trigger](../connectors/connectors-native-reqres.md), you can enable [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) by [defining an authorization policy](#define-authorization-policy) for inbound calls to the Request trigger. Before you enable this authentication, review these considerations:
 
 * An inbound call to your logic app can use only one authorization scheme, either Azure AD OAuth or [Shared Access Signatures (SAS)](#sas). Only [Bearer-type](../active-directory/develop/active-directory-v2-protocols.md#tokens) authorization schemes are supported for OAuth tokens, which are supported only for the Request trigger.
 
