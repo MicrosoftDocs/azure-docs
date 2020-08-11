@@ -19,6 +19,10 @@ Azure Key Vault allows you to easily provision, manage, and deploy digital certi
 
 Having short lived certificate or increasing the frequency of certificate rotation limits the adversary’s scope for damage.
 
+## Certificate Expiration Notifications
+First, make sure to add Certificate contact to your Key Vault in order to get notified when certificates are about to expire (eg. using PowerShell [Add-AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0))
+Second, configure when you would like to get notified about certificate expiry. To configure life-time action, follow [here](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate)
+
 There three categories of certificate creation in key vault. This guide will help you to understand how renewal of certificates can be achieved.
 -	Certificates created with integrated CA (DigiCert or GlobalSign)
 -	Certificates created with non-integrated CA
