@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -59,7 +59,7 @@ If your browser starts acting up or stops working while you're using the web cli
 
 First, check the Azure Active Directory account you're using. If you've already signed in with a different Azure Active Directory account than the one you want to use for Windows Virtual Desktop, you should either sign our or use a private browser window.
 
-If you're using Windows Virtual Desktop (Classic), use the web client link in [this article](./virtual-desktop-fall-2019/connect-web-2019.md) to connect to your resources.
+If you're using Windows Virtual Desktop (classic), use the web client link in [this article](./virtual-desktop-fall-2019/connect-web-2019.md) to connect to your resources.
 
 If that doesn't work, make sure the app group your user's been assigned to is associated with a workspace.
 
