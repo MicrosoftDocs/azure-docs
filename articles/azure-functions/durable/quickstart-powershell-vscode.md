@@ -28,8 +28,6 @@ To complete this tutorial:
 
 * Durable Functions require an Azure storage account. You need an Azure subscription.
 
-* Make sure that you have [PowerShell 7](/powershell/scripting/install/installing-powershell?view=powershell-7) installed.
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project 
