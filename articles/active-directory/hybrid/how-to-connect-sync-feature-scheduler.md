@@ -168,7 +168,7 @@ When a sync cycle is running, you cannot make configuration changes. You could w
 The scheduler is still active and starts again on next opportunity.
 
 ## Custom scheduler
-The cmdlets documented in this section are only available in build [1.1.130.0](reference-connect-version-history.md#111300) and later.
+The cmdlets documented in this section are only available in build [1.1.130.0](reference-connect-version-history.md) and later.
 
 If the built-in scheduler does not satisfy your requirements, then you can schedule the Connectors using PowerShell.
 
