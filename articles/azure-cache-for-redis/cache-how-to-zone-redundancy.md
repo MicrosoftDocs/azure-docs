@@ -1,6 +1,6 @@
 ---
-title: Add replicas to Azure Cache for Redis (Preview)
-description: Learn how to add more replicas to your Premium tier Azure Cache for Redis instances
+title: Enable zone redundancy for Azure Cache for Redis (Preview)
+description: Learn how to set up zone redundancy for your Premium tier Azure Cache for Redis instances
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ---
 
-# Add replicas to Azure Cache for Redis (Preview)
-Azure Cache for Redis Standard and Premium tiers offer redundancy by hosting each cache on two dedicated virtual machines (VMs). These VMs are configured as primary and replica. When the primary VM becomes unavailable, the replica detects that and takes over as the new primary automatically. You can now increase the number of replicas in a Premium cache up to three, allowing you a total of four VMs backing a cache. Having multiple replicas gives you higher resilience than what a single replica can provide.
+# Enable zone redundancy for Azure Cache for Redis (Preview)
+Azure Cache for Redis Standard and Premium tiers provide built-in redundancy by hosting each cache on two dedicated virtual machines (VMs). Even though these VMs are located in separate [Azure fault and update domains](azure/virtual-machines/windows/manage-availability) and highly available, they're susceptible to datacenter level failures. Azure Cache for Redis also supports zone redundancy in its Premium tier. A zone-redundant cache runs on VMs spread across multiple [availability zones](azure/virtual-machines/windows/manage-availability#use-availability-zones-to-protect-from-datacenter-level-failures). It provides higher resilience and availability.
 
-In this article, you'll learn how to set up an Azure Cache with additional replicas using the Azure portal.
+In this article, you'll learn how to configure a zone-redundant Azure Cache instance using the Azure portal.
 
 > [!IMPORTANT]
 > This preview is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
@@ -41,23 +41,24 @@ In this article, you'll learn how to set up an Azure Cache with additional repli
     | **Location** | Drop down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
     | **Pricing tier** | Drop down and select a [Premium tier](https://azure.microsoft.com/pricing/details/cache/) cache. |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
     | **Replica count** | Slide to choose the number of replicas. | Default is 1. |
+    | **Availability zones** | Drop down and select which zones to use. | VMs for your cache will be distributed over the selected zones as evenly as possible. For example, if your cache has three replicas and uses two zones, there will be two VMs in each zone. |
    
 1. After you select a Premium tier cache, you'll be asked whether to enable Redis clustering or not. Leave **Clustering** as *Disabled*. 
    
     :::image type="content" source="media/cache-how-to-premium-clustering/redis-clustering-disabled.png" alt-text="Configure Redis cluster.":::
 
     > [!NOTE]
-    > Multi-replica support is available for non-clustered caches currently.
+    > Zone redundancy support only works with non-clustered and non-geo-replicated caches currently.
     >
 
 1. Click **Create**. 
    
-    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Create Azure Cache for Redis.":::
+    :::image type="content" source="media/cache-how-to-zone-redundancy/create-zones.png" alt-text="Create Azure Cache for Redis.":::
    
     It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 
     > [!NOTE]
-    > The number of replicas in a cache can't be changed after it's created.
+    > Availability zones can't be changed after a cache is created.
     >
 
 ## Next Steps
