@@ -13,10 +13,25 @@ ms.author: mbaldwin
 ---
 
 # Azure Key Vault REST API overview
+Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data. Key Vault resource provider supports two types of containers: vaults and managed HSM pools.
 
-Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data. Key Vault resource provider supports two types of containers: vaults and managed HSM pools. The table below shows the data-plane endpoint URL format, object types and their suffixes.
+## DNS Suffixes for base URL
+ The table below shows the base URL DNS suffix used by the data-plane endpoint for vaults and Managed HSM pools in various cloud environments.
 
-Object type|URL Suffix|Vaults<br/>https://{vault-name}.vault.azure.net|Managed HSM Pools<br/>https://{hsm-name}.managedhsm.azure.net
+Cloud environment | DNS suffix for vaults | DNS suffix for managed HSM pools
+---|---|---
+Azure Cloud | .vault.azure.net | .managedhsm.azure.net
+Azure China Cloud | .vault.azure.cn | Not supported
+Azure US Government | .vault.usgovcloudapi.net | Not supported
+Azure German Cloud | .vault.microsoftazure.de | Not supported
+|||
+
+
+
+## Object types
+ The table below shows object types and their suffixes in the base URL.
+
+Object type|URL Suffix|Vaults|Managed HSM Pools
 --|--|--|--
 **Cryptographic keys**||
 HSM-protected keys|/keys|Supported|Supported
@@ -32,6 +47,7 @@ Storage account keys|/storageaccount|Supported|Not supported
 - **Azure Storage account keys**: Can manage keys of an Azure Storage account for you. Internally, Key Vault can list (sync) keys with an Azure Storage Account, and regenerate (rotate) the keys periodically. For more information, see [Manage storage account keys with Key Vault](../secrets/overview-storage-keys.md).
 
 For more general information about Key Vault, see [About Azure Key Vault](overview.md). For more information about Managed HSM pools, see What is [Azure Key Vault Managed HSM?](../managed-hsm/overview.md)
+
 
 ## Data types
 
