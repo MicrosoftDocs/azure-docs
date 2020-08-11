@@ -37,20 +37,20 @@ You can access the Azure AD portal to get contextual PowerShell scripts to perfo
 
 The following sections describe each option in the **Review permissions** window.
 
-## I want to control access to an application
+## Control access to an application
 
-We recommend that you restrict access to this application by turning the **User assignment** setting on.
+We recommend that you restrict access to the application by turning the **User assignment** setting on.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
 3. Select the application that you want to restrict access to.
 4. Select **Properties**, and then set the **User requirement required** setting to "Yes."
-5. Select **User and Groups**, and then remove unwanted users assigned to the application.
+5. Select **User and Groups**, and then remove the unwanted users who are assigned to the application.
 6. Assign user(s) or group(s) to the application.
 
 Optionally, you can remove all users assigned to the application by using PowerShell.
 
-## I want to revoke all permissions for an application
+## Revoke all permissions for an application
 
 Using the PowerShell script revokes all permissions granted to this application.
 
@@ -64,9 +64,9 @@ Optionally, you can disable the application to keep users from accessing the app
 3. Select the application that you want to restrict access to.
 4. Select **Properties**, and then set **Enabled for users to sign-in?** to "No."
 
-## Application is suspicious and I want to investigate
+## Investigate a suspicious application
 
-We recommend that you restrict access to this application by turning the **User assignment** setting on and that you review the permissions that user and admins have granted to the application.
+We recommend that you restrict access to the application by turning the **User assignment** setting on. You should also review the permissions that users and admins have granted to the application.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 3. Select **Azure Active Directory** > **Enterprise applications**.
@@ -74,22 +74,23 @@ We recommend that you restrict access to this application by turning the **User 
 6. Select **Properties**, and then set the **User requirement required** setting to "Yes."
 7. Select **Permissions**, and review the Admin and User consented permissions.
 
-Optionally, you can:
+Optionally, by using PowerShell, you can:
 
-- By using PowerShell, remove all users assigned to stop them from signing into the application.
-- By using PowerShell, invalidate refresh tokens for users who have access to the application.
-- By using PowerShell, revoke all permissions for the application.
-- Disable the application to block users' access and stop the application's access to your data.
+- Remove all users assigned to stop them from signing into the application.
+- Invalidate refresh tokens for users who have access to the application.
+- Revoke all permissions for the application.
+
+Or you can disable the application to block users' access and stop the application's access to your data.
 
 
-## Application is malicious and I'm compromised
+## Disable a malicious application 
 
-We recommend that you disable the application to block users from accessing the app and to keep the application from accessing your data. If you delete the application instead, end-users will be able to re-consent to the application and grant access to your data.
+We recommend that you disable the application to block users' access and to keep the application from accessing your data. If you delete the application instead, end-users will be able to re-consent to the application and grant access to your data.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
 3. Select the application that you want to restrict access to.
-4. Select **Properties** and then copy the object ID.
+4. Select **Properties**, and then copy the object ID.
 
 ### PowerShell commands
 
@@ -99,7 +100,7 @@ Retrieve service principal object ID.
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
 3. Select the application that you want to restrict access to.
-4. Select **Properties** and then copy the Object ID.
+4. Select **Properties**, and then copy the Object ID.
 
 ```powershell
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
