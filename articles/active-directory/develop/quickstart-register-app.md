@@ -63,7 +63,7 @@ Your application's code, or more typically an authentication library used in you
 
 A redirect URI is the location to which the Microsoft identity platform redirects a user's client and sends security tokens after authentication.
 
-In a production web application, for example, the redirect URI is often a public endpoint where your app is running, like `https://contoso.com/auth-response`. During development, it's common to also add the endpoint where you run your app locally, like `https://localhost:5000`.
+In a production web application, for example, the redirect URI is often a public endpoint where your app is running, like `https://contoso.com/auth-response`. During development, it's common to also add the endpoint where you run your app locally, like `https://127.0.0.1/auth-response`.
 
 You can add and modify redirect URIs for your registered applications by configuring their [platform settings](#configure-platform-settings).
 
@@ -89,7 +89,7 @@ To configure application settings based on the platform or device you're targeti
 
 ### Redirect URI restrictions
 
-Active Directory Federation Services (AD FS) and Azure AD B2C redirect URIs must include a port number. For example, `http://localhost:1234`.
+Active Directory Federation Services (AD FS) and Azure AD B2C redirect URIs must include a port number. For example, `http://127.0.0.1:1234`.
 
 For a full list of restrictions and limitations, see [Redirect URI/reply URL restrictions and limitations](reply-url.md).
 
@@ -118,7 +118,7 @@ You can add both certificates and client secrets as credentials to your confiden
 
 ## Next steps
 
-Client applications typically need to access resources in a web API. In addition to protecting your client application with the Microsoft identity platform, you can use it for authorizing scoped, permissions-based access to your web API.
+Client applications typically need to access resources in a web API. In addition to protecting your client application with the Microsoft identity platform, you can use the platform for authorizing scoped, permissions-based access to your web API.
 
 Move on to the next quickstart in the series to create another app registration for your web API and expose its scopes.
 
