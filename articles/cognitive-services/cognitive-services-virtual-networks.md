@@ -38,7 +38,6 @@ Network rules are enforced on all network protocols to Azure Cognitive Services,
 Virtual networks (VNETs) are supported in [regions where Cognitive Services are available](https://azure.microsoft.com/global-infrastructure/services/). If the Cognitive Service isn't listed, it doesn't currently support virtual networks.
 
 > [!div class="checklist"]
-
 > * [Anomaly Detector](./anomaly-detector/index.yml)
 > * [Computer Vision](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
@@ -54,8 +53,8 @@ Virtual networks (VNETs) are supported in [regions where Cognitive Services are 
 ## Service Tags
 
 Cognitive Services supports service tags for network rules configuration. The services listed below are included in the **CognitiveServicesManagement** service tag.
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * [Anomaly Detector](./anomaly-detector/index.yml)
 > * [Computer Vision](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
