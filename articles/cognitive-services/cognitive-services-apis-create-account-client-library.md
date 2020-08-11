@@ -18,24 +18,24 @@ Use this quickstart to create and manage Azure Cognitive Services resources usin
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE C# SDK quickstart](./includes/quickstarts/management-csharp.md)
+[!INCLUDE C# SDK quickstart](/includes/quickstarts/management-csharp.md)
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE Java SDK quickstart](./includes/quickstarts/management-java.md)
+[!INCLUDE Java SDK quickstart](/includes/quickstarts/management-java.md)
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE NodeJS SDK quickstart](./includes/quickstarts/management-node.md)
+[!INCLUDE NodeJS SDK quickstart](/includes/quickstarts/management-node.md)
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE Python SDK quickstart](./includes/quickstarts/management-python.md)
+[!INCLUDE Python SDK quickstart](/includes/quickstarts/management-python.md)
 
 ::: zone-end
