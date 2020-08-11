@@ -61,6 +61,6 @@ In this article, you'll learn how to set up an Azure Cache with additional repli
   >
 
 ## Next Steps
+Learn more about Azure Cache for Redis features.
 
-To learn more about Private Link, see the [Azure Private Link documentation](https://docs.microsoft.com/azure/private-link/private-link-overview). 
-
+* [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
