@@ -730,7 +730,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 ## Create a primary gateway 
 
-For two managed instances to participate in a failover group, there must be either ExpressRoute or a gateway configured between the virtual networks of the two managed instances to allow network communication. If you choose to configure [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) instead of connecting two VPN gateways, skip ahead to [Step 7](#7---create-a-failover-group).  
+For two managed instances to participate in a failover group, there must be either ExpressRoute or a gateway configured between the virtual networks of the two managed instances to allow network communication. If you choose to configure [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) instead of connecting two VPN gateways, skip ahead to [Step 7](#create-a-failover-group).  
 
 This article provides steps to create the two VPN gateways and connect them, but you can skip ahead to creating the failover group if you have configured ExpressRoute instead. 
 
@@ -929,7 +929,9 @@ Connect the two gateways using the Azure portal.
 
    ![Create gateway connection](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
 
-1. On the **Summary** tab, review the settings for your bidirectional connection and then select **OK** to create your connection. 
+    1. Select **OK** to save your settings. 
+
+1. On the **Review + create** page, review the settings for your bidirectional connection and then select **OK** to create your connection. 
 
 
 # [PowerShell](#tab/azure-powershell)
