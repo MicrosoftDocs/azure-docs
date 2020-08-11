@@ -362,13 +362,6 @@ Support for deploying to the edge is in preview. For more information, see [Depl
 
 ## Delete resources
 
-# [Python](#tab/python)
-
-To delete a deployed web service, use `service.delete()`.
-To delete a registered model, use `model.delete()`.
-
-For more information, see the documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
-
 # [Azure CLI](#tab/azcli)
 
 To delete a deployed webservice, use `az ml service <name of webservice>`.
@@ -376,6 +369,13 @@ To delete a deployed webservice, use `az ml service <name of webservice>`.
 To delete a registered model from your workspace, use `az ml model delete <model id>`
 
 Read more about [deleting a webservice](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) and [deleting a model](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete)
+
+# [Python](#tab/python)
+
+To delete a deployed web service, use `service.delete()`.
+To delete a registered model, use `model.delete()`.
+
+For more information, see the documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
 ---
 
