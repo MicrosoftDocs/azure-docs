@@ -1,13 +1,13 @@
 ---
 title: Azure Cosmos DB SQL Python API, SDK & resources
 description: Learn all about the SQL Python API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Python SDK.
-author: anfeldma-ms
+author: Rodrigossz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 08/05/2020
-ms.author: anfeldma
+ms.date: 08/10/2020
+ms.author: rosouz
 ms.custom: devx-track-python
 ---
 # Azure Cosmos DB Python SDK for SQL API: Release notes and resources
