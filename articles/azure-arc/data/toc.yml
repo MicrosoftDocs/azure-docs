@@ -18,10 +18,6 @@
       href: postgres_extend_singlenode-to-hyperscale.md
     - name: Scale out Postgres to hyper Scale
       href: scale-out-postgres-hyperscale.md
-- name: Tutorials
-  items:
-    - name: 
-      href: 
 - name: Concepts
   items:
     - name: Connectivity modes and requirements

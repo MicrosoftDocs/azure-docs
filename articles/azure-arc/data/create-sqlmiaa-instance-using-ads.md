@@ -115,4 +115,4 @@ For example:
 
 ## Next Steps
 
-Now try to [monitor your SQL instance](monitor-grafana-kibana)
+Now try to [monitor your SQL instance](monitor-grafana-kibana.md)

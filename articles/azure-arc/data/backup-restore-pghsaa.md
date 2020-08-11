@@ -217,4 +217,4 @@ azdata postgres backup delete -n pg1 -ns arc --tier 1
 
 ## Next Steps
 
-Try out [using PostgreSQL extensions](011-using-postgres-extensions-with-pghsaa.md).
+Try out [using PostgreSQL extensions](using-postgres-extensions.md).

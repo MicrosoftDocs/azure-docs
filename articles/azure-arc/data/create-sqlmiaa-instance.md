@@ -139,4 +139,4 @@ For example:
 ## Next steps
 
 - [Register your instance with Azure and upload metrics and logs about your instance](upload-metrics-and-logs-to-azure-monitor.md)
-- [Deploy Azure SQL managed instance using Azure Data Studio](015-create-sqlmiaa-instance-using-ads.md)
+- [Deploy Azure SQL managed instance using Azure Data Studio](create-sqlmiaa-instance-using-ads.md)
