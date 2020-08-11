@@ -4,7 +4,7 @@ description: The Azure Load Balancer security baseline provides procedural guida
 author: msmbaldwin
 ms.service: load-balancer
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -28,37 +28,44 @@ The Azure Security Baseline for Azure Load Balancer contains recommendations tha
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32349.).
 
-**Guidance**: An Azure Load Balancer (ALB) operates at layer four of the Open Systems Interconnection (OSI) model, evenly distributing load (incoming network traffic) across a group of backend pool instances such as Azure Virtual Machines or instances in a virtual machine scale set.
+**Guidance**: Reviewed by ErrobinPG Feedback: Please
+change acronym from ALB to LB. Unsure why we are giving full description
+instead of giving guidance. Changes are inline below:An Azure Load Balancer (LB) operates
+at layer four of the Open Systems Interconnection (OSI) model, evenly distributing
+load (incoming network traffic) across a group of backend pool instances such
+as Azure Virtual Machines or instances in a virtual machine scale set.
 
-Based on how an ALB is deployed, it can be public (external) or internal (private). An Internal load balancer balances traffic within a VNET, where as an external load balancers balances traffic to and from an internet connected endpoint.
+Based on how an LB is deployed, it can be external
+or internal . An Internal load balancer balances traffic within a VNET, whereas
+an external load balancers balances traffic to and from an internet connected
+endpoint.Internal LBs are secure not
+exposed to the internet and will only allow traffic from within the VNET or peered
+VNETs of the backend resources. Public load balancers utilize Source Network
+Access Translation (SNAT) to masquerade the IP of backend resources to protect
+your resources from direct internet exposure. Azure offers two types of
+Azure Load Balancer (LB) offerings, Standard and Basic. For all
+production workloads Standard is recommend as it is secure by default. To
+secure resources from the internet it is strongly recommended to use Network
+Security Groups (NSGs) to explicitly open ports to specific sources.
 
-A public load balancer can provide outbound connections for virtual machines (VMs) inside a virtual network by translating their private IP addresses to public IP addresses. An internal (or private) load balancer manages traffic within a Virtual Network (VNet), and is used where private IPs are needed  at the frontend for access from an on-premises network in a hybrid scenario. 
+Standard LB is built on the zero trust network security model
+and is secure by default. This means the Standard LB is closed to inbound flows
+unless opened by Network Security Groups (NSG) to explicitly permit allowed
+traffic. If there is not an NSG on a subnet or NIC of your virtual machine
+resource, traffic is not allowed to reach this resource.In addition to requiring
+NSGs Standard LBs provide outbound rules, which you can use Load Balancer to
+define outbound NAT from scratch. Without defining outbound rules to allow
+internet traffic, the backend resources will not be able to access the internet
+through the LB to ensure zero trust. You can also use outbound rules to tune the behavior  of your outbound connections, learn more in
+the [Outbound Connections]( load-balancer-outbound-connections.md#outboundrule)
+article.
 
-Azure offers two types of Azure Load Balancer (ALB) offerings, Standard and Basic.
-
-Standard ALB is built on the zero trust network security model, secure by default and part of a virtual network which is a private and isolated network. This means the Standard ALB is closed to inbound flows unless opened by Network Security Groups (NSG) to explicitly permit allowed traffic. If there is not an NSG on a subnet or NIC of your virtual machine resource, traffic is not allowed to reach this resource. 
-A Basic ALB is open to the internet by default, with an NSG as optional.
-
-For a Standard ALB, the VMs in the backend address for are required to have network interfaces that belong to a network security group.
-It is important to note that when the external clients to the backend-pool Virtual Machines (VM) go through the load balancer, the IP address of these (VM)  clients will be used for the communication. Make sure the IP address of the clients are added into the NSG allow list, otherwise NSGs can be used to refrain Internet traffic from reaching these VMs by creating an NSG rule on the Network Interface of the VMs. 
-NSGs can also be used to manage which public destination can initiate inbound flows. 
-
-Additionally NAT rules can be used to route traffic to a backend resource. For example, they can be used to configure a specific load balancer port to send RDP traffic to a specific VM in the backend-pool. 
-An inbound NAT rule can be used to forward incoming traffic sent to Frontend IP address and port combination. The traffic is sent to a specific virtual machine or instance in the backend pool. Port forwarding is done by the same hash-based distribution as load balancing.
-An outbound rule configures outbound Network Address Translation (NAT) for all virtual machines or instances identified by the backend pool. This rule enables instances in the backend to communicate (outbound) to the internet or other endpoints.
-
-With outbound rules, you can use Load Balancer to define outbound NAT from scratch. You can also scale and tune the behavior of existing outbound NAT.
-
-Outbound rules allow you to control:
-
-which virtual machines should be translated to which public IP addresses.
-how outbound SNAT ports should be allocated.
-which protocols to provide outbound translation for.
-what duration to use for outbound connection idle timeout (4-120 minutes).
-whether to send a TCP Reset on idle timeout
-both TCP and UDP transport protocols with a single rule
-
-load-balancer-outbound-connections.md#outboundrules
+A Basic LB is open to open connections to the internet by
+default, with an NSG as optional. Thus it is only recommended from prototyping
+and not recommended for production workload. If using a Basic LB, you can [follow
+our guide to upgrade to Standard]( /
+azure/load-balancer/upgrade-basic-standard) in
+order to be secure by default. 
 
 **Azure Security Center monitoring**: Yes
 
@@ -69,20 +76,38 @@ load-balancer-outbound-connections.md#outboundrules
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32350.).
 
-**Guidance**: A public load balancer can provide outbound connections for virtual machines (VMs) inside a virtual network by translating their private IP addresses to public IP addresses. An internal (or private) load balancer to manage traffic within a Virtual Network (VNet), and is used where private IPs are needed  at the frontend for access from an on-premises network in a hybrid scenario. 
+**Guidance**: Reviewed by
+ErrobinPG Feedback:
+There were previously no mentions of logging or monitoring. Changes are inline
+below:The Azure Load Balancer is
+a pass-through service and relies on the NSG rules you apply to your backend
+resources and the outbound rules configured in your LB to control internet
+access. Review the outbound rules
+configured for your Standard LB through the ‘Outbound Rules’ sub-blade of your
+LB and the ‘Load Balancing Rules’ sub-blade where you may have “Implicit
+outbound rules enabled”. [Monitor the count of your outbound connections](/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-outbound-connection-statistics) to track how often your resources are reaching
+out to the internet.In addition use Azure
+Security Center and follow the network protection recommendations to help
+secure your Azure network resources.
 
-Azure Cloud offers two types of Azure Load Balancer (ALB) offerings, Standard and Basic.
+Follow security recommendations for your backend
+resources and enable network security group flow logs and send the logs to an
+Azure Storage account for auditing.
 
-Standard ALB is built on the zero trust network security model, secure by default and part of a virtual network, a private and isolated network. This means the Standard ALB is closed to inbound flows unless opened by Network Security Groups (NSG) to explicitly permit allowed traffic. If there is not an NSG on a subnet or NIC of your virtual machine resource, traffic is not allowed to reach this resource. 
-A Basic ALB is open to the internet by default, with an NSG as optional.
+You can also send the flow logs to a Log
+Analytics workspace and then
+use Traffic Analytics to provide insights into
+traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are
+the ability to visualize network activity, identify hot spots and security
+threats, understand traffic flow patterns, and pinpoint network
+misconfigurations.
 
-Web Worker Roles without a VNet and other Microsoft platform services can be accessible when only an internal Standard Load Balancer. You must always assume you need to create outbound connectivity explicitly if desired when using an internal Standard Load Balancer only. 
+- [How to enable network security group flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
-Azure load balancing services can be categorized along two dimensions: global versus regional, and HTTP(S) versus non-HTTP(S).
+- [How to enable and use Traffic Analytics](/azure/network-watcher/traffic-analytics)
 
-Global load-balancing services distribute traffic across regional backends, clouds, or hybrid on-premises services. These services route end-user traffic to the closest available backend. They also react to changes in service reliability or performance, in order to maximize availability and performance. You can think of them as systems that load balance between application stamps, endpoints, or scale-units hosted across different regions/geographies.
-
-Regional load-balancing services distribute traffic within virtual networks across virtual machines (VMs) or zonal and zone-redundant service endpoints within a region. You can think of them as systems that load balance between VMs, containers, or clusters within a region in a virtual network.
+Understand network security provided by Azure
+- [Security Center](/azure/security-center/security-center-network-recommendations)
 
 **Azure Security Center monitoring**: Yes
 
@@ -93,17 +118,9 @@ Regional load-balancing services distribute traffic within virtual networks acro
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32351.).
 
-**Guidance**: &lt;-- need confirmation - this may not be a recommended solution to use an WAF with App Gateway in front of an ALB --&gt;
+**Guidance**: Reviewed and updated by Errobin 8/10:
 
-The ALB doesn't directly interact with TCP or UDP or the application layer. As the ALB doesn't close or originate flows or interact with the payload of the flow it doesn't provide application layer gateway functionality. Protocol handshakes always occur directly between the client and the back-end pool instance such as a VM.
-
-Deploy Azure Web Application Firewall (WAF) in front of critical web applications for additional protection from common exploits and vulnerabilities.. They are intended for web applications or other HTTP(S) endpoints. They include features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
-
-Enable diagnostic settings for WAF and ingest logs into an Azure Storage account, Azure Event Hub, or Azure Log Analytics Workspace.
-
-- [Application independence and transparency](concepts.md#application-independence-and-transparency)
-
-- [How to deploy Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
+Explicitly define internet connectivity and valid source IPs through outbound rules and NSGs. [Integrate the Azure Firewall](/azure/firewall/integrate-lb) with your LB to leverage Microsoft's thread intelligence to protect your web applications.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -114,17 +131,18 @@ Enable diagnostic settings for WAF and ingest logs into an Azure Storage account
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32352.).
 
-**Guidance**: &lt;-- need confirmation. This seems to be a simple form of protection provided by the Standard ALB. Should this verbiage be adjusted? Also adding platform level protections not dependent upon this offering (ALB)  --&gt;
+**Guidance**: 
+Reveiwed by Errobin 8/10. I suggest that we use the generic Azure guideline verbiage in addition to first paragraph as it is all directly relevant.
 
-Standard ALB is built on the zero trust network security model, secure by default and part of a virtual network which is a private and isolated network. This means the Standard ALB is closed to inbound flows unless opened by Network Security Groups (NSG) to explicitly permit allowed traffic, and disallow known malicious IP addresses. If there is not an NSG on a subnet or NIC of your virtual machine resource behind the ALB, traffic is not allowed to reach this resource. 
+The Standard LB is secure by default and part of a virtual network which is a private and isolated network. This means the Standard ALB is closed to inbound flows unless opened by Network Security Groups (NSG) to explicitly permit allowed traffic, and disallow known malicious IP addresses. If there is not an NSG on a subnet or NIC of your virtual machine resource behind the LB, traffic is not allowed to reach this resource. 
 
-However,, there are various options at the Azure Platform to prevent communication with malicious IP addresses. These include:
+To prevent attacks from malicious IP addresses:
 
-Enable distributed denial of service (DDoS) Standard protection on your Azure Virtual Network to guard against DDoS attacks. 
 Deploy Azure Firewall at each of the organization's network boundaries with threat intelligence-based filtering enabled and configured to "Alert and deny" for malicious network traffic.
 
- 
-Use Azure Security Center  threat protection to detect  communications with known malicious IP addresses. 
+ [Follow guidance to integrate Azure Firewall with your LB](/azure/firewall/overview)
+
+Use Azure Security Center threat protection to detect communications with known malicious IP addresses. 
 
 Use Azure Security Center (Standard Tier) just-in-time virtual machine access, and configure allowed source IP addresses to allow access only from approved IP addresses/ranges.
  
@@ -134,13 +152,13 @@ Use Azure Security Center Adaptive Network Hardening to recommend network securi
 
 - [Manage Azure DDoS Protection Standard using the Azure Portal](/azure/virtual-network/manage-ddos`protection)
 
-- [Azure Firewall threat intelligence-based filtering](../firewall/threat-intel.md)
+- [Azure Firewall threat intelligence-based filtering](/azure/firewall/threat-intel)
 
-- [Threat protection in Azure Security Center](../security-center/threat-protection.md)
+- [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
 
-- [Secure your management ports with just-in-time access](../security-center/security-center-just-in-time.md)
+- [Secure your management ports with just-in-time access](/azure/security-center/security-center-just-in-time)
 
-- [Adaptive Network Hardening in Azure Security Center](../security-center/security-center-adaptive-network-hardening.md)
+- [Adaptive Network Hardening in Azure Security Center](/azure/security-center/security-center-adaptive-network-hardening)
 
 **Azure Security Center monitoring**: Yes
 
@@ -151,9 +169,11 @@ Use Azure Security Center Adaptive Network Hardening to recommend network securi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32353.).
 
-**Guidance**: Not available on ALB. However, tt is recommended to enable Network Watcher packet capture to investigate anomalous activities.
+**Guidance**: Reviewed by Errobin 8/10:
 
-- [How to create a Network Watcher instance](../network-watcher/network-watcher-create.md)
+Enable Network Watcher packet capture to investigate anomalous activities.
+
+- [How to create a Network Watcher instance](/azure/network-watcher/network-watcher-create)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -164,7 +184,9 @@ Use Azure Security Center Adaptive Network Hardening to recommend network securi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32354.).
 
-**Guidance**: Not available on ALB. Select an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities.  
+**Guidance**: Review by errobin 8/10:
+
+Add an offer from the Azure Marketplace that supports IDS/IPS functionality with payload inspection capabilities to the environment of your LB. 
 
 When payload inspection is not a requirement, Azure Firewall threat intelligence can be used.
 
@@ -174,9 +196,9 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
-- [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
+- [How to deploy Azure Firewall](/azure/firewall/tutorial-firewall-deploy-portal)
 
-- [How to configure alerts with Azure Firewall](../firewall/threat-intel.md)
+- [How to configure alerts with Azure Firewall](/azure/firewall/threat-intel)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -187,17 +209,9 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32355.).
 
-**Guidance**: &lt;--need confirmation - this may not be a recommended solution to use an WAF with App Gateway in front of an ALB  --&gt;
+**Guidance**: Reviewed and updated by Errobin 8/10:
 
-The ALB doesn't directly interact with TCP or UDP or the application layer. As the ALB doesn't close or originate flows or interact with the payload of the flow it doesn't provide application layer gateway functionality. Protocol handshakes always occur directly between the client and the back-end pool instance such as a VM.
-
-Deploy Azure Web Application Firewall (WAF) in front of critical web applications for additional protection from common exploits and vulnerabilities.. They are intended for web applications or other HTTP(S) endpoints. They include features such as SSL offload, web application firewall, path-based load balancing, and session affinity.
-
-Enable diagnostic settings for WAF and ingest logs into an Azure Storage account, Azure Event Hub, or Azure Log Analytics Workspace.
-
-- [Application independence and transparency](concepts.md#application-independence-and-transparency)
-
-- [How to deploy Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
+Explicitly define internet connectivity and valid source IPs through outbound rules and NSGs. [Integrate the Azure Firewall](/azure/firewall/integrate-lb) with your LB to leverage Microsoft's thread intelligence to protect your web applications.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -210,11 +224,11 @@ Enable diagnostic settings for WAF and ingest logs into an Azure Storage account
 
 **Guidance**: You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name in the source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change. 
 
-By default, every network security grou (NSG)p includes the service tag AzureLoadBalancer to permit health probe traffic. 
+By default, every network security group (NSG) includes the service tag AzureLoadBalancer to permit health probe traffic. 
 
-Refer to Azure documentation which  includes all the service tags available for use in network security group rules: 
+Refer to Azure documentation for all the service tags available for use in network security group rules: 
 
-- [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags)
+- [Available service tags](/azure/virtual-network/service-tags-overview#available-service-tags)
 
 **Azure Security Center monitoring**: Yes
 
@@ -229,11 +243,11 @@ Refer to Azure documentation which  includes all the service tags available for 
 
 You can also use Azure Blueprints to simplify large scale Azure deployments by packaging key environment artifacts, such as Azure Resources Manager templates, RBAC controls, and policies, in a single blueprint definition. You can apply the blueprint to new subscriptions, and fine-tune control and management through versioning.
 
-- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [How to configure and manage Azure Policy](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
+- [Azure Policy samples for networking](/azure/governance/policy/samples/built-in-policies#network)
 
-- [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
+- [How to create an Azure Blueprint](/azure/governance/blueprints/create-blueprint-portal)
 
 **Azure Security Center monitoring**: Yes
 
@@ -254,9 +268,9 @@ You can use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
-- [How to create an Azure Virtual Network](../virtual-network/quick-create-portal.md)
+- [How to create an Azure Virtual Network](/azure/virtual-network/quick-create-portal)
 
-- [How to filter network traffic with network security group rules](../virtual-network/tutorial-filter-network-traffic.md)
+- [How to filter network traffic with network security group rules](/azure/virtual-network/tutorial-filter-network-traffic)
 
 **Azure Security Center monitoring**: Yes
 
@@ -273,7 +287,7 @@ Create alerts in Azure Monitor to notify you when critical resources are changed
 
 - [How to view and retrieve Azure Activity log events](/azure/azure-monitor/platform/activity-log-view)
 
-- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Azure Security Center monitoring**: Yes
 
@@ -288,30 +302,19 @@ Create alerts in Azure Monitor to notify you when critical resources are changed
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32361.).
 
-**Guidance**: For Basic ALB, the Control and management plane logging and audit information can be captured with Activity logs, which are enabled by default.
-You can use Activity logs to monitor actions on resources to view all activity and their status. Through activity logs, you can determine:
-what operations were taken on the resources in your subscription
-who started the operation
-when the operation occurred
-the status of the operation
-the values of other properties that might help you research the operation
+**Guidance**: You can review changes to your outbound rules and NSGs relevant to your LBs by viewing the Activity Log for your subscription and the resource types to Load Balancer and Network Security Group. View the internal host logs to ensure your backend resources are secure.
 
-You can  retrieve information from the activity log through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure portal. 
-- [It is recommended to read through this article with step-by-step instructions for each method detailed in the Audit operations with Resource Manager article](../azure-resource-manager/management/view-activity-logs.md)
+[Follow these instructions](/azure/azure-monitor/platform/activity-log) to view and export these logs to Log Analytics or another storage platform. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accounts for long term and archival storage.
 
-With Power BI, you can use the Azure Audit Logs content pack for Power BI and analyze your data with pre-configured dashboards, or you can customize views to suit your requirements.
+Alternatively, you can enable and on-board data to Azure Sentinel or a third-party SIEM.
 
-The Standard ALB provides multi-dimensional diagnostic capabilities through Azure Monitor for standard load balancer configurations. Available metrics for security include infromation on Source Network Address Translation (SNAT) connections, ports. Additionally metrics on SYN (synchronize) packets and packet counters are also available. You can also retrieve multi-dimensional metrics programmatically via APIs and they can be written to a storage account via the 'All Metrics' option.
+- [How to onboard Azure Sentinel](/azure/sentinel/quickstart-onboard)
 
-These logs can be streamed to an event hub or a Log Analytics workspace. They can also be extracted from Azure blob storage, and viewed in different tools, such as Excel and Power BI. You can enable and on-board data to Azure Sentinel or a third-party SIEM.
+- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
 
-- [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md)
+- [How to collect Azure Virtual Machine internal host logs with Azure Monitor](/azure/azure-monitor/learn/quick-collect-azurevm)
 
-- [View activity logs to monitor actions on resources](../azure-resource-manager/management/view-activity-logs.md)
-
-- [Retrieve multi-dimensional metrics programmatically via APIs](load-balancer-standard-diagnostics.md#retrieve-multi-dimensional-metrics-programmatically-via-apis)
-
-- [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools)
+- [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
 **Azure Security Center monitoring**: Yes
 
@@ -331,7 +334,7 @@ the status of the operation
 the values of other properties that might help you research the operation
 
 You can  retrieve information from the activity log through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure portal. 
-- [It is recommended to read through this article with step-by-step instructions for each method detailed in the Audit operations with Resource Manager article](../azure-resource-manager/management/view-activity-logs.md)
+- [It is recommended to read through this article with step-by-step instructions for each method detailed in the Audit operations with Resource Manager article](/azure/azure-resource-manager/management/view-activity-logs)
 
 With Power BI, you can use the Azure Audit Logs content pack for Power BI and analyze your data with pre-configured dashboards, or you can customize views to suit your requirements.
 
@@ -339,26 +342,15 @@ The Standard ALB provides multi-dimensional diagnostic capabilities through Azur
 
 These logs can be streamed to an event hub or a Log Analytics workspace. They can also be extracted from Azure blob storage, and viewed in different tools, such as Excel and Power BI. You can enable and on-board data to Azure Sentinel or a third-party SIEM.
 
-- [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md)
+- [Azure Monitor logs for public Basic Load Balancer](/azure/load-balancer/load-balancer-monitor-log)
 
-- [View activity logs to monitor actions on resources](../azure-resource-manager/management/view-activity-logs.md)
+- [View activity logs to monitor actions on resources](/azure/azure-resource-manager/management/view-activity-logs)
 
-- [Retrieve multi-dimensional metrics programmatically via APIs](load-balancer-standard-diagnostics.md#retrieve-multi-dimensional-metrics-programmatically-via-apis)
+- [Retrieve multi-dimensional metrics programmatically via APIs](/azure/load-balancer/load-balancer-standard-diagnostics#retrieve-multi-dimensional-metrics-programmatically-via-apis)
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools)
 
 **Azure Security Center monitoring**: Yes
-
-**Responsibility**: Customer
-
-### 2.4: Collect security logs from operating systems
-
->[!NOTE]
-> To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32363.).
-
-**Guidance**: Not applicable to Azure Load Balancer as this recommendation applies to IaaS compute resources.
-
-**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -370,8 +362,8 @@ These logs can be streamed to an event hub or a Log Analytics workspace. They ca
 **Guidance**: The Actitivity log is enabled by default and is preserved for 90 days in Azure's Event Logs store. Within Azure Monitor, you set your Log Analytics workspace retention period according to your organization's compliance regulations. It is recommended to use Azure Storage accounts for long-term and archival storage.
 
 - [View activity logs to monitor actions on resources article](/azure/azure-resource-manager/resource-group-audit)
-- [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
-- [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Change the data retention period in Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to configure retention policy for Azure Storage account logs](/azure/storage/common/storage-monitor-storage-account#configure-logging)
 
 **Azure Security Center monitoring**: Yes
 
@@ -398,12 +390,12 @@ The Standard ALB provides multi-dimensional diagnostic capabilities through Azur
 
 These logs can be streamed to an event hub or a Log Analytics workspace. They can also be extracted from Azure blob storage, and viewed in different tools, such as Excel and Power BI. You can enable and on-board data to Azure Sentinel or a third-party SIEM.
 
-- [Load Balancer health probes](load-balancer-custom-probe-overview.md)
+- [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
 - [Azure Monitor REST API](/rest/api/monitor/)
 - [How to retrieve metrics via REST API](/rest/api/monitor/metrics/list)
-- [Standard Load Balancer diagnostics with metrics, alerts and resource health](load-balancer-standard-diagnostics.md)
-- [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md)
-- [View your load balancer metrics in the Azure portal](load-balancer-standard-diagnostics.md#view-your-load-balancer-metrics-in-the-azure-portal)
+- [Standard Load Balancer diagnostics with metrics, alerts and resource health](/azure/load-balancer/load-balancer-standard-diagnostics)
+- [Azure Monitor logs for public Basic Load Balancer](/azure/load-balancer/load-balancer-monitor-log)
+- [View your load balancer metrics in the Azure portal](/azure/load-balancer/load-balancer-standard-diagnostics#view-your-load-balancer-metrics-in-the-azure-portal)
 
 **Azure Security Center monitoring**: Yes
 
@@ -414,15 +406,15 @@ These logs can be streamed to an event hub or a Log Analytics workspace. They ca
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32366.).
 
-**Guidance**: Use Azure Security Center with Log Analytics workspace for monitoring and alerting on anomalous activity related to Azure Load Balancer (ALB) as found in security logs and events.
+**Guidance**: Use Azure Security Center with Log Analytics workspace for monitoring and alerting on anomalous activity related to Azure Load Balancer as found in security logs and events.
 
 Alternatively, you can enable and on-board data to Azure Sentinel.
 
-- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [How to onboard Azure Sentinel](/azure/sentinel/quickstart-onboard)
 
-- [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
+- [How to manage alerts in Azure Security Center](/azure/security-center/security-center-managing-and-responding-alerts)
 
-- [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+- [How to alert on log analytics log data](/azure/azure-monitor/learn/tutorial-response)
 
 **Azure Security Center monitoring**: Yes
 
@@ -449,7 +441,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel.
 You must configure DNS resource records to point to the respective frontend IP address of the Load Balancer being used.For more information about using Azure DNS with
 Load Balancer, see Using Azure DNS with other Azure services.
 
-- [How Azure DNS works with other Azure services](../dns/dns-for-azure-services.md)
+- [How Azure DNS works with other Azure services](/azure/dns/dns-for-azure-services)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -475,15 +467,15 @@ Load Balancer, see Using Azure DNS with other Azure services.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32370.).
 
-**Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure resources such as Azure Load Balancer (ALB) through role assignments.
+**Guidance**: Azure role-based access control (RBAC) allows you to manage access to Azure resources such as your Azure Load Balancer through role assignments.
 
 You can assign these roles to users, groups service principals and managed identities. 
 
-There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure owerShell or the Azure portal.
+There are pre-defined built-in roles for certain resources, and these roles can be inventoried or queried through tools such as Azure CLI, Azure PowerShell or the Azure portal.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Yes
 
@@ -528,7 +520,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 Use Azure Security Center identity and access recommendations.
 
-- [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
+- [Understand SSO with Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 **Azure Security Center monitoring**: Yes
 
@@ -539,11 +531,11 @@ Use Azure Security Center identity and access recommendations.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32374.).
 
-**Guidance**: Enable Azure AD MFA and follow Azure Security Center identity and access recommendations for Azure Load Balancer (ALB).
+**Guidance**: Enable Azure AD MFA and follow Azure Security Center identity and access recommendations for your Azure Load Balancer.
 
-- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [How to enable MFA in Azure](/azure/active-directory/authentication/howto-mfa-getstarted)
 
-- [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
+- [How to monitor identity and access within Azure Security Center](/azure/security-center/security-center-identity-access)
 
 **Azure Security Center monitoring**: Yes
 
@@ -554,11 +546,11 @@ Use Azure Security Center identity and access recommendations.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32375.).
 
-**Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks for Azure Load Balancer (ALB) that require elevated privileges.
+**Guidance**: Use a secure, Azure-managed workstation (also known as a Privileged Access Workstation, or PAW) for administrative tasks for your Azure Load Balancer that require elevated privileges.
 
-- [Understand secure, Azure-managed workstations](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Understand secure, Azure-managed workstations](/azure/active-directory/devices/concept-azure-managed-workstation)
 
-- [How to enable Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
+- [How to enable Azure AD MFA](/azure/active-directory/authentication/howto-mfa-getstarted)
 
 **Azure Security Center monitoring**: Yes
 
@@ -569,13 +561,13 @@ Use Azure Security Center identity and access recommendations.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32376.).
 
-**Guidance**: Use Azure Active Directory security reports and monitoring to detect when suspicious or unsafe activity related to Azure Load Balancer (ALB) occurs in the environment. 
+**Guidance**: Use Azure Active Directory security reports and monitoring to detect when suspicious or unsafe activity related to your Azure Load Balancer occurs in the environment. 
 
 Use Azure Security Center to monitor identity and access activity.
 
 - [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
-- [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
+- [How to monitor users' identity and access activity in Azure Security Center](/azure/security-center/security-center-identity-access)
 
 **Azure Security Center monitoring**: Yes
 
@@ -586,9 +578,9 @@ Use Azure Security Center to monitor identity and access activity.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32377.).
 
-**Guidance**: Use Azure AD named locations to allow access only to Azure Load Balancer (ALB) from specific logical groupings of IP address ranges or countries/regions.
+**Guidance**: Use Azure AD named locations to allow access to your Azure Load Balancer only from specific logical groupings of IP address ranges or countries/regions.
 
-- [How to configure Azure AD named locations](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
+- [How to configure Azure AD named locations](/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -599,11 +591,11 @@ Use Azure Security Center to monitor identity and access activity.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32378.).
 
-**Guidance**: Use Azure Active Directory (Azure AD) for Azure Load Balancer (ALB) as the central authentication and authorization system.
+**Guidance**: Use Azure Active Directory (Azure AD) for your Azure Load Balancer as the central authentication and authorization system.
 
 Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
-- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [How to create and configure an Azure AD instance](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -614,7 +606,7 @@ Azure AD protects data by using strong encryption for data at rest and in transi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32379.).
 
-**Guidance**: Azure AD provides logs to help discover stale accounts used by or for Azure Load Balancer (ALB). 
+**Guidance**: Azure AD provides logs to help discover stale accounts used for your Azure Load Balancer. 
 
 In addition, use Azure AD identity and access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. 
 
@@ -622,7 +614,7 @@ User access can be reviewed on a regular basis to make sure only the right users
 
 - [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
 
-- [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
+- [How to use Azure AD identity and access reviews](/azure/active-directory/governance/access-reviews-overview)
 
 **Azure Security Center monitoring**: Yes
 
@@ -650,15 +642,15 @@ You can configure desired alerts within Log Analytics workspace.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32381.).
 
-**Guidance**: Use Azure AD Identity Protection features to configure automated responses to detected suspicious actions related to user identities for  Azure Load Balancer (ALB). 
+**Guidance**: Use Azure AD Identity Protection features to configure automated responses to detected suspicious actions related to user identities for your Azure Load Balancer. 
 
 You can also ingest data into Azure Sentinel for further investigation.
 
 - [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-- [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
+- [How to configure and enable Identity Protection risk policies](/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
 
-- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [How to onboard Azure Sentinel](/azure/sentinel/quickstart-onboard)
 
 **Azure Security Center monitoring**: Yes
 
@@ -671,7 +663,7 @@ You can also ingest data into Azure Sentinel for further investigation.
 
 **Guidance**: In support scenarios where Microsoft needs to access customer data, Customer Lockbox provides an interface for you to review and approve or reject customer data access requests.
 
-- [Understand Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md)
+- [Understand Customer Lockbox](/azure/security/fundamentals/customer-lockbox-overview)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -705,7 +697,7 @@ You can restrict the level of access to your Azure resources that your applicati
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create management groups](../governance/management-groups/create.md)
+- [How to create management groups](/azure/governance/management-groups/create)
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -722,7 +714,7 @@ You can restrict the level of access to your Azure resources that your applicati
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and guards against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
+- [Understand customer data protection in Azure](/azure/security/fundamentals/protection-customer-data)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -733,11 +725,14 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32386.).
 
-**Guidance**: Not applicable to Azure Load Balancer (ALB). It is however recommened to ensure that any clients connecting to your Azure resources are able to negotiate TLS 1.2 or greater. 
+**Guidance**: 
+Encrypt all sensitive information in transit. 
+
+Ensure that any clients connecting to the backend resources of your LB are able to negotiate TLS 1.2 or greater.
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
+- [Understand encryption in transit with Azure](/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
 
 **Azure Security Center monitoring**: Yes
 
@@ -748,7 +743,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32387.).
 
-**Guidance**: Not applicable to Azure Load Balancer (ALB). When no discovery feature is available for your specific service in Azure, use a third-party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located on-site, or at a remote service provider, and then update the organization's sensitive information inventory.
+**Guidance**: As a pass through service, no data is stored in the Azure Load Balancer. Follow the guidance for your backend resources to use the active discovery tool to identify sensitive data. When no discovery feature is available for your specific service in Azure, use a third-party active discovery tool to identify all sensitive information stored, processed, or transmitted by the organization's technology systems, including those located on-site, or at a remote service provider, and then update the organization's sensitive information inventory.
 
 Use Azure AD Information Protection for identifying sensitive information within Office 365 documents.
 
@@ -758,7 +753,7 @@ Use Azure SQL Data Discovery &amp; Classification to assist in the classificatio
 
 - [How to implement Azure Information Protection](/azure/information-protection/deployment-roadmap)
 
-- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
+- [Understand customer data protection in Azure](/azure/security/fundamentals/protection-customer-data)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -769,9 +764,9 @@ Use Azure SQL Data Discovery &amp; Classification to assist in the classificatio
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32388.).
 
-**Guidance**: Use Azure AD RBAC to control access to Azure Load Balancer (ALB) related data and resources, otherwise use service specific access control methods.
+**Guidance**: Use Azure AD RBAC to control access to your Azure Load Balancer resources.
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure RBAC in Azure](/azure/role-based-access-control/role-assignments-portal)
 
 **Azure Security Center monitoring**: Yes
 
@@ -782,7 +777,9 @@ Use Azure SQL Data Discovery &amp; Classification to assist in the classificatio
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32389.).
 
-**Guidance**: Not applicable to Azure Load Balancer (ALB) as this recommendation is for IaaS compute resources.
+**Guidance**: Azure Load Balancer is a pass through service which does not store customer data. It is a part of the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data in Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities. 
+
+- [Understand customer data protection in Azure](/azure/security/fundamentals/protection-customer-data)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -793,11 +790,11 @@ Use Azure SQL Data Discovery &amp; Classification to assist in the classificatio
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32390.).
 
-**Guidance**: Use  encryption at rest on all Azure resources such as Azure Load Balancer (ALB). Microsoft recommends allowing Azure to manage your encryption keys, however, there is an option for you to manage your own keys in some instances. 
+**Guidance**: Azure Load Balancer does not store sensitive information, it is a pass through service which routes all traffic to the backend resources. Use encryption at rest on your backend resources resources. Microsoft recommends allowing Azure to manage your encryption keys, however, there is an option for you to manage your own keys in some instances. 
 
-- [Understand encryption at rest in Azure](../security/fundamentals/encryption-atrest.md)
+- [Understand encryption at rest in Azure](/azure/security/fundamentals/encryption-atrest)
 
-- [How to configure customer managed encryption keys](../storage/common/storage-encryption-keys-portal.md)
+- [How to configure customer managed encryption keys](/azure/storage/common/storage-encryption-keys-portal)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -808,9 +805,9 @@ Use Azure SQL Data Discovery &amp; Classification to assist in the classificatio
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32391.).
 
-**Guidance**: Use Azure Monitor with the Azure Activity log to create alerts when changes take place to critical Azure resources such as Azure Load Balancer (ALB).
+**Guidance**: Use Azure Monitor with the Azure Activity log to create alerts when changes take place to critical Azure resources such as Azure Load Balancers used for important production workloads.
 
-- [How to create alerts for Azure Activity log events](../azure-monitor/platform/alerts-activity-log.md)
+- [How to create alerts for Azure Activity log events](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Azure Security Center monitoring**: Yes
 
@@ -825,16 +822,14 @@ Use Azure SQL Data Discovery &amp; Classification to assist in the classificatio
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32392.).
 
-**Guidance**: Follow recommendations from Azure Security Center for performing vulnerability assessments on your Azure virtual machines, container images, and SQL servers.
-
-Use a third-party solution for performing vulnerability assessments on network devices and web applications. 
+**Guidance**: Follow recommendations from Azure Security Center or a third-party solution for performing vulnerability assessments on your backend resources.
 
 When conducting remote scans, do not use a single, perpetual, administrative account. 
 Consider implementing JIT provisioning methodology for the scan account. 
 
 Credentials for the scan account should be protected, monitored, and used only for vulnerability scanning.
 
-- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [How to implement Azure Security Center vulnerability assessment recommendations](/azure/security-center/security-center-vulnerability-assessment-recommendations)
 
 **Azure Security Center monitoring**: Yes
 
@@ -845,7 +840,7 @@ Credentials for the scan account should be protected, monitored, and used only f
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32393.).
 
-**Guidance**: Not applicable to Azure Load Balancer (ALB) as this recommendation is for IaaS compute resources.
+**Guidance**: Not applicable to Azure Load Balancer as this recommendation is for IaaS compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -856,7 +851,7 @@ Credentials for the scan account should be protected, monitored, and used only f
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32394.).
 
-**Guidance**: Not applicable to Azure Load Balancer (ALB) as this recommendation is for IaaS compute resources.
+**Guidance**: Not applicable to Azure Load Balancer as this recommendation is for IaaS compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -867,7 +862,7 @@ Credentials for the scan account should be protected, monitored, and used only f
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32395.).
 
-**Guidance**: Not applicable to Azure Load Balancer (ALB) as this recommendation is for IaaS compute resources.
+**Guidance**: Not applicable to Azure Load Balancer as this recommendation is for IaaS compute resources.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -901,11 +896,11 @@ Ensure appropriate (read) permissions in your tenant and enumerate all Azure sub
 
 Although classic Azure resources may be discovered via Azure Resource Graph Explorer, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
-- [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [How to create queries with Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal)
 
-- [How to view your Azure subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-- [Understand Azure RBAC](../role-based-access-control/overview.md)
+- [Understand Azure RBAC](/azure/role-based-access-control/overview)
 
 **Azure Security Center monitoring**: Yes
 
@@ -916,9 +911,9 @@ Although classic Azure resources may be discovered via Azure Resource Graph Expl
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32398.).
 
-**Guidance**: Use Policy Name, Description, and Category to logically organize assets according to a taxonomy for your Azure Load Balancer (ALB) instances.
+**Guidance**: Use Policy Name, Description, and Category to logically organize assets according to a taxonomy for your Azure Load Balancer instances.
 
-- [For more information about tagging assets, see Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [For more information about tagging assets, see Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -935,7 +930,7 @@ Reconcile inventory on a regular basis and ensure unauthorized resources are del
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
 
-- [How to create management groups](../governance/management-groups/create.md)
+- [How to create management groups](/azure/governance/management-groups/create)
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -948,7 +943,7 @@ Reconcile inventory on a regular basis and ensure unauthorized resources are del
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32400.).
 
-**Guidance**: Create an inventory of approved Azure resources such as Azure Load Balancer (ALB) and approved software for compute resources as per your organizational needs.
+**Guidance**: Create an inventory of approved Azure resources such as your Azure Load Balancer and approved software for compute resources as per your organizational needs.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -959,13 +954,13 @@ Reconcile inventory on a regular basis and ensure unauthorized resources are del
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32401.).
 
-**Guidance**: Not applicable to Azure Load Balancer (ALB). It is recommended to use Azure Policy to put restrictions on the type of resources that can be created in your subscriptions.
+**Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in your subscriptions.
 
 Use Azure Resource Graph to query for and discover resources within their subscriptions.  Ensure that all Azure resources present in the environment are approved.
 
-- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [How to configure and manage Azure Policy](/azure/governance/policy/tutorials/create-and-manage)
 
-- [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [How to create queries with Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -987,22 +982,7 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32403.).
 
-**Guidance**: Use Azure Security Center's File Integrity Monitoring (FIM) to identify all software installed on VMs. 
-
-Another option that can be used instead of or in conjunction with FIM is Azure Automation Change Tracking and Inventory to collect inventory from your Linux and Windows VMs. 
-
-You can implement your own process for removing unauthorized software. You can also use a third party solution to identify unapproved software.
-
-Remove Azure resources when they are no longer needed.
-
-- [How to use File Integrity Monitoring](../security-center/security-center-file-integrity-monitoring.md#using-file-integrity-monitoring)
-
-Understand Azure Automation Change Tracking and Inventory
-../automation/change-tracking.md
-
-- [How to enable Azure virtual machine inventory](../automation/automation-tutorial-installed-software.md)
-
-- [Azure resource group and resource deletion](../azure-resource-manager/management/delete-resource-group.md)
+**Guidance**: Not applicable to Azure Load Balancer - please remove
 
 **Azure Security Center monitoring**: Yes
 
@@ -1013,9 +993,8 @@ Understand Azure Automation Change Tracking and Inventory
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32404.).
 
-**Guidance**: Use Azure Security Center adaptive application controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines used in your subscriptions.
-
-- [How to use Azure Security Center adaptive application controls](../security-center/security-center-adaptive-application.md)
+**Guidance**: 
+Not applicable to Azure Load Balancer - please remove
 
 **Azure Security Center monitoring**: Yes
 
@@ -1026,11 +1005,8 @@ Understand Azure Automation Change Tracking and Inventory
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32405.).
 
-**Guidance**: Use Azure Policy to restrict which services you can provision in your environment.
-
-- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
-
-- [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+**Guidance**: 
+Not applicable to Azure Load Balancer - please remove
 
 **Azure Security Center monitoring**: Yes
 
@@ -1041,11 +1017,8 @@ Understand Azure Automation Change Tracking and Inventory
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32406.).
 
-**Guidance**: Use Azure Security Center adaptive application controls to specify which file types a rule may or may not apply to.
-
-Implement a third-party solution if this does not meet the requirement.
-
-- [How to use Azure Security Center adaptive application controls](../security-center/security-center-adaptive-application.md)
+**Guidance**: 
+Not applicable to Azure Load Balancer - please remove
 
 **Azure Security Center monitoring**: Yes
 
@@ -1058,7 +1031,7 @@ Implement a third-party solution if this does not meet the requirement.
 
 **Guidance**: Use Azure AD Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
-- [How to configure Conditional Access to block access to Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
+- [How to configure Conditional Access to block access to Azure Resources Manager](/azure/role-based-access-control/conditional-access-azure-management)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1082,9 +1055,9 @@ Implement a third-party solution if this does not meet the requirement.
 
 **Guidance**: Software that is required for business operations, but may incur higher risk for the organization, should be isolated within its own virtual machine and/or virtual network and sufficiently secured with either an Azure Firewall or a network security group.
 
-- [How to create a virtual network](../virtual-network/quick-create-portal.md)
+- [How to create a virtual network](/azure/virtual-network/quick-create-portal)
 
-- [How to create an network security group with a security config](../virtual-network/tutorial-filter-network-traffic.md)
+- [How to create an network security group with a security config](/azure/virtual-network/tutorial-filter-network-traffic)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1105,13 +1078,13 @@ Azure Resource Manager has the ability to export the template in Java Script Obj
 
 You can also use the recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
 
-- [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
+- [Tutorial: Create and manage policies to enforce compliance](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md)
+- [Single and multi-resource export to a template in Azure portal](/azure/azure-resource-manager/templates/export-template-portal)
 
-- [Security recommendations - a reference guide](../security-center/recommendations-reference.md)
+- [Security recommendations - a reference guide](/azure/security-center/recommendations-reference)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1122,17 +1095,8 @@ You can also use the recommendations from Azure Security Center as a secure conf
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32411.).
 
-**Guidance**: Use Azure Security Center recommendations to maintain security configurations on all compute resources.  Additionally, you can use custom operating system images or Azure Automation State configuration to establish the security configuration of the operating system required by your organization.
-
-- [How to monitor Azure Security Center recommendations](../security-center/security-center-recommendations.md)
-
-- [Security recommendations - a reference guide](../security-center/recommendations-reference.md)
-
-- [Azure Automation State Configuration Overview](../automation/automation-dsc-overview.md)
-
-- [Upload a VHD and use it to create new Windows VMs in Azure](../virtual-machines/windows/upload-generalized-managed.md)
-
-- [Create a Linux VM from a custom disk with the Azure CLI](../virtual-machines/linux/upload-vhd.md)
+**Guidance**: 
+Not applicable to Azure Load Balancer - please remove
 
 **Azure Security Center monitoring**: Yes
 
@@ -1143,15 +1107,15 @@ You can also use the recommendations from Azure Security Center as a secure conf
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32412.).
 
-**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.  
+**Guidance**: Use Azure Policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources. As the LB is secure by default this requires you to explicitly define outbound rules and NSG rules to enable internet connectivity.
 
 In addition, you can use Azure Resource Manager templates to maintain the security configuration of your Azure resources required by your organization. 
 
-- [Understand Azure Policy effects](../governance/policy/concepts/effects.md)
+- [Understand Azure Policy effects](/azure/governance/policy/concepts/effects)
 
-- [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)
+- [Create and manage policies to enforce compliance](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Azure Resource Manager templates overview](../azure-resource-manager/templates/overview.md)
+- [Azure Resource Manager templates overview](/azure/azure-resource-manager/templates/overview)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1175,7 +1139,7 @@ In addition, you can use Azure Resource Manager templates to maintain the securi
 
 **Guidance**: Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions, Azure Resource Manager templates and desired state configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -1207,9 +1171,9 @@ You can also make use of built-in policy definitions related to your specific re
 
 Additionally, you can use Azure Automation to deploy configuration changes.
 
-- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [How to configure and manage Azure Policy](/azure/governance/policy/tutorials/create-and-manage)
 
-- [How to use aliases](../governance/policy/concepts/definition-structure.md#aliases)
+- [How to use aliases](/azure/governance/policy/concepts/definition-structure#aliases)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1235,7 +1199,7 @@ Additionally, you can use Azure Automation to deploy configuration changes.
 
 Additionally, use Azure Policy to alert and audit Azure resource configurations.
 
-- [How to remediate recommendations in Azure Security Center](../security-center/security-center-remediate-recommendations.md)
+- [How to remediate recommendations in Azure Security Center](/azure/security-center/security-center-remediate-recommendations)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1257,13 +1221,8 @@ Additionally, use Azure Policy to alert and audit Azure resource configurations.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32420.).
 
-**Guidance**: Use managed identities in conjunction with Azure Key Vault to simplify secret management for your cloud applications.
-
-- [How to use managed identities for Azure resources](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
-
-- [How to create a Key Vault](/azure/key-vault/quick-create-portal)
-
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+**Guidance**: 
+Not applicable to Azure Load Balancer - please remove
 
 **Azure Security Center monitoring**: Yes
 
@@ -1274,11 +1233,8 @@ Additionally, use Azure Policy to alert and audit Azure resource configurations.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32421.).
 
-**Guidance**: Use managed identities to provide Azure services with an automatically-managed identity in Azure AD. 
-
-Managed identities allow you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
-
-- [How to configure managed identities for Azure resources](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
+**Guidance**: 
+Not applicable to Azure Load Balancer - please remove
 
 **Azure Security Center monitoring**: Yes
 
@@ -1289,11 +1245,8 @@ Managed identities allow you to authenticate to any service that supports Azure 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32422.).
 
-**Guidance**: Implement Credential Scanner to identify credentials within code. 
-
-Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault. 
-
-- [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
+**Guidance**: 
+Not applicable to Azure Load Balancer - please remove
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1378,19 +1331,8 @@ Credential Scanner will also encourage moving discovered credentials to more sec
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32429.).
 
-**Guidance**: For on-premises backup, encryption at rest is provided using the passphrase you provide when backing up to Azure. 
-
-Use role-based access control to protect backups and customer managed keys. 
-
-Enable soft delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. 
-
-If Azure Storage is used to store backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted.
-
-- [Understand Azure RBAC](../role-based-access-control/overview.md)
-
-- [How to enable soft delete and purge protection in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
-
-- [Soft delete for Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+**Guidance**: 
+Not applicable to Azure Load Balancer - please remove
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1432,7 +1374,7 @@ Additionally, mark subscriptions using tags and create a naming system to identi
 
 It's your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-- [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
+- [Security alerts in Azure Security Center](/azure/security-center/security-center-alerts-overview)
 
 - [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -1462,7 +1404,7 @@ It's your responsibility to prioritize the remediation of alerts based on the cr
 
 Review incidents after the fact to ensure that issues are resolved.
 
-- [How to set the Azure Security Center security contact](../security-center/security-center-provide-security-contact-details.md)
+- [How to set the Azure Security Center security contact](/azure/security-center/security-center-provide-security-contact-details)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1479,9 +1421,9 @@ Continuous export allows you to export alerts and recommendations either manuall
 
 You can use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
-- [How to configure continuous export](../security-center/continuous-export.md)
+- [How to configure continuous export](/azure/security-center/continuous-export)
 
-- [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
+- [How to stream alerts into Azure Sentinel](/azure/sentinel/connect-azure-security-center)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1494,7 +1436,7 @@ You can use the Azure Security Center data connector to stream the alerts to Azu
 
 **Guidance**: Use workflow automation feature Azure Security Center to automatically trigger responses to security alerts and recommendations to protect your Azure resources.
 
-- [How to configure workflow automation in Security Center](../security-center/workflow-automation.md)
+- [How to configure workflow automation in Security Center](/azure/security-center/workflow-automation)
 
 **Azure Security Center monitoring**: Yes
 
