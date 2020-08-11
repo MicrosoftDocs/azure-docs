@@ -350,7 +350,7 @@
     - name: Distributed data
       items:
       - name: Distribute and modify tables
-        href: howto-hyperscale-dist-modify.md
+        href: howto-hyperscale-modify-distributed-tables.md
     - name: High availability
       href: howto-hyperscale-high-availability.md
     - name: Monitor
@@ -376,9 +376,9 @@
   - name: Hyperscale (Citus)
     items:
       - name: SQL API functions
-        href: reference-hyperscale-udf.md
+        href: reference-hyperscale-functions.md
       - name: Server parameters
-        href: reference-hyperscale-guc.md
+        href: reference-hyperscale-parameters.md
       - name: System tables
         href: reference-hyperscale-metadata.md
 - name: Resources
