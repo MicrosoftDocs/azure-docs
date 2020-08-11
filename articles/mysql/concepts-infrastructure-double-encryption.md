@@ -49,7 +49,7 @@ The encryption capabilities that are provided by Azure Database for MySQL can be
 |       |                    |                                  |                                              |
 
 > [!Important]
-> - Scenario 2 and 4 can have performance impact on the Azure Database for MySQL server due to the additional layer of infrastructure encryption.
+> - Scenario 2 and 4 can introduce 5-10 percent drop in throughput based on the workload type for Azure Database for MySQL server due to the additional layer of infrastructure encryption.
 > - Configuring Infrastructure double encryption for Azure Database for MySQL is only allowed during server create. Once the server is provisioned, you cannot change the storage encryption. However, you can still enable Data encryption using customer-managed keys for the server created with/without infrastructure double encryption.
 
 ## Limitations
