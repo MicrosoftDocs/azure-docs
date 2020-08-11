@@ -342,18 +342,18 @@ Scenarios for exception
 
 There are three scenarios/cases where publishers generally request these exceptions. 
 
-* **Exception for one or more test cases:** Publishers can reach out to ![Marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) request exceptions for test cases. 
+* **Exception for one or more test cases:** Publishers can reach out to ![Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) request exceptions for test cases. 
 
 * **Locked Down VMs/No root access:** Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. 
-       In this case, publishers can download the ![Certified Test Tool] (https://aka.ms/AzureCertificationTestTool) here, and provide the report at ![Marketplacepublishersupport] (https://aka.ms/marketplacepublishersupport)
+       In this case, publishers can download the ![Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here, and provide the report at ![Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
 
 
 * **Custom Templates:** Some publishers publish VM images which require a custom ARM template to deploy the VMs. 
-In this case, Publishers are requested to provide the custom templates at ![Marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) so that same can be used by Certification team for validation. 
+In this case, Publishers are requested to provide the custom templates at ![Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) so that same can be used by Certification team for validation. 
 
 Information to provide for exception scenarios
 
-Publishers must reach out to the support at ![Marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) for requesting exceptions for the above scenario with the additional following information:
+Publishers must reach out to the support at ![Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) for requesting exceptions for the above scenario with the additional following information:
 
    1.	Publisher ID – The publisher id on Partner Center portal
    2.	Offer id/name – The Offer id/name for which exception is requested 
