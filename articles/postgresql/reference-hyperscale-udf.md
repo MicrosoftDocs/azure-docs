@@ -1,6 +1,6 @@
 ---
 title: SQL functions – Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Functions the in Hyperscale (Citus) SQL API
+description: Functions in the Hyperscale (Citus) SQL API
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -11,7 +11,7 @@ ms.date: 07/29/2020
 
 # Functions in the Hyperscale (Citus) SQL API
 
-This section contains reference information for the user defined functions
+This section contains reference information for the user-defined functions
 provided by Hyperscale (Citus). These functions help in providing additional
 distributed functionality to Hyperscale (Citus) other than the standard SQL
 commands.
@@ -22,7 +22,7 @@ commands.
 
 The create\_distributed\_table() function is used to define a distributed table
 and create its shards if it's a hash-distributed table. This function takes in
-a table name, the distribution column and an optional distribution method and
+a table name, the distribution column, and an optional distribution method and
 inserts appropriate metadata to mark the table as distributed. The function
 defaults to 'hash' distribution if no distribution method is specified. If the
 table is hash-distributed, the function also creates worker shards based on the
@@ -34,27 +34,27 @@ by master\_create\_worker\_shards().
 
 #### Arguments
 
-**table\_name:** Name of the table which needs to be distributed.
+**table\_name:** Name of the table that needs to be distributed.
 
 **distribution\_column:** The column on which the table is to be
 distributed.
 
 **distribution\_type:** (Optional) The method according to which the
-table is to be distributed. Permissible values are append or hash, and
-defaults to 'hash'.
+table is to be distributed. Permissible values are append or hash, with
+a default value of 'hash'.
 
-**colocate\_with:** (Optional) include current table in the co-location group
-of another table. By default tables are co-located when they are distributed by
+**colocate\_with:** (Optional) include current table in the colocation group
+of another table. By default tables are colocated when they are distributed by
 columns of the same type, have the same shard count, and have the same
 replication factor. Possible values for `colocate_with` are `default`, `none`
-to start a new co-location group, or the name of another table to co-locate
+to start a new colocation group, or the name of another table to colocate
 with that table.  (See [table colocation](concepts-hyperscale-colocation.md).)
 
 Keep in mind that the default value of `colocate_with` does implicit
-co-location. As [colocation](concepts-hyperscale-colocation.md) explains, this
+colocation. [Colocation](concepts-hyperscale-colocation.md)
 can be a great thing when tables are related or will be joined.  However when
 two tables are unrelated but happen to use the same datatype for their
-distribution columns, accidentally co-locating them can decrease performance
+distribution columns, accidentally colocating them can decrease performance
 during [shard rebalancing](howto-hyperscale-scaling.md#rebalance-shards).  The
 table shards will be moved together unnecessarily in a \"cascade.\"
 
@@ -87,7 +87,7 @@ worker node.
 
 #### Arguments
 
-**table\_name:** Name of the small dimension or reference table which
+**table\_name:** Name of the small dimension or reference table that
 needs to be distributed.
 
 #### Return Value
@@ -106,7 +106,7 @@ SELECT create_reference_table('nation');
 ### upgrade\_to\_reference\_table
 
 The upgrade\_to\_reference\_table() function takes an existing distributed
-table which has a shard count of one, and upgrades it to be a recognized
+table that has a shard count of one, and upgrades it to be a recognized
 reference table. After calling this function, the table will be as if it had
 been created with [create_reference_table](#create_reference_table).
 
@@ -132,17 +132,18 @@ SELECT upgrade_to_reference_table('nation');
 
 The mark\_tables\_colocated() function takes a distributed table (the
 source), and a list of others (the targets), and puts the targets into
-the same co-location group as the source. If the source is not yet in a
+the same colocation group as the source. If the source is not yet in a
 group, this function creates one, and assigns the source and targets to
 it.
 
-Usually colocating tables ought to be done at table distribution time via the
-`colocate_with` parameter of [create_distributed_table](#create_distributed_table)
-But `mark_tables_colocated` can take care of it if necessary.
+Colocating tables ought to be done at table distribution time via the
+`colocate_with` parameter of
+[create_distributed_table](#create_distributed_table), but
+`mark_tables_colocated` can take care of it later if necessary.
 
 #### Arguments
 
-**source\_table\_name:** Name of the distributed table whose co-location
+**source\_table\_name:** Name of the distributed table whose colocation
 group the targets will be assigned to match.
 
 **target\_table\_names:** Array of names of the distributed target
@@ -154,9 +155,9 @@ source table in:
 > -   replication type
 > -   shard count
 
-Failing this, Hyperscale (Citus) will raise an error. For instance, attempting
-to colocate tables `apples` and `oranges` whose distribution column types
-differ results in:
+If none of the above apply, Hyperscale (Citus) will raise an error. For
+instance, attempting to colocate tables `apples` and `oranges` whose
+distribution column types differ results in:
 
 ```
 ERROR:  XX000: cannot colocate tables apples and oranges
@@ -169,7 +170,7 @@ N/A
 
 #### Example
 
-This example puts `products` and `line_items` in the same co-location
+This example puts `products` and `line_items` in the same colocation
 group as `stores`. The example assumes that these tables are all
 distributed on a column with matching type, most likely a \"store id.\"
 
@@ -179,18 +180,17 @@ SELECT mark_tables_colocated('stores', ARRAY['products', 'line_items']);
 
 ### create\_distributed\_function
 
-Propagates a function from the coordinator node to workers, and marks it
-for distributed execution. When a distributed function is called on the
-coordinator, Hyperscale (Citus) uses the value of the \"distribution argument\" to
-pick a worker node to run the function. Executing the function on
-workers increases parallelism, and can bring the code closer to data in
-shards for lower latency.
+Propagates a function from the coordinator node to workers, and marks it for
+distributed execution. When a distributed function is called on the
+coordinator, Hyperscale (Citus) uses the value of the \"distribution argument\"
+to pick a worker node to run the function. Executing the function on workers
+increases parallelism, and can bring the code closer to data in shards for
+lower latency.
 
-Note that the Postgres search path is not propagated from the
-coordinator to workers during distributed function execution, so
-distributed function code should fully-qualify the names of database
-objects. Also notices emitted by the functions will not be displayed to
-the user.
+The Postgres search path is not propagated from the coordinator to workers
+during distributed function execution, so distributed function code should
+fully qualify the names of database objects. Also notices emitted by the
+functions will not be displayed to the user.
 
 #### Arguments
 
@@ -204,12 +204,12 @@ distribute. For convenience (or if the function arguments do not have
 names), a positional placeholder is allowed, such as `'$1'`. If this
 parameter is not specified, then the function named by `function_name`
 is merely created on the workers. If worker nodes are added in the
-future the function will automatically be created there too.
+future, the function will automatically be created there too.
 
 **colocate\_with:** (Optional) When the distributed function reads or writes to
-a distributed table (or more generally colocation group), be sure to name that
-table using the `colocate_with` parameter. This ensures that each invocation of
-the function runs on the worker node containing relevant shards.
+a distributed table (or, more generally, colocation group), be sure to name
+that table using the `colocate_with` parameter. Then each invocation of the
+function will run on the worker node containing relevant shards.
 
 #### Return Value
 
@@ -243,13 +243,13 @@ SELECT create_distributed_function(
 
 ### master\_get\_table\_metadata
 
-The master\_get\_table\_metadata() function can be used to return distribution
-related metadata for a distributed table. This metadata includes the relation
-id, storage type, distribution method, distribution column, replication count,
-maximum shard size and the shard placement policy for that table. Behind the
-covers, this function queries Hyperscale (Citus) metadata tables to get the
-required information and concatenates it into a tuple before returning it to
-the user.
+The master\_get\_table\_metadata() function can be used to return
+distribution-related metadata for a distributed table. This metadata includes
+the relation ID, storage type, distribution method, distribution column,
+replication count, maximum shard size, and shard placement policy for the
+table. Behind the covers, this function queries Hyperscale (Citus) metadata
+tables to get the required information and concatenates it into a tuple before
+returning it to the user.
 
 #### Arguments
 
@@ -260,7 +260,7 @@ fetch metadata.
 
 A tuple containing the following information:
 
-**logical\_relid:** Oid of the distributed table. This values references
+**logical\_relid:** Oid of the distributed table. It references
 the relfilenode column in the pg\_class system catalog table.
 
 **part\_storage\_type:** Type of storage used for the table. May be
@@ -295,7 +295,7 @@ SELECT * from master_get_table_metadata('github_events');
 
 Hyperscale (Citus) assigns every row of a distributed table to a shard based on
 the value of the row's distribution column and the table's method of
-distribution. In most cases the precise mapping is a low-level detail that the
+distribution. In most cases, the precise mapping is a low-level detail that the
 database administrator can ignore. However it can be useful to determine a
 row's shard, either for manual database maintenance tasks or just to satisfy
 curiosity. The `get_shard_id_for_distribution_column` function provides this
@@ -310,8 +310,8 @@ does not work for the append distribution.
 
 #### Return Value
 
-The shard id Hyperscale (Citus) associates with the distribution column value for the
-given table.
+The shard ID Hyperscale (Citus) associates with the distribution column value
+for the given table.
 
 #### Example
 
@@ -326,8 +326,8 @@ SELECT get_shard_id_for_distribution_column('my_table', 4);
 
 ### column\_to\_column\_name
 
-Translates the `partkey` column of `pg_dist_partition` into a textual
-column name. This is useful to determine the distribution column of a
+Translates the `partkey` column of `pg_dist_partition` into a textual column
+name. The translation is useful to determine the distribution column of a
 distributed table.
 
 For a more detailed discussion, see [choosing a distribution
@@ -366,8 +366,8 @@ Output:
 
 ### citus\_relation\_size
 
-Get the disk space used by all the shards of the specified distributed
-table. This includes the size of the \"main fork,\" but excludes the
+Get the disk space used by all the shards of the specified distributed table.
+The disk space includes the size of the \"main fork,\" but excludes the
 visibility map and free space map for the shards.
 
 #### Arguments
@@ -392,9 +392,8 @@ pg_size_pretty
 
 ### citus\_table\_size
 
-Get the disk space used by all the shards of the specified distributed
-table, excluding indexes (but including TOAST, free space map, and
-visibility map).
+Get the disk space used by all the shards of the specified distributed table,
+excluding indexes (but including TOAST, free space map, and visibility map).
 
 #### Arguments
 
@@ -445,7 +444,7 @@ pg_size_pretty
 
 Removes all rows from
 [citus_stat_statements](reference-hyperscale-metadata.md#query-statistics-table).
-Note that this works independently from `pg_stat_statements_reset()`. To reset
+This function works independently from `pg_stat_statements_reset()`. To reset
 all stats, call both functions.
 
 #### Arguments
@@ -474,7 +473,7 @@ repair.
 
 #### Arguments
 
-**shard\_id:** Id of the shard to be repaired.
+**shard\_id:** ID of the shard to be repaired.
 
 **source\_node\_name:** DNS name of the node on which the healthy shard
 placement is present (\"source\" node).
@@ -494,10 +493,11 @@ N/A
 
 #### Example
 
-The example below will repair an inactive shard placement of shard 12345
-which is present on the database server running on 'bad\_host' on port
-5432. To repair it, it will use data from a healthy shard placement
-present on the server running on 'good\_host' on port 5432.
+The example below will repair an inactive shard placement of shard
+12345, which is present on the database server running on 'bad\_host'
+on port 5432. To repair it, it will use data from a healthy shard
+placement present on the server running on 'good\_host' on port
+5432.
 
 ```postgresql
 SELECT master_copy_shard_placement(12345, 'good_host', 5432, 'bad_host', 5432);
@@ -505,23 +505,22 @@ SELECT master_copy_shard_placement(12345, 'good_host', 5432, 'bad_host', 5432);
 
 ### master\_move\_shard\_placement
 
-This function moves a given shard (and shards co-located with it) from
-one node to another. It is typically used indirectly during shard
-rebalancing rather than being called directly by a database
-administrator.
+This function moves a given shard (and shards colocated with it) from one node
+to another. It is typically used indirectly during shard rebalancing rather
+than being called directly by a database administrator.
 
-There are two ways to move the data: blocking or nonblocking. The
-blocking approach means that during the move all modifications to the
-shard are paused. The second way, which avoids blocking shard writes,
-relies on Postgres 10 logical replication.
+There are two ways to move the data: blocking or nonblocking. The blocking
+approach means that during the move all modifications to the shard are paused.
+The second way, which avoids blocking shard writes, relies on Postgres 10
+logical replication.
 
-After a successful move operation, shards in the source node get
-deleted. If the move fails at any point, this function throws an error
-and leaves the source and target nodes unchanged.
+After a successful move operation, shards in the source node get deleted. If
+the move fails at any point, this function throws an error and leaves the
+source and target nodes unchanged.
 
 #### Arguments
 
-**shard\_id:** Id of the shard to be moved.
+**shard\_id:** ID of the shard to be moved.
 
 **source\_node\_name:** DNS name of the node on which the healthy shard
 placement is present (\"source\" node).
@@ -594,7 +593,7 @@ performed.
 **table\_name:** (Optional) The name of the table whose shards need to
 be rebalanced. If NULL, then rebalance all existing colocation groups.
 
-**threshold:** (Optional) A float number between 0.0 and 1.0 which
+**threshold:** (Optional) A float number between 0.0 and 1.0 that
 indicates the maximum difference ratio of node utilization from average
 utilization. For example, specifying 0.1 will cause the shard rebalancer
 to attempt to balance all nodes to hold the same number of shards ±10%.
@@ -604,7 +603,7 @@ all worker nodes to the (1 - threshold) \* average\_utilization \... (1
 
 **max\_shard\_moves:** (Optional) The maximum number of shards to move.
 
-**excluded\_shard\_list:** (Optional) Identifiers of shards which
+**excluded\_shard\_list:** (Optional) Identifiers of shards that
 shouldn't be moved during the rebalance operation.
 
 **shard\_transfer\_mode:** (Optional) Specify the method of replication,
@@ -644,7 +643,7 @@ SELECT rebalance_table_shards('github_events');
 ```
 
 This example usage will attempt to rebalance the github\_events table
-without moving shards with id 1 and 2.
+without moving shards with ID 1 and 2.
 
 ```postgresql
 SELECT rebalance_table_shards('github_events', excluded_shard_list:='{1,2}');
@@ -656,9 +655,8 @@ Output the planned shard movements of
 [rebalance_table_shards](#rebalance_table_shards) without performing them.
 While it's unlikely, get\_rebalance\_table\_shards\_plan can output a slightly
 different plan than what a rebalance\_table\_shards call with the same
-arguments will do. This could happen because they are not executed at the same
-time, so facts about the server group \-- e.g. disk space \-- might differ
-between the calls.
+arguments will do. They are not executed at the same time, so facts about the
+server group \-- for example, disk space \-- might differ between the calls.
 
 #### Arguments
 
@@ -738,7 +736,7 @@ For more about these arguments, see the corresponding column values in
 **node\_capacity\_function:** identifies the function to measure node
 capacity
 
-**shard\_allowed\_on\_node\_function:** identifies the function which
+**shard\_allowed\_on\_node\_function:** identifies the function that
 determines which shards can be placed on which nodes
 
 **default\_threshold:** a floating point threshold that tunes how
@@ -799,9 +797,9 @@ SELECT * from citus_remote_connection_stats();
 
 The master\_drain\_node() function moves shards off the designated node and
 onto other nodes who have `shouldhaveshards` set to true in
-[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table). This
-function is designed to be called prior to removing a node from the server
-group, i.e. turning the node's physical server off.
+[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table). Call the
+function prior to removing a node from the server group and turning off the
+node's physical server.
 
 #### Arguments
 
@@ -846,11 +844,11 @@ Here are the typical steps to remove a single node (for example
 
 3.  Remove the node
 
-When draining multiple nodes it's recommended to use
+When draining multiple nodes, it's recommended to use
 [rebalance_table_shards](#rebalance_table_shards) instead. Doing so allows
 Hyperscale (Citus) to plan ahead and move shards the minimum number of times.
 
-1.  Run this for each node that you want to remove:
+1.  Run for each node that you want to remove:
 
     ```postgresql
     SELECT * FROM master_set_node_property(node_hostname, node_port, 'shouldhaveshards', false);
@@ -869,11 +867,11 @@ Hyperscale (Citus) to plan ahead and move shards the minimum number of times.
 
 ### replicate\_table\_shards
 
-The replicate\_table\_shards() function replicates the under-replicated
-shards of the given table. The function first calculates the list of
-under-replicated shards and locations from which they can be fetched for
-replication. The function then copies over those shards and updates the
-corresponding shard metadata to reflect the copy.
+The replicate\_table\_shards() function replicates the under-replicated shards
+of the given table. The function first calculates the list of under-replicated
+shards and locations from which they can be fetched for replication. The
+function then copies over those shards and updates the corresponding shard
+metadata to reflect the copy.
 
 #### Arguments
 
@@ -886,7 +884,7 @@ factor to achieve for each shard.
 **max\_shard\_copies:** (Optional) Maximum number of shards to copy to
 reach the desired replication factor.
 
-**excluded\_shard\_list:** (Optional) Identifiers of shards which
+**excluded\_shard\_list:** (Optional) Identifiers of shards that
 shouldn't be copied during the replication operation.
 
 #### Return Value
@@ -902,10 +900,10 @@ github\_events table to shard\_replication\_factor.
 SELECT replicate_table_shards('github_events');
 ```
 
-This example will attempt to bring the shards of the github\_events
-table to the desired replication factor with a maximum of 10 shard
-copies. This means that the rebalancer will copy only a maximum of 10
-shards in its attempt to reach the desired replication factor.
+This example will attempt to bring the shards of the github\_events table to
+the desired replication factor with a maximum of 10 shard copies. The
+rebalancer will copy a maximum of 10 shards in its attempt to reach the desired
+replication factor.
 
 ```postgresql
 SELECT replicate_table_shards('github_events', max_shard_copies:=10);
@@ -922,7 +920,7 @@ ultimately its own physical node.
 
 **table\_name:** The name of the table to get a new shard.
 
-**tenant\_id:** The value of the distribution column which will be
+**tenant\_id:** The value of the distribution column that will be
 assigned to the new shard.
 
 **cascade\_option:** (Optional) When set to \"CASCADE,\" also isolates a shard
@@ -931,7 +929,7 @@ group](concepts-hyperscale-colocation.md).
 
 #### Return Value
 
-**shard\_id:** The function returns the unique id assigned to the newly
+**shard\_id:** The function returns the unique ID assigned to the newly
 created shard.
 
 #### Examples

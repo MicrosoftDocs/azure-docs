@@ -16,7 +16,9 @@ ms.date: 07/17/2020
 Hyperscale (Citus) divides each distributed table into multiple logical shards
 based on the distribution column. The coordinator then maintains metadata
 tables to track statistics and information about the health and location of
-these shards. In this section, we describe each of these metadata tables and
+these shards.
+
+In this section, we describe each of these metadata tables and
 their schema. You can view and query these tables using SQL after logging into
 the coordinator node.
 
@@ -30,10 +32,10 @@ the distribution column.
 | Name         | Type     | Description                                                                                                                                                                                                                                           |
 |--------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | logicalrelid | regclass | Distributed table to which this row corresponds. This value references the relfilenode column in the pg_class system catalog table.                                                                                                                   |
-| partmethod   | char     | The method used for partitioning / distribution. The values of this column corresponding to different distribution methods are :- append: ‘a’ hash: ‘h’ reference table: ‘n’                                                                          |
+| partmethod   | char     | The method used for partitioning / distribution. The values of this column corresponding to different distribution methods are append: ‘a’, hash: ‘h’, reference table: ‘n’                                                                          |
 | partkey      | text     | Detailed information about the distribution column including column number, type and other relevant information.                                                                                                                                      |
-| colocationid | integer  | Co-location group to which this table belongs. Tables in the same group allow co-located joins and distributed rollups among other optimizations. This value references the colocationid column in the pg_dist_colocation table.                      |
-| repmodel     | char     | The method used for data replication. The values of this column corresponding to different replication methods are :- * citus statement-based replication: ‘c’ * postgresql streaming replication: ‘s’ * two-phase commit (for reference tables): ‘t’ |
+| colocationid | integer  | Colocation group to which this table belongs. Tables in the same group allow colocated joins and distributed rollups among other optimizations. This value references the colocationid column in the pg_dist_colocation table.                      |
+| repmodel     | char     | The method used for data replication. The values of this column corresponding to different replication methods are: Citus statement-based replication: ‘c’, postgresql streaming replication: ‘s’, two-phase commit (for reference tables): ‘t’ |
 
 ```
 SELECT * from pg_dist_partition;
@@ -46,10 +48,10 @@ SELECT * from pg_dist_partition;
 ### Shard table
 
 The pg\_dist\_shard table stores metadata about individual shards of a
-table. This includes information about which distributed table the shard
-belongs to and statistics about the distribution column for that shard.
+table. Pg_dist_shard has information about which distributed table shards
+belong to, and statistics about the distribution column for shards.
 For append distributed tables, these statistics correspond to min / max
-values of the distribution column. In case of hash distributed tables,
+values of the distribution column. For hash distributed tables,
 they are hash token ranges assigned to that shard. These statistics are
 used for pruning away unrelated shards during SELECT queries.
 
@@ -96,8 +98,8 @@ and location of each shard placement.
 | shardid     | bigint | Shard identifier associated with this placement. This value references the shardid column in the pg_dist_shard catalog table.             |
 | shardstate  | int    | Describes the state of this placement. Different shard states are discussed in the section below.                                         |
 | shardlength | bigint | For append distributed tables, the size of the shard placement on the worker node in bytes. For hash distributed tables, zero.            |
-| placementid | bigint | Unique auto-generated identifier for each individual placement.                                                                           |
-| groupid     | int    | Identifier used to denote a group of one primary server and zero or more secondary servers, when the streaming replication model is used. |
+| placementid | bigint | Unique autogenerated identifier for each individual placement.                                                                           |
+| groupid     | int    | Denotes a group of one primary server and zero or more secondary servers when the streaming replication model is used. |
 
 ```
 SELECT * from pg_dist_placement;
@@ -114,17 +116,14 @@ SELECT * from pg_dist_placement;
 
 #### Shard Placement States
 
-Hyperscale (Citus) manages shard health on a per-placement basis and
-automatically marks a placement as unavailable if leaving the placement in
-service would put the cluster in an inconsistent state. The shardstate column
-in the pg\_dist\_placement table is used to store the state of shard
-placements. A brief overview of different shard placement states and their
-representation is below.
+Hyperscale (Citus) manages shard health on a per-placement basis. If a placement
+puts the system in an inconsistent state, Citus automatically marks it as unavailable. Placement state is recorded in the pg_dist_shard_placement table,
+within the shardstate column. Here's a brief overview of different shard placement states:
 
 | State name | Shardstate value | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
 |------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| FINALIZED  | 1                | This is the state new shards are created in. Shard placements in this state are considered up-to-date and are used in query planning and execution.                                                                                                                                                                                                                                                                                 |
-| INACTIVE   | 3                | Shard placements in this state are considered inactive due to being out-of-sync with other replicas of the same shard. This can occur when an append, modification (INSERT, UPDATE or DELETE ) or a DDL operation fails for this placement. The query planner will ignore placements in this state during planning and execution. Users can synchronize the data in these shards with a finalized replica as a background activity. |
+| FINALIZED  | 1                | The state new shards are created in. Shard placements in this state are considered up to date and are used in query planning and execution.                                                                                                                                                                                                                                                                                 |
+| INACTIVE   | 3                | Shard placements in this state are considered inactive due to being out-of-sync with other replicas of the same shard. The state can occur when an append, modification (INSERT, UPDATE, DELETE), or a DDL operation fails for this placement. The query planner will ignore placements in this state during planning and execution. Users can synchronize the data in these shards with a finalized replica as a background activity. |
 | TO_DELETE  | 4                | If Citus attempts to drop a shard placement in response to a master_apply_delete_command call and fails, the placement is moved to this state. Users can then delete these shards as a subsequent background activity.                                                                                                                                                                                                              |
 
 ### Worker node table
@@ -134,7 +133,7 @@ the cluster.
 
 | Name             | Type    | Description                                                                                                                                                                                |
 |------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| nodeid           | int     | Auto-generated identifier for an individual node.                                                                                                                                          |
+| nodeid           | int     | Autogenerated identifier for an individual node.                                                                                                                                          |
 | groupid          | int     | Identifier used to denote a group of one primary server and zero or more secondary servers, when the streaming replication model is used. By default it is the same as the nodeid.         |
 | nodename         | text    | Host Name or IP Address of the PostgreSQL worker node.                                                                                                                                     |
 | nodeport         | int     | Port number on which the PostgreSQL worker node is listening.                                                                                                                              |
@@ -167,8 +166,8 @@ dependencies).
 | Name                        | Type    | Description                                          |
 |-----------------------------|---------|------------------------------------------------------|
 | classid                     | oid     | Class of the distributed object                      |
-| objid                       | oid     | Object id of the distributed object                  |
-| objsubid                    | integer | Object sub id of the distributed object, e.g. attnum |
+| objid                       | oid     | Object ID of the distributed object                  |
+| objsubid                    | integer | Object sub ID of the distributed object, for example, attnum |
 | type                        | text    | Part of the stable address used during pg upgrades   |
 | object_names                | text[]  | Part of the stable address used during pg upgrades   |
 | object_args                 | text[]  | Part of the stable address used during pg upgrades   |
@@ -226,24 +225,24 @@ distribution_argument_index |
 colocationid                |
 ```
 
-### Co-location group table
+### Colocation group table
 
 The pg\_dist\_colocation table contains information about which tables\' shards
-should be placed together, or [co-located](concepts-hyperscale-colocation.md).
-When two tables are in the same co-location group, Hyperscale (Citus) ensures
+should be placed together, or [colocated](concepts-hyperscale-colocation.md).
+When two tables are in the same colocation group, Hyperscale (Citus) ensures
 shards with the same partition values will be placed on the same worker nodes.
-This enables join optimizations, certain distributed rollups, and foreign key
-support. Shard co-location is inferred when the shard counts, replication
+Colocation enables join optimizations, certain distributed rollups, and foreign key
+support. Shard colocation is inferred when the shard counts, replication
 factors, and partition column types all match between two tables; however, a
-custom co-location group may be specified when creating a distributed table, if
+custom colocation group may be specified when creating a distributed table, if
 so desired.
 
 | Name                   | Type | Description                                                                   |
 |------------------------|------|-------------------------------------------------------------------------------|
-| colocationid           | int  | Unique identifier for the co-location group this row corresponds to.          |
-| shardcount             | int  | Shard count for all tables in this co-location group                          |
-| replicationfactor      | int  | Replication factor for all tables in this co-location group.                  |
-| distributioncolumntype | oid  | The type of the distribution column for all tables in this co-location group. |
+| colocationid           | int  | Unique identifier for the colocation group this row corresponds to.          |
+| shardcount             | int  | Shard count for all tables in this colocation group                          |
+| replicationfactor      | int  | Replication factor for all tables in this colocation group.                  |
+| distributioncolumntype | oid  | The type of the distribution column for all tables in this colocation group. |
 
 ```
 SELECT * from pg_dist_colocation;
@@ -264,7 +263,7 @@ can use to determine where to move shards.
 | default_strategy               | boolean | Whether rebalance_table_shards should choose this strategy by default. Use citus_set_default_rebalance_strategy to update this column             |
 | shard_cost_function            | regproc | Identifier for a cost function, which must take a shardid as bigint, and return its notion of a cost, as type real                                |
 | node_capacity_function         | regproc | Identifier for a capacity function, which must take a nodeid as int, and return its notion of node capacity as type real                          |
-| shard_allowed_on_node_function | regproc | Identifier for a function that given shardid bigint, and nodeidarg int, returns boolean for whether the shard is allowed to be stored on the node |
+| shard_allowed_on_node_function | regproc | Identifier for a function that given shardid bigint, and nodeidarg int, returns boolean for whether Citus may store the shard on the node |
 | default_threshold              | float4  | Threshold for deeming a node too full or too empty, which determines when the rebalance_table_shards should try to move shards                    |
 | minimum_threshold              | float4  | A safeguard to prevent the threshold argument of rebalance_table_shards() from being set too low                                                  |
 
@@ -299,8 +298,7 @@ predefined strategy, `by_disk_size`, assigns a cost to each shard
 matching its disk size in bytes plus that of the shards that are
 colocated with it. The disk size is calculated using
 `pg_total_relation_size`, so it includes indices. This strategy attempts
-to achieve the same disk space on every node. Note the threshold of 0.1
--- it prevents unnecessary shard movement caused by insigificant
+to achieve the same disk space on every node. Note the threshold of 0.1--it prevents unnecessary shard movement caused by insignificant
 differences in disk space.
 
 #### Creating custom rebalancer strategies
@@ -371,7 +369,7 @@ Hyperscale (Citus) provides `citus_stat_statements` for stats about how queries 
 being executed, and for whom. It\'s analogous to (and can be joined
 with) the
 [pg\_stat\_statements](https://www.postgresql.org/docs/current/static/pgstatstatements.html)
-view in PostgreSQL which tracks statistics about query speed.
+view in PostgreSQL, which tracks statistics about query speed.
 
 This view can trace queries to originating tenants in a multi-tenant
 application, which helps for deciding when to do tenant isolation.
@@ -501,7 +499,7 @@ backend\_type          | client backend
 ```
 
 This query requires information from all shards. Some of the information is in
-shard `users_table_102038` which happens to be stored in localhost:9700. We can
+shard `users_table_102038`, which happens to be stored in `localhost:9700`. We can
 see a query accessing the shard by looking at the `citus_worker_stat_activity`
 view:
 
