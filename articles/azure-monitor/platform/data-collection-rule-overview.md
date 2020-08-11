@@ -15,7 +15,7 @@ Data Collection Rules (DCR) define data coming into Azure Monitor and specify wh
 ## Input sources
 Data collection rules currently support the following input sources:
 
-- Azure virtual machine with the Azure Monitor agent. See [Configure data collection for the Azure Monitor agent (preview)](data-collection-rule-ama.md).
+- Azure virtual machine with the Azure Monitor agent. See [Configure data collection for the Azure Monitor agent (preview)](data-collection-rule-azure-monitor-agent.md).
 
 
 
@@ -31,7 +31,7 @@ A data collection rule includes the following components.
 
 The following diagram shows the components of a data collection rule and their relationship
 
-[![Diagram of DCR](media/data-collection-rule/dcr-components.png)](media/data-collection-rule/dcr-components.png#lightbox)
+[![Diagram of DCR](media/data-collection-rule/data-collection-rule-components.png)](media/data-collection-rule/data-collection-rule-components.png#lightbox)
 
 ### Data source types
 Each data source has a data source type. Each type defines a unique set of properties that must be specified for each data source. The data source types currently available are shown the following table.
@@ -63,7 +63,7 @@ The following table lists the limits that currently apply to each data collectio
 ## Create a DCR
 There are currently two available methods to create a DCR:
 
-- [Use the Azure portal](data-collection-rule-ama.md) to create a data collection rule and have it associated with one or more virtual machines.
+- [Use the Azure portal](data-collection-rule-azure-monitor-agent.md) to create a data collection rule and have it associated with one or more virtual machines.
 - Directly edit the data collection rule in JSON and submit using the REST API.
 
 ## Sample data collection rule
@@ -195,4 +195,4 @@ The sample data collection rule below is for virtual machines with Azure Managem
 
 ## Next steps
 
-- [Create a data collection rule](data-collection-rule-ama.md) and an association to it from a virtual machine using the Azure Monitor agent.
+- [Create a data collection rule](data-collection-rule-azure-monitor-agent.md) and an association to it from a virtual machine using the Azure Monitor agent.
