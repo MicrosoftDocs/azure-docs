@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 07/21/2020
+ms.date: 08/09/2020
 ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
@@ -104,7 +104,7 @@ Metric alerts are stateful by default, and therefore additional alerts are not f
 
 When creating a metric alert rule, the metric name is validated against the [Metric Definitions API](/rest/api/monitor/metricdefinitions/list) to make sure it exists. In some cases, you'd like to create an alert rule on a custom metric even before it’s emitted. For example, when creating (using an ARM template) an Application Insights resource that will emit a custom metric, along with an alert rule that monitors that metric.
 
-To avoid having the deployment fail when trying to validate the custom metric’s definitions, you can use the *skipMetricValidation* parameter in the criteria section of the alert rule, which will cause the metric validation to be skipped. See the example below for how to use this parameter in an ARM template (for complete ARM template samples for creating metric alert rules, see [here]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)).
+To avoid having the deployment fail when trying to validate the custom metric’s definitions, you can use the *skipMetricValidation* parameter in the criteria section of the alert rule, which will cause the metric validation to be skipped. See the example below for how to use this parameter in an ARM template (for complete ARM template samples for creating metric alert rules, see [here]( ./alerts-metric-create-templates.md)).
 
 ```json
 "criteria": {
@@ -123,6 +123,15 @@ To avoid having the deployment fail when trying to validate the custom metric’
               ]
 	    }
 ```
+
+## Export the ARM template of a metric alert rule via the Azure portal
+
+Exporting the ARM template of a metric alert rule helps you understand its JSON syntax and properties, and can be used to automate future deployments.
+1. Navigate to the **Resource Groups** section in the portal, and select the resource group containing the rule.
+2. In the Overview section, check the **Show hidden types** checkbox.
+3. In the **Type** filter, select *microsoft.insights/metricalerts*.
+4. Select the relevant alert rule to view its details.
+5. Under **Settings**, select **Export template**.
 
 ## Metric alert rules quota too small
 
@@ -241,4 +250,3 @@ For example:
 ## Next steps
 
 - For general troubleshooting information about alerts and notifications, see [Troubleshooting problems in Azure Monitor alerts](alerts-troubleshoot.md).
-

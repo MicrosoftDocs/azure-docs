@@ -79,7 +79,7 @@
 - name: Resources
   items:
   - name: Pricing and limits
-    href: https://go.microsoft.com/fwlink/?linkid=2087258
+    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/form-recognizer/
   - name: UserVoice
     href: https://go.microsoft.com/fwlink/?linkid=2090535
   - name: Stack Overflow

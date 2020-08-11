@@ -61,7 +61,7 @@ You can migrate your existing applications to App Service by using the [online m
 
 > **When to use**: Use App Service when you’re migrating existing web applications to Azure, and when you need a fully-managed hosting platform for your web apps. You can also use App Service when you need to support mobile clients or expose REST APIs with your app.
 >
-> **Get started**: App Service makes it easy to create and deploy your first [web app](../../app-service/app-service-web-get-started-dotnet.md), [mobile app](../../app-service-mobile/app-service-mobile-ios-get-started.md), or [API app](../../app-service/app-service-web-tutorial-rest-api.md).
+> **Get started**: App Service makes it easy to create and deploy your first [web app](../../app-service/quickstart-dotnetcore.md), [mobile app](../../app-service-mobile/app-service-mobile-ios-get-started.md), or [API app](../../app-service/app-service-web-tutorial-rest-api.md).
 >
 > **Try it now**: App Service lets you provision a short-lived app to try the platform without having to sign up for an Azure account. Try the platform and [create your Azure App Service app](https://tryappservice.azure.com/).
 
@@ -285,7 +285,7 @@ As well as defining individual Azure account identities, also called *users*, yo
 
 ### Manage your subscriptions
 
-A subscription is a logical grouping of Azure services that is linked to an Azure account. A single Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. For a list of the available subscription offers by type, see [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/). Azure subscriptions have an Account Administrator who has full control over the subscription. They also have a Service Administrator who has control over all services in the subscription. For information about classic subscription administrators, see [Add or change Azure subscription administrators](../../cost-management-billing/manage/add-change-subscription-administrator.md). Individual accounts can be granted detailed control of Azure resources using [role-based access control (RBAC)](../../role-based-access-control/overview.md).
+A subscription is a logical grouping of Azure services that is linked to an Azure account. A single Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. For a list of the available subscription offers by type, see [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/). Azure subscriptions have an Account Administrator who has full control over the subscription. They also have a Service Administrator who has control over all services in the subscription. For information about classic subscription administrators, see [Add or change Azure subscription administrators](../../cost-management-billing/manage/add-change-subscription-administrator.md). Individual accounts can be granted detailed control of Azure resources using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 #### Resource groups
 

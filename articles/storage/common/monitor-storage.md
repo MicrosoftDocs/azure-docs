@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Storage | Microsoft Docs
-description: Learn how to monitor the performance and availability of Azure Storage.
+description: Learn how to monitor the performance and availability of Azure Storage. Monitor Azure Storage data, learn about configuration, and analyze metric and log data.
 author: normesta
 services: storage
 ms.service: storage
@@ -81,9 +81,9 @@ You also have to specify the categories of operations for which you want to coll
 
 | Category | Description |
 |:---|:---|
-| StorageRead | Read operations on blobs. |
-| StorageWrite | Write operations on blobs. |
-| StorageDelete | Delete operations on blobs. |
+| StorageRead | Read operations on objects. |
+| StorageWrite | Write operations on objects. |
+| StorageDelete | Delete operations on objects. |
 
 ## Analyze metric data
 

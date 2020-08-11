@@ -53,7 +53,7 @@
       - name: Azure PowerShell
         href: tutorial-design-database-using-powershell.md
     - name: 2 - Design Web App - Python
-      href: ../app-service/containers/tutorial-python-postgresql-app.md
+      href: ../app-service/tutorial-python-postgresql-app.md
       maintainContext: true
     - name: 3 - Monitor and tune
       href: tutorial-monitor-and-tune.md
@@ -113,7 +113,7 @@
       - name: Data Encryption
         href: concepts-data-encryption-postgresql.md
       - name: Infrastructure double encryption
-        href: concepts-infrastructure-double-encryption.md        
+        href: concepts-infrastructure-double-encryption.md
       - name: Security baseline for Azure Security Benchmark
         href: security-baseline.md
     - name: Business continuity
@@ -255,6 +255,8 @@
       items:
       - name: Configure TLS
         href: howto-tls-configurations.md
+      - name: Azure PowerShell
+        href: howto-connection-string-powershell.md
     - name: Configure server parameters
       items:
       - name: Azure portal

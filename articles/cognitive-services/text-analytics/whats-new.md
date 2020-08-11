@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
 ---
 
@@ -16,11 +16,17 @@ ms.author: aahi
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
-## July 2020
+## August 2020
+
+* Model version `2020-07-01` for the v3 `/keyphrases`, `/pii` and `/languages` endpoints, which adds:
+    * Additional government and country specific [entity categories](named-entity-types.md?tabs=personal) for Named Entity Recognition.
+* An HTTP 400 error will now be returned for v3 API requests that exceed the published [data limits](concepts/data-limits.md). 
+
+## July 2020 
 
 ### Text Analytics for health container - Public gated preview
 
-The Text Analytics for health container is now in public gated preview, which lets you extract information from unstructured English-language text in clinical documents such as: patient intake forms, doctor's notes, research papers and discharge summaries. Currently, you will not be billed for Text Analytics for health container usage. 
+The Text Analytics for health container is now in public gated preview, which lets you extract information from unstructured English-language text in clinical documents such as: patient intake forms, doctor's notes, research papers and discharge summaries. Currently, you will not be billed for Text Analytics for health container usage.
 
 The container offers the following features:
 
