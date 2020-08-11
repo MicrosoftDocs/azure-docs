@@ -131,7 +131,6 @@ Confirm (Y/N)? :
 [INFO] Saving configuration to pom.
 ```
 ::: zone-end
-
 ::: zone pivot="platform-linux"  
 A sample process looks like:
 
@@ -221,7 +220,6 @@ Once deployment has completed, your application will be ready at `http://<appNam
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 ::: zone-end
-
 ::: zone pivot="platform-linux"
 Once deployment has completed, browse to the deployed application using the following URL in your web browser, for example `http://<webapp>.azurewebsites.net`. 
 
