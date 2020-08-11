@@ -71,7 +71,7 @@ To troubleshoot operations with a geo-replicated registry, you can also temporar
 
 Related links:
 
-* [Geo-replication in Azure Container Registry](gontainer-registry-geo-replication.md)
+* [Geo-replication in Azure Container Registry](container-registry-geo-replication.md)
 
 ### Configure DNS for geo-replicated registry
 
@@ -85,7 +85,7 @@ A potential solution is to configure a closer DNS server.
 
 Related links:
 
-* [Geo-replication in Azure Container Registry](gontainer-registry-geo-replication.md)
+* [Geo-replication in Azure Container Registry](container-registry-geo-replication.md)
 * [Troubleshoot push operations with geo-replicated registries](container-registry-geo-replication.md#troubleshoot-push-operations-with-geo-replicated-registries)
 * [Temporarily disable routing to replication](container-registry-geo-replication.md#temporarily-disable-routing-to-replication)
 * [Traffic Manager FAQs](../traffic-manager/traffic-manager-faqs.md)
