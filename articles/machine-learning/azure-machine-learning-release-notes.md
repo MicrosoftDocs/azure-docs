@@ -36,7 +36,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-core**
     + A new method `run.get_detailed_status()` now shows the detailed explanation of current run status. It is currently only showing explanation for `Queued` status.
     + Add image_name and image_labal parameters to Model.package() to enable renaming the built package image.
-    + Added support for specifying pip options (e.g. --extra-index-url) in pip requirements file.
+    + New method `set_pip_requirements()` to set the entire pip section in [`CondaDependencies`](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) at once.
     + Enable registering credential-less ADLS Gen2 datastore.
     + Improved error message when trying to download or mount an incorrect dataset type
     + Change the sdk and cli to accept subscriptionId, resourceGroup, workspaceName, peConnectionName as parameters instead of ArmResourceId when deleting private endpoint connection
@@ -61,7 +61,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixed snapshot issues when submitting AutoML runs with no user-provided scripts.
     + Fixed child run failures when data contains nan and featurization is turned off.
   + **azureml-train-core**
-    + Added support for specifying pip options (e.g. --extra-index-url) in pip requirements file.
+    + Added support for specifying pip options (e.g. --extra-index-url) in the pip requirements file passed to an [`Estimator`](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) through `pip_requirements_file` parameter.
 
 
 ## 2020-08-03
