@@ -146,7 +146,7 @@ Translator service is now available with Virtual Network capabilities in all reg
 
 Once you turn on this capability, you must use the custom endpoint to call the Translator. You cannot use the global translator endpoint ("api.cognitive.microsofttranslator.com") and you cannot authenticate with an access token.
 
-You can find the custom endpoint once you create the [translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) and allow access from selected networks and private endpoints.
+You can find the custom endpoint after you create a [translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) and allow access from selected networks and private endpoints.
 
 |Headers|Description|
 |:-----|:----|
