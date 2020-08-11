@@ -18,7 +18,7 @@ metadata:
 landingContent:
   - title: About application management
     linkLists:
-          - linkListType: overview
+      - linkListType: overview
         links:
           - text: What is application management?
             url: what-is-application-management.md
@@ -36,8 +36,6 @@ landingContent:
             url: end-user-experiences.md
       - linkListType: how-to-guide
         links:
-          - text: Add a non-gallery app
-            url: add-non-gallery-app.md
           - text: Configure single sign-on
             url: configure-saml-single-sign-on.md
           - text: Assign a user or group to an app
