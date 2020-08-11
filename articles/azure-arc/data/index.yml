@@ -52,7 +52,7 @@ landingContent:
           - text: Extend single node to hyperscale
             url: postgresql-extend-single-node-to-hyperscale.md
           - text: Restore sample database
-            url: restore-adventureworks-sample-db-to-postgresql.md
+            url: restore-adventureworks-sample-db-postgresql.md
 
   # Card (optional)
   - title: Do with SQL Managed Instance

@@ -15,7 +15,7 @@
     - name: Create PostgreSQL Instance
       href: create-postgresql-instances.md
     - name: Extend Postgres SingleNode
-      href: postgresql-extend-singlenode-to-hyperscale.md
+      href: postgresql-extend-single-node-to-hyperscale.md
     - name: Scale out Postgres to hyper Scale
       href: scale-out-postgresql-hyperscale.md
 - name: Concepts
@@ -39,7 +39,7 @@
         - name: Create data controller (portal)
           href: create-data-controller-resource-in-azure-portal.md
         - name: Create data controller (Azure Data Studio)
-          href: create-data-controller-using-azure-data-studio.md
+          href: create-data-controller-azure-data-studio.md
         - name: Monitor with dashboards (Azure Data Studio)
           href: azure-data-studio-dashboards.md
         - name: View billing data (Azure)
@@ -61,28 +61,28 @@
         - name: Use Postgres extensions
           href: using-postgresql-extensions.md
         - name: Create PostgreSQL instance (Azure Data Studio)
-          href: create-postgresql-hyperscale-instance-using-azure-data-studio.md
+          href: create-postgresql-hyperscale-instance-azure-data-studio.md
         - name: Scale  PostgreSQL instance (CLI)
           href: scale-up-down-postgresql-hyperscale-instance-using-cli.md
         - name: Manage roles in PostgreSQL (CLI)
-          href: manage-roles-in-postgresql-hyperscale-with-cli.md
+          href: manage-roles-in-postgresql-with-cli.md
         - name: Migrate a Postgres database to Arc
           href: migrate-postgresql-db-into-arc.md
         - name: Restore AdventureWorks to Postgres
-          href: restore-adventureworks-sample-db-to-pg.md
+          href: restore-adventureworks-sample-db-postgresql.md
         - name: Manage Postgres (Azure Data Studio)
-          href: manage-postgresql-with-azuredatastudio.md
+          href: manage-postgresql-with-azure-data-studio.md
         - name: Delete Postgres
           href: delete-postgresql-instance.md
     - name: SQL Managed Instance
       items:
         - name: Create SQL Managed Instance (Azure Data Studio)
-          href: create-sql-managed-instance-using-azure-data-studio.md
+          href: create-sql-managed-instance-azure-data-studio.md
         - name: Migrate to SQL Managed Instance (Azure Arc)
           href: migrate-to-managed-instance-azure-arc.md
         - name: Restore AdventureWorks
           href: restore-adventureworks-sample-db.md
     - name: Troubleshoot
       items:
-        - name: Troubleshoot Postgres
-          href: troubleshooting-postgres.md
+        - name: Troubleshoot PostgreSQL
+          href: troubleshooting-postgresql.md
