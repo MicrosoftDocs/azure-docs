@@ -31,8 +31,8 @@ Sample solutions that do CRUD operations and other common operations on Azure Co
 - A Cosmos DB Account. You options are:
     * Within an Azure active subscription:
         * [Create an Azure free Account](https://azure.microsoft.com/free) or use your existing subscription 
-        * [Visual Studio Monthly Credits](https://azure.microsoft.com/en-us/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Azure Cosmos DB Free Tier](https://docs.microsoft.com/en-us/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+        * [Visual Studio Monthly Credits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
+        * [Azure Cosmos DB Free Tier](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
     * Without an Azure active subscription:
         * [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/), a tests environment that lasts for 30 days.
         * [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) 
