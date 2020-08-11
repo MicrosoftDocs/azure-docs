@@ -53,10 +53,45 @@ In 2.X, the output format is as follows:
 
     ```json
     {
-        "aggregator": {
-            "batchSize": 1000,
-            "flushTimeout": "00:00:30"
-        }
+        {
+              "status": "Succeeded",
+                "recognitionResults": [
+                  {
+                    "page": 1,
+                    "language": "en",
+                    "clockwiseOrientation": 349.59,
+                    "width": 2661,
+                    "height": 1901,
+                    "unit": "pixel",
+                    "lines": [
+                      {
+                        "boundingBox": [
+                          67,
+                          646,
+                          2582,
+                          713,
+                          2580,
+                          876,
+                          67,
+                          821
+                        ],
+                        "text": "The quick brown fox jumps",
+                        "words": [
+                          {
+                            "boundingBox": [
+                              143,
+                              650,
+                              435,
+                              661,
+                              436,
+                              823,
+                              144,
+                              824
+                            ],
+                            "text": "The",
+                          },
+            // The rest of result is omitted for brevity 
+            
     }
     ```
 
@@ -64,10 +99,50 @@ In 3.0, it has been adjusted:
 
     ```json
     {
-        "aggregator": {
-            "batchSize": 1000,
-            "flushTimeout": "00:00:30"
-        }
+        {
+          "status": "succeeded",
+          "createdDateTime": "2020-05-28T05:13:21Z",
+          "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
+          "analyzeResult": {
+            "version": "3.0.0",
+            "readResults": [
+              {
+                "page": 1,
+                "language": "en",
+                "angle": 0.8551,
+                "width": 2661,
+                "height": 1901,
+                "unit": "pixel",
+                "lines": [
+                  {
+                    "boundingBox": [
+                      67,
+                      646,
+                      2582,
+                      713,
+                      2580,
+                      876,
+                      67,
+                      821
+                    ],
+                    "text": "The quick brown fox jumps",
+                    "words": [
+                      {
+                        "boundingBox": [
+                          143,
+                          650,
+                          435,
+                          661,
+                          436,
+                          823,
+                          144,
+                          824
+                        ],
+                        "text": "The",
+                        "confidence": 0.958
+                      },
+        // The rest of result is omitted for brevity 
+        
     }
     ```
 
