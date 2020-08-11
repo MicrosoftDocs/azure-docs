@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Configure an app to expose a web API | Azure"
+title: "Quickstart: Register and expose a web API | Azure"
 titleSuffix: Microsoft identity platform
-description: In this quickstart, you learn how to configure an application to expose a new permission/scope and role to make the application available to client applications.
+description: In this quickstart, your register a web API with the Microsoft identity platform and configure its scopes, exposing it to clients for permissions-based access to the API's resources.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -10,37 +10,34 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 08/14/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-#Customer intent: As an application developer, I need to know how to configure my application to expose new permissions (or scopes) and roles, to make my application available to client applications.
+# Customer intent: As an application developer, I need learn to how to register my web API with the Microsoft identity platform and expose permissions (scopes) to make the API's resources available to users of my client application.
 ---
 
 # Quickstart: Configure an application to expose a web API
 
-You can develop a web API and make it available to client applications by exposing [permissions/scopes](developer-glossary.md#scopes) and [roles](developer-glossary.md#roles). A correctly configured web API is made available just like the other Microsoft web APIs, including the Graph API and the Office 365 APIs.
-
-In this quickstart, you learn how to configure an application to expose a new scope to make it available to client applications.
+In this quickstart, your register a web API with the Microsoft identity platform and expose it to client apps by adding a few example scopes. By registering your web API and and exposing it through scopes, you can provide permissions-based access to its resources for the client apps that access your API.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Completion of [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md).
+* An Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
-## Sign in to the Azure portal and select the app
+## Register the web API
 
-Before you can configure the app, follow these steps:
+To provide scoped access to the resources in a web API, you need register it and then expose the scopes that'll grant permission to the consumers of your API.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
-1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-1. In the left-hand navigation pane, select the **Azure Active Directory** service and then select **App registrations**.
-1. Find and select the application you want to configure. Once you've selected the app, you'll see the application's **Overview** or main registration page.
-1. Choose which method you want to use, UI or application manifest, to expose a new scope:
-    * [Expose a new scope through the UI](#expose-a-new-scope-through-the-ui)
-    * [Expose a new scope or role through the application manifest](#expose-a-new-scope-or-role-through-the-application-manifest)
+> [!WARNING]
+> TODO TODO TODO TODO
 
-## Expose a new scope through the UI
+As part of the prerequisites, you registered an application.
+
+* [Expose a scope in the UI](#expose-a-new-scope-through-the-ui)
+* [Expose a scope or role through the application manifest](#expose-a-new-scope-or-role-through-the-application-manifest)
+
+## Expose a scope
 
 [![Shows how to expose an API using the UI](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
@@ -79,7 +76,7 @@ To expose a new scope through the UI:
 
 1. Follow the steps to [verify that the web API is exposed to other applications](#verify-the-web-api-is-exposed-to-other-applications).
 
-## Expose a new scope or role through the application manifest
+## Expose a scope in the application manifest
 
 The application manifest serves as a mechanism for updating the application entity that defines the attributes of an Azure AD app registration.
 

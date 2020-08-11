@@ -25,8 +25,8 @@ Before a client can access a web API exposed by a resource application, such as 
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Completion of [Quickstart: Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md).
+* An Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Completion of [Quickstart: Configure an application to expose a web API](quickstart-configure-app-expose-web-apis.md)
 
 ## Sign in to the Azure portal and select the app
 

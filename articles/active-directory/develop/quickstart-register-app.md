@@ -26,7 +26,7 @@ Each application you want the Microsoft identity platform to perform identity an
 
 ## Prerequisites
 
-* An Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+* An Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Completion of [Quickstart: Set up a tenant](quickstart-create-new-tenant.md)
 
 ## Register an application
@@ -81,11 +81,11 @@ To configure application settings based on the platform or device you're targeti
 
     | Platform | Configuration settings |
     | -------- | ---------------------- |
-    | **Web** | Enter a **Redirect URI** for your app, the location where Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Select this option for standard web apps or a web API that backs another application. |
-    | **Single-page application** | Enter a **Redirect URI** for your app, the location where Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Select this option if you're building a client-side web app in JavaScript or with a framework like Angular, Vue.js, React.js, or Blazor WebAssembly. |
+    | **Web** | Enter a **Redirect URI** for your app, the location where Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Select this platform for standard web apps or a web API that backs another application (or web API). |
+    | **Single-page application** | Enter a **Redirect URI** for your app, the location where Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Select this platform if you're building a client-side web app in JavaScript or with a framework like Angular, Vue.js, React.js, or Blazor WebAssembly. |
     | **iOS / macOS** | Enter the app **Bundle ID**, found in XCode in *Info.plist* or Build Settings.<br/><br/>A redirect URI is generated for you when you specify a Bundle ID. |
     | **Android** | Enter the app **Package name**, which you can find in the *AndroidManifest.xml* file, and generate and enter the **Signature hash**.<br/><br/>A redirect URI is generated for you when you specify these settings. |
-    | **Mobile and desktop applications** | Select one of the **Suggested redirect URIs** or specify a **Custom redirect URI**.<br/>For desktop applications, we recommend:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Select this option for mobile applications that aren't using the latest Microsoft Authentication Library (MSAL) or are not using a broker. Also select this option for desktop applications. |
+    | **Mobile and desktop applications** | Select one of the **Suggested redirect URIs** or specify a **Custom redirect URI**.<br/>For desktop applications, we recommend:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Select this platform for mobile applications that aren't using the latest Microsoft Authentication Library (MSAL) or are not using a broker. Also select this platform for desktop applications. |
 
 ### Redirect URI restrictions
 
