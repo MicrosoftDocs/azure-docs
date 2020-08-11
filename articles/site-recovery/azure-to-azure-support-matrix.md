@@ -160,7 +160,7 @@ SUSE Linux Enterprise Server 15 and 15 SP1 | 9.32 | By default, all [stock SUSE 
 * Volume manager: LVM2
 
 > [!NOTE]
-> Multipath software is not supported.
+> Multipath software is not supported. 
 
 
 ## Replicated machines - compute settings
