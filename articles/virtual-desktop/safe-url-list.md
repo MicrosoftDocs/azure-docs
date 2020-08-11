@@ -3,7 +3,7 @@ title: Windows Virtual Desktop safe URL list - Azure
 description: A list of URLs you should unblock to ensure your Windows Virtual Desktop deployment works as intended.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -27,7 +27,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must have acce
 |kms.core.windows.net|1688|Windows activation|Internet|
 |wvdportalstorageblob.blob.core.windows.net|443|Azure portal support|AzureCloud|
 | 169.254.169.254 | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
-| 168.63.129.16 | ???? | [Session host health monitoring](../virtual-network/security-overview#azure-platform-considerations.md) | N/A |
+| 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/security-overview#azure-platform-considerations.md) | N/A |
 
 >[!IMPORTANT]
 >Windows Virtual Desktop now supports the FQDN tag. For more information, see [Use Azure Firewall to protect Window Virtual Desktop deployments](../firewall/protect-windows-virtual-desktop.md).
