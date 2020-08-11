@@ -82,5 +82,6 @@ queries to ensure performance.
 
 ## Next steps
 
-* [Choose a distribution column](concepts-hyperscale-choose-distribution-column.md) for tables
-  in your application to distribute data effeciently
+* [Choose a distribution
+  column](concepts-hyperscale-choose-distribution-column.md) for tables in your
+  application to distribute data efficiently
