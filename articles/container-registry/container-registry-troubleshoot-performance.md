@@ -2,7 +2,7 @@
 title: Troubleshoot registry performance
 description: Symptoms, causes, and resolution of common problems with the performance of a registry
 ms.topic: article
-ms.date: 08/06/2020
+ms.date: 08/11/2020
 ---
 
 # Troubleshoot registry performance
@@ -56,6 +56,8 @@ Review your Docker daemon configuration for the maximum concurrent uploads or do
 
 Because each image layer requires a separate registry read or write operation, check the number of layers in your images. Consider strategies to reduce the number of image layers.
 
+Related links:
+
 * [Azure Container Registry service tiers](container-registry-skus.md)
 * [dockerd](https://docs.docker.com/engine/reference/commandline/dockerd/)
 
@@ -66,6 +68,10 @@ A Docker client that pushes an image to a geo-replicated registry might not push
 To optimize DNS resolution to the closest replica when pushing images, configure a geo-replicated registry in the same Azure regions as the source of the push operations, or the closest region when working outside of Azure.
 
 To troubleshoot operations with a geo-replicated registry, you can also temporarily disable Traffic Manager routing to one or more replications.
+
+Related links:
+
+* [Geo-replication in Azure Container Registry](gontainer-registry-geo-replication.md)
 
 ### Configure DNS for geo-replicated registry
 
@@ -79,6 +85,7 @@ A potential solution is to configure a closer DNS server.
 
 Related links:
 
+* [Geo-replication in Azure Container Registry](gontainer-registry-geo-replication.md)
 * [Troubleshoot push operations with geo-replicated registries](container-registry-geo-replication.md#troubleshoot-push-operations-with-geo-replicated-registries)
 * [Temporarily disable routing to replication](container-registry-geo-replication.md#temporarily-disable-routing-to-replication)
 * [Traffic Manager FAQs](../traffic-manager/traffic-manager-faqs.md)

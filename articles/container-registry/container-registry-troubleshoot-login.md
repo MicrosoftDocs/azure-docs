@@ -2,7 +2,7 @@
 title: Troubleshoot login to registry
 description: Symptoms, causes, and resolution of common problems when logging into an Azure container registry
 ms.topic: article
-ms.date: 08/06/2020
+ms.date: 08/11/2020
 ---
 
 # Troubleshoot registry login
@@ -14,7 +14,7 @@ This article helps you troubleshoot problems you might encounter when logging in
 May include one or more of the following:
 
 * Unable to login to registry using `docker login`, `az acr login`, or both
-* Unable to login to registry with Docker and you receive error `unauthorized: authentication required` or `unauthorized: Application not registered with AAD`
+* Unable to login to registry and you receive error `unauthorized: authentication required` or `unauthorized: Application not registered with AAD`
 * Unable to login to registry and you receive Azure CLI error `Could not connect to the registry login server`
 * Unable to push or pull images and you receive Docker error `unauthorized: authentication required`
 * Unable to access registry from Azure Kubernetes Service, Azure DevOps, or another Azure service
@@ -38,8 +38,8 @@ If you don't resolve your problem here, see [Advanced troubleshooting](#advanced
 
 ### Check Docker configuration
 
-Most Azure Container Registry authentication flows require a local Docker installation so you can authenticate with your registry for operations such as pushing and pulling images. Confirm that the Docker CLI client and daemon (Docker Engine) are running in your environment. You need Docker client version 18.03 or later. 
-s
+Most Azure Container Registry authentication flows require a local Docker installation so you can authenticate with your registry for operations such as pushing and pulling images. Confirm that the Docker CLI client and daemon (Docker Engine) are running in your environment. You need Docker client version 18.03 or later.
+
 Related links:
 
 * [Authentication overview](container-registry-authentication.md#authentication-options)
