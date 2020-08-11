@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 08/10/2020
 ms.author: cynthn
 ---
 
@@ -13,13 +13,18 @@ ms.author: cynthn
 
 Gallery images are stored as managed disks, so they are automatically encrypted using server-side encryption. Server-side encryption uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)
 
-You can rely on platform-managed keys for the encryption of your images, or you can manage encryption using your own keys. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all disks in your images. 
+You can rely on platform-managed keys for the encryption of your images, use your own keys, or you can use both together, for double encryption. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all disks in your images. 
 
 Server-side encryption using customer-managed keys uses Azure Key Vault. You can either import [your RSA keys](../key-vault/keys/hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault.
 
-To use customer managed keys for images, you first need an Azure Key Vault. You then create a disk encryption set. The disk encryption set is then used when creating you image versions.
+## Prerequisites
 
-For more information about creating and using disk encryption sets, see [Customer managed keys](./windows/disk-encryption.md#customer-managed-keys).
+This article requires that you already have a disk encryption set to use for your image.
+
+To use only a customer-managed key, see [Set up your Azure Key Vault and DiskEncryptionSet](../windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+
+To use both platform-managed and customer-managed keys (for double encryption), see [Enable double encryption at rest](../windows/disks-enable-double-encryption-at-rest-powershell.md).
+
 
 ## Limitations
 
