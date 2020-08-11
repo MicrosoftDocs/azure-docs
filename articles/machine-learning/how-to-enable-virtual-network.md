@@ -34,6 +34,13 @@ Azure Machine Learning relies on other Azure services for data storage and compu
 
 + A pre-existing virtual network and subnet to use with your compute resources.
 
++ To deploy resources into a virtual network or subnet, your user account must have permissions to the following actions in Azure role-based access controls (RBAC):
+
+    - "Microsoft.Network/virtualNetworks/join/action" on the virtual network resource.
+    - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
+
+    For more information on RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking)
+
 ## Secure your workspace
 
 Your Azure Machine Learning workspace can have either a __public endpoint__ or a __private endpoint__. A public endpoint is a set of IP addresses that are accessible on the public internet, while a private endpoint is a set of private IP addresses within a virtual network. 
