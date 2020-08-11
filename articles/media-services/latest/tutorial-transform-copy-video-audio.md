@@ -63,15 +63,13 @@ When you create the transform, preset `copyAllBitrateNonInterleaved`.  It is one
 
 ## Create a job and submit the job
 
-[Create and submit the job](cli-create-jobs). The putput asset will contain all mp4 files, ism and ismc files of the job.
+[Create and submit the job](cli-create-jobs). The putput asset will contain all .mp4 files, .ism, and .ismc files of the job.
 
 ### Clean up resource in your Media Services account
 
-Generally, you should clean up everything except objects that you're planning to reuse (typically, you'll reuse Transforms and persist StreamingLocators). If you want for your account to be clean after experimenting, delete the resources that you don't plan to reuse. Otherwise, you will be billed for the services.
+Generally, you should clean up everything except objects that you're planning to reuse. (Typically, you'll reuse Transforms and persist StreamingLocators). If you want your account to be clean after experimenting, delete the resources that you don't plan to reuse. Otherwise, you will be billed for the services.
 
-If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier.
-
-Execute the following CLI command:
+If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier. Execute the following CLI command:
 
 ```azurecli
 az group delete --name amsResourceGroup
