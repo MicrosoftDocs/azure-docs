@@ -12,7 +12,7 @@ ms.custom: "include file"
 ---
 
 ## Trusted Microsoft services
-WHen you enable the **Allow trusted Microsoft services to bypass this firewall** setting, the following services are granted access to your Event Hubs resources.
+When you enable the **Allow trusted Microsoft services to bypass this firewall** setting, the following services are granted access to your Event Hubs resources.
 
 | Trusted service | Supported usage scenarios | 
 | --------------- | ------------------------- | 
