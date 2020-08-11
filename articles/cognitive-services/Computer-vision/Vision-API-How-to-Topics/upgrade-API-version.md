@@ -51,113 +51,114 @@ Language is a new optional parameter. If you do not know the language of your do
 In 2.X, the output format is as follows: 
 
 
-    ```json
+```json
+{
     {
-        {
-              "status": "Succeeded",
-                "recognitionResults": [
-                  {
-                    "page": 1,
-                    "language": "en",
-                    "clockwiseOrientation": 349.59,
-                    "width": 2661,
-                    "height": 1901,
-                    "unit": "pixel",
-                    "lines": [
-                      {
-                        "boundingBox": [
-                          67,
-                          646,
-                          2582,
-                          713,
-                          2580,
-                          876,
-                          67,
-                          821
-                        ],
-                        "text": "The quick brown fox jumps",
-                        "words": [
-                          {
-                            "boundingBox": [
-                              143,
-                              650,
-                              435,
-                              661,
-                              436,
-                              823,
-                              144,
-                              824
-                            ],
-                            "text": "The",
-                          },
-            // The rest of result is omitted for brevity 
-            
-    }
-    ```
-
-In 3.0, it has been adjusted:
-
-    ```json
-    {
-        {
-          "status": "succeeded",
-          "createdDateTime": "2020-05-28T05:13:21Z",
-          "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
-          "analyzeResult": {
-            "version": "3.0.0",
-            "readResults": [
-              {
+            "status": "Succeeded",
+            "recognitionResults": [
+                {
                 "page": 1,
                 "language": "en",
-                "angle": 0.8551,
+                "clockwiseOrientation": 349.59,
                 "width": 2661,
                 "height": 1901,
                 "unit": "pixel",
                 "lines": [
-                  {
+                    {
                     "boundingBox": [
-                      67,
-                      646,
-                      2582,
-                      713,
-                      2580,
-                      876,
-                      67,
-                      821
+                        67,
+                        646,
+                        2582,
+                        713,
+                        2580,
+                        876,
+                        67,
+                        821
                     ],
                     "text": "The quick brown fox jumps",
                     "words": [
-                      {
+                        {
                         "boundingBox": [
-                          143,
-                          650,
-                          435,
-                          661,
-                          436,
-                          823,
-                          144,
-                          824
+                            143,
+                            650,
+                            435,
+                            661,
+                            436,
+                            823,
+                            144,
+                            824
                         ],
                         "text": "The",
-                        "confidence": 0.958
-                      },
+                        },
         // The rest of result is omitted for brevity 
         
-    }
-    ```
+}
+```
+
+In 3.0, it has been adjusted:
+
+```json
+{
+    {
+        "status": "succeeded",
+        "createdDateTime": "2020-05-28T05:13:21Z",
+        "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
+        "analyzeResult": {
+        "version": "3.0.0",
+        "readResults": [
+            {
+            "page": 1,
+            "language": "en",
+            "angle": 0.8551,
+            "width": 2661,
+            "height": 1901,
+            "unit": "pixel",
+            "lines": [
+                {
+                "boundingBox": [
+                    67,
+                    646,
+                    2582,
+                    713,
+                    2580,
+                    876,
+                    67,
+                    821
+                ],
+                "text": "The quick brown fox jumps",
+                "words": [
+                    {
+                    "boundingBox": [
+                        143,
+                        650,
+                        435,
+                        661,
+                        436,
+                        823,
+                        144,
+                        824
+                    ],
+                    "text": "The",
+                    "confidence": 0.958
+                    },
+    // The rest of result is omitted for brevity 
+    
+}
+```
 
 Note the following changes to the json:
 
-- In v2.0, `Get Read Operation Result` will return the OCR recognition json when the status is “Succeeded”. In v3.0, this field is "succeeded".
-- To get the root for page array,  change the json hierarchy from "recognitionResults" to "analyzeResult"/"readResults". The per-page line and words json hierarchy remains unchanged, so no code changes are required.
--	The page angle "clockwiseOrientation" has been renamed to "angle" and the range has been changed from 0 - 360 degrees to -180 to 180 degrees. Depending on your code, you may or may not have to makes changes as most math functions can handle either range.
+- In v2.0, `Get Read Operation Result` will return the OCR recognition json when the status is “Succeeded”. In v3.0, this field is `succeeded`.
+- To get the root for page array,  change the json hierarchy from `recognitionResults` to `analyzeResult`/`readResults`. The per-page line and words json hierarchy remains unchanged, so no code changes are required.
+-	The page angle `clockwiseOrientation` has been renamed to `angle` and the range has been changed from 0 - 360 degrees to -180 to 180 degrees. Depending on your code, you may or may not have to makes changes as most math functions can handle either range.
 -	The v3.0 API also introduces the following improvements you can optionally leverage:
-    -"createdDateTime" and "lastUpdatedDateTime" are added so you can track the duration of processing. See documentation for more details. 
+    -`createdDateTime` and `lastUpdatedDateTime` are added so you can track the duration of processing. See documentation for more details. 
     - “version” tells you the version of the API used to generate results
-    - A per-word "confidence" has been added. This value is calibrated so that a value 0.95 means that there is a 95%  the recognition is correct. The confidence score can be used to select which text to send to human review. 
+    - A per-word `confidence` has been added. This value is calibrated so that a value 0.95 means that there is a 95%  the recognition is correct. The confidence score can be used to select which text to send to human review. 
 
 
+## Upgrade from 
 
 ## All other operations
 
-There are no breaking changes between v2.X and v3.0 of Computer Vision API. You may simply modify the API path to replace "v2.0" with "v3.0".
+There are no breaking changes between v2.X and v3.0 of Computer Vision API. You may simply modify the API path to replace `v2.0` with `v3.0`.
