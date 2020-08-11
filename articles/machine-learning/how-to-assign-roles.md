@@ -372,9 +372,12 @@ Here are a few things to be aware of while you use Azure role-based access contr
 
 - When you create a resource in Azure, say a workspace, you are not directly the owner of the workspace. Your role gets inherited from the highest scope role that you are authorized against in that subscription. As an example if you are a Network Administrator, and had the permissions to create a Machine Learning workspace, you would be assigned the Network Administrator role against that workspace, and not the Owner role.
 - When there are two role assignments to the same AAD user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
-- To deploy your compute resources inside a VNet, you need to explicitly have permissions for "Microsoft.Network/virtualNetworks/join/action" on that VNet resource.
+- To deploy your compute resources inside a VNet, you need to explicitly have permissions for the following actions:
+    - "Microsoft.Network/virtualNetworks/join/action" on the VNet resource.
+    - "Microsoft.Network/virtualNetworks/subnet/join/action" on the subnet resource.
 - It can sometimes take upto 1 hour for your new role assignments to take effect over cached permissions across the stack.
 
+For more information on RBAC with networking, see the [Networking built-in roles](/azure/role-based-access-control/built-in-roles#networking).
 
 ### Q. What permissions do I need to use a user-assigned managed identity with my Amlcompute clusters?
 
