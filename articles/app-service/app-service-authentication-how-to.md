@@ -464,6 +464,67 @@ The following exhausts possible configuration options within the file:
 }
 ```
 
+## Pin your app to a specific authentication runtime version
+
+When you enable Authentication / Authorization, platform middleware is injected into your HTTP request pipeline as described in the [feature overview](overview-authentication-authorization.md#how-it-works). This platform middleware is periodically updated with new features and improvements as part of routine platform updates. By default, your web or function app will run on the latest version of this platform middleware. These automatic updates are always backwards compatible. However, in the rare event that this automatic update introduces a runtime issue for your web or function app, you can temporarily roll back to the previous middleware version. This article explains how to temporarily pin an app to a specific version of the authentication middleware.
+
+### Automatic and manual version updates 
+
+You can pin your app to a specific version of the platform middleware by setting a `runtimeVersion` setting for the app. Your app always runs on the latest version unless you choose to explicitly pin it back to a specific version. There will be a few versions supported at a time. If you pin to an invalid version that is no longer supported, your app will use the latest version instead. To always run the latest version, set `runtimeVersion` to ~1. 
+
+### View and update the current runtime version
+
+You can change the runtime version used by your app. The new runtime version should take effect after restarting the app. 
+
+#### View the current runtime version
+
+You can view the current version of the platform authentication middleware either using the Azure CLI or via one of the built0-in version HTTP endpoints in your app.
+
+##### From the Azure CLI
+
+Using the Azure CLI, view the current middleware version with the [az webapp auth show](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) command.
+
+```azurecli-interactive
+az webapp auth show --name <my_app_name> \
+--resource-group <my_resource_group>
+```
+
+In this code, replace `<my_app_name>` with the name of your app. Also replace `<my_resource_group>` with the name of the resource group for your app.
+
+You will see the `runtimeVersion` field in the CLI output. It will resemble the following example output, which has been truncated for clarity: 
+```output
+{
+  "additionalLoginParams": null,
+  "allowedAudiences": null,
+    ...
+  "runtimeVersion": "1.3.2",
+    ...
+}
+```
+
+##### From the version endpoint
+
+You can also hit /.auth/version endpoint on an app also to view the current middleware version that the app is running on. It will resemble the following example output:
+```output
+{
+"version": "1.3.2"
+}
+```
+
+#### Update the current runtime version
+
+Using the Azure CLI, you can update the `runtimeVersion` setting in the app with the [az webapp auth update](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update) command.
+
+```azurecli-interactive
+az webapp auth update --name <my_app_name> \
+--resource-group <my_resource_group> \
+--runtime-version <version>
+```
+
+Replace `<my_app_name>` with the name of your app. Also replace `<my_resource_group>` with the name of the resource group for your app. Also, replace `<version>` with a valid version of the 1.x runtime or `~1` for the latest version. You can find the release notes on the different runtime versions [here] (https://github.com/Azure/app-service-announcements) to help determine the version to pin to.
+
+You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](https://docs.microsoft.com/cli/azure/install-azure-cli) to execute this command after executing [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) to sign in.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
