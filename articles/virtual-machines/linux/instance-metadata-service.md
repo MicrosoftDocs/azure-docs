@@ -41,7 +41,7 @@ Below is the sample code to retrieve all metadata for an instance, to access spe
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-06-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2020-06-01"
 ```
 
 **Response**
@@ -185,9 +185,26 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 The Instance Metadata Service is versioned and specifying the API version in the HTTP request is mandatory.
 
-Follow are the supported service versions: 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2020-06-01.
+The supported API versions are: 
+- 2017-03-01
+- 2017-04-02
+- 2017-08-01 
+- 2017-10-01
+- 2017-12-01 
+- 2018-02-01
+- 2018-04-02
+- 2018-10-01
+- 2019-02-01
+- 2019-03-11
+- 2019-04-30
+- 2019-06-01
+- 2019-06-04
+- 2019-08-01
+- 2019-08-15
+- 2019-11-01
+- 2020-06-01
 
-Note when new version is released, it will take a while to roll out to all regions. Currently version 2019-11-01 is still getting deployed and may not be available in all regions.
+Note when new version is released, it will take a while to roll out to all regions.
 
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
