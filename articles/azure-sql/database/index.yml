@@ -115,11 +115,11 @@ landingContent:
       - linkListType: deploy
         links:
         - text: Azure CLI samples
-          url: ../database/az-cli-script-samples-content-guide.md
+          url: az-cli-script-samples-content-guide.md
         - text: PowerShell samples
-          url: ../database/powershell-script-content-guide.md
+          url: powershell-script-content-guide.md
         - text: ARM template samples 
-          url: ../database/arm-templates-content-guide.md
+          url: arm-templates-content-guide.md
       - linkListType: download
         links:
         - text: SQL Server Management Studio (SSMS)
