@@ -148,7 +148,7 @@ failures on a more frequent basis.
 
 Sets the shard count for hash-partitioned tables and defaults to 32.  This
 value is used by the
-[create_distributed_table](reference-hyperscale-udf.md#create_distributed_table)
+[create_distributed_table](reference-hyperscale-functions.md#create_distributed_table)
 UDF when creating hash-partitioned tables. This parameter can be set at
 run-time and is effective on the coordinator.
 
@@ -186,7 +186,7 @@ and is effective on the coordinator.
 
 > [!NOTE]
 > This GUC is applicable only when
-> [shard_replication_factor](reference-hyperscale-guc.md#citusshard_replication_factor-integer)
+> [shard_replication_factor](reference-hyperscale-parameters.md#citusshard_replication_factor-integer)
 > is greater than one, or for queries against
 > [reference_tables](concepts-hyperscale-distributed-data.md#type-2-reference-tables).
 

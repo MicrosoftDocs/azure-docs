@@ -264,7 +264,7 @@ SELECT * from pg_dist_colocation;
 ### Rebalancer strategy table
 
 This table defines strategies that
-[rebalance_table_shards](reference-hyperscale-udf.md#rebalance_table_shards)
+[rebalance_table_shards](reference-hyperscale-functions.md#rebalance_table_shards)
 can use to determine where to move shards.
 
 | Name                           | Type    | Description                                                                                                                                       |
@@ -316,7 +316,7 @@ Here are examples of functions that can be used within new shard rebalancer
 strategies, and registered in the
 [pg_dist_rebalance_strategy](reference-hyperscale-metadata.md?#rebalancer-strategy-table)
 with the
-[citus_add_rebalance_strategy](reference-hyperscale-udf.md#citus_add_rebalance_strategy)
+[citus_add_rebalance_strategy](reference-hyperscale-functions.md#citus_add_rebalance_strategy)
 function.
 
 -   Setting a node capacity exception by hostname pattern:

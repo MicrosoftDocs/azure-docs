@@ -60,7 +60,8 @@ the worker postgres instances to view or run commands on individual shards.
 
 You're now ready to insert data into the distributed table and run queries on
 it. You can also learn more about the UDF used in this section in the [table
-and shard DDL](reference-hyperscale-udf.md#table-and-shard-ddl) reference.
+and shard DDL](reference-hyperscale-functions.md#table-and-shard-ddl)
+reference.
 
 ### Reference Tables
 
@@ -245,7 +246,7 @@ an error and leave tables on the coordinator node unchanged.
 
 Here is a reference of the categories of DDL statements that propagate.
 Automatic propagation can be enabled or disabled with a [configuration
-parameter](reference-hyperscale-guc.md#citusenable_ddl_propagation-boolean)
+parameter](reference-hyperscale-parameters.md#citusenable_ddl_propagation-boolean)
 
 ### Adding/Modifying Columns
 
