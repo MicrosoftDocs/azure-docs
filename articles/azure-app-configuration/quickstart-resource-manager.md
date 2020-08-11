@@ -17,7 +17,7 @@ Learn how to use Azure Resource Manager templates and Azure PowerShell to deploy
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/<template's URI>)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ One Azure resource is defined in the template:
 
 The [second template](https://azure.microsoft.com/resources/templates/101-app-configuration/) creates a virtual machine by using the key-values in the store.
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration/azuredeploy.json" range="1-37" highlight="181,189":::
+:::code language="json" source="~/quickstart-templates/101-app-configuration/azuredeploy.json" range="1-217" highlight="181,189":::
 
 ## Deploy the templates
 
@@ -51,8 +51,8 @@ The [second template](https://azure.microsoft.com/resources/templates/101-app-co
     - **Resource group**: select **Create new** to create a new resource group unless you want to use an existing resource group.
     - **Region**: select a location for the resource group.  For example **Central US**.
     - **Config Store Name**: enter a new app configuration store name.
-    - **Location**: use the default value.
-    - **Sku Name**: use the default value.
+    - **Location**: specify the location of the App Configuration store.  Use the default value.
+    - **Sku Name**: specify the SKU name of the App Configuration store. Use the default value.
 
 1. Select **Review + create**.
 1. Verify that the page shows **Validation Passed**, and then select **Create**.
@@ -72,7 +72,7 @@ After you have created an App Configuration store, you can use the Azure portal 
 
    Enter *template* for **Label**, but keep **Content Type** empty.
 
-To use Azure CLI, see [Work with key-values in an Azure App Configuration store](./scripts/cli-work-with-keys).
+To use Azure CLI, see [Work with key-values in an Azure App Configuration store](./scripts/cli-work-with-keys.md).
 
 ### Deploy VM using stored key-values
 
@@ -87,18 +87,21 @@ Now that you've added key-values to the store, you're ready to deploy a VM using
 
 1. Select or enter the following values.
 
-   Replace the parameter values in the template with the following values:
+    - **subscription**: select the Azure subscription used to create the virtual machine.
+    - **Resource group**: either specify the same resource group as the App Configuration store, or select **Create new** to create a new resource group.
+    - **Region**: select a location for the resource group.  For example **Central US**.
+    - **Location**: specify the location of the virtual machine. use the default value.
+    - **Admin Username**: specify an administrator username for the virtual machine.
+    - **Admin Password**: specify an administrator password for the virtual machine.
+    - **Domain Name Label**: specify a unique domain name.
+    - **Storage Account Name**: specify a unique name for a storage account associated with the virtual machine.
+    - **App Config Store Resource Group**: specify the resource group that contains your App Configuration store.
+    - **App Config Store Name**: specify the name of your Azure App Configuration store.
+    - **VM Sku Key**: specify **windowsOSVersion**.  This is the key value name that you added to the store.
+    - **Disk Size Key**: specify **diskSizeGB**. This is the they key value name that you added to the store.
 
-   |Parameter|Value|
-   |-|-|
-   |adminPassword|An administrator password for the VM.|
-   |appConfigStoreName|The name of your Azure App Configuration store.|
-   |appConfigStoreResourceGroup|The resource group that contains your App Configuration store.|
-   |vmSkuKey|*windowsOSVersion*|
-   |diskSizeKey|*diskSizeGB*|
-   |adminUsername|An administrator username for the VM.|
-   |storageAccountName|A unique name for a storage account associated with the VM.|
-   |domainNameLabel|A unique domain name.|
+1. Select **Review + create**.
+1. Verify that the page shows **Validation Passed**, and then select **Create**.
 
 ## Clean up resources
 
