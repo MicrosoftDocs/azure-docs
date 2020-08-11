@@ -33,6 +33,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Updated normalization for forecasting metrics to occur by grain.
     + Improved calculation of forecast quantiles when lookback features are disabled.
     + Fixed bool sparse matrix handling when computing explanations after AutoML
+    + Added low-capacity forecasting models (i.e. Naive, SeasonalNaive, Average, SeasonalAverage).
   + **azureml-core**
     + A new method `run.get_detailed_status()` now shows the detailed explanation of current run status. It is currently only showing explanation for `Queued` status.
     + Add image_name and image_labal parameters to Model.package() to enable renaming the built package image.
