@@ -85,27 +85,30 @@ To configure application settings based on the platform or device you're targeti
     | **Single-page application** | Enter a **Redirect URI** for your app, the location where Microsoft identity platform redirects a user's client and sends security tokens after authentication.<br/><br/>Select this option if you're building a client-side web app in JavaScript or with a framework like Angular, Vue.js, React.js, or Blazor WebAssembly. |
     | **iOS / macOS** | Enter the app **Bundle ID**, found in XCode in *Info.plist* or Build Settings.<br/><br/>A redirect URI is generated for you when you specify a Bundle ID. |
     | **Android** | Enter the app **Package name**, which you can find in the *AndroidManifest.xml* file, and generate and enter the **Signature hash**.<br/><br/>A redirect URI is generated for you when you specify these settings. |
-    | **Mobile and desktop applications** | Select one of the **Suggested redirect URIs** or specify a **Custom redirect URI**.<br/><br/>For desktop applications, we recommend this suggested redirect URI:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`. |
+    | **Mobile and desktop applications** | Select one of the **Suggested redirect URIs** or specify a **Custom redirect URI**.<br/>For desktop applications, we recommend:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Select this option for mobile applications that aren't using the latest Microsoft Authentication Library (MSAL) or are not using a broker. Also select this option for desktop applications. |
 
 ### Redirect URI restrictions
 
-* Active Directory Federation Services (AD FS) and Azure AD B2C redirect URIs must include a port number. For example, `http://localhost:1234`.
-* Redirect URIs for mobile applications that aren't using the latest Microsoft Authentication Library (MSAL) or are not using a broker must be configured in **Mobile and desktop applications**.
+Active Directory Federation Services (AD FS) and Azure AD B2C redirect URIs must include a port number. For example, `http://localhost:1234`.
 
 For a full list of restrictions and limitations, see [Redirect URI/reply URL restrictions and limitations](reply-url.md).
 
 ## Add credentials
 
-To add a credential to a web application, add a certificate or create a client secret. To add a certificate:
+Credentials are typically used by confidential client applications that access a web API, for example web apps, other web APIs, or service- and daemon-type applications.
 
-1. From the app **Overview** page, select the **Certificates & secrets** section.
+You can add both certificates and client secrets as credentials to your confidential client apps.
+
+### Add a certificate
+
+1. From the app **Overview** page, select **Certificates & secrets**.
 1. Select **Upload certificate**.
 1. Select the file you'd like to upload. It must be one of the following file types: .cer, .pem, .crt.
 1. Select **Add**.
 
-To add a client secret:
+### Add a client secret
 
-1. From the app **Overview** page, select the **Certificates & secrets** section.
+1. From the app **Overview** page, select **Certificates & secrets**.
 1. Select **New client secret**.
 1. Add a description for your client secret.
 1. Select a duration.
