@@ -1,7 +1,7 @@
 ﻿---
 title: Associate a public IP address to a virtual machine
 titlesuffix: Azure Virtual Network
-description: Learn how to associate a public IP address to a virtual machine.
+description: Learn to associate a public IP address to a virtual machine (VM) by using the Azure portal or the Azure CLI.
 services: virtual-network
 documentationcenter: ''
 author: asudbring

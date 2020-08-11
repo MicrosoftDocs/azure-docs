@@ -31,7 +31,7 @@ Each Application Insights resource comes with metrics that are available out-of-
 
 ### Other things to keep in mind
 
--	You may need to add custom code to ensure that meaningful values are set into the [Cloud_RoleName](./app-map.md?tabs=net#set-cloud-role-name) attribute. Without meaningful values set for this attribute, *NONE* of the portal experiences will work.
+-	You may need to add custom code to ensure that meaningful values are set into the [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name) attribute. Without meaningful values set for this attribute, *NONE* of the portal experiences will work.
 - For Service Fabric applications and classic cloud services, the SDK automatically reads from the Azure Role Environment and sets these. For all other types of apps, you will likely need to set this explicitly.
 -	Live Metrics experience does not support splitting by role name.
 

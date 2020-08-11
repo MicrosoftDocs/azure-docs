@@ -40,7 +40,7 @@ This article describes steps for getting credentials to access Media Services AP
 The **API access** page lets you select the authentication method you want to use to connect to the API. The page also provides the values you need to connect to the API.
 
 1. In the [Azure portal](https://portal.azure.com/), select your Media Services account.
-2. Select how to connect to the Media Services API.
+2. Select the **API access (new)** blade on the left navigation bar.
 3. Under **Connect to Media Services API**, select the Media Services API version you want to connect to (V3 is the latest version of the service).
 
 ### Service principal authentication  (recommended)
@@ -51,7 +51,7 @@ Authenticates a service using an Azure Active Directory (Azure AD) app and secre
 
 The **Manage your AAD app and secret** section lets you select or create a new Azure AD app and generate a secret. For security purposes, the secret cannot be shown after the blade is closed. The application uses the application ID and secret for authentication to obtain a valid token for media services.
 
-Make sure that you have sufficient permissions to register an application with your Azure AD tenant and to assign the application to a role in your Azure subscription. For more information, see [Required permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+Make sure that you have sufficient permissions to register an application with your Azure AD tenant and to assign the application to a role in your Azure subscription. For more information, see [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 #### Connect to Media Services API
 

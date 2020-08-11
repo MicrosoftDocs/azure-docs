@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 # Migrate to cloud authentication using staged rollout (preview)
 
 Staged rollout allows you to selectively test groups of users with cloud authentication capabilities like Azure Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains.  This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
-	
+    
 -  You're currently using an on-premises Multi-Factor Authentication server. 
 -  You're using smart cards for authentication. 
 -  Your current server offers certain federation-only features.
@@ -41,11 +41,13 @@ For an overview of the feature, view this "Azure Active Directory: What is stage
 
 -   You have configured all the appropriate tenant-branding and conditional access policies you need for users who are being migrated to cloud authentication.
 
--   If you plan to use Azure Multi-Factor Authentication, we recommend that you use [converged registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once.
+-   If you plan to use Azure Multi-Factor Authentication, we recommend that you use [combined registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once.
 
 -   To use the staged rollout feature, you need to be a global administrator on your tenant.
 
 -   To enable *seamless SSO* on a specific Active Directory forest, you need to be a domain administrator.
+
+-  If you are deploying Hybrid Azure AD or Azure AD join, you must upgrade to Windows 10 1903 update.
 
 
 ## Supported scenarios
@@ -78,7 +80,7 @@ The following scenarios are not supported for staged rollout:
 
 - When you first add a security group for staged rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
-- While users are in Staged Rollout, password expiration policy is set to 90 days with no option to customize it. 
+- While users are in Staged Rollout, when EnforceCloudPasswordPolicyForPasswordSyncedUsers is enabled, password expiration policy is set to 90 days with no option to customize it. 
 
 
 ## Get started with staged rollout

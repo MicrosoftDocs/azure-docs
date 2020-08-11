@@ -4,8 +4,9 @@ description: Describes Azure HPC Cache, a file access accelerator solution for h
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 05/29/2020
+ms.date: 07/16/2020
 ms.author: v-erkel
+ms.custom: references_regions
 ---
 
 # What is Azure HPC Cache?
@@ -48,22 +49,16 @@ An Azure HPC Cache deployment can help speed up quantitative analysis calculatio
 
 ## Region availability
 
-Azure HPC Cache is available in these Azure regions:
+Visit the [Azure Global Infrastructure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache) page to learn where Azure HPC Cache is available.
 
-| North America      | Europe         | Asia            | Australia      |
-|--------------------|----------------|-----------------|----------------|
-| East US            | North Europe   | Korea Central   | Australia East |
-| East US 2          | West Europe    | Southeast Asia  |                |
-| South Central US | | | |
-| West US 2        | | | |
-
-The [customer-managed keys feature](customer-keys.md) is supported only in these regions:
+The [customer-managed keys feature](customer-keys.md) is supported only in these Azure regions:
 
 * East US
 * South Central US
 * West US 2
-
-Check the [Azure HPC Cache product page](https://azure.microsoft.com/services/hpc-cache) for the latest availability information.
+* West Europe
+* US Gov Arizona
+* US Gov Virginia
 
 ## Service availability
 

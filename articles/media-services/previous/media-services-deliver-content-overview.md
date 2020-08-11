@@ -61,9 +61,9 @@ Locators have expiration dates. The Azure portal sets an expiration date 100 yea
 > 
 > 
 
-To update an expiration date on a locator, use [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) or [.NET](https://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
+To update an expiration date on a locator, use [REST](/rest/api/media/operations/locator#update_a_locator) or [.NET](https://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
 
-Locators are not designed to manage per-user access control. You can give different access rights to individual users by using Digital Rights Management (DRM) solutions. For more information, see [Securing Media](https://msdn.microsoft.com/library/azure/dn282272.aspx).
+Locators are not designed to manage per-user access control. You can give different access rights to individual users by using Digital Rights Management (DRM) solutions. For more information, see [Securing Media](/previous-versions/azure/dn282272(v=azure.100)).
 
 When you create a locator, there may be a 30-second delay due to required storage and propagation processes in Azure Storage.
 
@@ -183,4 +183,3 @@ Some of the legacy Smooth Streaming clients may not support the repeat tags and 
 
 ## Related topics
 [Update Media Services locators after rolling storage keys](media-services-roll-storage-access-keys.md)
-

@@ -6,6 +6,7 @@ ms.topic: quickstart
 description: "This quickstart shows you how to use Azure Dev Spaces and the command line to develop an application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
+ms.custom: devx-track-javascript
 ---
 # Quickstart: Develop an application on Kubernetes - Azure Dev Spaces
 In this guide, you will learn how to:

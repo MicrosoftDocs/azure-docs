@@ -72,7 +72,7 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
     In the following example, job data is being returned from a Human Resources database: 
 
-    ![The dialog box titled "Get row (Preview)" has two text boxes: "Table name", which contains "HRJOBS" and has a drop-down list, and "Row id", which contains "SA_REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
+    ![The dialog box titled "Get row (Preview)" has two text boxes: "Table name", which contains "H R JOBS" and has a drop-down list, and "Row i d", which contains "S A _ REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
 7. In this next step, you can use any of the other connectors to build your workflow. If you want to test getting data from Oracle, then send yourself an email with the Oracle data using one of the send email connectors, such as Office 365 Outlook. Use the dynamic tokens from the Oracle table to build the `Subject` and `Body` of your email:
 
@@ -117,10 +117,11 @@ View any triggers and actions defined in the swagger, and also see any limits in
 
 ## Get some help
 
-The [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html) is a great place to ask questions, answer questions, and see what other Logic Apps users are doing. 
+The [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html) is a great place to ask questions, answer questions, and see what other Logic Apps users are doing. 
 
 You can help improve Logic Apps and connectors by voting and submitting your ideas at [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
 ## Next steps
 [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), and explore the available connectors in Logic Apps at [APIs list](apis-list.md).
+

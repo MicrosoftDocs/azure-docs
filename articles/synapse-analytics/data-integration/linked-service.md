@@ -1,6 +1,6 @@
 ---
 title: Secure a linked service 
-description: Learn how to provision and secure a linked service with Managed Vnet 
+description: Learn how to provision and secure a linked service with Managed VNet 
 services: synapse-analytics 
 author: acomet
 ms.service: synapse-analytics 
@@ -11,7 +11,7 @@ ms.author: acomet
 ms.reviewer: jrasnick
 ---
 
-# Securing a linked service with Private Links 
+# Secure a linked service with Private Links 
 
 In this article, you will learn how to secure a linked service in Synapse with a private endpoint.
 
@@ -47,7 +47,7 @@ In case, you did not click into the hyperlink when testing the connection above,
 1. Select **Create**
 1. You should see after waiting some seconds that the private link created needs an approval.
 
-## Approval of a private link
+## Private link approval
 1. Select the Private Endpoint that you created above. You can see a hyperlink that will let you approve the Private Endpoint at the Storage Account level. *An alternative is to go directly to the Azure portal Storage Account and go into the **Private endpoint connections** blade.*
 1. Tick the Private endpoint you created in the Studio and select **Approve**.
 1. Add a description and click **yes**

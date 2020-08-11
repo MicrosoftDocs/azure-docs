@@ -23,7 +23,7 @@ This flow chart shows the different steps and states of a backup item when Soft 
 
 Soft delete is enabled by default on newly created vaults to protect backup data from accidental or malicious deletes.  Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment.) Only the vault owner can disable this feature. If you disable this feature, all future deletions of protected items will result in immediate removal, without the ability to restore. Backup data that exists in soft deleted state before disabling this feature, will remain in soft deleted state for the period of 14 days. If you wish to permanently delete these immediately, then you need to undelete and delete them again to get permanently deleted.
 
- It's important to remember that once soft delete is disabled, the feature is disabled for all the types of workloads, including SQL server and SAP HANA workloads. For example, once the [SQL Server/ SAP HANA preview](https://docs.microsoft.com/azure/backup/soft-delete-sql-saphana-in-azure-vm#steps-to-enroll-in-preview) is enabled for a subscription it is not possible to disable soft delete only for SQL server or SAP HANA DBs while keeping it enabled for virtual machines in the same vault. You can create separate vaults for granular control.
+ It's important to remember that once soft delete is disabled, the feature is disabled for all the types of workloads, including SQL server and SAP HANA workloads. For example, once the [SQL Server/ SAP HANA preview](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) is enabled for a subscription it is not possible to disable soft delete only for SQL server or SAP HANA DBs while keeping it enabled for virtual machines in the same vault. You can create separate vaults for granular control.
 
 ### Disabling soft delete using Azure portal
 
@@ -40,7 +40,7 @@ To disable soft delete, follow these steps:
 > [!IMPORTANT]
 > The Az.RecoveryServices version required to use soft-delete using Azure PS is min 2.2.0. Use ```Install-Module -Name Az.RecoveryServices -Force``` to get the latest version.
 
-To disable, use the [Set-AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) PS cmdlet.
+To disable, use the [Set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) PS cmdlet.
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -81,11 +81,11 @@ Follow these steps:
 
 5. Choose **Delete backup data** to permanently delete the backup data.
 
-   ![Choose Delete backup data](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+   ![Choose Delete backup data](/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
 
 6. Type the name of the backup item to confirm that you want to delete the recovery points.
 
-   ![Type the name of the backup item](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+   ![Type the name of the backup item](/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
 
 7. To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
 

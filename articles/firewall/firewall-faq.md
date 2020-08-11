@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 08/10/2020
 ms.author: victorh
 ---
 
@@ -132,6 +132,8 @@ No. NAT rules implicitly add a corresponding network rule to allow the translate
 
 ## How do wildcards work in an application rule target FQDN?
 
+Wildcards currently can only be used on the left side of the FQDN. For example, ***.contoso.com** and ***contoso.com**.
+
 If you configure ***.contoso.com**, it allows *anyvalue*.contoso.com, but not contoso.com (the domain apex). If you want to allow the domain apex, you must explicitly configure it as a target FQDN.
 
 ## What does *Provisioning state: Failed* mean?
@@ -163,7 +165,9 @@ Azure Firewall's initial throughput capacity is 2.5 - 3 Gbps and it scales out t
 
 ## How long does it take for Azure Firewall to scale out?
 
-Azure Firewall gradually scales when average throughput or CPU consumption is at 60%. Scale out takes five to seven minutes. When performance testing, make sure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created Firewall nodes.
+Azure Firewall gradually scales when average throughput or CPU consumption is at 60%. A default deployment maximum throughput is approximately 2.5 - 3 Gbps and starts to scale out when it reaches 60% of that number. Scale out takes five to seven minutes. 
+
+When performance testing, make sure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created Firewall nodes.
 
 ## Does Azure Firewall allow access to Active Directory by default?
 
@@ -184,9 +188,10 @@ $fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
 
 ## Or Update FQDNs and IpAddresses separately
 
-$fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
-$fw.ThreatIntelWhitelist.FQDNs = @("fqdn1", "fqdn2", …)
-$fw.ThreatIntelWhitelist.IpAddress = @("ip1", "ip2", …)
+$fw = Get-AzFirewall -Name $firewallname -ResourceGroupName $RG
+$fw.ThreatIntelWhitelist.IpAddresses = @($fw.ThreatIntelWhitelist.IpAddresses + $ipaddresses )
+$fw.ThreatIntelWhitelist.fqdns = @($fw.ThreatIntelWhitelist.fqdns + $fqdns)
+
 
 Set-AzFirewall -AzureFirewall $fw
 ```
@@ -213,4 +218,4 @@ No, currently you must deploy Azure Firewall with a public IP address.
 
 ## Where does Azure Firewall store customer data?
 
-Azure Firewall doesn't move or store customer data out of the region it is deployed in.
+Azure Firewall doesn't move or store customer data out of the region it's deployed in.

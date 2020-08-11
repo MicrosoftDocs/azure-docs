@@ -4,7 +4,7 @@ description: Learn how to use multiple virtual machines to ensure high availabil
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: cynthn
 

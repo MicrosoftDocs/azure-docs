@@ -191,7 +191,7 @@ Get more information on how to deploy a template:
 
 ### Use a script action during cluster creation from Azure PowerShell
 
-In this section, you use the [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet to invoke scripts to customize a cluster. Before you start, make sure you install and configure Azure PowerShell. To use these PowerShell commands, you need the [AZ Module](https://docs.microsoft.com/powershell/azure/overview).
+In this section, you use the [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet to invoke scripts to customize a cluster. Before you start, make sure you install and configure Azure PowerShell. To use these PowerShell commands, you need the [AZ Module](https://docs.microsoft.com/powershell/azure/).
 
 The following script shows how to apply a script action when you create a cluster by using PowerShell:
 
@@ -237,7 +237,7 @@ This section explains how to apply script actions to a running cluster.
 
 ### Apply a script action to a running cluster from Azure PowerShell
 
-To use these PowerShell commands, you need the [AZ Module](https://docs.microsoft.com/powershell/azure/overview). The following example shows how to apply a script action to a running cluster:
+To use these PowerShell commands, you need the [AZ Module](https://docs.microsoft.com/powershell/azure/). The following example shows how to apply a script action to a running cluster:
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
 

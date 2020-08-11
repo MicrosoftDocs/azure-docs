@@ -5,7 +5,8 @@
   items:
   - name: About certificates
     href: about-certificates.md
-
+  - name: About certificate renewal
+    href: overview-renew-certificate.md
 - name: Quickstarts
   expanded: true
   items:

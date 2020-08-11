@@ -1,11 +1,11 @@
 ---
 title: Manage Azure Reservations
-description: Learn how you can manage Azure Reservations.
+description: Learn how to manage Azure Reservations. See steps to change the reservation scope, split a reservation, and optimize reservation use.
 ms.service: cost-management-billing
 author: bandersmsft
 ms.reviewer: yashesvi
-ms.topic: conceptual
-ms.date: 06/04/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
 ---
 # Manage Reservations for Azure resources

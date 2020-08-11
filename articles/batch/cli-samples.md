@@ -3,7 +3,7 @@ title: Azure CLI examples for Azure Batch
 description: Learn how to create a Batch account and add an application using Azure CLI.
 ms.topic: sample
 ms.date: 07/01/2020
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 
 ---
 # Azure CLI examples for Azure Batch
