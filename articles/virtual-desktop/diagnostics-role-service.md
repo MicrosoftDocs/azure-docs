@@ -3,7 +3,7 @@ title: Windows Virtual Desktop diagnose issues - Azure
 description: How to use the Windows Virtual Desktop diagnostics feature to diagnose issues.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -57,7 +57,7 @@ The following table lists common errors your admins might run into.
 
 ## Error: Can't add user assignments to an app group
 
-After assigning a user to a session pool app group, the Azure portal displays a warning that says "Session Ending" or "Experiencing Authentication Issues - Extension Microsoft_Azure_WVD." The assignment page then doesn't load, and after that, pages stop loading throughout the Azure portal (for example, Azure Monitor, Log Analytics, Service Health, and so on).
+After assigning a user to an app group, the Azure portal displays a warning that says "Session Ending" or "Experiencing Authentication Issues - Extension Microsoft_Azure_WVD." The assignment page then doesn't load, and after that, pages stop loading throughout the Azure portal (for example, Azure Monitor, Log Analytics, Service Health, and so on).
 
 **Cause:** There's a problem with the conditional access policy. The Azure portal is trying to obtain a token for Microsoft Graph, which is dependent on SharePoint Online. The customer has a conditional access policy called "Microsoft Office 365 Data Storage Terms of Use" that requires users to accept the terms of use to access data storage. However, they haven't signed in yet, so the Azure portal can't get the token.
 
