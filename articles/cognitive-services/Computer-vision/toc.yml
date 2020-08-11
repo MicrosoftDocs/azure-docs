@@ -186,4 +186,4 @@
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Upgrade to v3.0 from 2.0 or 2.1
-    href: upgrade-API-version.md
+    href: upgrade-api-versions.md
