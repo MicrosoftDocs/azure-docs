@@ -12,7 +12,7 @@ ms.author: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ---
 
-# Linux Foundation Delta Lake Overview
+# Linux Foundation Delta Lake overview
 
 This article has been adapted for more clarity from its original counterpart [here](https://docs.delta.io/latest/quick-start.html). This article helps you quickly explore the main features of [Delta Lake](https://delta.io). The article provides code snippets that show how to read from and write to Delta Lake tables from interactive, batch, and streaming queries. The code snippets are also available in a set of notebooks [PySpark here](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/PySpark/Hitchikers%20Guide%20to%20Delta%20Lake%20-%20Python.ipynb), [Scala here](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/Scala/Hitchikers%20Guide%20to%20Delta%20Lake%20-%20Scala.ipynb), and [C# here](https://github.com/Azure-Samples/Synapse/blob/master/Notebooks/Spark.NET%20C%23/Hitchikers%20Guide%20to%20Delta%20Lake%20-%20CSharp.ipynb)
 
@@ -107,7 +107,7 @@ data.write.format("delta").save(deltaTablePath)
 
 Results in:
 
-| id|
+| ID|
 |---|
 |  0|
 |  1|
@@ -148,7 +148,7 @@ df.show()
 
 Results in:
 
-| id|
+| ID|
 |---|
 |  1|
 |  3|
@@ -194,7 +194,7 @@ df.show()
 
 Results in:
 
-| id|
+| ID|
 |---|
 |  7|
 |  8|
@@ -279,7 +279,7 @@ Results in:
 |----------------------------|-------------------------------------------------------------------------------------------------------------|-------|
 |id                          |bigint                                                                                                       |null   |
 |                            |                                                                                                             |       |
-|# Detailed Table Information|                                                                                                             |       |
+|Detailed Table Information  |                                                                                                             |       |
 |Database                    |default                                                                                                      |       |
 |Table                       |manageddeltatable                                                                                            |       |
 |Owner                       |trusted-service-user                                                                                         |       |
@@ -326,7 +326,7 @@ Results in:
 |----------------------------|----------------------------------------------------------------------|-------|
 |id                          |bigint                                                                |null   |
 |                            |                                                                      |       |
-|# Detailed Table Information|                                                                      |       |
+|Detailed Table Information  |                                                                      |       |
 |Database                    |default                                                               |       |
 |Table                       |externaldeltatable                                                    |       |
 |Owner                       |trusted-service-user                                                  |       |
@@ -399,7 +399,7 @@ deltaTable.toDF.show
 
 Results in:
 
-| id|
+| ID|
 |---|
 |106|
 |108|
@@ -407,7 +407,7 @@ Results in:
 |  7|
 |  9|
 
-Here you just added 100 to every even id.
+Here you just added 100 to every even ID.
 
 :::zone pivot = "programming-language-python"
 
@@ -438,7 +438,7 @@ deltaTable.toDF.show
 
 Results in:
 
-| id|
+| ID|
 |---|
 |  5|
 |  7|
@@ -503,7 +503,7 @@ deltaTable.toDF.show()
 
 Results in:
 
-| id|
+| ID|
 |---|
 | 18|
 | 15|
@@ -560,9 +560,9 @@ Results in:
 
 |version|          timestamp|userId|userName|operation|                                                operationParameters| job|notebook|clusterId|readVersion|isolationLevel|isBlindAppend|
 |-------|-------------------|------|--------|---------|-------------------------------------------------------------------|----|--------|---------|-----------|--------------|-------------|
-|      4|2020-04-25 00:36:27|  null|    null|    MERGE|                       [predicate -> (oldData.`id` = newData.`id`)]|null|    null|     null|          3|          null|        false|
-|      3|2020-04-25 00:36:08|  null|    null|   DELETE|[predicate -> ["((`id` % CAST(2 AS BIGINT)) = CAST(0 AS BIGINT))"]]|null|    null|     null|          2|          null|        false|
-|      2|2020-04-25 00:35:51|  null|    null|   UPDATE| [predicate -> ((id#744L % cast(2 as bigint)) = cast(0 as bigint))]|null|    null|     null|          1|          null|        false|
+|      4|2020-04-25 00:36:27|  null|    null|    MERGE|                       [predicate -> (oldData.`ID` = newData.`ID`)]|null|    null|     null|          3|          null|        false|
+|      3|2020-04-25 00:36:08|  null|    null|   DELETE|[predicate -> ["((`ID` % CAST(2 AS BIGINT)) = CAST(0 AS BIGINT))"]]|null|    null|     null|          2|          null|        false|
+|      2|2020-04-25 00:35:51|  null|    null|   UPDATE| [predicate -> ((ID#744L % cast(2 as bigint)) = cast(0 as bigint))]|null|    null|     null|          1|          null|        false|
 |      1|2020-04-25 00:35:05|  null|    null|    WRITE|                             [mode -> Overwrite, partitionBy -> []]|null|    null|     null|          0|          null|        false|
 |      0|2020-04-25 00:34:34|  null|    null|    WRITE|                         [mode -> ErrorIfExists, partitionBy -> []]|null|    null|     null|       null|          null|         true|
 
@@ -603,7 +603,7 @@ df.show()
 
 Results in:
 
-| id|
+| ID|
 |---|
 |  0|
 |  1|
@@ -621,10 +621,10 @@ For more information about Delta Lake integration with Structured Streaming, see
 
 In the cells below, here's what we are doing:
 
-Cell 30 Show the newly appended data
-Cell 31 Inspect history
-Cell 32 Stop the structured streaming job
-Cell 33 Inspect history <--You'll notice appends have stopped
+* Cell 30 Show the newly appended data
+* Cell 31 Inspect history
+* Cell 32 Stop the structured streaming job
+* Cell 33 Inspect history <--You'll notice appends have stopped
 
 First you are going to set up a simple Spark Streaming job to generate a sequence and make the job write to your Delta Table.
 
@@ -690,7 +690,7 @@ deltaTable.toDF.sort($"id".desc).show
 
 Results in:
 
-| id|
+| ID|
 |---|
 | 19|
 | 18|
@@ -735,7 +735,10 @@ deltaTable.History().Drop("userId", "userName", "job", "notebook", "clusterId", 
 deltaTable.history.show
 ```
 
+::: zone-end
+
 Results in:
+
 |version|          timestamp|       operation|                                                                  operationParameters|readVersion|
 |-------|-------------------|----------------|-------------------------------------------------------------------------------------|-----------|
 |      5|2020-04-25 00:37:09|STREAMING UPDATE|[outputMode -> Append, queryId -> d26b4f8a-7e5a-44f2-a5fb-23a7bd02aef7, epochId -> 0]|          4|
@@ -744,8 +747,6 @@ Results in:
 |      2|2020-04-25 00:35:51|          UPDATE|                   [predicate -> ((id#744L % cast(2 as bigint)) = cast(0 as bigint))]|          1|
 |      1|2020-04-25 00:35:05|           WRITE|                                               [mode -> Overwrite, partitionBy -> []]|          0|
 |      0|2020-04-25 00:34:34|           WRITE|                                           [mode -> ErrorIfExists, partitionBy -> []]|       null|
-
-::: zone-end
 
 Here you are dropping some of the less interesting columns to simplify the viewing experience of the history view.
 
@@ -862,7 +863,7 @@ Results in:
 
 True
 
-## SQL Support
+## SQL support
 
 Delta supports table utility commands through SQL. You can use SQL to:
 
