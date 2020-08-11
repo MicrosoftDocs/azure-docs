@@ -30,7 +30,7 @@ In App Configuration, you can use the JSON media type as the content-type of you
 #### Valid JSON content-type
 
 Media types, as defined [here](https://www.iana.org/assignments/media-types/media-types.xhtml), can be assigned to the content-type associated with each key-value.
-A media type consists of a type and a subtype. If the type is `"application"` and the subtype (or suffix) is `"json"`, the media type will be considered a valid JSON content-type.
+A media type consists of a type and a subtype. If the type is `application` and the subtype (or suffix) is `json`, the media type will be considered a valid JSON content-type.
 Some examples of valid JSON content-types are:
 
 - application/json
