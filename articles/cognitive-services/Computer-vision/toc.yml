@@ -131,6 +131,8 @@
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
   - name: Analyze videos in real time
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
+  - name: Upgrade to v3.0 from 2.0 or 2.1
+    href: Vision-API-How-to-Topics/upgrade-API-version.md
 - name: Reference
   items: 
   - name: Azure CLI
