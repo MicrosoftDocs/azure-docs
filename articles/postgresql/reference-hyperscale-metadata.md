@@ -596,3 +596,8 @@ blocking_node_port                    | 5432
 In this example the queries originated on the coordinator, but the view
 can also list locks between queries originating on workers (executed
 with Hyperscale (Citus) MX for instance).
+
+## Next steps
+
+* Learn how some [Hyperscale functions](reference-hyperscale-functions.md) alter system tables
+* Review the concepts of [nodes and tables](concepts-hyperscale-nodes.md)

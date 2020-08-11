@@ -398,3 +398,8 @@ tasks. Occasionally, some of the tasks will be planned differently or have much
 higher execution times. In those cases, it can be useful to enable this
 parameter, after which the EXPLAIN output will include all tasks. Explaining
 all tasks may cause the EXPLAIN to take longer.
+
+## Next steps
+
+* Another form of configuration, besides server parameters, are the resource [configuration options](concepts-hyperscale-configuration-options.md) in a Hyperscale (Citus) server group.
+* The underlying PostgreSQL data base also has [configuration parameters](http://www.postgresql.org/docs/current/static/runtime-config.html).

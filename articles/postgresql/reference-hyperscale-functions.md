@@ -952,3 +952,8 @@ SELECT isolate_tenant_to_new_shard('lineitem', 135);
 │                      102240 │
 └─────────────────────────────┘
 ```
+
+## Next steps
+
+* Many of the functions in this article modify system [metadata tables](reference-hyperscale-metadata.md)
+* [Server parameters](reference-hyperscale-parameters.md) customize the behavior of some functions
