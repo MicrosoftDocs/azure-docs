@@ -7,7 +7,7 @@
 - name: Quickstart
   items:
   - name: Web Apps
-    href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html
+    href: https://docs.microsoft.com/azure/app-service/quickstart-html
   - name: Virtual machines
     items:
     - name: Linux
@@ -29,9 +29,9 @@
     - name: .NET with SQL DB
       href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase
     - name: Node.js with Mongo DB
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app
+      href: https://docs.microsoft.com/azure/app-service/tutorial-nodejs-mongodb-app
     - name: PHP with MySQL
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-php-mysql
+      href: https://docs.microsoft.com/azure/app-service/tutorial-php-mysql-app
     - name: Java with MySQL
       href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql
   - name: Deploy complex VM templates
