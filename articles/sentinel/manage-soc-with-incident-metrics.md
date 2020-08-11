@@ -14,7 +14,7 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/29/2020
+ms.date: 08/11/2020
 ms.author: yelevin
 
 ---
@@ -44,7 +44,7 @@ SecurityIncident
 ```
 ### More sample queries
 
-Mean *(?)* time to closure:
+Mean time to closure:
 ```Kusto
 SecurityIncident
 | summarize arg_max(TimeGenerated,*) by IncidentNumber 
@@ -53,7 +53,7 @@ SecurityIncident
   90th_Percentile=percentile(TimeToClosure, 90),99th_Percentile=percentile(TimeToClosure, 99)
 ```
 
-Mean *(?)* time to acknowledgment:
+Mean time to triage:
 ```Kusto
 SecurityIncident
 | summarize arg_max(TimeGenerated,*) by IncidentNumber 
