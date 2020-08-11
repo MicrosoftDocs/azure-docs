@@ -191,7 +191,7 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Arc enable
 3. Run the connect command with proxy parameters specified:
 
     ```bash
-    az connected k8s connect -n <cluster-name> -g <resource-group> \
+    az connectedk8s connect -n <cluster-name> -g <resource-group> \
     --proxy-https https://<proxy-server-ip-address>:<port> \
     --proxy-http http://<proxy-server-ip-address>:<port> \
     --proxy-skip-range <excludedIP>,<excludedCIDR>
