@@ -45,11 +45,11 @@ Platform logs and metrics can be sent to the destinations in the following table
 | [Azure storage account](#azure-storage) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely.  |
 
 
-## Prerequisites
 Any destinations for the diagnostic setting must be created before creating the diagnostic settings. The destination does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions. The following table provides unique requirements for each destination including any regional restrictions.
 
+### Destination requirements
 
-| Destination | Regions |
+| Destination | Requirements |
 |:---|:---|
 | Log Analytics workspace | The workspace does not need to be in the same region as the resource being monitored.<br>See [Create a Log Analytics workspace in the Azure portal](../learn/quick-create-workspace.md) for details on creating a new workspace. |
 | Event hubs | The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. You can create or modify shared access policies in the Azure portal under the Configure tab for your Event Hubs namespace. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule.<br>The event hub namespace needs to be in the same region as the resource being monitored if the resource is regional.<br>See [Create an Azure storage account](../../storage/common/storage-account-create.md) for details on creating a new storage account.
