@@ -1,7 +1,7 @@
 ---
 title: Monitor delegation changes in your managing tenant
 description: Learn how to monitor delegation activity from customer tenants to your managing tenant. 
-ms.date: 08/03/2020
+ms.date: 08/11/2020
 ms.topic: how-to
 ---
 
