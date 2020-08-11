@@ -127,10 +127,6 @@
           href: speech-synthesis-markup.md
         - name: Synthesize speech with Long Audio API
           href: long-audio-api.md
-        - name: Get a list of voices with REST (Python)
-          href: quickstart-python-get-text-to-speech-voices.md
-        - name: Convert text-to-speech with REST (Python)
-          href: quickstart-python-text-to-speech.md
     - name: Customization
       items:
         - name: Responsible deployment

@@ -176,7 +176,7 @@ Run the script using the command `python voice_synthesis_client.py --submit -key
 * Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<input>` with the path to the text file you've prepared for text-to-speech.
-* Replace `<locale>` with the desired output locale. For more information, see [language support](../../language-support.md#neural-voices).
+* Replace `<locale>` with the desired output locale. For more information, see [language support](language-support.md#neural-voices).
 * Replace `<voice_guid>` with the desired output voice. Use one of the voices returned by your previous call to the `/voicesynthesis/voices` endpoint.
 
 You'll see an output that looks like this:

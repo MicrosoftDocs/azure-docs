@@ -1,7 +1,7 @@
 ---
 title: "Speech synthesis quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Speech SDK to convert text-to-speech. In this quickstart, you learn about object construction, supported audio output formats, and custom configuration options for speech synthesis.
+description: Learn how to use the Speech SDK to convert text-to-speech. In this quickstart, you learn about object construction and design patterns, supported audio output formats, the Speech CLI, and custom configuration options for speech synthesis.
 services: cognitive-services
 author: trevorbye
 manager: nitinme

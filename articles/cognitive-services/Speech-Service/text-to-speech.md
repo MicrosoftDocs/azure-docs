@@ -36,7 +36,7 @@ Text-to-speech from the Speech service enables your applications, tools, or devi
 
 ## Get started
 
-See the [quickstart](get-started-text-to-speech.md) to get started with text-to-speech. The text-to-speech service is available via both the [Speech SDK](speech-sdk.md) and the [REST API](rest-text-to-speech.md).
+See the [quickstart](get-started-text-to-speech.md) to get started with text-to-speech. The text-to-speech service is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-text-to-speech.md), and the [Speech CLI](spx-overview.md)
 
 ## Sample code
 

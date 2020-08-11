@@ -2,11 +2,11 @@
 author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/25/2020
+ms.date: 08/11/2020
 ms.author: trbye
 ---
 
-[!INCLUDE [SPX Setup](../../includes/spx-setup.md)]
+[!INCLUDE [SPX Setup](../../spx-setup.md)]
 
 ## Synthesize speech to a speaker
 
