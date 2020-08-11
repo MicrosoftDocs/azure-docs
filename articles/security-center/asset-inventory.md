@@ -37,7 +37,9 @@ The asset management possibilities for this tool are substantial and continue to
 
 Asset inventory utilizes [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/), the Azure service that stores all of ASC's security posture data.
 
-ARG is designed to provide efficient resource exploration with the ability to query at scale across multiple subscriptions. Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/), asset inventory can quickly and produce deep insights by cross-referencing ASC data with other resource properties.
+ARG is designed to provide efficient resource exploration with the ability to query at scale across multiple subscriptions. 
+
+Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/), asset inventory can quickly produce deep insights by cross-referencing ASC data with other resource properties.
 
 
 ## What are the key features of asset inventory?
