@@ -29,7 +29,7 @@ This guide shows how to modify your existing code to migrate from v2.0 or v2.1 o
 |----------|-----------|
 |https://{endpoint}/vision/v2.0/read/core/asyncBatchAnalyze     |https://{endpoint}/vision/v3.0/read/analyze[?language]|
 
-Language is a new optional parameter. If you do not know the language of your document, or it may be multilingual, do not include it. 
+Language is a new optional parameter. If you do not know the language of your document, or it may be multilingual, don't include it. 
 
 2. Change the API path for `Get Read Results` in 2.0 as follows:
 
@@ -146,15 +146,15 @@ In 3.0, it has been adjusted:
     }
     ```
 
-Please note the following changes to the json:
+Note the following changes to the json:
 
-- In v2.0, `Get Read Operation Result` will return the OCR recognition json when the status is “Succeeded”. In v3.0, this is "succeeded".
-- To get the root for page array, please change the json hierarchy from "recognitionResults" to "analyzeResult"/"readResults". The per-page line and words json hierarchy remains unchanged, so no code changes are required.
--	The page angle "clockwiseOrientation" has been renamed to "angle" and the range has been changed from 0 ~ 360 degrees to -180 to 180 degrees. Depending on your code, you may or may not have to change things as most math functions should be able to handle either range.
+- In v2.0, `Get Read Operation Result` will return the OCR recognition json when the status is “Succeeded”. In v3.0, this field is "succeeded".
+- To get the root for page array,  change the json hierarchy from "recognitionResults" to "analyzeResult"/"readResults". The per-page line and words json hierarchy remains unchanged, so no code changes are required.
+-	The page angle "clockwiseOrientation" has been renamed to "angle" and the range has been changed from 0 - 360 degrees to -180 to 180 degrees. Depending on your code, you may or may not have to makes changes as most math functions can handle either range.
 -	The v3.0 API also introduces the following improvements you can optionally leverage:
-    -"createdDateTime" and "lastUpdatedDateTime" are added so you can track the duration of processing. Please see documentation for more details. 
+    -"createdDateTime" and "lastUpdatedDateTime" are added so you can track the duration of processing. See documentation for more details. 
     - “version” tells you the version of the API used to generate results
-    - A per-word "confidence" has been added. This value is calibrated so that a value 0.95 means that there is a 95%  the recognition is correct. This can be used to select which text to send to human review. 
+    - A per-word "confidence" has been added. This value is calibrated so that a value 0.95 means that there is a 95%  the recognition is correct. The confidence score can be used to select which text to send to human review. 
 
 
 
