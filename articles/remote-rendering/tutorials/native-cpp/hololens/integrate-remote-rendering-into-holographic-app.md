@@ -294,7 +294,7 @@ namespace HolographicApp
         bool m_modelLoadTriggered = false;
         float m_modelLoadingProgress = 0.f;
         bool m_modelLoadFinished = false;
-        double m_timeSinceLastRESTCall = 0;
+        double m_timeAtLastRESTCall = 0;
         bool m_needsCoordinateSystemUpdate = true;
     }
 ```
@@ -365,6 +365,7 @@ void HolographicAppMain::SetNewSession(RR::ApiHandle<RR::AzureSession> newSessio
 {
     SetNewState(AppConnectionStatus::StartingSession, nullptr);
 
+    m_timeAtLastRESTCall = m_timer.GetTotalSeconds();
     m_session = newSession;
     m_api = m_session->Actions();
     m_graphicsBinding = m_session->GetGraphicsBinding().as<RR::GraphicsBindingWmrD3d11>();
@@ -438,13 +439,12 @@ HolographicFrame HolographicAppMain::Update()
         if (!m_sessionStarted)
         {
             // Important: To avoid server-side throttling of the requests, we should call GetPropertiesAsync very infrequently:
-            double delayBetweenRESTCalls = 10.0;
-            m_timeSinceLastRESTCall += m_timer.GetElapsedSeconds();
+            const double delayBetweenRESTCalls = 10.0;
 
             // query session status periodically until we reach 'session started'
-            if (m_sessionPropertiesAsync == nullptr && m_timeSinceLastRESTCall > delayBetweenRESTCalls)
+            if (m_sessionPropertiesAsync == nullptr && m_timer.GetTotalSeconds() - m_timeAtLastRESTCall > delayBetweenRESTCalls)
             {
-                m_timeSinceLastRESTCall = 0;
+                m_timeAtLastRESTCall = m_timer.GetTotalSeconds();
                 if (auto propAsync = m_session->GetPropertiesAsync())
                 {
                     m_sessionPropertiesAsync = *propAsync;
