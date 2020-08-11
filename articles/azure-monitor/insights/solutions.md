@@ -15,15 +15,12 @@ Monitoring solutions in Azure Monitor provide analysis of the operation of a par
 
 ## Use monitoring solutions
 
-The solutions **Overview** page in Azure Monitor displays a tile for each solution installed in a Log Analytics workspace. To open this page 
-
- Go to the [Azure portal](https://ms.portal.azure.com). Search for and select **Monitor**. Under the **Insights** menu, select **More** to open the **Insights Hub**. Click on **Log Analytics workspaces**.
+The solutions **Overview** page in Azure Monitor displays a tile for each solution installed in a Log Analytics workspace. To open this page, go to **Azure Monitor** in the [Azure portal](https://ms.portal.azure.com). Under the **Insights** menu, select **More** to open the **Insights Hub**, and then click on **Log Analytics workspaces**.
 
 [![Insights Hub](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
 
-3. Use the dropdown boxes at the top of the screen to change the workspace or the time range used for the tiles.
-4. Click on the tile for a solution to open its view that includes more detailed analysis its collected data.
+Use the dropdown boxes at the top of the screen to change the workspace or the time range used for the tiles. Click on the tile for a solution to open its view that includes more detailed analysis its collected data.
 
 [![Overview](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
