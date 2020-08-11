@@ -57,7 +57,7 @@ Below is a network topology deployed in AKS clusters by default, which use an `o
 
 If `userDefinedRouting` is set, AKS won't automatically configure egress paths. The egress setup must be done by you.
 
-The AKS cluster must be deployed into an existing virtual network with a subnet that has been previously configured because when using standard load balancer (SLB) architecture, you must establish explicit egress. As such, this architecture requires explicitly sending egress traffic to an appliance like a firewall, gateway, proxy or to allow the Network Address Translation (NAT) to be done by a public IP assigned to the standard load balancer or appliance.
+The AKS cluster must be deployed into an existing virtual network with a subnet that has been previously configured because when not using standard load balancer (SLB) architecture, you must establish explicit egress. As such, this architecture requires explicitly sending egress traffic to an appliance like a firewall, gateway, proxy or to allow the Network Address Translation (NAT) to be done by a public IP assigned to the standard load balancer or appliance.
 
 The AKS resource provider will deploy a standard load balancer (SLB). The load balancer isn't configured with any rules and [doesn't incur a charge until a rule is placed](https://azure.microsoft.com/pricing/details/load-balancer/). AKS **won't** automatically provision a public IP address for the SLB frontend nor automatically configure the load balancer backend pool.
 

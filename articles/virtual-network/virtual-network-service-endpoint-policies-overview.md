@@ -134,7 +134,7 @@ Following limits are enforced on service endpoint policies:
  |Resource | Default limit |
  |---------|---------------|
  |ServiceEndpointPoliciesPerSubscription |500 |
- |ServiceEndpintPoliciesPerSubnet|100 |
+ |ServiceEndpointPoliciesPerSubnet|100 |
  |ServiceResourcesPerServiceEndpointPolicyDefinition|200 |
 
 ## Next Steps
