@@ -63,7 +63,7 @@ When you create the transform, preset `copyAllBitrateNonInterleaved`.  It is one
 
 ## Create a job and submit the job
 
-[Create and submit the job](cli-create-jobs). The putput asset will contain all .mp4 files, .ism, and .ismc files of the job.
+[Create and submit the job](cli-create-jobs.md). The putput asset will contain all .mp4 files, .ism, and .ismc files of the job.
 
 ### Clean up resource in your Media Services account
 
