@@ -1,6 +1,6 @@
 ---
 title: "PowerShell script: Set allowed VM sizes in Azure Lab Services | Microsoft Docs"
-description: This articles includes a sample PowerShell script that sets allowed virtual machine (VM) sizes in Azure Lab Services.
+description: This article includes a sample PowerShell script that sets allowed virtual machine (VM) sizes in Azure Lab Services.
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/11/2020
