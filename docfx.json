@@ -133,7 +133,7 @@
     "fileMetadata": {
       "author": {
         "articles/advisor/*.md": "saket-ms",
-        "articles/azure-arc/servers": "mgoedtel",
+        "articles/azure-arc/servers/**/*.md": "mgoedtel",
         "articles/connectors/*.md": "ecfan",
         "articles/batch/**/*.md": "JnHs",
         "articles/event-grid/**/*.md": "spelluru",
@@ -471,7 +471,7 @@
       },
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
-        "articles/azure-arc/servers/*.md": "magoedte",
+        "articles/azure-arc/servers/**/*.md": "magoedte",
         "articles/connectors/*.md": "estfan",
         "articles/logic-apps/*.md": "estfan",
         "articles/governance/*.md": "dacoulte",
