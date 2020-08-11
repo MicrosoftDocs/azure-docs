@@ -1,5 +1,5 @@
 ---
-title: Quickstart for export data for Microsoft Azure Data Box| Microsoft Docs
+title: "Quickstart: Export data for Microsoft Azure Data Box"
 description: Learn how to quickly export your Azure Data Box data in Azure portal
 services: databox
 author: priestlg
@@ -13,7 +13,7 @@ ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
 ---
 
-# Get started with Azure Data Box to export data from Azure
+# Quickstart: Get started with Azure Data Box to export data from Azure
 
 This quickstart describes how to export data out of Azure into your location using the Azure portal. The steps include how to cable, configure, and copy data from Azure. The quickstart is performed in the Azure portal and on the local web UI of the device.
 
@@ -34,7 +34,7 @@ Before you begin:
   * Run a [Supported operating system](data-box-system-requirements.md).
   * Be connected to high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds are impacted.
 * You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
-* You have procured the following cables to connect your Data Box to the host computer.
+* You've procured the following cables to connect your Data Box to the host computer.
   * Two 10-GbE SFP+ Twinax copper cables (use with DATA 1, DATA 2 network interfaces)
   * One RJ-45 CAT 6 network cable (use with management (MGMT) network interface)
   * One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
@@ -61,7 +61,7 @@ This step takes roughly 10 minutes.
 
 When you receive the Data Box, do the following steps to cable, connect to, and turn on the device. This step takes about 10 minutes.
 
-1. If there is any evidence that the device is tampered with or damaged, do not proceed. Contact Microsoft Support to ship you a replacement device.
+1. If there's any evidence that the device is tampered with or damaged, don't proceed. Contact Microsoft Support to ship you a replacement device.
 2. Before you cable your device, ensure that you have the following cables:
 
    * Grounded power cord (included) rated at 10 A or greater with an IEC60320 C-13 connector at one end to connect to the device.
@@ -84,8 +84,8 @@ When you receive the Data Box, do the following steps to cable, connect to, and 
 
 This step takes about 5-7 minutes to complete.
 
-1. To get the device password, go to **General > Device details** in the [Azure portal](https://portal.azure.com).
-2. Assign a static IP address of 192.168.100.5 and subnet 255.255.255.0 to the Ethernet adapter on the computer you are using to connect to Data Box. Access the local web UI of the device at `https://192.168.100.10`. The connection could take up to 5 minutes after you turned on the device.
+1. To get the device password, go to **General** > **Device details** in the [Azure portal](https://portal.azure.com).
+2. Assign a static IP address of 192.168.100.5 and subnet 255.255.255.0 to the Ethernet adapter on the computer you're using to connect to Data Box. Access the local web UI of the device at `https://192.168.100.10`. The connection could take up to 5 minutes after you turned on the device.
 3. Sign in using the password from the Azure portal. You see an error indicating a problem with the website's security certificate. Follow the browser-specific instructions to proceed to the web page.
 4. By default, the network settings for the 10-Gbps data interface (or 1 Gbps) are configured as DHCP. If needed, you can configure this interface as static and provide an IP address.
 
@@ -104,7 +104,7 @@ This operation takes about 10-15 minutes to complete.
 1. Go to **Prepare to ship** page in the local web UI and start the ship preparation.
 2. Turn off the device from the local web UI. Remove the cables from the device.
 3. Spool and securely place the power cord that was provided with device in the back of the device.
-4. The return shipping label should be visible on the E-ink display. If the E-ink display is not displaying the label, go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device.
+4. The return shipping label should be visible on the E-ink display. If the E-ink display isn't displaying the label, go to **Overview** > **Download shipping label** in the Azure portal. Download the shipping label and affix on the device.
 5. Schedule a pickup with your regional carrier if returning the device.
 6. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
@@ -112,9 +112,9 @@ This operation takes about 10-15 minutes to complete.
 
 This step takes 2-3 minutes to complete.
 
-* You can cancel the Data Box order in the Azure portal before the order is processed. Once the order is processed, the order cannot be canceled. The order progresses until it reaches the completed stage. To cancel the order, go to **Overview** and click **Cancel** from the command bar.
+* You can cancel the Data Box order in the Azure portal before the order is processed. Once the order is processed, the order can't be canceled. The order progresses until it reaches the completed stage. To cancel the order, go to **Overview** and select **Cancel** from the command bar.
 
-* You can delete the order once the status shows as **Completed** or **Canceled** in the Azure portal. To delete the order, go to **Overview** and click **Delete** from the command bar.
+* You can delete the order once the status shows as **Completed** or **Canceled** in the Azure portal. To delete the order, go to **Overview** and select **Delete** from the command bar.
 
 ## Next steps
 
