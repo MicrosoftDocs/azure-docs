@@ -74,7 +74,7 @@ To learn how to build an application by using the Microsoft identity platform, f
 
 Learn more about:
 
-- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
-- [Azure Germany](https://docs.microsoft.com/azure/germany/)
-- [Azure AD authentication basics](authentication-scenarios.md)
+- [Azure Government](../../azure-government/index.yml)
+- [Azure China 21Vianet](/azure/china/)
+- [Azure Germany](../../germany/index.yml)
+- [Azure AD authentication basics](./authentication-vs-authorization.md)

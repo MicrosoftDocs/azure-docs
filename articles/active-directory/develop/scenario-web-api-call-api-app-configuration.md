@@ -173,7 +173,7 @@ You can also see an example of OBO flow implementation in [Node.js and Azure Fun
 
 ## Protocol
 
-For more information about the OBO protocol, see [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
+For more information about the OBO protocol, see [Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow](./v2-oauth2-on-behalf-of-flow.md).
 
 ## Next steps
 

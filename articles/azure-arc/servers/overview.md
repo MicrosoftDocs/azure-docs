@@ -1,11 +1,6 @@
 ---
 title: Azure Arc for servers (preview) Overview
 description: Learn how to use Azure Arc for servers to manage machines that are hosted outside of Azure as if it is an Azure resource.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
 ms.custom: references_regions
 ms.date: 08/06/2020
