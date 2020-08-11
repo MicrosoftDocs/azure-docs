@@ -47,7 +47,7 @@ Before continuing with this example, you'll need to complete the following prere
 
 You'll need a twin to update with IoT hub information.
 
-You model looks like this
+The model looks like this
 ```JSON
 {
   "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",
