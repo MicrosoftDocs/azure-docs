@@ -35,9 +35,9 @@ These types are summarized in the following table.
 
 :::image type="content" source="media/disk-encryption/encryption-at-host.png" alt-text="Enable encryption at host.":::
 
-This option enables [encryption at host](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-based-encryption-portal) for HDInsight VMs temp data disks using PMK. Encryption at host is only [supported on certain VM SKUs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-based-encryption-portal) and HDInsight supports the [following node configuration and SKUs](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-supported-node-configuration). 
+This option enables [encryption at host](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) for HDInsight VMs temp data disks using PMK. Encryption at host is only [supported on certain VM SKUs](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) and HDInsight supports the [following node configuration and SKUs](./hdinsight-supported-node-configuration.md). 
 
-To understand the right VM size for your HDInsight cluster see [this document](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-selecting-vm-size). The default VM SKU for Zookeeper node when encryption at host is enabled will be DS2V2.
+To understand the right VM size for your HDInsight cluster see [Selecting the right VM size for your Azure HDInsight cluster](hdinsight-selecting-vm-size.md). The default VM SKU for Zookeeper node when encryption at host is enabled will be DS2V2.
 
 ## Encryption at rest using Customer-managed keys
 
