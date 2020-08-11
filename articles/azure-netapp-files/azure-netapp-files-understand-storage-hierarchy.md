@@ -74,8 +74,6 @@ The QoS type is an attribute of a capacity pool. Azure NetApp Files provides two
 - A volume's capacity consumption counts against its pool's provisioned capacity.
 - A volume’s throughput consumption counts against its pool’s available throughput. See [Manual QoS type](#manual_qos_type).
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
-- A volume cannot be moved across capacity pools. <!--Within the same NetApp account, you can move a volume across pools.  -->   
-  For example, in the [Conceptual diagram of storage hierarchy](#conceptual_diagram_of_storage_hierarchy) below, you cannot move the volumes from Capacity Pool 1 to Capacity Pool 2.
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptual diagram of storage hierarchy 
 The following example shows the relationships of the Azure subscription, NetApp accounts, capacity pools,  and volumes.   
