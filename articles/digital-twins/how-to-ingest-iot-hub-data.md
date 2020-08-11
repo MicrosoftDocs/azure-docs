@@ -73,7 +73,7 @@ You'll then need to **create one twin using this model**. Use the following comm
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
 
-The output of the command should look like this:
+Output of a successful twin create command should look like this:
 ```json
 {
   "$dtId": "thermostat67",
@@ -104,7 +104,7 @@ Telemetry events come in the form of messages from the device. The first step in
 
 Different devices may structure their messages differently, so the code for **this step depends on the connected device.** 
 
-The following code shows an example for a simple device that sends telemetry as JSON. This sample is fully explored in [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md). The sample extracts the device ID of the device that sent the message, as well as the temperature value.
+The following code shows an example for a simple device that sends telemetry as JSON. This sample is fully explored in [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md). The following code finds the device ID of the device that sent the message, as well as the temperature value.
 
 ```csharp
 JObject deviceMessage = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
@@ -112,7 +112,7 @@ string deviceId = (string)deviceMessage["systemProperties"]["iothub-connection-d
 var temperature = deviceMessage["body"]["Temperature"];
 ```
 
-Now that you have the ID of the twin, you can "patch" (make updates to) that twin. To do this, use the following code:
+The next code sample takes the ID and temperature value and uses them to "patch" (make updates to) that twin.
 
 ```csharp
 //Update twin using device temperature
@@ -206,13 +206,13 @@ namespace IotHubtoTwins
 
 To test your new ingress function, use the device simulator from [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md). That tutorial is driven by a sample project written in C#. The sample code is located here: [Azure Digital Twins samples](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
 
-Follow steps
+In the end-to-end tutorial, complete the following steps:
 1. [Register the simulated device with IoT Hub](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
 1. [Configure and run the simulation](./tutorial-end-to-end.md#configure-and-run-the-simulation)
 
 ## Validate your results
 
-While running the device simulator above, the temperature value of your digital twin will be changing. In the Azure CLI, repeatedly run the following command to see the temperature value change
+While running the device simulator above, the temperature value of your digital twin will be changing. In the Azure CLI, run the following command to see the temperature value.
 
 ```azurecli-interactive
 az dt twin query -q "select * from digitaltwins" -n {digital_twins_instance_name}
@@ -241,6 +241,8 @@ Your output should contain a temperature value like this:
   ]
 }
 ```
+
+To see the value change, repeatedly run the query command above.
 
 ## Next steps
 
