@@ -341,4 +341,4 @@ You can find the sample in the `samples/batch` directory in the [GitHub sample r
 
 ## Next steps
 
-- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [Speech to text v3 API reference](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)
