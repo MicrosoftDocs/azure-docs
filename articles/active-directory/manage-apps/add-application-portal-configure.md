@@ -43,37 +43,30 @@ To edit the application properties:
     - **Enabled for users to sign in?** determines whether users assigned to the application can sign in.
     - **User assignment required?** determines whether users who aren't assigned to the application can sign in.
     - **Visible to users?** determines whether users assigned to an app can see it in the [access panel](https://myapps.microsoft.com) and Office 365 app launcher. (See the waffle menu in the upper-left corner of an Office 365 or Microsoft 365 website.)
-4. Use the following tables to help you choose the best options for your needs.
+    
+    The three options can be toggled independently of each other.
 
-   - Behavior for *assigned* users:
+    Here are some tips:
+    If Enabled for users to sign in? is set to No then assigned and unassigned users will not see the app in their Microsoft 365 app launcher and will not be able to sign in.
 
-       | Application property | Application property | Application property | Assigned-user experience | Assigned-user experience |
-       |---|---|---|---|---|
-       | Enabled for users to sign in? | User assignment required? | Visible to users? | Can assigned users sign in? | Can assigned users see the application?* |
-       | Yes | Yes | Yes | Yes | Yes  |
-       | Yes | Yes | No  | Yes | No   |
-       | Yes | No  | Yes | Yes | Yes  |
-       | Yes | No  | No  | Yes | No   |
-       | No  | Yes | Yes | No  | No   |
-       | No  | Yes | No  | No  | No   |
-       | No  | No  | Yes | No  | No   |
-       | No  | No  | No  | No  | No   |
+    If Visible to users? is set to No you can still allow users won't be able to see the app in their Microsoft 365 app launcher.
 
-   - Behavior for *unassigned* users:
+    Assigning users happens on the **Provision** section of navigation.
 
-       | Application property | Application property | Application property | Unassigned-user experience | Unassigned-user experience |
-       |---|---|---|---|---|
-       | Enabled for users to sign in? | User assignment required? | Visible to users? | Can unassigned users sign in? | Can unassigned users see the application?* |
-       | Yes | Yes | Yes | No  | No   |
-       | Yes | Yes | No  | No  | No   |
-       | Yes | No  | Yes | Yes | No   |
-       | Yes | No  | No  | Yes | No   |
-       | No  | Yes | Yes | No  | No   |
-       | No  | Yes | No  | No  | No   |
-       | No  | No  | Yes | No  | No   |
-       | No  | No  | No  | No  | No   |
+    Here is a table that might help:
+    
+    | Enabled for users to sign in? | User assignment required? | Visible to users? | Behavior for users who have either been assigned to the app or not. |
+    |---|---|---|---|
+    | Yes | Yes | Yes | Assigned users can see the app and sign in.<br>Unassigned users cannot see the app and cannot sign in. |
+    | Yes | Yes | No  | Assigned uses cannot see the app but they can sign in.<br>Unassigned users cannot see the app and cannot sign in. |
+    | Yes | No  | Yes | Assigned users can see the app and sign in.<br>Unassigned users cannot see the app but can sign in. |
+    | Yes | No  | No  | Assigned users cannot see the app but can sign in.<br>Unassigned users cannot see the app but can sign in. |
+    | No  | Yes | Yes | Assigned users cannot see the app and cannot sign in.<br>Unassigned users cannot see the app and cannot sign in. |
+    | No  | Yes | No  | Assigned users cannot see the app and cannot sign in.<br>Unassigned users cannot see the app and cannot sign in. |
+    | No  | No  | Yes | Assigned users cannot see the app and cannot sign in.<br>Unassigned users cannot see the app and cannot sign in. |
+    | No  | No  | No  | Assigned users cannot see the app and cannot sign in.<br>Unassigned users cannot see the app and cannot sign in. |
 
-     *Can the user see the application in the access panel and the Office 365 app launcher?
+4. When you're finished, select **Save**.
 
 ## Use a custom logo
 
