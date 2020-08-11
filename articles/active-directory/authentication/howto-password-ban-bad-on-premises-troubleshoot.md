@@ -61,7 +61,7 @@ Azure AD Password Protection has a critical dependency on the encryption and dec
 
    If the KDS service start mode has been configured to Disabled, this configuration must be fixed before Azure AD Password Protection will work properly.
 
-   A simple test for this issue is to manually start the KDS service, either via the Service management MMC console, or using other management tools (for example, run "net start kdssvc" from a command prompt console). The KDS service is expected to start successfully and stay running.
+   A simple test for this issue is to manually start the KDS service, either via the Service Management MMC console, or using other management tools (for example, run "net start kdssvc" from a command prompt console). The KDS service is expected to start successfully and stay running.
 
    The most common root cause for the KDS service being unable to start is that the Active Directory domain controller object is located outside of the default Domain Controllers OU. This configuration is not supported by the KDS service and is not a limitation imposed by Azure AD Password Protection. The fix for this condition is to move the domain controller object to a location under the default Domain Controllers OU.
 
@@ -81,8 +81,8 @@ The forest has not been registered with Azure. Password policies cannot be downl
 
 There are two possible causes for this issue.
 
-1. The forest has indeed not been registered. To resolve this, please run the Register-AzureADPasswordProtectionForest command as described in the [deployment requirements](howto-password-ban-bad-on-premises-deploy.md).
-1. The forest has been registered, but the DC agent is unable to decrypt the forest registration data. This case has the same root cause as issue #2 listed above under [DC agent is unable to encrypt or decrypt password policy files](howto-password-ban-bad-on-premises-troubleshoot.md#dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files). One way to confirm this is the problem is that you will see this error only on DC agents running on Windows Server 2012 or Windows Server 2012R2 domain controllers, while DC agents running on Windows Server 2016 and later domain controllers are fine. The workaround is the same: upgrade all domain controllers to Windows Server 2016 or later.
+1. The forest has indeed not been registered. To resolve the problem, please run the Register-AzureADPasswordProtectionForest command as described in the [deployment requirements](howto-password-ban-bad-on-premises-deploy.md).
+1. The forest has been registered, but the DC agent is unable to decrypt the forest registration data. This case has the same root cause as issue #2 listed above under [DC agent is unable to encrypt or decrypt password policy files](howto-password-ban-bad-on-premises-troubleshoot.md#dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files). An easy way to confirm this theory is that you will see this error only on DC agents running on Windows Server 2012 or Windows Server 2012R2 domain controllers, while DC agents running on Windows Server 2016 and later domain controllers are fine. The workaround is the same: upgrade all domain controllers to Windows Server 2016 or later.
 
 ## Weak passwords are being accepted but should not be
 
