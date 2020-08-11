@@ -45,7 +45,7 @@ To edit the application properties:
     - **Visible to users?** determines whether users assigned to an app can see it in the [access panel](https://myapps.microsoft.com) and Office 365 app launcher. (See the waffle menu in the upper-left corner of an Office 365 or Microsoft 365 website.)
     
     > [!TIP]
-    > Assigning users happens on the **Provision** section of navigation.
+    > Assigning users happens on the **Users and groups** section of navigation.
 
     The three options can be toggled independently of each other and the resulting behavior is not always obvious. Here is a table that might help:
     
