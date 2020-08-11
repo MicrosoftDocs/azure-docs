@@ -1,6 +1,6 @@
 ---
 title: 'Azure PowerShell script sample - Create a VPN Gateway | Microsoft Docs'
-description: This PowerShell script creates a route-based VPN Gateway in Azure. Learn about all the cmdlets in the script.
+description: Learn how to use a PowerShell script to create a virtual network, network subnet, and route-based VPN gateway.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: kumudD

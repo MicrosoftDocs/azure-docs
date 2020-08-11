@@ -201,7 +201,23 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > By default, version 2.x and later versions of the Core Tools create function app projects for the .NET runtime as [C# class projects](functions-dotnet-class-library.md) (.csproj). These C# projects, which can be used with Visual Studio or Visual Studio Code, are compiled during testing and when publishing to Azure. If you instead want to create and work with the same C# script (.csx) files created in version 1.x and in the portal, you must include the `--csx` parameter when you create and deploy functions.
 
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+## Register extensions
+
+With the exception of HTTP and timer triggers, Functions bindings in runtime version 2.x and higher are implemented as extension packages. HTTP bindings and timer triggers don't require extensions. 
+
+To reduce incompatibilities between the various extension packages, Functions lets you reference an extension bundle in your host.json project file. If you choose not to use extension bundles, you also need to install .NET Core 2.x SDK locally and maintain an extensions.csproj with your functions project.  
+
+In version 2.x and beyond of the Azure Functions runtime, you have to explicitly register the extensions for the binding types used in your functions. You can choose to install binding extensions individually, or you can add an extension bundle reference to the host.json project file. Extension bundles removes the chance of having package compatibility issues when using multiple binding types. It is the recommended approach for registering binding extensions. Extension bundles also removes the requirement of installing the .NET Core 2.x SDK. 
+
+### Use extension bundles
+
+[!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
+
+To learn more, see [Register Azure Functions binding extensions](functions-bindings-register.md#extension-bundles). You should add extension bundles to the host.json before you add bindings to the function.json file.
+
+### Explicitly install extensions
+
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
