@@ -55156,6 +55156,66 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/dev-spaces/get-started-java.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/get-started-netcore.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/get-started-nodejs.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/multi-service-java.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/multi-service-netcore-visualstudio.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/multi-service-netcore.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/multi-service-nodejs.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/team-development-java.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/team-development-netcore.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/team-development-netcore-visualstudio.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/team-development-nodejs.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/how-to/share-dev-spaces.md",
+      "redirect_url": "/azure/dev-spaces/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/insights/azure-key-vault.md",
       "redirect_url": "/azure/azure-monitor/insights/key-vault-insights-overview",
       "redirect_document_id": false
