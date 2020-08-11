@@ -32,13 +32,13 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 # [Azure CLI](#tab/azcli)
 
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../articles/machine-learning/how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 - A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
-- The [Azure Command Line Interface (CLI) extension for the Machine Learning service](../articles/machine-learning/reference-azure-machine-learning-cli.md)
+- The [Azure Command Line Interface (CLI) extension for the Machine Learning service](reference-azure-machine-learning-cli.md)
 
 # [Python](#tab/python)
 
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../articles/machine-learning/how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 - A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
 - The [Azure Machine Learning software development kit (SDK) for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 
@@ -78,7 +78,7 @@ For more information on using the SDK to connect to a workspace, see the [Azure 
 A registered model is a logical container for one or more files that make up your model. For example, if you have a model that's stored in multiple files, you can register them as a single model in the workspace. After you register the files, you can then download or deploy the registered model and receive all the files that you registered.
 
 > [!TIP]
-> When you register a model, you provide the path of either a cloud location (from a training run) or a local directory. This path is just to locate the files for upload as part of the registration process. It doesn't need to match the path used in the entry script. For more information, see [Locate model files in your entry script](../articles/machine-learning/how-to-deploy-advanced-entry-script.md#load-registered-models).
+> When you register a model, you provide the path of either a cloud location (from a training run) or a local directory. This path is just to locate the files for upload as part of the registration process. It doesn't need to match the path used in the entry script. For more information, see [Locate model files in your entry script](how-to-deploy-advanced-entry-script.md#load-registered-models).
 
 Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or from somewhere else. When registering a model, you can optionally provide metadata about the model. The `tags` and `properties` dictionaries that you apply to a model registration can then be used to filter models.
 
@@ -90,7 +90,7 @@ The following examples demonstrate how to register a model.
 az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid --tag area=mnist
 ```
 
-[!INCLUDE [install extension](machine-learning-service-install-extension.md)]
+[!INCLUDE [install extension](../../includes/machine-learning-service-install-extension.md)]
 
 The `--asset-path` parameter refers to the cloud location of the model. In this example, the path of a single file is used. To include multiple files in the model registration, set `--asset-path` to the path of a folder that contains the files.
 
@@ -110,7 +110,7 @@ For more information on `az ml model register`, consult the [reference documenta
 A registered model is a logical container for one or more files that make up your model. For example, if you have a model that's stored in multiple files, you can register them as a single model in the workspace. After you register the files, you can then download or deploy the registered model and receive all the files that you registered.
 
 > [!TIP]
-> When you register a model, you provide the path of either a cloud location (from a training run) or a local directory. This path is just to locate the files for upload as part of the registration process. It doesn't need to match the path used in the entry script. For more information, see [Locate model files in your entry script](../articles/machine-learning/how-to-deploy-advanced-entry-script.md#load-registered-models).
+> When you register a model, you provide the path of either a cloud location (from a training run) or a local directory. This path is just to locate the files for upload as part of the registration process. It doesn't need to match the path used in the entry script. For more information, see [Locate model files in your entry script](how-to-deploy-advanced-entry-script.md#load-registered-models).
 
 Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or from somewhere else. When registering a model, you can optionally provide metadata about the model. The `tags` and `properties` dictionaries that you apply to a model registration can then be used to filter models.
 
@@ -150,7 +150,7 @@ The following examples demonstrate how to register a model.
 
 You can register a model by providing the local path of the model. You can provide the path of either a folder or a single file. You can use this method to register models trained with Azure Machine Learning and then downloaded. You can also use this method to register models trained outside of Azure Machine Learning.
 
-[!INCLUDE [trusted models](machine-learning-service-trusted-model.md)]
+[!INCLUDE [trusted models](../../includes/machine-learning-service-trusted-model.md)]
 
 + **Using the SDK and ONNX**
 
@@ -174,20 +174,20 @@ You can register a model by providing the local path of the model. You can provi
 
 For more information, see the documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-For more information on working with models trained outside Azure Machine Learning, see [How to deploy an existing model](../articles/machine-learning/how-to-deploy-existing-model.md).
+For more information on working with models trained outside Azure Machine Learning, see [How to deploy an existing model](how-to-deploy-existing-model.md).
 
 ---
 
 ## Define an entry script
 
-[!INCLUDE [write entry script](machine-learning-entry-script.md)]
+[!INCLUDE [write entry script](../../includes/machine-learning-entry-script.md)]
 
 
 ## Define an inference configuration
 
 # [Azure CLI](#tab/azcli)
 
-[!INCLUDE [inference config](machine-learning-service-inference-config.md)]
+[!INCLUDE [inference config](../../includes/machine-learning-service-inference-config.md)]
 
 The following command demonstrates how to deploy a model by using the CLI:
 
@@ -201,7 +201,7 @@ In this example, the configuration specifies the following settings:
 * The [entry script](#define-an-entry-script), which is used to handle web requests sent to the deployed service
 * The Conda file that describes the Python packages needed for inference
 
-For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](../articles/machine-learning/how-to-deploy-custom-docker-image.md).
+For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
 # [Python](#tab/python)
 
@@ -237,9 +237,9 @@ myenv = Environment.from_conda_specification(name = 'myenv',
 myenv.register(workspace=ws)
 ```
 
-For a thorough discussion of using and customizing Python environments with Azure Machine Learning, see [Create & use software environments in Azure Machine Learning](../articles/machine-learning/how-to-use-environments.md)
+For a thorough discussion of using and customizing Python environments with Azure Machine Learning, see [Create & use software environments in Azure Machine Learning](how-to-use-environments.md)
 
-For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](../articles/machine-learning/how-to-deploy-custom-docker-image.md).
+For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
 
 The following example demonstrates loading an environment from your workspace and then using it with the inference configuration:
@@ -254,7 +254,7 @@ inference_config = InferenceConfig(entry_script='path-to-score.py',
                                     environment=myenv)
 ```
 
-For more information on environments, see [Create and manage environments for training and deployment](../articles/machine-learning/how-to-use-environments.md).
+For more information on environments, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
 For more information on inference configuration, see the [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) class documentation.
 
@@ -262,7 +262,7 @@ For more information on inference configuration, see the [InferenceConfig](https
 
 ## Choose a compute target
 
-[!INCLUDE [aml-compute-target-deploy](aml-compute-target-deploy.md)]
+[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
 
 ## Define a deployment configuration
 
@@ -270,7 +270,7 @@ For more information on inference configuration, see the [InferenceConfig](https
 
 The options available for a deployment configuration differ depending on the compute target you choose.
 
-[!INCLUDE [aml-local-deploy-config](machine-learning-service-local-deploy-config.md)]
+[!INCLUDE [aml-local-deploy-config](../../includes/machine-learning-service-local-deploy-config.md)]
 
 For more information, see the [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) documentation.
 
