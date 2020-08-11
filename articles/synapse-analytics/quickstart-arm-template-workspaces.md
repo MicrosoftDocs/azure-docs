@@ -18,7 +18,7 @@ This Azure Resource Manager template (ARM template) will create an Azure Synapse
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -105,6 +105,6 @@ Write-Host "Press [ENTER] to continue..."
 
 To learn more about Azure Synapse Analytics and Azure Resource Manager, continue on to the articles below.
 
-- Read an [Overview of Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
-- Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- [Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+- Read an [Overview of Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 
+- Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)
+- [Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
