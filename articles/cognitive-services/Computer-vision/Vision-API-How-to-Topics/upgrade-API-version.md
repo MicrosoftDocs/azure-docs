@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 This guide shows how to modify your existing code to migrate from v2.0 or v2.1 of Computer Vision API to v3.0. 
 
-## Upgrade `Batch Read File`
+## Upgrade `Batch Read File` to `Read`
 
 
 1. Change the API path for `Batch Read File` 2.0 as follows 
@@ -27,7 +27,7 @@ This guide shows how to modify your existing code to migrate from v2.0 or v2.1 o
 
 |Read 2.x |Read 3.0  |
 |----------|-----------|
-|https://{endpoint}/vision/v2.0/read/core/asyncBatchAnalyze     |https://{endpoint}/vision/v3.0/read/analyze[?language]|
+|https://{endpoint}/vision/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/**v3.0/read/analyze**[?language]|
 
 Language is a new optional parameter. If you do not know the language of your document, or it may be multilingual, don't include it. 
 
@@ -35,7 +35,7 @@ Language is a new optional parameter. If you do not know the language of your do
 
 |Read 2.x |Read 3.0  |
 |----------|-----------|
-|https://{endpoint}/vision/v2.0/read/operations/{operationId}     |https://{endpoint}/vision/v3.0/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/**v2.0**/read/**operations**/{operationId}     |https://{endpoint}/vision/**v3.0**/read/**analyzeResults**/{operationId}|
 
 3. Change the code for checking the json results from `Get Read Operation Result`. When the call to `Get Read Operation Result` is successful, it returns a status string field in the json body. The following values from v2.0 have been changed to better align with the other Cognitive Service REST APIs. 
  
@@ -157,7 +157,7 @@ Note the following changes to the json:
     - A per-word `confidence` has been added. This value is calibrated so that a value 0.95 means that there is a 95%  the recognition is correct. The confidence score can be used to select which text to send to human review. 
 
 
-## Upgrade from 
+ 
 
 ## All other operations
 
