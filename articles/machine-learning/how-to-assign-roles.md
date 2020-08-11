@@ -143,6 +143,8 @@ The following table is a summary of Azure Machine Learning activities and the pe
 | Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
 | Create new custom role | Owner, contributor, or custom role allowing `Microsoft.Authorization/roleDefinitions/write` | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 
+> [!TIP]
+> If you receive a failure when trying to create a workspace for the first time, make sure that your role allows `Microsoft.MachineLearningServices/register/action`. This action allows you to register the Azure Machine Learning resource provider with your Azure subscription.
 
 ### Q. Are we publishing Azure built-in roles for the Machine Learning service?
 
