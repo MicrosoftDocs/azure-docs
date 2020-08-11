@@ -133,6 +133,7 @@
     "fileMetadata": {
       "author": {
         "articles/advisor/*.md": "saket-ms",
+        "articles/azure-arc/servers/**/*.md": "mgoedtel",
         "articles/connectors/*.md": "ecfan",
         "articles/batch/**/*.md": "JnHs",
         "articles/event-grid/**/*.md": "spelluru",
@@ -421,6 +422,7 @@
         "articles/migrate/**/*.md": "carmonm",
         "articles/service-bus-messaging/*.md": "femila",
         "articles/batch/**/*.md": "evansma",
+        "articles/azure-arc/servers/**/*.md": "evansma",
         "articles/virtual-machines/**/*.md": "gwallace",
         "articles/virtual-machine-scale-sets/**/*.md": "gwallace",
 		    "articles/remote-rendering/**/*.md": "jlyons"
@@ -469,6 +471,7 @@
       },
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
+        "articles/azure-arc/servers/**/*.md": "magoedte",
         "articles/connectors/*.md": "estfan",
         "articles/logic-apps/*.md": "estfan",
         "articles/governance/*.md": "dacoulte",
@@ -565,6 +568,7 @@
         "articles/governance/management-groups/**/*.md": "governance",
         "articles/governance/resource-graph/**/*.md": "resource-graph",
         "articles/advisor/**/*.md": "advisor",
+        "articles/azure-arc/**/*.md": "azure-arc",
         "articles/azure-functions/**/*.md": "azure-functions",
         "articles/azure-monitor/**/*.md": "azure-monitor",
         "articles/azure-relay/*.md": "service-bus-relay",
@@ -608,6 +612,7 @@
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
+        "articles/azure-arc/servers/**/*.md": "azure-arc-servers",
         "articles/azure-monitor/app/**/*.md": "application-insights",
         "articles/azure-monitor/log-query/**/.md": "logs",
         "articles/azure-monitor/platform/autoscale-*.md": "autoscale",
@@ -698,6 +703,7 @@
         "articles/service-health/*.yml": "Azure Service Health",
         "articles/advisor/**/*.md": "Azure Advisor",
         "articles/advisor/*.yml": "Azure Advisor",
+        "articles/azure-arc/servers/*.md": "Azure Arc",
         "articles/asc-for-iot/**/*.md": "Azure Security Center for IoT",
         "articles/asc-for-iot/**/*.yml": "Azure Security Center for IoT",
         "articles/azure-monitor/**/*.yml" : "Azure Monitor",
