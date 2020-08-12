@@ -262,8 +262,7 @@ Heartbeat
 The get a count of nodes sending data in the last 24 hours use the query: 
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project Computer
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize nodes = dcount(computerName)
@@ -272,15 +271,14 @@ union *
 To get a list of nodes sending any data (and the amount of data sent by each) the follow query can be used:
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _BilledSize, Computer
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
 > [!TIP]
-> Use these `union *` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type (see below).
+> Use these `find` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type (see below).
 
 ## Understanding ingested data volume
 
@@ -342,8 +340,7 @@ Usage
 The `Usage` data type does not include information at the computer level. To see the **size** of ingested data per computer, use the `_BilledSize` [property](log-standard-properties.md#_billedsize), which provides the size in bytes:
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize BillableDataBytes = sum(_BilledSize) by  computerName 
@@ -355,8 +352,7 @@ The `_IsBillable` [property](log-standard-properties.md#_isbillable) specifies w
 To see the **count** of billable events ingested per computer, use 
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _IsBillable, Computer
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | summarize eventCount = count() by computerName  
@@ -364,15 +360,14 @@ union *
 ```
 
 > [!TIP]
-> Use these `union  *` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type.
+> Use these `find` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type.
 
 ### Data volume by Azure resource, resource group, or subscription
 
 For data from nodes hosted in Azure you can get the **size** of ingested data __per computer__, use the _ResourceId [property](log-standard-properties.md#_resourceid), which provides the full path to the resource:
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by BillableDataBytes nulls last
 ```
@@ -380,22 +375,20 @@ union *
 For data from nodes hosted in Azure you can get the **size** of ingested data __per Azure subscription__, get subscription ID the `_ResourceId` property as:
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
-| extend subscriptionId = split(_ResourceId, "/")[2] 
+| extend subscriptionId = tostring(split(_ResourceId, "/")[2]) 
 | summarize BillableDataBytes = sum(BillableDataBytes) by subscriptionId | sort by BillableDataBytes nulls last
 ```
 
 Similarly, to get data volume by resource group this would be:
 
 ```kusto
-union * 
-| where TimeGenerated > ago(24h)
+find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
 | where _IsBillable == true 
 | summarize BillableDataBytes = sum(_BilledSize) by _ResourceId
-| extend resourceGroup = split(_ResourceId, "/")[4] 
+| extend resourceGroup = tostring(split(_ResourceId, "/")[4] )
 | summarize BillableDataBytes = sum(BillableDataBytes) by resourceGroup | sort by BillableDataBytes nulls last
 ```
 
@@ -407,7 +400,7 @@ You can also parse the `_ResourceId` more fully if needed as well using
 ```
 
 > [!TIP]
-> Use these `union  *` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results per subscription, resouce group or resource name, then query on the Usage data type.
+> Use these `find` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results per subscription, resouce group or resource name, then query on the Usage data type.
 
 > [!WARNING]
 > Some of the fields of the Usage data type, while still in the schema, have been deprecated and will their values are no longer populated. 
@@ -457,8 +450,7 @@ To do this, use the `_IsBillable` [property](log-standard-properties.md#_isbilla
 data per hour (which is the granularity at which nodes are counted and billed):
 
 ```kusto
-union * 
-| where _IsBillable == true 
+find where TimeGenerated > ago(24h) project Computer, TimeGenerated
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
