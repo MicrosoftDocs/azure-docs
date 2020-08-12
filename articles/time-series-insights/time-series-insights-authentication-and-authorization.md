@@ -16,7 +16,7 @@ ms.custom: seodec18, has-adal-ref
 
 # Authentication and authorization for Azure Time Series Insights API
 
-This document describes how to register an app in Azure Active Directory using the new Azure Active Directory blade. Apps registered in Azure Active Directory enable users to authenticate to and be authorized to use the Azure Time Series Insight API associated with a Azure Time Series Insights environment.
+This document describes how to register an app in Azure Active Directory using the new Azure Active Directory blade. Apps registered in Azure Active Directory enable users to authenticate to and be authorized to use the Azure Time Series Insight API associated with an Azure Time Series Insights environment.
 
 ## Service principal
 
