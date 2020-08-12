@@ -11,7 +11,6 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.collection: M365-identity-device-management
 ---
 
 # What is single sign-on (SSO)?
@@ -26,6 +25,14 @@ If you're an administrator, or IT professional, then read on to learn more about
 Single sign-on provides a giant leap forward in how users sign in and use applications. Single sign-on based authentication systems are often called "modern authentication". To understand what makes single sign-on possible, check out this video.
 > [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
 
+## Understanding where an app is hosted
+How you implement single sign-on for an app has a lot to do with where the app is hosted. Hosting matters because of the way network traffic is routed to access the app. If an app is hosted and accessed over your local network, called an on-premises app, then there is no need for users to access the Internet to use the app. If the app is hosted somewhere else, called a cloud hosted app, then users will need to access the Internet in order to use the app.
+
+> [!TIP]
+> Cloud apps are also called Software as a Service (SaaS) apps. 
+
+> [!TIP]
+> The terms cloud and Internet are often used interchangeable. The reason for this has to do with network diagrams. It is common to denote large computer networks with a cloud shape on a diagram because it is not feasible to draw every component. The Internet is the most well-known network and thus it is easy to use the terms interchangeably. However, any computer network can be coined a cloud.
 
 ## Choosing a single sign-on method
 
