@@ -25,8 +25,7 @@ Apache HBase is typically queried either with its low-level API (scans, gets, an
 The high-level process for enabling your Spark cluster to query your HDInsight cluster is as follows:
 
 1. Prepare some sample data in HBase.
-2. Acquire the hbase-site.xml file from your HBase cluster configuration folder (/etc/hbase/conf).
-3. Place a copy of hbase-site.xml in your Spark 2 configuration folder (/etc/spark2/conf).
+2. Acquire the hbase-site.xml file from your HBase cluster configuration folder (/etc/hbase/conf), and place a copy of hbase-site.xml in your Spark 2 configuration folder (/etc/spark2/conf). (OPTIONAL: use script provided by HDInsight team to automate this process)
 4. Run `spark-shell` referencing the Spark HBase Connector by its Maven coordinates in the `packages` option.
 5. Define a catalog that maps the schema from Spark to HBase.
 6. Interact with the HBase data using either the RDD or DataFrame APIs.
@@ -71,36 +70,76 @@ In this step, you create and populate a table in Apache HBase that you can then 
     ```hbase
     exit
     ```
+    
+## Run scripts to set up connection between clusters
 
-## Copy hbase-site.xml to Spark cluster
+To set up the communication between clusters, follow the below steps to run two scripts on your clusters. These scripts will automate the process of file copying described in 'Set up communication manually' section below. 
+* HBase side script will upload hbase-site.xml & HBase IP mapping information to Spark default storage you added to the cluster. 
+* Spark side script set up two cron jobs to run two helper scripts periodically:  
+    1.	HBase cron – download new hbase-site.xml files and HBase IP mapping from Spark default storage account to local node
+    2.	Spark cron – checks if a Spark scaling occurred and if cluster is secure, if so, edit /etc/hosts to include HBase IP mapping stored locally
 
-Copy the hbase-site.xml from local storage to the root of your Spark cluster's default storage.  Edit the command below to reflect your configuration.  Then, from your open SSH session to the HBase cluster, enter the command:
+__NOTE__: Before proceeding, make sure you have added Spark cluster’s storage account to your HBase cluster as secondary storage account. Make sure you run step 1 script before step 2 script.
 
-| Syntax value | New value|
-|---|---|
-|[URI scheme](hdinsight-hadoop-linux-information.md#URI-and-scheme) | Modify to reflect your storage.  The syntax below is for blob storage with secure transfer enabled.|
-|`SPARK_STORAGE_CONTAINER`|Replace with the default storage container name used for the Spark cluster.|
-|`SPARK_STORAGE_ACCOUNT`|Replace with the default storage account name used for the Spark cluster.|
 
-```bash
-hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.windows.net/
-```
+1. Use [Script Action](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) on your HBase cluster to apply the changes with the following considerations: 
 
-Then exit your ssh connection to your HBase cluster.
 
-```bash
-exit
-```
+    |Property | Value |
+    |---|---|
+    |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-hbase.sh`|
+    |Node type(s)|Region|
+    |Parameters|`-s SECONDARYS_STORAGE_URL`|
+    |Persisted|yes|
 
-## Put hbase-site.xml on your Spark cluster
+    * `SECONDARYS_STORAGE_URL` is the url of the Spark side default storage. Parameter Example: -s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net
 
-1. Connect to the head node of your Spark cluster using SSH. Edit the command below by replacing `SPARKCLUSTER` with the name of your Spark cluster, and then enter the command:
+
+2.	Use Script Action on your Spark cluster to apply the changes with the following considerations:
+
+    |Property | Value |
+    |---|---|
+    |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-spark.sh`|
+    |Node type(s)|Head, Worker, Zookeeper|
+    |Parameters|`-s "SPARK-CRON-SCHEDULE"` (optional) `-h "HBASE-CRON-SCHEDULE"` (optional)|
+    |Persisted|yes|
+
+
+    * You can specify how often you want this cluster to automatically check if update. Default: -s “*/1 * * * *” -h 0 (Spark cron runs every minute, HBase cron not set up)
+    * Since HBase cron is not set up by default, you need to re-run this script when perform scaling to your HBase cluster. If your HBase cluster scales often, you may choose to set up HBase cron job automatically. For example: `-h "*/30 * * * *"` to have it perform checks every 30 minutes. This will run HBase cron schedule periodically to automate downloading of new HBase information on the common storage account to local node.
+    
+    
+
+## Set up communication manually (Optional, if provided script in above step fails)
+
+__NOTE:__ These steps need to perform every time one of the clusters undergoes a scaling activity.
+
+1. Copy the hbase-site.xml from local storage to the root of your Spark cluster's default storage.  Edit the command below to reflect your configuration.  Then, from your open SSH session to the HBase cluster, enter the command:
+
+    | Syntax value | New value|
+    |---|---|
+    |[URI scheme](hdinsight-hadoop-linux-information.md#URI-and-scheme) | Modify to reflect your storage.  The syntax below is for blob storage with secure transfer enabled.|
+    |`SPARK_STORAGE_CONTAINER`|Replace with the default storage container name used for the Spark cluster.|
+    |`SPARK_STORAGE_ACCOUNT`|Replace with the default storage account name used for the Spark cluster.|
+
+    ```bash
+    hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.windows.net/
+    ```
+
+2. Then exit your ssh connection to your HBase cluster.
+
+    ```bash
+    exit
+    ```
+
+
+3. Connect to the head node of your Spark cluster using SSH. Edit the command below by replacing `SPARKCLUSTER` with the name of your Spark cluster, and then enter the command:
 
     ```cmd
     ssh sshuser@SPARKCLUSTER-ssh.azurehdinsight.net
     ```
 
-2. Enter the command below to copy `hbase-site.xml` from your Spark cluster's default storage to the Spark 2 configuration folder on the cluster's local storage:
+4. Enter the command below to copy `hbase-site.xml` from your Spark cluster's default storage to the Spark 2 configuration folder on the cluster's local storage:
 
     ```bash
     sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
