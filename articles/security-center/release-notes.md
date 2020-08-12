@@ -28,47 +28,57 @@ This page is updated regularly, so revisit it often. If you're looking for items
 
 ## August 2020
 
-### Consolidations of recommendations regarding vulnerability assessments on virtual machines
+### Vulnerability assessment on VMs - recommendations and policies consolidated
 
 Security Center inspects your VMs to detect whether they're running a vulnerability assessment solution. If no vulnerability assessment solution is found, Security Center provides a recommendation to simplify the deployment.
 
 When vulnerabilities are found, Security Center provides a recommendation summarizing the findings for you to investigate and remediate as necessary.
 
-To ensure a consistent experience for all users, regardless of the scanner type they're using, we've unified the recommendations into the following two new recommendations:
+To ensure a consistent experience for all users, regardless of the scanner type they're using, we've unified four recommendations into the following two:
 
-|New recommendation|Changes for this release|
+|Unified recommendation|Change description|
 |----|:----|
-|**A vulnerability assessment solution should be enabled on your virtual machines**<br>*Deploys a vulnerability assessment solution to your VMs when Security Center doesn’t find one.*|Replaces the following two recommendations:<br> **•** Enable the built-in vulnerability assessment solution on virtual machines (powered by Qualys (now deprecated) (Standard tier only)<br> **•** Vulnerability assessment solution should be installed on your virtual machines (now deprecated) (Standard and free tiers)|
-|**Vulnerabilities in your virtual machines should be remediated**<br>*Monitors for vulnerabilities on your virtual machines as discovered by a vulnerability assessment solution*|Replaces the following two recommendations:<br>**•** Remediate vulnerabilities found on your virtual machines (powered by Qualys) (now deprecated)<br>**•** Vulnerabilities should be remediated by a Vulnerability Assessment solution (now deprecated)|
+|**A vulnerability assessment solution should be enabled on your virtual machines**|Replaces the following two recommendations:<br> **•** Enable the built-in vulnerability assessment solution on virtual machines (powered by Qualys (now deprecated) (Included with standard tier)<br> **•** Vulnerability assessment solution should be installed on your virtual machines (now deprecated) (Standard and free tiers)|
+|**Vulnerabilities in your virtual machines should be remediated**|Replaces the following two recommendations:<br>**•** Remediate vulnerabilities found on your virtual machines (powered by Qualys) (now deprecated)<br>**•** Vulnerabilities should be remediated by a Vulnerability Assessment solution (now deprecated)|
 |||
 
-Now, whether deploying Security Center's vulnerability assessment extension (free to standard tier users) or your own privately licensed vulnerability assessment solution ("BYOL") from a partner such as Qualys or Rapid7, you'll use the same recommendation.
+Now you'll use the same recommendation to deploy Security Center's vulnerability assessment extension or a  privately licensed solution ("BYOL") from a partner such as Qualys or Rapid7.
 
-In addition, when vulnerabilities are found and reported to Security Center, a single recommendation will alert you to the findings whether they were identified by Security Center's vulnerability assessment extension or a partner solution.
+Also, when vulnerabilities are found and reported to Security Center, a single recommendation will alert you to the findings regardless of the vulnerability assessment solution that identified them.
 
 #### Updating dependencies
 
 If you have scripts, queries, or automations referring to the previous recommendations or policy keys/names, use the tables below to update the references:
 
-##### Recommendations
+##### Before August 2020
 
-|Recommendation|Status|Scope|
-|----|:----|:----|
-|**A vulnerability assessment solution should be enabled on your virtual machines**<br>Key: ffff0522-1e88-47fc-8382-2a80ba848f5d|New|Built-in + BYOL|
-|**Vulnerabilities in your virtual machines should be remediated**<br>Key: 1195afff-c881-495e-9bc5-1486211ae03f|New|Built-in + BYOL|
-|**Enable the built-in vulnerability assessment solution on virtual machines (powered by Qualys)**<br>Key: 550e890b-e652-4d22-8274-60b3bdb24c63|Deprecated|Built-in|
-|**Remediate vulnerabilities found on your virtual machines (powered by Qualys)**<br>Key: 1195afff-c881-495e-9bc5-1486211ae03f|Repurposed|Built-in|
-|**Vulnerability assessment solution should be installed on your virtual machines**<br>Key: 01b1ed4c-b733-4fee-b145-f23236e70cf3|Deprecated|BYOL|
-|**Vulnerabilities should be remediated by a Vulnerability Assessment solution**<br>Key: 71992a2a-d168-42e0-b10e-6b45fa2ecddb|Deprecated|BYOL|
+|Recommendation|Scope|
+|----|:----|
+|**Enable the built-in vulnerability assessment solution on virtual machines (powered by Qualys)**<br>Key: 550e890b-e652-4d22-8274-60b3bdb24c63|Built-in|
+|**Remediate vulnerabilities found on your virtual machines (powered by Qualys)**<br>Key: 1195afff-c881-495e-9bc5-1486211ae03f|Built-in|
+|**Vulnerability assessment solution should be installed on your virtual machines**<br>Key: 01b1ed4c-b733-4fee-b145-f23236e70cf3|BYOL|
+|**Vulnerabilities should be remediated by a Vulnerability Assessment solution**<br>Key: 71992a2a-d168-42e0-b10e-6b45fa2ecddb|BYOL|
 ||||
 
-##### Policies
 
-|Policy|Status|Scope|
-|----|:----|:----|
-|**Vulnerabilities should be remediated by a vulnerability assessment solution**<br>Policy ID: 760a85ff-6162-42b3-8d70-698e268f648c|Deprecated|BYOL|
-|**Vulnerability assessment should be enabled on virtual machines**<br>Policy ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|Repurposed|Built-in|
-|[**Vulnerability assessment should be enabled on virtual machines**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>Policy ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |New|Built-in + BYOL|
+|Policy|Scope|
+|----|:----|
+|**Vulnerability assessment should be enabled on virtual machines**<br>Policy ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|Built-in|
+|**Vulnerabilities should be remediated by a vulnerability assessment solution**<br>Policy ID: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
+||||
+
+
+##### From August 2020
+
+|Recommendation|Scope|
+|----|:----|
+|**A vulnerability assessment solution should be enabled on your virtual machines**<br>Key: ffff0522-1e88-47fc-8382-2a80ba848f5d|Built-in + BYOL|
+|**Vulnerabilities in your virtual machines should be remediated**<br>Key: 1195afff-c881-495e-9bc5-1486211ae03f|Built-in + BYOL|
+||||
+
+|Policy|Scope|
+|----|:----|
+|[**Vulnerability assessment should be enabled on virtual machines**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>Policy ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |Built-in + BYOL|
 ||||
 
 
@@ -76,11 +86,11 @@ If you have scripts, queries, or automations referring to the previous recommend
 ## July 2020
 
 Updates in July include:
-- [Vulnerability assessment for virtual machines is now available for non-marketplace images](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)auto        
+- [Vulnerability assessment for virtual machines is now available for non-marketplace images](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
 - [Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
 - [Eight new recommendations to enable threat protection features](#eight-new-recommendations-to-enable-threat-protection-features)
 - [Container security improvements - faster registry scanning and refreshed documentation](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
-- [New recommendation to update your adaptive application controls rules](#new-recommendation-to-update-your-adaptive-application-controls-rules)
+- [Adaptive application controls updated with a new recommendation and support for wildcards in path rules](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
 - [Six policies for SQL advanced data security deprecated](#six-policies-for-sql-advanced-data-security-deprecated)
 
 
@@ -159,11 +169,18 @@ Learn more about Security Center's container security in the following articles:
 
 
 
-### New recommendation to update your adaptive application controls rules
+### Adaptive application controls updated with a new recommendation and support for wildcards in path rules
 
-The adaptive application controls feature continuously monitors the activity of machines in configured groups. From this update, you'll be notified of potentially legitimate behavior that hasn't previously been allowed, and which might cause false positive alerts.
+The adaptive application controls feature has received two significant updates:
 
-The new recommendation, **Allowlist rules in your adaptive application control policy should be updated**, prompts you to add new rules to the existing policy to reduce the number of false positives in adaptive application controls violation alerts.
+* A new recommendation identifies potentially legitimate behavior that hasn't previously been allowed. The new recommendation, **Allowlist rules in your adaptive application control policy should be updated**, prompts you to add new rules to the existing policy to reduce the number of false positives in adaptive application controls violation alerts.
+
+* Path rules now support wildcards. From this update, you can configure allowed path rules using wildcards. There are two supported scenarios:
+
+    * Using a wildcard at the end of a path to allow all executables within this folder and sub-folders
+
+    * Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (e.g. personal user folders with an known executable, automatically generated folder names, etc).
+
 
 [Learn more about adaptive application controls](security-center-adaptive-application.md).
 
