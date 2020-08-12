@@ -174,11 +174,7 @@ To adjust any price before you publish, just export the pricing spreadsheet, mod
 > [!NOTE]
 > After a price for a market in your plan is published, it can't be changed later. To ensure that the prices are right before you publish them, export the pricing spreadsheet and review the prices in each market.
 
-## Rate changes
-
-The rates we use to calculate local prices are updated daily. This calculation is done when the ISV saves the page and they can review all the rates by exporting and reviewing prices before publishing.
-
-### Retrieving currency information by API
+## Retrieving currency information by API
 
 Individual prices (which, depending on how they were set, may have been influenced by the exchange rates on the day they were saved) can be retrieved using an API; currency information can't.
 

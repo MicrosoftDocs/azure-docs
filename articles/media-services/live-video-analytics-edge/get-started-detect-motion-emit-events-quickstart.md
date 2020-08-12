@@ -79,7 +79,7 @@ If the connection succeeds, the list of edge devices appears. You should see at 
 
 ![lva-sample-device node](./media/quickstarts/lva-sample-device-node.png)
 
-## Use direct methods
+## Use direct method calls
 
 You can use the module to analyze live video streams by invoking direct methods. For more information, see [Direct methods for Live Video Analytics on IoT Edge](direct-methods.md). 
 
