@@ -48,7 +48,9 @@ When you use Visual Studio Code and the preview extension, Azure Functions for V
   * [Azure Storage Emulator 5.10](https://go.microsoft.com/fwlink/?LinkId=717179&clcid=0x409). The emulator also requires that you have a local SQL DB installation, such as the free [SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/?linkid=866658), for the emulator to use. For more information, see [Use the Azure Storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
     > [!IMPORTANT]
-    > Before you create your workflow, make sure that you start the emulator.
+    > Before you create your workflow, make sure that you start the emulator. Otherwise, you later get a message that the 
+    > `Workflow design time could not be started` when you try to open your workflow app in the Logic App Designer. For more 
+    > information, see [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
     >
     > ![Screenshot that shows Azure Storage Emulator running](./media/create-stateless-stateful-workflows/start-storage-emulator.png)
 
@@ -182,13 +184,15 @@ Now, continue creating your workflow app.
    > [!NOTE]
    > If you get the message that `Workflow design time could not be started`, try these steps:
    >
-   > * Make sure that Azure Storage Emulator is running.
+   > * Make sure that Azure Storage Emulator is running. For more information, see 
+   > [Azure Storage Emulator Dependency - GitHub Issue #96](https://github.com/Azure/logicapps/issues/96).
+   >
    > * Close everything, restart your computer, reopen your workflow project, and reopen the `workflow.json` file in the designer.
 
 1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**, which are the cloud-based connectors available in Azure Logic Apps.
 
    > [!NOTE]
-   > Currently, only connector actions, not triggers, are supported. For more information, see [Azure Triggers - Issue #136](https://github.com/Azure/logicapps/issues/136).
+   > Currently, only connector actions, not triggers, are supported. For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
 
    ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected](./media/create-stateless-stateful-workflows/use-connectors-from-azure.png)
 
@@ -249,7 +253,7 @@ For this example workflow, add this trigger and these actions:
 
 ## Create and call an Azure function
 
-To add your own code that you can directly call and run from your workflow app, add an Azure function to your project. For more information, see [Develop Azure functions by using Visual Studio Code](../azure-functions/functions-develop-vs-code.md).
+To add your own code that you can directly call and run from your workflow app, add an Azure function to your project. For more information, see [Add a function to your project](../azure-functions/functions-develop-vs-code.md#add-a-function-to-your-project).
 
 1. On the Visual Studio Code toolbar, select the Azure icon to reopen the Azure pane.
 
@@ -257,17 +261,19 @@ To add your own code that you can directly call and run from your workflow app, 
 
    ![Screenshot that shows Azure pane with "Create Function" selected](./media/create-stateless-stateful-workflows/select-create-function.png)
 
-1. From the templates list, select **Workflow Action Trigger**, which currently supports only C#.
+1. From the templates list, select **Workflow Action Trigger**, which currently supports only C#. For more information, see [Workflow Action Trigger Function Template - GitHub Issue #92](https://github.com/Azure/logicapps/issues/92).
 
    ![Screenshot that shows templates list with "Workflow Action Trigger" selected](./media/create-stateless-stateful-workflows/select-function-template.png)
 
-1. Provide a name for the function, for example, `My-Workflow-Action-Trigger`.
+1. Provide a name for the function, for example, `MyExampleFunction`.
 
-   Visual Studio Code adds a `WorkflowActionTrigger1.cs` file to your function app project.
+1. Provide a namespace for the function, for example, `MyExampleFunctionNamespace`.
 
-1. 
+   Visual Studio Code opens a `MyExampleFunction.cs` file, which is a new C# class library (.cs) file that is now included in your function app project. Currently, this .cs file contains sample code that you replace with your own code.
 
-1. Return to your workflow app in the designer. Under the **Send an email action**, select **Next step**.
+   ![Screenshot that shows open "MyExampleFunction.cs" file open](./media/create-stateless-stateful-workflows/myexamplefunction-csharp-code-file.png)
+
+1. Return to your workflow app in the Logic App Designer. Under the **Send an email action**, select **Next step**.
 
 1. Under the **Choose an action** search box, select **Built-in** so that you can select a built-in action. In the designer search box, find and select the Local Function Operations action, **Invoke a function in this function app**.
 
@@ -277,7 +283,7 @@ To add your own code that you can directly call and run from your workflow app, 
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Function Name** | Yes | `<namespace-myfunction>` |
+   | **Function Name** | Yes | `<namespace-myfunction>` | The name for your previously created function |
    ||||
    ||||
 
@@ -353,7 +359,7 @@ In your workflow app's JSON definition (`workflow.json`) file, you can change th
    }
    ```
 
-   For more information about the master key value, see [Using Docker Compose](https://github.com/Azure/azure-functions-docker/issues/84).
+   For more information about the master key value, see [Using Docker Compose - GitHub Issue #84](https://github.com/Azure/azure-functions-docker/issues/84).
 
 ## Deploy to function app in Azure
 
