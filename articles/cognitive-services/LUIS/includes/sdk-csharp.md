@@ -209,6 +209,8 @@ Run the application with the `dotnet run` command from your application director
 dotnet run
 ```
 
+[!INCLUDE [Prediction JSON response](sdk-json.md)]
+
 ## Clean up resources
 
 If you want to clean up, you can delete the LUIS app. Deleting the app is done with the [Apps.DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.deleteasync?view=azure-dotnet) method. You can also delete the app from the [LUIS portal](https://www.luis.ai).
