@@ -62,7 +62,7 @@ az account show
 
 As a service provider, you may want to perform multiple tasks for a single customer, requiring different access for different scopes. You can define as many authorizations as you need in order to assign the appropriate [role-based access control (RBAC) built-in roles](../../role-based-access-control/built-in-roles.md) to users in your tenant.
 
-To make management easier, we recommend using Azure AD user groups for each role. This gives you the flexibility to add or remove individual users in the group that has access, so that you don't have to repeat the onboarding process to make user changes. You can assign roles to a service principal, which can be useful for automation scenarios.
+To make management easier, we recommend using Azure AD user groups for each role. This gives you the flexibility to add or remove individual users to the group that has access, so that you don't have to repeat the onboarding process to make user changes. You can assign roles to a service principal, which can be useful for automation scenarios.
 
 When defining your authorizations, be sure to follow the principle of least privilege so that users only have the permissions needed to complete their job. For guidelines and information about supported roles, see [Tenants, users, and roles in Azure Lighthouse scenarios](../concepts/tenants-users-roles.md).
 

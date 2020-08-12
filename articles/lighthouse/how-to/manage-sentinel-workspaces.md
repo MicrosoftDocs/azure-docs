@@ -13,6 +13,9 @@ Azure Sentinel delivers security analytics and threat intelligence, providing a 
 
 This topic provides an overview of how to use [Azure Sentinel](../../sentinel/overview.md) in a scalable way for cross-tenant visibility and managed security services.
 
+> [!TIP]
+> Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](enterprise.md).
+
 ## Architectural considerations
 
 For a managed security service provider (MSSP) who wants to build a Security-as-a-service offering using Azure Sentinel, a single security operations center (SOC) may be needed to centrally monitor, manage, and configure multiple Azure Sentinel workspaces deployed within individual customer tenants. Similarly, enterprises with multiple Azure AD tenants may want to centrally manage multiple Azure Sentinel workspaces deployed across their tenants.

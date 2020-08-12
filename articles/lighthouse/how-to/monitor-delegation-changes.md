@@ -169,6 +169,9 @@ Users who has been assigned the Monitoring Reader Azure built-in role at root sc
 
 A list of delegation changes will appear. You can select **Edit columns** to show or hide the **Status**, **Event category**, **Time**, **Time stamp**, **Subscription**, **Event initiated by**, **Resource group**, **Resource type**, and **Resource** values.
 
+> [!TIP]
+> Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](enterprise.md) can use the same processes.
+
 ## Next steps
 
 - Learn how to onboard customers to [Azure Lighthouse](../concepts/azure-delegated-resource-management.md).
