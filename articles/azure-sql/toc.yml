@@ -931,9 +931,11 @@
       href: managed-instance/threat-detection-configure.md
     - name: Connect applications
       href: managed-instance/connect-application-instance.md
-    - name: Create alerts
+    - name: Create alerts on managed instance
       href: managed-instance/alerts-create.md
-      
+    - name: Manually initiate a failover on managed instance
+      href: managed-instance/user-initiated-failover.md
+
   - name: Samples
     items:
     - name: Azure CLI
