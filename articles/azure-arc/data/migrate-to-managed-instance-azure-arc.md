@@ -30,7 +30,7 @@ This method uses Azure Blob Storage as a temporary storage location that you can
 1. Follow the steps described in [Create an Azure Blob Storage account](/storage/blobs/storage-blob-create-account-block-blob?tabs=azure-portal)
 1. Launch Azure Storage Explorer
 1. [Sign in to Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md#sign-in-to-azure) to access the blob storage created in previous step
-2. Right-click on the blob storage account and select **Create Blob Container** to create a new container where the backup file will be stored
+1. Right-click on the blob storage account and select **Create Blob Container** to create a new container where the backup file will be stored
 
 ### Step 2: Get credentials
 
@@ -46,10 +46,10 @@ Close the **Shared Access Signature** window.
 
 In this step, we will connect to the source SQL Server and create the backup file of the database that we want to migrate to SQL Managed Instance - Azure Arc.
 
-2. Launch Azure Data Studio
-2. Connect to the SQL Server instance that has the database you want to migrate to SQL Managed Instance - Azure Arc
-2. Right-click on the database and select **New Query**
-2. Prepare your query in the following format replacing the placeholders indicated by the `<...>` using the information from the shared access signature in earlier steps.  Once you have substituted the values, run the query.
+1. Launch Azure Data Studio
+1. Connect to the SQL Server instance that has the database you want to migrate to SQL Managed Instance - Azure Arc
+1. Right-click on the database and select **New Query**
+1. Prepare your query in the following format replacing the placeholders indicated by the `<...>` using the information from the shared access signature in earlier steps.  Once you have substituted the values, run the query.
 
    ```sql
    IF NOT EXISTS  
@@ -60,7 +60,7 @@ In this step, we will connect to the source SQL Server and create the backup fil
       SECRET = '<SAS_TOKEN>';  
    ```
 
-2. Similarly, prepare the **BACKUP DATABASE** command as follows to create a backup file to the blob container.  Once you have substituted the values, run the query.
+1. Similarly, prepare the **BACKUP DATABASE** command as follows to create a backup file to the blob container.  Once you have substituted the values, run the query.
 
    ```sql
    BACKUP DATABASE <database name> TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>'
@@ -68,13 +68,13 @@ In this step, we will connect to the source SQL Server and create the backup fil
 
 Example:
 
-2. Open Azure Storage Explorer and validate if the backup file created in previous step is visible in the Blob container
+1. Open Azure Storage Explorer and validate if the backup file created in previous step is visible in the Blob container
 
 ### Step 4: Restore the database from Azure Blob Storage to SQL Managed Instance - Azure Arc
 
-2. From Azure Data Studio, login and connect to the SQL Managed Instance - Azure Arc.
-2. Expand the **System Databases**, right-click on **master** database and select **New Query**.
-2. In the query editor window, prepare and run the same query from previous step to create the credentials.
+1. From Azure Data Studio, login and connect to the SQL Managed Instance - Azure Arc.
+1. Expand the **System Databases**, right-click on **master** database and select **New Query**.
+1. In the query editor window, prepare and run the same query from previous step to create the credentials.
 
    ```sql
    IF NOT EXISTS  
@@ -85,7 +85,7 @@ Example:
      SECRET = '<SAS_TOKEN>';  
    ```
 
-2. Prepare and run the below command to verify the backup file is readable, and intact.
+1. Prepare and run the below command to verify the backup file is readable, and intact.
 
    ```console
    RESTORE FILELISTONLY FROM URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>/<file name>.bak'
@@ -93,7 +93,7 @@ Example:
 
 Example:
 
-2. Prepare and run the **RESTORE DATABASE** command as follows to restore the backup file to a database on SQL Managed Instance - Azure Arc
+1. Prepare and run the **RESTORE DATABASE** command as follows to restore the backup file to a database on SQL Managed Instance - Azure Arc
 
    ```sql
    RESTORE DATABASE <database name> FROM URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>/<file name>'
