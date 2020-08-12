@@ -1,7 +1,7 @@
 ---
 title: Speech Services Quotas and Limits
 titleSuffix: Azure Cognitive Services
-description: Get answers to frequently asked questions about the Speech to Text service.
+description: Quick reference, detailed description and best practices on Azure Cognitive Speech Services Quotas and Limits
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
@@ -14,33 +14,121 @@ ms.author: alexeyo
 
 # Speech Services Quotas and Limits
 
-This article contains both quick reference and the detailed description or Azure Cognitive Speech Services Quotas and Limits for all [pricing tears](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). It also contains some best practices helping to avoid request throttling. 
+This article contains a quick reference as well as the detailed description of Azure Cognitive Speech Services Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). It also contains some best practices helping to avoid request throttling. 
 
 ## Quotas and Limits quick reference
+Jump to [Text to Speech Quotas and limits](#text-to-speech-quotas-and-limits)
+### Speech to Text Quotas and Limits per Speech resource<sup>1</sup>
 
 | Quota | Free (F0) | Standard (S0) |
 |--|--|--|
-| **On-Line Transcription Concurrency Request limit** |  |  |
+| **Online Transcription Concurrent Request limit (Base and Custom models)** |  |  |
 | Default value | 20 | 20 |
 | Adjustable | No | Yes |
 | **REST API Request limit ([API Management](../../api-management/api-management-key-concepts.md) endpoints)** |  |  |
 | Default value | 100 requests per 10 seconds | 100 requests per 10 seconds |
 | Adjustable | No | No |
-| **Max input file size for Batch Transcription** |  |  |
-| Default value | N/A | 2 GB |
-| Adjustable | N/A | No |
 | **Max dataset file for Data Import** |  |  |
 | Default value | 2 GB | 2 GB |
 | Adjustable | No | No |
+| **Max input blob size for Batch Transcription** |  |  |
+| Default value | N/A | 2.5 GB |
+| Adjustable | N/A | No |
+| **Max blob container size for Batch Transcription** |  |  |
+| Default value | N/A | 5 GB |
+| Adjustable | N/A | No |
+| **Max number of blobs per container for Batch Transcription** |  |  |
+| Default value | N/A | 10000 |
+| Adjustable | N/A | No |
+<sup>1</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page.](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)<br/>
+<sup>2</sup> See `!!!Best Practices<br/>
 
+### Text to Speech Quotas and limits per Speech resource<sup>3</sup>
+| Quota | Free (F0) | Standard (S0) |
+|--|--|--|
+| **Max number of Transactions per Second (TPS)** |  |  |
+| Default value | 200 | 200 |
+| Adjustable | No<sup>4</sup> | No<sup>4</sup> |
+| **Max number of Transactions per Second (TPS)** |  |  |
+| Default value | 200 | 200 |
+| Adjustable | No<sup>4</sup> | No<sup>4</sup> |
+<sup>3</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page.](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)<br/>
+<sup>4</sup> See `!!!Best Practices<br/>
 
+## Detailed description, Quota adjustment and best practices
+Before requesting a quota increase (where applicable) make sure, that it is really needed. Speech Services is using technologies like [Azure Autoscale](../../azure-monitor/platform/autoscale-overview.md) and [AKS Autoscaler](../../aks/cluster-autoscaler.md) to bring the required computational resources in "on-demand" mode and at the same time to keep the customer costs low by not maintaining an excessive amount of hardware capacity. Every time your application receives a Response Code 429 ("Too many requests") while your payload is within the defined limits (see [Quotas and Limits quick reference](#quotas-and-limits-quick-reference)) the most likely explanation is that the Service is scaling up to your demand and did not reach the required scale yet, thus does not immediately have enough resources to serve the request. This state should be transient and should not last long.
 
-| Feature                          | Consumption | Developer | Basic | Standard | Premium |
-|----------------------------------|-------------|-----------|-------|----------|---------|
-| Azure AD integration<sup>1</sup> | No          | Yes       | No    | Yes      | Yes     |
+### General best practices to mitigate throttling during autoscaling
+To minimize the issues related to throttling (Response Code 429) we recommend using the following techniques:
+- Implement re-try logic in your application
+- Avoid sharp changes in the payload. Increase the payload gradually <br/>
+*Example.* Your application is using Text to Speech and your current workload is 5 TPS (transactions per second). The next second you increase the load to 20 TPS (i.e. four times more). The Service immediately starts scaling up to fulfil the new load, but likely it will not be able to do it within a second, so some of the requests will get Response Code 429.   
+- Test the different load increase patterns
+  - See specific `!!! example
 
+The next sections describe specific cases of adjusting Quotas.<br/>
+Jump to `!!!Text to speech
 
+### Speech to Text. Increasing Online Transcription Concurrent Request limit
+By default the number of concurrent requests is limited to 20 per Speech resource (Base model) or per Custom endpoint (Custom model). For Standard pricing tier this amount can be increased. Before submitting the request ensure you are familiar with the material in [this section](#detailed-description-quota-adjustment-and-best-practices) and aware of these [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).
 
+Increasing the Concurrent Request limit does **not** directly affect your costs. Speech Services uses "Pay only for what you use" model. The limit defines how high the Service may scale before it starts throttle your requests.
+
+Concurrent Request limits for **Base** and **Custom** models need to be adjusted **separately**.
+
+Existing value of Concurrent Request limit parameter is **not** visible via Azure Portal, Command Line tools or API requests. You need to create an Azure Support Request if you need to verify the existing value.
+
+>[!NOTE]
+>[Speech containers](speech-container-howto.md) do not require increases to concurrent request limit, as containers are constrained only by the CPUs of the hardware they are hosted on.
+
+#### Have the required information ready:
+- For **Base model**:
+  - Speech Resource ID
+  - Region
+- For **Custom model**: 
+  - Region
+  - Custom Endpoint ID
+
+- **How to get information (Base model)**:  
+  - Go to [Azure Portal](https://portal.azure.com/)
+  - Select the Speech Resource for which you would like to increase the Concurrency Request limit
+  - Click *Properties* (*Resource Management* group) 
+  - Copy ans save the values of the following fields:
+    - **Resource ID**
+    - **Location** (your endpoint Region)
+
+- **How to get information (Custom Model)**:
+  - Go to [Speech Studio](https://speech.microsoft.com/) portal
+  - Sign in if necessary
+  - Go to Custom Speech
+  - Select your project
+  - Go to *Deployment*
+  - Click the required Endpoint
+  - Copy ans save the values of the following fields:
+    - **Service Region** (your endpoint Region)
+    - **Endpoint ID**
+  
+#### Create and submit support request
+Initiate the increase of Concurrent Request limit for your resource or if necessary check the today's limit by submitting the Support Request:
+
+- Ensure you have the [required information](#have-the-required-information-ready)
+- Go to [Azure Portal](https://portal.azure.com/)
+- Select the Speech Resource for which you would like to increase (or to check) the Concurrency Request limit
+- Click *New support request* (*Support + troubleshooting* group) 
+- A new blade will appear with auto-populated information about your Azure Subscription and Azure Resource
+- Enter *Summary* (like "Increase STT Concurrency Request limit")
+- In *Problem type* select "Quota or Subscription issues"
+- In appeared *Problem subtype* select:
+  - "Quota or concurrent requests increase" - for an increase request
+  - "Quota or usage validation" to check existing limit
+- Click *Next: Solutions*
+- Proceed further with the request creation
+- When in *Details* field enter in the *Description* field:
+  - a note, that request is about **Speech to Text** quota
+  - **Base** or **Custom** model
+  - [Azure resource information you collected before](#have-the-required-information-ready) 
+  - Complete entering the required information and click *Create* button in *Review + create* tab
+  - Note support request number in Azure Portal notifications. You will be contacted shortly for further processing
 
 
 # Speech to Text frequently asked questions
