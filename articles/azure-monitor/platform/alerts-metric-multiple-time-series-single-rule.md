@@ -10,15 +10,17 @@ ms.subservice: alerts
 
 # Monitor multiple time-series in a single metric alert rule
 
+A single metric alert rule can be used to monitor one or many metric time-series, making it easier to monitor resources at scale.
+
 ## Metric time-series
+
 A metric time-series is a series of measurements (or "metric values") captured over a period of time. 
 
 For example:
--	The CPU utilization of a virtual machine
--	The incoming bytes (ingress) to a storage account
--	The number of failed requests of a web application
 
-A single metric alert rule can be used to monitor one or many metric time-series, making it easier to monitor resources at scale.
+- The CPU utilization of a virtual machine
+- The incoming bytes (ingress) to a storage account
+- The number of failed requests of a web application
 
 
 
@@ -168,6 +170,6 @@ When creating a metric alert rule, the provided price estimation is based on the
 
 For example, an alert rule can show a high price estimation if it leverages the multi-dimension feature, and a large number of dimension values combinations are selected, resulting in the monitoring of many time-series. But the actual charge for that alert rule can be lower if not all the time-series resulting from the dimension values combinations actually have data to evaluate.
 
-## Next Steps
+## Next steps
 
 Learn more about monitoring at scale using metric alerts and [dynamic thresholds](alerts-dynamic-thresholds.md).
