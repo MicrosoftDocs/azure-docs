@@ -112,6 +112,8 @@ Content-type: application/json
 }
 ```
 
+The exact claims sent to the API depends on which information is provided by the identity provider. 'email' is always sent.
+
 #### Continuation response for "Check approval status"
 
 The **Check approval status** API endpoint should return a continuation response if:

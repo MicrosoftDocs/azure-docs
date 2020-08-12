@@ -135,6 +135,8 @@ Content-type: application/json
 }
 ```
 
+The exact claims sent to the API depends on which information is provided by the identity provider. 'email' is always sent.
+
 ### Expected response types from the web API at this step
 
 When the web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
@@ -198,6 +200,7 @@ Content-type: application/json
  "ui_locales":"en-US"
 }
 ```
+The exact claims sent to the API depends on which information is collected from the user or is provided by the identity provider.
 
 ### Expected response types from the web API at this step
 
