@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about the Table API in Az
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 08/12/2020
 ms.author: sngun
 ---
 

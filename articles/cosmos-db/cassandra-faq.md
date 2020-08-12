@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about the Cassandra API f
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 08/12/2020
 ms.author: thvankra
 ---
 # Frequently asked questions about the Cassandra API in Azure Cosmos DB
