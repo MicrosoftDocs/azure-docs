@@ -1,7 +1,7 @@
 ---
 title: Create compute resources with Python SDK
 titleSuffix: Azure Machine Learning
-description: Configure the training environments (compute targets) for machine learning model training. You can easily switch between training environments. Start training locally. If you need to scale out, switch to a cloud-based compute target.
+description: Use the Azure Machine Learning Python SDK to create training and deployment compute resources (compute targets) for machine learning
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -10,24 +10,27 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, contperfq1
 ---
 # Create compute targets for model training and deployment with Python SDK
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
-
-In this article, you create and manage compute targets with the Azure Machine Learning Python SDK.  You can also create and manage compute targets with:
+In this article, use the Azure Machine Learning Python SDK to create and manage compute targets. You can also create and manage compute targets with:
 * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md), 
 * The [CLI extension](reference-azure-machine-learning-cli.md#resource-management) for Azure Machine Learning
 * The [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) for Azure Machine Learning.
+
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
 * The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md)
+
+## What's a compute target?
+
+With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.  You can also create compute targets for model deployment as described in ["Where and how to deploy your models"](how-to-deploy-and-where.md).
 
 ## Compute targets for training
 

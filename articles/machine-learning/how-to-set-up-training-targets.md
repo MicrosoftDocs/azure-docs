@@ -1,7 +1,7 @@
 ---
 title: Use compute targets for model training
 titleSuffix: Azure Machine Learning
-description: Configure the training environments (compute targets) for machine learning model training. You can easily switch between training environments. Start training locally. If you need to scale out, switch to a cloud-based compute target.
+description: Train your machine learning model on various training environments (compute targets). You can easily switch between training environments. Start training locally. If you need to scale out, switch to a cloud-based compute target.
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -10,20 +10,23 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, contperfq1
 ---
 # Use compute targets for model training
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-With Azure Machine Learning, you can train your model on a variety of resources or environments, collectively referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine. 
+In this article, you learn how to use various training environments (compute targets) to train your machine learning model.
 
-In this article, learn how to to configure your experiment and run a training script once you [create a compute target](how-to-create-attach-compute-sdk.md).
+When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning, you can run your script on various compute targets without having to change your script.
+
+All you need to do is define the environment for each compute target within a **run configuration**.  Then, when you want to run your training experiment on a different compute target, specify the run configuration for that compute. For details of specifying an environment and binding it to run configuration, see [Create and manage environments for training and deployment](how-to-use-environments.md).
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today
 * The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md)
+* A [compute target](how-to-create-attach-compute-sdk.md)
 
 ## What's a run configuration?
 
@@ -59,7 +62,6 @@ Create a run configuration for the persistent compute target.
 Now that you have your run configuration, the next step is to [submit the training run](#submit).
 
 ### <a id="instance"></a>Azure Machine Learning compute instance
-
 
 Create a run configuration for a compute instance.
     
@@ -122,7 +124,6 @@ After you create a run configuration, you use it to run your experiment.  The co
 First, create an experiment in your workspace.
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/local.py?name=experiment)]
-
 
 ## Submit the experiment
 
