@@ -9,7 +9,10 @@ ms.reviewer: arvinh
 ---
 
 # Known issues: application provisioning
-This documents outlines things you may want to be aware of with respect to the Azure AD provisioning service. You can provide feedback here on userVoice so we can better prioritize improvements to our service. Note this isn’t a comprehensive list of known issues.  
+This documents outlines things you should be aware of when working with the Azure AD provisioning service. You can provide feedback about the application provisioning service on UserVoice, see [Azure AD Application Provision UserVoice](#). We closely watch UserVoice so we can prioritize improvements to the service. 
+
+> [!NOTE]
+> This isn’t a comprehensive list of known issues. If you know of an issue that is not listed, provide feedback at the bottom of the page.
 
 ## Authorization 
 
