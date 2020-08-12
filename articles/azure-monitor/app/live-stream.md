@@ -9,7 +9,7 @@ ms.reviewer: sdash
 
 # Live Metrics Stream: Monitor & Diagnose with 1-second latency
 
-Monitor your live, in-production web application by using Live Metrics Stream from [Application Insights](./app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](./profiler.md) and [Snapshot debugger](./snapshot-debugger.md), Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
+Monitor your live, in-production web application by using Live Metrics Stream (also known as QuickPulse) from [Application Insights](./app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](./profiler.md) and [Snapshot debugger](./snapshot-debugger.md), Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
 
 With Live Metrics Stream, you can:
 
@@ -27,15 +27,79 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 
 ## Get started
 
-1. [Install Application Insights](../azure-monitor-app-hub.yml) in your application.
-2. In addition to the standard Application Insights packages [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) is required to enable Live Metrics stream.
-3. **Update to the latest version** of the Application Insights package. In Visual Studio, right-click your project and choose **Manage NuGet packages**. Open the **Updates** tab, and select all the Microsoft.ApplicationInsights.* packages.
+1. Follow language specific guidelines to enable Live Metrics.
+   * [ASP.NET](./asp-net.md) - Live Metrics is enabled by default.
+   * [ASP.NET Core](./asp.asp-net-core.md)- Live Metrics is enabled by default.
+   * [.NET/.NET Core Console/Worker](./worker-service.md)- Live Metrics is enabled by default.
+   * [Manually setup LiveMetrics]() for any .NET Application.
+   * [Node.js](./nodejs.md#live-metrics)
 
-    Redeploy your app.
+2. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, and then open Live Stream.
 
-3. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, and then open Live Stream.
+3. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data such as customer names in your filters.
 
-4. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data such as customer names in your filters.
+### Enable LiveMetrics using code for any .NET application
+
+Even though LiveMetrics is enabled by default when onboarding using recommended instructions for .NET Applications, the following shows how to setup Live Metrics
+manually.
+
+1. Install the nuget package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
+2. The following sample console app code shows setting up Live Metrics.
+
+```csharp
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using System;
+using System.Threading.Tasks;
+
+namespace LiveMetricsDemo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Create a TelemetryConfiguration instance.
+            TelemetryConfiguration config = TelemetryConfiguration.CreateDefault();
+            config.InstrumentationKey = "INSTRUMENTATION-KEY-HERE";
+            QuickPulseTelemetryProcessor quickPulseProcessor = null;
+            config.DefaultTelemetrySink.TelemetryProcessorChainBuilder
+                .Use((next) =>
+                {
+                    quickPulseProcessor = new QuickPulseTelemetryProcessor(next);
+                    return quickPulseProcessor;
+                })
+                .Build();
+
+            var quickPulseModule = new QuickPulseTelemetryModule();
+
+            // Secure the control channel.
+            // This is optional, but recommended.
+            quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY";
+            quickPulseModule.Initialize(config);
+            quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
+
+            // Create a TelemetryClient instance. It is important
+            // to use the same TelemetryConfiguration here as the one
+            // used to setup Live Metrics.
+            TelemetryClient client = new TelemetryClient(config);
+            // This sample runs indefinitely. Replace with actual application logic.
+            while (true)
+            {
+                // Send dependency and request telemetry.
+                // These will be shown in Live Metrics stream.
+                client.TrackDependency("My dependency", "target", "http://sample",
+                    DateTimeOffset.Now, TimeSpan.FromMilliseconds(300), true);
+                client.TrackRequest("My Request", DateTimeOffset.Now,
+                    TimeSpan.FromMilliseconds(230), "200", true);
+                Task.Delay(1000).Wait();
+            }
+        }
+    }
+}
+```
+
+While the above sample is for a console app, the same code can be used in any .NET applications. If any other TelemetryModules are enabled which auto-collects telemetry, it is important to ensure the same configuration used for initializing those modules is used for Live Metrics module as well.
 
 ### No data? Check your server firewall
 
@@ -96,6 +160,7 @@ If you want to monitor a particular server role instance, you can filter by serv
 > Currently, you can only set up an authenticated channel using code base monitoring and cannot authenticate servers using codeless attach.
 
 The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
+
 ### Create an API Key
 
 ![API key > Create API key](./media/live-stream/api-key.png)
@@ -103,50 +168,27 @@ The custom filters criteria you specify are sent back to the Live Metrics compon
 
 ### Add API key to Configuration
 
-### Classic ASP.NET
+### ASP.NET
 
 In the applicationinsights.config file, add the AuthenticationApiKey to the QuickPulseTelemetryModule:
-``` XML
 
+```XML
 <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
       <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
 </Add>
-
 ```
-Or in code, set it on the QuickPulseTelemetryModule:
+
+### ASP.NET Core
+
+Modify `ConfigureServices` of your Startup.cs file as follows:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
-using Microsoft.ApplicationInsights.Extensibility;
-
-             TelemetryConfiguration configuration = new TelemetryConfiguration();
-            configuration.InstrumentationKey = "YOUR-IKEY-HERE";
-
-            QuickPulseTelemetryProcessor processor = null;
-
-            configuration.TelemetryProcessorChainBuilder
-                .Use((next) =>
-                {
-                    processor = new QuickPulseTelemetryProcessor(next);
-                    return processor;
-                })
-                        .Build();
-
-            var QuickPulse = new QuickPulseTelemetryModule()
-            {
-
-                AuthenticationApiKey = "YOUR-API-KEY"
-            };
-            QuickPulse.Initialize(configuration);
-            QuickPulse.RegisterTelemetryProcessor(processor);
-            foreach (var telemetryProcessor in configuration.TelemetryProcessors)
-                {
-                if (telemetryProcessor is ITelemetryModule telemetryModule)
-                    {
-                    telemetryModule.Initialize(configuration);
-                    }
-                }
-
+public void ConfigureServices(IServiceCollection services)
+{
+    // existing code which include AddApplicationInsightsTelemetry() to enable Application Insights.
+    services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
+}
 ```
 
 ### Azure Function Apps
@@ -154,22 +196,6 @@ using Microsoft.ApplicationInsights.Extensibility;
 For Azure Function Apps (v2), securing the channel with an API key can be accomplished with an environment variable.
 
 Create an API key from within your Application Insights resource and go to **Application Settings** for your Function App. Select **add new setting** and enter a name of `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` and a value that corresponds to your API key.
-
-### ASP.NET Core (Requires Application Insights ASP.NET Core SDK 2.3.0 or greater)
-
-Modify your startup.cs file as follows:
-
-First add
-
-```csharp
-using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
-```
-
-Then within the ConfigureServices method add:
-
-```csharp
-services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
-```
 
 However, if you recognize and trust all the connected servers, you can try the custom filters without the authenticated channel. This option is available for six months. This override is required once every new session, or when a new server comes online.
 
