@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/08/2020
+ms.date: 08/12/2020
 ms.author: mlottner
 ---
 
