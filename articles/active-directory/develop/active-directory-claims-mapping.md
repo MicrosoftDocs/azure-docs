@@ -324,7 +324,7 @@ The ID element identifies which property on the source provides the value for th
 | User | facsimiletelephonenumber | Facsimile Telephone Number |
 | User | assignedroles | list of App roles assigned to user|
 | application, resource, audience | displayname | Display Name |
-| application, resource, audience | objected | ObjectID |
+| application, resource, audience | objectid | ObjectID |
 | application, resource, audience | tags | Service Principal Tag |
 | Company | tenantcountry | Tenant's country/region |
 
