@@ -115,7 +115,7 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 
     [!code-csharp[Variables you need to change](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=VariablesYouChange)]
 
-1. Create variables to hold your app name, version, and intent name.
+1. Create variables to hold your endpoints, app name, version, and intent name.
 
     [!code-csharp[Variables you need to change](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=VariablesYouDontNeedToChangeChange)]
 
