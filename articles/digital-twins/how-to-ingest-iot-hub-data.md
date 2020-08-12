@@ -26,9 +26,9 @@ This how-to document walks through the process for writing an Azure function tha
 ## Prerequisites
 
 Before continuing with this example, you'll need to complete the following prerequisites.
-1. **An IoT hub**. See the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md) for instructions.
-2. **An Azure Function** with the correct permissions to call your digital twin instance. See [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md) for instructions. 
-3. **A Digital Twins instance** that will receive your device telemetry. See [*How-to: Set up an Azure Digital Twins instance and authentication*](./how-to-set-up-instance-portal.md) 
+* **An IoT hub**. See the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md) for instructions.
+* **An Azure Function** with the correct permissions to call your digital twin instance. See [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md) for instructions. 
+* **A Digital Twins instance** that will receive your device telemetry. See [*How-to: Set up an Azure Digital Twins instance and authentication*](./how-to-set-up-instance-portal.md) 
 
 ### Example telemetry scenario
 
@@ -41,7 +41,7 @@ This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, u
 
 Whenever a temperature telemetry event is sent by the thermometer device, the *temperature* property of the digital twin should update. This scenario is outlined in a diagram below:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="An IoT Hub device sends Temperature telemetry through IoT Hub, Event Grid, or system topics to an Azure Function, which updates a temperature property on twins in Azure Digital Twins." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="A diagram showing a flow chart. In the chart an IoT Hub device sends Temperature telemetry through IoT Hub to an Azure Function, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
 
 ## Add a model and twin
 
@@ -189,18 +189,18 @@ namespace IotHubtoTwins
 
 ## Connect your function to IoT Hub
 
-1. Set up an event destination for hub data. In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance. Under *Events*, create a subscription for your Azure function. 
+1. Set up an event destination for hub data. In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance. Under **Events**, create a subscription for your Azure function. 
 
-    :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Azure portal: Adding an event subscription":::
+    :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Screenshot of the Azure portal that shows Adding an event subscription.":::
 
-2. In the *Create Event Subscription* page, fill the fields as follows:
-   * Under *Name*, name the subscription what you would like
-   * Under *Event Schema*, choose *Event Grid Schema*
-   * Under *System Topic Name*, choose a unique name.  
-   * Under *Event Types*, choose *Device Telemetry* as the event type to filter to
-   * Under *ENDPOINT DETAILS*, select your Azure function as an endpoint
+2. In the **Create Event Subscription** page, fill the fields as follows:
+    1. Under **Name**, name the subscription what you would like.
+    2. Under **Event Schema**, choose **Event Grid Schema**.
+    3. Under **System Topic Name**, choose a unique name.
+    4. Under **Event Types**, choose **Device Telemetry** as the event type to filter to.
+    5. Under **Endpoint Details**, select your Azure function as an endpoint.
 
-    :::image type="content" source="media/how-to-ingest-iot-hub-data/event-subscription-2.png" alt-text="Azure portal: Adding an event subscription":::
+    :::image type="content" source="media/how-to-ingest-iot-hub-data/event-subscription-2.png" alt-text="Screenshot of the Azure portal that shows the event subscription details":::
 
 ## Send simulated IoT data
 
