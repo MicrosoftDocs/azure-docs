@@ -31,7 +31,7 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
    * [ASP.NET](./asp-net.md) - Live Metrics is enabled by default.
    * [ASP.NET Core](./asp-net-core.md)- Live Metrics is enabled by default.
    * [.NET/.NET Core Console/Worker](./worker-service.md)- Live Metrics is enabled by default.
-   * [Manually setup LiveMetrics](#enable-livemetrics-using-code-for-any-net-application) for any .NET Application.
+   * [.NET Applications - Enable using code](#enable-livemetrics-using-code-for-any-net-application).
    * [Node.js](./nodejs.md#live-metrics)
 
 2. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, and then open Live Stream.
@@ -83,11 +83,14 @@ namespace LiveMetricsDemo
             // to use the same TelemetryConfiguration here as the one
             // used to setup Live Metrics.
             TelemetryClient client = new TelemetryClient(config);
+
             // This sample runs indefinitely. Replace with actual application logic.
             while (true)
             {
                 // Send dependency and request telemetry.
                 // These will be shown in Live Metrics stream.
+                // CPU/Memory Performance counter is also shown
+                // automatically without any additional steps.
                 client.TrackDependency("My dependency", "target", "http://sample",
                     DateTimeOffset.Now, TimeSpan.FromMilliseconds(300), true);
                 client.TrackRequest("My Request", DateTimeOffset.Now,
@@ -100,10 +103,6 @@ namespace LiveMetricsDemo
 ```
 
 While the above sample is for a console app, the same code can be used in any .NET applications. If any other TelemetryModules are enabled which auto-collects telemetry, it is important to ensure the same configuration used for initializing those modules is used for Live Metrics module as well.
-
-### No data? Check your server firewall
-
-Check the [outgoing ports for Live Metrics Stream](./ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
 
 ## How does Live Metrics Stream differ from Metrics Explorer and Analytics?
 
@@ -238,7 +237,7 @@ However, if you recognize and trust all the connected servers, you can try the c
 
 | Language                         | Basic Metrics       | Performance metrics | Custom filtering    | Sample telemetry    | CPU split by process |
 |----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
-| .NET                             | Supported (V2.7.2+) | Supported (V2.7.2+) | Supported (V2.7.2+) | Supported (V2.7.2+) | Supported (V2.7.2+)  |
+| .NET Framework                   | Supported (V2.7.2+) | Supported (V2.7.2+) | Supported (V2.7.2+) | Supported (V2.7.2+) | Supported (V2.7.2+)  |
 | .NET Core (target=.NET Framework)| Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+) | Supported (V2.4.1+)  |
 | .NET Core (target=.NET Core)     | Supported (V2.4.1+) | Supported*          | Supported (V2.4.1+) | Supported (V2.4.1+) | **Not Supported**    |
 | Azure Functions v2               | Supported           | Supported           | Supported           | Supported           | **Not Supported**    |
@@ -251,17 +250,15 @@ Basic metrics include request, dependency, and exception rate. Performance metri
 
 - PerfCounters metrics are supported when running in Azure App Service for Windows. (AspNetCore SDK Version 2.4.1 or higher)
 - PerfCounters are supported when app is running in ANY Windows machines (VM or Cloud Service or On-prem etc.) (AspNetCore SDK Version 2.7.1 or higher), but for apps targeting .NET Core 2.0 or higher.
-- PerfCounters are supported when app is running ANYWHERE (Linux, Windows, app service for Linux, containers, etc.) in the latest beta (i.e AspNetCore SDK Version 2.8.0-beta1 or higher), but for apps targeting .NET Core 2.0 or higher.
-
-By default Live Metrics is disabled in the Node.js SDK. To enable Live Metrics, add `setSendLiveMetrics(true)` to your [configuration methods](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) as you initialize the SDK.
+- PerfCounters are supported when app is running ANYWHERE (Linux, Windows, app service for Linux, containers, etc.) in the latest versions (i.e AspNetCore SDK Version 2.8.0 or higher), but only for apps targeting .NET Core 2.0 or higher.
 
 ## Troubleshooting
 
-No data? If your application is in a protected network: Live Metrics Stream uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](./ip-addresses.md) are open in your firewall.
+Live Metrics Stream uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](./ip-addresses.md) are open in your firewall. Also check the [outgoing ports for Live Metrics Stream](./ip-addresses.md#outgoing-ports) are open in the firewall of your servers.
 
 ## Next steps
+
 * [Monitoring usage with Application Insights](./usage-overview.md)
 * [Using Diagnostic Search](./diagnostic-search.md)
 * [Profiler](./profiler.md)
 * [Snapshot debugger](./snapshot-debugger.md)
-
