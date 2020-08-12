@@ -17,4 +17,4 @@ When you enable the **Allow trusted Microsoft services to bypass this fir
 | Trusted service | Supported usage scenarios | 
 | --------------- | ------------------------- | 
 | Azure Event Grid | Allows Azure Event Grid to send events to event hubs in your Event Hubs namespace. |
-| Azure Monitor | Allows Azure Monitor to send diagnostic information to event hubs in your Event Hubs namespace. |
+| Azure Monitor (Diagnostic Settings) | Allows Azure Monitor to send diagnostic information to event hubs in your Event Hubs namespace. |

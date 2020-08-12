@@ -18,6 +18,8 @@ This feature is helpful in scenarios in which Azure Event Hubs should be only ac
 > - Azure Stream Analytics
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
+> - Azure Event Grid
+> - Azure Monitor (Diagnostic Settings)
 >
 > As an exception, you can allow access to Event Hubs resources from certain trusted services even when the IP filtering is enabled. For a list of trusted services, see [Trusted Microsoft services](#trusted-microsoft-services).
 
@@ -28,12 +30,9 @@ The IP firewall rules are applied at the Event Hubs namespace level. So, the rul
 This section shows you how to use the Azure portal to create IP firewall rules for an Event Hubs namespace. 
 
 1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
-4. Select **Networking** under **Settings** on the left menu. 
-
+4. Select **Networking** under **Settings** on the left menu. You see the **Networking** tab only for **standard** or **dedicated** namespaces. 
     > [!NOTE]
-    > You see the **Networking** tab only for **standard** or **dedicated** namespaces. 
-
-    By default, the **Selected networks** option is selected. If you don't specify an IP firewall rule or add a virtual network on this page, the namespace can be accessed via public internet (using the access key). 
+    > By default, the **Selected networks** option is selected as shown in the following image. If you don't specify an IP firewall rule or add a virtual network on this page, the namespace can be accessed via **public internet** (using the access key).  
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Networks tab - selected networks option" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 

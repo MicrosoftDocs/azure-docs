@@ -22,6 +22,8 @@ For more information, see [What is Azure Private Link?](../private-link/private-
 > - Azure Stream Analytics
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
+> - Azure Event Grid
+> - Azure Monitor (Diagnostic Settings)
 >
 > As an exception, you can allow access to Event Hubs resources from certain trusted services even when private endpoints are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
 
