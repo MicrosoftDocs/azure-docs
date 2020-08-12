@@ -1,3 +1,12 @@
+---
+title: App Development best practices - Azure Database for MySQL
+description: Learn about best practices when building an app with Azure Database for MySQL
+author: mksuni
+ms.author: sumuth
+ms.service: mysql
+ms.topic: conceptual
+ms.date: 08/11/2020
+---
 
 # Application development Best practices
 
