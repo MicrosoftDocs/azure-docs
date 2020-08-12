@@ -7,7 +7,7 @@ ms.date: 08/14/2020
 
 # Deploy Traffic Manager to balance Azure VMware Solution (AVS) workloads
 
-This article walks you through integrating Traffic Manager with Azure VMware Solution (AVS) to balance application workloads across multiple endpoints. We'll use a scenario in which Traffic Manager will direct traffic between three application gateways, each with backend pool members configured as IIS Servers and referenced as AVS external endpoints. The application gateways will span several AVS regions: West US, West Europe, and on-premises. 
+This article walks you through integrating Traffic Manager with Azure VMware Solution (AVS) to balance application workloads across multiple endpoints. We'll look at a scenario in which Traffic Manager will direct traffic between three application gateways spanning several AVS regions: West US, West Europe, and on-premises in East US. 
 
 Azure Traffic Manager is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions. It will load balance application traffic across both Azure running workloads and external public endpoints. For more information on Traffic Manager, see [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
 
@@ -21,7 +21,9 @@ Review the [Prerequisites](#prerequisites) first; then we'll walk through the pr
 
 ## Topology
 
-As shown in the following figure, Azure Traffic Manager provides load balancing for the applications at the DNS level between regional endpoints. Connection over the virtual network between two AVS private cloud regions, West US and West Europe, and an on-premises server, utilizes an ExpressRoute gateway.
+As shown in the following figure, Azure Traffic Manager provides load balancing for the applications at the DNS level between regional endpoints. The application gateways have backend pool members configured as IIS Servers and are referenced as AVS external endpoints.
+
+Connection over the virtual network between the two AVS private cloud regions, West US and West Europe, and an on-premises server in East US, uses an ExpressRoute gateway.   
 
 [ ![Traffic Manager integration with AVS](media/traffic-manager/traffic-manager-topology.png) ](media/traffic-manager/traffic-manager-topology.png#lightbox)
  
@@ -35,17 +37,17 @@ As shown in the following figure, Azure Traffic Manager provides load balancing 
 
 ## Verify configuration of your application gateways
 
-[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a layer 7 web traffic load balancer that enables you to manage traffic to your web applications. For more information, see [Use Azure Application Gateway to protect your web apps on Azure VMware Solution](protect-avs-web-apps-with-app-gateway.md) and [What is Azure Application Gateway?](../application-gateway/overview.md) 
+[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a layer 7 web traffic load balancer that enables you to manage traffic to your web applications. For more information on Application Gateway, see [What is Azure Application Gateway?](../application-gateway/overview.md) 
 
-In this scenario, three application gateway instances are configured as external AVS endpoints into West US, West Europe, and on-premises between which Traffic Manager directs traffic. The application gateways have AVS virtual machines configured as backend pool members to load balance the incoming layer 7 requests.  
+In this scenario, three application gateway instances are configured as external AVS endpoints between which Traffic Manager directs traffic. The application gateways have AVS virtual machines configured as backend pool members to load balance the incoming layer 7 requests. (To learn how to configure Application Gateway with AVS virtual machines as  backend pools, see [Use Azure Application Gateway to protect your web apps on Azure VMware Solution](protect-avs-web-apps-with-app-gateway.md). Also see [Create an application gateway](../application-gateway/quick-create-portal.md).)  
 
 The following steps serve to verify the correct configuration of the application gateways.
 
-1. Open the Azure portal and select **Application gateways** to view a list of your current application gateways. For an example of creating an application gateway and configuring it with AVS virtual machines as the backend pool members, see [Use Azure Application Gateway to protect your web apps on Azure VMware Solution](protect-avs-web-apps-with-app-gateway.md). Also see [Create an application gateway](../application-gateway/quick-create-portal.md).
+1. Open the Azure portal and select **Application gateways** to view a list of your current application gateways. 
 
     For this scenario, we have configured three application gateways:
     - AVS-GW-WUS
-    - AVS-GW-EUS
+    - AVS-GW-EUS (on premises)
     - AVS-GW-WEU
 
     :::image type="content" source="media/traffic-manager/app-gateways-list1.png" alt-text="List of application gateways." lightbox="media/traffic-manager/app-gateways-list1.png":::
