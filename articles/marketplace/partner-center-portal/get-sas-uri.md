@@ -1,5 +1,5 @@
 ---
-title: Get SAS URI for your VM image - Azure Marketplace
+title: Get a SAS URI for your VM image - Azure Marketplace
 description: Generate a shared access signature (SAS) URI for your virtual hard disks (VHD) in Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,7 +9,7 @@ ms.author: iqshah
 ms.date: 08/14/2020
 ---
 
-# Get SAS URI for your VM image
+# Get a SAS URI for your VM image
 
 During the publishing process, you must provide a URI for each VHD associated with your plans (previously called SKUs). Microsoft needs access to these VHDs during the certification process. You’ll enter this URI on the **Plans** tab in Partner Center.
 
@@ -62,9 +62,9 @@ This generated SAS URI is for container-level access. To make it specific, edit 
 1. Download and install [Microsoft Azure CL](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)I. Versions are available for Windows, macOS, and various distros of Linux.
 2. Create a PowerShell file (.ps1 file extension), copy in the following code, then save it locally.
 
-```JSON
-az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <vhd-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
-```
+    ```JSON
+    az storage container generate-sas --connection-string ‘DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net’ --name <vhd-name> --permissions rl --start ‘<start-date>’ --expiry ‘<expiry-date>’
+    ```
 
 3. Edit the file to use the following parameter values. Provide dates in UTC datetime format, such as 2020-04-01T00:00:00Z.
 
@@ -82,7 +82,7 @@ az storage container generate-sas --connection-string ‘DefaultEndpointsProtoco
 2. Using one of the following methods, run this script with administrative privileges to create a SAS connection string for container-level access:
 
     - Run the script from the console. In Windows, right-click the script and select **Run as administrator**.
-    - Run the script from a PowerShell script editor such as [Windows PowerShell ISE](https://docs.microsoft.com/en-us/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). This screen shows the creation of a SAS connection string within this editor:
+    - Run the script from a PowerShell script editor such as [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). This screen shows the creation of a SAS connection string within this editor:
 
     [![creation of a SAS connection string within the PowerShell editor](media/vm/create-sas-uri-power-shell-ise.png)](media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 

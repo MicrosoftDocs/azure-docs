@@ -543,7 +543,7 @@ Azure will begin deployment. It creates a new VM with the specified unmanaged VH
 
 ### Deploy an Azure VM using PowerShell
 
-Copy and edit the following script to provide values for the $storageaccount and $vhdUrl variables. Execute it to create an Azure VM resource from your existing generalized VHD.<font color="red">code is powershell?</font>
+Copy and edit the following script to provide values for the `$storageaccount` and `$vhdUrl` variables. Execute it to create an Azure VM resource from your existing generalized VHD. <font color="red">code is powershell?</font>
 
 ```POWERSHELL
 # storage account of existing generalized VHD
@@ -590,6 +590,8 @@ The Certification Test Tool for Azure Certified runs on a local Windows machine 
 5. Enter **User Name** and **Password**.
 
     :::image type="content" source="media/vm/azure-vm-cert-4.png" alt-text="Shows the selection of VM user name and password.":::
+
+<font color="red">1. Select Next?</font>
 
 #### Run a certification test
 

@@ -17,7 +17,7 @@ This article describes how to create and configure technical assets for a virtua
 
 1. **Operating system VHD** – Contains the operating system and solution that deploys with your offer. The process of preparing the VHD differs depending on whether it is a Linux-based, Windows-based, or a custom- based VM.
 
-2. **Data disk VHDs** - Dedicated, persistent storage for a VM. Don't use the operating system VHD (for example, the C: drive) to store persistent information.
+2. **Data disk VHDs** – Dedicated, persistent storage for a VM. Don't use the operating system VHD (for example, the C: drive) to store persistent information.
 
 A VM image contains one operating system disk and up to 16 data disks. Use one VHD per data disk, even if the disk is blank.
 
@@ -33,7 +33,7 @@ Designing, building, and testing these assets takes time and requires technical 
 
 - Basic understanding of [Azure Services](https://azure.microsoft.com/services/)
 - How to [design and architect Azure applications](https://azure.microsoft.com/solutions/architecture/)
-- Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage)and [Azure Networking](https://azure.microsoft.com/services/?filter=networking)
+- Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking)
 - Working knowledge of [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
 - Working Knowledge of [JSON](https://www.json.org/)
 
@@ -51,7 +51,7 @@ Additionally, consider adding the following tools to your development environmen
 
 ## Create a VM image using an approved base
 
-To create your virtual machine technical assets using an image you built on your own premises, go to Create a VM using your [own image.] <font color="red">NEED LINK, was c: drive</font>
+To create your virtual machine technical assets using an image you built on your own premises, go to Create a VM using your [own image]. <font color="red">NEED LINK, was c: drive</font>
 
 This section describes various aspects of using an approved base, such as using the Remote Desktop Protocol (RDP), selecting a size for the VM, installing the latest Windows updates, and generalizing the VHD image.
 
@@ -121,12 +121,10 @@ Create a generation 2 (Gen2) VM in Azure portal.
 5. Select **Create**.
 6. In the **Advanced** tab, under the **VM generation** section, select the **Gen 2** option.
 7. In the **Basics** tab, Under **Instance details**, go to **Size** and open the **Select a VM size** tab. <font color="red">replaced "blade" with "tab"</font>
-8. Select a [supported generation 2 VM](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes).
+8. Select a recommended size of [supported Gen 2 VM](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) and size.
 9. Go through the [Azure portal creation flow](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) to finish creating the VM.
 
     :::image type="content" source="media/vm/vm-generation.png" alt-text="Shows option to select generation of VM.":::
-
-Find Gen2 supported VM recommended sizes at [https://docs.microsoft.com/azure/virtual-machines/windows/generation-2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
 
 ## Connect to your Azure VM
 
@@ -143,7 +141,7 @@ This article details how to use the built-in Windows RDP support to connect to y
 
 ### Connect to a Linux-based VM
 
-To connect to a Linux-based VM, you need a secure shell protocol (SSH) client. The following steps use the free [PuTTY](https://www.ssh.com/ssh/putty/)SHH terminal.
+To connect to a Linux-based VM, you need a secure shell protocol (SSH) client. The following steps use the free [PuTTY](https://www.ssh.com/ssh/putty/) SHH terminal.
 
 1. Go to the [Azure portal](https://ms.portal.azure.com/).
 2. Search for and select Virtual machines.
@@ -172,12 +170,12 @@ The following rules are for limitations on OS disk size. When you submit any req
 | Linux | 30 to 1023 GB |
 | Windows | 30 to 250 GB |
 
-As VMs allow access to the underlying operating system, ensure the VHD size is large enough for the VHD. Because disks aren't expandable without downtime, use a disk size between 30 and 50 GB.
+As VMs allow access to the underlying operating system, ensure the VHD size is large enough for the VHD. Because disks aren't expandable without downtime, use a disk size between 30 and 50&nbsp;GB. <font color="red">Below, changed TiB to TB,</font>
 
 | VHD size | Actual occupied size | Solution |
 | --- | --- | --- |
-| >500 TiB | n/a | Contact the support team for an exception approval. |
-| 250-500 TiB | >200 GiB different from blob size | Contact the support team for an exception approval. |
+| >500 TB | n/a | Contact the support team for an exception approval. |
+| 250-500 TB | >200 GB different from blob size | Contact the support team for an exception approval. |
 
 ### Install the most current updates
 
@@ -205,14 +203,14 @@ All images in the Azure Marketplace must be reusable in a generic fashion. To ac
 
 ### For Windows
 
-Windows OS disks are generalized with the [sysprep tool](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). If you subsequently update or reconfigure the OS, you must run sysprep again.
+Windows OS disks are generalized with the [sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) tool. If you later update or reconfigure the OS, you must run sysprep again.
 
 > [!WARNING]
-> Because updates may run automatically, after you run sysprep, turn the VM off until it's deployed. This shutdown will avoid subsequent updates from making instance-specific changes to the operating system or installed services. For more information about running sysprep, see [Steps to generalize a VHD](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep).
+> After you run sysprep, turn the VM off until it's deployed because updates may run automatically. This shutdown will avoid subsequent updates from making instance-specific changes to the operating system or installed services. For more information about running sysprep, see [Steps to generalize a VHD](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep).
 
 ### For Linux
 
-The following process generalizes a Linux VM and redeploys it as a separate VM. For details, see [How to create an image of a virtual machine or VHD](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image). You can stop when you reach the section "Create a VM from the captured image".
+The following process generalizes a Linux VM and redeploys it as a separate VM. For details, see [How to create an image of a virtual machine or VHD](https://docs.microsoft.com/azure/virtual-machines/linux/capture-image). You can stop when you reach the section called "Create a VM from the captured image".
 
 1. Remove the Azure Linux agent
 
