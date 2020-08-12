@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019
 
 # Azure Synapse Analytics business intelligence partners
 
-To create your data warehouse solution, you can choose from a variety of industry-leading tools. This article highlights Microsoft partner companies with business intelligence (BI) solutions officially supporting Azure Synapse Analytics.
+To create your data warehouse solution, you can choose from different kinds of industry-leading tools. This article highlights Microsoft partner companies with business intelligence (BI) solutions officially supporting Azure Synapse Analytics.
 
 ## Our business intelligence partners
 | Partner | Description | Website/Product link |
