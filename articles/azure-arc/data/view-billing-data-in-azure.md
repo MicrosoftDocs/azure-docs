@@ -13,7 +13,8 @@ ms.topic: how-to
 
 # Scenario: Upload billing data to Azure and view it in the Azure portal
 
-> **IMPORTANT NOTE:** There is no cost to use Azure Arc enabled data services during the preview period.   Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named 'hybrid data services' and for resources of a type called 'microsoft.AzureData/sqlmanagedinstances'.  You will be able to see a record for each SQL Managed Instance - Azure Arc that you deploy, but each record will be billed for $0.
+> [!IMPORTANT] 
+There is no cost to use Azure Arc enabled data services during the preview period.   Although the billing system works end to end the billing meter is set to $0.  If you follow this scenario, you will see entries in your billing for a service currently named 'hybrid data services' and for resources of a type called 'microsoft.AzureData/sqlmanagedinstances'.  You will be able to see a record for each SQL Managed Instance - Azure Arc that you deploy, but each record will be billed for $0.
 
 ## Connectivity Modes - Implications for billing data
 
