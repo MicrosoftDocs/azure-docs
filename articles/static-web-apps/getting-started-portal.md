@@ -1,0 +1,161 @@
+---
+title: "Quickstart: Building your first static web app with Azure Static Web Apps using the Azure Portal"
+description: Learn to build an Azure Static Web Apps instance with the Azure Portal.
+services: static-web-apps
+author: craigshoemaker
+ms.service: static-web-apps
+ms.topic:  quickstart
+ms.date: 08/05/2020
+ms.author: cshoe
+---
+
+# Quickstart: Building your first static web app in the Azure Portal
+
+Azure Static Web Apps publishes websites to a production environment by building apps from a GitHub repository. In this quickstart, you build a web application using your preferred front-end framework from a GitHub repository.
+
+If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
+
+## Prerequisites
+
+- [GitHub](https://github.com) account
+- [Azure](https://portal.azure.com) account
+
+## Create a repository
+
+This article uses GitHub template repositories to make it easy for you to create a new repository. The templates feature starter apps built with different front-end frameworks.
+
+# [Angular](#tab/angular)
+
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/angular-basic/generate
+- Name your repository **my-first-static-web-app**
+
+# [React](#tab/react)
+
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/react-basic/generate
+- Name your repository **my-first-static-web-app**
+
+# [Vue](#tab/vue)
+
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/vue-basic/generate
+- Name your repository **my-first-static-web-app**
+
+# [No Framework](#tab/vanilla-javascript)
+
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/vanilla-basic/generate
+- Name your repository **my-first-static-web-app**
+
+> [!NOTE]
+> Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
+
+---
+
+Click the **Create repository from template** button.
+
+:::image type="content" source="media/getting-started-portal/create-template.png" alt-text="Create repository from template":::
+
+## Create a static web app
+
+Now that the repository is created, you can create a static web app from the Azure portal.
+
+- Navigate to the [Azure portal](https://portal.azure.com)
+- Click **Create a Resource**
+- Search for **Static Web Apps**
+- Click **Static Web Apps (Preview)**
+- Click **Create**
+
+### Basics
+
+Begin by configuring your new app and linking it to a GitHub repository.
+
+:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Basics tab":::
+
+- Select your _Azure subscription_
+- Select or create a new _Resource Group_
+- Name the app **my-first-static-web-app**.
+  - Valid characters are `a-z` (case insensitive), `0-9`, and `-`.
+- Select a _Region_ closest to you
+- Select the **Free** _SKU_
+- Click the **Sign-in with GitHub** button and authenticate with GitHub
+
+Once you sign in with GitHub, then enter the repository information.
+
+:::image type="content" source="media/getting-started-portal/repository-details.png" alt-text="Repository details":::
+
+- Select your preferred _Organization_
+- Select **my-first-web-static-app** from the _Repository_ drop-down
+- Select **master** from the _Branch_ drop-down
+- Click the **Next: Build >** button to edit the build configuration
+
+:::image type="content" source="media/getting-started-portal/next-build-button.png" alt-text="Next Build button":::
+
+> [!NOTE]
+>  If you don't see any repositories, you may need to authorize Azure Static Web Apps in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
+
+### Build
+
+Next, add configuration details specific to your preferred front-end framework.
+
+# [Angular](#tab/angular)
+
+- Enter **/** in the _App location_ box
+- Clear the default value from the _Api location_ box
+- Enter **dist/angular-basic** in the _App artifact location_ box
+
+# [React](#tab/react)
+
+- Enter **/** in the _App location_ box
+- Clear the default value from the _Api location_ box
+- Enter **build** in the _App artifact location_ box
+
+# [Vue](#tab/vue)
+
+- Enter **/** in the _App location_ box
+- Clear the default value from the _Api location_ box
+- Enter **dist** in the _App artifact location_ box
+
+# [No Framework](#tab/vanilla-javascript)
+
+- Enter **/** in the _App location_ box
+- Clear the default value from the _Api location_ box
+- Clear the default value from _App artifact location_ box
+
+---
+
+Click the **Review + create** button.
+
+:::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review create button":::
+
+To change these values after you create the app, you can edit the [workflow file](github-actions-workflow.md).
+
+### Review + create
+
+After the request validates, you can continue to create the application.
+
+Click the **Create** button
+
+:::image type="content" source="media/getting-started-portal/create-button.png" alt-text="Create button":::
+
+Once the resource is created, click the **Go to resource** button
+
+:::image type="content" source="media/getting-started-portal/resource-button.png" alt-text="Go to resource button":::
+
+[!INCLUDE [view website](../../includes/static-web-apps-getting-started-view-website.md)]
+
+## Clean up resources
+
+If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the following steps:
+
+1. Open the [Azure portal](https://portal.azure.com)
+1. Search for **my-first-web-static-app** from the top search bar
+1. Click on the app name
+1. Click on the **Delete** button
+1. Click **Yes** to confirm the delete action
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Add an API](add-api.md)
