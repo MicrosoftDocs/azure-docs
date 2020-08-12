@@ -22,7 +22,7 @@ ms.reviewer: aragra, lenalepa, sureshja
 
 In this quickstart, you register an app in the Azure portal so the Microsoft identity platform can provide authentication and authorization services for your application and its users.
 
-Each application you want the Microsoft identity platform to perform identity and access management (IAM) for needs to be registered. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a *trust relationship* between your application and the identity provider, the Microsoft identity platform.
+Each application you want the Microsoft identity platform to perform identity and access management (IAM) for needs to be registered. Whether it's a client application like a web or mobile app, or it's a web API that backs a client app, registering it establishes a trust relationship between your application and the identity provider, the Microsoft identity platform.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ A redirect URI is the location to which the Microsoft identity platform redirect
 
 In a production web application, for example, the redirect URI is often a public endpoint where your app is running, like `https://contoso.com/auth-response`. During development, it's common to also add the endpoint where you run your app locally, like `https://127.0.0.1/auth-response`.
 
-You can add and modify redirect URIs for your registered applications by configuring their [platform settings](#configure-platform-settings).
+You add and modify redirect URIs for your registered applications by configuring their [platform settings](#configure-platform-settings).
 
 ### Configure platform settings
 
@@ -93,11 +93,13 @@ There are certain restrictions on the format of the redirect URIs you add to an 
 
 ## Add credentials
 
-Credentials are typically used by confidential client applications that access a web API, for example web apps, other web APIs, or service- and daemon-type applications.
+Credentials are typically used by confidential client applications that access a web API, for example web apps, other web APIs, or service- and daemon-type applications. Your application uses the credential to identify itself to the Microsoft identity platform.
 
-You can add both certificates and client secrets as credentials to your confidential client apps.
+You can add both certificates and client secrets (strings) as a credential to your confidential client app registration.
 
 ### Add a certificate
+
+Sometimes called a *public key*, certificates are the recommended credential type as they provide a higher level of assurance than a client secret.
 
 1. From the app **Overview** page, select **Certificates & secrets**.
 1. Select **Upload certificate**.
@@ -106,13 +108,14 @@ You can add both certificates and client secrets as credentials to your confiden
 
 ### Add a client secret
 
+The client secret, known also as an *application password*, is a string value your app can use in place of a certificate to identity itself. It's the easier of the two credential types to use and is often used during development, but is considered less secure than a certificate. You should use certificates in your applications running in production.
+
 1. From the app **Overview** page, select **Certificates & secrets**.
 1. Select **New client secret**.
 1. Add a description for your client secret.
 1. Select a duration.
 1. Select **Add**.
-
-    **Be sure to copy the secret value** for use in your client application code as it's not accessible once you leave this page.
+1. **Record the secret's value** for use in your client application code - it's *never displayed again* after you leave this page.
 
 ## Next steps
 
