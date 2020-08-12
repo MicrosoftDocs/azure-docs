@@ -29,9 +29,9 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 
 1. Follow language specific guidelines to enable Live Metrics.
    * [ASP.NET](./asp-net.md) - Live Metrics is enabled by default.
-   * [ASP.NET Core](./asp.asp-net-core.md)- Live Metrics is enabled by default.
+   * [ASP.NET Core](./asp-net-core.md)- Live Metrics is enabled by default.
    * [.NET/.NET Core Console/Worker](./worker-service.md)- Live Metrics is enabled by default.
-   * [Manually setup LiveMetrics]() for any .NET Application.
+   * [Manually setup LiveMetrics](#enable-livemetrics-using-code-for-any-net-application) for any .NET Application.
    * [Node.js](./nodejs.md#live-metrics)
 
 2. In the [Azure portal](https://portal.azure.com), open the Application Insights resource for your app, and then open Live Stream.
@@ -75,7 +75,7 @@ namespace LiveMetricsDemo
 
             // Secure the control channel.
             // This is optional, but recommended.
-            quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY";
+            quickPulseModule.AuthenticationApiKey = "YOUR-API-KEY-HERE";
             quickPulseModule.Initialize(config);
             quickPulseModule.RegisterTelemetryProcessor(quickPulseProcessor);
 
@@ -113,7 +113,7 @@ Check the [outgoing ports for Live Metrics Stream](./ip-addresses.md#outgoing-po
 |**No retention**|Data persists while it's on the chart, and is then discarded|[Data retained for 90 days](./data-retention-privacy.md#how-long-is-the-data-kept)|
 |**On demand**|Data is only streamed while the Live Metrics pane is open |Data is sent whenever the SDK is installed and enabled|
 |**Free**|There is no charge for Live Stream data|Subject to [pricing](./pricing.md)
-|**Sampling**|All selected metrics and counters are transmitted. Failures and stack traces are sampled. TelemetryProcessors are not applied.|Events may be [sampled](./api-filtering-sampling.md)|
+|**Sampling**|All selected metrics and counters are transmitted. Failures and stack traces are sampled. |Events may be [sampled](./api-filtering-sampling.md)|
 |**Control channel**|Filter control signals are sent to the SDK. We recommend you secure this channel.|Communication is one way, to the portal|
 
 ## Select and filter your metrics
@@ -180,16 +180,43 @@ In the applicationinsights.config file, add the AuthenticationApiKey to the Quic
 
 ### ASP.NET Core
 
+For [ASP.NET Core](./asp-net-core.md) applications, follow below instructions.
+
 Modify `ConfigureServices` of your Startup.cs file as follows:
+
+Add the following namespace.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+```
+
+Then modify `ConfigureServices` method as below.
+
+```csharp
 public void ConfigureServices(IServiceCollection services)
 {
-    // existing code which include AddApplicationInsightsTelemetry() to enable Application Insights.
+    // existing code which include services.AddApplicationInsightsTelemetry() to enable Application Insights.
     services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 }
 ```
+
+More information on configuring ASP.NET Core applications can be found [here](./asp-net-core#configuring-or-removing-default-telemetrymodules).
+
+### WorkerService
+
+For [WorkerService](./worker-service.md) applications, follow below instructions.
+
+```csharp
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+```
+
+Add the following line before the call `services.AddApplicationInsightsTelemetryWorkerService`.
+
+```csharp
+    services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
+```
+
+More information on configuring WorkerService applications can be found [here](./worker-service.md#configuring-or-removing-default-telemetrymodules).
 
 ### Azure Function Apps
 
