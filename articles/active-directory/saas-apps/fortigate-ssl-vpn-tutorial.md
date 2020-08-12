@@ -142,7 +142,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure FortiGate SSL VPN SSO
 
-To configure single sign-on on **FortiGate SSL VPN** side, please follow the [document](https://docs.fortinet.com/document/fortigate/6.4.0/new-features/558169/saml-sp-for-vpn-authentication).
+To configure single sign-on on **FortiGate SSL VPN** side, please follow the document:
+
+![Document](./media/fortigate-ssl-vpn-tutorial/fortiGate-deployment-guide-converted.pdf)
+
+> [!NOTE]
+> For more information to Configure FortiGate SSL VPN, refer this [link](https://docs.fortinet.com/document/fortigate/6.4.0/new-features/558169/saml-sp-for-vpn-authentication).
 
 ### Create FortiGate SSL VPN test user
 
