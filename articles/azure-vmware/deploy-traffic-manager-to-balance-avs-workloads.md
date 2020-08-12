@@ -1,5 +1,5 @@
 ---
-title: Deploy Traffic Manager to balance Azure VMware Solution (AVS)workloads
+title: Deploy Traffic Manager to balance Azure VMware Solution (AVS) workloads
 description: Learn how to integrate Traffic Manager with Azure VMware Solution (AVS) to balance application workloads across multiple endpoints in different regions.
 ms.topic: how-to
 ms.date: 08/14/2020
@@ -7,9 +7,17 @@ ms.date: 08/14/2020
 
 # Deploy Traffic Manager to balance Azure VMware Solution (AVS) workloads
 
+This article walks you through integrating Traffic Manager with Azure VMware Solution (AVS) to balance application workloads across multiple endpoints. We'll use a scenario in which Traffic Manager will direct traffic between three application gateways, each with backend pool members configured as IIS Servers and referenced as AVS external endpoints. The application gateways will span several AVS regions: West US, West Europe, and on-premises. 
+
 Azure Traffic Manager is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions. It will load balance application traffic across both Azure running workloads and external public endpoints. For more information on Traffic Manager, see [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
 
-This article walks you through a scenario of integrating Traffic Manager with Azure VMware Solution (AVS) to balance application workloads across multiple endpoints. The backend pool members are configured as IIS Servers and are referenced as AVS external endpoints in several AVS regions: West US, West Europe, and on-premises. 
+Review the [Prerequisites](#prerequisites) first; then we'll walk through the procedures to:
+
+> [!div class="checklist"]
+> * Verify configuration of your application gateways
+> * Verify configuration of the NSX-T segment
+> * Create your Traffic Manager profile
+> * Add external endpoints into your Traffic Manager profile
 
 ## Topology
 
@@ -25,7 +33,7 @@ As shown in the following figure, Azure Traffic Manager provides load balancing 
 
 - Host with internet connectivity for verification. 
 
-## Verify configuration of application gateways
+## Verify configuration of your application gateways
 
 [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a layer 7 web traffic load balancer that enables you to manage traffic to your web applications. For more information, see [Use Azure Application Gateway to protect your web apps on Azure VMware Solution](protect-avs-web-apps-with-app-gateway.md) and [What is Azure Application Gateway?](../application-gateway/overview.md) 
 
@@ -35,7 +43,7 @@ The following steps serve to verify the correct configuration of the application
 
 1. Open the Azure portal and select **Application gateways** to view a list of your current application gateways. For an example of creating an application gateway and configuring it with AVS virtual machines as the backend pool members, see [Use Azure Application Gateway to protect your web apps on Azure VMware Solution](protect-avs-web-apps-with-app-gateway.md). Also see [Create an application gateway](../application-gateway/quick-create-portal.md).
 
-    For this scenario, we have configured 3 application gateways:
+    For this scenario, we have configured three application gateways:
     - AVS-GW-WUS
     - AVS-GW-EUS
     - AVS-GW-WEU
@@ -74,7 +82,7 @@ In our scenario, an NSX-T segment is configured into the AVS environment where t
 
 ## Create your Traffic Manager profile
 
-1. Login to the [Azure Portal](https://rc.portal.azure.com/#home). Under **Azure Services > Networking**, select **Traffic Manager profiles**.
+1. Log in to the [Azure portal](https://rc.portal.azure.com/#home). Under **Azure Services > Networking**, select **Traffic Manager profiles**.
 
 2. Select **+ Add** to create a new Traffic Manager profile.
  
