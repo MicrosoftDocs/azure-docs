@@ -27,7 +27,11 @@ If you plan on using **network security groups** to control network traffic, per
 
 1. Identify the Azure region that you plan to use for HDInsight.
 
-2. Identify the service tags required by HDInsight for your region. For more information, see [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md).
+2. Identify the service tags required by HDInsight for your region. There are multiple ways to obtain these service tags:
+    1. Consult the list of published service tags in [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md). 
+    2. If your region is not present in the list, use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) to find a service tag for your region.
+    3. If you are unable to use the API, download the [service tag JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) and search for your desired region.
+
 
 3. Create or modify the network security groups for the subnet that you plan to install HDInsight into.
 
@@ -49,7 +53,7 @@ To see an example of the UDR setup with Azure Firewall, see [Configure outbound 
 
 ## Required IP addresses
 
-If you use network security groups or user-defined routes to control traffic, see [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
+If you use network security groups or user-defined routes to control traffic, look up your region in the published list of [HDInsight management IP addresses](./hdinsight-management-ip-addresses.md). If your region is not listed, you can use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) to find IP addresses for your desired region. If you are unable to use the API, download the [service tag JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) and search for your desired region. Then you can enter these IP addresses in the allow list for inbound traffic.
 
 ## Required ports
 

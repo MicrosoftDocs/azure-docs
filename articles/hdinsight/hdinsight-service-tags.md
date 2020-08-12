@@ -15,6 +15,8 @@ Azure HDInsight service tags for network security groups (NSGs) are groups of IP
 
 The HDInsight service manages these service tags. You can't create your own service tag or modify an existing tag. Microsoft manages the address prefixes that match to the service tag and automatically updates the service tag as addresses change.
 
+If you would like to use a particular region and the service tag is not yet documented on this page, you can use the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) to find your service tag. You can also download the [service tag JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) and search for your desired region.
+
 ## Get started with service tags
 
 You have two options for using service tags in your network security groups:
