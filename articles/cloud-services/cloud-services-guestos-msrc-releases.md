@@ -1,6 +1,6 @@
 ---
 title: List of updates applied to the Azure Guest OS | Microsoft Docs
-description: The list of updates applied to Guest OS releases
+description: This article lists the Microsoft Security Response Center updates applied to different Azure Guest OS. See if an update applies to the Guest OS you are using.
 services: cloud-services
 documentationcenter: na
 author: yohaddad
@@ -10,7 +10,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/10/2020
+ms.date: 8/11/2020
 ms.author: yohaddad
 ---
 
@@ -19,7 +19,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 ## July 2020 Guest OS
 >[!NOTE]
->The July Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the April Guest OS. This list is subject to change.
+>The July Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the July Guest OS. This list is subject to change.
 
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
