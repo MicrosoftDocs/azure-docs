@@ -31,8 +31,8 @@ In this quickstart, your register a web API with the Microsoft identity platform
 To provide scoped access to the resources in your web API, you first need to register the API with the Microsoft identity platform.
 
 1. Perform the steps in the **Register an application** section of [Quickstart: Register an app with the Microsoft identity platform](quickstart-register-app.md).
-1. Skip the **Configure platform settings** section. You don't need to configure settings like a redirect URI for a web API since no user is logged in interactively.
-1. Skip the **Add credentials** section for now. Only if your API accesses
+1. Skip the **Add a redirect URI** and **Configure platform settings** sections. You don't need to configure a redirect URI for a web API since no user is logged in interactively.
+1. Skip the **Add credentials** section for now. Only if your API accesses a downstream API would it need its own credentials, and isn't covered in this quickstart.
 
 With your web API registered, you're ready to add the scopes that your API's code can use to grant granular permission to consumers of your API.
 
