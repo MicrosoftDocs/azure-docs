@@ -58,7 +58,6 @@ The inventory page provides the following tools:
 
 - **Asset management options** - Inventory lets you perform complex discovery queries. When you've found the resources that match your queries, inventory provides shortcuts for operations such as:
 
-    - Upgrade a subscription from free to standard tier - open the context menu (right click) on a subscription to upgrade 
     - Assign tags to the filtered resources - select the checkboxes alongside the resources you want to tag
     - Onboard new servers to Security Center - use the **Add non-Azure servers** toolbar button
 
@@ -96,6 +95,9 @@ Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-exp
 
 1. If you've defined some filters and left the page open, Security Center won't update the results automatically. Any changes to resources won't impact the displayed results unless you manually reload the page or select **Refresh**.
 
+## Examples of thing you can do with inventory
+
+### Example 1 - Identify all subscriptions which don't have full threat prote
 
 
 ## Next steps
