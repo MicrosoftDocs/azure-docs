@@ -54,5 +54,5 @@ Snapshot Execution includes the resources required to move a dataset from the so
 
 ## Next steps
 
-- Get latest pricing information - [Azure Data Share pricing](https://azure.microsoft.com/en-us/pricing/details/data-share/)
-- Use Azure pricing calculator to estimate cost - [Azure pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
+- Get latest pricing information - [Azure Data Share pricing](https://azure.microsoft.com/pricing/details/data-share/)
+- Use Azure pricing calculator to estimate cost - [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/)
