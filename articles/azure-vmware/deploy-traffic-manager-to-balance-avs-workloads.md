@@ -39,9 +39,9 @@ Connection over the virtual network between the two AVS private cloud regions, W
 
 [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) is a layer 7 web traffic load balancer that enables you to manage traffic to your web applications. For more information on Application Gateway, see [What is Azure Application Gateway?](../application-gateway/overview.md) 
 
-In this scenario, three application gateway instances are configured as external AVS endpoints between which Traffic Manager directs traffic. The application gateways have AVS virtual machines configured as backend pool members to load balance the incoming layer 7 requests. (To learn how to configure Application Gateway with AVS virtual machines as  backend pools, see [Use Azure Application Gateway to protect your web apps on Azure VMware Solution](protect-avs-web-apps-with-app-gateway.md). Also see [Create an application gateway](../application-gateway/quick-create-portal.md).)  
+In this scenario, three application gateway instances are configured as external AVS endpoints. The application gateways have AVS virtual machines configured as backend pool members to load balance the incoming layer 7 requests. (To learn how to configure Application Gateway with AVS virtual machines as  backend pools, see [Use Azure Application Gateway to protect your web apps on Azure VMware Solution](protect-avs-web-apps-with-app-gateway.md).)  
 
-The following steps serve to verify the correct configuration of the application gateways.
+The following steps verify the correct configuration of your application gateways.
 
 1. Open the Azure portal and select **Application gateways** to view a list of your current application gateways. 
 
@@ -66,13 +66,13 @@ The following steps serve to verify the correct configuration of the application
 
 Network segments created in NSX-T Manager are used as networks for virtual machines in vCenter. For more information, see the tutorial, [Create an NSX-T network segment in Azure VMware Solution (AVS)](tutorial-nsx-t-network-segment.md).
 
-In our scenario, an NSX-T segment is configured into the AVS environment where the backend pool member virtual machine is attached.
+In our scenario, an NSX-T segment is configured in the AVS environment where the backend pool member virtual machine is attached.
 
 1. Select **Segments** to view your configured segments. In this case, we see that Contoso-segment1 is connected to Contoso-T01 gateway, a Tier-1 flexible router.
 
     :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Segment profiles in NSX-T Manager.":::    
 
-2. Select **Tier-1 Gateways** to see a list of your Tier-1 gateways with the number of linked segments. Select the segment linked to Contoso-T01 to view the logical interface configured on the Tier-01 router that serves as gateway to the backend pool member virtual machine connected to the segment.
+2. Select **Tier-1 Gateways** to see a list of your Tier-1 gateways with the number of linked segments. Select the segment linked to Contoso-T01. A window opens showing the logical interface configured on the Tier-01 router. This serves as gateway to the backend pool member virtual machine connected to the segment.
 
    :::image type="content" source="media/traffic-manager/nsx-t-segment-linked-2.png" alt-text="Linked segments.":::    
 
