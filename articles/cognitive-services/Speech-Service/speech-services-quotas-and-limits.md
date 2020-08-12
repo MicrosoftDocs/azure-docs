@@ -17,7 +17,7 @@ ms.author: alexeyo
 This article contains a quick reference as well as the detailed description of Azure Cognitive Speech Services Quotas and Limits for all [pricing tiers](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). It also contains some best practices helping to avoid request throttling. 
 
 ## Quotas and Limits quick reference
-Jump to [Text to Speech Quotas and limits](#text-to-speech-quotas-and-limits)
+Jump to [Text to Speech Quotas and limits](#text-to-speech-quotas-and-limits-per-speech-resourcesup3sup)
 ### Speech to Text Quotas and Limits per Speech resource<sup>1</sup>
 
 | Quota | Free (F0) | Standard (S0) |
