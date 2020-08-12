@@ -150,7 +150,9 @@ It is important to know that entities are not marked with an intent. They can an
 
 Creation methods for entities are part of the [Model](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions?view=azure-dotnet) class. Each entity type has its own data transformation object (DTO) model, usually containing the word `model` in the [Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models?view=azure-dotnet) namespace.
 
-The following code creates a machine-learning entity with subentities and features applied to the `Quantity` subentities.
+The entity creation code creates a machine-learning entity with subentities and features applied to the `Quantity` subentities.
+
+![The entity creation code creates a machine-learning entity with subentities and features applied to the `Quantity` subentities.](../media/quickstart-sdk/machine-learned-entity.png)
 
 [!code-csharp[Create entities](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=AuthoringAddEntities)]
 
