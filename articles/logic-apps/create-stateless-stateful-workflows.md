@@ -389,7 +389,7 @@ In your workflow app's JSON definition (`workflow.json`) file, you can change th
 
 ## Deploy to function app in Azure
 
-You can publish your Functions project directly to Azure from Visual Studio Code. This process creates a function app and the related resources in your Azure subscrption.
+You can publish your Functions project directly to Azure from Visual Studio Code. This process creates a function app and the related resources in your Azure subscription.
 
 * If you publish to a new function app in Azure, you're offered both a quick creation path and an advanced creation path for your function app. 
 
