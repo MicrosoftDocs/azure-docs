@@ -16,7 +16,7 @@ ms.custom: seodec18
 # Speech Service release notes
 
 ## New speech-to-text locales: 2020-August Release
-Speech-to-text released 26 new locales in August: 2 new European languages cs-CZ and hu-HU, 5 English locales and 19 Spanish locales which cover most South American countries. Below is a list of the new locales. Please see the complete language list [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
+Speech-to-text released 26 new locales in August: 2 European languages cs-CZ and hu-HU, 5 English locales and 19 Spanish locales that cover most South American countries. Below is a list of the new locales. Please see the complete language list [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|
