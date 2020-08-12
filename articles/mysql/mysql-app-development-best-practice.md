@@ -16,6 +16,17 @@ Your MySQL server should be configured to be [secure](https://docs.microsoft.com
 
 For security, you must always connect to your MySQL server over **SSL** and configure your MySQL server and your application to use **TLS1.2**. See [How to configure SSL/TLS](https://docs.microsoft.com/en-us/azure/mysql/concepts-ssl-connection-security). 
 
+### Tune your server parameters
+Server sometimes need to be tuned for your application workload. For read-heavy workloads tuning these parameters  'tmp_table_size and max_heap_table_size' can help optimize for better performance. To calculate the values required for tmp_table_size and max_heap_table_size, look at the total per-connection memory values and the base memory. The sum of per-connection memory parameters, excluding tmp_table_size, combined with the base memory accounts for total memory of the server.
+
+To calculate the largest possible size of tmp_table_size and max_heap_table_size, use the following formula:
+
+```(total memory - (base memory + (sum of per-connection memory * # of connections)) / # of connections```
+
+> [!NOTE]
+> Total memory indicates the total amount of memory the server has across the vCores provisioned.  For example, in a General Purpose 2 vCore Azure Database for MySQL server, the total memory will be 5GB * 2.  More details about memory for each tier can be found in the [pricing tier](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers) documentation.
+> Base memory indicates the memory variables, like query_cache_size and innodb_buffer_pool_size, that MySQL will initialize and allocate at server start.  Per connection memory, like sort_buffer_size and join_buffer_size, is memory that is allocated only when a query requires it.
+
 ### Create a non-admin user 
 [Create non-admin users](https://docs.microsoft.com/en-us/azure/mysql/howto-create-users) for each of the databases. Typically, the user names are identified as the DB names.
 
@@ -60,17 +71,6 @@ If for any reason you are not using Azure pipelines for CI/CD and need to make a
 >{!NOTE]
 >  - If the application is like ecommerce app where you might not be able to put it in read only state, then deploy the changes directly on the production database after making a backup.  Theses change should occur during the off-peak hours with low traffic to the app to minimze the impact as some users may experience a failed requests. 
 >  - Make sure your application code also handles any failed requests.
-
-### Tune your server parameters
-Server sometimes need to be tuned for your application workload. For read-heavy workloads tuning these parameters  'tmp_table_size and max_heap_table_size' can help optimize for better performance. To calculate the values required for tmp_table_size and max_heap_table_size, look at the total per-connection memory values and the base memory. The sum of per-connection memory parameters, excluding tmp_table_size, combined with the base memory accounts for total memory of the server.
-
-To calculate the largest possible size of tmp_table_size and max_heap_table_size, use the following formula:
-
-```(total memory - (base memory + (sum of per-connection memory * # of connections)) / # of connections```
-
-> [!NOTE]
-> Total memory indicates the total amount of memory the server has across the vCores provisioned.  For example, in a General Purpose 2 vCore Azure Database for MySQL server, the total memory will be 5GB * 2.  More details about memory for each tier can be found in the [pricing tier](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers) documentation.
-> Base memory indicates the memory variables, like query_cache_size and innodb_buffer_pool_size, that MySQL will initialize and allocate at server start.  Per connection memory, like sort_buffer_size and join_buffer_size, is memory that is allocated only when a query requires it.
 
 ### Use MySQL native metrics to see if your workload is exceeding in-memory temporary table sizes
 With a read-heavy workload, queries executing against your MySQL server could exceed the in-memory temporary table sizes. This will cause your server to switch to writing temporary tables to disk, thus affecting the performance for your application. To determine if your server is writing to disk as a result of exceeding temporary table size, look at the following metrics:
