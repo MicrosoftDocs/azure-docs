@@ -104,6 +104,8 @@ Related links:
 
 ## Next steps
 
+If you don't resolve your problem here, see the following options.
+
 * Other registry troubleshooting topics include:
   * [Troubleshoot registry login](container-registry-troubleshoot-login.md)
   * [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)

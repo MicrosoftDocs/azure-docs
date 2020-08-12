@@ -22,9 +22,6 @@ May include one or more of the following:
 * ACR Tasks is unable to push or pull images
 * Azure Security Center can't scan images in registry, or scan results don't appear in Azure Security Center
 
-> [!NOTE]
-> Some of these symptoms can also occur if there are issues with registry authentication or authorization. See [Troubleshoot registry login](container-registry-troubleshoot-login.md).
-
 ## Causes
 
 * A client firewall or proxy prevents access - [solution](#configure-client-firewall-access)
@@ -32,7 +29,14 @@ May include one or more of the following:
 * Virtual network configuration prevents access - [solution](#configure-vnet-access)
 * You attempt to integrate Azure Security Center with a registry that has a private endpoint or service endpoint - [solution](#configure-image-scanning-solution)
 
-If you don't resolve your problem here, [Advanced troubleshooting](#advanced-troubleshooting) and [Next steps](#next-steps)for other options.
+## Further diagnosis 
+
+Run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command to get more information about the health of the registry environment and optionally access to a target registry. For example, diagnose certain network connectivity or configuration problems. 
+
+See [Check the health of an Azure container registry](container-registry-check-health.md) for command examples. If errors are reported, review the [error reference](container-registry-health-error-reference.md) and the following sections for recommended solutions.
+
+> [!NOTE]
+> Some network connectivity symptoms can also occur when there are issues with registry authentication or authorization. See [Troubleshoot registry login](container-registry-troubleshoot-login.md).
 
 ## Potential solutions
 
@@ -102,8 +106,6 @@ Related links:
 
 ## Advanced troubleshooting
 
-If your permissions to registry resources allow, [check the health of the registry environment](container-registry-check-health.md). If errors are reported, review the [error reference](container-registry-health-error-reference.md) for potential solutions.
-
 If [collection of resource logs](container-registry-diagnostics-audit-logs.md) is enabled in the registry, review the ContainterRegistryLoginEvents log. This log stores authentication events and status, including the incoming identity and IP address. Query the log for [registry authentication failures](container-registry-diagnostics-audit-logs.md#registry-authentication-failures). 
 
 Related links:
@@ -114,6 +116,8 @@ Related links:
 * [Azure Security Baseline for Azure Container Registry](security-baseline.md)
 
 ## Next steps
+
+If you don't resolve your problem here, see the following options.
 
 * Other registry troubleshooting topics include:
   * [Troubleshoot registry login](container-registry-troubleshoot-login.md) 

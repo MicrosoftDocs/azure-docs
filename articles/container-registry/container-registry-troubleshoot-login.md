@@ -21,9 +21,6 @@ May include one or more of the following:
 * Unable to access registry and you receive error `Error response from daemon: login attempt failed with status: 403 Forbidden` - See [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
 * Unable to access or view registry settings in Azure portal or manage registry using the Azure CLI
 
-> [!NOTE]
-> Some authentication or authorization errors can also occur if there are firewall or network configurations that prevent registry access. See [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md).
-
 ## Causes
 
 * Docker isn't configured properly in your environment - [solution](#check-docker-configuration)
@@ -32,7 +29,14 @@ May include one or more of the following:
 * The credentials aren't authorized for push, pull, or Azure Resource Manager operations - [solution](#confirm-credentials-are-authorized-to-access-registry)
 * The credentials are expired - [solution](#check-that-credentials-arent-expired)
 
-If you don't resolve your problem here, see [Advanced troubleshooting](#advanced-troubleshooting) and [Next steps](#next-steps) for other options.
+## Further diagnosis 
+
+Run the [az acr check-health](/cli/azure/acr#az-acr-check-health) command to get more information about the health of the registry environment and optionally access to a target registry. For example, diagnose Docker configuration errors or Azure Active Directory login problems. 
+
+See [Check the health of an Azure container registry](container-registry-check-health.md) for command examples. If errors are reported, review the [error reference](container-registry-health-error-reference.md) and the following sections for recommended solutions.
+
+> [!NOTE]
+> Some authentication or authorization errors can also occur if there are firewall or network configurations that prevent registry access. See [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md).
 
 ## Potential solutions
 
@@ -117,17 +121,16 @@ Related links:
 
 ## Advanced troubleshooting
 
-If your permissions to registry resources allow, [check the health of the registry environment](container-registry-check-health.md). If errors are reported, review the [error reference](container-registry-health-error-reference.md) for potential solutions.
-
 If [collection of resource logs](container-registry-diagnostics-audit-logs.md) is enabled in the registry, review the ContainterRegistryLoginEvents log. This log stores authentication events and status, including the incoming identity and IP address. Query the log for [registry authentication failures](container-registry-diagnostics-audit-logs.md#registry-authentication-failures). 
 
 Related links:
 
-* [Check registry health](container-registry-check-health.md)
 * [Logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
 * [Container registry FAQ](container-registry-faq.md)
 
 ## Next steps
+
+If you don't resolve your problem here, see the following options.
 
 * Other registry troubleshooting topics include:
   * [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
