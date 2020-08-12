@@ -16,13 +16,13 @@ ms.collection: M365-identity-device-management
 ---
 # Take action on overprivileged or suspicious applications in Azure Active Directory
 
-Learn how to review and manage application permissions. Based on the scenario, this article will provide different actions you can take to secure your application. These actions apply to all applications that were added to your Azure Active Directory (Azure AD) tenant via user or admin consent.
+Learn how to review and manage application permissions. This article provides different actions you can take to secure your application according to the scenario. These actions apply to all applications that were added to your Azure Active Directory (Azure AD) tenant via user or admin consent.
 
 For more information on consenting to applications, see [Azure Active Directory consent framework](../develop/consent-framework.md).
 
 ## Prerequisites
 
-Being able to perform the following actions requires you to sign in as a global administrator, an application administrator, or a cloud application administrator.
+To do the following actions, you must sign in as a global administrator, an application administrator, or a cloud application administrator.
 
 To restrict access to applications, you need to require user assignment and then assign users or groups to the application.  For more information, see [Methods for assigning users and groups](methods-for-assigning-users-and-groups.md).
 
@@ -35,11 +35,10 @@ You can access the Azure AD portal to get contextual PowerShell scripts to perfo
 
 ![Screenshot of the review permissions window.](./media/manage-application-permissions/review-permissions.png)
 
-The following sections describe each option in the **Review permissions** window.
 
 ## Control access to an application
 
-We recommend that you restrict access to the application by turning the **User assignment** setting on.
+You can restrict access to the application by turning on the **User assignment** setting.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
@@ -48,14 +47,14 @@ We recommend that you restrict access to the application by turning the **User a
 5. Select **User and Groups**, and then remove the unwanted users who are assigned to the application.
 6. Assign user(s) or group(s) to the application.
 
-Optionally, you can remove all users assigned to the application by using PowerShell.
+Optionally, you can remove all users who are assigned to the application by using PowerShell.
 
 ## Revoke all permissions for an application
 
 Using the PowerShell script revokes all permissions granted to this application.
 
 > [!NOTE]
-> Revoking the current granted permission won't stop users from re-consenting to the application. If you want to block users from consenting, read [Configure how end-users consent to applications](configure-user-consent.md).
+> Revoking the current granted permission won't stop users from re-consenting to the application. If you want to block users from consenting, then read [Configure how users consent to applications](configure-user-consent.md).
 
 Optionally, you can disable the application to keep users from accessing the app and to keep the application from accessing your data.
 
@@ -66,7 +65,7 @@ Optionally, you can disable the application to keep users from accessing the app
 
 ## Investigate a suspicious application
 
-We recommend that you restrict access to the application by turning the **User assignment** setting on. You should also review the permissions that users and admins have granted to the application.
+Restrict access to the application by turning on the **User assignment** setting. Then review the permissions that users and admins have granted to the application.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 3. Select **Azure Active Directory** > **Enterprise applications**.
@@ -76,7 +75,7 @@ We recommend that you restrict access to the application by turning the **User a
 
 Optionally, by using PowerShell, you can:
 
-- Remove all users assigned to stop them from signing into the application.
+- Remove all assigned users to stop them from signing in to the application.
 - Invalidate refresh tokens for users who have access to the application.
 - Revoke all permissions for the application.
 
@@ -85,7 +84,7 @@ Or you can disable the application to block users' access and stop the applicati
 
 ## Disable a malicious application 
 
-We recommend that you disable the application to block users' access and to keep the application from accessing your data. If you delete the application instead, end-users will be able to re-consent to the application and grant access to your data.
+You should disable the application to block users' access and to keep the application from accessing your data. If you delete the application instead, then users can re-consent to the application and grant access to your data.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
@@ -95,18 +94,18 @@ We recommend that you disable the application to block users' access and to keep
 ### PowerShell commands
 
 
-Retrieve service principal object ID.
+Retrieve the service principal object ID.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
 2. Select **Azure Active Directory** > **Enterprise applications**.
 3. Select the application that you want to restrict access to.
-4. Select **Properties**, and then copy the Object ID.
+4. Select **Properties**, and then copy the object ID.
 
 ```powershell
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
     $sp.ObjectId
 ```
-Remove all users assigned to the application.
+Remove all users who are assigned to the application.
  ```powershell
     Connect-AzureAD
 
