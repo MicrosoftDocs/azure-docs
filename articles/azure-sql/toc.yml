@@ -560,7 +560,7 @@
         href: database/elastic-query-horizontal-partitioning.md
       - name: Query across tables with different schemas
         href: database/elastic-query-vertical-partitioning.md
-    - name: Elastic jobs
+    - name: Elastic jobs (preview)
       items:
       - name: Configure jobs
         href: database/elastic-jobs-overview.md 
