@@ -25,6 +25,54 @@ Azure Security is in active development and receives improvements on an ongoing 
 
 This page is updated regularly, so revisit it often. If you're looking for items older than six months, you'll find them in the [Archive for What's new in Azure Security Center](release-notes-archive.md).
 
+
+## August 2020
+
+### Consolidations of recommendations regarding vulnerability assessments on virtual machines
+
+Security Center inspects your VMs to detect whether they're running a vulnerability assessment solution. If no vulnerability assessment solution is found, Security Center provides a recommendation to simplify the deployment.
+
+When vulnerabilities are found, Security Center provides a recommendation summarizing the findings for you to investigate and remediate as necessary.
+
+To ensure a consistent experience for all users, regardless of the scanner type they're using, we've unified the recommendations into the following two new recommendations:
+
+|New recommendation|Changes for this release|
+|----|:----|
+|**A vulnerability assessment solution should be enabled on your virtual machines**<br>*Deploys a vulnerability assessment solution to your VMs when Security Center doesn’t find one.*|Replaces the following two recommendations:<br> **•** Enable the built-in vulnerability assessment solution on virtual machines (powered by Qualys (now deprecated) (Standard tier only)<br> **•** Vulnerability assessment solution should be installed on your virtual machines (now deprecated) (Standard and free tiers)|
+|**Vulnerabilities in your virtual machines should be remediated**<br>*Monitors for vulnerabilities on your virtual machines as discovered by a vulnerability assessment solution*|Replaces the following two recommendations:<br>**•** Remediate vulnerabilities found on your virtual machines (powered by Qualys) (now deprecated)<br>**•** Vulnerabilities should be remediated by a Vulnerability Assessment solution (now deprecated)|
+|||
+
+Now, whether deploying Security Center's vulnerability assessment extension (free to standard tier users) or your own privately licensed vulnerability assessment solution ("BYOL") from a partner such as Qualys or Rapid7, you'll use the same recommendation.
+
+In addition, when vulnerabilities are found and reported to Security Center, a single recommendation will alert you to the findings whether they were identified by Security Center's vulnerability assessment extension or a partner solution.
+
+#### Updating dependencies
+
+If you have scripts, queries, or automations referring to the previous recommendations or policy keys/names, use the tables below to update the references:
+
+##### Recommendations
+
+|Recommendation|Status|Scope|
+|----|:----|:----|
+|**A vulnerability assessment solution should be enabled on your virtual machines**<br>Key: ffff0522-1e88-47fc-8382-2a80ba848f5d|New|Built-in + BYOL|
+|**Vulnerabilities in your virtual machines should be remediated**<br>Key: 1195afff-c881-495e-9bc5-1486211ae03f|New|Built-in + BYOL|
+|**Enable the built-in vulnerability assessment solution on virtual machines (powered by Qualys)**<br>Key: 550e890b-e652-4d22-8274-60b3bdb24c63|Deprecated|Built-in|
+|**Remediate vulnerabilities found on your virtual machines (powered by Qualys)**<br>Key: 1195afff-c881-495e-9bc5-1486211ae03f|Repurposed|Built-in|
+|**Vulnerability assessment solution should be installed on your virtual machines**<br>Key: 01b1ed4c-b733-4fee-b145-f23236e70cf3|Deprecated|BYOL|
+|**Vulnerabilities should be remediated by a Vulnerability Assessment solution**<br>Key: 71992a2a-d168-42e0-b10e-6b45fa2ecddb|Deprecated|BYOL|
+||||
+
+##### Policies
+
+|Policy|Status|Scope|
+|----|:----|:----|
+|**Vulnerabilities should be remediated by a vulnerability assessment solution**<br>Policy ID: 760a85ff-6162-42b3-8d70-698e268f648c|Deprecated|BYOL|
+|**Vulnerability assessment should be enabled on virtual machines**<br>Policy ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|Repurposed|Built-in|
+|[**Vulnerability assessment should be enabled on virtual machines**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>Policy ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |New|Built-in + BYOL|
+||||
+
+
+
 ## July 2020
 
 Updates in July include:
@@ -503,17 +551,4 @@ Two security recommendations related to web applications are being deprecated:
 These recommendations will no longer appear in the Security Center list of recommendations. The related policies will no longer be included in the initiative named "Security Center Default".
 
 Learn more about [security recommendations](recommendations-reference.md).
-
-
-
-## February 2020
-
-### Fileless attack detection for Linux (preview)
-
-As attackers increasing employ stealthier methods to avoid detection, Azure Security Center is extending fileless attack detection for Linux, in addition to Windows. Fileless attacks exploit software vulnerabilities, inject malicious payloads into benign system processes, and hide in memory. These techniques:
-
-- minimize or eliminate traces of malware on disk
-- greatly reduce the chances of detection by disk-based malware scanning solutions
-
-To counter this threat, Azure Security Center released fileless attack detection for Windows in October 2018, and has now extended fileless attack detection on Linux as well. 
 
