@@ -160,7 +160,7 @@ Add example utterances by creating a list of [ExampleLabelObject](https://docs.m
 
 :::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="The entity value should be exactly as it appears in the text of the example utterance.":::
 
-Call [examples.add](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#add-string--string--examplelabelobject--models-examplesaddoptionalparams-) with the app ID, version ID, and the example.
+Call [examples.add](https://docs.microsoft.com//javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#add-string--string--examplelabelobject--models-examplesaddoptionalparams-) with the app ID, version ID, and the example.
 
 [!code-javascript[Add example utterance to a specific intent](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddLabeledExamples&highlight=52-56)]
 
