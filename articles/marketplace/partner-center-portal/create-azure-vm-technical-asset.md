@@ -350,7 +350,7 @@ To connect to a Linux-based VM, you need a secure shell protocol (SSH) client. T
 7. Open the PuTTY application.
 8. In the PuTTY Configuration dialog, enter the IP address or DNS name of your VM.
 
-    :::image type="content" source="media/avm-putty.png" alt-text="Illustrates the PuTTY terminal settings. the Host Name or IP address and Port boxes are highlighted.":::
+    :::image type="content" source="media/vm/avm-putty.png" alt-text="Illustrates the PuTTY terminal settings. the Host Name or IP address and Port boxes are highlighted.":::
 
 9. Select **Open** to open a PuTTY terminal.
 10. When prompted, enter the account name and password of your Linux VM account.
