@@ -901,6 +901,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-configure-private-link.md",
+      "redirect_url": "/azure/machine-learning/how-to-enable-virtual-network",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/how-to-monitor-data-drift.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
       "redirect_document_id": false
@@ -1044,6 +1049,11 @@
       "source_path": "articles/machine-learning/service/ui-quickstart-run-experiment.md",
       "redirect_url": "tutorial-designer-automobile-price-train-score",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/how-to-debug-pipelines-application-insights.md",
+      "redirect_url" : "/azure/machine-learning/how-to-log-pipelines-application-insights",
+      "redirect_document_id" : false
     },
     {
       "source_path": "articles/batch-ai/cli-samples.md",
@@ -4321,6 +4331,11 @@
       "source_path": "articles/iot-edge/how-to-deploy-monitor-vscode.md",
       "redirect_url": "/azure/iot-edge/how-to-deploy-vscode-at-scale",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-edge/how-to-devops-plugins.md",
+      "redirect_url": "/azure/iot-edge/how-to-ci-cd",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/cognitive-services-recommendations-quick-start.md",
