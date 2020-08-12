@@ -22,7 +22,7 @@ Use the Language Understanding (LUIS) client libraries for .NET to:
 
 ## Prerequisites
 
-* The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core) and [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/).
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * Once you have your Azure subscription, [create a Language Understanding authoring resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
     * You will need the key and endpoint from the resource you [create](../luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) to connect your application to Language Understanding authoring. You'll paste your key and endpoint into the code below later in the quickstart. You can use the free pricing tier (`F0`) to try the service.
@@ -40,6 +40,10 @@ Create a new .NET Core application in your preferred editor or IDE.
     ```
 
 1. Change your directory to the newly created app folder.
+
+    ```dotnetcli
+    cd language-understanding-quickstart
+    ```
 
 1. You can build the application with:
 
@@ -63,8 +67,8 @@ Create a new .NET Core application in your preferred editor or IDE.
 Within the application directory, install the Language Understanding (LUIS) client libraries for .NET with the following commands:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring 
-dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime 
+dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring --version 3.2.0-preview.3
+dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime --version 3.1.0-preview.1
 ```
 
 ## Authoring Object model
@@ -95,9 +99,17 @@ Once the client is created, use this client to access functionality including:
 
 ## Add the dependencies
 
-From the project directory, open the *Program.cs* file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
+1. From the project directory, open the *Program.cs* file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
 
 [!code-csharp[Add NuGet libraries to code file](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=Dependencies)]
+
+1. Change the signature of the `Main` method to allow async calls:
+
+    ```csharp
+    public static async Task Main()
+    ```
+
+    Add the rest of the code in the `Main` method of the `Program` class.
 
 ## Create variables for the app
 
@@ -146,7 +158,7 @@ The entity creation code creates a machine-learning entity with subentities and 
 
 [!code-csharp[Create entities](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=AuthoringAddEntities)]
 
-Use the following method to find the Quantity subentity's id, in order to assign the features to that subentity.
+Use the following method to the class to find the Quantity subentity's id, in order to assign the features to that subentity.
 
 [!code-csharp[Find subentity id](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=AuthoringSortModelObject)]
 
