@@ -77,15 +77,28 @@ Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-exp
 
 1. Optionally, to display a specific resource enter the name in the **Filter by name** box.
 
-1. Define the filters to create the specific query you want to perform.
+1. Select the relevant options in the filters to create the specific query you want to perform.
 
     ![Inventory's filters](./media/asset-inventory/inventory-filters.png)
 
     By default, the resources are sorted by the number of active security recommendations.
 
+    > [!IMPORTANT]
+    > The options in each filter are specific to the resources in the currently selected subscriptions **and** your selections in the other filters.
+    >
+    > For example, if you've selected only one subscription, and the subscription has no resources with outstanding security recommendations to remediate (0 Unhealthy Resources), the **Recommendations** filter will have no options. 
+
 1. To use the **Security findings contain** filter, enter free text from the ID, security check, or CVE name of a vulnerability finding to filter to the affected resources:
 
     !["Security findings contain" filter](./media/asset-inventory/security-findings-contain-elements.png)
+
+1. To use the **Pricing tier** filter, select one or more options (Free, Partial, or Standard):
+
+    - **Free** - Resources that are on the free pricing tier
+    - **Standard** - Resources that are on the standard pricing tier
+    - **Partial** - This applies to subscriptions that are on the standard pricing tier but have some of the optional security plans disabled. For example, the following subscription is on the standard tier but has five elements of the standard tier disabled. 
+
+        ![Subscription on standard(partial) pricing tier](./media/asset-inventory/pricing-tier-partial.png)
 
 1. To further examine the results of your query, select the resources that interest you.
 
@@ -95,9 +108,7 @@ Using the [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-exp
 
 1. If you've defined some filters and left the page open, Security Center won't update the results automatically. Any changes to resources won't impact the displayed results unless you manually reload the page or select **Refresh**.
 
-## Examples of thing you can do with inventory
 
-### Example 1 - Identify all subscriptions which don't have full threat prote
 
 
 ## Next steps
