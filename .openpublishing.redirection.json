@@ -12349,6 +12349,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/backup-and-disaster-recovery-for-azure-iaas-disks.md",
+      "redirect_url": "/azure/virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md",
+      "redirect_url": "/azure/virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-landgorilla-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/landgorilla-tutorial",
       "redirect_document_id": true
