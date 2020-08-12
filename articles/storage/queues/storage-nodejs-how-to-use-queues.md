@@ -32,7 +32,7 @@ deleting queues**.
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## Create a Node.js Application
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create a Node.js web app in Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) using Windows PowerShell, or [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create a Node.js web app in Azure App Service](../../app-service/quickstart-nodejs.md), [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) using Windows PowerShell, or [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## Configure Your Application to Access Storage
 To use Azure storage, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
@@ -355,7 +355,7 @@ to learn about more complex storage tasks.
 
 [Azure Portal]: https://portal.azure.com
 
-[Create a Node.js web app in Azure App Service](../../app-service/app-service-web-get-started-nodejs.md)
+[Create a Node.js web app in Azure App Service](../../app-service/quickstart-nodejs.md)
 
 [Build and deploy a Node.js application to an Azure Cloud Service](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 
