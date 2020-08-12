@@ -86,7 +86,7 @@ Now you'll add the API connectors to a self-service sign-up user flow with these
 
 ## Control the sign-up flow with API responses
 
-Your approval system can use the [API response types](self-service-sign-up-add-api-connector.md#expected-response-types-from-the-web-api) from the two API endpoints to control the sign up flow.
+Your approval system can use its responses when called to control the sign up flow. 
 
 ### Request and responses for the "Check approval status" API connector
 
