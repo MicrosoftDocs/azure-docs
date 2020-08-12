@@ -4,7 +4,7 @@ description: The Event Grid security baseline provides procedural guidance and r
 author: msmbaldwin
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/12/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,7 +30,11 @@ The Azure Security Baseline for Event Grid contains recommendations that will he
 
 **Guidance**: You can use private endpoints to allow ingress of events directly from your virtual network to your Event Grid topics and domains securely over a private link without going through the public internet. When you create a private endpoint for your Event Grid topic or domain, it provides secure connectivity between clients on your VNet and your Event Grid resource. The private endpoint is assigned an IP address from the IP address range of your virtual network. The connection between the private endpoint and the Event Grid service uses a secure private link.
 
-Azure Event Grid supports IP-based access controls for publishing to topics and domains. With IP-based controls, you can limit the publishers to a topic or domain to only a set of approved set of machines and cloud services. This feature complements the authentication mechanisms supported by Event Grid. &lt;--- Note to service owner, IP based access control GA or Preview? configure-firewall.md ---&gt;
+Azure Event Grid also supports public IP-based
+access controls for publishing to topics and domains. With IP-based
+controls, you can limit the publishers to a topic or domain to only a set of
+approved set of machines and cloud services. This feature complements the
+authentication mechanisms supported by Event Grid. 
 
 - [More details on Event Grid Private Endpoints](network-security.md#private-endpoints)
 
@@ -51,15 +55,14 @@ Azure Event Grid supports IP-based access controls for publishing to topics and 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32702.).
 
-**Guidance**: Use Azure Security Center and follow the network protection recommendations to help secure your Azure network resources. Enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
- 
-Note network policies are disabled by default when private endpoints are created for Event Grid so above workflow may not work.
- 
-- [How to enable network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
-
-- [How to enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
- 
-- [Understand network security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
+**Guidance**: Use Azure Security Center and follow network protection
+recommendations to help secure your Event Grid resources in Azure. If using
+Azure virtual machines to access your Event Grid resources, enable network
+security group (NSG) flow logs and send logs into a storage account for traffic
+- [audit.How to Enable NSG Flow Logs](/azure/network-watcher/network-watcher-nsg-flow-logging-portalUnderstanding) Network Security provided by Azure Security
+- [Center](/azure/security-center/security-center-network-recommendationsAzure) Security
+Center monitoring: YesResponsibility:
+Customer
 
 **Azure Security Center monitoring**: Yes
 
@@ -81,9 +84,18 @@ Note network policies are disabled by default when private endpoints are created
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32704.).
 
-**Guidance**: Enable DDoS Protection Standard on the virtual networks associated with your Event Grid to guard against distributed denial-of-service (DDoS) attacks.
-
-Note, Azure Security Center Integrated Threat Intelligence can detect logons from malicious IP and generate alerts but it is not designed to deny logon access.
+**Guidance**: 
+You can configure IP firewall for your Event Grid resource to
+restrict access over the public internet from only a select set of IP Addresses
+or IP Address ranges. For step-by-step instructions, see Configure
+IP firewall.You can configure
+private endpoints to restrict access from only from selected virtual networks.
+For step-by-step instructions, see Configure
+private endpoints. Enable DDoS Protection
+Standard on these virtual networks to guard against distributed
+denial-of-service (DDoS) attacks. Use Azure Security Center Integrated Threat
+Intelligence to deny communications with known malicious or unused Internet IP
+addresses. For more information, see the following articles: 
 
 - [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
 
@@ -98,7 +110,8 @@ Note, Azure Security Center Integrated Threat Intelligence can detect logons fro
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32705.).
 
-**Guidance**: Enable network security group (NSG) flow logs and send logs into a storage account for traffic audit. You may also send NSG flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
+**Guidance**: If you are using Azure virtual machines to access your Event Grid resources, enable
+ network security group (NSG) flow logs and send logs into a storage account for traffic audit. You may also send NSG flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
 Note network policies are disabled by default when private endpoints are created for Event Grid so above workflow may not work.
 
@@ -149,7 +162,8 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32708.).
 
-**Guidance**: For resources that need access to your Azure Event Grid, use Virtual Network service tags to define network access controls on network security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., AzureEventGrid) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+**Guidance**: For resources in virtual networks that need
+access to your Azure Event Grid resources, use Virtual Network service tags to define network access controls on network security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., AzureEventGrid) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
 - [How to use service tag for Azure Event Grid](network-security.md#service-tags)
 
@@ -164,7 +178,11 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32709.).
 
-**Guidance**: Define and implement standard security configurations for network resources associated with your Azure Event Grid namespaces with Azure Policy. Use Azure Policy aliases in the "Microsoft.EventGrid" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Machine Learning namespaces. 
+**Guidance**: Define and implement standard security configurations for network resources associated with your Azure Event Grid namespaces with Azure Policy. Use Azure Policy aliases in the "Microsoft.EventGrid" and "Microsoft.Network" namespaces to create custom policies to audit or enforce the network configuration of your Event Grid resources. 
+
+You may also make use of built-in policy definitions
+related to Azure Event Grid, such as:- Azure Event Grid domains should use private links- Azure Event Grid topics should use private linksAzure
+- [built-in policies for Event Grid resources](../governance/policy/samples/built-in-policies.md#event-grid)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -177,7 +195,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32710.).
 
-**Guidance**: Use tags for network resources associated with your Azure Event Grid deployment in order to logically organize them into a taxonomy.
+**Guidance**: Use tags for network resources associated with your Azure Event Grid resources in order to logically organize them into a taxonomy.
 
 - [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -248,7 +266,7 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32716.).
 
-**Guidance**: In Azure Monitor, set the log retention period for Log Analytics workspaces associated with your Azure Event Grid instances according to your organization's compliance regulations.
+**Guidance**: In Azure Monitor, set the log retention period for Log Analytics workspaces associated with your Azure Event Grid resources according to your organization's compliance regulations.
 
 - [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -261,9 +279,13 @@ Deploy the firewall solution of your choice at each of your organization's netwo
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32717.).
 
-**Guidance**: Analyze and monitor logs for anomalous behavior and regularly review the results from your Azure Event Grid. Use Azure Monitor and a Log Analytics workspace to review logs and perform queries on log data.
+**Guidance**: Analyze and monitor logs for anomalous behavior and regularly review the results from Azure Event Grid. Use Azure Monitor and a Log Analytics workspace to review logs and perform queries on log data.
 
 Alternatively, you can enable and on-board data to Azure Sentinel or a third party SIEM. 
+
+Enable Diagnostic logs for Azure event grid topics or domains
+
+enable-diagnostic-logs-topic.md
 
 - [How to perform queries for Azure Event Grid in Log Analytics Workspaces](diagnostic-logs.md)
 
@@ -284,14 +306,23 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third par
 
 **Guidance**: Enable diagnostic settings on your event grid for access to publish and delivery failure logs. Activity logs, which are automatically available, include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements. You may send the logs to a Log Analytics workspace.Use Azure Security Center with Log Analytics for monitoring and alerting on anomalous activity found in security logs and events. 
 
-Additionally, you can oboard your Log Analytics workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues.
+You can also create alerts on Azure Event Grid metrics and
+activity log operations. You can create alerts on both publish and delivery
+metrics for Azure Event Grid resources (topics and domains). 
+
+Additionally, you can onboard your Log Analytics workspace to Azure Sentinel as it provides a security orchestration automated response (SOAR) solution. This allows for playbooks (automated solutions) to be created and used to remediate security issues.
 
 - [How to enable diagnostic logs for Azure Event Grid topics or domains](enable-diagnostic-logs-topic.md)
-- [Deatils of Event Grid diagnostic log schema](diagnostic-logs.md)
+
+Set alerts on Azure Event Grid metrics and activity logs
+
+set-alerts.md
+
+- [Details of Event Grid diagnostic log schema](diagnostic-logs.md)
 
 - [Create, view, and manage log alerts using Azure Monitor](../azure-monitor/platform/alerts-log.md)
 
-- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md")
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -390,7 +421,7 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32725.).
 
-**Guidance**: &lt;--- Event Grid is integrated with Azure Active Directory, but no information available on SSO support because SSO needs to be implemented, also not clear how SSO is appllied in Event Grid scenarios, needs service team to confirm ---&gt;
+**Guidance**: Not applicable
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -401,11 +432,7 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32726.).
 
-**Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management recommendations.
-
-- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
-
-- [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
+**Guidance**: Not applicable
 
 **Azure Security Center monitoring**: Yes
 
@@ -416,11 +443,7 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32727.).
 
-**Guidance**: Use Privileged Access Workstations (PAW) with Multi-Factor Authentication configured to log into and configure Azure resources.
-
-- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
-
-- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+**Guidance**: Not applicable.
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -446,11 +469,7 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32729.).
 
-**Guidance**: Use Azure AD named locations to allow access only from specific logical groupings of IP address ranges or countries/regions.
- 
- 
- 
-- [How to configure Azure AD named locations](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
+**Guidance**: Not applicable. 
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -533,7 +552,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32734.).
 
-**Guidance**: &lt;--- Currently not available; Customer Lockbox not yet supported for Azure Database for Event Grid, need confirmation from service owner ---&gt;
+**Guidance**: Currently not available; Customer Lockbox not yet supported for Azure Event Grid.
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -580,7 +599,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32737.).
 
-**Guidance**: &lt;--- no information available on how sensitive info is classified in Event Grid, needs service owner input ---&gt;
+**Guidance**: For the underlying platform which is managed by Microsoft,
+Microsoft treats all customer content as sensitive and goes to great lengths to
+guard against customer data loss and exposure. To ensure customer data within
+Azure remains secure, Microsoft has implemented and maintains a suite of robust
+- [data protection controls and capabilities.Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -591,7 +614,12 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32738.).
 
-**Guidance**: Azure Event Grid supports HTTPS webhook endpoints. &lt;--- need more details on TLS version for webhook as well as how event data is encrypted in publishing ---&gt;
+**Guidance**: Azure Event Grid requires HTTPS for publishing
+and supports HTTPS for delivering events to a webhook endpoint. In Azure
+Global, Event Grid supports both 1.1 and 1.2 versions of TLS, but we strongly
+recommend that you use the 1.2 version. In national clouds such as Azure
+Government and Azure operated by 21Vianet in China, Event Grid supports only
+1.2 version of TLS. 
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -630,7 +658,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32743.).
 
-**Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Machine Learning and other critical or related resources.
+**Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production instances of Azure Event Grid resources and other critical or related resources.
 
 - [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -1077,6 +1105,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Event Grid has an automatic geo disaster recovery (GeoDR) of meta-data not only for new, but all existing domains, topics, and event subscriptions. If an entire Azure region goes down, Event Grid will already have all of your event-related infrastructure metadata synced to a paired region.
 
+Currently, Event Grid doesn’t support customer-managed
+keys. 
+
 - [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md)
 
 **Azure Security Center monitoring**: Not Applicable
@@ -1090,6 +1121,9 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 **Guidance**: Event Grid has an automatic geo disaster recovery (GeoDR) of meta-data not only for new, but all existing domains, topics, and event subscriptions. If an entire Azure region goes down, Event Grid will already have all of your event-related infrastructure metadata synced to a paired region.
 
+Currently, Event Grid doesn’t support customer-managed
+keys. 
+
 - [Server-side geo disaster recovery in Azure Event Grid](geo-disaster-recovery.md)
 
 **Azure Security Center monitoring**: Not Applicable
@@ -1101,12 +1135,13 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32781.).
 
-**Guidance**: Enable soft delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. If Azure Storage is used to store backups, enable soft delete to save and recover your data when blobs or blob snapshots are deleted.
+**Guidance**: Enable soft delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. 
  
- 
-- [Understand Azure RBAC](../role-based-access-control/overview.md)
 
-- [Soft delete for Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+Currently, Event Grid doesn’t support customer-managed
+keys. 
+
+- [Understand Azure RBAC](../role-based-access-control/overview.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
