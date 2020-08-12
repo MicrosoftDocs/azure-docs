@@ -58,7 +58,7 @@ public void ConfigureServices(IServiceCollection services)
 If you're interested in understanding more about the token cache, see [Token cache serialization options](#token-cache)
 
 > [!NOTE]
-> To fully understand the code examples here, you need to be familiar with [ASP.NET Core fundamentals](https://docs.microsoft.com/aspnet/core/fundamentals), and in particular with [dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) and [options](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
+> To fully understand the code examples here, you need to be familiar with [ASP.NET Core fundamentals](/aspnet/core/fundamentals), and in particular with [dependency injection](/aspnet/core/fundamentals/dependency-injection) and [options](/aspnet/core/fundamentals/configuration/options).
 
 # [ASP.NET](#tab/aspnet)
 
@@ -265,7 +265,7 @@ The use of client assertions is an advanced scenario, detailed in [Client assert
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-The ASP.NET core tutorial uses dependency injection to let you decide the token cache implementation in the Startup.cs file for your application. Microsoft.Identity.Web comes with pre-built token-cache serializers described in [Token cache serialization](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). An interesting possibility is to choose ASP.NET Core [distributed memory caches](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache):
+The ASP.NET core tutorial uses dependency injection to let you decide the token cache implementation in the Startup.cs file for your application. Microsoft.Identity.Web comes with pre-built token-cache serializers described in [Token cache serialization](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). An interesting possibility is to choose ASP.NET Core [distributed memory caches](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
 
 ```csharp
 // Use a distributed token cache by adding:
