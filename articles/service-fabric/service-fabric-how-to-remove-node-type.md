@@ -101,7 +101,7 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     Login to the Azure subscription where the scale set was deployed and remove the Virtual Machine Scale Set. 
 
     ```powershell
-    $scaleSetName="nt1vm"
+    $scaleSetName="myscaleset"
     $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
     
     Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
@@ -174,7 +174,7 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     Then validate that:
     - Service Fabric Resource in portal shows ready.
 
-9. Remove all reference to the resources relating to the node type.
+9. Remove all reference to the resources relating to the node type from the ARM template.
 
     - Locate the Azure Resource Manager template used for deployment.
     - Remove the virtual machine scale set and other resources related to the node type from the template.
@@ -182,6 +182,13 @@ When removing a node type that is Bronze, all the nodes in the node type go down
 
     Then:
     - Wait for deployment to complete.
+    
+10. Remove resources relating to the node type that are no longer in use. Example Load Balancer, and Public IP. 
+
+    - To remove these resources you can use the same PowerShell command as used in step 6 specifying the specific resource type and API version. 
+
+> [!Note]
+> This step is optional if same Load Balancer, and IP is reused between node types.
 
 ## Next steps
 - Learn more about cluster [durability characteristics](./service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).
