@@ -35,18 +35,18 @@ You can view the different content entries as tiles or in a detailed view. The *
 > [!NOTE]
 > Instead of outputting frames at regular intervals, the video moderation service identifies and outputs only potentially complete (good) frames. This feature allows efficient frame generation for frame-level adult and racy analysis.
 
-The **Tiled** view will show each video as a single tile. Select the the expand button above a video frame to enlarge that video and hide the others.
+The **Tiled** view will show each video as a single tile. Select the expand button above a video frame to enlarge that video and hide the others.
 
 ### Content-obscuring effects
 
-Use the **Blur all** and **Black and white** toggles to set these content-obscuring effects. They are turned on by default. In the **Tiled** view, you can toggle the effects individually for each video.
+Use the **Blur all** and **Black and white** toggles to set these content-obscuring effects. They're turned on by default. In the **Tiled** view, you can toggle the effects individually for each video.
 
 ## Check video details
 
 In the **Detail** view, the right pane will show several tabs that give you details about the video.
 
-* Select the **Notes** tab to add custom notes to videos in addition to the applied tags.
-* Select the **Transcript** tab to see the video transcript&mdash;the service automatically extracts a transcript of any speech in the video. When you click a section of text, the video player will jump to that part of the video.
+* Select the **Notes** tab to add custom notes to videos.
+* Select the **Transcript** tab to see the video transcript&mdash;the service automatically extracts a transcript of any speech in the video. When you select a section of text, the video player will jump to that part of the video.
 * Select the **Meta-data** tab to view video file metadata.
 * Select the **History** tab to see the history of the review, such as when it was created and how it was modified.
 
@@ -67,7 +67,7 @@ The **Bulk Tags** toolbar lets you add tags to multiple selected videos at once.
 
 ### Key frame tagging
 
-You can also add moderation tags to specific key frames. Select the frames from the key frame tile pane, and then select **Keyframe tags +** to apply the desired tags.
+You can also add moderation tags to specific key frames. Select the frames from the key frame tile pane, and then select **Keyframe tags +** to apply the wanted tags.
 
 > [!NOTE]
 > If the service couldn't extract key frames, the key frame tile pane will show **No frames available** and the option to select key frames will be grayed out. In this case, you can only apply tags to the video as a whole (using the **Video tags +** button).
@@ -86,7 +86,7 @@ You can view the videos on hold by clicking the **Hold** button at the top of th
 
 ## Submit a review
 
-After you've applied your tags, select the **Submit** button at the bottom of the video pane. If you've tagged multiple videos, you have the option to submit them under a single review or as separate reviews.
+After you've applied your tags, select the **Submit** button at the bottom of the video pane. If you've tagged multiple videos, you can submit them under a single review or as separate reviews.
 
 ## Limbo state
 

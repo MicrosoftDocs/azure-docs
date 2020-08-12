@@ -16,11 +16,11 @@ ms.author: pafarley
 
 # Content moderation reviews, workflows, and jobs
 
-Content Moderator combines machine-assisted moderation with human-in-the-loop capabilities to create an optimal moderation process for real-world scenarios. It does this through the cloud-based [Review tool](https://contentmoderator.cognitive.microsoft.com). In this guide, you will learn about the core concepts of the Review tool: reviews, workflows, and jobs.
+Content Moderator combines machine-assisted moderation with human-in-the-loop capabilities to create an optimal moderation process for real-world scenarios. It does this through the cloud-based [Review tool](https://contentmoderator.cognitive.microsoft.com). In this guide, you'll learn about the core concepts of the Review tool: reviews, workflows, and jobs.
 
 ## Reviews
 
-In a review, content is uploaded to the Review tool. You can view it by clicking its content type under **Review** tab on the dashboard. From the review screen, you can alter the applied tags and apply your own custom tags as appropriate. When you submits a review, the results are sent to a specified callback endpoint, and the content is removed from the site.
+In a review, content is uploaded to the Review tool. You can view it by clicking its content type under **Review** tab on the dashboard. From the review screen, you can alter the applied tags and apply your own custom tags as appropriate. When you submit a review, the results are sent to a specified callback endpoint, and the content is removed from the site.
 
 > [!div class="mx-imgBorder"]
 > ![Review tool site with Review tab selected](./Review-Tool-user-Guide/images/review-tab.png)
@@ -34,7 +34,7 @@ The three-dot **Actions** button on each review lets you go to the review screen
 > [!div class="mx-imgBorder"]
 > ![Review tool website, on the Review screen](./Review-Tool-user-Guide/images/manage-reviews.png)
 
-Using the **Search** toolbar, you can sort the reviews by a variety of categories such as review state, tags, content type, subteams, assigned users, and created/modified date.
+Use the **Search** toolbar to sort the reviews by a variety of categories such as review state, tags, content type, subteams, assigned users, and created/modified date.
 
 > [!div class="mx-imgBorder"]
 > ![Review tool site with Review tab selected](./Review-Tool-user-Guide/images/review-search.png)
@@ -81,7 +81,7 @@ See the [Review tool guide](./review-tool-user-guide/workflows.md) to get starte
 
 ## Jobs
 
-A moderation job serves as a kind of wrapper for the functionality of content moderation, workflows and reviews. The job scans your content using the Content Moderator image moderation API or text moderation API and then checks it against the designated workflow. Based on the workflow results, it may or may not create a review for the content in the [Review tool](./review-tool-user-guide/human-in-the-loop.md). While both reviews and workflows can be created and configured with their respective APIs, the job API allows you to obtain a detailed report of the entire process (which can be sent to a specified callback endpoint).
+A moderation job serves as a kind of wrapper for the functionality of content moderation, workflows, and reviews. The job scans your content using the Content Moderator image moderation API or text moderation API and then checks it against the designated workflow. Based on the workflow results, it may or may not create a review for the content in the [Review tool](./review-tool-user-guide/human-in-the-loop.md). While both reviews and workflows can be created and configured with their respective APIs, the job API allows you to obtain a detailed report of the entire process (which can be sent to a specified callback endpoint).
 
 See the [REST API guide](./try-review-api-job.md) to get started using jobs.
 
