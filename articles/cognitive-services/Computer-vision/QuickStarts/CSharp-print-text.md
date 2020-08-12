@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Extract text with the Computer Vision REST API OCR operation and C#"
+title: "Quickstart: Extract text with the Computer Vision OCR REST API and C#"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract text from an image using the Computer Vision REST API OCR operation with C#.
 services: cognitive-services
@@ -9,16 +9,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Extract text using the Computer Vision REST API OCR operation and C#
+# Quickstart: Extract text using the Computer Vision OCR REST API and C#
 
-> [!NOTE]
-> If you're extracting text in Dutch, English, French, German, Italian, Portuguese, Spanish, and Simplified Chinese (preview), consider using the new OCR, technology, [Read operation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). A [C# quickstart](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) is available. 
+> [!IMPORTANT]
+> If you're extracting text in English, Dutch, French, German, Italian, Portuguese, Spanish, or Simplified Chinese (preview), we recommend you use the newer [Read operation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). A [C# quickstart](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) is available. 
 
-In this quickstart, you'll extract printed text from an image using the Computer Vision REST API [OCR operation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) feature.  With this operation, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
+In this quickstart, you'll extract printed text from an image using the Computer Vision REST API [OCR operation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) feature. With this operation, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
 ## Prerequisites
 
