@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
 
 ---
@@ -31,7 +31,7 @@ To complete this article, you need the following resources and privileges:
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services manged domain][create-azure-ad-ds-instance].
+    * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 * A Windows Server management VM that is joined to the Azure AD DS managed domain.
     * If needed, complete the tutorial to [create a management VM][tutorial-create-management-vm].
 
@@ -72,7 +72,7 @@ Now create a gMSA using the [New-ADServiceAccount][New-ADServiceAccount] cmdlet.
 * **-Name** is set to *WebFarmSvc*
 * **-Path** parameter specifies the custom OU for the gMSA created in the previous step.
 * DNS entries and service principal names are set for *WebFarmSvc.aaddscontoso.com*
-* Principals in *AADDSCONTOSO-SERVER$* are allowed to retrieve the password use the identity.
+* Principals in *AADDSCONTOSO-SERVER$* are allowed to retrieve the password and use the identity.
 
 Specify your own names and domain names.
 

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/18/2019
+ms.date: 07/09/2020
 ms.author: iainfou
 
 ---
@@ -32,7 +32,7 @@ When you enable secure LDAP, it's recommended to create additional rules that re
 
 1. In the Azure portal, search for and select **Network security groups**.
 1. Choose the network security group associated with your managed domain, such as *AADDS-contoso.com-NSG*, then select **Inbound security rules**
-1. **+ Add** a rule for TCP port 636. If needed, select **Advanced** in the window to create a rule.
+1. Select **+ Add** to create a rule for TCP port 636. If needed, select **Advanced** in the window to create a rule.
 1. For the **Source**, choose *IP Addresses* from the drop-down menu. Enter the source IP addresses that you want to grant access for secure LDAP traffic.
 1. Choose *Any* as the **Destination**, then enter *636* for **Destination port ranges**.
 1. Set the **Protocol** as *TCP* and the **Action** to *Allow*.

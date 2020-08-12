@@ -7,8 +7,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 04/10/2020
+ms.topic: how-to
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -56,7 +56,7 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 Next, get the well-known config URL for one of your Azure AD B2C user flows. You also need the token issuer endpoint URI you want to support in Azure API Management.
 
 1. Browse to your Azure AD B2C tenant in the [Azure portal](https://portal.azure.com).
-1. Under **Policies**, select **User flows (policies)**.
+1. Under **Policies**, select **User flows**.
 1. Select an existing policy, for example *B2C_1_signupsignin1*, then select **Run user flow**.
 1. Record the URL in hyperlink displayed under the **Run user flow** heading near the top of the page. This URL is the OpenID Connect well-known discovery endpoint for the user flow, and you use it in the next section when you configure the inbound policy in Azure API Management.
 
@@ -122,7 +122,7 @@ To call the API, you need both an access token issued by Azure AD B2C, and an AP
 You first need a token issued by Azure AD B2C to use in the `Authorization` header in Postman. You can get one by using the **Run now** feature of your sign-up/sign-in user flow you should have created as one of the prerequisites.
 
 1. Browse to your Azure AD B2C tenant in the [Azure portal](https://portal.azure.com).
-1. Under **Policies**, select **User flows (policies)**.
+1. Under **Policies**, select **User flows**.
 1. Select an existing sign-up/sign-in user flow, for example *B2C_1_signupsignin1*.
 1. For **Application**, select *webapp1*.
 1. For **Reply URL**, choose `https://jwt.ms`.
@@ -167,7 +167,7 @@ With the access token and APIM subscription key recorded, you're now ready to te
 
 1. Select the **Send** button in Postman to execute the request. If you've configured everything correctly, you should be presented with a JSON response with a collection of conference speakers (shown here truncated):
 
-    ```JSON
+    ```json
     {
       "collection": {
         "version": "1.0",
@@ -202,7 +202,7 @@ Now that you've made a successful request, test the failure case to ensure that 
 
 1. Select the **Send** button to execute the request. With an invalid token, the expected result is a `401` unauthorized status code:
 
-    ```JSON
+    ```json
     {
         "statusCode": 401,
         "message": "Unauthorized. Access token is missing or invalid."
@@ -215,7 +215,7 @@ If you see the `401` status code, you've verified that only callers with a valid
 
 Several applications typically interact with a single REST API. To enable your API to accept tokens intended for multiple applications, add their application IDs to the `<audiences>` element in the APIM inbound policy.
 
-```XML
+```xml
 <!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
@@ -225,7 +225,7 @@ Several applications typically interact with a single REST API. To enable your A
 
 Similarly, to support multiple token issuers, add their endpoint URIs to the `<issuers>` element in the APIM inbound policy.
 
-```XML
+```xml
 <!-- Accept tokens from multiple issuers -->
 <issuers>
     <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
@@ -245,7 +245,7 @@ You can follow this general process to perform a staged migration:
 
 The following example APIM inbound policy illustrates how to accept tokens issued by both b2clogin.com and login.microsoftonline.com. Additionally, it supports API requests from two applications.
 
-```XML
+```xml
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

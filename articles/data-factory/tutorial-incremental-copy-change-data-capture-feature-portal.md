@@ -50,7 +50,8 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 * **Azure SQL Database Managed Instance**. You use the database as the **source** data store. If you don't have an Azure SQL Database Managed Instance, see the [Create an Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) article for steps to create one.
 * **Azure Storage account**. You use the blob storage as the **sink** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-account-create.md) article for steps to create one. Create a container named **raw**. 
 
-### Create a data source table in your Azure SQL database
+### Create a data source table in Azure SQL Database
+
 1. Launch **SQL Server Management Studio**, and connect to your Azure SQL Managed Instances server.
 2. In **Server Explorer**, right-click your **database** and choose the **New Query**.
 3. Run the following SQL command against your Azure SQL Managed Instances database to create a table named `customers` as data source store.  
@@ -107,7 +108,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
 
-       `Data factory name “ADFTutorialDataFactory” is not available`
+    *Data factory name “ADFTutorialDataFactory” is not available.*
 3. Select **V2** for the **version**.
 4. Select your Azure **subscription** in which you want to create the data factory.
 5. For the **Resource Group**, do one of the following steps:
@@ -272,12 +273,12 @@ In this step, you create a pipeline, which first checks the number of changed re
    2. Select **Query** for **Use Query**.
    3. Enter the following for **Query**.
 
-    ```sql
-    DECLARE @from_lsn binary(10), @to_lsn binary(10); 
-    SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers'); 
-    SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal', GETDATE());
-    SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
-    ```
+      ```sql
+      DECLARE @from_lsn binary(10), @to_lsn binary(10); 
+      SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers'); 
+      SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal', GETDATE());
+      SELECT * FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
+      ```
 
    ![Copy Activity - source settings](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-settings.png)
 

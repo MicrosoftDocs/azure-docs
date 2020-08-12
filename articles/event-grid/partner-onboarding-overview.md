@@ -1,13 +1,8 @@
 ---
 title: Onboard as an Azure Event Grid partner
 description: Onboard as an Azure Event Grid partner topic type. Understand the resource model and publishing flow for partner topics.
-services: event-grid
-author: femila
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.author: femila
+ms.date: 07/07/2020
 ---
 
 # Onboard as an Azure Event Grid partner
@@ -91,7 +86,7 @@ The following resource model is for partner topics.
 ### Partner topic types
 * Resource: `partnerTopicTypes`
 * Used by: Customers
-* Description: Partner topic types are tenantwide resource types that enable customers to discover the list of approved partner topic types. The URL looks like https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
+* Description: Partner topic types are tenant-wide resource types that enable customers to discover the list of approved partner topic types. The URL looks like https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
 * Scope: Global
 
 ## Publish events to Event Grid
@@ -153,10 +148,10 @@ After posting to the partnerNamespace endpoint, you receive a response. The resp
 ## References
 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
-  * [ARM template](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
+  * [ARM template](/azure/templates/microsoft.eventgrid/allversions)
   * [ARM template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [REST APIs](https://docs.microsoft.com/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
-  * [CLI extension](https://docs.microsoft.com/cli/azure/ext/eventgrid/?view=azure-cli-latest)
+  * [REST APIs](/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
+  * [CLI extension](/cli/azure/ext/eventgrid/?view=azure-cli-latest)
 
 ### SDKs
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)

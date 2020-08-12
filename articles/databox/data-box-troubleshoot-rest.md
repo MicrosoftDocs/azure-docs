@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: how-to
+ms.topic: troubleshooting
 ms.date: 04/19/2019
 ms.author: alkohli
 ---

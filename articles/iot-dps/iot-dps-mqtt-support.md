@@ -75,7 +75,7 @@ When connecting over Websocket, specify the subprotocol as `mqtt`. Follow [RFC 6
 
 ## Next steps
 
-To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt.org/documentation).
+To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt.org/).
 
 To further explore the capabilities of DPS, see:
 

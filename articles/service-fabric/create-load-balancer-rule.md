@@ -10,7 +10,7 @@ ms.date: 12/06/2017
 
 The load balancer deployed with your Azure Service Fabric cluster directs traffic to your app running on a node. If you change your app to use a different port, you must expose that port (or route a different port) in the Azure Load Balancer.
 
-When you deployed your Service Fabric cluster to Azure, a load balancer was automatically created for you. If you do not have a load balancer, see [Configure an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-portal.md).
+When you deployed your Service Fabric cluster to Azure, a load balancer was automatically created for you. If you do not have a load balancer, see [Configure an Internet-facing load balancer](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -21,7 +21,7 @@ Your Service Fabric application **ServiceManifest.xml** config file defines the 
 
 ## Create a load balancer rule
 
-A Load Balancer rule opens up an internet-facing port and forwards traffic to the internal node's port used by your application. If you do not have a load balancer, see [Configure an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-portal.md).
+A Load Balancer rule opens up an internet-facing port and forwards traffic to the internal node's port used by your application. If you do not have a load balancer, see [Configure an Internet-facing load balancer](../load-balancer/quickstart-load-balancer-standard-public-portal.md).
 
 To create a Load Balancer rule, you need to collect the following information:
 

@@ -1,13 +1,8 @@
 ---
 title: Azure Event Grid event handlers
 description: Describes supported event handlers for Azure Event Grid. Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Event handlers in Azure Event Grid

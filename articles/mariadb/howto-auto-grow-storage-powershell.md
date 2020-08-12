@@ -4,8 +4,9 @@ description: This article describes how you can enable auto grow storage using P
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 5/26/2020
+ms.topic: how-to
+ms.date: 5/26/2020 
+ms.custom: devx-track-azurepowershell
 ---
 # Auto grow storage in Azure Database for MariaDB server using PowerShell
 

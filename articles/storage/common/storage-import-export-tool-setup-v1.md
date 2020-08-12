@@ -4,13 +4,13 @@ description: Learn how to set up the drive preparation and repair tool for the A
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
 ---
 
-# Setting up the Azure Import/Export Tool
+# Setting up the Azure Import/Export Tool v1
 The Microsoft Azure Import/Export Tool is the drive preparation and repair tool that you can use with the Microsoft Azure Import/Export service. You can use the tool for the following functions:  
 
 -   Before creating an import job, you can use this tool to copy data to the hard drives you are going to ship to a Windows Azure data center.  

@@ -75,7 +75,7 @@ For more information, see the following resources:
 
  - [Azure Hybrid Use Benefit for Windows Server and Windows Client](../windows/hybrid-use-benefit-licensing.md).
 
- - [How can I use the Hybrid Use Benefit in Azure](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
+ - [How can I use the Hybrid Use Benefit in Azure](/archive/blogs/azureedu/how-can-i-use-the-hybrid-use-benefit-in-azure)
 
 ## How do I activate my monthly credit for Visual studio Enterprise (BizSpark)
 

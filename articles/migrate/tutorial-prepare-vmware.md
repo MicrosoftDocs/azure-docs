@@ -59,7 +59,7 @@ To register the appliance, your Azure account needs permissions to create Azure 
 Grant permissions to the account as follows:
 
 1. Make sure you're a tenant or global admin. Then, in Azure AD, navigate to **Azure Active Directory** > **Users** > **User Settings**.
-2. Set **App registrations** to **Yes**. This is a default setting that isn't sensitive. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+2. Set **App registrations** to **Yes**. This is a default setting that isn't sensitive. [Learn more](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
     ![Azure AD permissions](./media/tutorial-prepare-vmware/aad.png)
 
@@ -67,7 +67,7 @@ Grant permissions to the account as follows:
 
 #### Method 2: Assign Application Developer role
 
-Alternatively, the tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) about assigning a role.
+Alternatively, the tenant/global admin can assign the Application Developer role to an account. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md) about assigning a role.
 
 ### Assign permissions to create a Key Vault
 

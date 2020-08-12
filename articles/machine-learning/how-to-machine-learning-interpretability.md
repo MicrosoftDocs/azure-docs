@@ -1,18 +1,19 @@
 ---
-title: Model interpretability in Azure Machine Learning
+title: Model interpretability in Azure Machine Learning (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model makes predictions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.author: mesameki
-author: mesameki
+ms.topic: conceptual
+ms.custom: how-to
+ms.author: mithigpe
+author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/02/2020
+ms.date: 07/09/2020
 ---
 
-# Model interpretability in Azure Machine Learning
+# Model interpretability in Azure Machine Learning (preview)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 ## Overview of model interpretability
@@ -39,9 +40,7 @@ The interpretability classes are made available through multiple SDK packages: (
 
 * `azureml.contrib.interpret`, preview, and experimental functionalities that you can try.
 
-* `azureml.train.automl.automlexplainer` package for interpreting automated machine learning models.
-
-Use `pip install azureml-interpret` and `pip install azureml-interpret-contrib` for general use, and `pip install azureml-interpret-contrib` for AutoML use to get the interpretability packages.
+Use `pip install azureml-interpret` and `pip install azureml-contrib-interpret` for general use.
 
 
 > [!IMPORTANT]

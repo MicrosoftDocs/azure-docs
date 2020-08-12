@@ -11,7 +11,7 @@ Before creating Resource Manager templates, you need to understand what resource
 
 ## Find resource provider namespaces
 
-Resources in an ARM template are defined with a resource provider namespace and resource type. For example, Microsoft.Storage/storageAccounts is the full name of the storage account resource type. Microsoft.Storage is the namespace. If you don't already know the namespaces for the resource types you want to use, see [Resource providers for Azure services](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers).
+Resources in an ARM template are defined with a resource provider namespace and resource type. For example, Microsoft.Storage/storageAccounts is the full name of the storage account resource type. Microsoft.Storage is the namespace. If you don't already know the namespaces for the resource types you want to use, see [Resource providers for Azure services](../management/azure-services-resource-providers.md).
 
 ![Resource Manager resource provider namespace mapping](./media/view-resources/resource-provider-namespace-and-azure-service-mapping.png)
 

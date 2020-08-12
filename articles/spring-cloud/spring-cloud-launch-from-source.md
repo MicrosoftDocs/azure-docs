@@ -6,6 +6,7 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: brendm
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Quickstart: Launch your Spring Cloud application from source code

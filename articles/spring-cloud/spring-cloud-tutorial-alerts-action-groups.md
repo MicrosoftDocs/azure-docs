@@ -6,9 +6,10 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
-
+ms.custom: devx-track-java
 ---
-# Tutorial: Monitor Spring Cloud resources using alerts and action groups
+
+# Tutorial: How to monitor Spring Cloud resources using alerts and action groups
 
 Azure Spring Cloud alerts support monitoring resources based on conditions such as available storage, rate of requests, or data usage. An alert sends notification when rates or conditions meet the defined specifications.
 
@@ -17,12 +18,9 @@ There are two steps to set up an alert pipeline:
 2. Set up Alert rules. The rules bind metric patterns with the action groups based on target resource, metric, condition, time aggregation, etc.
 
 ## Prerequisites
-In addition to the Azure Spring requirements, this tutorial depends on the following resources.
 
-* A deployed Azure Spring Cloud instance.  Follow our [quickstart](spring-cloud-quickstart-launch-app-cli.md) to get started.
+In addition to the Azure Spring requirements, the procedures in this tutorial work with a deployed Azure Spring Cloud instance.  Follow a [quickstart](spring-cloud-quickstart-launch-app-cli.md) to get started.
 
-* An Azure resource to monitor. This example monitors a Spring Cloud instance.
- 
 The following procedures initialize both **Action Group** and **Alert** starting from the **Alerts** option in the left navigation pane of a Spring Cloud instance. (The procedure can also start from the **Monitor Overview** page of the Azure portal.) 
 
 Navigate from a resource group to your Spring Cloud instance. Select **Alerts** in the left pane, then select **Manage actions**:
@@ -104,7 +102,11 @@ A rule can also be created using the **Metrics** page:
    ![Screenshot Portal new alert rule](media/alerts-action-groups/alerts-5.png)
 
 ## Next steps
-* [User portal metrics options](spring-cloud-concept-metrics.md#user-metrics-options)
-* [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
-* [SMS Alert Behavior in Action Groups](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
-* [Tutorial: Using Distributed Tracing with Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+
+In this tutorial you learned how to set up alerts and action groups for an Azure Spring Cloud application. To learn more about action groups, see:
+
+> [!div class="nextstepaction"]
+> [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+
+> [!div class="nextstepaction"]
+> [SMS Alert Behavior in Action Groups](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)

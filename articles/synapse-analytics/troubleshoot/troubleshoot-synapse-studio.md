@@ -1,9 +1,10 @@
 ---
-title: Troubleshoot Azure Synapse Studio (preview) 
+title: Troubleshoot Synapse Studio (preview) 
 description: Troubleshoot Azure Synapse Studio
 author: julieMSFT 
 ms.service: synapse-analytics 
 ms.topic: conceptual
+ms.subservice: sql
 ms.date: 04/15/2020 
 ms.author: jrasnick 
 ms.reviewer: jrasnick
@@ -85,7 +86,7 @@ When reporting the issue, you may optionally take a screenshot of your "Console"
 
 ![developer-tool-console](media/troubleshooting-synapse-studio/developer-tool-console.png)
 
-If you are attaching screenshots, provide the time (or an estimated time range) of when you took the screenshots. It will help us when looking into the problem.
+If you're attaching screenshots, provide the time (or an estimated time range) of when you took the screenshots. It will help us when looking into the problem.
 
 Certain browsers support showing timestamps in the "Console" tab. For Chromium Edge/Chrome, open the "Settings" dialog in "Developer Tools", and check "Show timestamps" in "Preferences" tab.
 
@@ -94,4 +95,4 @@ Certain browsers support showing timestamps in the "Console" tab. For Chromium E
 ![show-time-stamp](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## Next steps
-If the previous steps don help to resolve you issue [Create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+If the previous steps don't help to resolve your issue [Create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

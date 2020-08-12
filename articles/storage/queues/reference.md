@@ -63,8 +63,8 @@ The following table lists reference and sample documentation for Azure Queue sto
 
 |  Version  | Reference documentation | Package | Quickstart |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Azure Storage Queues client library for Python](/python/api/overview/azure/storage-queue-readme) | [Package (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Quickstart: Azure Queue storage client library v12 for Python](/azure/storage/queues/storage-quickstart-queues-python) |
-| 2.x | [azure-storage-queue](/python/api/azure-storage-queue/?view=azure-python-previous) | [Package (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [How to use Azure Queue storage v2.1 from Python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
+| 12.x | [Azure Storage client libraries v12 for Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Package (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Quickstart: Azure Queue storage client library v12 for Python](/azure/storage/queues/storage-quickstart-queues-python) |
+| 2.x | [Azure Storage client libraries v2 for Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Package (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [How to use Azure Queue storage v2.1 from Python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
 
 ## JavaScript client libraries
 

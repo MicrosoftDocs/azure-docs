@@ -32,7 +32,7 @@ Use either claim values or constants to generate a JSON string. The path string 
 
 The following example generates a JSON string based on the claim value of "email" and "otp" as well as constant strings.
 
-```XML
+```xml
 <ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
@@ -63,7 +63,7 @@ The following claims transformation outputs a JSON string claim that will be the
 - Output claim:
   - **requestBody**: JSON value
 
-```JSON
+```json
 {
   "personalizations": [
     {
@@ -98,7 +98,7 @@ Get a specified element from a JSON data.
 
 In the following example, the claims transformation extracted the `emailAddress` element from the JSON data: `{"emailAddress": "someone@example.com", "displayName": "Someone"}`
 
-```XML
+```xml
 <ClaimsTransformation Id="GetEmailClaimFromJson" TransformationMethod="GetClaimFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="customUserData" TransformationClaimType="inputJson" />
@@ -137,11 +137,11 @@ Get a list of specified elements from Json data.
 
 In the following example, the claims transformation extracts the following claims: email (string), displayName (string), membershipNum (int), active (boolean) and  birthdate (datetime) from the JSON data.
 
-```JSON
+```json
 [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value":true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
 ```
 
-```XML
+```xml
 <ClaimsTransformation Id="GetClaimsFromJson" TransformationMethod="GetClaimsFromJsonArray">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="jsonSourceClaim" TransformationClaimType="jsonSource" />
@@ -188,7 +188,7 @@ Gets a specified numeric (long) element from a JSON data.
 
 In the following example, the claims transformation extracts the `id` element from the JSON data.
 
-```JSON
+```json
 {
     "emailAddress": "someone@example.com",
     "displayName": "Someone",
@@ -196,7 +196,7 @@ In the following example, the claims transformation extracts the `id` element fr
 }
 ```
 
-```XML
+```xml
 <ClaimsTransformation Id="GetIdFromResponse" TransformationMethod="GetNumericClaimFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="exampleInputClaim" TransformationClaimType="inputJson" />
@@ -231,7 +231,7 @@ Gets the first element from a JSON data.
 
 In the following example, the claims transformation extracts the first element (given name) from the JSON data.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetGivenNameFromResponse" TransformationMethod="GetSingleItemFromJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="json" TransformationClaimType="inputJson" />
@@ -263,7 +263,7 @@ Gets the first element from a JSON data array.
 
 In the following example, the claims transformation extracts the first element (email address) from the JSON array  `["someone@example.com", "Someone", 6353399]`.
 
-```XML
+```xml
 <ClaimsTransformation Id="GetEmailFromJson" TransformationMethod="GetSingleValueFromJsonArray">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userData" TransformationClaimType="inputJsonClaim" />
@@ -290,7 +290,7 @@ Converts XML data to JSON format.
 | InputClaim | xml | string | The ClaimTypes that are used by the claims transformation to convert the data from XML to JSON format. |
 | OutputClaim | json | string | The ClaimType that is produced after this ClaimsTransformation has been invoked, the data in JSON format. |
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertXmlToJson" TransformationMethod="XmlStringToJsonString">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="intpuXML" TransformationClaimType="xml" />
@@ -306,7 +306,7 @@ In the following example, the claims transformation converts the following XML d
 #### Example
 Input claim:
 
-```XML
+```xml
 <user>
   <name>Someone</name>
   <email>someone@example.com</email>
@@ -315,7 +315,7 @@ Input claim:
 
 Output claim:
 
-```JSON
+```json
 {
   "user": {
     "name":"Someone",

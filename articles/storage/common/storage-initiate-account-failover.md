@@ -9,8 +9,9 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: tamram
-ms.reviewer: cbrooks
-ms.subservice: common
+ms.reviewer: artek
+ms.subservice: common 
+ms.custom: devx-track-azurecli
 ---
 
 # Initiate a storage account failover

@@ -1,13 +1,13 @@
 ---
 title: Reacting to Azure Blob storage events | Microsoft Docs
-description: Use Azure Event Grid to subscribe to Blob storage events. 
+description: Use Azure Event Grid to subscribe and react to Blob storage events. Understand the event model, filtering events, and practices for consuming events.
 author: normesta
 ms.author: normesta
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ---
 
 # Reacting to Blob storage events

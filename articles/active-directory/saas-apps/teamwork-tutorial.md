@@ -107,10 +107,8 @@ To configure Azure AD single sign-on with Teamwork.com, perform the following st
 
     b. In the **Identifier (Entity ID)** text box, type the URL:
 
-	| | |
-	|-|-|
-	| `https://teamwork.com/saml`|
-	| `https://eu.teamwork.com/saml`|
+	- `https://teamwork.com/saml`
+	- `https://eu.teamwork.com/saml`
 
 	> [!NOTE]
 	> This  Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [Teamwork.com support team](mailto:support@teamwork.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

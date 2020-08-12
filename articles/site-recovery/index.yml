@@ -106,7 +106,7 @@ landingContent:
           - text: Request a service feature
             url: https://feedback.azure.com/forums/256299-site-recovery
           - text: Ask a Microsoft Q&A question
-            url: https://docs.microsoft.com/answers/topics/azure-site-recovery.html
+            url: /answers/topics/azure-site-recovery.html
           - text: Azure Tech Community
             url: https://techcommunity.microsoft.com/t5/Azure/ct-p/Azure
 

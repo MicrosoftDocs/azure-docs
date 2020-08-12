@@ -43,7 +43,7 @@ You can find the following Azure Resource Manager templates for Data Factory on 
 
 | Template | Description |
 | --- | --- |
-| [Copy from Azure Blob Storage to Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Deploying this template creates an Azure data factory with a pipeline that copies data from the specified Azure blob storage to the Azure SQL database |
+| [Copy from Azure Blob Storage to Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |Deploying this template creates an Azure data factory with a pipeline that copies data from the specified Azure blob storage to Azure SQL Database |
 | [Copy from Salesforce to Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |Deploying this template creates an Azure data factory with a pipeline that copies data from the specified Salesforce account to the Azure blob storage. |
 | [Transform data by running Hive script on an Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation) |Deploying this template creates an Azure data factory with a pipeline that transforms data by running the sample Hive script on an Azure HDInsight Hadoop cluster. |
 
@@ -99,7 +99,7 @@ You must have the following installed on your computer:
    4. Select the **resource group** for the data factory.
    5. Select the **West US**, **East US**, or **North Europe** for the **region**.
    6. Click **Next**.
-6. In the **Configure data stores** page, specify an existing **Azure SQL database** and **Azure storage account** (or) create database/storage, and click Next.
+6. In the **Configure data stores** page, specify an existing **database in Azure SQL Database** and **Azure storage account** (or) create database/storage, and click Next.
 7. In the **Configure compute** page, select defaults, and click **Next**.
 8. In the **Summary** page, review all settings, and click **Next**.
 9. In the **Deployment Status** page, wait until the deployment is finished, and click **Finish**.

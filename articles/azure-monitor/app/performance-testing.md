@@ -10,7 +10,7 @@ ms.reviewer: sdash
 # Performance testing
 
 > [!NOTE]
-> The cloud-based load testing service has been deprecated. More information about the deprecation, the service availability, and alternative services can be found [here](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
+> The cloud-based load testing service has been deprecated. More information about the deprecation, the service availability, and alternative services can be found [here](/azure/devops/test/load-test/overview?view=azure-devops).
 
 Application Insights allows you to generate load tests for your websites. Like [availability tests](monitor-web-app-availability.md), you can send either basic requests or [multi-step requests](availability-multistep.md) from Azure test agents around the world. Performance tests allow you to simulate up to 20,000 simultaneous users for up to 60 minutes.
 

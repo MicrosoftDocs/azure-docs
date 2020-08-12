@@ -37,7 +37,7 @@ To create a single Azure SQL Database using the [Azure portal](https://portal.az
 
 ## Manage an existing server
 
-To manage an existing server, navigate to the server using a number of methods - such as from a specific SQL database page, the **SQL servers** page, or the **All resources** page.
+To manage an existing server, navigate to the server using a number of methods - such as from a specific database page, the **SQL servers** page, or the **All resources** page.
 
 To manage an existing database, navigate to the **SQL databases** page and select the database you wish to manage. The following screenshot shows how to begin setting a server-level firewall for a database from the **Overview** page for a database.
 

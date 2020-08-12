@@ -5,7 +5,7 @@ description: Explains the steps that are required to implement Azure AD joined d
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 
 ms.author: joflore
@@ -29,15 +29,14 @@ This article assumes that you are familiar with the [Introduction to device mana
 
 To plan your Azure AD join implementation, you should familiarize yourself with:
 
-|   |   |
-|---|---|
-|![Check][1]|Review your scenarios|
-|![Check][1]|Review your identity infrastructure|
-|![Check][1]|Assess your device management|
-|![Check][1]|Understand considerations for applications and resources|
-|![Check][1]|Understand your provisioning options|
-|![Check][1]|Configure enterprise state roaming|
-|![Check][1]|Configure Conditional Access|
+> [!div class="checklist"]
+> - Review your scenarios
+> - Review your identity infrastructure
+> - Assess your device management
+> - Understand considerations for applications and resources
+> - Understand your provisioning options
+> - Configure enterprise state roaming
+> - Configure Conditional Access
 
 ## Review your scenarios 
 
@@ -102,7 +101,7 @@ Azure AD join:
 
 - Is only applicable to Windows 10 devices. 
 - Is not applicable to previous versions of Windows or other operating systems. If you have Windows 7/8.1 devices, you must upgrade to Windows 10 to deploy Azure AD join.
-- Is not supported on devices with TPM in FIPS mode.
+- Is supported for FIPS-compliant TPM 2.0 but not supported for TPM 1.2. If your devices have FIPS-compliant TPM 1.2, you must disable them before proceeding with Azure AD join. Microsoft does not provide any tools for disabling FIPS mode for TPMs as it is dependent on the TPM manufacturer. Please contact your hardware OEM for support.
  
 **Recommendation:** Always use the latest Windows 10 release to take advantage of updated features.
 
@@ -196,7 +195,7 @@ You can provision Azure AD join using the following approaches:
  
 Here’s a comparison of these three approaches 
  
-|   | Self-service setup | Windows Autopilot | Bulk enrollment |
+| Element | Self-service setup | Windows Autopilot | Bulk enrollment |
 | --- | --- | --- | --- |
 | Require user interaction to set up | Yes | Yes | No |
 | Require IT effort | No | Yes | Yes |

@@ -1,8 +1,8 @@
 ---
 title: Best practices for Azure Maps Search Service | Microsoft Azure Maps 
 description: Learn how to apply the best practices when using the Search Service from Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -23,7 +23,7 @@ This article explains how to apply sound practices when you call data from Azure
 
 ## Prerequisites
 
-To make calls to the Azure Maps service APIs, you need an Azure Maps account and a key. For more information, see [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [Get a primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
+To make calls to the Azure Maps service APIs, you need an Azure Maps account and a key. For more information, see [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) and [Get a primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
 
 For information about authentication in Azure Maps, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
@@ -80,7 +80,7 @@ We recommend that you use the Azure Maps [Search Fuzzy API](https://docs.microso
 
 ### Reverse-geocode and filter for a geography entity type
 
-When you do a reverse-geocode search in the [Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), the service can return polygons for administrative areas. For example, yoi might want to fetch the area polygon for a city. To narrow the search to specific geography entity types, include the `entityType` parameter in your requests. 
+When you do a reverse-geocode search in the [Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), the service can return polygons for administrative areas. For example, you might want to fetch the area polygon for a city. To narrow the search to specific geography entity types, include the `entityType` parameter in your requests. 
 
 The resulting response contains the geography ID and the entity type that was matched. If you provide more than one entity, then the endpoint returns the *smallest entity available*. You can use the returned geometry ID to get the geography's geometry through the [Search Polygon service](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
@@ -962,7 +962,7 @@ Responses for the [Search Address](https://docs.microsoft.com/rest/api/maps/sear
 
 ## Next steps
 
-To learn more, please see :
+To learn more, please see:
 
 > [!div class="nextstepaction"]
 > [How to build Azure Maps Search Service requests](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
