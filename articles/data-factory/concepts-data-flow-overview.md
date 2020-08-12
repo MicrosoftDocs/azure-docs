@@ -10,7 +10,7 @@ ms.custom: seo-lt-2019
 ms.date: 08/12/2020
 ---
 
-## Mapping data flows in Azure Data Factory
+# Mapping data flows in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
