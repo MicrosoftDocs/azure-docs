@@ -20,7 +20,7 @@ ms.author: b-juche
 
 This article describes how to manage a capacity pool that uses the manual QoS type.  
 
-See [Storage Hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md) and [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md) to understand the considerations about QoS types.  
+See [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md) and [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md) to understand the considerations about QoS types.  
 
 ## Register the feature
 The manual QoS type feature is currently in preview. If you are using this feature for the first time, you need to register the feature first.
@@ -42,7 +42,7 @@ The manual QoS type feature is currently in preview. If you are using this featu
 
 ## Set up a new manual QoS capacity pool 
 
-To create a new capacity pool that uses the manual QoS type, follow steps in [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md). During the capacity pool setup, you would select the **Manual QoS** type.  
+To create a new capacity pool using the manual QoS type, follow steps in [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md). In the New Capacity Pool window, select the **Manual QoS** type.  
 
 ## <a name="change-to-qos"></a>Change a capacity pool to use manual QoS
 
@@ -68,7 +68,7 @@ Metrics are available to help you monitor the read and write throughput of a vol
 
 If a volume is contained in a manual QoS capacity pool, you can modify the allotted volume throughput as needed.
 
-1. From the Volumes page, select the volume whose throughput you want to modify.   
+1. From the **Volumes** page, select the volume whose throughput you want to modify.   
 
 2. Click **Change throughput**. Specify the **Throughput (MiB/S)** that you want. Click **OK**. 
 

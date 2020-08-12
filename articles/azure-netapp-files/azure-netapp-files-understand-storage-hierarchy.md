@@ -59,7 +59,8 @@ The QoS type is an attribute of a capacity pool. Azure NetApp Files provides two
 
 - <a name="manual_qos_type"></a>*Manual* QoS type  
 
-    >IMPORTANT:  Using the manual QoS type for a capacity pool requires registration.  See [Manage a manual QoS capacity pool](manage-manual-qos-capacity-pool.md).  
+     > [!IMPORTANT] 
+     > Using the manual QoS type for a capacity pool requires registration.  See [Manage a manual QoS capacity pool](manage-manual-qos-capacity-pool.md).  
 
     You have the option to use the manual QoS type for a capacity pool.
 

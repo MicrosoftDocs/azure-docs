@@ -60,9 +60,9 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     The number of reads to the volume per second.
 - *WriteIops*   
     The number of writes to the volume per second.
-- *Read MiB/s*
+- *Read MiB/s*   
     Read throughput in bytes per second.
-- *Write MiB/s*
+- *Write MiB/s*   
     Write throughput in bytes per second.
 
 
