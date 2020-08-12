@@ -1,5 +1,5 @@
 ---
-title: Azure virtual machine (VM) image validation - Azure Marketplace
+title: Azure virtual machine image validation - Azure Marketplace
 description: Learn how to test and submit a virtual machine offer in the commercial marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,7 +9,7 @@ ms.author: iqshah
 ms.date: 08/14/2020
 ---
 
-# Azure virtual machine (VM) image validation
+# Azure virtual machine image validation
 
 This article describes how to test and submit a virtual machine (VM) image in the commercial marketplace to ensure it meets the latest Azure Marketplace publishing requirements.
 
@@ -20,14 +20,14 @@ Complete these steps before submitting your VM offer:
 
 ## Deploy an Azure VM using your generalized image
 
-This section describes how to deploy a generalized VHD image to create a new Azure VM resource. For this process, we’ll use the supplied Azure Resource Manager template and Azure PowerShell script.
+This section describes how to deploy a generalized virtual hard disk (VHD) image to create a new Azure VM resource. For this process, we’ll use the supplied Azure Resource Manager template and Azure PowerShell script.
 
 ### Prepare an Azure Resource Manager template
 
-This section describes how to create and deploy a user-provided virtual machine (VM) image. You can do this by providing operating system and data disk VHD images from an Azure-deployed virtual hard disk (VHD). These steps deploy the VM using generalized VHD.
+This section describes how to create and deploy a user-provided virtual machine (VM) image. You can do this by providing operating system and data disk VHD images from an Azure-deployed virtual hard disk. These steps deploy the VM using generalized VHD.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Upload your generalized operating system VHD and data disk VHDs to your Azure storage account.
+2. Upload your generalized operating system VHD and data disk VHDs to your Azure Storage account.
 3. On the home page, select **Create a resource**, search for “Template Deployment”, and select **Create**.
 4. Choose **Build your own template in the editor**.
 
@@ -541,7 +541,7 @@ Azure will begin deployment. It creates a new VM with the specified unmanaged VH
 
 ```
 
-### Deploy an Azure VM using Powershell
+### Deploy an Azure VM using PowerShell
 
 Copy and edit the following script to provide values for the $storageaccount and $vhdUrl variables. Execute it to create an Azure VM resource from your existing generalized VHD.<font color="red">code is powershell?</font>
 
@@ -635,7 +635,7 @@ In the next steps, you might need the tenant name (or directory name) or the ten
     1. Select the **Select** button again to close this screen.
     1. Select **Done** to finish adding the permission.
 
-1. Select **Properties**, set the multi tenanted check box to true, and save.
+1. Select **Properties**, set the check box to true, and save.
 
 1. Select **Keys** in settings, create a secret key, and copy it to the clipboard as it will disappear after some time. We will use this key in the code below.
 
@@ -666,7 +666,7 @@ Content-Type: application/x-www-form-urlencoded
 
 **Sample screen**:
 
-    :::image type="content" source="media/vm/create-token-sample-screen.png" alt-text="ample screen for creating tokens for client Azure AD app.":::
+:::image type="content" source="media/vm/create-token-sample-screen.png" alt-text="ample screen for creating tokens for client Azure AD app.":::
 
 ##### Get token using Curl in Linux using OAuth Rest API
 
@@ -769,8 +769,8 @@ These are the API fields:
 | Password | Password for signing into the VM or SSH public key |
 | OS | Operating system of the VM: either Linux or Windows |
 | PortNo | Open port number for connecting to the VM. The port number is typically 22 for Linux and 5986 for Windows. |
-| AppId | Application Id of the AD Client Application used to create Token |
-| TenantId | Tenant Id of the Azure subscription where AD Client App Resides. |
+| AppId | Application ID of the AD Client Application used to create Token |
+| TenantId | Tenant ID of the Azure subscription where AD Client App Resides. |
 
 ## How to use PowerShell to consume the Self-Test API <font color="red">reset to H2 level</font>
 
@@ -830,7 +830,7 @@ $actualresult =$resVar.Response |ConvertFrom-Json
 Write-Host”OSName: $($actualresult.OSName)”Write-Host”OSVersion: $($actualresult.OSVersion)”Write-Host”Overall Test Result: $($actualresult.TestResult)”For ($i=0; $i -lt$actualresult.Tests.Length; $i++){ Write-Host”TestID: $($actualresult.Tests[$i].TestID)”Write-Host”TestCaseName: $($actualresult.Tests[$i].TestCaseName)”Write-Host”Description: $($actualresult.Tests[$i].Description)”Write-Host”Result: $($actualresult.Tests[$i].Result)”Write-Host”ActualValue: $($actualresult.Tests[$i].ActualValue)”}
 ```
 
-This sample screen, which shows $res.Content, shows  details of your test results in JSON format:
+This sample screen, which shows `$res.Content`, shows details of your test results in JSON format:
 
 [![Screen example for calling the API in PowerShell with details of test results.](media/vm/calling-api-in-powershell-details.png)](media/vm/calling-api-in-powershell-details.png#lightbox)
 
@@ -842,11 +842,11 @@ Here's an example of JSON test results viewed in an online JSON viewer (such as 
 
 Call the API in PowerShell:
 
-    1. Use the Invoke-WebRequest command to call the API.
-    2. The method is Post and content type is JSON, as shown in the following code example and sample screen.
-    3. Create the body parameters in JSON format.
+1. Use the Invoke-WebRequest command to call the API.
+2. The method is Post and content type is JSON, as shown in the following code example and sample screen.
+3. Create the body parameters in JSON format.
 
-This code sample shows a PowerShell call to the API: <font color="red">lines breaks missing?</font>
+This code sample shows a PowerShell call to the API: <font color="red">line breaks missing?</font>
 
 ```PowerShell
 $accesstoken = “Get token for your Client AAD App”$headers = New-Object”System.Collections.Generic.Dictionary[[String],[String]]”$headers.Add(“Authorization”, “Bearer $accesstoken”)$Body = @{ “DNSName” = “XXXX.westus.cloudapp.azure.com”“UserName” = “XXX”“Password” = “XXX@123456”“OS” = “Windows”“PortNo” = “5986”“CompanyName” = “ABCD” “AppID” = “XXXX-XXXX-XXXX” “TenantId” = “XXXX-XXXX-XXXX” } | ConvertTo-Json$res = Invoke-WebRequest -Method”Post” -Uri$uri -Body$Body -ContentType”application/json” –Headers $headers;$Content = $res | ConvertFrom-Json
@@ -872,7 +872,7 @@ $actualresult =$resVar.Response |ConvertFrom-Json
 Write-Host”OSName: $($actualresult.OSName)”Write-Host”OSVersion: $($actualresult.OSVersion)”Write-Host”Overall Test Result: $($actualresult.TestResult)”For ($i=0; $i -lt$actualresult.Tests.Length; $i++){ Write-Host”TestID: $($actualresult.Tests[$i].TestID)”Write-Host”TestCaseName: $($actualresult.Tests[$i].TestCaseName)”Write-Host”Description: $($actualresult.Tests[$i].Description)”Write-Host”Result: $($actualresult.Tests[$i].Result)”Write-Host”ActualValue: $($actualresult.Tests[$i].ActualValue)”}
 ```
 
-This screen, which shows $res.Content, shows the details of your test results in JSON format:
+This screen, which shows `$res.Content`, shows the details of your test results in JSON format:
 
  :::image type="content" source="media/vm/test-results-json-format.png" alt-text="Details of test results in JSON format.":::
 

@@ -1,5 +1,5 @@
 ---
-title: Create your Azure Virtual Machine technical assets 
+title: Create Azure Virtual Machine technical assets 
 description: Learn how to create and configure technical assets for a virtual machine (VM) offer for Azure Marketplace.  
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,7 +9,7 @@ ms.author: iqshah
 ms.date: 08/14/2020
 ---
 
-# Create your Azure Virtual Machine technical assets
+# Create Azure Virtual Machine technical assets
 
 When publishing your virtual machine (VM) images to Azure Marketplace, the Azure team validates the VM image to ensure its bootability, security, and Azure compatibility. If any of the high-quality tests fail, the publishing will fail with a message containing the error and possible [rectification steps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/vm-certification-issues-solutions).
 
@@ -33,7 +33,7 @@ Designing, building, and testing these assets takes time and requires technical 
 
 - Basic understanding of [Azure Services](https://azure.microsoft.com/services/)
 - How to [design and architect Azure applications](https://azure.microsoft.com/solutions/architecture/)
-- Working knowledge of [Azure Virtual Machine](https://azure.microsoft.com/services/virtual-machines/)s, [Azure Storage](https://azure.microsoft.com/services/?filter=storage)and [Azure Networking](https://azure.microsoft.com/services/?filter=networking)
+- Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage)and [Azure Networking](https://azure.microsoft.com/services/?filter=networking)
 - Working knowledge of [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
 - Working Knowledge of [JSON](https://www.json.org/)
 
@@ -41,8 +41,8 @@ Designing, building, and testing these assets takes time and requires technical 
 
 Consider using one of the following scripting environments to help manage VMs and VHDs:
 
-- [Azure PowerShel](https://docs.microsoft.com/powershell/azure/overview)l
-- [Azure CL](https://code.visualstudio.com/)I
+- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+- [Azure CLI](https://code.visualstudio.com/)
 
 Additionally, consider adding the following tools to your development environment:
 
@@ -55,7 +55,7 @@ To create your virtual machine technical assets using an image you built on your
 
 This section describes various aspects of using an approved base, such as using the Remote Desktop Protocol (RDP), selecting a size for the VM, installing the latest Windows updates, and generalizing the VHD image.
 
-Follow the guidance in this topic to use Azure to create a VM containing a pre-configured, endorsed operating system. If this isn't compatible with your solution, it's possible to create and configure an on-premises VM using an approved operating system. You can then configure and prepare it for upload as described in [Prepare a Windows VHD or VHDX to upload to Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+Follow the guidance in this article to use Azure to create a VM containing a pre-configured, endorsed operating system. If this isn't compatible with your solution, it's possible to create and configure an on-premises VM using an approved operating system. You can then configure and prepare it for upload as described in [Prepare a Windows VHD or VHDX to upload to Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 ### Select an approved base Image
 
@@ -116,11 +116,11 @@ Create a generation 2 (Gen2) VM in Azure portal.
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
 2. Select **Create a resource**.
-3. Click **See all** from the Azure Marketplace on the left.
-4. Select an image which supports Gen2.
-5. Click **Create**.
+3. Select **See all** from the Azure Marketplace on the left.
+4. Select an image that supports Gen2.
+5. Select **Create**.
 6. In the **Advanced** tab, under the **VM generation** section, select the **Gen 2** option.
-7. In the **Basics** tab, Under **Instance details**, go to **Size** and open the **Select a VM size** blade.
+7. In the **Basics** tab, Under **Instance details**, go to **Size** and open the **Select a VM size** tab. <font color="red">replaced "blade" with "tab"</font>
 8. Select a [supported generation 2 VM](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes).
 9. Go through the [Azure portal creation flow](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) to finish creating the VM.
 
@@ -136,7 +136,7 @@ This section explains how to connect and sign into the VM you created on Azure. 
 
 Use the remote desktop client to connect to the Windows-based VM hosted on Azure. Most versions of Windows natively contain support for the remote desktop protocol (RDP). For other operating systems, you can find more information about clients in [Remote Desktop clients](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients).
 
-This article details how to use the built-in Windows RDP support to connect to your VM: [How to connect and log on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+This article details how to use the built-in Windows RDP support to connect to your VM: [How to connect and sign on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
 > [!TIP]
 > You may get security warnings during the process. For example, warnings such as "The .rdp file is from an unknown publisher" or "Your user credentials cannot be verified." It is safe to ignore these warnings.
@@ -169,8 +169,8 @@ The following rules are for limitations on OS disk size. When you submit any req
 
 | OS | Recommended VHD size |
 | --- | --- |
-| Linux | 30 GB to 1023 GB |
-| Windows | 30 GB to 250 GB |
+| Linux | 30 to 1023 GB |
+| Windows | 30 to 250 GB |
 
 As VMs allow access to the underlying operating system, ensure the VHD size is large enough for the VHD. Because disks aren't expandable without downtime, use a disk size between 30 and 50 GB.
 
@@ -205,7 +205,7 @@ All images in the Azure Marketplace must be reusable in a generic fashion. To ac
 
 ### For Windows
 
-Windows OS disks are generalized with the [sysprep tool](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). If you subsequently update or reconfigure the OS, you must re-run sysprep.
+Windows OS disks are generalized with the [sysprep tool](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). If you subsequently update or reconfigure the OS, you must run sysprep again.
 
 > [!WARNING]
 > Because updates may run automatically, after you run sysprep, turn the VM off until it's deployed. This shutdown will avoid subsequent updates from making instance-specific changes to the operating system or installed services. For more information about running sysprep, see [Steps to generalize a VHD](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep).
