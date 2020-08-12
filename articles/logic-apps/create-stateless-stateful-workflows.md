@@ -121,7 +121,7 @@ Before you create your workflow, create an Azure Functions project ([function ap
 
 1. Before you start, make sure that you close any open folders or files in Visual Studio Code.
 
-1. In the Azure pane, next to **Azure: Functions**, select **Create new project**.
+1. In the Azure pane, next to **Azure: Functions**, select **Create new project** (folder with lightning bolt icon).
 
    ![Screenshot that shows Azure pane toolbar with "Create new project" selected](./media/create-stateless-stateful-workflows/create-new-project-folder.png)
 
@@ -249,15 +249,23 @@ For this example workflow, add this trigger and these actions:
 
 ## Create and call an Azure function
 
-To add your own code that you can directly call and run from your workflow app, add an Azure function to your project. For more information, see [Call Azure functions from Azure Logic Apps](../logic-apps/logic-apps-azure-functions.md).
+To add your own code that you can directly call and run from your workflow app, add an Azure function to your project. For more information, see [Develop Azure functions by using Visual Studio Code](../azure-functions/functions-develop-vs-code.md).
 
 1. On the Visual Studio Code toolbar, select the Azure icon to reopen the Azure pane.
 
-1. In the Azure pane, next to **Azure: Functions**, select **Create Function**.
+1. In the Azure pane, next to **Azure: Functions**, select **Create Function** (lightning icon).
 
-1. From the templates list, select **HttpTrigger**.
+   ![Screenshot that shows Azure pane with "Create Function" selected](./media/create-stateless-stateful-workflows/select-create-function.png)
 
-1. From the languages list, 
+1. From the templates list, select **Workflow Action Trigger**, which currently supports only C#.
+
+   ![Screenshot that shows templates list with "Workflow Action Trigger" selected](./media/create-stateless-stateful-workflows/select-function-template.png)
+
+1. Provide a name for the function, for example, `My-Workflow-Action-Trigger`.
+
+   Visual Studio Code adds a `WorkflowActionTrigger1.cs` file to your function app project.
+
+1. 
 
 1. Return to your workflow app in the designer. Under the **Send an email action**, select **Next step**.
 
