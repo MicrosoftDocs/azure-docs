@@ -30,7 +30,7 @@ This tutorial shows you how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-<iframe scrolling="yes" src="https://review.docs.microsoft.com/en-us/help/contribute/markdown-reference"></iframe>
+<iframe scrolling="yes" src="https://review.docs.microsoft.com/en-us/azure/media-services/latest/delete-me-code?branch=pr-en-us-125767"></iframe>
 
 ## Prerequisites
 
