@@ -24,7 +24,7 @@ One form of credential that an application can use for authentication is a [JSON
 
 ## Assertion format
 
-To compute the assertion, you can use one of the many JWT libraries in the language of your choice. The information is carried by the token in its [Header](#header), [Claims](#claims), and [Signature](#signature).
+To compute the assertion, you can use one of the many JWT libraries in the language of your choice. The information is carried by the token in its [Header](#header), [Claims](#claims-payload), and [Signature](#signature).
 
 ### Header
 
