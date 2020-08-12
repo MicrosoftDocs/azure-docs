@@ -1,11 +1,6 @@
 ---
 title:  Overview of the Connected Machine Windows agent
 description: This article provides a detailed overview of the Azure Arc for servers (preview) agent available, which supports monitoring virtual machines hosted in hybrid environments.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/06/2020
 ms.topic: conceptual
 ---

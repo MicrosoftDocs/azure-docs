@@ -35,10 +35,9 @@ Network rules are enforced on all network protocols to Azure Cognitive Services,
 
 ## Supported regions and service offerings
 
-The Cognitive Services listed below support virtual networks in Commercial Cloud and US Gov Cloud. If the service isn't listed here, it doesn't support virtual networks yet.
+Virtual networks (VNETs) are supported in [regions where Cognitive Services are available](https://azure.microsoft.com/global-infrastructure/services/). If the Cognitive Service isn't listed, it doesn't currently support virtual networks.
 
 > [!div class="checklist"]
-
 > * [Anomaly Detector](./anomaly-detector/index.yml)
 > * [Computer Vision](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
@@ -54,8 +53,8 @@ The Cognitive Services listed below support virtual networks in Commercial Cloud
 ## Service Tags
 
 Cognitive Services supports service tags for network rules configuration. The services listed below are included in the **CognitiveServicesManagement** service tag.
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * [Anomaly Detector](./anomaly-detector/index.yml)
 > * [Computer Vision](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
