@@ -179,7 +179,7 @@ The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf99181
 
 ## Data privacy and security
 
-As with all the cognitive services, developers using the Read/OCR services should be aware of Microsoft policies on customer data. See the Cognitive Services page on the [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview) to learn more.
+As with all the cognitive services, developers using the Read/OCR services should be aware of Microsoft policies on customer data. See the Cognitive Services page on the [Microsoft Trust Center](https://www.microsoft.com/trust-center/product-overview) to learn more.
 
 ## Next steps
 
