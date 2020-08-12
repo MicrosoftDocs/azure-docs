@@ -138,12 +138,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select a role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 
     ![user role](./media/github-tutorial/user-role.png)
 
     > [!NOTE]
-    > The Default role assigned to the selected user will be USER in Azure AD if any custom roles are not added and the **Select a Role** option will be disabled. Once the custom roles are configured, this option will be enabled and the appropriate role can be selcted.
+    > **Select a role** option will be disabled and default role is USER for selected user.
 
 7. In the **Add Assignment** dialog, click the **Assign** button.
 
