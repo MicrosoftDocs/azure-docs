@@ -34,7 +34,7 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 
 - Azure AD Connect Health agent for AD FS (version 3.1.77.0)
 
-1.	Bug fix for “Invalid Service Principal Name (SPN) for AD FS service” alert, for which the alert was reporting incorrectly.
+   1.	Bug fix for “Invalid Service Principal Name (SPN) for AD FS service” alert, for which the alert was reporting incorrectly.
 
 
 ## July 2019
