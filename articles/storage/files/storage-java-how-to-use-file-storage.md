@@ -5,6 +5,7 @@ author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 09/19/2017
+ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
 ---

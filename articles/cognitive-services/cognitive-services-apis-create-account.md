@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 07/27/2020
 ms.author: aahi
 ---
 
@@ -33,11 +33,17 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 
     At this time, the multi-service resource enables access to the following Cognitive Services:
 
-    |                  |                                                      |                    |                               |                  |
-    |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
-    | Computer Vision  | Content Moderator                                    | Face               | Language Understanding (LUIS) | Text Analytics   |
-    | Translator  | Bing Search v7 <br>(Web, Image, News, Video, Visual) | Bing Custom Search | Bing Entity Search            | Bing Autosuggest |
-    | Bing Spell Check |                                                      |                    |                               |                  |
+    - Computer Vision
+    - Content Moderator
+    - Face
+    - Language Understanding (LUIS)
+    - Text Analytics
+    - Translator
+    - Bing Search v7 <br>(Web, Image, News, Video, Visual)
+    - Bing Custom Search
+    - Bing Entity Search
+    - Bing Autosuggest
+    - Bing Spell Check
 
     #### [Single-service resource](#tab/singleservice)
 
@@ -84,6 +90,7 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 
     ***
 
+[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 ## Get the keys for your resource
 

@@ -464,13 +464,13 @@ You can restrict sign-in access to only those user accounts that are in an Azure
 
 #### Option 3: Use a custom method to validate issuers
 
-You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, see [TokenValidationParameters class](/previous-versions/visualstudio/dn464192(v=vs.114)).
+You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, see [TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters) class.
 
 ## Next steps
 
 Learn about how web apps can call web APIs.
 
-### Learn how to create the application used in this quickstart guide
+### Learn how to create the application used in this quickstart
 
 Learn more about Web apps calling web APIs with the Microsoft identity platform:
 

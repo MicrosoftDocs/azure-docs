@@ -13,7 +13,8 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/20/2019
-ms.author: juliako
+ms.author: juliako 
+ms.custom: devx-track-azurecli
 ---
 
 # Azure CLI example: Reset the account credentials
@@ -22,7 +23,7 @@ The Azure CLI script in this article shows how to reset your account credentials
 
 ## Prerequisites
 
-[Create a Media Services account](create-account-cli-how-to.md).
+[Create a Media Services account](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 

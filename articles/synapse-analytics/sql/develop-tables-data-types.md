@@ -1,5 +1,5 @@
 ---
-title: Defining data types
+title: Table data types in Synapse SQL
 description: Recommendations for defining table data types in Synapse SQL. 
 services: synapse-analytics
 author: filippopovic
@@ -17,7 +17,7 @@ ms.custom:
 
 Recommendations for defining table data types in Synapse SQL. 
 
-## What are the data types?
+## Data types
 
 Synapse SQL supports the most commonly used data types. For a list of the supported data types, see [data types](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. 
 

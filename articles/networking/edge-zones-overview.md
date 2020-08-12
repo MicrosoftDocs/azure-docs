@@ -73,6 +73,8 @@ Edge Zones will be offered in partnership with the following operators:
 
 - AT&T (Atlanta, Dallas, and Los Angeles) 
 
+ISVs working on optimized and scalable applications connected to 5G networks can now use the new Los Angeles preview location of Azure Edge Zones with AT&T when building and experimenting with ultra-low latency platforms, mobile and connected scenarios. Register for the early adopter program to take advantage of secure, high-bandwidth connectivity.
+
 [Contact the Edge Zone team](https://aka.ms/EdgeZones) for more information.
 
 ## <a name="private-edge-zones"></a>Azure Private Edge Zones

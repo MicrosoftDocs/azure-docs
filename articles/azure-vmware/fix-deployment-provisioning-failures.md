@@ -67,7 +67,7 @@ Paste the ExpressRoute ID into the appropriate field in the new support request.
 
 ## Create your support request
 
-For general guidance in creating your support request, see [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+For general guidance in creating your support request, see [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
 Here is additional guidance specific to creating an SR for AVS deployment or provisioning failures.
 

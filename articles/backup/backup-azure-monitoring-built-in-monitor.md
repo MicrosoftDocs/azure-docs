@@ -23,7 +23,7 @@ Jobs from the following Azure Backup solutions are shown here:
 - Azure VM backup
 - Azure File backup
 - Azure workload back up such as SQL and SAP HANA
-- Azure Backup agent (MAB)
+- Microsoft Azure Recovery Services (MARS) agent
 
 Jobs from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) are NOT displayed.
 
@@ -39,7 +39,7 @@ Alerts are primarily scenarios where users are notified so that they can take re
 The following scenarios are defined by service as alertable scenarios.
 
 - Backup/Restore failures
-- Backup succeeded with warnings for Azure Backup Agent (MAB)
+- Backup succeeded with warnings for Microsoft Azure Recovery Services (MARS) agent
 - Stop protection with retain data/Stop protection with delete data
 
 ### Alerts from the following Azure Backup solutions are shown here
@@ -47,7 +47,7 @@ The following scenarios are defined by service as alertable scenarios.
 - Azure VM backups
 - Azure File backups
 - Azure workload backups such as SQL, SAP HANA
-- Azure Backup agent (MAB)
+- Microsoft Azure Recovery Services (MARS) agent 
 
 > [!NOTE]
 > Alerts from System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) are NOT displayed here.

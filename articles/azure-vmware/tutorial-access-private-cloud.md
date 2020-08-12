@@ -38,7 +38,7 @@ Enter the required information in the fields, and then select **Review + create*
 | **Username** | Enter the user name for logging on to the VM. |
 | **Password** | Enter the password for logging on to the VM. |
 | **Confirm password** | Enter the password for logging on to the VM. |
-| **Public inbound ports** | Select **None**. If you select None, you can use [JIT access](../security-center/security-center-just-in-time.md#configure-jit-access-from-an-azure-vms-page-) to control access to the VM only when you want to access it.  |
+| **Public inbound ports** | Select **None**. If you select None, you can use [JIT access](../security-center/security-center-just-in-time.md#jit-configure) to control access to the VM only when you want to access it.  |
 
 After you have entered the appropriate information, click **Review + create**. Once validation passes, select **Create** to start the virtual machine creation process.
 

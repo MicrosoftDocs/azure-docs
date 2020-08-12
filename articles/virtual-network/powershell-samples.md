@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell samples for virtual network
-description: Azure PowerShell samples for virtual network.
+description: Learn about Azure PowerShell samples for managing virtual networks, including a sample for creating a virtual network for multi-tier applications.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -21,7 +21,7 @@ ms.author: kumud
 
 The following table includes links to Azure Powershell scripts:
 
-| | |
+| Script | Description |
 |----|----|
 | [Create a virtual network for multi-tier applications](./scripts/virtual-network-powershell-sample-multi-tier-application.md) | Creates a virtual network with front-end and back-end subnets. Traffic to the front-end subnet is limited to HTTP, while traffic to the back-end subnet is limited to SQL, port 1433. |
 | [Peer two virtual networks](./scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md) | Creates and connects two virtual networks in the same region. |

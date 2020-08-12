@@ -44,7 +44,7 @@ Next, sign in to your Azure account.
 Login-AzAccount -SubscriptionId "<your subscription ID>"
 ```
 
-This tutorial walks through the scenario of creating a self-signed certificate. To use an existing certificate from Azure Key Vault, skip the step below and instead mirror the steps in [using an existing certificate to deploy the cluster](https://docs.microsoft.com/azure/service-fabric/upgrade-managed-disks#use-an-existing-certificate-to-deploy-the-cluster).
+This tutorial walks through the scenario of creating a self-signed certificate. To use an existing certificate from Azure Key Vault, skip the step below and instead mirror the steps in [using an existing certificate to deploy the cluster](./upgrade-managed-disks.md#use-an-existing-certificate-to-deploy-the-cluster).
 
 ### Generate a self-signed certificate and deploy the cluster
 
@@ -246,4 +246,3 @@ The cluster's primary node type has now been upgraded. Verify that any deployed 
 * [Scale an Azure cluster in or out](service-fabric-tutorial-scale-cluster.md).
 * [Scale an Azure cluster programmatically](service-fabric-cluster-programmatic-scaling.md) using the fluent Azure compute SDK.
 * [Scale a standalone cluster in or out](service-fabric-cluster-windows-server-add-remove-nodes.md).
-

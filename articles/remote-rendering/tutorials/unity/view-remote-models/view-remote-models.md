@@ -1,8 +1,8 @@
 ---
 title: Viewing a remotely rendered model
 description: The "Hello World" of Azure Remote Rendering, tutorial shows how to view a Model rendered remotely by Azure
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ---
@@ -96,7 +96,7 @@ The following steps ensure that your project is using the latest version of the 
 
 1. Set **Clear flags** to *Solid Color*
 
-1. Set **Background** to *Black* (#000000), with full (255) alpha (A)
+1. Set **Background** to *Black* (#000000), with fully transparent (0) alpha (A)
 
     ![Color wheel](./media/color-wheel-black.png)
 

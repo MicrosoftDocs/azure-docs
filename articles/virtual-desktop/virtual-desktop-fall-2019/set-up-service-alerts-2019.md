@@ -1,19 +1,16 @@
 ---
-title: Set up service alerts for Windows Virtual Desktop - Azure
-description: How to set up Azure Service Health to receive service notifications for Windows Virtual Desktop.
-services: virtual-desktop
+title: Set up service alerts for Windows Virtual Desktop (classic) - Azure
+description: How to set up Azure Service Health to receive service notifications for Windows Virtual Desktop (classic).
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ---
-# Tutorial: Set up service alerts
+# Tutorial: Set up service alerts for Windows Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../set-up-service-alerts.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../set-up-service-alerts.md).
 
 You can use Azure Service Health to monitor service issues and health advisories for Windows Virtual Desktop. Azure Service Health can notify you with different types of alerts (for example, email or SMS), help you understand the effect of an issue, and keep you updated as the issue resolves. Azure Service Health can also help you mitigate downtime, and prepare for planned maintenance and changes that could affect the availability of your resources.
 
@@ -56,4 +53,4 @@ To configure service alerts:
 In this tutorial, you learned how to set up and use Azure Service Health to monitor service issues and health advisories for Windows Virtual Desktop. To learn about how to sign in to Windows Virtual Desktop, continue to the Connect to Windows Virtual Desktop How-tos.
 
 > [!div class="nextstepaction"]
-> [Connect to the Remote Desktop client on Windows 7 and Windows 10](../connect-windows-7-and-10.md)
+> [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-10-2019.md)

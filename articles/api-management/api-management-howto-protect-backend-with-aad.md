@@ -141,7 +141,7 @@ In this example, the Developer Console is the client-app. The following steps de
 
 1. If you use **v1** endpoints, add a body parameter named **resource**. For the value of this parameter, use **Application ID** of the back-end app. 
 
-1. If you use **v2** endpoints, use the scope you created for the backend-app in the **Default scope** field. Also, make sure to set the value for the [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) property to `2` in your [application manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+1. If you use **v2** endpoints, use the scope you created for the backend-app in the **Default scope** field. Also, make sure to set the value for the [`accessTokenAcceptedVersion`](../active-directory/develop/reference-app-manifest.md#accesstokenacceptedversion-attribute) property to `2` in your [application manifest](../active-directory/develop/reference-app-manifest.md).
 
 1. Next, specify the client credentials. These are the credentials for the client-app.
 
@@ -198,7 +198,7 @@ At this point, when a user tries to make a call from the Developer Console, the 
 
 However, what if someone calls your API without a token or with an invalid token? For example, try to call the API without the `Authorization` header, the call will still go through. The reason is that API Management does not validate the access token at this point. It simply passes the `Authorization` header to the back-end API.
 
-Use the [Validate JWT](https://docs.microsoft.com/azure/api-management/api-management-access-restriction-policies#ValidateJWT) policy to pre-authorize requests in API Management, by validating the access tokens of each incoming request. If a request does not have a valid token, API Management blocks it. For example, add the following policy to the `<inbound>` policy section of the `Echo API`. It checks the audience claim in an access token, and returns an error message if the token is not valid. For information on how to configure policies, see [Set or edit policies](https://docs.microsoft.com/azure/api-management/set-edit-policies).
+Use the [Validate JWT](./api-management-access-restriction-policies.md#ValidateJWT) policy to pre-authorize requests in API Management, by validating the access tokens of each incoming request. If a request does not have a valid token, API Management blocks it. For example, add the following policy to the `<inbound>` policy section of the `Echo API`. It checks the audience claim in an access token, and returns an error message if the token is not valid. For information on how to configure policies, see [Set or edit policies](./set-edit-policies.md).
 
 
 ```xml
@@ -223,7 +223,7 @@ In this guide, you used the Developer Console in API Management as the sample cl
 
 ## Next steps
 
-- Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-scenarios.md).
+- Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 - Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
 - For other ways to secure your back-end service, see [Mutual Certificate authentication](./api-management-howto-mutual-certificates.md).
 - [Create an API Management service instance](./get-started-create-service-instance.md).

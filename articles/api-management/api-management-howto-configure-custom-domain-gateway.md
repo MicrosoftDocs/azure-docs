@@ -46,7 +46,7 @@ To perform the steps described in this article, you must have:
 
 ## Use the Azure portal to set a custom domain name for your self-hosted gateway
 
-1. Select the **Gateways** from under **Settings**.
+1. Select the **Gateways** from under **Deployment and infrastructure**.
 2. Select the self-hosted gateway you want to configure the domain name for.
 3. Select **Hostnames** under **Settings**.
 4. Select **+ Add**

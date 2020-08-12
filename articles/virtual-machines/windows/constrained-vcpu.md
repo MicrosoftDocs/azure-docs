@@ -5,7 +5,7 @@ services: virtual-machines-windows
 author: joelpelley
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
@@ -20,12 +20,11 @@ ms.author: jonbeck
 
 
 ## Other sizes
-- [Compute optimized](../windows/sizes-compute.md)
-- [Memory optimized](sizes-memory.md)
-- [Storage optimized](sizes-storage.md)
-- [GPU](sizes-gpu.md)
-- [High performance compute](sizes-hpc.md)
+- [Compute optimized](../sizes-compute.md)
+- [Memory optimized](../sizes-memory.md)
+- [Storage optimized](../sizes-storage.md)
+- [GPU](../sizes-gpu.md)
+- [High performance compute](../sizes-hpc.md)
 
 ## Next steps
-Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
-
+Learn more about how [Azure compute units (ACU)](../acu.md) can help you compare compute performance across Azure SKUs.

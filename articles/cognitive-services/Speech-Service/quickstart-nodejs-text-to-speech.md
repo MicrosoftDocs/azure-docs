@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/13/2020
 ms.author: erhopf
+ms.custom: devx-track-javascript
 ---
 
 # Quickstart: Convert text-to-speech using Node.js

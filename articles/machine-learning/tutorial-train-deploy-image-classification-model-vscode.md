@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Train & deploy models: VS Code"
+title: "Tutorial: Train & deploy models: VS Code (preview)"
 titleSuffix: Azure Machine Learning
 description: Learn how to train and deploy an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 07/08/2020
+ms.date: 07/09/2020
 ms.custom: contperfq4 
 
 #Customer intent: As a professional data scientist, I want to learn how to train and deploy an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 ---
 
-# Train and deploy an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code Extension
+# Train and deploy an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code Extension (preview)
 
 Learn how to train and deploy an image classification model to recognize hand-written numbers using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 

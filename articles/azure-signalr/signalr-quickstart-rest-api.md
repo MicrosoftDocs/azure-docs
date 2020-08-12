@@ -120,7 +120,7 @@ Version | API State | Door | Specific
 
 The list of available APIs for each specific version is available in the following list.
 
-API | `1.0-preview` | `1.0`
+API | 1.0-preview | 1.0
 --- | --- | ---
 [Broadcast to all](#broadcast) | **&#x2713;** | **&#x2713;**
 [Broadcast to a group](#broadcast-group) | **&#x2713;** | **&#x2713;**
@@ -236,7 +236,7 @@ API Version | API HTTP Method | Request URL
 Response Status Code | Description
 ---|---
 `200` | Service Good
-`503` | Service Unavailable
+`5xx` | Service Error
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

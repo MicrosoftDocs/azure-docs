@@ -38,6 +38,9 @@ To configure Azure AD integration with Zscaler Internet Access Administrator, yo
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * Zscaler Internet Access Administrator subscription
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
@@ -104,21 +107,25 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 
     a. In the **Identifier** text box, type a URL as per your requirement:
 
-	- `https://admin.zscaler.net`
-	- `https://admin.zscalerone.net`
-	- `https://admin.zscalertwo.net`
-	- `https://admin.zscalerthree.net`
-	- `https://admin.zscloud.net`
-	- `https://admin.zscalerbeta.net`
+	| Identifier |
+	|------------|
+	| `https://admin.zscaler.net` |
+	| `https://admin.zscalerone.net` |
+	| `https://admin.zscalertwo.net` |
+	| `https://admin.zscalerthree.net` |
+	| `https://admin.zscloud.net` |
+	| `https://admin.zscalerbeta.net` |
 
     b. In the **Reply URL** text box, type a URL as per your requirement:
 
-	- `https://admin.zscaler.net/adminsso.do`
-	- `https://admin.zscalerone.net/adminsso.do`
-	- `https://admin.zscalertwo.net/adminsso.do`
-	- `https://admin.zscalerthree.net/adminsso.do`
-	- `https://admin.zscloud.net/adminsso.do`
-	- `https://admin.zscalerbeta.net/adminsso.do`
+	| Reply URL |
+	|-----------|
+	| `https://admin.zscaler.net/adminsso.do` |
+	| `https://admin.zscalerone.net/adminsso.do` |
+	| `https://admin.zscalertwo.net/adminsso.do` |
+	| `https://admin.zscalerthree.net/adminsso.do` |
+	| `https://admin.zscloud.net/adminsso.do` |
+	| `https://admin.zscalerbeta.net/adminsso.do` |
 
 5. Zscaler Internet Access Administrator application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes & Claims** section on application integration page. On the **Set up Single Sign-On with SAML page**, click **Edit** button to open **User Attributes & Claims** dialog.
 
