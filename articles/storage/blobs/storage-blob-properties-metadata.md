@@ -22,9 +22,9 @@ In addition to the data they contain, blobs support system properties and user-d
 - **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
 
 > [!NOTE]
-> Blob Index tags also provide the ability to store arbitrary user-defined key/value attributes alongside a Blob storage resource. While similar to metadata, only Blob Index tags are automatically indexed and made queryable by the native blob service. Metadata cannot be natively indexed and queried unless you utilize a separate service such as Azure Search.
+> Blob index tags also provide the ability to store arbitrary user-defined key/value attributes alongside an Azure Blob storage resource. While similar to metadata, only blob index tags are automatically indexed and made searchable by the native blob service. Metadata cannot be indexed and queried unless you utilize a separate service such as Azure Search.
 >
-> To learn more about this feature, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
+> To learn more about this feature, see [Manage and find data on Azure Blob storage with blob index (preview)](storage-manage-find-blobs.md).
 
 ## Set and retrieve properties
 
@@ -32,7 +32,7 @@ The following code example sets the `ContentType` and `ContentLanguage` system p
 
 # [.NET v12](#tab/dotnet)
 
-To set properties on a blob, call [SetHttpHeaders](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheaders) or [SetHttpHeadersAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheadersasync). Any properties that are not explicitly set are cleared. The following code example first gets the existing properties on the blob and uses them to populate the headers that are not being updated.
+To set properties on a blob, call [SetHttpHeaders](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheaders) or [SetHttpHeadersAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheadersasync). Any properties not explicitly set are cleared. The following code example first gets the existing properties on the blob, then uses them to populate the headers that are not being updated.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_SetBlobProperties":::
 
@@ -159,11 +159,11 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
 ```
 ---
 
-The following code example reads metadata on a blob.
+The following code example reads the metadata on a blob.
 
 # [.NET v12](#tab/dotnet)
 
-To retrieve metadata, call the `GetProperties` or `GetPropertiesAsync` method on your blob or container to populate the `Metadata` collection, then read the values, as shown in the example below.
+To retrieve metadata, call the [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) or [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) method on your blob or container to populate the [Metadata](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) collection, then read the values, as shown in the example below.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
 
