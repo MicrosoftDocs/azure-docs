@@ -36,7 +36,7 @@ Arrays of objects are always flattened, producing multiple events | If the objec
 
 ### If your TS ID and/or timestamp property is nested within an object
 
-* Any new deployments will need to match the new ingestion rules. For example, if your TS ID is `telemetry_tagId` you'll need to update any ARM templates or automated deploy scripts to configure `telemetry.tagId` as the environment TS ID. This change is needed for event source timestamps in nested JSON as well.
+* Any new deployments will need to match the new ingestion rules. For example, if your TS ID is `telemetry_tagId` you'll need to update any Azure Resource Manager (ARM) templates or automated deploy scripts to configure `telemetry.tagId` as the environment TS ID. This change is needed for event source timestamps in nested JSON as well.
 
 ### If your payload contains nested JSON or special characters and you automate authoring [Time Series Model](.\time-series-insights-update-tsm.md) variable expressions
 
