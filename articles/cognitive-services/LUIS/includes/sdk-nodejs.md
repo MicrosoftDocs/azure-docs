@@ -18,7 +18,7 @@ Use the Language Understanding (LUIS) client libraries for Node.js to:
 * Train and publish app
 * Query prediction runtime
 
-[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) |  [Authoring](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) and [Prediction](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime)  Library source code | [Authoring](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring) and [Prediction](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) NPM| [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/sdk-3x/index.js)
+[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) |  [Authoring](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) and [Prediction](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-runtime)  Library source code | [Authoring](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring) and [Prediction](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) NPM | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/sdk-3x/index.js)
 
 ## Prerequisites
 
@@ -82,17 +82,7 @@ Once the client is created, use this client to access functionality including:
 * [Prediction](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-) by `staging` or `production` slot
 * [Prediction by version](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getversionprediction-string--string--predictionrequest--models-predictiongetversionpredictionoptionalparams-)
 
-## Code examples
-
-These code snippets show you how to do the following with the Language Understanding (LUIS) client libraries for Node.js:
-
-* [Create an app](#create-a-luis-app)
-* [Add intent](#create-intent-for-the-app)
-* [Add entities](#create-entities-for-the-app)
-* [Add example utterances](#add-example-utterance-to-intent)
-* [Train the app](#train-the-app)
-* [Publish the app](#publish-a-language-understanding-app)
-* [Prediction by slot](#get-prediction-from-runtime)
+[!INCLUDE [Bookmark links to same article](sdk-code-examples.md)]
 
 ## Add the dependencies
 
@@ -104,11 +94,11 @@ Open the `index.js` file in your preferred editor or IDE named then add the foll
 
 1. Create variables to hold your authoring key and resource names.
 
-    [!code-javascript[Variables you need to change](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=VariablesYouChange)]
+    [!code-javascript[Variables you need to change](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=VariablesYouChange)]
 
 1. Create variables to hold your endpoints, app name, version, and intent name.
 
-    [!code-javascript[Variables you don't need to change](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=VariablesYouDontNeedToChangeChange)]
+    [!code-javascript[Variables you don't need to change](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=VariablesYouDontNeedToChangeChange)]
 
 ## Authenticate the client
 
@@ -122,7 +112,7 @@ A LUIS app contains the natural language processing (NLP) model including intent
 
 Create a [AppsOperation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest) object's [add](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest) method to create the app. The name and language culture are required properties.
 
-[!code-javascript[Create LUIS client app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringCreateApplication&highlight=9-11)]
+[!code-javascript[Create LUIS client app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringCreateApplication)]
 
 
 ## Create intent for the app
@@ -132,7 +122,7 @@ Use the [model.add_intent](https://docs.microsoft.com/javascript/api/@azure/cogn
 
 The `intentName` value is hard-coded to `OrderPizzaIntent` as part of the variables in the [Create variables for the app](#create-variables-for-the-app) section.
 
-[!code-javascript[Create intent](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AddIntent&highlight=2-6)]
+[!code-javascript[Create intent](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AddIntent)]
 
 ## Create entities for the app
 
@@ -146,11 +136,11 @@ The entity creation code creates a machine-learning entity with subentities and 
 
 :::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="The entity creation code creates a machine-learning entity with subentities and features applied to the `Quantity` subentities.":::
 
-[!code-javascript[Create entities for the app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddEntities&highlight=2-6)]
+[!code-javascript[Create entities for the app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddEntities)]
 
 Use the following method to find the Quantity subentity's id, in order to assign the features to that subentity.
 
-[!code-javascript[Find subentity id](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=AuthoringSortModelObject)]
+[!code-javascript[Find subentity id](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringSortModelObject)]
 
 ## Add example utterance to intent
 
@@ -162,7 +152,7 @@ Add example utterances by creating a list of [ExampleLabelObject](https://docs.m
 
 Call [examples.add](https://docs.microsoft.com//javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#add-string--string--examplelabelobject--models-examplesaddoptionalparams-) with the app ID, version ID, and the example.
 
-[!code-javascript[Add example utterance to a specific intent](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddLabeledExamples&highlight=52-56)]
+[!code-javascript[Add example utterance to a specific intent](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddLabeledExamples)]
 
 ## Train the app
 
@@ -172,13 +162,13 @@ The [train.trainVersion](https://docs.microsoft.com/javascript/api/@azure/cognit
 
 A very small model, such as this quickstart shows, will train very quickly. For production-level applications, training the app should include a polling call to the [get_status](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/train?view=azure-node-latest#getstatus-string--string--msrest-requestoptionsbase-) method to determine when or if the training succeeded. The response is a list of [ModelTrainingInfo](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/modeltraininginfo?view=azure-node-latest) objects with a separate status for each object. All objects must be successful for the training to be considered complete.
 
-[!code-javascript[Train the app's version](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=TrainAppVersion&highlight=2-5)]
+[!code-javascript[Train the app's version](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=TrainAppVersion)]
 
 ## Publish a Language Understanding app
 
 Publish the LUIS app using the [app.publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#publish-string--applicationpublishobject--msrest-requestoptionsbase-) method. This publishes the current trained version to the specified slot at the endpoint. Your client application uses this endpoint to send user utterances for prediction of intent and entity extraction.
 
-[!code-javascript[Publish app to production slot](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=PublishVersion&highlight=2-5)]
+[!code-javascript[Publish app to production slot](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=PublishVersion)]
 
 
 ## Authenticate the prediction runtime client
@@ -191,9 +181,7 @@ Use an msRest.ApiKeyCredentials object with your key, and use it with your endpo
 
 ## Get prediction from runtime
 
-Add the following code to create the request to the prediction runtime.
-
-The user utterance is part of the [predictionRequest](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionrequest?view=azure-node-latest) object.
+Add the following code to create the request to the prediction runtime. The user utterance is part of the [predictionRequest](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionrequest?view=azure-node-latest) object.
 
 The **[luisRuntimeClient.prediction.getSlotPrediction](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-)** method needs several parameters such as the app ID, the slot name, and the prediction request object to fulfill the request. The other options such as verbose, show all intents, and log are optional.
 

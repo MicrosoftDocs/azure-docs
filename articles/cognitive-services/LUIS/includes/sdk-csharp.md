@@ -91,17 +91,7 @@ Once the client is created, use this client to access functionality including:
 * Prediction by [version](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.predictionoperationsextensions.getversionpredictionasync?view=azure-dotnet)
 
 
-## Code examples
-
-These code snippets show you how to do the following with the Language Understanding (LUIS) client libraries for .NET:
-
-* [Create an app](#create-a-luis-app)
-* [Add intent](#create-intent-for-the-app)
-* [Add entities](#create-entities-for-the-app)
-* [Add example utterances](#add-example-utterance-to-intent)
-* [Train the app](#train-the-app)
-* [Publish the app](#publish-a-language-understanding-app)
-* [Prediction by slot](#get-prediction-from-runtime)
+[!INCLUDE [Bookmark links to same article](sdk-code-examples.md)]
 
 ## Add the dependencies
 

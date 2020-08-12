@@ -75,17 +75,7 @@ Once the client is created, use this client to access functionality including:
 * Prediction by [staging or production slot](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.operations.predictionoperations?view=azure-python#get-slot-prediction-app-id--slot-name--prediction-request--verbose-none--show-all-intents-none--log-none--custom-headers-none--raw-false----operation-config-)
 * Prediction by [version](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.operations.predictionoperations?view=azure-python#get-version-prediction-app-id--version-id--prediction-request--verbose-none--show-all-intents-none--log-none--custom-headers-none--raw-false----operation-config-)
 
-## Code examples
-
-These code snippets show you how to do the following with the Language Understanding (LUIS) client library for python:
-
-* [Create an app](#create-a-luis-app)
-* [Add intent](#create-intent-for-the-app)
-* [Add entities](#create-entities-for-the-app)
-* [Add example utterances](#add-example-utterance-to-intent)
-* [Train the app](#train-the-app)
-* [Publish the app](#publish-a-language-understanding-app)
-* [Prediction by slot](#get-prediction-from-runtime)
+[!INCLUDE [Bookmark links to same article](sdk-code-examples.md)]
 
 ## Add the dependencies
 
