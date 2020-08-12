@@ -108,6 +108,6 @@ Using the right datatypes based on the type of data you want to store can optimi
 To avoid slow queries, you can use Indexes. Indexes can help find rows with specific columns quickly. See [how to use Indexes in MySQL](https://dev.mysql.com/doc/refman/8.0/en/mysql-indexes.html).
 
 ### EXPLAIN your SELECT queries
-Use the [EXPLAIN](https://dev.mysql.com/doc/refman/8.0/en/explain.html) to get insights on what MySQL is doing to execute your query. This can help you  detect bottlenecks or issues with your query.
+Use the [EXPLAIN](https://dev.mysql.com/doc/refman/8.0/en/explain.html) to get insights on what MySQL is doing to execute your query. This can help you  detect bottlenecks or issues with your query. See [How to use EXPLAIN to profile query performance](https://docs.microsoft.com/en-us/azure/mysql/howto-troubleshoot-query-performance).
 
 
