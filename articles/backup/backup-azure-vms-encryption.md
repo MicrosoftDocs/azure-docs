@@ -115,11 +115,6 @@ To set permissions:
 
     ![Add access policy](./media/backup-azure-vms-encryption/add-access-policy.png)
 
-1. Select **Select principal**, and then type **Backup Management**.
-1. Select **Backup Management Service** > **Select**.
-
-    ![Backup service selection](./media/backup-azure-vms-encryption/select-backup-service.png)
-
 1. In **Add access policy** > **Configure from template (optional)**, select **Azure Backup**.
     - The required permissions are prefilled for **Key permissions** and **Secret permissions**.
     - If your VM is encrypted using **BEK only**, remove the selection for **Key permissions** since you only need permissions for secrets.
