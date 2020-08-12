@@ -11,7 +11,7 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Migrate a Postgres database into Arc
+# Migrate a Postgres database into Arc
 
 This document describes the steps to get your existing Postgres databases into your Arc setup.
 
