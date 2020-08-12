@@ -91,13 +91,12 @@ For production scenarios, you should generate these files with your own certific
 Downstream devices send telemetry and messages to the gateway device, where the IoT Edge hub module is responsible for routing the information to other modules or to IoT Hub. To prepare your gateway device for this function, make sure that:
 
 * The IoT Edge hub module is deployed to the device.
+
+  When you first install IoT Edge on a device, only one system module starts automatically: the IoT Edge agent. Once you create the first deployment for a device, the second system module, the IoT Edge hub, starts as well. If the **edgeHub** module isn't running on your device, create a deployment for your device.
+
 * The IoT Edge hub module has routes set up to handle incoming messages from downstream devices.
 
-The gateway device must have a route in place to handle messages from downstream devices, or else those messages will not be processed or sent to IoT Hub.
-
-For more information about message routing, see [Deploy modules and establish routes](./module-composition.md#declare-routes).
-
-The IoT Edge hub is responsible for receiving incoming messages from downstream devices and routing them to the next destination. If the **edgeHub** module isn't running on your device, create an initial deployment for your device. The deployment will look empty because you don't add any modules, but it will make sure that both system modules, **edgeAgent** and **edgeHub**, are running.
+  The gateway device must have a route in place to handle messages from downstream devices or else those messages will not be processed. You can send the messages to modules on the gateway device or directly to IoT Hub.
 
 To deploy the IoT Edge hub module and configure it with routes to handle incoming messages from downstream devices, follow these steps:
 
@@ -122,6 +121,8 @@ To deploy the IoT Edge hub module and configure it with routes to handle incomin
       * **Value**: `FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
 
       This route works because, unlike messages from IoT Edge modules, messages from downstream devices don't have a module ID associated with them. Using the **WHERE** clause of the route allows us to filter out any messages with that system property.
+
+      For more information about message routing, see [Deploy modules and establish routes](./module-composition.md#declare-routes).
 
 7. Once your route or routes are created, select **Review + create**.
 
