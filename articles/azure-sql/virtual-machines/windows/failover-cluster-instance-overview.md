@@ -50,6 +50,7 @@ SQL Server on Azure VMs offers various options as a shared storage solution for 
 |**Supports FileStream**|Yes|No|Yes |
 |**Azure blob cache**|No|No|Yes|
 
+
 The rest of this section lists the benefits and limitations of each storage option available for SQL Server on Azure VMs. 
 
 ### Azure shared disks
@@ -62,7 +63,7 @@ The rest of this section lists the benefits and limitations of each storage opti
 **Benefits**: 
 - Useful for applications looking to migrate to Azure while keeping their high-availability and disaster recovery (HADR) architecture as is. 
 - Can migrate clustered applications to Azure as is because of SCSI Persistent Reservations (SCSI PR) support. 
-- Supports shared Azure Premium SSD for all versions of SQL Server and shared Azure Ultra Disk Storage for SQL Server 2019. 
+- Supports shared Azure Ultra Disk Storage.
 - Can use a single shared disk or stripe multiple shared disks to create a shared storage pool. 
 - Supports Filestream.
 
@@ -71,6 +72,7 @@ The rest of this section lists the benefits and limitations of each storage opti
 - Virtual machines must be placed in the same availability set and proximity placement group.
 - Availability zones are not supported.
 - Premium SSD disk caching is not supported.
+- Premium shared disks are currently on supported in West Central US. 
  
 To get started, see [SQL Server failover cluster instance with Azure shared disks](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
 
