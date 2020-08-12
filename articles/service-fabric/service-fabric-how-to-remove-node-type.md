@@ -56,7 +56,7 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     - Cluster is healthy.
     - None of the nodes belonging to the node type are marked as Seed Node.
 
-4. Disable data for the node type.
+4. Disable each node in the node type.
 
     Connect to the cluster using PowerShell and then run the following step.
     
@@ -95,8 +95,20 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     ```
     
     Wait till all the nodes for node type are marked Down.
+
+6. Deallocate nodes in the original Virtual Machine Scale Set
     
-6. Remove data for the node type.
+    Login to the Azure subscription where the scale set was deployed and remove the Virtual Machine Scale Set. 
+
+    ```powershell
+    $scaleSetName="nt1vm"
+    $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
+    
+    Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
+    ```
+
+    
+7. Remove data for the node type.
 
     Connect to the cluster using PowerShell and then run the following step.
     
@@ -114,7 +126,7 @@ When removing a node type that is Bronze, all the nodes in the node type go down
 
     Wait till all the nodes are removed from the cluster. The nodes should not be displayed in SFX.
 
-7. Remove node type from Service Fabric section.
+8. Remove node type from Service Fabric section.
 
     - Locate the Azure Resource Manager template used for deployment.
     - Find the section related to the node type in the Service Fabric section.
@@ -162,7 +174,7 @@ When removing a node type that is Bronze, all the nodes in the node type go down
     Then validate that:
     - Service Fabric Resource in portal shows ready.
 
-8. Remove all reference to the resources relating to the node type.
+9. Remove all reference to the resources relating to the node type.
 
     - Locate the Azure Resource Manager template used for deployment.
     - Remove the virtual machine scale set and other resources related to the node type from the template.
