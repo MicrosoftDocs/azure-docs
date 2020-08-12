@@ -1,0 +1,88 @@
+- name: Azure Arc enabled data services documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: What is Azure Arc enabled data services
+      href: overview.md
+- name: Quickstarts
+  items:
+    - name: Install client tools
+      href: install-client-tools.md
+    - name: Create data controller
+      href: create-data-controller.md
+    - name: Create SQL Managed Instance
+      href: create-sql-managed-instance.md
+    - name: Create PostgreSQL Instance
+      href: create-postgresql-instances.md
+    - name: Extend Postgres SingleNode
+      href: postgresql-extend-single-node-to-hyperscale.md
+    - name: Scale out Postgres to hyper Scale
+      href: scale-out-postgresql-hyperscale.md
+- name: Concepts
+  items:
+    - name: Connectivity modes and requirements
+      href: connectivity.md
+    - name: Storage configuration
+      href: storage-configuration.md
+- name: How-to guides
+  items:
+    - name: Manage
+      items:
+        - name: Monitor with Grafana & Kibana
+          href: monitor-grafana-kibana.md
+        - name: Upload metrics and logs
+          href: upload-metrics-and-logs-to-azure-monitor.md
+        - name: Inventory SQL instances
+          href: view-inventory-sql-instances.md
+        - name: Get data controller username & password
+          href: retrieve-the-username-password-for-data-controller.md
+        - name: Create data controller (portal)
+          href: create-data-controller-resource-in-azure-portal.md
+        - name: Create data controller (Azure Data Studio)
+          href: create-data-controller-azure-data-studio.md
+        - name: Monitor with dashboards (Azure Data Studio)
+          href: azure-data-studio-dashboards.md
+        - name: View billing data (Azure)
+          href: view-billing-data-in-azure.md
+        - name: View data controller (portal)
+          href: view-data-controller-in-azure-portal.md
+        - name: Deploy using Kubernetes tools
+          href: deploy-using-k8s-native-tools.md
+        - name: Delete resources
+          href: delete-azure-resources.md
+        - name: Uninstall Azure Arc data controller
+          href: uninstall-azure-arc-data-controller.md
+        - name: Uninstall client tools update
+          href: uninstall-update-client-tools.md
+    - name: Postgres
+      items:
+        - name: Back up Postgres Hyperscale
+          href: backup-restore-postgresql-hyperscale.md
+        - name: Use Postgres extensions
+          href: using-postgresql-extensions.md
+        - name: Create PostgreSQL instance (Azure Data Studio)
+          href: create-postgresql-hyperscale-instance-azure-data-studio.md
+        - name: Scale  PostgreSQL instance (CLI)
+          href: scale-up-down-postgresql-hyperscale-instance-using-cli.md
+        - name: Manage roles in PostgreSQL (CLI)
+          href: manage-roles-in-postgresql-with-cli.md
+        - name: Migrate a Postgres database to Arc
+          href: migrate-postgresql-db-into-arc.md
+        - name: Restore AdventureWorks to Postgres
+          href: restore-adventureworks-sample-db-postgresql.md
+        - name: Manage Postgres (Azure Data Studio)
+          href: manage-postgresql-with-azure-data-studio.md
+        - name: Delete Postgres
+          href: delete-postgresql-instance.md
+    - name: SQL Managed Instance
+      items:
+        - name: Create SQL Managed Instance (Azure Data Studio)
+          href: create-sql-managed-instance-azure-data-studio.md
+        - name: Migrate to SQL Managed Instance (Azure Arc)
+          href: migrate-to-managed-instance-azure-arc.md
+        - name: Restore AdventureWorks
+          href: restore-adventureworks-sample-db.md
+    - name: Troubleshoot
+      items:
+        - name: Troubleshoot PostgreSQL
+          href: troubleshooting-postgresql.md

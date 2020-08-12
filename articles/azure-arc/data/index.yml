@@ -1,0 +1,67 @@
+### YamlMime:Landing
+
+title: Azure Arc enabled data services # < 60 chars
+summary: Run Azure data services on-premises, at the edge, and in multi-cloud environments using Kubernetes on the infrastructure of your choice. # < 160 chars
+
+metadata:
+  title: Azure Arc enabled data services # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Run Azure data services on-premises, at the edge, and in multi-cloud environments using Kubernetes on the infrastructure of your choice. # Required; article description that is displayed in search results. < 160 chars.
+  ms.service: azure-arc #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: azure-arc-data # Optional; Remove if no subservice is used.
+  ms.topic: landing-page # Required
+  author: MikeRayMSFT #Required; your GitHub user alias, with correct capitalization.
+  ms.author: mikeray #Required; microsoft alias of author; optional team alias.
+  ms.date: 09/01/2020 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Arc for data services?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Connectivity
+            url: connectivity.md
+          - text: Storage configuration
+            url: storage-configuration.md
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create data controller
+            url: create-data-controller.md
+          - text: Install client tools
+            url: install-client-tools.md
+
+  # Card (optional)
+  - title: Do with Postgres
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create PostgreSQL instance
+            url: create-postgresql-instances.md
+          - text: Extend single node to hyperscale
+            url: postgresql-extend-single-node-to-hyperscale.md
+          - text: Restore sample database
+            url: restore-adventureworks-sample-db-postgresql.md
+
+  # Card (optional)
+  - title: Do with SQL Managed Instance
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create Managed instance
+            url: create-sql-managed-instance.md
+          - text: Migrate to Managed Instance
+            url: migrate-to-managed-instance-azure-arc.md
+          - text: Restore sample database
+            url: restore-adventureworks-sample-db.md
