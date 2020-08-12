@@ -3,9 +3,9 @@ title: Deploy logic app templates
 description: Learn how to deploy Azure Resource Manager templates created for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 08/01/2019 
+ms.date: 08/13/2020 
 ms.custom: devx-track-azurecli
 ---
 
@@ -114,9 +114,11 @@ Here are the general high-level steps for using Azure Pipelines:
 
 ## Authorize OAuth connections
 
-After deployment, your logic app works end-to-end with valid parameters. However, you must still authorize any OAuth connections to generate valid access tokens for [authenticating your credentials](../active-directory/develop/authentication-vs-authorization.md). Here are ways that you can authorize OAuth connections:
+After deployment, your logic app works end-to-end with valid parameters. However, you still have to authorize or use preauthorized OAuth connections to generate valid access tokens for [authenticating your credentials](../active-directory/develop/authentication-vs-authorization.md). Here are a few suggestions:
 
-* For automated deployments, you can use a script that provides consent for each OAuth connection. Here's an example script in GitHub in the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
+* Use preauthorized API connection resources that are shared across your logic apps.
+
+* Run your continuous integration process on a virtual machine in a user space that has a browser session where the required connections are set up and consent is already provided. You can then use a script that provides consent for each OAuth connection without manual intervention, although this approach might still not work if you have to use multi-factor authentication. As a starting point, you can update and repurpose this example script in the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) GitHub project.
 
 * To manually authorize OAuth connections, open your logic app in Logic App Designer, either in the Azure portal or in Visual Studio. In the designer, authorize any required connections.
 
