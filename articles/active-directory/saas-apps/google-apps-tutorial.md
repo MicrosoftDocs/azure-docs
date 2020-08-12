@@ -226,7 +226,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. In the **Sign-in page URL** field in Google Cloud (G Suite) Connector, paste the value of **Login URL** which you have copied from Azure portal.
 
-    c. In the **Sign-out page URL** field in Google Cloud (G Suite) Connector, paste the value of **Logout URL** which you have copied from Azure portal.
+    c. In the **Sign-out page URL** field in Google Cloud (G Suite) Connector, paste the value of **Login URL** which you have copied from Azure portal.
+
+    > [!NOTE]
+    > Google cloud (G Suite) is based on SAML Logout protocol. So, In the **Sign-out page URL** field we need to use the SAML Logout URL i.e. the login URL as the value for the same.
 
     d. In Google Cloud (G Suite) Connector, for the **Verification certificate**, upload the certificate that you have downloaded from Azure portal.   
 
