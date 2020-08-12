@@ -102,24 +102,26 @@ To set quotas at the workspace level, go to any workspace in your subscription, 
 
 ## View your usage and quotas
 
-Azure Machine Learning Compute is managed separately from other Azure resource quotas in your subscription. To view this quota, you need to drill down into Machine Learning services.  
+Azure Machine Learning Compute quota on your subscription is managed separately from other Azure resources quota. To view this quota, you need to drill down into Machine Learning services.  
 
 1. On the left pane, select **Machine Learning service** and then select any workspace from the list shown.
 
-1. On the next blade, under the **Support + troubleshooting section** select **Usage + quotas** to view your current quota limits and usage.
+2. On the next blade, under the **Support + troubleshooting section** select **Usage + quotas** to view your current quota limits and usage.
 
-1. Select a subscription to view the quota limits. Remember to filter to the region you are interested in.
+3. Select a subscription to view the quota limits. Remember to filter to the region you are interested in.
 
-1. You can now toggle between a subscription level view and a workspace level view:
-    + **Subscription view:** Displays your usage of core quota by VM family, expanding it by workspace, and further expanding it by the actual cluster names. Quickly get into the details of core usage for a particular VM family to see the break-up by workspaces and further by the underlying clusters for each of those workspaces. The general convention in this view is (usage/quota), where the usage is the current number of scaled up cores, and quota is the logical maximum number of cores that the resource can scale to. For each **workspace**, the quota would be the workspace level quota (as explained above) which denotes the maximum number of cores that you can scale to for a particular VM family. For a **cluster** similarly, the quota is actually the cores corresponding to the maximum number of nodes that the cluster can scale to defined by the max_nodes property.
-
+4. You can now toggle between a subscription level view and a workspace level view:
+    + **Subscription view:** This allows you to view your usage of core quota by VM family, expanding it by workspace, and further expanding it by the actual cluster names. This view is optimal for quickly getting into the details of core usage for a particular VM family to see the break-up by workspaces and further by the underlying clusters for each of those workspaces. The general convention in this view is (usage/quota), where the usage is the current number of scaled up cores, and quota is the logical maximum number of cores that the resource can scale to. For each **workspace**, the quota would be the workspace level quota (as explained above) which denotes the maximum number of cores that you can scale to for a particular VM family. For a **cluster** similarly, the quota is actually the cores corresponding to the maximum number of nodes that the cluster can scale to defined by the max_nodes property.
+    
     + **Workspace view:** This allows you to view your usage of core quota by Workspace, expanding it by VM family, and further expanding it by the actual cluster names. This view is optimal for quickly getting into the details of core usage for a particular workspace to see the break-up by VM families and further by the underlying clusters for each of those families.
 
 Viewing your quota for various other Azure resources, such as Virtual Machines, Storage, Network, is easy through the Azure portal.
 
 1. On the left pane, select **All services** and then select **Subscriptions** under the General category.
 
-1. From the list of subscriptions, select the subscription whose quota you are looking for.
+2. From the list of subscriptions, select the subscription whose quota you are looking for.
+
+3. Select **Usage + quotas** to view your current quota limits and usage. Use the filters to select the provider and locations. 
 
 ## Request quota increases
 
