@@ -10,7 +10,7 @@ ms.date: 09/10/2020
 
 # Create stateful and stateless workflows by using Azure Logic Apps and Visual Studio Code - Public Preview
 
-When you use Visual Studio Code and the preview extension, Azure Functions for Visual Studio Code, you can build stateful or stateless workflow apps that are powered by [Azure Functions](../azure-functions/functions-overview.md). You can test your workflow apps on your local computer and deploy to multiple hosting environments, such as Azure App Service, Azure Function apps, or as a Docker container that runs anywhere that you want. The preview extension brings many Azure Logic Apps capabilities in the cloud to your local development experience and provides additional capabilities, for example:
+When you use Visual Studio Code and the preview extension, Azure Functions for Visual Studio Code, you can build stateful or stateless workflow apps that are powered by [Azure Functions](../azure-functions/functions-overview.md). You can test your workflow apps on your local computer and deploy to multiple hosting environments, such as Azure App Service, Azure function apps, or as Docker containers that can run anywhere that you want. The preview extension brings many Azure Logic Apps capabilities to your local development experience and provides additional capabilities, for example:
 
 <a name="stateful-stateless"></a>
 
@@ -18,14 +18,16 @@ When you use Visual Studio Code and the preview extension, Azure Functions for V
 
 * *Stateful*
 
-  These workflows save the input and output for each action in external storage, which makes detailed review possible after each run finishes. Stateful workflows provide high resiliency if interruptions, such as outages, happen. After systems are restored, you can reconstruct a workflow run from the saved state and rerun the workflow to completion. Create stateful workflows when you need to preserve, review, and reference data from previous events.
+  Stateful workflow apps save the input and output for each action in external storage, which makes run details and history review possible after each run finishes. These workflow apps provide high resiliency if or when outages happen. After services and systems are restored, you can reconstruct interrupted workflow runs from the saved state and rerun the workflows to completion. Create stateful workflow apps when you need to keep, review, or reference data from previous events.
 
 * *Stateless*
 
-  These workflows save the input and output for each action only in memory, rather than in external storage. Stateless workflows offer faster performance with quicker response times, higher throughput, and reduced running costs because the data isn't saved or stored. However, if interruptions such as outages happen, in-progress runs aren't automatically restored, so the caller needs to manually resubmit the interrupted runs. Create stateless workflows when you don't need to preserve, review, or reference data from previous events.
+  Stateless workflow apps save the input and output for each action only in memory, rather than in external storage. These workflow apps provide faster performance with quicker response times, higher throughput, and reduced running costs because run details and history aren't kept. However, if or when outages happen, interrupted runs aren't automatically restored, so the caller needs to manually resubmit interrupted runs. Create stateless workflows when you don't need to keep, review, or reference data from previous events.
 
-  > [!TIP]
-  > For easier debugging or if necessary, you can [enable the run history capability](#enable-run-history) for stateless workflows.
+   > [!NOTE]
+   > To more easily debug stateless workflow apps, you can [enable run history](#enable-run-history).
+   >
+   > Currently, stateless workflows support only actions, not triggers, for [managed connectors](../connectors/apis-list.md##connector-types). For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
 
 ## Prerequisites
 
@@ -33,9 +35,7 @@ When you use Visual Studio Code and the preview extension, Azure Functions for V
 
 * Access to the internet so that you can download the requirements and sign in to your Azure account
 
-* Download and install these tools:
-
-  * [Visual Studio Code version 1.25.1 or later](https://code.visualstudio.com/), which is free
+* [Visual Studio Code version 1.25.1 or later](https://code.visualstudio.com/), which is free, along with these tools for Visual Studio Code:
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp), which enables F5 functionality to run your workflow
 
@@ -63,6 +63,13 @@ When you use Visual Studio Code and the preview extension, Azure Functions for V
     1. In Visual Studio Code, on the left toolbar, select **Extensions**. From the **Extensions** menu, select the ellipses (**...**) button > **Install from VSIX**.
 
        ![Screenshot that shows Visual Studio extension menu with selected ellipsis button and Install from VSIX menu command](./media/create-stateless-stateful-workflows/install-from-vsix.png)
+
+* Before you can connect to any services or systems in workflow apps that you build with Visual Studio Code, you have to first create these connections by using the Logic App Designer in [Azure portal](https://portal.azure.com).
+
+  > [!IMPORTANT]
+  > For these connections, make sure that you create a logic app that uses the same Azure subscription and 
+  > region as the workflow app that you plan to build in Visual Studio Code. After you create these connections, 
+  > you can delete the logic app. Connections are Azure resources that exist separately from the logic app.
 
 ## Set up development environment
 
@@ -149,7 +156,7 @@ Before you create your workflow, create an Azure Functions project ([function ap
 
    After Visual Studio Code reloads, the Explorer pane opens and shows your function app project.
 
-   ![Screenshot that shows Explorer pane and function app project](./media/create-stateless-stateful-workflows/workflow-app-project-created.png)
+   ![Screenshot that shows Explorer pane and function app project](./media/create-stateless-stateful-workflows/function-app-project-created.png)
 
 Now, continue creating your workflow app.
 
@@ -161,7 +168,7 @@ Now, continue creating your workflow app.
 
 1. In the Azure pane, next to **Azure: Functions**, select **Create workflow**.
 
-   ![Screenshot that shows Azure pane toolbar with "Create workflow" selected](./media/create-stateless-stateful-workflows/create-workflow-app-project.png)
+   ![Screenshot that shows Azure pane toolbar with "Create workflow" selected](./media/create-stateless-stateful-workflows/create-function-app-project.png)
 
 1. From the templates list that appears, select either **Stateful Workflow** or **Stateless Workflow**. Provide a name for your workflow app. This example uses `example-workflow`.
 
@@ -189,12 +196,12 @@ Now, continue creating your workflow app.
    >
    > * Close everything, restart your computer, reopen your workflow project, and reopen the `workflow.json` file in the designer.
 
-1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**, which are the cloud-based connectors available in Azure Logic Apps.
-
-   > [!NOTE]
-   > Currently, only connector actions, not triggers, are supported. For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
+1. From the **Enable connectors in Azure** list, select **Use connectors from Azure**, which applies to all managed connectors that are available in the Azure portal, not only connectors for Azure services.
 
    ![Screenshot that shows Explorer pane with "Enable connectors in Azure" list open and "Use connectors from Azure" selected](./media/create-stateless-stateful-workflows/use-connectors-from-azure.png)
+
+   > [!NOTE]
+   > Currently, stateless workflows support only actions, not triggers, for managed connectors. For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
 
 1. From the resource groups list, select **Create new resource group**.
 
@@ -214,21 +221,28 @@ Now, continue creating your workflow app.
 
 ## Add a trigger and actions
 
-For this example workflow, add this trigger and these actions:
+The workflow in this example uses this trigger and these actions:
 
 * The built-in Request trigger, **When a HTTP request is received**
 
 * The Office 365 Outlook action, **Send an email**
 
+  > [!IMPORTANT]
+  > For connections that you want to use in workflow apps built with Visual Studio Code, you have 
+  > to first create these connections by using the Logic App Designer in Azure portal. Make sure that 
+  > you create these connections in a logic app that uses the same Azure subscription and region as 
+  > the workflow app that you build in Visual Studio Code. After you create the connections, you can 
+  > delete the logic app. Connections are Azure resources that exist separately from the logic app.
+
 * The built-in Local Function Operations action, **Invoke a function in this function app**
 
-1. Under the designer search box, check that **Built-in** is selected. Find and select the built-in Request trigger that's named **When a HTTP request is received**.
+1. Under the designer search box, make sure that **Built-in** is selected. Find and select the built-in Request trigger that's named **When a HTTP request is received**.
 
    ![Screenshot that shows Logic App Designer with "When a HTTP request is received" trigger selected](./media/create-stateless-stateful-workflows/add-request-trigger.png)
 
 1. Under the trigger, select **Next step**.
 
-1. Under the **Choose an action** search box, select **Azure** so that you can find and select a cloud-based connector. For this example, select the Office 365 Outlook action, **Send an email (V2)**.
+1. Under the **Choose an action** search box, select **Azure** so that you can find and select a managed connector. For this example, select the Office 365 Outlook action, **Send an email (V2)**.
 
    ![Screenshot that shows Logic App Designer with Office 365 Outlook "Send an email" action selected](./media/create-stateless-stateful-workflows/add-send-email-action.png)
 
@@ -245,7 +259,7 @@ For this example workflow, add this trigger and these actions:
 
 1. Continue by following one of these paths:
 
-   * [Test your workflow app on your local computer](#test-workflow-locally).
+   * [Debug and test your workflow app on your local computer](#debug-test-workflow-locally).
 
    * Create an Azure function that you can directly call from your workflow app.
 
@@ -273,6 +287,8 @@ To add your own code that you can directly call and run from your workflow app, 
 
    ![Screenshot that shows open "MyExampleFunction.cs" file open](./media/create-stateless-stateful-workflows/myexamplefunction-csharp-code-file.png)
 
+1. Save your function's class library file.
+
 1. Return to your workflow app in the Logic App Designer. Under the **Send an email action**, select **Next step**.
 
 1. Under the **Choose an action** search box, select **Built-in** so that you can select a built-in action. In the designer search box, find and select the Local Function Operations action, **Invoke a function in this function app**.
@@ -287,13 +303,23 @@ To add your own code that you can directly call and run from your workflow app, 
    ||||
    ||||
 
-<a name="test-workflow-locally"></a>
+<a name="debug-test-workflow-locally"></a>
 
-## Test your workflow
+## Debug and test your workflow
 
+1. If you built a stateless workflow, you can [enable run history](#enable-run-history) for easier debugging.
 
+1. On the Visual Studio Code toolbar, on the **Run** menu, select **Start Debugging** (press F5).
 
-For easier debugging when testing stateless workflows, you can [enable the run history capability](#enable-run-history).
+   The **Terminal** window appears so that you can review the debugging process and details.
+
+1. To find and review the callback URL for the endpoint that's associated with the Request trigger, after the debugging process ends, open the `workflow.json` file's shortcut menu, and select **Overview**.
+
+   The callback URL looks similar to this URL for the example workflow app:
+
+   `http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
+
+   For more information, see 
 
 <a name="enable-run-history"></a>
 
@@ -341,18 +367,18 @@ In your workflow app's JSON definition (`workflow.json`) file, you can change th
 
    `docker run -p 8080:80 local/workflowcontainer`
 
-1. To get the callback URL for the Request triggers, send this request:
+1. To get the callback URL for the Request trigger, send this request:
 
    `POST /runtime/webhooks/flow/api/management/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2019-10-01-edge-preview&code={master-key}`
 
-   The <*master-key*> value is defined in the storage account that you set for `AzureWebJobsStorage` in the file, "azure-webjobs-secrets/{deployment-name}/host.json", where you can find the value in this section:
+   The <*master-key*> value is defined in the storage account that you set for `AzureWebJobsStorage` in the file, `azure-webjobs-secrets/<deployment-name>/host.json`, where you can find the value in this section:
 
    ```json
    {
      <...>
      "masterKey": {
         "name": "master",
-        "value": "{master-key}",
+        "value": "<master-key>",
         "encrypted": false
      },
      <...>
