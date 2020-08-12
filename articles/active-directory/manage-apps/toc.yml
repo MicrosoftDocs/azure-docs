@@ -48,15 +48,9 @@
       - name: Guidance for developers
         href: developer-guidance-for-integrating-applications.md
     - name: Single sign-on
-      items:  
-      - name: Enable SSO for your multi-tenant application 
-        href: isv-sso-content.md
-      - name: Create an Azure tenant for multi-tenant application
-        href: isv-tenant-multi-tenant-app.md
-      - name: Choose multi-tenant federation
-        href: isv-choose-multi-tenant-federation.md
-      - name: Create documentation for multi-tenant application
-        href: isv-create-sso-documentation.md
+      items:
+      - name: Single sign-on options 
+        href: sso-options.md
       - name: Plan a single sign-on deployment
         href: plan-sso-deployment.md
       - name: One-click SSO
