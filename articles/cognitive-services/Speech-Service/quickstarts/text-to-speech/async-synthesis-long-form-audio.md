@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.custom: tracking-python
+ms.custom: devx-track-python
 ---
 
 # Quickstart: Asynchronous synthesis for long-form audio in Python (Preview)

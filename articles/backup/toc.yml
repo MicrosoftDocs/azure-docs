@@ -24,7 +24,7 @@
     href: tutorial-backup-vm-at-scale.md
   - name: Back up Azure VMs with PowerShell
     href: tutorial-backup-azure-vm.md
-  - name: Restore a disk
+  - name: Restore a VM with Azure CLI
     href: tutorial-restore-disk.md
   - name: Restore individual files
     href: tutorial-restore-files.md
@@ -89,6 +89,8 @@
       href: backup-azure-monitor-alert-faq.md
   - name: Backup architecture
     href: backup-architecture.md
+  - name: Guidance and best practices
+    href: guidance-best-practices.md
 - name: How to guides
   items:
   - name: Recovery Services vault
@@ -121,6 +123,8 @@
         href: backup-azure-vms-encryption.md
       - name: Configure app-consistent backups of Azure VMs running Linux
         href: backup-azure-linux-app-consistent.md
+      - name: Selective disk backup
+        href: selective-disk-backup-restore.md
     - name: Restore
       items:
       - name: About Azure VM restore
@@ -375,6 +379,9 @@
       href: encryption-at-rest-with-cmk.md
     - name: Built-in security controls
       href: backup-security-controls.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
   - name: Troubleshoot

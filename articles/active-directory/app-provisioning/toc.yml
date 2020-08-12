@@ -69,8 +69,6 @@
         href: application-provisioning-config-problem-wrong-users-provisioned.md
       - name: Missing source attribute
         href: user-provisioning-sync-attributes-for-mapping.md
-      - name: Provisioning job is slow
-        href: application-provisioning-when-will-provisioning-finish.md
       - name: Provisioning logs
         href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Build a SCIM endpoint and configure provisioning
@@ -85,6 +83,8 @@
       href: scim-graph-scenarios.md
     - name: Cloud HR provisioning
       items:
+        - name: SuccessFactors integration 
+          href: sap-successfactors-integration-reference.md
         - name: SuccessFactors attribute reference
           href: sap-successfactors-attribute-reference.md
         - name: Workday attribute reference

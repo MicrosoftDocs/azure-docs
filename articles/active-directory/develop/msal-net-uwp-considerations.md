@@ -53,7 +53,7 @@ You can avoid this issue by making sure that WAB (the underlying Windows compone
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\authhost.exe\EnablePrivateNetwork = 00000001
 ```
 
-For more information, see [Web authentication broker - Fiddler](https://docs.microsoft.com/windows/uwp/security/web-authentication-broker#fiddler).
+For more information, see [Web authentication broker - Fiddler](/windows/uwp/security/web-authentication-broker#fiddler).
 
 ## Next steps
 The following samples provide more information.

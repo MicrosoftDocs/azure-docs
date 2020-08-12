@@ -97,20 +97,20 @@ To redeploy cloud services in the Azure portal:
 
 To redeploy cloud services by using PowerShell:
 
-1. [Create a new cloud service](/powershell/module/servicemanagement/azure/new-azureservice) by using your `.cspkg` and `.cscfg` definitions.
+1. [Create a new cloud service](/powershell/module/servicemanagement/azure.service/new-azureservice) by using your `.cspkg` and `.cscfg` definitions.
 
     ```powershell
     New-AzureService -ServiceName <yourServiceName> -Label <MyTestService> -Location <westeurope>
     ```
 
-1. [Create a new deployment](/powershell/module/servicemanagement/azure/new-azuredeployment) by using your `.cspkg` and `.cscfg` definitions.
+1. [Create a new deployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment) by using your `.cspkg` and `.cscfg` definitions.
 
     ```powershell
     New-AzureDeployment -ServiceName <yourServiceName> -Slot <Production> -Package <YourCspkgFile.cspkg> -Configuration <YourConfigFile.cscfg>
     ```
 
 1. Update the [CNAME or A record](../cloud-services/cloud-services-custom-domain-name-portal.md) to point traffic to the new cloud service.
-1. When traffic points to the new cloud service, [delete the old cloud service](/powershell/module/servicemanagement/azure/remove-azureservice) in Azure Germany.
+1. When traffic points to the new cloud service, [delete the old cloud service](/powershell/module/servicemanagement/azure.service/remove-azureservice) in Azure Germany.
 
     ```powershell
     Remove-AzureService -ServiceName <yourOldServiceName>
@@ -211,7 +211,7 @@ Currently, apps that you created by using the Web Apps feature of Azure App Serv
 
 For more information:
 
-- Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb).
+- Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/tutorial-dotnetcore-sqldb-app).
 - Learn how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read an overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Review the [App Service overview](../app-service/overview.md).
 - Read the [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).

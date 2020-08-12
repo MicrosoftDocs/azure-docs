@@ -64,28 +64,63 @@ Select this link to open up the Backup report workbook.
 
 The report contains various tabs:
 
-- **Summary**: Use this tab to get a high-level overview of your backup estate. You can get a quick glance of the total number of backup items, total cloud storage consumed, the number of protected instances, and the job success rate per workload type. For more detailed information about a specific backup artifact type, go to the respective tabs.
+##### Summary
+Use this tab to get a high-level overview of your backup estate. You can get a quick glance of the total number of backup items, total cloud storage consumed, the number of protected instances, and the job success rate per workload type. For more detailed information about a specific backup artifact type, go to the respective tabs.
 
    ![Summary tab](./media/backup-azure-configure-backup-reports/summary.png)
 
-- **Backup Items**: Use this tab to see information and trends on cloud storage consumed at a Backup-item level. For example, if you use SQL in an Azure VM backup, you can see the cloud storage consumed for each SQL database that's being backed up. You can also choose to see data for backup items of a particular protection status. For example, selecting the **Protection Stopped** tile at the top of the tab filters all the widgets underneath to show data only for Backup items in the Protection Stopped state.
+##### Backup Items
+Use this tab to see information and trends on cloud storage consumed at a Backup-item level. For example, if you use SQL in an Azure VM backup, you can see the cloud storage consumed for each SQL database that's being backed up. You can also choose to see data for backup items of a particular protection status. For example, selecting the **Protection Stopped** tile at the top of the tab filters all the widgets underneath to show data only for Backup items in the Protection Stopped state.
 
    ![Backup Items tab](./media/backup-azure-configure-backup-reports/backup-items.png)
 
-- **Usage**: Use this tab to view key billing parameters for your backups. The information shown on this tab is at a billing entity (protected container) level. For example, in the case of a DPM server being backed up to Azure, you can view the trend of protected instances and cloud storage consumed for the DPM server. Similarly, if you use SQL in Azure Backup or SAP HANA in Azure Backup, this tab gives you usage-related information at the level of the virtual machine in which these databases are contained.
+##### Usage
+Use this tab to view key billing parameters for your backups. The information shown on this tab is at a billing entity (protected container) level. For example, in the case of a DPM server being backed up to Azure, you can view the trend of protected instances and cloud storage consumed for the DPM server. Similarly, if you use SQL in Azure Backup or SAP HANA in Azure Backup, this tab gives you usage-related information at the level of the virtual machine in which these databases are contained.
 
    ![Usage tab](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
 > For DPM workloads, users might see a slight difference (of the order of 20 MB per DPM server) between the usage values shown in the reports as compared to the aggregate usage value as shown in the Recovery services vault overview tab. This difference is accounted for by the fact that every DPM server being registered for backup has an associated 'metadata' datasource which is not surfaced as an artifact for reporting.
 
-- **Jobs**: Use this tab to view long-running trends on jobs, such as the number of failed jobs per day and the top causes of job failure. You can view this information at both an aggregate level and at a Backup-item level. Select a particular Backup item in a grid to view detailed information on each job that was triggered on that Backup item in the selected time range.
+##### Jobs
+Use this tab to view long-running trends on jobs, such as the number of failed jobs per day and the top causes of job failure. You can view this information at both an aggregate level and at a Backup-item level. Select a particular Backup item in a grid to view detailed information on each job that was triggered on that Backup item in the selected time range.
 
    ![Jobs tab](./media/backup-azure-configure-backup-reports/jobs.png)
 
-- **Policies**: Use this tab to view information on all of your active policies, such as the number of associated items and the total cloud storage consumed by items backed up under a given policy. Select a particular policy to view information on each of its associated Backup items.
+##### Policies
+Use this tab to view information on all of your active policies, such as the number of associated items and the total cloud storage consumed by items backed up under a given policy. Select a particular policy to view information on each of its associated Backup items.
 
    ![Policies tab](./media/backup-azure-configure-backup-reports/policies.png)
+
+##### Optimize
+Use this tab to gain visibility into potential cost-optimization opportunities for your backups. Following are the scenarios for which the Optimize tab currently provides insights:
+
+###### Inactive Resources
+Using this view, you can identify those backup items which have not had a successful backup for a significant duration of time. This could either mean that the underlying machine which is being backed up doesn't exist anymore (and is hence resulting in failed backups), or there is some issue with the machine that is preventing backups from being taken reliably. 
+
+To view inactive resources, navigate to the **Optimize** tab, and click on the **Inactive Resources** tile. Clicking this tile displays a grid which contains details of all the inactive resources that exist in the selected scope. By default, the grid shows items that do not have a recovery point in the last 7 days. To find inactive resources for a different time range, you can adjust the **Time Range** filter at the top of the tab.
+
+Once you have identified an inactive resource, you can investigate the issue further by navigating to the backup item dashboard or the Azure resource blade for that resource (wherever applicable). Depending on your scenario, you can choose to either stop backup for the machine (if it doesn't exist anymore), thereby saving on protected instance cost, or you can fix issues in the machine to ensure that backups are taken reliably.
+
+![Optimize tab - Inactive Resources](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
+
+###### Backup Items with a large retention duration
+Using this view, you can identify those items which have backups retained for a longer duration than required by your organization. 
+
+Clicking on the **Policy Optimizations** tile followed by the **Retention Optimizations** tile displays a grid containing all backup items for which the retention of either the daily, weekly, monthly or yearly retention point (RP) is greater than a specified value. By default, the grid displays all backup items in the selected scope. You can use the filters for daily, weekly, monthly and yearly RP retention to filter the grid further and identify those items for which retention could potentially be reduced to save on backup storage costs.
+
+Note that for database workloads like SQL and SAP HANA, the retention periods shown in the grid correspond to the retention periods of the full backup points and not the differential backup points. The same applies for the retention filters as well.  
+
+![Optimize tab - Retention Optimizations](./media/backup-azure-configure-backup-reports/optimize-retention.png)
+
+###### Databases configured for daily full backup
+Using this view, you can identify database workloads that have been configured for daily full backup. Often, using daily differential backup along with weekly full backup is more cost-effective. 
+
+Clicking on the **Policy Optimizations** tile followed by the **Backup Schedule Optimizations** tile displays a grid containing all databases with a daily full backup policy. You can choose to navigate to a particular backup item and modify the policy to use daily differential backup with weekly full backup.
+
+Note that the **Backup Management Type** filter at the top of the tab should have the items **SQL in Azure VM** and **SAP HANA in Azure VM** selected, for the grid to be able to display database workloads as expected.
+
+![Optimize tab - Backup Schedule Optimizations](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
 
 ## Export to Excel
 

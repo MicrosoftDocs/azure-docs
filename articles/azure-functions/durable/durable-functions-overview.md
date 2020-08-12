@@ -185,18 +185,14 @@ The automatic checkpointing that happens at the `yield` call on `context.df.Task
 # [Python](#tab/python)
 
 ```python
-import azure.functions as func
 import azure.durable_functions as df
 
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
-    parallel_tasks = []
-
     # Get a list of N work items to process in parallel.
     work_batch = yield context.call_activity("F1", None)
 
-    for i in range(0, len(work_batch)):
-        parallel_tasks.append(context.call_activity("F2", work_batch[i]))
+    parallel_tasks = [ context.call_activity("F2", b) for b in work_batch ]
     
     outputs = yield context.task_all(parallel_tasks)
 
@@ -329,7 +325,6 @@ module.exports = df.orchestrator(function*(context) {
 # [Python](#tab/python)
 
 ```python
-import azure.functions as func
 import azure.durable_functions as df
 import json
 from datetime import timedelta 
@@ -430,7 +425,6 @@ To create the durable timer, call `context.df.createTimer`. The notification is 
 # [Python](#tab/python)
 
 ```python
-import azure.functions as func
 import azure.durable_functions as df
 import json
 from datetime import timedelta 

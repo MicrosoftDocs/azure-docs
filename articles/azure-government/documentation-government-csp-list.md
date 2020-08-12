@@ -157,7 +157,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Gov4Miles](https://www.milestechnologies.com)|
 |Gravity Pro Consulting|
 |[Green House Data](https://www.greenhousedata.com/)|
-|[Hanu Software Solutions Inc.](https://hanusoftware.com/contact)|
+|[Hanu Software Solutions Inc.](https://www.hanusoftware.com/contact)|
 |[Harmonia Holdings Group LLC](https://www.harmonia.com)|
 |[HCL Technologies](https://www.hcltech.com/aerospace-and-defense)|
 |[HD Dynamics](https://www.hddynamics.com/)|
@@ -236,7 +236,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[NexustTek](https://www.nexustek.com/)|
 |[Nihilent Inc](https://nihilent.com)|
 |[Norseman, Inc](https://www.norseman.com)|
-|[Northern Sky Technologies, Inc](https://www.northernskytech.com)|
+|[Northern Sky Technologies, Inc]|
 |[Nortrop Grumman](https://www.northropgrumman.com)|
 |[NTS Cloud](http://ntscloud.com/ )|
 |[NTT America, Inc.](https://www.us.ntt.net)|
@@ -362,7 +362,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[VVL Systems & Consulting, LLC](https://www.vvlsystems.com/)|
 |[Vistronix, LLC](http://www.vistronix.com/)|
 |[Vology Inc.](https://www.vology.com/)|
-|[vSolvIT](https://www.vsolvit.com/)|
+|[vSolvIT]|
 |[Wintellect, LLC](https://www.wintellect.com)|
 |[Workspot, Inc.](https://workspot.com)|
 |[WWT](https://www2.wwt.com)|
@@ -397,7 +397,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |----------------------------|---------------------------|-----------------------------------|
 |CDW Corp.|cdwgsales@cdwg.com|800-808-4239|
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
-|Insight Public Sector||800-467-4448|
+|Insight Public Sector|federal@insight.com|800-467-4448|
 |PC Connection|govccollections@govconnection.com|800-998-0009|
 |SHI, Inc.|msftgov@shi.com|888-764-8888|
 |Minburn Technology Group|microsoft@minburntech.com |571-699-0705 Opt. 1|
@@ -420,7 +420,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Four Points Technolgy, LLC](https://www.4points.com)|
 |[KTL Solutions, Inc.](https://www.ktlsolutions.com)|
 |[LiftOff LLC](https://www.liftoffllc.com)|
-|[Permuta Technologies, Inc.](https://www.permuta.com/)|
+|[Permuta Technologies, Inc.](http://www.permuta.com/)|
 |[Planet Technologies, Inc.](https://go-planet.com)|
 |[Quiet Professionals, LLC](https://quietprofessionalsllc.com)|
 |[Smartronix](https://www.smartronix.com)|
