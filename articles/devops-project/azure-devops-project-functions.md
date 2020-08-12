@@ -8,6 +8,7 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
+ms.custom: devx-track-csharp
 ---
 
 # Deploy to Azure Functions with DevOps Starter
