@@ -10,7 +10,7 @@ ms.author: lahugh
 
 # Access Kubernetes resources from the Azure portal (Preview)
 
-The Azure portal includes a Kubernetes resource viewer (preview) for easy access to the Kubernetes resources in your Azure Kubernetes Service (AKS) cluster. Viewing Kubernetes resources from the Azure portal reduces context switching between the Azure portal and the `kubectl` command line tool, streamlining the experience for viewing and editing your Kubernetes resources. The resource viewer currently includes multiple resource types, such as deployments, pods, and replica sets.
+The Azure portal includes a Kubernetes resource viewer (preview) for easy access to the Kubernetes resources in your Azure Kubernetes Service (AKS) cluster. Viewing Kubernetes resources from the Azure portal reduces context switching between the Azure portal and the `kubectl` command-line tool, streamlining the experience for viewing and editing your Kubernetes resources. The resource viewer currently includes multiple resource types, such as deployments, pods, and replica sets.
 
 The Kubernetes resource view from the Azure portal replaces the [AKS dashboard add-on][kubernetes-dashboard], which is set for deprecation.
 
@@ -18,7 +18,7 @@ The Kubernetes resource view from the Azure portal replaces the [AKS dashboard a
 
 ## Prerequisites
 
-To view Kubernetes resources in the Azure portal, you need an AKS cluster. Any cluster is supported, but if using AAD integration, your cluster must use [AKS-managed Azure Active Directory (Azure AD) integration][aks-managed-aad]. If your cluster uses legacy Azure AD, you can upgrade your cluster in the portal or with the [Azure CLI][cli-aad-upgrade].
+To view Kubernetes resources in the Azure portal, you need an AKS cluster. Any cluster is supported, but if using Azure Active Directory (Azure AD) integration, your cluster must use [AKS-managed Azure AD integration][aks-managed-aad]. If your cluster uses legacy Azure AD, you can upgrade your cluster in the portal or with the [Azure CLI][cli-aad-upgrade].
 
 ## View Kubernetes resources
 
@@ -65,7 +65,7 @@ This section addresses common problems and troubleshooting steps.
 
 ### Unauthorized access
 
-To access the Kubernetes resources, you must have access to the AKS cluster, the Kubernetes API, and the Kubernetes objects. Ensure that you are either a cluster administrator or a user with the appropriate permissions to access the AKS cluster. For more information on cluster security, see [Access and identity options for AKS][concepts-identity].
+To access the Kubernetes resources, you must have access to the AKS cluster, the Kubernetes API, and the Kubernetes objects. Ensure that you're either a cluster administrator or a user with the appropriate permissions to access the AKS cluster. For more information on cluster security, see [Access and identity options for AKS][concepts-identity].
 
 ### Enable resource view
 
