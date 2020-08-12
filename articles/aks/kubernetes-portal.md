@@ -4,7 +4,7 @@ description: Learn how to interact with Kubernetes resources to manage an Azure 
 services: container-service
 author: laurenhughes
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 08/11/2020
 ms.author: lahugh
 ---
 
@@ -18,7 +18,7 @@ The Kubernetes resource view from the Azure portal replaces the [AKS dashboard a
 
 ## Prerequisites
 
-To view Kubernetes resources in the Azure portal, you need an AKS cluster. The cluster must use [AKS-managed Azure Active Directory (AD) integration][aks-managed-aad]. If your cluster uses legacy Azure AD, you can upgrade your cluster in the portal or with the [Azure CLI][cli-aad-upgrade].
+To view Kubernetes resources in the Azure portal, you need an AKS cluster. The cluster must use [AKS-managed Azure Active Directory (Azure AD) integration][aks-managed-aad]. If your cluster uses legacy Azure AD, you can upgrade your cluster in the portal or with the [Azure CLI][cli-aad-upgrade].
 
 ## View Kubernetes resources
 
@@ -28,7 +28,7 @@ To see the Kubernetes resources, navigate to your AKS cluster in the Azure porta
 - **Workloads** shows information about deployments, pods, replica sets, and daemon sets deployed to your cluster. The screenshot below shows the default system pods in an example AKS cluster.
 - **Services and ingresses** shows all of your cluster's service and ingress resources.
 
-:::image type="content" source="media/kubernetes-portal/workloads.png" alt-text="Kubernetes pod information displayed in the Azure portal.":::
+:::image type="content" source="media/kubernetes-portal/workloads.png" alt-text="Kubernetes pod information displayed in the Azure portal." lightbox="media/kubernetes-portal/workloads.png":::
 
 ### Deploy an application
 
@@ -71,7 +71,7 @@ To access the Kubernetes resources, you must have access to the AKS cluster, the
 
 For existing clusters, you may need to enable the Kubernetes resource view. To enable the resource view, follow the prompts in the portal for your cluster.
 
-:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Azure portal message to enable the Kubernetes resource view.":::
+:::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Azure portal message to enable the Kubernetes resource view." lightbox="media/kubernetes-portal/enable-resource-view.png":::
 
 ## Next steps
 
