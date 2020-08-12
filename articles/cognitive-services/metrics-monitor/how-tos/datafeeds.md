@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: metrics-monitoring
+ms.subservice:
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: aahi
@@ -38,7 +38,7 @@ Generate data in one transaction:
 
 Set Ingestion Time Offset properly:
 
-* Set the **Ingestion time offset** parameter for your data feed to delay the ingestion so that the data is always fully prepared. This can be useful for some data sources which don't support transactions such as Azure Table Storage. Please refer to the step 7 [Advanced settings](#step-7-advanced-settings) for details of this parameter.
+* Set the **Ingestion time offset** parameter for your data feed to delay the ingestion so that the data is always fully prepared. This can be useful for some data sources which don't support transactions such as Azure Table Storage. See [Advanced settings](#step-7-advanced-settings) for details.
 
 ###  Backfill your datafeed
 
@@ -57,7 +57,7 @@ After signing into your Metrics Monitor portal with your Active Directory accoun
 
 ### Add connection settings
 
-Next you'll input a set of parameters to connect your time-series data source. Please refer to the [cheat sheet](#cheat-sheet-data-feed-creation-parameters) for details of all those parameters. Start with the following parameters.
+Next you'll input a set of parameters to connect your time-series data source. See the [data feed parameters]() for details.
 
 * **Source Type**: The type of data source where your time series data is stored.
 * **Granularity**: The interval between consecutive data points in your time series data. Currently we support these options: Yearly, Monthly, Weekly, Daily, Hourly, and Customize. The customization option supports the lowest interval of 60 seconds.

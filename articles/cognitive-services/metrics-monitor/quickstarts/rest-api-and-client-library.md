@@ -60,12 +60,3 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Explore a solution](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
-
-* [Text Analytics overview](../overview.md)
-* [Sentiment analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Entity recognition](../how-tos/text-analytics-how-to-entity-linking.md)
-* [Detect language](../how-tos/text-analytics-how-to-keyword-extraction.md)
-* [Language recognition](../how-tos/text-analytics-how-to-language-detection.md)

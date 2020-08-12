@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: metrics-monitoring
+ms.subservice: 
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: aahi
@@ -18,7 +18,7 @@ Use this article to find the settings and requirements for connecting different 
 
 ## Azure Blob Storage (JSON)
 
-* **Connection String**: [String]. Please refer to [View and copy a connection string](https://docs.microsoft.com/en-us/azure/storage/common/storage-configure-connection-string#view-and-copy-a-connection-string) for information on how to retrieve the connection string from Azure Blob Storage.
+* **Connection String**: [String]. Please refer to [View and copy a connection string](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string#view-and-copy-a-connection-string) for information on how to retrieve the connection string from Azure Blob Storage.
 
 * **Container**: Project "Gualala" will expect your time series data stored as Blob files (one Blob per timestamp) under a single container. This is the container name field.
 
@@ -121,7 +121,7 @@ let StartDateTime = datetime(@StartTime); let EndDateTime = StartDateTime + 1d; 
 
 ## SQL Server | Azure SQL Database
 
-* **Connection String** [String]. We accept an [ADO.NET Style Connection String](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/connection-string-syntax) for sql server data source.
+* **Connection String** [String]. We accept an [ADO.NET Style Connection String](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax) for sql server data source.
 
 Sample connection string:
 
