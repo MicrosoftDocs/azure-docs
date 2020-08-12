@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 06/29/2020
+ms.date: 07/25/2020
 ms.topic: overview
 ---
 # What is Azure Resource Graph?
@@ -90,6 +90,12 @@ to. This behavior is the same as when calling
 [Resource Groups - List](/rest/api/resources/resourcegroups/list) \- you get resource groups you've
 access to without any indication that the result may be partial. If there are no subscriptions in
 the subscription list that the user has appropriate rights to, the response is a _403_ (Forbidden).
+
+> [!NOTE]
+> In the **preview** REST API version `2020-04-01-preview`, the subscription list may be ommitted.
+> When both the `subscriptions` and `managementGroupId` properties aren't defined in the request,
+> the _scope_ is set to the tenant. For more information, see
+> [Scope of the query](./concepts/query-language.md#query-scope).
 
 ## Throttling
 

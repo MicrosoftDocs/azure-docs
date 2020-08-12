@@ -1,11 +1,6 @@
 ---
 title: Install Connected Machine agent using Windows PowerShell DSC
 description: In this article, you learn how to connect machines to Azure using Azure Arc for servers (preview) using Windows PowerShell DSC.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
 ---
@@ -45,7 +40,7 @@ Using [Windows PowerShell Desired State Configuration](/powershell/scripting/dsc
 
 The resources in this module are designed to manage the Azure Connected Machine Agent configuration. Also included is a PowerShell script `AzureConnectedMachineAgent.ps1`, found in the `AzureConnectedMachineDsc\examples` folder. It uses community resources to automate the download and installation, and establish a connection with Azure Arc. This script performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md) article.
 
-If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command that's described [here](onboard-portal.md#configure-the-agent-proxy-setting). This sets the proxy server system environment variable `https_proxy`. Instead of running the command manually, you can perform this step with DSC by using the [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) module.
+If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command that's described [here](manage-agent.md#update-or-remove-proxy-settings). This sets the proxy server system environment variable `https_proxy`. Instead of running the command manually, you can perform this step with DSC by using the [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) module.
 
 >[!NOTE]
 >To allow DSC to run, Windows needs to be configured to receive PowerShell remote commands even when you're running a localhost configuration. To easily configure your environment correctly, just run `Set-WsManQuickConfig -Force` in an elevated PowerShell Terminal.
@@ -87,6 +82,6 @@ The [CompsiteResource](https://www.powershellgallery.com/packages/compositeresou
 
 ## Next steps
 
-- Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md), and much more.
+- Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-policy.md), and much more.
 
 - Learn more about the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to proactively monitor the OS and workloads running on the machine, manage it using Automation runbooks or solutions like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-intro.md).

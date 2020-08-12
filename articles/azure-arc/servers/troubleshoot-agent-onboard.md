@@ -1,11 +1,6 @@
 ---
 title: Troubleshoot Azure Arc for servers agent connection issues
 description: This article tells how to troubleshoot and resolve issues with the Connected Machine agent that arise with Azure Arc for servers (preview) when trying to connect to the service.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/20/2020
 ms.topic: conceptual
 ---
@@ -85,7 +80,7 @@ The following table lists some of the known errors and suggestions on how to tro
 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for additional support:
 
-* Get answers from Azure experts through [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-arc.html).
+* Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
 
 * Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
