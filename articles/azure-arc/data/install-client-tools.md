@@ -38,30 +38,30 @@ Depending on your client OS, choose the instructions from below.
 
 ##### Catalina
 
-```terminal
+```console
 curl -SL https://private-repo.microsoft.com/python/azure-arc-data/private-preview-jul-2020-new/homebrew-bottle-catalina/azdata-cli-20.1.0.catalina.bottle.tar.gz -o azdata-cli-20.1.0.catalina.bottle.tar.gz
 brew install azdata-cli-20.1.0.catalina.bottle.tar.gz
 ```
 
 ##### Mojave
 
-```terminal
+```console
 curl -SL https://private-repo.microsoft.com/python/azure-arc-data/private-preview-jul-2020-new/homebrew-bottle-mojave/azdata-cli-20.1.0.mojave.bottle.tar.gz -o azdata-cli-20.1.0.mojave.bottle.tar.gz
 brew install azdata-cli-20.1.0.mojave.bottle.tar.gz
 ```
 
 #### Docker
 
-```terminal
+```console
 docker login azurearcdata.azurecr.io 
 ```
 
-```terminal
+```console
 #on Linux/macOS
 docker run -it -v ${HOME}/.kube:/root/.kube azurearcdata.azurecr.io/azure-arc-data/azdata:private-preview-jul-2020-new
 ```
 
-```terminal
+```console
 #on Windows
 docker run -it -v %USERPROFILE%\.kube:/root/.kube azurearcdata.azurecr.io/azure-arc-data/azdata:private-preview-jul-2020-new
 ```
@@ -70,7 +70,7 @@ docker run -it -v %USERPROFILE%\.kube:/root/.kube azurearcdata.azurecr.io/azure-
 
 ##### buster - Debian 10
 
-```terminal
+```console
 apt-get update
 apt-get install -y curl apt-transport-https unixodbc libkrb5-dev libssl1.1
 curl -SL https://private-repo.microsoft.com/python/azure-arc-data/private-preview-jul-2020-new/debian-buster/azdata-cli_20.1.0-1~buster_all.deb -o azdata-cli_20.1.0-1~buster_all.deb
@@ -80,7 +80,7 @@ apt-get -f install
 
 ##### stretch - Debian 9
 
-```terminal
+```console
 apt-get update
 apt-get install -y curl apt-transport-https unixodbc libkrb5-dev
 curl -SL https://private-repo.microsoft.com/python/azure-arc-data/private-preview-jul-2020-new/debian-stretch/azdata-cli_20.1.0-1~stretch_all.deb -o azdata-cli_20.1.0-1~stretch_all.deb
@@ -90,7 +90,7 @@ apt-get -f install
 
 ##### jessie - Debian 8
 
-```terminal
+```console
 apt-get update
 apt-get install -y curl apt-transport-https unixodbc
 curl -SL https://private-repo.microsoft.com/python/azure-arc-data/private-preview-jul-2020-new/debian-jessie/azdata-cli_20.1.0-1~jessie_all.deb -o azdata-cli_20.1.0-1~jessie_all.deb
@@ -102,7 +102,7 @@ apt-get -f install
 
 ##### focal - Ubuntu 20.04
 
-```terminal
+```console
 apt-get update
 apt-get install -y curl apt-transport-https unixodbc libkrb5-dev libssl1.1
 curl -SL https://private-repo.microsoft.com/python/azure-arc-data/private-preview-jul-2020-new/ubuntu-bionic/azdata-cli_20.1.0-1~focal_all.deb -o azdata-cli_20.1.0-1~focal_all.deb
@@ -112,7 +112,7 @@ apt-get -f install
 
 ##### bionic - Ubuntu 18.04
 
-```terminal
+```console
 apt-get update
 apt-get install -y curl apt-transport-https unixodbc libkrb5-dev libssl1.1
 curl -SL https://private-repo.microsoft.com/python/azure-arc-data/private-preview-jul-2020-new/ubuntu-bionic/azdata-cli_20.1.0-1~bionic_all.deb -o azdata-cli_20.1.0-1~bionic_all.deb
@@ -122,7 +122,7 @@ apt-get -f install
 
 ##### Xenial - Ubuntu 16.04
 
-```terminal
+```console
 apt-get update
 apt-get install -y curl apt-transport-https unixodbc libkrb5-dev
 curl -SL https://private-repo.microsoft.com/python/azure-arc-data/private-preview-jul-2020-new/ubuntu-xenial/azdata-cli_20.1.0-1~xenial_all.deb -o azdata-cli_20.1.0-1~xenial_all.deb
@@ -134,7 +134,7 @@ apt-get -f install
 
 ##### CentOS 7
 
-```terminal
+```console
 yum update
 yum install curl epel-release -y
 curl -SL https://private-repo.microsoft.com/python/azure-arc-data/private-preview-jul-2020-new/rpm/azdata-cli-20.1.0-1.el7.x86_64.rpm -o azdata-cli-20.1.0-1.el7.x86_64.rpm
@@ -143,7 +143,7 @@ yum localinstall azdata-cli-20.1.0-1.el7.x86_64.rpm -y
 
 ##### CentOS 8
 
-```terminal
+```console
 yum update
 yum install curl -y
 curl -SL https://private-repo.microsoft.com/python/azure-arc-data/private-preview-jul-2020-new/rpm/azdata-cli-20.1.0-1.el7.x86_64.rpm -o azdata-cli-20.1.0-1.el7.x86_64.rpm
@@ -154,7 +154,7 @@ yum localinstall azdata-cli-20.1.0-1.el7.x86_64.rpm -y
 
 ##### RHEL7
 
-```terminal
+```console
 yum update
 yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
 curl -SL https://private-repo.microsoft.com/python/azure-arc-data/private-preview-jul-2020-new/rpm/azdata-cli-20.1.0-1.el7.x86_64.rpm -o azdata-cli-20.1.0-1.el7.x86_64.rpm
@@ -163,7 +163,7 @@ yum localinstall azdata-cli-20.1.0-1.el7.x86_64.rpm -y
 
 ##### RHEL 8
 
-```terminal
+```console
 yum update
 yum install curl -y
 curl -SL https://private-repo.microsoft.com/python/azure-arc-data/private-preview-jul-2020-new/rpm/azdata-cli-20.1.0-1.el7.x86_64.rpm -o azdata-cli-20.1.0-1.el7.x86_64.rpm
@@ -172,7 +172,7 @@ yum localinstall azdata-cli-20.1.0-1.el7.x86_64.rpm -y
 
 ## Verify azdata is installed
 
-```terminal
+```console
 azdata
 azdata --version
 ```
@@ -196,7 +196,7 @@ Follow these steps to [install the Azure CLI](/azure/install-azure-cli?view=azur
 
 Once installed, set the cloud environment and login
 
-```terminal
+```console
 az cloud set --name AzureCloud
 az login
 ```
@@ -213,7 +213,7 @@ If you are using EKS, you can use `aws eks update-kubeconfig` command .
 
 If you are using OpenShift you can install the oc CLI by following these commands.
 
-```terminal
+```console
 cd ~
 wget https://mirror.openshift.com/pub/openshift-v4/clients/oc/4.2/linux/oc.tar.gz
 tar -xvf oc.tar.gz
@@ -226,7 +226,7 @@ oc status
 
 -------
 
-```terminal
+```console
 kubectl version
 kubectl get pods -A
 ```
@@ -266,7 +266,7 @@ To prevent conflicts, first uninstall the **Azure Arc deployment** extension if 
 If you are deploying Azure Database for Postgres instances to your Arc setup you may want to install psql, the standard client/command line application for PostgreSQL.
 To do so, if your client machine is running the Ubuntu operating system (for example if you are using the sample environment described in Readme.md) run the following command:
 
-```terminal
+```console
 sudo apt-get install postgresql-client-10
 ```
 

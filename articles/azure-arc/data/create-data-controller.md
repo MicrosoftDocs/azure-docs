@@ -46,15 +46,15 @@ You will also need to provide the following information in the `azdata arc dc cr
 
 ### Linux or macOS
 
-```terminal
-export AZDATA_USERNAME="<your username of choice> - e.g. arcadmin"
+```console
+export AZDATA_USERNAME="<your username of choice> - For example, arcadmin"
 export AZDATA_PASSWORD="<your password of choice>"
 ```
 
 ### Windows PowerShell
 
-```terminal
-$ENV:AZDATA_USERNAME="<your username of choice> - e.g. arcadmin"
+```console
+$ENV:AZDATA_USERNAME="<your username of choice> - For example, arcadmin"
 $ENV:AZDATA_PASSWORD="<your password of choice>"
 ```
 
@@ -70,7 +70,7 @@ If you are going to use 'managed-premium' as your storage class, then you can ru
 
 You can run the following command to deploy the data controller using the managed-premium storage class:
 
-```terminal
+```console
 azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 ```
 
@@ -78,7 +78,7 @@ If you are not sure what storage class to use, you should use the 'default' stor
 
 If you want to use the 'default' storage class, then you can run this command:
 
-```terminal
+```console
 azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 ```
 
@@ -88,7 +88,7 @@ By default the deployment profile uses the 'managed-premium' storage class.  The
 
 You can run the following command to deploy the data controller using the managed-premium storage class:
 
-```terminal
+```console
 azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 ```
 
@@ -96,7 +96,7 @@ If you are not sure what storage class to use, you should use the 'default' stor
 
 If you want to use the 'default' storage class, then you can run this command:
 
-```terminal
+```console
 azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 ```
 
@@ -106,7 +106,7 @@ To deploy onto Azure OpenShift you will need to execute the following commands a
 > [!NOTE]
 >   Use the same namespace here and in the `azdata arc dc create` command below.  Example is 'arc'.
 
-```terminal
+```console
 oc adm policy add-scc-to-user privileged -z default -n arc
 oc adm policy add-scc-to-user anyuid     -z default -n arc
 ```
@@ -115,7 +115,7 @@ You can run the following command to deploy the data controller:
 > [!NOTE]
 >   Use the same namespace here and in the `oc adm policy add-scc-to-user` commands above.  Example is 'arc'.
 
-```terminal
+```console
 azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 ```
 
@@ -125,26 +125,26 @@ To deploy onto Red Hat OpenShift Container Platform you will need to execute the
 > [!NOTE]
 >   Use the same namespace here and in the `azdata arc dc create` command below.  Example is 'arc'.
 
-```terminal
+```console
 oc adm policy add-scc-to-user privileged -z default -n arc
 oc adm policy add-scc-to-user anyuid     -z default -n arc
 ```
 
 You will need to determine which storage class to use by running the following command:
 
-```terminal
+```console
 kubectl get storageclass
 ```
 
 First, start by creating a new custom deployment profile file based on the kubeadm deployment profile by running the following command:
 
-```terminal
+```console
 azdata arc dc config init -s azure-arc-openshift -t ./custom
 ```
 
 Now, set the desired storage class by replacing `<storageclassname>` in the command below with the name of the storage class that you want to use that was determined by running the `kubectl get storageclass` command above.
 
-```terminal
+```console
 azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=<storageclassname>"
 azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=<storageclassname>"
 
@@ -155,13 +155,13 @@ azdata arc dc config replace --path ./custom/control.json --json-values "spec.st
 
 By default the kubeadm deployment profile uses 'NodePort' as the service type.  **If** you are using an OpenShift cluster that is integrated with a load balancer, you can change the configuration using the following command:
 
-```terminal
+```console
 azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.endpoints[*].serviceType=LoadBalancer"
 ```
 
 Oftentimes, customers using OpenShift want to run with the default security policies in OpenShift or want to generally lock down the environment more than typical.  You can optionally choose to disable some features to minimize the permissions required at deployment time and at run time.
 
-```terminal
+```console
 #Disables metrics collections about pods.  You will not be able to see metrics about pods in the Grafana dashboards if you disable this feature.  Default is true.
 azdata arc dc config replace -p ./custom2/control.json --json-values spec.security.allowPodMetricsCollection=false
 
@@ -176,7 +176,7 @@ Now you are ready to install the data controller using the following command:
 > [!NOTE]
 >   Use the same namespace here and in the `oc adm policy add-scc-to-user` commands above.  Example is 'arc'.
 
-```terminal
+```console
 azdata arc dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 ```
 
@@ -186,19 +186,19 @@ By default, the kubeadm deployment profile uses a storage class called 'local-st
 
 If you want to customize your deployment profile to specify a specific storage class and/or service type, start by creating a new custom deployment profile file based on the kubeadm deployment profile by running the following command:
 
-```terminal
+```console
 azdata arc dc config init -s azure-arc-kubeadm -t ./custom
 ```
 
 You can look up the available storage classes by running the following command:
 
-```terminal
+```console
 kubectl get storageclass
 ```
 
 Now, set the desired storage class by replacing `<storageclassname>` in the command below with the name of the storage class that you want to use that was determined by running the `kubectl get storageclass` command above.
 
-```terminal
+```console
 azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=<storageclassname>"
 azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=<storageclassname>"
 
@@ -209,13 +209,13 @@ azdata arc dc config replace --path ./custom/control.json --json-values "spec.st
 
 By default the kubeadm deployment profile uses 'NodePort' as the service type.  **If** you are using a Kubernetes cluster that is integrated with a load balancer, you can change the configuration using the following command:
 
-```terminal
+```console
 azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.endpoints[*].serviceType=LoadBalancer"
 ```
 
 Now you are ready to install the data controller using the following command:
 
-```terminal
+```console
 azdata arc dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 ```
 
@@ -225,7 +225,7 @@ By default, the EKS storage class is 'gp2' and the service type is 'LoadBalancer
 
 Run the following command to install the data controller using the provided EKS deployment profile:
 
-```terminal
+```console
 azdata arc dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 ```
 
@@ -233,19 +233,19 @@ azdata arc dc create --profile-name azure-arc-eks --namespace arc --name arc --s
 
 Creating the controller will take a few minutes to complete. You can monitor the progress in another terminal window with the following command:
 
-```terminal
+```console
 kubectl get pods -n arc
 ```
 
 You can also check on the deployment status of any particular pod by running a command like this:
 
-```terminal
+```console
 kubectl describe po/<pod name> -n arc
 ```
 
 Example:
 
-```terminal
+```console
 kubectl describe po/control-2g7bl -n arc
 ```
 

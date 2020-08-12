@@ -87,7 +87,7 @@ Example:
 
 2. Prepare and run the below command to verify the backup file is readable, and intact.
 
-   ```terminal
+   ```console
    RESTORE FILELISTONLY FROM URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>/<file name>.bak'
    ```
 
@@ -139,7 +139,7 @@ Find the name of the pod where the sql instance is deployed. Typically it should
 
 Get the list of all pods by running:
 
- ```terminal
+ ```console
 kubectl get all -A
 ```
 
@@ -147,7 +147,7 @@ Example:
 
 Copy the backup file from the local storage to the sql pod in the cluster.
 
- ```terminal
+ ```console
 kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -n <namespace name>
 
 #Example:

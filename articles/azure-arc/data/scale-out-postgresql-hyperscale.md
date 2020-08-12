@@ -24,7 +24,7 @@ First of all, to test scaling out, its helpful to have test data. We utilize a s
 
 Let's connect to our database by first getting the connection information:
 
-```terminal
+```console
 azdata arc postgres server endpoint list -n <server name> -ns <namespace name>
 
 #Example:
@@ -33,7 +33,7 @@ azdata arc postgres server endpoint list -n <server name> -ns <namespace name>
 
 Example output:
 
-```terminal
+```console
 Description           Endpoint
 --------------------  ----------------------------------------------------------------------------------------------------------------------------
 PostgreSQL Instance   postgresql://postgres:<replace with password>@10.240.0.6:31787
@@ -49,7 +49,7 @@ Open a new query window and run the following query to verify that we currently 
 SELECT * FROM pg_dist_node;
 ```
 
-```terminal
+```console
  nodeid | groupid |                       nodename                        | nodeport | noderack | hasmetadata | isactive | noderole | nodecluster | metadatasynced | shouldhaveshards
 --------+---------+-------------------------------------------------------+----------+----------+-------------+----------+----------+-------------+----------------+------------------
       1 |       1 | pg1-1.pg1-svc.default.svc.cluster.local |     5432 | default  | f           | t        | primary  | default     | f              | t
@@ -113,7 +113,7 @@ SELECT COUNT(*) FROM github_events;
 
 Look at the query execution duration by clicking on the Messages tab.
 
-```terminal
+```console
 Started executing query at Line 1
 (1 row(s) affected)
 Total execution time: 00:00:00.442
@@ -123,7 +123,7 @@ Total execution time: 00:00:00.442
 
 Increase the number of worker nodes to 4, by running the following command:
 
-```terminal
+```console
 azdata arc postgres server edit -n <name of your postgresql server group> -ns <name of the namespace> -w <number of workers>
 
 #Example:
@@ -132,11 +132,11 @@ azdata arc postgres server edit -n <name of your postgresql server group> -ns <n
 
 This will first start adding the nodes, and you'll see a Pending state for the server group:
 
-```terminal
+```console
 azdata arc postgres server list
 ```
 
-```terminal
+```console
 ClusterIP         ExternalIP      MustRestart    Name        Status
 ----------------  --------------  -------------  ----------  -----------
 10.98.62.6:31815  10.0.0.4:31815  False          postgres01  Pending 4/5
@@ -153,7 +153,7 @@ You can verify that the new nodes are available:
 SELECT * FROM pg_dist_node;
 ```
 
-```terminal
+```console
  nodeid | groupid |                       nodename                        | nodeport | noderack | hasmetadata | isactive | noderole | nodecluster | metadatasynced | shouldhaveshards
 --------+---------+-------------------------------------------------------+----------+----------+-------------+----------+----------+-------------+----------------+------------------
       1 |       1 | pg1-1.pg1-svc.default.svc.cluster.local |     5432 | default  | f           | t        | primary  | default     | f              | t
@@ -171,7 +171,7 @@ If you deploy on a single VM for testing this likely has similar runtime as befo
 SELECT COUNT(*) FROM github_events;
 ```
 
-```terminal
+```console
 Started executing query at Line 1
 (1 row(s) affected)
 Total execution time: 00:00:00.362

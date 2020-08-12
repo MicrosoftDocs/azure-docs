@@ -23,7 +23,7 @@ This document walks you through the steps for using Azure Data Studio to provisi
 
 Before you can create an instance you must first login to the Azure Arc data controller if you are not already logged in.
 
-```terminal
+```console
 azdata login
 ```
 
@@ -31,7 +31,7 @@ You will then be prompted for the username, password and the system namespace.
 
 > If you used the script to install the data controller then your namespace should be **arc**
 
-```terminal
+```console
 Username: arcadmin
 Password:
 Namespace: arc
@@ -54,11 +54,11 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 To view the PostgreSQL Hyperscale server groups on Azure Arc, use the following command:
 
-```terminal
+```console
 azdata postgres server list -ns arc
 ```
 
-```terminal
+```console
 Name        Status    ClusterIP             ExternalIP      MustRestart
 ----------  --------  --------------------  --------------  -------------
 pg1  Running   10.102.204.135:30655  10.0.0.4:30655  False
@@ -72,7 +72,7 @@ If you are using an Azure VM to test, follow the following instructions.
 
 If you are using an Azure virtual machine, then the endpoint IP address will not show the _public_ IP address. To locate the public IP address, use the following command:
 
-```terminal
+```console
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -82,7 +82,7 @@ You may also need to expose the port of the PostgreSQL instance through the netw
 
 To set a rule you will need to know the name of your NSG which you can find out using the command below:
 
-```terminal
+```console
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -90,7 +90,7 @@ Once you have the name of the NSG, you can add a firewall rule using the followi
 
 Replace the value of the --destination-port-ranges parameter below with the port number you got from the 'azdata postgres server list' command above.
 
-```terminal
+```console
 az network nsg rule create -n db_port --destination-port-ranges 30655 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 
@@ -100,7 +100,7 @@ Open Azure Data Studio and connect to your instance with the external endpoint I
 
 Remember if you are using an Azure VM you will need the _public_ IP address which is accessible via the following command:
 
-```terminal
+```console
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -110,11 +110,11 @@ If PostgreSQL isn't available in the *Connection type* dropdown, you can install
 
 To access your PostgreSQL Hyperscale server group, run `azdata postgres server endpoint` and pass the name of the PostgreSQL Hyperscale server group that you provided when you created the instance as the -n parameter value:
 
-```terminal
+```console
 azdata postgres server endpoint -n pg1 -ns arc
 ```
 
-```terminal
+```console
 Description           Endpoint
 --------------------  ----------------------------------------------------------------------------------------------------------------
 Log Search Dashboard  https://10.0.0.4:31777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'cluster_name:"pg1"'))
@@ -126,7 +126,7 @@ The command will output URLs that can be used to access the PostgreSQL instance,
 
 You can now connect either with psql (install the `postgresql-client` package to use psql on an Azure VM):
 
-```terminal
+```console
 psql postgresql://postgres:PASSWORD@10.0.0.4:30655
 ```
 

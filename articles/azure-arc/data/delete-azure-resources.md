@@ -30,7 +30,7 @@ Alternatively, to delete Azure resources from Azure you can also use the Azure C
 
 To delete SQL managed instances from Azure using the Azure CLI replace the placeholder values in the command below and run it.
 
-```terminal
+```console
 az resource delete -n <sql instance name> --resource-type Microsoft.AzureData/sqlManagedInstances -g <resource group name>
 
 #Example
@@ -41,7 +41,7 @@ az resource delete -n <sql instance name> --resource-type Microsoft.AzureData/sq
 
 To delete PostgreSQL  instances from Azure using the Azure CLI replace the placeholder values in the command below and run it.
 
-```terminal
+```console
 az resource delete -n <postgresql instance name> --resource-type Microsoft.AzureData/postgresInstances -g <resource group name>
 
 #Example
@@ -52,7 +52,7 @@ az resource delete -n <postgresql instance name> --resource-type Microsoft.Azure
 
 To delete Azure Arc data controllers from Azure using the Azure CLI replace the placeholder values in the command below and run it.
 
-```terminal
+```console
 az resource delete -n <data controller name> --resource-type Microsoft.AzureData/dataControllers -g <resource group name>
 
 #Example

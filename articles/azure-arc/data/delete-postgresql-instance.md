@@ -20,7 +20,7 @@ This document describes the steps to delete an Azure PostgreSQL instance from yo
 Example:
 Let's consider we want to delete the postgres01 instance from the below setup:
 
-```terminal
+```console
 azdata arc postgres server list
 Name        State    Workers
 ----------  -------  ---------
@@ -29,7 +29,7 @@ postgres01  Ready    3
 
 Before we delete, and in anticipation of the next step below, let's look at the [Persistent Volume Claims of our Kubernetes cluster](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) (PVC):
 
-```terminal
+```console
 kubectl get pvc
 NAME                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 data-postgres01-0   Bound    pvc-72ccc225-dad0-4dee-8eae-ed352be847aa   5Gi        RWO            default        2d18h
@@ -46,7 +46,7 @@ There are a total of 8 PVCs for this instance.
 
 Now, let's delete this instance.
 
-```terminal
+```console
 azdata arc postgres server delete -n postgres01
 ```
 
@@ -54,7 +54,7 @@ azdata arc postgres server delete -n postgres01
 
 Deleting a Postgres instance does not remove its associated PVCs.
 
-```terminal
+```console
 kubectl get pvc
 
 NAME                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
@@ -81,7 +81,7 @@ You may see messages similar to the one below in the logs:
 
 So, to reclaim the PVCs, run the following command for each PVC
 
-```terminal
+```console
 kubectl delete pvc -n <name of pvc>
 ```
 

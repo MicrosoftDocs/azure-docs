@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Scenario: Upload resource inventory, usage data, metrics and logs to Azure Monitor
 
-With Azure Arc data services you can *optionally* upload your metrics and logs to Azure Monitor so you can aggregate and analyze metrics, logs, raise alerts, send notifications or trigger automated actions.  Sending your data to Azure Monitor also allows you to store monitoring and logs data off site and at huge scale enabling long term storage of the data for advanced analytics.  If you have multiple sites which have Azure Arc data services, you can use Azure Monitor as a central location to collect all of your logs and metrics across your sites.
+With Azure Arc data services you can *optionally* upload your metrics and logs to Azure Monitor so you can aggregate and analyze metrics, logs, raise alerts, send notifications or trigger automated actions.  Sending your data to Azure Monitor also allows you to store monitoring and logs data off site and at huge scale enabling long-term storage of the data for advanced analytics.  If you have multiple sites which have Azure Arc data services, you can use Azure Monitor as a central location to collect all of your logs and metrics across your sites.
 
 ## Before you begin
 
@@ -35,7 +35,7 @@ To create a service principal, run this command:
 > [!NOTE]
 > Creating a service principal requires [certain permissions in Azure](/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-```terminal
+```console
 az ad sp create-for-rbac --name <a name you choose>
 
 #Example:
@@ -44,7 +44,7 @@ az ad sp create-for-rbac --name <a name you choose>
 
 Example output:
 
-```terminal
+```console
 "appId": "2e72adbf-de57-4c25-b90d-2f73f126e123",
 "displayName": "azure-arc-metrics",
 "name": "http://azure-arc-metrics",
@@ -54,7 +54,7 @@ Example output:
 
 Save the appId and tenant values in an environment variable for use later:
 
-```terminal
+```console
 #PowerShell
 
 $Env:SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
@@ -75,7 +75,7 @@ export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
 
 Run this command to assign the service principal to the 'Monitoring Metrics Publisher' role on the subscription where your database instance resources are located:
 
-```terminal
+```console
 az role assignment create --assignee <appId value from output above> --role 'Monitoring Metrics Publisher' --scope subscriptions/<sub ID>
 az role assignment create --assignee <appId value from output above> --role 'Contributor' --scope subscriptions/<sub ID>
 
@@ -86,7 +86,7 @@ az role assignment create --assignee <appId value from output above> --role 'Con
 
 Example output:
 
-```terminal
+```console
 {
   "canDelegate": null,
   "id": "/subscriptions/182c901a-129a-4f5d-86e4-cc6b29459123/providers/Microsoft.Authorization/roleAssignments/f82b7dc6-17bd-4e78-93a1-3fb733b912d",
@@ -106,7 +106,7 @@ Next, execute these commands to create a Log Analytics Workspace and set the acc
 > [!NOTE]
 > Skip this step if you already have a workspace.
 
-```terminal
+```console
 az monitor log-analytics workspace create -g <resource group name> -n <some name you choose>
 
 #Example:
@@ -115,7 +115,7 @@ az monitor log-analytics workspace create -g <resource group name> -n <some name
 
 Example output:
 
-```terminal
+```console
 {
   "customerId": "d6abb435-2626-4df1-b887-445fe44a4123",
   "eTag": null,
@@ -141,7 +141,7 @@ Example output:
 
 Save the customerId (workspace ID) as an environment variable to be used later:
 
-```terminal
+```console
 #PowerShell
 $Env:WORKSPACE_ID='<the customerId from the 'log-analytics workspace create' command output above>'
 
@@ -154,13 +154,13 @@ export WORKSPACE_ID='<the customerId from the 'log-analytics workspace create' c
 
 This command will print the access keys required to connect to your log analytics workspace:
 
-```terminal
+```console
 az monitor log-analytics workspace get-shared-keys -g MyResourceGroup -n MyLogsWorkpace
 ```
 
 Example output:
 
-```terminal
+```console
 {
   "primarySharedKey": "JXzQp1RcGgjXFCDS3v0sXoxPvbgCoGaIv35lf11Km2WbdGFvLXqaydpaj1ByWGvKoCghL8hL4BRoypXxkLr123==",
   "secondarySharedKey": "p2XHSxLJ4o9IAqm2zINcEmx0UWU5Z5EZz8PQC0OHpFjdpuVaI0zsPbTv5VyPFgaCUlCZb2yEbkiR4eTuTSF123=="
@@ -169,7 +169,7 @@ Example output:
 
 Save the primary key in an environment variable to be used later:
 
-```terminal
+```console
 #PowerShell:
 $Env:WORKSPACE_SHARED_KEY='<the primarySharedKey value from the 'get-shared-keys' command above'
 
@@ -185,7 +185,7 @@ export WORKSPACE_SHARED_KEY='JXzQp1RcGgjXFCDS3v0sXoxPvbgCoGaIv35lf11Km2WbdGFvLXq
 
 Set the SPN authority URL in an environment variable:
 
-```terminal
+```console
 #PowerShell
 $Env:SPN_AUTHORITY='https://login.microsoftonline.com'
 
@@ -195,7 +195,7 @@ export SPN_AUTHORITY='https://login.microsoftonline.com'
 
 Check to make sure that all environment variables required are set if you want:
 
-```terminal
+```console
 #PowerShell
 $Env:WORKSPACE_ID
 $Env:WORKSPACE_SHARED_KEY
@@ -219,13 +219,13 @@ To upload metrics for your Azure SQL managed instances and Azure Database for Po
 
 This will export all metrics to the specified file:
 
-```terminal
+```console
 azdata arc dc export -t metrics --path metrics.json
 ```
 
 This will upload metrics to Azure monitor:
 
-```terminal
+```console
 azdata arc dc upload --path metrics.json
 ```
 
@@ -253,13 +253,13 @@ Change the frequency to last 30 minutes:
 
 This will export all logs to the specified file:
 
-```terminal
+```console
 azdata arc dc export -t logs -path logs.json
 ```
 
 This will upload logs to an Azure monitor log analytics workspace:
 
-```terminal
+```console
 azdata arc dc upload --path logs.json
 ```
 
@@ -283,20 +283,20 @@ If you want to constantly upload metrics and logs, you can create a script and r
 
 In your favorite text/code editor, add the following to the script content to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
 
-```terminal
+```console
 azdata arc dc export -t metrics --path metrics.json --force
 azdata arc dc upload --path metrics.json
 ```
 
 Make the script file executable
 
-```terminal
+```console
 chmod +x myuploadscript.sh
 ```
 
 Run the script every 2 minutes:
 
-```terminal
+```console
 watch -n 120 ./myuploadscript.sh
 ```
 

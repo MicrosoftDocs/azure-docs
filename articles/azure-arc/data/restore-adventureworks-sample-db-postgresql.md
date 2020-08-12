@@ -32,7 +32,7 @@ Run a command like this to download the files substituting the value of the pod 
 > [!NOTE]
 >  Use the pod name with 'r###' at the end not any of the 's###' pod names.  If you are not sure of the pod name run the command `kubectl get pod`
 
-```terminal
+```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c database  -- /bin/bash -c "cd /tmp && curl -k -O https://raw.githubusercontent.com/microsoft/azure_arc/master/azure_arc_data_jumpstart/aks/arm_template/postgres_hs/AdventureWorks.sql"
 
 #Example:
@@ -45,7 +45,7 @@ Similarly, you can run a kubectl exec command to use the psql CLI tool that is i
 
 Run a command like this to create the empty database first substituting the value of the pod name and the namespace name before you run it.
 
-```terminal
+```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c database -- psql -c 'CREATE DATABASE "adventureworks";'
 
 #Example
@@ -54,7 +54,7 @@ kubectl exec <PostgreSQL pod name> -n <namespace name> -c database -- psql -c 'C
 
 Then, run a command like this to restore the database substituting the value of the pod name and the namespace name before you run it.
 
-```terminal
+```console
 kubectl exec <PostgreSQL pod name> -n <namespace name> -c database -- psql -d adventureworks -f /tmp/AdventureWorks.sql
 
 #Example

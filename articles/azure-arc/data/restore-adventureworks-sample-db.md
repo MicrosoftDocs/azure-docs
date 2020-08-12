@@ -25,7 +25,7 @@ Run a command like this to download the .bak file substituting the value of the 
 > [!NOTE]
 >  Your container will need to have internet connectivity over 443 to download the file from GitHub
 
-```terminal
+```console
 kubectl exec <SQL pod name> -n <namespace name> -c mssql-miaa -- wget https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2019.bak -O /var/opt/mssql/data/AdventureWorks2019.bak
 
 #Example:
@@ -38,7 +38,7 @@ Similarly, you can run a kubectl exec command to use the sqlcmd CLI tool that is
 
 Run a command like this to restore the database substituting the value of the pod name, **the password**, and the namespace name before you run it.
 
-```terminal
+```console
 kubectl exec <SQL pod name> -n <namespace name> -c mssql-miaa -- /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P <password> -Q "RESTORE DATABASE AdventureWorks2019 FROM  DISK = N'/var/opt/mssql/data/AdventureWorks2019.bak' WITH MOVE 'AdventureWorks2017' TO '/var/opt/mssql/data/AdventureWorks2019.mdf', MOVE 'AdventureWorks2017_Log' TO '/var/opt/mssql/data/
 
 #Example

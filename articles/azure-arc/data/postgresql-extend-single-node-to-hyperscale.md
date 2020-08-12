@@ -24,13 +24,13 @@ For example:
 
 Run the following command to expand to 2 worker nodes:
 
-```terminal
+```console
 azdata postgres server edit -n postgres02 -w 2
 ```
 
 As you see, now, Kubernetes is using 3 pods to host the server instance: one of the Citus Coordinator node and 2 for the Citus Worker nodes.
 
-```terminal
+```console
 kubectl get pods -A
 NAMESPACE       NAME                                   READY   STATUS    RESTARTS   AGE
 default         postgres02-0                           3/3     Running   0          10m

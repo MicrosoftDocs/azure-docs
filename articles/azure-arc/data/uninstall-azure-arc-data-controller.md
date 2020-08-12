@@ -41,7 +41,7 @@ If you deployed the Azure Arc data controller on your existing Kubernetes cluste
 
 ### Step 01: Delete the Azure Arc data controller components
 
-```terminal
+```console
 azdata postgres uninstall
 azdata arc dc delete -ns <namespaceSpecifiedDuringCreation> -n <nameofDataController>
 # for example azdata arc dc delete -ns arc -n arc
@@ -49,14 +49,14 @@ azdata arc dc delete -ns <namespaceSpecifiedDuringCreation> -n <nameofDataContro
 
 ### Step 02: Optionally, delete the Azure Arc data controller namespace
 
-```terminal
+```console
 kubectl delete ns <nameSpecifiedDuringCreation>
 # for example kubectl delete ns arc
 ```
 
 ### Remove SCCs (Red Hat OpenShift only)
 
-```terminal
+```console
 oc adm policy remove-scc-from-user privileged -z default -n arc
 oc adm policy remove-scc-from-user anyuid     -z default -n arc
 ```

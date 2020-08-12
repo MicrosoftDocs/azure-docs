@@ -35,7 +35,7 @@ Enter the connection information to your Azure Data Controller:
 - **Controller URL:**
     This is the URL to connect to your controller in Kubernetes. It has to be entered in the form of https://IP_address_of_the_controller:Kubernetes_port.
     For example:
-    ```terminal
+    ```console
     https://12.345.67.890:30080
     ```
 - **Username:**

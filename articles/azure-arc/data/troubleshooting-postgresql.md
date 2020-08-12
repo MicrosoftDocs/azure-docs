@@ -39,7 +39,7 @@ azdata login --help
 To do this, you may want to use the example commands provided in this blog post: https://blog.christianposta.com/kubernetes/logging-into-a-kubernetes-cluster-with-kubectl/
 You would run commands like:
 
-```terminal
+```console
 kubectl config view
 kubectl config set-credentials kubeuser/my_kubeuser --username=<your Arc Data Controller Admin user name> --password=<password>
 kubectl config set-cluster my_kubeuser --server=https://12.345.67.890:30080

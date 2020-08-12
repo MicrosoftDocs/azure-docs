@@ -26,7 +26,7 @@ In this guide we'll look at two additional extensions:
 
 We can either enable the PostGIS extension on an existing server group, or create a new one with the extension already enabled:
 
-```terminal
+```console
 azdata postgres server create -n <name of your postgresql server group> -ns <name of the namespace> --extensions <extension names>
 
 #Example:
@@ -38,14 +38,14 @@ Now, let's go through a PostGIS example. We'll start by getting some [sample dat
 > [!NOTE]
 > You may need to run `apt-get install unzip` to install unzip when using the VM for testing.
 
-```terminal
+```console
 wget http://duspviz.mit.edu/_assets/data/intro-postgis-datasets.zip
 unzip intro-postgis-datasets.zip
 ```
 
 Let's connect to our database, and create the PostGIS extension:
 
-```terminal
+```console
 CREATE EXTENSION postgis;
 ```
 
@@ -77,7 +77,7 @@ SELECT create_distributed_table('coffee_shops', 'id');
 
 Let's load some data:
 
-```terminal
+```console
 \copy coffee_shops(id,name,address,city,state,zip,lat,lon) from cambridge_coffee_shops.csv CSV HEADER;
 ```
 
@@ -97,7 +97,7 @@ SELECT name, address FROM coffee_shops ORDER BY geom <-> ST_SetSRID(ST_MakePoint
 
 Let's enable `pg_cron` on our PostgreSQL server group, in addition to PostGIS:
 
-```terminal
+```console
 azdata postgres server update -n pg2 -ns arc --extensions postgis,pg_cron
 ```
 
@@ -133,7 +133,7 @@ And now, once a minute, we'll get a different name:
 SELECT * FROM the_best_coffee_shop;
 ```
 
-```terminal
+```console
       name
 -----------------
  B & B Snack Bar
@@ -149,25 +149,25 @@ PLV8 works with most versions of Postgres, but works best with 9.1 and above, in
 
 The plv8 extension is already installed on your Arc system. To install it in your your Postgres database, connect with psql and run the command:
 
-```terminal
+```console
 CREATE EXTENSION plv8;
 ```
 
 As it completes successfully it will return:
 
-```terminal
+```console
 CREATE EXTENSION
 ```
 
 To verify that the installation was indeed successful, run:
 
-```terminal
+```console
 SELECT plv8_version();
 ```
 
 It will return
 
-```terminal
+```console
  plv8_version
 --------------
  2.3.14
@@ -176,7 +176,7 @@ It will return
 
 Alternatively you can run
 
-```terminal
+```console
 SELECT * FROM pg_extension;
 ```
 
@@ -188,20 +188,20 @@ TimescaleDB is an open-source database designed to make SQL scalable for time-se
 
 The timescaledb extension is installed in your Arc system. To preload it, run the below command. This command restarts your Postgres server so you should make sure to run it when you can take this short downtime:
 
-```terminal
+```console
 azdata postgres server update -n <insert your Postgres server name> --extensions timescaledb
 ```
 
 After your Postgres instance is restarted, connect to it with psql for instance and create the extension:
 
-```terminal
+```console
 CREATE EXTENSION timescaledb;
 ```
 
 As it is created, it will show the timescaledb welcome email in the output in your psql session:
 Alternatively you can run:
 
-```terminal
+```console
 SELECT * FROM pg_extension;
 ```
 

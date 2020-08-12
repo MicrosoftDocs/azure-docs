@@ -41,7 +41,7 @@ To upload billing data to Azure, the following should happen first:
 
 Run the following command to export out the billing data:
 
-```terminal
+```console
 azdata arc dc export -t usage -p usage.json
 ```
 
@@ -51,7 +51,7 @@ You will notice that there are two sets of data: `resources` and `data`.  The `r
 
 Example of a `resource` entry:
 
-```terminal
+```console
     {
         "customObjectName": "sqlmanagedinstances-instance-2020-29-5-23-13-17-164711",
         "uid": "4bc3dc6b-9148-4c7a-b7dc-01afc1ef5373",
@@ -71,7 +71,7 @@ Example of a `resource` entry:
 
 Example of a `data` entry:
 
-```terminal
+```console
         {
           "requestType": "usageUpload",
           "clusterId": "4b0917dd-e003-480e-ae74-1a8bb5e36b5d",
@@ -98,7 +98,7 @@ Example of a `data` entry:
 
 Run the following command to upload the usage.json file to Azure:
 
-```terminal
+```console
 azdata arc dc upload -p usage.json
 ```
 

@@ -26,13 +26,13 @@ Scaling up or down the vCore or memory settings of your server group means you h
 
 Let's start by looking at the current definition of your server group and see what are the current vCore and Memory settings. Run the following command:
 
-```terminal
+```console
 azdata postgres server export -n <the name of your server group>
 ```
 
 It returns the configuration of your server group. If you have created the server group with the default settings (where you do not set any particular vCore or memory value like what we guide you through in an earlier guide) you should see the definition of your server group as follows:
 
-```terminal
+```console
 apiVersion: dusky.microsoft.com/v1alpha1
 kind: DatabaseService
 metadata:
@@ -90,13 +90,13 @@ Now let's assume you want to scale up the definition of your server group to thi
 
 You would use the following command:
 
-```terminal
+```console
 azdata postgres server update -n <the name of your server group> -i --minCpu 2  --maxCpu 4  --minMemoryMb 512  --maxMemoryMb 1024
 ```
 
 The command executes successfully when it shows:
 
-```terminal
+```console
 PostgreSQL server group '<the name of the workspace>.<the name of your server group>' edited.
 ```
 
@@ -104,13 +104,13 @@ PostgreSQL server group '<the name of the workspace>.<the name of your server gr
 
 Now, run again the command to display the definition of the server group and verify it is set as you desire:
 
-```terminal
+```console
 azdata postgres server export -n <the name of your server group>
 ```
 
 It will show the new definition of the server group:
 
-```terminal
+```console
 apiVersion: dusky.microsoft.com/v1alpha1
 kind: DatabaseService
 metadata:
@@ -154,7 +154,7 @@ To scale down the server group you simply execute the same command but set lesse
 
 As side note, if you want to know the details about how to use this edit command, run the following query:
 
-```terminal
+```console
 azdata postgres server update --help
 ```
 

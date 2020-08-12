@@ -27,7 +27,7 @@ To list the commands you can execute about roles and users with `azdata` run the
 
 **For roles:**
 
-```terminal
+```console
 azdata postgres role --help
 ```
 
@@ -35,13 +35,13 @@ You can create, list or delete a role.
 
 **For users:**
 
-```terminal
+```console
 azdata postgres user --help
 ```
 
 You can create, edit, delete or list a user.
 
-PostgreSQL specific changes (e.g. PostgreSQL permission assignments) are done with engine-specific tools like `psql`.
+PostgreSQL specific changes (For example, PostgreSQL permission assignments) are done with engine-specific tools like `psql`.
 
 ## Create
 
@@ -49,7 +49,7 @@ PostgreSQL specific changes (e.g. PostgreSQL permission assignments) are done wi
 
 Run the following `azdata` command:
 
-```terminal
+```console
 azdata postgres role create -ns <namespace of your Arc setup> -n <server group name> -r <role name>
 ```
 
@@ -59,13 +59,13 @@ You can then edit or adjust this role with an [`alter role`](https://www.postgre
 
 Run the following `azdata` command:
 
-```terminal
+```console
 azdata postgres user create -ns <namespace of your Arc setup> -n <server group name> -r <role name for the user> -u <user name>
 ```
 
 If you do not specify a password, PostgreSQL Hyperscale will generate a strong password automatically:
 
-```terminal
+```console
 Name       Password                          Roles
 ---------  --------------------------------  --------
 mypguser5  wh8w45bm2rekxqwwwye2hfhagn2kaw3d  mypgrole
@@ -79,7 +79,7 @@ Alternatively you can use -p to specify a password.
 
 From `azdata`, run the following command:
 
-```terminal
+```console
 azdata postgres role list -n <server group name>
 ```
 
@@ -89,7 +89,7 @@ Alternatively you can list roles by running the following query from `psql`: ```
 
 From `azdata`, run the following command:
 
-```terminal
+```console
 azdata postgres user list -n <server group name>
 ```
 
@@ -103,7 +103,7 @@ For a given user, you can change the password or the role(s) it is assigned to.
 
 Run the following `azdata` command:
 
-```terminal
+```console
 azdata postgres user edit -ns <namespace of your Arc setup> -n <server group name> -u <user name> -p <new password>
 ```
 
@@ -111,7 +111,7 @@ azdata postgres user edit -ns <namespace of your Arc setup> -n <server group nam
 
 To assign a user to another role or to multiple roles, run he following `azdata` command:
 
-```terminal
+```console
 azdata postgres user edit -ns <namespace of your Arc setup> -n <server group name> -u <user name> -p <new password>
 ```
 
@@ -123,7 +123,7 @@ Execute this command for each of the roles you want to map a user to.
 
 Run the following `azdata` command:
 
-```terminal
+```console
 azdata postgres role delete ns <namespace of your Arc setup> -n <server group name> -r <role name>
 ```
 
@@ -131,7 +131,7 @@ azdata postgres role delete ns <namespace of your Arc setup> -n <server group na
 
 Run the following `azdata` command:
 
-```terminal
+```console
 azdata postgres user delete -ns <namespace of your Arc setup> -n <server group name> -r <role name for the user> -u <user name>
 ```
 

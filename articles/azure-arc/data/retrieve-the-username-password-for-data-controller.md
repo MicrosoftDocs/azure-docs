@@ -15,7 +15,7 @@ ms.topic: how-to
 
 You may be in a situation where you need to retrieve the user name and password you need to connect to the Arc Data Controller. These are the credentials you need when you run the command
 
-```terminal
+```console
 azdata login
 ```
 
@@ -28,13 +28,13 @@ If you are implementing the scenarios described in this Private Preview, you are
 
 Run the following command to retrieve the user name:
 
-```terminal
+```console
 kubectl -n arc get secret controller-login-secret -o=jsonpath="{.data['username']}" | base64 -d
 ```
 
 Run the following command to retrieve the password:
 
-```terminal
+```console
 kubectl -n arc get secret controller-login-secret -o=jsonpath="{.data['password']}" | base64 -d
 ```
 
@@ -42,13 +42,13 @@ kubectl -n arc get secret controller-login-secret -o=jsonpath="{.data['password'
 
 Run the following command to retrieve the user name:
 
-```terminal
+```console
 [Text.Encoding]::Utf8.GetString([Convert]::FromBase64String((kubectl -n arc get secret controller-login-secret -o=jsonpath="{.data['username']}")))
 ```
 
 Run the following command to retrieve the password:
 
-```terminal
+```console
 [Text.Encoding]::Utf8.GetString([Convert]::FromBase64String((kubectl -n arc get secret controller-login-secret -o=jsonpath="{.data['password']}")))
 ```
 

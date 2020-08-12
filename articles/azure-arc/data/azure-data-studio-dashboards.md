@@ -28,7 +28,7 @@ First, you'll need to connect Azure Data Studio to your data controller service 
 
 To get this endpoint you can run the following command:
 
-```terminal
+```console
 kubectl get svc/controller-svc-external -n <namespace name>
 
 #Example:
@@ -37,7 +37,7 @@ kubectl get svc/controller-svc-external -n arc
 
 You'll see output that looks like this:
 
-```terminal
+```console
 NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                                       AGE
 controller-svc-external   LoadBalancer   10.0.175.137   52.154.152.24    30080:32192/TCP                               22h
 ```
@@ -46,7 +46,7 @@ If you are using a LoadBalancer type, you'll want to copy the external IP addres
 
 Now, you'll want to construct a URL to your endpoint by combining this information like so:
 
-```terminal
+```console
 https://<ip address>:<port>
 
 Example:

@@ -17,7 +17,7 @@ ms.topic: how-to
 
 Before you can create an instance you must first login to the Azure Arc data controller if you are not already logged in.
 
-```terminal
+```console
 azdata login
 ```
 
@@ -25,7 +25,7 @@ You will then be prompted for the username, password and the system namespace.
 
 > If you used the script to install the data controller then your namespace should be **arc**
 
-```terminal
+```console
 Username: arcadmin
 Password:
 Namespace: arc
@@ -37,7 +37,7 @@ Log in to your Azure account.
 > [!NOTE]
 > Logging into Azure is optional at this point. If you wish to use Azure attached capabilities such as Azure monitor and Azure Log Analytics, log in with your Azure account, else you can skip it.
 
-```terminal
+```console
 az login
 ```
 
@@ -63,13 +63,13 @@ To create an Azure SQL managed managed instance use the following command.
 > [!NOTE]
 >  To list available storage classes in your kubernetes cluster run `kubectl get storageclass` 
 
-```terminal
+```console
 azdata arc sql mi create -n <instanceName> --external-endpoint --storage-class-data <storage class> --storage-class-logs <storage class>
 ```
 
 Example:
 
-```terminal
+```console
 azdata arc sql mi create -n sqldemo --external-endpoint --storage-class-data managed-premium --storage-class-logs managed-premium
 ```
 
@@ -85,13 +85,13 @@ You will then be asked to submit a username and password for the system administ
 
 To view the instance use the following command:
 
-```terminal
+```console
 azdata arc sql mi list
 ```
 
 Output should look like this:
 
-```terminal
+```console
 Name    Replicas    ServerEndpoint    State
 ------  ----------  ----------------  -------
 sqldemo 1/1         10.240.0.4:32023  Ready
@@ -103,7 +103,7 @@ If you are using AKS or kubeadm or OpenShift etc., you can copy the external IP 
 
 If you are using an Azure virtual machine then the endpoint IP address will not show the public IP address. To locate the external IP address use the following command:
 
-```terminal
+```console
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -113,7 +113,7 @@ You may also need to expose the port of the sql instance through the network sec
 
 To set a rule you will need to know the name of your NSG which you can find out using the command below:
 
-```terminal
+```console
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -121,7 +121,7 @@ Once you have the name of the NSG, you can add a firewall rule using the followi
 
 Replace the value of the --destination-port-ranges parameter below with the port number you got from the 'azdata sql instance list' command above.
 
-```terminal
+```console
 az network nsg rule create -n db_port --destination-port-ranges 30913 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 

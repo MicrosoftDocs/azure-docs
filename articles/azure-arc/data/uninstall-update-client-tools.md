@@ -23,7 +23,7 @@ This document walks you through the steps for uninstalling azdata and updating t
 > [!NOTE]
 >  all necessary extensions are included in the Windows MSI installer, thus this step can be skipped if installing from MSI.
 
-```terminal
+```console
 azdata extension remove -n azdata-cli-postgres -y
 azdata extension remove -n azdata-cli-dc -y
 azdata extension remove -n azdata-cli-sqlinstance -y
@@ -41,7 +41,7 @@ Go to Add/Remove Programs and uninstall the 'Azure Data CLI' program.
 
 #### macOS
 
-```terminal
+```console
 brew uninstall azdata-cli
 ```
 
@@ -49,25 +49,25 @@ brew uninstall azdata-cli
 
 Run the following command to see the list of docker containers you have running currently and identify the id of the container you want to delete.
 
-```terminal
+```console
 docker ps -a
 ```
 
 Delete the identified container.
 
-```terminal
+```console
 docker rm -f <id>
 ```
 
 #### Debian/Ubuntu
 
-```terminal
+```console
 apt-get remove azdata-cli
 ```
 
 #### RHEL/CentoS
 
-```terminal
+```console
 yum uninstall azdata-cli
 ```
 
@@ -75,7 +75,7 @@ yum uninstall azdata-cli
 
 This command should return an error that azdata is not found.
 
-```terminal
+```console
 azdata --version
 ```
 
