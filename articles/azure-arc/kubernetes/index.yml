@@ -1,6 +1,6 @@
 ### YamlMime:Landing
-title: Azure Arc Kubernetes
-summary: Azure Arc Kubernetes
+title: Azure Arc Kubernetes (preview)
+summary: Learn how to manage Kubernetes clusters with Azure Arc
 
 metadata:
   title: Azure Arc Kubernetes
