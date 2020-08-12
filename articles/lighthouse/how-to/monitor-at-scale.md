@@ -12,7 +12,7 @@ As a service provider, you may have onboarded multiple customer tenants to [Azur
 This topic shows you how to use [Azure Monitor Logs](../../azure-monitor/platform/data-platform-logs.md) in a scalable way across the customer tenants you're managing.
 
 > [!TIP]
-> Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](enterprise.md).
+> Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](../concepts/enterprise.md).
 
 ## Create Log Analytics workspaces
 

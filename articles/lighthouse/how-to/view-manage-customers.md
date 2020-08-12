@@ -10,7 +10,7 @@ ms.topic: how-to
 Service providers using [Azure Lighthouse](../overview.md) can use the **My customers** page in the [Azure portal](https://portal.azure.com) to view delegated customer resources and subscriptions. 
 
 > [!TIP]
-> While we'll refer to service providers and customers here, [enterprises managing multiple tenants](enterprise.md) can use the same process to consolidate their management experience.
+> While we'll refer to service providers and customers here, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same process to consolidate their management experience.
 
 To access the **My customers** page in the Azure portal, select **All services**, then search for **My customers** and select it. You can also find it by entering “My customers” in the search box near the top of the Azure portal.
 

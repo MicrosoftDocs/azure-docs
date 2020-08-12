@@ -12,7 +12,7 @@ After a customer's subscription or resource group has been delegated to a servic
 Removing a delegation can be done by a user in either the customer tenant or the service provider tenant, as long as the user has the appropriate permissions.
 
 > [!TIP]
-> Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](enterprise.md) can use the same processes.
+> Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same processes.
 
 ## Customers
 
