@@ -142,7 +142,7 @@ featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of
 
 ## Featurization transparency
 
-Every AutoML model has featurization automatically applied.  Featurization includes automated feature engineering (when `"featurization": 'auto'`) and scaling and normalization, which then impacts the selected algorithm and its hyperparameter values. AutoML supports different methods to ensure you have visibilityy into what was applied to your model.
+Every AutoML model has featurization automatically applied.  Featurization includes automated feature engineering (when `"featurization": 'auto'`) and scaling and normalization, which then impacts the selected algorithm and its hyperparameter values. AutoML supports different methods to ensure you have visibility into what was applied to your model.
 
 Consider this forecasting example:
 
