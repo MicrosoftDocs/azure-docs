@@ -94,7 +94,8 @@ The script is designed to be flexible. It will first look for existing Immersive
             if (-not $clientId) {
                 throw "Error: Failed to create Azure Active Directory app"
             }
-            Write-Host "Azure Active Directory app created successfully"
+            Write-Host "Azure Active Directory app created successfully."
+            Write-Host "NOTE: The AAD app client secret is configured to expire in 1 year. To manage AAD application client secrets please visit https://portal.azure.com and go to Home -> App Registrations -> $AADAppDisplayName -> Certificates and Secrets blade -> Client Secrets section" -ForegroundColor Yellow
         }
 
         # Create a service principal if it doesn't already exist
@@ -164,7 +165,7 @@ The script is designed to be flexible. It will first look for existing Immersive
     | ResourceGroupLocation |If your resource group doesn't exist, you need to supply a location in which to create the group. To find a list of locations, run `az account list-locations`. Use the *name* property (without spaces) of the returned result. This parameter is optional if your resource group already exists. |
     | AADAppDisplayName |The Azure Active Directory application display name. If an existing Azure AD application is not found, a new one with this name will be created. This parameter is optional if the Azure AD application already exists. |
     | AADAppIdentifierUri |The URI for the Azure AD app. If an existing Azure AD app is not found, a new one with this URI will be created. For example, `https://immersivereaderaad-mycompany`. |
-    | AADAppClientSecret |A password you create that will be used later to authenticate when acquiring a token to launch the Immersive Reader. The password must be at least 16 characters long, contain at least 1 special character, and contain at least 1 numeric character. |
+    | AADAppClientSecret |A password you create that will be used later to authenticate when acquiring a token to launch the Immersive Reader. The password must be at least 16 characters long, contain at least 1 special character, and contain at least 1 numeric character. **NOTE: The AAD app client secret is configured to expire in 1 year**. To manage AAD application client secrets please visit https://portal.azure.com and go to Home -> App Registrations -> `[AADAppDisplayName]` -> Certificates and Secrets blade -> Client Secrets section |
 
 1. Copy the JSON output into a text file for later use. The output should look like the following.
 
