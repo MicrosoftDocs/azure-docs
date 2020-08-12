@@ -95,7 +95,7 @@ For example:
 For this alert rule, two metric time-series are being monitored:
 
 - Percentage CPU where *Resource*=’myVM1’ > 70%
-- Network In Total where *Resource*=’myVM1’ > 20MB
+- Network In Total where *Resource*=’myVM1’ > 20 MB
 
 ![A multi-condition alert rule](media/alerts-metric-multiple-time-series-single-rule/multi-condition-alert-rule.png)
  
@@ -170,4 +170,4 @@ For example, an alert rule can show a high price estimation if it leverages the 
 
 ## Next Steps
 
-Learn more about monitoring at scale using metric alerts and [dynamic thresholds]alerts-dynamic-thresholds.md).
+Learn more about monitoring at scale using metric alerts and [dynamic thresholds](alerts-dynamic-thresholds.md).
