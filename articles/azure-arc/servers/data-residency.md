@@ -18,9 +18,9 @@ Azure Arc enabled servers (preview) stores [Azure VM extension](manage-vm-extens
 
 Metadata information about the connected machine are also collected. Specifically:
 
-* operating system name and version
-* computer name
-* computer fully qualified domain name (FQDN)
+* Operating system name and version
+* Computer name
+* Computer fully qualified domain name (FQDN)
 * Connected Machine agent version
 
 Where is the data replicated within the region? Ryan will ask the Devs to weigh-in and determine if we need to be explicit here. What other data is collected that is not specified here and should be listed/described? What about geo-redundancy of the data when a regional datacenter is impacted by a disaster? How secure is the data? How does the service maintain availability in a disaster scenario or other issue that impacts service availability?
