@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/20/2020
+ms.date: 08/12/2020
 ---
 
 # Use Apache Spark to read and write Apache HBase data
 
-Apache HBase is typically queried either with its low-level API (scans, gets, and puts) or with a SQL syntax using Apache Phoenix. Apache also provides the Apache Spark HBase Connector. The Connector is a convenient and performant alternative to query and modify data stored by HBase.
+Apache HBase is typically queried either with its low-level API (scans, gets, and puts) or with a SQL syntax using Apache Phoenix. Apache also provides the Apache Spark HBase Connector. The Connector is a convenient and efficient alternative to query and modify data stored by HBase.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Apache HBase is typically queried either with its low-level API (scans, gets, an
 
 ## Overall process
 
-The high-level process for enabling your Spark cluster to query your HDInsight cluster is as follows:
+The high-level process for enabling your Spark cluster to query your HBase cluster is as follows:
 
 1. Prepare some sample data in HBase.
 2. Acquire the hbase-site.xml file from your HBase cluster configuration folder (/etc/hbase/conf), and place a copy of hbase-site.xml in your Spark 2 configuration folder (/etc/spark2/conf). (OPTIONAL: use script provided by HDInsight team to automate this process)
@@ -74,12 +74,13 @@ In this step, you create and populate a table in Apache HBase that you can then 
 ## Run scripts to set up connection between clusters
 
 To set up the communication between clusters, follow the below steps to run two scripts on your clusters. These scripts will automate the process of file copying described in 'Set up communication manually' section below. 
-* HBase side script will upload hbase-site.xml & HBase IP mapping information to Spark default storage you added to the cluster. 
-* Spark side script set up two cron jobs to run two helper scripts periodically:  
-    1.	HBase cron – download new hbase-site.xml files and HBase IP mapping from Spark default storage account to local node
-    2.	Spark cron – checks if a Spark scaling occurred and if cluster is secure, if so, edit /etc/hosts to include HBase IP mapping stored locally
 
-__NOTE__: Before proceeding, make sure you have added Spark cluster’s storage account to your HBase cluster as secondary storage account. Make sure you run step 1 script before step 2 script.
+* The script you run from the HBase cluster will upload `hbase-site.xml` and HBase IP-mapping information to the default storage attached to your Spark cluster. 
+* The script that you run from the Spark cluster sets up two cron jobs to run two helper scripts periodically:  
+    1.	HBase cron job – download new `hbase-site.xml` files and HBase IP mapping from Spark default storage account to local node
+    2.	Spark cron job – checks if a Spark scaling occurred and if cluster is secure. If so, edit `/etc/hosts` to include HBase IP mapping stored locally
+
+__NOTE__: Before proceeding, make sure you have added the Spark cluster’s storage account to your HBase cluster as secondary storage account. Make sure you the scripts in order as indicated below.
 
 
 1. Use [Script Action](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) on your HBase cluster to apply the changes with the following considerations: 
@@ -92,7 +93,7 @@ __NOTE__: Before proceeding, make sure you have added Spark cluster’s storage 
     |Parameters|`-s SECONDARYS_STORAGE_URL`|
     |Persisted|yes|
 
-    * `SECONDARYS_STORAGE_URL` is the url of the Spark side default storage. Parameter Example: -s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net
+    * `SECONDARYS_STORAGE_URL` is the url of the Spark side default storage. Parameter Example: `-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
 
 
 2.	Use Script Action on your Spark cluster to apply the changes with the following considerations:
@@ -105,8 +106,8 @@ __NOTE__: Before proceeding, make sure you have added Spark cluster’s storage 
     |Persisted|yes|
 
 
-    * You can specify how often you want this cluster to automatically check if update. Default: -s “*/1 * * * *” -h 0 (Spark cron runs every minute, HBase cron not set up)
-    * Since HBase cron is not set up by default, you need to re-run this script when perform scaling to your HBase cluster. If your HBase cluster scales often, you may choose to set up HBase cron job automatically. For example: `-h "*/30 * * * *"` to have it perform checks every 30 minutes. This will run HBase cron schedule periodically to automate downloading of new HBase information on the common storage account to local node.
+    * You can specify how often you want this cluster to automatically check if update. Default: -s “*/1 * * * *” -h 0 (In this example, the Spark cron runs every minute, while the HBase cron doesn't run)
+    * Since HBase cron is not set up by default, you need to rerun this script when perform scaling to your HBase cluster. If your HBase cluster scales often, you may choose to set up HBase cron job automatically. For example: `-h "*/30 * * * *"` configures the script to perform checks every 30 minutes. This will run HBase cron schedule periodically to automate downloading of new HBase information on the common storage account to local node.
     
     
 
@@ -159,7 +160,7 @@ As an example, the following table lists two versions and the corresponding comm
     |      2.1    | HDI 3.6 (HBase 1.1) | 1.1.0.3.1.2.2-1    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
     |      2.4    | HDI 4.0 (HBase 2.0) | 1.1.1-2.1-s_2.11  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
 
-2. Keep this Spark shell instance open and continue to [Define a catalog and query](#define-a-catalog-and-query). If you don't find the jars that correspond to your versions in the SHC Core respository, continue reading. 
+2. Keep this Spark shell instance open and continue to [Define a catalog and query](#define-a-catalog-and-query). If you don't find the jars that correspond to your versions in the SHC Core repository, continue reading. 
 
 You can build the jars directly from the [spark-hbase-connector](https://github.com/hortonworks-spark/shc) GitHub branch. For example, if you are running with Spark 2.3 and HBase 1.1, complete these steps:
 
