@@ -1,21 +1,21 @@
 ---
-title: 'Key concepts'
+title: 'Architecture & key concepts'
 titleSuffix: Azure Machine Learning
-description: Learn about terms and concepts used by Azure Machine Learning.
+description: Learn about the architecture, terms, concepts, and workflows that make up Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/04/2020
+ms.date: 08/12/2020
 ms.custom: seoapril2019, seodec18
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 
 # Key concepts for Azure Machine Learning
 
-Learn about the terms and concepts used by Azure Machine Learning.
+Learn about the architecture, concepts, and workflow for Azure Machine Learning.
 
 > [!NOTE]
 > Although this article defines terms and concepts used by Azure Machine Learning, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
