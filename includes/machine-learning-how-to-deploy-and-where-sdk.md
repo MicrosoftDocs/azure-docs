@@ -95,12 +95,11 @@ For more information, see the documentation for the [Model class](https://docs.m
 
 For more information on working with models trained outside Azure Machine Learning, see [How to deploy an existing model](../articles/machine-learning/how-to-deploy-existing-model.md).
 
-
 ## Define an entry script
 
 [!INCLUDE [write entry script](machine-learning-entry-script.md)]
 
-## Define an inference configuration
+## Define an InferenceConfig
 
 An inference configuration describes how to set up the web-service containing your model. It's used later, when you deploy the model.
 
@@ -157,12 +156,9 @@ For more information on inference configuration, see the [InferenceConfig](https
 
 ## Choose a compute target
 
-
 [!INCLUDE [aml-compute-target-deploy](aml-compute-target-deploy.md)]
 
-
-
-## Define a deployment configuration
+## Define a DeploymentConfiguration
 
 Before deploying your model, you must define the deployment configuration. *The deployment configuration is specific to the compute target that will host the web service.* For example, when you deploy a model locally, you must specify the port where the service accepts requests. The deployment configuration isn't part of your entry script. It's used to define the characteristics of the compute target that will host the model and entry script.
 
@@ -182,7 +178,6 @@ The classes for local, Azure Container Instances, and AKS web services can be im
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-
 ## Deploy your model
 
 You are now ready to deploy your model. The example below demonstrates a local deployment. The syntax will vary depending on the compute target you chose in the previous step.
@@ -198,11 +193,9 @@ print(service.state)
 
 For more information, see the documentation for [LocalWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py), [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-), and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
-
 ## Delete resources
 
 To delete a deployed web service, use `service.delete()`.
 To delete a registered model, use `model.delete()`.
 
 For more information, see the documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
-
