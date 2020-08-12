@@ -39,7 +39,17 @@ For details on configuring one of these test drives, see the link under [Next st
 
 ### Azure Resource Manager test drive
 
-This deployment template contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources. This is the only test drive option for virtual machine or Azure app offers.
+This deployment template contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources. The Azure Resource Manager test drive is available for these offer types: 
+
+- Azure applications
+- Dynamics 365 for Business Central
+- Dynamics 365 for Customer Engagement & PowerApps
+- Dynamics 365 for Operations
+- SaaS
+- Virtual machines
+
+>[!NOTE]
+>This is the only test drive option for virtual machine and Azure application offers.
 
 ### Hosted test drive
 
