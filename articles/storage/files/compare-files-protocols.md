@@ -47,7 +47,13 @@ SMB description here.
 
 ### Use cases
 
-SMB use cases here.
+SMB with Azure Files is ideal for:
+
+- Windows environments
+- Customers that require any of the features listed in [Features](#features)
+- Production environments (NFS is currently in preview)
+
+Do not Use SMB if you need Unix style permissions (UID/GID), Case sensitivity, or POSIX delete behavior.
 
 ## NFS (preview)
 
@@ -70,7 +76,10 @@ Also, the following Azure Files features are not available with NFS shares:
 
 ### Use cases
 
-Do not Use SMB if you need Unix style permissions (UID/GID), Case sensitivity, or POSIX delete behavior.
+NFS with Azure Files is ideal for:
+
+- Linux environments.
+- SAP
 
 #### Container storage 
 
