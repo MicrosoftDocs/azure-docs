@@ -45,6 +45,8 @@ The following table outlines what methods are available for primary or secondary
 | [Email address](#email-address) | No | SSPR-only |
 | [App passwords](#app-passwords) | No | MFA only in certain cases |
 
+These authentication methods can be configured in the Azure portal, and increasingly using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+
 This article outlines these different authentication and verification methods available in Azure AD and any specific limitations or restrictions.
 
 ![Authentication methods in use at the sign-in screen](media/concept-authentication-methods/overview-login.png)
@@ -296,6 +298,8 @@ To get started, see the [tutorial for self-service password reset (SSPR)][tutori
 To learn more about SSPR concepts, see [How Azure AD self-service password reset works][concept-sspr].
 
 To learn more about MFA concepts, see [How Azure Multi-Factor Authentication works][concept-mfa].
+
+Learn more about configuring authentication methods using the [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md
