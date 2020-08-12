@@ -1,8 +1,19 @@
+---
+title: How To - Run an application with Fortanix Enclave Manager 
+description: Learn how to use Fortanix Enclave Manager to convert your containerized images
+author: JBCook
+ms.service: virtual-machines
+ms.subservice: workloads
+ms.workload: infrastructure
+ms.topic: how-to
+ms.date: 8/12/2020
+ms.author: JenCook
+---
 # How To: Run an application with Fortanix Enclave Manager 
 
 Start running your application in Azure confidential computing using Fortanix Enclave Manager and Fortanix Node Manager. 
 
-This tutorial will walk you through the steps to set up an environment that will convert your application image to a confidential compute-protected image. This environment uses Fortanix's software, powered by Azure's DCsv2-Series Intel SGX-enabled virtual machines. This solution orchestrates critical security policies such as identity verification and data access control.
+This tutorial shows you how to convert your application image to a confidential compute-protected image. This environment uses [Fortanix](https://www.fortanix.com/) software, powered by Azure's DCsv2-Series Intel SGX-enabled virtual machines. This solution orchestrates critical security policies such as identity verification and data access control.
 
 > [!NOTE]
 > For Fortanix-specific support, join the the [Fortanix Slack community](https://fortanix.com/community/) and use the channel #enclavemanager.
@@ -19,14 +30,14 @@ This tutorial will walk you through the steps to set up an environment that will
 
 ## Add an application to Fortanix Enclave Manager
 1. Sign in to [Fortanix EM](https://fortanix.com)
-1. Navigate to the **Accounts** page and click **ADD ACCOUNT** to create a new account. 
+1. Navigate to the **Accounts** page and select **ADD ACCOUNT** to create a new account. 
 
     ![Create an account](media/how-to-fortanix-enclave-manager/create-account.png)
 
-1. After your account is created, click **SELECT** to select the newly created account. Now we can start enrolling the compute nodes and creating applications. 
-1. Click the **+ APPLICATION** button to add an application. In this example, we'll be adding a Flask Server Enclave OS application. 
+1. After your account is created, hit **SELECT** to select the newly created account. Now we can start enrolling the compute nodes and creating applications. 
+1. Select the **+ APPLICATION** button to add an application. In this example, we'll be adding a Flask Server Enclave OS application. 
 
-1. Click the **ADD** button for the Enclave OS Application. 
+1. Select the **ADD** button for the Enclave OS Application. 
 
     ![Add application](media/how-to-fortanix-enclave-manager/add-enclave-application.png)
 
@@ -53,7 +64,7 @@ This tutorial will walk you through the steps to set up an environment that will
             sudo docker run fortanix/python-flask
          ```
 
-1. Add a certificate. Fill in the information using the details below and then click **NEXT**:
+1. Add a certificate. Fill in the information using the details below and then select **NEXT**:
     - **Domain**: myapp.domain.dom
     - **Type**: Certificate Issued by Enclave Manager 
     - **Key path**: /appkey.pem
@@ -67,32 +78,32 @@ A Fortanix EM Image is a software release or version of an application. Each ima
 1. On the **Add Image** page, enter the **REGISTRY CREDENTIALS** for **Output image name**. These credentials are used to access the private docker registry where the image will be pushed. 
 
     ![create image](media/how-to-fortanix-enclave-manager/create-image.png)
-1. Provide the image tag and click **Create**.
+1. Provide the image tag and select **Create**.
 
     ![add tag](media/how-to-fortanix-enclave-manager/add-tag.png)
 
-## Domain and Image whitelisting 
-An application whose domain is whitelisted will get a TLS Certificate from Fortanix Enclave Manager. Similarly, when an application runs from the converted image, it will try to contact Fortanix Enclave Manager. The application will then ask for a TLS Certificate. 
+## Domain and Image allow listing 
+An application whose domain is added to the allow list, will get a TLS Certificate from Fortanix Enclave Manager. Similarly, when an application runs from the converted image, it will try to contact Fortanix Enclave Manager. The application will then ask for a TLS Certificate. 
 
 Switch to the **Tasks** tab on the left and approve the pending requests to allow the domain and image. 
 
 ## Enroll compute node agent in Azure
 
 ### Generate and copy Join token
-In Fortanix Enclave Manager, you generate a token so that the compute node in Azure can authenticate itself. You'll need to give this token to your Azure virtual machine deployment. 
-1. In the management console, click the **+ ENROLL NODE** button. 
-1. Click **GENERATE TOKEN** to generate the Join token. Copy the token.
+In Fortanix Enclave Manager, you'll create a token. This token allows a compute node in Azure to authenticate itself. You'll need to give this token to your Azure virtual machine.
+1. In the management console, select the **+ ENROLL NODE** button. 
+1. Select **GENERATE TOKEN** to generate the Join token. Copy the token.
 
 ### Enroll nodes into Fortanix Node Agent in the Azure Marketplace
 
-Creating a Fortanix Node Agent, will deploy a virtual machine, network interface, virtual network, network security group, and a public IP address into your Azure resource group. Your Azure subscription will be billed hourly for the virtual machine. Before you create a Fortanix Node Agent, review the Azure [virtual machine pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) for DCsv2-Series. Ensure you delete resources when not in use. 
+Creating a Fortanix Node Agent will deploy a virtual machine, network interface, virtual network, network security group, and a public IP address into your Azure resource group. Your Azure subscription will be billed hourly for the virtual machine. Before you create a Fortanix Node Agent, review the Azure [virtual machine pricing page](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) for DCsv2-Series. Ensure you delete resources when not in use. 
 
-1. Go to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) and sign-in with your Azure credentials.
+1. Go to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) and sign in with your Azure credentials.
 1. In the search bar, type **Fortanix Confidential Computing Node Agent**. Select the App that shows up in the search box called **Fortanix Confidential Computing Node Agent** to navigate to the offering's home page. 
      ![search marketplace](media/how-to-fortanix-enclave-manager/search-fortanix-marketplace.png)
-1. Click **Get It Now**, fill in your information if necessary, and click **Continue**. You will get redirected to the Azure Portal. 
+1. Select **Get It Now**, fill in your information if necessary, and select **Continue**. You'll get redirected to the Azure portal. 
 1. Select **Create** to enter the Fortanix Confidential Computing Node Agent deployment page.
-1. On this page, you will be entering information to deploy a DCsv2-Series Intel SGX-enabled virtual machine from Azure with Fortanix Node Agent software installed. The Node Agent will allow your converted image to run securely on Intel SGX nodes in Azure.  Select the **subscription** and **resource group** where you want to deploy the virtual machine and associated resources. 
+1. On this page, you'll be entering information to deploy a virtual machine. Specifically, this VM is a DCsv2-Series Intel SGX-enabled virtual machine from Azure with Fortanix Node Agent software installed. The Node Agent will allow your converted image to run securely on Intel SGX nodes in Azure.  Select the **subscription** and **resource group** where you want to deploy the virtual machine and associated resources. 
  
     > [!NOTE]
     > There are constraints when deploying DCsv2-Series virtual machines in Azure. You may need to request quota for additional cores. Read about [confidential computing solutions on Azure VMs](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solution) for more information. 
@@ -105,10 +116,10 @@ Creating a Fortanix Node Agent, will deploy a virtual machine, network interface
 
      ![deploy resource](media/how-to-fortanix-enclave-manager/deploy-fortanix-node-agent.png)
 
-1. Click **Review + Create**. Ensure the validation passes and then click **Create**. Once all the resources deploy, the compute node is now enrolled in Enclave Manager. 
+1. Select **Review + Create**. Ensure the validation passes and then select **Create**. Once all the resources deploy, the compute node is now enrolled in Enclave Manager. 
 
 ## Run the application image on the compute node
-Run the application by executing the following command and changing the Node IP, Port, and Converted Image Name as inputs for your specific application. 
+Run the application by executing the following command. Ensure you change the Node IP, Port, and Converted Image Name as inputs for your specific application. 
  
 In this tutorial, the command to execute is:     
 
@@ -123,15 +134,20 @@ In this tutorial, the command to execute is:
 where, 
 - *52.152.206.164* is the Node Agent Host IP
 - *9092* is the port that Node Agent listens up
-- *fortanix-private/python-flask-sgx* is the converted app that can be found in the Images tab under the **Image Name** column in the **Images** table. 
+- *fortanix-private/python-flask-sgx* is the converted app that can be found in the Images tab under the **Image Name** column in the **Images** table in the Fortanix Enclave Manage Web Portal. 
     
 ## Verify and monitor the running application
-Head back to the management console in the Fortanix Enclave Manager application. Click the **Application** tab and verify that there is a running application image associated with it.
+1. Head back to the [Fortanix Enclave Manager](https://em.fortanix.com/console)
+1. Ensure you're working inside the **Account** where you enrolled the node
+1. Navigate to the **Management Console** by selecting the top icon on the left navigation pane. 
+1. Select the **Application** tab
+1. Verify that there's a running application with an associated compute node
+
 
 ## Clean up Azure resources
 
-When no longer needed, you can delete the resource group, virtual machine, and associated resources. Node that this will un-enroll the nodes associated with your converted image. 
+When no longer needed, you can delete the resource group, virtual machine, and associated resources. Deleting the resource group will unenroll the nodes associated with your converted image. 
 
 Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
 
-Contact Fortanix if you would like to delete your Enclave Manager account. 
+[Contact Fortanix](https://support.fortanix.com/hc/requests/new) if you would like to delete your Enclave Manager account. 
