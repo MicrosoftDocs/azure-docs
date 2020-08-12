@@ -6,7 +6,7 @@ ms.date: 06/18/2020
 ms.author: inhenkel
 ---
 <div height="400">
-```json
+<pre>
 {
     "properties": {
         "description": "Basic Transform using a custom encoding preset",
@@ -93,5 +93,5 @@ ms.author: inhenkel
         ]
     }
 }
-```
+</pre>
 </div>
