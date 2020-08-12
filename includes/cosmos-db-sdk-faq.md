@@ -17,9 +17,9 @@ Yes, customers will have full access to author, deploy, and modify applications 
 
 After the retirement date, Azure Cosmos DB will no longer make bug fixes, add new features, and provide support to the retired SDK versions. If you prefer not to upgrade, requests sent from the retired versions of the SDK will continue to be served by the Azure Cosmos DB service. 
 
-**4. Will new features and functionality be applied to all non-retired SDKs?**
+**4. Which SDK versions will have the latest features and functionality?**
 
-New features and functionality will only be added to the latest minor version of the latest supported major SDK version. It is recommended to always use the latest version to take advantage of the latest features, performance improvements, and bug fixes. If you are using an old, non-retired, version of the SDK your requests to Azure Cosmos DB will still function, but you will not have access to any new capabilities.  
+New features and functionality will only be added to the latest minor version of the latest supported major SDK version. It is recommended to always use the latest version to take advantage of new features, performance improvements, and bug fixes. If you are using an old, non-retired, version of the SDK your requests to Azure Cosmos DB will still function, but you will not have access to any new capabilities.  
 
 **5. What should I do if I cannot update my application before a cut-off date?**
 
