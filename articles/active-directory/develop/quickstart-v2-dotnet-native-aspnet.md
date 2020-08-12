@@ -99,9 +99,18 @@ In this step, you configure your *TodoListClient* project by registering a new a
    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `NativeClient-DotNet-TodoListClient`.
    - Change **Supported account types** to **Accounts in any organizational directory**.
    - Select **Register** to create the application.
+   > Note: In the *TodoListClient* project's **app.config**, the default value of **`ida:Tenant`** is set to **`common`**
+   >
+   > **`common`** means it is possible to sign-in Work or School accounts and Microsoft personal accounts (because you select **Accounts in any organizational directory**)
+   >
+   > **`organizations`** means it is possible to sign-in Work or School accounts
+   >
+   > **`consumers`** means it is possible to sign-in only Microsoft personal accounts
 1. From the app's Overview page, select the **Authentication** section.
-   - In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, check **https://login.microsoftonline.com/common/oauth2/nativeclient**
-   - Select **Save**.
+   - Under **Platform configurations**, click the **Add a platform** button
+   - In the **Mobile and desktop applications**, select the **Mobile and desktop applications**.
+   - In the **Redirect URIs**, check **https://login.microsoftonline.com/common/oauth2/nativeclient**
+   - Select **Configure**.   
 1. Select the **API permissions** section
    - Click the **Add a permission** button and then,
    - Select the **My APIs** tab.
