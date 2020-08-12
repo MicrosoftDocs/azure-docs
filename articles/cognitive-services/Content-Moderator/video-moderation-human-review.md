@@ -17,129 +17,77 @@ ms.author: pafarley
 
 Use Content Moderator's machine-assisted [video moderation](video-moderation-api.md) and [Review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate videos and transcripts for adult (explicit) and racy (suggestive) content to get the best results for your business.
 
-## View a video under review
+## View videos under review
 
 On the dashboard, select any of the review queues within the video content type. This will start a review and open the video content moderation page.
+
+![Video moderation detailed view in Review tool](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
 ### Review count
 
 Use the slider in the upper right to set the number of reviews you'd like to display on the page.
 
-### Toggle content-obscuring effects
+### View type
 
-Use the **Blur all** and **Black and white** toggles to set these content-obscuring effects. They are turned on by default.
-
-### Set the view type
-
-You can view the different content entries as tiles or in a detailed view. The **Detail** view will allow you to see key frames and other information about the selected video.
-
-Instead of outputting frames at regular intervals, the video moderation service identifies and outputs only potentially complete (good) frames. The feature allows efficient frame generation for frame-level adult and racy analysis.
-
-
-### Enlarge the view
-
-Use the expand button above the video frame to enlarge the video and hide the keyframes tiles.
-
-## Apply tags
-
-### Bulk functionality
-
-The bulk tag toolbar lets you add tags to multiple selected videos. Select one or more videos, then select the tags you would like to apply and click **submit**.   
-
-### Tag video key frames
-
-You can add moderation tags to specific keyframes. Select the frames from the tile view, and then select **Keyframe tags +** to apply the desired tags.
+You can view the different content entries as tiles or in a detailed view. The **Detail** view will allow you to see key frames and other information about the selected video. 
 
 > [!NOTE]
-> If the service couldn't extract key frames, the keyframe tile pane will show **No frames available** and the option to select key frames will be grayed out. In this case, you can only apply tags to the video as a whole.
+> Instead of outputting frames at regular intervals, the video moderation service identifies and outputs only potentially complete (good) frames. This feature allows efficient frame generation for frame-level adult and racy analysis.
 
-### Add reviewer notes
+The **Tiled** view will show each video as a single tile. Select the the expand button above a video frame to enlarge that video and hide the others.
 
-You can add custom notes to videos in addition to the applied tags. Select the **Notes** tab and enter your note in the textbox.
+### Content-obscuring effects
 
-### Review video transcripts
+Use the **Blur all** and **Black and white** toggles to set these content-obscuring effects. They are turned on by default. In the **Tiled** view, you can toggle the effects individually for each video.
 
-The service automatically extracts a transcript of the speech in the video, and you can view this on the **Transcript** tab. When you click a section of text, the video player will jump to that part.
+## Check video details
 
-### Video metadata
+In the **Detail** view, the right pane will show several tabs that give you details about the video.
 
-You can view metadata of the video on the **Details** tab.
+* Select the **Notes** tab to add custom notes to videos in addition to the applied tags.
+* Select the **Transcript** tab to see the video transcript&mdash;the service automatically extracts a transcript of any speech in the video. When you click a section of text, the video player will jump to that part of the video.
+* Select the **Meta-data** tab to view video file metadata.
+* Select the **History** tab to see the history of the review, such as when it was created and how it was modified.
+
+![Video moderation bulk tags button](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
+
+## Apply moderation tags
+
+The main task of a video review is to apply or remove moderation tags on videos or parts of videos.
+
+### Bulk tagging
+
+The **Bulk Tags** toolbar lets you add tags to multiple selected videos at once. Select one or more videos, then select the tags you would like to apply and click **submit**. 
+
+![Video moderation bulk tags button](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+
+
+### Key frame tagging
+
+You can also add moderation tags to specific key frames. Select the frames from the key frame tile pane, and then select **Keyframe tags +** to apply the desired tags.
+
+> [!NOTE]
+> If the service couldn't extract key frames, the key frame tile pane will show **No frames available** and the option to select key frames will be grayed out. In this case, you can only apply tags to the video as a whole (using the **Video tags +** button).
+
+![Video moderation detailed view in Review tool](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+
+## Put a review on hold
+
+The **Hold** button at the bottom of the video pane lets you put a review on hold so you can retrieve it and complete it later. You may do this for a review that requires a consult from another team member or manager who is currently unavailable. 
+
+You can view the videos on hold by clicking the **Hold** button at the top of the screen. The Hold pane appears on the right. From here, you can select multiple reviews on hold and either release them back into the queue, or save them with updates. After a preconfigured amount of time (which you can change in the menu at the bottom), reviews on hold are released back to the queue.
+
+![Video moderation detailed view in Review tool](./Review-Tool-User-Guide/images/video-moderation-hold.png)
 
 ## Submit a review
 
-After you've applied your tags, you select the **Submit** button. If you tagged multiple videos, you have the option to submit them under a single review, or as separate reviews.
+After you've applied your tags, select the **Submit** button at the bottom of the video pane. If you've tagged multiple videos, you have the option to submit them under a single review or as separate reviews.
 
-## Limbo
+## Limbo state
 
-After you've submitted a review, the video is moved to the **Limbo** category, which you'll see in a new pane on the right. Videos remain in the Limbo state for a preconfigured amount of time, or until they're reviewed again.
+After you've submitted a review, the video is moved to the **Limbo** state, which you can view by selecting the **Limbo** button at the top of the screen. Videos remain in the Limbo state for a preconfigured amount of time (which you can change in the menu at the bottom), or until they're reviewed again or manually submitted.
 
-Once the videos expire from limbo, they are marked as competed.
-
----
-
-## Video-trained classifier
-
-Machine-assisted video classification is either achieved with image trained models or video trained models. Unlike image-trained video classifiers, Microsoft's adult and racy video classifier is trained with videos. This method results in better match quality.
-
-
-
-## Key frame detection
-
-The following extract shows a partial response with potential shots, key frames, and adult and racy scores:
-
-```json
-"fragments":[  
-  {  
-    "start":0,
-    "duration":18000
-  },
-  {  
-    "start":18000,
-    "duration":3600,
-    "interval":3600,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":false,
-          "adultScore":0.00001,
-          "racyScore":0.03077,
-          "index":5,
-          "timestamp":18000,
-          "shotIndex":0
-        }
-      ]
-    ]
-  },
-  {  
-    "start":18386372,
-    "duration":119149,
-    "interval":119149,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":true,
-          "adultScore":0.00000,
-          "racyScore":0.91902,
-          "index":5085,
-          "timestamp":18386372,
-          "shotIndex":62
-        }
-      ]
-    ]
-```
-
-## Player view for video-level review
-
-Video-level binary decisions are made possible with a video player view that shows potential adult and racy frames. The human reviewers navigate the video with various speed options to examine the scenes. They confirm their decisions by toggling the tags.
-
-![video review tool player view](images/video-review-player-view.PNG)
-
-## Frames view for detailed reviews
-
-A detailed video review for frame-by-frame analysis is made possible with a frame-based view. The human reviewers review and select one or more frames and toggle tags to confirm their decisions. An optional next step is redaction of the offensive frames or content.
-
-![video review tool frames view](images/video-review-frames-view-apply-tags.PNG)
-
+Once the videos expire from limbo, their reviews are marked as complete.
 
 ## Next steps
 
