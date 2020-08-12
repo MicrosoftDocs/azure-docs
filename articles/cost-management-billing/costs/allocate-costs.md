@@ -3,8 +3,8 @@ title: Allocate Azure costs
 description: This article explains how create cost allocation rules to distribute costs of subscriptions, resource groups, or tags to others.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/20/2020
-ms.topic: conceptual
+ms.date: 08/11/2020
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ---
@@ -30,7 +30,7 @@ Allocated costs are shown in cost analysis. They're shown as additional items as
 ## Create a cost allocation rule
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
-2. Navigate to **Cost Management + Billing**.
+2. Navigate to **Cost Management + Billing** > **Cost Management**.
 3. Under **Settings** > **Configuration**, select **Cost allocation (Preview)**.
 4. Ensure that the correct the EA enrollment or billing account is selected.
 5. Select **+Add**.
@@ -68,7 +68,7 @@ Once set, the prefilled percentages defined are fixed. They're used for all ongo
 The allocation rule starts processing. When the rule is active, all the selected source's costs are allocated to the specified targets.
 
 > [!NOTE] 
-> New rule processing can take up to an hour before it completes and is active.
+> New rule processing can take up to two hours before it completes and is active.
 
 ## Verify the cost allocation rule
 
@@ -92,7 +92,7 @@ In the Azure portal, navigate to **Cost Management + Billing** > **Cost Manageme
 
 ## Edit an existing cost allocation rule
 
-You can edit a cost allocation rule to change the source or the target or if you want to update the prefilled percentage for either compute, storage, or network options. Edit the rules in the same way you create them. Modifying existing rules can take up to an hour to reprocess.
+You can edit a cost allocation rule to change the source or the target or if you want to update the prefilled percentage for either compute, storage, or network options. Edit the rules in the same way you create them. Modifying existing rules can take up to two hours to reprocess.
 
 ## Frequently asked questions (FAQ)
 
