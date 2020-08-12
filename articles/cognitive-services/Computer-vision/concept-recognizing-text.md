@@ -1,7 +1,7 @@
 ---
 title: Optical Character Recognition (OCR) - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to optical character recognition (OCR) from images and documents with printed and handwritten text by using the Computer Vision API.
+description: Concepts related to optical character recognition (OCR) of images and documents with printed and handwritten text using the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: netahw
@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Optical Character Recognition (OCR)
 
-Microsoft's Computer Vision API includes Optical Character Recognition (OCR) capabilities that extract printed or handwritten text from images and PDF documents. The OCR APIs extract text from both analog documents (images, scanned documents) and digitized documents. You can extract text from images, such as photos of license plates or containers with serial numbers, as well as from documents - invoices, bills, financial reports, articles, and more. 
+Azure's Computer Vision API includes Optical Character Recognition (OCR) capabilities that extract printed or handwritten text from images. You can extract text from images, such as photos of license plates or containers with serial numbers, as well as from documents - invoices, bills, financial reports, articles, and more. 
 
 ## About the Read API 
 
@@ -28,7 +28,7 @@ The Read API provides OCR capabilities through two operations - **Read** and **G
 
 ## The Read operation
 
-The [Read operation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and extracts text asynchronously. The call returns with a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Operation Id to be used in the next step.
+The [Read operation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and extracts text asynchronously. The call returns with a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Operation ID to be used in the next step.
 
 |Response header| Result URL |
 |:-----|:----|
@@ -136,7 +136,7 @@ The Read operation currently supports extracting handwritten text exclusively in
 ## Integration options
 
 ### Use the REST API or client SDK
-The [Read 3.x REST API](./QuickStarts/CSharp-hand-text.md) is the preferred option for most customers because of ease of integration and fast productivity out of the box. Azure and the Computer Vision service handle scale, performance, data security and compliance needs while you focus on meeting your customers' needs.
+The [Read 3.x REST API](./QuickStarts/CSharp-hand-text.md) is the preferred option for most customers because of ease of integration and fast productivity out of the box. Azure and the Computer Vision service handle scale, performance, data security, and compliance needs while you focus on meeting your customers' needs.
 
 ### Use containers for on-premise deployment
 The [Read 2.0 Docker container (preview)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) enables you to deploy the new OCR capabilities in your own local environment. Containers are great for specific security and data governance requirements.
@@ -151,7 +151,7 @@ The following Read API output shows the extracted text from an image with differ
 
 ### Text from documents
 
-In addition to images, the Read API can take PDF documents as input.
+Read API can also take PDF documents as input.
 
 ![An invoice document, with extracted text listed](./Images/text-from-pdf-example.png)
 
@@ -175,7 +175,7 @@ The Read API supports images and documents that contain multiple different langu
 
 ## OCR API
 
-The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) uses an older recognition model, supports only images, and executes synchronously, returning immediately with the detected text. See the [OCR supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) than Read API.
+The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) uses an older recognition model, supports only images, and executes synchronously, returning immediately with the detected text. See the [OCR supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) then Read API.
 
 ## Data privacy and security
 
