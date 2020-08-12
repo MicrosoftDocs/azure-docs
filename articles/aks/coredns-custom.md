@@ -51,6 +51,9 @@ data:
     }
 ```
 
+> [!IMPORTANT]
+> If you redirect to a DNS server, such as the CoreDNS service IP, that DNS server must be able to resolve the rewritten domain name.
+
 Create the ConfigMap using the [kubectl apply configmap][kubectl-apply] command and specify the name of your YAML manifest:
 
 ```console

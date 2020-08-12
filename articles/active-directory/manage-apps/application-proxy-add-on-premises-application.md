@@ -245,4 +245,4 @@ You did these things:
 You're ready to configure the application for single sign-on. Use the following link to choose a single sign-on method and to find single sign-on tutorials.
 
 > [!div class="nextstepaction"]
-> [Configure single sign-on](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
+> [Configure single sign-on](sso-options.md#choosing-a-single-sign-on-method)
