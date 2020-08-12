@@ -1,22 +1,22 @@
 ---
 title: Data residency
-description: Data residency and information about Azure Arc for servers (preview).
+description: Data residency and information about Azure Arc enabled servers (preview).
 ms.topic: reference
 ms.date: 08/12/2020
 ms.custom: references_regions
 ---
 
-# Azure Arc for servers (preview): Data residency
+# Azure Arc enabled servers (preview): Data residency
 
-This article explains the concept of data residency and how it applies to Azure Arc for servers (preview).
+This article explains the concept of data residency and how it applies to Azure Arc enabled servers (preview).
 
-Azure Arc for servers (preview) is **[available in preview](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** in the **United States, Europe, or Asia Pacific**.
+Azure Arc enabled servers (preview) is **[available in preview](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** in the **United States, Europe, or Asia Pacific**.
 
 [Data residency](#data-residency) refers to where user data is stored.
 
 ## Data residency
 
-Azure Arc for servers (preview) stores [Azure VM extension](manage-vm-extensions.md) configuration settings (that is, property values) that the extension requires specifying before attempting to enable on the connected machine. For example, when you enable the Log Analytics VM extension, it asks for the Log Analytics **workspace ID** and **primary key**. 
+Azure Arc enabled servers (preview) stores [Azure VM extension](manage-vm-extensions.md) configuration settings (that is, property values) that the extension requires specifying before attempting to enable on the connected machine. For example, when you enable the Log Analytics VM extension, it asks for the Log Analytics **workspace ID** and **primary key**. 
 
 Metadata information about the connected machine are also collected. Specifically:
 
