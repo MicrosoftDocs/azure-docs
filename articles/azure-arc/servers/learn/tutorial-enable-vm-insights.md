@@ -49,7 +49,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## View data collected
 
-After the deployment and configuration is completed, select **Insights**, and then select the **Performance** tab. On the Performance tab it shows a select group of performance counters collected from the guest operating system of your VM. Scroll down to view more counters, and move the mouse over a graph to view average and percentiles taken starting from the time when the Log Analytics VM extension was installed on the machine.
+After the deployment and configuration is completed, select **Insights**, and then select the **Performance** tab. On the Performance tab, it shows a select group of performance counters collected from the guest operating system of your VM. Scroll down to view more counters, and move the mouse over a graph to view average and percentiles taken starting from the time when the Log Analytics VM extension was installed on the machine.
 
 :::image type="content" source="./media/tutorial-enable-vm-insights/insights-performance-charts.png" alt-text="Azure Monitor for VMs Performance charts for selected machine" border="false":::
 
@@ -59,7 +59,7 @@ Select **Map** to open the maps feature, which shows the processes running on th
 
 Expand the processes for your virtual machine. Select one of the processes to view its details and to highlight its dependencies.
 
-Select your virtual machine again and then select **Log Events**. You see a list of tables that are stored in the Log Analytics workspace for the virtual machine. This list will be different depending whether you're using a Windows or Linux virtual machine. Select the **Event** table. This includes all events from the Windows event log. Log Analytics opens with a simple query to retrieve collected event log entries.
+Select your virtual machine again and then select **Log Events**. You see a list of tables that are stored in the Log Analytics workspace for the virtual machine. This list will be different depending whether you're using a Windows or Linux virtual machine. Select the **Event** table. The **Event** table includes all events from the Windows event log. Log Analytics opens with a simple query to retrieve collected event log entries.
 
 ## Next steps
 

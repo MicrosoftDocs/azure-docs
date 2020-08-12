@@ -7,7 +7,7 @@ ms.date: 08/12/2020
 
 # Quickstart: Connect hybrid machine with Azure Arc enabled servers
 
-[Azure Arc for servers](../overview.md) (preview) enables you to manage and govern your Windows and Linux machines hosted across on-premises, edge and multicloud environments. In this quickstart, you'll deploy and configure the Connected Machine agent on your Windows or Linux machine hosted outside of Azure for management by Arc for servers (preview).
+[Azure Arc for servers](../overview.md) (preview) enables you to manage and govern your Windows and Linux machines hosted across on-premises, edge, and multicloud environments. In this quickstart, you'll deploy and configure the Connected Machine agent on your Windows or Linux machine hosted outside of Azure for management by Arc for servers (preview).
 
 ## Prerequisites
 
@@ -92,15 +92,15 @@ The script to automate the download, installation, and establish the connection 
 
 ## Verify the connection with Azure Arc
 
-After you install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has been successfully connected. View your machine in the [Azure portal](https://aka.ms/hybridmachineportal).
+After you install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has successfully connected. View your machine in the [Azure portal](https://aka.ms/hybridmachineportal).
 
 :::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="A successful machine connection" border="false":::
 
 ## Next steps
 
-Now that you've enabled your Linux or Windows hybrid machine to successfully connect to the service, you are ready to enable Azure Policy to understand compliance in Azure.
+Now that you've enabled your Linux or Windows hybrid machine and successfully connected to the service, you are ready to enable Azure Policy to understand compliance in Azure.
 
-To learn how to identify Azure Arc for servers (preview) enabled machine that don't have the Log Analytics agent installed, continue to the tutorial:
+To learn how to identify Azure Arc for servers (preview) enabled machine that doesn't have the Log Analytics agent installed, continue to the tutorial:
 
 > [!div class="nextstepaction"]
 > [Create a policy assignment to identify non-compliant resources](tutorial-assign-policy-portal.md)
