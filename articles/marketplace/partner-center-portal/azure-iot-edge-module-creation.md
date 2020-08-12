@@ -283,9 +283,11 @@ Add at least one Azure subscription ID, either individually (up to 10) or by upl
 
 Select **Save draft** before proceeding to the next section, Plan overview.
 
-### Plan overview
+## Plan overview
 
 This tab lets you provide different plan options within the same offer in Partner Center. Plans (formerly called SKUs) can differ in terms of what clouds are available, such as global clouds, Government clouds, and the image referenced by the plan. To list your offer in the marketplace, you must set up at least one plan.
+
+You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
 
 After you create your plans, the **Plan overview** tab shows:
 
@@ -300,7 +302,7 @@ The actions available in the Plan overview vary depending on the current status 
 - **Delete draft**: If the plan status is a Draft.
 - **Stop sell plan**: If the plan status is published live.
 
-#### Create new plan
+### Create new plan
 
 Select **Create new plan**. The **New plan** dialog box appears.
 
@@ -332,7 +334,7 @@ This option is only visible if **Azure Government** is selected under **Azure re
 
 Azure Government services handle data that's subject to certain government regulations and requirements. For example, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4, and CJIS. To bring awareness to your certifications for these programs, you can provide up to 100 links that describe your certifications. These can be links to your listings on the program directly or to your own website. These links are visible to Azure Government customers only.
 
-## Plan listing
+### Plan listing
 
 This tab displays specific information for each different plan within the same offer.
 
@@ -372,7 +374,7 @@ Here's an example of Azure Marketplace plan details (any listed prices are for e
 2. Plan name
 3. Plan description
 
-## Availability
+### Availability
 
 If you want to hide your published offer so customers can't search, browse, or purchase it in the marketplace, select the **Hide plan** check box on the Availability tab.
 
