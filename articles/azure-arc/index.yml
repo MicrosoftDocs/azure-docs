@@ -50,7 +50,7 @@ productDirectory:
           text: Connect machines to Azure with PowerShell DSC
     # Card
     - title: Kubernetes
-      imageSrc: ./media/azure.svg
+      imageSrc: ./media/kubernetes.png
       links:
         - url: ./kubernetes/connect-cluster.md
           text: Connect cluster
