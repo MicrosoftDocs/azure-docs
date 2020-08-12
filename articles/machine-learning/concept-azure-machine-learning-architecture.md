@@ -38,7 +38,7 @@ You can share a workspace with others.
 ## <a name="compute-instance"></a> Computes
 
 <a name="compute-targets"></a>
-A [compute target](concept-compute-target.md) is the machine where you run your training script or host your service deployment. This location may be your local machine or any of the compute resources below.
+A [compute target](concept-compute-target.md) is the machine or set of machines where you run your training script or host your service deployment. This location may be your local machine or any of the compute resources below.
 
 |Term  |Description  |
 |---------|---------|
@@ -48,25 +48,23 @@ A [compute target](concept-compute-target.md) is the machine where you run your 
 
 ## Datasets and datastores
 
-**Azure Machine Learning Datasets**  make it easier to access and work with your data. Datasets manage data in various scenarios such as model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore data, and manage the life cycle of different Dataset definitions.
+[**Azure Machine Learning Datasets**](concept-data.md#datasets)  make it easier to access and work with your data. Datasets manage data in various scenarios such as model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore data, and manage the life cycle of different Dataset definitions.
 
 Datasets provide methods for working with data in popular formats, such as using `from_delimited_files()` or `to_pandas_dataframe()`.
 
 For more information, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).  For more examples using Datasets, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets-tutorial).
 
-A **datastore** is a storage abstraction over an Azure storage account. The datastore can use either an Azure blob container or an Azure file share as the back-end storage. Each workspace has a default datastore, and you can register additional datastores. Use the Python SDK API or the Azure Machine Learning CLI to store and retrieve files from the datastore.
-
+A [**datastore**](concept-data.md#datastores) is a storage abstraction over an Azure storage account. Each workspace has a default datastore, and you can register additional datastores. Use the Python SDK API or the Azure Machine Learning CLI to store and retrieve files from the datastore. 
 
 ## Models
 
 At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and [tuning hyperparameters](how-to-tune-hyperparameters.md). Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
 
-A model is produced by a [run](#runs) of an [experiment](#experiments) in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. You can register a model in the workspace.
+A model is produced by a [run](#runs) of an [experiment](#experiments) in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. They you [register the model](#register-model) in the workspace.
 
 Azure Machine Learning is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
-For an example of training a model using Scikit-learn and an [estimator](#estimators), see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
-
+For an example of training a model using Scikit-learn, see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ### Experiments
 
@@ -109,7 +107,6 @@ A run configuration can be persisted into a file inside the directory that conta
 
 For example run configurations, see [Select and use a compute target to train your model](how-to-set-up-training-targets.md).
 
-
 ### Estimators
 
 To facilitate model training with popular frameworks, the estimator class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training scripts that use any learning framework you choose (such as scikit-learn).
@@ -122,6 +119,21 @@ For more information, see the following articles:
 * [Train Pytorch deep learning models at scale with Azure Machine Learning](how-to-train-pytorch.md).
 * [Train and register TensorFlow models at scale with Azure Machine Learning](how-to-train-tensorflow.md).
 * [Train and register Chainer models at scale with Azure Machine Learning](how-to-train-ml-models.md).
+
+### <a name="register-model"></a> Register a model
+
+The **model registry** lets you keeps track of all the models in your Azure Machine Learning workspace.
+
+Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it's a new version. The version is incremented, and the new model is registered under the same name.
+
+When you register the model, you can provide additional metadata tags and then use the tags when you search for models.
+
+> [!TIP]
+> A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in your Azure Machine Learning workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
+
+You can't delete a registered model that is being used by an active deployment.
+
+For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ### Snapshots
 
@@ -137,7 +149,7 @@ When you develop your solution, use the Azure Machine Learning Python SDK in you
 > [!NOTE]
 > [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 
-### GitHub tracking and integration
+### Git tracking and integration
 
 When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
 
@@ -145,20 +157,7 @@ For more information, see [Git integration for Azure Machine Learning](concept-t
 
 ## Deploy models
 
-The **model registry** keeps track of all the models in your Azure Machine Learning workspace.
-
-Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it's a new version. The version is incremented, and the new model is registered under the same name.
-
-When you register the model, you can provide additional metadata tags and then use the tags when you search for models.
-
-> [!TIP]
-> A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in your Azure Machine Learning workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
-
-You can't delete a registered model that is being used by an active deployment.
-
-For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
-
-To deploy a registered model as a service, you need the following components:
+To deploy a [registered model](#register-model) as a service, you need the following components:
 
 * **Inference environment**. This environment encapsulates the dependencies required to run your model for inference.
 * **Scoring code**. This script accepts requests, scores the requests by using the model, and returns the results.
@@ -167,6 +166,8 @@ To deploy a registered model as a service, you need the following components:
 For more information about these components, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### Endpoints
+
+[Workspace](#workspace) > **Endpoints**
 
 An endpoint is an instantiation of your model into either a web service that can be hosted in the cloud or an IoT module for integrated device deployments.
 
