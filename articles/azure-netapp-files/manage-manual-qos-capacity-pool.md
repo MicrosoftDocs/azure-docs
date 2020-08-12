@@ -42,7 +42,11 @@ The manual QoS type feature is currently in preview. If you are using this featu
 
 ## Set up a new manual QoS capacity pool 
 
-To create a new capacity pool using the manual QoS type, follow steps in [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md). In the New Capacity Pool window, select the **Manual QoS** type.  
+To create a new capacity pool using the manual QoS type:
+
+1. Follow steps in [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).  
+
+2. In the New Capacity Pool window, select the **Manual QoS** type.  
 
 ## <a name="change-to-qos"></a>Change a capacity pool to use manual QoS
 
@@ -72,7 +76,7 @@ If a volume is contained in a manual QoS capacity pool, you can modify the allot
 
 2. Click **Change throughput**. Specify the **Throughput (MiB/S)** that you want. Click **OK**. 
 
-![Change QoS throughput](../media/azure-netapp-files/change-qos-throughput.png)
+    ![Change QoS throughput](../media/azure-netapp-files/change-qos-throughput.png)
 
 ## Next steps  
 
