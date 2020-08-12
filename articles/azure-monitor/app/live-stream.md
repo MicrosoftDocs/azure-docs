@@ -157,9 +157,9 @@ If you want to monitor a particular server role instance, you can filter by serv
 ## Secure the control channel
 
 > [!NOTE]
-> Currently, you can only set up an authenticated channel using code base monitoring and cannot authenticate servers using codeless attach.
+> Currently, you can only set up an authenticated channel using code based monitoring and cannot authenticate servers using codeless attach.
 
-The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
+The custom filters criteria you specify in Live Metrics portal are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
 
 ### Create an API Key
 
@@ -206,11 +206,13 @@ More information on configuring ASP.NET Core applications can be found [here](./
 
 For [WorkerService](./worker-service.md) applications, follow below instructions.
 
+Add the following namespace.
+
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 ```
 
-Add the following line before the call `services.AddApplicationInsightsTelemetryWorkerService`.
+Next, add the following line before the call `services.AddApplicationInsightsTelemetryWorkerService`.
 
 ```csharp
     services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
