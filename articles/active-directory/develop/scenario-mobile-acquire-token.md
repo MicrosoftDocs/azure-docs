@@ -206,7 +206,7 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive` has only one mandatory parameter: `scopes`. The `scopes` parameter enumerates strings that define the scopes for which a token is required. If the token is for Microsoft Graph, you can find the required scopes in the API reference of each Microsoft Graph API. In the reference, go to the "Permissions" section.
 
-For example, to [list the user's contacts](/graph/api/user-list-contacts), use the scope "User.Read", "Contacts.Read". For more information, see [Microsoft Graph permissions reference](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+For example, to [list the user's contacts](/graph/api/user-list-contacts), use the scope "User.Read", "Contacts.Read". For more information, see [Microsoft Graph permissions reference](/graph/permissions-reference).
 
 On Android, you can specify parent activity when you create the app by using `PublicClientApplicationBuilder`. If you don't specify the parent activity at that time, later you can specify it by using `.WithParentActivityOrWindow` as in the following section. If you specify parent activity, then the token gets back to that parent activity after the interaction. If you don't specify it, then the `.ExecuteAsync()` call throws an exception.
 
