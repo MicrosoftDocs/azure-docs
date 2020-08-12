@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah 
-ms.date: 04/09/2020
+ms.date: 07/29/2020
 ---
 
 # Test Virtual Machine (VM) deployed from VHD
@@ -217,7 +217,7 @@ Edit and run the following Azure PowerShell script to create an Azure Key Vault 
 |   |   |
 
 ```PowerShell
-    # Creating Key vault in resource group
+# Creating Key vault in resource group
 
     # "Random" number for deployment identifiers
     $postfix = "0101048"
@@ -237,9 +237,9 @@ Edit and run the following Azure PowerShell script to create an Azure Key Vault 
     # code snippet to get the Azure user object ID
     try
        {
-        $accounts = Get-AzureAccount
+        $accounts = Get-AzContext
         $accountNum = 0
-        $accounts.Id | %{ ++$accountNum; Write-Host $accountNum $_}
+        $accounts.Account | %{ ++$accountNum; Write-Host $accountNum $_}
         Write-Host "`nPlease select User, e.g. 1:" -ForegroundColor DarkYellow
         [Int] $accountChoice = Read-Host
 
@@ -252,10 +252,10 @@ Edit and run the following Azure PowerShell script to create an Azure Key Vault 
 
         $accountSelected = $accounts[$accountChoice-1]
         echo $accountSelected
-        $id = $accountSelected.Id
+        $id = $accountSelected.Account
 
         Write-Host "User $id Selected"
-        $myobjectId=(Get-AzADUser -Mail $id)[0].Id
+        $myobjectId=(Get-AzADUser -Mail $id).Id
       }
       catch
       {
@@ -268,10 +268,10 @@ Edit and run the following Azure PowerShell script to create an Azure Key Vault 
         #**************************************
         try
         {
-        $subslist=Get-AzureSubscription
+        $subslist=Get-AzSubscription
         for($i=1; $i -le $subslist.Length;$i++)
         {
-           Write-Host ($i.ToString() +":"+ $subslist[$i-1].SubscriptionName)
+           Write-Host ($i.ToString() +":"+ $subslist[$i-1].Name)
         }
         Write-Host "`nPlease pick subscription from above, e.g. 1:" -ForegroundColor DarkYellow
         [int] $selectedsub=Read-Host
@@ -281,15 +281,15 @@ Edit and run the following Azure PowerShell script to create an Azure Key Vault 
             Write-Host "incorrect input" -ForegroundColor Red
             for($i=1; $i -le $subslist.Length;$i++)
              {
-              Write-Host ($i.ToString() +":"+ $subslist[$i-1].SubscriptionName)
+              Write-Host ($i.ToString() +":"+ $subslist[$i-1].Name)
              }
             Write-Host "`nPlease pick subscription from above, e.g. 1:" -ForegroundColor DarkYellow
            [int] $selectedsub=Read-Host
         }
         if($selectedsub -ge 1 -and $selectedsub -le $subslist.Length)
         {
-        $mysubid=$subslist[$selectedsub-1].SubscriptionId
-        $mysubName=$subslist[$selectedsub-1].SubscriptionName
+        $mysubid=$subslist[$selectedsub-1].Id
+        $mysubName=$subslist[$selectedsub-1].Name
         $mytenantId=$subslist[$selectedsub-1].TenantId
         Write-Host "$mysubName selected"
         }
@@ -317,7 +317,7 @@ Edit and run the following Azure PowerShell script to create an Azure Key Vault 
 Store the certificates contained in the .pfx file to the new key vault using this script:
 
 ```PowerShell
-     $fileName =$certroopath+"\$certname"+".pfx"
+ $fileName =$certroopath+"\$certname"+".pfx"
 
      $fileContentBytes = get-content $fileName -Encoding Byte
      $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
@@ -333,7 +333,7 @@ Store the certificates contained in the .pfx file to the new key vault using thi
             $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
             $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
             $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
-            $objAzureKeyVaultSecret=Set-AzureKeyVaultSecret -VaultName $kvname -Name "ISVSecret$postfix" -SecretValue $secret
+            $objAzureKeyVaultSecret=Set-AzKeyVaultSecret -VaultName $kvname -Name "ISVSecret$postfix" -SecretValue $secret
             echo $objAzureKeyVaultSecret.Id
 
 ```
@@ -850,7 +850,6 @@ Copy and edit the following script to provide values for the `$storageaccount` a
 $storageaccount = "testwinrm11815"
 
 # generalized VHD URL
-
 $vhdUrl = "https://testwinrm11815.blob.core.windows.net/vhds/testvm1234562016651857.vhd"
 
 # Full pathname to the file VHDtoImage.json. inserted these highlighted lines
@@ -874,11 +873,10 @@ $adminUserName = "isv"
 # The OS of the virtual machine
 $osType = "windows"
 
-echo "New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd"
+echo "New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile $templateFile -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id  -vhdUrl "$vhdUrl" -vmSize "$vmSize" -publicIPAddressName "$publicIPAddressName" -virtualNetworkName "$virtualNetworkName" -nicName "$nicName" -adminUserName "$adminUserName" -adminPassword $pwd -osType "$osType""
 
 # deploying VM with existing VHD
-
-New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl “$objAzureKeyVaultSecret.Id” -vhdUrl "$vhdUrl" -vmSize "Standard_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName"myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword “$pwd"
+New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile $templateFile -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "$vmSize" -publicIPAddressName "$publicIPAddressName" -virtualNetworkName "$virtualNetworkName" -nicName "$nicName" -adminUserName "$adminUserName" -adminPassword $pwd -osType "$osType"
 
 ```
 

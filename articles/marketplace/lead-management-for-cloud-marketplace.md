@@ -1,5 +1,5 @@
 ---
-title: Lead management for commercial marketplace | Azure Marketplace and AppSource
+title: Lead management for the commercial marketplace | Azure Marketplace and AppSource
 description: An overview of various topics related to publishing offers and technical artifacts to the Azure Marketplace and AppSource
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,7 +9,7 @@ ms.author: keferna
 ms.date: 04/14/2020
 ---
 
-# Lead management for commercial marketplace
+# Lead management for the commercial marketplace
 
 Customers are the center of any good business. In the transformation of today's product acquisitions, marketers need to focus on connecting with customers directly and building a relationship. This is why generating high-quality leads is a vital tool for your sales cycle. After listing your offer in [Partner Center](https://partner.microsoft.com/), there are tools enabled for you to programmatically receive customer contact information immediately after a customer expresses interest or deploys your product in the marketplace. 
 

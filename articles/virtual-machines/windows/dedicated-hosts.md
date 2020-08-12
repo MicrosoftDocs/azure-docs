@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 01/09/2020
+ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
 

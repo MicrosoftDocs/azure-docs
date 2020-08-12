@@ -3,7 +3,7 @@ title: Data retention and storage in Azure Application Insights | Microsoft Docs
 description: Retention and privacy policy statement
 ms.topic: conceptual
 ms.date: 06/30/2020
-
+ms.custom: devx-track-javascript
 ---
 
 # Data collection, retention, and storage in Application Insights

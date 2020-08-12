@@ -1,12 +1,15 @@
 ---
 title: View and manage service providers
 description: Customers can use the Service providers page in the Azure portal to view info about service providers, service provider offers, and delegated resources.
-ms.date: 07/10/2020
+ms.date: 08/12/2020
 ms.topic: how-to
 ---
 # View and manage service providers
 
-Customers can use the **Service providers** page in the [Azure portal](https://portal.azure.com) to view details about service providers and service provider offers, delegate specific resources to [Azure Lighthouse](../overview.md), and shop for new service provider offers. While we'll refer to service providers and customers here, enterprises managing multiple tenants can use the same process to consolidate their management experience.
+Customers can use the **Service providers** page in the [Azure portal](https://portal.azure.com) to view details about service providers and service provider offers, delegate specific resources to [Azure Lighthouse](../overview.md), and shop for new service provider offers.
+
+> [!TIP]
+> While we'll refer to service providers and customers here, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same process to consolidate their management experience.
 
 To access the **Service providers** page in the Azure portal, the customer can select **All services**, then search for **Service providers** and select it. They can also find it by entering "Service providers" or "Azure Lighthouse" in the search box near the top of the Azure portal.
 

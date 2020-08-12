@@ -167,8 +167,6 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
-  - name: Managed Virtual Network
-    href: managed-virtual-network-private-endpoint.md
   - name: Security
     items:
     - name: Security baseline
@@ -211,14 +209,14 @@
     items:
     - name: Visually author data factories
       href: author-visually.md
+    - name: Iterative development and debugging
+      href: iterative-development-debugging.md
     - name: Management hub
       href: author-management-hub.md
     - name: Source control
       href: source-control.md
     - name: Continuous integration and delivery
       href: continuous-integration-deployment.md
-    - name: Iterative development and debugging
-      href: iterative-development-debugging.md
   - name: Connectors
     items:
     - name: Connector overview
@@ -564,6 +562,8 @@
     items:
     - name: Parameterizing linked services
       href: parameterize-linked-services.md
+    - name: Global parameters
+      href: author-global-parameters.md
     - name: Expression Language
       href: control-flow-expression-language-functions.md
     - name: System variables
@@ -588,6 +588,8 @@
       href: data-factory-service-identity.md
     - name: Customer managed key encryption
       href: enable-customer-managed-key.md
+    - name: Managed Virtual Network
+      href: managed-virtual-network-private-endpoint.md
   - name: Monitor and manage
     items:
     - name: Monitor visually
@@ -618,6 +620,8 @@
       href: create-shared-self-hosted-integration-runtime-powershell.md
     - name: Automation scripts of self-hosted integration runtime
       href: self-hosted-integration-runtime-automation-scripts.md
+    - name: Run Self-Hosted Integration Runtime in Windows container
+      href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
   - name: Run SSIS packages in Azure
     items:
     - name: Run SSIS packages in Azure from SSDT
@@ -726,12 +730,16 @@
       href: pricing-concepts.md  
   - name: Troubleshooting guides
     items:
+    - name: Data Factory UX
+      href: data-factory-ux-troubleshoot-guide.md
     - name: Activities
       href: data-factory-troubleshoot-guide.md
     - name: Connectors
       href: connector-troubleshoot-guide.md
     - name: Data Flows
       href: data-flow-troubleshoot-guide.md
+    - name: Copy Data tool
+      href: copy-data-tool-troubleshoot-guide.md
     - name: Self-hosted Integration Runtimes
       href: self-hosted-integration-runtime-troubleshoot-guide.md
     - name: Azure-SSIS Integration Runtime

@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
-ms.custom: aaddev, tracking-python
+ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform for developers.
 ---
 
@@ -342,21 +342,21 @@ In the next article, you'll learn how to trigger sign-in and sign-out.
 # [ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
-> [Sign in and sign out](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnetcore)
+> [Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)
 
 # [ASP.NET](#tab/aspnet)
 
 > [!div class="nextstepaction"]
-> [Sign in and sign out](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnet)
+> [Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)
 
 # [Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Sign in and sign out](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=java)
+> [Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=java)
 
 # [Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Sign in and sign out](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=python)
+> [Sign in and sign out](./scenario-web-app-sign-user-sign-in.md?tabs=python)
 
 ---

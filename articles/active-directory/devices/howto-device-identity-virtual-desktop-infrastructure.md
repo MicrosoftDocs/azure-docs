@@ -53,9 +53,9 @@ Before configuring device identities in Azure AD for your VDI environment, famil
 |   | Managed | Windows current | Persistent | No |
 |   |   |   | Non-Persistent | No |
 | Azure AD registered | Federated | Windows current | Persistent | Not Applicable |
-|   |   |   | Non-Persistent | No |
+|   |   |   | Non-Persistent | Not Applicable |
 |   | Managed | Windows current | Persistent | Not Applicable |
-|   |   |   | Non-Persistent | No |
+|   |   |   | Non-Persistent | Not Applicable |
 
 \* A **Federated** identity infrastructure environment represents an environment with an identity provider such as AD FS or other third-party IDP.
 
@@ -76,7 +76,7 @@ If you are relying on the System Preparation Tool (sysprep.exe) and if you are u
 
 If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, make sure that snapshot is not from a VM that is already registered with Azure AD as Hybrid Azure AD join.
 
-When deploying non-persistent VDI, IT administrators should pay close attention to managing stale devices in Azure AD. Microsoft recommends that IT administrators implement the guidance below. Failure to do so will result in your directory having lots of stale Hybrid Azure AD joined devices that were registered from your non-persistent VDI platform.
+Hybrid Azure AD join for non-persistent VDI is not supported in Windows current versions. When deploying non-persistent VDI for Windows down-level, IT administrators should pay close attention to managing stale devices in Azure AD. Microsoft recommends that IT administrators implement the guidance below. Failure to do so will result in your directory having lots of stale Hybrid Azure AD joined devices that were registered from your non-persistent VDI platform.
 
 - Create and use a prefix for the display name of the computer that indicates the desktop as VDI-based.
 - Implement the following command as part of logoff script. This command will trigger a best effort call to Azure AD to delete the device.

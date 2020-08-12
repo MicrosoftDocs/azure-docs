@@ -41,7 +41,7 @@ To view the sign-in activity report in the [Azure portal](https://portal.azure.c
 
     The *Authentication Details* or *Conditional Access* tab of the event details shows you the status code or which policy triggered the MFA prompt.
 
-    [![](media/howto-mfa-reporting/sign-in-report-cropped.png "Screenshot of example Azure Active Directory sign-ins report in the Azure portal")](media/howto-mfa-reporting/sign-in-report.png#lightbox)
+    [![Screenshot of example Azure Active Directory sign-ins report in the Azure portal](media/howto-mfa-reporting/sign-in-report-cropped.png)](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
 If available, the authentication is shown, such as text message, Microsoft Authenticator app notification, or phone call.
 

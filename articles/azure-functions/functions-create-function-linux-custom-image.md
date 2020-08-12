@@ -3,7 +3,7 @@ title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: mvc, tracking-python
+ms.custom: mvc, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -387,7 +387,7 @@ SSH enables secure communication between a container and a client. With SSH enab
 
     ::: zone pivot="programming-language-csharp"
     ```Dockerfile
-    FROM microsoft/dotnet:2.2-sdk-appservice AS installer-env
+    FROM mcr.microsoft.com/azure-functions/dotnet:3.0-appservice
     ```
     ::: zone-end
 

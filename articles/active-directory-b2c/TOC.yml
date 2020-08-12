@@ -377,6 +377,8 @@
       href: partner-itsme.md
     - name: LexisNexis
       href: partner-lexisnexis.md
+    - name: Onfido
+      href: partner-onfido.md
     - name: Trusona
       href: partner-trusona.md
     - name: Twilio
@@ -452,6 +454,8 @@
     displayName: security
   - name: User flow versions
     href: user-flow-versions.md
+  - name: Legacy user flow versions
+    href: user-flow-versions-legacy.md
 - name: Resources
   items:
   - name: Azure Roadmap

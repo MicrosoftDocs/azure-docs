@@ -3,7 +3,7 @@ title: Explore Java trace logs in Azure Application Insights
 description: Search Log4J or Logback traces in Application Insights
 ms.topic: conceptual
 ms.date: 05/18/2019
-
+ms.custom: devx-track-java
 ---
 
 # Explore Java trace logs in Application Insights

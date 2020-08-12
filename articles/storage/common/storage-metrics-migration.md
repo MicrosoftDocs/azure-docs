@@ -13,7 +13,7 @@ ms.custom: monitoring
 
 # Transition to metrics in Azure Monitor
 
-Azure Storage now integrates metrics into the Azure Monitor platform. On **August 31, 2023** Storage Analytics metrics, also referred to as *classic metrics* will be retired. If you use classic metrics, make sure to transition to metrics in Azure Monitor prior to that date. This article helps you make the transition.
+Azure Storage now integrates metrics into the Azure Monitor platform. This article helps you make the transition.
 
 ## Steps to complete the transition
 

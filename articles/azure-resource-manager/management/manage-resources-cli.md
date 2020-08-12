@@ -4,7 +4,8 @@ description: Use Azure CLI and Azure Resource Manager to manage your resources. 
 author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: jgao
+ms.author: jgao 
+ms.custom: devx-track-azurecli
 ---
 # Manage Azure resources by using Azure CLI
 
@@ -54,7 +55,7 @@ You can create a resource group and deploy resources to the group. For more info
 
 ## Deploy resources to multiple subscriptions or resource groups
 
-Typically, you deploy all the resources in your template to a single resource group. However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. For more information, see [Deploy Azure resources to multiple subscriptions or resource groups](../templates/cross-resource-group-deployment.md).
+Typically, you deploy all the resources in your template to a single resource group. However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. For more information, see [Deploy Azure resources to multiple subscriptions or resource groups](../templates/cross-scope-deployment.md).
 
 ## Delete resources
 
@@ -130,7 +131,7 @@ Tagging helps organizing your resource group and resources logically. For inform
 
 ## Manage access to resources
 
-[Role-based access control (RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## Next steps
 

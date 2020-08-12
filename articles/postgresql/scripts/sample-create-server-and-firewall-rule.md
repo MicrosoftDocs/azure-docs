@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Creates an Azure Database for PostgreSQL 
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/28/2018
