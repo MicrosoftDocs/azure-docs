@@ -150,7 +150,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     > [!NOTE]
     > Alternatively you can also upload the **Metadata** file by clicking on the **Choose File** option.
 
-    d. Select the **Entity ID** value from the Entity id dropdown.
+    d. Select the **Entity ID** value from the Entity ID dropdown.
 
     e. Click on **Save**.
 
