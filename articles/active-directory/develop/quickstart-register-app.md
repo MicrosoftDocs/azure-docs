@@ -53,7 +53,7 @@ Follow these steps to create the app registration:
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Screenshot of the Azure portal in a web browser showing the Register an application pane.":::
 
-When registration completes, the Azure portal displays the app registration's **Overview** pane, which includes its **Application (client) ID**. Also referred to simply as the *client ID*, this value uniquely identifies your application in the Microsoft identity platform.
+When registration completes, the Azure portal displays the app registration's **Overview** pane, which includes its **Application (client) ID**. Also referred to as just *client ID*, this value uniquely identifies your application in the Microsoft identity platform.
 
 Your application's code, or more typically an authentication library used in your application, also uses the client ID as one aspect in validating the security tokens it receives from the identity platform.
 
@@ -61,7 +61,7 @@ Your application's code, or more typically an authentication library used in you
 
 ## Add a redirect URI
 
-A redirect URI is the location to which the Microsoft identity platform redirects a user's client and sends security tokens after authentication.
+A redirect URI is the location where the Microsoft identity platform redirects a user's client and sends security tokens after authentication.
 
 In a production web application, for example, the redirect URI is often a public endpoint where your app is running, like `https://contoso.com/auth-response`. During development, it's common to also add the endpoint where you run your app locally, like `https://127.0.0.1/auth-response`.
 
@@ -73,6 +73,7 @@ Settings for each application type, including redirect URIs, are configured in *
 
 To configure application settings based on the platform or device you're targeting:
 
+1. Select your application in **App registrations** in the Azure portal.
 1. Under **Manage**, select **Authentication**.
 1. Under **Platform configurations**, select **Add a platform**.
 1. In **Configure platforms**, select the tile for your application type (platform) to configure its settings.
@@ -93,7 +94,7 @@ There are certain restrictions on the format of the redirect URIs you add to an 
 
 ## Add credentials
 
-Credentials are typically used by confidential client applications that access a web API, for example web apps, other web APIs, or service- and daemon-type applications. Your application uses the credential to identify itself to the Microsoft identity platform.
+Credentials are typically used by confidential client applications that access a web API, for example web apps, other web APIs, or service- and daemon-type applications. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.
 
 You can add both certificates and client secrets (strings) as a credential to your confidential client app registration.
 
@@ -101,8 +102,8 @@ You can add both certificates and client secrets (strings) as a credential to yo
 
 Sometimes called a *public key*, certificates are the recommended credential type as they provide a higher level of assurance than a client secret.
 
-1. From the app **Overview** page, select **Certificates & secrets**.
-1. Select **Upload certificate**.
+1. Select your application in **App registrations** in the Azure portal.
+1. Select **Certificates & secrets** > **Upload certificate**.
 1. Select the file you'd like to upload. It must be one of the following file types: .cer, .pem, .crt.
 1. Select **Add**.
 
@@ -110,8 +111,8 @@ Sometimes called a *public key*, certificates are the recommended credential typ
 
 The client secret, known also as an *application password*, is a string value your app can use in place of a certificate to identity itself. It's the easier of the two credential types to use and is often used during development, but is considered less secure than a certificate. You should use certificates in your applications running in production.
 
-1. From the app **Overview** page, select **Certificates & secrets**.
-1. Select **New client secret**.
+1. Select your application in **App registrations** in the Azure portal.
+1. Select**Certificates & secrets** >  **New client secret**.
 1. Add a description for your client secret.
 1. Select a duration.
 1. Select **Add**.
