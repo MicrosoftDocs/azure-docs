@@ -18,9 +18,9 @@ This article explains how to manually failover a primary node on SQL Managed Ins
 
 ## When to use manual failover
 
-[High availability](/azure-sql/database/high-availability-sla.md) is a fundamental part of SQL Managed Instance platform that works transparently for your database applications. Failovers from primary to secondary nodes in case of node degradation or fault detection, or during regular monthly software updates are an expected occurrence for all applications using SQL Managed Instance in Azure.
+[High availability](../database/high-availability-sla.md) is a fundamental part of SQL Managed Instance platform that works transparently for your database applications. Failovers from primary to secondary nodes in case of node degradation or fault detection, or during regular monthly software updates are an expected occurrence for all applications using SQL Managed Instance in Azure.
 
-You might consider executing a [manual failover](/azure-sql/database/high-availability-sla.md#testing-application-fault-resiliency) on SQL Managed Instance for some of the following reasons:
+You might consider executing a [manual failover](../database/high-availability-sla.md#testing-application-fault-resiliency) on SQL Managed Instance for some of the following reasons:
 - Test application for failover resiliency before deploying to production
 - Test end-to-end systems for fault resiliency on automatic failovers
 - Test how failover impacts existing database sessions
