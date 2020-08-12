@@ -4,7 +4,7 @@ description: Learn how to troubleshoot the issue in which you cannot delete a vi
 services: virtual-network
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 
@@ -20,7 +20,7 @@ ms.author: genli
 
 # Troubleshooting: Failed to delete a virtual network in Azure
 
-You might receive errors when you try to delete a virtual network in Microsoft Azure. This article provides troubleshooting steps to help you resolve this problem. 
+You might receive errors when you try to delete a virtual network in Microsoft Azure. This article provides troubleshooting steps to help you resolve this problem.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -63,7 +63,7 @@ If the Active Directory Domain Service is enabled and connected to the virtual n
 
 ![Check the connected device](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-To disable the service, see [Disable Azure Active Directory Domain Services using the Azure portal](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
+To disable the service, see [Disable Azure Active Directory Domain Services using the Azure portal](../active-directory-domain-services/delete-aadds.md).
 
 ### Check whether the virtual network is connected to other resource
 
@@ -85,7 +85,9 @@ Make sure that no virtual machine is in the virtual network.
 
 If the virtual network is stuck in a migration state, it cannot be deleted. Run the following command to abort the migration, and then delete the virtual network.
 
-    Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
+```azurepowershell
+Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
+```
 
 ## Next steps
 

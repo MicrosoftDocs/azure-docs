@@ -1,34 +1,21 @@
 ---
-title: Functions Azure Log Analytics | Microsoft Docs
-description: This article describes how to use functions to call a query from another query in Log Analytics.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Functions in Azure Monitor log queries | Microsoft Docs
+description: This article describes how to use functions to call a query from another log query in Azure Monitor.
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/15/2018
+author: bwren
 ms.author: bwren
+ms.date: 07/31/2020
+
 ---
 
+# Using functions in Azure Monitor log queries
 
-# Using functions in Azure Monitor Log Analytics
-
-> [!NOTE]
-> You should complete [Get started with the Analytics portal](get-started-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
-
-To use a Log Analytics query with another query you can save it as a function. This allows you to simplify complex queries by breaking them into parts and allows you to reuse common code with multiple queries.
+To use a log query with another query you can save it as a function. This allows you to simplify complex queries by breaking them into parts and allows you to reuse common code with multiple queries.
 
 ## Create a function
 
-Create a function in the Azure portal by clicking **Save** and then providing the information in the following table.
+Create a function with Log Analytics in the Azure portal by clicking **Save** and then providing the information in the following table.
 
 | Setting | Description |
 |:---|:---|
@@ -37,16 +24,14 @@ Create a function in the Azure portal by clicking **Save** and then providing th
 | Function Alias | Short name to use the function in other queries. May not contain spaces and must be unique. |
 | Category       | A category to organize saved queries and functions in **Query explorer**. |
 
-> [!NOTE]
-> A function in Log Analytics cannot contain another function.
-
-> [!NOTE]
-> Saving a function is possible in Log Analytics queries, but currently not for Application Insights queries.
 
 
 
 ## Use a function
 Use a function by including its alias in another query. It can be used like any other table.
+
+## Function parameters 
+You can add parameters to a function so that you can provide values for certain variables when calling it. The only way to currently create a function with parameters is using a Resource Manager template. See [Resource Manager template samples for log queries in Azure Monitor](../samples/resource-manager-log-queries.md#parameterized-function) for an example.
 
 ## Example
 The following sample query returns all missing security updates reported in the last day. Save this query as a function with the alias _security_updates_last_day_. 
@@ -65,7 +50,7 @@ security_updates_last_day | where Title contains "SQL"
 ```
 
 ## Next steps
-See other lessons for using the Log Analytics query language:
+See other lessons for writing Azure Monitor log queries:
 
 - [String operations](string-operations.md)
 - [Date and time operations](datetime-operations.md)

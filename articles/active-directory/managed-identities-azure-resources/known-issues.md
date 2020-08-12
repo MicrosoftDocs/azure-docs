@@ -1,20 +1,22 @@
-﻿---
-title: FAQs and known issues with managed identities for Azure resources
+---
+title: FAQs and known issues with managed identities - Azure AD
 description: Known issues with managed identities for Azure resources.
 services: active-directory
 documentationcenter: 
-author: daveba
+author: MarkusVi
 manager: daveba
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: 
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 12/12/2017
-ms.author: daveba
+ms.date: 08/06/2020
+ms.author: markvi
+ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
 ---
 
 # FAQs and known issues with managed identities for Azure resources
@@ -26,13 +28,35 @@ ms.author: daveba
 > [!NOTE]
 > Managed identities for Azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
 
+
+### How can you find resources that have a managed identity?
+
+You can find the list of resources that have a system-assigned managed identity by using the following Azure CLI Command: 
+
+`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
+
+
+
+
+### Do managed identities have a backing app object?
+
+No. Managed identities and Azure AD App Registrations are not the same thing in the directory. 
+
+App registrations have two components: An Application Object + A Service Principal Object. 
+Managed Identities for Azure resources have only one of those components: A Service Principal Object. 
+
+Managed identities don't have an application object in the directory, which is what is commonly used to grant app permissions for MS graph. Instead, MS graph permissions for managed identities need to be granted directly to the Service Principal.  
+
 ### Does managed identities for Azure resources work with Azure Cloud Services?
 
 No, there are no plans to support managed identities for Azure resources in Azure Cloud Services.
 
-### Does managed identities for Azure resources work with the Active Directory Authentication Library (ADAL) or the Microsoft Authentication Library (MSAL)?
+### What is the credential associated with a managed identity? How long is it valid and how often is it rotated?
 
-No, managed identities for Azure resources is not yet integrated with ADAL or MSAL. For details on acquiring a token for managed identities for Azure resources using the REST endpoint, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token ](how-to-use-vm-token.md).
+> [!NOTE]
+> How managed identities authenticate is an internal implementation detail that is subject to change without notice.
+
+Managed identities use certificate-based authentication. Each managed identity’s credential has an expiration of 90 days and it is rolled after 45 days.
 
 ### What is the security boundary of managed identities for Azure resources?
 
@@ -44,53 +68,24 @@ The security boundary of the identity is the resource to which it is attached to
 - If system assigned managed identity is not enabled, and only one user assigned managed identity exists, IMDS will default to that single user assigned managed identity. 
 - If system assigned managed identity is not enabled, and multiple user assigned managed identities exist, then specifying a managed identity in the request is required.
 
-### Should I use the managed identities for Azure resources VM IMDS endpoint or the VM extension endpoint?
 
-When using managed identities for Azure resources with VMs, we encourage using the managed identities for Azure resources IMDS endpoint. The Azure Instance Metadata Service is a REST Endpoint accessible to all IaaS VMs created via the Azure Resource Manager. Some of the benefits of using managed identities for Azure resources over IMDS are:
-    - All Azure IaaS supported operating systems can use managed identities for Azure resources over IMDS.
-    - No longer need to install an extension on your VM to enable managed identities for Azure resources. 
-    - The certificates used by managed identities for Azure resources are no longer present in the VM.
-    - The IMDS endpoint is a well-known non-routable IP address, only available from within the VM.
-
-The managed identities for Azure resources VM extension is still available to be used today; however, moving forward we will default to using the IMDS endpoint. The managed identities for Azure resources VM extension will be deprecated in January 2019. 
-
-For more information on Azure Instance Metadata Service, see [IMDS documentation](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### Will managed identities be recreated automatically if I move a subscription to another directory?
 
-No. If you move a subscription to another directory, you will have to manually re-create them and grant Azure RBAC role assignments again.
-    - For system assigned managed identities: disable and re-enable.
-    - For user assigned managed identities: delete, re-create and attach them again to the necessary resources (e.g. virtual machines)
+No. If you move a subscription to another directory, you will have to manually re-create them and grant Azure role assignments again.
+- For system assigned managed identities: disable and re-enable. 
+- For user assigned managed identities: delete, re-create and attach them again to the necessary resources (e.g. virtual machines)
 
 ### Can I use a managed identity to access a resource in a different directory/tenant?
 
 No. Managed identities do not currently support cross-directory scenarios. 
 
-### What are the supported Linux distributions?
+### What Azure RBAC permissions are required to managed identity on a resource? 
 
-All Linux distributions supported by Azure IaaS can be used with managed identities for Azure resources via the IMDS endpoint. 
+- System-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. This action is included in resource specific built-in roles like [Virtual Machine Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- User-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. In addition to [Managed Identity Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignment over the managed identity.
 
-The managed identities for Azure resources VM Extension (planned for deprecation in January 2019) only supports the following Linux distributions:
-- CoreOS Stable
-- CentOS 7.1
-- Red Hat 7.2
-- Ubuntu 15.04
-- Ubuntu 16.04
 
-Other Linux distributions are currently not supported and extension might fail on unsupported distributions.
-
-The extension works on CentOS 6.9. However, due to lack of system support in 6.9, the extension will not auto restart if crashed or stopped. It restarts when the VM restarts. To restart the extension manually, see [How do you restart the managed identities for Azure resources extension?](#how-do-you-restart-the-managed-identities-for-Azure-resources-extension)
-
-### How do you restart the managed identities for Azure resources extension?
-On Windows and certain versions of Linux, if the extension stops, the following cmdlet may be used to manually restart it:
-
-```powershell
-Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
-```
-
-Where: 
-- Extension name and type for Windows is: ManagedIdentityExtensionForWindows
-- Extension name and type for Linux is: ManagedIdentityExtensionForLinux
 
 ## Known issues
 
@@ -103,14 +98,6 @@ When managed identities for Azure resources is enabled on a VM, the following er
 The managed identities for Azure resources VM extension (planned for deprecation in January 2019) does not currently support the ability to export its schema to a resource group template. As a result, the generated template does not show configuration parameters to enable managed identities for Azure resources on the resource. These sections can be added manually by following the examples in [Configure managed identities for Azure resources on an Azure VM using a templates](qs-configure-template-windows-vm.md).
 
 When the schema export functionality becomes available for the managed identities for Azure resources VM extension (planned for deprecation in January 2019), it will be listed in [Exporting Resource Groups that contain VM extensions](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
-
-### Configuration blade does not appear in the Azure portal
-
-If the VM Configuration blade does not appear on your VM, then managed identities for Azure resources has not been enabled in the portal in your region yet.  Check again later.  You can also enable managed identities for Azure resources for your VM using [PowerShell](qs-configure-powershell-windows-vm.md) or the [Azure CLI](qs-configure-cli-windows-vm.md).
-
-### Cannot assign access to virtual machines in the Access control (IAM) blade
-
-If **Virtual Machine** does not appear in the Azure portal as a choice for **Assign access to** in **Access control (IAM)** > **Add role assignment**, then managed identities for Azure resources has not been enabled in the portal in your region yet. Check again later.  You can still select the identity for the VM for the role assignment by searching for the managed identities for Azure resources Service Principal.  Enter the name of the VM in the **Select** field, and the Service Principal appears in the search result.
 
 ### VM fails to start after being moved from resource group or subscription
 
@@ -134,23 +121,19 @@ Once the VM is started, the tag can be removed by using following command:
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-### VM extension provisioning fails
 
-Provisioning of the VM extension might fail due to DNS lookup failures. Restart the VM, and try again.
- 
-> [!NOTE]
-> The VM extension is planned for deprecation by January 2019. We recommend you move to using the IMDS endpoint.
 
 ### Transferring a subscription between Azure AD directories
 
 Managed identities do not get updated when a subscription is moved/transferred to another directory. As a result, any existent system-assigned or user-assigned managed identities will be broken. 
 
-As a workaround once the subscription has been moved, you can disable system-assigned managed identities and re-enable them. Similarly, you can delete and recreate any user-assigned managed identities. 
+Workaround for managed identities in a subscription that has been moved to another directory:
 
-## Known issues with user-assigned managed identities
+ - For system assigned managed identities: disable and re-enable. 
+ - For user assigned managed identities: delete, re-create and attach them again to the necessary resources (e.g. virtual machines)
 
-- Creating a user-assigned managed identity with special characters (i.e. underscore) in the name, is not supported.
-- User-assigned identity names are restricted to 24 characters. If the name is longer than 24 characters, the identity will fail to be assigned to a resource (i.e. Virtual Machine.)
-- If using the managed identity virtual machine extension (planned for deprecation in January 2019), the supported limit is 32 user-assigned managed identities. Without the managed identity virtual machine extension, the supported limit is 512.  
-- Moving a user-assigned managed identity to a different resource group will cause the identity to break. As a result, you will not be able to request tokens for that identity. 
-- Transferring a subscription to another directory will break any existent user-assigned managed identities. 
+For more information, see [Transfer an Azure subscription to a different Azure AD directory (Preview)](../../role-based-access-control/transfer-subscription.md).
+
+### Moving a user-assigned managed identity to a different resource group/subscription
+
+Moving a user-assigned managed identity to a different resource group is not supported.

@@ -1,16 +1,16 @@
 ---
-title: How to use Queue storage from Ruby | Microsoft Docs
+title: How to use Queue storage from Ruby - Azure Storage
 description: Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby.
-services: storage
-author: tamram
-ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: ruby
-ms.topic: article
+author: mhopkins-msft
+
+ms.author: mhopkins
 ms.date: 12/08/2016
-ms.author: tamram
-ms.component: queues
+ms.service: storage
+ms.subservice: queues
+ms.topic: how-to
+ms.reviewer: dineshm
 ---
+
 # How to use Queue storage from Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
@@ -28,7 +28,7 @@ queues**.
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## Create a Ruby Application
-Create a Ruby application. For instructions, see [Create a Ruby App in App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby).
+Create a Ruby application. For instructions, see [Create a Ruby App in App Service on Linux](https://docs.microsoft.com/azure/app-service/quickstart-ruby).
 
 ## Configure Your Application to Access Storage
 To use Azure storage, you need to download and use the Ruby azure package, which includes a set of convenience libraries that communicate with the storage REST services.

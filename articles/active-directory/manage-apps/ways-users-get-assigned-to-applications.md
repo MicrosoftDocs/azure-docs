@@ -3,19 +3,18 @@ title: How to Assign users to applications | Microsoft Docs
 description: Understand how users get assigned to an application in your tenant
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: barbkess
-
+ms.author: kenwith
+ms.collection: M365-identity-device-management
 ---
 
 # How to assign users to applications
@@ -52,9 +51,9 @@ For a user to access an application, they must first be assigned to it in some w
 
 8.  An administrator assigns a license to a group that the user is a member of to a first party application, like [Microsoft Office 365](https://products.office.com/)
 
-9.  An [administrator consents to an application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) to be used by all users and then a user signs in to the application
+9.  An [administrator consents to an application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) to be used by all users and then a user signs in to the application
 
-10. A user [consents to an application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) themselves by signing in to the application
+10. A user [consents to an application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) themselves by signing in to the application
 
 ## Next steps
 [Managing Applications with Azure Active Directory](what-is-application-management.md)

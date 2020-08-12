@@ -48,8 +48,8 @@ In both modes, the master encryption key is secured by storing it in Azure Key V
 
 Here is a brief comparison of capabilities provided by the two modes of managing the MEKs.
 
-|  | Service managed keys | Customer managed keys |
-| --- | --- | --- |
+| Question | Service managed keys | Customer managed keys |
+| -------- | -------------------- | --------------------- |
 |How is data stored?|Always encrypted prior to being stored.|Always encrypted prior to being stored.|
 |Where is the Master Encryption Key stored?|Key Vault|Key Vault|
 |Are any encryption keys stored in the clear outside of Key Vault? |No|No|
@@ -116,17 +116,17 @@ Note that if you use the default options for encryption, your data is always enc
 
     ![Screenshot of Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.	Select the key associated with your Data Lake Storage Gen1 account, and create a new version of this key. Note that Data Lake Storage Gen1 currently only supports key rotation to a new version of a key. It doesn't support rotating to a different key.
+3. Select the key associated with your Data Lake Storage Gen1 account, and create a new version of this key. Note that Data Lake Storage Gen1 currently only supports key rotation to a new version of a key. It doesn't support rotating to a different key.
 
    ![Screenshot of Keys window, with New Version highlighted](./media/data-lake-store-encryption/keynewversion.png)
 
-4.	Browse to the Data Lake Storage Gen1 account, and select **Encryption**.
+4. Browse to the Data Lake Storage Gen1 account, and select **Encryption**.
 
-    ![Screenshot of Data Lake Storage Gen1 account window, with Encryption highlighted](./media/data-lake-store-encryption/select-encryption.png)
+   ![Screenshot of Data Lake Storage Gen1 account window, with Encryption highlighted](./media/data-lake-store-encryption/select-encryption.png)
 
-5.	A message notifies you that a new key version of the key is available. Click **Rotate Key** to update the key to the new version.
+5. A message notifies you that a new key version of the key is available. Click **Rotate Key** to update the key to the new version.
 
-    ![Screenshot of Data Lake Storage Gen1 window with message and Rotate Key highlighted](./media/data-lake-store-encryption/rotatekey.png)
+   ![Screenshot of Data Lake Storage Gen1 window with message and Rotate Key highlighted](./media/data-lake-store-encryption/rotatekey.png)
 
 This operation should take less than two minutes, and there is no expected downtime due to key rotation. After the operation is complete, the new version of the key is in use.
 

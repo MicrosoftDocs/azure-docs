@@ -1,15 +1,14 @@
 ---
 title: Send Azure Blob storage events to web endpoint - Azure CLI | Microsoft Docs
 description: Use Azure Event Grid to subscribe to Blob storage events. Send the events to a Webhook. Handle the events in a web application.
-services: storage,event-grid 
-author: cbrooksmsft
-
-ms.author: cbrooks
-ms.date: 12/06/2018
-ms.topic: quickstart
+author: normesta
+ms.author: normesta
+ms.reviewer: dineshm
+ms.date: 03/05/2020
+ms.topic: how-to
 ms.service: storage
-ms.component: blobs
-ms.custom: seodec18
+ms.subservice: blobs 
+ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Route storage events to web endpoint with Azure CLI
@@ -22,12 +21,11 @@ When you complete the steps described in this article, you see that the event da
 
 ![View subscription event](./media/storage-blob-event-quickstart/view-results.png)
 
-
 [!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you're running the latest version of Azure CLI (2.0.24 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this article requires that you're running the latest version of Azure CLI (2.0.70 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 If you aren't using Cloud Shell, you must first sign in using `az login`.
 
@@ -35,7 +33,7 @@ If you aren't using Cloud Shell, you must first sign in using `az login`.
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. 
+Create a resource group with the [az group create](/cli/azure/group) command. 
 
 The following example creates a resource group named `<resource_group_name>` in the *westcentralus* location.  Replace `<resource_group_name>` with a unique name for your resource group.
 
@@ -91,7 +89,7 @@ storageid=$(az storage account show --name <storage_account_name> --resource-gro
 endpoint=https://$sitename.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
-  --resource-id $storageid \
+  --source-resource-id $storageid \
   --name <event_subscription_name> \
   --endpoint $endpoint
 ```

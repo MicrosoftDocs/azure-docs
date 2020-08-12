@@ -6,13 +6,13 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/30/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
 ---
 
 # Deploy the Remote Monitoring solution accelerator using the CLI
 
-This how-to guide shows you how to deploy the Remote Monitoring solution accelerator. You deploy the solution using the CLI. You can also deploy the solution using the web-based UI at azureiotsuite.com, to learn about this option see the[Deploy the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md) quickstart.
+This how-to guide shows you how to deploy the Remote Monitoring solution accelerator. You deploy the solution using the CLI. You can also deploy the solution using the web-based UI at azureiotsolutions.com, to learn about this option see the [Deploy the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md) quickstart.
 
 ## Prerequisites
 
@@ -57,6 +57,8 @@ This section summarizes the key differences between a basic and standard deploym
 
 ### Basic
 
+You can do a basic deployment from [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) or using the CLI.
+
 Basic deployment is geared toward showcasing the solution. To reduce costs, all the microservices are deployed in a single virtual machine. This deployment doesn't use a production-ready architecture.
 
 A basic deployment creates the following services in your Azure subscription:
@@ -76,6 +78,8 @@ A basic deployment creates the following services in your Azure subscription:
 
 ### Standard
 
+You can do a standard deployment only using the CLI.
+
 A standard deployment is a production-ready deployment that a developer can customize and extend. Use the standard deployment option when you're ready to customize a production-ready architecture, built for scale and extensibility. Application microservices are built as Docker containers and deployed using the Azure Kubernetes Service. The Kubernetes orchestrator deploys, scales, and manages the microservices.
 
 A standard deployment creates the following services in your Azure subscription:
@@ -86,7 +90,7 @@ A standard deployment creates the following services in your Azure subscription:
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Standard tier | Device management, command and control |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Storing configuration data, and device telemetry like rules, alerts, and messages |
 | 5     | [Azure Storage Accounts](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 for VM storage, and 1 for the streaming checkpoints |
-| 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Application gateway over SSL |
+| 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Application gateway over TLS |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Managing user identities and security |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Viewing asset locations |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 units              | Enabling real-time analytics |

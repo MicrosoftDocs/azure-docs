@@ -1,5 +1,5 @@
 ---
-title: StorSimple failover, disaster recovery for 8000 series devices| Microsoft Docs
+title: Tutorial - Fail over StorSimple physical device to same device
 description: Learn how to fail over your StorSimple device to the same device.
 services: storsimple
 documentationcenter: ''
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2017
@@ -57,7 +57,7 @@ Perform the following steps if you need to fail over to the same device.
 
     ![Failover summary](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev11.png)
 
-    For detailed instructions, refer to [Fail over to another physical device](#fail-over-to-another-physical-device).
+    For detailed instructions, refer to Fail over to another physical device.
 
 7. A device restore job is created that you can monitor from the **Jobs** blade.
 

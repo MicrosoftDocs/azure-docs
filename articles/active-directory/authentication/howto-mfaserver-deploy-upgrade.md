@@ -1,24 +1,28 @@
 ---
-title: Azure MFA Server upgrade
+title: Upgrading Azure MFA Server - Azure Active Directory
 description: Steps and guidance to upgrade the Azure Multi-Factor Authentication Server to a newer version. 
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
-ms.topic: conceptual
+ms.subservice: authentication
+ms.topic: how-to
 ms.date: 11/12/2018
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Upgrade to the latest Azure Multi-Factor Authentication Server
 
 This article walks you through the process of upgrading Azure Multi-Factor Authentication (MFA) Server v6.0 or higher. If you need to upgrade an old version of the PhoneFactor Agent, refer to [Upgrade the PhoneFactor Agent to Azure Multi-Factor Authentication Server](howto-mfaserver-deploy-upgrade-pf.md).
 
 If you're upgrading from v6.x or older to v7.x or newer, all components change from .NET 2.0 to .NET 4.5. All components also require Microsoft Visual C++ 2015 Redistributable Update 1 or higher. The MFA Server installer installs both the x86 and x64 versions of these components if they aren't already installed. If the User Portal and Mobile App Web Service run on separate servers, you need to install those packages before upgrading those components. You can search for the latest Microsoft Visual C++ 2015 Redistributable update on the [Microsoft Download Center](https://www.microsoft.com/download/). 
+
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
 
 Upgrade steps at a glance:
 
@@ -34,7 +38,7 @@ Upgrade steps at a glance:
 4. Run the new installer on each MFA Server. Upgrade subordinate servers first because they can read the old data file being replicated by the master.
 
    > [!NOTE]
-   > When upgrading a server it should be removed from any loadbalancing or traffic sharing with other MFA Servers.
+   > When upgrading a server it should be removed from any load balancing or traffic sharing with other MFA Servers.
    >
    > You do not need to uninstall your current MFA Server before running the installer. The installer performs an in-place upgrade. The installation path is picked up from the registry from the previous installation, so it installs in the same location (for example, C:\Program Files\Multi-Factor Authentication Server).
   
@@ -59,7 +63,7 @@ If you have the User Portal on multiple servers, repeat the installation on all 
 ## Upgrade the Mobile App Web Service
 
 > [!NOTE]
-> When upgrading from a version of Azure MFA Server older than 8.0 to 8.0+ that the mobile app web service can be uninstalled after the upgrade
+> When upgrading from a version of Azure MFA Server older than 8.0 to 8.0+ then the mobile app web service can be uninstalled after the upgrade
 
 ## Upgrade the AD FS Adapters
 
@@ -95,7 +99,7 @@ These instructions only apply if you run Multi-Factor Authentication Server sepa
 
    Once this step is complete, two-step verification through MFA Server is not available in this AD FS cluster until you complete step 8.
 
-4. Unregister the older version of the AD FS adapter by running the Unregister-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell script. Ensure that the *-Name* parameter (either “WindowsAzureMultiFactorAuthentication” or "AzureMFAServerAuthentication") matches the name that was displayed in step 3. This applies to all servers in the same AD FS cluster since there is a central configuration.
+4. Unregister the older version of the AD FS adapter by running the Unregister-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell script. Ensure that the *-Name* parameter (either "WindowsAzureMultiFactorAuthentication" or "AzureMFAServerAuthentication") matches the name that was displayed in step 3. This applies to all servers in the same AD FS cluster since there is a central configuration.
 5. Register the new AD FS adapter by running the Register-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell script. This applies to all servers in the same AD FS cluster since there is a central configuration.
 6. Restart the AD FS service on each server removed from the AD FS farm.
 7. Add the updated servers back to the AD FS farm and remove the other servers from the farm.

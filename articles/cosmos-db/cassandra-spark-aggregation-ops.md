@@ -6,7 +6,7 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 
 ---
@@ -73,7 +73,7 @@ sc.cassandraTable("books_ks", "books").count
 ```
 
 **Output:**
-```
+```bash
 res48: Long = 5
 ```
 
@@ -254,7 +254,9 @@ spark
 select max(book_price) from books_vw;
 ```
 **Output:**
-```22.45 ```
+```
+22.45
+```
 
 ## Sum operation
 

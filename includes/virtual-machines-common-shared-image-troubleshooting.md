@@ -5,13 +5,13 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/20/2018
+ ms.date: 06/15/2020
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
 
 
-If you run into issues while performing any operations on shared image galleries, image definitions, and image versions, run the failing command again in debug mode. Debug mode is activated by passing the **-debug** switch with CLI and the **-Debug** switch with PowerShell. Once you’ve located the error, follow this document to troubleshoot the errors.
+If you run into issues while performing any operations on shared image galleries, image definitions, and image versions, run the failing command again in debug mode. Debug mode is activated by passing the `--debug` switch with CLI and the `-Debug` switch with PowerShell. Once you’ve located the error, follow this document to troubleshoot the errors.
 
 
 ## Unable to create a shared image gallery
@@ -20,7 +20,7 @@ Possible causes:
 
 *The gallery name is invalid.*
 
-Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot have dashes in it. Change the gallery name and try again. 
+Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Change the gallery name and try again. 
 
 *The gallery name is not unique within your subscription.*
 
@@ -33,13 +33,13 @@ Possible causes:
 
 *image definition name is invalid.*
 
-Allowed characters for image definition are uppercase or lowercase letters, digits, dots, dashes and periods. Change the image definition name and try again.
+Allowed characters for image definition are uppercase or lowercase letters, digits, dots, dashes, and periods. Change the image definition name and try again.
 
 *The mandatory properties for creating an image definition are not populated.*
 
 The properties such as name, publisher, offer, sku, and OS type are mandatory. Verify if all the properties are being passed.
 
-Make sure that the **OSType**, either Linux or Windows, of the image definition is the same as the source managed image that you are using to create the image version. 
+Make sure that the **OSType**, either Linux or Windows, of the image definition is the same as the source that you are using to create the image version. 
 
 
 ## Unable to create an image version 
@@ -58,20 +58,7 @@ Check if the source image exists and is in the same region as the image version.
 
 Make sure the provisioning state of the source managed image is **Succeeded**.
 
-*The source region is not supported yet.*
-
-Use the table below to see if the intended source region is supported:
-<br>
-
-| Create gallery in or “source region”   | Replicate rersion to or “target region” |
-|----------------------------------------|-------------------------------------------|
-| West Central US                        | All Azure Public Cloud regions            |
-| South Central US                       |                                           |
-| East US 2                              |                                           |
-| Southeast Asia                         |                                           |
-| West Europe                            |                                           |
-
-<br>
+*The target region list does not include the source region.*
 
 The target region list must include the source region of the image version. Make sure you have included the source region in the list of target regions where you want Azure to replicate your image version to.
 
@@ -85,7 +72,7 @@ Possible causes:
 
 *The user trying to create a VM or virtual machine scale set doesn’t have the read access to the image version.*
 
-Contact the subscription owner and ask them to give read access to the image version or the parent resources (like the shared image gallery or image definition) through [Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Contact the subscription owner and ask them to give read access to the image version or the parent resources (like the shared image gallery or image definition) through [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 *The image version is not found.*
 
@@ -93,11 +80,11 @@ Verify that the region you are trying to create a VM or virtual machine scale in
 
 *The VM or virtual machine scale set creation takes a long time.*
 
-Verify that the **OSType** of the image version that you are trying to create the VM or virtual machine scale set from has the same **OSType** of the source managed image that you used to create the image version. 
+Verify that the **OSType** of the image version that you are trying to create the VM or virtual machine scale set from has the same **OSType** of the source that you used to create the image version. 
 
 ## Unable to share resources
 
-The sharing of shared image gallery, image definition, and image version resources across subscriptions is enabled using [Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+The sharing of shared image gallery, image definition, and image version resources across subscriptions is enabled using [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles). 
 
 ## Replication is slow
 
@@ -105,7 +92,4 @@ Use the **--expand ReplicationStatus** flag to check if the replication to all t
 
 ## Azure limits and quotas 
 
-[Azure limits and quotas](https://docs.microsoft.com/azure/azure-subscription-service-limits) apply to all shared image gallery, image definition, and image version resources. Make sure you are within the limits for your subscriptions. 
-
-
-
+[Azure limits and quotas](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) apply to all shared image gallery, image definition, and image version resources. Make sure you are within the limits for your subscriptions. 

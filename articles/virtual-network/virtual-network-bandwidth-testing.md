@@ -1,13 +1,13 @@
 ---
 title: Testing Azure VM network throughput
 titlesuffix: Azure Virtual Network
-description: Learn how to test Azure virtual machine network throughput.
+description: Use NTTTCP to target the network for testing and minimize the use of other resources that could impact performance.
 services: virtual-network
 documentationcenter: na
 author: steveesp
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
@@ -133,13 +133,13 @@ On this scenarios we should enable the no-sync mode so the test can run. This is
 
 #### From Linux to Windows:
 
-Receiver <Windows>:
+Receiver \<Windows>:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
 ```
 
-Sender <Linux> :
+Sender \<Linux> :
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
@@ -147,13 +147,13 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 #### From Windows to Linux:
 
-Receiver <Linux>:
+Receiver \<Linux>:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
-Sender <Windows>:
+Sender \<Windows>:
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300

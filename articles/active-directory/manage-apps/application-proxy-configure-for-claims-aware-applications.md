@@ -3,19 +3,18 @@ title: Claims-aware apps - Azure AD App Proxy | Microsoft Docs
 description: How to publish on-premises ASP.NET applications that accept ADFS claims for secure remote access by your users. 
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/08/2018
-ms.author: barbkess
+ms.author: kenwith
 ms.reviewer: japere
-
+ms.collection: M365-identity-device-management
 ---
 
 # Working with claims-aware apps in Application Proxy
@@ -51,7 +50,6 @@ If all the internal URLs for your applications are fully qualified domain names 
    ![Add an Endpoint - set Trusted URL value - screenshot](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## Next steps
-* [Enable single-sign on](configure-single-sign-on-portal.md) for applications that aren't claims-aware
 * [Enable native client apps to interact with proxy applications](application-proxy-configure-native-client-application.md)
 
 

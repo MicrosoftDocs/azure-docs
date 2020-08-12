@@ -1,28 +1,19 @@
 ---
-title: Sign into Azure Notebooks
+title: Sign into Azure Notebooks Preview
 description: Configure your user account for Azure Notebooks using a Microsoft account or a work/school account.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: douge
-
-ms.assetid: 0d657fcc-26bc-41dd-abf0-3e5cfd66e0e0
-ms.service: notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/04/2018
-ms.author: kraigb
+ms.topic: conceptual
+ms.date: 04/15/2019
 ---
 
-# Your user account for Azure Notebooks
+# Your user account for Azure Notebooks Preview
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 You can use Azure Notebooks with or without signing in with a user account:
 
 - Without signing in, you can create and run notebooks but cannot retain notebooks or data files as part of projects. Users who receive a link to an Azure Notebook, for example, can enjoy the notebook without needing to sign in.
 - When signed in, Azure Notebooks retains all your projects with your account. Signed-in users also have a user ID that allows them to share their projects and notebooks with others.
-  - When the account used for Azure Notebooks is also associated with an Azure Subscription, you gain additional benefits such as running notebooks on more powerful servers, creating private notebooks, and granting permissions to notebooks to individual users.
+- When the account used for Azure Notebooks is also associated with an Azure Subscription, you gain additional benefits such as running notebooks on more powerful servers, creating private notebooks, and granting permissions to notebooks to individual users.
 
 Signing into Azure Notebooks requires either a Microsoft Account or a "Work or School" account. You're prompted for your account when selecting the **Sign In** command on the upper right side of the Notebooks page:
 
@@ -37,6 +28,9 @@ Microsoft accounts are used to sign into any number of Microsoft products and se
 If you're unsure, select the **Create One** command in the account prompt. You can create a new Microsoft account using any email address from any provider.
 
 ![Command to create a new Microsoft account](media/accounts/create-new-microsoft-account.png)
+
+> [!Note]
+> If you attempt to create a new account with an email address that already has an account associated with it, you may see the message, "You can't sign up here with a work or school email address. Use a personal email, such as Gmail or Yahoo!, or get a new Outlook email." In that case, try signing in with the work email address without creating a new account.
 
 For child accounts, access to Azure Notebooks is blocked by default. Signing in with a child account displays the error shown below:
 
@@ -54,7 +48,7 @@ To enable access, a parent must do the following steps:
 
 ## Work or school accounts
 
-A work or school account is created by an organization’s administrator to enable a member of the organization to access Microsoft cloud services such as Office 365, and also as an account to sign into Windows on a domain-joined computer. A work or school account typically uses an organizational email address, such as any-user@contoso.com.
+A work or school account is created by an organization’s administrator to enable a member of the organization to access Microsoft cloud services such as Microsoft 365, and also as an account to sign into Windows on a domain-joined computer. A work or school account typically uses an organizational email address, such as any-user@contoso.com.
 
 Signing into Azure Notebooks with a work or school account may require administrator consent because Azure Notebooks collects or uses (but does not disclose) information such as the account's email address and the user's browser information. (Browser data is used to optimize features according to popular usage.)
 

@@ -1,24 +1,16 @@
 ---
-title: Smart Detection - Abnormal rise in exception volume, in Azure Application Insights | Microsoft Docs
-description: Monitor application exceptions with Azure Application Insights for unusual patterns in exception volume.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Abnormal rise in exception volume - Azure Application Insights
+description: Monitor application exceptions with Smart Detection in Azure Application Insights for unusual patterns in exception volume.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.author: mbullwin
+
 ---
 
 # Abnormal rise in exception volume (preview)
 
 Application Insights automatically analyzes the exceptions thrown in your application, and can warn you about unusual patterns in your exception telemetry.
 
-This feature requires no special setup, other than [configuring exception reporting](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-exceptions#set-up-exception-reporting) for your app. It is active when your app generates enough exception telemetry.
+This feature requires no special setup, other than [configuring exception reporting](./asp-net-exceptions.md#set-up-exception-reporting) for your app. It is active when your app generates enough exception telemetry.
 
 ## When would I get this type of smart detection notification?
 You might get this type of notification if your app is exhibiting an abnormal rise in the number of exceptions of a specific type during a day, compared to a baseline calculated over the previous seven days.

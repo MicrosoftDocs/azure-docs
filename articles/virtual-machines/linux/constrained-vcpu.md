@@ -1,22 +1,11 @@
 ---
-title: Azure constrained vCPU sizes - Linux | Microsoft Docs
+title: Constrained vCPU sizes 
 description: Lists the Vm sizes that are capable of having a constrained vCPU count.
-services: virtual-machines-linux
-documentationcenter: ''
-author: jonbeck7
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager,azure-service-management
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
+author: mimckitt
+ms.service: virtual-machines
+ms.topic: conceptual
 ms.date: 03/09/2018
-ms.author: jonbeck
-
+ms.author: mimckitt
 ---
 
 # Constrained vCPU capable VM sizes
@@ -26,12 +15,11 @@ ms.author: jonbeck
 
 
 ## Other sizes
-- [Compute optimized](../windows/sizes-compute.md)
-- [Memory optimized](sizes-memory.md)
-- [Storage optimized](sizes-storage.md)
-- [GPU](sizes-gpu.md)
-- [High performance compute](sizes-hpc.md)
+- [Compute optimized](../sizes-compute.md)
+- [Memory optimized](../sizes-memory.md)
+- [Storage optimized](../sizes-storage.md)
+- [GPU](../sizes-gpu.md)
+- [High performance compute](../sizes-hpc.md)
 
 ## Next steps
-Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
-
+Learn more about how [Azure compute units (ACU)](../acu.md) can help you compare compute performance across Azure SKUs.

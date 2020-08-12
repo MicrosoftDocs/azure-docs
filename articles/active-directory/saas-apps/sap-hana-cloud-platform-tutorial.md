@@ -8,7 +8,8 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +17,7 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SAP Cloud Platform
 
@@ -108,35 +110,29 @@ To configure Azure AD single sign-on with SAP Cloud Platform, perform the follow
 
     a. In the **Sign On URL** textbox, type the URL used by your users to sign into your **SAP Cloud Platform** application. This is the account-specific URL of a protected resource in your SAP Cloud Platform application. The URL is based on the following pattern: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
-     >[!NOTE]
-     >This is the URL in your SAP Cloud Platform application that requires the user to authenticate.
-     > 
+    >[!NOTE]
+    >This is the URL in your SAP Cloud Platform application that requires the user to authenticate.
+    > 
 
-    | |
-    |--|
-    | `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
-    | `https://<subdomain>.hana.ondemand.com/<instancename>` |
+    - `https://<subdomain>.hanatrial.ondemand.com/<instancename>`
+    - `https://<subdomain>.hana.ondemand.com/<instancename>`
 
 	b. In the **Identifier** textbox you will provide your SAP Cloud Platform's type a URL using one of the following patterns: 
 
-	| |
-	|--|
-	| `https://hanatrial.ondemand.com/<instancename>` |
-	| `https://hana.ondemand.com/<instancename>` |
-	| `https://us1.hana.ondemand.com/<instancename>` |
-	| `https://ap1.hana.ondemand.com/<instancename>` |
+    - `https://hanatrial.ondemand.com/<instancename>`
+    - `https://hana.ondemand.com/<instancename>`
+    - `https://us1.hana.ondemand.com/<instancename>`
+    - `https://ap1.hana.ondemand.com/<instancename>`
 
 	c. In the **Reply URL** textbox, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<subdomain>.hanatrial.ondemand.com/<instancename>` |
-	| `https://<subdomain>.hana.ondemand.com/<instancename>` |
-	| `https://<subdomain>.us1.hana.ondemand.com/<instancename>` |
-	| `https://<subdomain>.dispatcher.us1.hana.ondemand.com/<instancename>` |
-	| `https://<subdomain>.ap1.hana.ondemand.com/<instancename>` |
-	| `https://<subdomain>.dispatcher.ap1.hana.ondemand.com/<instancename>` |
-	| `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>` |
+    - `https://<subdomain>.hanatrial.ondemand.com/<instancename>`
+    - `https://<subdomain>.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.us1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.dispatcher.us1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.ap1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.dispatcher.ap1.hana.ondemand.com/<instancename>`
+    - `https://<subdomain>.dispatcher.hana.ondemand.com/<instancename>`
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier, and Reply URL. Contact [SAP Cloud Platform Client support team](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/5dd739823b824b539eee47b7860a00be.html) to get Sign-On URL and Identifier. Reply URL you can get from trust management section which is explained later in the tutorial.
@@ -248,7 +244,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -311,9 +307,9 @@ When you click the SAP Cloud Platform tile in the Access Panel, you should be au
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

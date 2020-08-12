@@ -5,9 +5,9 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 11/20/2017
-author: wmengmsft
-ms.author: wmeng
+ms.date: 11/20/2018
+author: sakash279
+ms.author: akshanka
 
 ---
 # Azure Cosmos DB Table API for Node.js: Release notes and resources
@@ -31,7 +31,7 @@ ms.author: wmeng
 
 ## Release notes
 
-### <a name="1.0.0"/>1.0.0
+### <a name="1.0.0"></a>1.0.0
 * General availability release
 
 ## Release and retirement dates

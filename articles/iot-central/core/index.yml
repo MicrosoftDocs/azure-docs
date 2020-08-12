@@ -1,0 +1,97 @@
+### YamlMime:Landing
+title: Azure IoT Central documentation
+summary: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials. # < 160 chars
+
+metadata:
+  title: Azure IoT Central documentation
+  description: Azure IoT Central application simplifies the creation of IoT solutions. Learn how to create, customize, manage, and use an Azure IoT Central application.
+  services: iot-central
+  ms.service: iot-central
+  ms.topic: landing-page 
+  author: philmea 
+  ms.author: philmea 
+  ms.date: 02/18/2020 
+
+landingContent:
+  - title: About Azure IoT Central
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure IoT Central?
+            url: overview-iot-central.md
+          - text: Tour the UI
+            url: overview-iot-central-tour.md
+          - text: Device development
+            url: overview-iot-central-developer.md
+          - text: Recent updates
+            url: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
+      - linkListType: architecture
+        links:
+          - text: Azure IoT Central architecture
+            url: concepts-architecture.md
+          - text: Application templates
+            url: concepts-app-templates.md
+      - linkListType: quickstart
+        links:
+          - text: Create a new application
+            url: quick-deploy-iot-central.md
+  - title: Get connected
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Connect a device
+            url: tutorial-connect-device.md
+      - linkListType: how-to-guide
+        links:
+          - text: Set up a device template
+            url: howto-set-up-template.md
+          - text: Connect other IoT clouds
+            url: howto-build-iotc-device-bridge.md
+  - title: Stay connected
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Use device groups
+            url: tutorial-use-device-groups.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your devices
+            url: howto-manage-devices.md
+          - text: Run a job
+            url: howto-run-a-job.md
+          - text: Analyze your device data
+            url: howto-create-analytics.md
+  - title: Transform
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create telemetry rules
+            url: tutorial-create-telemetry-rules.md
+          - text: Export data to destinations in Azure
+            url: howto-export-data.md
+          - text: Explore the IoT Central APIs
+            url: https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/                    
+      - linkListType: how-to-guide
+        links:
+          - text: Create custom rules
+            url: howto-create-custom-rules.md
+          - text: Create custom analytics
+            url: howto-create-custom-analytics.md
+  - title: Administration
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your application
+            url: howto-administer.md
+          - text: Manage users and roles
+            url: howto-manage-users-roles.md 
+          - text: View your bill
+            url: howto-view-bill.md
+          - text: Customize application UI
+            url: howto-customize-ui.md  
+          - text: Configure personal dashboards
+            url: howto-create-personal-dashboards.md
+          - text: Use dashboard tiles
+            url: howto-add-tiles-to-your-dashboard.md
+          - text: Use application templates
+            url: howto-use-app-templates.md

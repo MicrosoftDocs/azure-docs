@@ -1,23 +1,23 @@
 ---
-title: Web service parameters - Azure Machine Learning Studio | Microsoft Docs
+title: 'ML Studio (classic): Web service parameters - Azure'
 description: How to use Azure Machine Learning Web Service Parameters to modify the behavior of your model when the web service is accessed.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/12/2017
 ---
-# Use Azure Machine Learning Studio web service parameters
+# Use Azure Machine Learning Studio (classic) web service parameters
+
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
+
 An Azure Machine Learning web service is created by publishing an experiment that contains modules with configurable parameters. In some cases, you may want to change the module behavior while the web service is running. *Web Service Parameters* allow you to do this task. 
 
 A common example is setting up the [Import Data][reader] module so that the user of the published web service can specify a different data source when the web service is accessed. Or configuring the [Export Data][writer] module so that a different destination can be specified. Some other examples include changing the number of bits for the [Feature Hashing][feature-hashing] module or the number of desired features for the [Filter-Based Feature Selection][filter-based-feature-selection] module. 
@@ -36,14 +36,14 @@ You can decide whether to provide a default value for the Web Service Parameter.
 The API documentation for the web service includes information for the web service user on how to specify the Web Service Parameter programmatically when accessing the web service.
 
 > [!NOTE]
-> The API documentation for a classic web service is provided through the **API help page** link in the web service **DASHBOARD** in Machine Learning Studio. The API documentation for a new web service is provided through the [Azure Machine Learning Web Services](https://services.azureml.net/Quickstart) portal on the **Consume** and **Swagger API** pages for your web service.
+> The API documentation for a classic web service is provided through the **API help page** link in the web service **DASHBOARD** in Machine Learning Studio (classic). The API documentation for a new web service is provided through the [Azure Machine Learning Web Services](https://services.azureml.net/Quickstart) portal on the **Consume** and **Swagger API** pages for your web service.
 > 
 > 
 
 ## Example
 As an example, let's assume we have an experiment with an [Export Data][writer] module that sends information to Azure blob storage. We'll define a Web Service Parameter named "Blob path" that allows the web service user to change the path to the blob storage when the service is accessed.
 
-1. In Machine Learning Studio, click the [Export Data][writer] module to select it. Its properties are shown in the Properties pane to the right of the experiment canvas.
+1. In Machine Learning Studio (classic), click the [Export Data][writer] module to select it. Its properties are shown in the Properties pane to the right of the experiment canvas.
 2. Specify the storage type:
    
    * Under **Please specify data destination**, select "Azure Blob Storage".
@@ -52,7 +52,7 @@ As an example, let's assume we have an experiment with an [Export Data][writer] 
 
 3. Click the icon to the right of the **Path to blob beginning with container parameter**. It looks like this:
    
-   ![Web Service Parameter icon][icon]
+   ![Web Service Parameter icon](./media/web-service-parameters/icon.png)
    
    Select "Set as web service parameter".
    
@@ -60,7 +60,7 @@ As an example, let's assume we have an experiment with an [Export Data][writer] 
 4. To rename the Web Service Parameter, click the name, enter "Blob path", and press the **Enter** key. 
 5. To provide a default value for the Web Service Parameter, click the icon to the right of the name, select "Provide default value", enter a value (for example, "container1/output1.csv"), and press the **Enter** key.
    
-   ![Web Service Parameter][parameter]
+   ![Web Service Parameter](./media/web-service-parameters/parameter.png)
 6. Click **Run**. 
 7. Click **Deploy Web Service** and select **Deploy Web Service [Classic]** or **Deploy Web Service [New]** to deploy the web service.
 
@@ -70,14 +70,9 @@ As an example, let's assume we have an experiment with an [Export Data][writer] 
 The user of the web service can now specify a new destination for the [Export Data][writer] module when accessing the web service.
 
 ## More information
-For a more detailed example, see the [Web Service Parameters](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) entry in the [Machine Learning Blog](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
+For a more detailed example, see the [Web Service Parameters](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) entry in the [Machine Learning Blog](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
 For more information on accessing a Machine Learning web service, see [How to consume an Azure Machine Learning Web service](consume-web-services.md).
-
-<!-- Images -->
-[icon]: ./media/web-service-parameters/icon.png
-[parameter]: ./media/web-service-parameters/parameter.png
-
 
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/

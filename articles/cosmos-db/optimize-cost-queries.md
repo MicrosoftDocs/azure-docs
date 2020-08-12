@@ -1,20 +1,20 @@
 ---
-title: Optimize request units and cost to run queries in Azure Cosmos DB
+title: Optimize cost and RU/s to run queries in Azure Cosmos DB
 description: Learn how to evaluate request unit charges for a query and optimize the query in terms of performance and cost. 
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: rimman
+ms.date: 07/24/2020
 ---
 
-# Optimize the cost required to run queries in Azure Cosmos DB
+# Optimize query cost in Azure Cosmos DB
 
-Azure Cosmos DB offers a rich set of database operations including relational and hierarchical queries that operate on the items within a container. The cost associated with each of these operations varies based on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations to serve a request. This article describes how to evaluate request unit charges for a query and optimize the query in terms of performance and cost. 
+Azure Cosmos DB offers a rich set of database operations including relational and hierarchical queries that operate on the items within a container. The cost associated with each of these operations varies based on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations to serve a request. This article describes how to evaluate request unit charges for a query and optimize the query in terms of performance and cost.
 
-Queries in Azure Cosmos DB are typically ordered from fastest/most efficient to slower/less efficient in terms of throughput as follows:  
+Reads in Azure Cosmos DB are typically ordered from fastest/most efficient to slower/less efficient in terms of throughput as follows:  
 
-* GET operation on a single partition key and item key.
+* Point reads (key/value lookup on a single item ID and partition key).
 
 * Query with a filter clause within a single partition key.
 
@@ -22,16 +22,18 @@ Queries in Azure Cosmos DB are typically ordered from fastest/most efficient to 
 
 * Query without filters.
 
+Because key/value lookups on the item ID are the most efficient kind of read, you should make sure item ID has a meaningful value.
+
 Queries that read data from one or more partitions incur higher latency and consume higher number of request units. Since each partition has automatic indexing for all properties, the query can be served efficiently from the index. You can make queries that use multiple partitions faster by using the parallelism options. To learn more about partitioning and partition keys, see [Partitioning in Azure Cosmos DB](partitioning-overview.md).
 
 ## Evaluate request unit charge for a query
 
 Once you have stored some data in your Azure Cosmos containers, you can use the Data Explorer in the Azure portal to construct and run your queries. You can also get the cost of the queries by using the data explorer. This method will give you a sense of the actual charges involved with typical queries and operations that your system supports.
 
-You can also get the cost of queries programmatically by using the SDKs. To measure the overhead of any operation such as create, update, or delete inspect the `x-ms-request-charge` header when using REST API. If you are using the .Net or the Java SDK, the `RequestCharge` property is the equivalent property to get the request charge and this property is present within the ResourceResponse or FeedResponse.
+You can also get the cost of queries programmatically by using the SDKs. To measure the overhead of any operation such as create, update, or delete inspect the `x-ms-request-charge` header when using REST API. If you are using the .NET or the Java SDK, the `RequestCharge` property is the equivalent property to get the request charge and this property is present within the ResourceResponse or FeedResponse.
 
 ```csharp
-// Measure the performance (request units) of writes 
+// Measure the performance (request units) of writes
 ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument); 
 
 Console.WriteLine("Insert of an item consumed {0} request units", response.RequestCharge); 
@@ -48,13 +50,13 @@ while (queryable.HasMoreResults)
 
 ## Factors influencing request unit charge for a query
 
-Request units for queries are dependent on a number of factors. For example, the number of Azure Cosmos items loaded/returned, the number of lookups against the index, the query compilation time etc details. Azure Cosmos DB guarantees that the same query when executed on the same data will always consume the same number of request units even with repeat executions. The query profile using query execution metrics gives you a good idea of how the request units are spent.  
+Request units for queries are dependent on a number of factors. For example, the number of Azure Cosmos items loaded/returned, the number of lookups against the index, the query compilation time etc. details. Azure Cosmos DB guarantees that the same query when executed on the same data will always consume the same number of request units even with repeat executions. The query profile using query execution metrics gives you a good idea of how the request units are spent.  
 
 In some cases you may see a sequence of 200 and 429 responses, and variable request units in a paged execution of queries, that is because queries will run as fast as possible based on the available RUs. You may see a query execution break into multiple pages/round trips between server and client. For example, 10,000 items may be returned as multiple pages, each charged based on the computation performed for that page. When you sum across these pages, you should get the same number of RUs as you would get for the entire query.  
 
 ## Metrics for troubleshooting
 
-The performance and the throughput consumed by queries, user-defined functions (UDFs) mostly depends on the function body. The easiest way to find out how much time the query execution is spent in the UDF and the number of RUs consumed, is by enabling the Query Metrics. If you use the .Net SDK, here are sample query metrics returned by the SDK:
+The performance and the throughput consumed by queries, user-defined functions (UDFs) mostly depends on the function body. The easiest way to find out how much time the query execution is spent in the UDF and the number of RUs consumed, is by enabling the Query Metrics. If you use the .NET SDK, here are sample query metrics returned by the SDK:
 
 ```bash
 Retrieved Document Count                 :               1              

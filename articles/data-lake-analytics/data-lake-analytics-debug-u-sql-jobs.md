@@ -1,13 +1,11 @@
 ---
-title: Debug user-defined C# code for failed Azure Data Lake U-SQL jobs
+title: Debug C# code for Azure Data Lake U-SQL jobs
 description: This article describes how to debug a U-SQL failed vertex using Azure Data Lake Tools for Visual Studio.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: yanancai
-ms.author: yanacai
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/30/2017
 ---
 # Debug user-defined C# code for failed U-SQL jobs
@@ -74,7 +72,7 @@ If the user code is not included in code-behind file, or you did not register th
 
 2. Get the project folder path for **FailedVertexDebugHost** project. 
 
-3. Right-Click **the added assembly source code project > Properties**, select the **Build** tab at left, and paste the copied path ending with \bin\debug as **Output > Output path**. The final output path is like "<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\".
+3. Right-Click **the added assembly source code project > Properties**, select the **Build** tab at left, and paste the copied path ending with \bin\debug as **Output > Output path**. The final output path is like `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`.
 
     ![Azure Data Lake Analytics U-SQL debug set pdb path](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 
@@ -87,7 +85,7 @@ After these settings, start debugging with **F5** and breakpoints. You can also 
 
 After debugging, if the project completes successfully the output window shows the following message:
 
-    The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
+`The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).`
 
 ![Azure Data Lake Analytics U-SQL debug succeed](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 

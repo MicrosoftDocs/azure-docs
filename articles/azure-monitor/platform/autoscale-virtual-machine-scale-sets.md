@@ -1,21 +1,23 @@
 ---
 title: Advanced Autoscale using Azure Virtual Machines
-description: Uses Resource Manager and VM Scale Sets with multiple rules and profiles which send email and call webhook URLs with scale actions.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
+description: Uses Resource Manager and VM scale sets with multiple rules and profiles, which send email and call webhook URLs with scale actions.
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
-ms.date: 02/22/2016
-ms.author: ancav
+ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
+ms.date: 06/25/2020
+ms.reviewer: jushiman
+ms.custom: mimckitt
+
 ---
 
 # Advanced autoscale configuration using Resource Manager templates for VM Scale Sets
 You can scale-in and scale-out in Virtual Machine Scale Sets based on performance metric thresholds, by a recurring schedule, or by a particular date. You can also configure email and webhook notifications for scale actions. This walkthrough shows an example of configuring all these objects using a Resource Manager template on a VM Scale Set.
 
 > [!NOTE]
-> While this walkthrough explains the steps for VM Scale Sets, the same information applies to autoscaling [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)
-> For a simple scale in/out setting on a VM Scale Set based on a simple performance metric such as CPU, refer to the [Linux](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) and [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) documents
+> While this walkthrough explains the steps for VM Scale Sets, the same information applies to autoscaling [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](../../api-management/api-management-key-concepts.md)
+> For a simple scale in/out setting on a VM Scale Set based on a simple performance metric such as CPU, refer to the [Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) and [Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) documents
 >
 >
 
@@ -43,14 +45,14 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
 
 4. Here is a hypothetical scaling scenario that we use for this walk-through.
 
-    * **Load based** - I'd like to scale out or in based on the load on my application hosted on my scale set.*
-    * **Message Queue size** - I use a Service Bus Queue for the incoming messages to my application. I use the queue's message count and CPU% and configure a default profile to trigger a scale action if either of message count or CPU hits the threshold.*
-    * **Time of week and day** - I want a weekly recurring 'time of the day' based profile called 'Weekday Morning Hours'. Based on historical data, I know it is better to have certain number of VM instances to handle my application's load during this time.*
-    * **Special Dates** - I added a 'Product Launch Day' profile. I plan ahead for specific dates so my application is ready to handle the load due marketing announcements and when we put a new product in the application.*
-    * *The last two profiles can also have other performance metric based rules within them. In this case, I decided not to have one and instead to rely on the default performance metric based rules. Rules are optional for the recurring and date-based profiles.*
+   * **Load based** - I'd like to scale out or in based on the load on my application hosted on my scale set.*
+   * **Message Queue size** - I use a Service Bus Queue for the incoming messages to my application. I use the queue's message count and CPU% and configure a default profile to trigger a scale action if either of message count or CPU hits the threshold.\*
+   * **Time of week and day** - I want a weekly recurring 'time of the day' based profile called 'Weekday Morning Hours'. Based on historical data, I know it is better to have certain number of VM instances to handle my application's load during this time.\*
+   * **Special Dates** - I added a 'Product Launch Day' profile. I plan ahead for specific dates so my application is ready to handle the load due marketing announcements and when we put a new product in the application.\*
+   * *The last two profiles can also have other performance metric based rules within them. In this case, I decided not to have one and instead to rely on the default performance metric based rules. Rules are optional for the recurring and date-based profiles.*
 
-    Autoscale engine's prioritization of the profiles and rules is also captured in the [autoscaling best practices](autoscale-best-practices.md) article.
-    For a list of common metrics for autoscale, refer [Common metrics for Autoscale](autoscale-common-metrics.md)
+     Autoscale engine's prioritization of the profiles and rules is also captured in the [autoscaling best practices](autoscale-best-practices.md) article.
+     For a list of common metrics for autoscale, refer [Common metrics for Autoscale](autoscale-common-metrics.md)
 
 5. Make sure you are on the **Read/Write** mode in Resource Explorer
 
@@ -190,7 +192,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
             }
           }
     ```
-    For supported fields and their values, see [Autoscale REST API documentation](https://msdn.microsoft.com/library/azure/dn931928.aspx). Now your autoscale setting contains the three profiles explained previously.
+    For supported fields and their values, see [Autoscale REST API documentation](/rest/api/monitor/autoscalesettings). Now your autoscale setting contains the three profiles explained previously.
 
 7. Finally, look at the Autoscale **notification** section. Autoscale notifications allow you to do three things when a scale-out or in action is successfully triggered.
    - Notify the admin and co-admins of your subscription
@@ -238,9 +240,9 @@ Use these links to learn more about autoscaling.
 
 [Best Practices for Azure Autoscale](autoscale-best-practices.md)
 
-[Manage Autoscale using PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
+[Manage Autoscale using PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Manage Autoscale using CLI](cli-samples.md#autoscale)
+[Manage Autoscale using CLI](../samples/cli-samples.md#autoscale)
 
 [Configure Webhook & Email Notifications for Autoscale](autoscale-webhook-email.md)
 

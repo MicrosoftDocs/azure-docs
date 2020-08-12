@@ -1,0 +1,97 @@
+### YamlMime:Landing
+
+title: Azure IoT Central for Energy documentation # < 60 chars
+summary: Learn how to create, customize, and manage energy IoT solutions using IoT Central application templates . # < 160 chars
+
+metadata:
+  title: Azure IoT Central for Energy documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to create, customize, and manage energy IoT solutions using IoT Central application templates . # < 160 chars.
+  services: iot-central
+  ms.service: iot-central #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  author: philmea #Required; your GitHub user alias, with correct capitalization.
+  ms.author: philmea #Required; microsoft alias of author; optional team alias.
+  ms.date: 10/25/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: Build energy solutions
+    linkLists:
+      - linkListType: overview
+        links:
+        - url: overview-iot-central-energy.md
+          text: Build energy solutions with IoT Central
+      - linkListType: tutorial
+        links:
+        - url: overview-iot-central-energy.md
+          text: Build energy solutions with IoT Central
+        - url: tutorial-smart-meter-app.md
+          text: Create a smart meter monitoring app
+        - url: tutorial-solar-panel-app.md
+          text: Create a solar panel monitoring app
+
+  # Card (optional)
+  - title: Get connected
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Set up a device template
+            url: ../core/howto-set-up-template.md
+          - text: Connect a device
+            url: ../core/tutorial-connect-device.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect other IoT clouds
+            url: ../core/howto-build-iotc-device-bridge.md
+  - title: Stay connected
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Use device groups
+            url: ../core/tutorial-use-device-groups.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your devices
+            url: ../core/howto-manage-devices.md
+          - text: Run a job
+            url: ../core/howto-run-a-job.md
+          - text: Analyze your device data
+            url: ../core/howto-create-analytics.md
+  - title: Transform
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create a rule
+            url: ../core/quick-configure-rules.md
+          - text: Create telemetry rules
+            url: ../core/tutorial-create-telemetry-rules.md
+          - text: Export to Blob Storage
+            url: ../core/howto-export-data.md                   
+      - linkListType: how-to-guide
+        links:
+          - text: Create custom rules
+            url: ../core/howto-create-custom-rules.md
+          - text: Create custom analytics
+            url: ../core/howto-create-custom-analytics.md
+  - title: Administration
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your application
+            url: ../core/howto-administer.md
+          - text: Manage users and roles
+            url: ../core/howto-manage-users-roles.md 
+          - text: View your bill
+            url: ../core/howto-view-bill.md
+          - text: Customize application UI
+            url: ../core/howto-customize-ui.md  
+          - text: Configure personal dashboards
+            url: ../core/howto-create-personal-dashboards.md
+          - text: Use dashboard tiles
+            url: ../core/howto-add-tiles-to-your-dashboard.md
+          - text: Use application templates
+            url: ../core/howto-use-app-templates.md

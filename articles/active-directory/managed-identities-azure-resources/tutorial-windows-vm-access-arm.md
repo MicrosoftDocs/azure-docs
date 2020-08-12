@@ -1,20 +1,21 @@
 ---
-title: Use a Windows VM system-assigned managed identity to access Azure Resource Manager
+title: Tutorial`:` Use managed identity to access Azure Resource Manager - Windows - Azure AD
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: MarkusVi
 manager: daveba
 editor: daveba
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: daveba
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # Use a Windows VM system-assigned managed identity to access Resource Manager
@@ -46,7 +47,7 @@ Using managed identities for Azure resources, your code can get access tokens to
 
 ## Get an access token using the VM's system-assigned managed identity and use it to call Azure Resource Manager 
 
-You will need to use **PowerShell** in this portion.  If you don’t have **PowerShell** installed, download it [here](https://docs.microsoft.com/powershell/azure/overview). 
+You will need to use **PowerShell** in this portion.  If you don’t have **PowerShell** installed, download it [here](https://docs.microsoft.com/powershell/azure/). 
 
 1.	In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**. 
 2.	Enter in your **Username** and **Password** for which you added when you created the Windows VM. 

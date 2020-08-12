@@ -1,23 +1,15 @@
 ---
-title: Azure CLI Script Sample - Connect an app to MongoDB (Cosmos DB) | Microsoft Docs
-description: Azure CLI Script Sample - Connect an app to MongoDB (Cosmos DB)
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: 
+title: 'CLI: Connect an app to Cosmos DB'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to connect an app to MongoDB (Cosmos DB).
+author: msangapu-msft
 tags: azure-service-management
 
 ms.assetid: bbbdbc42-efb5-4b4f-8ba6-c03c9d16a7ea
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
 
 # Connect an App Service app to Cosmos DB using CLI

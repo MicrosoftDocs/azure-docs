@@ -39,7 +39,7 @@ In this part, you call the default IoT hub manager microservice API. The API ret
 
 1. Make sure the Remote Monitoring solution is running locally on your machine.
 2. Locate where you downloaded Postman and open it.
-3. In Postman, enter the following in the GET: http://localhost:8080/iothubmanager/v1/status.
+3. In Postman, enter the following in the GET: `http://localhost:8080/iothubmanager/v1/status`.
 4. View the return and you should see, "Status": "OK:Alive and Well".
 
     ![Alive and Well Postman Message](./media/iot-accelerators-microservices-example/postman-alive-well.png)
@@ -120,13 +120,13 @@ You now need to update your local docker-compose.yml to pull your new docker ima
 2. Open docker-compose.yml in any text editor or IDE that you like.
 3. Locate the following code:
 
-    ```docker
+    ```yml
     image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 
     and change it to look like the image below and save it.
 
-    ```cmd/sh
+    ```yml
     image: [docker ID]/iothub-manager-dotnet:testing
     ```
 
@@ -141,7 +141,7 @@ Finish up by redeploying a local instance of the Remote Monitoring solution and 
     ```
 
 3. Locate where you downloaded Postman and open it.
-4. In Postman, enter the following request in the GET: http://localhost:8080/iothubmanager/v1/status. You should now see, "Status": "OK: New Edits Made Here!".
+4. In Postman, enter the following request in the GET: `http://localhost:8080/iothubmanager/v1/status`. You should now see, "Status": "OK: New Edits Made Here!".
 
 ![New Edits Made Here postman message](./media/iot-accelerators-microservices-example/new-postman-message.png)
 

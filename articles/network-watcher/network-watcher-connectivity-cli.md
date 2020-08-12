@@ -1,19 +1,20 @@
 ---
-title: Troubleshoot connections with Azure Network Watcher - Azure CLI | Microsoft Docs
+title: Troubleshoot connections - Azure CLI
+titleSuffix: Azure Network Watcher
 description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using the Azure CLI.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: damendo
+
 editor: 
 
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 07/11/2017
-ms.author: jdial
+ms.author: damendo
 ---
 
 # Troubleshoot connections with Azure Network Watcher using the Azure CLI
@@ -181,7 +182,7 @@ The following example checks the connectivity to a website.
 ### Example
 
 ```azurecli
-az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address http://bing.com --dest-port 80
+az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://bing.com --dest-port 80
 ```
 
 ### Response

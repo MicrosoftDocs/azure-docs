@@ -1,10 +1,10 @@
 ---
-title: Azure Notification Hubs Secure Push
+title: Azure Notification Hubs Secure Push for Windows
 description: Learn how to send secure push notifications in Azure. Code samples written in C# using the .NET API.
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 
 ms.assetid: 5aef50f4-80b3-460e-a9a7-7435001273bd
@@ -14,7 +14,9 @@ ms.tgt_pltfrm: windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
 # Securely push notifications from Azure Notification Hubs
@@ -53,12 +55,12 @@ This Secure Push tutorial shows how to send a push notification securely. The tu
 
 1. In the **NotifyUserWindowsPhone** project, add the following code to App.xaml.cs to register the push background task. Add the following line of code at the end of the `OnLaunched()` method:
 
-    ```c#
+    ```csharp
     RegisterBackgroundTask();
     ```
 2. Still in App.xaml.cs, add the following code immediately after the `OnLaunched()` method:
 
-    ```c#
+    ```csharp
     private async void RegisterBackgroundTask()
     {
         if (!Windows.ApplicationModel.Background.BackgroundTaskRegistration.AllTasks.Any(i => i.Value.Name == "PushBackgroundTask"))
@@ -75,7 +77,7 @@ This Secure Push tutorial shows how to send a push notification securely. The tu
     ```
 3. Add the following `using` statements at the top of the App.xaml.cs file:
 
-    ```c#
+    ```csharp
     using Windows.Networking.PushNotifications;
     using Windows.ApplicationModel.Background;
     ```
@@ -88,7 +90,7 @@ The next step is to create the push background component.
 1. In Solution Explorer, right-click the top-level node of the solution (**Solution SecurePush** in this case), then click **Add**, then click **New Project**.
 2. Expand **Store Apps**, then click **Windows Phone Apps**, then click **Windows Runtime Component (Windows Phone)**. Name the project **PushBackgroundComponent**, and then click **OK** to create the project.
 
-    ![][12]
+    ![Screenshot of the Add New Project dialog with the Windows Runtime Component (Windows Phone) Visual C# option highlighted.][12]
 3. In Solution Explorer, right-click the **PushBackgroundComponent (Windows Phone 8.1)** project, then click **Add**, then click **Class**. Name the new class `PushBackgroundTask.cs`. Click **Add** to generate the class.
 4. Replace the entire contents of the `PushBackgroundComponent` namespace definition with the following code, substituting the placeholder `{back-end endpoint}` with the back-end endpoint obtained while deploying your back-end:
 
@@ -143,7 +145,7 @@ The next step is to create the push background component.
 9. Back in the NuGet **Search** box, type **Json.net**. Install the **Json.NET** package, then close the NuGet Package Manager window.
 10. Add the following `using` statements at the top of the `PushBackgroundTask.cs` file:
 
-    ```c#
+    ```csharp
     using Windows.ApplicationModel.Background;
     using Windows.Networking.PushNotifications;
     using System.Net.Http;
@@ -156,12 +158,12 @@ The next step is to create the push background component.
 11. In Solution Explorer, in the **NotifyUserWindowsPhone (Windows Phone 8.1)** project, right-click **References**, then click **Add Reference...**. In the Reference Manager dialog, check the box next to **PushBackgroundComponent**, and then click **OK**.
 12. In Solution Explorer, double-click **Package.appxmanifest** in the **NotifyUserWindowsPhone (Windows Phone 8.1)** project. Under **Notifications**, set **Toast Capable** to **Yes**.
 
-    ![][3]
+    ![Screenshot of the Solution Explorer window focusing on the Package.appxmanifest with the Toast capable option set to Yes outlined in red.][3]
 13. Still in **Package.appxmanifest**, click the **Declarations** menu near the top. In the **Available Declarations** dropdown, click **Background Tasks**, and then click **Add**.
 14. In **Package.appxmanifest**, under **Properties**, check **Push notification**.
 15. In **Package.appxmanifest**, under **App Settings**, type **PushBackgroundComponent.PushBackgroundTask** in the **Entry Point** field.
 
-    ![][13]
+    ![Screenshot of the Solution Explorer window focusing on the Package.appxmanifest with the Available Declarations, Supported Declarations, Push notifications, and Entry point options outlined in red.][13]
 16. From the **File** menu, click **Save All**.
 
 ## Run the Application

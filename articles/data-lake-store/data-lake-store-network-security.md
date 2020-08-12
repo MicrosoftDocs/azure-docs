@@ -3,20 +3,20 @@ title: Network security in Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Understand how virtual network integration works in Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 
 ---
-# Virtual network integration for Azure Data Lake Storage Gen1 - Preview
+# Virtual network integration for Azure Data Lake Storage Gen1
 
 This article introduces virtual network integration for Azure Data Lake Storage Gen1. With virtual network integration, you can configure your accounts to accept traffic only from specific virtual networks and subnets. 
 
@@ -42,17 +42,17 @@ A key benefit of virtual network service endpoints is [optimal routing](https://
 
 **Data Lake Storage public IP address** – Use the public IP address for your target Data Lake Storage Gen1 accounts. To identify the IP addresses for your Data Lake Storage Gen1 account, [resolve the DNS names](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) of your accounts. Create a separate entry for each address.
 
-    ```azurecli
-    # Create a route table for your resource group.
-    az network route-table create --resource-group $RgName --name $RouteTableName
-    
-    # Create route table rules for Data Lake Storage public IP addresses.
-    # There's one rule per Data Lake Storage public IP address. 
-    az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
-    
-    # Update the virtual network, and apply the newly created route table to it.
-    az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
-    ```
+```azurecli
+# Create a route table for your resource group.
+az network route-table create --resource-group $RgName --name $RouteTableName
+
+# Create route table rules for Data Lake Storage public IP addresses.
+# There's one rule per Data Lake Storage public IP address. 
+az network route-table route create --name toADLSregion1 --resource-group $RgName --route-table-name $RouteTableName --address-prefix <ADLS Public IP Address> --next-hop-type Internet
+
+# Update the virtual network, and apply the newly created route table to it.
+az network vnet subnet update --vnet-name $VnetName --name $SubnetName --resource-group $RgName --route-table $RouteTableName
+```
 
 ## Data exfiltration from the customer virtual network
 
@@ -71,7 +71,7 @@ Some available options are:
 
 - HDInsight clusters that were created before Data Lake Storage Gen1 virtual network integration support was available must be re-created to support this new feature.
  
-- When you create a new HDInsight cluster and select a Data Lake Storage Gen1 account with virtual network integration enabled, the process fails. First, disable the virtual network rule. Or on the **Firewall and virtual networks** blade of the Data Lake Storage account, select **Allow access from all networks and services**. Then create the HDInsight cluster before finally re-enabling the virtual network rule or de-selecting **Allow access from all networks and services**. For more information, see the [Exceptions](##Exceptions) section.
+- When you create a new HDInsight cluster and select a Data Lake Storage Gen1 account with virtual network integration enabled, the process fails. First, disable the virtual network rule. Or on the **Firewall and virtual networks** blade of the Data Lake Storage account, select **Allow access from all networks and services**. Then create the HDInsight cluster before finally re-enabling the virtual network rule or de-selecting **Allow access from all networks and services**. For more information, see the [Exceptions](#exceptions) section.
 
 - Data Lake Storage Gen1 virtual network integration doesn't work with [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
   
@@ -83,7 +83,7 @@ Some available options are:
 
 1.	Go to the Azure portal, and sign in to your account.
  
-2.	[Create a new virtual network ](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)in your subscription. Or you can go to an existing virtual network. The virtual network must be in the same region as the Data Lake Storage Gen 1 account.
+2.	[Create a new virtual network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)in your subscription. Or you can go to an existing virtual network. The virtual network must be in the same region as the Data Lake Storage Gen 1 account.
  
 3.	On the **Virtual network** blade, select **Service endpoints**.
  

@@ -1,0 +1,56 @@
+### YamlMime:Landing
+
+title: Cloud Foundry on Azure documentation
+summary: Cloud Foundry is an open-source platform-as-a-service (PaaS) for building, deploying, and operating 12-factor applications developed in various languages and frameworks.
+
+metadata:
+  title: Cloud Foundry on Azure documentation
+  description: Cloud Foundry is an open-source platform-as-a-service (PaaS) for building, deploying, and operating 12-factor applications developed in various languages and frameworks.
+  services: multiple
+  ms.service: multiple
+  ms.devlang: devops
+  ms.topic: landing-page
+  author: georgewallace
+  ms.author: gwallace
+  ms.date: 03/08/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Cloud Foundry on Azure
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of Cloud Foundry on Azure
+            url: cloudfoundry-get-started.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy Cloud Foundry on Azure
+            url: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy your first app
+            url: cloudfoundry-deploy-your-first-app.md
+
+  # Card
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Pivotal Cloud Foundry on Azure
+            url: https://pivotal.io/partners/microsoft
+          - text: Integrate Cloud Foundry with Azure
+            url: how-cloud-foundry-integrates-with-azure.md
+          - text: Installing Cloud Foundry on Azure
+            url: https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html
+          - text: Azure DevOps plugin for Cloud Foundry
+            url: https://github.com/Microsoft/vsts-cloudfoundry
+          - text: Microsoft Log Analytics Nozzle for Cloud Foundry
+            url: https://github.com/Azure/oms-log-analytics-firehose-nozzle
+          - text: Learn about Cloud Foundry
+            url: https://docs.cloudfoundry.org/

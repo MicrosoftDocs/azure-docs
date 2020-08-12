@@ -1,15 +1,10 @@
 ---
-title: Smart Contract integration patterns in Azure Blockchain Workbench
-description: Overview of smart contract integration patterns in Azure Blockchain Workbench.
-services: azure-blockchain
-keywords: 
-author: PatAltimore
-ms.author: patricka
-ms.date: 01/14/2019
-ms.topic: article
-ms.service: azure-blockchain
+title: Smart contract integration patterns - Azure Blockchain Workbench
+description: Overview of smart contract integration patterns in Azure Blockchain Workbench Preview.
+ms.date: 11/20/2019
+ms.topic: conceptual
 ms.reviewer: mmercuri
-manager: femila
+#Customer intent: As a developer, I want to understand recommended integration pattern using Azure Blockchain Workbench so that I can integrate with external systems.
 ---
 # Smart contract integration patterns
 
@@ -32,7 +27,7 @@ Capabilities within the Azure Blockchain Workbench generated web application are
 
 The REST API is primarily used for interactive clients such as web, mobile, and bot applications.
 
-This section looks at patterns focused on the aspects of the REST API that send transactions to a distributed ledger and patterns that query data about transactions from Azure Blockchain Workbench's *off chain* SQL database.
+This section looks at patterns focused on the aspects of the REST API that send transactions to a distributed ledger and patterns that query data about transactions from Azure Blockchain Workbench's *off chain* database.
 
 ### Sending transactions to a distributed ledger from an external system
 
@@ -137,7 +132,7 @@ This pattern is typically implemented using the following approach:
 -   The change of state is surfaced as an event to a downstream consumer.
 -   The downstream consumer receives the event and triggers external code execution.
 
-![Transition control to external process](./media/integration-patterns/transition-external-process.png)
+![The diagram shows a state change within the Contract causing an event to go to Distributed Ledger. Blockchain Workbench then picks up the event and publishes it.](./media/integration-patterns/transition-external-process.png)
 
 #### Return of control from the smart contract
 
@@ -145,7 +140,7 @@ Depending on the ability to customize the external system, it may or may not be 
 
 ##### Direct delivery of an Azure Blockchain Workbench in the expected format
 
-![](./media/integration-patterns/direct-delivery.png)
+![The diagram shows an A P I message from the External System being picked up by Blockchain Workbench via the Service Bus. Blockchain Workbench then sends a message as a transaction to Distributed Ledger, on behalf of the agent. It is passed on to Contract, where it causes a state change.](./media/integration-patterns/direct-delivery.png)
 
 In this model, the communication to the contract and subsequent state
 change occurs following the previous process where -
@@ -187,7 +182,7 @@ In this model where a message in a standard format cannot be sent directly, the 
 A common integration scenario is the inclusion of telemetry data retrieved from sensors in a smart contract. Based on data delivered by sensors, smart contracts could take informed actions and alter the state of the contract.
 
 For example, if a truck delivering medicine had its temperature soar to 110 degrees, it may impact the effectiveness of the medicine and may cause a public safety issue if not detected and removed from the supply chain. If a driver accelerated their car to 100 miles per hour, the resulting sensor information could trigger a cancellation of insurance by
-his insurance provider. If the car was a rental car, GPS data could indicate when the driver went outside a geography covered by their rental agreement and charge a penalty.
+their insurance provider. If the car was a rental car, GPS data could indicate when the driver went outside a geography covered by their rental agreement and charge a penalty.
 
 The challenge is that these sensors can be delivering data on a constant basis and it is not appropriate to send all of this data to a smart contract. A typical approach is to limit the number of messages sent to the blockchain while delivering all messages to a secondary store. For example, deliver messages received at only fixed interval, for example, once per hour, and when a contained value falls outside of an agreed upon range for a smart contract. Checking values that fall outside of tolerances, ensures that the data relevant to the contracts business logic is received and executed. Checking the value at the interval confirms that the sensor is still reporting. All data is sent to a secondary reporting store to enable broader reporting, analytics, and machine learning. For example, while getting sensor readings for GPS may not be required every minute for a smart contract, they could provide interesting data to be used in reports or mapping routes.
 
@@ -217,7 +212,7 @@ The data integration is well known:
 
 -   Azure Blockchain Workbench stores metadata about applications, workflows, contracts, and transactions as part of its normal operating behavior.
 -   External systems or tools provide one or more dialogs to facilitate the collection of information about the database, such as database server name, database name, type of authentication, login credentials, and which database views to utilize.
--   Queries are written against SQL database views to facilitate downstream consumption by external systems, services, reporting, developer tools, and enterprise productivity tools.
+-   Queries are written against database views to facilitate downstream consumption by external systems, services, reporting, developer tools, and enterprise productivity tools.
 
 ## Storage integration
 

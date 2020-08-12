@@ -1,15 +1,15 @@
 ---
-title: Invoke stored procedure from Azure Data Factory Copy Activity | Microsoft Docs
+title: Invoke stored procedure from Azure Data Factory Copy Activity 
 description: 'Learn how to invoke a stored procedure in Azure SQL Database, or SQL Server from an Azure Data Factory copy activity.'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 editor: 
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/10/2018
@@ -28,7 +28,7 @@ When copying data into [SQL Server](data-factory-sqlserver-connector.md) or [Azu
 The following sample shows how to invoke a stored procedure in a SQL Server database from a Data Factory pipeline (copy activity):  
 
 ## Output dataset JSON
-In the output dataset JSON, set the **type** to: **SqlServerTable**. Set it to **AzureSqlTable** to use with an Azure SQL database. The value for **tableName** property must match the name of first parameter of the stored procedure.  
+In the output dataset JSON, set the **type** to: **SqlServerTable**. Set it to **AzureSqlTable** to use with Azure SQL Database. The value for **tableName** property must match the name of first parameter of the stored procedure.  
 
 ```json
 {

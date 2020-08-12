@@ -3,17 +3,17 @@ title: Operations model of SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Operations model of SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
-manager: jeconnoc
+author: msjuergent
+manager: bburns
 editor: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -62,7 +62,7 @@ The underlying infrastructure of HANA Large Instance provides functionality for 
 
 **Archive**: You might prefer to archive copies of data by using your own methods in storage accounts. Archiving requires management, compliance, costs, and operations. You are responsible for generating archive copies and backups on Azure and storing them in a compliant way.
 
-See the [SLA for SAP HANA on Azure (Large Instances)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/v1_0/).
+See the [SLA for SAP HANA on Azure (Large Instances)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/).
 
 **Next steps**
 - Refer [SAP HANA (Large Instances) architecture on Azure](hana-architecture.md)

@@ -1,31 +1,30 @@
 ---
-title: 'QoS requirements - ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute: QoS requirements'
 description: This page provides detailed requirements for configuring and managing QoS. Skype for Business/voice services are discussed.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 04/22/2019
 ms.author: cherylmc
-ms.custom: seodec18
 
 ---
 # ExpressRoute QoS requirements
 Skype for Business has various workloads that require differentiated QoS treatment. If you plan to consume voice services through ExpressRoute, you should adhere to the requirements described below.
 
-![](./media/expressroute-qos/expressroute-qos.png)
+![Diagram that shows the voice services going through ExpressRoute.](./media/expressroute-qos/expressroute-qos.png)
 
 > [!NOTE]
 > QoS requirements apply to the Microsoft peering only. The DSCP values in your network traffic received on Azure public peering and Azure private peering will be reset to 0. 
 > 
 > 
 
-The following table provides a list of DSCP markings used by Skype for Business. Refer to [Managing QoS for Skype for Business](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) for more information.
+The following table provides a list of DSCP markings used by Microsoft Teams and Skype for Business. Refer to [Managing QoS for Skype for Business](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) for more information.
 
-| **Traffic Class** | **Treatment (DSCP Marking)** | **Skype for Business Workloads** |
+| **Traffic Class** | **Treatment (DSCP Marking)** | **Microsoft Teams and Skype for Business Workloads** |
 | --- | --- | --- |
-| **Voice** |EF (46) |Skype / Lync voice |
+| **Voice** |EF (46) |Skype / Microsoft Teams / Lync voice |
 | **Interactive** |AF41 (34) |Video, VBSS |
 | |AF21 (18) |App sharing | 
 | **Default** |AF11 (10) |File transfer |

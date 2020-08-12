@@ -1,18 +1,19 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Clouds and regions in which Azure Media Services v3 is available| Microsoft Docs
+title: Clouds and regions in which Azure Media Services v3 is available
 description: This article talks about Azure clouds and regions in which Azure Media Services v3 is available.  
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 01/11/2019
-ms.author: juliako
+ms.date: 5/28/2020
+ms.author: inhenkel
+ms.custom: references_regions
 ---
 
 # Clouds and regions in which Azure Media Services v3 exists
@@ -30,11 +31,28 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 | [LiveEvents](live-streaming-overview.md) | Available | Available | Available | Available |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Available | Available | Available | Available |
 
-## Regions 
+## Feature availability in preview
 
-When you need to supply the **location** parameter, you need to provide the region code name as the **location** value. To get the code name of the region that your account is in and that your call should be routed to, you can run the following line in [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+[LiveTranscription](live-transcription.md) is available in the following regions:
 
-```bash
+- Southeast Asia
+- West Europe
+- North Europe
+- East US
+- Central US
+- South Central US
+- West US 2
+- Brazil South
+
+## Regions/geographies/locations
+
+[Regions in which the Azure Media Services service is deployed](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
+
+### Region code name
+
+When you need to supply the **location** parameter, you need to provide the region code name as the **location** value. To get the code name of the region that your account is in and that your call should be routed to, you can run the following line in [Azure CLI](/cli/azure/?view=azure-cli-latest)
+
+```azurecli-interactive
 az account list-locations
 ```
 
@@ -52,6 +70,48 @@ For example, for the Azure region West US 2 (displayed below), you will use "wes
       "subscriptionId": null
     }
 ```
+
+## Endpoints  
+
+The following endpoints are important to know when connecting to Media Services accounts from different national Azure clouds.
+
+### Global Azure
+
+| Service | Endpoint |
+| ------- | -------- |
+| Azure Resource Manager |  `https://management.azure.com/` |
+| Authentication | `https://login.microsoftonline.com/` |
+| Token audience | `https://management.core.windows.net/` |
+
+### Azure Government
+
+| Service | Endpoint |
+| ------- | -------- |
+| Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
+| Authentication | `https://login.microsoftonline.us/` |
+| Token audience | `https://management.core.usgovcloudapi.net/` |
+
+### Azure Germany
+
+| Service | Endpoint |
+| ------- | -------- |
+| Azure Resource Manager | `https://management.cloudapi.de/` |
+| Authentication | `https://login.microsoftonline.de/` |
+| Token audience | `https://management.core.cloudapi.de/`|
+
+### Azure China 21Vianet
+
+| Service | Endpoint |
+| ------- | -------- |
+| Azure Resource Manager | `https://management.chinacloudapi.cn/` |
+| Authentication | `https://login.chinacloudapi.cn/` |
+| Token audience |  `https://management.core.chinacloudapi.cn/` |
+
+## See also
+
+* [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## Next steps
 

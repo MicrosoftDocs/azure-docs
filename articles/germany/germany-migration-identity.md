@@ -1,27 +1,36 @@
 ---
-title: Migrate Azure identity resources from Azure Germany to global Azure
+title: Migrate Azure identity resources, Azure Germany to global Azure
 description: This article provides information about migrating your Azure identity resources from Azure Germany to global Azure.
 author: gitralf
 services: germany
 cloud: Azure Germany
 ms.author: ralfwi 
 ms.service: germany
-ms.date: 8/15/2018
+ms.date: 11/12/2019
 ms.topic: article
 ms.custom: bfmigrate
 ---
 
 # Migrate identity resources to global Azure
 
+> [!IMPORTANT]
+> Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
+>
+> Based on the evolution in customers’ needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft’s global cloud network, as well as market competitive pricing. 
+>
+> Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
+
 This article has information that can help you migrate Azure identity resources from Azure Germany to global Azure.
+
+The guidance on identity / tenants is intended for Azure-only customers. If you use common Azure Active Directory (Azure AD) tenants for Azure and O365 (or other Microsoft products), there are complexities in identity migration and you should first contact your Account Manager prior to using this migration guidance.
 
 ## Azure Active Directory
 
-Azure Active Directory (Azure AD) in Azure Germany is separate from Azure AD in global Azure. Currently, you can't move Azure AD users from Azure Germany to global Azure.
+Azure AD in Azure Germany is separate from Azure AD in global Azure. Currently, you can't move Azure AD users from Azure Germany to global Azure.
 
-Default tenant names in Azure Germany and global Azure are always different because Azure automatically appends a suffix based on the environment. For example, a user name for a member of the **contoso** tenant in global Azure is **user1@contoso.microsoftazure.com**. In Azure Germany, it's **user1@contoso.microsoftazure.de**.
+Default tenant names in Azure Germany and global Azure are always different because Azure automatically appends a suffix based on the environment. For example, a user name for a member of the **contoso** tenant in global Azure is **user1\@contoso.microsoftazure.com**. In Azure Germany, it's **user1\@contoso.microsoftazure.de**.
 
-When you use custom domain names (like **contoso.com**) in Azure AD, you must register the domain name in Azure. Custom domain names can be defined in *only one* cloud environment at a time. The domain validation fails when the domain is already registered in *any* instance of Azure Active Directory. For example, the user **user1@contoso.com** that exists in Azure Germany can't also exist in global Azure under the same name at the same time. The registration for **contoso.com** would fail.
+When you use custom domain names (like **contoso.com**) in Azure AD, you must register the domain name in Azure. Custom domain names can be defined in *only one* cloud environment at a time. The domain validation fails when the domain is already registered in *any* instance of Azure Active Directory. For example, the user **user1\@contoso.com** that exists in Azure Germany can't also exist in global Azure under the same name at the same time. The registration for **contoso.com** would fail.
 
 A "soft" migration in which some users are already in the new environment and some users are still in the old environment requires different sign-in names for the different cloud environments.
 
@@ -127,10 +136,8 @@ For more information:
 Azure AD Connect is a tool that syncs your identity data between an on-premises Active Directory instance and Azure Active Directory (Azure AD). The current version of Azure AD Connect works both for Azure Germany and global Azure. Azure AD Connect can sync to only one Azure AD instance at a time. If you want to sync to Azure Germany and global Azure at the same time, consider these options:
 
 - Use an additional server for a second instance of Azure AD Connect. You can't have multiple instances of Azure AD Connect on the same server.
-- Define a new sign-in name for your users. The domain part (after **@**) of the sign-in name must be different in each environment.
+- Define a new sign-in name for your users. The domain part (after **\@**) of the sign-in name must be different in each environment.
 - Define a clear "source of truth" when you also sync backward (from Azure AD to on-premises Active Directory).
-
-For more information about how to sync in different cloud environments by using Azure AD Connect, see the blog post [Use Azure AD Connect with multiple clouds](https://blogs.technet.microsoft.com/ralfwi/2017/01/24/using-adconnect-with-multiple-clouds/).
 
 If you already use Azure AD Connect to sync to and from Azure Germany, make sure that you migrate any manually created users. The following PowerShell cmdlet lists all users that aren't synced by using Azure AD Connect:
 

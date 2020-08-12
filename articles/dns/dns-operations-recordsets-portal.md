@@ -2,11 +2,11 @@
 title: Manage DNS record sets and records with Azure DNS
 description: Azure DNS provides the capability to manage DNS record sets and records when hosting your domain.
 services: dns
-author: vhorne
+author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/6/2018
-ms.author: victorh
+ms.author: rohink
 ---
 
 # Manage DNS records and record sets by using the Azure portal

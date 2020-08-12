@@ -1,0 +1,59 @@
+### YamlMime:Landing
+
+title: Azure Security Benchmarks documentation
+summary: Learn how to secure your cloud solutions on Azure with our best practices and guidance.
+
+metadata:
+  title: Azure Security Benchmarks
+  description: The Azure Security Benchmark contains recommendations that help you improve the security of your applications and data on Azure.
+  services: security
+  ms.service: security
+  ms.subservice: fundamentals
+  ms.custom: security-benchmark
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  manager: rkarlin
+  ms.date: 12/23/2019
+
+
+landingContent:
+  # Card
+  - title: About the Azure Security Benchmark
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Security Benchmark introduction
+            url: introduction.md
+          - text: Overview of Azure security controls
+            url: overview.md
+
+
+  # Card  
+  - title: Security controls
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Network security
+            url: security-control-network-security.md
+          - text: Logging and monitoring
+            url: security-control-logging-monitoring.md
+          - text: Identity and access control
+            url: security-control-identity-access-control.md
+          - text: Data protection
+            url: security-control-data-protection.md
+          - text: Vulnerability management
+            url: security-control-vulnerability-management.md
+          - text: See more
+            url: security-control-inventory-asset-management.md
+  # Card
+  - title: More Azure security information
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Azure security fundamentals
+            url: ../fundamentals/index.yml
+          - text: Shared responsibility in the cloud
+            url: ../fundamentals/shared-responsibility.md
+          - text: Azure Security Center
+            url: ../../security-center/index.yml

@@ -1,20 +1,22 @@
 ---
-title: Copy Data tool Azure Data Factory | Microsoft Docs
+title: Copy Data tool Azure Data Factory 
 description: 'Provides information about the Copy Data tool in Azure Data Factory UI'
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/18/2018
+ms.date: 06/17/2020
 ms.author: yexu
 
 ---
 # Copy Data tool in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The Azure Data Factory Copy Data tool eases and optimizes the process of ingesting data into a data lake, which is usually a first step in an end-to-end data integration scenario.  It saves time, especially when you use Azure Data Factory to ingest data from a data source for the first time. Some of the benefits of using this tool are:
 
 - When using the Azure Data Factory Copy Data tool, you do not need understand Data Factory definitions for linked services, datasets, pipelines, activities, and triggers. 
@@ -31,7 +33,7 @@ The following table provides guidance on when to use the Copy Data tool vs. per-
 
 To start the Copy Data tool, click the **Copy Data** tile on the home page of your data factory.
 
-![Get started page - link to Copy Data tool](./media/copy-data-tool/get-started-page.png)
+![Get started page - link to Copy Data tool](./media/doc-common-process/get-started-page.png)
 
 
 ## Intuitive flow for loading data into a data lake
@@ -44,7 +46,7 @@ This tool allows you to easily move data from a wide variety of sources to desti
 5. Review **summary** of Data Factory entities to be created. 
 6. **Edit** the pipeline to update settings for the copy activity as needed. 
 
- The tool is designed with big data in mind from the start, with support for diverse data and object types. You can use it to move hundreds of folders, files, or tables. The tool supports automatic data preview, schema capture and automatic mapping, and data filtering as well.
+   The tool is designed with big data in mind from the start, with support for diverse data and object types. You can use it to move hundreds of folders, files, or tables. The tool supports automatic data preview, schema capture and automatic mapping, and data filtering as well.
 
 ![Copy Data tool](./media/copy-data-tool/copy-data-tool.png)
 
@@ -91,7 +93,7 @@ Then, replace **2016** with **{year}**, **03** with **{month}**, **01** with **{
 
 ![Filter file or folder](./media/copy-data-tool/filter-file-or-folder.png)
 
-The Copy Data tool generates parameters with expressions, functions, and system variables that can be used to represent {year}, {month}, {day}, {hour}, and {minute} when creating pipeline. For more information, see the [How to read or write partitioned data](how-to-read-write-partitioned-data.md) article.
+The Copy Data tool generates parameters with expressions, functions, and system variables that can be used to represent {year}, {month}, {day}, {hour}, and {minute} when creating pipeline.
 
 ## Scheduling options
 You can run the copy operation once or on a schedule (hourly, daily, and so on). These options can be used for the connectors across different environments, including on-premises, cloud, and local desktop. 

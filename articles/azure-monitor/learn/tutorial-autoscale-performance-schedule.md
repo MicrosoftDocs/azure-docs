@@ -1,9 +1,9 @@
 ---
-title: Autoscale Azure resources based on performance data or a schedule
+title: Autoscale Azure resources based on data or schedule
 description: Create an autoscale setting for an app service plan using metric data and a schedule
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: tutorial
 ms.date: 12/11/2017
 ms.author: ancav
@@ -50,12 +50,12 @@ The next few steps help you fill the autoscale screen to look like following pic
 
    ![Save autoscale setting](./media/tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
- ## Configure default profile
+## Configure default profile
 1. Provide a **Name** for the autoscale setting.
 2. In the default profile, ensure the **Scale mode** is set to 'Scale to a specific instance count'.
 3. Set the instance count to **1**. This setting ensures that when no other profile is active, or in effect, the default profile returns the instance count to 1.
 
-  ![Navigate to autoscale settings](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![Navigate to autoscale settings](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## Create recurrence profile
@@ -176,8 +176,8 @@ In this tutorial, you
 > * Cleaned up your resources
 
 
-To learn more about autoscale settings, continue on to the [autoscale overview](../../azure-monitor/platform/autoscale-overview.md).
+To learn more about autoscale settings, continue on to the [autoscale overview](../platform/autoscale-overview.md).
 
 > [!div class="nextstepaction"]
-> [Archive your monitoring data](tutorial-archive-data.md)
+> [Archive your monitoring data](../platform/platform-logs-overview.md)
 

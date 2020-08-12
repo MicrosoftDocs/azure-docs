@@ -1,5 +1,5 @@
 ---
-title: Federating multiple Azure AD with single AD FS | Microsoft Docs
+title: Federating multiple Azure AD with single AD FS - Azure
 description: In this document you will learn how to federate multiple Azure AD with a single AD FS.
 keywords: federate, ADFS, AD FS, multiple tenants, single AD FS, one ADFS, multi-tenant federation, multi-forest adfs, aad connect, federation, cross-tenant federation
 services: active-directory
@@ -13,10 +13,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: how-to
 ms.date: 07/17/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Federate multiple instances of Azure AD with single instance of AD FS
@@ -57,10 +58,14 @@ Issuer in the domain federation setting will be changed to "http\://contoso.com/
 In Azure AD powershell session perform the following steps:
 Connect to Azure Active Directory that contains the domain fabrikam.com
 
-    Connect-MsolService
+```powershell
+Connect-MsolService
+```
 Convert the fabrikam.com managed domain to federated:
 
-    Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```powershell
+Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```
  
 The above operation will federate the domain fabrikam.com with the same AD FS. You can verify the domain settings by using Get-MsolDomainFederationSettings for both domains.
 

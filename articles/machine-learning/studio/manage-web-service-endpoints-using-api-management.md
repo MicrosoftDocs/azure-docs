@@ -1,33 +1,33 @@
 ---
-title: Manage Machine Learning Studio web services using API Management
-titleSuffix: Azure Machine Learning Studio
+title: 'ML Studio (classic): Manage web services using API Management - Azure'
 description: A guide showing how to manage AzureML web services using API Management. Manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring.
-services: machine-learning
-ms.service: machine-learning
-ms.component: studio
-ms.topic: article
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: how-to
 
-author: ericlicoding
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
 ---
-# Manage Azure Machine Learning Studio web services using API Management
+# Manage Azure Machine Learning Studio (classic) web services using API Management
+
+**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
+
 ## Overview
-This guide shows you how to quickly get started using API Management to manage your Azure Machine Learning Studio web services.
+This guide shows you how to quickly get started using API Management to manage your Azure Machine Learning Studio (classic) web services.
 
 ## What is Azure API Management?
-Azure API Management is an Azure service that lets you manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring. Click [here](https://azure.microsoft.com/services/api-management/) for details on Azure API Management. Click [here](../../api-management/api-management-get-started.md) for a guide on how to get started with Azure API Management. This other guide, which this guide is based on, covers more topics, including notification configurations, tier pricing, response handling, user authentication, creating products, developer subscriptions, and usage dashboarding.
-
-## What is AzureML?
-AzureML is an Azure service for machine learning that enables you to easily build, deploy, and share advanced analytics solutions. Click [here](https://azure.microsoft.com/services/machine-learning/) for details on AzureML.
+Azure API Management is an Azure service that lets you manage your REST API endpoints by defining user access, usage throttling, and dashboard monitoring. See the [Azure API management site](https://azure.microsoft.com/services/api-management/) for more details. To get started with Azure API Management, see [the import and publish guide](/azure/api-management/import-and-publish). This other guide, which this guide is based on, covers more topics, including notification configurations, tier pricing, response handling, user authentication, creating products, developer subscriptions, and usage dashboarding.
 
 ## Prerequisites
 To complete this guide, you need:
 
-* An Azure account. If you don’t have an Azure account, click [here](https://azure.microsoft.com/pricing/free-trial/) for details on how to create a free trial account.
-* An AzureML account. If you don’t have an AzureML account, click [here](https://studio.azureml.net/) for details on how to create a free trial account.
-* The workspace, service, and api_key for an AzureML experiment deployed as a web service. Click [here](create-experiment.md) for details on how to create an AzureML experiment. Click [here](publish-a-machine-learning-web-service.md) for details on how to deploy an AzureML experiment as a web service. Alternately, Appendix A has instructions for how to create and test a simple AzureML experiment and deploy it as a web service.
+* An Azure account.
+* An AzureML account.
+* The workspace, service, and api_key for an AzureML experiment deployed as a web service. For details on how to create an AzureML experiment, see the [Studio quickstart](create-experiment.md). For information on how to deploy a Studio (classic) experiment as a web service, see the [Studio deployment how-to](deploy-a-machine-learning-web-service.md) for details on how to deploy an AzureML experiment as a web service. Alternately, Appendix A has instructions for how to create and test a simple AzureML experiment and deploy it as a web service.
 
 ## Create an API Management instance
 
@@ -53,7 +53,7 @@ Once the service instance is created, the next step is to create the API. An API
 
 To create the API:
 
-1. In the Azure portal, open the service instance you just created.
+1. In the Azure portal, open the service instance you created.
 2. In the left navigation pane, select **APIs**.
 
    ![api-management-menu](./media/manage-web-service-endpoints-using-api-management/api-management.png)
@@ -132,7 +132,7 @@ First create an operation for the AzureML RRS service:
 
 ## Call an operation from the Developer portal
 
-Operations can be called directly from the Developer portal, which provides a convenient way to view and test the operations of an API. In this step you will call the **RRS Execute** method that was added to the **AzureML Demo API**. 
+Operations can be called directly from the Developer portal, which provides a convenient way to view and test the operations of an API. In this step, you will call the **RRS Execute** method that was added to the **AzureML Demo API**. 
 
 1. Click **Developer portal**.
 
@@ -180,11 +180,11 @@ Rename it to **SimpleFeatureHashingExperiment**. Expand **Saved Datasets** and d
 
 Expand **Data Transformation** and **Manipulation** and drag **Select Columns in Dataset** onto your experiment. Connect **Book Reviews from Amazon** to **Select Columns in Dataset**.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Connect the book reviews dataset module to a Project Columns module](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Click **Select Columns in Dataset** and then click **Launch column selector** and select **Col2**. Click the checkmark to apply these changes.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Select columns using column names](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Expand **Text Analytics** and drag **Feature Hashing** onto the experiment. Connect **Select Columns in Dataset** to **Feature Hashing**.
 
@@ -212,7 +212,7 @@ Click **Yes** to publish the experiment.
 ![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### Test the web service
-An AzureML web service consists of RSS (request/response service) and BES (batch execution service) endpoints. RSS is for synchronous execution. BES is for asynchronous job execution. To test your web service with the sample Python source below, you may need to download and install the Azure SDK for Python (see: [How to install Python](../../python-how-to-install.md)).
+An AzureML web service consists of RSS (request/response service) and BES (batch execution service) endpoints. RSS is for synchronous execution. BES is for asynchronous job execution. To test your web service with the sample Python source below, you may need to download and install the Azure SDK for Python (see: [How to install Python](/azure/developer/python/azure-sdk-install)).
 
 You will also need the **workspace**, **service**, and **api_key** of your experiment for the sample source below. You can find the workspace and service by clicking either **Request/Response** or **Batch Execution** for your experiment in the web service dashboard.
 
@@ -241,156 +241,160 @@ Another way to test your RRS is from your client code. If you click **Request/re
 
 This guide shows a working Python example. You will need to modify it with the **workspace**, **service**, and **api_key** of your experiment.
 
-    import urllib2
-    import json
-    workspace = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE WORKSPACE ID>"
-    service = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE SERVICE ID>"
-    api_key = "<REPLACE WITH YOUR EXPERIMENT’S WEB SERVICE API KEY>"
-    data = {
-    "Inputs": {
-        "input1": {
-            "ColumnNames": ["Col2"],
-            "Values": [ [ "This is a good day" ] ]
-        },
+```python
+import urllib2
+import json
+workspace = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE WORKSPACE ID>"
+service = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE SERVICE ID>"
+api_key = "<REPLACE WITH YOUR EXPERIMENT'S WEB SERVICE API KEY>"
+data = {
+"Inputs": {
+    "input1": {
+        "ColumnNames": ["Col2"],
+        "Values": [ [ "This is a good day" ] ]
     },
-    "GlobalParameters": { }
-    }
-    url = "https://ussouthcentral.services.azureml.net/workspaces/" + workspace + "/services/" + service + "/execute?api-version=2.0&details=true"
-    headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
-    body = str.encode(json.dumps(data))
-    try:
-        req = urllib2.Request(url, body, headers)
-        response = urllib2.urlopen(req)
-        result = response.read()
-        print "result:" + result
-            except urllib2.HTTPError, error:
-        print("The request failed with status code: " + str(error.code))
-        print(error.info())
-        print(json.loads(error.read()))
+},
+"GlobalParameters": { }
+}
+url = "https://ussouthcentral.services.azureml.net/workspaces/" + workspace + "/services/" + service + "/execute?api-version=2.0&details=true"
+headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
+body = str.encode(json.dumps(data))
+try:
+    req = urllib2.Request(url, body, headers)
+    response = urllib2.urlopen(req)
+    result = response.read()
+    print "result:" + result
+        except urllib2.HTTPError, error:
+    print("The request failed with status code: " + str(error.code))
+    print(error.info())
+    print(json.loads(error.read()))
+```
 
 #### Test BES endpoint
 Click **Batch execution** on the dashboard and scroll to the bottom. You will see sample code for C#, Python, and R. You will also see the syntax of the BES requests to submit a job, start a job, get the status or results of a job, and delete a job.
 
 This guide shows a working Python example. You need to modify it with the **workspace**, **service**, and **api_key** of your experiment. Additionally, you need to modify the **storage account name**, **storage account key**, and **storage container name**. Lastly, you will need to modify the location of the **input file** and the location of the **output file**.
 
-    import urllib2
-    import json
-    import time
-    from azure.storage import *
-    workspace = "<REPLACE WITH YOUR WORKSPACE ID>"
-    service = "<REPLACE WITH YOUR SERVICE ID>"
-    api_key = "<REPLACE WITH THE API KEY FOR YOUR WEB SERVICE>"
-    storage_account_name = "<REPLACE WITH YOUR AZURE STORAGE ACCOUNT NAME>"
-    storage_account_key = "<REPLACE WITH YOUR AZURE STORAGE KEY>"
-    storage_container_name = "<REPLACE WITH YOUR AZURE STORAGE CONTAINER NAME>"
-    input_file = "<REPLACE WITH THE LOCATION OF YOUR INPUT FILE>" # Example: C:\\mydata.csv
-    output_file = "<REPLACE WITH THE LOCATION OF YOUR OUTPUT FILE>" # Example: C:\\myresults.csv
-    input_blob_name = "mydatablob.csv"
-    output_blob_name = "myresultsblob.csv"
-    def printHttpError(httpError):
-    print("The request failed with status code: " + str(httpError.code))
-    print(httpError.info())
-    print(json.loads(httpError.read()))
+```python
+import urllib2
+import json
+import time
+from azure.storage import *
+workspace = "<REPLACE WITH YOUR WORKSPACE ID>"
+service = "<REPLACE WITH YOUR SERVICE ID>"
+api_key = "<REPLACE WITH THE API KEY FOR YOUR WEB SERVICE>"
+storage_account_name = "<REPLACE WITH YOUR AZURE STORAGE ACCOUNT NAME>"
+storage_account_key = "<REPLACE WITH YOUR AZURE STORAGE KEY>"
+storage_container_name = "<REPLACE WITH YOUR AZURE STORAGE CONTAINER NAME>"
+input_file = "<REPLACE WITH THE LOCATION OF YOUR INPUT FILE>" # Example: C:\\mydata.csv
+output_file = "<REPLACE WITH THE LOCATION OF YOUR OUTPUT FILE>" # Example: C:\\myresults.csv
+input_blob_name = "mydatablob.csv"
+output_blob_name = "myresultsblob.csv"
+def printHttpError(httpError):
+print("The request failed with status code: " + str(httpError.code))
+print(httpError.info())
+print(json.loads(httpError.read()))
+return
+def saveBlobToFile(blobUrl, resultsLabel):
+print("Reading the result from " + blobUrl)
+try:
+    response = urllib2.urlopen(blobUrl)
+except urllib2.HTTPError, error:
+    printHttpError(error)
     return
-    def saveBlobToFile(blobUrl, resultsLabel):
-    print("Reading the result from " + blobUrl)
-    try:
-        response = urllib2.urlopen(blobUrl)
-    except urllib2.HTTPError, error:
-        printHttpError(error)
-        return
-    with open(output_file, "w+") as f:
-        f.write(response.read())
-    print(resultsLabel + " have been written to the file " + output_file)
-    return
-    def processResults(result):
-    first = True
-    results = result["Results"]
-    for outputName in results:
-        result_blob_location = results[outputName]
-        sas_token = result_blob_location["SasBlobToken"]
-        base_url = result_blob_location["BaseLocation"]
-        relative_url = result_blob_location["RelativeLocation"]
-        print("The results for " + outputName + " are available at the following Azure Storage location:")
-        print("BaseLocation: " + base_url)
-        print("RelativeLocation: " + relative_url)
-        print("SasBlobToken: " + sas_token)
-        if (first):
-            first = False
-            url3 = base_url + relative_url + sas_token
-            saveBlobToFile(url3, "The results for " + outputName)
-    return
+with open(output_file, "wb+") as f:
+    f.write(response.read())
+print(resultsLabel + " have been written to the file " + output_file)
+return
+def processResults(result):
+first = True
+results = result["Results"]
+for outputName in results:
+    result_blob_location = results[outputName]
+    sas_token = result_blob_location["SasBlobToken"]
+    base_url = result_blob_location["BaseLocation"]
+    relative_url = result_blob_location["RelativeLocation"]
+    print("The results for " + outputName + " are available at the following Azure Storage location:")
+    print("BaseLocation: " + base_url)
+    print("RelativeLocation: " + relative_url)
+    print("SasBlobToken: " + sas_token)
+    if (first):
+        first = False
+        url3 = base_url + relative_url + sas_token
+        saveBlobToFile(url3, "The results for " + outputName)
+return
 
-    def invokeBatchExecutionService():
-    url = "https://ussouthcentral.services.azureml.net/workspaces/" + workspace +"/services/" + service +"/jobs"
-    blob_service = BlobService(account_name=storage_account_name, account_key=storage_account_key)
-    print("Uploading the input to blob storage...")
-    data_to_upload = open(input_file, "r").read()
-    blob_service.put_blob(storage_container_name, input_blob_name, data_to_upload, x_ms_blob_type="BlockBlob")
-    print "Uploaded the input to blob storage"
-    input_blob_path = "/" + storage_container_name + "/" + input_blob_name
-    connection_string = "DefaultEndpointsProtocol=https;AccountName=" + storage_account_name + ";AccountKey=" + storage_account_key
-    payload =  {
-        "Input": {
-            "ConnectionString": connection_string,
-            "RelativeLocation": input_blob_path
-        },
-        "Outputs": {
-            "output1": { "ConnectionString": connection_string, "RelativeLocation": "/" + storage_container_name + "/" + output_blob_name },
-        },
-        "GlobalParameters": {
-        }
+def invokeBatchExecutionService():
+url = "https://ussouthcentral.services.azureml.net/workspaces/" + workspace +"/services/" + service +"/jobs"
+blob_service = BlobService(account_name=storage_account_name, account_key=storage_account_key)
+print("Uploading the input to blob storage...")
+data_to_upload = open(input_file, "r").read()
+blob_service.put_blob(storage_container_name, input_blob_name, data_to_upload, x_ms_blob_type="BlockBlob")
+print "Uploaded the input to blob storage"
+input_blob_path = "/" + storage_container_name + "/" + input_blob_name
+connection_string = "DefaultEndpointsProtocol=https;AccountName=" + storage_account_name + ";AccountKey=" + storage_account_key
+payload =  {
+    "Input": {
+        "ConnectionString": connection_string,
+        "RelativeLocation": input_blob_path
+    },
+    "Outputs": {
+        "output1": { "ConnectionString": connection_string, "RelativeLocation": "/" + storage_container_name + "/" + output_blob_name },
+    },
+    "GlobalParameters": {
     }
-        body = str.encode(json.dumps(payload))
-    headers = { "Content-Type":"application/json", "Authorization":("Bearer " + api_key)}
-    print("Submitting the job...")
-    # submit the job
-    req = urllib2.Request(url + "?api-version=2.0", body, headers)
-    try:
-        response = urllib2.urlopen(req)
-    except urllib2.HTTPError, error:
-        printHttpError(error)
-        return
-    result = response.read()
-    job_id = result[1:-1] # remove the enclosing double-quotes
-    print("Job ID: " + job_id)
-    # start the job
-    print("Starting the job...")
-    req = urllib2.Request(url + "/" + job_id + "/start?api-version=2.0", "", headers)
-    try:
-        response = urllib2.urlopen(req)
-    except urllib2.HTTPError, error:
-        printHttpError(error)
-        return
-    url2 = url + "/" + job_id + "?api-version=2.0"
-
-    while True:
-        print("Checking the job status...")
-        # If you are using Python 3+, replace urllib2 with urllib.request in the following code
-        req = urllib2.Request(url2, headers = { "Authorization":("Bearer " + api_key) })
-        try:
-            response = urllib2.urlopen(req)
-        except urllib2.HTTPError, error:
-            printHttpError(error)
-            return
-        result = json.loads(response.read())
-        status = result["StatusCode"]
-        print "status:" + status
-        if (status == 0 or status == "NotStarted"):
-            print("Job " + job_id + " not yet started...")
-        elif (status == 1 or status == "Running"):
-            print("Job " + job_id + " running...")
-        elif (status == 2 or status == "Failed"):
-            print("Job " + job_id + " failed!")
-            print("Error details: " + result["Details"])
-            break
-        elif (status == 3 or status == "Cancelled"):
-            print("Job " + job_id + " cancelled!")
-            break
-        elif (status == 4 or status == "Finished"):
-            print("Job " + job_id + " finished!")
-            processResults(result)
-            break
-        time.sleep(1) # wait one second
+}
+    body = str.encode(json.dumps(payload))
+headers = { "Content-Type":"application/json", "Authorization":("Bearer " + api_key)}
+print("Submitting the job...")
+# submit the job
+req = urllib2.Request(url + "?api-version=2.0", body, headers)
+try:
+    response = urllib2.urlopen(req)
+except urllib2.HTTPError, error:
+    printHttpError(error)
     return
-    invokeBatchExecutionService()
+result = response.read()
+job_id = result[1:-1] # remove the enclosing double-quotes
+print("Job ID: " + job_id)
+# start the job
+print("Starting the job...")
+req = urllib2.Request(url + "/" + job_id + "/start?api-version=2.0", "", headers)
+try:
+    response = urllib2.urlopen(req)
+except urllib2.HTTPError, error:
+    printHttpError(error)
+    return
+url2 = url + "/" + job_id + "?api-version=2.0"
+
+while True:
+    print("Checking the job status...")
+    # If you are using Python 3+, replace urllib2 with urllib.request in the following code
+    req = urllib2.Request(url2, headers = { "Authorization":("Bearer " + api_key) })
+    try:
+        response = urllib2.urlopen(req)
+    except urllib2.HTTPError, error:
+        printHttpError(error)
+        return
+    result = json.loads(response.read())
+    status = result["StatusCode"]
+    print "status:" + status
+    if (status == 0 or status == "NotStarted"):
+        print("Job " + job_id + " not yet started...")
+    elif (status == 1 or status == "Running"):
+        print("Job " + job_id + " running...")
+    elif (status == 2 or status == "Failed"):
+        print("Job " + job_id + " failed!")
+        print("Error details: " + result["Details"])
+        break
+    elif (status == 3 or status == "Cancelled"):
+        print("Job " + job_id + " cancelled!")
+        break
+    elif (status == 4 or status == "Finished"):
+        print("Job " + job_id + " finished!")
+        processResults(result)
+        break
+    time.sleep(1) # wait one second
+return
+invokeBatchExecutionService()
+```

@@ -12,7 +12,7 @@
 
 ## Access the virtual machine
 
-The following steps use the `az` command in the Azure Cloud Shell. If you prefer, you can [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) on your development machine and run the commands locally.
+The following steps use the Azure CLI in Azure Cloud Shell. If you prefer, you can [Install the Azure CLI](/cli/azure/install-azure-cli) on your development machine and run the commands locally.
 
 The following steps show you how to configure the Azure virtual machine to allow **SSH** access. The steps shown assume the name you chose for the solution accelerator is **contoso-simulation** -- replace this value with the name of your deployment:
 
@@ -30,7 +30,7 @@ The following steps show you how to configure the Azure virtual machine to allow
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
-    Only enable SSH access during test and development. If you enable SSH, [you should disable it again as soon as possible](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices#disable-rdpssh-access-to-virtual-machines).
+    Only enable SSH access during test and development. If you enable SSH, [you should disable it again as soon as possible](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices#disable-rdpssh-access-to-virtual-machines).
 
 1. Update the password for the **azureuser** account on the virtual machine to a password you know. Choose your own password when you run the following command:
 

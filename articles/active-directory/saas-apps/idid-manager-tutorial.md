@@ -8,14 +8,16 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 5d2a0c25-168e-4842-b83b-74f8f50a8624
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 1/11/2019
+ms.date: 1/25/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with iDiD Manager
 
@@ -66,10 +68,10 @@ To configure the integration of iDiD Manager into Azure AD, you need to add iDiD
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with [Application name] based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in [Application name] needs to be established.
+In this section, you configure and test Azure AD single sign-on with iDiD Manager based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in iDiD Manager needs to be established.
 
-To configure and test Azure AD single sign-on with [Application name], you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with iDiD Manager, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure iDiD Manager Single Sign-On](#configure-idid-manager-single-sign-on)** - to configure the Single Sign-On settings on application side.
@@ -82,7 +84,7 @@ To configure and test Azure AD single sign-on with [Application name], you need 
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
-To configure Azure AD single sign-on with [Application name], perform the following steps:
+To configure Azure AD single sign-on with iDiD Manager, perform the following steps:
 
 1. In the [Azure portal](https://portal.azure.com/), on the **iDiD Manager** application integration page, select **Single sign-on**.
 
@@ -96,19 +98,21 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps if you wish to configure the application in **SP** initiated mode:
+4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-    ![iDiD Manager Domain and URLs single sign-on information](common/both-preintegrated-signon.png)
+    ![iDiD Manager Domain and URLs single sign-on information](common/preintegrated.png)
 
-    a. Click **Set additional URLs**.
+5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    b. In the **Sign-on URL** text box, type a URL using the following pattern:
+    ![iDiD Manager Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+
+    In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://idid2.fi/saml/login/<domain>`
 
     > [!NOTE]
 	> The value is not real. Update the value with the actual Sign-on URL. Contact [iDiD Manager Client support team](mailto:support@idid.fi) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+6. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
@@ -134,7 +138,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -179,8 +183,9 @@ When you click the iDiD Manager tile in the Access Panel, you should be automati
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

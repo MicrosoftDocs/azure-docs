@@ -12,7 +12,7 @@
 
 To create an IoT Hub using the Azure portal:
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Create a resource** > **Internet of Things** > **IoT Hub**.
 

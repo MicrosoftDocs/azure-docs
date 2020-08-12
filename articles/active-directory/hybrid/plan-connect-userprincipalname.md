@@ -2,13 +2,14 @@
 title: Azure AD UserPrincipalName population
 description: The following document describes how the UserPrincipalName attribute is populated.  
 author: billmath
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.date: 06/26/2018
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
-ms.service: active-Directory
+ms.service: active-directory
 manager: daveba
+ms.collection: M365-identity-device-management
 ---
 
 # Azure AD UserPrincipalName population
@@ -87,7 +88,7 @@ On-Premises user object:
 - mailNickName		: &lt;not set&gt;
 - proxyAddresses		: {SMTP:us1@contoso.com}
 - mail			: us2@contoso.com
-- userPrincipalName	: us3@contoso.com`
+- userPrincipalName	: us3@contoso.com
 
 Synchronized the user object to Azure AD Tenant for the first time
 - Set Azure AD MailNickName attribute to primary SMTP address prefix.

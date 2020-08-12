@@ -1,18 +1,12 @@
 ---
 title: Azure Application Insights Usage Impact | Microsoft docs
 description: Analyze how different properties potentially impact conversion rates for parts of your apps.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
+author: NumberByColors
 ms.author: daviste
+ms.date: 01/08/2019
+
+ms.reviewer: mbullwin
 ---
 
 # Impact analysis with Application Insights
@@ -30,7 +24,7 @@ But analyzing performance is just a subset of Impact's capabilities. Since Impac
 ![Screenshot conversion by browsers](./media/usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Your Application Insights resource must contain page views or custom events to use the Impact tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md). Also keep in mind that since you are analyzing correlation, sample size matters.
+> Your Application Insights resource must contain page views or custom events to use the Impact tool. [Learn how to set up your app to collect page views automatically with the Application Insights JavaScript SDK](./javascript.md). Also keep in mind that since you are analyzing correlation, sample size matters.
 >
 >
 
@@ -59,7 +53,7 @@ use filters on the primary and secondary events to get more specific.
 2. Choose “Country or region” in **analyze how its** dropdown
 3. For the **impacts the usage of** dropdown, select a custom event that corresponds to a UI element on the page view you chose in step 1.
 
-In this case, the results no longer fit into a continuous x-axis model as they did in the first example. Instead, a visualization similar to a segmented funnel is presented. Sort by **Usage** to view the variation of conversion to your custom event based on country.
+In this case, the results no longer fit into a continuous x-axis model as they did in the first example. Instead, a visualization similar to a segmented funnel is presented. Sort by **Usage** to view the variation of conversion to your custom event based on country/region.
 
 
 ## How does the Impact tool calculate these conversion rates?
@@ -83,10 +77,11 @@ How Impact is ultimately calculated varies based on whether we are analyzing by 
 
 ## Next steps
 
-- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- To enable usage experiences, start sending [custom events](./api-custom-events-metrics.md#trackevent) or [page views](./api-custom-events-metrics.md#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Funnels](usage-funnels.md)
     - [Retention](usage-retention.md)
     - [User Flows](usage-flows.md)
-    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+    - [Workbooks](../platform/workbooks-overview.md)
     - [Add user context](usage-send-user-context.md)
+

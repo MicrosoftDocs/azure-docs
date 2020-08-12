@@ -1,6 +1,6 @@
 ---
 title: Media Encoder Standard formats and codecs - Azure
-description: This topic gives an overview of Media Encoder Standard formats and codecs.
+description: This article provides an overview of Media Encoder Standard formats and codecs.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,8 +12,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2018
-ms.author: juliako;anilmur
+ms.date: 03/18/2019
+ms.author: juliako
+ms.reviewer: anilmur
 
 ---
 # Media Encoder Standard Formats and Codecs
@@ -26,7 +27,7 @@ This document contains a list of the most common import and export file formats 
 
 ## Input container/file Formats
 | File formats (file extensions) | Supported |
-| --- | --- | --- | --- |
+| --- | --- |
 | FLV (with H.264 and AAC codecs) (.flv) |Yes |
 | MXF    (.mxf) |Yes |
 | GXF    (.gxf) |Yes |
@@ -34,7 +35,7 @@ This document contains a list of the most common import and export file formats 
 | Windows Media Video (WMV)/ASF (.wmv, .asf) |Yes |
 | AVI (Uncompressed 8bit/10bit) (.avi) |Yes |
 | MP4 (.mp4, .m4a, .m4v)/ISMV (.isma, .ismv) |Yes |
-| [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Yes |
+| [Microsoft Digital Video Recording(DVR-MS)](/previous-versions/windows/desktop/mstv/about-the-dvr-ms-file-format) (.dvr-ms) |Yes |
 | Matroska/WebM (.mkv) |Yes |
 | WAVE/WAV (.wav) |Yes |
 | QuickTime (.mov) |Yes |
@@ -55,7 +56,7 @@ or
 
 ## Input video codecs
 | Input video codecs | Supported |
-| --- | --- | --- | --- |
+| --- | --- |
 | AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra |8 bit 4:2:0 and 4:2:2 |
 | Avid DNxHD (in MXF) |Yes |
 | DVCPro/DVCProHD (in MXF) |Yes |
@@ -74,11 +75,11 @@ or
 | Apple ProRes Proxy |Yes |
 | Apple ProRes 4444 |Yes |
 | Apple ProRes 4444 XQ |Yes |
-| HEVC/H.265| Main Profile|
+| HEVC/H.265| Main and Main 10 (&#42;) Profiles<br/>Main 10 Profile support is intended for 8bit 4:2:0 content. |
 
 ## Input audio codecs
 | Input Audio Codecs | Supported |
-| --- | --- | --- | --- |
+| --- | --- |
 | AAC (AAC-LC, AAC-HE, and AAC-HEv2; up to 5.1) |Yes |
 | MPEG Layer 2 |Yes |
 | MP3 (MPEG-1 Audio Layer 3) |Yes |
@@ -111,4 +112,3 @@ The following table lists the codecs and file formats that are supported for exp
 [Encoding On-Demand Content with Azure Media Services](media-services-encode-asset.md)
 
 [How to encode with Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
-

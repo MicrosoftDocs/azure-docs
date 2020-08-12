@@ -1,19 +1,10 @@
 ---
-title: Tutorial- Deploy an app to Azure Service Fabric Mesh | Microsoft Docs
+title: Tutorial- Deploy an app to Azure Service Fabric Mesh 
 description: In this tutorial, you learn how to deploy an application to Service Fabric Mesh using a template.
-services: service-fabric-mesh
-documentationcenter: .net
-author: rwike77
-manager: jeconnoc
-editor: ''
-ms.assetid:  
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
+author: dkkapur
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
 ---
@@ -105,7 +96,7 @@ When the registry is created, you'll see output similar to the following:
 
 ## Push the images to Azure Container Registry
 
-This tutorial uses the To Do List sample application as an example.  The container images for the [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) and the [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) services can be found on Docker Hub. See [Build a Servic Fabric Mesh web app](service-fabric-mesh-tutorial-create-dotnetcore.md) for information on how to build the application in Visual Studio. Service Fabric Mesh can run Windows or Linux Docker containers.  If you're working with Linux containers, select **Switch to Linux containers** in Docker.  If you're working with Windows containers, select **Switch to Windows containers** in Docker.
+This tutorial uses the To Do List sample application as an example.  The container images for the [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) and the [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) services can be found on Docker Hub. See [Build a Service Fabric Mesh web app](service-fabric-mesh-tutorial-create-dotnetcore.md) for information on how to build the application in Visual Studio. Service Fabric Mesh can run Windows or Linux Docker containers.  If you're working with Linux containers, select **Switch to Linux containers** in Docker.  If you're working with Windows containers, select **Switch to Windows containers** in Docker.
 
 To push an image to an ACR instance, you must first have a container image. If you don't yet have any local container images, use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to pull the [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) and [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) images from Docker Hub.
 
@@ -135,7 +126,7 @@ docker tag seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709 mycontainer
 docker tag seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709 mycontainerregistry.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709
 ```
 
-Log in to the Azure Container Registry.
+Sign in to the Azure Container Registry.
 
 ```azurecli
 az acr login -n myContainerRegistry
@@ -176,7 +167,7 @@ The preceding output confirms the presence of `azure-mesh-todo-service:1.0-nanos
 ## Retrieve credentials for the registry
 
 > [!IMPORTANT]
-> Enabling the admin user on an ACR instance is not recommended for production scenarios. It is done here for convenience. For production scenarios, use a [service principal](https://docs.microsoft.com/azure/container-registry/container-registry-auth-service-principal) for both user and system authentication in production scenarios.
+> Enabling the admin user on an ACR instance is not recommended for production scenarios. It is done here for convenience. For production scenarios, use a [service principal](../container-registry/container-registry-auth-service-principal.md) for both user and system authentication in production scenarios.
 
 In order to deploy a container instance from the registry that was created using a template, you must provide the registry credentials during the deployment. First, enable the admin user on your registry with the following command:
 
@@ -196,7 +187,7 @@ Use the returned ACR login server name, user name, and password values when crea
 
 ## Download and explore the template and parameters files
 
-A Service Fabric Mesh application is an Azure resource that you can deploy and manage using Azure Resource Manager (RM) templates. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Azure Resource Manager overview](/azure/azure-resource-manager/resource-group-overview) and [Understand the structure and syntax of RM Templates](/azure/azure-resource-manager/resource-group-authoring-templates).
+A Service Fabric Mesh application is an Azure resource that you can deploy and manage using Azure Resource Manager (RM) templates. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [Azure Resource Manager overview](../azure-resource-manager/management/overview.md) and [Understand the structure and syntax of RM Templates](../azure-resource-manager/templates/template-syntax.md).
 
 This tutorial uses the To Do List sample as an example.  Instead of building new template and parameters files, download the [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) and [mesh_rp.windows.parameter.json parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) files.
 
@@ -207,7 +198,7 @@ The parameters section is defined at the top of your deployment template, right 
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       ...
@@ -225,7 +216,7 @@ Services are specified in the template as properties of the application resource
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     ...
@@ -260,7 +251,7 @@ Services are specified in the template as properties of the application resource
                   "endpoints": [
                     {
                       "name": "ServiceAListener",
-                      "port": 20001
+                      "port": 80
                     }
                   ],
                   "resources": {
@@ -340,14 +331,15 @@ Refer to the [mesh_rp.windows.json deployment template](https://github.com/Azure
 Create the application and related resources using the following command, and provide the credentials from the previous [Retrieve credentials for the registry](#retrieve-credentials-for-the-registry) step.
 
 In the parameters file, update the following parameter values:
+
 |Parameter|Value|
 |---|---|
 |location|The region to deploy the application to.  For example, "eastus".|
 |registryPassword|The password you obtained previously in [Retrieve credentials for the registry](#retrieve-credentials-for-the-registry). This parameter in the template is a secure string and will not be displayed in the deployment status or `az mesh service show` commands.|
 |registryUserName|The username you obtained in [Retrieve credentials for the registry](#retrieve-credentials-for-the-registry).|
 |registryServer|The registry server name you obtained in [Retrieve credentials for the registry](#retrieve-credentials-for-the-registry).|
-|frontEndImage|The container image for the front end service.  For example, "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709".|
-|serviceImage|The container image for the back end service.  For example, "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709".|
+|frontEndImage|The container image for the front end service.  For example, `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
+|serviceImage|The container image for the back end service.  For example, `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
 
 To deploy the application, run the following:
 

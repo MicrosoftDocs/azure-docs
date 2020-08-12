@@ -1,5 +1,5 @@
 ---
-title: StorSimple failover, disaster recovery to a StorSimple Cloud Appliance| Microsoft Docs
+title: Failover and disaster recovery to a StorSimple Cloud Appliance
 description: Learn how to fail over your StorSimple 8000 series physical device to a cloud appliance.
 services: storsimple
 documentationcenter: ''
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017

@@ -1,23 +1,23 @@
 ---
-title: "Quickstart: Perform a news search with PHP - Bing News Search REST API"
-titlesuffix: Azure Cognitive Services
+title: "Quickstart: Perform a news search with PHP and the Bing News Search REST API"
+titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing News Search REST API using PHP, and receive a JSON response.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
 ---
 # Quickstart: Perform a news search using PHP and the Bing News Search REST API
 
-Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple JavaScript application sends a search query to the API and displays the raw results.
+Use this quickstart to make your first call to the Bing News Search API. This simple PHP application sends a search query to the API and displays the JSON response.
 
-While this application is written in PHP, the API is a RESTful Web service compatible most programming languages.
+Although this application is written in PHP, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
 
@@ -25,17 +25,18 @@ While this application is written in PHP, the API is a RESTful Web service compa
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+For more information, see [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## Run the application
 
-The [Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) returns news results from the Bing search engine.
+To run this application, follow these steps:
 
-1. Make sure secure HTTP support is enabled in your `php.ini` as described in the code comment.
+1. Enable secure HTTP support in your `php.ini` file by uncommenting the `;extension=php_openssl.dll` line, as described in the code comment.
 2. Create a new PHP project in your favorite IDE or editor.
 3. Add the code provided below.
 4. Replace the `accessKey` value with an access key valid for your subscription.
-5. Run the program.
+5. You can use the global endpoint in the following code, or use the [custom subdomain](../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
+6. Run the program.
 
 ```php
 <?php
@@ -61,7 +62,7 @@ $term = 'Microsoft';
 function BingNewsSearch ($url, $key, $query) {
     // Prepare HTTP request
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
     $options = array ('http' => array (
                           'header' => $headers,
@@ -97,7 +98,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 ?>
 ```
 
-**Response**
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -195,4 +196,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-[Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

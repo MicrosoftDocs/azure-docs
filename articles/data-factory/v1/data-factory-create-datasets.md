@@ -1,24 +1,19 @@
 ---
-title: Create datasets in Azure Data Factory | Microsoft Docs
+title: Create datasets in Azure Data Factory 
 description: Learn how to create datasets in Azure Data Factory, with examples that use properties such as offset and anchorDateTime.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 0614cd24-2ff0-49d3-9301-06052fd4f92a
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
-# Datasets in Azure Data Factory
+
+# Datasets in Azure Data Factory (version 1)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-create-datasets.md)
 > * [Version 2 (current version)](../concepts-datasets-linked-services.md)
@@ -32,13 +27,13 @@ This article describes what datasets are, how they are defined in JSON format, a
 > If you are new to Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview. If you do not have hands-on experience with creating data factories, you can gain a better understanding by reading the [data transformation tutorial](data-factory-build-your-first-pipeline.md) and the [data movement tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## Overview
-A data factory can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you might use a copy activity to copy data from an on-premises SQL Server to Azure Blob storage. Then, you might use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process data from Blob storage to produce output data. Finally, you might use a second copy activity to copy the output data to Azure SQL Data Warehouse, on top of which business intelligence (BI) reporting solutions are built. For more information about pipelines and activities, see [Pipelines and activities in Azure Data Factory](data-factory-create-pipelines.md).
+A data factory can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you might use a copy activity to copy data from a SQL Server database to Azure Blob storage. Then, you might use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process data from Blob storage to produce output data. Finally, you might use a second copy activity to copy the output data to Azure SQL Data Warehouse, on top of which business intelligence (BI) reporting solutions are built. For more information about pipelines and activities, see [Pipelines and activities in Azure Data Factory](data-factory-create-pipelines.md).
 
 An activity can take zero or more input **datasets**, and produce one or more output datasets. An input dataset represents the input for an activity in the pipeline, and an output dataset represents the output for the activity. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Blob storage from which the pipeline should read the data.
 
 Before you create a dataset, create a **linked service** to link your data store to the data factory. Linked services are much like connection strings, which define the connection information needed for Data Factory to connect to external resources. Datasets identify data within the linked data stores, such as SQL tables, files, folders, and documents. For example, an Azure Storage linked service links a storage account to the data factory. An Azure Blob dataset represents the blob container and the folder that contains the input blobs to be processed.
 
-Here is a sample scenario. To copy data from Blob storage to a SQL database, you create two linked services: Azure Storage and Azure SQL Database. Then, create two datasets: Azure Blob dataset (which refers to the Azure Storage linked service) and Azure SQL Table dataset (which refers to the Azure SQL Database linked service). The Azure Storage and Azure SQL Database linked services contain connection strings that Data Factory uses at runtime to connect to your Azure Storage and Azure SQL Database, respectively. The Azure Blob dataset specifies the blob container and blob folder that contains the input blobs in your Blob storage. The Azure SQL Table dataset specifies the SQL table in your SQL database to which the data is to be copied.
+Here is a sample scenario. To copy data from Blob storage to SQL Database, you create two linked services: Azure Storage and Azure SQL Database. Then, create two datasets: Azure Blob dataset (which refers to the Azure Storage linked service) and Azure SQL Table dataset (which refers to the Azure SQL Database linked service). The Azure Storage and Azure SQL Database linked services contain connection strings that Data Factory uses at runtime to connect to your Azure Storage and Azure SQL Database, respectively. The Azure Blob dataset specifies the blob container and blob folder that contains the input blobs in your Blob storage. The Azure SQL Table dataset specifies the SQL table in your SQL database to which the data is to be copied.
 
 The following diagram shows the relationships among pipeline, activity, dataset, and linked service in Data Factory:
 
@@ -52,7 +47,7 @@ A dataset in Data Factory is defined in JSON format as follows:
     "name": "<name of dataset>",
     "properties": {
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
-        "external": <boolean flag to indicate external data. only for input datasets>,
+        "external": "<boolean flag to indicate external data. only for input datasets>",
         "linkedServiceName": "<Name of the linked service that refers to a data store.>",
         "structure": [
             {
@@ -84,7 +79,7 @@ The following table describes properties in the above JSON:
 | structure |Schema of the dataset.<br/><br/>For details, see [Dataset structure](#Structure). |No |NA |
 | typeProperties | The type properties are different for each type (for example: Azure Blob, Azure SQL table). For details on the supported types and their properties, see [Dataset type](#Type). |Yes |NA |
 | external | Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not. If the input dataset for an activity is not produced by the current pipeline, set this flag to true. Set this flag to true for the input dataset of the first activity in the pipeline.  |No |false |
-| availability | Defines the processing window (for example, hourly or daily) or the slicing model for the dataset production. Each unit of data consumed and produced by an activity run is called a data slice. If the availability of an output dataset is set to daily (frequency - Day, interval - 1), a slice is produced daily. <br/><br/>For details, see [Dataset availability](#Availability). <br/><br/>For details on the dataset slicing model, see the [Scheduling and execution](data-factory-scheduling-and-execution.md) article. |Yes |NA |
+| availability | Defines the processing window (for example, hourly or daily) or the slicing model for the dataset production. Each unit of data consumed and produced by an activity run is called a data slice. If the availability of an output dataset is set to daily (frequency - Day, interval - 1), a slice is produced daily. <br/><br/>For details, see Dataset availability. <br/><br/>For details on the dataset slicing model, see the [Scheduling and execution](data-factory-scheduling-and-execution.md) article. |Yes |NA |
 | policy |Defines the criteria or the condition that the dataset slices must fulfill. <br/><br/>For details, see the [Dataset policy](#Policy) section. |No |NA |
 
 ## Dataset example
@@ -236,7 +231,7 @@ The following table describes properties you can use in the availability section
 | frequency |Specifies the time unit for dataset slice production.<br/><br/><b>Supported frequency</b>: Minute, Hour, Day, Week, Month |Yes |NA |
 | interval |Specifies a multiplier for frequency.<br/><br/>"Frequency x interval" determines how often the slice is produced. For example, if you need the dataset to be sliced on an hourly basis, you set <b>frequency</b> to <b>Hour</b>, and <b>interval</b> to <b>1</b>.<br/><br/>Note that if you specify **frequency** as **Minute**, you should set the interval to no less than 15. |Yes |NA |
 | style |Specifies whether the slice should be produced at the start or end of the interval.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>If **frequency** is set to **Month**, and **style** is set to **EndOfInterval**, the slice is produced on the last day of month. If **style** is set to **StartOfInterval**, the slice is produced on the first day of month.<br/><br/>If **frequency** is set to **Day**, and **style** is set to **EndOfInterval**, the slice is produced in the last hour of the day.<br/><br/>If **frequency** is set to **Hour**, and **style** is set to **EndOfInterval**, the slice is produced at the end of the hour. For example, for a slice for the 1 PM - 2 PM period, the slice is produced at 2 PM. |No |EndOfInterval |
-| anchorDateTime |Defines the absolute position in time used by the scheduler to compute dataset slice boundaries. <br/><br/>Note that if this propoerty has date parts that are more granular than the specified frequency, the more granular parts are ignored. For example, if the **interval** is **hourly** (frequency: hour and interval: 1), and the **anchorDateTime** contains **minutes and seconds**, then the minutes and seconds parts of **anchorDateTime** are ignored. |No |01/01/0001 |
+| anchorDateTime |Defines the absolute position in time used by the scheduler to compute dataset slice boundaries. <br/><br/>Note that if this property has date parts that are more granular than the specified frequency, the more granular parts are ignored. For example, if the **interval** is **hourly** (frequency: hour and interval: 1), and the **anchorDateTime** contains **minutes and seconds**, then the minutes and seconds parts of **anchorDateTime** are ignored. |No |01/01/0001 |
 | offset |Timespan by which the start and end of all dataset slices are shifted. <br/><br/>Note that if both **anchorDateTime** and **offset** are specified, the result is the combined shift. |No |NA |
 
 ### offset example
@@ -281,7 +276,7 @@ The **policy** section in the dataset definition defines the criteria or the con
 | Policy name | Description | Applied to | Required | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Validates that the data in **Azure Blob storage** meets the minimum size requirements (in megabytes). |Azure Blob storage |No |NA |
-| minimumRows |Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL database</li><li>Azure table</li></ul> |No |NA |
+| minimumRows |Validates that the data in an **Azure SQL database** or an **Azure table** contains the minimum number of rows. |<ul><li>Azure SQL Database</li><li>Azure table</li></ul> |No |NA |
 
 #### Examples
 **minimumSizeMB:**
@@ -326,7 +321,6 @@ Unless a dataset is being produced by Data Factory, it should be marked as **ext
 You can create datasets by using one of these tools or SDKs:
 
 - Copy Wizard
-- Azure portal
 - Visual Studio
 - PowerShell
 - Azure Resource Manager template

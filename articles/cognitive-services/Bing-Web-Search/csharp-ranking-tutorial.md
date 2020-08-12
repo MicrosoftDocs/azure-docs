@@ -3,14 +3,14 @@ title: Using rank to display search results
 titleSuffix: Azure Cognitive Services
 description: Shows how to use the Bing RankingResponse answer to display search results in rank order.
 services: cognitive-services
-author: bradumbaugh
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: conceptual
-ms.date: 05/08/2017
-ms.author: bking
+ms.subservice: bing-web-search
+ms.topic: tutorial
+ms.date: 06/24/2020
+ms.author: aahi
 ---
 
 # Build a console app search client in C#
@@ -26,8 +26,9 @@ This tutorial shows how to:
 
 To follow along with the tutorial, you need:
 
-- Visual Studio. If you don't have it, [download and install the free Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
-- A subscription key for the Bing Web Search API. If you don't have one, [sign up for a free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* The [Visual Studio IDE](https://www.visualstudio.com/downloads/).
 
 ## Create a new Console App project
 
@@ -37,7 +38,7 @@ In the **New Project** dialog, click **Visual C# > Windows Classic Desktop > Con
 
 Name the application **MyConsoleSearchApp**, and then click **OK**.
 
-## Add the JSON.net Nuget package to the project
+## Add the JSON.net NuGet package to the project
 
 JSON.net allows you to work with the JSON responses returned by the API. Add its NuGet package to your project:
 
@@ -216,7 +217,7 @@ Before showing how to display the results in ranked order, take a look at a samp
 }
 ```
 
-The `rankingResponse` JSON object ([documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) describes the appropriate display order for search results. It includes one or more of the following, prioritized groups:
+The `rankingResponse` JSON object ([documentation](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) describes the appropriate display order for search results. It includes one or more of the following, prioritized groups:
 
 - `pole`: The search results to get the most visible treatment (for example, displayed above the mainline and sidebar).
 - `mainline`: The search results to display in the mainline.

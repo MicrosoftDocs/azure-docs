@@ -1,32 +1,21 @@
 ---
-title: Azure CLI Script Sample - Bind a custom SSL certificate to an app | Microsoft Docs
-description: Azure CLI Script Sample - Bind a custom SSL certificate to an app
-services: app-service\web
-documentationcenter: 
-author: cephalin
-manager: jeconnoc
-editor: 
+title: 'CLI: Upload and bind TLS/SSL cert to an app'
+description: Learn how to use the Azure CLI to automate deployment and management of your App Service app. This sample shows how to bind a custom TLS/SSL certificate to an app.
 tags: azure-service-management
 
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: msangapu
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, seodec18
 ---
 
-# Bind a custom SSL certificate to an App Service app using CLI
+# Bind a custom TLS/SSL certificate to an App Service app using CLI
 
-This sample script creates an app in App Service with its related resources, then binds the SSL certificate of a custom domain name to it. For this sample, you need:
+This sample script creates an app in App Service with its related resources, then binds the TLS/SSL certificate of a custom domain name to it. For this sample, you need:
 
 * Access to your domain registrar's DNS configuration page.
-* A valid .PFX file and its password for the SSL certificate you want to upload and bind.
+* A valid .PFX file and its password for the TLS/SSL certificate you want to upload and bind.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +25,7 @@ If you choose to install and use the CLI locally, you need Azure CLI version 2.0
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to an app")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to an app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -50,8 +39,8 @@ This script uses the following commands. Each command in the table links to comm
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Creates an App Service plan. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Creates an App Service app. |
 | [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az-webapp-config-hostname-add) | Maps a custom domain to an App Service app. |
-| [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-upload) | Uploads an SSL certificate to an App Service app. |
-| [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-bind) | Binds an uploaded SSL certificate to an App Service app. |
+| [`az webapp config ssl upload`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-upload) | Uploads a TLS/SSL certificate to an App Service app. |
+| [`az webapp config ssl bind`](/cli/azure/webapp/config/ssl?view=azure-cli-latest#az-webapp-config-ssl-bind) | Binds an uploaded TLS/SSL certificate to an App Service app. |
 
 ## Next steps
 

@@ -4,8 +4,8 @@ description: This article describes the steps required to connect Azure Cosmos D
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
-ms.topic: conceptual
-ms.date: 10/22/2018
+ms.topic: how-to
+ms.date: 05/23/2019
 ms.reviewer: sngun
 ---
 
@@ -37,9 +37,9 @@ Before following the instructions in this article, ensure that you have the foll
 
 * Download the [video game data](https://www.kaggle.com/gregorut/videogamesales), this sample data is in CSV format. You will store this data in a Cosmos DB account and visualize it in Qlik Sense.
 
-* Create an Azure Cosmos DB SQL API account by using the steps described in [create an account](create-sql-api-dotnet.md#create-a-database-account) section of the quickstart article.
+* Create an Azure Cosmos DB SQL API account by using the steps described in [create an account](create-sql-api-dotnet.md#create-account) section of the quickstart article.
 
-* [Create a database and a collection](create-sql-api-dotnet.md#add-a-collection) – You can use set the collection throughput value to 1000 RU/s. 
+* [Create a database and a collection](create-sql-api-java.md#add-a-container) – You can use set the collection throughput value to 1000 RU/s. 
 
 * Load the sample video game sales data to your Cosmos DB account. You can import the data by using Azure Cosmos DB data migration tool, you can do a [sequential](import-data.md#SQLSeqTarget) or a [bulk import](import-data.md#SQLBulkTarget) of data. It takes around 3-5 minutes for the data to import to the Cosmos DB account.
 
@@ -49,7 +49,7 @@ Before following the instructions in this article, ensure that you have the foll
 
 1. Open Qlik Sense and select **Create new app**. Provide a name for your app and select **Create**.
 
-   ![Create a new Qlik Sense app](./media/visualize-qlik-sense/create-new-qlik-sense-app.png)
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-qlik-sense-app.png" alt-text="Create a new Qlik Sense app":::
 
 2. After the new app is created successfully, select **Open app** and choose **Add data from files and other sources**. 
 
@@ -57,15 +57,15 @@ Before following the instructions in this article, ensure that you have the foll
 
 4. Switch to **User DSN** and choose the ODBC connection you created earlier. Provide a name for the connection and select **Create**. 
 
-   ![Create a new connection](./media/visualize-qlik-sense/create-new-connection.png)
+   :::image type="content" source="./media/visualize-qlik-sense/create-new-connection.png" alt-text="Create a new connection":::
 
 5. After you create the connection, you can choose the database, collection where the video game data is located and then preview it.
 
-   ![Choose the database and collection](./media/visualize-qlik-sense/choose-database-and-collection.png) 
+   :::image type="content" source="./media/visualize-qlik-sense/choose-database-and-collection.png" alt-text="Choose the database and collection"::: 
 
 6. Next select **Add data** to load the data to Qlik Sense. After you load data to Qlik Sense, you can generate insights and perform analysis on the data. You can either use the insights or build your own app exploring the video games sales. The following image shows 
 
-   ![Visualize data](./media/visualize-qlik-sense/visualize-data.png)
+   :::image type="content" source="./media/visualize-qlik-sense/visualize-data.png" alt-text="Visualize data":::
 
 ### Limitations when connecting with ODBC 
 

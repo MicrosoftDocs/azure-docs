@@ -1,18 +1,9 @@
 ---
-title: Change blob path from the default | Microsoft Docs
+title: Change blob path from the default
 description: Learn how to set up an Azure function to rename a blob file path
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid:
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ---
@@ -29,7 +20,7 @@ Ensure that you have a correctly configured job definition in your StorSimple Da
 
 To create an Azure function, perform the following steps:
 
-1. Go to the [Azure portal](http://portal.azure.com/).
+1. Go to the [Azure portal](https://portal.azure.com/).
 
 2. Click **+ Create a resource**. In the **Search** box, type **Function App** and press **Enter**. Select and click **Function app** in the list of apps displayed.
 

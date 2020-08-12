@@ -1,11 +1,11 @@
 ---
 title: Create Azure Application Gateway custom error pages
-description: This article shows you how to create Application Gateway custom error pages.
+description: This article shows you how to create Application Gateway custom error pages. You can use your own branding and layout using a custom error page.
 services: application-gateway
-author: amitsriva
+author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 10/11/2018
+ms.topic: how-to
+ms.date: 11/16/2019
 ms.author: victorh
 ---
 
@@ -29,6 +29,7 @@ Custom error pages can be defined at the global level and the listener level:
 - **Both** - the custom error page defined at the listener level overrides the one set at global level.
 
 To create a custom error page, you must have:
+
 - an HTTP response status code.
 - the corresponding location for the error page. 
 - a publicly accessible Azure storage blob for the location.
@@ -54,5 +55,19 @@ After you specify an error page, the application gateway downloads it from the s
 4. Specify a publicly accessible blob URL for a given error status code and click **Save**. The Application Gateway is now configured with the custom error page.
 
    ![Application Gateway error codes](media/custom-error/ag-error-codes.png)
+
+## Azure PowerShell configuration
+
+You can use Azure PowerShell to configure a custom error page. For example, a global custom error page:
+
+`$updatedgateway = Add-AzApplicationGatewayCustomError -ApplicationGateway $appgw -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+Or a listener level error page:
+
+`$updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+
+For more information, see [Add-AzApplicationGatewayCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) and [Add-AzApplicationGatewayHttpListenerCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
+
 ## Next steps
+
 For information about Application Gateway diagnostics, see [Back-end health, diagnostic logs, and metrics for Application Gateway](application-gateway-diagnostics.md).

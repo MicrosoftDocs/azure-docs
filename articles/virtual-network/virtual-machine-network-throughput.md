@@ -1,10 +1,9 @@
 ---
 title: Azure virtual machine network throughput | Microsoft Docs
-description: Learn about Azure virtual machine network throughput.
+description: Learn about Azure virtual machine network throughput, including how bandwidth is allocated to a virtual machine.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: steveesp
 editor: ''
 tags: azure-resource-manager
 
@@ -14,9 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: jdial
-
+ms.date: 4/26/2019
+ms.author: steveesp
+ms.reviewer: kumud, mareat
 ---
 
 # Virtual machine network bandwidth
@@ -41,6 +40,31 @@ The throughput limit applies to the virtual machine. Throughput is unaffected by
 - **Accelerated networking**: Though the feature can be helpful in achieving the published limit, it does not change the limit.
 - **Traffic destination**: All destinations count toward the outbound limit.
 - **Protocol**: All outbound traffic over all protocols counts towards the limit.
+
+## Network Flow Limits
+
+In addition to bandwidth, the number of network connections present on a VM at any given time can affect its network performance. The Azure networking stack maintains state for each direction of a TCP/UDP connection in data structures called ‘flows’. A typical TCP/UDP connection will have 2 flows created, one for the inbound and another for the outbound direction. 
+
+Data transfer between endpoints requires creation of several flows in addition to those that perform the data transfer. Some examples are flows created for DNS resolution and flows created for load balancer health probes. Also note that network virtual appliances (NVAs) such as gateways, proxies, firewalls, will see flows being created for connections terminated at the appliance and originated by the appliance. 
+
+![Flow count for TCP conversation through a forwarding appliance](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
+
+## Flow Limits and Recommendations
+
+Today, the Azure networking stack supports 250K total network flows with good performance for VMs with greater than 8 CPU cores and 100k total flows with good performance for VMs with fewer than 8 CPU cores. Past this limit network performance degrades gracefully for additional flows up to a hard limit of 500K total flows, 250K inbound and 250K outbound, after which additional flows are dropped.
+
+| Performance level | VMs with <8 CPU Cores | VMs with 8+ CPU Cores |
+| ----------------- | --------------------- | --------------------- |
+|<b>Good Performance</b>|100K Flows |250K Flows|
+|<b>Degraded Performance</b>|Above 100k Flows|Above 250K Flows|
+|<b>Flow Limit</b>|500K Flows|500K Flows|
+
+Metrics are available in [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) to track the number of network flows and the flow creation rate on your VM or VMSS instances.
+
+![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+
+Connection establishment and termination rates can also affect network performance as connection establishment and termination shares CPU with packet processing routines. 
+We recommend that you benchmark workloads against expected traffic patterns and scale out workloads appropriately to match your performance needs. 
 
 ## Next steps
 

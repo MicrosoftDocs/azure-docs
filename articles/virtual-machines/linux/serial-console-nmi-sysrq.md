@@ -1,17 +1,9 @@
 ---
-title: Azure Serial Console for SysRq and NMI calls | Microsoft Docs
+title: Azure Serial Console for SysRq and NMI calls 
 description: Using Serial Console for SysRq and NMI calls in Azure virtual machines.
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
@@ -21,17 +13,17 @@ ms.author: alsin
 # Use Serial Console for SysRq and NMI calls
 
 ## System Request (SysRq)
-A SysRq is a sequence of keys understood by the Linux operation system kernel, which can trigger a set of pre-defined actions. These commands are often used when virtual machine troubleshooting or recovery can't be performed through traditional administration (for example, if the VM is hung). Using the SysRq feature of Azure Serial Console will mimic pressing of the SysRq key and characters entered on a physical keyboard.
+A SysRq is a sequence of keys understood by the Linux operation system kernel, which can trigger a set of pre-defined actions. These commands are often used when virtual machine troubleshooting or recovery can't be performed through traditional administration (for example, if the VM is not responding). Using the SysRq feature of Azure Serial Console will mimic pressing of the SysRq key and characters entered on a physical keyboard.
 
 Once the SysRq sequence is delivered, the kernel configuration will control how the system responds. For information on enabling and disabling SysRq, see the *SysRq Admin Guide* [text](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
 
 The Azure Serial Console can be used to send a SysRq to an Azure virtual machine using the keyboard icon in the command bar shown below.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![Screenshot of the Azure Serial Console. The keyboard icon is highlighted, and its menu is visible. That menu contains a Send SysRq Command item.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 Choosing "Send SysRq Command" will open a dialog, which will provide common SysRq options or accept a sequence of SysRq commands entered into the dialog.  This allows for series of SysRq's to perform a high-level operation such as a safe reboot using: `REISUB`.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![Screenshot of the Send SysRq Command to Guest dialog box. The option for entering commands is selected, and the command box contains REISUB.](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 The SysRq command can't be used on virtual machines that are stopped or whose kernel is in a non-responsive state. (for example a kernel panic).
 
@@ -73,7 +65,7 @@ From the SysRq Admin Guide above:
 |``u``  |    Will attempt to remount all mounted filesystems read-only.
 |``v``  |    Forcefully restores framebuffer console
 |``v``  |    Causes ETM buffer dump [ARM-specific]
-|``w``  |    Dumps tasks that are in uninterruptable (blocked) state.
+|``w``  |    Dumps tasks that are in uninterruptible (blocked) state.
 |``x``  |    Used by xmon interface on ppc/powerpc platforms. Show global PMU Registers on sparc64. Dump all TLB entries on MIPS.
 |``y``  |    Show global CPU Registers [SPARC-64 specific]
 |``z``  |    Dump the ftrace buffer
@@ -96,11 +88,11 @@ For distribution-specific documentation on SysRq and steps to configure Linux to
 - [Collecting crash logs](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## Non-Maskable Interrupt (NMI) 
-A non-maskable interrupt (NMI) is designed to create a signal that software on a virtual machine will not ignore. Historically, NMIs have been used to monitor for hardware issues on systems that required specific response times.  Today, programmers and system administrators often use NMI as a mechanism to debug or troubleshoot systems which are hung.
+A non-maskable interrupt (NMI) is designed to create a signal that software on a virtual machine will not ignore. Historically, NMIs have been used to monitor for hardware issues on systems that required specific response times.  Today, programmers and system administrators often use NMI as a mechanism to debug or troubleshoot systems that are not responding.
 
 The Serial Console can be used to send a NMI to an Azure virtual machine using the keyboard icon in the command bar shown below. Once the NMI is delivered, the virtual machine configuration will control how the system responds.  Linux operating systems can be configured to crash and create a memory dump the operating system receives an NMI.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![Screenshot of the Serial Console. The keyboard icon is highlighted, and its menu is visible. That menu contains a Send Non-Maskable Interrupt item.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
 For Linux systems which support sysctl for configuring kernel parameters, you can enable a panic when receiving this NMI by using the following:
 1. Adding this line to */etc/sysctl.conf* <br>
@@ -125,7 +117,7 @@ For more information on Linux kernel configurations, including `unknown_nmi_pani
 - [Collecting crash logs](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## Next steps
-* The main Serial Console Linux documentation page is located [here](serial-console.md).
+* The main Serial Console Linux documentation page is located [here](../troubleshooting/serial-console-linux.md).
 * Use Serial Console to boot into [GRUB and enter single user mode](serial-console-grub-single-user-mode.md)
-* The Serial Console is also available for [Windows](../windows/serial-console.md) VMs
-* Learn more about [boot diagnostics](boot-diagnostics.md)
+* The Serial Console is also available for [Windows](../troubleshooting/serial-console-windows.md) VMs
+* Learn more about [boot diagnostics](../troubleshooting/boot-diagnostics.md)

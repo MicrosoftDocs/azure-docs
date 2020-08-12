@@ -1,50 +1,53 @@
 ---
-title: Find exact moments within videos - Video Indexer
-titlesuffix: Azure Media Services
-description: This topic demonstrates how to find exact moments within videos using Video Indexer.
+title: Search for exact moments in videos with Video Indexer
+titleSuffix: Azure Media Services
+description: Learn how to search for exact moments in videos using Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
-
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 05/15/2019
 ms.author: juliako
 ---
 
-# Find exact moments within videos
+# Search for exact moments in videos with Video Indexer
 
-This topic shows you the search options that enable you to find exact moments within videos.
+This topic shows you the search options that enable you to search for exact moments in videos.
 
-1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
+1. Go to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
 2. Search among all videos in your account.
 
-	In the following example, we searched for all videos created by Channel9 with Scott Hanselman.
+    In the following example, we search for all videos that talk about security and in which Satya appears.
 
-	![Search](./media/video-indexer-search/video-indexer-search01.png)
-	
+    ![Search for video in Video Indexer](./media/video-indexer-search/video-indexer-search01.png)
+
 3. Search the summarized insights of the video.
 
-	You can then search within a video by clicking **Play** on the video. Then, you can search within the video by selecting the **Search** tab. For example, we searched for all the places where the "identity protection" text is used. 
+    You can then search in a video by selecting **Play** on the video. Then, you can search for exact moments in the video by selecting the **Search** tab.
 
-	![Search](./media/video-indexer-search/video-indexer-search02.png)
+    In the following example, we search for "secure" inside the selected video.
 
-	If you click one of the results, the player brings you to that moment in the video. You can achieve the player/insights view and synchronization in your application. For more information, see [Embed Video Indexer widgets into your application](video-indexer-embed-widgets.md). 
+    ![Search in a video with Video Indexer](./media/video-indexer-search/video-indexer-search02.png)
 
-	
+    If you select one of the results, the player brings you to that exact moment in the video. You can achieve the player/insights view and synchronization in your app. For more information, see [Embed Video Indexer widgets into your app](video-indexer-embed-widgets.md).
+
 4. Search the detailed breakdown of the video.
 
-	If you want to create your own breakdown based on the video that you found, press the **Edit** button. This page shows you the full breakdown of a video. You can search within the breakdown to only show the lines you are interested in. For more information, see [View and edit Video Indexer insights](video-indexer-view-edit.md).
+    If you want to create your own clip based on the video that you found, select the **Edit** button. This page shows you the video along with its insights as filters. For more information, see [View and edit Video Indexer insights](video-indexer-view-edit.md).
 
-	In this example, we searched the "identity protection" text. We also applied additional filters, as shown in the screen below.
+    You can search for exact moments within the video to only show the lines you're interested in. Use the side insights to filter the parts you want to see. When you finish, you can preview your clip and select **Publish** to create the new clip that appears in your gallery.
 
-	![Search](./media/video-indexer-search/video-indexer-search03.png)
+    In the following example, we searched for the "mixed reality" text. We also applied additional filters, as shown in the screen below.
 
-## Next steps 
+    ![Search for exact moment in Video Indexer](./media/video-indexer-search/video-indexer-search03.png)
 
-Once you find the video you want to work with, you can continue processing the video, as described in one of these topics: 
+## Next steps
 
-- [Create new video insights based on existing video](video-indexer-create-new.md)
+Once you find the exact moment in the video you want to work with, you can continue processing the video. For more information, see the following topics:
+
+- [Use your videos' deep insights](use-editor-create-project.md)
 - [Process content with Video Indexer REST API](video-indexer-use-apis.md)
 - [Embed visual widgets in your application](video-indexer-embed-widgets.md)
 

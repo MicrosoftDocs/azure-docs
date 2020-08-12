@@ -1,6 +1,6 @@
 ---
 title: H264 Single Bitrate 4K Media Encoder Standard preset - Azure | Microsoft Docs
-description: The topic gives an overview of the **H264 Single Bitrate 4K** task preset.
+description: The article gives an overview of the Media Encoder Standard "H264 Single Bitrate 4K" task preset.
 author: Juliako
 manager: femila
 editor: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 03/19/2019
 ms.author: juliako
 
 ---
@@ -26,13 +26,13 @@ ms.author: juliako
  This preset produces a single MP4 file with a bitrate of 18000 kbps, and stereo AAC audio. For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below. For explanations of what each element in these presets means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md) topic.  
   
 > [!NOTE]
->  You should get the Premium reserved unit type with 4K encodes. For more information, see [How to Scale Encoding](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  You should get the Premium reserved unit type with 4K encodes. For more information, see [How to Scale Encoding](./media-services-scale-media-processing-overview.md).  
   
  XML  
   
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
-<Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">  
+<Preset xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">  
   <Encoding>  
     <H264Video>  
       <KeyFrameInterval>00:00:02</KeyFrameInterval>  

@@ -1,13 +1,11 @@
 ---
-title: Schema updates June-1-2016 - Azure Logic Apps | Microsoft Docs
+title: Schema updates June-1-2016
 description: Updated schema version 2016-06-01 for logic app definitions in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
-ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
 ---
@@ -30,7 +28,7 @@ To upgrade your logic apps from the August 1, 2015 preview schema to the June 1,
 
 This schema includes scopes, which let you group actions together, 
 or nest actions inside each other. For example, a condition can contain another condition. 
-Learn more about [scope syntax](../logic-apps/logic-apps-loops-and-scopes.md), 
+Learn more about [scope syntax](./logic-apps-control-flow-loops.md), 
 or review this basic scope example:
 
 ```json
@@ -42,7 +40,7 @@ or review this basic scope example:
             "Http": {
                "inputs": {
                    "method": "GET",
-                   "uri": "http://www.bing.com"
+                   "uri": "https://www.bing.com"
                },
                "runAfter": {},
                "type": "Http"
@@ -60,7 +58,7 @@ or review this basic scope example:
 In previous schema versions, conditions and loops were parameters 
 associated with a single action. This schema lifts this limitation, 
 so conditions and loops are now available as action types. 
-Learn more about [loops and scopes](../logic-apps/logic-apps-loops-and-scopes.md), 
+Learn more about [loops and scopes](./logic-apps-control-flow-loops.md), 
 [conditions](../logic-apps/logic-apps-control-flow-conditional-statement.md), 
 or review this basic example that shows a condition action:
 
@@ -74,7 +72,7 @@ or review this basic example that shows a condition action:
          "Http_2": {
             "inputs": {
                 "method": "GET",
-                "uri": "http://www.bing.com"
+                "uri": "https://www.bing.com"
             },
             "runAfter": {},
             "type": "Http"
@@ -171,7 +169,7 @@ However, the change automatically happens when you upgrade.
 The condition becomes a filter action that appears prior to 
 the **For each** loop, returning only an array of items 
 that match the condition, and passing that array to **For each** action. 
-For an example, see [Loops and scopes](../logic-apps/logic-apps-loops-and-scopes.md).
+For an example, see [Loops and scopes](./logic-apps-control-flow-loops.md).
 
 ### Resource tags
 
@@ -207,7 +205,7 @@ the Azure Diagnostic telemetry, emitted as part of a workflow. For example:
    "Http": {
       "inputs": {
          "method": "GET",
-         "uri": "http://www.bing.com"
+         "uri": "https://www.bing.com"
       },
       "runAfter": {},
       "type": "Http",
@@ -219,9 +217,10 @@ the Azure Diagnostic telemetry, emitted as part of a workflow. For example:
 }
 ```
 
-## Next Steps
+## Next steps
+
 * [Create workflow definitions for logic apps](../logic-apps/logic-apps-author-definitions.md)
-* [Create deployment templates for logic apps](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automate logic app deployment](logic-apps-azure-resource-manager-templates-overview.md)
 
 <!-- Image references -->
 [1]: ./media/logic-apps-schema-2016-04-01/upgradeButton.png

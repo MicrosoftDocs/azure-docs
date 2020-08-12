@@ -3,18 +3,18 @@ title: Using Azure CDN with SAS | Microsoft Docs
 description: Azure CDN supports the use of Shared Access Signature (SAS) to grant limited access to private storage containers.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
 ms.assetid: 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/21/2018
-ms.author: magattus
+ms.author: allensu
 
 ---
 # Using Azure CDN with SAS
@@ -40,13 +40,13 @@ For example:
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
 
-For more information about setting parameters, see [SAS parameter considerations](#sas-parameter-considerations) and [Shared access signature parameters](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#shared-access-signature-parameters).
+For more information about setting parameters, see [SAS parameter considerations](#sas-parameter-considerations) and [Shared access signature parameters](https://docs.microsoft.com/azure/storage/common/storage-sas-overview#how-a-shared-access-signature-works).
 
 ![CDN SAS settings](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
 ### Option 1: Using SAS with pass-through to blob storage from Azure CDN
 
-This option is the simplest and uses a single SAS token, which is passed from Azure CDN to the origin server. It's supported by **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles. 
+This option is the simplest and uses a single SAS token, which is passed from Azure CDN to the origin server.
  
 1. Select an endpoint, select **Caching rules**, then select **Cache every unique URL** from the **Query string caching** list.
 
@@ -78,7 +78,8 @@ This option is available only for **Azure CDN Premium from Verizon** profiles. W
    
    Source:   
    `(container1\/.*)`
-   
+
+
    Destination:   
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
@@ -93,7 +94,7 @@ This option is available only for **Azure CDN Premium from Verizon** profiles. W
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
-3. Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin server. Because Azure CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the Azure CDN origin server after the SAS expiration time has elapsed. If this situation occurs, and you want to make your cached file inaccessible, you must perform a purge operation on the file to clear it from the cache. For information about setting the cache duration on Azure CDN, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
+3. Fine-tune the cache duration either by using caching rules or by adding `Cache-Control` headers at the origin server. Because Azure CDN treats the SAS token as a plain query string, as a best practice you should set up a caching duration that expires at or before the SAS expiration time. Otherwise, if a file is cached for a longer duration than the SAS is active, the file may be accessible from the Azure CDN endpoint after the SAS expiration time has elapsed.. If this situation occurs, and you want to make your cached file inaccessible, you must perform a purge operation on the file to clear it from the cache. For information about setting the cache duration on Azure CDN, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md).
 
 ### Option 3: Using CDN security token authentication with a rewrite rule
 
@@ -135,7 +136,7 @@ Because SAS parameters are not visible to Azure CDN, Azure CDN cannot change its
 | --- | --- |
 | Start | The time that Azure CDN can begin to access the blob file. Due to clock skew (when a clock signal arrives at different times for different components), choose a time 15 minutes earlier if you want the asset to be available immediately. |
 | End | The time after which Azure CDN can no longer access the blob file. Previously cached files on Azure CDN are still accessible. To control the file expiry time, either set the appropriate expiry time on the Azure CDN security token or purge the asset. |
-| Allowed IP addresses | Optional. If you are using **Azure CDN from Verizon**, you can set this parameter to the ranges defined in [Azure CDN from Verizon Edge Server IP Ranges](https://msdn.microsoft.com/library/mt757330.aspx). If you are using **Azure CDN from Akamai**, you cannot set the IP ranges parameter because the IP addresses are not static.|
+| Allowed IP addresses | Optional. If you are using **Azure CDN from Verizon**, you can set this parameter to the ranges defined in [Azure CDN from Verizon Edge Server IP Ranges](/azure/cdn/cdn-pop-list-api). If you are using **Azure CDN from Akamai**, you cannot set the IP ranges parameter because the IP addresses are not static.|
 | Allowed protocols | The protocol(s) allowed for a request made with the account SAS. The HTTPS setting is recommended.|
 
 ## Next steps

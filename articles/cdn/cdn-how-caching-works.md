@@ -3,18 +3,18 @@ title: How caching works | Microsoft Docs
 description: Caching is the process of storing data locally so that future requests for that data can be accessed more quickly.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
 ms.assetid: 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: magattus
+ms.author: allensu
 
 ---
 # How caching works
@@ -108,11 +108,11 @@ When the cache is stale, HTTP cache validators are used to compare the cached ve
 
 Not all resources can be cached. The following table shows what resources can be cached, based on the type of HTTP response. Resources delivered with HTTP responses that don't meet all of these conditions cannot be cached. For **Azure CDN Premium from Verizon** only, you can use the rules engine to customize some of these conditions.
 
-|                   | Azure CDN from Microsoft          | Azure CDN from Verizon | Azure CDN from Akamai        |
-|-------------------|-----------------------------------|------------------------|------------------------------|
-| HTTP status codes | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
-| HTTP methods      | GET, HEAD                         | GET                    | GET                          |
-| File size limits  | 300 GB                            | 300 GB                 | - General web delivery optimization: 1.8 GB<br />- Media streaming optimizations: 1.8 GB<br />- Large file optimization: 150 GB |
+|                       | Azure CDN from Microsoft          | Azure CDN from Verizon | Azure CDN from Akamai        |
+|-----------------------|-----------------------------------|------------------------|------------------------------|
+| **HTTP status codes** | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
+| **HTTP methods**      | GET, HEAD                         | GET                    | GET                          |
+| **File size limits**  | 300 GB                            | 300 GB                 | - General web delivery optimization: 1.8 GB<br />- Media streaming optimizations: 1.8 GB<br />- Large file optimization: 150 GB |
 
 For **Azure CDN Standard from Microsoft** caching to work on a resource, the origin server must support any HEAD and GET HTTP requests and the content-length values must be the same for any HEAD and GET HTTP responses for the asset. For a HEAD request, the origin server must support the HEAD request, and must respond with the same headers as if it had received a GET request.
 
@@ -125,7 +125,7 @@ The following table describes the default caching behavior for the Azure CDN pro
 | **Honor origin**       | Yes    | Yes   | No   | Yes    | No   | Yes   | Yes    |
 | **CDN cache duration** | 2 days |7 days | None | 7 days | None | 1 day | 1 year |
 
-**Honor origin**: Specifies whether to honor the [supported cache-directive headers](#http-cache-directive-headers) if they exist in the HTTP response from the origin server.
+**Honor origin**: Specifies whether to honor the supported cache-directive headers if they exist in the HTTP response from the origin server.
 
 **CDN cache duration**: Specifies the amount of time for which a resource is cached on the Azure CDN. However, if **Honor origin** is Yes and the HTTP response from the origin server includes the cache-directive header `Expires` or `Cache-Control: max-age`, Azure CDN uses the duration value specified by the header instead. 
 
