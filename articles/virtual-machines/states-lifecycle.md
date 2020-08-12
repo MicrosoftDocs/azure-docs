@@ -1,14 +1,16 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: shandilvarun
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 08/09/2018
- ms.author: vashan, cynthn, rajsqr
- ms.custom: include file
+title: Lifecycle and states of a VM in Azure 
+description: Overview of the lifecycle of a VM in Azure including descriptions of the various states a VM can be in at any time.
+services: virtual-machines
+author: shandilvarun
+ms.service: virtual-machines
+ms.topic: conceptual
+ms.workload: infrastructure-services
+ms.date: 08/09/2018
+ms.author: vashan
 ---
+
+# Virtual machines lifecycle and states
 
 Azure Virtual Machines (VMs) go through different states that can be categorized into *provisioning* and *power* states. The purpose of this article is to describe these states and specifically highlight when customers are billed for instance usage. 
 
@@ -16,7 +18,7 @@ Azure Virtual Machines (VMs) go through different states that can be categorized
 
 The power state represents the last known state of the VM.
 
-![VM power state diagram](./media/virtual-machines-common-states-lifecycle/vm-power-states.png)
+![VM power state diagram](./media/vm-power-states.png)
 
 <br>
 The following table provides a  description of each instance state and indicates whether it is billed for instance usage or not.
@@ -284,5 +286,8 @@ The instance view API provides VM running-state information. For more informatio
 
 Azure Resources explorer provides a simple UI for viewing the VM running state: [Resource Explorer](https://resources.azure.com/).
 
-Provisioning states are visible on VM properties and instance view. Power states are available in instance view of VM. 
+Provisioning states are visible on VM properties and instance view. Power states are available in instance view of VM.
 
+## Next steps
+
+To learn more about monitoring your VM, see [Monitor virtual machines in Azure](../azure-monitor/insights/monitor-vm-azure.md).

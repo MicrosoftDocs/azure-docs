@@ -901,6 +901,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-configure-private-link.md",
+      "redirect_url": "/azure/machine-learning/how-to-enable-virtual-network",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/how-to-monitor-data-drift.md",
       "redirect_url": "/azure/machine-learning/how-to-enable-data-collection",
       "redirect_document_id": false
@@ -12332,6 +12337,16 @@
       "source_path": "articles/active-directory/active-directory-saas-kudos-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/kudos-tutorial",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/states-lifecycle.md",
+      "redirect_url": "/azure/virtual-machines/states-lifecycle",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/states-lifecycle.md",
+      "redirect_url": "/azure/virtual-machines/states-lifecycle",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-landgorilla-tutorial.md",
