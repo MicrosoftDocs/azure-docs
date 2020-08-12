@@ -27,19 +27,21 @@ In this quickstart, your register a web API with the Microsoft identity platform
 
 ## Register the web API
 
-To provide scoped access to the resources in a web API, you need register the API and then expose the scopes that'll grant permission to the consumers of your API.
+To provide scoped access to the resources in a web API, you need to register the API and then add scopes that your API's code can use to grant granular permission to the consumers of your API.
 
-Register your web API by
+Start by registering your web API using the steps in the [Register an application](quickstart-register-app.md#register-an-application) section of [Quickstart: Register an app with the Microsoft identity platform](quickstart-register-app.md).
 
-## Expose a scope
+When you get to the *Configure platform settings* section, select the **Web** platform configuration, and specify a **Redirect URI** where security tokens containing the scopes are to be sent. It's common during development to specify a URI on your local machine where your API is available, like `https://127.0.0.1/api`. You can skip the *Add credentials* section for now.
 
-[![Shows how to expose an API using the UI](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+## Add a scope - UI
 
-To expose a new scope through the UI:
+The code in a consuming application specifies scope values when making requests to the protected resource, your web API. Your web API then responds with the data requested only if the security token it receives
 
-1. From the app's **Overview** page, select the **Expose an API** section.
+To add a scope by using the **Expose an API** UI in the Azure portal:
 
-1. Select **Add a scope**.
+1. Select your application in **App registrations** in the Azure portal.
+1. Select **Expose an API** > **Add a scope**.
+    :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-01-expose-api.png" alt-text="An app registration's Expose an API pane in the Azure portal":::
 
 1. If you have not set an **Application ID URI**, you will see a prompt to enter one. Enter your application ID URI or use the one provided and then select **Save and continue**.
 
@@ -70,7 +72,7 @@ To expose a new scope through the UI:
 
 1. Follow the steps to [verify that the web API is exposed to other applications](#verify-the-web-api-is-exposed-to-other-applications).
 
-## Expose a scope in the application manifest
+## Add a scope - App manifest
 
 The application manifest serves as a mechanism for updating the application entity that defines the attributes of an Azure AD app registration.
 
