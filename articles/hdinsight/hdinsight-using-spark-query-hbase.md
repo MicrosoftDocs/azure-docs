@@ -71,14 +71,19 @@ In this step, you create and populate a table in Apache HBase that you can then 
     exit
     ```
     
-## Run scripts to set up connection between clusters - HBase
+## Run scripts to set up connection between clusters
 
-To set up the communication between clusters, follow the below steps to run two scripts on your clusters. These scripts will automate the process of file copying described in 'Set up communication manually' section below. __NOTE__: Before proceeding, make sure you have added Spark cluster’s storage account to your HBase cluster as secondary storage account. 
+To set up the communication between clusters, follow the below steps to run two scripts on your clusters. These scripts will automate the process of file copying described in 'Set up communication manually' section below. 
+* HBase side script will upload hbase-site.xml & HBase IP mapping information to Spark default storage you added to the cluster. 
+* Spark side script set up two cron jobs to run two helper scripts periodically:  
+    1.	HBase cron – download new hbase-site.xml files and HBase IP mapping from Spark default storage account to local node
+    2.	Spark cron – checks if a Spark scaling occurred and if cluster is secure, if so, edit /etc/hosts to include HBase IP mapping stored locally
+
+__NOTE__: Before proceeding, make sure you have added Spark cluster’s storage account to your HBase cluster as secondary storage account. Make sure you run step 1 script before step 2 script.
 
 
-1. You must run the HBase side script first. Use [Script Action](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) on your HBase cluster to apply the changes with the following considerations: 
+1. Use [Script Action](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) on your HBase cluster to apply the changes with the following considerations: 
 
-    * This script uploads hbase-site.xml & HBase IP mapping information to Spark default storage which you have previously added to the cluster. 
 
     |Property | Value |
     |---|---|
@@ -90,13 +95,7 @@ To set up the communication between clusters, follow the below steps to run two 
     * `SECONDARYS_STORAGE_URL` is the url of the Spark side default storage. Parameter Example: -s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net
 
 
-## Run scripts to set up connection between clusters - Spark
-
-2.	You must run the Spark side script after running HBase side script. Use Script Action on your Spark cluster to apply the changes with the following considerations:
-
-* This script set up two cron jobs to run two helper scripts periodically: 
-    1.	HBase cron – download new hbase-site.xml files and HBase IP mapping from Spark default storage account to local node
-    2.	Spark cron – checks if a Spark scaling occurred and if cluster is secure, if so, edit /etc/hosts to include HBase IP mapping stored locally
+2.	Use Script Action on your Spark cluster to apply the changes with the following considerations:
 
     |Property | Value |
     |---|---|
@@ -106,10 +105,10 @@ To set up the communication between clusters, follow the below steps to run two 
     |Persisted|yes|
 
 
-    * You can specify how often you want this cluster to automatically check if update. Default parameters: -s “*/1 * * * *” -h 0 (Spark cron runs every minute, HBase cron not set up)
-    * Since HBase cron is not set up by default, you will need to re-run this script when you perform scaling to your HBase cluster.
-    * If your HBase cluster scales often, you may choose to set up HBase cron job automatically. For example: `-h "*/30 * * * *"` to have it perform checks every 30 minutes. This will run HBase cron schedule periodically to automate downloading of new HBase information on the common storage account to local node.
-
+    * You can specify how often you want this cluster to automatically check if update. Default: -s “*/1 * * * *” -h 0 (Spark cron runs every minute, HBase cron not set up)
+    * Since HBase cron is not set up by default, you need to re-run this script when perform scaling to your HBase cluster. If your HBase cluster scales often, you may choose to set up HBase cron job automatically. For example: `-h "*/30 * * * *"` to have it perform checks every 30 minutes. This will run HBase cron schedule periodically to automate downloading of new HBase information on the common storage account to local node.
+    
+    
 
 ## Set up communication manually (Optional, if provided script in above step fails)
 
