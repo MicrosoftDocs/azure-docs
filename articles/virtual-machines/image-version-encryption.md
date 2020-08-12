@@ -22,10 +22,11 @@ Server-side encryption using customer-managed keys uses Azure Key Vault. You can
 
 This article requires that you already have a disk encryption set to use for your image.
 
-To use only a customer-managed key, see [Set up your Azure Key Vault and DiskEncryptionSet](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- To use only a customer-managed key, see **Enable customer-managed keys with server-side encryption** using the [Azure portal](./windows/disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
-To use both platform-managed and customer-managed keys (for double encryption), see [Enable double encryption at rest](./windows/disks-enable-double-encryption-at-rest-powershell.md).
-
+- To use both platform-managed and customer-managed keys (for double encryption), see **Enable double encryption at rest** using the [Azure portal](./windows/disks-enable-double-encryption-at-rest-portal.md) or [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+    > [!IMPORTANT]
+    > You must use this link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) to access the Azure portal. Double encryption at rest is not currently visible in the public Azure portal without using the link.
 
 ## Limitations
 
@@ -185,6 +186,10 @@ You can create a VM from a shared image gallery and use customer-managed keys to
 ## Portal
 
 When you create your image version in the portal, you can use the **Encryption** tab to enter apply your storage encryption sets.
+
+> [!IMPORTANT]
+> To use double encryption, you must use this link [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) to access the Azure portal. Double encryption at rest is not currently visible in the public Azure portal without using the link.
+
 
 1. In the **Create an image version** page, select the **Encryption** tab.
 2. In **Encryption type**, select **Encryption at-rest with a customer-managed key** or **Double encryption with platform-managed and customer-managed keys**. 
