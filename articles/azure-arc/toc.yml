@@ -13,7 +13,7 @@
 - name: Tutorials
   items:
     - name: Assign policy to assess compliance
-      href: /servers/learn/tutorial-assign-policy-portal.md
+      href: ./servers/learn/tutorial-assign-policy-portal.md
     - name: Monitor machine
       href: ./servers/learn/tutorial-enable-vm-insights.md
 - name: Samples
