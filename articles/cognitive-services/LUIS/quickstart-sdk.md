@@ -6,7 +6,7 @@ ms.date: 07/28/2020
 ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-diberry-3core
 ---
-# Quickstart: Language Understanding (LUIS) authoring client library
+# Quickstart: Language Understanding (LUIS) client library
 
 Get started with the Language Understanding (LUIS) client library. Follow these steps to install the SDK and try out the example code for basic tasks.  Language Understanding (LUIS) enables you to apply custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
 
@@ -21,6 +21,10 @@ Get started with the Language Understanding (LUIS) client library. Follow these 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Get intent with Python SDK](./includes/sdk-python.md)]
 ::: zone-end
+
+## Clean up resources
+
+You can delete the app from the [LUIS portal](https://www.luis.ai).
 
 ## Next steps
 

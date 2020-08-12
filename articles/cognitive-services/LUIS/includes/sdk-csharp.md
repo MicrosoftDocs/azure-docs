@@ -22,8 +22,8 @@ Use the Language Understanding (LUIS) client libraries for .NET to:
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * Once you have your Azure subscription, [create a Language Understanding authoring resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
     * You will need the key and endpoint from the resource you [create](../luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) to connect your application to Language Understanding authoring. You'll paste your key and endpoint into the code below later in the quickstart. You can use the free pricing tier (`F0`) to try the service.
 
@@ -58,7 +58,7 @@ Create a new .NET Core application in your preferred editor or IDE.
     ```
 
 
-### Install the SDK
+### Install the NuGet libraries
 
 Within the application directory, install the Language Understanding (LUIS) client libraries for .NET with the following commands:
 
@@ -74,7 +74,7 @@ The Language Understanding (LUIS) authoring client is a [LUISAuthoringClient](ht
 Once the client is created, use this client to access functionality including:
 
 * Apps - [create](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.addasync?view=azure-dotnet), [delete](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.deleteasync?view=azure-dotnet), [publish](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.publishasync?view=azure-dotnet)
-* Example utterances - [add by batch](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.batchasync?view=azure-dotnet), [delete by ID](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.deleteasync?view=azure-dotnet)
+* Example utterances - [add](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.addasync?view=azure-dotnet), [delete by ID](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.deleteasync?view=azure-dotnet)
 * Features - manage [phrase lists](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.featuresextensions.addphraselistasync?view=azure-dotnet)
 * Model - manage [intents](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions?view=azure-dotnet) and entities
 * Pattern - manage [patterns](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.patternextensions?view=azure-dotnet)
@@ -93,7 +93,7 @@ Once the client is created, use this client to access functionality including:
 
 ## Code examples
 
-These code snippets show you how to do the following with the Language Understanding (LUIS) authoring client library for .NET:
+These code snippets show you how to do the following with the Language Understanding (LUIS) client libraries for .NET:
 
 * [Create an app](#create-a-luis-app)
 * [Add intent](#create-intent-for-the-app)
@@ -107,7 +107,7 @@ These code snippets show you how to do the following with the Language Understan
 
 From the project directory, open the *Program.cs* file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
 
-[!code-csharp[Using statements](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=Dependencies)]
+[!code-csharp[Add NuGet libraries to code file](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=Dependencies)]
 
 ## Create variables for the app
 
@@ -117,7 +117,7 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 
 1. Create variables to hold your endpoints, app name, version, and intent name.
 
-    [!code-csharp[Variables you need to change](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=VariablesYouDontNeedToChangeChange)]
+    [!code-csharp[Variables you don't need to change](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=VariablesYouDontNeedToChangeChange)]
 
 ## Authenticate the client
 
@@ -138,7 +138,7 @@ The primary object in a LUIS app's model is the intent. The intent aligns with a
 
 Create a [ModelCreateObject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.modelcreateobject?view=azure-dotnet) with the name of the unique intent then pass the app ID, version ID, and the ModelCreateObject to the [Model.AddIntentAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions.addintentasync?view=azure-dotnet) method. The response is the intent ID.
 
-The `intentName` value is hard-coded to `OrderPizzaIntent` as part of the variables in the [Create variables for the app](#create-variables-for-the-app)
+The `intentName` value is hard-coded to `OrderPizzaIntent` as part of the variables in the [Create variables for the app](#create-variables-for-the-app) section.
 
 [!code-csharp[Create intent](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=AddIntent)]
 
@@ -158,7 +158,7 @@ The entity creation code creates a machine-learning entity with subentities and 
 
 Use the following method to find the Quantity subentity's id, in order to assign the features to that subentity.
 
-[!code-csharp[Create entities](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=AuthoringSortModelObject)]
+[!code-csharp[Find subentity id](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=AuthoringSortModelObject)]
 
 ## Add example utterance to intent
 
@@ -186,24 +186,28 @@ A very small model, such as this quickstart shows, will train very quickly. For 
 
 Publish the LUIS app using the [PublishAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.publishasync?view=azure-dotnet) method. This publishes the current trained version to the specified slot at the endpoint. Your client application uses this endpoint to send user utterances for prediction of intent and entity extraction.
 
-[!code-csharp[Create entities](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=PublishVersion)]
+[!code-csharp[Publish app to production slot](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=PublishVersion)]
 
 ## Authenticate the prediction runtime client
 
-Create an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.apikeyserviceclientcredentials?view=azure-dotnet) object with your key, and use it with your endpoint to create an [LUISRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-dotnet) object.
+Use an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.apikeyserviceclientcredentials?view=azure-dotnet) object with your key, and use it with your endpoint to create an [LUISRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-dotnet) object.
+
+[!INCLUDE [Caution about using authoring key](caution-authoring-key.md)]
 
 [!code-csharp[Create LUIS runtime client object](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=PredictionCreateClient)]
 
 
 ## Get prediction from runtime
 
-Add the following method to create the request to the prediction runtime.
+Add the following code to create the request to the prediction runtime.
 
 The user utterance is part of the [PredictionRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.predictionrequest?view=azure-dotnet) object.
 
 The **GetSlotPredictionAsync** method needs several parameters such as the app ID, the slot name, the prediction request object to fulfill the request. The other options such as verbose, show all intents, and log are optional.
 
-[!code-csharp[Create method to get prediction runtime](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=QueryPredictionEndpoint)]
+[!code-csharp[Get prediction based on query](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=QueryPredictionEndpoint)]
+
+[!INCLUDE [Prediction JSON response](sdk-json.md)]
 
 ## Run the application
 
@@ -212,9 +216,3 @@ Run the application with the `dotnet run` command from your application director
 ```dotnetcli
 dotnet run
 ```
-
-[!INCLUDE [Prediction JSON response](sdk-json.md)]
-
-## Clean up resources
-
-If you want to clean up, you can delete the LUIS app. Deleting the app is done with the [Apps.DeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.deleteasync?view=azure-dotnet) method. You can also delete the app from the [LUIS portal](https://www.luis.ai).
