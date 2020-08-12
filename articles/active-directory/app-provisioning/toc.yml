@@ -65,7 +65,7 @@
         href: application-provisioning-quarantine-status.md
       - name: Authorization issue (unable to save admin credentials)
         href: application-provisioning-config-problem-storage-limit.md
-      - name: Users are not provisioned 
+      - name: Users aren't provisioned 
         href: application-provisioning-config-problem-no-users-provisioned.md
       - name: Wrong users provisioned
         href: application-provisioning-config-problem-wrong-users-provisioned.md
