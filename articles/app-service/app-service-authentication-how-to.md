@@ -12,8 +12,7 @@ This article shows you how to customize the built-in [authentication and authori
 
 To get started quickly, see one of the following tutorials:
 
-* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md)
+* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md)
 * [How to configure your app to use Azure Active Directory login](configure-authentication-provider-aad.md)
 * [How to configure your app to use Facebook login](configure-authentication-provider-facebook.md)
 * [How to configure your app to use Google login](configure-authentication-provider-google.md)
@@ -528,5 +527,4 @@ You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Authenticate and authorize users end-to-end (Windows)](app-service-web-tutorial-auth-aad.md)
-> [Tutorial: Authenticate and authorize users end-to-end (Linux)](containers/tutorial-auth-aad.md)
+> [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)
