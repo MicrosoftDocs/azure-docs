@@ -23,6 +23,13 @@ The process for ingesting data into Azure Digital Twins is to set up an external
 
 This how-to document walks through the process for writing an Azure function that can ingest telemetry from IoT Hub.
 
+## Prerequisites
+
+Before continuing with this example, you'll need to complete the following prerequisites.
+1. **An IoT hub**. See the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md) for instructions.
+2. **An Azure Function** with the correct permissions to call your digital twin instance. See [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md) for instructions. 
+3. **A Digital Twins instance** that will receive your device telemetry. See [*How-to: Set up an Azure Digital Twins instance and authentication*](./how-to-set-up-instance-portal.md) 
+
 ### Example telemetry scenario
 
 This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, using an Azure function. There are many possible configurations and matching strategies you can use for this, but the example for this article contains the following parts:
@@ -36,18 +43,11 @@ Whenever a temperature telemetry event is sent by the thermometer device, the *t
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="An IoT Hub device sends Temperature telemetry through IoT Hub, Event Grid, or system topics to an Azure Function, which updates a temperature property on twins in Azure Digital Twins." border="false":::
 
-## Prerequisites
-
-Before continuing with this example, you'll need to complete the following prerequisites.
-1. **An IoT hub**. See the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md) for instructions.
-2. **An Azure Function** with the correct permissions to call your digital twin instance. See [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md) for instructions. 
-3. **A Digital Twins instance** that will receive your device telemetry. See [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md) 
-
-## Add a Model and Twin
+## Add a model and twin
 
 You'll need a twin to update with IoT hub information.
 
-The model looks like this
+The model looks like this:
 ```JSON
 {
   "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",
@@ -68,7 +68,7 @@ To **upload this model to your twins instance**, open the Azure CLI and run the 
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
 ```
 
-You'll then need to **create one twin using this model**. Use the following command to create a twin and set an initial temperature value of 0.0
+You'll then need to **create one twin using this model**. Use the following command to create a twin and set 0.0 as an initial temperature value.
 ```azurecli-interactive
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
@@ -104,7 +104,7 @@ Telemetry events come in the form of messages from the device. The first step in
 
 Different devices may structure their messages differently, so the code for **this step depends on the connected device.** 
 
-The following code shows an example for a simple device that sends telemetry as JSON. This sample is fully explored in [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md). The following code finds the device ID of the device that sent the message, as well as the temperature value.
+The following code shows an example for a simple device that sends telemetry as JSON. This sample is fully explored in [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md). The following code finds the device ID of the device that sent the message, as well as the temperature value.
 
 ```csharp
 JObject deviceMessage = (JObject)JsonConvert.DeserializeObject(eventGridEvent.Data.ToString());
@@ -124,7 +124,7 @@ await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
 
 ### Update your Azure function code
 
-Now that you understand the code from the earlier samples, open Visual Studio and replace your Azure Function's code with this sample code.
+Now that you understand the code from the earlier samples, open Visual Studio and replace your Azure function's code with this sample code.
 
 ```csharp
 using System;
@@ -193,7 +193,7 @@ namespace IotHubtoTwins
 
     :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Azure portal: Adding an event subscription":::
 
-4. In the *Create Event Subscription* page, fill the fields as follows:
+2. In the *Create Event Subscription* page, fill the fields as follows:
    * Under *Name*, name the subscription what you would like
    * Under *Event Schema*, choose *Event Grid Schema*
    * Under *System Topic Name*, choose a unique name.  
@@ -204,11 +204,11 @@ namespace IotHubtoTwins
 
 ## Send simulated IoT data
 
-To test your new ingress function, use the device simulator from [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md). That tutorial is driven by a sample project written in C#. The sample code is located here: [Azure Digital Twins samples](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
+To test your new ingress function, use the device simulator from [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md). That tutorial is driven by a sample project written in C#. The sample code is located here: [Azure Digital Twins samples](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
 
 In the end-to-end tutorial, complete the following steps:
-1. [Register the simulated device with IoT Hub](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
-1. [Configure and run the simulation](./tutorial-end-to-end.md#configure-and-run-the-simulation)
+1. [*Register the simulated device with IoT Hub*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
+2. [*Configure and run the simulation*](./tutorial-end-to-end.md#configure-and-run-the-simulation)
 
 ## Validate your results
 
