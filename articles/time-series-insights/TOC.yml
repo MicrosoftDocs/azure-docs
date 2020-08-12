@@ -156,7 +156,7 @@
     - name: Data Access Gen1
       items:
       - name: Overview
-        href: https://docs.microsoft.com/rest/api/time-series-insights/ga
+        href: https://docs.microsoft.com/rest/api/time-series-insights/gen1
       - name: Query
         items:
         - name: Query
