@@ -61,7 +61,7 @@ $ManagedInstanceName = 'enter MI name'
 Invoke-AzSqlInstanceFailover -ResourceGroupName $ResourceGroup -Name $ManagedInstanceName -ReadableSecondary
 ```
 
-Using CLI
+## Using CLI
 
 Ensure to have the latest CLI scripts installed.
 
@@ -103,10 +103,7 @@ API response will be one of the following two:
 1. 202 Accepted
 2. One of the 400 request errors.
 
-## Track the operation status
-
-- Operation status can be tracked through reviewing API responses in response headers.
-- For more information, see [Status of asynchronous Azure operations](../../azure-resource-manager/management/async-operations.md).
+Operation status can be tracked through reviewing API responses in response headers. For more information, see [Status of asynchronous Azure operations](../../azure-resource-manager/management/async-operations.md).
 
 ## Monitor the failover
 
@@ -118,7 +115,7 @@ SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_h
 
 Before initiating the failover, your output will indicate the current primary replica on BC service tier containing one primary and three secondaries in the AlwaysOn Availability Group. Upon execution of a failover, running this query again would need to indicate a change of the primary node.
 
-You will not be able to see the same output with GP service tier as the one above shown for BC. This is because GP service tier is based on a single node only. T-SQL query output for GP service tier will show a single node before and after the failover. Upon the failover and immediate refresh of the T-SQL query, there will be no availability (loss of connectivity) from your client until the node failover has been executed. The typical duration of failover for GP service tier is under a minute. After the failover has completed, the query will show the same IP of the primary replica. While it will not be possible to see the change of the primary replica to a different one through this T-SQL query, the loss of connectivity to MI GP during the failover will be the indication of the failover execution.
+You will not be able to see the same output with GP service tier as the one above shown for BC. This is because GP service tier is based on a single node only. T-SQL query output for GP service tier will show a single node only before and after the failover. The loss of connectivity from your client during the failover, typically lasting under a minute, will be the indication of the failover execution.
 
 > [!IMPORTANT]
 > Functional limitations of user-initiated manual failover are:
