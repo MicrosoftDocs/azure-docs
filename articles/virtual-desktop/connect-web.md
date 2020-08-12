@@ -1,10 +1,7 @@
 ---
 title: Connect to Windows Virtual Desktop with the web client - Azure
 description: How to connect to Windows Virtual Desktop using the web client.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr

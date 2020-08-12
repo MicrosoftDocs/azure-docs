@@ -120,6 +120,7 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
         </system.net>
     ```
 
+* If the proxy configuration is being done in an existing setup, the **Microsoft Azure AD Sync service** needs to be restarted once for the Azure AD Connect to read the proxy configuration and update the behviour. 
 * When Azure AD Connect sends a web request to Azure AD as part of directory synchronization, Azure AD can take up to 5 minutes to respond. It's common for proxy servers to have connection idle timeout configuration. Ensure the configuration is set to at least 6 minutes or more.
 
 For more information, see MSDN about the [default proxy element](https://msdn.microsoft.com/library/kd3cf2ex.aspx).
