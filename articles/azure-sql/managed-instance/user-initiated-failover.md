@@ -90,6 +90,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 ```
 
 The following properties need to be passed in the API call:
+
 | **API property** | **Parameter** |
 | --- | --- |
 | subscriptionId | Subscription ID to which managed instance is deployed |
