@@ -222,18 +222,26 @@ For this example workflow, add this trigger and these actions:
 
 1. Under the trigger, select **Next step**.
 
-1. Under the **Choose an action** search box, select **Azure** so that you can find and select a cloud-based connector. For this example, select the Office 365 Outlook action, **Send an email (V2)**, and set up the action as described here.
+1. Under the **Choose an action** search box, select **Azure** so that you can find and select a cloud-based connector. For this example, select the Office 365 Outlook action, **Send an email (V2)**.
 
    ![Screenshot that shows Logic App Designer with Office 365 Outlook "Send an email" action selected](./media/create-stateless-stateful-workflows/add-send-email-action.png)
 
-   | Property | Value | Description |
-   |----------|-------|-------------|
-   ||||
-   ||||
-   ||||
+1. Provide the required information for the email action, for example:
+
+   ![Screenshot that shows Logic App Designer with details for Office 365 Outlook "Send an email" action](./media/create-stateless-stateful-workflows/send-email-action-details.png)
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **To** | Yes | <*your-email-address*> | The email recipient, which can be your email address for test purposes |
+   | **Subject** | Yes | `An email from your workflow app` | The email subject |
+   | **Body** | Yes | `Hello from your example workflow app!` | The email body content |
    ||||
 
-1. Under the **Send an email action**, select **Next step**. Under the **Choose an action** search box, select **Built-in** so that you can select a built-in action. In the designer search box, under the , find and select the action, **Local Function Operations**.
+1. Under the **Send an email action**, select **Next step**.
+
+1. Under the **Choose an action** search box, select **Built-in** so that you can select a built-in action. In the designer search box, find and select the Local Function Operations action, **Invoke a function in this function app**.
+
+   ![Screenshot that shows Logic App Designer with Local Function Operations "Invoke a function in this function app" action selected](./media/create-stateless-stateful-workflows/add-local-function-operations.png)
 
 1. 
 
