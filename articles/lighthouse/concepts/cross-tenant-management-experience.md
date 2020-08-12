@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 As a service provider, you can use [Azure Lighthouse](../overview.md) to manage resources for multiple customers from within your own Azure Active Directory (Azure AD) tenant. Many tasks and services can be performed across managed tenants by using [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
 
-> [!NOTE]
+> [!TIP]
 > Azure delegated resource management can also be used [within an enterprise which has multiple Azure AD tenants of its own](enterprise.md) to simplify cross-tenant administration.
 
 ## Understanding tenants and delegation
