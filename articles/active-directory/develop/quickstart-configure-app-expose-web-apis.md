@@ -19,23 +19,26 @@ ms.reviewer: aragra, lenalepa, sureshja
 
 # Quickstart: Configure an application to expose a web API
 
-In this quickstart, your register a web API with the Microsoft identity platform and expose it to client apps by adding a few example scopes. By registering your web API and and exposing it through scopes, you can provide permissions-based access to its resources to the client apps that access your API.
+In this quickstart, your register a web API with the Microsoft identity platform and expose it to client apps by adding an example scope. By registering your web API and and exposing its through scopes, you can provide permissions-based access to its resources to authenticated users or client apps that access your API.
 
 ## Prerequisites
 
 * An Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Completion of [Quickstart: Set up a tenant](quickstart-create-new-tenant.md)
 
 ## Register the web API
 
-To provide scoped access to the resources in a web API, you need to register the API and then add scopes that your API's code can use to grant granular permission to the consumers of your API.
+To provide scoped access to the resources in your web API, you first need to register the API with the Microsoft identity platform.
 
-Start by registering your web API using the steps in the [Register an application](quickstart-register-app.md#register-an-application) section of [Quickstart: Register an app with the Microsoft identity platform](quickstart-register-app.md).
+1. Perform the steps in the **Register an application** section of [Quickstart: Register an app with the Microsoft identity platform](quickstart-register-app.md).
+1. Skip the **Configure platform settings** section. You don't need to configure settings like a redirect URI for a web API since no user is logged in interactively.
+1. Skip the **Add credentials** section for now. Only if your API accesses
 
-When you get to the *Configure platform settings* section, select the **Web** platform configuration, and specify a **Redirect URI** where security tokens containing the scopes are to be sent. It's common during development to specify a URI on your local machine where your API is available, like `https://127.0.0.1/api`. You can skip the *Add credentials* section for now.
+With your web API registered, you're ready to add the scopes that your API's code can use to grant granular permission to consumers of your API.
 
 ## Add a scope - UI
 
-The code in a consuming application specifies scope values when making requests to the protected resource, your web API. Your web API then responds with the data requested only if the security token it receives
+The code in a client application specifies scopes by passing an access token along with its requests to the protected resource, your web API. Your web API then performs the requested operation only if the access token it receives contains the scopes required for the operation. Follow the steps in this section to create an example scope, `Employees.Read.All`.
 
 To add a scope by using the **Expose an API** UI in the Azure portal:
 
@@ -43,23 +46,23 @@ To add a scope by using the **Expose an API** UI in the Azure portal:
 1. Select **Expose an API** > **Add a scope**.
     :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-01-expose-api.png" alt-text="An app registration's Expose an API pane in the Azure portal":::
 
-1. If you have not set an **Application ID URI**, you will see a prompt to enter one. Enter your application ID URI or use the one provided and then select **Save and continue**.
+1. You're prompted to set an **Application ID URI** if you haven't yet configured one. This application ID URI forms the first part of the full scope name, and should reflect the location where your API is accessible. For example, `https://contoso.com/api`.
 
 1. When the **Add a scope** page appears, enter your scope's information:
 
-    | Field | Description |
-    |-------|-------------|
-    | **Scope name** | Enter a meaningful name for your scope.<br><br>For example, `Employees.Read.All`. |
+    | Field | Description | Example |
+    |-------|-------------|---------|
+    | **Scope name** | Enter a meaningful name for your scope. | `Employees.Read.All` |
     | **Who can consent** | Select whether this scope can be consented to by users, or if admin consent is required. Select **Admins only** for higher-privileged permissions. |
-    | **Admin consent display name** | Enter a meaningful description for your scope, which admins will see.<br><br>For example, `Read-only access to Employee records` |
-    | **Admin consent description** | Enter a meaningful description for your scope, which admins will see.<br><br>For example, `Allow the application to have read-only access to all Employee data.` |
+    | **Admin consent display name** | Enter a meaningful description for your scope that only admins will see. | `Read-only access to Employee records` |
+    | **Admin consent description** | Enter a meaningful consent description for your scope that only admins will see. | `Allow the application to have read-only access to all Employee data.` |
 
     If users can consent to your scope, also add values for the following fields:
 
-    | Field | Description |
-    |-------|-------------|
-    | **User consent display name** | Enter a meaningful name for your scope, which users will see.<br><br>For example, `Read-only access to your Employee records` |
-    | **User consent description** | Enter a meaningful description for your scope, which users will see.<br><br>For example, `Allow the application to have read-only access to your Employee data.` |
+    | Field | Description | Example |
+    |-------|-------------|---------|
+    | **User consent display name** | Enter a meaningful name for your scope, which users will see. | `Read-only access to your Employee records` |
+    | **User consent description** | Enter a meaningful description for your scope, which users will see. | `Allow the application to have read-only access to your Employee data.` |
 
 1. Set the **State** and select **Add scope** when you're done.
 
