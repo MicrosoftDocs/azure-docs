@@ -40,7 +40,7 @@ There are three scenarios for server-side encryption:
 
 Server-side Encryption models refer to encryption that is performed by the Azure service. In that model, the Resource Provider performs the encrypt and decrypt operations. For example, Azure Storage may receive data in plain text operations and will perform the encryption and decryption internally. The Resource Provider might use encryption keys that are managed by Microsoft or by the customer depending on the provided configuration.
 
-![Server](./media/encryption-atrest/azure-security-encryption-atrest-fig3.png)
+![Server](./media/encryption-models/azure-security-encryption-atrest-fig3.png)
 
 Each of the server-side encryption at rest models implies distinctive characteristics of key management. This includes where and how encryption keys are created, and stored as well as the access models and the key rotation procedures.  
 
@@ -56,13 +56,13 @@ The supported encryption models in Azure split into two main groups: "Client Enc
 
 Client Encryption model refers to encryption that is performed outside of the Resource Provider or Azure by the service or calling application. The encryption can be performed by the service application in Azure, or by an application running in the customer data center. In either case, when leveraging this encryption model, the Azure Resource Provider receives an encrypted blob of data without the ability to decrypt the data in any way or have access to the encryption keys. In this model, the key management is done by the calling service/application and is opaque to the Azure service.
 
-![Client](./media/encryption-atrest/azure-security-encryption-atrest-fig2.png)
+![Client](./media/encryption-models/azure-security-encryption-atrest-fig2.png)
 
 ## Server-side encryption using service-managed keys
 
 For many customers, the essential requirement is to ensure that the data is encrypted whenever it is at rest. Server-side encryption using service-managed Keys enables this model by allowing customers to mark the specific resource (Storage Account, SQL DB, etc.) for encryption and leaving all key management aspects such as key issuance, rotation, and backup to Microsoft. Most Azure Services that support encryption at rest typically support this model of offloading the management of the encryption keys to Azure. The Azure resource provider creates the keys, places them in secure  storage, and retrieves them when needed. This means that the service has full access to the keys and the service has full control over the credential lifecycle management.
 
-![managed](./media/encryption-atrest/azure-security-encryption-atrest-fig4.png)
+![managed](./media/encryption-models/azure-security-encryption-atrest-fig4.png)
 
 Server-side encryption using service-managed keys therefore quickly addresses the need to have encryption at rest with low overhead to the customer. When available a customer typically opens the Azure portal for the target subscription and resource provider and checks a box indicating, they would like the data to be encrypted. In some Resource Managers server-side encryption with service-managed keys is on by default.
 
