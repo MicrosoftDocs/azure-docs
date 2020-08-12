@@ -18,7 +18,7 @@ Azure Virtual Machines (VMs) go through different states that can be categorized
 
 The power state represents the last known state of the VM.
 
-![VM power state diagram](./media/vm-power-states.png)
+![VM power state diagram](./media/virtual-machines-common-states-lifecycle/vm-power-states.png)
 
 <br>
 The following table provides a  description of each instance state and indicates whether it is billed for instance usage or not.
@@ -76,7 +76,7 @@ Instance usage billing
 <p><b>Stopping</b></p>
 </td>
 <td>
-<p>This is a transitional state. When completed, it will show as **Stopped**.</p>
+<p>This is a transitional state. When completed, it will show as <b>Stopped</b>.</p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/stopping",<br>
@@ -113,7 +113,7 @@ Instance usage billing
 <p><b>Deallocating</b></p>
 </td>
 <td>
-<p>Transitional state. When completed, the VM will show as **Deallocated**.</p>
+<p>Transitional state. When completed, the VM will show as <b>Deallocated</b>.</p>
 <code>"statuses": [<br>
  {<br>
  "code": "PowerState/deallocating",<br>
@@ -169,15 +169,15 @@ Here are the transitional operation states after the platform has accepted a use
 <br>
 
 <table>
-<tbody>
 <tr>
-<td width="162">
-<p><b>States</b></p>
-</td>
-<td width="366">
-<p>Description</p>
-</td>
+<th>
+State
+</th>
+<th>
+Description
+</th>
 </tr>
+<tbody>
 <tr>
 <td width="162">
 <p><b>Creating</b></p>
@@ -233,7 +233,7 @@ Here are the transitional operation states after the platform has accepted a use
  "displayStatus": "OS Provisioning In progress"<br>
  }<br>
 ]</code><br>
-<p>2. <b>OSProvisioningComplete</b> &ndash; Short-lived state. The VM quickly transitions to **Success** unless any extensions need to be installed. Installing extensions can take time. <br />
+<p>2. <b>OSProvisioningComplete</b> &ndash; Short-lived state. The VM quickly transitions to <b>Success</b> unless any extensions need to be installed. Installing extensions can take time. <br />
 <code> "statuses": [<br>
  {<br>
  "code": "ProvisioningState/creating/OSProvisioningComplete",<br>
@@ -241,7 +241,7 @@ Here are the transitional operation states after the platform has accepted a use
  "displayStatus": "OS Provisioning Complete"<br>
  }<br>
 ]</code><br>
-<p><b>Note</b>: OS Provisioning can transition to **Failed** if there is an OS failure or the OS doesn't install in time. Customers will be billed for the deployed VM on the infrastructure.</p>
+<p><b>Note</b>: OS Provisioning can transition to <b>Failed</b> if there is an OS failure or the OS doesn't install in time. Customers will be billed for the deployed VM on the infrastructure.</p>
 </td>
 </tr>
 </table>
