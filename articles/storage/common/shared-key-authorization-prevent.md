@@ -14,61 +14,94 @@ ms.reviewer: fryu
 
 # Prevent Shared Key authorization for an Azure Storage account (preview)
 
-Every request for data in an Azure Storage account must be authorized, with the exception of anonymous requests when public access is permitted for a container. Requests can be authorized with either Azure Active Directory (Azure AD) or Shared Key authorization. Microsoft recommends using Azure AD to authorize requests for superior security and ease of use. To require that clients use Azure AD to authorize all requests to a storage account, you can disallow access to the storage account via Shared Key.
+Every request for data in an Azure Storage account must be authorized, with the exception of anonymous requests when public access is permitted for a container. Requests can be authorized with either Azure Active Directory (Azure AD) or Shared Key authorization. Microsoft recommends using Azure AD to authorize requests to blob and queue data for superior security and ease of use. For more information about using Azure AD, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
+
+By default, a storage account permits access to blob and queue data via either Shared Key or Azure AD authorization. To require clients to use Azure AD to authorize requests, you can disallow access requests to the storage account that are authorized with Shared Key (preview). Microsoft recommends that you disallow Shared Key authorization to storage accounts containing blob and queue data to help prevent data breaches.
+
+When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with Shared Key. Only secured requests that are authorized with Azure AD will succeed. 
+
+
+
+
+This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to control Shared Key authorization for your storage accounts.
+
+Anonymous requests will also succeed if you have configured your storage account and container for anonymous access
+
+
+
+
+Shared Key relies on the storage account access keys. A client can authorize a request to Azure Storage by using an account access key to sign a string that is passed in the HTTP *Authorization* header. Security problems can arise with Shared Key authorization when the account access keys are shared or compromised, or when a connection string is stored in clear text in a client application. 
+
+Azure AD authorization is based on an identity that is first authenticated by Azure in order to acquire a token. A client application can then pass the token on the request in the *Authorization* header. Because Azure AD is identity-based, 
+
 
 With Azure AD, you can use role-based access control to grant permissions to a user, group or application. Authorizing users or applications using an OAuth 2.0 token returned by Azure AD provides superior security and ease of use over Shared Key authorization and shared access signatures. There is no need to store the account access key with your code and configuration and risk potential security vulnerabilities.
 
-It’s recommended to transition from key authentication to Azure AD to access your storage accounts for better security and protection on your data. Azure Storage also introduces a new feature to restrict the use of storage account key and shared access signature. A new property allowSharedKeyAccess is added in storage account property. When allowSharedKeyAccess is set to false, all requests authenticated with storage account key or shared access signature will be rejected.
+Microsoft recommends that you transition to authorizing all requests with Azure AD instead of Shared Key authentication. 
+
+to access your storage accounts for better security and protection on your data. Azure Storage also introduces a new feature to restrict the use of storage account key and shared access signature. A new property allowSharedKeyAccess is added in storage account property. When allowSharedKeyAccess is set to false, all requests authenticated with storage account key or shared access signature will be rejected.
 This article introduces a DRAG (Detection-Remediation-Audit-Governance) framework to address restricting key authentication continuously.
-
-
-
-
-...
-
-Anonymous public read access to containers and blobs in Azure Storage is a convenient way to share data, but may also present a security risk. It's important to manage anonymous access judiciously and to understand how to evaluate anonymous access to your data. Operational complexity, human error, or malicious attack against data that is publicly accessible can result in costly data breaches. Microsoft recommends that you enable anonymous access only when necessary for your application scenario.
-
-By default, public access to your blob data is always prohibited. However, the default configuration for a storage account permits a user with appropriate permissions to configure public access to containers and blobs in a storage account. For enhanced security, you can disallow all public access to storage account, regardless of the public access setting for an individual container. Disallowing public access to the storage account prevents a user from enabling public access for a container in the account. Microsoft recommends that you disallow public access to a storage account unless your scenario requires it. Disallowing public access helps to prevent data breaches caused by undesired anonymous access.
 
 When you disallow public blob access for the storage account, Azure Storage rejects all anonymous requests to that account. After public access is disallowed for an account, containers in that account cannot be subsequently configured for public access. Any containers that have already been configured for public access will no longer accept anonymous requests. For more information, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
 
-This article describes how to analyze anonymous requests against a storage account and how to prevent anonymous access for the entire storage account or for an individual container.
+This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage public access for your storage accounts.
 
-## Detect anonymous requests from client applications
 
-When you disallow public read access for a storage account, you risk rejecting requests to containers and blobs that are currently configured for public access. Disallowing public access for a storage account overrides the public access settings for individual containers in that storage account. When public access is disallowed for the storage account, any future anonymous requests to that account will fail.
 
-To understand how disallowing public access may affect client applications, Microsoft recommends that you enable logging and metrics for that account and analyze patterns of anonymous requests over an interval of time. Use metrics to determine the number of anonymous requests to the storage account, and use logs to determine which containers are being accessed anonymously.
 
-### Monitor anonymous requests with Metrics Explorer
+## About the preview
 
-To track anonymous requests to a storage account, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+Disallowing Shared Key authorization is supported for general-purpose v2 storage accounts only.
+
+The following regions support disallowing Shared Key authorization in preview:
+
+???
+
+The preview includes the following limitations:
+
+???
+
+> [!IMPORTANT]
+> This preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
+
+## Detect the type of authorization used by client applications
+
+When you disallow Shared Key authorization for a storage account, requests from clients that are using Shared Key authorization will fail. To understand how disallowing Shared Key authorization may affect client applications, Microsoft recommends that you enable logging and metrics for that account and analyze requests over a period of time to determine how requests to your account are being authorized.
+
+Use metrics to determine how many requests the storage account is receiving that are authorized with Shared Key or a SAS. Use logs to determine which containers are being accessed anonymously.
+
+### Monitor how many requests are authorized with Shared Key
+
+To track how requests to a storage account are being authorized, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
 Follow these steps to create a metric that tracks anonymous requests:
 
 1. Navigate to your storage account in the Azure portal. Under the **Monitoring** section, select **Metrics**.
 1. Select **Add metric**. In the **Metric** dialog, specify the following values:
-    1. Leave the Scope field set to the name of the storage account.
-    1. Set the **Metric Namespace** to *Blob*. This metric will report requests against Blob storage only.
+    1. Leave the **Scope** field set to the name of the storage account.
+    1. Set the **Metric Namespace** to *Account*. This metric will report on all requests against the storage account.
     1. Set the **Metric** field to *Transactions*.
     1. Set the **Aggregation** field to *Sum*.
 
-    The new metric will display the sum of the number of transactions against Blob storage over a given interval of time. The resulting metric appears as shown in the following image:
+    The new metric will display the sum of the number of transactions against the storage account over a given interval of time. The resulting metric appears as shown in the following image:
 
-    :::image type="content" source="media/anonymous-read-access-prevent/configure-metric-blob-transactions.png" alt-text="Screenshot showing how to configure metric to sum blob transactions":::
+    :::image type="content" source="media/shared-key-authorization-prevent/configure-metric-account-transactions.png" alt-text="Screenshot showing how to configure metric to sum transactions made with Shared Key or SAS":::
 
 1. Next, select the **Add filter** button to create a filter on the metric for anonymous requests.
 1. In the **Filter** dialog, specify the following values:
     1. Set the **Property** value to *Authentication*.
     1. Set the **Operator** field to the equal sign (=).
-    1. Set the **Values** field to *Anonymous*.
+    1. Set the **Values** field to *Account Key* and *SAS*.
 1. In the upper-right corner, select the time interval over which you want to view the metric. You can also indicate how granular the aggregation of requests should be, by specifying intervals anywhere from 1 minute to 1 month.
 
-After you have configured the metric, anonymous requests will begin to appear on the graph. The following image shows anonymous requests aggregated over the past thirty minutes.
+After you have configured the metric, requests to your storage account will begin to appear on the graph. The following image shows requests that were authorized with Shared Key and requests made with a SAS token that was signed with Shared Key. Requests are aggregated over the past thirty minutes.
 
-:::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Screenshot showing aggregated anonymous requests against Blob storage":::
+:::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot showing aggregated requests authorized with Shared Key":::
 
-You can also configure an alert rule to notify you when a certain number of anonymous requests are made against your storage account. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+You can also configure an alert rule to notify you when a certain number of requests that are authorized with Shared Key are made against your storage account. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+
+> [!IMPORTANT]
+> For the preview, the **SAS** filter in Azure Metrics Explorer does not distinguish between different types of shared access signatures. A service SAS token or an account SAS token is authorized with Shared Key and will not be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**. A user delegation SAS is authorized with Azure AD and will be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**. The **SAS** filter in Azure Metrics Explorer reports requests that are authorized with any type of SAS.
 
 ### Analyze logs to identify containers receiving anonymous requests
 
@@ -86,37 +119,43 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/learn/quick-create-workspace.md).
 1. Navigate to your storage account in the Azure portal.
 1. In the Monitoring section, select **Diagnostic settings (preview)**.
-1. Select **Blob** to log requests made against Blob storage.
+1. Select the Azure Storage service for which you want to log requests. For example, choose **Blob** to log requests to Blob storage.
 1. Select **Add diagnostic setting**.
 1. Provide a name for the diagnostic setting.
-1. Under **Category details**, in the **log** section, choose which types of requests to log. All anonymous requests will be read requests, so select **StorageRead** to capture anonymous requests.
+1. Under **Category details**, in the **log** section, choose which types of requests to log. You can log read, write, and delete requests. To analyze log data for Shared Key access, choose **StorageRead**, **StorageWrite**, and **StorageDelete** to log all data requests to the selected service.
 1. Under **Destination details**, select **Send to Log Analytics**. Select your subscription and the Log Analytics workspace you created earlier, as shown in the following image.
 
-    :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests":::
+    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests":::
 
 After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
 For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs (preview)](../common/monitor-storage-reference.md#resource-logs-preview).
 
-#### Query logs for anonymous requests
+#### Query logs for requests made with Shared Key or SAS
 
-Azure Storage logs in Azure Monitor include the type of authorization that was used to make a request to a storage account. In your log query, filter on the **AuthenticationType** property to view anonymous requests.
-
-To retrieve logs for the last 7 days for anonymous requests against Blob storage, open your Log Analytics workspace. Next, paste the following query into a new log query and run it:
+Azure Storage logs in Azure Monitor include the type of authorization that was used to make a request to a storage account. To retrieve logs for requests made in the last 7 days that were authorized with Shared Key or SAS, open your Log Analytics workspace. Next, paste the following query into a new log query and run it. This query displays the top 10 IP addresses that most frequently sent requests authorized with Shared Key or SAS:
 
 ```kusto
 StorageBlobLogs
-| where TimeGenerated > ago(7d) and AuthenticationType == "Anonymous"
-| project TimeGenerated, AccountName, AuthenticationType, Uri
+| where AuthenticationType in ("AccountKey", "SAS") and TimeGenerated > ago(7d)
+| summarize count() by CallerIpAddress, UserAgentHeader
+| top 10 by count_ desc
 ```
 
-You can also configure an alert rule based on this query to notify you about anonymous requests. For more information, see [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/platform/alerts-log.md).
+You can also configure an alert rule based on this query to notify you about requests authorized with Shared Key or SAS. For more information, see [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/platform/alerts-log.md).
 
-## Remediate anonymous public access
+## Remediate authorization via Shared Key
 
-After you have evaluated anonymous requests to containers and blobs in your storage account, you can take action to limit or prevent public access. If some containers in your storage account may need to be available for public access, then you can configure the public access setting for each container in your storage account. This option provides the most granular control over public access. For more information, see [Set the public access level for a container](anonymous-read-access-configure.md#set-the-public-access-level-for-a-container).
+After you have analyzed how requests to your storage account are being authorized, you can take action to prevent access via Shared Key. But first, you need to update any applications that are using Shared Key authorization to use Azure AD instead. You can monitor logs and metrics as described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to track the transition. For more information about using Azure AD with blob and queue data, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
 
-For enhanced security, you can disallow public access for the whole storage account. The public access setting for a storage account overrides the individual settings for containers in that account. When you disallow public access for a storage account, any containers that are configured to permit public access are no longer accessible anonymously. For more information, see [Allow or disallow public read access for a storage account](anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+> [!IMPORTANT]
+> Azure Storage supports Azure AD authorization for requests to Blob and Queue storage only. Microsoft recommends that you migrate any Azure Files or Table storage data to a separate storage account before you disallow access to the account via Shared Key.
+
+When you are confident that you can safely prevent Shared Key authorization to your storage account, you can take action to prevent access via Shared Key by setting the **AllowSharedKeyAccess** property for the account to **false**.
+
+
+
+For enhanced security,  disallow public access for the whole storage account. The public access setting for a storage account overrides the individual settings for containers in that account. When you disallow public access for a storage account, any containers that are configured to permit public access are no longer accessible anonymously. For more information, see [Allow or disallow public read access for a storage account](anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
 
 If your scenario requires that certain containers need to be available for public access, it may be advisable to move those containers and their blobs into storage accounts that are reserved for public access. You can then disallow public access for any other storage accounts.
 
@@ -165,6 +204,20 @@ $ctx = $storageAccount.Context
 
 New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
 ```
+
+## Understanding authorization for shared access signatures (SAS)
+
+When a request includes a shared access signature (SAS) token, the result depends on how that SAS is authorized. When you create a SAS, you can authorize that SAS with either Shared Key or with Azure AD. The access key or credentials that you use to create a SAS are also used by Azure Storage to grant access to a client that possesses the SAS.
+
+The following table shows how each type of SAS is authorized and how Azure Storage will handle that SAS when the **AllowSharedKeyAccess** property for the storage account is **false**.
+
+| Type of SAS | Type of authorization | Behavior when AllowSharedKeyAccess is false |
+|-|-|-|
+| User delegation SAS | Azure AD | Request is permitted. Microsoft recommends using a user delegation SAS when possible for superior security. |
+| Service SAS | Shared Key | Request is denied. |
+| Account SAS | Shared Key | Request is denied. |
+
+For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
 
 ## Next steps
 
