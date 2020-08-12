@@ -22,7 +22,8 @@ Content Moderator combines machine-assisted moderation with human-in-the-loop ca
 
 In a review, content is uploaded to the Review tool. You can view it by clicking its content type under **Review** tab on the dashboard. From the review screen, you can alter the applied tags and apply your own custom tags as appropriate. When you submits a review, the results are sent to a specified callback endpoint, and the content is removed from the site.
 
-![Review tool site with Review tab selected](./Review-Tool-user-Guide/images/review-tab.png)
+> [!div class="mx-imgBorder"]
+> ![Review tool site with Review tab selected](./Review-Tool-user-Guide/images/review-tab.png)
 
 ### Manage reviews
 
@@ -30,11 +31,13 @@ From the dashboard, navigate to **Admin** -> **Manage Reviews** to view the admi
 
 The three-dot **Actions** button on each review lets you go to the review screen or inspect the history of that review.
 
-![Review tool website, on the Review screen](./Review-Tool-user-Guide/images/manage-reviews.png)
+> [!div class="mx-imgBorder"]
+> ![Review tool website, on the Review screen](./Review-Tool-user-Guide/images/manage-reviews.png)
 
 Using the **Search** toolbar, you can sort the reviews by a variety of categories such as review state, tags, content type, subteams, assigned users, and created/modified date.
 
-![Review tool site with Review tab selected](./Review-Tool-user-Guide/images/review-search.png)
+> [!div class="mx-imgBorder"]
+> ![Review tool site with Review tab selected](./Review-Tool-user-Guide/images/review-search.png)
 
 See the [Review tool guide](./review-tool-user-guide/review-moderated-images.md) to get started creating reviews, or see the [REST API guide](./try-review-api-review.md) to learn how to do so programmatically.
 
@@ -46,7 +49,8 @@ A workflow is a cloud-based customized filter for content. Workflows can connect
 
 To view your existing workflows, go to the [Review tool](https://contentmoderator.cognitive.microsoft.com/) and select **Admin** > **Workflows**.
 
-![Default workflow](images/default-workflow-listed.png)
+> [!div class="mx-imgBorder"]
+> ![Default workflow](images/default-workflow-listed.png)
 
 Workflows are defined as JSON strings, which makes them accessible programmatically. If you select the **Edit** option for your workflow and then select the **JSON** tab, you'll see a JSON expression like the following:
 

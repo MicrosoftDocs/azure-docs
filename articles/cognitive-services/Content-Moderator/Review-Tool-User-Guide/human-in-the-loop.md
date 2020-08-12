@@ -40,13 +40,15 @@ Switching to the **Completed reviews** tab shows the total number of items proce
 
 Clicking the text in the upper right corner of the dashboard displays the Daily Personal Metrics, which reports the number of reviews completed for each content type.
 
-![The review tool dashboard in a browser](images/0-dashboard.png)
+> [!div class="mx-imgBorder"]
+> ![The review tool dashboard in a browser](images/0-dashboard.png)
 
 ## Review tool credentials
 
 When you sign up with the [Review tool](https://contentmoderator.cognitive.microsoft.com), you'll be prompted to select an Azure region for you account. This is because the [Review tool](https://contentmoderator.cognitive.microsoft.com) generates a free trial key for Azure Content Moderator services; you will need this key to access any of the services from a REST call or client SDK. You can view your key and API endpoint URL by selecting **Admin** > **Credentials**.
 
-![Content Moderator Credentials](images/settings-6-credentials.png)
+> [!div class="mx-imgBorder"]
+> ![Content Moderator Credentials](images/settings-6-credentials.png)
 
 ## Next steps
 

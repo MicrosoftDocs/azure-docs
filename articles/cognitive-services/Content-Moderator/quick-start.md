@@ -46,7 +46,8 @@ If you choose to encrypt data using a customer-managed key (CMK), you'll be prom
 
 Now you're ready to upload sample content. Select **Try > Image**, **Try > Text**, or **Try > Video**.
 
-![Try Image or Text Moderation](images/tryimagesortext.png)
+> [!div class="mx-imgBorder"]
+> ![Try Image or Text Moderation](images/tryimagesortext.png)
 
 Submit your content for moderation. You can use the following sample text content:
 
@@ -57,7 +58,8 @@ Crap is the profanity here. Is this information PII? phone 4255550111
 
 Internally, the review tool will call the moderation APIs to scan your content. Once the scanning is complete, you'll see a message informing you that there are results waiting for your review.
 
-![Moderate files](images/submitted.png)
+> [!div class="mx-imgBorder"]
+> ![Moderate files](images/submitted.png)
 
 ## Review moderation tags
 
