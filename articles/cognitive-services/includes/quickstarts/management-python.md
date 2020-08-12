@@ -65,7 +65,7 @@ When you create a new resource, you'll need to know the "kind" of service you wa
 
 [!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_list_avail)]
 
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
+[!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 See the list of SKUs and pricing information below. 
 
@@ -161,6 +161,6 @@ Add the following code to the bottom of your script to call the above functions.
 ## See also
 
 * [Azure Management SDK reference documentation](https://docs.microsoft.com/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python)
-* [What are Azure Cognitive Services?](Welcome.md)
-* [Authenticate requests to Azure Cognitive Services](authentication.md)
-* [Create a new resource using the Azure portal](.\cognitive-services-apis-create-account.md)
+* [What are Azure Cognitive Services?](../../Welcome.md)
+* [Authenticate requests to Azure Cognitive Services](../../authentication.md)
+* [Create a new resource using the Azure portal](../../cognitive-services-apis-create-account.md)

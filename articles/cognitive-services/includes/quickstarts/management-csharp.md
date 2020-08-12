@@ -93,7 +93,7 @@ When you create a new resource, you'll need to know the "kind" of service you wa
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_list_avail)]
 
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
+[!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 See the list of SKUs and pricing information below. 
 
@@ -182,6 +182,6 @@ The following method deletes the specified resource from the given resource grou
 ## See also
 
 * [Azure Management SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)
-* [What are Azure Cognitive Services?](Welcome.md)
-* [Authenticate requests to Azure Cognitive Services](authentication.md)
-* [Create a new resource using the Azure portal](.\cognitive-services-apis-create-account.md)
+* [What are Azure Cognitive Services?](../../Welcome.md)
+* [Authenticate requests to Azure Cognitive Services](../../authentication.md)
+* [Create a new resource using the Azure portal](../../cognitive-services-apis-create-account.md)

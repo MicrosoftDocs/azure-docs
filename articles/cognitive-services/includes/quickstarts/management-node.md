@@ -83,7 +83,7 @@ When you create a new resource, you'll need to know the "kind" of service you wa
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_list_avail)]
 
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
+[!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
 See the list of SKUs and pricing information below. 
 
@@ -184,6 +184,6 @@ node index.js
 ## See also
 
 * [Azure Management SDK reference documentation](https://docs.microsoft.com/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
-* [What are Azure Cognitive Services?](Welcome.md)
-* [Authenticate requests to Azure Cognitive Services](authentication.md)
-* [Create a new resource using the Azure portal](.\cognitive-services-apis-create-account.md)
+* [What are Azure Cognitive Services?](../../Welcome.md)
+* [Authenticate requests to Azure Cognitive Services](../../authentication.md)
+* [Create a new resource using the Azure portal](../../cognitive-services-apis-create-account.md)
