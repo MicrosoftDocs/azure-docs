@@ -13,11 +13,9 @@ ms.date: 08/12/2019
 ms.author: mbaldwin
 #Customer intent: As a Managed HSM administrator, I want to enable logging so I can monitor how my HSM is accessed.
 ---
-# Managed HSM logging  (MAKE THIS CLI NOT PS)
+# Managed HSM logging 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-After you create one or more Managed HSMs, you'll likely want to monitor how and when your HSMs are accessed, and by whom. You can do this by enabling logging for, which saves information in an Azure storage account that you provide. A new container named **insights-logs-auditevent** is automatically created for your specified storage account. You can use this same storage account for collecting logs for multiple Managed HSMs.
+After you create one or more Managed HSM pools, you'll likely want to monitor how and when your HSM pools are accessed, and by whom. You can do this by enabling logging for, which saves information in an Azure storage account that you provide. A new container named **insights-logs-auditevent** is automatically created for your specified storage account. You can use this same storage account for collecting logs for multiple Managed HSM pools.
 
 You can access your logging information 10 minutes (at most) after the Managed HSM operation. In most cases, it will be quicker than this.  It's up to you to manage your logs in your storage account:
 
@@ -28,16 +26,16 @@ Use this tutorial to help you get started with Managed HSM logging. You'll creat
 
 > [!NOTE]
 > This tutorial does not include instructions for how to create Managed HSMs or keys. 
->
-> This article provides Azure PowerShell instructions for updating diagnostic logging. You can also update diagnostic logging by using Azure Monitor in the **Diagnostic logs** section of the Azure portal. 
+> This article provides Azure CLI instructions for updating diagnostic logging.
 >
 
 ## Prerequisites
 
 To complete this tutorial, you must have the following:
 
-* An existing Managed HSM that you have been using.  
-* Azure CLI . To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/overview). If you have already installed Azure PowerShell and don't know the version, from the Azure PowerShell console, enter `$PSVersionTable.PSVersion`.  
+* An existing Managed HSM pool that you have been using.  
+* If you choose to install and use the CLI locally, this quickstart requires the Azure CLI version 2.10.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+
 * Sufficient storage on Azure for your Managed HSM logs.
 
 ## <a id="connect"></a>Connect to your Managed HSM subscription
@@ -46,11 +44,11 @@ The first step in setting up key logging is to point Azure PowerShell to the Man
 
 Start an Azure PowerShell session and sign in to your Azure account by using the following command:  
 
-```powershell
-Connect-AzAccount
+```azurecli
+az login
 ```
 
-In the pop-up browser window, enter your Azure account user name and password. Azure PowerShell gets all the subscriptions that are associated with this account. By default, PowerShell uses the first one.
+For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 You might have to specify the subscription that you used to create your Managed HSM. Enter the following command to see the subscriptions for your account:
 
@@ -284,12 +282,7 @@ The following table lists the **operationName** values and corresponding REST AP
 | **KeyUpdate** |[Update a key](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
 | **KeyList** |[List the keys in a vault](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
 | **KeyListVersions** |[List the versions of a key](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
-| **SecretSet** |[Create a secret](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
-| **SecretGet** |[Get a secret](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
-| **SecretUpdate** |[Update a secret](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
-| **SecretDelete** |[Delete a secret](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
-| **SecretList** |[List secrets in a vault](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
-| **SecretListVersions** |[List versions of a secret](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+|||
 
 ## <a id="loganalytics"></a>Use Azure Monitor logs
 
