@@ -12339,15 +12339,15 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/virtual-machines/linux/states-lifecycle.md",
+      "source_path": [ "articles/virtual-machines/windows/states-lifecycle.md", "articles/virtual-machines/linux/states-lifecycle.md" ],
       "redirect_url": "/azure/virtual-machines/states-lifecycle",
       "redirect_document_id": true
     },
-    {
-      "source_path": "articles/virtual-machines/windows/states-lifecycle.md",
-      "redirect_url": "/azure/virtual-machines/states-lifecycle",
-      "redirect_document_id": true
-    },
+    // {
+    //   "source_path": "articles/virtual-machines/windows/states-lifecycle.md",
+    //   "redirect_url": "/azure/virtual-machines/states-lifecycle",
+    //   "redirect_document_id": true
+    // },
     {
       "source_path": "articles/active-directory/active-directory-saas-landgorilla-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/landgorilla-tutorial",
