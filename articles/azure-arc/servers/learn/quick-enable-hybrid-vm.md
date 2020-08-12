@@ -1,12 +1,8 @@
 ---
 title: Connect hybrid machine with Azure Arc enabled servers
 description: Learn how to connect and register your hybrid machine with Azure Arc for servers.
-ms.service:  azure-arc
-ms. subservice: azure-arc-servers
 ms.topic: quickstart
-author: mgoedtel
-ms.author: magoedte
-ms.date: 08/06/2020
+ms.date: 08/12/2020
 ---
 
 # Quickstart: Connect hybrid machine with Azure Arc enabled servers

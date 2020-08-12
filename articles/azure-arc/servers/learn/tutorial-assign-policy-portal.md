@@ -1,12 +1,8 @@
 ---
 title: "Tutorial: New policy assignment with portal"
 description: In this tutorial, you use Azure portal to create an Azure Policy assignment to identify non-compliant resources.
-ms.service:  azure-arc
-ms. subservice: azure-arc-servers
 ms.topic: tutorial
-author: mgoedtel
-ms.author: magoedte
-ms.date: 08/06/2020
+ms.date: 08/12/2020
 ---
 
 # Tutorial: Create a policy assignment to identify non-compliant resources
