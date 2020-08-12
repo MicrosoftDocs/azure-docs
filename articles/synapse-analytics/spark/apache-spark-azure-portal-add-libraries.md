@@ -1,11 +1,10 @@
 ---
-title: Add and manage libraries for Apache Spark in Azure Synapse Analytics
+title: Add and manage libraries for Apache Spark
 description: Learn how to add and manage libraries used by Apache Spark in Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
@@ -16,7 +15,7 @@ Apache Spark depends on many libraries to provide functionality. These libraries
 
 Python packages can be added at the Spark pool (preview) level and .jar based packages can be added at the Spark job definition level.
 
-## Adding or updating Python libraries
+## Add or update Python libraries
 
 Apache Spark in Azure Synapse Analytics has a full Anacondas install plus additional libraries. The full libraries list can be found at [Apache Spark version support](apache-spark-version-support.md).
 
@@ -30,13 +29,11 @@ When a Spark instance starts up, a new virtual environment is created using this
 
 ### Requirements format
 
-The following snippet shows the format for the requirements file. The PyPi package name is listed along with an exact version. This file follows the format described in the [pip freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/) reference documentation. This example pins a specific version. You can also specify "no larger than" and "less than" versions in this file.
+The following snippet shows the format for the requirements file. The PyPi package name is listed along with an exact version. This file follows the format described in the [pip freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/) reference documentation. This example pins a specific version. 
 
 ```
 absl-py==0.7.0
-
 adal==1.2.1
-
 alabaster==0.7.10
 ```
 
@@ -48,7 +45,7 @@ Upload the environment configuration file using the file selector in the **Packa
 
 ![Add Python libraries](./media/apache-spark-azure-portal-add-libraries/add-python-libraries.png "Add Python libraries")
 
-### Verifying installed libraries
+### Verify installed libraries
 
 To verify if the correct versions of the correct libraries are installed run the following code
 

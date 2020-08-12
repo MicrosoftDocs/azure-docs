@@ -56,7 +56,7 @@ The LUIS model begins with categories of user intentions called **[intents](luis
 
 ## Query prediction endpoint
 
-After your app is trained and published to the endpoint, the client application sends utterances to the prediction [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) API. The API applies the app to the utterance for analysis and responds with the prediction results in a JSON format.
+After your app is trained and published to the endpoint, the client application sends utterances to the prediction [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) API. The API applies the model to the utterance for analysis and responds with the prediction results in a JSON format.
 
 The minimum JSON endpoint response contains the query utterance, and the top scoring intent. It can also extract data such as the following **Contact Type** entity and overall sentiment.
 

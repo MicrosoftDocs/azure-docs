@@ -37,6 +37,11 @@
     href: best-practices.md
   - name: Conditional Access for Azure management
     href: conditional-access-azure-management.md
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
 - name: How-to guides
   items:
   - name: List role definitions
@@ -92,12 +97,17 @@
       href: custom-roles-cli.md
     - name: REST API
       href: custom-roles-rest.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: custom-roles-template.md
   - name: View activity logs
     href: change-history-report.md
   - name: Elevate access
     href: elevate-access-global-admin.md
   - name: Classic administrators
     href: classic-administrators.md
+  - name: Transfer subscription to different directory (Preview)
+    href: transfer-subscription.md
   - name: Troubleshoot
     href: troubleshooting.md
 - name: Reference

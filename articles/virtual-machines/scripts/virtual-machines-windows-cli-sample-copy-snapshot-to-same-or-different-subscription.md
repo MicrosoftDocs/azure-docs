@@ -41,11 +41,11 @@ This script uses following commands to create a snapshot in the target subscript
 
 | Command | Notes |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Gets all the properties of a snapshot using the name and resource group properties of the snapshot. Id property is used to copy the snapshot to different subscription.  |
-| [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot) | Copies a snapshot by creating a snapshot in different subscription using the Id and name of the parent snapshot.  |
+| [az snapshot show](/cli/azure/snapshot) | Gets all the properties of a snapshot using the name and resource group properties of the snapshot. Id property is used to copy the snapshot to different subscription.  |
+| [az snapshot create](/cli/azure/snapshot) | Copies a snapshot by creating a snapshot in different subscription using the Id and name of the parent snapshot.  |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional virtual machine and managed disks CLI script samples can be found in the [Azure Windows VM documentation](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

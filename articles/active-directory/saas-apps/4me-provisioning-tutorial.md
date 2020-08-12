@@ -124,7 +124,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![4me User Mappings](media/4me-provisioning-tutorial/4me-user-mapping.png)
 	
-11. Review the user attributes that are synchronized from Azure AD to 4me in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in 4me for update operations. Select the **Save** button to commit any changes.
+11. Review the user attributes that are synchronized from Azure AD to 4me in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in 4me for update operations. Please ensure that [4me supports filtering](https://developer.4me.com/v1/scim/users/) on the matching attribute you have chosen. Select the **Save** button to commit any changes.
 
 	![4me User Mappings](media/4me-provisioning-tutorial/4me-user-attributes.png)
 	

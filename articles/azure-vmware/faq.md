@@ -20,7 +20,7 @@ As enterprises pursue IT modernization strategies to improve business agility, r
 
 **Where is AVS available today?**
 
-During the preview, it's available in US East in North America and in Amsterdam in Western Europe.
+The service is continuously being added to new regions, so view the [latest service availability information](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) for more details. 
 
 **Can workloads running in an Azure VMware Solution (AVS) instance consume or integrate with Azure services?**
 
@@ -41,7 +41,7 @@ basis.
 
 **Can I migrate vSphere VMs from on-premises environments to AVS private clouds?**
 
-Yes. VM migration and vMotion can be used to move VMs to a private cloud if standard cross vCenter [vMotion requirements][https://kb.vmware.com/s/article/210695] are met.
+Yes. VM migration and vMotion can be used to move VMs to a private cloud if standard cross vCenter [vMotion requirements](https://kb.vmware.com/s/article/210695) are met.
 
 **Is a specific version of vSphere required in on-premises environments?**
 
@@ -54,7 +54,7 @@ Updates made to the service itself will follow Microsoft Azure’s standard chan
 
 **How is this different from Azure VMware Solution by CloudSimple?**
 
-With the new Azure VMware Solution, Microsoft and VMware have a direct cloud provider partnership. The new solution is entirely designed, built and supported by Microsoft, and endorsed by VMware. Architecturally, the solutions are consistent, with the VMware technology stack running on an Azure dedicated infrastructure.
+With the new Azure VMware Solution, Microsoft and VMware have a direct cloud provider partnership. The new solution is entirely designed, built, and supported by Microsoft, and endorsed by VMware. Architecturally, the solutions are consistent, with the VMware technology stack running on an Azure dedicated infrastructure.
 
 **If I'm an existing Azure VMware Solution customer, what does this preview mean for me?**
 
@@ -62,7 +62,7 @@ There is no change to the existing Azure VMware Solution by CloudSimple. We cont
 
 **Can I migrate from Azure VMware Solution by CloudSimple to this new solution?**
 
-Yes, Azure VMware Solution supports migration using familiar VMware tools such as HCX. For customers interested in migrating to the new solution, please work with your Microsoft account team to explore options and available support.
+Yes, Azure VMware Solution supports migration using familiar VMware tools such as HCX. For customers interested in migrating to the new solution, work with your Microsoft account team to explore options and available support.
 
 
 
@@ -82,15 +82,15 @@ The servers have 576 GB of RAM.
 
 **What is the storage capacity of each host?**
 
-Each ESXi host has two VSAN diskgroups with a capacity tier of 15.2 TB and a 3.2 TB NVMe cache tier (1.6 TB in each diskgroup).
+Each ESXi host has two vSAN diskgroups with a capacity tier of 15.2 TB and a 3.2 TB NVMe cache tier (1.6 TB in each diskgroup).
 
 **How much network bandwidth is available in each ESXi host?**
 
-ESXi hosts support connectivity bandwidth up to 25 Gbps.
+Each ESXi host is AVS is configured with four 25 Gbps NICs, with two NICs provisioned for ESXi system traffic and two NICs provisioned for workload traffic. 
 
-**Is data stored on the VSAN datastores encrypted at rest?**
+**Is data stored on the vSAN datastores encrypted at rest?**
 
-Yes, all VSAN data is encrypted by default using keys stored in Azure Key Vault.
+Yes, all vSAN data is encrypted by default using keys stored in Azure Key Vault.
 
 ## Hosts, clusters, and private clouds
 
@@ -134,7 +134,7 @@ No, you aren't required to use NSX on-premises.
 
 **What is the upgrade and update schedule for VMware software in a private cloud?**
 
-The private cloud software bundle upgrades are done to keep the software within one version of the most recent release of the software bundle from VMware. The private cloud software versions may be different than the most recent versions of the individual software components (ESXi, NSX-T, vCenter, VSAN).
+The private cloud software bundle upgrades are done to keep the software within one version of the most recent release of the software bundle from VMware. The private cloud software versions may be different than the most recent versions of the individual software components (ESXi, NSX-T, vCenter, vSAN).
 
 **How often will the private cloud software stack be updated?**
 
@@ -194,11 +194,11 @@ Billing for AVS during preview is monthly on a pay-as-you-go basis. Additional o
 
 **How will pricing be structured during the preview of AVS?**
 
-For general questions on pricing see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. Preview pricing is available on request, please contact your account team or follow the link on the pricing page to contact sales.
+For general questions on pricing see the Azure VMware Solution [pricing](https://azure.microsoft.com/pricing/details/azure-vmware) page. Preview pricing is available on request, contact your account team or follow the link on the pricing page to contact sales.
 
 **Who supports AVS?**
 
-Support for AVS is delivered by Microsoft. Please note, per our preview guidelines, we will provide support during 9 to 5 pm PST business hours Monday thru Friday. You can raise a Support ticket from [this link](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Support for AVS is delivered by Microsoft. Note, per our preview guidelines, we will provide support during 9 to 5 pm PST business hours Monday - Friday. You can raise a Support ticket from [this link](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 **What accounts do I need to create an AVS private cloud?**
 
@@ -213,7 +213,7 @@ You can request a quota increase by [submitting a support request](..\azure-port
 > ```azurecli-interactive
 > az provider register -n Microsoft.AVS --subscription <your subscription ID>
 > ```
-> For additional ways to register the resource provider, see [Azure resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+> For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
 1. In your Azure portal, under **Help + Support**, create a **New support request** and provide the following information for the ticket:
    - **Issue type:** Technical

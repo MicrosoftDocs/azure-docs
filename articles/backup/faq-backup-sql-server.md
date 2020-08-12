@@ -43,7 +43,7 @@ The default value of DefaultBackupTasksThreshold is **20**.
 
 3. Save your changes and close the file.
 4. On the SQL Server instance, open **Task Manager**. Restart the **AzureWLBackupCoordinatorSvc** service.<br/> <br/>
- While this method helps if the backup application is consuming a large quantity of resources, SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) is a more generic way to specify limits on the amount of CPU, physical IO, and memory that incoming application requests can use.
+ While this method helps if the backup application is consuming a large quantity of resources, SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) is a more generic way to specify limits on the amount of CPU, physical IO, and memory that incoming application requests can use.
 
 > [!NOTE]
 > In the UX you can still go ahead and schedule as many backups at any given time, however they will processed in a sliding window of say, 5, according to the above example.

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/30/2019
+ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40 
@@ -44,7 +44,7 @@ This tutorial is applicable to both iOS and macOS apps. Note that some steps are
 
 ## Prerequisites
 
-- XCode version 11.x or greater is required to build the app in this guide. You can download XCode from the [iTunes website](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
+- XCode version 11.x or greater is required to build the app in this guide. You can download XCode from the [Mac App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
 - Microsoft Authentication Library ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). You can use a dependency manager or add the library manually. The instructions below show you how.
 
 This tutorial will create a new project. If you want to download the completed tutorial instead, download the code:
@@ -145,7 +145,7 @@ var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
-The only value you need to modify above is the value assigned to `kClientID`to be your [Application ID](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-id-client-id). This value is part of the MSAL Configuration data that you saved during the step at the beginning of this tutorial to register the application in the Azure portal.
+The only value you need to modify above is the value assigned to `kClientID`to be your [Application ID](./developer-glossary.md#application-id-client-id). This value is part of the MSAL Configuration data that you saved during the step at the beginning of this tutorial to register the application in the Azure portal.
 
 ## Configure Xcode project settings
 
@@ -840,4 +840,4 @@ After you sign in, the app will display the data returned from the Microsoft Gra
 
 ## Get help
 
-Visit [Help and support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) if you have trouble with this tutorial or with the Microsoft identity platform.
+Visit [Help and support](./developer-support-help-options.md) if you have trouble with this tutorial or with the Microsoft identity platform.

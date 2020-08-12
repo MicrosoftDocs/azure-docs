@@ -2,7 +2,7 @@
 title: Advanced data security
 description: Learn about functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database in Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.devlang: 
 ms.custom: sqldbrb=2
@@ -56,7 +56,7 @@ To view and manage ADS settings, navigate to **Advanced Data Security** under th
 
 ![Server settings](./media/advanced-data-security/server_settings.png)
 
-## 4. Manage ADS settings for a SQL database
+## 4. Manage ADS settings for a database
 
 To override ADS settings for a particular database, check the **Enable Advanced Data Security at the database level** checkbox. Use this option only if you have a particular requirement to receive separate Advanced Threat Protection alerts or vulnerability assessment results for the individual database, in place of or in addition to the alerts and results received for all databases on the server or managed instance.
 

@@ -1,7 +1,7 @@
 ---
 title: Azure Policy extension for Visual Studio Code
-description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Resource Manager aliases.
-ms.date: 03/07/2020
+description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Azure Resource Manager aliases.
+ms.date: 06/16/2020
 ms.topic: how-to
 ---
 # Use Azure Policy extension for Visual Studio Code
@@ -142,7 +142,7 @@ resource with the following steps:
 
 When a resource is selected, whether through the search interface or by selecting it in the
 treeview, the Azure Policy extension opens the JSON file representing that resource and all its
-Resource Manager property values.
+Azure Resource Manager property values.
 
 Once a resource is open, hovering over the Resource Manager property name or value displays the
 Azure Policy alias if one exists. In this example, the resource is a
@@ -151,6 +151,10 @@ Azure Policy alias if one exists. In this example, the resource is a
 matching aliases.
 
 :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy extension hover shows Resource Manager property alias" border="false":::
+
+> [!NOTE]
+> The VS Code extension only exposes Resource Manager mode properties and doesn't display any
+> [Resource Provider mode](../concepts/definition-structure.md#mode) properties.
 
 ## Search for and view policies and assignments
 

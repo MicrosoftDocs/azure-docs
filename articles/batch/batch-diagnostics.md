@@ -65,7 +65,7 @@ To configure a metric alert in the Azure portal:
 
 For more information about creating metric alerts, see [Understand how metric alerts work in Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md) and [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
-You can also configure a near real-time alert using the Azure Monitor [REST API](https://docs.microsoft.com/rest/api/monitor/). For more information, see [Overview of Alerts in Microsoft Azure](../azure-monitor/platform/alerts-overview.md). To include job, task, or pool-specific information in your alerts, see the information on search queries in [Respond to events with Azure Monitor Alerts](../azure-monitor/learn/tutorial-response.md).
+You can also configure a near real-time alert using the Azure Monitor [REST API](/rest/api/monitor/). For more information, see [Overview of Alerts in Microsoft Azure](../azure-monitor/platform/alerts-overview.md). To include job, task, or pool-specific information in your alerts, see the information on search queries in [Respond to events with Azure Monitor Alerts](../azure-monitor/learn/tutorial-response.md).
 
 ## Batch diagnostics
 
@@ -82,8 +82,8 @@ A common scenario is to select an Azure Storage account as the log destination. 
 
 Alternately, you can:
 
-- Stream Batch diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
-- Send diagnostic logs to [Azure Monitor logs](../log-analytics/log-analytics-overview.md), where you can analyze them or export them for analysis in Power BI or Excel.
+- Stream Batch diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-about.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
+- Send diagnostic logs to [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md), where you can analyze them or export them for analysis in Power BI or Excel.
 
 > [!NOTE]
 > You may incur additional costs to store or process diagnostic log data with Azure services. 
@@ -130,7 +130,7 @@ Below is an example of a `PoolResizeCompleteEvent` entry in a `PT1H.json` log fi
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-For more information about the schema of diagnostic logs in the storage account, see [Archive Azure resource logs to storage account](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-platform-logs-in-storage-account). To access the logs in your storage account programmatically, use the Storage APIs.
+For more information about the schema of diagnostic logs in the storage account, see [Archive Azure resource logs to storage account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). To access the logs in your storage account programmatically, use the Storage APIs.
 
 ### Service log events
 
@@ -173,4 +173,3 @@ Service log events emitted by the Batch service include the following:
 
 - Learn about the [Batch APIs and tools](batch-apis-tools.md) available for building Batch solutions.
 - Learn more about [monitoring Batch solutions](monitoring-overview.md).
-

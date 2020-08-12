@@ -43,7 +43,7 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command-specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Server commands. |
 | [az sql db](/cli/azure/sql/db) | Database commands. |

@@ -38,19 +38,19 @@ To provide your user with a URL that they can use to stream or download your con
 
 To build an HLS streaming URL, append *(format=m3u8-aapl)* to the URL:
 
-    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
+`{streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)`
 
 To build a streaming URL to play Smooth Streaming assets, use the following URL format:
 
-    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest
+`{streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest`
 
 To build an MPEG-DASH streaming URL, append *(format=mpd-time-csf)* to the URL:
 
-    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
+`{streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)`
 
 A shared access signature URL has the following format:
 
-    {blob container name}/{asset name}/{file name}/{shared access signature}
+`{blob container name}/{asset name}/{file name}/{shared access signature}`
 
 For more information, see the [delivering content overview](media-services-deliver-content-overview.md).
 
@@ -59,7 +59,7 @@ For more information, see the [delivering content overview](media-services-deliv
 > 
 > 
 
-To update an expiration date on a locator, use can use a [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) or a [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259). 
+To update an expiration date on a locator, use can use a [REST API](/rest/api/media/operations/locator#update_a_locator) or a [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > When you update the expiration date of a shared access signature locator, the URL changes.
@@ -93,4 +93,3 @@ Some considerations apply:
 
 ## Next steps
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
-

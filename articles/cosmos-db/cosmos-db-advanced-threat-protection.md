@@ -43,7 +43,7 @@ You can configure advanced threat protection in any of several ways, described i
 
 2. From the Azure Cosmos DB account, from the **Settings** menu, select **Advanced security**.
 
-    ![Set up ATP](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png)
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png" alt-text="Set up ATP":::
 
 3. In the **Advanced security** configuration blade:
 
@@ -77,16 +77,16 @@ Use an Azure Policy to enable Advanced Threat Protection for Cosmos DB.
 
 1. Launch the Azure **Policy - Definitions** page, and search for the **Deploy Advanced Threat Protection for Cosmos DB** policy.
 
-    ![Search Policy](./media/cosmos-db-advanced-threat-protection/cosmos-db.png) 
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db.png" alt-text="Search Policy"::: 
 
 1. Click on the **Deploy Advanced Threat Protection for CosmosDB** policy, and then click **Assign**.
 
-    ![Select Subscription Or Group](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png)
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png" alt-text="Select Subscription Or Group":::
 
 
 1. From the **Scope** field, click the three dots, select an Azure subscription or resource group, and then click **Select**.
 
-    ![Policy Definitions Page](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png)
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png" alt-text="Policy Definitions Page":::
 
 
 1. Enter the other parameters, and click **Assign**.
@@ -100,11 +100,11 @@ When Azure Cosmos DB activity anomalies occur, a security alert is triggered wit
 
  From Azure Security Center, you can review and manage your current [security alerts](../security-center/security-center-alerts-overview.md).  Click on a specific alert in [Security Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/0) to view possible causes and recommended actions to investigate and mitigate the potential threat. The following image shows an example of alert details provided in Security Center.
 
- ![Threat details](./media/cosmos-db-advanced-threat-protection/cosmos-db-alert-details.png)
+ :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert-details.png" alt-text="Threat details":::
 
 An email notification is also sent with the alert details and recommended actions. The following image shows an example of an alert email.
 
- ![Alert details](./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png)
+ :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png" alt-text="Alert details":::
 
 ## Cosmos DB ATP alerts
 

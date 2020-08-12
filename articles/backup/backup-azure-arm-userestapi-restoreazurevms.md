@@ -14,7 +14,7 @@ For any restore operation, one has to identify the relevant recovery point first
 
 ## Select Recovery point
 
-The available recovery points of a backup item can be listed using the [list recovery point REST API](https://docs.microsoft.com/rest/api/backup/recoverypoints/list). It is a simple *GET* operation with all the relevant values.
+The available recovery points of a backup item can be listed using the [list recovery point REST API](/rest/api/backup/recoverypoints/list). It is a simple *GET* operation with all the relevant values.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13
@@ -28,7 +28,7 @@ The *GET* URI has all the required parameters. There is no need for an additiona
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
+|200 OK     |   [RecoveryPointResourceList](/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
 #### Example response
 
@@ -114,7 +114,7 @@ The recovery point is identified with the `{name}` field in the above response.
 
 If there is a need to customize the creation of a VM from the backup data, one can just restore disks into a chosen storage account and create a VM from those disks according to their requirements. The storage account should be in the same region as the recovery services vault and should not be zone redundant. The disks as well as the configuration of the backed-up VM ("vmconfig.json") will be stored in the given storage account.
 
-Triggering restore disks is a *POST* request. To know more about the Restore disks operation, refer to the ["trigger restore" REST API](https://docs.microsoft.com/rest/api/backup/restores/trigger).
+Triggering restore disks is a *POST* request. To know more about the Restore disks operation, refer to the ["trigger restore" REST API](/rest/api/backup/restores/trigger).
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
@@ -128,9 +128,9 @@ To trigger a disk restore from an Azure VM backup, following are the components 
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
-For the complete list of definitions of the request body and other details, refer to [trigger Restore REST API document](https://docs.microsoft.com/rest/api/backup/restores/trigger#request-body).
+For the complete list of definitions of the request body and other details, refer to [trigger Restore REST API document](/rest/api/backup/restores/trigger#request-body).
 
 #### Example request
 
@@ -156,7 +156,7 @@ The following request body defines properties required to trigger a disk restore
 
 ### Response
 
-The triggering of a restore disk is an [asynchronous operation](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). It means this operation creates another operation that needs to be tracked separately.
+The triggering of a restore disk is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
 It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
 

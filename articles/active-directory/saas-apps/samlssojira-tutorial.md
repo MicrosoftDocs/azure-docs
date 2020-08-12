@@ -303,10 +303,12 @@ To activate SSO redirect, do the following in **your Jira instance**:
 
 1. Access the configuration page of the SAML SSO plugin in Jira.
 1. Click on **Redirection** in the left panel.
-![](./media/samlssojira-tutorial/ssore1.png)
+
+   ![Partial screenshot of the Jira SAML SingleSignOn Plugin Configuration page highlighting the Redirection link in the left navigation.](./media/samlssojira-tutorial/ssore1.png)
 
 1. Tick **Enable SSO Redirect**.
-![](./media/samlssojira-tutorial/ssore2.png) 
+
+   ![Partial screenshot of the Jira SAML SingleSignOn Plugin Configuration page highlighting the selected "Enable SSO Redirect" check box.](./media/samlssojira-tutorial/ssore2.png) 
 
 1. Press the **Save Settings** button in the top right corner.
 

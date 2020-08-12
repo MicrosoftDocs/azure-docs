@@ -14,11 +14,11 @@ Jupyter notebook is an open-source web application that allows you to create and
 
 Azure Cosmos DB built-in Jupyter notebooks are directly integrated into the Azure portal and your Azure Cosmos DB accounts, making them convenient and easy to use. Developers, data scientists, engineers, and analysts can use the familiar Jupyter notebooks experience to do data exploration, data cleaning, data transformations, numerical simulations, statistical modeling, data visualization, and machine learning.
 
-![Jupyter notebooks visualizations in Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png)
+:::image type="content" source="./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png" alt-text="Jupyter notebooks visualizations in Azure Cosmos DB":::
 
 Azure Cosmos DB supports both C# and Python notebooks for all APIs, including Core (SQL), Cassandra, Gremlin, Table, and API for MongoDB. Inside the notebook, you can take advantage of built-in commands and features that make it easy to create Azure Cosmos DB resources, upload data, and query and visualize your data in Azure Cosmos DB. 
 
-![Jupyter notebooks support in Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png)
+:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Jupyter notebooks support in Azure Cosmos DB":::
 
 ## Benefits of Jupyter notebooks
 

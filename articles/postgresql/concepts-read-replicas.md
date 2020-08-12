@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 07/10/2020
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Single Server
@@ -38,10 +38,7 @@ You can have a master server in any [Azure Database for PostgreSQL region](https
 ### Universal replica regions
 You can always create a read replica in any of the following regions, regardless of where your master server is located. These are the universal replica regions:
 
-Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US.
-
-*West US 2 is temporarily unavailable as a cross region replica location.
-
+Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2, West Central US.
 
 ### Paired regions
 In addition to the universal replica regions, you can create a read replica in the Azure paired region of your master server. If you don't know your region's pair, you can learn more from the [Azure Paired Regions article](../best-practices-availability-paired-regions.md).
@@ -50,7 +47,7 @@ If you are using cross-region replicas for disaster recovery planning, we recomm
 
 There are limitations to consider: 
 
-* Regional availability: Azure Database for PostgreSQL is available in West US 2, France Central, UAE North, and Germany Central. However, their paired regions are not available.
+* Regional availability: Azure Database for PostgreSQL is available in France Central, UAE North, and Germany Central. However, their paired regions are not available.
 	
 * Uni-directional pairs: Some Azure regions are paired in one direction only. These regions include West India, Brazil South. 
    This means that a master server in West India can create a replica in South India. However, a master server in South India cannot create a replica in West India. This is because West India's secondary region is South India, but South India's secondary region is not West India.
@@ -159,12 +156,14 @@ The server needs to be restarted after a change of this parameter. Internally, t
 A read replica is created as a new Azure Database for PostgreSQL server. An existing server can't be made into a replica. You can't create a replica of another read replica.
 
 ### Replica configuration
-A replica is created by using the same compute and storage settings as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and backup retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
+A replica is created by using the same compute and storage settings as the master. After a replica is created, several settings can be changed including storage and backup retention period.
+
+vCores and pricing tier can also be changed on the replica under the following conditions:
+* PostgreSQL requires the value of the `max_connections` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. In Azure Database for PostgreSQL, the `max_connections` parameter value is based on the SKU (vCores and pricing tier). For more information, see [Limits in Azure Database for PostgreSQL](concepts-limits.md). 
+* Scaling to or from the Basic pricing tier is not supported
 
 > [!IMPORTANT]
 > Before a master setting is updated to a new value, update the replica configuration to an equal or greater value. This action ensures the replica can keep up with any changes made to the master.
-
-PostgreSQL requires the value of the `max_connections` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. In Azure Database for PostgreSQL, the `max_connections` parameter value is based on the SKU. For more information, see [Limits in Azure Database for PostgreSQL](concepts-limits.md). 
 
 If you try to update the server values described above, but don't adhere to the limits, you receive an error.
 

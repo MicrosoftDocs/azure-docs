@@ -188,6 +188,10 @@ To block a provider, you can create [route rules](routes.md) to return a 404 for
 }
 ```
 
+## Restrictions
+
+See the [Quotas article](quotas.md) for general restrictions and limitations.
+
 ## Next steps
 
 > [!div class="nextstepaction"]

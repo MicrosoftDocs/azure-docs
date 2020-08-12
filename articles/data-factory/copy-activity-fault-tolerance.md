@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 06/22/2020
 ms.author: yexu
 
 ---
@@ -77,6 +77,21 @@ dataInconsistency | One of the key-value pairs within skipErrorFile property bag
 logStorageSettings  | A group of properties that can be specified when you want to log the skipped object names. | &nbsp; | No
 linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the session log files. | The names of an `AzureBlobStorage` or `AzureBlobFS` type linked service, which refers to the instance that you use to store the log file. | No
 path | The path of the log files. | Specify the path that you use to store the log files. If you do not provide a path, the service creates a container for you. | No
+
+> [!NOTE]
+> The followings are the prerequisites of enabling fault tolerance in copy activity when copying binary files.
+> For skipping particular files when they are being deleted from source store:
+> - The source dataset and sink dataset have to be binary format, and the compression type cannot be specified. 
+> - The supported data store types are Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, File System, FTP, SFTP, Amazon S3, Google Cloud Storage and HDFS.
+> - Only if when you specify multiple files in source dataset, which can be a folder, wildcard or a list of files, copy activity can skip the particular error files. If a single file is specified in source dataset to be copied to the destination, copy activity will fail if any error occurred.
+>
+> For skipping particular files when their access are forbidden from source store:
+> - The source dataset and sink dataset have to be binary format, and the compression type cannot be specified. 
+> - The supported data store types are Azure Blob storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, SFTP, Amazon S3 and HDFS.
+> - Only if when you specify multiple files in source dataset, which can be a folder, wildcard or a list of files, copy activity can skip the particular error files. If a single file is specified in source dataset to be copied to the destination, copy activity will fail if any error occurred.
+>
+> For skipping particular files when they are verified to be inconsistent between source and destination store:
+> - You can get more details from data consistency doc [here](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency).
 
 ### Monitoring 
 

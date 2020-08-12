@@ -5,8 +5,9 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurepowershell
-ms.topic: conceptual
-ms.date: 5/26/2020
+ms.topic: how-to
+ms.date: 5/26/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure server parameters in Azure Database for MariaDB using PowerShell

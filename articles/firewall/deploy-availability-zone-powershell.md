@@ -4,7 +4,7 @@ description: In this article, you learn how to deploy an Azure Firewall with Ava
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: victorh
 ---

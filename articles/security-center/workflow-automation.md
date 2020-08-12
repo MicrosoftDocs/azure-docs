@@ -24,22 +24,14 @@ This article describes the workflow automation feature of Azure Security Center.
 
 ## Availability
 
-- Release state: **Generally Available**
-- Required roles and permissions:
-    - **Reader** on the subscription containing the export configuration
-    - **Security admin role** on the resource group (or **Owner**)
-    - Must also have write permissions for the target resource
-    - Also, to work with Azure Logic Apps workflows, you must have the following Logic Apps roles/permissions:
+|Aspect|Details|
+|----|:----|
+|Release state:|Generally Available|
+|Pricing:|Free tier|
+|Required roles and permissions:|**Reader** on the subscription containing the export configuration<br>**Security admin role** or **Owner** on the resource group<br>Must also have write permissions for the target resource<br><br>To work with Azure Logic Apps workflows, you must also have the following Logic Apps roles/permissions:<br> - [Logic App Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)<br> - [Logic App Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) permissions are required for Logic App creation and modification<br>If you want to use Logic App connectors, you may need additional credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances)|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
+|||
 
-        * [Logic App Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)
-
-        * [Logic App Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) permissions are required for Logic App creation and modification
-
-        * If you want to use Logic App connectors, you may need additional credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances)
-- Clouds: 
-    - ✔ Commercial clouds
-    - ✔ US Gov
-    - ✘ China Gov, Other Gov
 
 
 ## Create a Logic App and define when it should automatically run 

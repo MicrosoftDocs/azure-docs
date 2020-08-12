@@ -21,7 +21,7 @@
       href: quickstart-create-mysql-server-database-using-azure-powershell.md
     - name: Create DB - ARM template
       href: quickstart-create-mysql-server-database-using-arm-template.md
-      displayName: deploy azure resource manager template 
+      displayName: deploy azure resource manager template
   - name: Connect & query
     items:
     - name: PHP
@@ -57,10 +57,10 @@
   - name: 2 - Create a Web App
     items:
     - name: Wordpress in containers with MySQL
-      href: ../app-service/containers/tutorial-multi-container-app.md
+      href: ../app-service/tutorial-multi-container-app.md
       maintainContext: true
     - name: PHP with MySQL
-      href: ../app-service/app-service-web-tutorial-php-mysql.md
+      href: ../app-service/tutorial-php-mysql-app.md
       maintainContext: true
 - name: Samples
   items:
@@ -109,6 +109,8 @@
       href: concepts-data-encryption-mysql.md
     - name: Azure AD authentication
       href: concepts-azure-ad-authentication.md
+    - name: Infrastructure double encryption
+      href: concepts-infrastructure-double-encryption.md
     - name: Security baseline
       href: security-baseline.md
   - name: Business continuity
@@ -189,7 +191,11 @@
     - name: Create users
       href: howto-create-users.md
     - name: Connection strings
-      href: howto-connection-string.md
+      items:
+      - name: Connect applications
+        href: howto-connection-string.md
+      - name: Azure PowerShell
+        href: howto-connection-string-powershell.md
     - name: Configure SSL
       href: howto-configure-ssl.md
     - name: Configure TLS
@@ -276,6 +282,10 @@
       href: howto-data-encryption-cli.md
     - name: Data encryption validation
       href: howto-data-encryption-validation.md
+  - name: Infrastructure double encryption
+    items:
+    - name: Configure infrastructure double encryption
+      href: howto-double-encryption.md
   - name: Azure AD Integration
     items:
     - name: Configure Azure AD integration
@@ -294,6 +304,10 @@
       href: howto-restart-server-cli.md
     - name: Azure PowerShell
       href: howto-restart-server-powershell.md
+  - name: Move between regions
+    items:
+    - name: Azure portal
+      href: howto-move-regions-portal.md
 - name: Reference
   items:
   - name: Azure CLI

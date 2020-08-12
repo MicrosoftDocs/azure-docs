@@ -105,23 +105,21 @@ To configure Azure AD single sign-on with Infor CloudSuite, perform the followin
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-	| | |
-	|-|-|
-	| `http://mingle-sso.inforcloudsuite.com`|
-	| `http://mingle-sso.se1.inforcloudsuite.com`|
-	| `http://mingle-sso.eu1.inforcloudsuite.com`|
-	| `http://mingle-sso.se2.inforcloudsuite.com`|
-	| |
+    ```http
+    http://mingle-sso.inforcloudsuite.com
+    http://mingle-sso.se1.inforcloudsuite.com
+    http://mingle-sso.eu1.inforcloudsuite.com
+    http://mingle-sso.se2.inforcloudsuite.com
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-	| | |
-	|-|-|
-	| `https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2`|
-	| `https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2`|
-	| `https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2`|
-	| `https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2`|
-	| |
+    ```http
+    https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2
+    https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2
+    ```
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -129,12 +127,12 @@ To configure Azure AD single sign-on with Infor CloudSuite, perform the followin
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
 
-	| | |
-	|-|-|
-	| `https://mingle-portal.inforcloudsuite.com/Tenant-Name/`|
-	| `https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/`|
-	| `https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/`|
-	| `https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/`|
+    ```http
+    https://mingle-portal.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/
+    https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Infor CloudSuite Client support team](mailto:support@infor.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

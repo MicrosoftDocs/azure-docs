@@ -10,6 +10,7 @@ ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/08/2020
+ms.custom: devx-track-java
 ms.author: aahi
 ---
 

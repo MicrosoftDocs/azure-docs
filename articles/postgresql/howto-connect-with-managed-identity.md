@@ -4,7 +4,7 @@ description: Learn about how to connect and authenticate using Managed Identity 
 author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ---
 

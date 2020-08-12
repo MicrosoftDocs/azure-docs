@@ -6,14 +6,16 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: pod
-ms.topic: how-to
-ms.date: 04/30/2020
+ms.topic: troubleshooting
+ms.date: 07/08/2020
 ms.author: alkohli
 ---
 
 # Troubleshoot issues related to Azure Data Box and Azure Data Box Heavy
 
-This article details information on how to troubleshoot issues you may see when using the Azure Data Box or Azure Data Box Heavy. The article includes the list of possible errors seen when data is copied to the Data Box or when data is uploaded from Data Box.
+This article details information on how to troubleshoot issues you may see when using the Azure Data Box or Azure Data Box Heavy for import orders. The article includes the list of possible errors seen when data is copied to the Data Box or when data is uploaded from Data Box for an import order.
+
+The information in this article does not apply to export orders created for Data Box.
 
 ## Error classes
 
