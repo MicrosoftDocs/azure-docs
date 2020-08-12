@@ -57,7 +57,9 @@
         href: export-import-provisioning-configuration.md  
     - name: Troubleshoot application provisioning
       items:
-      - name: Troubleshoot app provisioning
+      - name: Known Issues
+        href: known-issues.md  
+      - name: Troubleshoot configuration problems
         href: application-provisioning-config-problem.md
       - name: Quarantine status
         href: application-provisioning-quarantine-status.md
