@@ -10,7 +10,7 @@ ms.date: 09/10/2020
 
 # Create stateful and stateless workflows by using Azure Logic Apps and Visual Studio Code - Public Preview
 
-With Visual Studio Code and the preview extension [Azure Functions for Visual Studio Code], you can build stateful or stateless workflow apps that are powered by [Azure Functions](../azure-functions/functions-overview.md). You can deploy these workflow apps to multiple hosting environments, such as Azure App Service, Azure Function apps, or as a Docker container that runs anywhere that you want. This extension brings many Azure Logic Apps capabilities in the cloud to your local development experience and provides additional capabilities, for example:
+When you use Visual Studio Code and the preview extension, Azure Functions for Visual Studio Code, you can build stateful or stateless workflow apps that are powered by [Azure Functions](../azure-functions/functions-overview.md). You can test your workflow apps on your local computer and deploy to multiple hosting environments, such as Azure App Service, Azure Function apps, or as a Docker container that runs anywhere that you want. The preview extension brings many Azure Logic Apps capabilities in the cloud to your local development experience and provides additional capabilities, for example:
 
 <a name="stateful-stateless"></a>
 
@@ -86,6 +86,8 @@ After you install all the extensions, disable automatic extension updates for Vi
 
       ![Screenshot that shows Visual Studio Code extension settings with Azure Functions Project Runtime set to ~3](./media/create-stateless-stateful-workflows/azure-functions-project-runtime-version.png)
 
+      For more information, see [Azure Functions runtime versions overview](../azure-functions/functions-versions.md).
+
 1. If you have a previous version of the extension bundle, clean up any existing bundle binaries in this location:
 
    `%TEMP%\Functions\ExtensionBundles\Microsoft.Azure.Functions.ExtensionBundle.Workflows*`
@@ -113,9 +115,9 @@ After you install all the extensions, disable automatic extension updates for Vi
    > [!TIP]
    > Later, if Visual Studio Code signs you out from Azure, you're prompted to sign back in when necessary.
 
-## Create Functions project
+## Create an Azure Functions project
 
-Before you create your workflow, create an Azure Functions project for deploying and managing your workflow app using Visual Studio Code.
+Before you create your workflow, create an Azure Functions project ([function app project](../azure-functions/functions-develop-vs-code.md#create-an-azure-functions-project)) for deploying and managing your workflow app using Visual Studio Code. This project is similar to the function app that you'd create in the Azure portal to use for organizing and managing functions. For more information, see [Develop Azure functions by using Visual Studio Code](../azure-functions/functions-develop-vs-code.md).
 
 1. Before you start, make sure that you close any open folders or files in Visual Studio Code.
 
@@ -127,11 +129,11 @@ Before you create your workflow, create an Azure Functions project for deploying
 
    ![Screenshot that shows dialog box with "Create new project" selected](./media/create-stateless-stateful-workflows/select-project-folder.png)
 
-1. From the languages list that appears, select **C#**.
+1. From the languages list that appears, select **C#** for this example.
 
    ![Screenshot that shows a languages list with C# selected](./media/create-stateless-stateful-workflows/select-language-for-project.png)
 
-1. From the templates list that appears, select **Skip for now**, which creates a function project without creating a function.
+1. From the templates list that appears, select **Skip for now** so that you can continue without having to create a function at this time. You'll create a function later.
 
    <!--
    ![Screenshot that shows a templates list with "Skip for now" selected](./media/create-stateless-stateful-workflows/select-project-template.png)
@@ -143,13 +145,15 @@ Before you create your workflow, create an Azure Functions project for deploying
    ![Screenshot that shows locations list with "Open in current window" selected](./media/create-stateless-stateful-workflows/select-project-location.png)
    -->
 
-   After Visual Studio Code reloads, the Explorer pane opens and shows your workflow app project.
+   After Visual Studio Code reloads, the Explorer pane opens and shows your function app project.
 
-   ![Screenshot that shows Explorer pane and workflow app project](./media/create-stateless-stateful-workflows/workflow-app-project-created.png)
+   ![Screenshot that shows Explorer pane and function app project](./media/create-stateless-stateful-workflows/workflow-app-project-created.png)
 
 Now, continue creating your workflow app.
 
-## Create blank workflow app
+<a name="create-blank-workflow"></a>
+
+## Create a blank workflow app
 
 1. On the Visual Studio Code toolbar, select the Azure icon to reopen the Azure pane.
 
@@ -198,11 +202,11 @@ Now, continue creating your workflow app.
 
    When Visual Studio Code starts the workflow design-time API, a message appears that startup might take a few seconds. You can ignore this message or select **OK**.
 
-1. After the Logic App Designer appears, continue with the steps to add a trigger and actions.
+1. After the Logic App Designer appears, [add a trigger and actions](#add-trigger-actions) to your workflow app.
 
    ![Screenshot that shows Logic App Designer](./media/create-stateless-stateful-workflows/workflow-app-designer.png)
 
-<a name="add-steps"></a>
+<a name="add-trigger-actions"></a>
 
 ## Add a trigger and actions
 
@@ -212,9 +216,7 @@ For this example workflow, add this trigger and these actions:
 
 * The Office 365 Outlook action, **Send an email**
 
-* The built-in action, **Local Function Operations**
-
-  This action lets you create and call an Azure function directly from your workflow without having to previously create a function app and the function as you would when you use the Azure portal. For more information, see [Call Azure functions from Azure Logic Apps](../logic-apps/logic-apps-azure-functions.md).
+* The built-in Local Function Operations action, **Invoke a function in this function app**
 
 1. Under the designer search box, check that **Built-in** is selected. Find and select the built-in Request trigger that's named **When a HTTP request is received**.
 
@@ -237,19 +239,53 @@ For this example workflow, add this trigger and these actions:
    | **Body** | Yes | `Hello from your example workflow app!` | The email body content |
    ||||
 
-1. Under the **Send an email action**, select **Next step**.
+1. Continue by following one of these paths:
+
+   * [Test your workflow app on your local computer](#test-workflow-locally).
+
+   * Create an Azure function that you can directly call from your workflow app.
+
+<a name="create-call-azure-function"></a>
+
+## Create and call an Azure function
+
+To add your own code that you can directly call and run from your workflow app, add an Azure function to your project. For more information, see [Call Azure functions from Azure Logic Apps](../logic-apps/logic-apps-azure-functions.md).
+
+1. On the Visual Studio Code toolbar, select the Azure icon to reopen the Azure pane.
+
+1. In the Azure pane, next to **Azure: Functions**, select **Create Function**.
+
+1. From the templates list, select **HttpTrigger**.
+
+1. From the languages list, 
+
+1. Return to your workflow app in the designer. Under the **Send an email action**, select **Next step**.
 
 1. Under the **Choose an action** search box, select **Built-in** so that you can select a built-in action. In the designer search box, find and select the Local Function Operations action, **Invoke a function in this function app**.
 
    ![Screenshot that shows Logic App Designer with Local Function Operations "Invoke a function in this function app" action selected](./media/create-stateless-stateful-workflows/add-local-function-operations.png)
 
-1. 
+1. Provide the required information for the function, for example:
+
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **Function Name** | Yes | `<namespace-myfunction>` |
+   ||||
+   ||||
+
+<a name="test-workflow-locally"></a>
+
+## Test your workflow
+
+
+
+For easier debugging when testing stateless workflows, you can [enable the run history capability](#enable-run-history).
 
 <a name="enable-run-history"></a>
 
 ## Enable run history for stateless workflows
 
-In your workflow's JSON definition, you can change the trigger's default behavior by adding the [**`operationOptions`** property](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) to the [trigger's JSON definition](../logic-apps/logic-apps-workflow-actions-triggers.md#triggers-overview). To enable run history for a stateless workflow, set the `operationOptions` property value to `WithStatelessRunHistory`, for example:
+In your workflow app's JSON definition (`workflow.json`) file, you can change the trigger's default behavior by adding the [**`operationOptions`** property](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) to the [trigger's JSON definition](../logic-apps/logic-apps-workflow-actions-triggers.md#triggers-overview). To enable run history for a stateless workflow, set the `operationOptions` property value to `WithStatelessRunHistory`, for example:
 
 ```json
 "triggers": {
@@ -263,8 +299,6 @@ In your workflow's JSON definition, you can change the trigger's default behavio
    }
 },
 ```
-
-## Test your workflow
 
 ## Deploy to Docker container
 
