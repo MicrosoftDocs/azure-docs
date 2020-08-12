@@ -30,9 +30,9 @@ Azure AD Connect Health for Sync is integrated with Azure AD Connect installatio
 For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
 ## April 2020
-**Agent Update
+**Agent Update**
 
-*Azure AD Connect Health agent for AD FS (version 3.1.77.0)
+- Azure AD Connect Health agent for AD FS (version 3.1.77.0)
 
 1.	Bug fix for “Invalid Service Principal Name (SPN) for AD FS service” alert, for which the alert was reporting incorrectly.
 
