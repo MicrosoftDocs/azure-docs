@@ -48,7 +48,7 @@ Attribute mapping expressions can have a maximum of 10,000 characters.
 
 ## Service issues 
 
-### Unsupported options
+### Unsupported scenarios
 Provisioning passwords is not supported. 
 
 Provisioning nested groups is not supported. 
