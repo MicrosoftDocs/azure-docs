@@ -19,7 +19,7 @@ ms.reviewer: aragra, lenalepa, sureshja
 
 # Quickstart: Configure an application to expose a web API
 
-In this quickstart, you register a web API with the Microsoft identity platform and expose it to client apps by adding an example scope. By registering your web API and and exposing its through scopes, you can provide permissions-based access to its resources to authenticated users or client apps that access your API.
+In this quickstart, you register a web API with the Microsoft identity platform and expose it to client apps by adding an example scope. By registering your web API and and exposing it through scopes, you can provide permissions-based access to its resources to authenticated users or client apps that access your API.
 
 ## Prerequisites
 
