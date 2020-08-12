@@ -32,11 +32,13 @@ The [Review tool](https://contentmoderator.cognitive.microsoft.com), when used i
 
 ## Review tool dashboard
 
-On the **Dashboard** tab, you can see key metrics for content reviews done within the tool. See the number of total, complete, and pending reviews for image, text, and video content. A table shows the breakdown of users and teams that have pending or completed reviews, as well as the SLA time remaining. You can click the items in the table to go to their reviews.
+On the **Dashboard** tab, you can see key metrics for content reviews done within the tool. See the number of total, complete, and pending reviews for image, text, and video content. 
 
-The search box above the table lets you filter results by team name.
+The **Pending reviews** table shows the breakdown of users and subteams that have pending or completed reviews, as well as the SLA time remaining. You can click the items in the table to go to their reviews. The search box above the table lets you filter results by team name, and the **Filter** icon lets you filter by other metrics.
 
-Clicking the text in the upper right corner displays the Daily Personal Metrics, which reports the number of reviews completed for each content type.
+Switching to the **Completed reviews** tab shows the total number of items processed or completed by users and subteams. You can filter this data the same as the pending reviews.
+
+Clicking the text in the upper right corner of the dashboard displays the Daily Personal Metrics, which reports the number of reviews completed for each content type.
 
 ![The review tool dashboard in a browser](images/0-dashboard.png)
 
