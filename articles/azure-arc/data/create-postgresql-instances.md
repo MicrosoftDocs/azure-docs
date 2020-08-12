@@ -11,7 +11,7 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc
+# Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc
 
 This document describes the steps to deploy a PostgreSQL Hyperscale server group on Azure Arc.
 

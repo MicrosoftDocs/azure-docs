@@ -23,13 +23,13 @@ You need to have installed Azure Data Studio, kubectl and azdata **on the client
 ## Update the PATH environment variable
 Makes sure that these tools can be invoked from anywhere on this client machine. For example, on a Windows client machine, update the PATH system environment variable and add the folder in which you installed kubectl.
 
-## Login with Azdata
-Login to your Arc Data Controller from this client machine and before you launch Azure Data Studio. To do this, run a command like:
+## Log in with Azdata
+Log in to your Arc Data Controller from this client machine and before you launch Azure Data Studio. To do this, run a command like:
 
 ```console
 azdata login --endpoint https://12.345.67.890:30080
 ```
-Replacing the IP address with the one of your Kubernetes cluster and the port on which Kubernetes is listening. You will be prompted for user and password. You can read more details by running:
+Replace the IP address and port with the values of your Kubernetes cluster. You will be prompted for user and password. For more details, run:
 
 ```console
 azdata login --help

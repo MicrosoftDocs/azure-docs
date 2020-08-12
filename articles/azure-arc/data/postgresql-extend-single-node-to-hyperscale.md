@@ -1,6 +1,6 @@
 ---
-title: Scaling out from Azure Database for Postgres single node instance to Azure Database for PostgreSQL Hyperscale server group
-description: Scaling out from Azure Database for Postgres single node instance to Azure Database for PostgreSQL Hyperscale server group
+title: Scale out PostgreSQL single node instance to Hyperscale server group
+description: Scaling out from Azure Database for PostgreSQL single node instance to Azure Database for PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -11,14 +11,15 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Scaling out from Azure Database for Postgres single node instance to Azure Database for PostgreSQL Hyperscale server group
+# Scale out from Azure Database for PostgreSQL single node instance to Azure Database for PostgreSQL Hyperscale server group
 
-These instructions utilize the PostgreSQL single node instance that was [provisioned in an earlier guide](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/blob/jul-2020/scenarios/004-create-Postgres-instances.md#create-a-azure-database-for-postgresql-instance-single-node-not-hyperscale).
+These instructions use the PostgreSQL single node instance that was created by following the steps in[Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-instances.md).
 
-## Morphing from single node instance to Hyperscale
+The Citus extension enables they Hyperscale server group. For more information see [Nodes in Azure Database for PostgreSQL – Hyperscale (Citus)](../../postgresql/concepts-hyperscale-nodes.md). 
 
-To transform your single node Azure Database for Postgres single node instance into an Azure Database for Postgres Hyperscale server group (enabled with the Citus extension) update the definition of your single node instance and expand it to the desired target number of nodes using the -w parameter.
-For example:
+## Morph single node instance to Hyperscale
+
+To transform your single node Azure Database for PostgreSQL single node instance into a Hyperscale server group, update the definition of your single node instance and expand it to the desired target number of nodes using the `-w` parameter.
 
 ### Expand from single node to Hyperscale
 
@@ -28,7 +29,7 @@ Run the following command to expand to 2 worker nodes:
 azdata postgres server edit -n postgres02 -w 2
 ```
 
-As you see, now, Kubernetes is using 3 pods to host the server instance: one of the Citus Coordinator node and 2 for the Citus Worker nodes.
+The results below show, Kubernetes is using three pods to host the server instance. One for Citus Coordinator node, and two for the Citus Worker nodes.
 
 ```console
 kubectl get pods -A
@@ -38,8 +39,9 @@ default         postgres02-1                           3/3     Running   0      
 default         postgres02-2                           3/3     Running   0          46s
 ```
 
-## Next
+## Next steps
 
-You now need to adjust the definition of your tables to distribute them across the new nodes. For further considerations about scaling out an Azure Database for Postgres Hyperscale server group please the [Scale out Postgres Hyperscale](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/blob/jul-2020/scenarios/008-scale-out-Postgres-Hyperscale.md) scenario.
+You now need to adjust the definition of your tables to distribute them across the new nodes. For further considerations, see [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale.md).
 
->**Note:** It is not yet possible to scale back from an Azure Database for Postgres Hyperscale server group to an Azure Database for Postgres single node. If you need to do so, you need extract your data, drop the server group, deploy a single node instance and import the data. If you need to scale back before you have distributed the data on multiple nodes, you can backup the database and restore it once you have deployed the single node instance.
+> [!NOTE]
+> Azure Database for PostgreSQL Hyperscale on Azure Arc (preview) does not support scale back to an Azure Database for PostgreSQL single node. If you need to do so, extract your data, drop the server group, deploy a single node instance, and import the data. If you need to scale back before you have distributed the data on multiple nodes, you can back up the database and restore it to a single node instance.

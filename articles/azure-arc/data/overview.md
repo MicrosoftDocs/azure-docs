@@ -26,5 +26,7 @@ On Azure Arc enabled data services run:
 ## Next steps
 
 [Scenario: Create the Azure Arc data controller](create-data-controller.md)
+
 [Scenario: Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md)
+
 [Scenario: Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-instances.md)

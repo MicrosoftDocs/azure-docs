@@ -11,16 +11,17 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ---
 
-# Scenario: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata)
+# Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata)
 
 There are times when you may need to change the characteristics or the definition of a server group:
 
-- Scale up or down the number of vCore that each of the coordinator or the worker nodes use
-- Scale up or down the memory that each of the coordinator or the worker nodes use
+- Scale up or down the number of vCore that each coordinator or worker node uses
+- Scale up or down the memory that each coordinator worker node uses
 - Resize the storage volume used for the data or the backups of the server group
-This guide explains you how to scale vCore and memory. We'll explain how to resize a storage volume in a later iteration of this guide.
 
-Scaling up or down the vCore or memory settings of your server group means you have the possibility to set a min and/or a max for each of the vCore and memory settings. If you want to configure your server group to use a specific number of vCore or a specific amount of memory you would set the min settings equal to the max settings.
+This guide explains you how to scale vCore and memory.
+
+Scaling up or down the vCore or memory settings of your server group means you have the possibility to set a min and or a max for each of the vCore and memory settings. If you want to configure your server group to use a specific number of vCore or a specific amount of memory you would set the min settings equal to the max settings.
 
 ## Show the current definition of the server group
 
@@ -72,12 +73,12 @@ If you set min settings that are different from the max settings, your server gr
 
 The resources (vCores and memory) that will actually be used by your server group are up to the max settings and depend on the workloads and the resources available on the cluster. If you do not cap the settings with a max, your server group may use up to all the resources that the Kubernetes cluster on the Kubernetes nodes it gets scheduled on.
 
-Those vCore and memory settings apply per nodes, coordinator node and worker nodes. At this point we do not support setting the definitions of the coordinator node and the worker nodes separately. This is an element on the road map.
+The vCore and memory settings apply per coordinator node and worker nodes. Currently, Azure Acr (preview) does not support setting the definitions of the coordinator node and the worker nodes separately.
 
-In a default configuration, only the minimum memory is set to 256Mi as it is the minimum amount of memory that is recommended to run PostgreSQL Hyperscale.
+In a default configuration, only the minimum memory is set to 256 MB as it is the minimum amount of memory that is recommended to run PostgreSQL Hyperscale.
 
 > [!NOTE]
->  Setting a minimum does not mean the server group will necessarily use that minimum. It means that if the server group needs it, it is guaranteed to be allocated at least this minimum. For example, let's consider we set --minCpu 2. It does not mean that the server group will be using at least 2 vCores at all times. I instead means that the sever group may start using less than 2 vCores if it does not need them and it is guaranteed to be allocated at least 2 vCores if it needs later on. It implies that the Kubernetes cluster allocates resources to other workloads in such a way that it can allocate 2 vCores to the server group if it ever needs them._
+> Setting a minimum does not mean the server group will necessarily use that minimum. It means that if the server group needs it, it is guaranteed to be allocated at least this minimum. For example, let's consider we set `--minCpu 2`. It does not mean that the server group will be using at least 2 vCores at all times. I instead means that the sever group may start using less than 2 vCores if it does not need them and it is guaranteed to be allocated at least 2 vCores if it needs later on. It implies that the Kubernetes cluster allocates resources to other workloads in such a way that it can allocate 2 vCores to the server group if it ever needs them.
 
 ## Scale up the server group
 
@@ -160,4 +161,4 @@ azdata postgres server update --help
 
 ## Next steps
 
-Try out other [scenarios](https://github.com/microsoft/Azure-data-services-on-Azure-Arc/tree/master/scenarios)
+[Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale.md)
