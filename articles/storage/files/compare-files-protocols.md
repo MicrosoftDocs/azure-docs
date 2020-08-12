@@ -70,6 +70,8 @@ Also, the following Azure Files features are not available with NFS shares:
 
 ### Use cases
 
+Do not Use SMB if you need Unix style permissions (UID/GID), Case sensitivity, or POSIX delete behavior.
+
 #### Container storage 
 
 Containers deliver "build once, run anywhere" capabilities that enable developers to accelerate innovation. For the containers that access raw data at every start, a shared file system allows these containers to access the file system no matter which instance they run on. NFS is ideal for container storage because it provides persistent shared access to file data and has very low attach-detach latencies.
