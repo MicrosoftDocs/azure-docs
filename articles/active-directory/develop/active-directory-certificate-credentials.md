@@ -39,10 +39,10 @@ To compute the assertion, you can use one of the many JWT libraries in the langu
 | Parameter |  Remarks |
 | --- | --- |
 | `aud` | Audience: Should be `https://login.microsoftonline.com/<your-tenant-id>/oauth2/token` |
-| `exp` | Expiration date: The date when the token expires. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token validity expires.|
+| `exp` | Expiration date: The date when the token expires. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token validity expires. We recommend using a short expiration time - 10 minutes to one hour.|
 | `iss` | Issuer: Should be the client_id (*Application (client) ID* of the client service) |
 | `jti` | GUID: The JWT ID |
-| `nbf` | Not Before: The date before which the token cannot be used. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the token was issued. |
+| `nbf` | Not Before: The date before which the token cannot be used. The time is represented as the number of seconds from January 1, 1970 (1970-01-01T0:0:0Z) UTC until the time the assertion was created. |
 | `sub` | Subject: As for `iss`, should be the client_id (*Application (client) ID* of the client service) |
 
 ### Signature
@@ -99,8 +99,8 @@ In the Azure app registration for the client application:
 
 Having hold of a certificate, you need to compute:
 
-- `$base64Thumbprint`, which is the Base64 encoding of the certificate hash
-- `$base64Value`, which is the Base64 encoding of the certificate raw data
+- `$base64Thumbprint` - Base64-encoded value of the certificate hash
+- `$base64Value` - Base64-encoded value of the certificate raw data
 
 You also need to provide a GUID to identify the key in the application manifest (`$keyId`).
 
@@ -126,9 +126,3 @@ In the Azure app registration for the client application:
 ## Next steps
 
 The [.NET Core daemon console application using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub shows how an application uses its own credentials for authentication. It also shows how you can [create a self-signed certificate](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) using the `New-SelfSignedCertificate` PowerShell cmdlet. You can also use the [app creation scripts](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) in the sample repo to create certificates, compute the thumbprint, and so on.
-
-You must calculate the X5T header by converting it to a Base64 string using the certificate's hash. For example, the code to perform this in C# is:
-
-```csharp
-System.Convert.ToBase64String(cert.GetCertHash());
-```
