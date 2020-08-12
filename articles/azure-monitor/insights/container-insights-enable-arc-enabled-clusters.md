@@ -58,7 +58,7 @@ Before you start, make sure that you have the following:
     >[!IMPORTANT]
     >The minimum agent version supported for monitoring Arc-enabled Kubernetes clusters is ciprod04162020 or later.
 
-- [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-6) is required if you enable monitoring using the PowerShell scripted method.
+- [PowerShell Core](/powershell/scripting/install/installing-powershell?view=powershell-6) is required if you enable monitoring using the PowerShell scripted method.
 
 - [Bash version 4](https://www.gnu.org/software/bash/) is required if you enable monitoring using the Bash scripted method.
 

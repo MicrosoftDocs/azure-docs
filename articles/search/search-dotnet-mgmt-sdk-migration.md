@@ -9,7 +9,7 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/01/2020
+ms.date: 07/08/2020
 ---
 
 # Upgrading versions of the Azure Search .NET Management SDK
@@ -23,7 +23,7 @@ Management SDKs target a specific version of the Management REST API. For more i
 | SDK version | Corresponding REST API version | Feature addition or behavior change |
 |-------------|--------------------------------|-------------------------------------|
 | [3.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | api-version=2020-30-20 | Adds endpoint security (IP firewalls and integration with [Azure Private Link](../private-link/private-endpoint-overview.md)) |
-| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | api-version=2019-10-01 | Usability improvements |
+| [2.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | api-version=2019-10-01 | Usability improvements. Breaking change on [List Query Keys](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) (GET is discontinued). |
 | [1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | api-version=2015-08-19  | First version |
 
 ## How to upgrade

@@ -6,7 +6,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/20/2019
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurecli
 ---
 
 # Manage web traffic with an application gateway using the Azure CLI

@@ -7,7 +7,7 @@ ms.date: 06/23/2020
 
 # Integrate Azure VMware Solution (AVS) in a hub and spoke architecture
 
-In this article, we provide recommendations for integrating an Azure VMware Solution (AVS) deployment in an existing or a new [Hub and Spoke architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/shared-services) on Azure. 
+In this article, we provide recommendations for integrating an Azure VMware Solution (AVS) deployment in an existing or a new [Hub and Spoke architecture](/azure/architecture/reference-architectures/hybrid-networking/shared-services) on Azure. 
 
 The Hub and Spoke scenario assume a hybrid cloud environment with workloads on:
 
@@ -19,7 +19,7 @@ The Hub and Spoke scenario assume a hybrid cloud environment with workloads on:
 
 The *Hub* is an Azure Virtual Network that acts as a central point of connectivity to your on-premises and AVS private cloud. The *Spokes* are virtual networks peered with the Hub to enable cross-virtual network communication.
 
-Traffic between the on-premises datacenter, AVS private cloud, and the Hub goes through ExpressRoute connections. Spoke virtual networks usually contain IaaS based workloads but can have PaaS services like [App Service Environment](../app-service/environment/intro.md), which has direct integration with Virtual Network, or other PaaS services with [Azure Private Link](https://docs.microsoft.com/azure/private-link/) enabled. 
+Traffic between the on-premises datacenter, AVS private cloud, and the Hub goes through ExpressRoute connections. Spoke virtual networks usually contain IaaS based workloads but can have PaaS services like [App Service Environment](../app-service/environment/intro.md), which has direct integration with Virtual Network, or other PaaS services with [Azure Private Link](../private-link/index.yml) enabled. 
 
 The diagram shows an example of a Hub and Spoke deployment in Azure connected to on-premises and AVS through ExpressRoute.
 
@@ -45,7 +45,7 @@ The architecture has the following main components:
 
     -   **IaaS Spoke:** An IaaS spoke will host Azure IaaS based workloads, including VM Availability Sets and virtual machine scale sets, and the corresponding network components.
 
-    -   **PaaS Spoke:** A PaaS Spoke hosts Azure PaaS services using private addressing thanks to [Private Endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) and [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview).
+    -   **PaaS Spoke:** A PaaS Spoke hosts Azure PaaS services using private addressing thanks to [Private Endpoint](../private-link/private-endpoint-overview.md) and [Private Link](../private-link/private-link-overview.md).
 
 -   **Azure Firewall:** Acts as the central piece to segment traffic between the Spokes, on-prem, and AVS.
 
@@ -53,7 +53,7 @@ The architecture has the following main components:
 
 ## Network and security considerations
 
-ExpressRoute connections enable traffic to flow between on-premises, AVS, and the Azure network fabric. AVS uses [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) to implement this connectivity.
+ExpressRoute connections enable traffic to flow between on-premises, AVS, and the Azure network fabric. AVS uses [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) to implement this connectivity.
 
 On-premises connectivity may use ExpressRoute Global Reach as well, but it is not mandatory.
 
@@ -67,11 +67,11 @@ On-premises connectivity may use ExpressRoute Global Reach as well, but it is no
   :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="AVS to Hub virtual network traffic flow":::
 
 
-You can find more details about AVS networking and interconnectivity concepts in the [AVS product documentation](https://docs.microsoft.com/azure/azure-vmware/concepts-networking).
+You can find more details about AVS networking and interconnectivity concepts in the [AVS product documentation](./concepts-networking.md).
 
 ### Traffic segmentation
 
-[Azure Firewall](https://docs.microsoft.com/azure/firewall/) is the central piece of the Hub and Spoke topology, deployed on the Hub virtual network. Use Azure Firewall or another Azure supported network virtual appliance to establish traffic rules and segment the communication between the different spokes, on-premises, and AVS workloads.
+[Azure Firewall](../firewall/index.yml) is the central piece of the Hub and Spoke topology, deployed on the Hub virtual network. Use Azure Firewall or another Azure supported network virtual appliance to establish traffic rules and segment the communication between the different spokes, on-premises, and AVS workloads.
 
 Create route tables to direct the traffic to Azure Firewall.  For the Spoke virtual networks, create a route that sets the default route to the internal interface of Azure Firewall, this way when a workload in the Virtual Network needs to reach the AVS address space the firewall can evaluate it and apply the corresponding traffic rule to either allow or deny it.  
 
@@ -99,7 +99,7 @@ Azure Application Gateway V1 and V2 have been tested with web apps that run on A
 
 Access AVS environment with Jumpbox, which is a Windows 10 or Windows Server VM deployed in the shared service subnet within the Hub virtual network.
 
-As a security best practice, deploy [Microsoft Azure Bastion](https://docs.microsoft.com/azure/bastion/) service within the Hub virtual network. Azure Bastion provides seamless RDP and SSH access to VMs deployed on Azure without the need to provision public IP addresses to those resources. Once you provision the Azure Bastion service, you can access the selected VM from the Azure portal. After establishing the connection, a new tab opens, showing the Jumpbox desktop, and from that desktop, you can access the AVS private cloud management plane.
+As a security best practice, deploy [Microsoft Azure Bastion](../bastion/index.yml) service within the Hub virtual network. Azure Bastion provides seamless RDP and SSH access to VMs deployed on Azure without the need to provision public IP addresses to those resources. Once you provision the Azure Bastion service, you can access the selected VM from the Azure portal. After establishing the connection, a new tab opens, showing the Jumpbox desktop, and from that desktop, you can access the AVS private cloud management plane.
 
 > [!IMPORTANT]
 > Do not give a public IP address to the Jumpbox VM or expose 3389/TCP port to the public internet. 
@@ -132,21 +132,19 @@ On-premises and AVS servers can be configured with conditional forwarders to res
 
 ## Identity considerations
 
-For identity purposes, the best approach is to deploy at least one AD domain controller on the Hub, using the shared service subnet, ideally two of them in zone-distributed fashion or a VM availability set. See [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain) for extending your on-premises AD domain to Azure.
+For identity purposes, the best approach is to deploy at least one AD domain controller on the Hub, using the shared service subnet, ideally two of them in zone-distributed fashion or a VM availability set. See [Azure Architecture Center](/azure/architecture/reference-architectures/identity/adds-extend-domain) for extending your on-premises AD domain to Azure.
 
 Additionally, deploy another domain controller on the AVS side to act as identity and DNS source within the vSphere environment.
 
 For vCenter and SSO, set an identity source in the Azure portal, on **Manage \> Identity \> Identity Sources**.
 
-As a recommended best practice, integrate [AD domain with Azure Active Directory](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad).
+As a recommended best practice, integrate [AD domain with Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
 
 <!-- LINKS - external -->
-[Azure Architecture Center]: https://docs.microsoft.com/azure/architecture/
+[Azure Architecture Center]: /azure/architecture/
 
-[Hub & Spoke topology]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+[Hub & Spoke topology]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
 
-[Azure networking documentation]: https://docs.microsoft.com/azure/networking/
+[Azure networking documentation]: ../networking/index.yml
 
 <!-- LINKS - internal -->
-
-

@@ -2,7 +2,7 @@
 title: Create a pool with specified public IP addresses
 description: Learn how to create a Batch pool that uses your own public IP addresses.
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 07/20/2020
 ---
 
 # Create an Azure Batch pool with specified public IP addresses
@@ -66,9 +66,11 @@ Request Body
         "nodeAgentSKUId": "batch.node.ubuntu 16.04"
       },
 "networkConfiguration": {
-          "subnetId": "/subscriptions/subid/resourceGroups/rg1234/providers/Microsoft.Network/virtualNetworks/network1234/subnets/subnet123",
-          "publicIPs": [
-            "/subscriptions/subid1/resourceGroups/rg13/providers/Microsoft.Network/publicIPAddresses/ip135"
+          "subnetId": "/subscriptions/<subId>/resourceGroups/<rgId>/providers/Microsoft.Network/virtualNetworks/<vNetId>/subnets/<subnetId>",
+          "publicIPAddressConfiguration": {
+            "provision": "usermanaged",
+            "ipAddressIds": [
+              "/subscriptions/<subId>/resourceGroups/<rgId>/providers/Microsoft.Network/publicIPAddresses/<publicIpId>"
           ]
         },
 

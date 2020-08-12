@@ -32,25 +32,25 @@ The password that was first set through the Windows PowerShell interface during 
 
 2. From the tabular listing of devices, select and click the device whose password you intend to change.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd1.png)
+    ![Screenshot showing the StorSimple Device Manager service. Under Management, Devices is selected. In the device list, one device is selected.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. In the **Settings** blade, go to **Device settings > Security**.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd2.png)
+    ![Screenshot showing the Settings blade of the Device Manager service. Under Device Settings, Security is selected.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. In the **Security settings** blade, click **Password** to change the device administrator password.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd3.png)
+    ![Screenshot showing the Security Settings blade. The Password button is highlighted.](./media/storsimple-8000-change-passwords/changepwd3.png)
 
 5. In the **Password** blade, provide an administrator password that contains from 8 to 15 characters. The password must be a combination of 3 or more of uppercase, lowercase, numeric, and special characters.
 
 6. Confirm the password.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd4.png)
+    ![Screenshot showing the Password blade. Under Device Admin Password, the New Password and Confirm Password boxes are filled in.](./media/storsimple-8000-change-passwords/changepwd4.png)
 
 7. Click **Save** and when prompted for confirmation, click **Yes**.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd6.png)
+    ![Screenshot showing the Password blade. The Save button is highlighted.](./media/storsimple-8000-change-passwords/changepwd6.png)
 
 The device administrator password should now be updated. You can use this modified password to access the Windows PowerShell interface.
 
@@ -66,25 +66,25 @@ You can set or change the password for StorSimple Snapshot Manager via the Azure
 
 2. From the tabular listing of devices, select and click the device whose StorSimple Snapshot Manager password you intend to set or change.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd1.png)
+     ![Screenshot showing the StorSimple Device Manager service. Under Management, Devices is selected. In the device list, one device is selected.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. In the **Settings** blade, go to **Device settings > Security**.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd2.png)
+     ![Screenshot showing the Settings blade of the Device Manager service. Under Device Settings, Security is selected.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. In the **Security settings** blade, click **Password** to set or change the StorSimple Snapshot Manager password.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd3.png) 
+     ![Screenshot showing the Security Settings blade. The Password button is highlighted.](./media/storsimple-8000-change-passwords/changepwd3.png) 
 
 5. In the **Password** blade, enter a password that is 14 or 15 characters. Make sure that the password contains a combination of 3 or more of uppercase, lowercase, numeric, and special characters.
 
 6. Confirm the password.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd5.png)
+     ![Screenshot showing the Password blade. Under Snapshot Manager Password, the New Password and Confirm Password boxes are filled in.](./media/storsimple-8000-change-passwords/changepwd5.png)
 
 7. Click **Save** and when prompted for confirmation, click **Yes**.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd6.png)
+     ![Screenshot showing the Password blade. The Save button is highlighted.](./media/storsimple-8000-change-passwords/changepwd6.png)
 
 The StorSimple Snapshot Manager password should now be updated.
 

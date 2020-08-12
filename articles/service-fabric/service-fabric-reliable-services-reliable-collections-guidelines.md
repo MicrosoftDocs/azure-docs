@@ -59,4 +59,4 @@ When deciding to use volatile reliable collections, consider the following:
   * [Reliable State Manager configuration](service-fabric-reliable-services-configuration.md)
 * Others
   * [Reliable Services quickstart](service-fabric-reliable-services-quick-start.md)
-  * [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  * [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)

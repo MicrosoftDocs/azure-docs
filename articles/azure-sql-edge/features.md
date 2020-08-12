@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
+ms.date: 07/13/2020
 ---
 
 # Supported features of Azure SQL Edge (Preview) 
@@ -31,15 +31,17 @@ Azure SQL Edge is available with two different editions or software plans. These
 
 ## Operating system
 
-Azure SQL Edge containers are currently based on Ubuntu 16.04, and as such are only supported to run on Docker hosts running either Ubuntu 16.04 (recommended) or Ubuntu 18.04. Azure SQL Edge can also run on other operating system hosts. For example, it can run on other distributions of Linux or on Windows (by using Docker CE or Docker EE). Note, however, that Microsoft hasn't extensively tested these configurations.
+Azure SQL Edge containers are currently based on Ubuntu 16.04, and as such are only supported to run on Docker hosts running either Ubuntu 16.04 LTS (recommended) or Ubuntu 18.04 LTS. It's possible to run Azure SQL Edge containers on other operating system hosts, for example, it can run on other distributions of Linux or on Windows (using Docker CE or Docker EE), however Microsoft does not recommend that you do this, as this configuration may not be extensively tested.
 
 Azure SQL Edge is currently only supported for deployment through Azure IoT Edge. For more information, see [Azure IoT Edge supported systems](https://docs.microsoft.com/azure/iot-edge/support).
 
 The recommended configuration for running Azure SQL Edge on Windows is to configure an Ubuntu VM on the Windows host, and then run Azure SQL Edge inside the Linux VM.
 
+The recommended and supported file system for Azure SQL Edge is EXT4 and XFS. If persistent volumes are being used to back the Azure SQL Edge database storage, then the underlying host file system needs to be EXT4 and XFS.
+
 ## Hardware support
 
-Azure SQL Edge requires a 64-bit processor, which can be from Intel, AMD, or ARM, with a minimum of one processor and one GB of RAM on the host. While the startup memory footprint of Azure SQL Edge is close to 500 MB, the additional memory is needed for other IoT Edge modules running on the edge device.
+Azure SQL Edge requires a 64-bit processor (either x64 or ARM64), with a minimum of one processor and one GB RAM on the host. While the startup memory footprint of Azure SQL Edge is close to 500 MB, the additional memory is needed for other IoT Edge modules running on the edge device. The actual memory and CPU requirements for Azure SQL Edge will vary based on the complexity of the workload and volume of data being processed. When choosing a hardware for your solution, Microsoft recommends that you run extensive performance tests to ensure that the required performance characteristics for your solution are met.  
 
 ## Azure SQL Edge components
 

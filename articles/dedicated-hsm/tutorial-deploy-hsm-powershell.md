@@ -12,8 +12,8 @@ ms.topic: tutorial
 ms.custom: "mvc, seodec18"
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
-ms.author: mbaldwin
+ms.date: 07/14/2020
+ms.author: johndaw
 ---
 
 # Tutorial – Deploying HSMs into an existing virtual network using PowerShell
@@ -58,13 +58,7 @@ As mentioned above, any provisioning activity requires that the Dedicated HSM se
 Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
 ```
 
-The following command verifies the networking features required for the Dedicated HSM service.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
-```
-
-Both commands should return a status of “Registered” (as shown below) before you proceed any further.  If you need to register for this service, contact your Microsoft account representative.
+The command should return a status of “Registered” (as shown below) before you proceed any further.  If you are not registered for this service please contact your Microsoft account representative.
 
 ![subscription status](media/tutorial-deploy-hsm-powershell/subscription-status.png)
 

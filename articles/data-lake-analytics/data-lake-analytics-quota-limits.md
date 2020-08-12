@@ -5,7 +5,7 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: how-to

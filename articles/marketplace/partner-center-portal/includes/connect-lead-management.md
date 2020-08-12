@@ -7,7 +7,8 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 08/16/2019
 ms.custom: include file
-
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 When you publish your offer to the marketplace via Partner Center, you need to connect your offer to your CRM system. In this way, you can receive customer contact information immediately after a customer expresses interest or deploys your product.

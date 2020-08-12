@@ -17,7 +17,7 @@ There's also a [troubleshooting guide](https://github.com/feiskyer/kubernetes-ha
 
 ## I'm getting a "quota exceeded" error during creation or upgrade. What should I do? 
 
- [Request more cores](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+ [Request more cores](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 ## What is the maximum pods-per-node setting for AKS?
 
@@ -29,7 +29,7 @@ The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster
 This error indicates a subnet in use for a cluster no longer has available IPs within its CIDR for successful resource assignment. For Kubenet clusters, the requirement is sufficient IP space for each node in the cluster. For Azure CNI clusters, the requirement is sufficient IP space for each node and pod in the cluster.
 Read more about the [design of Azure CNI to assign IPs to pods](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-These errors are also surfaced in [AKS Diagnostics](https://docs.microsoft.com/azure/aks/concepts-diagnostics) which proactively surfaces issues such as an insufficient subnet size.
+These errors are also surfaced in [AKS Diagnostics](./concepts-diagnostics.md) which proactively surfaces issues such as an insufficient subnet size.
 
 The following three (3) cases cause an insufficient subnet size error:
 
@@ -75,7 +75,11 @@ AKS has HA control planes that scale vertically according to the number of cores
     - https://github.com/helm/helm/issues/4821
     - https://github.com/helm/helm/issues/3500
     - https://github.com/helm/helm/issues/4543
+- **[Is internal traffic between nodes being blocked?](#im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout)**
 
+## I'm receiving `TCP timeouts`, such as `dial tcp <Node_IP>:10250: i/o timeout`
+
+These timeouts may be related to internal traffic between nodes being blocked. Verify that this traffic is not being blocked, such as by [network security groups](concepts-security.md#azure-network-security-groups) on the subnet for your cluster's nodes.
 
 ## I'm trying to enable Role-Based Access Control (RBAC) on an existing cluster. How can I do that?
 

@@ -42,5 +42,5 @@ Runbooks running on a Hybrid Runbook Worker in your datacenter or against comput
 ## Next steps
 
 * To create an Automation account from the Azure portal, see [Create a standalone Azure Automation account](automation-create-standalone-account.md).
-* If you prefer to create your account using a template, see [Create an Automation account using an Azure Resource Manager template](automation-create-account-template.md).
+* If you prefer to create your account using a template, see [Create an Automation account using an Azure Resource Manager template](quickstart-create-automation-account-template.md).
 * For authentication using Amazon Web Services, see [Authenticate runbooks with Amazon Web Services](automation-config-aws-account.md).

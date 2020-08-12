@@ -7,6 +7,7 @@ ms.service: static-web-apps
 ms.topic:  how-to
 ms.date: 05/29/2020
 ms.author: wachegha
+ms.custom: devx-track-javascript
 ---
 
 # Add an API to Azure Static Web Apps Preview with Azure Functions
@@ -128,7 +129,7 @@ With the above settings, the API endpoint is:
 
 ## Run the API locally
 
-Visual Studio Code integrates with [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local) to let you run this project on your local development computer before you publish to Azure.
+Visual Studio Code integrates with [Azure Functions Core Tools](../azure-functions/functions-run-local.md) to let you run this project on your local development computer before you publish to Azure.
 
 > [!TIP]
 > Make sure you have all the resources listed in the [prerequisites](#prerequisites) section installed before proceeding.

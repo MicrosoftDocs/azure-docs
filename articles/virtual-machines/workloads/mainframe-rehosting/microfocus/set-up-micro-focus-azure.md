@@ -39,7 +39,7 @@ Before getting started, check out these prerequisites:
     > [!Note]
     > There are a few options for controlling access to your VMs:
     > -   A best practice is to set up [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/).
-    > -   A [site-to-site virtual private network (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell)
+    > -   A [site-to-site virtual private network (VPN)](../../../../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md)
     tunnel.
     > -   A jumpbox VM.
 
@@ -126,8 +126,8 @@ When Enterprise Developer loads, your deployment of a Micro Focus development an
 
 **Next steps**
 
--   [Set up the BankDemo application](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/demo)
+-   [Set up the BankDemo application](./demo.md)
 
--   [Run Enterprise Server in Docker containers](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/run-enterprise-server-container)
+-   [Run Enterprise Server in Docker containers](./run-enterprise-server-container.md)
 
--   [Mainframe application migration](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
+-   [Mainframe application migration](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)

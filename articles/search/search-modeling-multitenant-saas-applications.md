@@ -39,12 +39,12 @@ There are a few different [pricing tiers](https://azure.microsoft.com/pricing/de
 
 |  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
-| Maximum Replicas per Service |3 |12 |12 |12 |12 |
-| Maximum Partitions per Service |1 |12 |12 |12 |3 |
-| Maximum Search Units (Replicas*Partitions) per Service |3 |36 |36 |36 |36 (max 3 partitions) |
-| Maximum Storage per Service |2 GB |300 GB |1.2 TB |2.4 TB |600 GB |
-| Maximum Storage per Partition |2 GB |25 GB |100 GB |200 GB |200 GB |
-| Maximum Indexes per Service |5 |50 |200 |200 |3000 (max 1000 indexes/partition) |
+| **Maximum Replicas per Service** |3 |12 |12 |12 |12 |
+| **Maximum Partitions per Service** |1 |12 |12 |12 |3 |
+| **Maximum Search Units (Replicas*Partitions) per Service** |3 |36 |36 |36 |36 (max 3 partitions) |
+| **Maximum Storage per Service** |2 GB |300 GB |1.2 TB |2.4 TB |600 GB |
+| **Maximum Storage per Partition** |2 GB |25 GB |100 GB |200 GB |200 GB |
+| **Maximum Indexes per Service** |5 |50 |200 |200 |3000 (max 1000 indexes/partition) |
 
 #### S3 High Density'
 In Azure Cognitive Search’s S3 pricing tier, there is an option for the High Density (HD) mode designed specifically for multitenant scenarios. In many cases, it is necessary to support a large number of smaller tenants under a single service to achieve the benefits of simplicity and cost efficiency.

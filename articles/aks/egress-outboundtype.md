@@ -57,7 +57,7 @@ Below is a network topology deployed in AKS clusters by default, which use an `o
 
 If `userDefinedRouting` is set, AKS won't automatically configure egress paths. The egress setup must be done by you.
 
-The AKS cluster must be deployed into an existing virtual network with a subnet that has been previously configured because when using standard load balancer (SLB) architecture, you must establish explicit egress. As such, this architecture requires explicitly sending egress traffic to an appliance like a firewall, gateway, proxy or to allow the Network Address Translation (NAT) to be done by a public IP assigned to the standard load balancer or appliance.
+The AKS cluster must be deployed into an existing virtual network with a subnet that has been previously configured because when not using standard load balancer (SLB) architecture, you must establish explicit egress. As such, this architecture requires explicitly sending egress traffic to an appliance like a firewall, gateway, proxy or to allow the Network Address Translation (NAT) to be done by a public IP assigned to the standard load balancer or appliance.
 
 The AKS resource provider will deploy a standard load balancer (SLB). The load balancer isn't configured with any rules and [doesn't incur a charge until a rule is placed](https://azure.microsoft.com/pricing/details/load-balancer/). AKS **won't** automatically provision a public IP address for the SLB frontend nor automatically configure the load balancer backend pool.
 
@@ -72,9 +72,9 @@ To illustrate the application of a cluster with outbound type using a user-defin
 
 ## Next steps
 
-See [Azure networking UDR overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+See [Azure networking UDR overview](../virtual-network/virtual-networks-udr-overview.md).
 
-See [how to create, change, or delete a route table](https://docs.microsoft.com/azure/virtual-network/manage-route-table).
+See [how to create, change, or delete a route table](../virtual-network/manage-route-table.md).
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
