@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2020
+ms.date: 08/12/2020
 ms.author: memildin
 
 ---
@@ -28,11 +28,11 @@ This page is updated regularly, so revisit it often. If you're looking for items
 ## July 2020
 
 Updates in July include:
-- [Vulnerability assessment for virtual machines is now available for non-marketplace images](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
+- [Vulnerability assessment for virtual machines is now available for non-marketplace images](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)auto        
 - [Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
 - [Eight new recommendations to enable threat protection features](#eight-new-recommendations-to-enable-threat-protection-features)
 - [Container security improvements - faster registry scanning and refreshed documentation](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
-- [Adaptive application controls updated with a new recommendation and support for wildcards in path rules](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
+- [New recommendation to update your adaptive application controls rules](#new-recommendation-to-update-your-adaptive-application-controls-rules)
 - [Six policies for SQL advanced data security deprecated](#six-policies-for-sql-advanced-data-security-deprecated)
 
 
@@ -111,16 +111,11 @@ Learn more about Security Center's container security in the following articles:
 
 
 
-### Adaptive application controls updated with a new recommendation and support for wildcards in path rules
+### New recommendation to update your adaptive application controls rules
 
-The adaptive application controls feature has received two significant updates:
+The adaptive application controls feature continuously monitors the activity of machines in configured groups. From this update, you'll be notified of potentially legitimate behavior that hasn't previously been allowed, and which might cause false positive alerts.
 
-- A new recommendation identifies potentially legitimate behavior that hasn't previously been allowed. The new recommendation, **Allowlist rules in your adaptive application control policy should be updated**, prompts you to add new rules to the existing policy to reduce the number of false positives in adaptive application controls violation alerts.
-
-- Path rules now support wildcards. From this update, you can configure allowed path rules using wildcards. There are two supported scenarios:
-
-    - Using a wildcard at the end of a path to allow all executables within this folder and sub-folders
-    - Using a wildcard in the middle of a path to enable a known executable name with a changing folder name (e.g. personal user folders with an known executable, automatically generated folder names, etc). 
+The new recommendation, **Allowlist rules in your adaptive application control policy should be updated**, prompts you to add new rules to the existing policy to reduce the number of false positives in adaptive application controls violation alerts.
 
 [Learn more about adaptive application controls](security-center-adaptive-application.md).
 
@@ -336,7 +331,7 @@ The security controls - and this toggle - are part of the new secure score exper
 
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
-![“Group by controls” toggle for recommendations](./media/secure-score-security-controls/recommendations-group-by-toggle.gif)
+![“Group by controls” toggle for recommendations](\media\secure-score-security-controls\recommendations-group-by-toggle.gif)
 
 ### Expanded security control "Implement security best practices" 
 
