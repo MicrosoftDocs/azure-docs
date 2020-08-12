@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 08/11/2020
+ms.date: 08/12/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -26,20 +26,15 @@ In addition to the data they contain, blobs support system properties and user-d
 >
 > To learn more about this feature, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
 
-Retrieving metadata and property values for a Blob storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the `FetchAttributes` or `FetchAttributesAsync` method. The exception to this rule is that the `Exists` and `ExistsAsync` methods call the appropriate `FetchAttributes` method under the covers. When you call one of these methods, you don't need to also call `FetchAttributes`.
-
-> [!IMPORTANT]
-> If you find that property or metadata values for a storage resource have not been populated, check that your code calls the `FetchAttributes` or `FetchAttributesAsync` method.
-
 ## Set and retrieve properties
 
 The following code example sets the `ContentType` and `ContentLanguage` system properties on a blob.
 
 # [.NET v12](#tab/dotnet)
 
-Properties are read-only in the v12 client library.
+To set properties on a blob, call [SetHttpHeaders](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheaders) or [SetHttpHeadersAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheadersasync). Any properties that are not explicitly set are cleared. The following code example first gets the existing properties on the blob and uses them to populate the headers that are not being updated.
 
-<!-- :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/.cs" id="Snippet_"::: -->
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_SetBlobProperties":::
 
 # [.NET v11](#tab/dotnet11)
 
@@ -70,13 +65,20 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
 ```
 ---
 
-To retrieve blob properties, call the `FetchAttributes` or `FetchAttributesAsync` method on your blob to populate the `Properties` property. The following code example gets a blob's system properties and displays some of the values:
+The following code example gets a blob's system properties and displays some of the values.
 
 # [.NET v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobProperties":::
 
 # [.NET v11](#tab/dotnet11)
+
+Retrieving metadata and property values for a Blob storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the `FetchAttributes` or `FetchAttributesAsync` method. The exception to this rule is that the `Exists` and `ExistsAsync` methods call the appropriate `FetchAttributes` method under the covers. When you call one of these methods, you don't need to also call `FetchAttributes`.
+
+> [!IMPORTANT]
+> If you find that property or metadata values for a storage resource have not been populated, check that your code calls the `FetchAttributes` or `FetchAttributesAsync` method.
+
+To retrieve blob properties, call the `FetchAttributes` or `FetchAttributesAsync` method on your blob to populate the `Properties` property.
 
 ```csharp
 private static async Task GetBlobPropertiesAsync(CloudBlob blob)
@@ -108,8 +110,16 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
 
 You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to the `Metadata` collection on the resource. Then, call one of the following methods to write the values:
 
+# [.NET v12](#tab/dotnet)
+
+- [SetMetadata](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.setmetadata)
+- [SetMetadataAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.setmetadataasync)
+
+# [.NET v11](#tab/dotnet11)
+
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
+---
 
 Metadata name/value pairs are valid HTTP headers and should adhere to all restrictions governing HTTP headers. Metadata names must be valid HTTP header names and valid C# identifiers, may contain only ASCII characters, and should be treated as case-insensitive. [Base64-encode](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) or [URL-encode](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode) metadata values containing non-ASCII characters.
 
