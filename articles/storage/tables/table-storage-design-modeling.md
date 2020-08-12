@@ -1,6 +1,6 @@
 ---
 title: Modeling relationships in Azure Table storage design | Microsoft Docs
-description: Understand the modeling process when designing your table storage solution.
+description: Understand the modeling process when designing your Azure Table storage solution. Read about one-to-many, one-to-one, and inheritance relationships.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
