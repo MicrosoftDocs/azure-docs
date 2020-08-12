@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-api-management-certs.md",
+      "redirect_url": "/previous-versions/azure/azure-api-management-certs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/infrastructure-example.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/infrastructure-example",
       "redirect_document_id": false
