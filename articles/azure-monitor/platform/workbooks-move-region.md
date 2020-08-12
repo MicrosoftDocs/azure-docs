@@ -7,7 +7,6 @@ manager: acearun
 
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.topic: conceptual
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/12/2020
