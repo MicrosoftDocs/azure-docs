@@ -24,6 +24,8 @@ If you're an administrator, or IT professional, then read on to learn more about
 ## Single sign-on basics
 Single sign-on provides a giant leap forward in how users sign in and use applications. Single sign-on based authentication systems are often called "modern authentication". Modern authentication and single sign-on fall into a category of computing called Identity and Access Management (IAM). To understand what makes single sign-on possible, check out this video.
 
+Authentication fundamentals: The basics | Azure Active Directory
+
 > [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
 
 ## Single sign-on with web applications
@@ -31,7 +33,11 @@ Web applications are incredibly popular. Web apps are hosted by various companie
 
 To learn about how single sign-on works with web apps, check out these two videos.
 
+Authentication fundamentals: Web applications | Azure Active Directory
+
 > [!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY]
+
+Authentication fundamentals: Web single sign-on | Azure Active Directory
 
 > [!VIDEO https://www.youtube.com/embed/51B-jSOBF8U]
 
@@ -50,6 +56,8 @@ You can also use single sign-on for on-premises based apps. The technology to ma
 
 ## Multiple identity providers
 When you set up single sign-on to work between multiple identity providers, it's called federation. To learn how federation works, check out this video.
+
+Authentication fundamentals: Federation | Azure Active Directory
 
 > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8]
 
