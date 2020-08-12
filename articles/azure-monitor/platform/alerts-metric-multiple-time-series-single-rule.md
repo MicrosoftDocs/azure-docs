@@ -29,10 +29,10 @@ An alert rule monitors a single time-series when it meets all the following cond
 -	Evaluates a metric without choosing dimensions (assuming the metric supports dimensions)
 
 An example of such an alert rule (with only the relevant properties shown):
--	Target resource: myVM1
--	Metric: Percentage CPU
--	Operator: Greater Than
--	Threshold: 70
+-	Target resource: *myVM1*
+-	Metric: *Percentage CPU*
+-	Operator: *Greater Than*
+-	Threshold: *70*
 
 
 For this alert rule, a single metric time-series is monitored:
