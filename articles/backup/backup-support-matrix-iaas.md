@@ -28,13 +28,6 @@ Back up Azure VM to backup server  | Back up files/folders/volumes; system state
 
 Learn more about backup [using a backup server](backup-architecture.md#architecture-back-up-to-dpmmabs) and about [support requirements](backup-support-matrix-mabs-dpm.md).
 
->[!NOTE]
-> **Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution.**
->
->Today, Azure Backup supports backing up all the disks (Operating System and data) in a VM together using the Virtual Machine backup solution. With exclude-disk functionality, you get an option to backup one or a few from the many data disks in a VM. This provides an efficient and cost-effective solution for your backup and restore needs. Each recovery point contains data of the disks included in the backup operation, which further allows you to have a subset of disks restored from the given recovery point during the restore operation. This applies to restore both from the snapshot and the vault.
->
->To sign up for the preview, write to us at AskAzureBackupTeam@microsoft.com
-
 ## Supported backup actions
 
 **Action** | **Support**
@@ -139,7 +132,7 @@ Restore VM in different virtual network |Supported.<br/><br/> The virtual networ
 
 **Compute** | **Support**
 --- | ---
-VM size |Any Azure VM size with at least 2 CPU cores and 1-GB RAM.<br/><br/> [Learn more.](../virtual-machines/windows/sizes.md)
+VM size |Any Azure VM size with at least 2 CPU cores and 1-GB RAM.<br/><br/> [Learn more.](../virtual-machines/sizes.md)
 Back up VMs in [availability sets](../virtual-machines/availability.md#availability-sets) | Supported.<br/><br/> You can't restore a VM in an available set by using the option to quickly create a VM. Instead, when you restore the VM, restore the disk and use it to deploy a VM, or restore a disk and use it to replace an existing disk.
 Back up VMs that are deployed with [Hybrid Use Benefit (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Supported.
 Back up VMs that are deployed in a [scale set](../virtual-machine-scale-sets/overview.md) |Supported. [Orchestration mode](../virtual-machine-scale-sets/orchestration-modes.md) should be set to 2 for Fault Domain. Availability set is unsupported.
@@ -196,7 +189,7 @@ Network traffic to Azure:
 - Backup traffic from servers to the Recovery Services vault is encrypted by using Advanced Encryption Standard 256.
 - Backup data is sent over a secure HTTPS link.
 - The backup data is stored in the Recovery Services vault in encrypted form.
-- Only you have the passphrase to unlock this data. Microsoft can't decrypt the backup data at any point.
+- Only you have the encryption key to unlock this data. Microsoft can't decrypt the backup data at any point.
 
   > [!WARNING]
   > After you set up the vault, only you have access to the encryption key. Microsoft never maintains a copy and doesn't have access to the key. If the key is misplaced, Microsoft can't recover the backup data.

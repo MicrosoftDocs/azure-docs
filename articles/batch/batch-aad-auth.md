@@ -125,9 +125,9 @@ To authenticate with a service principal, you need to assign RBAC to your applic
 1. From the **Role** drop-down, choose either the *Contributor* or *Reader* role for your application. For more information on these roles, see [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).
 1. In the **Select** field, enter the name of your application. Select your application from the list, and then select **Save**.
 
-Your application should now appear in your access control settings with an RBAC role assigned.
+Your application should now appear in your access control settings with an Azure role assigned.
 
-![Assign an RBAC role to your application](./media/batch-aad-auth/app-rbac-role.png)
+![Assign an Azure role to your application](./media/batch-aad-auth/app-rbac-role.png)
 
 ### Assign a custom role
 

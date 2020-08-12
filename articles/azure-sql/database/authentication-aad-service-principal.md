@@ -51,10 +51,10 @@ To enable an Azure AD object creation in SQL Database and Azure Synapse on behal
     - For a new Azure SQL logical server, execute the following PowerShell command:
     
     ```powershell
-    New-AzureRmSqlServer -ResourceGroupName <resource group>  -Location <Location name> -ServerName <Server name>  -ServerVersion "12.0" -SqlAdministratorCredentials (Get-Credential)  -AssignIdentity 
+    New-AzSqlServer -ResourceGroupName <resource group> -Location <Location name> -ServerName <Server name> -ServerVersion "12.0" -SqlAdministratorCredentials (Get-Credential) -AssignIdentity
     ```
 
-    For more information, see the [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserver) command.
+    For more information, see the [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) command.
 
     - For existing Azure SQL Logical servers, execute the following command:
     

@@ -9,7 +9,8 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: tamram
-ms.subservice: blobs
+ms.subservice: blobs 
+ms.custom: devx-track-azurecli
 ---
 
 # Configure object replication for block blobs (preview)

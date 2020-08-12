@@ -12,7 +12,7 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: rohink
-ms.custom: 
+ms.custom: devx-track-javascript
 ---
 
 # How to send Real User Measurements to Traffic Manager with Visual Studio Mobile Center

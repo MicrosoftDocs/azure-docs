@@ -89,5 +89,6 @@ You can link a Power BI workspace to your Azure Synapse workspace. This capabili
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Synapse Analytics (workspaces preview)](overview-what-is.md)
+> [Monitor](get-started-monitor.md)
+                                 
 

@@ -88,7 +88,7 @@ This document provides guidance to get your service running inside a Windows con
    </Policies>
    ```
 
-9. For configuring container isolation mode, see [Configure isolation mode]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows supports two isolation modes for containers: process and Hyper-V. The following snippets show how the isolation mode is specified in the application manifest file.
+9. For configuring container isolation mode, see [Configure isolation mode]( ./service-fabric-get-started-containers.md#configure-isolation-mode). Windows supports two isolation modes for containers: process and Hyper-V. The following snippets show how the isolation mode is specified in the application manifest file.
 
    ```xml
    <Policies>

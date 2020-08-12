@@ -577,6 +577,8 @@
         href: ezofficeinventory-tutorial.md
       - name: ExponentHR
         href: exponenthr-tutorial.md
+      - name: EY GlobalOne
+        href: globalone-tutorial.md
       - name: EZRentOut
         href: ezrentout-tutorial.md
 
@@ -670,10 +672,10 @@
         href: gigya-tutorial.md
       - name: GitHub
         href: github-tutorial.md
+      - name: GitHub Enterprise Cloud - Enterprise Account
+        href: github-enterprise-cloud-enterprise-account-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
-      - name: GlobalOne
-        href: globalone-tutorial.md
       - name: GoLinks
         href: golinks-tutorial.md
       - name: GoToMeeting
@@ -686,6 +688,8 @@
         href: greenhouse-tutorial.md
       - name: Greenlight Compliant Access Management
         href: greenlight-compliant-access-management-tutorial.md
+      - name: Greenlight Enterprise Business Controls Platform
+        href: greenlight-enterprise-business-controls-platform-tutorial.md
       - name: Greenlight Integration Platform
         href: greenlight-integration-platform-tutorial.md
       - name: GreenOrbit
@@ -828,8 +832,6 @@
         href: instavr-viewer-tutorial.md
       - name: insuite
         href: insuite-tutorial.md
-      - name: Intacct
-        href: intacct-tutorial.md
       - name: IntelligenceBank
         href: intelligencebank-tutorial.md
       - name: InTime
@@ -918,6 +920,8 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
+      - name: Kemp LoadMaster
+        href: kemp-tutorial.md
       - name: Khoros Care
         href: khoros-care-tutorial.md
       - name: Kindling
@@ -1362,6 +1366,8 @@
         href: robin-tutorial.md
       - name: RStudio Connect
         href: rstudio-connect-tutorial.md
+      - name: RStudio Server Pro
+        href: rstudio-server-pro-tutorial.md
       - name: RolePoint
         href: rolepoint-tutorial.md
       - name: Rollbar
@@ -1376,6 +1382,8 @@
         href: safeconnect-tutorial.md
       - name: SafetyNet
         href: safetynet-tutorial.md
+      - name: Sage Intacct
+        href: intacct-tutorial.md
       - name: Salesforce
         href: salesforce-tutorial.md
       - name: Salesforce Sandbox
@@ -1536,6 +1544,8 @@
         href: snowflake-tutorial.md
       - name: Softeon WMS
         href: softeon-tutorial.md
+      - name: SolarWinds Orion
+        href: solarwinds-orion-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-tutorial.md
       - name: Sonarqube
@@ -1770,6 +1780,8 @@
         href: wikispaces-tutorial.md
       - name: Wingspan eTMF
         href: wingspanetmf-tutorial.md
+      - name: WireWheel
+        href: wirewheel-tutorial.md
       - name: Wisdom by Invictus
         href: wisdom-by-invictus-tutorial.md
       - name: Wizergos Productivity Software

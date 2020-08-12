@@ -8,6 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
+ms.custom: ['Role: Cloud Development']
 ---
 
 # Use IoT Hub message routing to send device-to-cloud messages to different endpoints
