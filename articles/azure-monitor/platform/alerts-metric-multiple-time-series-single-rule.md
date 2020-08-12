@@ -52,10 +52,10 @@ An alert rule monitors multiple time-series if it uses at least one of the follo
 A single metric alert rule can monitor multiple resources, provided the resources are of the same type and exist in the same Azure region. Using this type of rule reduces complexity and the total number of alert rules you have to maintain. 
 
 An example of such an alert rule:
--	Target resource: myVM1, myVM2
--	Metric: Percentage CPU
--	Operator: Greater Than
--	Threshold: 70
+-	Target resource: *myVM1, myVM2*
+-	Metric: *Percentage CPU*
+-	Operator: *Greater Than*
+-	Threshold: *70*
 
 For this alert rule, two metric time-series are being monitored separately:
 -	Percentage CPU where *Resource*=’myVM1’ > 70%
@@ -76,25 +76,26 @@ For more information about multi-resource alert rules and the resource types sup
 > [!NOTE] 
 > In a metric alert rule that monitors multiple resources, only a single condition is allowed.
 
-
 ## Multiple conditions (multi-condition)
 
 A single metric alert rule can also monitor up to five conditions per alert rule. 
 
-For example: 
--	Target resource: myVM1
--	Condition1
-	* Metric: Percentage CPU
-	* Operator: Greater Than
-	* Threshold: 70
--	Condition2
-	*	Metric: Network In Total
-	*	Operator: Greater Than
-	*	Threshold: 20 MB
+For example:
+
+- Target resource: *myVM1*
+- Condition1
+  - Metric: *Percentage CPU*
+  - Operator: *Greater Than*
+  - Threshold: *70*
+- Condition2
+  -	Metric: *Network In Total*
+  -	Operator: *Greater Than*
+  -	Threshold: *20 MB*
 
 For this alert rule, two metric time-series are being monitored:
--	Percentage CPU where *Resource*=’myVM1’ > 70%
--	Network In Total where *Resource*=’myVM1’ > 20MB
+
+- Percentage CPU where *Resource*=’myVM1’ > 70%
+- Network In Total where *Resource*=’myVM1’ > 20MB
 
 ![A multi-condition alert rule](media/alerts-metric-multiple-time-series-single-rule/multi-condition-alert-rule.png)
  
@@ -111,38 +112,42 @@ A single metric alert rule can also monitor multiple dimension values of a metri
 For example, you can choose to have an alert fired when the number of transactions is high across all API names (which is the aggregated data), or further break it down into only alerting when the number of transactions is high for specific API names. 
 
 An example of an alert rule monitoring multiple dimensions is:
--	Target resource: myStorage1
--	Metric: Transactions
--	Dimensions
-	* API name = GetBlob, DeleteBlob, PutPage
--	Operator: Greater Than
--	Threshold: 70
+
+- Target resource: *myStorage1*
+- Metric: *Transactions*
+- Dimensions
+  * API name = *GetBlob, DeleteBlob, PutPage*
+- Operator: *Greater Than*
+- Threshold: *70*
 
 For this alert rule, three metric time-series are being monitored:
--	Transactions where *Resource*=’myStorage1’ and *API Name*=’GetBlob’ > 70
--	Transactions where *Resource*=’myStorage1’ and *API Name*=’DeleteBlob’ > 70
--	Transactions where *Resource*=’myStorage1’ and *API Name*=’PutPage’ > 70
+
+- Transactions where *Resource*=’myStorage1’ and *API Name*=’GetBlob’ > 70
+- Transactions where *Resource*=’myStorage1’ and *API Name*=’DeleteBlob’ > 70
+- Transactions where *Resource*=’myStorage1’ and *API Name*=’PutPage’ > 70
 
 ![A multi-dimension alert rule with values from one dimension](media/alerts-metric-multiple-time-series-single-rule/multi-dimension-1.png)
 
 A multi-dimension metric alert rule can also monitor multiple dimension values from **different** dimensions of a metric. In this case, the alert rule **separately** monitors all the dimensions value combinations of the selected dimension values.
 
-An example of this type of alert rule: 
--	Target resource: myStorage1
--	Metric: Transactions
--	Dimensions
-	* API name = GetBlob, DeleteBlob, PutPage
-	* Authentication = SAS, AccountKey
--	Operator: Greater Than
--	Threshold: 70
+An example of this type of alert rule:
+
+- Target resource: *myStorage1*
+- Metric: *Transactions*
+- Dimensions
+  * API name = *GetBlob, DeleteBlob, PutPage*
+  * Authentication = *SAS, AccountKey*
+- Operator: *Greater Than*
+- Threshold: *70*
 
 For this alert rule, six metric time-series are being monitored separately:
--	Transactions where *Resource*=’myStorage1’ and *API Name*=’GetBlob’ and *Authentication*=’SAS’ > 70
--	Transactions where *Resource*=’myStorage1’ and *API Name*=’GetBlob’ and *Authentication*=’AccountKey’ > 70
--	Transactions where *Resource*=’myStorage1’ and *API Name*=’DeleteBlob’ and *Authentication*=’SAS’ > 70
--	Transactions where *Resource*=’myStorage1’ and *API Name*=’DeleteBlob’ and *Authentication*=’AccountKey’ > 70
--	Transactions where *Resource*=’myStorage1’ and *API Name*=’PutPage’ and *Authentication*=’SAS’ > 70
--	Transactions where *Resource*=’myStorage1’ and *API Name*=’PutPage’ and *Authentication*=’AccountKey’ > 70
+
+- Transactions where *Resource*=’myStorage1’ and *API Name*=’GetBlob’ and *Authentication*=’SAS’ > 70
+- Transactions where *Resource*=’myStorage1’ and *API Name*=’GetBlob’ and *Authentication*=’AccountKey’ > 70
+- Transactions where *Resource*=’myStorage1’ and *API Name*=’DeleteBlob’ and *Authentication*=’SAS’ > 70
+- Transactions where *Resource*=’myStorage1’ and *API Name*=’DeleteBlob’ and *Authentication*=’AccountKey’ > 70
+- Transactions where *Resource*=’myStorage1’ and *API Name*=’PutPage’ and *Authentication*=’SAS’ > 70
+- Transactions where *Resource*=’myStorage1’ and *API Name*=’PutPage’ and *Authentication*=’AccountKey’ > 70
 
 ![A multi-dimension alert rule with values from multiple dimensions](media/alerts-metric-multiple-time-series-single-rule/multi-dimension-2.png)
  
@@ -162,3 +167,7 @@ The pricing of metric alert rules is available on the [Azure Monitor pricing pag
 When creating a metric alert rule, the provided price estimation is based on the selected features and the number of monitored time-series, which is determined from the rule configuration and current metric values. However, the monthly charge is based on actual evaluations of the time-series, and can therefore differ from the original estimation if some time-series don’t have data to evaluate, or if the alert rule uses features that can make it scale dynamically.
 
 For example, an alert rule can show a high price estimation if it leverages the multi-dimension feature, and a large number of dimension values combinations are selected, resulting in the monitoring of many time-series. But the actual charge for that alert rule can be lower if not all the time-series resulting from the dimension values combinations actually have data to evaluate.
+
+## Next Steps
+
+Learn more about monitoring at scale using metric alerts and [dynamic thresholds]alerts-dynamic-thresholds.md).
