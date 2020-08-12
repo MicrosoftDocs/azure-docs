@@ -12,7 +12,7 @@ ms.author: vikancha
 
 # NCasT4_v3-series 
 
-The NCasT4_v3-series virtual machines are powered by [Nvidia Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPUs and AMD EPYC 7V12(Rome) CPUs. The VMs feature up to 4 NVIDIA T4 GPUs with 16 GB of memory each, up to 64 non-multithreaded AMD EPYC 7V12(Rome) processor cores, and 440 GiB of system memory. These virtual machines are ideal to run ML and AI workloads utilizing Cuda, TensorFlow, Pytorch, Caffe, and other Frameworks or the graphics workloads using NVIDIA GRID technology.
+The NCasT4_v3-series virtual machines are powered by [Nvidia Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPUs and AMD EPYC 7V12(Rome) CPUs. The VMs feature up to 4 NVIDIA T4 GPUs with 16 GB of memory each, up to 64 non-multithreaded AMD EPYC 7V12(Rome) processor cores, and 440 GiB of system memory. These virtual machines are ideal to run ML and AI workloads utilizing CUDA, TensorFlow, Pytorch, Caffe, and other Frameworks or the graphics workloads using NVIDIA GRID technology. NCasT4_v3-series is ideal for running inference workloads.
 
 <br>
 
