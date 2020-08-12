@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/31/2020
 ---
 
 # Plan a SaaS offer for Microsoft commercial marketplace
@@ -179,6 +179,13 @@ To help create your offer more easily, prepare some of these items ahead of time
   - Medium: 90 x 90 pixels (required)
   - Large: 216 x 216 pixels (required)
   - Wide: 255 x 115 (optional)
+
+  These logos are used in different places in the online stores:
+
+  -  The Small logo (48 x 48 pixels) appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
+  -  The Medium logo (90 x 90 pixels) appears when you create a new resource in Microsoft Azure.
+  -  The Large logo (between 216 x 216 and 350 x 350 pixels) appears on your offer listing page in Azure Marketplace and Microsoft AppSource. 
+
 - **Media - Screenshots**: You must add at least one and up to five screenshots with the following requirements, that show how your offer works:
   - 1280 x 720 pixels
   - .png file
