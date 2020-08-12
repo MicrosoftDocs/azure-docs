@@ -17,7 +17,7 @@ ms.workload: na
 ms.date: 08/11/2020
 ms.author: terrylan
 ---
-# Data Encryption Models
+# Double encryption
 Double encryption is where two or more independent layers of encryption are enabled to protect against compromises of any one layer of encryption. Using two layers of encryption mitigates threats that come with encrypting data. For example:
 
 - Configuration errors in the data encryption
@@ -32,7 +32,7 @@ Microsoft’s approach to enabling two layers of encryption for data at rest is:
 - **Disk encryption using customer-managed keys**. You provide your own key for disk encryption. You can bring your own keys to your Key Vault (BYOK – Bring Your Own Key), or generate new keys in Azure Key Vault to encrypt the desired resources.
 - **Infrastructure encryption using platform-managed keys**.  By default, disks are automatically encrypted at rest using platform-managed encryption keys.
 
-##Data in transit
+## Data in transit
 (is this available today or should I address at a later milestone?)
 Microsoft’s approach to enabling two layers of encryption for data in transit is:
 

@@ -238,3 +238,4 @@ When server-side encryption using service-managed keys in customer-controlled ha
 \*\* This service supports storing data in your own Key Vault, Storage Account, or other data persisting service that already supports Server-Side Encryption with Customer-Managed Key.
 
 ## Next steps
+Learn how Azure uses [double encryption](double-encryption.md) to mitigate threats that come with encrypting data
