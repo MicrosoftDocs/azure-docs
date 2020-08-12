@@ -40,13 +40,13 @@ In this example, we'll use our sample AKS cluster to deploy the Azure Vote appli
 
 Once the YAML file is added, the resource viewer shows both Kubernetes services that were created: the internal service (azure-vote-back), and the external service (azure-vote-front) to access the Azure Vote application. The external service includes a linked external IP address so you can easily view the application in your browser.
 
-:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Azure Vote application information displayed in the Azure portal.":::
+:::image type="content" source="media/kubernetes-portal/portal-services.png" alt-text="Azure Vote application information displayed in the Azure portal." lightbox="media/kubernetes-portal/portal-services.png":::
 
 ### Monitor deployment insights
 
 AKS clusters with [Azure Monitor for containers][enable-monitor] enabled can quickly view deployment insights. From the Kubernetes resources view, users can see the live status of individual deployments, including CPU and memory usage, as well as transition to Azure monitor for more in-depth information. Here's an example of deployment insights from a sample AKS cluster:
 
-:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Deployment insights displayed in the Azure portal.":::
+:::image type="content" source="media/kubernetes-portal/deployment-insights.png" alt-text="Deployment insights displayed in the Azure portal." lightbox="media/kubernetes-portal/deployment-insights.png":::
 
 ## Edit YAML
 
