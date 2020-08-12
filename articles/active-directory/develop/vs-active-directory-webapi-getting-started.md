@@ -27,5 +27,5 @@ All controllers in your project were adorned with the `[Authorize]` attribute. T
 
 ## Next steps
 
-- [Authentication scenarios for Azure Active Directory](authentication-scenarios.md)
+- [Authentication scenarios for Azure Active Directory](./authentication-vs-authorization.md)
 - [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)

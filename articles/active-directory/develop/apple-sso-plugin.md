@@ -66,7 +66,7 @@ Use the following parameters to configure the Microsoft Enterprise SSO plug-in f
   - `https://login.usgovcloudapi.net`
   - `https://login-us.microsoftonline.com`
 
-You can use Microsoft Intune as your MDM service to ease configuration of the Microsoft Enterprise SSO plug-in. For more information, see the [Intune configuration documentation](https://docs.microsoft.com/intune/configuration/ios-device-features-settings).
+You can use Microsoft Intune as your MDM service to ease configuration of the Microsoft Enterprise SSO plug-in. For more information, see the [Intune configuration documentation](/intune/configuration/ios-device-features-settings).
 
 ## Using the SSO extension in your application
 
