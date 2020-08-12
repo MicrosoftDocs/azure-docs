@@ -10,7 +10,7 @@ ms.date: 08/11/2020
 
 # Best practices for building applications with Azure Database for MySQL 
 
-Here are some best practices to help build cloud-ready applications using Azure Database for MySQL. Using these best pratices can save you a lot of development time and debugging issues with your application. 
+Here are some best practices to help build cloud-ready applications using Azure Database for MySQL. Using these best practices can reduce development time and time spent on debugging issues with your application. 
 
 ## Application and Database resource configuration
 
@@ -26,7 +26,7 @@ Your MySQL server should be configured to be [secure](https://docs.microsoft.com
 For security, you must always connect to your MySQL server over **SSL** and configure your MySQL server and your application to use **TLS1.2**. See [How to configure SSL/TLS](https://docs.microsoft.com/azure/mysql/concepts-ssl-connection-security). 
 
 ### Tune your server parameters
-Server sometimes need to be tuned for your application workload. For read-heavy workloads tuning these parameters  'tmp_table_size and max_heap_table_size' can help optimize for better performance. To calculate the values required for tmp_table_size and max_heap_table_size, look at the total per-connection memory values and the base memory. The sum of per-connection memory parameters, excluding tmp_table_size, combined with the base memory accounts for total memory of the server.
+For read-heavy workloads tuning these parameters  'tmp_table_size and max_heap_table_size' can help optimize for better performance. To calculate the values required for tmp_table_size and max_heap_table_size, look at the total per-connection memory values and the base memory. The sum of per-connection memory parameters, excluding tmp_table_size, combined with the base memory accounts for total memory of the server.
 
 To calculate the largest possible size of tmp_table_size and max_heap_table_size, use the following formula:
 
@@ -40,7 +40,7 @@ To calculate the largest possible size of tmp_table_size and max_heap_table_size
 [Create non-admin users](https://docs.microsoft.com/azure/mysql/howto-create-users) for each of the databases. Typically, the user names are identified as the DB names.
 
 ### Resetting your password
-You can [reset your password](https://docs.microsoft.com/azure/mysql/howto-create-manage-server-portal#update-admin-password) for using Azure Portal. 
+You can [reset your password](https://docs.microsoft.com/azure/mysql/howto-create-manage-server-portal#update-admin-password) for your MySQL server using Azure Portal. 
 
 In a case where you have to reset password for a production database, it can cause downtime for your application until you have updated your application to use the new password. It is a good pattern to reset the password for any production workloads at off-peak hours to minimize the impact of this change.
 
@@ -51,12 +51,12 @@ When building any application, you would need to debug performance issues with y
 You can enable [slow query logs](https://docs.microsoft.com/azure/mysql/concepts-server-logs) and [audit logs](https://docs.microsoft.com/azure/mysql/concepts-audit-logs) on your server. Access to the transaction log is not supported. The slow query log can be used to identify performance bottlenecks for troubleshooting. Audit logs are also available through Azure Diagnostic Logs in Azure Monitor logs, Event Hubs, and Storage Account as well.  See [how to troubleshoot query performance issues](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-query-performance).
 
 ### Use connection pooling
-Managing database connections can have a significant impact on the performance of the application as a whole. To optimize the performance of your application, the goal should be to reduce the number of times connections are established and time for establishing connections in key code paths.  You should use [connection pooling](https://docs.microsoft.com/azure/mysql/concepts-connectivity#access-databases-by-using-connection-pooling-recommended) to connect to Azure Database for MySQL. 
+Managing database connections can have a significant impact on the performance of the application as a whole. To optimize the performance of your application, the goal should be to reduce the number of times connections are established and time for establishing connections in key code paths.  Use [connection pooling](https://docs.microsoft.com/azure/mysql/concepts-connectivity#access-databases-by-using-connection-pooling-recommended) to connect to Azure Database for MySQL to improve resiliency and performance. 
 
-You can use a connection pooler like [ProxySQL](https://proxysql.com/) to efficiently manage connections. Using a connection pooler can decrease idle connections and reuse existing connections will help avoid this. See [How to setup ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/connecting-efficiently-to-azure-database-for-mysql-with-proxysql/ba-p/1279842) to learn more. 
+[ProxySQL](https://proxysql.com/) which is a connection pooler can be efficiently used to manage connections. Using a connection pooler can decrease idle connections and reuse existing connections will help avoid this. See [How to setup ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/connecting-efficiently-to-azure-database-for-mysql-with-proxysql/ba-p/1279842) to learn more. 
 
 ### Retry logic to handle transient errors
-There could be [transient errors](https://docs.microsoft.com/azure/mysql/concepts-connectivity#handling-transient-errors) when you see connections being dropped or lost intermittently. Typically in such situations, the server is up and running after one to two retry in 5-10 seconds. A good pattern to follow with rety is to wait for 5 seconds before your first retry and then follow each retry by increasing the wait gradually upto 60 seconds. You must set a max number of retries at which point your application considers the operation failed so you can then further investigate. See [how to troubleshoot connection errors](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-connection-issues) to learn more. 
+There could be [transient errors](https://docs.microsoft.com/azure/mysql/concepts-connectivity#handling-transient-errors) when you see connections being dropped or lost intermittently. Typically in such situations, the server is up and running after one to two retry in 5-10 seconds. A good pattern to follow with retry is to wait for 5 seconds before your first retry and then follow each retry by increasing the wait gradually upto 60 seconds. Limit the max number of retries at which point your application considers the operation failed so you can then further investigate. See [how to troubleshoot connection errors](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-connection-issues) to learn more. 
 
 ### Enable read replication to mitigate failovers
 You can use [Data-in replication](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) for failover scenarios. When using read replicas, there is no automated failover between master and replica servers. Since replication is asynchronous, there is lag between the master and the replica. The amount of lag can be influenced by a number of factors like how heavy the workload running on the master server is and the latency between data centers. In most cases, replica lag ranges between a few seconds to a couple minutes.
@@ -65,20 +65,20 @@ You can use [Data-in replication](https://docs.microsoft.com/azure/mysql/howto-d
 
 ### Configure Azure database for MySQL task in your CI/CD deployment pipeline
 
-Database changes are not that often but sometimes needed based on your application. You can create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure and use a task for [your MySQL server](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops) to update the database by running a custom sccript against your database.
+Database changes are not that often but sometimes needed based on your application. You can create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure and use a task for [your MySQL server](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops) to update the database by running a custom script against your database.
 
 ### Manual Database deployment 
-If for any reason you are not using Azure pipelines for CI/CD and need to make a database deployment for your production application. Here is a good pattern to follow to perform a manual update
+If you are looking to do manual database deployment for your production application, then here is a good pattern to follow to reduce downtime and have a way to rollback changes if the deployment fails: 
 
 1. Create a copy of production database on a new database using [mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) or [MySQL workbench](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-management.html) 
 2. Update the new database with your new schema changes or updates needed for your database. 
-3. Put the production database on read only state. This means no write operations should be performed on the production database until deployment is completed. 
-4. Test you application with the newly updated database from step 1.
+3. Put the production database on read-only state. This means no write operations should be performed on the production database until deployment is completed. 
+4. Test your application with the newly updated database from step 1.
 5. Deploy your application changes and make sure the application is now using the new database which has all the database updates needed. 
 6. Keep the old production database so that you can roll back the changes. At a later date you can evaluate to either delete the old production database or export it on Azure storage if needed. 
 
 >{!NOTE]
->  - If the application is like ecommerce app where you might not be able to put it in read only state, then deploy the changes directly on the production database after making a backup.  Theses change should occur during the off-peak hours with low traffic to the app to minimze the impact as some users may experience a failed requests. 
+>  - If the application is like ecommerce app where you might not be able to put it in read-only state, then deploy the changes directly on the production database after making a backup.  Theses change should occur during the off-peak hours with low traffic to the app to minimze the impact as some users may experience a failed requests. 
 >  - Make sure your application code also handles any failed requests.
 
 ### Use MySQL native metrics to see if your workload is exceeding in-memory temporary table sizes
