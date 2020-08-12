@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: inhenkel
 ---
-
+<div height="400">
 ```json
 {
     "properties": {
@@ -94,5 +94,4 @@ ms.author: inhenkel
     }
 }
 ```
-
-
+</div>
