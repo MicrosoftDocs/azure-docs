@@ -24,7 +24,7 @@ Get started with the Language Understanding (LUIS) client library. Follow these 
 
 ## Clean up resources
 
-You can delete the app from the [LUIS portal](https://www.luis.ai) and delete the Azure resources from the [Azure portal](http://portal.azure.com/).
+You can delete the app from the [LUIS portal](https://www.luis.ai) and delete the Azure resources from the [Azure portal](https://portal.azure.com/).
 
 ## Next steps
 
