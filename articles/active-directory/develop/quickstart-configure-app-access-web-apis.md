@@ -57,7 +57,7 @@ To choose from suggested redirect URIs for public clients, follow these steps:
 1. Select one or more redirect URIs for your application. You can also enter a custom redirect URI. If you're not sure what to use, see the library documentation.
 1. Select **Save**.
 
-Certain restrictions apply to redirect URIs. For more information, see [Redirect URI/reply URL restrictions and limitations](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
+Certain restrictions apply to redirect URIs. For more information, see [Redirect URI/reply URL restrictions and limitations](./reply-url.md).
 
 > [!NOTE]
 > Try out the new **Authentication** settings experience where you can configure settings for your application based on the platform or device that you want to target.
