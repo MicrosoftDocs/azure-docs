@@ -152,7 +152,7 @@ Creation methods for entities are part of the [Model](https://docs.microsoft.com
 
 The entity creation code creates a machine-learning entity with subentities and features applied to the `Quantity` subentities.
 
-![The entity creation code creates a machine-learning entity with subentities and features applied to the `Quantity` subentities.](../media/quickstart-sdk/machine-learned-entity.png)
+:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="The entity creation code creates a machine-learning entity with subentities and features applied to the `Quantity` subentities.":::
 
 [!code-csharp[Create entities](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=AuthoringAddEntities)]
 
@@ -166,7 +166,9 @@ In order to determine an utterance's intention and extract entities, the app nee
 
 Add example utterances by creating a list of [ExampleLabelObject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.examplelabelobject?view=azure-dotnet) objects, one object for each example utterance. Each example should mark all entities with a dictionary of name/value pairs of entity name and entity value. The entity value should be exactly as it appears in the text of the example utterance.
 
-Call [Examples.BatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.batchasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_ExamplesExtensions_BatchAsync_Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_IExamples_System_Guid_System_String_System_Collections_Generic_IList_Microsoft_Azure_CognitiveServices_Language_LUIS_Authoring_Models_ExampleLabelObject__System_Threading_CancellationToken_) with the app ID, version ID, and the list of examples. The call responds with a list of results. You need to check each example's result to make sure it was successfully added to the model.
+:::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="The entity value should be exactly as it appears in the text of the example utterance.":::
+
+Call [Examples.AddAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.addasync?view=azure-dotnet) with the app ID, version ID, and the example. 
 
 [!code-csharp[Add example utterance to a specific intent](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x/LUIS_SDK_3x/Program.cs?name=AuthoringAddLabeledExamples)]
 
