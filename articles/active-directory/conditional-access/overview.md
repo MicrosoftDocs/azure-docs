@@ -35,6 +35,7 @@ By using Conditional Access policies, you can apply the right access controls wh
 
 ![Conceptual Conditional Access process flow](./media/overview/conditional-access-overview-how-it-works.png)
 
+[!IMPORTANT]
 Conditional Access policies are enforced after the first-factor authentication has been completed. Conditional Access is not intended as an organization's first line of defense for scenarios like denial-of-service (DoS) attacks, but can use signals from these events to determine access.
 
 ## Common signals
