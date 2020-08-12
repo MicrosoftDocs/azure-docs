@@ -4,7 +4,7 @@ description: Learn how to remove a node type from a Service Fabric cluster runni
 author: inputoutputcode
 manager: sridmad
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 08/11/2020
 ms.author: chrpap 
 ---
 
