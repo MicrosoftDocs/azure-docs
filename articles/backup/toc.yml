@@ -24,7 +24,7 @@
     href: tutorial-backup-vm-at-scale.md
   - name: Back up Azure VMs with PowerShell
     href: tutorial-backup-azure-vm.md
-  - name: Restore a disk
+  - name: Restore a VM with Azure CLI
     href: tutorial-restore-disk.md
   - name: Restore individual files
     href: tutorial-restore-files.md

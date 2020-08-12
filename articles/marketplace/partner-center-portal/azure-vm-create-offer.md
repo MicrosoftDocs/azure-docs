@@ -287,6 +287,8 @@ Select **Save draft** before you proceed to the next section.
 
 You can provide a variety of plan options within the same offer in Partner Center. An offer requires at least one plan (formerly called a SKU), which can vary by monetization audience, Azure region, features, or VM images.
 
+You can create up to 100 plans for each offer: up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](../private-offers.md).
+
 After you create your plans, select the **Plan overview** tab to display:
 
 - Plan names
