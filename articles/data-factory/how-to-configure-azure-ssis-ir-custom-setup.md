@@ -11,7 +11,7 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
+ms.date: 08/11/2020
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
@@ -106,7 +106,7 @@ To provision or reconfigure your Azure-SSIS IR with standard custom setups, comp
 
       ![Copy and save the Shared Access Signature](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-1. When you provision or reconfigure your Azure-SSIS IR on ADF UI, select the **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** check box on the **Advanced settings** page of **Integration runtime setup** pane and enter the SAS URI of your container in the **Custom setup container SAS URI** box.
+1. When you provision or reconfigure your Azure-SSIS IR on ADF UI, select the **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** check box on the **Advanced settings** page of **Integration runtime setup** pane and enter the SAS URI of your container in the **Custom setup container SAS URI** text box.
 
    ![Advanced settings with custom setups](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
 
@@ -116,25 +116,37 @@ To provision or reconfigure your Azure-SSIS IR with express custom setups, compl
 
 1. When you provision or reconfigure your Azure-SSIS IR on ADF UI, select the **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** check box on the **Advanced settings** page of **Integration runtime setup** pane. 
 
-1. Select **New** to open the **Add express custom setup** pane, and then select a type in the **Express custom setup type** drop-down list:
+1. Select **New** to open the **Add express custom setup** pane, and then select a type in the **Express custom setup type** drop-down list. We currently offer express custom setups for running cmdkey command, adding environment variables, as well as installing Azure PowerShell and licensed components.
 
-   * If you select the **Run cmdkey command** type, you can persist access credentials for your file shares or Azure Files shares on Azure-SSIS IR by entering your targeted computer name or domain name, account name or username, and account key or password in the **/Add**, **/User**, and **/Pass** boxes. This is similar to running the Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) command on your local machine.
-   
-   * If you select the **Add environment variable** type, you can add Windows environment variables to use in your packages that run on the Azure-SSIS IR by entering your environment variable name and value in the **Variable name** and **Variable value** boxes. This is similar to running the Windows [set](https://docs.microsoft.com/windows-server/administration/windows-commands/set_1) command on your local machine.
+#### Running cmdkey command
 
-   * If you select the **Install licensed component** type, you can then select an integrated component from our ISV partners in the **Component name** drop-down list:
+If you select the **Run cmdkey command** type for your express custom setup, you can run the Windows cmdkey command on your Azure-SSIS IR by entering your targeted computer name or domain name, username or account name, and password or account key in the **/Add**, **/User**, and **/Pass** text boxes, respectively. This will allow you to persist access credentials for SQL Servers, file shares, or Azure Files on your Azure-SSIS IR. For example, to access Azure Files, you can enter `YourAzureStorageAccountName.file.core.windows.net`, `azure\YourAzureStorageAccountName`, and `YourAzureStorageAccountKey` for **/Add**, **/User**, and **/Pass**, respectively. This is similar to running the Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) command on your local machine.
 
-     * If you select the **SentryOne's Task Factory** component, you can install the [Task Factory](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) suite of components from SentryOne on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **2020.1.3**.
+#### Adding environment variables
 
-     * If you select the **oh22's HEDDA.IO** component, you can install the [HEDDA.IO](https://hedda.io/ssis-component/) data quality/cleansing component from oh22 on your Azure-SSIS IR after purchasing their service. The current integrated version is **1.0.14**.
+If you select the **Add environment variable** type for your express custom setup, you can add a Windows environment variable on your Azure-SSIS IR by entering your environment variable name and value in the **Variable name** and **Variable value** text boxes, respectively. This will allow you to use the environment variable in your packages that run on Azure-SSIS IR, for example in Script Components/Tasks. This is similar to running the Windows [set](https://docs.microsoft.com/windows-server/administration/windows-commands/set_1) command on your local machine.
 
-     * If you select the **oh22's SQLPhonetics.NET** component, you can install the [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) data quality/matching component from oh22 on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **1.0.45**.
+#### Installing Azure PowerShell
 
-     * If you select the **KingswaySoft's SSIS Integration Toolkit** component, you can install the [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) suite of connectors for CRM/ERP/marketing/collaboration apps, such as Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc. from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **2019.2**.
+If you select the **Install Azure PowerShell** type for your express custom setup, you can install the Az module of PowerShell on your Azure-SSIS IR by entering your designated version number (x.y.z) from a [list of supported ones](https://www.powershellgallery.com/stats/packages/Az?groupby=Version). This will allow you to run Azure PowerShell cmdlets/scripts in your packages to manage Azure resources, for example to [manage Azure Analysis Services (AAS) with Azure PowerShell](https://docs.microsoft.com/azure/analysis-services/analysis-services-powershell).
 
-     * If you select the **KingswaySoft's SSIS Productivity Pack** component, you can install the [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) suite of components from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **10.0**.
+#### Installing licensed components
 
-     * If you select the **Theobald Software's Xtract IS** component, you can install the [Xtract IS](https://theobald-software.com/en/xtract-is/) suite of connectors for SAP system (ERP, S/4HANA, BW) from Theobald Software on your Azure-SSIS IR by dragging & dropping/uploading the product license file that you purchased from them into the **License file** box. The current integrated version is **6.1.1.3**.
+If you select the **Install licensed component** type for your express custom setup, you can then select an integrated component from our ISV partners in the **Component name** drop-down list:
+
+   * If you select the **SentryOne's Task Factory** component, you can install the [Task Factory](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) suite of components from SentryOne on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** text box. The current integrated version is **2020.1.3**.
+
+   * If you select the **oh22's HEDDA.IO** component, you can install the [HEDDA.IO](https://hedda.io/ssis-component/) data quality/cleansing component from oh22 on your Azure-SSIS IR after purchasing their service. The current integrated version is **1.0.14**.
+
+   * If you select the **oh22's SQLPhonetics.NET** component, you can install the [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) data quality/matching component from oh22 on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** text box. The current integrated version is **1.0.45**.
+
+   * If you select the **KingswaySoft's SSIS Integration Toolkit** component, you can install the [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) suite of connectors for CRM/ERP/marketing/collaboration apps, such as Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc. from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** text box. The current integrated version is **2019.2**.
+
+   * If you select the **KingswaySoft's SSIS Productivity Pack** component, you can install the [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) suite of components from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** text box. The current integrated version is **10.0**.
+
+   * If you select the **Theobald Software's Xtract IS** component, you can install the [Xtract IS](https://theobald-software.com/en/xtract-is/) suite of connectors for SAP systems (ERP, S/4HANA, BW) from Theobald Software on your Azure-SSIS IR by dragging & dropping/uploading the product license file that you purchased from them into the **License file** input box. The current integrated version is **6.1.1.3**.
+
+   * If you select the **AecorSoft's Integration Service** component, you can install the [Integration Service](https://www.aecorsoft.com/en/products/integrationservice) suite of connectors for SAP and Salesforce systems from AecorSoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** text box. The current integrated version is **3.0.00**.
 
 Your added express custom setups will appear on the **Advanced settings** page. To remove them, select their check boxes, and then select **Delete**.
 
@@ -152,7 +164,7 @@ To provision or reconfigure your Azure-SSIS IR with custom setups using Azure Po
    $AzureSSISName = "[your Azure-SSIS IR name]"
    # Custom setup info: Standard/express custom setups
    $SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob container for standard custom setup where your script and its associated files are stored
-   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS or leave it empty]" # OPTIONAL to configure an express custom setup without script
+   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService or leave it empty]" # OPTIONAL to configure an express custom setup without script
 
    # Add custom setup parameters if you use standard/express custom setups
    if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
@@ -176,6 +188,11 @@ To provision or reconfigure your Azure-SSIS IR with custom setups using Azure Po
            $variableName = "YourVariableName"
            $variableValue = "YourVariableValue"
            $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.EnvironmentVariableSetup($variableName, $variableValue)
+	   }
+	   if($ExpressCustomSetup -eq "InstallAzurePowerShell")
+	   {
+           $moduleVersion = "YourAzModuleVersion"
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.AzPowerShellSetup($moduleVersion)
 	   }
 	   if($ExpressCustomSetup -eq "SentryOne.TaskFactory")
 	   {
@@ -209,6 +226,11 @@ To provision or reconfigure your Azure-SSIS IR with custom setups using Azure Po
            $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString($jsonData)
            $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
        }
+       if($ExpressCustomSetup -eq "AecorSoft.IntegrationService")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }
        # Create an array of one or more express custom setups
        $setups = New-Object System.Collections.ArrayList
        $setups.Add($setup)
@@ -236,7 +258,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
       ![Connect to Azure storage with the Shared Access Signature](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image9.png)
 
-   b. Select **Use a SAS URI** and then, in the **URI** box, enter the following SAS URI:
+   b. Select **Use a SAS URI** and then, in the **URI** text box, enter the following SAS URI:
 
       `https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2020-03-25T04:00:00Z&se=2025-03-25T04:00:00Z&sv=2019-02-02&sr=c&sig=WAD3DATezJjhBCO3ezrQ7TUZ8syEUxZZtGIhhP6Pt4I%3D`
 
@@ -310,7 +332,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
    f. To reuse these standard custom setup samples, copy the content of selected folder to your container.
 
-1. When you provision or reconfigure your Azure-SSIS IR on ADF UI, select the **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** check box on the **Advanced settings** page of **Integration runtime setup** pane and enter the SAS URI of your container in the **Custom setup container SAS URI** box.
+1. When you provision or reconfigure your Azure-SSIS IR on ADF UI, select the **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** check box on the **Advanced settings** page of **Integration runtime setup** pane and enter the SAS URI of your container in the **Custom setup container SAS URI** text box.
    
 1. When you provision or reconfigure your Azure-SSIS IR using Azure PowerShell, stop it if it's already started/running, run the `Set-AzDataFactoryV2IntegrationRuntime` cmdlet with the SAS URI of your container as the value for `SetupScriptContainerSasUri` parameter, and then start your Azure-SSIS IR.
 
