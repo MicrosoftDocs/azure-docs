@@ -36,7 +36,7 @@ When you connect an event source, your Azure Time Series Insights Gen2 environme
 
 - Always create a unique consumer group for your Azure Time Series Insights Gen2 environment to consume data from your event source. Re-using consumer groups can cause random disconnects and may result in data loss.
 
-- Configure your Azure Time Series Insights Gen2 environment and your IoT Hub and/or Event Hubs in the same Azure region. Although it is possible to configure an event sources in a separate region, this scenario is not supported and we cannot guarantee high availability.
+- Configure your Azure Time Series Insights Gen2 environment and your IoT Hub and/or Event Hubs in the same Azure region. Although it is possible to configure an event source in a separate region, this scenario is not supported and we cannot guarantee high availability.
 
 - Do not go beyond your environment's [throughput rate limit](./concepts-streaming-ingress-throughput-limits.md) or per partition limit.
 
