@@ -81,7 +81,7 @@ In order to define authorizations, you'll need to know the ID values for each us
 (Get-AzADUser -UserPrincipalName '<yourUPN>').id
 
 # To retrieve the objectId for an SPN
-(Get-AzADApplication -DisplayName '<appDisplayName>').objectId
+(Get-AzADApplication -DisplayName '<appDisplayName>' | Get-AzADServicePrincipal).Id
 
 # To retrieve role definition IDs
 (Get-AzRoleDefinition -Name '<roleName>').id
