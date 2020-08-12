@@ -200,7 +200,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-More information on configuring ASP.NET Core applications can be found [here](./asp-net-asp-net-core.md#configuring-or-removing-default-telemetrymodules).
+More information on configuring ASP.NET Core applications can be found [here](./asp-net-core.md#configuring-or-removing-default-telemetrymodules).
 
 ### WorkerService
 
