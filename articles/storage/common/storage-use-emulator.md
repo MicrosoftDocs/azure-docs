@@ -1,6 +1,6 @@
 ---
-title: Use the Azure storage emulator for development and testing
-description: The Azure storage emulator provides a free local development environment for developing and testing your Azure Storage applications.
+title: Use the Azure Storage Emulator for development and testing
+description: The Azure Storage Emulator provides a free local development environment for developing and testing your Azure Storage applications.
 author: mhopkins-msft
 
 ms.author: mhopkins
@@ -10,9 +10,9 @@ ms.subservice: common
 ms.topic: how-to
 ---
 
-# Use the Azure storage emulator for development and testing
+# Use the Azure Storage Emulator for development and testing
 
-The Microsoft Azure storage emulator is a tool that emulates the Azure Blob, Queue, and Table services for local development purposes. You can test your application against the storage services locally without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, switch to using an Azure storage account in the cloud.
+The Microsoft Azure Storage Emulator is a tool that emulates the Azure Blob, Queue, and Table services for local development purposes. You can test your application against the storage services locally without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, switch to using an Azure storage account in the cloud.
 
 > [!IMPORTANT]
 > The Azure Storage Emulator is no longer being actively developed. [**Azurite**](storage-use-azurite.md) is the storage emulator platform going forward. Azurite supersedes the Azure Storage Emulator. Azurite will continue to be updated to support the latest versions of Azure Storage APIs. For more information, see [**Use the Azurite emulator for local Azure Storage development**](storage-use-azurite.md).
@@ -38,7 +38,7 @@ Some differences in functionality exist between the storage emulator and Azure s
 
 ## Start and initialize the storage emulator
 
-To start the Azure storage emulator:
+To start the Azure Storage Emulator:
 
 1. Select the **Start** button or press the **Windows** key.
 2. Begin typing `Azure Storage Emulator`.
@@ -47,7 +47,7 @@ To start the Azure storage emulator:
 When the storage emulator starts, a Command Prompt window will appear. You can use this console window to start and stop the storage emulator. You can also clear data, get status, and initialize the emulator from the command prompt. For more information, see the [Storage emulator command-line tool reference](#storage-emulator-command-line-tool-reference) section later in this article.
 
 > [!NOTE]
-> The Azure storage emulator may not start correctly if another storage emulator, such as Azurite, is running on the system.
+> The Azure Storage Emulator may not start correctly if another storage emulator, such as Azurite, is running on the system.
 
 When the emulator is running, you'll see an icon in the Windows taskbar notification area.
 
@@ -318,7 +318,7 @@ There are no differences specific to Queue storage in the emulator.
 
 ### Version 3.0
 
-* The Azure storage emulator is no longer shipped in the same package as the compute emulator.
+* The Azure Storage Emulator is no longer shipped in the same package as the compute emulator.
 * The storage emulator graphical user interface is deprecated. It has been replaced by a scriptable command-line interface. For details on the command-line interface, see Storage Emulator Command-Line Tool Reference. The graphical interface will continue to be present in version 3.0, but it can only be accessed when the Compute Emulator is installed by right-clicking on the system tray icon and selecting Show Storage Emulator UI.
 * Version 2013-08-15 of the Azure storage services is now fully supported. (Previously this version was only supported by Storage Emulator version 2.2.1 Preview.)
 
