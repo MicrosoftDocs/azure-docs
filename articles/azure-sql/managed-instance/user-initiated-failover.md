@@ -101,8 +101,8 @@ The following properties need to be passed in the API call:
 
 API response will be one of the following two:
 
-1. 202 Accepted
-2. One of the 400 request errors.
+- 202 Accepted
+- One of the 400 request errors.
 
 Operation status can be tracked through reviewing API responses in response headers. For more information, see [Status of asynchronous Azure operations](../../azure-resource-manager/management/async-operations.md).
 
