@@ -86,9 +86,9 @@ The script to automate the download, installation, and establish the connection 
 
     * If the target machine communicates through a proxy server, run the following command:
 
-    ```bash
-    bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
-    ```
+        ```bash
+        bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+        ```
 
 ## Verify the connection with Azure Arc
 
