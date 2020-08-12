@@ -195,3 +195,4 @@ For more information, see [Azure Active Directory editions](../fundamentals/acti
 
 ## Next steps
 * [Quickstart Series on Application Management](view-applications-portal.md)
+* [Plan a single sign-on deployment](plan-sso-deployment.md)
