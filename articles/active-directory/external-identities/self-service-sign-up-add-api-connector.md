@@ -34,13 +34,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
    - Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, simply enter a dummy **Username** and **Password** that your API can ignore. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** (for example, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
 
    ![Add a new API connector](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
-<!-- 
-8. Select the claims you want to send to the API.
-9. Select any claims you plan to receive back from the API. -->
-
-   <!-- ![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connector-claims.png) -->
-
-10. Select **Save**.
+8. Select **Save**.
 
 > [!IMPORTANT]
 > Previously, you had to configure which user attributes to send to the API ('Claims to send') and which user attributes to accept from the API ('Claims to receive'). Now, all user attributes are sent by default if they have a value and any user attribute can be returned by the API in a 'continuation' response.
