@@ -16,6 +16,9 @@ Your MySQL server should be configured to be [secure](https://docs.microsoft.com
 
 For security, you must always connect to your MySQL server over **SSL** and configure your MySQL server and your application to use **TLS1.2**. See [How to configure SSL/TLS](https://docs.microsoft.com/en-us/azure/mysql/concepts-ssl-connection-security). 
 
+### Create a non-admin user 
+[Create non-admin users](https://docs.microsoft.com/en-us/azure/mysql/howto-create-users) for each of the databases. Typically, the user names are identified as the DB names.
+
 ### Resetting your password
 You can [reset your password](https://docs.microsoft.com/en-us/azure/mysql/howto-create-manage-server-portal#update-admin-password) for using Azure Portal. 
 
