@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/15/2020
+ms.date: 08/11/2020
 ---
 
 # NSG service tags for Azure HDInsight

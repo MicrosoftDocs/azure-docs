@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 08/11/2020
 ---
 
 # Control network traffic in Azure HDInsight
