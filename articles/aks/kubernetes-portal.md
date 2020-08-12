@@ -10,7 +10,7 @@ ms.author: lahugh
 
 # Access Kubernetes resources from the Azure portal (Preview)
 
-The Azure portal now includes a Kubernetes resource viewer (preview) for easy access to the Kubernetes resources in your Azure Kubernetes Service (AKS) cluster. Viewing Kubernetes resources from the Azure portal reduces context switching between the Azure portal and the `kubectl` command line tool, streamlining the experience for viewing and editing your Kubernetes resources. The preview phase includes multiple resource types, such as deployments, pods, and replica sets.
+The Azure portal includes a Kubernetes resource viewer (preview) for easy access to the Kubernetes resources in your Azure Kubernetes Service (AKS) cluster. Viewing Kubernetes resources from the Azure portal reduces context switching between the Azure portal and the `kubectl` command line tool, streamlining the experience for viewing and editing your Kubernetes resources. The resource viewer currently includes multiple resource types, such as deployments, pods, and replica sets.
 
 The Kubernetes resource view from the Azure portal replaces the [AKS dashboard add-on][kubernetes-dashboard], which is set for deprecation.
 
@@ -57,7 +57,7 @@ The Kubernetes resource view also includes a YAML editor. A built-in YAML editor
 After editing the YAML, changes are applied by selecting **Review + save**, confirming the changes, and then saving again.
 
 >[!WARNING]
-> Editing YAML is not recommended for production clusters. The YAML editor is built for learning and flighting new deployments in a development and testing setting.
+> Performing direct production changes via UI or CLI is not recommended, you should leverage [continuous integration (CI) and continuous deployment (CD) best practices](kubernetes-action.md). The Azure Portal Kubernetes management capabilities and the YAML editor are built for learning and flighting new deployments in a development and testing setting.
 
 ## Troubleshooting
 
