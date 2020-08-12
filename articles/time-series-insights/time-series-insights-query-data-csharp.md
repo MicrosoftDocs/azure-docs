@@ -70,7 +70,7 @@ Alternatively, add the packages using [NuGet 2.12+](https://www.nuget.org/):
 
 ## C# sample code
 
-[!code-csharp [csharpquery-example](https://github.com/Azure-Samples/Azure-Time-Series-Insights)]
+The Time Series Insights Gen1 samples can be found at [csharpquery-example](https://github.com/Azure-Samples/Azure-Time-Series-Insights#tsi-gen1)
 
 ## Next steps
 
