@@ -4,7 +4,7 @@ description: The Machine Learning Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: machine-learning
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/12/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -36,7 +36,7 @@ Azure Firewall can be used to control access to your Azure Machine Learning work
 
 - [How to securely run experiments and inference in an isolated virtual network](how-to-enable-virtual-network.md)
 
-- [How to configure Azure Private Link for an Azure Machine Learning workspace](how-to-configure-private-link.md)
+- [How to configure Azure Private Link for an Azure Machine Learning workspace](/azure/machine-learning/how-to-configure-private-link)
 
 - [Use workspace behind Azure Firewall for Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
 
