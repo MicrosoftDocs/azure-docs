@@ -20,10 +20,6 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: Learn more about Azure Arc
-      itemType: video
-      url: https://azure.microsoft.com/services/azure-arc/
-    # Card
     - title: Azure Arc enabled servers (Preview)
       itemType: overview
       url: ./servers/overview.md
@@ -66,16 +62,13 @@ conceptualContent:
     # Card
     - title: Servers (Preview)
       links:
-        - url: ./kubernetes/use-gitops-with-helm.md
-          itemType: deploy
-          text: Deploy server
-        - url: ./kubernetes/use-azure-policy.md
-          itemType: how-to-guide
-          text: Set Azure Policy
-        - url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/toc.json
+        - url: ./servers/overview.md
+          itemType: overview
+          text: What is Azure Arc for servers (preview)?
+        - url: ./servers/learn/tutorial-enable-vm-insights.md
           itemType: tutorial
-          text: Monitor using Azure Monitor
-        - url: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/toc.json
+          text: Monitor a hybrid machine with Azure Monitor for VMs
+        - url: ./servers/policy-samples.md
           itemType: learn
           text: Admission control policies using Azure Policy
     # Card
