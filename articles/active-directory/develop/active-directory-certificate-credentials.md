@@ -99,8 +99,8 @@ In the Azure app registration for the client application:
 
 Having hold of a certificate, you need to compute:
 
-- `$base64Thumbprint`, which is the base64 encoding of the certificate hash
-- `$base64Value`, which is the base64 encoding of the certificate raw data
+- `$base64Thumbprint`, which is the Base64 encoding of the certificate hash
+- `$base64Value`, which is the Base64 encoding of the certificate raw data
 
 You also need to provide a GUID to identify the key in the application manifest (`$keyId`).
 
@@ -125,9 +125,9 @@ In the Azure app registration for the client application:
 
 ## Next steps
 
-The [.NET Core daemon console application using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub shows how an application uses its own credentials for authentication. It also shows how you can [create a self-signed certificate](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) using the `New-SelfSignedCertificate` Powershell command. You can also take use the [app creation scripts](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) to create the certificates, compute the thumbprint, and so on.
+The [.NET Core daemon console application using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) code sample on GitHub shows how an application uses its own credentials for authentication. It also shows how you can [create a self-signed certificate](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) using the `New-SelfSignedCertificate` PowerShell cmdlet. You can also use the [app creation scripts](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) in the sample repo to create certificates, compute the thumbprint, and so on.
 
-You must calculate the X5T header by converting it to a base 64 string using the certificate's hash. For example, the code to perform this in C# is:
+You must calculate the X5T header by converting it to a Base64 string using the certificate's hash. For example, the code to perform this in C# is:
 
 ```csharp
 System.Convert.ToBase64String(cert.GetCertHash());
