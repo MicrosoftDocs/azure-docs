@@ -34,13 +34,14 @@ Microsoft’s approach to enabling two layers of encryption for data at rest is:
 
 ## Data in transit
 (is this available today or should I address at a later milestone?)
+
 Microsoft’s approach to enabling two layers of encryption for data in transit is:
 
 - **Transit encryption using Transport Layer Security (TLS) 1.2 to protect data when it’s traveling between the cloud services and you**. All traffic leaving a datacenter is encrypted in transit, even if the traffic destination is another domain controller in the same region. TLS 1.2 is the default security protocol used. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, and ease of deployment and use.
 - **Additional layer of encryption provided at the infrastructure layer**. A data-link layer encryption method using the IEEE 802.1AE MAC Security Standards (also known as MACsec) is applied from point-to-point across the underlying network hardware. Whenever Azure Customer traffic moves between datacenters-- outside physical boundaries not controlled by Microsoft (or on behalf of Microsoft)-- The packets are encrypted and decrypted on the devices before being sent, preventing physical “man-in-the-middle” or snooping/wiretapping attacks. Because this technology is integrated on the network hardware itself, it provides line rate encryption on the network hardware with no measurable link latency increase. This MACsec encryption is on by default for all Azure traffic traveling within a region or between regions, and no action is required on customers’ part to enable.
 
 ## Services supporting double encryption
-The Azure services that support customer-managed keys are:
-
+The Azure services that support double encryption are:
 
 ## Next steps
+Learn more about how [encryption is used in Azure](encryption-overview.md).

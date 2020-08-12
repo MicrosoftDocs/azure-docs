@@ -136,7 +136,8 @@ When server-side encryption using service-managed keys in customer-controlled ha
 - Significant setup, configuration, and ongoing maintenance costs
 - Increased dependency on network availability between the customer datacenter and Azure datacenters.
 
-### Encryption Model and key management table
+## Supporting services
+The Azure services that support each encryption model:
 
 | Product, Feature, or Service | Server-Side Using Service-Managed Key   | Server-Side Using Customer-Managed Key | Client-Side Using Client-Managed Key  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
