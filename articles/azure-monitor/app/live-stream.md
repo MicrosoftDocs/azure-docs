@@ -43,7 +43,7 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 Even though LiveMetrics is enabled by default when onboarding using recommended instructions for .NET Applications, the following shows how to setup Live Metrics
 manually.
 
-1. Install the Nuget package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
+1. Install the NuGet package [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
 2. The following sample console app code shows setting up Live Metrics.
 
 ```csharp
