@@ -179,7 +179,7 @@ In the applicationinsights.config file, add the AuthenticationApiKey to the Quic
 
 ### ASP.NET Core
 
-For [ASP.NET Core](./asp-net-core.md) applications, follow below instructions.
+For [ASP.NET Core](./asp-net-core.md) applications, follow the instructions below.
 
 Modify `ConfigureServices` of your Startup.cs file as follows:
 
@@ -199,11 +199,11 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-More information on configuring ASP.NET Core applications can be found [here](./asp-net-core.md#configuring-or-removing-default-telemetrymodules).
+More information on configuring ASP.NET Core applications can be found in our guidance on [configuring telemetry modules in ASP.NET Core](./asp-net-core.md#configuring-or-removing-default-telemetrymodules).
 
 ### WorkerService
 
-For [WorkerService](./worker-service.md) applications, follow below instructions.
+For [WorkerService](./worker-service.md) applications, follow the instructions below.
 
 Add the following namespace.
 
@@ -217,13 +217,13 @@ Next, add the following line before the call `services.AddApplicationInsightsTel
     services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
-More information on configuring WorkerService applications can be found [here](./worker-service.md#configuring-or-removing-default-telemetrymodules).
+More information on configuring WorkerService applications can be found in our guidance on [configuring telemetry modules in WorkerServices](./worker-service.md#configuring-or-removing-default-telemetrymodules).
 
 ### Azure Function Apps
 
 For Azure Function Apps (v2), securing the channel with an API key can be accomplished with an environment variable.
 
-Create an API key from within your Application Insights resource and go to **Application Settings** for your Function App. Select **add new setting** and enter a name of `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` and a value that corresponds to your API key.
+Create an API key from within your Application Insights resource and go to **Settings > Configuration** for your Function App. Select **New application setting** and enter a name of `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` and a value that corresponds to your API key.
 
 However, if you recognize and trust all the connected servers, you can try the custom filters without the authenticated channel. This option is available for six months. This override is required once every new session, or when a new server comes online.
 
@@ -250,7 +250,7 @@ Basic metrics include request, dependency, and exception rate. Performance metri
 
 - PerfCounters metrics are supported when running in Azure App Service for Windows. (AspNetCore SDK Version 2.4.1 or higher)
 - PerfCounters are supported when app is running in ANY Windows machines (VM or Cloud Service or On-prem etc.) (AspNetCore SDK Version 2.7.1 or higher), but for apps targeting .NET Core 2.0 or higher.
-- PerfCounters are supported when app is running ANYWHERE (Linux, Windows, app service for Linux, containers, etc.) in the latest versions (i.e AspNetCore SDK Version 2.8.0 or higher), but only for apps targeting .NET Core 2.0 or higher.
+- PerfCounters are supported when app is running ANYWHERE (Linux, Windows, app service for Linux, containers, etc.) in the latest versions (i.e. AspNetCore SDK Version 2.8.0 or higher), but only for apps targeting .NET Core 2.0 or higher.
 
 ## Troubleshooting
 
