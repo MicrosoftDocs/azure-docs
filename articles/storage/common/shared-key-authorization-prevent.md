@@ -18,44 +18,13 @@ Every request for data in an Azure Storage account must be authorized, with the 
 
 By default, a storage account permits access to blob and queue data via either Shared Key or Azure AD authorization. To require clients to use Azure AD to authorize requests, you can disallow access requests to the storage account that are authorized with Shared Key (preview). Microsoft recommends that you disallow Shared Key authorization to storage accounts containing blob and queue data to help prevent data breaches.
 
-When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with Shared Key. Only secured requests that are authorized with Azure AD will succeed. 
-
-
-
+When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with Shared Key. Only secured requests that are authorized with Azure AD will succeed.
 
 This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to control Shared Key authorization for your storage accounts.
 
-Anonymous requests will also succeed if you have configured your storage account and container for anonymous access
-
-
-
-
-Shared Key relies on the storage account access keys. A client can authorize a request to Azure Storage by using an account access key to sign a string that is passed in the HTTP *Authorization* header. Security problems can arise with Shared Key authorization when the account access keys are shared or compromised, or when a connection string is stored in clear text in a client application. 
-
-Azure AD authorization is based on an identity that is first authenticated by Azure in order to acquire a token. A client application can then pass the token on the request in the *Authorization* header. Because Azure AD is identity-based, 
-
-
-With Azure AD, you can use role-based access control to grant permissions to a user, group or application. Authorizing users or applications using an OAuth 2.0 token returned by Azure AD provides superior security and ease of use over Shared Key authorization and shared access signatures. There is no need to store the account access key with your code and configuration and risk potential security vulnerabilities.
-
-Microsoft recommends that you transition to authorizing all requests with Azure AD instead of Shared Key authentication. 
-
-to access your storage accounts for better security and protection on your data. Azure Storage also introduces a new feature to restrict the use of storage account key and shared access signature. A new property allowSharedKeyAccess is added in storage account property. When allowSharedKeyAccess is set to false, all requests authenticated with storage account key or shared access signature will be rejected.
-This article introduces a DRAG (Detection-Remediation-Audit-Governance) framework to address restricting key authentication continuously.
-
-When you disallow public blob access for the storage account, Azure Storage rejects all anonymous requests to that account. After public access is disallowed for an account, containers in that account cannot be subsequently configured for public access. Any containers that have already been configured for public access will no longer accept anonymous requests. For more information, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
-
-This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage public access for your storage accounts.
-
-
-
-
 ## About the preview
 
-Disallowing Shared Key authorization is supported for general-purpose v2 storage accounts only.
-
-The following regions support disallowing Shared Key authorization in preview:
-
-???
+Disallowing Shared Key authorization is supported for storage accounts that use the Azure Resource Manager deployment model only.
 
 The preview includes the following limitations:
 
@@ -153,56 +122,56 @@ After you have analyzed how requests to your storage account are being authorize
 
 When you are confident that you can safely prevent Shared Key authorization to your storage account, you can take action to prevent access via Shared Key by setting the **AllowSharedKeyAccess** property for the account to **false**.
 
+The following example shows how to set the **AllowSharedKeyAccess** property with Azure CLI. Remember to replace the placeholder values in brackets with your own values:
 
+```azurecli-interactive
+$storage_account_id=$(az resource show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --resource-type Microsoft.Storage/storageAccounts \
+    --query id \
+    --output tsv)
 
-For enhanced security,  disallow public access for the whole storage account. The public access setting for a storage account overrides the individual settings for containers in that account. When you disallow public access for a storage account, any containers that are configured to permit public access are no longer accessible anonymously. For more information, see [Allow or disallow public read access for a storage account](anonymous-read-access-configure.md#allow-or-disallow-public-read-access-for-a-storage-account).
+az resource update \
+    --ids $storage_account_id \
+    --set properties.allowSharedKeyAccess=false
 
-If your scenario requires that certain containers need to be available for public access, it may be advisable to move those containers and their blobs into storage accounts that are reserved for public access. You can then disallow public access for any other storage accounts.
-
-### Verify that public access to a blob is not permitted
-
-To verify that public access to a specific blob is disallowed, you can attempt to download the blob via its URL. If the download succeeds, then the blob is still publicly available. If the blob is not publicly accessible because public access has been disallowed for the storage account, then you will see an error message indicating that public access is not permitted on this storage account.
-
-The following example shows how to use PowerShell to attempt to download a blob via its URL. Remember to replace the placeholder values in brackets with your own values:
-
-```powershell
-$url = "<absolute-url-to-blob>"
-$downloadTo = "<file-path-for-download>"
-Invoke-WebRequest -Uri $url -OutFile $downloadTo -ErrorAction Stop
+az resource show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --resource-type Microsoft.Storage/storageAccounts \
+    --query properties.allowSharedKeyAccess \
+    --output tsv
 ```
 
-### Verify that modifying the container's public access setting is not permitted
+After you disallow Shared Key authorization, making a requests to the storage account with Shared Key authorization will fail with error code 403 (Forbidden).
 
-To verify that a container's public access setting cannot be modified after public access is disallowed for the storage account, you can attempt to modify the setting. Changing the container's public access setting will fail if public access is disallowed for the storage account.
+> [!NOTE]
+> Anonymous requests are not authorized and will succeed if you have configured the storage account and container for anonymous public read access. For more information, see [Configure anonymous public read access for containers and blobs](../blobs/anonymous-read-access-configure.md).
 
-The following example shows how to use PowerShell to attempt to change a container's public access setting. Remember to replace the placeholder values in brackets with your own values:
+### Verify that Shared Key access is not allowed
 
-```powershell
-$rgName = "<resource-group>"
-$accountName = "<storage-account>"
-$containerName = "<container-name>"
+To verify that Shared Key authorization is no longer permitted, you can attempt to call a data operation with the account access key. The following example attempts to create a container using the access key. This call will fail when Shared Key authorization is disallowed for the storage account. Remember to replace the placeholder values in brackets with your own values:
 
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
-$ctx = $storageAccount.Context
-
-Set-AzStorageContainerAcl -Context $ctx -Container $containerName -Permission Blob
+```azurecli-interactive
+az storage container create \
+    --account-name <storage-account> \
+    --name sample-container \
+    --account-key <key>
+    --auth-mode key
 ```
 
-### Verify that creating a container with public access enabled is not permitted
+### Check the Shared Key access setting for multiple accounts
 
-If public access is disallowed for the storage account, then you will not be able to create a new container with public access enabled. To verify, you can attempt to create a container with public access enabled.
+To check the Shared Key access setting across a set of storage accounts with optimal performance, you can use the Azure Resource Graph Explorer in the Azure portal. To learn more about using the Resource Graph Explorer, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
 
-The following example shows how to use PowerShell to attempt to create a container with public access enabled. Remember to replace the placeholder values in brackets with your own values:
+Running the following query in the Resource Graph Explorer returns a list of storage accounts and displays the Shared Key access setting for each account:
 
-```powershell
-$rgName = "<resource-group>"
-$accountName = "<storage-account>"
-$containerName = "<container-name>"
-
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
-$ctx = $storageAccount.Context
-
-New-AzStorageContainer -Name $containerName -Permission Blob -Context $ctx
+```kusto
+resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
+| extend allowSharedKeyAccess = parse_json(properties).allowSharedKeyAccess
+| project subscriptionId, resourceGroup, name, allowSharedKeyAccess
 ```
 
 ## Understanding authorization for shared access signatures (SAS)
@@ -221,5 +190,6 @@ For more information about shared access signatures, see [Grant limited access t
 
 ## Next steps
 
-- [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md)
-- [Access public containers and blobs anonymously with .NET](anonymous-read-access-client.md)
+- [Authorizing access to data in Azure Storage](storage-auth.md)
+- [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md)
+- [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key)
