@@ -5,8 +5,7 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: inhenkel
 ---
-<div height="400">
-<pre>
+<pre height="400">
 {
     "properties": {
         "description": "Basic Transform using a custom encoding preset",
@@ -94,4 +93,3 @@ ms.author: inhenkel
     }
 }
 </pre>
-</div>
