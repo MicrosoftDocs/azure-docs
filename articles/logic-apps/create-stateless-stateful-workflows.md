@@ -27,7 +27,7 @@ When you use Visual Studio Code and the preview extension, Azure Functions for V
    > [!NOTE]
    > To more easily debug stateless workflow apps, you can [enable run history](#enable-run-history).
    >
-   > Currently, stateless workflows support only actions, not triggers, for [managed connectors](../connectors/apis-list.md##connector-types). For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
+   > Currently, stateless workflows support only actions, not triggers, for [managed connectors](../connectors/apis-list.md#connector-types). For more information, see [Azure Triggers - GitHub Issue #136](https://github.com/Azure/logicapps/issues/136).
 
 ## Prerequisites
 
