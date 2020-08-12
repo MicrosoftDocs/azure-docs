@@ -7,7 +7,7 @@ ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
 # Customer intent: As a data analyst or developer, I want to learn how to create a Azure Time Series Insights environment so that I can use Azure Time Series Insights queries to understand device behavior.
 ---
@@ -35,11 +35,11 @@ This tutorial guides you through the process of creating an Azure Time Series In
 
 ### Learn how to use an Azure IoT solution accelerator to generate data and get started with Azure Time Series Insights. </br>
 
-> [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
+> [!VIDEO <https://www.youtube.com/embed/6ehNf6AJkFo>]
 
 ## Overview
 
-The Azure Time Series Insights environment is where device data is collected and stored. Once stored, the [Azure Time Series Insights Explorer](time-series-quickstart.md) and [Azure Time Series Insights Query API](/rest/api/time-series-insights/ga-query-api) can be used to query and analyze the data.
+The Azure Time Series Insights environment is where device data is collected and stored. Once stored, the [Azure Time Series Insights Explorer](time-series-quickstart.md) and [Azure Time Series Insights Query API](/rest/api/time-series-insights/gen1-query-api) can be used to query and analyze the data.
 
 Azure IoT Hub is the event source that's used by all devices (simulated or physical) in the tutorial to securely connect and transmit data to your Azure cloud.
 
@@ -94,7 +94,7 @@ Second, create a Azure Time Series Insights environment in your Azure subscripti
 
    Parameter|Description
    ---|---
-   **Environment name** | Choose a unique name for the Azure Time Series Insights environment. The names are used by the Azure Time Series Insights Explorer and the [Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+   **Environment name** | Choose a unique name for the Azure Time Series Insights environment. The names are used by the Azure Time Series Insights Explorer and the [Query APIs](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
    **Subscription** | Subscriptions are containers for Azure resources. Choose a subscription to create the Azure Time Series Insights environment.
    **Resource group** | A resource group is a container for Azure resources. Choose an existing resource group or create a new one for the Azure Time Series Insights environment resource.
    **Location** | Choose a data center region for your Azure Time Series Insights environment. To avoid additional latency, create the Azure Time Series Insights environment in the same region as other IoT resources.
