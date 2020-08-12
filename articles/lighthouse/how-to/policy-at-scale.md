@@ -12,7 +12,7 @@ As a service provider, you may have onboarded multiple customer tenants to [Azur
 This topic shows you how to use [Azure Policy](../../governance/policy/index.yml) to deploy a policy definition and policy assignment across multiple tenants using PowerShell commands. In this example, the policy definition ensures that storage accounts are secured by allowing only HTTPS traffic.
 
 > [!TIP]
-> Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](enterprise.md) can use the same processes.
+> Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](../concepts/enterprise.md) can use the same processes.
 
 ## Use Azure Resource Graph to query across customer tenants
 
