@@ -100,57 +100,57 @@ Mapping data flows are available in the following regions:
 | ------------ | ----------------- | ---------------------------- |
 |  Australia Central | | |	
 | Australia Central 2 | | |
-| Australia East | GA |	Preview |
-| Australia Southeast	| GA |Preview |
-| Brazil South	| GA | Planned |
-| Canada Central | GA | Planned |
-| Central India	| GA |	Preview |
-| Central US	| GA |	Preview |
-| China East |	Planned	| Preview |
-| China East 2	|	|	Planned |
+| Australia East | ✓ |	✓ |
+| Australia Southeast	| ✓ | ✓ |
+| Brazil South	| ✓ |  |
+| Canada Central | ✓ |  |
+| Central India	| ✓ |	✓ |
+| Central US	| ✓ |	✓ |
+| China East |		| ✓ |
+| China East 2	|	|	 |
 | China Non-Regional | | |
-| China North |	Planned	| |
-| China North 2	| | Planned |
-| East Asia	| GA | |
-| East US	| GA | Preview |
-| East US 2	| GA | Preview |
-| France Central | GA |	Preview |
+| China North |		| |
+| China North 2	| |  |
+| East Asia	| ✓ | |
+| East US	| ✓ | ✓ |
+| East US 2	| ✓ | ✓ |
+| France Central | ✓ | ✓ |
 | France South	| | |
 | Germany Central (Sovereign) | | |
 | Germany Non-Regional (Sovereign) | | |
 | Germany North (Public) | | |
 | Germany Northeast (Sovereign) | | |
-| Germany West Central (Public) | Planned |	Preview |
-| Japan East | GA |	|
-| Japan West |Planned	| |
-| Korea Central	| GA | Planned |
+| Germany West Central (Public) |  | ✓ |
+| Japan East | ✓ |	|
+| Japan West |	| |
+| Korea Central	| ✓ |  |
 | Korea South | | |
-| North Central US	| GA | Preview |
-| North Europe	| GA |	 |
+| North Central US	| ✓ | ✓ |
+| North Europe	| ✓ |	 |
 | Norway East | | |
 | Norway West | | |
-| South Africa North	| GA | |
-| South Africa West	| Planned |	|
-| South Central US	| |	Preview |
+| South Africa North	| ✓ | |
+| South Africa West	|  |	|
+| South Central US	| |	✓ |
 | South India | | |
-| Southeast Asia	| GA |	Preview	 |
-| Switzerland North	| Planned	| Planned |
+| Southeast Asia	| ✓ | ✓ |
+| Switzerland North	| 	|  |
 | Switzerland West | | |
 | UAE Central | | |
-| UAE North	| Planned |	|
-| UK South	| GA |	| Preview |
-| UK West |	Planned	| Preview |
-| US DoD Central | | Planned |
-| US DoD East | | Planned |
-| US Gov Arizona |	Planned	| Planned |
-| US Gov Non-Regional | | Planned |
-| US Gov Texas | | Planned |
-| US Gov Virginia |	Planned	| Planned |
-| West Central US |	Planned	| Preview |
-| West Europe	| GA |	Preview |
+| UAE North	|  |	|
+| UK South	| ✓ |	| ✓ |
+| UK West |		| ✓ |
+| US DoD Central | |  |
+| US DoD East | |  |
+| US Gov Arizona |		|  |
+| US Gov Non-Regional | |  |
+| US Gov Texas | |  |
+| US Gov Virginia |		|  |
+| West Central US |		| ✓ |
+| West Europe	| ✓ |	✓ |
 | West India | | |
-| West US	| GA |  Planned |
-| West US 2	| GA |	Preview | 
+| West US	| ✓ |   |
+| West US 2	| ✓ |	✓ | 
 
 ## Next steps
 
