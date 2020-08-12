@@ -1,14 +1,13 @@
 ---
 title: Scale HiveServer2 on Azure HDInsight
-description: Horizontally scale HiveServer2 on Azure HDInsight clusters using edge nodes, increasing fault tolerance, and high availability.
+description: Horizontally scale HiveServer2 on Azure HDInsight clusters using edge nodes to increase fault tolerance and availability.
 services: hdinsight
 ms.service: hdinsight
-ms.subservice: 
 ms.topic: conceptual
 ms.reviewer: hrasheed-msft
 ms.author: kecheung
 author: kcheeeung
-ms.date: 08/06/2020
+ms.date: 08/12/2020
 ---
 
 # Scale HiveServer2 on Azure HDInsight Clusters for High Availability
@@ -28,15 +27,18 @@ To use this guide, you'll need to understand the following article:
 In this section, you'll install an additional HiveServer2 onto your target hosts.
 
 1. Open Ambari in your browser and click on your target host.
-![Hosts menu of Ambari](media/hdinsight-apps-install-hiveserver2/hdi-install-hs2a.png)
+
+:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdi-install-hs2a.png" alt-text="Hosts menu of Ambari.":::
 
 2. Click the add button and click on HiveServer2
-![Add HiveServer2 panel of host](media/hdinsight-apps-install-hiveserver2/hdi-install-hs2b.png)
+
+:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdi-install-hs2b.png" alt-text="Add HiveServer2 panel of host.":::
 
 3. Confirm and the process will run. Repeat 1-3 for all desired hosts.
 
-4. When you finished installing, restart all services with stale configs and start HiveServer2.
-![Start HiveServer2 panel](media/hdinsight-apps-install-hiveserver2/hdi-install-hs2c.png)
+4. When you have finished installing, restart all services with stale configs and start HiveServer2.
+
+:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdi-install-hs2c.png" alt-text="Start HiveServer2 panel.":::
 
 ## Next steps
 
