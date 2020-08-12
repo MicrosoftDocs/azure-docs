@@ -6,10 +6,14 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 7/14/2020
+ms.date: 8/10/2020
 ---
 
 # Server group size
+
+The Hyperscale (Citus) deployment option uses cooperating database servers to
+parallelize query execution and store more data. Server group "size" refers
+to both the number of servers, and the hardware resources of each.
 
 ## Picking initial size
 
