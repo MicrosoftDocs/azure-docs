@@ -35,7 +35,7 @@ Within Azure API Management, rate limits are typically propagated faster across 
 ## Product-based throttling
 To date, the rate throttling capabilities have been limited to being scoped to a particular Product subscription, defined in the Azure portal. This is useful for the API provider to apply limits on the developers who have signed up to use their API, however, it does not help, for example, in throttling individual end users of the API. It is possible that for single user of the developer's application to consume the entire quota and then prevent other customers of the developer from being able to use the application. Also, several customers who might generate a high volume of requests may limit access to occasional users.
 
-## Custom key based throttling
+## Custom key-based throttling
 
 > [!NOTE]
 > The `rate-limit-by-key` and `quota-by-key` policies are not available when in the Consumption tier of Azure API Management. 
