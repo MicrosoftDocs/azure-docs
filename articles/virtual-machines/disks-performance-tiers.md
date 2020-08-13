@@ -37,16 +37,18 @@ A baseline performance tier is set based on your provisioned disk size. You can 
 You must get the feature enabled for your subscriptions before you can use performance tier. Please [sign up](https://aka.ms/perftiersignup) for access to our private preview.
 
 ## Regions supported
-1. West Central US 
-2. East 2 US 
-3. Europe West
-4. East Australia 
-5. South East Australia 
-6. South India
+
+- West Central US 
+- East 2 US 
+- Europe West
+- East Australia 
+- South East Australia 
+- South India
 
 ## Restrictions
-1. Disks should not be attached to running VMs while changing tier.
-2. You have to resize a disk to size greater than 4096 GiB to use P60, P70, P80 tiers. 
+
+- Disks should not be attached to running VMs while changing tier.
+- You have to resize a disk to size greater than 4096 GiB to use P60, P70, P80 tiers. 
 
 ## Create/update a data disk with a tier higher than the baseline tier
 
@@ -69,7 +71,7 @@ You must get the feature enabled for your subscriptions before you can use perfo
  --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier" "dataDiskSizeInGb=$diskSize"
  ```
 
-2. Confirm the tier of the disk
+1. Confirm the tier of the disk
 ```cli
 az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
  ```
@@ -88,7 +90,7 @@ az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Comput
  --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier"
  ```
  
- 2. Confirm the tier of the disk
+ 1. Confirm the tier of the disk
  ```cli
  az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
  ```
