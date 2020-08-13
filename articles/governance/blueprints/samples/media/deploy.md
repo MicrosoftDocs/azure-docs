@@ -1,7 +1,7 @@
 ---
 title: Deploy Media blueprint sample
 description: Deploy steps for the Media blueprint sample including blueprint artifact parameter details.
-ms.date: 02/25/2020
+ms.date: 08/13/2020
 ms.topic: sample
 ---
 # Deploy the Media blueprint sample
