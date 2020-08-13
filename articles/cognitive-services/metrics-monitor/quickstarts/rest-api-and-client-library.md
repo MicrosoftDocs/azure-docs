@@ -35,7 +35,7 @@ Use Metrics Monitor to perform:
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs.md)]
+[!INCLUDE [JavaScript quickstart](../includes/quickstarts/javascript.md)]
 
 ::: zone-end
 
