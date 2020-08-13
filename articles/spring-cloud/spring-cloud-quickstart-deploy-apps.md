@@ -62,9 +62,6 @@ az spring-cloud app deploy -n account-service --jar-path ./account-service/targe
 az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
 ```
 
-> [!div class="nextstepaction"]
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=deploy)
-
 ### Assign public endpoint to gateway
 
 We need a way to access the application via a web browser. Our gateway application needs a public facing endpoint.
@@ -143,7 +140,6 @@ To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.a
 
 1. After the deployment has finished, you can access PiggyMetrics by using the URL provided in the output from the preceding command.
 
-> [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=deploy)
 
 #### [IntelliJ](#tab/IntelliJ)
@@ -240,8 +236,9 @@ You will have to edit the previous configuration for both the `auth-service` and
 1. Navigate to the URL in browser.
 
     ![Navigate in Browser 2](media/spring-cloud-intellij-howto/revision-view-in-browser.png)
+
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=provision)
 ---
 
-> [!div class="nextstepaction"]
 ## Next steps
 [Logs, Metrics and Tracing](spring-cloud-quickstart-logs-metrics-tracing.md)

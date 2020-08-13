@@ -54,8 +54,9 @@ Sign in to your Azure subscription.  Install the Azure Spring Cloud extension fo
 ```azurecli
 az extension add --name spring-cloud
 ```
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=provision)
 
-### Provision a service instance on the Azure CLI
+### Provision a service instance
 
 1. Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
 

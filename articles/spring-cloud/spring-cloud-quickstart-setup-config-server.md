@@ -24,7 +24,6 @@ The following procedure sets up the config server using the Azure portal to depl
 
     ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
-> [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=config-server)
 
 #### [CLI](#tab/Azure-CLI)
@@ -42,9 +41,9 @@ Update your config-server with the location of the git repository for the projec
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
----
-> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=config-server)
 
-> [!div class="nextstepaction"]
+> [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=config-server)
+---
+
 ## Next steps
 * [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md)
