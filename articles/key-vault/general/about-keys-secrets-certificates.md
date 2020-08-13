@@ -82,7 +82,7 @@ An object identifier has the following general format (depending on container ty
 - **For Managed HSM pools**:
 `https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
 
->[!NOTE] See [Object type support](#object-types) for types of objects supported by each container type.
+> [!NOTE] See [Object type support](#object-types) for types of objects supported by each container type.
 
 Where:  
 
