@@ -90,9 +90,10 @@ az extension add --name spring-cloud
         az configure --defaults spring-cloud=<service instance name>
     ```
 ---
-> [!div class="nextstepaction"]
+
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=provision)
 
+> [!div class="nextstepaction"]
 ## Next steps
 * [Set up configuration server](spring-cloud-quickstart-setup-config-server.md)
 

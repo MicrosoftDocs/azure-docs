@@ -17,6 +17,7 @@ This document illustrates deployment of microservice applications to Azure Sprin
 
 Before deployment using Azure CLI or Maven, complete the examples that [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).
 
+#### [CLI](#tab/Azure-CLI)
 ## Azure CLI deployment
 To use the CLI method of deployment, Install the Azure Spring Cloud extension for the Azure CLI using the following command.
 
@@ -97,6 +98,7 @@ You can also navigate the Azure portal to find the URL.
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
+#### [Maven](#tab/Maven)
 ## Maven deployment
 To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.apache.org/download.cgi).  Before deployment, complete the examples that [provision an instance of Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md) and [set up the config server](spring-cloud-quickstart-setup-config-server.md).
 
@@ -144,6 +146,7 @@ To complete deployment using Maven, [Install Maven 3.0 or later](https://maven.a
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=deploy)
 
+#### [IntelliJ](#tab/IntelliJ)
 ## IntelliJ deployment
 The IntelliJ plug-in for Azure Spring Cloud supports application deployment from the IntelliJ IDEA.  
 
@@ -237,6 +240,8 @@ You will have to edit the previous configuration for both the `auth-service` and
 1. Navigate to the URL in browser.
 
     ![Navigate in Browser 2](media/spring-cloud-intellij-howto/revision-view-in-browser.png)
+---
 
+> [!div class="nextstepaction"]
 ## Next steps
 [Logs, Metrics and Tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
