@@ -13,19 +13,21 @@ ms.date: 06/25/2020
 
 Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly.
 
-The **Normalized RU Consumption** metric is used to see how well saturated the replicas are with regard to the request units consumption across the partition key ranges. Azure Cosmos DB distributes the throughput equally across all the physical partitions. This metric provides a per second view of the maximum throughput utilization within a replica set. Use this metric to calculate the RU/s usage across partitions for given container. By using this metric, if you see high percentage of request units utilization, you should increase the throughput to meet the needs of your workload.
+The **Normalized RU Consumption** metric is used to see how well saturated the  partition key ranges are  with respect to the traffic. Azure Cosmos DB distributes the throughput equally across all the partition key ranges. This metric provides a per second view of the maximum throughput utilization for partition key range. Use this metric to calculate the RU/s usage across partition key range for given container. By using this metric, if you see high percentage of request units utilization across all partition key ranges in Azure monitor, you should increase the throughput to meet the needs of your workload. 
 
 ## What to expect and do when normalized RU/s is higher
 
-When the normalized RU/s consumption reaches 100%, the client receives rate limiting errors. The client should respect the wait time and retry. If there is a short spike that reaches 100% utilization, it means that the throughput on the replica reached its maximum performance limit. For example, a single operation such as a stored procedure that consumes all the RU/s on a replica will lead to a short spike in normalized RU/s consumption. In such cases, there will not be any immediate rate limiting errors if the request rate is low. That's because, Azure Cosmos DB allows requests to charge more than the provisioned RU/s for the specific request and other requests within that time period are rate limited.
+When the normalized RU/s consumption reaches 100% for given partition key range, and client  still makes requests in that time window of 1 second to that specific partition key range - it will recieve throughput rate limitation error. The client should respect the suggested wait time and retry. SDK makes it easy to handle this situation and will retry preconfigured times by waiting appropriately.  It is not neccasary to see the RU rate limiting error just because Normalized RU has reached 100% as single value represents the max usage over all partition key ranges and other partition key ranges can serve the requests without issues. For example, a single operation such as a stored procedure that consumes all the RU/s on a replicaset will lead to a short spike in normalized RU/s consumption. In such cases, there will not be any immediate rate limiting errors if the request rate is low or requests are made to other partitions on different partition key ranges. 
 
-The Azure Monitor metrics help you to find the operations per status code by using the **Total Requests** metric. Later you can filter on these requests by the 429 status code and split them by **Operation Type**.
+The Azure Monitor metrics help you to find the operations per status code for SQL API by using the **Total Requests** metric. Later you can filter on these requests by the 429 status code and split them by **Operation Type**.  
 
 To find the requests which are rate limited, the recommended way is to get this information through diagnostic logs.
 
-If there is continuous peak of 100% normalized RU/s consumption or close to 100%, it's recommended to increase the throughput. You can find out which operations are heavy and their peak usage by utilizing the Azure monitor metrics and Azure monitor logs.
+If there is continuous peak of 100% normalized RU/s consumption or close to 100% across multiple partition key ranges it's recommended to increase the throughput. You can find out which operations are heavy and their peak usage by utilizing the Azure monitor metrics and Azure monitor diagnostic logs.
 
-The **Normalized RU Consumption** metric is also used to see which partition key range is more warm in terms of usage; thus giving you the skew of throughput towards a partition key range. You can later follow up to see the **PartitionKeyRUConsumption** log in Azure Monitor logs to get information about which logical partition keys are hot in terms of usage.
+In summary - The **Normalized RU Consumption** metric is  used to see which partition key range is more warm in terms of usage; thus giving you the skew of throughput towards a partition key range. You can later follow up to see the **PartitionKeyRUConsumption** log in Azure Monitor logs to get information about which logical partition keys are hot in terms of usage. This will point to change in either the partition key choice, or the change in application logic (distribute the load of data say across multiple partitions) or just increase in the throughput as it is really required. 
+
+
 
 ## View the normalized request unit consumption metric
 
