@@ -13,6 +13,7 @@ ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
 ---
+
 # Azure AD Application Proxy: Version release history
 This article lists the versions and features of Azure Active Directory (Azure AD) Application Proxy that have been released. The Azure AD team regularly updates Application Proxy with new features and functionality. Application Proxy connectors are updated automatically when a new version is released. 
 
