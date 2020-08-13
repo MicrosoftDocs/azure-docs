@@ -26,7 +26,8 @@ You can use Azure Sentinel's built-in connector to collect data from [Azure Acti
 
 ## Prerequisites
 
-- You no longer need an Azure AD P1 or P2 license to stream sign-in logs into Azure Sentinel. Any Azure AD license type is sufficient.
+
+- Any Azure AD license (Free/O365/P1/P2) can integrate with Azure Monitor and ingest sign-in logs into Azure Sentinel. Additional per gigabyte charges will apply for Azure Monitor or Azure Sentinel.
 
 - Your user must be assigned the Azure Sentinel Contributor role on the workspace.
 

@@ -57,7 +57,7 @@ To choose from suggested redirect URIs for public clients, follow these steps:
 1. Select one or more redirect URIs for your application. You can also enter a custom redirect URI. If you're not sure what to use, see the library documentation.
 1. Select **Save**.
 
-Certain restrictions apply to redirect URIs. For more information, see [Redirect URI/reply URL restrictions and limitations](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
+Certain restrictions apply to redirect URIs. For more information, see [Redirect URI/reply URL restrictions and limitations](./reply-url.md).
 
 > [!NOTE]
 > Try out the new **Authentication** settings experience where you can configure settings for your application based on the platform or device that you want to target.
@@ -145,7 +145,7 @@ To add a client secret:
 
 ## Add permissions to access web APIs
 
-The [Graph API sign-in and read user profile permission](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions) is selected by default. You can select from [two types of permissions](developer-glossary.md#permissions) for each web API:
+The [Graph API sign-in and read user profile permission](/graph/permissions-reference#user-permissions) is selected by default. You can select from [two types of permissions](developer-glossary.md#permissions) for each web API:
 
 * **Application permissions**. Your client application needs to access the web API directly as itself, without user context. This type of permission requires administrator consent. This permission isn't available for desktop and mobile client applications.
 * **Delegated permissions**. Your client application needs to access the web API as the signed-in user, but with access limited by the selected permission. This type of permission can be granted by a user unless the permission requires administrator consent.

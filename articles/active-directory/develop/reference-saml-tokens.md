@@ -150,7 +150,7 @@ This is a sample of a typical SAML token.
 
 ## Related content
 
-* See the [Policy resource](https://docs.microsoft.com/graph/api/resources/policy?view=graph-rest-beta), to learn more about managing token lifetime policy using the Microsoft Graph API.
+* See the [Policy resource](/graph/api/resources/policy?view=graph-rest-beta), to learn more about managing token lifetime policy using the Microsoft Graph API.
 * For more information and samples on managing policies via PowerShell cmdlets, including samples, see [Configurable token lifetimes in Azure AD](../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). 
 * Add [custom and optional claims](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) to the tokens for your application.
 * Use [Single Sign On (SSO) with SAML](single-sign-on-saml-protocol.md).
