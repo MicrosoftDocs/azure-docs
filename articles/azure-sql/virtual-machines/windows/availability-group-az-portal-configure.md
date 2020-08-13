@@ -30,7 +30,6 @@ To configure an Always On availability group, you must have the following prereq
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
 - One or more domain-joined [VMs in Azure running SQL Server 2016 (or later) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the *same* availability set or *different* availability zones that have been [registered with the SQL VM resource provider](sql-vm-resource-provider-register.md).  
-- The latest version of [PowerShell](/powershell/scripting/install/installing-powershell) or the [Azure CLI](/cli/azure/install-azure-cli). 
 - Two available (not used by any entity) IP addresses. One is for the internal load balancer. The other is for the availability group listener within the same subnet as the availability group. If you're using an existing load balancer, you only need one available IP address for the availability group listener. 
 
 ## Permissions
@@ -42,14 +41,14 @@ You need the following account permissions to configure the Always On availabili
 
 ## Configure cluster
 
-Configure the cluster using the Azure portal. You can either create a new cluster, or if you already have an existing cluster, you can onboard it.
+Configure the cluster by using the Azure portal. You can either create a new cluster, or if you already have an existing cluster, you can onboard it to the SQL VM resource provider to provide portal manageability.
 
 
 ### Create a new cluster
 
 If you already have a cluster, skip this section and move to [Onboard existing cluster](#onboard-existing-cluster) instead. 
 
-If you do not already have an existing cluster, create it using the Azure portal by following these steps:
+If you do not already have an existing cluster, create it by using the Azure portal with these steps:
 
 1. Sign into the [Azure portal](https://portal.azure.com). 
 1. Navigate to your [SQL virtual machines](manage-sql-vm-portal.md) resource. 
@@ -127,19 +126,17 @@ To add databases to your availability group using SQL Server Management Studio, 
 
 ## Next steps
 
+
 For more information about availability groups, see:
 
 - [Overview of availability groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
-* [Administration of an availability group &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
+* [Administration of an availability group](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
+* [Monitoring of availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server)
+* [Availability group Transact-SQL statements ](/sql/database-engine/availability-groups/windows/transact-sql-statements-for-always-on-availability-groups)   
+* [Availability groups PowerShell commands](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)  
+
+For more information about SQL Server VMs, see: 
 
 * [Overview of SQL Server VMs](sql-server-on-azure-vm-iaas-what-is-overview.md)
-
 * [Release notes for SQL Server VMs](../../database/doc-changes-updates-release-notes.md)
-* [Switching licensing models for a SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md)
-* 
-* [Configuration of a server instance for Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/configuration-of-a-server-instance-for-always-on-availability-groups-sql-server)   
-
-* [Monitoring of availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server)
-* [Overview of Transact-SQL statements for Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/transact-sql-statements-for-always-on-availability-groups)   
-* [Overview of PowerShell cmdlets for Always On availability groups &#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)  
 * [FAQ for SQL Server VMs](frequently-asked-questions-faq.md)
