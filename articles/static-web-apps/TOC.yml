@@ -7,10 +7,13 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Build your first static web app
-      href: getting-started.md
-    - name: Build your first static web app in the portal
-      href: getting-started-portal.md
+    - name: Build your fist static web app
+      expanded: true
+      items:
+        - name: Using Visual Studio Code
+          href: getting-started.md
+        - name: Using the Azure portal
+          href: getting-started-portal.md
 - name: Concepts
   items:
     - name: API support with Azure Functions
