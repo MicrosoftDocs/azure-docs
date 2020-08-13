@@ -86,15 +86,15 @@ Add the client libraries to the python file.
 
 ## Add boilerplate code 
 
-Add the `quickstart` method and its call. This method holds most of the remaining code. This method is called at the end of the file. 
+1. Add the `quickstart` method and its call. This method holds most of the remaining code. This method is called at the end of the file. 
 
-```python
-def quickstart(): 
+    ```python
+    def quickstart(): 
+    
+    quickstart()
+    ```
 
-quickstart()
-```
-
-Add the remaining code in the quickstart method unless otherwise specified. 
+1. Add the remaining code in the quickstart method unless otherwise specified. 
 
 ## Create variables for the app
 

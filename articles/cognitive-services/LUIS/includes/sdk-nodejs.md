@@ -114,23 +114,23 @@ Open the `index.js` file in your preferred editor or IDE named then add the foll
 
 ## Add boilerplate code 
 
-Add the `quickstart` method and its call. This method holds most of the remaining code. This method is called at the end of the file. 
+1. Add the `quickstart` method and its call. This method holds most of the remaining code. This method is called at the end of the file. 
 
-```javascript
-const quickstart = async () => {
+    ```javascript
+    const quickstart = async () => {
+    
+        // add calls here
+    
+    
+    }
+    quickstart()
+        .then(result => console.log("Done"))
+        .catch(err => {
+            console.log(`Error: ${err}`)
+            })
+    ```
 
-    // add calls here
-
-
-}
-quickstart()
-    .then(result => console.log("Done"))
-    .catch(err => {
-        console.log(`Error: ${err}`)
-    })
-```
-
-Add the remaining code in the quickstart method unless otherwise specified. 
+1. Add the remaining code in the quickstart method unless otherwise specified. 
 
 ## Create variables for the app
 

@@ -101,7 +101,7 @@ Once the client is created, use this client to access functionality including:
 
 1. From the project directory, open the *Program.cs* file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
 
-[!code-csharp[Add NuGet libraries to code file](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=Dependencies)]
+    [!code-csharp[Add NuGet libraries to code file](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/sdk-3x//Program.cs?name=Dependencies)]
 
 1. Change the signature of the `Main` method to allow async calls:
 
@@ -109,7 +109,7 @@ Once the client is created, use this client to access functionality including:
     public static async Task Main()
     ```
 
-    Add the rest of the code in the `Main` method of the `Program` class.
+1. Add the rest of the code in the `Main` method of the `Program` class.
 
 ## Create variables for the app
 
