@@ -24,11 +24,9 @@ The Computer Vision [Read API](https://westcentralus.dev.cognitive.microsoft.com
 
 ![How OCR converts images and documents into structured output with extracted text](./Images/how-ocr-works.svg)
 
-The Read API provides OCR capabilities through two operations - **Read** and **Get Read Results**.
-
 ## Input requirements
+The Read API's **Read** operation takes images and documents as its input. They have the following requirements:
 
-The input images and documents have the following requirements:
 * Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
 * For PDF AND TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
 * The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels.
