@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 In this article, you'll learn how to write a query using SQL on-demand (preview) that will read documents from  files.
 
-`OPENROWSET` function enables you to read the CosmosDB documents form CosmosDB analytical storage.
+`OPENROWSET` function enables you to read the CosmosDB documents from CosmosDB analytical storage.
 
 ## Read CosmosDB documents
 
@@ -46,7 +46,7 @@ from openrowset(
 
 ## Explicitly specify schema
 
-`OPENROWSET` enables you to explicitly specify what columns you want to read from the file using `WITH` clause:
+`OPENROWSET` enables you to explicitly specify what columns you want to read from the collection and to specify their types using `WITH` clause:
 
 ```sql
 select top 10 *
