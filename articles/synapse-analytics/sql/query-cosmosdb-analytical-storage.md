@@ -2,7 +2,7 @@
 title: Query documents in cosmosDB analytical storage using SQL on-demand (preview)
 description: In this article, you'll learn how to query CosmosDB documents using Synapse SQL Link for CosmosDB using SQL on-demand (preview).
 services: synapse analytics
-author: jovanpop_msft
+author: jovanpop-msft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
@@ -30,7 +30,7 @@ from openrowset(
        EcdcCases) as documents
 ```
 
-In this example we are connected to analytical storage of `covid` database on CosmosDB account MyCosmosDbAccount` placed in region `westus2`
+In this example we are connected to analytical storage of `covid` database on CosmosDB account `MyCosmosDbAccount` placed in region `westus2`
 and authenticated using CosmosDB key. We are accessing the collection `EcdcCases`. `OPENROWSET` function will return all properties from
 the documents.
 
@@ -41,7 +41,7 @@ select top 10 *
 from openrowset( 
        'CosmosDB',
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=CoPyYOurC0smosDbKeyHere==',
-       Cord19) as codrInfo
+       Cord19) as cord19
 ```
 
 ## Explicitly specify schema
@@ -75,7 +75,7 @@ FROM
       'CosmosDB',
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=CoPyYOurC0smosDbKeyHere==',
        Cord19
-    WITH ( metadata varchar(MAX)
+    WITH ( metadata varchar(MAX),
            body_text varchar(MAX)
     ) AS docs;
 ```
@@ -90,8 +90,8 @@ FROM
       'CosmosDB',
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=CoPyYOurC0smosDbKeyHere==',
        Cord19
-    WITH ( title varchar(100) '$.metadata.title'),
-           authors varchar(max) '$.metadata.authors'),
+    WITH ( title varchar(100) '$.metadata.title',
+           authors varchar(max) '$.metadata.authors',
            body_text varchar(max) '$.metadata.text'
     ) AS docs;
 ```
@@ -99,7 +99,6 @@ FROM
 > [!IMPORTANT]
 > This example uses a file from [COVID-19 Open Research Dataset](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
 > See ths licence and the structure of data on this page.
-
 
 ## Flattening nested arrays
 
@@ -114,8 +113,8 @@ FROM
       'CosmosDB',
       'account=MyCosmosDbAccount;database=covid;region=westus2;key=CoPyYOurC0smosDbKeyHere==',
        Cord19
-    WITH ( title varchar(100) '$.metadata.title'),
-           authors varchar(max) '$.metadata.authors'),
+    WITH ( title varchar(100) '$.metadata.title',
+           authors varchar(max) '$.metadata.authors',
            body_text varchar(max) '$.metadata.text'
     ) AS docs
     CROSS APPLY OPENJSON ( authors )
@@ -126,11 +125,10 @@ FROM
                 ) AS a
 ```
 
+## Type mappings
 
-## Type mapping
-
-CosmosDB contains JSON document that cna be numbers, strings, logical values or sub-objects or sub-arrays. You would need to
-choose sql types that match these values. In the following table is shown what types should be used for different values in CosmosDB.
+CosmosDB contains JSON document with numbers, strings, logical values, sub-objects or sub-arrays. You would need to
+choose sql types that match these values if you are using `WITH` clause. See below the types that should be used for different values in CosmosDB.
 
 | CosmosDB value type | SQL data type |
 | --- | --- |
