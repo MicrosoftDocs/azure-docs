@@ -1,6 +1,6 @@
 ---
 title: 'Azure Virtual WAN FAQ | Microsoft Docs'
-description: FAQ for Virtual WAN
+description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
 services: virtual-wan
 author: cherylmc
 
