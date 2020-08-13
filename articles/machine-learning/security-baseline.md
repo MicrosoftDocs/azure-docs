@@ -4,7 +4,7 @@ description: The Machine Learning Service security baseline provides procedural 
 author: msmbaldwin
 ms.service: machine-learning
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,13 +30,9 @@ The Azure Security Baseline for the Machine Learning Service contains recommenda
 
 **Guidance**: Azure Machine Learning relies on other Azure services for compute resources. Compute resources (compute targets) are used to train and deploy models. You can create these compute targets in a virtual network. For example, you can use Azure Virtual Machine Learning compute instance to train a model and then deploy the model to Azure Kubernetes Service (AKS). You can secure your machine learning lifecycles by isolating Azure Machine Learning training and inference jobs within an Azure virtual network.
 
-Azure Private Link enables you to connect to your workspace using a private endpoint. The private endpoint is a set of private IP addresses within your virtual network. You can then limit access to your workspace to only occur over the private IP addresses. Private Link helps reduce the risk of data exfiltration. 
-
 Azure Firewall can be used to control access to your Azure Machine Learning workspace and the public internet.
 
 - [How to securely run experiments and inference in an isolated virtual network](how-to-enable-virtual-network.md)
-
-- [How to configure Azure Private Link for an Azure Machine Learning workspace](/azure/machine-learning/how-to-configure-private-link)
 
 - [Use workspace behind Azure Firewall for Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
 
@@ -68,7 +64,7 @@ Enable network security group flow logs and send the logs to an Azure Storage ac
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32527.).
 
-**Guidance**: You can enable HTTPS to secure communication with web services deployed by Azure Machine Learning. Web services are deployed on Azure Kubernetes Services (AKS) or Azure Container Instances (ACI) and secure the data submitted by clients. You can use also use private IP with AKS to restrict scoring, so that only clients behind a virtual network can access the web service.
+**Guidance**: You can enable HTTPS to secure communication with web services deployed by Azure Machine Learning. Web services are deployed on Azure Kubernetes Services (AKS) or Azure Container Instances (ACI) and secure the data submitted by clients. You can also use private IP with AKS to restrict scoring, so that only clients behind a virtual network can access the web service.
 
 - [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 
@@ -144,7 +140,7 @@ Select an offer from the Azure Marketplace that supports IDS/IPS functionality w
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32532.).
 
-**Guidance**: For resources that need access to your Azure Machine Learning account, use Virtual Network service tags to define network access controls on network security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (for example, AzureMachineLearning) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+**Guidance**: For resources that need access to your Azure Machine Learning account, use Virtual Network service tags to define network access controls on network security groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (for example, AzureMachineLearning) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
 Azure Machine Learning service documents a list of service tags for its compute targets within a virtual network that helps to minimize complexity, you can use it as guidelines in your network management.
 
@@ -375,7 +371,7 @@ Azure Machine Learning has varying support across different compute resources an
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32546.).
 
-**Guidance**: You can use the Azure Security Center Identity &amp; Access pane in the Azure portal to configure role-based access control (RBAC) and maintain inventory on Azure Machine Learning resources. The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.
+**Guidance**: You can use the Identity and Access Management tab for a resource in the Azure portal to configure role-based access control (RBAC) and maintain inventory on Azure Machine Learning resources. The roles are applied to users, groups, service principals, and managed identities in Active Directory. You can use built-in roles or custom roles for individuals and groups.
 
 Azure Machine Learning provides built-in RBAC for common management scenarios in Azure Machine Learning. An individual who has a profile in Azure Active Directory (Azure AD) can assign these RBAC roles to users, groups, service principals, or managed identities to grant or deny access to resources and operations on Azure Machine Learning resources.
 
@@ -613,7 +609,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: &lt;--- no information available on how sensitive info is classified in Machine Learning, needs service owner input ---&gt;
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: <--- ? --->
 
