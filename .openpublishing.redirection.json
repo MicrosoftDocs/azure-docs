@@ -39389,6 +39389,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-portal/admin-timeout.md",
+      "redirect_url": "/azure/azure-portal/set-preferences#change-the-directory-timeout-setting-admin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-portal/azure-portal-change-theme-high-contrast.md",
+      "redirect_url": "/azure/azure-portal/set-preferences#choose-a-theme-or-enable-high-contrast",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-portal/azure-portal-export-delete-settings.md",
+      "redirect_url": "/azure/azure-portal/set-preferences#export-user-settings",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/vs-azure-tools-access-private-azure-clouds-with-visual-studio.md",
       "redirect_url": "/visualstudio/azure/vs-azure-tools-access-private-azure-clouds-with-visual-studio",
       "redirect_document_id": false
