@@ -66,7 +66,7 @@ This section describes how to configure a bearer token.
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
-    "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "ClientId": "api://[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
     /*
       You need specify the TenantId only if you want to accept access tokens from a single tenant
      (line-of-business app).
