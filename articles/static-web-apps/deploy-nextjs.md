@@ -69,7 +69,7 @@ When you build a Next.js site using `npm run build`, the app is built as a tradi
 
     ```javascript
     module.exports = {
-      exportTrailingSlash: true,
+      trailingSlash: true,
       exportPathMap: function() {
         return {
           '/': { page: '/' }
