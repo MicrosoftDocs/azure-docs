@@ -66,7 +66,7 @@ landingContent:
           - text: Batch
             url: ../../batch/security-baseline.md
           - text: Azure Functions
-            url: ../../functions/security-baseline.md
+            url: ../../azure-functions/security-baseline.md
 
 
   # Card  
