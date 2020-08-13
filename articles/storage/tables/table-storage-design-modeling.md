@@ -45,7 +45,7 @@ The following table summarizes the pros and cons of each of the approaches outli
 <td>
 <ul>
 <li>You can update a department entity with a single operation.</li>
-<li>You can use an EGT to maintain consistency if you have a requirement to modify a department entity whenever you update/insert/delete an employee entity. For example, if you maintain a departmental employee count for each department.</li>
+<li>You can use an Entity Group Transaction* (EGT) to maintain consistency if you have a requirement to modify a department entity whenever you update/insert/delete an employee entity. For example, if you maintain a departmental employee count for each department.</li>
 </ul>
 </td>
 <td>
@@ -86,6 +86,9 @@ The following table summarizes the pros and cons of each of the approaches outli
 </td>
 </tr>
 </table>
+
+*for more information, see [Entity Group Transactions](table-storage-design.md#entity-group-transactions)  
+
 
 How you choose between these options, and which of the pros and cons are most significant, depends on your specific application scenarios. For example, how often do you modify department entities; do all your employee queries need the additional departmental information; how close are you to the scalability limits on your partitions or your storage account?  
 
