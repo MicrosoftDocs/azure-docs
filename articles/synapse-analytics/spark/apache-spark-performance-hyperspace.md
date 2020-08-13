@@ -857,3 +857,8 @@ Project [deptName#675]
 +- *(1) Filter (isnotnull(deptId#674) && (deptId#674 > 20))
    +- *(1) FileScan parquet [deptId#674,deptName#675] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), GreaterThan(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
+
+## Next steps
+
+* [Project Hyperspace](https://microsoft.github.io/hyperspace/)
+* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
