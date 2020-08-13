@@ -20,19 +20,19 @@ Learn about the architecture, terms, and concepts for Azure Machine Learning.
 > [!NOTE]
 > Although this article defines terms and concepts used by Azure Machine Learning, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
-## <a name="workspaces"></a> Workspace
+## <a name="workspace"></a> Workspace
 
-A [machine learning workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning.  This gives you a centralized place to:
+:::image type="content" source="media/concept-azure-machine-learning-architecture/architecture.svg" alt-text="Azure Machine Learning architecture":::
+
+A [machine learning workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning.  The workspace is the centralized place to:
 * Manage resources you use for training and deployment of models, such as [computes]
 * Store assets you create when you use Azure Machine Learning, including:
   * [Environments](#environments)
   * [Runs](#runs)
-  * [Pipelines](#pipelines)
-  * [Datasets](#datasets)
+  * [Pipelines](#ml-pipelines)
+  * [Datasets](#datasets-and-datastores)
   * [Models](#models)
   * [Endpoints](#endpoints)
-
-:::image type="content" source="media/concept-azure-machine-learning-architecture/architecture.svg" alt-text="Azure Machine Learning architecture":::
 
 When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
 
@@ -47,10 +47,9 @@ You can share a workspace with others.
 
 [Azure Machine Learning studio](https://ml.azure.com) provides a web view of all the artifacts in your workspace.  This portal is also where you access to the interactive tools that are part of Azure Machine Learning:
 
-+ [Azure Machine Learning designer (preview)](concept-designer.md) performs workflow steps without writing code. (An [Enterprise workspace](concept-workspace.md#upgrade)) is required to use designer.)
++ [Azure Machine Learning designer (preview)](concept-designer.md) to perform workflow steps without writing code
 + Web experience for [automated machine learning](concept-automated-ml.md)
 + [Data labeling projects](how-to-create-labeling-projects.md) to create, manage, and monitor projects to label of your data
-
 
 ## <a name="compute-instance"></a> Computes
 
@@ -63,7 +62,7 @@ A [compute target](concept-compute-target.md) is the machine or set of machines 
 |[Compute clusters](how-to-set-up-training-targets.md#amlcompute)    |  Fully managed cluster of VMs with multi-node scaling capabilities.  Scales up automatically when a job is submitted.  Better suited for compute targets for large jobs and production.  
 | [Attached compute](how-to-set-up-training-targets.md#portal-reuse)  |    Attach a VM created outside the Azure Machine Learning workspace to make it available to your workspace. |
 
-## <a name="datasets"></a> Datasets and datastores
+## Datasets and datastores
 
 [**Azure Machine Learning Datasets**](concept-data.md#datasets)  make it easier to access and work with your data. Datasets manage data in various scenarios such as model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore data, and manage the life cycle of different Dataset definitions.
 
@@ -83,7 +82,7 @@ Azure Machine Learning is framework agnostic. When you create a model, you can u
 
 For an example of training a model using Scikit-learn, see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-### <a name="register-model"></a> Registered model
+### <a name="register-model"></a> Model registry
 [Workspace](#workspace) > **Model registry**
 
 The **model registry** lets you keeps track of all the models in your Azure Machine Learning workspace.
