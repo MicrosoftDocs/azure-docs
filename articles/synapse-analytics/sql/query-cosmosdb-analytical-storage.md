@@ -57,6 +57,15 @@ from openrowset(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
+The result of this query might look like:
+
+| date_rep | cases | geo_id |
+| --- | --- | --- |
+| 2020-06-28 | 165 | AF |
+| 2020-07-08 | 210 | AF |
+| 2020-07-06 | 279 | AF |
+| 2020-07-05 | 348 | AF |
+
 Look at the [rules for type mappings](#type-mappings) at the end of the document for more information about the sql types that should be used for CosmosDB value.
 
 ## Nested values
