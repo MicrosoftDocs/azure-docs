@@ -59,6 +59,28 @@ npm install @azure/cognitiveservices-luis-authoring
 npm install @azure/cognitiveservices-luis-runtime
 ```
 
+Your `package.json` should look like:
+
+```json
+{
+  "name": "quickstart-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/cognitiveservices-luis-authoring": "^4.0.0-preview.3",
+    "@azure/cognitiveservices-luis-runtime": "^5.0.0",
+    "@azure/ms-rest-js": "^2.0.8"
+  }
+}
+```
+
 ## Authoring Object model
 
 The Language Understanding (LUIS) authoring client is a [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest) object that authenticates to Azure, which contains your authoring key.
@@ -89,6 +111,26 @@ Once the client is created, use this client to access functionality including:
 Open the `index.js` file in your preferred editor or IDE named then add the following dependencies.
 
 [!code-javascript[Add NPM libraries to code file](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=Dependencies)]
+
+## Add boilerplate code 
+
+Add the `quickstart` method and its call. This method holds most of the remaining code. This method is called at the end of the file. 
+
+```javascript
+const quickstart = async () => {
+
+    // add calls here
+
+
+}
+quickstart()
+    .then(result => console.log("Done"))
+    .catch(err => {
+        console.log(`Error: ${err}`)
+    })
+```
+
+Add the remaining code in the quickstart method unless otherwise specified. 
 
 ## Create variables for the app
 
@@ -138,7 +180,7 @@ The entity creation code creates a machine-learning entity with subentities and 
 
 [!code-javascript[Create entities for the app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddEntities)]
 
-Use the following method to find the Quantity subentity's id, in order to assign the features to that subentity.
+Put the following method above the `quickstart` method to find the Quantity subentity's id, in order to assign the features to that subentity.
 
 [!code-javascript[Find subentity id](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringSortModelObject)]
 

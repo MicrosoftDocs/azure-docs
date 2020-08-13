@@ -83,6 +83,19 @@ Add the client libraries to the python file.
 
 [!code-python[Add python libraries to code file](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=Dependencies)]
 
+
+## Add boilerplate code 
+
+Add the `quickstart` method and its call. This method holds most of the remaining code. This method is called at the end of the file. 
+
+```python
+def quickstart(): 
+
+quickstart()
+```
+
+Add the remaining code in the quickstart method unless otherwise specified. 
+
 ## Create variables for the app
 
 1. Create variables to hold your authoring key and resource names.
@@ -131,7 +144,7 @@ The entity creation code creates a machine-learning entity with subentities and 
 
 [!code-python[Create entities](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=AuthoringAddEntities)]
 
-Use the following method to find the Quantity subentity's id, in order to assign the features to that subentity.
+Put the following method above the `quickstart` method to find the Quantity subentity's id, in order to assign the features to that subentity.
 
 [!code-python[Find subentity id](~/cognitive-services-quickstart-code/python/LUIS/sdk-3x/authoring_and_predict.py?name=AuthoringSortModelObject)]
 
