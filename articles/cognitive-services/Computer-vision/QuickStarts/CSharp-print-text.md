@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Extract text with the Computer Vision OCR REST API and C#"
+title: "Quickstart: Extract text using the Computer Vision 2.0 REST API OCR operation and C#"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract text from an image using the Computer Vision REST API OCR operation with C#.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Extract text using the Computer Vision OCR REST API and C#
+# Quickstart: Extract text using the Computer Vision 2.0 REST API OCR operation and C#
 
 > [!IMPORTANT]
 > If you're extracting text in English, Dutch, French, German, Italian, Portuguese, Spanish, or Simplified Chinese (preview), we recommend you use the newer [Read operation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). A [C# quickstart](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) is available. 

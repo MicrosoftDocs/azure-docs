@@ -25,15 +25,7 @@ The debugger image is automatically determined by the client-side tooling. It us
 
 ## Next steps
 
-To get started using Azure Dev Spaces to for remote debugging your project, see the following quickstarts:
+Learn more about how Azure Dev Spaces works.
 
-* [Rapidly iterate and debug with Visual Studio Code and Java][quickstart-java]
-* [Rapidly iterate and debug with Visual Studio Code and .NET][quickstart-netcore]
-* [Rapidly iterate and debug with Visual Studio Code and Node.js][quickstart-node]
-* [Rapidly iterate and debug with Visual Studio and .NET Core][quickstart-vs]
-
-
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md
-[quickstart-vs]: quickstart-netcore-visualstudio.md
+> [!div class="nextstepaction"]
+> [How Azure Dev Spaces works](how-dev-spaces-works.md)

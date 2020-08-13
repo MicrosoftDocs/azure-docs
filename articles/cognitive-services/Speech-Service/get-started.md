@@ -83,7 +83,7 @@ To switch from one subscription to another, for example when your free trial exp
 
 ## About regions
 
-- If your application uses a [Speech SDK](speech-sdk.md), you provide the region code, such as `westus`, when creating a speech configuration.
+- If your application uses a [Speech SDK](speech-sdk.md), you provide the region identifier, such as `westus`, when creating a speech configuration.
 - If your application uses one of the Speech service's [REST APIs](rest-apis.md), the region is part of the endpoint URI you use when making requests.
 - Keys created for a region are valid only in that region. Attempting to use them with other regions will result in authentication errors.
 
