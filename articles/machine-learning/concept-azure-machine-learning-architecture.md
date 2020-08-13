@@ -1,7 +1,7 @@
 ---
 title: 'Architecture & key concepts'
 titleSuffix: Azure Machine Learning
-description: Learn about the architecture, terms, concepts, and workflows that make up Azure Machine Learning.
+description: Learn about the architecture, terms, and concepts that make up Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,14 +15,31 @@ ms.custom: seoapril2019, seodec18
 
 # Key concepts for Azure Machine Learning
 
-Learn about the architecture, concepts, and workflow for Azure Machine Learning.
+Learn about the architecture, terms, and concepts for Azure Machine Learning.
 
 > [!NOTE]
 > Although this article defines terms and concepts used by Azure Machine Learning, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## <a name="workspaces"></a> Workspace
 
-A [machine learning workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
+A [machine learning workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning.  This gives you a centralized place to:
+* Manage resources you use for training and deployment of models, such as [computes]
+* Store assets you create when you use Azure Machine Learning, including:
+  * [Environments](#environments)
+  * [Runs](#runs)
+  * [Pipelines](#pipelines)
+  * [Datasets](#datasets)
+  * [Models](#models)
+  * [Endpoints](#endpoints)
+
+:::image type="content" source="media/concept-azure-machine-learning-architecture/architecture.svg" alt-text="Azure Machine Learning architecture":::
+
+When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
+
++ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that you use during training and when you deploy a model. To minimize costs, ACR is **lazy-loaded** until deployment images are created.
++ [Azure Storage account](https://azure.microsoft.com/services/storage/): Is used as the default datastore for the workspace.  Jupyter notebooks that are used with your Azure Machine Learning compute instances are stored here as well.
++ [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Stores monitoring information about your models.
++ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Stores secrets that are used by compute targets and other sensitive information that's needed by the workspace.
 
 You can share a workspace with others.
 
@@ -46,7 +63,7 @@ A [compute target](concept-compute-target.md) is the machine or set of machines 
 |[Compute clusters](how-to-set-up-training-targets.md#amlcompute)    |  Fully managed cluster of VMs with multi-node scaling capabilities.  Scales up automatically when a job is submitted.  Better suited for compute targets for large jobs and production.  
 | [Attached compute](how-to-set-up-training-targets.md#portal-reuse)  |    Attach a VM created outside the Azure Machine Learning workspace to make it available to your workspace. |
 
-## Datasets and datastores
+## <a name="datasets"></a> Datasets and datastores
 
 [**Azure Machine Learning Datasets**](concept-data.md#datasets)  make it easier to access and work with your data. Datasets manage data in various scenarios such as model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore data, and manage the life cycle of different Dataset definitions.
 
@@ -66,13 +83,22 @@ Azure Machine Learning is framework agnostic. When you create a model, you can u
 
 For an example of training a model using Scikit-learn, see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-### Experiments
+### <a name="register-model"></a> Registered model
+[Workspace](#workspace) > **Model registry**
 
-[Workspace](#workspace) > **Experiments**
+The **model registry** lets you keeps track of all the models in your Azure Machine Learning workspace.
 
-An experiment is a grouping of many runs from a specified script. It always belongs to a workspace. When you submit a run, you provide an experiment name. Information for the run is stored under that experiment. If the name doesn't exist when you submit an experiment, a new experiment is automatically created.
+Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it's a new version. The version is incremented, and the new model is registered under the same name.
 
-For an example of using an experiment, see [Tutorial: Train your first model](tutorial-1st-experiment-sdk-train.md).
+When you register the model, you can provide additional metadata tags and then use the tags when you search for models.
+
+> [!TIP]
+> A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in your Azure Machine Learning workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
+
+You can't delete a registered model that is being used by an active deployment.
+
+For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
+
 
 ### Environments
 
@@ -81,6 +107,14 @@ For an example of using an experiment, see [Tutorial: Train your first model](tu
 An [environment](concept-environments.md) is the encapsulation of the environment where training of your machine learning model happens. The environment specifies the Python packages, environment variables, and software settings around your training and scoring scripts.
 
 For code samples, see the "Manage environments" section of [How to use environments](how-to-use-environments.md#manage-environments).
+
+### Experiments
+
+[Workspace](#workspace) > **Experiments**
+
+An experiment is a grouping of many runs from a specified script. It always belongs to a workspace. When you submit a run, you provide an experiment name. Information for the run is stored under that experiment. If the name doesn't exist when you submit an experiment, a new experiment is automatically created.
+
+For an example of using an experiment, see [Tutorial: Train your first model](tutorial-1st-experiment-sdk-train.md).
 
 ### Runs
 
@@ -120,26 +154,12 @@ For more information, see the following articles:
 * [Train and register TensorFlow models at scale with Azure Machine Learning](how-to-train-tensorflow.md).
 * [Train and register Chainer models at scale with Azure Machine Learning](how-to-train-ml-models.md).
 
-### <a name="register-model"></a> Register a model
-
-The **model registry** lets you keeps track of all the models in your Azure Machine Learning workspace.
-
-Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it's a new version. The version is incremented, and the new model is registered under the same name.
-
-When you register the model, you can provide additional metadata tags and then use the tags when you search for models.
-
-> [!TIP]
-> A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in your Azure Machine Learning workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
-
-You can't delete a registered model that is being used by an active deployment.
-
-For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
-
 ### Snapshots
 
 [Workspace](#workspace) > [Experiments](#experiments) > [Run](#runs) > **Snapshot**
 
 When you submit a run, Azure Machine Learning compresses the directory that contains the script as a zip file and sends it to the compute target. The zip file is then extracted, and the script is run there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
+
 
 ### Logging
 
@@ -155,9 +175,9 @@ When you start a training run where the source directory is a local Git reposito
 
 For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
-## Deploy models
+## Deploying a model
 
-To deploy a [registered model](#register-model) as a service, you need the following components:
+You deploy a [registered model](#register-model) as a service endpoint. You need the following components to:
 
 * **Inference environment**. This environment encapsulates the dependencies required to run your model for inference.
 * **Scoring code**. This script accepts requests, scores the requests by using the model, and returns the results.
