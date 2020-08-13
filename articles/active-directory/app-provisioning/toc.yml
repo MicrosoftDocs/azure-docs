@@ -57,7 +57,7 @@
         href: export-import-provisioning-configuration.md  
     - name: Troubleshoot application provisioning
       items:
-      - name: Known Issues
+      - name: Known issues
         href: known-issues.md  
       - name: Troubleshoot configuration problems
         href: application-provisioning-config-problem.md
