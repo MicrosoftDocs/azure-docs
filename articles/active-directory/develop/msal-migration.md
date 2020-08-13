@@ -60,7 +60,7 @@ __Q: Why should I invest in moving to MSAL?__
 A: MSAL contains new features not in ADAL including incremental consent, single sign-on, and token cache management. Also, unlike ADAL, MSAL will continue to receive security patches beyond June 30th, 2022. [Learn more](msal-overview.md).
 
 __Q: Will Microsoft update its own apps to MSAL?__  
-A: Yes, Microsoft will ensure that it keeps its own apps secure and up to date by moving eligible apps to MSAL by the end of support deadline.
+Yes. Microsoft is in the process of migrating its applications to MSAL by the end-of-support deadline, ensuring they'll benefit from MSAL's ongoing security and feature improvements.
 
 __Q: Will you release a tool that helps me move my apps from ADAL to MSAL?__  
 A: No. Differences between the libraries would require dedicating resources to development and maintenance of the tool that would otherwise be spent improving MSAL. However, we do provide the preceding set of migration guides to help you make the required changes in your application.
