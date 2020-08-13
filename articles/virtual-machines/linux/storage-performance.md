@@ -12,7 +12,7 @@ ms.date: 08/05/2019
 ms.author: joelpell
 ---
 
-# Optimize performance on the Lsv2-series virtual machines
+# Optimize performance on the Lsv2-series Linux virtual machines
 
 Lsv2-series virtual machines support a variety of workloads that need high I/O and throughput on local storage across a wide range of applications and industries.  The Lsv2-series is ideal for Big Data, SQL, NoSQL databases, data warehousing and large transactional databases, including Cassandra, MongoDB, Cloudera, and Redis.
 
