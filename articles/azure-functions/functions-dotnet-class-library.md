@@ -3,6 +3,7 @@ title: Azure Functions C# developer reference
 description: Understand how to develop Azure Functions using C#.
 
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 07/24/2020
 
 ---

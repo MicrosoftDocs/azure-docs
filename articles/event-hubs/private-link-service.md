@@ -13,21 +13,19 @@ A private endpoint is a network interface that connects you privately and secure
 For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
 > [!IMPORTANT]
-> This feature is supported for both **standard** and **dedicated** tiers. 
-
->[!WARNING]
-> Enabling private endpoints can prevent other Azure services from interacting with Event Hubs.
+> This feature is supported for both **standard** and **dedicated** tiers. It's not supported in the **basic** tier.
 >
-> Trusted Microsoft services are not supported when using Virtual Networks.
+> Enabling private endpoints can prevent other Azure services from interacting with Event Hubs.  Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. 
+> 
+> Here are some of the services that can't access Event Hubs resources when private endpoints are enabled. Note that the list is **NOT** exhaustive.
 >
-> Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
 > - Azure Stream Analytics
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
+> - Azure Event Grid
+> - Azure Monitor (Diagnostic Settings)
 >
-> The following Microsoft services are required to be on a virtual network
-> - Azure Web Apps
-> - Azure Functions
+> As an exception, you can allow access to Event Hubs resources from certain trusted services even when private endpoints are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
 
 ## Add a private endpoint using Azure portal
 
@@ -100,6 +98,10 @@ If you already have an Event Hubs namespace, you can create a private link conne
 12. Confirm that you see the private endpoint connection you created shows up in the list of endpoints. In this example, the private endpoint is auto-approved because you connected to an Azure resource in your directory and you have sufficient permissions. 
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
+
+[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+
+To allow trusted services to access your namespace, switch to the **Firewalls and Virtual networks** tab on the **Networking** page, and select **Yes** for **Allow trusted Microsoft services to bypass this firewall?**. 
 
 ## Add a private endpoint using PowerShell
 The following example shows how to use Azure PowerShell to create a private endpoint connection. It doesn't create a dedicated cluster for you. Follow steps in [this article](event-hubs-dedicated-cluster-create-portal.md) to create a dedicated Event Hubs cluster. 

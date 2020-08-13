@@ -6,6 +6,7 @@ author: lisaguthrie
 
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens

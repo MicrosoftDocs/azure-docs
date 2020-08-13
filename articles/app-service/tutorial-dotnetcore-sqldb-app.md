@@ -5,7 +5,7 @@ description: Learn how to get a .NET Core app working in Azure App Service, with
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.custom: mvc, cli-validate, seodec18
+ms.custom: "devx-track-csharp, mvc, cli-validate, seodec18"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
@@ -151,7 +151,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 Get the connection string using the [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string) command.
 
 ```azurecli-interactive
-az sql db show-connection-string --client ado.net --server cephalin-core --name coreDB
+az sql db show-connection-string --client ado.net --server <server-name> --name coreDB
 ```
 
 In the command output, replace *\<username>*, and *\<password>* with the database administrator credentials you used earlier.
