@@ -4,7 +4,7 @@ description: Troubleshoot why you're not seeing data from your devices in IoT Ce
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/26/2020
+ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 
@@ -54,12 +54,39 @@ To monitor the telemetry your device is sending, use the following command:
 az iot central app monitor-events -n <app-id> -d <device-name>
 ```
 
-![Sample output from event monitoring](media/troubleshoot-connection/monitor-events.png)
+If the device has connected successfully to IoT Central, you see output similar to the following:
+
+```cmd/bash
+Monitoring telemetry.
+Filtering on device: device-001
+{
+    "event": {
+        "origin": "device-001",
+        "module": "",
+        "interface": "",
+        "component": "",
+        "payload": {
+            "temp": 65.57910343679293,
+            "humid": 36.16224660107426
+        }
+    }
+}
+```
 
 To monitor the property updates your device is exchanging with IoT Central, use the following preview command:
 
 ```cmd/bash
 az iot central app monitor-properties -n <app-id> -d <device-name>
+```
+
+If the device successfully sends property updates, you see output similar to the following:
+
+```cmd/bash
+Changes in reported properties:
+version : 32
+{'state': 'true', 'name': {'value': {'value': 'Contoso'}, 'status': 'completed', 'desiredVersion': 7, 'ad': 'completed', 'av': 7, 'ac
+': 200}, 'brightness': {'value': {'value': 2}, 'status': 'completed', 'desiredVersion': 7, 'ad': 'completed', 'av': 7, 'ac': 200}, 'p
+rocessorArchitecture': 'ARM', 'swVersion': '1.0.0'}
 ```
 
 You may be prompted to install the `uamqp` library the first time you run a `monitor` command.
@@ -80,7 +107,25 @@ If your data is not appearing on the monitor, check the provisioning status of y
 az iot central app device registration-info -n <app-id> -d <device-id>
 ```
 
-![Example registration info](media/troubleshoot-connection/registration-info.png)
+The following out shows an example of a device that's blocked from connecting:
+
+```json
+{
+  "@device_id": "v22upeoqx6",
+  "device_registration_info": {
+    "device_status": "blocked",
+    "display_name": "Environmental Sensor - v22upeoqx6",
+    "id": "v22upeoqx6",
+    "instance_of": "urn:krhsi_k0u:modelDefinition:w53jukkazs",
+    "simulated": false
+  },
+  "dps_state": {
+    "error": "Device is blocked from connecting to IoT Central application. Unblock the device in IoT Central and retry. Learn more:
+https://aka.ms/iotcentral-docs-dps-SAS",
+    "status": null
+  }
+}
+```
 
 | Device provisioning status | Description | Possible mitigation |
 | - | - | - |
@@ -136,7 +181,19 @@ To detect which categories your issue is in, run the most appropriate command fo
 
 You may be prompted to install the `uamqp` library the first time you run a `validate` command.
 
-:::image type="content" source="media/troubleshoot-connection/validate-messages.png" alt-text="Screenshot of validate messages ouput":::
+The following output shows example error and warning messages from the validate command:
+
+```cmd/bash
+Validating telemetry.
+Filtering on device: v22upeoqx6.
+Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happens first).
+[WARNING] [DeviceId: v22upeoqx6] No encoding found. Expected encoding 'utf-8' to be present in message header.
+
+[WARNING] [DeviceId: v22upeoqx6] Content type '' is not supported. Expected Content type is 'application/json'.
+
+[ERROR] [DeviceId: v22upeoqx6] [TemplateId: urn:krhsi_k0u:modelDefinition:w53jukkazs] Datatype of field 'humid' does not match the da
+tatype 'double'. Data '56'. All dates/times/datetimes/durations must be ISO 8601 compliant.
+```
 
 :::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Screenshot of Raw Data view":::
 
@@ -145,10 +202,6 @@ You may be prompted to install the `uamqp` library the first time you run a `val
 When you've detected the issue, you may need to update device firmware, or create a new device template that models previously unmodeled data.
 
 If you chose to create a new template that models the data correctly, migrate devices from your old template to the new template. To learn more, see [Manage devices in your Azure IoT Central application](howto-manage-devices.md).
-
-<!--
-Need to double check that we have a few sentences on how to move a device between templates.
--->
 
 ## Next steps
 
