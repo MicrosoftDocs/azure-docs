@@ -11,7 +11,7 @@
     href: quickstarts/create-instance.md
   - name: Build your first monitor
     href: quickstarts/build-first-monitor.md
-  - name: Use Metrics Monitor with the Client library or REST API
+  - name: Use the Client library or REST API
     href: quickstarts/rest-api-and-client-library.md
 - name: How-tos
   items:
