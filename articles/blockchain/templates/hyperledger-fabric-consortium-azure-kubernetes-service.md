@@ -351,15 +351,17 @@ From peer client application, execute below command to instantiate chaincode on 
 
 Pass instantiation function name and space separated list of arguments in `<instantiateFunc>` and `<instantiateFuncArgs>` respectively. For example, in chaincode_example02.go chaincode, to instantiate the chaincode set `<instantiateFunc>` to `init`and `<instantiateFuncArgs>` to “a” “2000” “b” “1000”.
 
-You can also pass the collections configuration JSON file using the `--collections-config` flag or even set the transient arguments, using the `-t` flag while instantiating a chaincode used for private transactions, as shown below in the example commands.
+You can also pass the collections configuration JSON file using the `--collections-config` flag. Or, set the transient arguments using the `-t` flag while instantiating a chaincode used for private transactions.
+
+For example:
 
 ```bash
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
-
 ```
-The `<collectionConfigJSONFilePath>` is the path to the JSON file containing the collections defined for the instantiation of a private data chaincode. You can find a sample collections configuration JSON file relative to the azhlfTool directory at the following path: `./samples/chaincode/src/private_marbles/collections_config.json`.
-The `<transientArgs>` should be a valid JSON in string format, escaping the required characters. You can consider the example:
+
+The \<collectionConfigJSONFilePath\> is the path to the JSON file containing the collections defined for the instantiation of a private data chaincode. You can find a sample collections configuration JSON file relative to the azhlfTool directory at the following path: `./samples/chaincode/src/private_marbles/collections_config.json`.
+Pass \<transientArgs\> as a valid JSON in string format. Escape any special characters. For example:
 `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
@@ -386,10 +388,11 @@ Execute below command to query chaincode:
 ```bash
 ./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
-Endorsing peers are those peers on whom the chaincode is installed and can be called for execution of transactions. You must set the `<endorsingPeers>` as the space separated strings containing peer node name(s) from the current peer organization, which are the endorsing peers for given chaincode and channel combination. For example, you can set `<endorsingPeers>` to “peer1” “peer3”. 
-If you are using azhlfTool to install your chaincodes then you can pass any peer node name(s) as a value to this argument as the chaincode will be installed on every peer node for that organization. 
+Endorsing peers are peers where chaincode is installed and is called for execution of transactions. You must set the \<endorsingPeers\> containing peer node names from the current peer organization. List the endorsing peers for given chaincode and channel combination separated by spaces. For example, `-p "peer1" "peer3"`.
 
-Pass query function name and space separated list of arguments in `<queryFunction>` and `<queryFuncArgs>` respectively. Again, taking chaincode_example02.go chaincode as reference, to query value of “a” in the world state set `<queryFunction>` to `query` and `<queryArgs>` to “a”.  
+If you are using azhlfTool to install your chaincode, pass any peer node names as a value to the endorsing peer argument. The chaincode is installed on every peer node for that organization. 
+
+Pass query function name and space separated list of arguments in `<queryFunction>` and `<queryFuncArgs>` respectively. Again, taking chaincode_example02.go chaincode as reference, to query value of "a" in the world state set `<queryFunction>` to `query` and `<queryArgs>` to "a".  
 
 ## Troubleshoot
 
