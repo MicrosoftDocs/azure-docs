@@ -141,7 +141,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Keeper Password Manager & Digital Vault SSO
 
-To configure single sign-on on **Keeper Password Manager & Digital Vault Configuration** side, follow the guidelines given at [Keeper Support Guide](https://keepersecurity.com/assets/pdf/KeeperSSOConnect_v11.pdf).
+To configure single sign-on on **Keeper Password Manager & Digital Vault Configuration** side, follow the guidelines given at [Keeper Support Guide](https://docs.keeper.io/sso-connect-guide/).
 
 ### Create Keeper Password Manager & Digital Vault test user
 
