@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 04/29/2020
+ms.date: 08/13/2020
 ms.author: curtand 
 ms.reviewer: krbain
 ms.custom: "it-pro, seo-update-azuread-jan"
