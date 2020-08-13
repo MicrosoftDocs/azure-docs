@@ -136,7 +136,7 @@ By supported we mean that the experience is as expected; specifically, that it i
 - Outlook (OWA)
 - SharePoint
 
-### Services currently without support
+### Services currently not supported
 
 Service without current support might have compatibility issues with the new guest restriction setting.
 
