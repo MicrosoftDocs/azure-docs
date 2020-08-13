@@ -24,6 +24,15 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 This article uses GitHub template repositories to make it easy for you to create a new repository. The templates feature starter apps built with different front-end frameworks.
 
+# [No Framework](#tab/vanilla-javascript)
+
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/vanilla-basic/generate
+- Name your repository **my-first-static-web-app**
+
+> [!NOTE]
+> Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
+
 # [Angular](#tab/angular)
 
 - Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
@@ -41,15 +50,6 @@ This article uses GitHub template repositories to make it easy for you to create
 - Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
   - https://github.com/staticwebdev/vue-basic/generate
 - Name your repository **my-first-static-web-app**
-
-# [No Framework](#tab/vanilla-javascript)
-
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/vanilla-basic/generate
-- Name your repository **my-first-static-web-app**
-
-> [!NOTE]
-> Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
 
 ---
 
@@ -99,6 +99,12 @@ Once you sign in with GitHub, then enter the repository information.
 
 Next, add configuration details specific to your preferred front-end framework.
 
+# [No Framework](#tab/vanilla-javascript)
+
+- Enter **/** in the _App location_ box
+- Clear the default value from the _Api location_ box
+- Clear the default value from _App artifact location_ box
+
 # [Angular](#tab/angular)
 
 - Enter **/** in the _App location_ box
@@ -116,12 +122,6 @@ Next, add configuration details specific to your preferred front-end framework.
 - Enter **/** in the _App location_ box
 - Clear the default value from the _Api location_ box
 - Enter **dist** in the _App artifact location_ box
-
-# [No Framework](#tab/vanilla-javascript)
-
-- Enter **/** in the _App location_ box
-- Clear the default value from the _Api location_ box
-- Clear the default value from _App artifact location_ box
 
 ---
 
