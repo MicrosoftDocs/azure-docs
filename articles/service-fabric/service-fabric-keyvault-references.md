@@ -10,6 +10,9 @@ ms.date: 09/20/2019
 
 A common challenge when building cloud applications is how to securely store secrets required by your application. For example, you might want to store the container repository credentials in keyvault and reference it in application manifest. Service Fabric KeyVaultReference uses Service Fabric Managed Identity and makes it easy to reference keyvault secrets. The remainder of this article details how to use Service Fabric KeyVaultReference and includes some typical usage.
 
+   > [!NOTE] 
+    > We **DO NOT** recommended use of **KeyVault reference (Preview) feature in production clusters**. In general, we do not offer production support for features in preview state unitl it becomes generally available. Hence, we suggest customers to try the preview feature in non-production environments and provide us feedback via [GitHub](https://github.com/microsoft/service-fabric/blob/master/CONTRIBUTING.md#open-an-issue).
+    
 ## Prerequisites
 
 - Managed Identity for Application (MIT)
