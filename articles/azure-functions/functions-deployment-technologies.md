@@ -204,7 +204,7 @@ The following table shows the operating systems and languages that support porta
 
 When you do a deployment, all existing executions are allowed to complete or time out, after which the new code is loaded to begin processing requests.
 
-If you need more control over this transition, you should leverage deployment slots.
+If you need more control over this transition, you should use deployment slots.
 
 ## Deployment slots
 
