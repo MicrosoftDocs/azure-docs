@@ -26,6 +26,19 @@ The Computer Vision [Read API](https://westcentralus.dev.cognitive.microsoft.com
 
 The Read API provides OCR capabilities through two operations - **Read** and **Get Read Results**.
 
+## Input requirements
+
+The input images and documents have the following requirements:
+* Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
+* For PDF AND TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
+* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels.
+* The PDF dimensions must be at most 17 x 17 inches, corresponding to legal or A3 paper sizes and smaller.
+
+> [!NOTE]
+> **Language input** 
+>
+> The [Read operation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) has an optional request parameter for language. This is the BCP-47 language code of the text in the document. Read supports auto language identification and multilingual documents, so only provide a language code if you would like to force the document to be processed as that specific language.
+
 ## The Read operation
 
 The [Read operation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) takes an image or PDF document as the input and extracts text asynchronously. The call returns with a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Operation ID to be used in the next step.
@@ -107,19 +120,6 @@ See the following example of a successful JSON response:
 ```
 
 Follow the [Extract printed and handwritten text](./QuickStarts/CSharp-hand-text.md) quickstart to implement OCR using C# and the REST API.
-
-## Input requirements
-
-The input images and documents have the following requirements:
-* Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
-* For PDF AND TIFF, up to 2000 pages are processed. For free tier subscribers, only the first two pages are processed.
-* The file size must be less than 50 MB and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels.
-* The PDF dimensions must be at most 17 x 17 inches, corresponding to legal or A3 paper sizes and smaller.
-
-> [!NOTE]
-> **Language input** 
->
-> The [Read operation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) has an optional request parameter for language. This is the BCP-47 language code of the text in the document. Read supports auto language identification and multilingual documents, so only provide a language code if you would like to force the document to be processed as that specific language.
 
 ## Language support
 
