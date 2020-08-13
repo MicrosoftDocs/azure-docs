@@ -65,10 +65,10 @@ You can configure client-side transports as documented [here](https://docs.micro
 
 ## What is the meaning of metrics like message count or connection count showed in Azure portal? Which kind of aggregation type should I choose?
 
-You can find the details about how do we calculate these metrics [here](https://docs.microsoft.com/en-us/azure/azure-signalr/signalr-messages).
+You can find the details about how do we calculate these metrics [here](signalr-concept-messages-and-connections.md).
 
 In the overview blade of Azure SignalR Service resources, we have already chosen the appropriate aggregation type for you. And if you go to the Metrics blade, you can
-take the aggregation type [here](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported#microsoftsignalrservicesignalr) as a reference.
+take the aggregation type [here](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr) as a reference.
 
 ## What is the meaning of service mode `Default`/`Serverless`/`Classic`? How can I choose?
 
@@ -98,4 +98,4 @@ SignalR Service can be configured for different service mode: `Classic`/`Default
 
 ## Where do my data reside?
 
-Azure SignalR Service is working as a data processor service. It will not store any customer content and data residency is promised by design. If you use Azure SignalR Service together with other Azure services, like Azure Storage for diagnostics, please check [here](https://azure.microsoft.com/en-us/resources/achieving-compliant-data-residency-and-security-with-azure/) for guidance about how to keep data residency in Azure regions.
+Azure SignalR Service is working as a data processor service. It will not store any customer content and data residency is promised by design. If you use Azure SignalR Service together with other Azure services, like Azure Storage for diagnostics, please check [here](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) for guidance about how to keep data residency in Azure regions.
