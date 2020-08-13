@@ -8,6 +8,7 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
+ms.custom: references_regions
 ---
 
 # Mapping data flows in Azure Data Factory
