@@ -1,6 +1,6 @@
 ---
 title: 'Azure ExpressRoute Template: Create an ExpressRoute circuit'
-description: Create, provision, delete, and deprovision an ExpressRoute circuit.
+description: Learn how to create an Azure ExpressRoute circuit by deploying an Azure Resource Manager template by using Azure PowerShell.
 services: expressroute
 author: charwen
 
