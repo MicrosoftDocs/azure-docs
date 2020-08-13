@@ -3,6 +3,7 @@ title: Azure Functions SignalR Service trigger binding
 description: Learn to send SignalR Service messages from Azure Functions.
 author: chenyl
 ms.topic: reference
+ms.custom devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
 ---

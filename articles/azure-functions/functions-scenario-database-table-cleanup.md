@@ -4,6 +4,7 @@ description: Use Azure Functions to schedule a task that connects to Azure SQL D
 
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
+ms.custom devx-track-csharp
 ms.date: 10/02/2019
 ---
 

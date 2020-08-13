@@ -4,6 +4,7 @@ description: Learn how to call an Azure Function via HTTP.
 author: craigshoemaker
 
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-python
