@@ -456,12 +456,12 @@ Finally, we need to resolve the certificate trust process between the applicatio
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
 
-# [Node](#tab/ssl-nodejs)
+# [Node.js](#tab/ssl-nodejs)
 
-   Start your node application with the following configuration:
+   For Node.js applications, you can modify your `package.json` file to set the `NODE_TLS_REJECT_UNAUTHORIZED` while starting the application:
 
-   ```bash
-   NODE_TLS_REJECT_UNAUTHORIZED=0 npm start
+   ```json
+   "start": NODE_TLS_REJECT_UNAUTHORIZED=0 node app.js
    ```
 
 --- 
