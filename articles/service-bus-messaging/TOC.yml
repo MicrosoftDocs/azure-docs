@@ -62,8 +62,6 @@
         href: service-bus-ruby-how-to-use-topics-subscriptions.md
 - name: Tutorials
   items:
-  - name: Update inventory - PowerShell
-    href: service-bus-tutorial-topics-subscriptions-powershell.md
   - name: Update inventory - Portal
     href: service-bus-tutorial-topics-subscriptions-portal.md
   - name: Update inventory - CLI

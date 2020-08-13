@@ -72,7 +72,7 @@ To learn more about customizing properties of Azure Security Center for IoT modu
 
 ## Next steps
 
-Advance to the next article to learn how to configure custom alerts...
+Advance to the next article to learn how to investigate security recommendations...
 
 > [!div class="nextstepaction"]
-> [Configure custom alerts](quickstart-create-custom-alerts.md)
+> [Investigate security recommendations](quickstart-investigate-security-recommendations.md)
