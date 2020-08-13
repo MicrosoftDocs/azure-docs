@@ -75,38 +75,25 @@ The following figure highlights the geofence area in blue. The rental car's rout
 
 ## Prerequisites
 
-### Create a resource group
-
-To complete the steps in this tutorial, you first need to create a resource group in the Azure portal. To create a resource group, do the following steps:
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Select **Resource groups**.
+2. [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 
-   ![Resource groups](./media/tutorial-iot-hub-maps/resource-group.png)
+3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
 
-3. Under **Resource groups**, select **Add**.
+4. [Create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups). In this tutorial, we'll name our resource group *ContosoRental*, but you can choose whatever name you like.
 
-   ![Add resource group](./media/tutorial-iot-hub-maps/add-resource-group.png)
+This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
-4. Enter the following property values:
-    * **Subscription:** Select your Azure subscription.
-    * **Resource group:** Enter "ContosoRental" as the resource group name.
-    * **Region:** Select a region for the resource group.  
+## Create an Azure storage account
 
-    ![Resource group details](./media/tutorial-iot-hub-maps/resource-details.png)
+To store event data, we'll create [general-purpose v2 storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview#general-purpose-v2-accounts) in your resource group. If you have not created a resource group, make sure you do that first by following the directions in [create a resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#create-resource-groups).
 
-    Select **Review + create**, and then select **Create** on the next page.
+To create a the storage account, follow the instructions in [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal).
 
-### Create an Azure Maps account
+Once your storage account has been successfully created, we'll need to create a container to store logging data.
 
-To implement business logic based on Azure Maps spatial analytics, we need to create an Azure Maps account in the resource group we created. Follow instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) to create an Azure Maps account subscription with S1 pricing tier. Follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to obtain your primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](how-to-manage-authentication.md).
-
-### Create a storage account
-
-To log event data, we'll create a **BlockBlobStorage** account.  We'll need to place this blob storage account in the "ContosoRental" resource group. To create a block blob storage account, follow the instructions in [create a block blob storage account](https://docs.microsoft.com/azure/storage/blobs/storage-blob-create-account-block-blob?tabs=azure-portall). Once we've created the blog storage account, we'll then need to create a container to store the blobs. Follow the steps below to do so:
-
-1. In your storage account, click on **Containers** in the Essentials section.
+1. Navigate to your newly created storage account. Click on the **Containers** link in the Essentials section.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/containers.png" alt-text="Containers for blob storage":::
 
@@ -114,42 +101,30 @@ To log event data, we'll create a **BlockBlobStorage** account.  We'll need to p
 
      :::image type="content" source="./media/tutorial-iot-hub-maps/blob-container.png" alt-text="Create a blob container":::
 
-3. Navigate to the **Access keys** blade in your storage account and copy the **Storage account name** and the **Key** value in the **key1 section. We'll use these later in the tutorial.
+3. Navigate to the **Access keys** blade in your storage account and copy the **Storage account name** and the **Key** value in the **key1** section. We'll use these later in the tutorial.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/access-keys.png" alt-text="Copy storage account name and key":::
 
-Since we've created a blob storage account and a container to store logging data, we'll next create an IoT hub.
+### Create an Azure IoT hub
 
-### Create an IoT Hub
+Azure IoT hub enables secure and reliable bi-directional communication between an IoT application and the devices it manages.  In our scenario, the IoT application is the Event Grid, and the devices it manages are in-vehicle devices. In order to route device telemetry messages to the Event Grid, we'll need to first create an IoT hub within the *ContosoRental* resource group. Then, we'll set up message route integration to filter messages based on a car's engine status. Finally, we'll send device telemetry messages to the Event Grid whenever the car is moving.
 
-Azure IoT Hub is a managed service in the cloud. The IoT Hub acts as a central message hub for bi-directional communication between an IoT application and the devices managed by it. In order to route device telemetry messages to an Event Grid, create an IoT Hub within the "ContosoRental" resource group. Set up a message route integration where we will filter messages based on the car's engine status. We will also send device telemetry messages to the Event Grid whenever the car is moving.
+> [!NOTE]
+> IoT hub's functionality to publish device telemetry events on Event Grid is in Public preview. Public preview features are available in all regions except **East US, West US, West Europe, Azure Government, Azure China 21Vianet,** and **Azure Germany**.
 
-> [!NOTE] 
-> IoT Hub's functionality to publish device telemetry events on Event Grid is in Public preview. Public preview features are available in all regions except **East US, West US, West Europe, Azure Government, Azure China 21Vianet,** and **Azure Germany**.
+To create an Iot hub, follow the steps in [create an IoT hub](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet#create-an-iot-hub).
 
-To create an Iot Hub, follow the steps in [create an IoT Hub](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet#create-an-iot-hub).
+### Register a device in IoT Hub
 
-### Register a device
+Devices cannot connect to the IoT hub unless they are registered in the IoT hub identity registry. In our scenario, we'll create a single device with the name, *InVehicleDevice*. To create and register the device within IoT hub, follow the steps in [register a new device in the IoT hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#register-a-new-device-in-the-iot-hub). Make sure to copy the **Primary Connection String** of your device, as we will use it in a later step.
 
-In order to connect to the IoT Hub, a device must be registered. To register a device with IoT hub, follow the steps below:
+## Upload a geofence
 
-1. In your IoT Hub, click on the "IoT devices" blade and click "New".
+We'll now create a geofence to define a geographical tracking region. Cars that move outside this region will be logged.
 
-    ![add-device](./media/tutorial-iot-hub-maps/add-device.png)
+We'll use the [Postman application](https://www.getpostman.com) to [upload the geofence](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) to the Azure Maps service using the Azure Maps Data Upload API. Whenever a car moves outside the defined area of the geofence, an event will be logged.
 
-2. On the create a device page, name your IoT device, and click "Save".
-    
-    ![register-device](./media/tutorial-iot-hub-maps/register-device.png)
-
-3. Save the **Primary Connection String** of your device to use it in a later step, in which you need to change a placeholder with this connection string.
-
-    ![add-device](./media/tutorial-iot-hub-maps/connection-string.png)
-
-## Upload geofence
-
-We'll use the [Postman application](https://www.getpostman.com) to [upload the geofence](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) to the Azure Maps service using the Azure Maps Data Upload API. Any event when the car is outside this geofence will be logged.
-
-Open the Postman app and follow the steps below to upload the geofence using the Azure Maps, Data Upload API.  
+Open the Postman app and follow the steps below to upload the geofence using the Azure Maps Data Upload API.  
 
 1. In the Postman app, click new | Create new, and select Request. Enter a Request name for Upload geofence data, select a collection or folder to save it to, and click Save.
 
