@@ -4,7 +4,7 @@ description: Learn how to run web apps in Azure App Service by deploying your fi
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 08/01/2020
-ms.custom: mvc, devcenter, vs-azure, seodec18
+ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
