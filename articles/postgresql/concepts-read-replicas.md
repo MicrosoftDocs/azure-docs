@@ -169,6 +169,7 @@ Scaling vCores or between General Purpose and Memory Optimized:
 
 Scaling storage:
 * All replicas have storage auto-grow enabled to prevent replication issues from a storage-full replica. This setting cannot be disabled.
+* You can also manually scale up storage, as you would do on any other server
 
 
 ### Basic tier
