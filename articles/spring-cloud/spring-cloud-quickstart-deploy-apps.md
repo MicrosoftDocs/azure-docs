@@ -237,9 +237,10 @@ You will have to edit the previous configuration for both the `auth-service` and
 1. Navigate to the URL in browser.
 
     ![Navigate in Browser 2](media/spring-cloud-intellij-howto/revision-view-in-browser.png)
-
+  
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
+
 ---
 
 ## Next steps

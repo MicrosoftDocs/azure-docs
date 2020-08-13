@@ -43,6 +43,7 @@ Update your config-server with the location of the git repository for the projec
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 
 ```
+  
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 ---
