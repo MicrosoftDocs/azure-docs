@@ -25,7 +25,7 @@ In this article, learn how to connect devices with both group and individual enr
 
 ## Prepare the environment 
 
-1. Complete the steps in the [Create and connect a client application to your Azure IoT Central application (Node.js)](./tutorial-connect-device-nodejs.md).before you proceed.
+1. Complete the steps in the [Create and connect a client application to your Azure IoT Central application (Node.js)](./tutorial-connect-device-nodejs.md).before you continue.
 
 2. Make sure you have [Node.js v4.0 or above](https://nodejs.org) installed on your machine.
 
@@ -37,7 +37,7 @@ In this article, learn how to connect devices with both group and individual enr
 
 ## Connect devices using X.509 certificate for group enrollment entry
 
-In this section, you will use a self-signed X.509 certificate to connect devices for enrollment groups which are used to enroll multiple related devices.
+In this section, you will use a self-signed X.509 certificate to connect devices for enrollment groups, which are used to enroll multiple related devices.
 
 1. Open a command prompt. Clone the GitHub repo for the code samples:
     
@@ -52,7 +52,7 @@ In this section, you will use a self-signed X.509 certificate to connect devices
     npm install
     ```
 
-3. Create a X.509 certificate by running the script using your own _certificate-name_. The certificate's common name becomes the Registration ID so be sure to only use lower-case alphanumerics and hyphens.
+3. Create an X.509 certificate by running the script using your own _certificate-name_. The certificate's common name becomes the Registration ID so be sure to only use lower-case alphanumerics and hyphens.
 
     ```cmd/sh
     node create_test_cert.js device {certificate-name}
@@ -87,9 +87,9 @@ In this section, you will use a self-signed X.509 certificate to connect devices
 
 ## Connect a device using X.509 certificate for individual enrollment entry
 
-In this section you, will use a self-signed X.509 certificate to connect a device for individual enrollments which is used to enroll a single device.
+In this section you, will use a self-signed X.509 certificate to connect a device for individual enrollments, which is used to enroll a single device.
 
-To create a a self-signed X.509 certificate, follow the steps mentioned in the above section.
+To create a self-signed X.509 certificate, follow the steps mentioned in the above section.
 
 To connect a device, navigate to your IoT central application build page and open the app.
 
