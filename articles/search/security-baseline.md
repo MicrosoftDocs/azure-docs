@@ -4,7 +4,7 @@ description: The Azure Cognitive Search security baseline provides procedural gu
 author: msmbaldwin
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,9 +30,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
@@ -41,9 +41,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 1.3: Protect critical web applications
 
@@ -52,9 +52,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 1.4: Deny communications with known malicious IP addresses
 
@@ -63,9 +63,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 1.5: Record network packets
 
@@ -74,9 +74,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
@@ -85,9 +85,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 1.7: Manage traffic to web applications
 
@@ -96,9 +96,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
@@ -107,9 +107,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 1.9: Maintain standard security configurations for network devices
 
@@ -118,9 +118,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 1.10: Document traffic configuration rules
 
@@ -129,9 +129,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
@@ -140,9 +140,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ## Logging and monitoring
 
@@ -155,9 +155,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 2.2: Configure central security log management
 
@@ -166,9 +166,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 2.3: Enable audit logging for Azure resources
 
@@ -177,9 +177,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 2.4: Collect security logs from operating systems
 
@@ -188,9 +188,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 2.5: Configure security log storage retention
 
@@ -199,9 +199,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 2.6: Monitor and review Logs
 
@@ -210,9 +210,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 2.7: Enable alerts for anomalous activities
 
@@ -221,9 +221,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 2.8: Centralize anti-malware logging
 
@@ -232,9 +232,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 2.9: Enable DNS query logging
 
@@ -243,9 +243,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 2.10: Enable command-line audit logging
 
@@ -254,9 +254,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ## Identity and access control
 
@@ -269,9 +269,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 3.2: Change default passwords where applicable
 
@@ -280,9 +280,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 3.3: Use dedicated administrative accounts
 
@@ -291,9 +291,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
@@ -302,9 +302,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 3.5: Use multi-factor authentication for all Azure Active Directory based access
 
@@ -313,9 +313,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
@@ -324,9 +324,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 3.7: Log and alert on suspicious activities from administrative accounts
 
@@ -335,9 +335,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 3.8: Manage Azure resources only from approved locations
 
@@ -346,9 +346,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 3.9: Use Azure Active Directory
 
@@ -357,9 +357,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 3.10: Regularly review and reconcile user access
 
@@ -368,9 +368,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 3.11: Monitor attempts to access deactivated credentials
 
@@ -379,9 +379,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 3.12: Alert on account login behavior deviation
 
@@ -390,9 +390,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 
@@ -401,9 +401,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ## Data protection
 
@@ -416,9 +416,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 4.2: Isolate systems storing or processing sensitive information
 
@@ -427,9 +427,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
@@ -438,9 +438,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 4.4: Encrypt all sensitive information in transit
 
@@ -449,9 +449,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
@@ -460,9 +460,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 4.6: Use Azure RBAC to manage access to resources
 
@@ -471,9 +471,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 4.7: Use host-based data loss prevention to enforce access control
 
@@ -482,9 +482,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 4.8: Encrypt sensitive information at rest
 
@@ -493,9 +493,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
@@ -504,9 +504,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ## Vulnerability management
 
@@ -519,9 +519,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 5.2: Deploy automated operating system patch management solution
 
@@ -530,9 +530,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 5.3: Deploy an automated patch management solution for third-party software titles
 
@@ -541,9 +541,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 5.4: Compare back-to-back vulnerability scans
 
@@ -552,9 +552,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
@@ -563,9 +563,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ## Inventory and asset management
 
@@ -578,9 +578,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 6.2: Maintain asset metadata
 
@@ -589,9 +589,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 6.3: Delete unauthorized Azure resources
 
@@ -600,9 +600,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 6.4: Define and maintain an inventory of approved Azure resources
 
@@ -611,9 +611,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 6.5: Monitor for unapproved Azure resources
 
@@ -622,9 +622,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 6.6: Monitor for unapproved software applications within compute resources
 
@@ -633,9 +633,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 6.7: Remove unapproved Azure resources and software applications
 
@@ -644,9 +644,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 6.8: Use only approved applications
 
@@ -655,9 +655,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 6.9: Use only approved Azure services
 
@@ -666,9 +666,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 6.10: Maintain an inventory of approved software titles
 
@@ -677,9 +677,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 6.11: Limit users' ability to interact with Azure Resource Manager
 
@@ -688,9 +688,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 6.12: Limit users' ability to execute scripts in compute resources
 
@@ -699,9 +699,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 6.13: Physically or logically segregate high risk applications
 
@@ -710,9 +710,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ## Secure configuration
 
@@ -725,9 +725,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 7.2: Establish secure operating system configurations
 
@@ -736,9 +736,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 7.3: Maintain secure Azure resource configurations
 
@@ -747,9 +747,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 7.4: Maintain secure operating system configurations
 
@@ -758,9 +758,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 7.5: Securely store configuration of Azure resources
 
@@ -769,9 +769,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 7.6: Securely store custom operating system images
 
@@ -780,9 +780,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 7.7: Deploy configuration management tools for Azure resources
 
@@ -791,9 +791,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 7.8: Deploy configuration management tools for operating systems
 
@@ -802,9 +802,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
@@ -813,9 +813,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 7.10: Implement automated configuration monitoring for operating systems
 
@@ -824,9 +824,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 7.11: Manage Azure secrets securely
 
@@ -835,9 +835,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 7.12: Manage identities securely and automatically
 
@@ -846,9 +846,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 7.13: Eliminate unintended credential exposure
 
@@ -857,9 +857,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ## Malware defense
 
@@ -872,9 +872,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
@@ -883,9 +883,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 8.3: Ensure antimalware software and signatures are updated
 
@@ -894,9 +894,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ## Data recovery
 
@@ -909,9 +909,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 9.2: Perform complete system backups and backup any customer-managed keys
 
@@ -920,9 +920,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 9.3: Validate all backups including customer-managed keys
 
@@ -931,9 +931,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 9.4: Ensure protection of backups and customer-managed keys
 
@@ -942,9 +942,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ## Incident response
 
@@ -957,9 +957,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 10.2: Create an incident scoring and prioritization procedure
 
@@ -968,9 +968,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 10.3: Test security response procedures
 
@@ -979,9 +979,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
@@ -990,9 +990,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 10.5: Incorporate security alerts into your incident response system
 
@@ -1001,9 +1001,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ### 10.6: Automate the response to security alerts
 
@@ -1012,9 +1012,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ## Penetration tests and red team exercises
 
@@ -1027,9 +1027,9 @@ This security baseline applies guidance from the [Azure Security Benchmark](../s
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
-**Responsibility**: N/A
+**Responsibility**: Unset. Please provide a value in the work item.
 
 ## Next steps
 
