@@ -139,7 +139,7 @@
   - name: Development
     items:
     - name: Best practices
-      href: mysql-app-development-best-practice.md
+      href: app-development-best-practice.md
     - name: Drivers and tools compatibility
       href: concepts-compatibility.md
     - name: Application development
