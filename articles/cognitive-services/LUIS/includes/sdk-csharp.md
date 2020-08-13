@@ -109,7 +109,7 @@ Once the client is created, use this client to access functionality including:
     public static async Task Main()
     ```
 
-1. Add the rest of the code in the `Main` method of the `Program` class.
+1. Add the rest of the code in the `Main` method of the `Program` class unless otherwise specified.
 
 ## Create variables for the app
 
