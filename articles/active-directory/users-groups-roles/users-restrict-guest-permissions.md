@@ -21,11 +21,11 @@ Azure Active Directory (Azure AD) now allows you to restrict external guest user
 
 Permission level         | Access level
 ----------------         | ------------
-Same as member users     | Guests have the same access to Azure aD resources as member users
+Same as member users     | Guests have the same access to Azure AD resources as member users
 Limited access (default) | Guests can see membership of all non-hidden groups
 Restricted access (new)  | Guests can't see membership of any groups
 
-When guest access is restricted, guests can view only their own user profile. Access to other users is no longer allowed even if the guest is searching by User Principal Name or objectId. Restricted access also restricts guest users from seeing the membership of groups they're in. For more information about the default user permissions, see [What are the default user permissions in Azure Active Directory?](../fundamentals/users-default-permissions.md).
+When guest access is restricted, guests can view only their own user profile. Access to other users isn't allowed even if the guest is searching by User Principal Name or objectId. Restricted access also restricts guest users from seeing the membership of groups they're in. For more information about the overall default user permissions, see [What are the default user permissions in Azure Active Directory?](../fundamentals/users-default-permissions.md).
 
 ## Permissions and licenses
 
@@ -130,7 +130,7 @@ PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84
 
 ### Supported services
 
-By supported we mean that the experience is as expected; specifically, that it is same as current guest experience.This setting does not restrict access to groups in other Microsoft services like Microsoft Teams. For more information about Microsoft Teams Guest access, see [What the guest experience is like](https://docs.microsoft.com/microsoftteams/guest-experience#can-guests-access-microsoft-graph) in Microsoft Teams documentation.
+By supported we mean that the experience is as expected; specifically, that it is same as current guest experience.
 
 - Teams
 - Outlook (OWA)
