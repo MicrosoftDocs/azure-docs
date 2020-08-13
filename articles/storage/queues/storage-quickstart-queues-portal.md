@@ -37,7 +37,7 @@ Next, add a message to the new queue. A message can be up to 64 KB in size.
 
 1. Select the new queue from the list of queues in the storage account.
 1. Select the **+ Add message** button to add a message to the queue. Enter a message in the **Message text** field.
-1. Specify when the message expires. Valid values that can be entered in the **Expires in** field are between 1 second and 7 days. Check the **Message never expires** box to indicate a message that will remain in the queue until it is explicitly removed.
+1. Specify when the message expires. Valid values that can be entered in the **Expires in** field are between 1 second and 7 days. Select **Message never expires** to indicate a message that will remain in the queue until it is explicitly removed.
 1. Indicate whether to encode the message as Base64. Encoding binary data is recommended.
 1. Select the **OK** button to add the message.
 
