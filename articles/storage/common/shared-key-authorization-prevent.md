@@ -1,7 +1,7 @@
 ---
 title: Prevent authorization with Shared Key (preview)
 titleSuffix: Azure Storage
-description: 
+description: To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key (preview). Microsoft recommends that you disallow Shared Key authorization when possible to help prevent data breaches.
 services: storage
 author: tamram
 
@@ -24,24 +24,25 @@ This article describes how to use a DRAG (Detection-Remediation-Audit-Governance
 
 Disallowing Shared Key authorization is supported for storage accounts that use the Azure Resource Manager deployment model only.
 
-The preview includes the following limitations:
-
-???
+??? anything else to put here???
 
 > [!IMPORTANT]
 > This preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
 
 ## Detect the type of authorization used by client applications
 
-When you disallow Shared Key authorization for a storage account, requests from clients that are using Shared Key authorization will fail. To understand how disallowing Shared Key authorization may affect client applications, Microsoft recommends that you enable logging and metrics for that account and analyze requests over a period of time to determine how requests to your account are being authorized.
+When you disallow Shared Key authorization for a storage account, requests from clients that are using Shared Key authorization will fail. To understand how disallowing Shared Key authorization may affect client applications before you make this change, enable logging and metrics for the storage account. You can then analyze patterns of requests to your account over a period of time to determine how requests are being authorized.
 
-Use metrics to determine how many requests the storage account is receiving that are authorized with Shared Key or a SAS. Use logs to determine which containers are being accessed anonymously.
+Use metrics to determine how many requests the storage account is receiving that are authorized with Shared Key or a SAS. Use logs to determine which clients are using Shared Key or SAS.
 
 ### Monitor how many requests are authorized with Shared Key
 
 To track how requests to a storage account are being authorized, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
-Follow these steps to create a metric that tracks anonymous requests:
+> [!IMPORTANT]
+> For the preview, the **SAS** filter in Azure Metrics Explorer does not distinguish between different types of shared access signatures. A service SAS token or an account SAS token is authorized with Shared Key and will not be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**. A user delegation SAS is authorized with Azure AD and will be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**. The **SAS** filter in Azure Metrics Explorer reports requests that are authorized with any type of SAS, including a user delegation SAS. For more information about how Azure Storage responds to a SAS when the **AllowSharedKeyAccess** property is set to **false**, see [Understanding authorization for shared access signatures (SAS)](#understanding-authorization-for-shared-access-signatures-sas).
+
+Follow these steps to create a metric that tracks requests made with Shared Key or SAS:
 
 1. Navigate to your storage account in the Azure portal. Under the **Monitoring** section, select **Metrics**.
 1. Select **Add metric**. In the **Metric** dialog, specify the following values:
@@ -54,7 +55,7 @@ Follow these steps to create a metric that tracks anonymous requests:
 
     :::image type="content" source="media/shared-key-authorization-prevent/configure-metric-account-transactions.png" alt-text="Screenshot showing how to configure metric to sum transactions made with Shared Key or SAS":::
 
-1. Next, select the **Add filter** button to create a filter on the metric for anonymous requests.
+1. Next, select the **Add filter** button to create a filter on the metric for type of authorization.
 1. In the **Filter** dialog, specify the following values:
     1. Set the **Property** value to *Authentication*.
     1. Set the **Operator** field to the equal sign (=).
@@ -70,11 +71,11 @@ You can also configure an alert rule to notify you when a certain number of requ
 > [!IMPORTANT]
 > For the preview, the **SAS** filter in Azure Metrics Explorer does not distinguish between different types of shared access signatures. A service SAS token or an account SAS token is authorized with Shared Key and will not be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**. A user delegation SAS is authorized with Azure AD and will be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**. The **SAS** filter in Azure Metrics Explorer reports requests that are authorized with any type of SAS.
 
-### Analyze logs to identify containers receiving anonymous requests
+### Analyze logs to identify clients that are authorizing requests with Shared Key or SAS
 
-Azure Storage logs capture details about requests made against the storage account, including how a request was authorized. You can analyze the logs to determine which containers are receiving anonymous requests.
+Azure Storage logs capture details about requests made against the storage account, including how a request was authorized. You can analyze the logs to determine which clients are authorizing requests with Shared Key or SAS.
 
-To log requests to your Azure Storage account in order to evaluate anonymous requests, you can use Azure Storage logging in Azure Monitor (preview). For more information, see [Monitor Azure Storage](../common/monitor-storage.md).
+To log requests to your Azure Storage account in order to evaluate how they are authorized, you can use Azure Storage logging in Azure Monitor (preview). For more information, see [Monitor Azure Storage](../common/monitor-storage.md).
 
 Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/log-query/get-started-portal.md).
 
@@ -108,6 +109,9 @@ StorageBlobLogs
 | summarize count() by CallerIpAddress, UserAgentHeader
 | top 10 by count_ desc
 ```
+
+> [!IMPORTANT]
+> For the preview, the **SAS** field in Azure Storage logs does not distinguish between different types of shared access signatures. A service SAS token or an account SAS token is authorized with Shared Key and will not be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**. A user delegation SAS is authorized with Azure AD and will be permitted on a request when the **AllowSharedKeyAccess** property is set to **false**. The **SAS** field in Azure Storage logs in Azure Monitor logs requests that are authorized with any type of SAS.
 
 You can also configure an alert rule based on this query to notify you about requests authorized with Shared Key or SAS. For more information, see [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/platform/alerts-log.md).
 
