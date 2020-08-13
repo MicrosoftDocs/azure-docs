@@ -28,17 +28,17 @@ In this section, you'll install an additional HiveServer2 onto your target hosts
 
 1. Open Ambari in your browser and click on your target host.
 
-:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdi-install-hs2a.png" alt-text="Hosts menu of Ambari.":::
+:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-a.png" alt-text="Hosts menu of Ambari.":::
 
 2. Click the add button and click on HiveServer2
 
-:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdi-install-hs2b.png" alt-text="Add HiveServer2 panel of host.":::
+:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-b.png" alt-text="Add HiveServer2 panel of host.":::
 
 3. Confirm and the process will run. Repeat 1-3 for all desired hosts.
 
 4. When you have finished installing, restart all services with stale configs and start HiveServer2.
 
-:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdi-install-hs2c.png" alt-text="Start HiveServer2 panel.":::
+:::image type="content" source="media/hdinsight-apps-install-hiveserver2/hdinsight-install-hiveserver2-c.png" alt-text="Start HiveServer2 panel.":::
 
 ## Next steps
 
