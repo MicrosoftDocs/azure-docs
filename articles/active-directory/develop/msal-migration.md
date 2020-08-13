@@ -54,7 +54,7 @@ __Q: Will my existing ADAL apps stop working?__
 A: No. Your existing apps will continue working without modification. If you're planning to keep them beyond June 30th, 2022, you should consider updating your apps to MSAL to keep them secure, but migrating to MSAL isn't required to maintain existing functionality.
 
 __Q: How do I know which of my apps are using ADAL?__  
-A: If you have the source code for the application, you can reference the above migration guides to help determine which library the app uses and how to migrate it to MSAL. If you partnered with an ISV, we suggest you reach out to them directly to understand their migration journey to MSAL. If you don't have access to your application's source code, you can [open a support request](developer-support-help-options.md#open-a-support-request) to obtain a list of your registered applications and the library each application uses.
+A: If you have the source code for the application, you can reference the above migration guides to help determine which library the app uses and how to migrate it to MSAL. If you partnered with an ISV, we suggest you reach out to them directly to understand their migration journey to MSAL.
 
 __Q: Why should I invest in moving to MSAL?__  
 A: MSAL contains new features not in ADAL including incremental consent, single sign-on, and token cache management. Also, unlike ADAL, MSAL will continue to receive security patches beyond June 30th, 2022. [Learn more](msal-overview.md).
