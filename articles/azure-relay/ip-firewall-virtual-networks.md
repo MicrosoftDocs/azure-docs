@@ -1,5 +1,5 @@
 ---
-title: Congigure IP firewall for Azure Relay namespace
+title: Configure IP firewall for Azure Relay namespace
 description: This article describes how to Use firewall rules to allow connections from specific IP addresses to Azure Relay namespaces. 
 ms.topic: article
 ms.date: 06/23/2020
