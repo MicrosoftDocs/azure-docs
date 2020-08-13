@@ -72,19 +72,21 @@ When you register a dataset created from Open Datasets, no data is immediately d
 
 ## Create datasets with the studio
 
-You can also create datasets from Open Datasets with the [Azure Machine Learning studio](https://ml.azure.com). In your workspace, select the **Datasets** tab under **Assets**. On the **Create dataset** drop-down menu, select **From Open Datasets**.
+You can also create datasets from Open Datasets with the [Azure Machine Learning studio](https://ml.azure.com).
 
-![Open Dataset with the UI](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
+1. In your workspace, select the **Datasets** tab under **Assets**. On the **Create dataset** drop-down menu, select **From Open Datasets**.
 
-Select a dataset by selecting its tile. (You have the option to filter by using the search bar.) Select **Next**.
+    ![Open Dataset with the UI](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
 
-![Choose dataset](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
+1. Select a dataset by selecting its tile. (You have the option to filter by using the search bar.) Select **Next**.
 
-Choose a name under which to register the dataset, and optionally filter the data by using the available filters. In this case, for the public holidays dataset, you filter the time period to one year and the country code to only the US. Select **Create**.
+    ![Choose dataset](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-![Set dataset params and create dataset](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
+1. Choose a name under which to register the dataset, and optionally filter the data by using the available filters. In this case, for the **public holidays** dataset, you filter the time period to one year and the country code to only the US. Select **Create**.
 
-The dataset is now available in your workspace under **Datasets**. You can use it in the same way as other datasets you've created.
+    ![Set dataset params and create dataset](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
+
+    The dataset is now available in your workspace under **Datasets**. You can use it in the same way as other datasets you've created.
 
 
 ## Access datasets for your experiments
