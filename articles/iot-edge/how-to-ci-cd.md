@@ -203,7 +203,7 @@ Create a new pipeline, and add a new stage
 >[!NOTE]
 >If you wish to use **layered deployments** in your pipeline, layered deployments are not yet supported in Azure IoT Edge tasks in Azure DevOps.
 >
->However, you can use an [Azure CLI task in Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) to create your deployment as a layered deployment. 
+>However, you can use an [Azure CLI task in Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) to create your deployment as a layered deployment. For the **Inline Script** value, you can use the [az iot edge deployment create command](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
 >
 >   ```azurecli-interactive
 >   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true
