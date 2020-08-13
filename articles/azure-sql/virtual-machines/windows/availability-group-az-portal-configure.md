@@ -47,7 +47,7 @@ Configure the cluster using the Azure portal. You can either create a new cluste
 
 ### Create a new cluster
 
-If you already have a cluster, skip this section and move to [Add existing cluster](#add-existing-cluster) instead. 
+If you already have a cluster, skip this section and move to [Onboard existing cluster](#onboard-existing-cluster) instead. 
 
 If you do not already have an existing cluster, create it using the Azure portal by following these steps:
 
@@ -100,7 +100,7 @@ Create the availability group using the Azure portal. To do so, follow these ste
 1. Choose **+ Select replica** to open the **Configure availability group replicas** page.
 1. Select the virtual machines you want to add to the availability group, and choose the availability group settings that best suit your business needs. Select **Apply** to save your settings. 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/add-replicas.png" alt-text=Choose VMs to add to your availability group and configure settings appropriate to your business":::
+   :::image type="content" source="media/availability-group-az-portal-configure/add-replicas.png" alt-text="Choose VMs to add to your availability group and configure settings appropriate to your business":::
 
 1. Verify your availability group settings and then select **Apply** to create your availability group. 
 
@@ -118,7 +118,7 @@ To add databases to your availability group using SQL Server Management Studio, 
 1. Expand **Always On High Availability** in **Object Explorer**
 1. Expand **Availability Groups**, right-click your availability group and choose to **Add database...**
 
-   :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text=Right-click the availability group in object explorer and choose to Add database":::
+   :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Right-click the availability group in object explorer and choose to Add database":::
 
 1. Follow the prompts to select the database(s) you want to add to your availability group. 
 1. Select **OK** to save your settings and add your database to the availability group. 
