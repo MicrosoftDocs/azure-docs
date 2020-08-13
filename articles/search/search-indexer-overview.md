@@ -52,13 +52,15 @@ Indexers crawl data stores on Azure.
 
 ## Indexer Stages
 
-When an indexer is run, it will read the data source to check if it there are changes that require it to update the index. For instance, it will identify document or records that have not yet been indexed or files that got edited or deleted since the last time the indexer ran. For each of those documents/records, it will perform the following operations.
+On an initial run, when the index is empty, an indexer will read in all of the data provided in the table or container. On subsequent runs, the indexer can usually detect and retrieve just the data that has changed. For blob data, change detection is automatic. For other data sources like Azure SQL or Cosmos DB, change detection must be enabled.
+
+For each of the document it ingests, an indexer implements or coordinates multiple steps, from document retrieval to a final search engine "handoff" for indexing. Optionally, an indexer is also instrumental in driving skillset execution and outputs, assuming a skillset is defined.
 
 ![Indexer Stages](./media/search-indexer-overview/indexer-stages.png "indexer stages")
 
-### 1. Document cracking
+### Stage 1: Document cracking
 
-Depending on the type of data source, the indexer will try performing different operations to extract potentially indexable content.  
+Document cracking is the process of opening files and extracting content. Depending on the type of data source, the indexer will try performing different operations to extract potentially indexable content.  
 
 Examples:  
 
@@ -66,15 +68,15 @@ Examples:
 * When the document is a PDF file in an [Azure Blob Storage data source](search-howto-indexing-azure-blob-storage.md), the indexer will extract the text, images and metadata for the file.
 * When the document is a  record in a [Cosmos DB data source](search-howto-index-cosmosdb.md), the indexer will extract the fields and subfields from the Cosmos DB document.
 
-### 2. Field mappings
+### Stage 2: Field mappings 
 
-[Field mappings](search-indexer-field-mappings.md) are optional, and allow you to rename and transform fields in preparation for further processing. This step occurs right after document cracking. Learn how to define [field mappings](search-indexer-field-mappings.md).
+An indexer extracts text from a source field and sends it to a destination field in an index or knowledge store. When field names and types coincide, the path is clear. However, you might want different names or types in the output, in which case you need to tell the indexer how to map the field. This step occurs after document cracking, but before transformations, when the indexer is reading from the source documents. When you define a [field mapping](search-indexer-field-mappings.md), the value of the source field is sent as-is to the destination field with no modifications. Field mappings are optional.
 
-### 3. Skillset execution
+### Stage 3: Skillset execution
 
 Azure Cognitive Search allows you to perform AI enrichments and transformations as part of the ingestion process. We call extraction and enrichment steps cognitive skills. A set of cognitive skills is called a [skillset](cognitive-search-defining-skillset.md), and it gets executed after the field mapping stage. Learn how to [create a skillset](cognitive-search-quickstart-blob.md).
 
-### 4. Output Field mappings
+### Stage 4: Output field mappings
 
 The output of a skillset is really a tree of information called the enriched document. Output field mappings allow you to select which parts of this tree to map into fields in your index. Learn how to [define output field mappings](cognitive-search-output-field-mapping.md).
 
