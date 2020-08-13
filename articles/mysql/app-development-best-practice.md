@@ -1,5 +1,5 @@
 ---
-title: App Development best practices - Azure Database for MySQL
+title: App development best practices - Azure Database for MySQL
 description: Learn about best practices when building an app with Azure Database for MySQL
 author: mksuni
 ms.author: sumuth
@@ -17,7 +17,7 @@ Here are some best practices to help build cloud-ready applications using Azure 
 ### Application and Database in the same region
 Make sure **all your dependencies are in the same region**	when deploying your application in Azure. Spreading instances across regions or availability zones creates network latency, which may impact the overall performance of your application. 
 
-### Keep you MySQL server secure
+### Keep your MySQL server secure
 Your MySQL server should be configured to be [secure](https://docs.microsoft.com/azure/mysql/concepts-security) and not accessible publicly. Use either one of these options to secure your server: 
 - [Firewall rules](https://docs.microsoft.com/azure/mysql/concepts-firewall-rules) or
 - [Virtual Networks](https://docs.microsoft.com/azure/mysql/concepts-data-access-and-security-vnet) or 
@@ -32,7 +32,7 @@ To calculate the largest possible size of tmp_table_size and max_heap_table_size
 
 ```(total memory - (base memory + (sum of per-connection memory * # of connections)) / # of connections```
 
-> [!NOTE]
+>[!NOTE]
 > Total memory indicates the total amount of memory the server has across the vCores provisioned.  For example, in a General Purpose 2 vCore Azure Database for MySQL server, the total memory will be 5GB * 2.  More details about memory for each tier can be found in the [pricing tier](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers) documentation.
 > Base memory indicates the memory variables, like query_cache_size and innodb_buffer_pool_size, that MySQL will initialize and allocate at server start.  Per connection memory, like sort_buffer_size and join_buffer_size, is memory that is allocated only when a query requires it.
 
@@ -40,7 +40,7 @@ To calculate the largest possible size of tmp_table_size and max_heap_table_size
 [Create non-admin users](https://docs.microsoft.com/azure/mysql/howto-create-users) for each of the databases. Typically, the user names are identified as the DB names.
 
 ### Resetting your password
-You can [reset your password](https://docs.microsoft.com/azure/mysql/howto-create-manage-server-portal#update-admin-password) for your MySQL server using Azure Portal. 
+You can [reset your password](https://docs.microsoft.com/azure/mysql/howto-create-manage-server-portal#update-admin-password) for your MySQL server using Azure portal. 
 
 In a case where you have to reset password for a production database, it can cause downtime for your application until you have updated your application to use the new password. It is a good pattern to reset the password for any production workloads at off-peak hours to minimize the impact.
 
