@@ -4,14 +4,15 @@ description: How to deploy enterprise Java applications to WildFly on an Azure C
 author: theresa-nguyen
 ms.author: bicnguy
 ms.topic: quickstart
-ms.service: virtual-machine-linux
+ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.assetid: 6b66b71f-c8c8-4372-921e-5aaadb3ea8c3
 ms.date: 08/13/2020
 ---
 
-# Quickstart: WildFly on CentOS 8
+# Quickstart: WildFly on an Azure CentOS VM
 
-This Quickstart shows you how to deploy the standalone node of WildFly on a CentOS 8 VM. This ARM template is ideal for development and testing of enterprise Java applications on Azure.
+This Quickstart shows you how to deploy the standalone node of WildFly on an Azure CentOS 8 VM. This ARM template is ideal for development and testing of enterprise Java applications on Azure.
 
 ## Prerequisites
 
