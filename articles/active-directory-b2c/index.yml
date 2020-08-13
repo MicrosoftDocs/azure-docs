@@ -22,7 +22,7 @@ landingContent:
 # Start card title with a verb
 
   # Card
-  - title: Customer identity and access management (CIAM)
+  - title: Azure AD B2C
     linkLists:
       - linkListType: overview
         links:
@@ -42,27 +42,23 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Basics of authentication and authorization
+          - text: Authentication and authorization
             url: https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization
-          - text: About tokens
+          - text: Tokens
             url: https://docs.microsoft.com/azure/active-directory/develop/security-tokens
-          - text: About protocols
+          - text: Protocols
             url: https://docs.microsoft.com/azure/active-directory/develop/v2-app-types
           - text: Authentication library
             url: https://docs.microsoft.com/azure/active-directory/develop/msal-overview
-          - text: 'Build a web site: HTML, CSS, and JavaScript'
+          - text: 'Build a web site: HTML, CSS, JavaScript'
             url: https://docs.microsoft.com/learn/modules/build-simple-website/
-      - linkListType: video
-        links:
-          - text: Authentication fundamentals
-            url: https://www.youtube.com/watch?v=fbSVgC8nGz4
 
   # Card
   - title: Common use cases
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Enable self-service sign-in and profile management
+          - text: Enable self-service sign-in
             url: user-flow-overview.md
           - text: 'Add social and work identities: OIDC/OAuth2/SAML'
             url: tutorial-add-identity-providers.md
@@ -70,13 +66,11 @@ landingContent:
             url: session-overview.md
           - text: Customize your UI/UX
             url: customize-ui-overview.md
-          - text: Add your own business logic
-            url: custom-policy-rest-api-intro.md
           - text: User and app migration
             url: user-migration.md
 
   # Card
-  - title: Add sign-in to your app
+  - title: Add sign-in to your applications
     linkLists:
       - linkListType: sample
         links:
@@ -94,9 +88,13 @@ landingContent:
     linkLists: 
       - linkListType: how-to-guide
         links:
-          - text: Secure your APIs with Azure AD B2C access tokens
+          - text: Request an access token
+            url: access-tokens.md
+          - text: Register and secure your API 
+            url: tutorial-web-api-dotnet.md
+          - text: 'Samples: Web apps and APIs'
             url: code-samples.md#web-apps-and-apis
-          - text: Secure API Management API
+          - text: Integrate with API gateway
             url: secure-api-management.md?tabs=app-reg-ga
 
   # Card
