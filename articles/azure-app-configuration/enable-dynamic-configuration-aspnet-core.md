@@ -15,7 +15,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to dynamically update my app to use the latest configuration data in App Configuration.
 ---
