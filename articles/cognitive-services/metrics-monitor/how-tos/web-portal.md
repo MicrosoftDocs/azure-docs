@@ -1,6 +1,20 @@
+---
+title: How to configure your Metrics Monitor instance using the web portal
+titleSuffix: Azure Cognitive Services
+description: How to configure your Metrics Monitor instance using the web portal
+services: cognitive-services
+author: aahill
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: 
+ms.topic: quickstart
+ms.date: 07/27/2020
+ms.author: aahi
+---
 
+## How to configure your Metrics Monitor instance using the web portal
 
-
+Use this article to start configuring your Metrics Monitor instance using the web portal. 
 
 ### Tune metric-level detecting configuration
 
