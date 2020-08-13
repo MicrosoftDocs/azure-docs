@@ -52,7 +52,7 @@ When you're running Windows VM instances, the reservation is applied to cover th
 
 When you buy a Reserved VM Instance and select **Optimized for instance size flexibility**, the discount coverage applies to the VM size you select. It can also apply to other VMs sizes that are in the same series instance size flexibility group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
-## Premium storage discount doesn't apply to non-premium VMs
+## Premium storage VMs don't get non-premium discounts
 
 Here's an example. Assume you bought a reservation for five Standard_D1 VMs, the reservation discount applies only to Standard_D1 VMs or other VMs in the same instance family. The discount doesn't apply to Standard_DS1 VM or other sizes in the DS1 instance size flexibility group.
 
