@@ -29,7 +29,7 @@ Migration has to be done from the LUIS portal. If you create the authoring keys 
 
 ## Note before you migrate
 
-* You must migrate your authoring experience by Nov, 2, 2020. 
+* You must migrate your authoring experience by **Nov, 2, 2020**. 
 * Migration is a one-way process. You can't go back after you migrate.
 * Applications will automatically migrate with you if you're the owner of the application.
 * The owner can't choose a subset of apps to migrate, and the process isn't reversible.
