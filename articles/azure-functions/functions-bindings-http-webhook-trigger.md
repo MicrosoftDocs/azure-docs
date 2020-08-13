@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.custom: devx-track-python
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
 # Azure Functions HTTP trigger
