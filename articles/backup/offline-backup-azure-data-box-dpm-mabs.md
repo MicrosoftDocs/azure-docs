@@ -8,7 +8,7 @@ ms.date: 08/12/2020
 
 > [!NOTE]
 > This feature is applicable for Data Protection Manager (DPM) 2019 UR2 and later.<br><br>
-> This feature is currently in preview for MABS. If you are interested in using Azure Data Box for offline seeding with MABS, please reach out to us at [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com).
+> This feature is currently in preview for Microsoft Azure Backup Server (MABS). If you are interested in using Azure Data Box for offline seeding with MABS, reach out to us at [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com).
 
 This article explains how you can use Azure Data Box to seed initial backup data offline from DPM and MABS to an Azure Recovery Services vault.
 
