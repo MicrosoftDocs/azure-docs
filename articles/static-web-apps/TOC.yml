@@ -10,9 +10,9 @@
     - name: Build your fist static web app
       expanded: true
       items:
-        - name: Using Visual Studio Code
+        - name: Visual Studio Code
           href: getting-started.md
-        - name: Using the Azure portal
+        - name: Azure portal
           href: getting-started-portal.md
 - name: Concepts
   items:
