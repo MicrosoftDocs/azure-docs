@@ -2,9 +2,8 @@
 title: How to disable functions in Azure Functions
 description: Learn how to disable and enable functions in Azure Functions.
 ms.topic: conceptual
-ms.custom: devx-track-csharp
 ms.date: 04/08/2020 
-ms.custom: devx-track-azurecli
+ms.custom: "devx-track-csharp, devx-track-azurecli"
 ---
 
 # How to disable functions in Azure Functions
