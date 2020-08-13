@@ -206,7 +206,7 @@ tools:
       imageSrc: https://docs.microsoft.com/media/logos/logo_c.svg
       url: https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/
     # Card
-    - title: Azure IoT SDK for Python (Preview)
+    - title: Azure IoT SDK for Python
       imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
       url: https://github.com/Azure/azure-iot-sdk-python
     # Card
