@@ -318,7 +318,7 @@ Here are the transitional operation states after the platform has accepted a use
 :::row:::
    :::column span="":::
 
-   ****
+
 
    :::column-end:::
    :::column span="2":::
