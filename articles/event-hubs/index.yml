@@ -158,7 +158,7 @@ landingContent:
           - text: Process Event Hubs for Apache Kafka events using Stream Analytics
             url: event-hubs-kafka-stream-analytics.md
           - text: Stream data into Azure Databricks using Event Hubs
-            url: ../azure-databricks/databricks-stream-from-eventhubs.md            
+            url: /azure/databricks/scenarios/databricks-stream-from-eventhubs
 
 
   # Card

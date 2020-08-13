@@ -23,17 +23,20 @@ Customers will be notified via email and in the Azure portal well in advance of 
 # [In progress](#tab/in-progress-ip)
 ### September 2020
 
-New SQL Gateways are being added to the following regions:
+New SQL Gateways are being added to the following regions. These SQL Gateways shall start accepting customer traffic on 10 September 2020:
+
+- West Central US : 13.78.248.43 
+- South Africa North : 102.133.120.2  
+
+New SQL Gateways are being added to the following regions. These SQL Gateways shall start accepting customer traffic on 1 September 2020:
 
 - North Europe : 13.74.104.113 
 - West US2 : 40.78.248.10 
 - West Europe : 52.236.184.163 
 - South Central US : 20.45.121.1, 20.49.88.1 
 
-Existing SQL Gateways will start accepting traffic in the following regions:
+Existing SQL Gateways will start accepting traffic in the following regions. These SQL Gateways shall start accepting customer traffic on 1 September 2020. :
 - Japan East : 40.79.184.8, 40.79.192.5
-
-These SQL Gateways shall start accepting customer traffic on 1 September 2020. 
 
 ### August 2020
 
@@ -76,7 +79,7 @@ You may be impacted if you:
 - Use the [zone redundant configuration](high-availability-sla.md#zone-redundant-configuration) for your database
 
 You will not be impacted if you have:
-
+ 
 - Redirection as the connection policy
 - Connections to SQL Database from inside Azure and using Service Tags
 - Connections made using supported versions of JDBC Driver for SQL Server will see no impact. For supported JDBC versions, see [Download Microsoft JDBC Driver for SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).

@@ -1,6 +1,6 @@
 ---
 title: Create a map with Azure Maps | Microsoft Azure Maps
-description: In this article, you'll learn how to render a map on a web page using the Microsoft Azure Maps Web SDK.
+description: Find out how to add maps to web pages by using the Azure Maps Web SDK. Learn about options for animation, style, the camera, services, and user interactions.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/26/2019

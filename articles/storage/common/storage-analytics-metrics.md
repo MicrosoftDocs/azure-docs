@@ -1,6 +1,6 @@
 ---
 title: "Azure Storage Analytics metrics (classic)"
-description: Learn how to use Storage Analytics metrics in Azure Storage.
+description: Learn how to use Storage Analytics metrics in Azure Storage. Learn about transaction and capacity metrics, how metrics are stored, enabling metrics, and more.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
