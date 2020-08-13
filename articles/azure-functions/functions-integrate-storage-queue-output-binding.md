@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 04/24/2020
 ms.custom: mvc
+
 ---
 # Add messages to an Azure Storage queue using Functions
 
