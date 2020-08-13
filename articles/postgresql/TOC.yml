@@ -1,4 +1,4 @@
-- name: Azure DB for PostgreSQL Docs
+- name: Azure DB for PostgreSQL documentation
   href: index.yml
 - name: Overview
   items:
@@ -163,10 +163,6 @@
         href: concepts-read-replicas.md
       - name: Logical decoding
         href: concepts-logical.md
-    - name: Move between regions
-      items:
-      - name: Azure portal
-        href: howto-move-regions-portal.md
   - name: Hyperscale (Citus)
     items:
     - name: Distributed data
@@ -339,6 +335,10 @@
         href: howto-read-replicas-cli.md
       - name: Manage read replicas Azure PowerShell
         href: howto-read-replicas-powershell.md
+    - name: Move between regions
+      items:
+      - name: Azure portal
+        href: howto-move-regions-portal.md
   - name: Hyperscale (Citus)
     items:
     - name: Create users
