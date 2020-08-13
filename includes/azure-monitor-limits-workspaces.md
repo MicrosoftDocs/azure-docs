@@ -60,7 +60,7 @@ ms.custom: "include file"
 | Maximum characters for column name | 500 | |
 | Data export | Not currently available | Use Azure Function or Logic App to aggregate and export data. | 
 
-**Data ingestion volume rate**
+**<a name="data-ingestion-volume-rate">Data ingestion volume rate</a>**
 
 Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. The volume rate limit intends to protect Azure Monitor customers from sudden ingestion spikes in multitenancy environment. A default ingestion volume rate threshold of 500 MB (compressed) applies to workspaces, which is approximately **6 GB/min** uncompressed -- the actual size can vary between data types depending on the log length and its compression ratio. This threshold applies to all ingested data whether sent from Azure resources using [Diagnostic settings](../articles/azure-monitor/platform/diagnostic-settings.md), [Data Collector API](../articles/azure-monitor/platform/data-collector-api.md) or agents.
 
