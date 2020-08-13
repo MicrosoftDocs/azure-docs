@@ -36,7 +36,7 @@ Application Proxy works with:
 * Applications hosted behind a [Remote Desktop Gateway](application-proxy-integrate-with-remote-desktop-services.md)
 * Rich client apps that are integrated with the Microsoft Authentication Library (MSAL)
 
-Application Proxy supports single sign-on. For more information on supported methods, see [Choosing a single sign-on method](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+Application Proxy supports single sign-on. For more information on supported methods, see [Choosing a single sign-on method](sso-options.md#choosing-a-single-sign-on-method).
 
 Application Proxy is recommended for giving remote users access to internal resources. Application Proxy replaces the need for a VPN or reverse proxy. It is not intended for internal users on the corporate network.  These users who unnecessarily use Application Proxy can introduce unexpected and undesirable performance issues.
 
