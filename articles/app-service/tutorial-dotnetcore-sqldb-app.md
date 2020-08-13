@@ -151,7 +151,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 Get the connection string using the [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string) command.
 
 ```azurecli-interactive
-az sql db show-connection-string --client ado.net --server cephalin-core --name coreDB
+az sql db show-connection-string --client ado.net --server <server-name> --name coreDB
 ```
 
 In the command output, replace *\<username>*, and *\<password>* with the database administrator credentials you used earlier.
