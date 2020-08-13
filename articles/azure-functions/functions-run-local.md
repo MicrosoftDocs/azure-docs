@@ -4,7 +4,7 @@ description: Learn how to code and test Azure functions from the command prompt 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.custom: 80e4ff38-5174-43
+ms.custom: "devx-track-csharp, 80e4ff38-5174-43"
 ---
 
 # Work with Azure Functions Core Tools

@@ -579,8 +579,6 @@
         href: ezofficeinventory-tutorial.md
       - name: ExponentHR
         href: exponenthr-tutorial.md
-      - name: EY GlobalOne
-        href: globalone-tutorial.md
       - name: EZRentOut
         href: ezrentout-tutorial.md
 
@@ -678,6 +676,8 @@
         href: github-enterprise-cloud-enterprise-account-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
+      - name: GlobalOne
+        href: globalone-tutorial.md
       - name: GoLinks
         href: golinks-tutorial.md
       - name: GoToMeeting
@@ -690,8 +690,6 @@
         href: greenhouse-tutorial.md
       - name: Greenlight Compliant Access Management
         href: greenlight-compliant-access-management-tutorial.md
-      - name: Greenlight Enterprise Business Controls Platform
-        href: greenlight-enterprise-business-controls-platform-tutorial.md
       - name: Greenlight Integration Platform
         href: greenlight-integration-platform-tutorial.md
       - name: GreenOrbit
@@ -834,6 +832,8 @@
         href: instavr-viewer-tutorial.md
       - name: insuite
         href: insuite-tutorial.md
+      - name: Intacct
+        href: intacct-tutorial.md
       - name: IntelligenceBank
         href: intelligencebank-tutorial.md
       - name: InTime
@@ -858,6 +858,8 @@
         href: iris-intranet-tutorial.md
       - name: IriusRisk
         href: iriusrisk-tutorial.md
+      - name: iSAMS
+        href: isams-tutorial.md
       - name: iServer Portal
         href: iserver-portal-tutorial.md
       - name: ITRP
@@ -922,8 +924,6 @@
         href: kantegassoforjira-tutorial.md
       - name: Keeper Password Manager & Digital Vault
         href: keeperpasswordmanager-tutorial.md
-      - name: Kemp LoadMaster
-        href: kemp-tutorial.md
       - name: Khoros Care
         href: khoros-care-tutorial.md
       - name: Kindling
@@ -1384,8 +1384,6 @@
         href: safeconnect-tutorial.md
       - name: SafetyNet
         href: safetynet-tutorial.md
-      - name: Sage Intacct
-        href: intacct-tutorial.md
       - name: Salesforce
         href: salesforce-tutorial.md
       - name: Salesforce Sandbox
@@ -1784,8 +1782,6 @@
         href: wikispaces-tutorial.md
       - name: Wingspan eTMF
         href: wingspanetmf-tutorial.md
-      - name: WireWheel
-        href: wirewheel-tutorial.md
       - name: Wisdom by Invictus
         href: wisdom-by-invictus-tutorial.md
       - name: Wizergos Productivity Software
