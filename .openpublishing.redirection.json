@@ -1046,6 +1046,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-debug-pipelines-application-insights.md",
+      "redirect_url" : "/azure/machine-learning/how-to-log-pipelines-application-insights",
+      "redirect_document_id" : false
+    },
+    {
       "source_path": "articles/batch-ai/cli-samples.md",
       "redirect_url": "/previous-versions/azure/batch-ai/cli-samples",
       "redirect_document_id": false
@@ -12329,6 +12334,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/states-lifecycle.md",
+      "redirect_url": "/azure/virtual-machines/states-lifecycle",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/states-lifecycle.md",
+      "redirect_url": "/azure/virtual-machines/states-lifecycle",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-landgorilla-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/landgorilla-tutorial",
       "redirect_document_id": true
@@ -18018,6 +18033,11 @@
       "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/service-bus-messaging/service-bus-tutorial-topics-subscriptions-powershell.md",
+      "redirect_url": "/azure/service-bus-messaging/service-bus-quickstart-powershell",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-backup.md",
       "redirect_url": "/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database",
@@ -39571,6 +39591,26 @@
     {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-php-add-utterance.md",
       "redirect_url": "/azure/cognitive-services/LUIS/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech/async-synthesis-long-form-audio.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/long-audio-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/text-to-speech-basics.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-text-to-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-text-to-speech",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-audio-file.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-text-to-speech",
       "redirect_document_id": false
     },
     {
