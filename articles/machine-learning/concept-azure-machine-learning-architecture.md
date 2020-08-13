@@ -174,7 +174,7 @@ When you start a training run where the source directory is a local Git reposito
 
 For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
-## Deploying a model
+## Deployment
 
 You deploy a [registered model](#register-model) as a service endpoint. You need the following components to:
 
