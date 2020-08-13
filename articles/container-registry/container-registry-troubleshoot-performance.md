@@ -98,9 +98,9 @@ If [collection of resource logs](container-registry-diagnostics-audit-logs.md) i
 
 Related links:
 
-* [Check registry health](container-registry-check-health.md)
 * [Logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
 * [Container registry FAQ](container-registry-faq.md)
+* [Best practices for Azure Container Registry](container-registry-best-practices.md)
 
 ## Next steps
 

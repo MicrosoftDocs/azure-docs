@@ -127,6 +127,7 @@ Related links:
 
 * [Logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
 * [Container registry FAQ](container-registry-faq.md)
+* [Best practices for Azure Container Registry](container-registry-best-practices.md)
 
 ## Next steps
 
