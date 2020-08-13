@@ -1,6 +1,6 @@
 ---
-title: Data encryption models | Microsoft Docs
-description: This article provides an overview of data encryption models.
+title: Data encryption models in Microsoft Azure
+description: This article provides an overview of data encryption models In Microsoft Azure.
 services: security
 documentationcenter: na
 author: msmbaldwin
@@ -16,7 +16,7 @@ ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
 ---
-# Data Encryption Models
+# Data encryption models
 
 An understanding of the various encryption models and their pros and cons is essential for understanding how the various resource providers in Azure implement encryption at Rest. These definitions are shared across all resource providers in Azure to ensure common language and taxonomy.
 

@@ -1,6 +1,6 @@
 ---
-title: Double Encryption | Microsoft Docs
-description: This article describes how Azure provides double encryption for data at rest and data in transit.
+title: Double Encryption in Microsoft Azure
+description: This article describes how Microsoft Azure provides double encryption for data at rest and data in transit.
 services: security
 documentationcenter: na
 author: TerryLanfear
