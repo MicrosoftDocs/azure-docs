@@ -4,6 +4,16 @@
   items:
   - name: About Azure Arc enabled servers
     href: overview.md
+- name: Quickstarts
+  items:
+  - name: Enable Arc enabled servers agent
+    href: ./learn/quick-enable-hybrid-vm.md
+- name: Tutorials
+  items:
+    - name: Assign policy to assess compliance
+      href: ./learn/tutorial-assign-policy-portal.md
+    - name: Monitor machine
+      href: ./learn/tutorial-enable-vm-insights.md
 - name: Samples
   items:
   - name: Azure Policy built-ins 

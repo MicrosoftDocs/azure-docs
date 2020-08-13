@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
-title: Azure Arc
-summary: Simplify complex and distributed environments across on-premises, edge, and multicloud
+title: Azure Arc documentation
+summary: Simplify complex and distributed environments across on-premises, edge, and multicloud.
 # brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-bi | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
 brand: azure
 
@@ -10,8 +10,8 @@ metadata:
   description: Learn how to deploy resources to complex and distributed environments across on-premises, edge and multicloud. Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure.
   ms.service: azure-arc
   ms.topic: hub-page
-  author: MikeRayMSFT
-  ms.author: mikeray
+  author: MGoedtel
+  ms.author: magoedte
   ms.date: 09/01/2020
 
 # highlightedContent section (optional)
@@ -20,13 +20,17 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: Azure Arc enabled servers (Preview)
+    - title: Azure Arc enabled servers (preview)
       itemType: overview
       url: ./servers/overview.md
     # Card
-    - title: Azure Arc enabled Kubernetes (Preview)
+    - title: Azure Arc enabled Kubernetes (preview)
       itemType: overview
       url: ./kubernetes/overview.md
+    # Card
+    - title: About Azure Arc
+      itemType: overview
+      url:  https://aka.ms/Azure-Arc-Info
 
 # productDirectory section (optional)
 productDirectory:
@@ -34,7 +38,7 @@ productDirectory:
   summary: See how to run these services anywhere
   items: 
     # Card
-    - title: Servers
+    - title: Azure Arc enabled servers
       # imageSrc should be square in ratio with no whitespace
       imageSrc: ./media/azure.svg
       links:
@@ -44,6 +48,8 @@ productDirectory:
           text: Connect machines at scale using a service principal
         - url: ./servers/onboard-dsc.md
           text: Connect machines to Azure with PowerShell DSC
+        - url: ./servers/learn/quick-enable-hybrid-vm.md
+          text: Enable Arc enabled servers agent
     # Card
     - title: Kubernetes
       imageSrc: ./media/kubernetes.png
@@ -60,7 +66,7 @@ conceptualContent:
   # summary: # < 160 chars (optional)
   items:
     # Card
-    - title: Servers (Preview)
+    - title: Azure Arc enabled servers (preview)
       links:
         - url: ./servers/overview.md
           itemType: overview
@@ -71,8 +77,11 @@ conceptualContent:
         - url: ./servers/policy-samples.md
           itemType: learn
           text: Admission control policies using Azure Policy
+        - url: ./servers/manage-vm-extensions.md
+          itemType: how-to-guide
+          text: Manage and use Azure VM extensions
     # Card
-    - title: Kubernetes (Preview)
+    - title: Azure Arc enabled Kubernetes (preview)
       links:
         - url: ./kubernetes/use-gitops-with-helm.md
           itemType: deploy
