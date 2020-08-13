@@ -37,10 +37,10 @@ In this quickstart, you use Azure Cloud Shell that you can launch after sign int
     ```azurecli-interactive
     az servicebus queue create --resource-group ContosoRG --namespace-name ContosoSBusNS --name ContosoOrdersQueue
     ```
-6. Run the following command to get the connection string for the namespace. You use this connection string to connect to the queue and send and receive messages. 
+6. Run the following command to get the primary connection string for the namespace. You use this connection string to connect to the queue and send and receive messages. 
 
     ```azurecli-interactive
-    connectionString=$(az servicebus namespace authorization-rule keys list --resource-group $resourceGroupName --namespace-name $namespaceName --name RootManageSharedAccessKey --query primaryConnectionString --output tsv)    
+    az servicebus namespace authorization-rule keys list --resource-group ContosoRG --namespace-name ContosoSBusNS --name RootManageSharedAccessKey --query primaryConnectionString --output tsv    
     ```
 
     Note down the connection string and the queue name. You use them to send and receive messages. 
