@@ -158,7 +158,7 @@ This is an optional step to prevent the virtual IP (VIP) address used by the FCI
 
 Although customers now use the DNN to connect to the SQL Server FCI, the virtual network name (VNN) and virtual IP cannot be deleted as they are necessary components of the FCI infrastructure. However, since there is no longer a load balancer reserving the virtual IP address in Azure, there is a risk that another resource on the virtual network will be assigned the same IP address as the virtual IP address used by the FCI. This can potentially lead to a duplicate IP conflict issue. 
 
-Configure an APIPA address or a dedicated network adapater to reserve the IP address. 
+Configure an APIPA address or a dedicated network adapter to reserve the IP address. 
 
 ### APIPA address
 
