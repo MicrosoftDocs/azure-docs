@@ -34,7 +34,7 @@ The output of running the cell below shows a reference to the successfully creat
 // Start your Spark session
 spark
 
-// Disable BroadcastHashJoin, so Spar will use standard SortMergeJoin. Currently hyperspace indexes utilize SortMergeJoin to speed up query.
+// Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently hyperspace indexes utilize SortMergeJoin to speed up query.
 spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
 
 // Verify that BroadcastHashJoin is set correctly
@@ -44,8 +44,10 @@ println(spark.conf.get("spark.sql.autoBroadcastJoinThreshold"))
 
 Results in:
 
-res3: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.Spark™Session@297e957d
+```console
+res3: org.apache.spark.sql.SparkSession = org.apache.spark.sql.SparkSession@297e957d
 -1
+```
 
 ## Data Preparation
 
@@ -95,17 +97,20 @@ deptData.write.mode("overwrite").parquet(deptLocation)
 
 Results in:
 
-import org.apache.spark.sql.DataFrame
-departments: Seq[(Int, String, String)] = List((10,Accounting,New York), (20,Research,Dallas), (30,Sales,Chicago), (40,Operations,Boston))
-employees: Seq[(Int, String, Int)] = List((7369,SMITH,20), (7499,ALLEN,30), (7521,WARD,30), (7566,JONES,20), (7698,BLAKE,30), (7782,CLARK,10), (7788,SCOTT,20), (7839,KING,10), (7844,TURNER,30), (7876,ADAMS,20), (7900,JAMES,30), (7934,MILLER,10), (7902,FORD,20), (7654,MARTIN,30))
-import spark.implicits._
-empData: org.apache.spark.sql.DataFrame = [empId: int, empName: string ... 1 more field]
-deptData: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 more field]
-empLocation: String = /your-path/employees.parquet
-deptLocation: String = /your-path/departments.parquet
+```console
+import org.apache.spark.sql.DataFrame  
+departments: Seq[(Int, String, String)] = List((10,Accounting,New York), (20,Research,Dallas), (30,Sales,Chicago), (40,Operations,Boston))  
+employees: Seq[(Int, String, Int)] = List((7369,SMITH,20), (7499,ALLEN,30), (7521,WARD,30), (7566,JONES,20), (7698,BLAKE,30), (7782,CLARK,10), (7788,SCOTT,20), (7839,KING,10), (7844,TURNER,30), (7876,ADAMS,20), (7900,JAMES,30), (7934,MILLER,10), (7902,FORD,20), (7654,MARTIN,30))  
+import spark.implicits._  
+empData: org.apache.spark.sql.DataFrame = [empId: int, empName: string ... 1 more field]  
+deptData: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 more field]  
+empLocation: String = /your-path/employees.parquet  
+deptLocation: String = /your-path/departments.parquet  
+```
+
 Let's verify the contents of parquet files we created above to make sure they contain expected records in correct format. We later use these data files to create Hyperspace indexes and run sample queries.
 
-Running below cell, the output displays the rows in employee and department dataFrames in a tabular form. There should be 14 employees and 4 departments, each matching with one of triplets you created in the previous cell.
+Running the below cell, the output displays the rows in employee and department dataFrames in a tabular form. There should be 14 employees and 4 departments, each matching with one of triplets you created in the previous cell.
 
 ```scala
 // empLocation and deptLocation are the user defined locations above to save parquet files
@@ -119,11 +124,14 @@ deptDF.show()
 
 Results in:
 
-empDF: org.apache.spark.sql.DataFrame = [empId: int, empName: string ... 1 more field]
+```console
+empDF: org.apache.spark.sql.DataFrame = [empId: int, empName: string ... 1 more field]  
 deptDF: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 more field]
-+-----+-------+------+
-|empId|empName|deptId|
-+-----+-------+------+
+```
+
+```console
+|EmpId|EmpName|DeptId|
+|-----|-------|------|
 | 7499|  ALLEN|    30|
 | 7521|   WARD|    30|
 | 7369|  SMITH|    20|
@@ -137,19 +145,21 @@ deptDF: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 mo
 | 7782|  CLARK|    10|
 | 7788|  SCOTT|    20|
 | 7902|   FORD|    20|
-| 7654| MARTIN|    30|
-+-----+-------+------+
+| 7654| MARTIN|    30|  
+```
+&nbsp;
+&nbsp;
 
-+------+----------+--------+
-|deptId|  deptName|location|
-+------+----------+--------+
+```console
+|DeptId|  DeptName|Location|
+|------|----------|--------|
 |    10|Accounting|New York|
 |    40|Operations|  Boston|
 |    20|  Research|  Dallas|
 |    30|     Sales| Chicago|
-+------+----------+--------+
+```
 
-## Hello Hyperspace Index
+## Indexes
 
 Hyperspace lets you create indexes on records scanned from persisted data files. Once successfully created, an entry corresponding to the index is added to the Hyperspace's metadata. This metadata is later used by Apache Spark's optimizer (with our extensions) during query processing to find and use proper indexes.
 
@@ -173,8 +183,10 @@ val hyperspace: Hyperspace = Hyperspace()
 
 Results in:
 
-import com.microsoft.hyperspace._
+```console
+import com.microsoft.hyperspace._  
 hyperspace: com.microsoft.hyperspace.Hyperspace = com.microsoft.hyperspace.Hyperspace@1432f740
+```
 
 ## Create Indexes
 
@@ -207,10 +219,12 @@ val deptIndexConfig2: IndexConfig = IndexConfig("deptIndex2", Seq("location"), S
 
 Results in:
 
-import com.microsoft.hyperspace.index.IndexConfig
-empIndexConfig: com.microsoft.hyperspace.index.IndexConfig = [indexName: empIndex; indexedColumns: deptid; includedColumns: empname]
-deptIndexConfig1: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex1; indexedColumns: deptid; includedColumns: deptname]
-deptIndexConfig2: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex2; indexedColumns: location; includedColumns: deptname]
+```console
+import com.microsoft.hyperspace.index.IndexConfig  
+empIndexConfig: com.microsoft.hyperspace.index.IndexConfig = [indexName: empIndex; indexedColumns: deptid; includedColumns: empname]  
+deptIndexConfig1: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex1; indexedColumns: deptid; includedColumns: deptname]  
+deptIndexConfig2: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex2; indexedColumns: location; includedColumns: deptname]  
+```console
 
 Now, you create three indexes using your index configurations. For this purpose, you invoke "createIndex" command on our Hyperspace instance. This command requires an index configuration and the dataFrame containing rows to be indexed. Running the below cell creates three indexes.
 
@@ -225,7 +239,9 @@ hyperspace.createIndex(deptDF, deptIndexConfig2)
 
 Results in:
 
+```console
 import com.microsoft.hyperspace.index.Index
+```
 
 ## List Indexes
 
@@ -243,18 +259,17 @@ hyperspace.indexes.show
 
 Results in:
 
-+----------------+---------------------+----------------------+--------------------+--------------------+--------------------+--------------------+----------+--------------------+------------+---------------+
-|config.indexName|config.indexedColumns|config.includedColumns|        schemaString|   signatureProvider|         dfSignature|      serializedPlan|numBuckets|             dirPath|status.value|stats.indexSize|
-+----------------+---------------------+----------------------+--------------------+--------------------+--------------------+--------------------+----------+--------------------+------------+---------------+
+```console
+|Config.IndexName|Config.IndexedColumns|Config.IncludedColumns|        SchemaString|   SignatureProvider|         DfSignature|      SerializedPlan|NumBuckets|             DirPath|Status.Value|Stats.IndexSize|
+|----------------|---------------------|----------------------|--------------------|--------------------|--------------------|--------------------|----------|--------------------|------------|---------------|
 |      deptIndex1|             [deptId]|            [deptName]|`deptId` INT,`dep...|com.microsoft.cha...|0effc1610ae2e7c49...|Relation[deptId#3...|       200|abfss://datasets@...|      ACTIVE|              0|
 |      deptIndex2|           [location]|            [deptName]|`location` STRING...|com.microsoft.cha...|0effc1610ae2e7c49...|Relation[deptId#3...|       200|abfss://datasets@...|      ACTIVE|              0|
 |        empIndex|             [deptId]|             [empName]|`deptId` INT,`emp...|com.microsoft.cha...|30768c6c9b2533004...|Relation[empId#32...|       200|abfss://datasets@...|      ACTIVE|              0|
-+----------------+---------------------+----------------------+--------------------+--------------------+--------------------+--------------------+----------+--------------------+------------+---------------+
+```
 
 ## Delete Indexes
 
-You can drop an existing index by using the "deleteIndex" API and providing the index name. Index deletion does a soft delete: It mainly updates index's status in the 
-Hyperspace metadata from "ACTIVE" to "DELETED". This will exclude the dropped index from any future query optimization and Hyperspace no longer picks that index for any query. However, index files for a deleted index still remain available (since it is a soft-delete), so that the index could be restored if user asks for.
+You can drop an existing index by using the "deleteIndex" API and providing the index name. Index deletion does a soft delete: It mainly updates index's status in the Hyperspace metadata from "ACTIVE" to "DELETED". This will exclude the dropped index from any future query optimization and Hyperspace no longer picks that index for any query. However, index files for a deleted index still remain available (since it is a soft-delete), so that the index could be restored if user asks for.
 
 Below cell deletes index with name "deptIndex2" and lists Hyperspace metadata after that. The output should be similar to above cell for "List Indexes" except for "deptIndex2" which now should have its status changed into "DELETED".
 
@@ -266,13 +281,13 @@ hyperspace.indexes.show
 
 Results in:
 
-+----------------+---------------------+----------------------+--------------------+--------------------+--------------------+--------------------+----------+--------------------+------------+---------------+
-|config.indexName|config.indexedColumns|config.includedColumns|        schemaString|   signatureProvider|         dfSignature|      serializedPlan|numBuckets|             dirPath|status.value|stats.indexSize|
-+----------------+---------------------+----------------------+--------------------+--------------------+--------------------+--------------------+----------+--------------------+------------+---------------+
+```console
+|Config.IndexName|Config.IndexedColumns|Config.IncludedColumns|        SchemaString|   SignatureProvider|         DfSignature|      SerializedPlan|NumBuckets|             DirPath|Status.Value|Stats.IndexSize|
+|----------------|---------------------|----------------------|--------------------|--------------------|--------------------|--------------------|----------|--------------------|------------|---------------|
 |      deptIndex1|             [deptId]|            [deptName]|`deptId` INT,`dep...|com.microsoft.cha...|0effc1610ae2e7c49...|Relation[deptId#3...|       200|abfss://datasets@...|      ACTIVE|              0|
 |      deptIndex2|           [location]|            [deptName]|`location` STRING...|com.microsoft.cha...|0effc1610ae2e7c49...|Relation[deptId#3...|       200|abfss://datasets@...|     DELETED|              0|
 |        empIndex|             [deptId]|             [empName]|`deptId` INT,`emp...|com.microsoft.cha...|30768c6c9b2533004...|Relation[empId#32...|       200|abfss://datasets@...|      ACTIVE|              0|
-+----------------+---------------------+----------------------+--------------------+--------------------+--------------------+--------------------+----------+--------------------+------------+---------------+
+```
 
 ## Restore Indexes
 
@@ -290,21 +305,24 @@ hyperspace.indexes.show
 
 Results in:
 
-+----------------+---------------------+----------------------+--------------------+--------------------+--------------------+--------------------+----------+--------------------+------------+---------------+
-|config.indexName|config.indexedColumns|config.includedColumns|        schemaString|   signatureProvider|         dfSignature|      serializedPlan|numBuckets|             dirPath|status.value|stats.indexSize|
-+----------------+---------------------+----------------------+--------------------+--------------------+--------------------+--------------------+----------+--------------------+------------+---------------+
+```console
+|Config.IndexName|Config.IndexedColumns|Config.IncludedColumns|        SchemaString|   SignatureProvider|         DfSignature|      SerializedPlan|NumBuckets|             DirPath|Status.Value|Stats.indexSize|
+|----------------|---------------------|----------------------|--------------------|--------------------|--------------------|--------------------|----------|--------------------|------------|---------------|
 |      deptIndex1|             [deptId]|            [deptName]|`deptId` INT,`dep...|com.microsoft.cha...|0effc1610ae2e7c49...|Relation[deptId#3...|       200|abfss://datasets@...|     DELETED|              0|
 |      deptIndex2|           [location]|            [deptName]|`location` STRING...|com.microsoft.cha...|0effc1610ae2e7c49...|Relation[deptId#3...|       200|abfss://datasets@...|     DELETED|              0|
 |        empIndex|             [deptId]|             [empName]|`deptId` INT,`emp...|com.microsoft.cha...|30768c6c9b2533004...|Relation[empId#32...|       200|abfss://datasets@...|      ACTIVE|              0|
-+----------------+---------------------+----------------------+--------------------+--------------------+--------------------+--------------------+----------+--------------------+------------+---------------+
+```
 
-+----------------+---------------------+----------------------+--------------------+--------------------+--------------------+--------------------+----------+--------------------+------------+---------------+
-|config.indexName|config.indexedColumns|config.includedColumns|        schemaString|   signatureProvider|         dfSignature|      serializedPlan|numBuckets|             dirPath|status.value|stats.indexSize|
-+----------------+---------------------+----------------------+--------------------+--------------------+--------------------+--------------------+----------+--------------------+------------+---------------+
+&nbsp;
+&nbsp;
+
+```console
+|Config.IndexName|Config.IndexedColumns|Config.IncludedColumns|        SchemaString|   SignatureProvider|         DfSignature|      SerializedPlan|NumBuckets|             DirPath|Status.value|Stats.IndexSize|
+|----------------|---------------------|----------------------|--------------------|--------------------|--------------------|--------------------|----------|--------------------|------------|---------------|
 |      deptIndex1|             [deptId]|            [deptName]|`deptId` INT,`dep...|com.microsoft.cha...|0effc1610ae2e7c49...|Relation[deptId#3...|       200|abfss://datasets@...|      ACTIVE|              0|
 |      deptIndex2|           [location]|            [deptName]|`location` STRING...|com.microsoft.cha...|0effc1610ae2e7c49...|Relation[deptId#3...|       200|abfss://datasets@...|     DELETED|              0|
 |        empIndex|             [deptId]|             [empName]|`deptId` INT,`emp...|com.microsoft.cha...|30768c6c9b2533004...|Relation[empId#32...|       200|abfss://datasets@...|      ACTIVE|              0|
-+----------------+---------------------+----------------------+--------------------+--------------------+--------------------+--------------------+----------+--------------------+------------+---------------+
+```
 
 ## Vacuum Indexes
 
@@ -320,12 +338,12 @@ hyperspace.indexes.show
 
 Results in:
 
-+----------------+---------------------+----------------------+--------------------+--------------------+--------------------+--------------------+----------+--------------------+------------+---------------+
-|config.indexName|config.indexedColumns|config.includedColumns|        schemaString|   signatureProvider|         dfSignature|      serializedPlan|numBuckets|             dirPath|status.value|stats.indexSize|
-+----------------+---------------------+----------------------+--------------------+--------------------+--------------------+--------------------+----------+--------------------+------------+---------------+
+```console
+|Config.IndexName|Config.IndexedColumns|Config.IncludedColumns|        SchemaString|   SignatureProvider|         DfSignature|      SerializedPlan|NumBuckets|             DirPath|Status.Value|Stats.IndexSize|
+|----------------|---------------------|----------------------|--------------------|--------------------|--------------------|--------------------|----------|--------------------|------------|---------------|
 |      deptIndex1|             [deptId]|            [deptName]|`deptId` INT,`dep...|com.microsoft.cha...|0effc1610ae2e7c49...|Relation[deptId#3...|       200|abfss://datasets@...|      ACTIVE|              0|
 |        empIndex|             [deptId]|             [empName]|`deptId` INT,`emp...|com.microsoft.cha...|30768c6c9b2533004...|Relation[empId#32...|       200|abfss://datasets@...|      ACTIVE|              0|
-+----------------+---------------------+----------------------+--------------------+--------------------+--------------------+--------------------+----------+--------------------+------------+---------------+
+```
 
 ## Enable/Disable Hyperspace
 
@@ -345,8 +363,10 @@ spark.disableHyperspace
 
 Results in:
 
-res48: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.Spark™Session@39fe1ddb
-res51: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.Spark™Session@39fe1ddb
+```console
+res48: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.SparkSession@39fe1ddb  
+res51: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.SparkSession@39fe1ddb
+```
 
 ## Index Usage
 
@@ -367,28 +387,39 @@ deptDFrame.show(5)
 
 Results in:
 
-res53: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.Spark™Session@39fe1ddb
-empDFrame: org.apache.spark.sql.DataFrame = [empId: int, empName: string ... 1 more field]
-deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 more field]
-+-----+-------+------+
+```console
+res53: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.Spark™Session@39fe1ddb  
+empDFrame: org.apache.spark.sql.DataFrame = [empId: int, empName: string ... 1 more field]  
+deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 more field]  
+```
+
+&nbsp;
+&nbsp;
+
+```console
 |empId|empName|deptId|
-+-----+-------+------+
+|-----|-------|------|
 | 7499|  ALLEN|    30|
 | 7521|   WARD|    30|
 | 7369|  SMITH|    20|
 | 7844| TURNER|    30|
 | 7876|  ADAMS|    20|
-+-----+-------+------+
-only showing top 5 rows
+```
 
-+------+----------+--------+
+&nbsp;
+&nbsp;
+only showing top 5 rows
+&nbsp;
+&nbsp;
+
+```console
 |deptId|  deptName|location|
-+------+----------+--------+
+|------|----------|--------|
 |    10|Accounting|New York|
 |    40|Operations|  Boston|
 |    20|  Research|  Dallas|
 |    30|     Sales| Chicago|
-+------+----------+--------+
+```
 
 ## Index Types
 
@@ -409,9 +440,10 @@ WHERE deptId = 20
 
 The output of running the cell below shows:
 
-query result, which is a single department name.
-query plan that Spark used to run the query.
-In the query plan, the "FileScan" operator at the bottom of the plan shows the datasource where the records were read from. The location of this file indicates the path to the latest version of the "deptIndex1" index. This shows that according to the query and using Hyperspace optimization rules, Spark™ decided to exploit the proper index at runtime.
+* Query result, which is a single department name.
+* Query plan that Spark used to run the query.
+
+In the query plan, the "FileScan" operator at the bottom of the plan shows the datasource where the records were read from. The location of this file indicates the path to the latest version of the "deptIndex1" index. This shows that according to the query and using Hyperspace optimization rules, Spark decided to exploit the proper index at runtime.
 
 ```scala
 // Filter with equality predicate
@@ -424,13 +456,20 @@ eqFilter.explain(true)
 
 Results in:
 
+```console
 eqFilter: org.apache.spark.sql.DataFrame = [deptName: string]
-+--------+
-|deptName|
-+--------+
-|Research|
-+--------+
+```
 
+```console
+|DeptName|
+|--------|
+|Research|
+```
+
+&nbsp;
+&nbsp;
+
+```console
 == Parsed Logical Plan ==
 'Project [unresolvedalias('deptName, None)]
 +- Filter (deptId#533 = 20)
@@ -451,6 +490,7 @@ Project [deptName#534]
 *(1) Project [deptName#534]
 +- *(1) Filter (isnotnull(deptId#533) && (deptId#533 = 20))
    +- *(1) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), EqualTo(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
+```
 
 The second example is a range selection query on department records. In SQL, this query looks as follows:
 
@@ -473,14 +513,18 @@ rangeFilter.explain(true)
 
 Results in:
 
+```console
 rangeFilter: org.apache.spark.sql.DataFrame = [deptName: string]
-+----------+
-|  deptName|
-+----------+
+```
+
+```console
+|  DeptName|
+|----------|
 |Operations|
 |     Sales|
-+----------+
+```
 
+```console
 == Parsed Logical Plan ==
 'Project [unresolvedalias('deptName, None)]
 +- Filter (deptId#533 > 20)
@@ -501,6 +545,7 @@ Project [deptName#534]
 *(1) Project [deptName#534]
 +- *(1) Filter (isnotnull(deptId#533) && (deptId#533 > 20))
    +- *(1) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), GreaterThan(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
+```
 
 The third example is a query joining department and employee records on the department id. The equivalent SQL statement is shown below:
 
@@ -527,10 +572,13 @@ eqJoin.explain(true)
 
 Results in:
 
+```console
 eqJoin: org.apache.spark.sql.DataFrame = [empName: string, deptName: string]
-+-------+----------+
+```
+
+```console
 |empName|  deptName|
-+-------+----------+
+|-------|----------|
 |  SMITH|  Research|
 |  JONES|  Research|
 |   FORD|  Research|
@@ -545,8 +593,9 @@ eqJoin: org.apache.spark.sql.DataFrame = [empName: string, deptName: string]
 |  ALLEN|     Sales|
 |   WARD|     Sales|
 | TURNER|     Sales|
-+-------+----------+
+```
 
+```console
 == Parsed Logical Plan ==
 Project [empName#528, deptName#534]
 +- Join Inner, (deptId#529 = deptId#533)
@@ -579,6 +628,7 @@ Project [empName#528, deptName#534]
    +- *(2) Project [deptId#533, deptName#534]
       +- *(2) Filter isnotnull(deptId#533)
          +- *(2) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId)], ReadSchema: struct<deptId:int,deptName:string>, SelectedBucketsCount: 200 out of 200
+```
 
 ## Support for SQL Semantics
 
@@ -596,10 +646,14 @@ joinQuery.explain(true)
 
 Results in:
 
+```console
+
 joinQuery: org.apache.spark.sql.DataFrame = [empName: string, deptName: string]
-+-------+----------+
+```
+
+```console
 |empName|  deptName|
-+-------+----------+
+|-------|----------|
 |  SMITH|  Research|
 |  JONES|  Research|
 |   FORD|  Research|
@@ -614,8 +668,9 @@ joinQuery: org.apache.spark.sql.DataFrame = [empName: string, deptName: string]
 |  ALLEN|     Sales|
 |   WARD|     Sales|
 | TURNER|     Sales|
-+-------+----------+
+```
 
+```console
 == Parsed Logical Plan ==
 'Project ['EMP.empName, 'DEPT.deptName]
 +- 'Filter ('EMP.deptId = 'DEPT.deptId)
@@ -656,6 +711,7 @@ Project [empName#528, deptName#534]
          +- *(3) Project [deptId#533, deptName#534]
             +- *(3) Filter isnotnull(deptId#533)
                +- *(3) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/your-path/departments.parquet], PartitionFilters: [], PushedFilters: [IsNotNull(deptId)], ReadSchema: struct<deptId:int,deptName:string>
+```
 
 ## Explain API
 
@@ -670,9 +726,9 @@ hyperspace.explain(eqJoin) { displayHTML }
 
 Results in:
 
-=============================================================
-Plan with indexes:
-=============================================================
+### Plan with indexes
+
+```console
 Project [empName#528, deptName#534]
 +- SortMergeJoin [deptId#529], [deptId#533], Inner
    :- *(1) Project [empName#528, deptId#529]
@@ -681,10 +737,11 @@ Project [empName#528, deptName#534]
    +- *(2) Project [deptId#533, deptName#534]
       +- *(2) Filter isnotnull(deptId#533)
          +- *(2) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId)], ReadSchema: struct
+```
 
-=============================================================
-Plan without indexes:
-=============================================================
+### Plan without indexes
+
+```console
 Project [empName#528, deptName#534]
 +- SortMergeJoin [deptId#529], [deptId#533], Inner
    :- *(2) Sort [deptId#529 ASC NULLS FIRST], false, 0
@@ -697,12 +754,14 @@ Project [empName#528, deptName#534]
          +- *(3) Project [deptId#533, deptName#534]
             +- *(3) Filter isnotnull(deptId#533)
                +- *(3) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/your-path/departments.parquet], PartitionFilters: [], PushedFilters: [IsNotNull(deptId)], ReadSchema: struct
+```
 
-=============================================================
-Indexes used:
-=============================================================
-deptIndex1:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceonbbc/indexes/public/deptIndex1/v__=0
-empIndex:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceonbbc/indexes/public/empIndex/v__=0
+### Indexes used
+
+```console
+deptIndex1:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/<container>/indexes/public/deptIndex1/v__=0
+empIndex:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/<container>/indexes/public/empIndex/v__=0
+```
 
 ## Refresh Indexes
 
@@ -712,6 +771,8 @@ The two cells below show an example for this scenario:
 
 First cell adds two more departments to the original departments data. It reads and prints list of departments to verify new departments are added correctly. The output shows 6 departments in total: four old ones and two new. Invoking "refreshIndex" updates "deptIndex1" so index captures new departments.
 Second cell runs our range selection query example. The results should now contain four departments: two are the ones, seen before when we ran the query above, and two are the new departments we just added.
+
+### Specific index refresh
 
 ```scala
 val extraDepartments = Seq(
@@ -730,19 +791,27 @@ hyperspace.refreshIndex("deptIndex1")
 
 Results in:
 
-extraDepartments: Seq[(Int, String, String)] = List((50,Inovation,Seattle), (60,Human Resources,San Francisco))
-extraDeptData: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 more field]
+```console
+extraDepartments: Seq[(Int, String, String)] = List((50,Inovation,Seattle), (60,Human Resources,San Francisco))  
+extraDeptData: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 more field]  
 deptDFrameUpdated: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 more field]
-+------+---------------+-------------+
+```
+
+&nbsp;
+&nbsp;
+
+```console  
 |deptId|       deptName|     location|
-+------+---------------+-------------+
+|------|---------------|-------------|
 |    60|Human Resources|San Francisco|
 |    10|     Accounting|     New York|
 |    50|      Inovation|      Seattle|
 |    40|     Operations|       Boston|
 |    20|       Research|       Dallas|
 |    30|          Sales|      Chicago|
-+------+---------------+-------------+
+```
+
+### Range selection
 
 ```scala
 val newRangeFilter: DataFrame = deptDFrameUpdated.filter("deptId > 20").select("deptName")
@@ -753,16 +822,20 @@ newRangeFilter.explain(true)
 
 Results in:
 
+```console
 newRangeFilter: org.apache.spark.sql.DataFrame = [deptName: string]
-+---------------+
-|       deptName|
-+---------------+
+```
+
+```console
+|       DeptName|
+|---------------|
 |Human Resources|
 |      Inovation|
 |     Operations|
 |          Sales|
-+---------------+
+```
 
+```console
 == Parsed Logical Plan ==
 'Project [unresolvedalias('deptName, None)]
 +- Filter (deptId#674 > 20)
@@ -783,3 +856,4 @@ Project [deptName#675]
 *(1) Project [deptName#675]
 +- *(1) Filter (isnotnull(deptId#674) && (deptId#674 > 20))
    +- *(1) FileScan parquet [deptId#674,deptName#675] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), GreaterThan(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
+```
