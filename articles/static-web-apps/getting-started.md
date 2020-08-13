@@ -24,7 +24,16 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 ## Create a repository
 
-This article uses GitHub template repositories to make it easy for you to create a new repository. The templates feature starter apps built with different front-end frameworks.
+This article uses GitHub template repositories to make it easy for you to get started. The templates feature starter apps built with different front-end frameworks.
+
+# [No Framework](#tab/vanilla-javascript)
+
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
+  - https://github.com/staticwebdev/vanilla-basic/generate
+- Name your repository **my-first-static-web-app**
+
+> [!NOTE]
+> Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
 
 # [Angular](#tab/angular)
 
@@ -44,15 +53,6 @@ This article uses GitHub template repositories to make it easy for you to create
   - https://github.com/staticwebdev/vue-basic/generate
 - Name your repository **my-first-static-web-app**
 
-# [No Framework](#tab/vanilla-javascript)
-
-- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
-  - https://github.com/staticwebdev/vanilla-basic/generate
-- Name your repository **my-first-static-web-app**
-
-> [!NOTE]
-> Azure Static Web Apps requires at least one HTML file to create a web app. The repository you create in this step includes a single _index.html_ file.
-
 ---
 
 Click the **Create repository from template** button.
@@ -61,7 +61,7 @@ Click the **Create repository from template** button.
 
 ## Clone the repository to your machine
 
-With the repository created in your GitHub account, next clone it to your local machine using the following command.
+With the repository created in your GitHub account, the next step is to  clone it to your local machine using the following command.
 
 Make sure to replace `<YOUR_GITHUB_ACCOUNT_NAME>` with your GitHub username.
 
@@ -69,7 +69,7 @@ Make sure to replace `<YOUR_GITHUB_ACCOUNT_NAME>` with your GitHub username.
 git clone https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app.git
 ```
 
-Now that the code cloned to your machine, open Visual Studio code and go to **File > Open Folder** to open the repository in Visual Studio Code.
+Now that the code cloned locally, open Visual Studio Code and go to **File > Open Folder** to open the repository in the editor.
 
 Now you can create an Azure Static Web App instance from Visual Studio Code.
 
@@ -104,6 +104,12 @@ Next, the extension is looking for the location of the API in your application. 
 
 Next, you select the location where files are built for production in your app.
 
+# [No Framework](#tab/vanilla-javascript)
+
+Clear the box and press **Enter**.
+
+:::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="App files path ":::
+
 # [Angular](#tab/angular)
 
 Enter **dist/angular-basic** and press **Enter**.
@@ -121,12 +127,6 @@ Enter **build** and press **Enter**.
 Enter **dist** press **Enter**.
 
 :::image type="content" source="media/getting-started/extension-artifact-vue.png" alt-text="App files path ":::
-
-# [No Framework](#tab/vanilla-javascript)
-
-Clear the box and press **Enter**.
-
-:::image type="content" source="media/getting-started/extension-artifact-no-framework.png" alt-text="App files path ":::
 
 ---
 
