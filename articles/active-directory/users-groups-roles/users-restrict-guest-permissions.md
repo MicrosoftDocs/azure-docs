@@ -17,12 +17,15 @@ ms.collection: M365-identity-device-management
 
 # Restrict guest access permissions (preview) in Azure Active Directory
 
-"Directory objects" should be "Azure AD resources"
+Azure Active Directory (Azure AD) now allows you to restrict external guest users to view only user and group information within their organization in Azure AD. There's a new guest user access setting in your Azure AD organization's external collaboration settings for even more restricted access, so yur guest access choices now are:
 
-Azure Active Directory (Azure AD) now allows you to restrict external guest users to view only user and group information within their organization in Azure AD. There's a new guest user access setting in your Azure AD organization's external collaboration settings for even more restricted access.
+Permission level         | Access level
+----------------         | ------------
+Same as member users     | Guests have the same access to Azure aD resources as member users
+Limited access (default) | Guests can see membership of all non-hidden groups
+Restricted access (new)  | Guests can't see membership of any groups
+
 When guest access is restricted, guests can view only their own user profile. Access to other users is no longer allowed even if the guest is searching by User Principal Name or objectId. Restricted access also restricts guest users from seeing the membership of groups they're in. For more information about the default user permissions, see [What are the default user permissions in Azure Active Directory?](../fundamentals/default-user-premissions.md).
-
-![Table explaining the guest user access values](./media/users-restrict-guest-permissions/restricted-access-values.png)
 
 ## Permissions and licenses
 
