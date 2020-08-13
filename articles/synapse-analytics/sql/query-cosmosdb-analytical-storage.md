@@ -20,7 +20,7 @@ In this article, you'll learn how to write a query using SQL on-demand (preview)
 ## Read CosmosDB documents
 
 The easiest way to see to the content of your documents is to provide a connection string that contains
-CosmosDB account name, database, acces key, and region to `OPENROWSET` function and provide the name of collection that you want to query:
+CosmosDB account name, database, access key, and region to `OPENROWSET` function, and provide the name of collection that you want to query:
 
 ```sql
 select top 10 *
@@ -30,7 +30,7 @@ from openrowset(
        EcdcCases) as documents
 ```
 
-In this example we are connected to analytical storage of `covid` database on CosmosDB account `MyCosmosDbAccount` placed in region `westus2`
+In this example, we are connected to analytical storage of `covid` database on CosmosDB account `MyCosmosDbAccount` placed in region `westus2`
 and authenticated using CosmosDB key. We are accessing the collection `EcdcCases`. `OPENROWSET` function will return all properties from
 the documents.
 
@@ -102,7 +102,7 @@ FROM
 
 ## Flattening nested arrays
 
-CosmosDB documents might have nested sub-arrays, and you might need to "join" the properties from the document with all
+CosmosDB documents might have nested subarrays, and you might need to "join" the properties from the document with all
 elements of the array. Synapse enables you to flatten nested structure by applying OPENJSON function on the nested array:
 
 ```sql
@@ -127,7 +127,7 @@ FROM
 
 ## Type mappings
 
-CosmosDB contains JSON document with numbers, strings, logical values, sub-objects or sub-arrays. You would need to
+CosmosDB contains JSON document with numbers, strings, logical values, nested objects or arrays. You would need to
 choose sql types that match these values if you are using `WITH` clause. See below the types that should be used for different values in CosmosDB.
 
 | CosmosDB value type | SQL data type |
