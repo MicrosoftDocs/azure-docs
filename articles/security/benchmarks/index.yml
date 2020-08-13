@@ -35,7 +35,7 @@ landingContent:
             url: ../fundamentals/index.yml
 
   # Card  
-  - title: Azure Security Benchmark
+  - title: Azure Security Benchmark controls
     linkLists:
       - linkListType: overview
         links:
@@ -144,7 +144,7 @@ landingContent:
             url: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
 
   # Card  
-  - title: Management and Governance
+  - title: Management and Integration
     linkLists:
       - linkListType: overview
         links:
@@ -152,15 +152,9 @@ landingContent:
             url: ../../automation/security-baseline.md
           - text: Backup
             url: ../../backup/security-baseline.md
-
-  # Card  
-  - title: Integration
-    linkLists:
-      - linkListType: overview
-        links:
           - text: API Management
             url: ../../api-management/security-baseline.md
           - text: Event Grid
-            url: ../../event-grid/security-baseline.md
+            url: ../../event-hubs/security-baseline.md
           - text: Logic Apps
             url: ../../logic-apps/security-baseline.md
