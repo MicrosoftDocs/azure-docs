@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 10/25/2019
+ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -98,9 +98,30 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 1. Select an active Azure **Subscription** of which you are an administrator.
 1. Under **Resource group**, select **Create new**, and then specify the **Resource group location**. The resource group settings here have no impact on your Azure AD B2C tenant location, performance, or billing status.
 1. Select **Create**.
+
     ![The Azure AD B2C Resource creation page in Azure portal](./media/billing/portal-01-create-b2c-resource-page.png)
 
 After you complete these steps for an Azure AD B2C tenant, your Azure subscription is billed in accordance with your Azure Direct or Enterprise Agreement details, if applicable.
+
+## Change your Azure AD pricing tier
+
+A tenant must be linked to the appropriate Azure pricing tier based on the features you want to use with your Azure AD B2C tenant. <!--Premium features require an Azure AD Premium P1 or P2 features, as described in the [Azure Active Directory B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).--> In some cases, you'll need to upgrade your pricing tier as you use new features. For example, if you want to use Identity Protection, risk-based Conditional Access, and any future Premium P2 capabilities with Azure AD B2C, you’ll need to select the Azure AD Premium P2 pricing tier for your tenant.
+
+To change your pricing tier, follow these steps.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains the Azure subscription you'd like to use (*not* the directory containing the Azure AD B2C tenant).
+
+1. In the left menu, select **All resources**. Or, select **All services** and search for and select **All resources**.
+
+1. Select the name of your Azure AD B2C tenant.
+
+    ![The Azure AD B2C Resource creation page in Azure portal](./media/billing/change-pricing-tier.png)
+
+1. Under **Pricing tier**, select **change**.
+
+1. Select the pricing tier that includes the features you want to enable.
 
 ### Manage your Azure AD B2C tenant resources
 
@@ -114,7 +135,7 @@ You can use this resource to:
 * Submit a support request
 * Move your Azure AD B2C tenant resource to another Azure subscription or resource group
 
-![B2C Resource settings page in the Azure portal](./media/billing/portal-02-b2c-resource-overview.png)
+![B2C Resource settings page in the Azure portal](./media/billing/manage-resource.png)
 
 ### Regional restrictions
 
