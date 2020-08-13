@@ -173,10 +173,10 @@
   - name: Disk storage
     items:
     - name: Managed Disks
-      href: ../virtual-machines/windows/managed-disks-overview.md
+      href: ../virtual-machines/managed-disks-overview.md
       maintainContext: true
     - name: Select a disk type
-      href: ../virtual-machines/windows/disks-types.md
+      href: ../virtual-machines/disks-types.md
       maintainContext: true
     - name: Encryption
       href: ../virtual-machines/windows/disk-encryption.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json

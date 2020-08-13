@@ -12374,6 +12374,36 @@
       "redirect_document_id": false
     },    
     {
+      "source_path": "articles/virtual-machines/linux/managed-disks-overview.md",
+      "redirect_url": "/azure/virtual-machines/managed-disks-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/managed-disks-overview.md",
+      "redirect_url": "/azure/virtual-machines/managed-disks-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-types.md",
+      "redirect_url": "/azure/virtual-machines/disks-types",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-types.md",
+      "redirect_url": "/azure/virtual-machines/disks-types",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-enable-ultra-ssd.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-ultra-ssd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-enable-ultra-ssd.md",
+      "redirect_url": "/azure/virtual-machines/disks-enable-ultra-ssd",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-saas-landgorilla-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/landgorilla-tutorial",
       "redirect_document_id": true

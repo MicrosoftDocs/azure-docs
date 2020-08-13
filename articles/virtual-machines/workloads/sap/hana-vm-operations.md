@@ -250,7 +250,7 @@ Azure VM types, which are supported for DT 2.0 the maximum disk IO throughput li
 It is required to attach multiple Azure disks to the DT 2.0 VM and create a software raid (striping) on OS level to achieve the max limit of disk throughput 
 per VM. A single Azure disk cannot provide the throughput to reach the max VM limit in this regard. Azure Premium storage is mandatory to run DT 2.0. 
 
-- Details about available Azure disk types can be found [here](../../windows/disks-types.md)
+- Details about available Azure disk types can be found [here](../../disks-types.md)
 - Details about creating software raid via mdadm can be found [here](../../linux/configure-raid.md)
 - Details about configuring LVM to create a striped volume for max throughput can be found [here](../../linux/configure-lvm.md)
 

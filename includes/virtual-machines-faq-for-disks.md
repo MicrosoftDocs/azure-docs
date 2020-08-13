@@ -18,7 +18,7 @@ This article answers some frequently asked questions about Azure Managed Disks a
 
 **What is Azure Managed Disks?**
 
-Managed Disks is a feature that simplifies disk management for Azure IaaS VMs by handling storage account management for you. For more information, see the [Managed Disks overview](../articles/virtual-machines/windows/managed-disks-overview.md).
+Managed Disks is a feature that simplifies disk management for Azure IaaS VMs by handling storage account management for you. For more information, see the [Managed Disks overview](../articles/virtual-machines/managed-disks-overview.md).
 
 **If I create a standard managed disk from an existing VHD that's 80 GB, how much will that cost me?**
 
@@ -209,7 +209,7 @@ In addition to the disk throttle, there is an IO throttle that gets imposed at t
 No, ultra disks do not support the different caching methods that are supported on other disk types. Set the disk caching to **None**.
 
 **Can I attach an ultra disk to my existing VM?**
-Maybe, your VM has to be in a region and availability zone pair that supports Ultra disks. See [getting started with ultra disks](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) for details.
+Maybe, your VM has to be in a region and availability zone pair that supports Ultra disks. See [getting started with ultra disks](../articles/virtual-machines/disks-enable-ultra-ssd.md) for details.
 
 **Can I use an ultra disk as the OS disk for my VM?**
 No, ultra Disks are only supported as data disks and are only supported as 4K native disks.

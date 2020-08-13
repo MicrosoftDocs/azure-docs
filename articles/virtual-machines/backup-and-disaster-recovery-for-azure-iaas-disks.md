@@ -92,9 +92,9 @@ IaaS application data issues are another possibility. Consider an application th
 
 ## Disaster recovery solution: Azure Backup 
 
-[Azure Backup](https://azure.microsoft.com/services/backup/) is used for backups and DR, and it works with [managed disks](~/articles/virtual-machines/windows/managed-disks-overview.md) as well as unmanaged disks. You can create a backup job with time-based backups, easy VM restoration, and backup retention policies.
+[Azure Backup](https://azure.microsoft.com/services/backup/) is used for backups and DR, and it works with [managed disks](~/articles/virtual-machines/managed-disks-overview.md) as well as unmanaged disks. You can create a backup job with time-based backups, easy VM restoration, and backup retention policies.
 
-If you use [premium SSDs](~/articles/virtual-machines/windows/disks-types.md), [managed disks](~/articles/virtual-machines/windows/managed-disks-overview.md), or other disk types with the [locally redundant storage](~/articles/storage/common/storage-redundancy-lrs.md) option, it's especially important to make periodic DR backups. Azure Backup stores the data in your recovery services vault for long-term retention. Choose the [geo-redundant storage](~/articles/storage/common/storage-redundancy-grs.md) option for the backup recovery services vault. That option ensures that backups are replicated to a different Azure region for safeguarding from regional disasters.
+If you use [premium SSDs](~/articles/virtual-machines/disks-types.md), [managed disks](~/articles/virtual-machines/managed-disks-overview.md), or other disk types with the [locally redundant storage](~/articles/storage/common/storage-redundancy-lrs.md) option, it's especially important to make periodic DR backups. Azure Backup stores the data in your recovery services vault for long-term retention. Choose the [geo-redundant storage](~/articles/storage/common/storage-redundancy-grs.md) option for the backup recovery services vault. That option ensures that backups are replicated to a different Azure region for safeguarding from regional disasters.
 
 For unmanaged disks, you can use the locally redundant storage type for IaaS disks, but ensure that Azure Backup is enabled with the geo-redundant storage option for the recovery services vault.
 
