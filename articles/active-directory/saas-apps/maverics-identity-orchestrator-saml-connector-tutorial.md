@@ -48,11 +48,11 @@ account](https://azure.microsoft.com/free/).
 - Maverics Identity Orchestrator SAML Connector single sign-on (SSO) enabled
 subscription. To obtain the Maverics software please contact sales@strata.io
 
-## Install Maverics Identity Orchestrator&trade
+## Install Maverics Identity Orchestrator&trade;
 
 To get started with Maverics Identity Orchestrator installation, please refer to the installation instructions at https://strata.io/docs
 
-## System Requirements
+## System requirements
 ### Supported Operating Systems
 * RHEL 7+
 * CentOS 7+
@@ -82,7 +82,7 @@ After installing Maverics, the default `maverics.yaml` file is created in the `/
 version: 0.1
 listenAddress: ":7474"
 ```
-## Config Options
+## Config options
 ### Version
 The `version` field declares which version of configuration file is being used. If not specified, the most recent config
 version will be used.
@@ -124,7 +124,7 @@ This tutorial uses a single `maverics.yaml` configuration file.
 
 ## Using Azure Key Vault as your secrets provider
 
-### Secret Management
+### Secret management
 
 Maverics is capable of integrating with various secret management solutions in order to load secrets. The current integrations include a file, Hashicorp Vault and Azure Key Vault. If no secret management solution is specified, Maverics will default to loading secrets in plain text out of `maverics.yaml`.
 To declare a value as a secret in a `maverics.yaml` config file, wrap the secret with angle brackets:
@@ -191,7 +191,7 @@ To load secrets from Azure KeyVault, set the environment variable `MAVERICS_SECR
 Then restart the maverics service:
 `sudo systemctl restart maverics`
 
-## Configure your application in Azure AD for SAML-based SSO.
+## Configure your application in Azure AD for SAML-based SSO
 
 1. In your Azure Active Directory tenant, navigate to `Enterprise applications`, search for `Maverics Identity Orchestrator SAML Connector` and select it.
 
@@ -214,7 +214,7 @@ computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
-## Maverics Identity Orchestrator Azure AD SAML Connector Configuration
+## Maverics Identity Orchestrator Azure AD SAML Connector configuration
 
 The Maverics Identity Orchestrator Azure AD Connector supports: 
 - OpenID Connect
@@ -241,12 +241,12 @@ The Maverics Identity Orchestrator Azure AD Connector supports:
 1. Copy the response to the `jwtSigningKey` config property:
 `jwtSigningKey: TBHPvTtu6NUqU84H3Q45grcv9WDJLHgTioqRhB8QGiVzghKlu1mHgP1QHVTAZZjzLlTBmQwgsSoWxGHRcT4Bcw==`
 
-## Attributes and Attribute Mapping
+## Attributes and Attribute mapping
 Attribute Mapping is used to define the mapping of user attributes from a source on-premises user directory into Azure AD when users are provisioned.
 
 Attributes determine the user data that may returned to an application in a claim, passed into session cookies, or passed to the application in http header variables.
 
-## Configure Maverics Identity Orchestrator Azure AD SAML Connector yaml.
+## Configure Maverics Identity Orchestrator Azure AD SAML Connector yaml
 
 Your Maverics Identity Orchestrator Azure AD Connector configuration will look like this:
 ```yaml
@@ -271,7 +271,7 @@ Your Maverics Identity Orchestrator Azure AD Connector configuration will look l
 
 Follow this configuration to incrementally migrate users from a web access management product such as CA SiteMinder, Oracle Access Manager, or IBM Tivoli; a LDAP directory; or a SQL database.
 
-## Configure your application permissions in Azure AD to create users.
+## Configure your application permissions in Azure AD to create users
 
 1. In your Azure Active Directory tenant, navigate to `App registrations` and select the 'Maverics Identity Orchestrator SAML Connector' application.
 
@@ -369,7 +369,7 @@ This connector configuration demonstrates how to connect to the LDAP directory c
     - mobile
 ```
 
-## Configure the Migration Workflow
+## Configure the Migration workflow
 
 The migration workflow configuration determines how Maverics will migrate users from SiteMinder/LDAP to Azure AD.
 
@@ -398,7 +398,7 @@ Steps:
         - connector: AzureAD
           method: createuser
     ```
-### Verify the Migration Workflow
+### Verify the Migration workflow
 
 1. If the Maverics service is not already running, start it by executing the following command: 
 `sudo systemctl start maverics`
@@ -407,7 +407,7 @@ Steps:
 3. Provide user credentials used to login to the application while protected by SiteMinder.
 4. Navigate to Home > Users | All Users to verify that your user is created in the Azure AD tenant.  
 
-## Configure the Session Abstraction Workflow
+## Configure the Session Abstraction workflow
 
 The session abstraction workflow moves authentication and access control for the legacy on-premises web application to Azure AD.
 
@@ -430,7 +430,7 @@ Once authenticated, the session token created as a result is passed to Maverics 
       - connector: siteminder-login-form
         method: emulate
      ```
-### Verify the Session Abstraction Workflow
+### Verify the Session Abstraction workflow
 
 1. Navigate to the proxied application URL: `https://<AZURECOMPANY.COM>/<MY_APP>`. The user will be redirected to the proxied login page.
 2. Enter the Azure AD user credentials.
