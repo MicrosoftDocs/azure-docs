@@ -203,7 +203,7 @@ The reason for this error is because Next.js only generated the home page based 
    const data = require('./utils/projectsData');
 
    module.exports = {
-     exportTrailingSlash: true,
+     trailingSlash: true,
      exportPathMap: async function () {
        const { projects } = data;
        const paths = {
