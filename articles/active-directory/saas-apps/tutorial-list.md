@@ -54,6 +54,7 @@ To find more tutorials, use the table of contents on the left.
 
 | Logo | Application tutorial for single sign-on |
 | :--- | :--- |
+| ![logo](./media/tutorial-list/active-directory-saas-8x8virtualoffice-tutorial.png)| [8x8](8x8virtualoffice-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-acquireio-tutorial.png)| [AcquireIO](acquireio-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-aha-tutorial.png)| [Aha!](aha-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-alertops-tutorial.png)| [AlertOps](alertops-tutorial.md)|
@@ -63,6 +64,7 @@ To find more tutorials, use the table of contents on the left.
 | ![logo](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-carbonite-endpoint-backup-tutorial.png)| [Carbonite Endpoint Backup](carbonite-endpoint-backup-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-cakehr-tutorial.png)| [CakeHR](cakehr-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-spark-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-deskradar-tutorial.png)| [Deskradar](deskradar-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-displayr-tutorial.png)| [Displayr](displayr-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-dmarcian-tutorial.png)| [dmarcian](dmarcian-tutorial.md)|
@@ -74,6 +76,7 @@ To find more tutorials, use the table of contents on the left.
 | ![logo](./media/tutorial-list/active-directory-saas-envoy-tutorial.png)| [Envoy](envoy-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-evernote-tutorial.png)| [Evernote](evernote-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-expensein-tutorial.png)| [ExpenseIn](expensein-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-ezofficeinventory-tutorial.png)| [EZOfficeInventory](ezofficeinventory-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-foodee-tutorial.png)| [Foodee](foodee-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-freedcamp-tutorial.png)| [Freedcamp](freedcamp-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|
@@ -87,10 +90,15 @@ To find more tutorials, use the table of contents on the left.
 | ![logo](./media/tutorial-list/active-directory-saas-mondaycom-tutorial.png)| [monday.com](mondaycom-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-myworkdrive-tutorial.png)| [MyWorkDrive](myworkdrive-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-nuclino-tutorial.png)| [Nuclino](nuclino-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-onedesk-tutorial.png)| [OneDesk](onedesk-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-people-tutorial.png)| [People](people-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-productboard-tutorial.png)| [productboard](productboard-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-purelyhr-tutorial.png)| [PurelyHR](purelyhr-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-ringcentral-tutorial.png)| [RingCentral](ringcentral-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-scalex-enterprise-tutorial.png)| [ScaleX Enterprise](scalex-enterprise-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-screencast-tutorial.png)| [Screencast-O-Matic](screencast-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-smartdraw-tutorial.png)| [SmartDraw](smartdraw-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight-CloudGate SSO](soloinsight-cloudgate-sso-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-target-process-tutorial.png)| [TargetProcess](target-process-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-teamphoria-tutorial.png)| [Teamphoria](teamphoria-tutorial.md)|
