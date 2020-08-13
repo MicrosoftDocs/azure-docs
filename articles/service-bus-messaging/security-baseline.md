@@ -4,7 +4,7 @@ description: The Service Bus security baseline provides procedural guidance and 
 author: msmbaldwin
 ms.service: service-bus-messaging
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/13/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -30,7 +30,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -41,7 +41,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -52,7 +52,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -63,7 +63,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -74,7 +74,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -85,7 +85,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -96,7 +96,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -107,7 +107,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -118,7 +118,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -129,7 +129,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -140,7 +140,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -155,7 +155,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -166,7 +166,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -177,7 +177,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -188,7 +188,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -199,7 +199,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -210,7 +210,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -221,7 +221,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -232,7 +232,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -243,7 +243,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -258,7 +258,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -269,7 +269,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -280,7 +280,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -291,7 +291,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -302,7 +302,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -313,7 +313,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -324,7 +324,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -335,7 +335,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -346,7 +346,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -357,7 +357,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -368,7 +368,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -379,7 +379,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -390,7 +390,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -405,7 +405,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -416,7 +416,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -427,7 +427,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Shared
 
@@ -438,7 +438,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Shared
 
@@ -449,7 +449,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Shared
 
@@ -460,7 +460,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -471,7 +471,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Shared
 
@@ -482,7 +482,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -493,7 +493,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -508,7 +508,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -519,7 +519,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -530,7 +530,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -541,7 +541,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -552,7 +552,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -567,7 +567,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -578,7 +578,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -589,7 +589,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -600,7 +600,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -611,7 +611,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -622,7 +622,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -633,7 +633,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -644,7 +644,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -655,7 +655,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -666,7 +666,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -677,7 +677,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -688,7 +688,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -699,7 +699,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -714,7 +714,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -725,7 +725,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -736,7 +736,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -747,7 +747,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Shared
 
@@ -758,7 +758,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -769,7 +769,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -780,7 +780,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -791,7 +791,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -802,7 +802,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -813,7 +813,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -824,7 +824,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -835,7 +835,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -846,7 +846,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -861,7 +861,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -872,7 +872,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -883,7 +883,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -898,7 +898,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: How data is backed up/made redundant is dependent on the service. LRS, ZRS, GRS for Storage Accounts, Global Replication for CosmosDB, built-in backup and DR for Virtual Machines
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -909,7 +909,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -920,7 +920,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -931,7 +931,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -946,7 +946,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -957,7 +957,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -968,7 +968,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -979,7 +979,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -990,7 +990,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1001,7 +1001,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Customer
 
@@ -1016,7 +1016,7 @@ The Azure Security Baseline for Service Bus contains recommendations that will h
 
 **Guidance**: None.
 
-**Azure Security Center monitoring**: N/A
+**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
 **Responsibility**: Shared
 
