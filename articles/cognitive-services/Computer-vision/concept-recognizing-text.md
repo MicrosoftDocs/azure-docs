@@ -181,9 +181,9 @@ The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf99181
 
 As with all the cognitive services, developers using the Read/OCR services should be aware of Microsoft policies on customer data. See the Cognitive Services page on the [Microsoft Trust Center](https://www.microsoft.com/trust-center/product-overview) to learn more.
 
-## Deprecation notice for RecognizeText operations
+## Deprecation of Computer Vision 2.0 RecognizeText operations
 
-The Computer Vison 2.0 RecognizeText API is being deprecated in favor of the Read API covered in this article. Existing customers should [transition to using Read operations](upgrade-api-versions.md).
+The Computer Vison 2.0 RecognizeText operations are in the process of getting deprecated in favor of the new Read API covered in this article. Existing customers should [transition to using Read operations](upgrade-api-versions.md).
 
 ## Next steps
 
