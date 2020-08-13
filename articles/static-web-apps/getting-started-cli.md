@@ -50,25 +50,52 @@ Once signed in, you can create a new static web app from your repository.
 # [No Framework](#tab/vanilla-javascript)
 
 ```bash
-az staticwebapp create -n my-first-static-web-app -g <RESOURCE_GROUP_NAME> -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app -l <LOCATION> -b master --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
+az staticwebapp create \
+    -n my-first-static-web-app \
+    -g <RESOURCE_GROUP_NAME> \
+    -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
+    -l <LOCATION> \
+    -b master \
+    --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
 ```
 
 # [Angular](#tab/angular)
 
 ```bash
-az staticwebapp create -n my-first-static-web-app -g <RESOURCE_GROUP_NAME> -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app -l <LOCATION> -b master --app-artifact-location "dist/angular-basic" --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
+az staticwebapp create \
+    -n my-first-static-web-app \
+    -g <RESOURCE_GROUP_NAME> \
+    -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
+    -l <LOCATION> \
+    -b master \
+    --app-artifact-location "dist/angular-basic" \
+    --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
 ```
 
 # [React](#tab/react)
 
 ```bash
-az staticwebapp create -n my-first-static-web-app -g <RESOURCE_GROUP_NAME> -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app -l <LOCATION> -b master --app-artifact-location "build" --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
+az staticwebapp create \
+    -n my-first-static-web-app \
+    -g <RESOURCE_GROUP_NAME> \
+    -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
+    -l <LOCATION> \
+    -b master \
+    --app-artifact-location "build" \
+    --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
 ```
 
 # [Vue](#tab/vue)
 
 ```bash
-az staticwebapp create -n my-first-static-web-app -g <RESOURCE_GROUP_NAME> -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app -l <LOCATION> -b master --app-artifact-location "dist" --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
+az staticwebapp create \
+    -n my-first-static-web-app \
+    -g <RESOURCE_GROUP_NAME> \
+    -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
+    -l <LOCATION> \
+    -b master \
+    --app-artifact-location "dist" \
+    --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
 ```
 
 ---
