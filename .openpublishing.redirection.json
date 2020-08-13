@@ -18034,6 +18034,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/service-bus-messaging/service-bus-tutorial-topics-subscriptions-powershell.md",
+      "redirect_url": "/azure/service-bus-messaging/service-bus-quickstart-powershell",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/sql-server-stretch-database/sql-server-stretch-database-backup.md",
       "redirect_url": "/sql/sql-server/stretch-database/backup-stretch-enabled-databases-stretch-database",
       "redirect_document_id": false
@@ -39381,6 +39386,21 @@
     {
       "source_path": "articles/azure-portal/tutorial-azureportal-devops.md",
       "redirect_url": "/azure/devops/pipelines/get-started-designer?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&view=vsts&tabs=new-nav",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-portal/admin-timeout.md",
+      "redirect_url": "/azure/azure-portal/set-preferences#change-the-directory-timeout-setting-admin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-portal/azure-portal-change-theme-high-contrast.md",
+      "redirect_url": "/azure/azure-portal/set-preferences#choose-a-theme-or-enable-high-contrast",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-portal/azure-portal-export-delete-settings.md",
+      "redirect_url": "/azure/azure-portal/set-preferences#export-user-settings",
       "redirect_document_id": false
     },
     {

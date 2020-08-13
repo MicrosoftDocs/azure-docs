@@ -19,7 +19,7 @@ This quickstart helps you configure a firewall for your Azure Analysis Services 
 - One or more IP address ranges for client computers (if needed).
 
 > [!NOTE]
-> For Power BI Premium in Microsoft Cloud Germany only, data import (refresh) and paginated report connections are currently not supported when a firewall is enabled, even when the Allow access from Power BI setting is enabled.
+> Data import (refresh) and paginated report connections from Power BI Premium in Microsoft Cloud Germany are currently not supported when a firewall is enabled, even when the Allow access from Power BI setting is set to On.
 
 ## Sign in to the Azure portal 
 
@@ -29,7 +29,7 @@ This quickstart helps you configure a firewall for your Azure Analysis Services 
 
 1. Click on your server to open the Overview page. 
 2. In **SETTINGS** > **Firewall** > **Enable firewall**, select **On**.
-3. To enable all connection types from Power BI and Power BI Premium, in **Allow access from Power BI**, select **On**.  
+3. To enable connections from Power BI and Power BI Premium, in **Allow access from Power BI**, select **On**.  
 4. (Optional) Specify one or more IP address ranges. Enter a name, starting, and ending IP address for each range. Firewall rule name should be limited to 128 characters and can only contain uppercase characters, lowercase characters, numbers, underscore, and hyphen. Blank spaces and other special characters are not allowed.
 5. Click **Save**.
 
