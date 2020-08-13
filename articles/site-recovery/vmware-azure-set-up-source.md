@@ -79,7 +79,7 @@ Exclude following folders from Antivirus software
 6. C:\ProgramData\Microsoft Azure Site Recovery
 7. Azure Site Recovery load balanced process server installation directory, Example: C:\Program Files (x86)\Microsoft Azure Site Recovery
 
-## If Antivirus Software is active on the Linux Master Target
+### If Antivirus Software is active on the Linux Master Target
 
 Exclude following folders from Antivirus software
 
