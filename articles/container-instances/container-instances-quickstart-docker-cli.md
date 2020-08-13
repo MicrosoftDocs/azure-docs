@@ -21,31 +21,7 @@ For this quickstart, you need to install Docker Desktop Edge version 2.3.2.0 or 
 > [!IMPORTANT]
 > This feature is currently in preview, and requires beta (preview) features in Docker. Read more about [Stable and Edge versions of Docker Desktop](https://docs.docker.com/desktop/#stable-and-edge-versions). Not all features of Azure Container Instances are supported. Provide feedback about the Docker-Azure integration by creating an issue in the [aci-integration-beta](https://github.com/docker/aci-integration-beta) GitHub repository.
 
-## Create Azure context
-
-To use Docker commands to run containers in Azure Container Instances, first log into Azure:
-
-```bash
-docker login azure
-```
-
-When prompted, enter or select your Azure credentials.
-
-
-Run `docker context create aci` to create an ACI context. This context associates Docker with your Azure subscription so you can create container instances. For example, to create a context called *myacicontext*:
-
-```
-docker context create aci myacicontext
-```
-
-When prompted, select your Azure subscription ID, then select an existing resource group or **create a new resource group**. If you choose a new resource group, it's created with a system-generated name. Azure container instances, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
-
-
-Run `docker context ls` to confirm that you added the ACI context to your Docker contexts:
-
-```
-docker context ls
-```
+[!INCLUDE [container-instances-create-docker-context](../../includes/container-instances-create-docker-context.md)]
 
 ## Create a container
 
